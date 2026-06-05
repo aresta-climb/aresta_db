@@ -1,0 +1,325 @@
+---
+nome: Croqui 01 da Pedra Branca
+mapas:
+- caminho_imagem_mapa: imagens/pagina_1_imagem_0.webp
+  largura_mapa: 960
+  altura_mapa: 461
+  pontos_de_interesse:
+  - id: '13'
+    label: '13'
+    box:
+      x: 90
+      y: 243
+      comprimento: 22
+      largura: 20
+  - id: '14'
+    label: '14'
+    box:
+      x: 69
+      y: 280
+      comprimento: 26
+      largura: 21
+  - id: '15'
+    label: '15'
+    box:
+      x: 40
+      y: 337
+      comprimento: 22
+      largura: 18
+  - id: '16'
+    label: '16'
+    box:
+      x: 12
+      y: 398
+      comprimento: 23
+      largura: 17
+  - id: '17'
+    label: '17'
+    box:
+      x: 138
+      y: 448
+      comprimento: 26
+      largura: 17
+  - id: '18'
+    label: '18'
+    box:
+      x: 220
+      y: 448
+      comprimento: 29
+      largura: 20
+  - id: '19'
+    label: '19'
+    box:
+      x: 272
+      y: 448
+      comprimento: 22
+      largura: 18
+  - id: '20'
+    label: '20'
+    box:
+      x: 311
+      y: 448
+      comprimento: 24
+      largura: 20
+  - id: '21'
+    label: '21'
+    box:
+      x: 372
+      y: 448
+      comprimento: 29
+      largura: 20
+  - id: '22'
+    label: '22'
+    box:
+      x: 418
+      y: 448
+      comprimento: 27
+      largura: 21
+  - id: '23'
+    label: '23'
+    box:
+      x: 529
+      y: 449
+      comprimento: 24
+      largura: 20
+  - id: '24'
+    label: '24'
+    box:
+      x: 563
+      y: 388
+      comprimento: 22
+      largura: 17
+  - id: '25'
+    label: '25'
+    box:
+      x: 600
+      y: 448
+      comprimento: 25
+      largura: 22
+  - id: '26'
+    label: '26'
+    box:
+      x: 620
+      y: 388
+      comprimento: 24
+      largura: 17
+  - id: '27'
+    label: '27'
+    box:
+      x: 690
+      y: 448
+      comprimento: 27
+      largura: 21
+  - id: '28'
+    label: '28'
+    box:
+      x: 899
+      y: 429
+      comprimento: 22
+      largura: 16
+  - id: '29'
+    label: '29'
+    box:
+      x: 794
+      y: 313
+      comprimento: 22
+      largura: 16
+  - id: '30'
+    label: '30'
+    box:
+      x: 766
+      y: 318
+      comprimento: 23
+      largura: 16
+  - id: '31'
+    label: '31'
+    box:
+      x: 742
+      y: 326
+      comprimento: 22
+      largura: 16
+  - id: '32'
+    label: '32'
+    box:
+      x: 679
+      y: 306
+      comprimento: 22
+      largura: 17
+  - id: '33'
+    label: '33'
+    box:
+      x: 632
+      y: 264
+      comprimento: 15
+      largura: 11
+  - id: '34'
+    label: '34'
+    box:
+      x: 580
+      y: 234
+      comprimento: 21
+      largura: 17
+  - id: '35'
+    label: '35'
+    box:
+      x: 536
+      y: 232
+      comprimento: 21
+      largura: 19
+  - id: A
+    label: A
+    box:
+      x: 102
+      y: 448
+      comprimento: 22
+      largura: 18
+  - id: B
+    label: B
+    box:
+      x: 288
+      y: 154
+      comprimento: 13
+      largura: 17
+  - id: C
+    label: C
+    box:
+      x: 302
+      y: 128
+      comprimento: 15
+      largura: 15
+  - id: D
+    label: D
+    box:
+      x: 378
+      y: 67
+      comprimento: 13
+      largura: 14
+  - id: Negativo
+    label: Negativo
+    box:
+      x: 485
+      y: 384
+      comprimento: 70
+      largura: 14
+escaladas:
+- via_esportiva:
+    nome: Parede Preta
+    id_no_mapa: '13'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 4
+- via_esportiva:
+    nome: Leão da Montanha
+    id_no_mapa: '14'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 5
+- via_esportiva:
+    nome: Face Norte
+    id_no_mapa: '15'
+    dificuldade: BR_5
+    quantidade_protecoes_intermediarias: 3
+- via_esportiva:
+    nome: Criaturas da Noite
+    id_no_mapa: '16'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 3
+- via_esportiva:
+    nome: Tendência Suicida
+    id_no_mapa: '17'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 5
+- via_esportiva:
+    nome: Thor
+    id_no_mapa: '18'
+    dificuldade: BR_7A
+- via_esportiva:
+    nome: Todinha pra Mim
+    id_no_mapa: '19'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Sombra do Gigante
+    id_no_mapa: '20'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Firinha Rinda
+    id_no_mapa: '21'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Piolhos Entorpecidos
+    id_no_mapa: '22'
+    dificuldade: BR_8B
+- via_esportiva:
+    nome: Monstros
+    id_no_mapa: '23'
+    dificuldade: BR_9C
+- via_esportiva:
+    nome: Princesa Escalafabeltica
+    id_no_mapa: '24'
+    dificuldade: BR_8B
+- via_esportiva:
+    nome: Restos de Woodstock
+    id_no_mapa: '25'
+    dificuldade: BR_8C
+- via_esportiva:
+    nome: ??
+    id_no_mapa: '26'
+- via_esportiva:
+    nome: Via da Coruja
+    id_no_mapa: '27'
+    dificuldade: BR_3
+- via_esportiva:
+    nome: Dona Onça
+    id_no_mapa: '28'
+    dificuldade: BR_6SUP
+- via_esportiva:
+    nome: Solidão das Idéias
+    id_no_mapa: '29'
+    dificuldade: BR_8C
+- via_esportiva:
+    nome: A Espera dos Urubus
+    id_no_mapa: '30'
+    dificuldade: BR_8B
+- via_esportiva:
+    nome: Gaviões
+    id_no_mapa: '31'
+    dificuldade: BR_9B
+- via_esportiva:
+    nome: Azimut Vertical
+    id_no_mapa: '32'
+    dificuldade: BR_9A
+- via_esportiva:
+    nome: Zique Zira da Raca Rouca
+    id_no_mapa: '33'
+    dificuldade: BR_8B
+- via_esportiva:
+    nome: Mistérios da Fé
+    id_no_mapa: '34'
+    dificuldade: BR_6
+    dificuldade_artificial: A2_MAIS
+- via_esportiva:
+    nome: Nem Karaca Caia
+    id_no_mapa: '35'
+    dificuldade: BR_8B
+- via_esportiva:
+    nome: Variante Culpa do Elninho
+    id_no_mapa: A
+    dificuldade: BR_5
+- via_esportiva:
+    nome: Variante do Mergulho
+    id_no_mapa: B
+    dificuldade: BR_6SUP
+- via_esportiva:
+    nome: Variante por Aqui
+    id_no_mapa: C
+    dificuldade: BR_3
+- via_esportiva:
+    nome: Variante do Judas
+    id_no_mapa: D
+    dificuldade: BR_4
+---
+# Croqui 01 da Pedra Branca
+
+Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
+
+**Autores:** Mauricio Juntolli, Danilo Stehling.
+**Atualizado em:** 2010.
+**Fonte:** http://www.escaladacaete.eu5.org

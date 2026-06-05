@@ -1,0 +1,17 @@
+{
+    "capa": [0],
+    "introducao": [1],
+    "aviso": [2],
+    "mapas_gerais": [3],
+    "setor_floresta_de_pedra": [4],
+    "grupo_conjunto_por_do_sol": [3],
+    "grupo_conjunto_por_do_sol_setor_bloco_a": [5, 6],
+    "grupo_conjunto_por_do_sol_setor_bloco_b": [7, 8],
+    "grupo_conjunto_por_do_sol_setor_bloco_c": [9, 10],
+    "setor_brinquedos": [11, 12, 13, 14],
+    "setor_beija_flor": [15, 16],
+    "setor_bacurau": [17, 18],
+    "setor_moctezuma": [19, 20, 21],
+    "setor_molestia": [22, 23],
+    "setor_outros_blocos": [24, 25, 26, 27, 28, 29]
+}

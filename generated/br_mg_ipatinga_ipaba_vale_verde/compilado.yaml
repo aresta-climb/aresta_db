@@ -1,0 +1,903 @@
+id: br_mg_ipatinga_ipaba_vale_verde
+nome: Vale Verde
+descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
+  Gerais, com vias técnicas em regletes.
+creditos:
+- Renato Miranda (Toba)
+- Gustavo Soares (Poul)
+- João Santana (TG)
+picos:
+- nome: Falésia do Vale Verde
+  setores_ou_grupos:
+  - setor:
+      conteudo:
+        nome: 1° Andar
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_1_andar_p0.webp
+          largura_mapa: 442
+          altura_mapa: 1653
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 394
+              y: 1620
+              comprimento: 21
+              largura: 29
+          - id: '02'
+            label: '2'
+            box:
+              x: 373
+              y: 1571
+              comprimento: 24
+              largura: 32
+          - id: '03'
+            label: '3'
+            box:
+              x: 358
+              y: 1528
+              comprimento: 21
+              largura: 30
+          - id: '04'
+            label: '4'
+            box:
+              x: 352
+              y: 1482
+              comprimento: 13
+              largura: 17
+          - id: '05'
+            label: '5'
+            box:
+              x: 341
+              y: 1434
+              comprimento: 24
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 332
+              y: 1369
+              comprimento: 19
+              largura: 26
+          - id: '07'
+            label: '7'
+            box:
+              x: 318
+              y: 1305
+              comprimento: 18
+              largura: 20
+          - id: 08
+            label: '8'
+            box:
+              x: 316
+              y: 1264
+              comprimento: 17
+              largura: 22
+          - id: 09
+            label: '9'
+            box:
+              x: 320
+              y: 1213
+              comprimento: 17
+              largura: 22
+          - id: '10'
+            label: '10'
+            box:
+              x: 318
+              y: 1118
+              comprimento: 25
+              largura: 22
+          - id: '11'
+            label: '11'
+            box:
+              x: 312
+              y: 1070
+              comprimento: 25
+              largura: 20
+          - id: '12'
+            label: '12'
+            box:
+              x: 318
+              y: 808
+              comprimento: 26
+              largura: 23
+          - id: '13'
+            label: '13'
+            box:
+              x: 316
+              y: 768
+              comprimento: 28
+              largura: 29
+          - id: '14'
+            label: '14'
+            box:
+              x: 308
+              y: 700
+              comprimento: 25
+              largura: 25
+          - id: '15'
+            label: '15'
+            box:
+              x: 306
+              y: 592
+              comprimento: 33
+              largura: 31
+          - id: '16'
+            label: '16'
+            box:
+              x: 312
+              y: 541
+              comprimento: 32
+              largura: 32
+          - id: '17'
+            label: '17'
+            box:
+              x: 317
+              y: 472
+              comprimento: 26
+              largura: 27
+          - id: '18'
+            label: '18'
+            box:
+              x: 316
+              y: 436
+              comprimento: 25
+              largura: 24
+          - id: '19'
+            label: '19'
+            box:
+              x: 317
+              y: 394
+              comprimento: 28
+              largura: 23
+          - id: '20'
+            label: '20'
+            box:
+              x: 324
+              y: 310
+              comprimento: 25
+              largura: 23
+          - id: '21'
+            label: '21'
+            box:
+              x: 336
+              y: 262
+              comprimento: 30
+              largura: 30
+          - id: '22'
+            label: '22'
+            box:
+              x: 337
+              y: 204
+              comprimento: 24
+              largura: 23
+          - id: '23'
+            label: '23'
+            box:
+              x: 342
+              y: 158
+              comprimento: 24
+              largura: 23
+          - id: '24'
+            label: '24'
+            box:
+              x: 345
+              y: 97
+              comprimento: 30
+              largura: 30
+          - id: Trilha_Jurassico
+            label: Trilha para o Setor Jurássico (Muito Fechada)
+            box:
+              x: 196
+              y: 78
+              comprimento: 115
+              largura: 157
+          - id: Trilha_Boulders_2nd
+            label: Trilha Boulders e 2º Andar
+            box:
+              x: 109
+              y: 565
+              comprimento: 134
+              largura: 82
+          - id: Voce_esta_aqui
+            label: Você está aqui
+            box:
+              x: 218
+              y: 1314
+              comprimento: 38
+              largura: 43
+        escaladas:
+        - via_esportiva:
+            nome: Jardineiro
+            id_no_mapa: '01'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            destaque: true
+        - via_esportiva:
+            nome: Somelier Canábico
+            id_no_mapa: '02'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            destaque: true
+        - via_esportiva:
+            nome: Jovens Dinâmicos
+            id_no_mapa: '03'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            destaque: true
+        - via_esportiva:
+            nome: Anunnaki
+            id_no_mapa: '04'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            destaque: true
+        - via_esportiva:
+            nome: Peyote Sativo
+            id_no_mapa: '05'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 13
+            destaque: true
+        - via_esportiva:
+            nome: Fake News
+            id_no_mapa: '06'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            destaque: true
+        - via_esportiva:
+            nome: Bruxa
+            id_no_mapa: '07'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 8
+        - via_esportiva:
+            nome: Fundão
+            id_no_mapa: 08
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 8
+            descricao: Extensão Projeto (6+2).
+        - via_esportiva:
+            nome: Caminho da Luz
+            id_no_mapa: 09
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            destaque: true
+        - via_esportiva:
+            nome: Eu quero é ver o oco
+            id_no_mapa: '10'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            destaque: true
+        - via_esportiva:
+            nome: Mister Amaral
+            id_no_mapa: '11'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            destaque: true
+        - via_esportiva:
+            nome: Loki
+            id_no_mapa: '12'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: Thor
+            id_no_mapa: '13'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            destaque: true
+        - via_esportiva:
+            nome: A Flor da Vida
+            id_no_mapa: '14'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            destaque: true
+            descricao: Possui Extensão Projeto (7+2).
+        - via_esportiva:
+            nome: Vale do Verde
+            id_no_mapa: '15'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            destaque: true
+            descricao: Possui Extensão 8c (10+2).
+        - via_esportiva:
+            nome: Ragnarok
+            id_no_mapa: '16'
+            dificuldade: BR_9A
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 25
+            destaque: true
+        - via_esportiva:
+            nome: Filho de Odin
+            id_no_mapa: '17'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            destaque: true
+            descricao: Possui Extensão Proj. (5+2).
+        - via_esportiva:
+            nome: Vahala
+            id_no_mapa: '18'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            extensao: 20
+        - via_esportiva:
+            nome: Pedra no Saco
+            id_no_mapa: '19'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 20
+        - via_esportiva:
+            nome: Endorfina
+            id_no_mapa: '20'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 22
+            destaque: true
+        - via_esportiva:
+            nome: Isaurinha
+            id_no_mapa: '21'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 18
+            destaque: true
+        - via_esportiva:
+            nome: Presentim
+            id_no_mapa: '22'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 18
+        - via_esportiva:
+            nome: Antes tarde do que nunca
+            id_no_mapa: '23'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 15
+        - via_esportiva:
+            nome: Ho Ho Ho
+            id_no_mapa: '24'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 15
+        descricao: '# 1° Andar
+
+
+          O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande
+          concentração de vias de alta dificuldade técnica.
+
+
+          | ![Poul na Extensão do Vale do Verde](imagens/setor_1_andar_p1_i2.webp)
+          |
+
+          | :--: |
+
+          | *Poul na Extensão do Vale do Verde* |
+
+
+          | ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp) |
+
+          | :--: |
+
+          | *Vista do 1° Andar* |
+
+
+          | ![Emília escalando a Vale do Verde](imagens/setor_1_andar_p1_i4.webp)
+          |
+
+          | :--: |
+
+          | *Emília escalando a Vale do Verde* |
+
+
+          | ![João TG nos trabalhos de conquista](imagens/setor_1_andar_p1_i5.webp)
+          |
+
+          | :--: |
+
+          | *João TG nos trabalhos de conquista* |'
+  - setor:
+      conteudo:
+        nome: 2° Andar
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp
+          largura_mapa: 674
+          altura_mapa: 1671
+          pontos_de_interesse:
+          - id: '27'
+            label: '27'
+            box:
+              x: 429
+              y: 1611
+              comprimento: 34
+              largura: 40
+          - id: '28'
+            label: '28'
+            box:
+              x: 438
+              y: 1552
+              comprimento: 35
+              largura: 35
+          - id: '29'
+            label: '29'
+            box:
+              x: 431
+              y: 1404
+              comprimento: 34
+              largura: 33
+          - id: '30'
+            label: '30'
+            box:
+              x: 410
+              y: 1326
+              comprimento: 41
+              largura: 37
+          - id: '31'
+            label: '31'
+            box:
+              x: 312
+              y: 1072
+              comprimento: 33
+              largura: 37
+          - id: '32'
+            label: '32'
+            box:
+              x: 356
+              y: 545
+              comprimento: 32
+              largura: 38
+          - id: '33'
+            label: '33'
+            box:
+              x: 346
+              y: 486
+              comprimento: 35
+              largura: 35
+          - id: '34'
+            label: '34'
+            box:
+              x: 288
+              y: 424
+              comprimento: 35
+              largura: 32
+          - id: '35'
+            label: '35'
+            box:
+              x: 280
+              y: 362
+              comprimento: 31
+              largura: 35
+        escaladas:
+        - via_esportiva:
+            nome: CrossFit
+            id_no_mapa: '27'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 15
+        - via_esportiva:
+            nome: Bromeliacea
+            id_no_mapa: '28'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 15
+        - via_esportiva:
+            nome: Amnésia
+            id_no_mapa: '29'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 18
+        - via_esportiva:
+            nome: A espera de Yam
+            id_no_mapa: '30'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 22
+        - via_esportiva:
+            nome: Caixa Alta
+            id_no_mapa: '31'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 13
+        - via_esportiva:
+            nome: Sexta - Feira 13
+            id_no_mapa: '32'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 12
+        - via_esportiva:
+            nome: Hora do Pesadelo
+            id_no_mapa: '33'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 12
+        - via_esportiva:
+            nome: O silêncio dos Inoscentes
+            id_no_mapa: '34'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+        descricao: '# 2° Andar
+
+
+          O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos
+          projetos aguardando a primeira ascensão.'
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      conteudo: '# Guia de Escalada Vale Verde
+
+
+        | ![Capa do Guia de Escalada Vale Verde](imagens/capa_p0.webp) |
+
+        | :--: |
+
+        | *Capa do Guia de Escalada Vale Verde* |
+
+
+        **Vale do Aço**
+
+        **Minas Gerais - Brasil**
+
+        **2ª Edição**
+
+        **1.0 - 2024**'
+- texto: Betas
+  destino:
+    secao_textual:
+      conteudo: '# Se liga nos betas!
+
+
+        Esse croqui foi idealizado por Renato Miranda (Toba), Gustavo Soares (Poul)
+        e João Santana (TG) junto a toda equipe da AMEVA, nosso objetivo é compartilhar
+        e manter atualizado as informações sobre a escalada na Falésia do Vale Verde.
+
+
+        Esse guia de escalada está em constante atualização, não nos responsabilizamos
+        pela má utilização do guia ou algum erro de informação. Você é o único responsável
+        pela sua segurança na escalada, utilize esse guia com sabedoria! Qualquer
+        informação que esteja em desacordo favor informar a AMEVA para correção e
+        atualização.
+
+
+        A Falésia do Vale Verde está em área particular e seu uso é acordado entre
+        a AMEVA e o proprietário, seja consciente e gentil com os moradores locais,
+        cuide do seu lixo (inclusive o micro-lixo), evite fazer fogueiras, evite a
+        utilização de aparelhos de som e cuide da nossa fauna e flora local. Na dúvida
+        utilize o bom senso!
+
+
+        @associacao.ameva
+
+
+        | ![Apoios](imagens/betas_p0.webp) |
+
+        | :--: |
+
+        | *Apoios* |'
+- texto: Localização
+  destino:
+    secao_textual:
+      conteudo: '# Localização
+
+
+        No Google Maps procure por **"Setor de Escalada Vale Verde"**.
+
+
+        Saindo de Ipatinga siga por 21,1 KM no sentido IPABA pela BR-458 até o **Ponto
+        Caipira** (Direta da estrada), do outro lado da pista há uma bifurcação de
+        estrada de chão, atravesse a pista e siga a direita. Continue na estrada principal
+        até uma bifurcação, mantenha-se a esquerda pela estrada principal, cruze a
+        pequena ponte de ferro (COPASA) sobre o córrego. Continue pela estrada principal
+        até o campo de futebol. Estacione nos arredores do Campo de Futebol e siga
+        por trilha até o setor.
+
+
+        | ![Fachada do Ponto Caipira](imagens/localizacao_p0_i9.webp) |
+
+        | :--: |
+
+        | *Fachada do Ponto Caipira* |
+
+
+        | ![Bifurcação a direita logo em frente ao Ponto Caipira](imagens/localizacao_p0_i10.webp)
+        |
+
+        | :--: |
+
+        | *Bifurcação a direita logo em frente ao Ponto Caipira* |
+
+
+        | ![Trajeto do Ponto Caipira ao Estacionamento](imagens/localizacao_p0_i11.webp)
+        |
+
+        | :--: |
+
+        | *Trajeto do Ponto Caipira ao Estacionamento* |
+
+
+        | ![Local do Estacionamento](imagens/localizacao_p0_i12.webp) |
+
+        | :--: |
+
+        | *Local do Estacionamento* |'
+- texto: História
+  destino:
+    secao_textual:
+      conteudo: '# História
+
+
+        Durante suas idas e vindas no Espírito Santo para Ipatinga, Poul sempre passava
+        pela BR 458 buscando novas possibilidades de setores no Vale do Aço, onde
+        de longe se avista a falésia do Vale Verde, destacada na paisagem pelo afloramento
+        rochoso de face amarelada e bem próximo estrada. Em dezembro de 2014, Poul
+        e Antônia já vieram preparados para o período de Natal com a furadeira na
+        mala, que Papai Noel que nada, quem daria o presente de natal a toda a comunidade
+        de escalada do Vale do Aço era esse querido casal.
+
+
+        No dia 20 de dezembro de 2014 a primeira via foi furada na falésia do Vale
+        Verde, foi a via “HoHoHo”, um 4/5° grau localizado na parte superior do 1°
+        Andar. Essa via serviu para dar acesso a parte superior da falésia, onde foi
+        instalado o rapel e abriu-se a primeira parte da da clássica “Ragnarok (9°)”.
+
+
+        Poul e Antônia voltam três dias depois, só que agora com uma contratação de
+        peso: Léo Madeira, Tinelson e Danilinho. Nesse dia deixaram mais duas vias,
+        “Presentim” e “Pedra no Saco”.
+
+
+        Depois disso ficaram 3 longos anos sem mais nenhuma conquista na falésia,
+        Poul ainda morava no Espírito Santo e seu projeto da falésia ficou adormecido.
+        Em 2017 quando Poul volta a morar no Vale do Aço ele se junta ao João TG e
+        aí sim desenvolve a maioria das vias furadas no Vale Verde. Outros conquistadores
+        também deixaram suas vias na falésia, como João Paulo Vieira (Queixão), Vitor
+        Oliveira (Slot) e Josué Falcim.
+
+
+        O setor do Vale Verde tem uma particularidade que torna as conquistas ainda
+        mais desafiadoras, algumas agarras comumente são quebradiças e exigem ser
+        coladas para serem utilizadas. Esse foi uma escola para os conquistadores
+        aprenderem a conquistar vias em rochas quebradiças e na arte de colar agarras.
+
+
+        Durante esse período foram conquistadas as vias de entrada no setor 1° Andar
+        e depois foi realizado um evento de inauguração da falésia, onde vieram diversos
+        escaladores a falésia e também foi encadenado o primeiro 9° do setor. Logo
+        após veio a trágica pandemia e o setor ficou um bom tempo sendo muito pouco
+        frequentado. Em 2022 restauramos os acessos ao setor e agora continuamos escrevendo
+        essa história com a abertura da ATM 2024 e atualização do croqui.'
+- texto: Geologia
+  destino:
+    secao_textual:
+      conteudo: '# Mas que rocha é essa?
+
+
+        As rochas do Vale Verde são chamadas **Granada - Biotita Tonalito**, são correspondentes
+        a um magmatismo sintéctonico de idade Neoproterozoíca (1000 a 570 milhões
+        de anos) denominadas de Tonalito Bom Jesus do Galho (CPRM, Folha Dom Cavati
+        – 2014).
+
+
+        De forma simplificada essas rochas seriam um tipo de Granitoíde (um tipo de
+        rocha ígnea que se cristaliza no interior da crosta), rico em minerais como
+        a Granada, Biotita, Plagioclásio, Cianita e outros minerais ricos em sílica.
+        Essas rochas após cristalizadas passaram posteriormente por processos de metamorfismo
+        (aumento de pressão e temperatura que promovem alterações na sua composição
+        mineral e estrutura) sendo esse fato evidenciado pelas foliações identificadas
+        nas rochas do Vale Verde.
+
+
+        | ![Vista da face dos blocos de Boulder no Vale Verde](imagens/geologia_p0_i5.webp)
+        |
+
+        | :--: |
+
+        | *Vista da face dos blocos de Boulder no Vale Verde* |
+
+
+        | ![Cristais de Granada Piropo](imagens/geologia_p0_i4.webp) |
+
+        | :--: |
+
+        | *Cristais de Granada Piropo* |
+
+
+        Os registros nessas rochas contam um pouco da história da formação de um supercontinente
+        chamado Gondwana, que ocorreu aproximadamente à 750 e 600 Milhões de anos
+        atrás, durante a colisão do que hoje seriam os continentes da América do Sul,
+        Antártida, África, Índia e Oceania. Durante esse episódio de colisões de placas
+        tectônicas foi gerado uma enorme cordilheira de montanhas, correspondente
+        ao que seria hoje o Himalaia.
+
+
+        Os Granitos/Tonalito são formados no interior dessa cordilheira, a partir
+        de processos de fusão de rochas, migração e resfriamento de magmas no interior
+        da crosta terrestre. Quando placas tectônicas colidem, as mais densas e espessas
+        são subductadas até porções profundas da crosta, que se fundem como resultado
+        da alta pressão e temperatura, gerando um extenso volume de magmas. Esses
+        magmas caso consigam ascender e romper toda a crosta terrestre acabam sendo
+        expelidos na forma de erupções vulcânicas, se não conseguirem acabam se cristalizando
+        no interior da crosta, formando diversos tipos de rochas ígneas intrusivas
+        como por exemplo os Granitos e os Tonalitos.
+
+
+        | ![Modelo Esquemático da Subducção de Placas](imagens/geologia_p1_i0.webp)
+        |
+
+        | :--: |
+
+        | *Modelo Esquemático da Subducção de Placas* |
+
+
+        | ![Reconstrução Paleogeográfica do Gondwana](imagens/geologia_p1_i6.webp)
+        |
+
+        | :--: |
+
+        | *Reconstrução Paleogeográfica do Gondwana* |
+
+
+        Depois que esse magma se cristalizou no interior da crosta foi só aguardar
+        cerca de 600 milhões de ano até a natureza fazer o seu papel, erodindo aproximadamente
+        entre 6 e 7km de quilômetros de rocha e expondo a base dessa cordilheira,
+        repleta de lindos monólitos de granitos e tonalitos sedentos por um escalador.
+
+
+        # É boa para escalar?
+
+
+        O Tonalito do Vale Verde apresenta uma boa condição para a escalada, são conhecidos
+        por ser uma rocha abrasiva sobretudo por causa de sua granulação grossa e
+        composição rica em granadas, quazto e feldspato. Devido sua exposição em falésia
+        é comum encontrarmos agarras quebradiças, por isso a equipe de conquista sempre
+        se atenta em colar as agarras que estão frágeis, aumentando a segurança na
+        escalada e preservando as agarras cruciais para a realização da via. Se identificar
+        alguma agarra com esse risco favor comunicar imediatamente a AMEVA para a
+        tomada das devidas providências.
+
+
+        As vias são majoritariamente verticais ou levemente negativas, com bastante
+        regletes potentes, abaulados e oposições clássicas. Devido a abrasão da rocha
+        os pés funcionam até mesmo nos pequenos cristais, tornando a escalada no Vale
+        Verde bastante técnica e exigente em relação ao equilíbrio e força de regletes.'
+- texto: Os Betas de Ouro
+  destino:
+    secao_textual:
+      conteudo: '# Os Betas de Ouro
+
+
+        A Falésia do Vale Verde tem uma posição privilegiada com sua face voltada
+        para a posição Sudeste, tem sombra em todo o setor na parte da manhã, e como
+        a vegetação recobre boa parte das vias na parte da tarde a diversas opções
+        de vias nas sombras.
+
+
+        Há presença moderada de pernilongos e mosquitos sobretudo durante o período
+        chuvoso, mais exclusivamente na parte da manhã e final da tarde. É recomendável
+        levar repelentes e realizar a queima (controlada) de caixas de ovos na base
+        das vias para espantar os pernilongos. Lembre-se da responsabilidade ao realizar
+        essa queima das caixas, tomando TODOS OS CUIDADOS NECESSÁRIOS para não ocasionar
+        um incêndio e levando todo o restante não queimado embora. A área é propriedade
+        particular e a continuidade das atividades de escalada no local dependem do
+        nosso comportamento comunitário, seja educado com todos e respeitem as regras.
+
+
+        O clima no Vale do Aço de forma geral é considerado quente e úmido, podendo
+        atingir temperaturas elevadas durante o verão com período chuvoso de Outubro
+        e Abril, com maior intensidade entre Novembro e Março. Como a falésia do Vale
+        Verde é bastante exposta ao tempo, após chuvas intensas ou longos periodos
+        chuvosos é necessário um periódo moderado para que as vias sequem e se tornem
+        aptas a escalada novamente.
+
+
+        Ao final da escalada se quiser comemorar a cadena sugerimos o bar no campo
+        de futebol ou o Ponto Caipira na entrada da BR, se for a Ipatinga indicamos
+        o nosso grande templo, a TG Rock Climb Bar, lá é certeza de uma boa prosa,
+        música boa e cerveja gelada.
+
+
+        Segue abaixo dois contatos de hospitais na região que possuem soro antiofídico:
+
+
+        **CORONEL FABRICIANO**
+
+        Hospital Unimed Vale do Aço - Av. Rubens Siqueira Maia, nº 2030 - Santa Terezinha
+        – Tel: (31) 2109-8668
+
+
+        **IPATINGA**
+
+        Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL:
+        (31) 3829-9000'
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      conteudo: '# Mapas Gerais
+
+
+        | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
+
+        | :--: |
+
+        | *Mapa de Acesso* |'
+ultima_migracao: 1
+publicar_croqui: true
+arquivos_externos:
+- caminho: imagens/betas_p0.webp
+  checksum_sha256: 1919f54a455eb7877849495a189ef4dd64440c276e35d944d4eaabc4fa2c410d
+- caminho: imagens/capa_p0.webp
+  checksum_sha256: 26ca50116fae9fe45252b6dd4351325b30cbf19f941f37da306c29870f8291d0
+- caminho: imagens/geologia_p0_i4.webp
+  checksum_sha256: bae96a3ba1facd6477e7f10a92f19d569c3a585ffe663bc080cbe36ed7cd96a3
+- caminho: imagens/geologia_p0_i5.webp
+  checksum_sha256: f9c6c1366326058bfb06e154048ed8d0cca7bcc895e58275cd372327397e07fc
+- caminho: imagens/geologia_p1_i0.webp
+  checksum_sha256: 3e64f08b034eca0b37272653e3d6afdefcd7fff4dcf39341bd9cc3b9dab9579f
+- caminho: imagens/geologia_p1_i6.webp
+  checksum_sha256: 149de752cf5eba3945dd789d4ad08d99facfee231b08faf557c9eaa9b990c271
+- caminho: imagens/localizacao_p0_i10.webp
+  checksum_sha256: 9cb4a2187dc22ca9107e880d7d520620e0994dcf0a9f45bf6e10522aa76fcd58
+- caminho: imagens/localizacao_p0_i11.webp
+  checksum_sha256: 4d86c5a69244cf35da201217f007889acbe30a695f9bd9fe466a9df43b8cd7a8
+- caminho: imagens/localizacao_p0_i12.webp
+  checksum_sha256: 9d60d6dcf3251edb7793586f1863a1d545ed41c4afd4c4d8be42a648f7c79bac
+- caminho: imagens/localizacao_p0_i9.webp
+  checksum_sha256: aeb6d262b8eb03e303230c3a179a5e859dfd4956cf6e614df8a4b19b9954a9fd
+- caminho: imagens/mapas_gerais_p0.webp
+  checksum_sha256: dee80b6f3742ea20872608127209dfe8c1ab6daadd32cb1a1efe72065f78a5d6
+- caminho: imagens/setor_1_andar_p0.webp
+  checksum_sha256: 661977d31c1ae8573f6d95a4e9dc145fd858b73f12d57e7ec3ad0defeeee4276
+- caminho: imagens/setor_1_andar_p1_i2.webp
+  checksum_sha256: c663e45ff10333e453c8e4b1df7cb2fd8916b3d46b87af2b12567955e8ad8b3a
+- caminho: imagens/setor_1_andar_p1_i3.webp
+  checksum_sha256: dde0efc4f737cac32d8b45ecb30e15895546fd5e63806ff121325c36c57d9249
+- caminho: imagens/setor_1_andar_p1_i4.webp
+  checksum_sha256: 1e6c9508b92d7be5afc8cfe64ccdf6897faef1933172825bbcd5b9c87bab9a2e
+- caminho: imagens/setor_1_andar_p1_i5.webp
+  checksum_sha256: 2fb3bf044098d2134440273e1683f9d93ead3db767b1ecb992d23eba95281dd8
+- caminho: imagens/setor_2_andar_p0.webp
+  checksum_sha256: 3d4ce74dcdf5622b86dfec0fc2ceecd13c334f7f4f5610851fe7914a142bb450

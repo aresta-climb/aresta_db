@@ -1,0 +1,818 @@
+# Croqui: Arcos - Bombonera
+
+## Informações Gerais
+
+- **descricao**: Afloramento de calcário situado em Pains, Minas Gerais, com diversos setores de escalada esportiva.
+- **id**: br_mg_arcos_bombonera
+- **nome**: Arcos - Bombonera
+- **creditos**:
+  - alexsandro martins
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # afloramento LA BOMBONERA
+            
+            Pains - Minas Gerais - Brasil
+            
+            **CROQUI - JUNHO - 2023**
+            
+            | ![Capa](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa* |
+            
+            desenvolvido por alexsandro
+  - **[1]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # MAPA DOS AFLORAMENTOS DA REGIONAL
+            
+            | ![Mapa Regional](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa Regional* |
+            
+            # MAPA DOS SETORES
+            
+            | ![Mapa dos Setores](imagens/mapas_gerais_p1_i0.webp) |
+            | :--: |
+            | *Mapa dos Setores* |
+            
+            Lá Bombonera Climb: [Google Maps](https://maps.app.goo.gl/tGRSEPsRVVn2Ru6n9)
+            
+            **RECOMENDAÇÕES:** É imprescindível o **USO DE CAPACETE** (escaladores, "segue" e pessoas nas bases das vias) pode haver possíveis pedras soltas; cuidado com abelhas, marimbondos e animais peçonhentos; Utilize corda de 60 metros ou mais.
+            
+            **COMO CHEGAR:** O afloramento de calcário do **La Bombonera** está localizado as margens da estrada de terra que liga os municípios de Pains e Córrego Fundo - Minas Gerais.
+            
+            **ATENÇÃO:** O afloramento fica em uma propriedade particular, respeite! (entre em contato com os escaladores locais antes de visitar/escalar no local)
+  - **[2]**:
+    - **texto**: Atenção e Regras
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # ATENÇÃO
+            
+            Os nomes das vias, seus respectivos conquistadores e a graduação sugerida para cada uma delas são resultados de uma pesquisa oral conduzida entre os escaladores que frequentam o pico, uma vez que não foi encontrado nenhum registro prévio sobre o tema (exceto os guias anteriores). O resultado desse trabalho pode eventualmente conter erros, os quais peço que não sejam entendidos como desrespeito. O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro da maneira mais exata possível.
+            
+            # OBSERVAÇÃO
+            
+            Como algumas vias são de conquistadores desconhecidos foi utilizado apelido + (*) para identificá-las. Caso encontre algum engano nos dados citados neste croqui, peço que me envie a correção. Terei satisfação em atendê-lo, pois todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse trabalho.
+            
+            Muito obrigado aos conquistadores e conquistadoras, **GRATIDÃO** a vocês sempre!!!
+            
+            Arte/Organização/Produção: **alexsandro martins** / 7ª versão / atualização 2023 / Revisão e graduação sugerida das vias: **Grupo de Trabalho**
+            
+            # SEJA CONSCIENTE!
+            
+            **UTILIZE APENAS AS TRILHAS PRINCIPAIS; As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra; **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...); Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados; Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa; Fogueiras além de provocar queimadas, danificam o local; Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos; Utilize equipamentos de segurança e verifique seu estado de conservação; Cuidado com pedras soltas principalmente em setores e vias novas; Antes de conquistar uma via de escalada entre em contato com o GT.
+  - **[3]**:
+    - **texto**: Parcerias e Contato
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Parcerias na atualização do ano de 2023 dos croquis dos Afloramentos, Setores e Vias de Escalada Esportiva em Arcos, Pains e Região - MG
+            
+            | ![Parcerias](imagens/parcerias_e_contato_p0.webp) |
+            | :--: |
+            | *Parcerias* |
+            
+            Para contribuir com esse trabalho e a próxima atualização:
+            
+            **CONTATO/INFORMAÇÕES:** [@abrigobase](https://www.instagram.com/abrigobase)
+            
+            **ATUALIZAÇÕES/SUGESTÕES:** abrigobase@gmail.com
+            
+            **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_esquerda
+
+### Setor (Pico: Bombonera)
+
+- **descricao**: Sombra o dia todo (varia de acordo com a estação).
+- **nome**: Setor Esquerda
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p0_i0.webp)
+    - **largura_mapa**: 1829
+    - **altura_mapa**: 1070
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 176
+          - **y**: 889
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 695
+          - **y**: 1010
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 950
+          - **y**: 1010
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 1185
+          - **y**: 970
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 1275
+          - **y**: 970
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1365
+          - **y**: 990
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1575
+          - **y**: 985
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 1660
+          - **y**: 985
+          - **comprimento**: 30
+          - **largura**: 30
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p1_i0.webp)
+    - **largura_mapa**: 920
+    - **altura_mapa**: 1153
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 302
+          - **y**: 886
+          - **comprimento**: 30
+          - **largura**: 30
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p1_i1.webp)
+    - **largura_mapa**: 914
+    - **altura_mapa**: 1156
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 330
+          - **y**: 1005
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 585
+          - **y**: 1130
+          - **comprimento**: 30
+          - **largura**: 30
+  - **[3]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p2_i0.webp)
+    - **largura_mapa**: 916
+    - **altura_mapa**: 1151
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 12
+          - **y**: 1105
+          - **comprimento**: 25
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 176
+          - **y**: 942
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[2]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 322
+          - **y**: 1110
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[3]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 533
+          - **y**: 1103
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 620
+          - **y**: 1105
+          - **comprimento**: 30
+          - **largura**: 30
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Água Bolhas
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_5
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Concretino
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_7C_BARRA_8A
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Gado impresso (com abelha)
+      - **id_no_mapa**: 3
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2022
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada)
+      - **id_no_mapa**: 4
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2022
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Jaratataca
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_7A
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2022
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: (sem nome)
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_8C_BARRA_9A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2022
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada)
+      - **id_no_mapa**: 7
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2022
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Teoria dos jogos
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_9A
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **destaque**: True
+      - **data_abertura**: 2022
+
+
+## Parte: setor_bombonera
+
+### Setor (Pico: Bombonera)
+
+- **descricao**:
+    # Setor bombonera
+    
+    | ![Bombonera](imagens/setor_bombonera_p1_i0.webp) |
+    | :--: |
+    | *Bombonera* |
+    
+    Sombra a partir das 12h (varia de acordo com a estação).
+- **nome**: Setor Bombonera
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bombonera_p0_i0.webp)
+    - **largura_mapa**: 1893
+    - **altura_mapa**: 1086
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 207
+          - **y**: 894
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 262
+          - **y**: 902
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 317
+          - **y**: 890
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 354
+          - **y**: 890
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 457
+          - **y**: 887
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 633
+          - **y**: 868
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 732
+          - **y**: 893
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[7]**:
+        - **id**: 8-9
+        - **label**: 8-9
+        - **box**:
+          - **x**: 770
+          - **y**: 890
+          - **comprimento**: 35
+          - **largura**: 30
+      - **[8]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1071
+          - **y**: 912
+          - **comprimento**: 30
+          - **largura**: 26
+      - **[9]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 1226
+          - **y**: 926
+          - **comprimento**: 31
+          - **largura**: 26
+      - **[10]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 1261
+          - **y**: 927
+          - **comprimento**: 30
+          - **largura**: 30
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Lá Cancha
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_8C
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: La Mano de Dios
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_9B
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Projeto (sem nome)
+      - **id_no_mapa**: 3
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Projeto (sem nome)
+      - **id_no_mapa**: 4
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Barra Brava
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_10A
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Lá Bombonera
+      - **id_no_mapa**: 6
+      - **destaque**: True
+      - **dificuldade**: BR_9B_BARRA_9C
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Diego Armando Maradona
+      - **id_no_mapa**: 7
+      - **destaque**: True
+      - **dificuldade**: BR_9C
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: River Plate (principal)
+      - **id_no_mapa**: 8-9
+      - **destaque**: True
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Boca Junior (variante)
+      - **id_no_mapa**: 8-9
+      - **dificuldade**: BR_8A
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada) Superclassicos
+      - **id_no_mapa**: 10
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 1
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: San Lourenzo
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_8C
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: La Marca
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_8A_BARRA_8B
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2023
+
+
+## Parte: setor_bosque
+
+### Setor (Pico: Bombonera)
+
+- **descricao**: Sombra o dia todo (varia de acordo com a estação).
+- **nome**: Setor Bosque
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p0_i0.webp)
+    - **largura_mapa**: 1966
+    - **altura_mapa**: 1043
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 190
+          - **y**: 968
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 383
+          - **y**: 967
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 605
+          - **y**: 966
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 893
+          - **y**: 968
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 1008
+          - **y**: 965
+          - **comprimento**: 35
+          - **largura**: 30
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1278
+          - **y**: 968
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1618
+          - **y**: 967
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 1748
+          - **y**: 968
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 1898
+          - **y**: 968
+          - **comprimento**: 35
+          - **largura**: 35
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p1_i0.webp)
+    - **largura_mapa**: 916
+    - **altura_mapa**: 1151
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 520
+          - **y**: 1135
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 845
+          - **y**: 1126
+          - **comprimento**: 28
+          - **largura**: 30
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p1_i1.webp)
+    - **largura_mapa**: 916
+    - **altura_mapa**: 1155
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 35
+          - **y**: 1130
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 365
+          - **y**: 1100
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[2]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 478
+          - **y**: 1090
+          - **comprimento**: 30
+          - **largura**: 30
+  - **[3]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p2_i0.webp)
+    - **largura_mapa**: 910
+    - **altura_mapa**: 1154
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 48
+          - **y**: 1132
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[1]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 518
+          - **y**: 1132
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[2]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 648
+          - **y**: 1128
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[3]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 802
+          - **y**: 1118
+          - **comprimento**: 35
+          - **largura**: 35
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: La Cucaracha
+      - **id_no_mapa**: 1
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2021
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada) Bem Vindo ao Bosque
+      - **id_no_mapa**: 2
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2020
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada)
+      - **id_no_mapa**: 3
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2020
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Malandro é Malandro
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_8A
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Mané é Mané
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_8B_BARRA_8C
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Segunda Divisão
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Diedrinho
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_5SUP
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Dona Leci
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_5
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Caminito
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_5SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **destaque**: True
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2020
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0.webp)
+    - **checksum_sha256**: 261f76ff3065187fce694e5becc134487ed35813ecab875cf9b584cdb90fd98a
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: 080e61fe4b4731776e5bfd1b80fab43ce5ff72dda980fd4f05806ea9fb35db1e
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1_i0.webp)
+    - **checksum_sha256**: 86783d44014864c391c2be15e4029ca4b123571af0deb078eefd2399c98a2727
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/parcerias_e_contato_p0.webp)
+    - **checksum_sha256**: b18a49e3305c9dd302a6cac056829c6029b7c733eb72ea615d27141437a16764
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/setor_bombonera_p0_i0.webp)
+    - **checksum_sha256**: a32351e87bead4c90db1e86def4cf7c38901e6cd1e33d9deace58941617dca9e
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/setor_bombonera_p1_i0.webp)
+    - **checksum_sha256**: 3efb9357b4e5efb56f3403cc83d7b0037fc3cc717765b68e6564c988c525cf73
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_bosque_p0_i0.webp)
+    - **checksum_sha256**: b2a413d380fc3a214fb6142e123455e5e41e8578a50751467d9327dd2488126d
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_bosque_p1_i0.webp)
+    - **checksum_sha256**: 260670eefcd772ed1c23b5e2dc4d0da8e0f29fc6af2e8f645d0cf75168e4541a
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/setor_bosque_p1_i1.webp)
+    - **checksum_sha256**: 8c9d68a388ee02600958e914adf29f04dce6eed641c3e8cd9faef0e571ea29e4
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/setor_bosque_p2_i0.webp)
+    - **checksum_sha256**: 8cb0440e6cb7e9502a8640d070d43e4a3192c172f197942c5f21a47ff1744f1e
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/setor_esquerda_p0_i0.webp)
+    - **checksum_sha256**: 3a5002c1ac93cc2ba2f13649a5a70f0951ea11491aae67d348b2951c270f3e4c
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/setor_esquerda_p1_i0.webp)
+    - **checksum_sha256**: 9a8951bb840ee4c54cead7acf3c8b07f213d54fa94352f042fbdcc8f319cf89d
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/setor_esquerda_p1_i1.webp)
+    - **checksum_sha256**: 96d6b9ff5d2cfb07b4d539f7a92bfc8b557bf99981e3a9dcb837bd56abc3b37d
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/setor_esquerda_p2_i0.webp)
+    - **checksum_sha256**: 05c24e3cac4c06f65055600fa9b9b68edcaacd8bf98160880e6e0eabaa1aaa0c
+
+

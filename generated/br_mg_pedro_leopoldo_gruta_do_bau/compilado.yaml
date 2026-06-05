@@ -1,0 +1,6514 @@
+id: br_mg_pedro_leopoldo_gruta_do_bau
+nome: Gruta do Baú
+creditos:
+- Christian Costa
+caminho_thumbnail: imagens/capa_p0_i15.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Gruta do Baú
+  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
+    um dos principais picos de escalada em calcário de Minas Gerais, com centenas
+    de vias de diversos graus.
+  estado: Minas Gerais
+  localizacao:
+    latitude: -195480000
+    longitude: -439900000
+  setores_ou_grupos:
+  - setor:
+      conteudo:
+        nome: Setor Entrada Inferior
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_entrada_inferior_p0_i6.webp
+          largura_mapa: 1108
+          altura_mapa: 1241
+          pontos_de_interesse:
+          - id: Entrada_Superior
+            label: Entrada Superior
+            box:
+              x: 599
+              y: 50
+              comprimento: 76
+              largura: 57
+          - id: 17a
+            label: 17a
+            box:
+              x: 488
+              y: 154
+              comprimento: 43
+              largura: 33
+          - id: Setor_Sentinela
+            label: Setor Sentinela
+            box:
+              x: 913
+              y: 198
+              comprimento: 82
+              largura: 55
+          - id: Top
+            label: Top
+            box:
+              x: 851
+              y: 254
+              comprimento: 38
+              largura: 40
+          - id: '17'
+            label: '17'
+            box:
+              x: 516
+              y: 239
+              comprimento: 34
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 516
+              y: 285
+              comprimento: 29
+              largura: 28
+          - id: '14'
+            label: '14'
+            box:
+              x: 386
+              y: 352
+              comprimento: 35
+              largura: 35
+          - id: '15'
+            label: '15'
+            box:
+              x: 524
+              y: 340
+              comprimento: 32
+              largura: 31
+          - id: '13'
+            label: '13'
+            box:
+              x: 308
+              y: 354
+              comprimento: 31
+              largura: 31
+          - id: '37'
+            label: '37'
+            box:
+              x: 480
+              y: 360
+              comprimento: 35
+              largura: 32
+          - id: Parquinho
+            label: Parquinho
+            box:
+              x: 994
+              y: 494
+              comprimento: 91
+              largura: 31
+          - id: '12'
+            label: '12'
+            box:
+              x: 294
+              y: 522
+              comprimento: 43
+              largura: 32
+          - id: '11'
+            label: '11'
+            box:
+              x: 341
+              y: 534
+              comprimento: 32
+              largura: 27
+          - id: '10'
+            label: '10'
+            box:
+              x: 404
+              y: 552
+              comprimento: 27
+              largura: 28
+          - id: 08
+            label: 08
+            box:
+              x: 561
+              y: 560
+              comprimento: 34
+              largura: 30
+          - id: '07'
+            label: '07'
+            box:
+              x: 661
+              y: 559
+              comprimento: 30
+              largura: 26
+          - id: 09
+            label: 09
+            box:
+              x: 516
+              y: 572
+              comprimento: 29
+              largura: 28
+          - id: Mesa
+            label: Mesa
+            box:
+              x: 855
+              y: 566
+              comprimento: 50
+              largura: 27
+          - id: '06'
+            label: '06'
+            box:
+              x: 706
+              y: 584
+              comprimento: 29
+              largura: 27
+          - id: '05'
+            label: '05'
+            box:
+              x: 757
+              y: 588
+              comprimento: 38
+              largura: 28
+          - id: '19'
+            label: '19'
+            box:
+              x: 416
+              y: 611
+              comprimento: 31
+              largura: 26
+          - id: '25'
+            label: '25'
+            box:
+              x: 502
+              y: 629
+              comprimento: 33
+              largura: 24
+          - id: Tunel_de_pedra
+            label: Túnel de pedra
+            box:
+              x: 601
+              y: 630
+              comprimento: 106
+              largura: 27
+          - id: '04'
+            label: '04'
+            box:
+              x: 760
+              y: 630
+              comprimento: 35
+              largura: 24
+          - id: '20'
+            label: '20'
+            box:
+              x: 408
+              y: 645
+              comprimento: 34
+              largura: 30
+          - id: '26'
+            label: '26'
+            box:
+              x: 494
+              y: 666
+              comprimento: 31
+              largura: 26
+          - id: '02'
+            label: '02'
+            box:
+              x: 693
+              y: 678
+              comprimento: 30
+              largura: 20
+          - id: '03'
+            label: '03'
+            box:
+              x: 758
+              y: 672
+              comprimento: 37
+              largura: 28
+          - id: '21'
+            label: '21'
+            box:
+              x: 405
+              y: 682
+              comprimento: 28
+              largura: 27
+          - id: Estacionamento
+            label: Estacionamento
+            box:
+              x: 1026
+              y: 684
+              comprimento: 136
+              largura: 21
+          - id: '27'
+            label: '27'
+            box:
+              x: 494
+              y: 708
+              comprimento: 34
+              largura: 29
+          - id: '22'
+            label: '22'
+            box:
+              x: 404
+              y: 726
+              comprimento: 31
+              largura: 27
+          - id: '24'
+            label: '24'
+            box:
+              x: 353
+              y: 745
+              comprimento: 38
+              largura: 34
+          - id: 2_Andar
+            label: 2º Andar
+            box:
+              x: 50
+              y: 775
+              comprimento: 61
+              largura: 62
+          - id: '23'
+            label: '23'
+            box:
+              x: 397
+              y: 760
+              comprimento: 36
+              largura: 33
+          - id: '29'
+            label: '29'
+            box:
+              x: 534
+              y: 780
+              comprimento: 33
+              largura: 31
+          - id: Ponte de madeira
+            label: Ponte de madeira
+            box:
+              x: 301
+              y: 788
+              comprimento: 82
+              largura: 22
+          - id: '30'
+            label: '30'
+            box:
+              x: 580
+              y: 786
+              comprimento: 33
+              largura: 29
+          - id: '01'
+            label: '01'
+            box:
+              x: 647
+              y: 784
+              comprimento: 30
+              largura: 27
+          - id: '28'
+            label: '28'
+            box:
+              x: 491
+              y: 796
+              comprimento: 30
+              largura: 27
+          - id: '36'
+            label: '36'
+            box:
+              x: 268
+              y: 873
+              comprimento: 33
+              largura: 30
+          - id: '35'
+            label: '35'
+            box:
+              x: 345
+              y: 909
+              comprimento: 34
+              largura: 30
+          - id: '32'
+            label: '32'
+            box:
+              x: 526
+              y: 918
+              comprimento: 34
+              largura: 30
+          - id: '31'
+            label: '31'
+            box:
+              x: 608
+              y: 908
+              comprimento: 27
+              largura: 29
+          - id: '33'
+            label: '33'
+            box:
+              x: 468
+              y: 928
+              comprimento: 33
+              largura: 31
+          - id: Gruta_Acesso
+            label: GRUTA Acesso somente acompanhado
+            box:
+              x: 535
+              y: 988
+              comprimento: 170
+              largura: 85
+          - id: '34'
+            label: '34'
+            box:
+              x: 410
+              y: 990
+              comprimento: 35
+              largura: 29
+          - id: '18'
+            label: '18'
+            box:
+              x: 547
+              y: 1131
+              comprimento: 28
+              largura: 28
+          - id: Setor_Fechadura
+            label: Setor Fechadura
+            box:
+              x: 592
+              y: 1224
+              comprimento: 136
+              largura: 33
+          - id: Setor_Pasto
+            label: Setor Pasto
+            box:
+              x: 755
+              y: 1216
+              comprimento: 156
+              largura: 34
+        escaladas:
+        - via_esportiva:
+            nome: Zero Um
+            id_no_mapa: '01'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020/21
+        - via_esportiva:
+            nome: Caixão e Vela Preta
+            id_no_mapa: '02'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Vinicius
+            - Rômulo
+            - Novais
+        - via_esportiva:
+            nome: É Brincadeira
+            id_no_mapa: '03'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Eustáquio e Alunos
+        - via_esportiva:
+            nome: Vaca Louca
+            id_no_mapa: '04'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Rômulo
+        - via_esportiva:
+            nome: Tarda mas não falha
+            id_no_mapa: '05'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney Medeiros
+        - via_movel:
+            nome: Aresta Aperta Um
+            id_no_mapa: '06'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Emerson
+        - via_esportiva:
+            nome: Túnel do Tempo
+            id_no_mapa: '07'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Caretas por Acaso
+            id_no_mapa: 08
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Ralf
+            - Tinoco
+        - via_esportiva:
+            nome: Pop Rock
+            id_no_mapa: 09
+            dificuldade: BR_7C_BARRA_8A
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Felipe Belisário
+            - Marcela Romanelli
+        - via_esportiva:
+            nome: Juliana
+            id_no_mapa: '10'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Half (Eduardo)
+        - via_esportiva:
+            nome: A Despedida
+            id_no_mapa: '11'
+            dificuldade: BR_9C
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Negão
+            - Fred
+            - Cerquerinha
+        - via_esportiva:
+            nome: Rapanui
+            id_no_mapa: '12'
+            dificuldade: BR_9A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Leandro
+            - Negão
+        - via_esportiva:
+            nome: Escorregador de Macacos
+            id_no_mapa: '13'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Aloysio
+        - via_esportiva:
+            nome: Dalai Lama
+            id_no_mapa: '14'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cerqueirinha
+            - Negão
+        - via_esportiva:
+            nome: Céu em Chamas
+            id_no_mapa: '15'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Andrezão
+            - Anderson Barbosa
+        - via_esportiva:
+            nome: Legolas (Variante Céu em Chamas)
+            id_no_mapa: '15'
+            dificuldade: INDEFINIDO
+            descricao: Inacabada
+            conquistadores:
+            - Sandro Almeida
+            - Felipe Belisário
+        - via_esportiva:
+            nome: Mithrandir
+            id_no_mapa: '16'
+            dificuldade: PROJETO
+            conquistadores:
+            - Sandro Almeida
+            - Felipe Belisário
+        - via_esportiva:
+            nome: Cobiça
+            id_no_mapa: '17'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 14
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Fabiano
+            - Cristiano “Negão”
+            - Klaus
+        - via_esportiva:
+            nome: Cobiça (Variante da Saída a direita)
+            id_no_mapa: 17a
+            dificuldade: BR_9C_BARRA_10A
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Fabiano
+            - Cristiano “Negão”
+            - Klaus
+        - via_esportiva:
+            nome: Arte e Ofício – 2ª_Intenção
+            id_no_mapa: '18'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Guta Piancastelli
+            - André “DJ”
+            - André “Dedé”
+        - via_movel:
+            nome: Pontes de Jah
+            id_no_mapa: '19'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Dijjins
+            id_no_mapa: '20'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto e Izabel Diniz
+        - via_movel:
+            nome: Aresta
+            id_no_mapa: '21'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Vinícius
+            - Tinoco
+            - Denise
+            - Gustavo Piancastelli
+        - via_esportiva:
+            nome: Verde do Violinista
+            id_no_mapa: '22'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Narcisista
+            id_no_mapa: '23'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: The Wall (SadMan)
+            id_no_mapa: '24'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Evandro Kpta
+            - Waltencil “Wall”
+            - André DJ
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Eterno Regresso
+            id_no_mapa: '25'
+            dificuldade: INDEFINIDO
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Pro Dia Nascer Feliz
+            id_no_mapa: '26'
+            dificuldade: BR_4SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - ACM “Tonico”
+            - Daniel
+        - via_movel:
+            nome: Abajur de Protheus
+            id_no_mapa: '27'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Marcelo Bocão
+        - via_esportiva:
+            nome: Perpétuos
+            id_no_mapa: '28'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: O Sonhar
+            id_no_mapa: '29'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Calíope
+            id_no_mapa: '30'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Morpheus
+            id_no_mapa: '31'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Beirute
+            id_no_mapa: '32'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Desejo
+            id_no_mapa: '33'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Coríntio (DESATIVADA)
+            id_no_mapa: '34'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Triplo X
+            id_no_mapa: '35'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Durangos
+            id_no_mapa: '36'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Velha Guarda
+            id_no_mapa: '37'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Christian Costa
+            - Marcus Rufino
+        descricao: '# Setor Entrada Inferior
+
+
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro
+          setor que fica na chegada ao maciço.
+
+
+          **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’'
+  - setor:
+      conteudo:
+        nome: Setor Entrada Superior
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_entrada_superior_p0_i6.webp
+          largura_mapa: 1035
+          altura_mapa: 1167
+          pontos_de_interesse:
+          - id: Setor_Sentinela
+            label: Setor Sentinela
+            box:
+              x: 924
+              y: 30
+              comprimento: 173
+              largura: 35
+          - id: '23'
+            label: '23'
+            box:
+              x: 214
+              y: 128
+              comprimento: 40
+              largura: 37
+          - id: '22'
+            label: '22'
+            box:
+              x: 90
+              y: 148
+              comprimento: 29
+              largura: 27
+          - id: '40'
+            label: '40'
+            box:
+              x: 868
+              y: 156
+              comprimento: 33
+              largura: 32
+          - id: '21'
+            label: '21'
+            box:
+              x: 62
+              y: 184
+              comprimento: 23
+              largura: 25
+          - id: '39'
+            label: '39'
+            box:
+              x: 870
+              y: 206
+              comprimento: 29
+              largura: 29
+          - id: '24'
+            label: '24'
+            box:
+              x: 180
+              y: 222
+              comprimento: 29
+              largura: 27
+          - id: '20'
+            label: '20'
+            box:
+              x: 52
+              y: 268
+              comprimento: 42
+              largura: 30
+          - id: '38'
+            label: '38'
+            box:
+              x: 862
+              y: 258
+              comprimento: 21
+              largura: 24
+          - id: '25'
+            label: '25'
+            box:
+              x: 166
+              y: 308
+              comprimento: 33
+              largura: 26
+          - id: WC
+            label: WC
+            box:
+              x: 999
+              y: 309
+              comprimento: 64
+              largura: 52
+          - id: '19'
+            label: '19'
+            box:
+              x: 66
+              y: 316
+              comprimento: 28
+              largura: 29
+          - id: '18'
+            label: '18'
+            box:
+              x: 78
+              y: 356
+              comprimento: 33
+              largura: 27
+          - id: '26'
+            label: '26'
+            box:
+              x: 150
+              y: 428
+              comprimento: 41
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 48
+              y: 441
+              comprimento: 28
+              largura: 30
+          - id: '37'
+            label: '37'
+            box:
+              x: 461
+              y: 506
+              comprimento: 26
+              largura: 28
+          - id: '31'
+            label: '31'
+            box:
+              x: 291
+              y: 518
+              comprimento: 26
+              largura: 29
+          - id: '27'
+            label: '27'
+            box:
+              x: 146
+              y: 540
+              comprimento: 39
+              largura: 29
+          - id: '36'
+            label: '36'
+            box:
+              x: 440
+              y: 542
+              comprimento: 26
+              largura: 27
+          - id: '16'
+            label: '16'
+            box:
+              x: 54
+              y: 565
+              comprimento: 30
+              largura: 28
+          - id: '32'
+            label: '32'
+            box:
+              x: 302
+              y: 578
+              comprimento: 32
+              largura: 32
+          - id: '34'
+            label: '34'
+            box:
+              x: 358
+              y: 579
+              comprimento: 23
+              largura: 26
+          - id: '35'
+            label: '35'
+            box:
+              x: 389
+              y: 572
+              comprimento: 26
+              largura: 27
+          - id: '41'
+            label: '41'
+            box:
+              x: 423
+              y: 576
+              comprimento: 24
+              largura: 29
+          - id: '30'
+            label: '30'
+            box:
+              x: 180
+              y: 612
+              comprimento: 33
+              largura: 31
+          - id: '33'
+            label: '33'
+            box:
+              x: 311
+              y: 630
+              comprimento: 32
+              largura: 31
+          - id: '15'
+            label: '15'
+            box:
+              x: 51
+              y: 665
+              comprimento: 36
+              largura: 30
+          - id: '28'
+            label: '28'
+            box:
+              x: 150
+              y: 686
+              comprimento: 33
+              largura: 31
+          - id: '14'
+            label: '14'
+            box:
+              x: 34
+              y: 750
+              comprimento: 41
+              largura: 33
+          - id: '29'
+            label: '29'
+            box:
+              x: 166
+              y: 762
+              comprimento: 29
+              largura: 28
+          - id: '06'
+            label: '06'
+            box:
+              x: 286
+              y: 799
+              comprimento: 28
+              largura: 28
+          - id: '13'
+            label: '13'
+            box:
+              x: 30
+              y: 838
+              comprimento: 27
+              largura: 29
+          - id: '05'
+            label: '05'
+            box:
+              x: 312
+              y: 840
+              comprimento: 28
+              largura: 27
+          - id: '04'
+            label: '04'
+            box:
+              x: 357
+              y: 866
+              comprimento: 30
+              largura: 27
+          - id: '02'
+            label: '02'
+            box:
+              x: 420
+              y: 886
+              comprimento: 28
+              largura: 28
+          - id: '12'
+            label: '12'
+            box:
+              x: 24
+              y: 908
+              comprimento: 27
+              largura: 29
+          - id: '03'
+            label: '03'
+            box:
+              x: 387
+              y: 901
+              comprimento: 28
+              largura: 28
+          - id: 08
+            label: 08
+            box:
+              x: 152
+              y: 912
+              comprimento: 33
+              largura: 30
+          - id: '07'
+            label: '07'
+            box:
+              x: 196
+              y: 908
+              comprimento: 26
+              largura: 23
+          - id: 09
+            label: 09
+            box:
+              x: 121
+              y: 926
+              comprimento: 24
+              largura: 22
+          - id: '01'
+            label: '01'
+            box:
+              x: 418
+              y: 932
+              comprimento: 28
+              largura: 27
+          - id: '10'
+            label: '10'
+            box:
+              x: 114
+              y: 964
+              comprimento: 23
+              largura: 25
+          - id: '11'
+            label: '11'
+            box:
+              x: 155
+              y: 1115
+              comprimento: 30
+              largura: 30
+          - id: Entrada_inferior_1
+            label: Entrada inferior
+            box:
+              x: 480
+              y: 1125
+              comprimento: 80
+              largura: 70
+          - id: Entrada_inferior_2
+            label: Entrada inferior
+            box:
+              x: 720
+              y: 1135
+              comprimento: 80
+              largura: 70
+        escaladas:
+        - via_movel:
+            nome: A Fenda da Discórdia
+            id_no_mapa: '01'
+            dificuldade: BR_7B
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto e Rômulo
+        - via_esportiva:
+            nome: Brenfisema (Sai na 5ª proteção da via 25)
+            id_no_mapa: '02'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Andrezão
+            - Half
+        - via_esportiva:
+            nome: Tamburello
+            id_no_mapa: '03'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Onda de Calcário
+            id_no_mapa: '04'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 14
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Ets de Fidalgo
+            id_no_mapa: '05'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Júlio
+            - Gustavo Sampaio
+            - Eduardo “Barão”
+        - via_esportiva:
+            nome: Conquista Fatal
+            id_no_mapa: '06'
+            dificuldade: BR_9A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fábio Luiz Faria “Fabinho
+            - Marquinho
+        - via_esportiva:
+            nome: Tico Tico Space
+            id_no_mapa: '07'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fábio Luiz Faria “Fabinho
+            - Mirian Morato
+        - via_esportiva:
+            nome: O Basilisco de Slytherin
+            id_no_mapa: 08
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Hans Thomassen
+        - via_movel:
+            nome: Disparada
+            id_no_mapa: 09
+            dificuldade: BR_4
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Antônio Carlos Magalhães
+            - Fábio Cota
+        - via_esportiva:
+            nome: Judy
+            id_no_mapa: '10'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Psicoacústica
+            id_no_mapa: '11'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Evandro “Kpeta”
+        - via_movel:
+            nome: Via sem informação
+            id_no_mapa: '12'
+            dificuldade: INDEFINIDO
+            protecoes_moveis: Móvel
+            conquistadores:
+            - ??
+        - via_esportiva:
+            nome: Quarto dos Sonhos
+            id_no_mapa: '13'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Ameaça Fantasma
+            id_no_mapa: '14'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fred
+            - Cerqueirinha
+            - Negão
+        - via_esportiva:
+            nome: Dança das Aranhas
+            id_no_mapa: '15'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Hans Thomassen
+        - via_esportiva:
+            nome: First Blues
+            id_no_mapa: '16'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Hans Thomassen
+        - via_esportiva:
+            nome: Saci de Corda
+            id_no_mapa: '17'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Hans Thomassen
+        - via_esportiva:
+            nome: Olho que Tudo Vê
+            id_no_mapa: '18'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Hans Thomassen
+        - via_movel:
+            nome: Preguiça Mental
+            id_no_mapa: '19'
+            dificuldade: BR_5
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Antônio Carlos Magalhães
+            - Fábio Cota
+        - via_esportiva:
+            nome: Sete Além
+            id_no_mapa: '20'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Babylon Tower
+            id_no_mapa: '21'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Aresta de Sangue
+            id_no_mapa: '22'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Caverna do Dragão
+            id_no_mapa: '23'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Dona Ló
+            id_no_mapa: '24'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Yesterday
+            id_no_mapa: '25'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Crônicas da Dy
+            id_no_mapa: '26'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Coisa Linda
+            id_no_mapa: '27'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Um Lugar para ser Feliz
+            id_no_mapa: '28'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Diedro de Thanos
+            id_no_mapa: '29'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Eternidade em um Segundo
+            id_no_mapa: '30'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Negão
+        - via_esportiva:
+            nome: Urubu Cargueiro
+            id_no_mapa: '31'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+        - via_esportiva:
+            nome: Lucineide não deu
+            id_no_mapa: '32'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Ricardo
+            - Andreia
+        - via_esportiva:
+            nome: Anos de Dor
+            id_no_mapa: '33'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Tinoco
+            - Douglas
+        - via_esportiva:
+            nome: Sem Consenso (Antiga variante)
+            id_no_mapa: '34'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Puta
+            - Granola
+            - Rogério
+            - DJ
+        - via_esportiva:
+            nome: Falta de Consenso
+            id_no_mapa: '35'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Puta
+            - Granola
+            - Rogério
+            - DJ
+        - via_esportiva:
+            nome: Dona da Beleza
+            id_no_mapa: '36'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Vem Tranquilo
+            id_no_mapa: '37'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - GT Baú 2021
+        - via_movel:
+            nome: O Princípio da Incerteza
+            id_no_mapa: '38'
+            dificuldade: BR_5
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Daniel F. Mariano
+            - Mateus Carneiro
+            - Roberto
+        - via_esportiva:
+            nome: Retorno do Pitu
+            id_no_mapa: '39'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Half
+            - Tinoco
+        - via_esportiva:
+            nome: Mar Revolto
+            id_no_mapa: '40'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Half
+        - via_esportiva:
+            nome: Zé Carlos, Domador de Cavalos
+            id_no_mapa: '41'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+        descricao: '# Setor Entrada Superior
+
+
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no
+          setor entrada, parte inferior. Só subir a direita margeando a parede amarela.'
+  - setor:
+      conteudo:
+        nome: Setor 2º Andar
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_segundo_andar_p0_i6.webp
+          largura_mapa: 994
+          altura_mapa: 1258
+          pontos_de_interesse:
+          - id: '38'
+            label: '38'
+            box:
+              x: 168
+              y: 82
+              comprimento: 27
+              largura: 21
+          - id: '39'
+            label: '39'
+            box:
+              x: 256
+              y: 88
+              comprimento: 33
+              largura: 29
+          - id: '37'
+            label: '37'
+            box:
+              x: 150
+              y: 166
+              comprimento: 27
+              largura: 21
+          - id: '36'
+            label: '36'
+            box:
+              x: 140
+              y: 199
+              comprimento: 27
+              largura: 22
+          - id: '40'
+            label: '40'
+            box:
+              x: 288
+              y: 217
+              comprimento: 27
+              largura: 20
+          - id: '34'
+            label: '34'
+            box:
+              x: 99
+              y: 234
+              comprimento: 28
+              largura: 21
+          - id: '35'
+            label: '35'
+            box:
+              x: 146
+              y: 229
+              comprimento: 27
+              largura: 22
+          - id: '41'
+            label: '41'
+            box:
+              x: 370
+              y: 262
+              comprimento: 25
+              largura: 21
+          - id: '42'
+            label: '42'
+            box:
+              x: 481
+              y: 270
+              comprimento: 28
+              largura: 21
+          - id: '43'
+            label: '43'
+            box:
+              x: 650
+              y: 250
+              comprimento: 30
+              largura: 20
+          - id: Setor_Entrada
+            label: Setor Entrada
+            box:
+              x: 948
+              y: 300
+              comprimento: 75
+              largura: 47
+          - id: Ponte_de_madeira
+            label: Ponte de madeira
+            box:
+              x: 816
+              y: 304
+              comprimento: 76
+              largura: 17
+          - id: '33'
+            label: '33'
+            box:
+              x: 126
+              y: 330
+              comprimento: 29
+              largura: 25
+          - id: '04'
+            label: '04'
+            box:
+              x: 380
+              y: 396
+              comprimento: 31
+              largura: 24
+          - id: '03'
+            label: '03'
+            box:
+              x: 448
+              y: 391
+              comprimento: 31
+              largura: 24
+          - id: '02'
+            label: '02'
+            box:
+              x: 554
+              y: 393
+              comprimento: 31
+              largura: 24
+          - id: '32'
+            label: '32'
+            box:
+              x: 150
+              y: 404
+              comprimento: 29
+              largura: 21
+          - id: '05'
+            label: '05'
+            box:
+              x: 306
+              y: 412
+              comprimento: 29
+              largura: 21
+          - id: '01'
+            label: '01'
+            box:
+              x: 664
+              y: 424
+              comprimento: 29
+              largura: 25
+          - id: '16'
+            label: '16'
+            box:
+              x: 716
+              y: 460
+              comprimento: 29
+              largura: 25
+          - id: '17'
+            label: '17'
+            box:
+              x: 800
+              y: 467
+              comprimento: 26
+              largura: 20
+          - id: '31'
+            label: '31'
+            box:
+              x: 146
+              y: 489
+              comprimento: 29
+              largura: 26
+          - id: '06'
+            label: '06'
+            box:
+              x: 287
+              y: 485
+              comprimento: 40
+              largura: 24
+          - id: '22'
+            label: '22'
+            box:
+              x: 956
+              y: 504
+              comprimento: 32
+              largura: 26
+          - id: '18'
+            label: '18'
+            box:
+              x: 790
+              y: 526
+              comprimento: 36
+              largura: 23
+          - id: '15'
+            label: '15'
+            box:
+              x: 650
+              y: 568
+              comprimento: 29
+              largura: 26
+          - id: '19'
+            label: '19'
+            box:
+              x: 791
+              y: 574
+              comprimento: 34
+              largura: 29
+          - id: '21'
+            label: '21'
+            box:
+              x: 905
+              y: 576
+              comprimento: 28
+              largura: 22
+          - id: '07'
+            label: '07'
+            box:
+              x: 291
+              y: 588
+              comprimento: 32
+              largura: 24
+          - id: '14'
+            label: '14'
+            box:
+              x: 615
+              y: 616
+              comprimento: 28
+              largura: 22
+          - id: 08
+            label: 08
+            box:
+              x: 283
+              y: 666
+              comprimento: 32
+              largura: 25
+          - id: '20'
+            label: '20'
+            box:
+              x: 820
+              y: 658
+              comprimento: 31
+              largura: 25
+          - id: 09
+            label: 09
+            box:
+              x: 362
+              y: 672
+              comprimento: 31
+              largura: 24
+          - id: '10'
+            label: '10'
+            box:
+              x: 422
+              y: 666
+              comprimento: 27
+              largura: 22
+          - id: '11'
+            label: '11'
+            box:
+              x: 508
+              y: 718
+              comprimento: 33
+              largura: 25
+          - id: '12'
+            label: '12'
+            box:
+              x: 578
+              y: 721
+              comprimento: 29
+              largura: 26
+          - id: '13'
+            label: '13'
+            box:
+              x: 646
+              y: 715
+              comprimento: 29
+              largura: 26
+          - id: '44'
+            label: '44'
+            box:
+              x: 126
+              y: 753
+              comprimento: 27
+              largura: 20
+          - id: '30'
+            label: '30'
+            box:
+              x: 161
+              y: 852
+              comprimento: 28
+              largura: 22
+          - id: '29'
+            label: '29'
+            box:
+              x: 243
+              y: 846
+              comprimento: 32
+              largura: 25
+          - id: '26'
+            label: '26'
+            box:
+              x: 498
+              y: 852
+              comprimento: 30
+              largura: 25
+          - id: '27'
+            label: '27'
+            box:
+              x: 452
+              y: 878
+              comprimento: 31
+              largura: 25
+          - id: '25'
+            label: '25'
+            box:
+              x: 528
+              y: 876
+              comprimento: 33
+              largura: 25
+          - id: '28'
+            label: '28'
+            box:
+              x: 350
+              y: 893
+              comprimento: 33
+              largura: 28
+          - id: '24'
+            label: '24'
+            box:
+              x: 540
+              y: 912
+              comprimento: 33
+              largura: 24
+          - id: '23'
+            label: '23'
+            box:
+              x: 542
+              y: 969
+              comprimento: 31
+              largura: 24
+          - id: Setor_Fechadura_Abaixo
+            label: Setor Fechadura (Abaixo)
+            box:
+              x: 910
+              y: 1152
+              comprimento: 155
+              largura: 129
+        escaladas:
+        - via_esportiva:
+            nome: Criatura Hediondas
+            id_no_mapa: '01'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Caca
+            - Caverna
+            - Xande
+        - via_esportiva:
+            nome: Wyatt Earp
+            id_no_mapa: '02'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Jimi Killer Miller
+            id_no_mapa: '03'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Jesse James
+            id_no_mapa: '04'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Tempo de Espera
+            id_no_mapa: '05'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Variante Tempo de Espera
+            id_no_mapa: '05'
+            dificuldade: INDEFINIDO
+            descricao: Fixa (Inacabada – Grampos à Esq.)
+        - via_esportiva:
+            nome: La Casa de Papel
+            id_no_mapa: '06'
+            dificuldade: BR_8B_BARRA_8C
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Cariocando
+            id_no_mapa: '07'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Neverland
+            id_no_mapa: 08
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Mestre Splinter
+            id_no_mapa: 09
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Enigma da Esfinge
+            id_no_mapa: '10'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Vinicius
+        - via_movel:
+            nome: Taj Mahal
+            id_no_mapa: '11'
+            dificuldade: INDEFINIDO
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Cláudio Melo
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: The Boys
+            id_no_mapa: '12'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Ainda é Tempo
+            id_no_mapa: '13'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: A Espera de um Milagre
+            id_no_mapa: '14'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Gangue Voadora
+            id_no_mapa: '15'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Benjamin Horigok
+            id_no_mapa: '16'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Edward Teacher
+            id_no_mapa: '17'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            descricao: Mesmo Top da via 16
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Blacksun Bellany
+            id_no_mapa: '18'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Charles Vane
+            id_no_mapa: '19'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Calcário nos Olhos
+            id_no_mapa: '20'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Leandro Mr. Bean
+            - Breno
+            - Lugoma
+        - via_esportiva:
+            nome: Cundum
+            id_no_mapa: '21'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Negão
+            - Cerqueirinha
+        - via_esportiva:
+            nome: Arte e Ofício na Lua
+            id_no_mapa: '22'
+            dificuldade: BR_8B
+            dificuldade_artificial: A1
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Puta
+            - DJ
+        - via_esportiva:
+            nome: Dê do Baú
+            id_no_mapa: '23'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Variante West and Girls
+            id_no_mapa: '24'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: West and Girls (Hipertrofia)
+            id_no_mapa: '25'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cláudio Melo
+            - Roberto
+            - Negão
+            - Cerqueirinha
+            - Leandro
+        - via_esportiva:
+            nome: Port Royal
+            id_no_mapa: '26'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Comendador do Carste
+            id_no_mapa: '27'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Faraó
+            id_no_mapa: '28'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Vinicinho
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Marreta Voadora
+            id_no_mapa: '29'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: El Capeton
+            id_no_mapa: '30'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Gustavo Vianna
+            - Gustavo Roscoe
+            - Vladimir Gonçalves
+        - via_esportiva:
+            nome: Modo Fantasma
+            id_no_mapa: '31'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Bocão
+            - Roberto L.
+            - Marco Durães
+        - via_esportiva:
+            nome: Doc Holiday
+            id_no_mapa: '32'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto
+            - Tinoco
+        - via_esportiva:
+            nome: Calamity Jane
+            id_no_mapa: '33'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Moriarty
+            id_no_mapa: '34'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: West World
+            id_no_mapa: '35'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Vórtex
+            id_no_mapa: '36'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Marcelo Bocão
+            - Roberto
+        - via_esportiva:
+            nome: Ida Chi não Sei
+            id_no_mapa: '37'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Cláudio Melo
+        - via_esportiva:
+            nome: Amarelo
+            id_no_mapa: '38'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Narnia
+            id_no_mapa: '39'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_movel:
+            nome: Seu Truta na Coluna do Meio
+            id_no_mapa: '40'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: John Wesley Hardin
+            id_no_mapa: '41'
+            dificuldade: BR_7C
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Woody
+            id_no_mapa: '42'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Coisa de Menino
+            id_no_mapa: '43'
+            dificuldade: BR_8B
+            quantidade_protecoes_parada: 1
+            descricao: Fixa
+            conquistadores:
+            - Caca
+            - Xande
+            - Salim
+        - via_esportiva:
+            nome: Amor Verdadeiro
+            id_no_mapa: '44'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+            - Samuel Lucas
+        descricao: '# Setor 2º Andar
+
+
+          **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras”
+          a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para
+          direita, subindo em direção ao segundo andar. O acesso é por uma ponte com
+          dois troncos de madeira.
+
+
+          **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’'
+  - setor:
+      conteudo:
+        nome: Setor Fechadura
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_fechadura_p0_i6.webp
+          largura_mapa: 1025
+          altura_mapa: 1149
+          pontos_de_interesse:
+          - id: Gruta_Acesso
+            label: GRUTA Acesso somente acompanhado
+            box:
+              x: 754
+              y: 70
+              comprimento: 103
+              largura: 44
+          - id: '01'
+            label: '01'
+            box:
+              x: 616
+              y: 138
+              comprimento: 23
+              largura: 17
+          - id: Setor_Entrada
+            label: Setor Entrada
+            box:
+              x: 949
+              y: 156
+              comprimento: 152
+              largura: 23
+          - id: '02'
+            label: '02'
+            box:
+              x: 605
+              y: 198
+              comprimento: 26
+              largura: 20
+          - id: Tunel_de_pedra
+            label: Túnel de pedra
+            box:
+              x: 610
+              y: 278
+              comprimento: 97
+              largura: 24
+          - id: '03'
+            label: '03'
+            box:
+              x: 563
+              y: 354
+              comprimento: 30
+              largura: 21
+          - id: '04'
+            label: '04'
+            box:
+              x: 500
+              y: 491
+              comprimento: 21
+              largura: 18
+          - id: '05'
+            label: '05'
+            box:
+              x: 458
+              y: 541
+              comprimento: 23
+              largura: 20
+          - id: 09
+            label: 09
+            box:
+              x: 31
+              y: 620
+              comprimento: 24
+              largura: 17
+          - id: 08
+            label: 08
+            box:
+              x: 166
+              y: 678
+              comprimento: 25
+              largura: 17
+          - id: '07'
+            label: '07'
+            box:
+              x: 250
+              y: 689
+              comprimento: 27
+              largura: 16
+          - id: '06'
+            label: '06'
+            box:
+              x: 372
+              y: 696
+              comprimento: 25
+              largura: 17
+          - id: Parte_Baixa
+            label: Parte Baixa
+            box:
+              x: 930
+              y: 738
+              comprimento: 126
+              largura: 89
+          - id: '13'
+            label: '13'
+            box:
+              x: 512
+              y: 796
+              comprimento: 26
+              largura: 17
+          - id: Top
+            label: Top
+            box:
+              x: 118
+              y: 842
+              comprimento: 37
+              largura: 23
+          - id: '11'
+            label: '11'
+            box:
+              x: 290
+              y: 846
+              comprimento: 21
+              largura: 23
+          - id: '14'
+            label: '14'
+            box:
+              x: 478
+              y: 897
+              comprimento: 20
+              largura: 20
+          - id: '10'
+            label: '10'
+            box:
+              x: 122
+              y: 880
+              comprimento: 22
+              largura: 17
+          - id: '16'
+            label: '16'
+            box:
+              x: 764
+              y: 900
+              comprimento: 22
+              largura: 17
+          - id: '12'
+            label: '12'
+            box:
+              x: 298
+              y: 916
+              comprimento: 26
+              largura: 19
+          - id: '15'
+            label: '15'
+            box:
+              x: 716
+              y: 913
+              comprimento: 21
+              largura: 14
+          - id: Fechadura
+            label: Fechadura
+            box:
+              x: 820
+              y: 1022
+              comprimento: 227
+              largura: 34
+          - id: Setor_Pasto
+            label: Setor Pasto
+            box:
+              x: 84
+              y: 1108
+              comprimento: 65
+              largura: 45
+        escaladas:
+        - via_esportiva:
+            nome: Era de Aquários (Interditada)
+            id_no_mapa: '01'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_movel:
+            nome: Terra Devastada
+            id_no_mapa: '02'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Isabel Diniz
+        - via_esportiva:
+            nome: Canabizados por Água
+            id_no_mapa: '03'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Belga
+            - Rômulo
+        - via_movel:
+            nome: Cólico Espinhos
+            id_no_mapa: '04'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Marcelo Bocão
+        - via_movel:
+            nome: Passeio no Parque
+            id_no_mapa: '05'
+            dificuldade: BR_4SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            protecoes_moveis: Mista
+            conquistadores:
+            - Daniel Ferreira Mariano
+            - Matheus Carneiro
+        - via_esportiva:
+            nome: Cobaia
+            id_no_mapa: '06'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Matheus e Daniel Ferreira Mariano Carneiro
+        - via_esportiva:
+            nome: Despedida de Solteiro
+            id_no_mapa: '07'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Andréa Rajão
+            - Ricardo Leal
+        - via_esportiva:
+            nome: Primeira Batida
+            id_no_mapa: 08
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto
+            - Marcos Aurélio
+            - Daida
+        - via_esportiva:
+            nome: Menino de Toca
+            id_no_mapa: 09
+            dificuldade: INDEFINIDO
+            descricao: Inacabada
+            conquistadores:
+            - Joviney
+            - Novais
+            - Vinicinho
+        - via_esportiva:
+            nome: Via sem informação
+            id_no_mapa: '10'
+            dificuldade: INDEFINIDO
+            descricao: Fixa
+        - via_esportiva:
+            nome: Rins de Aço
+            id_no_mapa: '11'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Novais
+            - Márcio
+            - Fábio
+        - via_movel:
+            nome: Macacos me mordam
+            id_no_mapa: '12'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Mista
+            conquistadores:
+            - Daniel Ferreira
+            - Matheus
+        - via_esportiva:
+            nome: Novinha em Folha
+            id_no_mapa: '13'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Ramaya Vallias
+        - via_movel:
+            nome: Oposição em Árvore
+            id_no_mapa: '14'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Edgardo Abreu “Caca”
+        - via_esportiva:
+            nome: Maggie
+            id_no_mapa: '15'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Antônio Carlos Magalhães “Tonico”
+        - via_esportiva:
+            nome: Chuva Orgânica
+            id_no_mapa: '16'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Eustáquio e Helon
+        descricao: '# Setor Fechadura
+
+
+          **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda
+          margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”.
+          A trilha segue pela esquerda, por fora da gruta.
+
+
+          **Acesso secundário:** Contornando o maciço pela direita a partir do Setor
+          Pasto e subindo em direção a pedra. Por este caminho chegará à base da via
+          “Primeira Batida”.
+
+
+          Lembrando que o acesso a gruta só é permitido com o acompanhamento de um
+          guia da fazenda.'
+  - setor:
+      conteudo:
+        nome: Setor Pasto
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_pasto_p0_i8.webp
+          largura_mapa: 1078
+          altura_mapa: 1434
+          pontos_de_interesse:
+          - id: Setor_Entrada
+            label: Setor Entrada
+            box:
+              x: 926
+              y: 42
+              comprimento: 217
+              largura: 34
+          - id: '01'
+            label: '01'
+            box:
+              x: 550
+              y: 499
+              comprimento: 39
+              largura: 36
+          - id: '02'
+            label: '02'
+            box:
+              x: 515
+              y: 584
+              comprimento: 42
+              largura: 32
+          - id: '03'
+            label: '03'
+            box:
+              x: 482
+              y: 618
+              comprimento: 37
+              largura: 31
+          - id: Fechadura
+            label: Fechadura
+            box:
+              x: 310
+              y: 1024
+              comprimento: 166
+              largura: 39
+          - id: PASTO
+            label: PASTO
+            box:
+              x: 908
+              y: 1038
+              comprimento: 269
+              largura: 77
+          - id: '04'
+            label: '04'
+            box:
+              x: 483
+              y: 1089
+              comprimento: 38
+              largura: 28
+          - id: '05'
+            label: '05'
+            box:
+              x: 528
+              y: 1224
+              comprimento: 41
+              largura: 33
+          - id: Setor_Fechadura
+            label: Setor Fechadura
+            box:
+              x: 94
+              y: 1303
+              comprimento: 167
+              largura: 88
+        escaladas:
+        - via_esportiva:
+            nome: Cemitério das Caranguejeiras - Direita
+            id_no_mapa: '01'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Vinicius
+            - Joviney
+        - via_esportiva:
+            nome: Água Suja - Esquerda
+            id_no_mapa: '01'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            descricao: Mesmo Top da Via 1
+            conquistadores:
+            - Rômulo
+            - Claudinho
+            - Roberto Lincoln
+        - via_movel:
+            nome: O Babão
+            id_no_mapa: '02'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Kactos Kid
+            id_no_mapa: '03'
+            dificuldade: INDEFINIDO
+            descricao: Top Rope
+            conquistadores:
+            - Roberto
+        - via_movel:
+            nome: Demônios da Mente
+            id_no_mapa: '04'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_esportiva:
+            nome: Rolha de Algodão
+            id_no_mapa: '05'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabinho
+            - Half
+            - Tinoco
+        descricao: '# Setor Pasto
+
+
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor
+          que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar
+          a trilha que desce a esquerda.
+
+
+          **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
+
+
+          | ![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp)
+          |
+
+          | :--: |
+
+          | *Alisson Tavares - Via Rolha de Algodão* |'
+  - setor:
+      conteudo:
+        nome: Setor Sentinela e Vale do Joga
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_sentinela_e_vale_do_joga_p0_i6.webp
+          largura_mapa: 1026
+          altura_mapa: 1322
+          pontos_de_interesse:
+          - id: Setor_Onda
+            label: Setor Onda
+            box:
+              x: 971
+              y: 27
+              comprimento: 68
+              largura: 42
+          - id: Vale_dos_Espinhos_Top
+            label: Vale dos Espinhos
+            box:
+              x: 135
+              y: 157
+              comprimento: 134
+              largura: 64
+          - id: '01'
+            label: '01'
+            box:
+              x: 514
+              y: 283
+              comprimento: 53
+              largura: 30
+          - id: '06'
+            label: '06'
+            box:
+              x: 644
+              y: 310
+              comprimento: 42
+              largura: 22
+          - id: '02'
+            label: '02'
+            box:
+              x: 486
+              y: 322
+              comprimento: 39
+              largura: 25
+          - id: '03'
+            label: '03'
+            box:
+              x: 438
+              y: 350
+              comprimento: 35
+              largura: 23
+          - id: '07'
+            label: '07'
+            box:
+              x: 750
+              y: 356
+              comprimento: 35
+              largura: 25
+          - id: Vale_do_Joga
+            label: Vale do Joga
+            box:
+              x: 546
+              y: 398
+              comprimento: 101
+              largura: 65
+          - id: 08
+            label: 08
+            box:
+              x: 737
+              y: 389
+              comprimento: 36
+              largura: 24
+          - id: '04'
+            label: '04'
+            box:
+              x: 470
+              y: 448
+              comprimento: 35
+              largura: 24
+          - id: 09
+            label: 09
+            box:
+              x: 700
+              y: 472
+              comprimento: 34
+              largura: 25
+          - id: '05'
+            label: '05'
+            box:
+              x: 642
+              y: 482
+              comprimento: 35
+              largura: 23
+          - id: '10'
+            label: '10'
+            box:
+              x: 676
+              y: 510
+              comprimento: 29
+              largura: 20
+          - id: '11'
+            label: '11'
+            box:
+              x: 632
+              y: 524
+              comprimento: 25
+              largura: 21
+          - id: '13'
+            label: '13'
+            box:
+              x: 526
+              y: 540
+              comprimento: 31
+              largura: 21
+          - id: '12'
+            label: '12'
+            box:
+              x: 582
+              y: 537
+              comprimento: 32
+              largura: 24
+          - id: '14'
+            label: '14'
+            box:
+              x: 474
+              y: 550
+              comprimento: 29
+              largura: 21
+          - id: '15'
+            label: '15'
+            box:
+              x: 375
+              y: 797
+              comprimento: 26
+              largura: 16
+          - id: '17'
+            label: '17'
+            box:
+              x: 678
+              y: 930
+              comprimento: 23
+              largura: 16
+          - id: '28'
+            label: '28'
+            box:
+              x: 732
+              y: 936
+              comprimento: 33
+              largura: 24
+          - id: '16'
+            label: '16'
+            box:
+              x: 592
+              y: 952
+              comprimento: 30
+              largura: 25
+          - id: Vale_dos_Espinhos_Bottom
+            label: Vale dos Espinhos
+            box:
+              x: 144
+              y: 982
+              comprimento: 125
+              largura: 63
+          - id: '18'
+            label: '18'
+            box:
+              x: 732
+              y: 967
+              comprimento: 30
+              largura: 20
+          - id: '19'
+            label: '19'
+            box:
+              x: 740
+              y: 1044
+              comprimento: 29
+              largura: 20
+          - id: '20'
+            label: '20'
+            box:
+              x: 748
+              y: 1078
+              comprimento: 31
+              largura: 19
+          - id: '21'
+            label: '21'
+            box:
+              x: 725
+              y: 1128
+              comprimento: 26
+              largura: 21
+          - id: '23'
+            label: '23'
+            box:
+              x: 678
+              y: 1152
+              comprimento: 30
+              largura: 20
+          - id: '22'
+            label: '22'
+            box:
+              x: 713
+              y: 1172
+              comprimento: 30
+              largura: 21
+          - id: '24'
+            label: '24'
+            box:
+              x: 722
+              y: 1227
+              comprimento: 29
+              largura: 16
+          - id: '27'
+            label: '27'
+            box:
+              x: 731
+              y: 1248
+              comprimento: 30
+              largura: 20
+          - id: '25'
+            label: '25'
+            box:
+              x: 732
+              y: 1269
+              comprimento: 27
+              largura: 16
+          - id: Setor_Entrada
+            label: Setor Entrada
+            box:
+              x: 966
+              y: 1287
+              comprimento: 105
+              largura: 46
+          - id: '26'
+            label: '26'
+            box:
+              x: 720
+              y: 1301
+              comprimento: 27
+              largura: 16
+        escaladas:
+        - via_esportiva:
+            nome: Barbie Face última
+            id_no_mapa: '01'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney, Novais, Alexandre, Ivo, Fábio, Márcio
+        - via_esportiva:
+            nome: Jogue que eu pego
+            id_no_mapa: '02'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - Novais
+            - Alexandre
+            - Ivo
+            - Fábio
+            - Márcio
+        - via_esportiva:
+            nome: Pegue que eu jogo
+            id_no_mapa: '03'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: Sucuri que me abraça
+            id_no_mapa: '04'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: Desesperado da Perereca
+            id_no_mapa: '05'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+        - via_movel:
+            nome: Início, Meio e Fim
+            id_no_mapa: '06'
+            dificuldade: BR_4
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Márcio
+            - Joviney
+        - via_esportiva:
+            nome: Menor Abandonado
+            id_no_mapa: '07'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - Sérgio
+        - via_esportiva:
+            nome: Contagem Regressiva
+            id_no_mapa: 08
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Woodstock
+            id_no_mapa: 09
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Gruda mas não Garra
+            id_no_mapa: '10'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabiano
+            - Fred
+        - via_esportiva:
+            nome: 2ª Dose
+            id_no_mapa: '11'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: 1ª Dose
+            id_no_mapa: '12'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Maracutaia
+            id_no_mapa: '13'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Muvuca
+            id_no_mapa: '14'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Márcio
+            - Joviney
+        - via_esportiva:
+            nome: Candymam
+            id_no_mapa: '15'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto
+            - Romulo
+        - via_esportiva:
+            nome: Agarras de Mateus
+            id_no_mapa: '16'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto
+            - Romulo
+        - via_multiplas_enfiadas:
+            nome: Dose Dupla
+            id_no_mapa: '17'
+            enfiadas:
+            - via_esportiva:
+                nome: 1ª Enfiada
+                dificuldade: BR_5
+                quantidade_protecoes_intermediarias: 4
+                quantidade_protecoes_parada: 2
+            - via_esportiva:
+                nome: 2ª Enfiada
+                dificuldade: BR_6SUP
+                quantidade_protecoes_intermediarias: 5
+                quantidade_protecoes_parada: 2
+            conquistadores:
+            - Aloysio
+            - Márcio Vasconcelos
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Consciência Limpa
+            id_no_mapa: '18'
+            dificuldade: BR_6SUP_BARRA_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Márcio Vasconcelos
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Análise de Consciência
+            id_no_mapa: '19'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Half
+            - Tinoco
+            - Eustáquio
+            - Ramaya
+        - via_esportiva:
+            nome: Sentinela
+            id_no_mapa: '20'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Rômulo
+        - via_movel:
+            nome: Vaca Profana
+            id_no_mapa: '21'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Márcio
+            - Macena
+            - Joviney
+            - Ivo
+        - via_movel:
+            nome: Santuário das Aranhas
+            id_no_mapa: '22'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Vinícius Réptil
+            - Fabinho
+        - via_movel:
+            nome: Professor Piló
+            id_no_mapa: '23'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            descricao: Saída a partir do platô em cima das vias 21 e 22
+            conquistadores:
+            - Marcus Rufino
+        - via_esportiva:
+            nome: O último Tango
+            id_no_mapa: '24'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Fabiano
+        - via_esportiva:
+            nome: Sentinela Dois
+            id_no_mapa: '25'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Romulo
+        - via_movel:
+            nome: Wilson Fisk
+            id_no_mapa: '26'
+            dificuldade: BR_7A
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Gabriel Costela
+        - via_esportiva:
+            nome: Cobra Kai
+            id_no_mapa: '27'
+            dificuldade: BR_7B_BARRA_7C
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Sandro
+            - Márcio
+            - Cláudia
+        - via_esportiva:
+            nome: Paisagistas
+            id_no_mapa: '28'
+            dificuldade: BR_7A_BARRA_7B
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+            - Márcio Vasconcelos
+            - Samuel Lucas
+        descricao: '# Setor Sentinela e Vale do Joga
+
+
+          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita,
+          em direção ao banheiro. Depois de passar pela base das vias “Retorno de
+          Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da
+          via “Sentinela”.
+
+
+          **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’'
+  - setor:
+      conteudo:
+        nome: Setor Vale dos Espinhos
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_vale_dos_espinhos_p0_i6.webp
+          largura_mapa: 753
+          altura_mapa: 1309
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            box:
+              x: 330
+              y: 86
+              comprimento: 30
+              largura: 19
+          - id: '33'
+            label: '33'
+            box:
+              x: 490
+              y: 103
+              comprimento: 29
+              largura: 16
+          - id: Setor_Sentinela_Top
+            label: Setor Sentinela
+            box:
+              x: 684
+              y: 132
+              comprimento: 115
+              largura: 46
+          - id: '02'
+            label: '02'
+            box:
+              x: 281
+              y: 130
+              comprimento: 34
+              largura: 19
+          - id: '03'
+            label: '03'
+            box:
+              x: 262
+              y: 165
+              comprimento: 30
+              largura: 16
+          - id: '04'
+            label: '04'
+            box:
+              x: 232
+              y: 196
+              comprimento: 33
+              largura: 19
+          - id: '34'
+            label: '34'
+            box:
+              x: 216
+              y: 224
+              comprimento: 30
+              largura: 15
+          - id: '05'
+            label: '05'
+            box:
+              x: 176
+              y: 334
+              comprimento: 34
+              largura: 19
+          - id: '06'
+            label: '06'
+            box:
+              x: 176
+              y: 395
+              comprimento: 33
+              largura: 20
+          - id: 09
+            label: 09
+            box:
+              x: 398
+              y: 409
+              comprimento: 37
+              largura: 26
+          - id: '07'
+            label: '07'
+            box:
+              x: 224
+              y: 444
+              comprimento: 25
+              largura: 15
+          - id: '35'
+            label: '35'
+            box:
+              x: 318
+              y: 450
+              comprimento: 33
+              largura: 19
+          - id: 08
+            label: 08
+            box:
+              x: 380
+              y: 444
+              comprimento: 33
+              largura: 20
+          - id: '37'
+            label: '37'
+            box:
+              x: 546
+              y: 448
+              comprimento: 39
+              largura: 27
+          - id: '36'
+            label: '36'
+            box:
+              x: 402
+              y: 480
+              comprimento: 35
+              largura: 20
+          - id: '32'
+            label: '32'
+            box:
+              x: 523
+              y: 541
+              comprimento: 34
+              largura: 18
+          - id: '31'
+            label: '31'
+            box:
+              x: 518
+              y: 606
+              comprimento: 31
+              largura: 19
+          - id: '10'
+            label: '10'
+            box:
+              x: 346
+              y: 683
+              comprimento: 33
+              largura: 22
+          - id: '30'
+            label: '30'
+            box:
+              x: 522
+              y: 682
+              comprimento: 33
+              largura: 19
+          - id: '14'
+            label: '14'
+            box:
+              x: 235
+              y: 699
+              comprimento: 22
+              largura: 14
+          - id: '13'
+            label: '13'
+            box:
+              x: 250
+              y: 748
+              comprimento: 30
+              largura: 19
+          - id: '15'
+            label: '15'
+            box:
+              x: 62
+              y: 761
+              comprimento: 29
+              largura: 20
+          - id: '12'
+            label: '12'
+            box:
+              x: 250
+              y: 786
+              comprimento: 30
+              largura: 19
+          - id: '29'
+            label: '29'
+            box:
+              x: 548
+              y: 820
+              comprimento: 29
+              largura: 15
+          - id: '11'
+            label: '11'
+            box:
+              x: 264
+              y: 832
+              comprimento: 27
+              largura: 20
+          - id: '28'
+            label: '28'
+            box:
+              x: 542
+              y: 854
+              comprimento: 30
+              largura: 15
+          - id: '27'
+            label: '27'
+            box:
+              x: 541
+              y: 888
+              comprimento: 28
+              largura: 15
+          - id: '26'
+            label: '26'
+            box:
+              x: 544
+              y: 926
+              comprimento: 31
+              largura: 16
+          - id: Setor_Sentinela_Bottom
+            label: Setor Sentinela
+            box:
+              x: 682
+              y: 996
+              comprimento: 108
+              largura: 39
+          - id: '16'
+            label: '16'
+            box:
+              x: 176
+              y: 1010
+              comprimento: 24
+              largura: 17
+          - id: '17'
+            label: '17'
+            box:
+              x: 260
+              y: 1018
+              comprimento: 30
+              largura: 19
+          - id: '18'
+            label: '18'
+            box:
+              x: 284
+              y: 1056
+              comprimento: 29
+              largura: 20
+          - id: '25'
+            label: '25'
+            box:
+              x: 488
+              y: 1055
+              comprimento: 34
+              largura: 20
+          - id: Acesso_escalando
+            label: Acesso escalando
+            box:
+              x: 504
+              y: 1083
+              comprimento: 201
+              largura: 16
+          - id: '24'
+            label: '24'
+            box:
+              x: 504
+              y: 1116
+              comprimento: 28
+              largura: 15
+          - id: '23'
+            label: '23'
+            box:
+              x: 514
+              y: 1146
+              comprimento: 33
+              largura: 19
+          - id: '22'
+            label: '22'
+            box:
+              x: 540
+              y: 1172
+              comprimento: 32
+              largura: 17
+          - id: Clarabóia
+            label: Clarabóia
+            box:
+              x: 373
+              y: 1196
+              comprimento: 154
+              largura: 29
+          - id: '21'
+            label: '21'
+            box:
+              x: 552
+              y: 1206
+              comprimento: 33
+              largura: 19
+          - id: '20'
+            label: '20'
+            box:
+              x: 556
+              y: 1232
+              comprimento: 34
+              largura: 19
+          - id: '19'
+            label: '19'
+            box:
+              x: 540
+              y: 1260
+              comprimento: 31
+              largura: 19
+        escaladas:
+        - via_esportiva:
+            nome: Quase Nove
+            id_no_mapa: '01'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Vinícius Wilson
+        - via_esportiva:
+            nome: A Revolta da Bunda
+            id_no_mapa: '02'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Vinícius Wilson
+        - via_esportiva:
+            nome: O Faxineiro
+            id_no_mapa: '03'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Vinícius Wilson
+        - via_esportiva:
+            nome: Esquadrilha da Fumaça
+            id_no_mapa: '04'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Vinícius Wilson
+        - via_esportiva:
+            nome: Ronco do V8
+            id_no_mapa: '05'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Sandro Almeida
+            - Cláudia Heringer
+            - Bruno Berbari
+        - via_esportiva:
+            nome: Lagrimas de Calcário
+            id_no_mapa: '06'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Sandro Almeida
+            - Cláudia Heringer
+            - Bruno Berbari
+        - via_esportiva:
+            nome: Tá Chovendo Carrapato
+            id_no_mapa: '07'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Márcio Vasconcelos
+            - Joviney Miguel
+        - via_esportiva:
+            nome: Tá Esperando o quê?
+            id_no_mapa: 08
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Quem Sabe ano que Vem
+            id_no_mapa: 09
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Pedro Leite
+            - Vinícius Wilson
+        - via_esportiva:
+            nome: Eau Rouge
+            id_no_mapa: '10'
+            dificuldade: BR_9A
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Sem informação
+            id_no_mapa: '11'
+            dificuldade: INDEFINIDO
+            descricao: Fixa
+        - via_esportiva:
+            nome: Via inacabada
+            id_no_mapa: '12'
+            dificuldade: INDEFINIDO
+        - via_esportiva:
+            nome: Cachinhos Dourados
+            id_no_mapa: '13'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            descricao: Lance difícil só na saída. Depois fica fácil.
+            conquistadores:
+            - Christian Costa
+            - Guilherme Côrrea
+        - via_movel:
+            nome: Manto e Adaga
+            id_no_mapa: '14'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+        - via_movel:
+            nome: R770
+            id_no_mapa: '15'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+        - via_movel:
+            nome: Sem informação
+            id_no_mapa: '16'
+            dificuldade: INDEFINIDO
+            protecoes_moveis: Mista
+        - via_esportiva:
+            nome: Jornada nas Estrelas
+            id_no_mapa: '17'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 14
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Super Canaleta
+            id_no_mapa: '18'
+            dificuldade: BR_9B
+            quantidade_protecoes_intermediarias: 16
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Laboratório
+            id_no_mapa: '19'
+            dificuldade: BR_9B
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Dark Side of the Moon
+            id_no_mapa: '20'
+            dificuldade: BR_9A
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Mega Sena
+            id_no_mapa: '21'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: La Torância
+            id_no_mapa: '22'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Comunidade Flebótomo
+            id_no_mapa: '23'
+            dificuldade: BR_8C
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_movel:
+            nome: Sem informação
+            id_no_mapa: '24'
+            dificuldade: INDEFINIDO
+            protecoes_moveis: Mista
+            descricao: Via longa – Usar corda de 60 mts
+        - via_multiplas_enfiadas:
+            nome: Duplo Sentido
+            id_no_mapa: '25'
+            enfiadas:
+            - via_esportiva:
+                nome: 1ª Enfiada
+                dificuldade: BR_7A
+                quantidade_protecoes_intermediarias: 9
+                quantidade_protecoes_parada: 2
+            - via_esportiva:
+                nome: 2ª Enfiada
+                dificuldade: BR_6SUP
+                quantidade_protecoes_intermediarias: 4
+                quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcus Rufino
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Fantástico
+            id_no_mapa: '26'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - Marcus Rufino
+            - Felipe B
+        - via_movel:
+            nome: Show da Vida
+            id_no_mapa: '27'
+            dificuldade: BR_7B
+            protecoes_moveis: Móvel
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Madame Surtô
+            id_no_mapa: '28'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Lupin
+            id_no_mapa: '29'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Wall Ride
+            id_no_mapa: '30'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Dr. Lund
+            id_no_mapa: '31'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Kero Mais
+            id_no_mapa: '32'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            descricao: Via longa – Usar corda de 60 mts
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Bruxa de Blair
+            id_no_mapa: '33'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Mentirinha
+            id_no_mapa: '34'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Zé Arigó
+            id_no_mapa: '35'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Roberto Lincoln
+            - Marco Durães
+        - via_esportiva:
+            nome: Visionário
+            id_no_mapa: '36'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Dy Oliveira
+            - Marco Durães
+        - via_esportiva:
+            nome: Skywalker
+            id_no_mapa: '37'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Dy Oliveira
+            - Marco Durães
+        descricao: '# Setor Vale dos Espinhos
+
+
+          **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma
+          pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta
+          para preservar os espeleotemas.
+
+
+          **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’
+          -43º59.426’'
+  - setor:
+      conteudo:
+        nome: Setor Escola
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_escola_p0_i6.webp
+          largura_mapa: 1139
+          altura_mapa: 686
+          pontos_de_interesse:
+          - id: Vale_da_Onca
+            label: Vale da Onça
+            box:
+              x: 816
+              y: 33
+              comprimento: 163
+              largura: 36
+          - id: Portao
+            label: Portão
+            box:
+              x: 709
+              y: 236
+              comprimento: 94
+              largura: 41
+          - id: '01'
+            label: '01'
+            box:
+              x: 452
+              y: 248
+              comprimento: 28
+              largura: 22
+          - id: '02'
+            label: '02'
+            box:
+              x: 306
+              y: 274
+              comprimento: 27
+              largura: 23
+          - id: Setor_Geriatria
+            label: Setor Geriatria
+            box:
+              x: 1060
+              y: 342
+              comprimento: 105
+              largura: 60
+          - id: '03'
+            label: '03'
+            box:
+              x: 206
+              y: 409
+              comprimento: 28
+              largura: 26
+          - id: '04'
+            label: '04'
+            box:
+              x: 451
+              y: 460
+              comprimento: 32
+              largura: 27
+          - id: Top
+            label: Top
+            box:
+              x: 366
+              y: 491
+              comprimento: 39
+              largura: 28
+          - id: Setor_Sentinela
+            label: Setor Sentinela
+            box:
+              x: 792
+              y: 638
+              comprimento: 169
+              largura: 21
+        escaladas:
+        - via_esportiva:
+            nome: Credo, que Delícia
+            id_no_mapa: '01'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Trem Bão é Coisa Boa
+            id_no_mapa: '02'
+            dificuldade: BR_3SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: A Vida é um Desafio
+            id_no_mapa: '03'
+            dificuldade: BR_4SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Essa Molezinha vai Abacar
+            id_no_mapa: '04'
+            dificuldade: BR_3
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        descricao: '# Setor Escola
+
+
+          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do
+          Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda
+          antes do portão de metal e subir um pequeno morro.
+
+
+          Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência
+          de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar
+          as aulas.'
+  - setor:
+      conteudo:
+        nome: Setor Geriatria
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_geriatria_p0_i6.webp
+          largura_mapa: 1152
+          altura_mapa: 968
+          pontos_de_interesse:
+          - id: Onda_de_Calcario
+            label: Onda de Calcário
+            box:
+              x: 1085
+              y: 46
+              comprimento: 98
+              largura: 62
+          - id: '10'
+            label: '10'
+            box:
+              x: 626
+              y: 84
+              comprimento: 35
+              largura: 31
+          - id: '11'
+            label: '11'
+            box:
+              x: 514
+              y: 93
+              comprimento: 28
+              largura: 28
+          - id: '12'
+            label: '12'
+            box:
+              x: 430
+              y: 146
+              comprimento: 33
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 400
+              y: 202
+              comprimento: 35
+              largura: 31
+          - id: '18'
+            label: '18'
+            box:
+              x: 137
+              y: 217
+              comprimento: 32
+              largura: 26
+          - id: '22'
+            label: '22'
+            box:
+              x: 42
+              y: 270
+              comprimento: 37
+              largura: 29
+          - id: '14'
+            label: '14'
+            box:
+              x: 343
+              y: 265
+              comprimento: 32
+              largura: 26
+          - id: '21'
+            label: '21'
+            box:
+              x: 152
+              y: 312
+              comprimento: 35
+              largura: 29
+          - id: '23'
+            label: '23'
+            box:
+              x: 25
+              y: 326
+              comprimento: 36
+              largura: 29
+          - id: '01'
+            label: '01'
+            box:
+              x: 874
+              y: 340
+              comprimento: 31
+              largura: 25
+          - id: '19'
+            label: '19'
+            box:
+              x: 136
+              y: 416
+              comprimento: 32
+              largura: 27
+          - id: 09
+            label: 09
+            box:
+              x: 647
+              y: 422
+              comprimento: 38
+              largura: 31
+          - id: '15'
+            label: '15'
+            box:
+              x: 378
+              y: 439
+              comprimento: 33
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 364
+              y: 495
+              comprimento: 35
+              largura: 30
+          - id: '20'
+            label: '20'
+            box:
+              x: 637
+              y: 485
+              comprimento: 38
+              largura: 28
+          - id: 08
+            label: 08
+            box:
+              x: 617
+              y: 526
+              comprimento: 38
+              largura: 29
+          - id: '02'
+            label: '02'
+            box:
+              x: 730
+              y: 528
+              comprimento: 41
+              largura: 33
+          - id: '03'
+            label: '03'
+            box:
+              x: 692
+              y: 569
+              comprimento: 39
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 322
+              y: 586
+              comprimento: 30
+              largura: 25
+          - id: '07'
+            label: '07'
+            box:
+              x: 626
+              y: 627
+              comprimento: 38
+              largura: 30
+          - id: '04'
+            label: '04'
+            box:
+              x: 680
+              y: 618
+              comprimento: 39
+              largura: 29
+          - id: '05'
+            label: '05'
+            box:
+              x: 674
+              y: 720
+              comprimento: 39
+              largura: 30
+          - id: '06'
+            label: '06'
+            box:
+              x: 658
+              y: 781
+              comprimento: 37
+              largura: 30
+          - id: Portao
+            label: Portão
+            box:
+              x: 200
+              y: 858
+              comprimento: 126
+              largura: 50
+          - id: Vale_da_Onca
+            label: Vale da Onça
+            box:
+              x: 37
+              y: 908
+              comprimento: 74
+              largura: 56
+          - id: Setor_Sentinela
+            label: Setor Sentinela
+            box:
+              x: 1090
+              y: 940
+              comprimento: 86
+              largura: 46
+        escaladas:
+        - via_esportiva:
+            nome: Osteoporose
+            id_no_mapa: '01'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Pressão Baixa
+            id_no_mapa: '02'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Pressão Alta
+            id_no_mapa: '03'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Menopausa
+            id_no_mapa: '04'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Andropausa
+            id_no_mapa: '05'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Toque Retal
+            id_no_mapa: '06'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Papa Nicolau
+            id_no_mapa: '07'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Tira o Andador e Vai
+            id_no_mapa: 08
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Rupestre
+            id_no_mapa: 09
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Losartana
+            id_no_mapa: '10'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Captopril
+            id_no_mapa: '11'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Plenitude
+            id_no_mapa: '12'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Diabetes
+            id_no_mapa: '13'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Glifage
+            id_no_mapa: '14'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Insulina
+            id_no_mapa: '15'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: AVC
+            id_no_mapa: '16'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Fusca Azul
+            id_no_mapa: '17'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcus Rufino
+            - Renato Utsch
+            - Eduardo Utsch
+        - via_movel:
+            nome: The Equalizer
+            id_no_mapa: '18'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Rodrigo Soares
+        - via_movel:
+            nome: Casa da Fumaça
+            id_no_mapa: '19'
+            dificuldade: BR_5
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - Fábio Mello
+        - via_esportiva:
+            nome: Sombra pro Morto
+            id_no_mapa: '20'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_movel:
+            nome: As Fúrias
+            id_no_mapa: '21'
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - André Braga
+        - via_movel:
+            nome: Os Despertos
+            id_no_mapa: '22'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - André Braga
+        - via_movel:
+            nome: As Bondosas
+            id_no_mapa: '23'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Roberto Lincoln
+            - André Braga
+        descricao: '# Setor Geriatria
+
+
+          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da
+          Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita
+          antes do portão de metal.
+
+
+          **Acesso secundário:** pela trilha do Setor Onda de Calcário.'
+  - setor:
+      conteudo:
+        nome: Setor Mr. Bean
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_mr_bean_p0_i6.webp
+          largura_mapa: 1266
+          altura_mapa: 1215
+          pontos_de_interesse:
+          - id: Mirante
+            label: Mirante
+            box:
+              x: 47
+              y: 102
+              comprimento: 94
+              largura: 25
+          - id: '03'
+            label: '03'
+            box:
+              x: 444
+              y: 158
+              comprimento: 33
+              largura: 25
+          - id: 08
+            label: 08
+            box:
+              x: 707
+              y: 164
+              comprimento: 28
+              largura: 21
+          - id: 09
+            label: 09
+            box:
+              x: 750
+              y: 218
+              comprimento: 35
+              largura: 29
+          - id: '02'
+            label: '02'
+            box:
+              x: 380
+              y: 234
+              comprimento: 34
+              largura: 25
+          - id: '04'
+            label: '04'
+            box:
+              x: 558
+              y: 279
+              comprimento: 34
+              largura: 24
+          - id: '01'
+            label: '01'
+            box:
+              x: 338
+              y: 305
+              comprimento: 29
+              largura: 26
+          - id: '05'
+            label: '05'
+            box:
+              x: 538
+              y: 334
+              comprimento: 33
+              largura: 26
+          - id: '07'
+            label: '07'
+            box:
+              x: 608
+              y: 338
+              comprimento: 32
+              largura: 25
+          - id: '06'
+            label: '06'
+            box:
+              x: 556
+              y: 388
+              comprimento: 32
+              largura: 26
+          - id: '12'
+            label: '12'
+            box:
+              x: 926
+              y: 388
+              comprimento: 30
+              largura: 25
+          - id: '13'
+            label: '13'
+            box:
+              x: 975
+              y: 384
+              comprimento: 26
+              largura: 22
+          - id: '10'
+            label: '10'
+            box:
+              x: 804
+              y: 406
+              comprimento: 27
+              largura: 22
+          - id: '11'
+            label: '11'
+            box:
+              x: 852
+              y: 420
+              comprimento: 23
+              largura: 23
+          - id: '31'
+            label: '31'
+            box:
+              x: 1129
+              y: 522
+              comprimento: 28
+              largura: 25
+          - id: '14'
+            label: '14'
+            box:
+              x: 1014
+              y: 562
+              comprimento: 30
+              largura: 25
+          - id: '30'
+            label: '30'
+            box:
+              x: 259
+              y: 574
+              comprimento: 32
+              largura: 26
+          - id: '16'
+            label: '16'
+            box:
+              x: 659
+              y: 602
+              comprimento: 26
+              largura: 21
+          - id: '15'
+            label: '15'
+            box:
+              x: 861
+              y: 596
+              comprimento: 28
+              largura: 25
+          - id: '17'
+            label: '17'
+            box:
+              x: 328
+              y: 644
+              comprimento: 25
+              largura: 23
+          - id: '27'
+            label: '27'
+            box:
+              x: 1233
+              y: 673
+              comprimento: 30
+              largura: 24
+          - id: '26'
+            label: '26'
+            box:
+              x: 1200
+              y: 688
+              comprimento: 30
+              largura: 25
+          - id: '25'
+            label: '25'
+            box:
+              x: 1166
+              y: 708
+              comprimento: 34
+              largura: 27
+          - id: '24'
+            label: '24'
+            box:
+              x: 1134
+              y: 734
+              comprimento: 31
+              largura: 25
+          - id: '23'
+            label: '23'
+            box:
+              x: 1098
+              y: 756
+              comprimento: 31
+              largura: 25
+          - id: '21'
+            label: '21'
+            box:
+              x: 578
+              y: 780
+              comprimento: 35
+              largura: 33
+          - id: '28'
+            label: '28'
+            box:
+              x: 1232
+              y: 793
+              comprimento: 30
+              largura: 24
+          - id: '18'
+            label: '18'
+            box:
+              x: 200
+              y: 824
+              comprimento: 31
+              largura: 25
+          - id: '19'
+            label: '19'
+            box:
+              x: 233
+              y: 818
+              comprimento: 30
+              largura: 24
+          - id: '20'
+            label: '20'
+            box:
+              x: 546
+              y: 836
+              comprimento: 33
+              largura: 25
+          - id: '22'
+            label: '22'
+            box:
+              x: 896
+              y: 896
+              comprimento: 30
+              largura: 20
+          - id: GRUTA
+            label: GRUTA
+            box:
+              x: 1190
+              y: 900
+              comprimento: 75
+              largura: 21
+          - id: '29'
+            label: '29'
+            box:
+              x: 1234
+              y: 976
+              comprimento: 28
+              largura: 21
+          - id: Setores_Sentinela_e_Onda_de_Calcario
+            label: Setores Sentinela e Onda de Calcário
+            box:
+              x: 152
+              y: 1166
+              comprimento: 171
+              largura: 59
+        escaladas:
+        - via_esportiva:
+            nome: Primogênito
+            id_no_mapa: '01'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Tá de Corpo Mole
+            id_no_mapa: '02'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Dente de Tubarão
+            id_no_mapa: '03'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Besteirinha
+            id_no_mapa: '04'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: O Jogo que Jogamos
+            id_no_mapa: '05'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Boca Mordida
+            id_no_mapa: '06'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Tetris
+            id_no_mapa: '07'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_movel:
+            nome: Fenda Gerações
+            id_no_mapa: 08
+            dificuldade: BR_6
+            protecoes_moveis: Móvel
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Encontros Temporais
+            id_no_mapa: 09
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Golpe de Mestre
+            id_no_mapa: '10'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Voo de Ícaro
+            id_no_mapa: '11'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Y da Questão
+            id_no_mapa: '12'
+            dificuldade: BR_8B_BARRA_8C
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Seu Perdão
+            id_no_mapa: '13'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: A Linda
+            id_no_mapa: '14'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Drama
+            id_no_mapa: '15'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Escolha de Sophia
+            id_no_mapa: '16'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Pra Você
+            id_no_mapa: '17'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Titanic
+            id_no_mapa: '18'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Por Baixo dos Panos
+            id_no_mapa: '19'
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Lobo Solitário
+            id_no_mapa: '20'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Currículo Atualizado
+            id_no_mapa: '21'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Pra Morrer Menos
+            id_no_mapa: '22'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Conhecendo o Criador
+            id_no_mapa: '23'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Vida Após a Morte
+            id_no_mapa: '24'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: De Frente com o Renegado
+            id_no_mapa: '25'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Contra Mão
+            id_no_mapa: '26'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2020
+        - via_esportiva:
+            nome: Sete Trabalhos de Hércules
+            id_no_mapa: '27'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Inhônho não Deixa
+            id_no_mapa: '28'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+        - via_movel:
+            nome: Excesso de Confiança
+            id_no_mapa: '29'
+            dificuldade: BR_4
+            protecoes_moveis: Móvel
+            conquistadores:
+            - GT Baú 2020
+        - via_movel:
+            nome: A Última Sinfonia de Bethoven
+            id_no_mapa: '30'
+            dificuldade: BR_5SUP
+            protecoes_moveis: Móvel
+            conquistadores:
+            - André “Dedé”
+            - Roberto Lincoln
+        - via_movel:
+            nome: Vai no Molhado Mesmo (Rapel do bico de pedra)
+            id_no_mapa: '31'
+            dificuldade: BR_3
+            protecoes_moveis: Móvel
+            conquistadores:
+            - Alberto Melo
+            - Gabriel Lousada
+        descricao: '# Setor Mr. Bean
+
+
+          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita,
+          em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada
+          a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar
+          à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.
+
+
+          O nome do setor é uma homenagem ao escalador Leandro Ianotta, que perdeu
+          a vida fazendo o que mais amava no Fitz Roy na Patagônia argentina. Leandro,
+          que era conhecido por Mr. Bean era um apaixonado pelo Baú e seus primeiros
+          passos na carreira de escalador profissional passaram pela gruta do Baú.
+
+
+          **Coordenadas do setor Mr. Bean:** -20º35.832’ -46º20.498’
+
+
+          Membros do GT Baú 2020: Márcio, Wilson, Roberto Lincoln, André “Dedé”, Otto
+          e Michele “Joaninha”.'
+  - setor:
+      conteudo:
+        nome: Setor Vale do Cinema
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_vale_do_cinema_p0_i6.webp
+          largura_mapa: 1202
+          altura_mapa: 1219
+          pontos_de_interesse:
+          - id: Trilha
+            label: Trilha
+            box:
+              x: 1130
+              y: 28
+              comprimento: 74
+              largura: 35
+          - id: '07'
+            label: '07'
+            box:
+              x: 390
+              y: 136
+              comprimento: 52
+              largura: 37
+          - id: '01'
+            label: '01'
+            box:
+              x: 50
+              y: 414
+              comprimento: 37
+              largura: 36
+          - id: 08
+            label: 08
+            box:
+              x: 132
+              y: 450
+              comprimento: 39
+              largura: 35
+          - id: 09
+            label: 09
+            box:
+              x: 262
+              y: 478
+              comprimento: 44
+              largura: 39
+          - id: '02'
+            label: '02'
+            box:
+              x: 240
+              y: 541
+              comprimento: 45
+              largura: 38
+          - id: '03'
+            label: '03'
+            box:
+              x: 149
+              y: 629
+              comprimento: 40
+              largura: 36
+          - id: '14'
+            label: '14'
+            box:
+              x: 563
+              y: 720
+              comprimento: 50
+              largura: 37
+          - id: '06'
+            label: '06'
+            box:
+              x: 534
+              y: 819
+              comprimento: 49
+              largura: 36
+          - id: '04'
+            label: '04'
+            box:
+              x: 162
+              y: 872
+              comprimento: 37
+              largura: 31
+          - id: '13'
+            label: '13'
+            box:
+              x: 508
+              y: 902
+              comprimento: 42
+              largura: 35
+          - id: '10'
+            label: '10'
+            box:
+              x: 176
+              y: 954
+              comprimento: 35
+              largura: 32
+          - id: '12'
+            label: '12'
+            box:
+              x: 576
+              y: 1004
+              comprimento: 48
+              largura: 39
+          - id: Portao
+            label: Portão
+            box:
+              x: 1020
+              y: 1026
+              comprimento: 88
+              largura: 39
+          - id: '05'
+            label: '05'
+            box:
+              x: 197
+              y: 1046
+              comprimento: 38
+              largura: 34
+          - id: '11'
+            label: '11'
+            box:
+              x: 446
+              y: 1084
+              comprimento: 32
+              largura: 34
+          - id: Setor_Sentinela
+            label: Setor Sentinela
+            box:
+              x: 1111
+              y: 1192
+              comprimento: 166
+              largura: 31
+        escaladas:
+        - via_movel:
+            nome: Armagedon
+            id_no_mapa: '01'
+            dificuldade: BR_6SUP
+            protecoes_moveis: Mista
+            conquistadores:
+            - Novais
+            - Márcio
+            - Ivo
+            - Joviney
+        - via_esportiva:
+            nome: No dia em que a Terra Parou
+            id_no_mapa: '02'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Novais
+            - Márcio
+            - Ivo
+            - Joviney
+        - via_esportiva:
+            nome: Vermeio de Raiva
+            id_no_mapa: '03'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Novais
+            - Márcio
+            - Ivo
+            - Joviney
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Linha Vermelha
+            id_no_mapa: '04'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Novais
+            - Márcio
+            - Ivo
+            - Joviney
+        - via_esportiva:
+            nome: Pestinha
+            id_no_mapa: '05'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Novais
+            - Márcio
+            - Ivo
+            - Joviney
+        - via_esportiva:
+            nome: Os Babás
+            id_no_mapa: '06'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Joviney Miguel
+            - Wilson
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Lanterninha
+            id_no_mapa: '07'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+        - via_esportiva:
+            nome: Navio Fantasma
+            id_no_mapa: 08
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Pata Afiada
+            id_no_mapa: 09
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: 1ª Fila
+            id_no_mapa: '10'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Saída de Emergência
+            id_no_mapa: '11'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Roteirista
+            id_no_mapa: '12'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Acenderam a Luz
+            id_no_mapa: '13'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Bilheteria
+            id_no_mapa: '14'
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marco Durães
+            - Roberto Lincoln
+        descricao: '# Setor Vale do Cinema
+
+
+          **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário
+          pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda,
+          passando próximo de alguns blocos de rocha. Passar pelo portão de metal
+          e subir um pequeno morro. O setor estará à esquerda.
+
+
+          **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’'
+  - setor:
+      conteudo:
+        nome: Setor Onda de Calcário
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_onda_de_calcario_p0_i6.webp
+          largura_mapa: 1041
+          altura_mapa: 1213
+          pontos_de_interesse:
+          - id: Trilha_Caminhada
+            label: Trilha Caminhada
+            box:
+              x: 646
+              y: 26
+              comprimento: 219
+              largura: 27
+          - id: '01'
+            label: '01'
+            box:
+              x: 505
+              y: 73
+              comprimento: 26
+              largura: 22
+          - id: '02'
+            label: '02'
+            box:
+              x: 488
+              y: 187
+              comprimento: 38
+              largura: 24
+          - id: '03'
+            label: '03'
+            box:
+              x: 482
+              y: 219
+              comprimento: 34
+              largura: 28
+          - id: '14'
+            label: '14'
+            box:
+              x: 500
+              y: 252
+              comprimento: 31
+              largura: 29
+          - id: '04'
+            label: '04'
+            box:
+              x: 512
+              y: 280
+              comprimento: 31
+              largura: 25
+          - id: '15'
+            label: '15'
+            box:
+              x: 478
+              y: 374
+              comprimento: 31
+              largura: 27
+          - id: '05'
+            label: '05'
+            box:
+              x: 500
+              y: 411
+              comprimento: 33
+              largura: 26
+          - id: '06'
+            label: '06'
+            box:
+              x: 438
+              y: 440
+              comprimento: 29
+              largura: 29
+          - id: '16'
+            label: '16'
+            box:
+              x: 478
+              y: 440
+              comprimento: 31
+              largura: 25
+          - id: '07'
+            label: '07'
+            box:
+              x: 364
+              y: 510
+              comprimento: 33
+              largura: 26
+          - id: 08
+            label: 08
+            box:
+              x: 356
+              y: 602
+              comprimento: 33
+              largura: 25
+          - id: 09
+            label: 09
+            box:
+              x: 398
+              y: 634
+              comprimento: 43
+              largura: 28
+          - id: '10'
+            label: '10'
+            box:
+              x: 436
+              y: 718
+              comprimento: 31
+              largura: 26
+          - id: '11'
+            label: '11'
+            box:
+              x: 462
+              y: 818
+              comprimento: 24
+              largura: 24
+          - id: '12'
+            label: '12'
+            box:
+              x: 472
+              y: 924
+              comprimento: 27
+              largura: 22
+          - id: '13'
+            label: '13'
+            box:
+              x: 493
+              y: 1027
+              comprimento: 28
+              largura: 26
+          - id: Setores_Sentinela_e_Geriatria
+            label: Setores Sentinela e Geriatria
+            box:
+              x: 597
+              y: 1176
+              comprimento: 226
+              largura: 64
+        escaladas:
+        - via_esportiva:
+            nome: Marreta Kamikaze
+            id_no_mapa: '01'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Alexandre “Caverna”
+        - via_esportiva:
+            nome: Entidade da Natureza
+            id_no_mapa: '02'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Mundo Verde
+            id_no_mapa: '03'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - GT Baú 2021
+        - via_esportiva:
+            nome: Uma Nova Esperança
+            id_no_mapa: '04'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Felipe Belisário
+            - Marcella Romanelli
+        - via_esportiva:
+            nome: Urtigão
+            id_no_mapa: '05'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 1
+            conquistadores:
+            - Eustáquio Macedo
+            - Emerson “Lampião”
+        - via_esportiva:
+            nome: Eternamente Jovem
+            id_no_mapa: '06'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Eustáquio
+            - Emerson
+            - Fabiano
+            - Andrezão
+        - via_esportiva:
+            nome: Highlander
+            id_no_mapa: '07'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Eustáquio
+            - Emerson
+            - Mr. Bean
+            - Belisário
+        - via_esportiva:
+            nome: Rayovac
+            id_no_mapa: 08
+            dificuldade: BR_8C
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Yan Ouriques
+            - Ricardo
+        - via_esportiva:
+            nome: O Corpo Ainda é Pouco
+            id_no_mapa: 09
+            dificuldade: BR_9B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Ralf Cortes
+            - Ingo
+        - via_esportiva:
+            nome: Belos e Malditos
+            id_no_mapa: '10'
+            dificuldade: BR_10B
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Eustáquio
+            - Emerson
+            - Felipe Belisário
+            - Sandro Almeida
+        - via_esportiva:
+            nome: Green Wood
+            id_no_mapa: '11'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Felipe Belisário
+            - Sandro Almeida
+            - Bernardo Barcelos
+        - via_esportiva:
+            nome: Puro Malte
+            id_no_mapa: '12'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Felipe Belisário
+            - Marcella Romanelli
+        - via_esportiva:
+            nome: Ação Mutantes
+            id_no_mapa: '13'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Ralf Cortes
+            - Christian Costa
+            - Felipe Belisário
+        - via_esportiva:
+            nome: Sagrada Família
+            id_no_mapa: '14'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Iule Ornelas
+            - Igor Andrade
+            - Samuel Lucas
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: O Poder e o Saber
+            id_no_mapa: '15'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Zig Marley
+            id_no_mapa: '16'
+            dificuldade: BR_7B_BARRA_7C
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Iule Ornelas
+            - Igor Andrade
+            - Samuel Lucas
+        descricao: '# Setor Onda de Calcário
+
+
+          **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita.
+          Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso
+          ao setor.
+
+
+          **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578'
+  - setor:
+      conteudo:
+        nome: Setor Vale da Onça
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_vale_da_onca_p0_i6.webp
+          largura_mapa: 932
+          altura_mapa: 1340
+          pontos_de_interesse:
+          - id: '39'
+            label: '39'
+            box:
+              x: 550
+              y: 36
+              comprimento: 42
+              largura: 27
+          - id: '18'
+            label: '18'
+            box:
+              x: 642
+              y: 70
+              comprimento: 36
+              largura: 25
+          - id: '17'
+            label: '17'
+            box:
+              x: 688
+              y: 162
+              comprimento: 33
+              largura: 23
+          - id: '36'
+            label: '36'
+            box:
+              x: 412
+              y: 174
+              comprimento: 38
+              largura: 23
+          - id: '38'
+            label: '38'
+            box:
+              x: 636
+              y: 212
+              comprimento: 42
+              largura: 27
+          - id: '37'
+            label: '37'
+            box:
+              x: 584
+              y: 230
+              comprimento: 43
+              largura: 27
+          - id: '35'
+            label: '35'
+            box:
+              x: 362
+              y: 248
+              comprimento: 41
+              largura: 24
+          - id: '34'
+            label: '34'
+            box:
+              x: 528
+              y: 264
+              comprimento: 42
+              largura: 27
+          - id: '33'
+            label: '33'
+            box:
+              x: 529
+              y: 293
+              comprimento: 40
+              largura: 24
+          - id: '32'
+            label: '32'
+            box:
+              x: 548
+              y: 324
+              comprimento: 42
+              largura: 27
+          - id: '31'
+            label: '31'
+            box:
+              x: 556
+              y: 348
+              comprimento: 36
+              largura: 24
+          - id: '30'
+            label: '30'
+            box:
+              x: 594
+              y: 376
+              comprimento: 43
+              largura: 27
+          - id: '29'
+            label: '29'
+            box:
+              x: 615
+              y: 402
+              comprimento: 44
+              largura: 31
+          - id: '28'
+            label: '28'
+            box:
+              x: 639
+              y: 432
+              comprimento: 40
+              largura: 24
+          - id: '27'
+            label: '27'
+            box:
+              x: 662
+              y: 460
+              comprimento: 40
+              largura: 24
+          - id: '26'
+            label: '26'
+            box:
+              x: 687
+              y: 495
+              comprimento: 40
+              largura: 22
+          - id: '25'
+            label: '25'
+            box:
+              x: 708
+              y: 533
+              comprimento: 40
+              largura: 24
+          - id: '16'
+            label: '16'
+            box:
+              x: 686
+              y: 580
+              comprimento: 35
+              largura: 24
+          - id: '15'
+            label: '15'
+            box:
+              x: 540
+              y: 623
+              comprimento: 43
+              largura: 32
+          - id: '14'
+            label: '14'
+            box:
+              x: 560
+              y: 652
+              comprimento: 37
+              largura: 25
+          - id: '13'
+            label: '13'
+            box:
+              x: 576
+              y: 686
+              comprimento: 40
+              largura: 24
+          - id: '12'
+            label: '12'
+            box:
+              x: 566
+              y: 735
+              comprimento: 40
+              largura: 24
+          - id: '24'
+            label: '24'
+            box:
+              x: 532
+              y: 764
+              comprimento: 44
+              largura: 31
+          - id: '23'
+            label: '23'
+            box:
+              x: 588
+              y: 785
+              comprimento: 42
+              largura: 24
+          - id: '11'
+            label: '11'
+            box:
+              x: 611
+              y: 806
+              comprimento: 32
+              largura: 25
+          - id: '22'
+            label: '22'
+            box:
+              x: 642
+              y: 836
+              comprimento: 41
+              largura: 23
+          - id: '10'
+            label: '10'
+            box:
+              x: 636
+              y: 870
+              comprimento: 37
+              largura: 24
+          - id: '21'
+            label: '21'
+            box:
+              x: 604
+              y: 894
+              comprimento: 37
+              largura: 24
+          - id: 09
+            label: 09
+            box:
+              x: 558
+              y: 908
+              comprimento: 39
+              largura: 25
+          - id: '20'
+            label: '20'
+            box:
+              x: 580
+              y: 965
+              comprimento: 41
+              largura: 24
+          - id: 08
+            label: 08
+            box:
+              x: 594
+              y: 1014
+              comprimento: 42
+              largura: 26
+          - id: '19'
+            label: '19'
+            box:
+              x: 539
+              y: 1043
+              comprimento: 36
+              largura: 24
+          - id: '07'
+            label: '07'
+            box:
+              x: 564
+              y: 1075
+              comprimento: 42
+              largura: 24
+          - id: '06'
+            label: '06'
+            box:
+              x: 604
+              y: 1117
+              comprimento: 40
+              largura: 24
+          - id: '05'
+            label: '05'
+            box:
+              x: 602
+              y: 1150
+              comprimento: 42
+              largura: 24
+          - id: '04'
+            label: '04'
+            box:
+              x: 614
+              y: 1194
+              comprimento: 41
+              largura: 23
+          - id: '03'
+            label: '03'
+            box:
+              x: 602
+              y: 1244
+              comprimento: 40
+              largura: 23
+          - id: '02'
+            label: '02'
+            box:
+              x: 592
+              y: 1286
+              comprimento: 42
+              largura: 23
+          - id: '01'
+            label: '01'
+            box:
+              x: 550
+              y: 1312
+              comprimento: 35
+              largura: 23
+          - id: Setores_Mr_Bean_e_Geriatria
+            label: Setores Mr. Bean e Geriatria
+            box:
+              x: 288
+              y: 1313
+              comprimento: 229
+              largura: 46
+        escaladas:
+        - via_esportiva:
+            nome: Quebrando o Pau
+            id_no_mapa: '01'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: Prima do Rio
+            id_no_mapa: '02'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: Psiu, Calate
+            id_no_mapa: '03'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: Mis cosas, cuido yo
+            id_no_mapa: '04'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: Fugindo da Jiboia
+            id_no_mapa: '05'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: Fugindo da Onça
+            id_no_mapa: '06'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Wilson Souza
+            - Jana
+        - via_esportiva:
+            nome: No Pescoço do Jacaré
+            id_no_mapa: '07'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Retorno de Borges
+            id_no_mapa: 08
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Otto
+            - Lu
+        - via_esportiva:
+            nome: 3º Pecado Capital
+            id_no_mapa: 09
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Orifícios do Ofício
+            id_no_mapa: '10'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Cercando o Perímetro
+            id_no_mapa: '11'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Trabaiá não qué
+            id_no_mapa: '12'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Na Surdina
+            id_no_mapa: '13'
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Gente Boa
+            id_no_mapa: '14'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Aqui Jaz
+            id_no_mapa: '15'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Toca da Jararaca
+            id_no_mapa: '16'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Wilson Souza
+            - Otto
+        - via_esportiva:
+            nome: Mais que Infinito
+            id_no_mapa: '17'
+            dificuldade: BR_7B_BARRA_7C
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Márcio Macena
+            - Christian Costa
+            - Joviney Miguel
+        - via_esportiva:
+            nome: Fissurados
+            id_no_mapa: '18'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcus Rufino
+            - Renato Utsch
+        - via_esportiva:
+            nome: Olho de Hórus
+            id_no_mapa: '19'
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 14
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+        - via_esportiva:
+            nome: Melhor Idade
+            id_no_mapa: '20'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Christian Costa
+            - Dênio Teixeira
+            - Wilson Professor
+        - via_esportiva:
+            nome: Torre de Babel
+            id_no_mapa: '21'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Átila Cunha
+            - Marcelo Novais
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Era Venenosa
+            id_no_mapa: '22'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Lídia Botelho
+            - Thaina Leão
+        - via_esportiva:
+            nome: Arcanjo Gabriel
+            id_no_mapa: '23'
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+        - via_esportiva:
+            nome: La Bella Luna
+            id_no_mapa: '24'
+            dificuldade: BR_7B_BARRA_7C
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+        - via_esportiva:
+            nome: Amigo da Onça
+            id_no_mapa: '25'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Willian Cruz
+            - Sidnei Cunha
+        - via_esportiva:
+            nome: Baú da Felicidade
+            id_no_mapa: '26'
+            dificuldade: BR_5SUP
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Willian Cruz
+        - via_esportiva:
+            nome: Cavalo de Tróia
+            id_no_mapa: '27'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Marcus Rufino
+        - via_esportiva:
+            nome: Testosterona
+            id_no_mapa: '28'
+            dificuldade: BR_8A_BARRA_8B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cláudio
+            - Leo Rodrigues
+            - Sidão
+        - via_esportiva:
+            nome: Mazelados
+            id_no_mapa: '29'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cláudio
+            - Leo Rodrigues
+            - Sidão
+        - via_esportiva:
+            nome: A Fúria de Dandara
+            id_no_mapa: '30'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Willian Cruz
+        - via_esportiva:
+            nome: Climb Terapia
+            id_no_mapa: '31'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cláudio
+            - Leo Rodrigues
+            - Sidão
+        - via_esportiva:
+            nome: Atitude
+            id_no_mapa: '32'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Cláudio
+            - Leo Rodrigues
+            - Sidão
+        - via_esportiva:
+            nome: Zona de Perigo
+            id_no_mapa: '33'
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Willian Cruz
+        - via_esportiva:
+            nome: A Montanha dos 7 Abutres
+            id_no_mapa: '34'
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Caixa de Pandora
+            id_no_mapa: '35'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Vivendo o Sonho
+            id_no_mapa: '36'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Navais
+            - Renato Utsch
+        - via_esportiva:
+            nome: A Torre deu Pane
+            id_no_mapa: '37'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Átila Cunha
+            - Marcelo Novais
+            - Roberto Lincoln
+        - via_esportiva:
+            nome: Sessentenário
+            id_no_mapa: '38'
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Igor Andrade
+            - Iule Ornelas
+            - Márcio Vasconcelos
+        - via_esportiva:
+            nome: Supimpa
+            id_no_mapa: '39'
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Marcelo Novais
+            - Átila Cunha
+        descricao: '# Setor Vale da Onça
+
+
+          **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria,
+          passar pelo portão de metal e seguir as placas em direção ao setor. Cerca
+          de 15 minutos de caminhada a partir do setor entrada.'
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      conteudo: '# GUIA DE ESCALADA GRUTA DO BAÚ
+
+
+        **PEDRO LEOPOLDO – MG**
+
+        **5ª Edição - Agosto/2025**
+
+
+        **CHRISTIAN COSTA**
+
+
+        | ![Capa](imagens/capa_p0_i15.webp) |
+
+        | :--: |
+
+        | *Capa* |'
+- texto: Aviso
+  destino:
+    secao_textual:
+      conteudo: '# AVISO
+
+
+        A escalada é um esporte de risco, manuais e guias não substituem instrução
+        e supervisão profissional. Somente com equipamentos de qualidade e instrução
+        adequada se consegue minimizar os riscos do esporte.
+
+
+        Se você ainda não sabe escalar procure uma escola com instrutores qualificados.
+        Evite aprender na base dos erros e acertos, pois acidentes em escalada são
+        potencialmente graves sendo fundamental a instrução profissional para perfeita
+        compreensão das diversas técnicas de segurança.
+
+
+        As informações contidas neste guia servem apenas para indicar os locais mais
+        frequentados e suas principais vias de escalada, não assegurando a integridade
+        física das proteções fixas das vias indicadas. Os autores também não se responsabilizam
+        pela utilização ou má interpretação das informações contidas neste guia.
+
+
+        Esteja avisado que alguns dos dados contidos no guia são subjetivos (como
+        o grau de dificuldade por exemplo), e a utilização deste guia implica que
+        você está ciente que, morte ou acidentes graves são riscos inerentes da escalada
+        em rocha, assumindo assim toda a responsabilidade pelos seus atos.
+
+
+        A utilização de capacete é recomendável durante toda a permanência nas áreas
+        de escalada.
+
+
+        Este guia foi feito por escaladores e não tem qualquer objetivo financeiro.
+        Como qualquer trabalho está sujeito a erros e acertos. Qualquer dúvida, sugestão
+        ou elogio são muito bem vindos.
+
+
+        Lembre-se sempre:
+
+
+        **A SEGURANÇA deve ser sempre o aspecto mais importante em toda e qualquer
+        atividade de escalada**
+
+
+        **VOCÊ É O MAIOR RESPONSÁVEL POR SUA SEGURANÇA, RESPEITE OS SEUS LIMITES E
+        SEJA PRUDENTE.**'
+- texto: História
+  destino:
+    secao_textual:
+      conteudo: '# História
+
+
+        O maciço do Baú está localizado no município de Pedro Leopoldo a cerca de
+        50 km de Belo Horizonte. O local está dentro dos limites da APA Carste de
+        Lagoa Santa em uma propriedade particular, abrigando inúmeras cavernas e formações
+        rochosas. Os espeleólogos encontraram nestas cavernas vários fósseis além
+        de diversos espeleotemas de rara beleza.
+
+
+        | ![Maciço do Baú](imagens/historia_p0_i6.webp) |
+
+        | :--: |
+
+        | *Maciço do Baú* |
+
+
+        O nome de Gruta do Baú advém da formação rochosa presente no maciço que se
+        assemelha a uma fechadura.
+
+
+        O Baú começou a ser frequentado pelos escaladores na década de noventa, quando
+        Roberto Lincoln e Rômulo Brandão, ambos recém formados em um curso de escalada,
+        visitaram o local e perceberam o potencial deste, abrindo lá suas primeiras
+        vias de escalada, hoje as clássicas “Retorno de Pitú” e “Sentinela”.
+
+
+        | ![Poliana Lisboa – Via Arcanjo Gabriel](imagens/historia_p0_i7.webp) |
+
+        | :--: |
+
+        | *Poliana Lisboa – Via Arcanjo Gabriel* |
+
+
+        No princípio seus conhecimentos sobre conquistas e grampeações eram poucos,
+        porém eles superaram esta falta de conhecimento e equipamentos adequados com
+        uma boa dose de criatividade, conquistando diversas vias.
+
+
+        O proprietário atual é o empresário José Celso, um apaixonado pela natureza
+        e por todo o complexo do Baú que preza pela boa convivência e faz de tudo
+        para que os escaladores se sintam em casa ao frequentarem sua fazenda. Chegado
+        a uma boa prosa, os encontros com ele sempre são recheados de boas histórias
+        e risadas.'
+- texto: Acesso
+  destino:
+    secao_textual:
+      conteudo: '# Acesso
+
+
+        O Baú está localizado no município de Pedro Leopoldo, no distrito de Lagoa
+        de Santo Antônio, há cerca de 50 km de Belo Horizonte.
+
+
+        Na saída de Belo Horizonte para o Aeroporto internacional de Confins (MG-010)
+        entrar no trevo para a cidade de Pedro Leopoldo, seguindo pela MG 424. Após
+        passar por Pedro Leopoldo continuar na rodovia em direção a Matozinhos e virar
+        à direita no trevo da correia transportadora de minério que atravessa a estrada
+        até o distrito de Lagoa de Santo Antônio.
+
+
+        Seguir em direção ao distrito de Fidalgo, passando próximo a uma lagoa e chegando
+        até a Rua Pacífico Rodrigues.
+
+
+        **Coordenadas geográficas da entrada:** -19º33''12.5 -43º59''23.4
+
+
+        | ![Vista da saída na MG 424](imagens/acesso_p0_i6.webp) |
+
+        | :--: |
+
+        | *Vista da saída na MG 424* |
+
+
+        | ![Trajeto até entrada do Baú](imagens/acesso_p0_i8.webp) |
+
+        | :--: |
+
+        | *Trajeto até entrada do Baú* |
+
+
+        | ![Vista da entrada da Fazenda](imagens/acesso_p0_i10.webp) |
+
+        | :--: |
+
+        | *Vista da entrada da Fazenda* |'
+- texto: Regras de Visitação
+  destino:
+    secao_textual:
+      conteudo: '# Regras de Visitação
+
+
+        Como todas as áreas de escalada, os princípios do mínimo impacto devem ser
+        observados e a segurança é responsabilidade única e exclusiva de cada um.
+
+
+        A área de escalada no Baú é uma área particular, pertencente ao Sr. José Celso.
+        Para que continue aberta a escalada é fundamental observarmos algumas regras
+        de visitação:
+
+
+        - Taxa de visitação: R$ 25,00 (Vinte e cinco reais);
+
+        - **Obrigatório a utilização de Capacete e cada visitante deve portar o seu
+        próprio equipamento.**
+
+        - **Obrigatório que o praticante faça parte do grupo de whatsapp de informações
+        do Baú, para que tenha ciência das regras e condutas para o local, bem como
+        informes pertinentes da área.**
+
+
+        | ![Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar](imagens/regras_visitacao_p0_i6.webp)
+        |
+
+        | :--: |
+
+        | *Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar*
+        |
+
+
+        - Horário de funcionamento: 08:00 às 18:00, todos os dias da semana para escalada;
+
+        - Deixar qualquer portão, porteira ou colchete fechado;
+
+        - É proibido retirar qualquer objeto do sítio (pedras, mudas, flores, etc...);
+
+        - Se manter sempre nas trilhas demarcadas;
+
+        - Não fazer qualquer modificação ou conquista de vias sem comunicar o grupo
+        de trabalho responsável pelo local;
+
+
+        | ![Marina Rocha - Via Fusca Azul](imagens/regras_visitacao_p0_i7.webp) |
+
+        | :--: |
+
+        | *Marina Rocha - Via Fusca Azul* |
+
+
+        **OBSERVAÇÃO:** A quantidade de proteções expressa no guia conta as proteções
+        da via mais o Top com 1 ou 2 proteções. Por exemplo, se está expresso 6 +
+        2 no campo proteções, são 6 chapeletas ou grampos + o top rope.
+
+
+        **OBSERVAÇÃO 2:** As vias com proteções móveis ou mistas estão assinaladas
+        de vermelho no guia. O grupo de trabalho vem duplicando os top ropes dessas
+        vias e colocando os nomes nas bases.
+
+
+        **OBSERVAÇÃO 3:** Alguns locais tem Topropes montados baixos para cursos de
+        escalada. Marcados em amarelo nos croquis.
+
+
+        **É expressamente proibido a entrada na gruta sem o acompanhamento de um guia
+        da fazenda.**'
+- texto: Opções de Hospedagem
+  destino:
+    secao_textual:
+      conteudo: '# Opções de Hospedagem
+
+
+        ### Casa ou quartos para alugar na própria Gruta do Baú
+
+
+        | ![Casa ou quartos para alugar na própria Gruta do Baú](imagens/opcoes_hospedagem_p0_i6.webp)
+        |
+
+        | :--: |
+
+        | *Casa ou quartos para alugar na própria Gruta do Baú* |
+
+
+        O complexo da fazenda conta com uma casa que pode ser alugada por um grupo
+        ou somente os quartos isoladamente. Fica bem ao lado da entrada e conta ainda
+        com uma piscina privativa e deck panorâmico.
+
+        **CONTATOS**
+
+        Instagram: @grutadobau
+
+        WhatsApp - José Celso: (31) 98771-1655
+
+
+        ### Rupestre da Lapa
+
+
+        | ![Rupestre da Lapa](imagens/opcoes_hospedagem_p0_i7.webp) |
+
+        | :--: |
+
+        | *Rupestre da Lapa* |
+
+
+        Abrigo de escalada – Hospedagem com ou sem refeições, estacionamento, área
+        de camping, quartos coletivos, duplos e suítes. Serve café da manhã, almoço,
+        lanche e jantar mediante agendamento.
+
+        **CONTATOS**
+
+        Instagram: @hospedagemrupestredalapa
+
+        WhatsApp - Helon ou Denise: (31) 99807-8392
+
+
+        ### Escalarte
+
+
+        | ![Escalarte](imagens/opcoes_hospedagem_p0_i8.webp) |
+
+        | :--: |
+
+        | *Escalarte* |
+
+
+        Refúgio de escalada – Hospedagem a menos de 1 km da Gruta da Lapinha e 13
+        km da Gruta do Baú. Oferece quartos coletivos, duplos e suítes.
+
+
+        | ![Hospedagem](imagens/opcoes_hospedagem_p0_i9.webp) |
+
+        | :--: |
+
+        | *Hospedagem* |
+
+        **CONTATOS**
+
+        Instagram: @escalar_te
+
+        WhatsApp – André Braga (Dedé): (31) 99831-3107'
+- texto: Outras atrações
+  destino:
+    secao_textual:
+      conteudo: '# Outras atrações e comodidades da Gruta do Baú
+
+
+        A área de escalada da Gruta do Baú se localiza dentro da Fazenda Gruta do
+        Baú, que por si só, já é uma atração à parte. A Fazenda conta com diversas
+        outras atrações e comodidades, se tornando um passeio para toda a família.
+        Podemos destacar:
+
+
+        | ![Restaurante com café da manhã, almoço e petiscos](imagens/outras_atracoes_p0_i10.webp)
+        |
+
+        | :--: |
+
+        | *Restaurante com café da manhã, almoço e petiscos* |
+
+
+        | ![Bike Park com 18 km de trilhas](imagens/outras_atracoes_p0_i7.webp) |
+
+        | :--: |
+
+        | *Bike Park com 18 km de trilhas* |
+
+
+        | ![Alimentação para os animais](imagens/outras_atracoes_p0_i6.webp) |
+
+        | :--: |
+
+        | *Alimentação para os animais* |
+
+
+        | ![Recreação infantil](imagens/outras_atracoes_p0_i9.webp) |
+
+        | :--: |
+
+        | *Recreação infantil* |
+
+
+        | ![Parquinho](imagens/outras_atracoes_p0_i8.webp) |
+
+        | :--: |
+
+        | *Parquinho* |'
+- texto: Manutenção
+  destino:
+    secao_textual:
+      conteudo: '# Manutenção e conquista de novas vias
+
+
+        A grande maioria das vias do maciço do Baú são da década de 90, quase todas
+        atingindo os 20 anos desde a conquista... Devido a idade das vias muitas proteções
+        se deterioraram com o tempo e não se encontram em condições de utilização.
+        Com o intuito de proporcionar uma escalada de qualidade e sobretudo segura,
+        um pequeno grupo de escaladores locais está realizando de maneira gradativa
+        a substituição das proteções e duplicando os top ropes.
+
+
+        Foi criado um grupo de trabalho em 2020 com o intuito de intermediar a abertura
+        de novas vias junto ao proprietário. A abertura se dará de forma lenta e gradual,
+        para diminuir os impactos gerados na área.
+
+
+        O GT Baú vem variando os membros ao longo do tempo e em agosto de 2025 é composto
+        pelos escaladores: André Braga, Christian Costa, Igor Andrade, Iule Ornelas,
+        Marcelo Novais, Márcio Vasconcelos, Roberto Lincoln, Sandro Almeida e Wilson
+        Souza “Professor”.
+
+
+        | ![Manutenção na Rayovac](imagens/manutencao_p0_i6.webp) |
+
+        | :--: |
+
+        | *Manutenção na Rayovac* |
+
+
+        | ![Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem](imagens/manutencao_p0_i12.webp)
+        |
+
+        | :--: |
+
+        | *Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem*
+        |
+
+
+        | ![Manutencao na Sentinela 1](imagens/manutencao_p0_i8.webp) |
+
+        | :--: |
+
+        | *Manutencao na Sentinela 1* |'
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      conteudo: '# Mapas Gerais
+
+
+        ## Mapa Esquemático dos Setores
+
+
+        | ![Mapa Esquemático dos Setores](imagens/mapas_gerais_p0.webp) |
+
+        | :--: |
+
+        | *Mapa Esquemático dos Setores* |
+
+
+        ## Vista Aérea
+
+
+        | ![Vista Aérea](imagens/mapas_gerais_p1.webp) |
+
+        | :--: |
+
+        | *Vista Aérea* |'
+ultima_migracao: 1
+publicar_croqui: true
+arquivos_externos:
+- caminho: imagens/acesso_p0_i10.webp
+  checksum_sha256: 336bbfebac3a2dea9982af6574404d369cb5beb128debd8bd12a365f9ab70b82
+- caminho: imagens/acesso_p0_i6.webp
+  checksum_sha256: eedc7521abba563f3fdbb446437a1c88cd4145e5a3c50396f6c73e7ff540468b
+- caminho: imagens/acesso_p0_i8.webp
+  checksum_sha256: abfaf2144cd9808091864f20400296e3f0d44af27c6eb74b45d6bc69cd5d0eca
+- caminho: imagens/capa_p0_i15.webp
+  checksum_sha256: 26fdd1a51ff1c663a996fd7141e8cdb86639fdb77c30bd58a091ee9f9f458022
+- caminho: imagens/historia_p0_i6.webp
+  checksum_sha256: 951c72b56e61bc0e783bcf58cd344341b84bd584eedd7d374fbd5b77233810e2
+- caminho: imagens/historia_p0_i7.webp
+  checksum_sha256: 1fcdb2c46c7fba451f5e576bfd9bd4164f964242dc93b2b170567393a9e96f4b
+- caminho: imagens/manutencao_p0_i12.webp
+  checksum_sha256: 51e3af36bb54d8dd55fa5ffc03af21b5dc35d5b830b2ac563e2f1d857198a57d
+- caminho: imagens/manutencao_p0_i6.webp
+  checksum_sha256: 59e2478366cf635707ed3568a2f4d681e662a029fbc2ce8f1e1180e0b20168b4
+- caminho: imagens/manutencao_p0_i8.webp
+  checksum_sha256: 99b9e7c953fb1b5785bd1c9bb2f8e2df69beba06d165f597c7901d74f3e011cc
+- caminho: imagens/mapas_gerais_p0.webp
+  checksum_sha256: 04956f734d3fbebbf9be3c478bb3952b0fda23e2269e49f4c6852b8f2839cf20
+- caminho: imagens/mapas_gerais_p1.webp
+  checksum_sha256: e86ea2a122e6ffc55f2889a6b190c1d93560f46e558d3b0812b58a2aa9e055dc
+- caminho: imagens/opcoes_hospedagem_p0_i6.webp
+  checksum_sha256: c2c3e479054f6589614544f898e806f402d1587f89e0fd53a030c7d9ab1aaa81
+- caminho: imagens/opcoes_hospedagem_p0_i7.webp
+  checksum_sha256: 2b7272d6e04b4b6090465077781bcf002417e9252f283bf3d1814894cc057fe4
+- caminho: imagens/opcoes_hospedagem_p0_i8.webp
+  checksum_sha256: 1d9613be6ea88f93a2771f02130998f91cd05ae6a3e64b4062e9bbedabc5d916
+- caminho: imagens/opcoes_hospedagem_p0_i9.webp
+  checksum_sha256: d671ba1029498c9208fcbd93257b9336693729a4417a49d8f491b6737df90523
+- caminho: imagens/outras_atracoes_p0_i10.webp
+  checksum_sha256: fd110cba7b8b60346e586d8507423e66bf16ee2a3a375fc4ac75cf4dff5ff0c8
+- caminho: imagens/outras_atracoes_p0_i6.webp
+  checksum_sha256: 708c09accdb6000c38cd7865123860d6c2fc3a3b1335dfef3b485dc6e19362e6
+- caminho: imagens/outras_atracoes_p0_i7.webp
+  checksum_sha256: 070992508790ce219fe1ac215a56db492b5feecb63ff6204014fc4f2076e0fa2
+- caminho: imagens/outras_atracoes_p0_i8.webp
+  checksum_sha256: d4d37a02dee7f215cda2481ffd2320f9dae6e460589a76fa726565fb5d7b02fe
+- caminho: imagens/outras_atracoes_p0_i9.webp
+  checksum_sha256: 6584f6d85a3edcdf2abe5af8d878d06646a7ccf7bfbefed8c6f12d57654d5301
+- caminho: imagens/regras_visitacao_p0_i6.webp
+  checksum_sha256: dc9fee8ba35c78dd71e3902e2e2d0301c0c0f5affa713f0a22deb09510ecaf4f
+- caminho: imagens/regras_visitacao_p0_i7.webp
+  checksum_sha256: 32b3233fdd40105c0b4492d2364f57b5501ce8284bc727357ad5fbfffcb386c3
+- caminho: imagens/setor_entrada_inferior_p0_i6.webp
+  checksum_sha256: efbe8a4df9ebdfd4cbc827157acd06e79ae31cbf3522f1ca3b5d359c1cec78b6
+- caminho: imagens/setor_entrada_superior_p0_i6.webp
+  checksum_sha256: 1bbaf2c8795beb69697c4705d4caf5b6b640bd50148c15e757bed95b6eb2efa4
+- caminho: imagens/setor_escola_p0_i6.webp
+  checksum_sha256: fddef54aa95ff014018cb42360cdffa07dfa181a3eeb781033939d235c80371e
+- caminho: imagens/setor_fechadura_p0_i6.webp
+  checksum_sha256: a7da1e14f94d1faf44d3c915f77773a8af6721415b550afc8f2309018f995cb0
+- caminho: imagens/setor_geriatria_p0_i6.webp
+  checksum_sha256: 4e9d8b59af9df47ece34fd958e9ead4779fbcc74fb3ca4bf6af22780027aa885
+- caminho: imagens/setor_mr_bean_p0_i6.webp
+  checksum_sha256: 1f56d3c23e28e3a04e5f81f2b7a4753a6a753d3b96d328b766f80174c5a77ab3
+- caminho: imagens/setor_onda_de_calcario_p0_i6.webp
+  checksum_sha256: 460166610d3ce954cf69bbe3cddde8e0e8e8e9946330db140e3e6184bf7c0169
+- caminho: imagens/setor_pasto_p0_i6.webp
+  checksum_sha256: 1dbba370f4580293ef31b9317dc1ae439d3aa72e9afe207df9c1301f97ba1c4f
+- caminho: imagens/setor_pasto_p0_i8.webp
+  checksum_sha256: ba2d74f99bbb480a972c4d3c40d22f923046f1f597f03198c70474c97128abfe
+- caminho: imagens/setor_segundo_andar_p0_i6.webp
+  checksum_sha256: cbd6332313e8a4023ada2df4a04e16816e0b7bfab42fb9a9235bed125d0695e4
+- caminho: imagens/setor_sentinela_e_vale_do_joga_p0_i6.webp
+  checksum_sha256: c31ef6e63437602072c84b29271e96a845d674c7e96c8a504cd5aaee5f8a23cf
+- caminho: imagens/setor_vale_da_onca_p0_i6.webp
+  checksum_sha256: 0304bee041f32425ddda79c3937a17f916d4d5f97a774a4b63d20d28b3d2203b
+- caminho: imagens/setor_vale_do_cinema_p0_i6.webp
+  checksum_sha256: 5c98fb5af2c118fc47fc89b5c32e130438683149177f3276708a1971a8a96888
+- caminho: imagens/setor_vale_dos_espinhos_p0_i6.webp
+  checksum_sha256: 4e9c73398fdcba3611a5fe93b973779f891ed008fea953df46f9e9796b44809d

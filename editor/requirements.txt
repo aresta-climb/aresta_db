@@ -1,0 +1,13 @@
+PyQt6
+pyinstaller
+pytest-qt
+pygithub
+pygit2
+keyring
+pytest
+PyYAML
+protobuf
+qtawesome
+qrcode
+pillow
+ruamel.yaml

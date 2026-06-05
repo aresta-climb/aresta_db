@@ -1,0 +1,2262 @@
+id: br_mg_passa_vinte_gruta
+nome: Gruta de Passa Vinte
+descricao: Guia de Escalada da Gruta de Passa Vinte - MG
+creditos:
+- Jobson Pereira
+- Juliano Magalhães
+caminho_thumbnail: imagens/capa_p0.webp
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Gruta de Passa Vinte
+  descricao: A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da
+    escalada esportiva em Novembro de 2008. Atualmente, o setor possui aproximadamente
+    150 vias, com graduações que vão do IV a 11c.
+  estado: Minas Gerais
+  localizacao:
+    latitude: -221929720
+    longitude: -442365830
+  url_google_maps: https://goo.gl/maps/GV6WQ7tfJhWc2RxP7
+  setores_ou_grupos:
+  - setor:
+      conteudo:
+        nome: Chegada
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_chegada_p0.webp
+          largura_mapa: 1725
+          altura_mapa: 964
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 15
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 60
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 95
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '04'
+            label: '4'
+            box:
+              x: 125
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '05'
+            label: '5'
+            box:
+              x: 160
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 220
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '07'
+            label: '7'
+            box:
+              x: 315
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: 08
+            label: '8'
+            box:
+              x: 260
+              y: 265
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 345
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 490
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 505
+              y: 310
+              comprimento: 30
+              largura: 30
+          - id: 12_topo
+            label: '12'
+            box:
+              x: 565
+              y: 315
+              comprimento: 30
+              largura: 30
+          - id: 12_base
+            label: '12'
+            box:
+              x: 575
+              y: 805
+              comprimento: 30
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 605
+              y: 610
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 695
+              y: 785
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 695
+              y: 215
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 755
+              y: 640
+              comprimento: 30
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 835
+              y: 570
+              comprimento: 30
+              largura: 30
+          - id: 18_topo
+            label: '18'
+            box:
+              x: 865
+              y: 485
+              comprimento: 30
+              largura: 30
+          - id: 18_base
+            label: '18'
+            box:
+              x: 805
+              y: 875
+              comprimento: 30
+              largura: 30
+          - id: '19'
+            label: '19'
+            box:
+              x: 905
+              y: 865
+              comprimento: 30
+              largura: 30
+          - id: '20'
+            label: '20'
+            box:
+              x: 935
+              y: 530
+              comprimento: 30
+              largura: 30
+          - id: Setores_Vizinhos
+            label: Setores Central, Acampamento, Arquibancada e Gênesis
+            box:
+              x: 350
+              y: 930
+              comprimento: 500
+              largura: 30
+          - id: Setor_Teto_Preto
+            label: Setor Teto Preto
+            box:
+              x: 1050
+              y: 900
+              comprimento: 150
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Fake News
+            id_no_mapa: '01'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Caliba
+            id_no_mapa: '02'
+            dificuldade: BR_9B_BARRA_9C
+        - via_esportiva:
+            nome: Jack Sparrow
+            id_no_mapa: '03'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Monty Python
+            id_no_mapa: '04'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Dengoso
+            id_no_mapa: '05'
+            dificuldade: BR_6
+        - via_esportiva:
+            nome: Livre Arbítrio
+            id_no_mapa: '06'
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Mad Max P1
+            id_no_mapa: '07'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Mad Max P2
+            id_no_mapa: 08
+            id_no_mapa_fim: 08
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Além da Cúpula do Trovão
+            id_no_mapa: 09
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Perestroika P1
+            id_no_mapa: '10'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Perestroika P2
+            id_no_mapa: '11'
+            id_no_mapa_fim: '11'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Guliver
+            id_no_mapa: 12_base
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Ben Hur
+            id_no_mapa: '13'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Carmina Burana P1
+            id_no_mapa: '14'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Carmina Burana P2
+            id_no_mapa: '15'
+            id_no_mapa_fim: '15'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: 17 Quedas
+            id_no_mapa: '16'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: 8d
+            id_no_mapa: '17'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Cápsula do Tempo
+            id_no_mapa: 18_base
+            dificuldade: BR_8C_BARRA_9A
+        - via_esportiva:
+            nome: Buraco Negro
+            id_no_mapa: '19'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Macunaína
+            id_no_mapa: '20'
+            dificuldade: BR_9B
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: Sunshine & Teto Preto
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_sunshine_e_teto_preto_p0.webp
+          largura_mapa: 1718
+          altura_mapa: 962
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 130
+              y: 315
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 215
+              y: 510
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 218
+              y: 108
+              comprimento: 30
+              largura: 30
+          - id: '04'
+            label: '4'
+            box:
+              x: 275
+              y: 510
+              comprimento: 30
+              largura: 30
+          - id: '05'
+            label: '5'
+            box:
+              x: 335
+              y: 510
+              comprimento: 30
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 375
+              y: 650
+              comprimento: 30
+              largura: 30
+          - id: '07'
+            label: '7'
+            box:
+              x: 465
+              y: 675
+              comprimento: 30
+              largura: 30
+          - id: 08
+            label: '8'
+            box:
+              x: 600
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 665
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 720
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 795
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '12'
+            label: '12'
+            box:
+              x: 870
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 945
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 1040
+              y: 785
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 1090
+              y: 785
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 1145
+              y: 785
+              comprimento: 30
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 1250
+              y: 775
+              comprimento: 30
+              largura: 30
+          - id: '18'
+            label: '18'
+            box:
+              x: 1230
+              y: 122
+              comprimento: 30
+              largura: 30
+          - id: '19'
+            label: '19'
+            box:
+              x: 682
+              y: 487
+              comprimento: 30
+              largura: 30
+          - id: Setor_Chegada
+            label: Setor Chegada
+            box:
+              x: 10
+              y: 800
+              comprimento: 200
+              largura: 30
+          - id: Setor_Tradicionais
+            label: Setor Tradicionais
+            box:
+              x: 1500
+              y: 940
+              comprimento: 250
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Ementhal
+            id_no_mapa: '01'
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Sunshine
+            id_no_mapa: '02'
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Ext. Sunshine (Projeto)
+            id_no_mapa: '03'
+            id_no_mapa_fim: '03'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Luna
+            id_no_mapa: '04'
+            dificuldade: BR_8A_BARRA_8B
+        - via_esportiva:
+            nome: Freddie Mercury
+            id_no_mapa: '05'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Ariete
+            id_no_mapa: '06'
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Eunuco (Projeto)
+            id_no_mapa: '07'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Pau Mandado
+            id_no_mapa: 08
+            dificuldade: BR_9C_BARRA_10A
+            destaque: true
+        - via_esportiva:
+            nome: Imperatriz
+            id_no_mapa: 09
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Casamento de Viúva
+            id_no_mapa: '10'
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Manda Chuva (Projeto)
+            id_no_mapa: '11'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Celibato
+            id_no_mapa: '12'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Manicaca
+            id_no_mapa: '13'
+            dificuldade: BR_7C_BARRA_8A
+        - via_esportiva:
+            nome: Ghidorah
+            id_no_mapa: '14'
+            dificuldade: BR_6
+        - via_esportiva:
+            nome: Hidra
+            id_no_mapa: '15'
+            dificuldade: BR_5
+        - via_esportiva:
+            nome: Medusa
+            id_no_mapa: '16'
+            dificuldade: BR_5
+        - via_esportiva:
+            nome: Kátia Flávia
+            id_no_mapa: '17'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Ext. Kátia Flávia
+            id_no_mapa: '18'
+            id_no_mapa_fim: '18'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Casamento da Imperatriz (Projeto)
+            id_no_mapa: '19'
+            dificuldade: PROJETO
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: ”Positivo” Central
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
+          largura_mapa: 1487
+          altura_mapa: 960
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 130
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 275
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 375
+              y: 700
+              comprimento: 30
+              largura: 30
+          - id: '04'
+            label: '4'
+            box:
+              x: 410
+              y: 740
+              comprimento: 30
+              largura: 30
+          - id: '05'
+            label: '5'
+            box:
+              x: 620
+              y: 730
+              comprimento: 30
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 740
+              y: 505
+              comprimento: 30
+              largura: 30
+          - id: '07'
+            label: '7'
+            box:
+              x: 825
+              y: 610
+              comprimento: 30
+              largura: 30
+          - id: 08
+            label: '8'
+            box:
+              x: 910
+              y: 615
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 875
+              y: 520
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 1080
+              y: 520
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 925
+              y: 785
+              comprimento: 30
+              largura: 30
+          - id: '12'
+            label: '12'
+            box:
+              x: 1075
+              y: 710
+              comprimento: 30
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 1120
+              y: 830
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 1175
+              y: 820
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 1179
+              y: 528
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 1350
+              y: 860
+              comprimento: 30
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 1420
+              y: 860
+              comprimento: 30
+              largura: 30
+          - id: '18'
+            label: '18'
+            box:
+              x: 565
+              y: 730
+              comprimento: 30
+              largura: 30
+          - id: Setores_Vizinhos
+            label: Setores Arquibancada, Acampamento e Gênesis
+            box:
+              x: 326
+              y: 921
+              comprimento: 700
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Ayrton Senna
+            id_no_mapa: '01'
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Fernão Dias
+            id_no_mapa: '02'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Via Dutra
+            id_no_mapa: '03'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Rua Teresa
+            id_no_mapa: '04'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Chico
+            id_no_mapa: '05'
+            dificuldade: BR_8B_BARRA_8C
+        - via_esportiva:
+            nome: Juca Birita
+            id_no_mapa: '06'
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Jeca Tatu
+            id_no_mapa: '07'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Kira
+            id_no_mapa: 08
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: JucaTatuKira
+            id_no_mapa: 09
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Free Willy
+            id_no_mapa: '10'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Homer Simpson
+            id_no_mapa: '11'
+            dificuldade: BR_6
+        - via_esportiva:
+            nome: Velho do Saco
+            id_no_mapa: '12'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Incontinência
+            id_no_mapa: '13'
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Vovó Mafalda
+            id_no_mapa: '14'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Chaminé Só para Tiozinhos
+            id_no_mapa: '15'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: TriJeferson
+            id_no_mapa: '16'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Dunga
+            id_no_mapa: '17'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Sub-Zero
+            id_no_mapa: '18'
+            dificuldade: BR_8C
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: ”Negativo” Central
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_negativo_central_p0.webp
+          largura_mapa: 1487
+          altura_mapa: 962
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 110
+              y: 745
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 71
+              y: 478
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 135
+              y: 585
+              comprimento: 30
+              largura: 30
+          - id: '04'
+            label: '4'
+            box:
+              x: 150
+              y: 405
+              comprimento: 30
+              largura: 30
+          - id: '05'
+            label: '5'
+            box:
+              x: 810
+              y: 484
+              comprimento: 30
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 160
+              y: 135
+              comprimento: 30
+              largura: 30
+          - id: '07'
+            label: '7'
+            box:
+              x: 285
+              y: 725
+              comprimento: 30
+              largura: 30
+          - id: 08
+            label: '8'
+            box:
+              x: 375
+              y: 725
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 230
+              y: 235
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 260
+              y: 340
+              comprimento: 30
+              largura: 30
+          - id: 11_topo
+            label: '11'
+            box:
+              x: 325
+              y: 295
+              comprimento: 30
+              largura: 30
+          - id: 11_base
+            label: '11'
+            box:
+              x: 315
+              y: 430
+              comprimento: 30
+              largura: 30
+          - id: 12_base
+            label: '12'
+            box:
+              x: 305
+              y: 585
+              comprimento: 30
+              largura: 30
+          - id: 13_topo
+            label: '13'
+            box:
+              x: 465
+              y: 385
+              comprimento: 30
+              largura: 30
+          - id: 13_base
+            label: '13'
+            box:
+              x: 450
+              y: 515
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 418
+              y: 712
+              comprimento: 30
+              largura: 30
+          - id: 15_topo
+            label: '15'
+            box:
+              x: 433
+              y: 198
+              comprimento: 30
+              largura: 30
+          - id: 15_meio
+            label: '15'
+            box:
+              x: 505
+              y: 345
+              comprimento: 30
+              largura: 30
+          - id: 15_base
+            label: '15'
+            box:
+              x: 505
+              y: 515
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 536
+              y: 262
+              comprimento: 30
+              largura: 30
+          - id: 17_topo
+            label: '17'
+            box:
+              x: 570
+              y: 135
+              comprimento: 30
+              largura: 30
+          - id: 17_base
+            label: '17'
+            box:
+              x: 655
+              y: 365
+              comprimento: 30
+              largura: 30
+          - id: 18_topo
+            label: '18'
+            box:
+              x: 594
+              y: 288
+              comprimento: 30
+              largura: 30
+          - id: 18_base
+            label: '18'
+            box:
+              x: 655
+              y: 295
+              comprimento: 30
+              largura: 30
+          - id: 19_topo
+            label: '19'
+            box:
+              x: 580
+              y: 226
+              comprimento: 30
+              largura: 30
+          - id: 19_base
+            label: '19'
+            box:
+              x: 645
+              y: 225
+              comprimento: 30
+              largura: 30
+          - id: '20'
+            label: '20'
+            box:
+              x: 628
+              y: 552
+              comprimento: 30
+              largura: 30
+          - id: '21'
+            label: '21'
+            box:
+              x: 682
+              y: 420
+              comprimento: 30
+              largura: 30
+          - id: '22'
+            label: '22'
+            box:
+              x: 835
+              y: 425
+              comprimento: 30
+              largura: 30
+          - id: '23'
+            label: '23'
+            box:
+              x: 743
+              y: 372
+              comprimento: 30
+              largura: 30
+          - id: '24'
+            label: '24'
+            box:
+              x: 762
+              y: 134
+              comprimento: 30
+              largura: 30
+          - id: '25'
+            label: '25'
+            box:
+              x: 880
+              y: 485
+              comprimento: 30
+              largura: 30
+          - id: '26'
+            label: '26'
+            box:
+              x: 960
+              y: 450
+              comprimento: 30
+              largura: 30
+          - id: '27'
+            label: '27'
+            box:
+              x: 1068
+              y: 542
+              comprimento: 30
+              largura: 30
+          - id: '28'
+            label: '28'
+            box:
+              x: 1068
+              y: 338
+              comprimento: 30
+              largura: 30
+          - id: '29'
+            label: '29'
+            box:
+              x: 1072
+              y: 126
+              comprimento: 30
+              largura: 30
+          - id: '30'
+            label: '30'
+            box:
+              x: 1158
+              y: 336
+              comprimento: 30
+              largura: 30
+          - id: '31'
+            label: '31'
+            box:
+              x: 478
+              y: 718
+              comprimento: 30
+              largura: 30
+          - id: '32'
+            label: '32'
+            box:
+              x: 74
+              y: 778
+              comprimento: 30
+              largura: 30
+          - id: Setores_Vizinhos
+            label: Setores Arquibancada, Acampamento e Gênesis
+            box:
+              x: 328
+              y: 923
+              comprimento: 700
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Palo Santo P1
+            id_no_mapa: '01'
+            dificuldade: BR_5
+        - via_esportiva:
+            nome: Palo Santo P2
+            id_no_mapa: '02'
+            id_no_mapa_fim: '02'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Left or Right
+            id_no_mapa: '03'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Right na Caveira
+            id_no_mapa: '04'
+            dificuldade: BR_9B_BARRA_9C
+        - via_esportiva:
+            nome: Piercing de Caveira
+            id_no_mapa: '05'
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Ext. Piercing
+            id_no_mapa: '06'
+            id_no_mapa_fim: '06'
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Mythos
+            id_no_mapa: '07'
+            dificuldade: BR_6
+        - via_esportiva:
+            nome: Esqueleto
+            id_no_mapa: 08
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Brinco de Caveira
+            id_no_mapa: 09
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Bruce Lee (Projeto)
+            id_no_mapa: '10'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Bradock
+            id_no_mapa: 11_base
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Bozo
+            id_no_mapa: 12_base
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Fonte da Juventude
+            id_no_mapa: 13_base
+            dificuldade: BR_9B_BARRA_9C
+        - via_esportiva:
+            nome: Cocoon P1
+            id_no_mapa: '14'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Cocoon P2
+            id_no_mapa: 15_base
+            id_no_mapa_fim: 15_base
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Coconut
+            id_no_mapa: '16'
+            dificuldade: BR_10B_BARRA_10C
+        - via_esportiva:
+            nome: Apocalipse
+            id_no_mapa: 17_base
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Homem de Pedra
+            id_no_mapa: 18_base
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Inferno de Dante
+            id_no_mapa: 19_base
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Golias
+            id_no_mapa: '20'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Cova dos Leões
+            id_no_mapa: '21'
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Verbo Divino (Projeto)
+            id_no_mapa: '22'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Dust in the Wind
+            id_no_mapa: '23'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Ext. Dust (Projeto)
+            id_no_mapa: '24'
+            id_no_mapa_fim: '24'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Doce de Amendoim
+            id_no_mapa: '25'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Gengis Khan
+            id_no_mapa: '26'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Gringos & Troianos
+            id_no_mapa: '27'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Gringos & Troianos
+            id_no_mapa: '28'
+            dificuldade: BR_11A_BARRA_11B
+        - via_esportiva:
+            nome: Cavalo de Tróia
+            id_no_mapa: '29'
+            dificuldade: BR_11C
+        - via_esportiva:
+            nome: Jacuzzi (Projeto)
+            id_no_mapa: '30'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Centauro
+            id_no_mapa: '31'
+            dificuldade: BR_6SUP
+        - via_esportiva:
+            nome: Ceci
+            id_no_mapa: '32'
+            dificuldade: BR_6SUP
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: Arquibancada
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
+          largura_mapa: 1415
+          altura_mapa: 907
+          pontos_de_interesse:
+          - id: 01_topo
+            label: '1'
+            box:
+              x: 1150
+              y: 525
+              comprimento: 30
+              largura: 30
+          - id: 01_base
+            label: '1'
+            box:
+              x: 1210
+              y: 775
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 1165
+              y: 385
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 1160
+              y: 235
+              comprimento: 30
+              largura: 30
+          - id: 04_topo
+            label: '4'
+            box:
+              x: 670
+              y: 261
+              comprimento: 40
+              largura: 40
+          - id: 04_base
+            label: '4'
+            box:
+              x: 1055
+              y: 505
+              comprimento: 30
+              largura: 30
+          - id: 05_topo
+            label: '5'
+            box:
+              x: 977
+              y: 492
+              comprimento: 30
+              largura: 30
+          - id: 05_base
+            label: '5'
+            box:
+              x: 1090
+              y: 870
+              comprimento: 30
+              largura: 30
+          - id: 06_topo
+            label: '6'
+            box:
+              x: 995
+              y: 605
+              comprimento: 30
+              largura: 30
+          - id: 06_base
+            label: '6'
+            box:
+              x: 995
+              y: 635
+              comprimento: 30
+              largura: 30
+          - id: 07_topo
+            label: '7'
+            box:
+              x: 962
+              y: 552
+              comprimento: 30
+              largura: 30
+          - id: 07_base
+            label: '7'
+            box:
+              x: 961
+              y: 705
+              comprimento: 30
+              largura: 30
+          - id: 08_topo
+            label: '8'
+            box:
+              x: 877
+              y: 771
+              comprimento: 30
+              largura: 30
+          - id: 08_base
+            label: '8'
+            box:
+              x: 880
+              y: 815
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 920
+              y: 330
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 923
+              y: 193
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 795
+              y: 675
+              comprimento: 30
+              largura: 30
+          - id: '12'
+            label: '12'
+            box:
+              x: 525
+              y: 380
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 670
+              y: 290
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 1026
+              y: 196
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 675
+              y: 599
+              comprimento: 30
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 585
+              y: 621
+              comprimento: 30
+              largura: 30
+          - id: '18'
+            label: '18'
+            box:
+              x: 434
+              y: 496
+              comprimento: 30
+              largura: 30
+          - id: 19_topo
+            label: '19'
+            box:
+              x: 373
+              y: 275
+              comprimento: 30
+              largura: 30
+          - id: 19_meio
+            label: '19'
+            box:
+              x: 183
+              y: 531
+              comprimento: 30
+              largura: 30
+          - id: 19_base
+            label: '19'
+            box:
+              x: 90
+              y: 760
+              comprimento: 30
+              largura: 30
+          - id: '20'
+            label: '20'
+            box:
+              x: 277
+              y: 255
+              comprimento: 30
+              largura: 30
+          - id: 21_topo
+            label: '21'
+            box:
+              x: 123
+              y: 375
+              comprimento: 30
+              largura: 30
+          - id: 21_base
+            label: '21'
+            box:
+              x: 60
+              y: 700
+              comprimento: 30
+              largura: 30
+          - id: '22'
+            label: '22'
+            box:
+              x: 470
+              y: 200
+              comprimento: 30
+              largura: 30
+          - id: '23'
+            label: '23'
+            box:
+              x: 1019
+              y: 379
+              comprimento: 30
+              largura: 30
+          - id: '24'
+            label: '24'
+            box:
+              x: 281
+              y: 426
+              comprimento: 30
+              largura: 30
+          - id: '25'
+            label: '25'
+            box:
+              x: 205
+              y: 175
+              comprimento: 30
+              largura: 30
+          - id: '26'
+            label: '26'
+            box:
+              x: 260
+              y: 95
+              comprimento: 30
+              largura: 30
+          - id: '27'
+            label: '27'
+            box:
+              x: 634
+              y: 107
+              comprimento: 30
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Fela
+            id_no_mapa: 01_base
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Ext. P1 Fela
+            id_no_mapa: '02'
+            id_no_mapa_fim: '02'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Ext. P2 Fela
+            id_no_mapa: '03'
+            id_no_mapa_fim: '03'
+            dificuldade: BR_10B_BARRA_10C
+        - via_esportiva:
+            nome: Arco do Triumfo
+            id_no_mapa: 04_base
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Remédio Amargo
+            id_no_mapa: 05_base
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Shoryuken
+            id_no_mapa: 06_base
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Jab
+            id_no_mapa: 07_base
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Soco Inglês
+            id_no_mapa: 08_base
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Ext. Soco Inglês P1
+            id_no_mapa: 09
+            id_no_mapa_fim: 09
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Ex. Soco Inglês P2 (Projeto)
+            id_no_mapa: '10'
+            id_no_mapa_fim: '10'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Tapa na Cara
+            id_no_mapa: '11'
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Tapa na Sombra
+            id_no_mapa: '12'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Ext. Tapa na Sombra P2
+            id_no_mapa: '13'
+            id_no_mapa_fim: '13'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: A Outra Face
+            id_no_mapa: '14'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Mary Lou
+            id_no_mapa: '15'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Superman
+            id_no_mapa: '16'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Oia u Trem
+            id_no_mapa: '17'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Mistério da Meia Noite
+            id_no_mapa: '18'
+            dificuldade: BR_9A_BARRA_9B
+        - via_esportiva:
+            nome: Entre a Sombra e a Escuridão P1
+            id_no_mapa: 19_base
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Entre a Sombra e a Escuridão P2
+            id_no_mapa: '20'
+            id_no_mapa_fim: '20'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Calabouço
+            id_no_mapa: 21_base
+            dificuldade: BR_9B
+        - via_esportiva:
+            nome: Thanos (Projeto)
+            id_no_mapa: '22'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Ext. Arco do Triumfo (Projeto)
+            id_no_mapa: '23'
+            id_no_mapa_fim: '23'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Sombrinha
+            id_no_mapa: '24'
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Projeto
+            id_no_mapa: '25'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Alcatraz
+            id_no_mapa: '26'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Face Oculta (Projeto)
+            id_no_mapa: '27'
+            dificuldade: PROJETO
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: Gênesis
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
+          largura_mapa: 1727
+          altura_mapa: 876
+          pontos_de_interesse:
+          - id: '01'
+            label: '1'
+            box:
+              x: 135
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: '02'
+            label: '2'
+            box:
+              x: 225
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: '03'
+            label: '3'
+            box:
+              x: 285
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: 04_topo
+            label: '4'
+            box:
+              x: 300
+              y: 355
+              comprimento: 30
+              largura: 30
+          - id: '05'
+            label: '5'
+            box:
+              x: 365
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: '06'
+            label: '6'
+            box:
+              x: 375
+              y: 270
+              comprimento: 30
+              largura: 30
+          - id: '07'
+            label: '7'
+            box:
+              x: 430
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: 08_topo
+            label: '8'
+            box:
+              x: 625
+              y: 295
+              comprimento: 30
+              largura: 30
+          - id: 08_base
+            label: '8'
+            box:
+              x: 530
+              y: 695
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 810
+              y: 355
+              comprimento: 30
+              largura: 30
+          - id: 10_topo
+            label: '10'
+            box:
+              x: 945
+              y: 465
+              comprimento: 30
+              largura: 30
+          - id: 10_base
+            label: '10'
+            box:
+              x: 570
+              y: 620
+              comprimento: 30
+              largura: 30
+          - id: 10_extra
+            label: '10'
+            box:
+              x: 1145
+              y: 455
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 835
+              y: 610
+              comprimento: 30
+              largura: 30
+          - id: '12'
+            label: '12'
+            box:
+              x: 955
+              y: 555
+              comprimento: 30
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 1000
+              y: 615
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 1040
+              y: 175
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 1315
+              y: 335
+              comprimento: 30
+              largura: 30
+          - id: '16'
+            label: '16'
+            box:
+              x: 1240
+              y: 505
+              comprimento: 30
+              largura: 30
+          - id: '17'
+            label: '17'
+            box:
+              x: 1085
+              y: 490
+              comprimento: 30
+              largura: 30
+          - id: '18'
+            label: '18'
+            box:
+              x: 1120
+              y: 345
+              comprimento: 30
+              largura: 30
+          - id: '19'
+            label: '19'
+            box:
+              x: 1405
+              y: 435
+              comprimento: 30
+              largura: 30
+          - id: '20'
+            label: '20'
+            box:
+              x: 1385
+              y: 650
+              comprimento: 30
+              largura: 30
+          - id: '21'
+            label: '21'
+            box:
+              x: 1475
+              y: 495
+              comprimento: 30
+              largura: 30
+          - id: '22'
+            label: '22'
+            box:
+              x: 1405
+              y: 285
+              comprimento: 30
+              largura: 30
+          - id: '23'
+            label: '23'
+            box:
+              x: 1210
+              y: 75
+              comprimento: 30
+              largura: 30
+          - id: Setores_Vizinhos
+            label: Setores Arquibancada e Acampamento
+            box:
+              x: 1400
+              y: 787
+              comprimento: 500
+              largura: 30
+        escaladas:
+        - via_esportiva:
+            nome: Tow Plac Two Plow
+            id_no_mapa: '01'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Periguete
+            id_no_mapa: '02'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: The Glands
+            id_no_mapa: '03'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Ext. The Glands
+            id_no_mapa: 04_topo
+            id_no_mapa_fim: 04_topo
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Quartzolit
+            id_no_mapa: '05'
+            dificuldade: BR_10A
+        - via_esportiva:
+            nome: Ext. Quartzolit (Projeto)
+            id_no_mapa: '06'
+            id_no_mapa_fim: '06'
+            dificuldade: PROJETO
+        - via_esportiva:
+            nome: Jorginho
+            id_no_mapa: '07'
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Toca do Sadu
+            id_no_mapa: 08_base
+            dificuldade: BR_11A
+        - via_esportiva:
+            nome: Triplo X
+            id_no_mapa: 09
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Além do Horizonte
+            id_no_mapa: 10_base
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Salto para Infinito
+            id_no_mapa: '11'
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Êxodo
+            id_no_mapa: '12'
+            dificuldade: BR_8B
+        - via_esportiva:
+            nome: Gênesis
+            id_no_mapa: '13'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Ext. Gênesis
+            id_no_mapa: '14'
+            id_no_mapa_fim: '14'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Cronos
+            id_no_mapa: '15'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Goela Seca
+            id_no_mapa: '16'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Gogó
+            id_no_mapa: '17'
+            dificuldade: BR_9A
+        - via_esportiva:
+            nome: Ext. Gogó
+            id_no_mapa: '18'
+            id_no_mapa_fim: '18'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: 3.6 Turbo
+            id_no_mapa: '19'
+            dificuldade: BR_9C
+        - via_esportiva:
+            nome: Brown & Brow
+            id_no_mapa: '20'
+            dificuldade: BR_10B
+        - via_esportiva:
+            nome: Sinairo P1
+            id_no_mapa: '21'
+            dificuldade: BR_10C
+        - via_esportiva:
+            nome: Sinario P2
+            id_no_mapa: '22'
+            id_no_mapa_fim: '22'
+            dificuldade: BR_11B
+        - via_esportiva:
+            nome: Sinairo P3
+            id_no_mapa: '23'
+            id_no_mapa_fim: '23'
+            dificuldade: PROJETO
+        descricao: ''
+  - setor:
+      conteudo:
+        nome: Acampamento
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_acampamento_p0.webp
+          largura_mapa: 1458
+          altura_mapa: 892
+          pontos_de_interesse:
+          - id: 01_topo
+            label: '1'
+            box:
+              x: 1178
+              y: 195
+              comprimento: 30
+              largura: 30
+          - id: 01_meio
+            label: '1'
+            box:
+              x: 1160
+              y: 360
+              comprimento: 30
+              largura: 30
+          - id: 01_base
+            label: '1'
+            box:
+              x: 1215
+              y: 625
+              comprimento: 30
+              largura: 30
+          - id: 02_topo
+            label: '2'
+            box:
+              x: 1085
+              y: 210
+              comprimento: 30
+              largura: 30
+          - id: 02_base
+            label: '2'
+            box:
+              x: 1145
+              y: 590
+              comprimento: 30
+              largura: 30
+          - id: 03_topo
+            label: '3'
+            box:
+              x: 1000
+              y: 245
+              comprimento: 30
+              largura: 30
+          - id: 03_base
+            label: '3'
+            box:
+              x: 990
+              y: 655
+              comprimento: 30
+              largura: 30
+          - id: 04_topo
+            label: '4'
+            box:
+              x: 910
+              y: 255
+              comprimento: 30
+              largura: 30
+          - id: 04_base
+            label: '4'
+            box:
+              x: 855
+              y: 645
+              comprimento: 30
+              largura: 30
+          - id: 05_topo
+            label: '5'
+            box:
+              x: 825
+              y: 245
+              comprimento: 30
+              largura: 30
+          - id: 05_base
+            label: '5'
+            box:
+              x: 770
+              y: 635
+              comprimento: 30
+              largura: 30
+          - id: 06_topo
+            label: '6'
+            box:
+              x: 740
+              y: 240
+              comprimento: 30
+              largura: 30
+          - id: 06_base
+            label: '6'
+            box:
+              x: 665
+              y: 610
+              comprimento: 30
+              largura: 30
+          - id: 07_topo
+            label: '7'
+            box:
+              x: 690
+              y: 235
+              comprimento: 30
+              largura: 30
+          - id: 07_base
+            label: '7'
+            box:
+              x: 515
+              y: 550
+              comprimento: 30
+              largura: 30
+          - id: 08
+            label: '8'
+            box:
+              x: 405
+              y: 395
+              comprimento: 30
+              largura: 30
+          - id: 09
+            label: '9'
+            box:
+              x: 255
+              y: 380
+              comprimento: 30
+              largura: 30
+          - id: '10'
+            label: '10'
+            box:
+              x: 190
+              y: 380
+              comprimento: 30
+              largura: 30
+          - id: '11'
+            label: '11'
+            box:
+              x: 125
+              y: 375
+              comprimento: 30
+              largura: 30
+          - id: '12'
+            label: '12'
+            box:
+              x: 65
+              y: 370
+              comprimento: 30
+              largura: 30
+          - id: '13'
+            label: '13'
+            box:
+              x: 935
+              y: 650
+              comprimento: 30
+              largura: 30
+          - id: '14'
+            label: '14'
+            box:
+              x: 945
+              y: 340
+              comprimento: 30
+              largura: 30
+          - id: '15'
+            label: '15'
+            box:
+              x: 305
+              y: 385
+              comprimento: 30
+              largura: 30
+          - id: Acampamento
+            label: Acampamento
+            box:
+              x: 702
+              y: 795
+              comprimento: 250
+              largura: 40
+        escaladas:
+        - via_esportiva:
+            nome: Faraó
+            id_no_mapa: 01_base
+            dificuldade: BR_6
+        - via_esportiva:
+            nome: Esfinge
+            id_no_mapa: 02_base
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Camel
+            id_no_mapa: 03_base
+            dificuldade: BR_7C
+        - via_esportiva:
+            nome: Bulimia
+            id_no_mapa: 04_base
+            dificuldade: BR_6SUP
+        - via_esportiva:
+            nome: Venetica
+            id_no_mapa: 05_base
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Resigente
+            id_no_mapa: 06_base
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Bammalves
+            id_no_mapa: 07_base
+            dificuldade: BR_8A
+        - via_esportiva:
+            nome: Tomahawk
+            id_no_mapa: 08
+            dificuldade: BR_6SUP
+        - via_esportiva:
+            nome: Souza Paiol
+            id_no_mapa: 09
+            dificuldade: BR_7B
+        - via_esportiva:
+            nome: Marlboro
+            id_no_mapa: '10'
+            dificuldade: BR_7A
+        - via_esportiva:
+            nome: Hollywood
+            id_no_mapa: '11'
+            dificuldade: BR_7B
+        - via_esportiva:
+            nome: Derby Azul
+            id_no_mapa: '12'
+            dificuldade: BR_5
+        - via_esportiva:
+            nome: Adelaide
+            id_no_mapa: '13'
+            dificuldade: BR_8C
+        - via_esportiva:
+            nome: Bulica
+            id_no_mapa: '14'
+            dificuldade: BR_7B_BARRA_7C
+        - via_esportiva:
+            nome: Stinger
+            id_no_mapa: '15'
+            dificuldade: BR_6SUP
+        descricao: ''
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      conteudo: '# Guia de Escalada da Gruta de Passa Vinte - MG
+
+
+        | ![Felipe Camargo Via Cavalo de Tróia. Foto: Fábio Moreira](imagens/capa_p0.webp)
+        |
+
+        | :--: |
+
+        | *Felipe Camargo Via Cavalo de Tróia. Foto: Fábio Moreira* |
+
+
+        Jobson Pereira & Juliano Magalhães
+
+        Março 2023'
+- texto: Advertência
+  destino:
+    secao_textual:
+      conteudo: '# ADVERTÊNCIA
+
+
+        - Sua segurança é sua responsabilidade, respeite seus limites e seja prudente.
+
+        - As informações contidas nesse croqui servem apenas para indicar as vias
+        de escalada, não assegurando a integridade física das proteções fixas das
+        rotas indicadas.
+
+        - Os autores não se responsabilizam pela utilização ou má interpretação das
+        informações contidas nessa publicação.
+
+        - A utilização de capacete é recomendável durante toda a permanência no setor
+        acampamento.
+
+        - Atenção para as serpentes! Recomenda-se o uso de perneiras ou galochas na
+        trilha.
+
+        - Proteja e respeite a natureza. Não retire nada, leve todo seu lixo de volta
+        e não faça fogueira.
+
+        - Respeite o silêncio. Evite levar equipamentos sonoros para os locais de
+        escalada.
+
+        - O acesso aos setores de escalada é feito através de propriedade particular.
+        Dessa forma, tenha cuidado com os animais no pasto, feche todas as porteiras
+        que abrir e cuidado ao estacionar seu veículo para não fechar o trânsito.'
+- texto: Apresentação
+  destino:
+    secao_textual:
+      conteudo: '# APRESENTAÇÃO
+
+
+        | ![Juliano Magalhães na Via Pau Mandado. Foto: Jobson Pereira](imagens/lista_de_setores_p0.webp)
+        |
+
+        | :--: |
+
+        | *Juliano Magalhães na Via Pau Mandado. Foto: Jobson Pereira* |
+
+
+        A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da escalada
+        esportiva em Novembro de 2008, quando um grupo de amigos iniciaram as primeiras
+        conquistas no local. Desde então, os trabalhos de abertura de novas vias se
+        tornaram incessantes pela qualidade da rocha, negatividade das vias abrigadas
+        das chuvas e acesso relativamente tranquilo, com uma caminhada de 20 a 30
+        minutos.
+
+
+        Atualmente, o setor possui aproximadamente 150 vias, com graduações que vão
+        do IV a 11c, além de vários projetos de alto grau de dificuldade. Dentre essas
+        rotas, há uma diversidade de estilos de escalada que tornam o local completo
+        com vias verticais, negativas, positivas e tetos. A rocha predominante é o
+        gnaisse que proporcionada uma diversidade de formações de agarras.
+
+
+        No inverno o sol demora um pouco mais para sair da parede, ficando no positivo
+        central até por volta de 11h e no setor vertical da chegada até 13h. Já no
+        verão, o sol sai do positivo central por volta das 9h e no vertical da chegada
+        por volta das 11h. Assim, planeje os horários e setores da sua escalada se
+        quer fugir do sol.'
+- texto: Como Chegar
+  destino:
+    secao_textual:
+      conteudo: '# COMO CHEGAR
+
+
+        Coordenada geográfica e link do Google Maps da entrada da estrada de terra
+        que dá acesso ao setor de escalada, que está a aproximadamente a 2,5 km do
+        centro da cidade de Passa Vinte - MG.
+
+
+        Coordenadas: -22.192972, -44.236583
+
+
+        [https://goo.gl/maps/GV6WQ7tfJhWc2RxP7](https://goo.gl/maps/GV6WQ7tfJhWc2RxP7)
+
+
+        Ao chegar nesse ponto do link acima seguir por aproximadamente 1 km na estrada
+        de terra até a placa indicativa de acesso a trilha da Gruta de Passa Vinte.'
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      conteudo: '# MAPAS GERAIS
+
+
+        | ![Mapa Esquemático dos Setores](imagens/mapas_gerais_p0.webp) |
+
+        | :--: |
+
+        | *Mapa Esquemático dos Setores* |
+
+
+        **GRUTA DE PASSA VINTE**
+
+        **Mapa Esquemático dos Setores**
+
+
+        LMG-815, Passa-Vinte - MG, 37330-000
+
+        RQ47+R97 Passa-Vinte, Minas Gerais
+
+        22°11''34.7"S 44°14''11.7"W
+
+        -22.192972, -44.236583
+
+
+        **Trilhas**
+
+        A - Principal
+
+        B - Secundária
+
+        C - Camping
+
+
+        **Setores**
+
+        1 - Kids
+
+        2 - Sunshine & Teto Preto
+
+        3 - Chegada
+
+        4 - Central Positivo
+
+        5 - Central Negativo
+
+        6 - Acampamento
+
+        7 - Arquibancada
+
+        8 - Gênesis
+
+
+        Croqui by @ESCALADA_ITATIAIA
+
+        Atualização Mar 23'
+- texto: Contatos
+  destino:
+    secao_textual:
+      conteudo: '# CONTATOS
+
+
+        | ![Gruta de Passa Vinte. Foto: Jobson Pereira](imagens/contatos_p0.webp)
+        |
+
+        | :--: |
+
+        | *Gruta de Passa Vinte. Foto: Jobson Pereira* |
+
+
+        - Jobson Pereira - Instagram: [@jobson_pereira1967](https://www.instagram.com/jobson_pereira1967)
+
+        - Juliano Magalhães - Instagram: [@jzmagalhaes](https://www.instagram.com/jzmagalhaes)
+
+        - Instagram: [@escalada_itatiaia](https://www.instagram.com/escalada_itatiaia)
+
+        - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)'
+ultima_migracao: 1
+arquivos_externos:
+- caminho: imagens/capa_p0.webp
+  checksum_sha256: a5d17d21899e0994509c7ed1870b6f545375da5a2a92addd31a819cdd628ed8e
+- caminho: imagens/contatos_p0.webp
+  checksum_sha256: 66bba2b9b8160dbc2aca8de9d87dbfcf6eba37c16d62e88dde5311baf9ba3979
+- caminho: imagens/lista_de_setores_p0.webp
+  checksum_sha256: 5013e7da621e9be6dfa9462712485623af616d633da0552dbd1a74429e0c9f36
+- caminho: imagens/mapas_gerais_p0.webp
+  checksum_sha256: 6b71d5225061319ea07ccf874953da6b8281b6db01fd79450936e8be224d1a54
+- caminho: imagens/setor_acampamento_p0.webp
+  checksum_sha256: 5fa33cd9ca7f907dc2b1f463c6df0a3a7eb79f69959c67caeb1628d9c52adbd7
+- caminho: imagens/setor_arquibancada_p0.webp
+  checksum_sha256: 81a91a2bfb78e0214816e99813aed225e4d453347167b5d96855bf05d7af26d6
+- caminho: imagens/setor_chegada_p0.webp
+  checksum_sha256: 8a5d893ccec0cdaed6c8c6d59455f30eaca9b1b38196e800a2d115187b4cc3bb
+- caminho: imagens/setor_genesis_p0.webp
+  checksum_sha256: d948d5098d5cca03faf682ea33310b0addddab3fe3b8833bf9a76e078ecdd80a
+- caminho: imagens/setor_negativo_central_p0.webp
+  checksum_sha256: 54d2c557a48a128eaa90d9edd7b4e217e4cc2feb9fbf341231531a2af15aec28
+- caminho: imagens/setor_positivo_central_p0.webp
+  checksum_sha256: 706a9227b19154392aae4ffc27055c9b773dc8a97d10a8f4293e4616db9f3e39
+- caminho: imagens/setor_sunshine_e_teto_preto_p0.webp
+  checksum_sha256: b71940cdd718a6617ddafa821ae6c453505932e72b4628f4e3be4815424330be

@@ -1,0 +1,18 @@
+{
+    "capa": [0],
+    "patrocinadores": [1],
+    "introducao": [2],
+    "mapas_gerais": [3],
+    "setor_pressao_enrustida": [4],
+    "setor_caverninha": [5, 6, 7],
+    "setor_exquadrilha": [8],
+    "setor_canil": [9],
+    "setor_bloco_do_guerreiro": [10, 11],
+    "setor_bloco_do_cabelin": [12, 13, 14],
+    "setor_consciencia_limpa": [15, 16],
+    "setor_haiti": [17],
+    "setor_achados_e_perdidos": [18],
+    "setor_bloco_do_rock_bocaina": [19],
+    "setor_bloco_45": [20, 21, 22],
+    "setor_essencia": [23, 24]
+}

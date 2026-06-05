@@ -1,0 +1,7 @@
+{
+    "mapas_gerais": [0],
+    "setor_vale_gaules": [1, 5],
+    "setor_parede_do_ladrao_e_forno_da_onca": [2, 6],
+    "setor_caverna_bin_laden_mirante_da_cruz_e_ground_control": [3, 5, 6],
+    "setor_curto_e_grosso_malibu_e_terra_do_nunca": [4, 6, 7]
+}

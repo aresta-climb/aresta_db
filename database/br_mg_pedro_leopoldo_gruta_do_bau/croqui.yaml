@@ -1,0 +1,82 @@
+id: br_mg_pedro_leopoldo_gruta_do_bau
+nome: Gruta do Baú
+creditos:
+- Christian Costa
+caminho_thumbnail: imagens/capa_p0_i15.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Gruta do Baú
+  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
+    um dos principais picos de escalada em calcário de Minas Gerais, com centenas
+    de vias de diversos graus.
+  estado: Minas Gerais
+  localizacao:
+    latitude: -195480000
+    longitude: -439900000
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_entrada_inferior.md
+  - setor:
+      caminho: setor_entrada_superior.md
+  - setor:
+      caminho: setor_segundo_andar.md
+  - setor:
+      caminho: setor_fechadura.md
+  - setor:
+      caminho: setor_pasto.md
+  - setor:
+      caminho: setor_sentinela_e_vale_do_joga.md
+  - setor:
+      caminho: setor_vale_dos_espinhos.md
+  - setor:
+      caminho: setor_escola.md
+  - setor:
+      caminho: setor_geriatria.md
+  - setor:
+      caminho: setor_mr_bean.md
+  - setor:
+      caminho: setor_vale_do_cinema.md
+  - setor:
+      caminho: setor_onda_de_calcario.md
+  - setor:
+      caminho: setor_vale_da_onca.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Aviso
+  destino:
+    secao_textual:
+      caminho: aviso.md
+- texto: História
+  destino:
+    secao_textual:
+      caminho: historia.md
+- texto: Acesso
+  destino:
+    secao_textual:
+      caminho: acesso.md
+- texto: Regras de Visitação
+  destino:
+    secao_textual:
+      caminho: regras_visitacao.md
+- texto: Opções de Hospedagem
+  destino:
+    secao_textual:
+      caminho: opcoes_hospedagem.md
+- texto: Outras atrações
+  destino:
+    secao_textual:
+      caminho: outras_atracoes.md
+- texto: Manutenção
+  destino:
+    secao_textual:
+      caminho: manutencao.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

@@ -1,0 +1,56 @@
+id: br_mg_paraisopolis_pedra_da_divisa
+nome: Pedra da Divisa - Face MG
+descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
+  MG.
+
+  Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
+  Questão de Tempo e Hospício.
+
+  '
+revisado_manualmente: true
+revisado_bounding_circle: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+creditos:
+- Ana Fujita
+- Eliseu Frechou
+picos:
+- nome: Pedra da Divisa (Face MG)
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_cangaco.md
+  - setor:
+      caminho: setor_ditados.md
+  - setor:
+      caminho: setor_cervejas.md
+  - setor:
+      caminho: setor_questao_de_tempo.md
+  - setor:
+      caminho: setor_hospicio.md
+caminho_thumbnail: imagens/capa_p0_i0.webp
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Introdução
+  destino:
+    secao_textual:
+      caminho: introducao.md
+- texto: Regras
+  destino:
+    secao_textual:
+      caminho: regras.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Como Chegar e Aproximação
+  destino:
+    secao_textual:
+      caminho: como_chegar_e_aproximacao.md
+- texto: Contracapa
+  destino:
+    secao_textual:
+      caminho: contracapa.md
+ultima_migracao: 1
+publicar_croqui: true

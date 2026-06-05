@@ -1,0 +1,12 @@
+{
+  "capa": [0],
+  "infos": [1],
+  "mapas_gerais": [2, 4],
+  "setor_parede_principal": [3],
+  "setor_da_pracinha": [5],
+  "setor_do_plato": [6],
+  "setor_da_claraboia": [7],
+  "setor_do_sertao": [8],
+  "setor_do_moco": [9],
+  "setor_do_abrigo": [10]
+}

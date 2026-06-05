@@ -1,0 +1,11 @@
+{
+    "capa": [0],
+    "mapas_gerais": [1, 4],
+    "setor_saara": [2],
+    "setor_fenda": [3],
+    "setor_do_buraco": [5],
+    "setor_da_frente": [6],
+    "setor_passagem": [7],
+    "setor_arvore_da_vida": [8],
+    "setor_planeta_dos_macacos": [8, 9]
+}

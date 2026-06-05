@@ -1,0 +1,630 @@
+# Croqui: Pedra Branca
+
+## Informações Gerais
+
+- **id**: br_mg_caete_pedra_branca
+- **nome**: Pedra Branca
+- **creditos**:
+  - Mauricio Juntolli
+  - Danilo Stehling
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/pagina_0_imagem_0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Capa
+            
+            | ![Pedra Branca](imagens/pagina_0_imagem_0.webp) |
+            | :--: |
+            | *Pedra Branca* |
+            
+            **Pedra Branca**
+            Caeté - MG
+            
+            **Autores:**
+            Mauricio Juntolli
+            Danilo Stehling
+            
+            Atualizado em: 2010
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_01
+
+### Setor (Pico: Pedra Branca)
+
+- **descricao**:
+    # Croqui 01 da Pedra Branca
+    
+    Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
+    
+    **Autores:** Mauricio Juntolli, Danilo Stehling.
+    **Atualizado em:** 2010.
+    **Fonte:** http://www.escaladacaete.eu5.org
+- **nome**: Croqui 01 da Pedra Branca
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_1_imagem_0.webp)
+    - **largura_mapa**: 960
+    - **altura_mapa**: 461
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 90
+          - **y**: 243
+          - **comprimento**: 22
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 69
+          - **y**: 280
+          - **comprimento**: 26
+          - **largura**: 21
+      - **[2]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 40
+          - **y**: 337
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[3]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 12
+          - **y**: 398
+          - **comprimento**: 23
+          - **largura**: 17
+      - **[4]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 138
+          - **y**: 448
+          - **comprimento**: 26
+          - **largura**: 17
+      - **[5]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 220
+          - **y**: 448
+          - **comprimento**: 29
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 272
+          - **y**: 448
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[7]**:
+        - **id**: 20
+        - **label**: 20
+        - **box**:
+          - **x**: 311
+          - **y**: 448
+          - **comprimento**: 24
+          - **largura**: 20
+      - **[8]**:
+        - **id**: 21
+        - **label**: 21
+        - **box**:
+          - **x**: 372
+          - **y**: 448
+          - **comprimento**: 29
+          - **largura**: 20
+      - **[9]**:
+        - **id**: 22
+        - **label**: 22
+        - **box**:
+          - **x**: 418
+          - **y**: 448
+          - **comprimento**: 27
+          - **largura**: 21
+      - **[10]**:
+        - **id**: 23
+        - **label**: 23
+        - **box**:
+          - **x**: 529
+          - **y**: 449
+          - **comprimento**: 24
+          - **largura**: 20
+      - **[11]**:
+        - **id**: 24
+        - **label**: 24
+        - **box**:
+          - **x**: 563
+          - **y**: 388
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[12]**:
+        - **id**: 25
+        - **label**: 25
+        - **box**:
+          - **x**: 600
+          - **y**: 448
+          - **comprimento**: 25
+          - **largura**: 22
+      - **[13]**:
+        - **id**: 26
+        - **label**: 26
+        - **box**:
+          - **x**: 620
+          - **y**: 388
+          - **comprimento**: 24
+          - **largura**: 17
+      - **[14]**:
+        - **id**: 27
+        - **label**: 27
+        - **box**:
+          - **x**: 690
+          - **y**: 448
+          - **comprimento**: 27
+          - **largura**: 21
+      - **[15]**:
+        - **id**: 28
+        - **label**: 28
+        - **box**:
+          - **x**: 899
+          - **y**: 429
+          - **comprimento**: 22
+          - **largura**: 16
+      - **[16]**:
+        - **id**: 29
+        - **label**: 29
+        - **box**:
+          - **x**: 794
+          - **y**: 313
+          - **comprimento**: 22
+          - **largura**: 16
+      - **[17]**:
+        - **id**: 30
+        - **label**: 30
+        - **box**:
+          - **x**: 766
+          - **y**: 318
+          - **comprimento**: 23
+          - **largura**: 16
+      - **[18]**:
+        - **id**: 31
+        - **label**: 31
+        - **box**:
+          - **x**: 742
+          - **y**: 326
+          - **comprimento**: 22
+          - **largura**: 16
+      - **[19]**:
+        - **id**: 32
+        - **label**: 32
+        - **box**:
+          - **x**: 679
+          - **y**: 306
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[20]**:
+        - **id**: 33
+        - **label**: 33
+        - **box**:
+          - **x**: 632
+          - **y**: 264
+          - **comprimento**: 15
+          - **largura**: 11
+      - **[21]**:
+        - **id**: 34
+        - **label**: 34
+        - **box**:
+          - **x**: 580
+          - **y**: 234
+          - **comprimento**: 21
+          - **largura**: 17
+      - **[22]**:
+        - **id**: 35
+        - **label**: 35
+        - **box**:
+          - **x**: 536
+          - **y**: 232
+          - **comprimento**: 21
+          - **largura**: 19
+      - **[23]**:
+        - **id**: A
+        - **label**: A
+        - **box**:
+          - **x**: 102
+          - **y**: 448
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[24]**:
+        - **id**: B
+        - **label**: B
+        - **box**:
+          - **x**: 288
+          - **y**: 154
+          - **comprimento**: 13
+          - **largura**: 17
+      - **[25]**:
+        - **id**: C
+        - **label**: C
+        - **box**:
+          - **x**: 302
+          - **y**: 128
+          - **comprimento**: 15
+          - **largura**: 15
+      - **[26]**:
+        - **id**: D
+        - **label**: D
+        - **box**:
+          - **x**: 378
+          - **y**: 67
+          - **comprimento**: 13
+          - **largura**: 14
+      - **[27]**:
+        - **id**: Negativo
+        - **label**: Negativo
+        - **box**:
+          - **x**: 485
+          - **y**: 384
+          - **comprimento**: 70
+          - **largura**: 14
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Parede Preta
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 4
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Leão da Montanha
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 5
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Face Norte
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 3
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Criaturas da Noite
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 3
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Tendência Suicida
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 5
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Thor
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_7A
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Todinha pra Mim
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_7B
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Sombra do Gigante
+      - **id_no_mapa**: 20
+      - **dificuldade**: BR_7B
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Firinha Rinda
+      - **id_no_mapa**: 21
+      - **dificuldade**: BR_7B
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Piolhos Entorpecidos
+      - **id_no_mapa**: 22
+      - **dificuldade**: BR_8B
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Monstros
+      - **id_no_mapa**: 23
+      - **dificuldade**: BR_9C
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Princesa Escalafabeltica
+      - **id_no_mapa**: 24
+      - **dificuldade**: BR_8B
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Restos de Woodstock
+      - **id_no_mapa**: 25
+      - **dificuldade**: BR_8C
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: ??
+      - **id_no_mapa**: 26
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: Via da Coruja
+      - **id_no_mapa**: 27
+      - **dificuldade**: BR_3
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Dona Onça
+      - **id_no_mapa**: 28
+      - **dificuldade**: BR_6SUP
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Solidão das Idéias
+      - **id_no_mapa**: 29
+      - **dificuldade**: BR_8C
+  - **[17]**:
+    - **via_esportiva**:
+      - **nome**: A Espera dos Urubus
+      - **id_no_mapa**: 30
+      - **dificuldade**: BR_8B
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: Gaviões
+      - **id_no_mapa**: 31
+      - **dificuldade**: BR_9B
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Azimut Vertical
+      - **id_no_mapa**: 32
+      - **dificuldade**: BR_9A
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Zique Zira da Raca Rouca
+      - **id_no_mapa**: 33
+      - **dificuldade**: BR_8B
+  - **[21]**:
+    - **via_esportiva**:
+      - **nome**: Mistérios da Fé
+      - **id_no_mapa**: 34
+      - **dificuldade**: BR_6
+      - **dificuldade_artificial**: A2_MAIS
+  - **[22]**:
+    - **via_esportiva**:
+      - **nome**: Nem Karaca Caia
+      - **id_no_mapa**: 35
+      - **dificuldade**: BR_8B
+  - **[23]**:
+    - **via_esportiva**:
+      - **nome**: Variante Culpa do Elninho
+      - **id_no_mapa**: A
+      - **dificuldade**: BR_5
+  - **[24]**:
+    - **via_esportiva**:
+      - **nome**: Variante do Mergulho
+      - **id_no_mapa**: B
+      - **dificuldade**: BR_6SUP
+  - **[25]**:
+    - **via_esportiva**:
+      - **nome**: Variante por Aqui
+      - **id_no_mapa**: C
+      - **dificuldade**: BR_3
+  - **[26]**:
+    - **via_esportiva**:
+      - **nome**: Variante do Judas
+      - **id_no_mapa**: D
+      - **dificuldade**: BR_4
+
+
+## Parte: setor_02
+
+### Setor (Pico: Pedra Branca)
+
+- **descricao**:
+    # Croqui 02 da Pedra Branca
+    
+    O resto da grampeação da via Parede Preta esta no croqui 01 da Pedra Branca.
+    
+    Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
+    
+    **Autores:** Mauricio Juntolli, Danilo Stehling.
+    **Atualizado em:** 2010.
+    **Fonte:** http://www.escaladacaete.eu5.org
+- **nome**: Croqui 02 da Pedra Branca
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_2_imagem_0.webp)
+    - **largura_mapa**: 960
+    - **altura_mapa**: 484
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 156
+          - **y**: 464
+          - **comprimento**: 27
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 212
+          - **y**: 464
+          - **comprimento**: 22
+          - **largura**: 19
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 246
+          - **y**: 464
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 293
+          - **y**: 464
+          - **comprimento**: 30
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 356
+          - **y**: 464
+          - **comprimento**: 29
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 400
+          - **y**: 464
+          - **comprimento**: 21
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 436
+          - **y**: 464
+          - **comprimento**: 21
+          - **largura**: 21
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 470
+          - **y**: 464
+          - **comprimento**: 24
+          - **largura**: 21
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 516
+          - **y**: 464
+          - **comprimento**: 29
+          - **largura**: 20
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 589
+          - **y**: 464
+          - **comprimento**: 28
+          - **largura**: 20
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 657
+          - **y**: 464
+          - **comprimento**: 26
+          - **largura**: 21
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 748
+          - **y**: 464
+          - **comprimento**: 29
+          - **largura**: 21
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 868
+          - **y**: 464
+          - **comprimento**: 28
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Festival dos Lagartos
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_3SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Melhor Impossível
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_4
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Lombra Etílica
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_6SUP
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Paredão SLU
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_5
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Libertas
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_6SUP
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Micos
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_5
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Via da Perereca
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_7B
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Barbarela
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_7A
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Ciganos Molhados
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_5
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Abominável Morcego Amestrado
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7B
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Os Quatro Macacos
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_7A
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Produção Independente
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_6SUP
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Parede Preta
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 4
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/pagina_0_imagem_0.webp)
+    - **checksum_sha256**: 03a17148a9a997447bd4555d859d8872b948baeb990f4c77532574028d1938f8
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/pagina_1_imagem_0.webp)
+    - **checksum_sha256**: 17c699e09f39f421a2b3ef92508d6b045732236bdb65765103e6e1c04421b9bd
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/pagina_2_imagem_0.webp)
+    - **checksum_sha256**: 2be1ba32f6bc4191dd1dfbb6c5cd9c12e12760cbac900bd67f3e855ff7e066a4
+
+

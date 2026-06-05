@@ -1,0 +1,162 @@
+---
+nome: Setor de Cima
+mapas:
+- caminho_imagem_mapa: imagens/setor_de_cima_p0.webp
+  largura_mapa: 884
+  altura_mapa: 457
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    box:
+      x: 90
+      y: 373
+      comprimento: 11
+      largura: 14
+  - id: '2'
+    label: '2'
+    box:
+      x: 107
+      y: 372
+      comprimento: 12
+      largura: 12
+  - id: '3'
+    label: '3'
+    box:
+      x: 123
+      y: 372
+      comprimento: 10
+      largura: 14
+  - id: '4'
+    label: '4'
+    box:
+      x: 165
+      y: 374
+      comprimento: 14
+      largura: 15
+  - id: '5'
+    label: '5'
+    box:
+      x: 198
+      y: 370
+      comprimento: 14
+      largura: 15
+  - id: '6'
+    label: '6'
+    box:
+      x: 226
+      y: 370
+      comprimento: 15
+      largura: 15
+  - id: '7'
+    label: '7'
+    box:
+      x: 258
+      y: 368
+      comprimento: 14
+      largura: 14
+  - id: '8'
+    label: '8'
+    box:
+      x: 286
+      y: 370
+      comprimento: 15
+      largura: 14
+  - id: '9'
+    label: '9'
+    box:
+      x: 366
+      y: 370
+      comprimento: 15
+      largura: 16
+  - id: '10'
+    label: '10'
+    box:
+      x: 434
+      y: 367
+      comprimento: 20
+      largura: 18
+  - id: '11'
+    label: '11'
+    box:
+      x: 464
+      y: 366
+      comprimento: 19
+      largura: 18
+  - id: '12'
+    label: '12'
+    box:
+      x: 491
+      y: 368
+      comprimento: 20
+      largura: 19
+  - id: '13'
+    label: '13'
+    box:
+      x: 527
+      y: 368
+      comprimento: 22
+      largura: 18
+  - id: '14'
+    label: '14'
+    box:
+      x: 572
+      y: 370
+      comprimento: 20
+      largura: 19
+escaladas:
+- via_esportiva:
+    nome: Mico Leão Noiado
+    id_no_mapa: '1'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Maridos Alforriados
+    id_no_mapa: '2'
+    dificuldade: BR_5SUP
+- via_esportiva:
+    nome: Sábado de Aleluia
+    id_no_mapa: '3'
+    dificuldade: BR_6SUP
+- via_esportiva:
+    nome: Sem Nome
+    id_no_mapa: '4'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Mancha Amarela
+    id_no_mapa: '6'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: Mancha Preta
+    id_no_mapa: '7'
+    dificuldade: BR_5
+- via_esportiva:
+    nome: DNA Zica Preta
+    id_no_mapa: '8'
+    dificuldade: BR_5
+- via_esportiva:
+    nome: Desvio de Conduta
+    id_no_mapa: '9'
+    dificuldade: BR_7B
+- via_esportiva:
+    nome: O Desgrama
+    id_no_mapa: '10'
+    dificuldade: BR_7C
+- via_esportiva:
+    nome: Bin Laden
+    id_no_mapa: '11'
+    dificuldade: BR_8A
+- via_esportiva:
+    nome: Dia após Dia
+    id_no_mapa: '12'
+    dificuldade: BR_7A
+- via_esportiva:
+    nome: Quarta-Feira Cinzas
+    id_no_mapa: '13'
+    dificuldade: BR_6
+- via_esportiva:
+    nome: Independence Day
+    id_no_mapa: '14'
+    dificuldade: BR_5
+---
+# Setor de Cima
+
+O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.

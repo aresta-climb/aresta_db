@@ -1,0 +1,100 @@
+---
+nome: Setor de Esquerda
+mapas:
+- caminho_imagem_mapa: imagens/setor_de_esquerda_p0_i0.webp
+  largura_mapa: 1020
+  altura_mapa: 952
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    box:
+      x: 407
+      y: 564
+      comprimento: 40
+      largura: 45
+  - id: '2'
+    label: '2'
+    box:
+      x: 595
+      y: 612
+      comprimento: 40
+      largura: 45
+  - id: '3'
+    label: '3'
+    box:
+      x: 695
+      y: 628
+      comprimento: 40
+      largura: 45
+  - id: '4'
+    label: '4'
+    box:
+      x: 810
+      y: 638
+      comprimento: 40
+      largura: 45
+  - id: Setor_7_Paralelo
+    label: ← SETOR 7 PARALELO
+    box:
+      x: 269
+      y: 648
+      comprimento: 36
+      largura: 252
+      angulo_graus_x100: 1813
+  - id: Setor_Panelinha
+    label: SETOR PANELINHA →
+    box:
+      x: 937
+      y: 537
+      comprimento: 34
+      largura: 260
+escaladas:
+- via_esportiva:
+    nome: Milicianos
+    id_no_mapa: '1'
+    dificuldade: BR_5
+    quantidade_protecoes_intermediarias: 5
+    extensao: 15
+- via_esportiva:
+    nome: Inimigos do Estado
+    id_no_mapa: '2'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 6
+    extensao: 15
+    descricao: A primeira via do setor.
+- via_esportiva:
+    nome: Libera a Moça
+    id_no_mapa: '3'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 6
+    extensao: 15
+- via_esportiva:
+    nome: Moça de 100 Anos
+    id_no_mapa: '4'
+    dificuldade: BR_5SUP
+    quantidade_protecoes_intermediarias: 6
+    extensao: 15
+---
+# Setor de Esquerda
+
+Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"
+é composto por uma bela parede de coloração clara, amarela e avermelhada que se
+caracteriza com concreções e cristais coloridos, a parede é relativamente baixa
+com vias até 15 metros. Destaque para a via "Inimigos do Estado, 6º sup", a primeira
+via do setor.
+
+O sol tem maior incidência no setor, então dê preferência para escalar
+nele nas horas mais amenas do dia.
+
+O setor é ideal para grupos de até 8 pessoas.
+
+Por ser um setor com vias de graduação baixa e estar ao lado do setor "Panelinhas"
+é ideal para os iniciantes.
+
+![Setor de Esquerda](imagens/setor_de_esquerda_p0_i1.webp)
+
+![Milicianos 5º](imagens/setor_de_esquerda_p1_i0.webp)
+
+![Inimigos do Estado 6º sup](imagens/setor_de_esquerda_p1_i2.webp)
+
+![Vista do Top da "Inimigos do Estado" 6º sup](imagens/setor_de_esquerda_p1_i1.webp)

@@ -1,0 +1,815 @@
+# Croqui: Afloramento Novo Mundo
+
+## Informações Gerais
+
+- **descricao**: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias que variam do 5º ao 9º grau.
+- **id**: br_mg_arcos_novo_mundo
+- **nome**: Afloramento Novo Mundo
+- **creditos**:
+  - alexsandro martins
+  - Grupo de Trabalho
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # afloramento NOVO MUNDO
+            
+            Corumbá entre Arcos e Pains - MG - Brasil
+            
+            | ![Capa](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa* |
+            
+            CROQUI - JUNHO - 2023
+            
+            Desenvolvido por: alexsandro
+  - **[1]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            ## Mapa dos Afloramentos da Regional
+            
+            | ![Mapa dos Afloramentos da Regional](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa dos Afloramentos da Regional* |
+            
+            ## Mapa de Setores
+            
+            | ![Mapa de Setores](imagens/mapas_gerais_p1.webp) |
+            | :--: |
+            | *Mapa de Setores* |
+            
+            **RECOMENDAÇÕES:** É imprescindível o **USO DE CAPACETE** (escalador, "segue" e pessoas nas bases das vias) pode haver possíveis pedras soltas; cuidado com abelhas, marimbondos e animais peçonhentos; Utilize cordas de 60 metros ou mais.
+            
+            **COMO CHEGAR:** O afloramento de calcário do **Novo Mundo** fica na estrada dos fazendeiros, logo após a mineradora (que está dos dois lados da estrada), no sentido município de Arcos a Pains - MG.
+            
+            **ATENÇÃO:** aos horários de explosão da mineradora - geralmente de **11h30 e 17h15** (de acordo com as placas).
+            
+            Novo Mundo Climb: <https://maps.app.goo.gl/NH7WxKaFaBwgPk5CA>
+  - **[2]**:
+    - **texto**: Observações Importantes
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Observações Importantes
+            
+            Este croqui é apenas um auxílio de consulta a localização, não serve como instruções a prática da escalada. Não nos responsabilizamos pelas informações aqui contidas, são apenas ponto de vista.
+            
+            ## ATENÇÃO
+            
+            Os nomes das vias, seus respectivos conquistadores e a graduação sugerida para cada uma delas são resultados de uma pesquisa oral conduzida entre os escaladores que frequentam o pico, uma vez que não foi encontrado nenhum registro prévio sobre o tema (exceto os guias anteriores). O resultado desse trabalho pode eventualmente conter erros, os quais peço que não sejam entendidos como desrespeito. O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro da maneira mais exata possível.
+            
+            ## OBSERVAÇÃO
+            
+            Como algumas vias são de conquistadores desconhecidos foi utilizado apelido + (*) para identificá-las. Caso encontre algum engano nos dados citados neste croqui, peço que me envie a correção. Terei satisfação em atendê-lo, pois todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse trabalho.
+            
+            Muito obrigado aos conquistadores e conquistadoras, **GRATIDÃO** a vocês sempre!!!
+            
+            Arte/Organização/Produção: **alexsandro martins** / 7ª versão / atualização 2023 / Revisão e graduação sugerida das vias: **Grupo de Trabalho**
+            
+            # SEJA CONSCIENTE!
+            
+            **UTILIZE APENAS AS TRILHAS PRINCIPAIS; As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra; **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...); Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados; Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa; Fogueiras além de provocar queimadas, danificam o local; Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos; Utilize equipamentos de segurança e verifique seu estado de conservação; Cuidado com pedras soltas principalmente em setores e vias novas; Antes de conquistar uma via de escalada entre em contato com o GT.
+  - **[3]**:
+    - **texto**: Parcerias
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Parcerias
+            
+            Parcerias na atualização do ano de 2023 dos croquis dos Afloramentos, Setores e Vias de Escaladas Esportiva em Arcos, Pains e Região - MG.
+            
+            | ![Parcerias](imagens/parcerias_p0.webp) |
+            | :--: |
+            | *Parcerias* |
+            
+            Para contribuir com esse trabalho e a próxima atualização:
+            
+            - **Contato/Informações:** @abrigobase
+            - **Atualizações/Sugestões:** abrigobase@gmail.com
+            - **Contribuição/Parceria:** Pix 37 99918-3634
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_cemiterio_dos_ossos
+
+### Setor (Pico: Novo Mundo)
+
+- **descricao**:
+    # Setor Cemitério dos Ossos
+    
+    Sombra de 7h as 13h (varia de acordo com a estação).
+- **nome**: Setor Cemitério dos Ossos
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cemiterio_dos_ossos_p0_i0.webp)
+    - **largura_mapa**: 1024
+    - **altura_mapa**: 996
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 491
+          - **y**: 212
+          - **comprimento**: 10
+          - **largura**: 15
+      - **[1]**:
+        - **id**: Setor_Cemiterio_dos_Ossos
+        - **label**: Setor Cemitério dos Ossos
+        - **box**:
+          - **x**: 432
+          - **y**: 196
+          - **comprimento**: 50
+          - **largura**: 148
+          - **angulo_graus_x100**: 4685
+      - **[2]**:
+        - **id**: Setor_Praca_Aristoteles
+        - **label**: Setor Praça Aristóteles
+        - **box**:
+          - **x**: 644
+          - **y**: 139
+          - **comprimento**: 55
+          - **largura**: 36
+      - **[3]**:
+        - **id**: Setor_Corredor_Polones
+        - **label**: Setor Corredor Polonês
+        - **box**:
+          - **x**: 688
+          - **y**: 298
+          - **comprimento**: 111
+          - **largura**: 17
+          - **angulo_graus_x100**: -237
+      - **[4]**:
+        - **id**: Setor_Barceloneta
+        - **label**: Setor Barceloneta
+        - **box**:
+          - **x**: 647
+          - **y**: 592
+          - **comprimento**: 62
+          - **largura**: 27
+      - **[5]**:
+        - **id**: Estrada_de_terra
+        - **label**: Estrada de terra
+        - **box**:
+          - **x**: 408
+          - **y**: 884
+          - **comprimento**: 125
+          - **largura**: 27
+      - **[6]**:
+        - **id**: H2O
+        - **label**: H2O
+        - **box**:
+          - **x**: 640
+          - **y**: 927
+          - **comprimento**: 43
+          - **largura**: 22
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Dia da Maldade
+      - **id_no_mapa**: 1
+      - **dificuldade**: INDEFINIDO
+  - **[1]**:
+    - **via_movel**:
+      - **descricao**: via em móvel
+      - **nome**: Dente de Aço
+      - **id_no_mapa**: 
+      - **dificuldade**: INDEFINIDO
+
+
+## Parte: setor_aristoteles
+
+### Setor (Pico: Novo Mundo)
+
+- **descricao**:
+    # Setor Aristóteles
+    
+    Sombra de 7h as 13h (varia de acordo com a estação).
+    Também conhecido como Setor Praça Aristóteles.
+- **nome**: Setor Aristóteles
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_aristoteles_p0_i0.webp)
+    - **largura_mapa**: 1013
+    - **altura_mapa**: 984
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 534
+          - **y**: 136
+          - **comprimento**: 7
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 545
+          - **y**: 124
+          - **comprimento**: 8
+          - **largura**: 13
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 564
+          - **y**: 108
+          - **comprimento**: 9
+          - **largura**: 13
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 588
+          - **y**: 106
+          - **comprimento**: 7
+          - **largura**: 11
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 598
+          - **y**: 110
+          - **comprimento**: 7
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 608
+          - **y**: 121
+          - **comprimento**: 7
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 608
+          - **y**: 135
+          - **comprimento**: 9
+          - **largura**: 10
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 605
+          - **y**: 148
+          - **comprimento**: 6
+          - **largura**: 10
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 613
+          - **y**: 156
+          - **comprimento**: 6
+          - **largura**: 11
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 618
+          - **y**: 170
+          - **comprimento**: 13
+          - **largura**: 13
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 618
+          - **y**: 186
+          - **comprimento**: 10
+          - **largura**: 12
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 616
+          - **y**: 202
+          - **comprimento**: 13
+          - **largura**: 13
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 614
+          - **y**: 218
+          - **comprimento**: 13
+          - **largura**: 11
+      - **[13]**:
+        - **id**: Setor_Cemiterio_dos_Ossos
+        - **label**: Setor Cemitério dos Ossos
+        - **box**:
+          - **x**: 456
+          - **y**: 172
+          - **comprimento**: 77
+          - **largura**: 31
+      - **[14]**:
+        - **id**: Setor_Praca_Aristoteles
+        - **label**: Setor Praça Aristóteles
+        - **box**:
+          - **x**: 672
+          - **y**: 105
+          - **comprimento**: 97
+          - **largura**: 64
+      - **[15]**:
+        - **id**: Setor_Corredor_Polones
+        - **label**: Setor Corredor Polonês
+        - **box**:
+          - **x**: 684
+          - **y**: 288
+          - **comprimento**: 110
+          - **largura**: 17
+          - **angulo_graus_x100**: -298
+      - **[16]**:
+        - **id**: Setor_Barceloneta
+        - **label**: Setor Barceloneta
+        - **box**:
+          - **x**: 644
+          - **y**: 584
+          - **comprimento**: 52
+          - **largura**: 27
+      - **[17]**:
+        - **id**: Estrada_de_terra
+        - **label**: Estrada de terra
+        - **box**:
+          - **x**: 406
+          - **y**: 874
+          - **comprimento**: 125
+          - **largura**: 24
+      - **[18]**:
+        - **id**: H2O
+        - **label**: H2O
+        - **box**:
+          - **x**: 636
+          - **y**: 918
+          - **comprimento**: 47
+          - **largura**: 18
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: 300 de Arcos
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_7B_BARRA_7C
+      - **extensao**: 30
+      - **data_abertura**: 2022
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: 7c - 30mt
+      - **nome**: Efeito Dominó
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_7C
+      - **extensao**: 30
+  - **[2]**:
+    - **via_movel**:
+      - **descricao**: sem nome
+      - **nome**: via em móvel
+      - **id_no_mapa**: 
+      - **dificuldade**: INDEFINIDO
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: 8a - 40mt
+      - **nome**: Odisséia
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_8A
+      - **extensao**: 40
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Nesse Ritmo Nosso, Não
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_7A
+      - **destaque**: True
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Danificada
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_5SUP
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Promessa é Dívida
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_5
+      - **destaque**: True
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Falsas Promessas
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_8C_BARRA_9A
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 13
+      - **quantidade_protecoes_parada**: 2
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: O Pagador de Promessa
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_8B_BARRA_8C
+      - **destaque**: True
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Incrível!
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_7C
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 11
+      - **quantidade_protecoes_parada**: 2
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Espeleopemba
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_6SUP
+      - **extensao**: 25
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 11
+      - **dificuldade**: INDEFINIDO
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 12
+      - **dificuldade**: INDEFINIDO
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: via inacabada
+      - **id_no_mapa**: 13
+      - **dificuldade**: INDEFINIDO
+
+
+## Parte: setor_corredor_polones
+
+### Setor (Pico: Novo Mundo)
+
+- **descricao**:
+    # Setor Corredor Polonês
+    
+    Sombra o dia todo (varia de acordo com a estação).
+- **nome**: Setor Corredor Polonês
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_corredor_polones_p0_i0.webp)
+    - **largura_mapa**: 1026
+    - **altura_mapa**: 990
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 595
+          - **y**: 262
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 616
+          - **y**: 274
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 642
+          - **y**: 274
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 667
+          - **y**: 274
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 706
+          - **y**: 310
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[5]**:
+        - **id**: Setor_Praca_Aristoteles
+        - **label**: Setor Praça Aristóteles
+        - **box**:
+          - **x**: 642
+          - **y**: 130
+          - **comprimento**: 49
+          - **largura**: 41
+      - **[6]**:
+        - **id**: Setor_Cemiterio_dos_Ossos
+        - **label**: Setor Cemitério dos Ossos
+        - **box**:
+          - **x**: 461
+          - **y**: 174
+          - **comprimento**: 70
+          - **largura**: 27
+      - **[7]**:
+        - **id**: Setor_Corredor_Polones
+        - **label**: Setor Corredor Polonês
+        - **box**:
+          - **x**: 710
+          - **y**: 238
+          - **comprimento**: 158
+          - **largura**: 43
+      - **[8]**:
+        - **id**: Setor_Barceloneta
+        - **label**: Setor Barceloneta
+        - **box**:
+          - **x**: 650
+          - **y**: 587
+          - **comprimento**: 62
+          - **largura**: 28
+      - **[9]**:
+        - **id**: Estrada_de_terra
+        - **label**: Estrada de terra
+        - **box**:
+          - **x**: 408
+          - **y**: 879
+          - **comprimento**: 125
+          - **largura**: 26
+      - **[10]**:
+        - **id**: H2O
+        - **label**: H2O
+        - **box**:
+          - **x**: 638
+          - **y**: 920
+          - **comprimento**: 43
+          - **largura**: 22
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Questa Aresta
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_7A
+      - **destaque**: True
+      - **data_abertura**: 2018
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Bonitinha Mais Ordinária
+      - **id_no_mapa**: 2
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2018
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Aperta Que Fica
+      - **id_no_mapa**: 3
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2018
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Tem Gente que Tenta o Cão
+      - **id_no_mapa**: 4
+      - **dificuldade**: INDEFINIDO
+      - **destaque**: True
+      - **data_abertura**: 2018
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Rolling Stones
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_6SUP
+      - **destaque**: True
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2018
+
+
+## Parte: setor_barceloneta
+
+### Setor (Pico: Novo Mundo)
+
+- **descricao**:
+    # Setor Barceloneta
+    
+    Sombra das 7h as 12h (varia de acordo com a estação).
+- **nome**: Setor Barceloneta
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_barceloneta_p0_i0.webp)
+    - **largura_mapa**: 1028
+    - **altura_mapa**: 981
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 629
+          - **y**: 522
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 623
+          - **y**: 552
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 616
+          - **y**: 592
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 641
+          - **y**: 610
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 665
+          - **y**: 608
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 700
+          - **y**: 602
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 724
+          - **y**: 614
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 776
+          - **y**: 594
+          - **comprimento**: 12
+          - **largura**: 15
+      - **[8]**:
+        - **id**: Setor_Praca_Aristoteles
+        - **label**: Setor Praça Aristóteles
+        - **box**:
+          - **x**: 643
+          - **y**: 132
+          - **comprimento**: 50
+          - **largura**: 38
+      - **[9]**:
+        - **id**: Setor_Cemiterio_dos_Ossos
+        - **label**: Setor Cemitério dos Ossos
+        - **box**:
+          - **x**: 462
+          - **y**: 172
+          - **comprimento**: 70
+          - **largura**: 27
+      - **[10]**:
+        - **id**: Setor_Corredor_Polones
+        - **label**: Setor Corredor Polonês
+        - **box**:
+          - **x**: 688
+          - **y**: 293
+          - **comprimento**: 105
+          - **largura**: 16
+          - **angulo_graus_x100**: -322
+      - **[11]**:
+        - **id**: Setor_Barceloneta
+        - **label**: Setor Barceloneta
+        - **box**:
+          - **x**: 698
+          - **y**: 556
+          - **comprimento**: 111
+          - **largura**: 46
+      - **[12]**:
+        - **id**: Estrada_de_terra
+        - **label**: Estrada de terra
+        - **box**:
+          - **x**: 410
+          - **y**: 875
+          - **comprimento**: 125
+          - **largura**: 26
+      - **[13]**:
+        - **id**: H2O
+        - **label**: H2O
+        - **box**:
+          - **x**: 638
+          - **y**: 919
+          - **comprimento**: 43
+          - **largura**: 22
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Dois Dedos pra Cima
+      - **id_no_mapa**: 1
+      - **data_abertura**: 2016
+      - **dificuldade**: BR_7A
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Bela, Recatada e do Climb
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_7C
+      - **data_abertura**: 15/05/2016
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Manteiga de Sucuri
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_8A
+      - **data_abertura**: 15/05/2016
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Nova Era
+      - **id_no_mapa**: 4
+      - **destaque**: True
+      - **dificuldade**: INDEFINIDO
+      - **data_abertura**: 2016
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Novo Mundo
+      - **id_no_mapa**: 5
+      - **destaque**: True
+      - **dificuldade**: BR_7C
+      - **data_abertura**: 2016
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Chora Chorrera
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_7B
+      - **data_abertura**: 2016
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Inocência de Um Purista
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **data_abertura**: 2016
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Maldita Dependência
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_7A
+      - **data_abertura**: 2016
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0.webp)
+    - **checksum_sha256**: 1edb610d3a0c7597deeffd8b501e453d4d33c1011a28a5af18774748bafaa667
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: f2e2caad4db49af4453b787aff578a29cc115b9d779991d9c2c2fb9617174212
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
+    - **checksum_sha256**: 8873fa4d36b194ff8552d8ed497316cb23bbb3860b475aba9729d78f44529560
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/parcerias_p0.webp)
+    - **checksum_sha256**: 63d90792d83a83374ad9e008392dcc49cc16ed9bef41a3e52a86c0b96c83aee4
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/setor_aristoteles_p0_i0.webp)
+    - **checksum_sha256**: bb3e88fad504b0bace1b82b2c3c487e039549a712ec1bd6da3657608ee5ed65b
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/setor_barceloneta_p0_i0.webp)
+    - **checksum_sha256**: 95c89ee8d169fa867b7951f40338d54702516c676831d11d5f7678e7cd4c6d5e
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_cemiterio_dos_ossos_p0_i0.webp)
+    - **checksum_sha256**: dbe8f41ca748176ddaf815dd142dc57473de0611dd536b85ef956694380a7182
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_corredor_polones_p0_i0.webp)
+    - **checksum_sha256**: fc7610a0413cdd5ef0f98a49d85296c2fec2ba5acd16e95388af54c1039308a4
+
+

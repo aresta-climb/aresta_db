@@ -1,0 +1,82 @@
+id: br_mg_lagoa_santa_sitio_do_rod
+nome: Sítio do Rod
+creditos:
+- Marcus Vinicius de Souza
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Sítio do Rod
+  descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
+    Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
+    com acesso fácil e rápido.
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_g1.md
+  - setor:
+      caminho: setor_g2.md
+  - setor:
+      caminho: setor_g3.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Aviso
+  destino:
+    secao_textual:
+      caminho: aviso.md
+- texto: Créditos
+  destino:
+    secao_textual:
+      caminho: creditos.md
+- texto: Agradecimentos
+  destino:
+    secao_textual:
+      caminho: agradecimentos.md
+- texto: A Escalada
+  destino:
+    secao_textual:
+      caminho: a_escalada.md
+- texto: Regras e Código de Conduta
+  destino:
+    secao_textual:
+      caminho: regras_e_conduta.md
+- texto: O Sítio do Rod e Hospedagem
+  destino:
+    secao_textual:
+      caminho: sitio_do_rod_e_hospedagem.md
+- texto: Parque Estadual do Sumidouro
+  destino:
+    secao_textual:
+      caminho: parque_sumidouro.md
+- texto: APA Carste Lagoa Santa
+  destino:
+    secao_textual:
+      caminho: apa_carste.md
+- texto: Comércio Local
+  destino:
+    secao_textual:
+      caminho: comercio_local.md
+- texto: Telefones Úteis
+  destino:
+    secao_textual:
+      caminho: telefones_uteis.md
+- texto: Como Chegar
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
+- texto: Como usar este guia
+  destino:
+    secao_textual:
+      caminho: como_usar_guia.md
+- texto: Mapa dos Setores
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Contra Capa
+  destino:
+    secao_textual:
+      caminho: contra_capa.md
+ultima_migracao: 1
+publicar_croqui: true

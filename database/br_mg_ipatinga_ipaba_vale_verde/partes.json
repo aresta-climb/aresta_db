@@ -1,0 +1,11 @@
+{
+    "capa": [0],
+    "betas": [2],
+    "localizacao": [3],
+    "historia": [4],
+    "geologia": [5, 6],
+    "betas_de_ouro": [7],
+    "mapas_gerais": [8],
+    "setor_1_andar": [9, 10],
+    "setor_2_andar": [11]
+}

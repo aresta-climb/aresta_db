@@ -1,0 +1,53 @@
+id: br_mg_araxa_bocaina_boulders
+nome: Guia de Boulders - Bocaina Park
+descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar localizado
+  a 30 km do de Araxá aos pés da serra da Bocaina.
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Bocaina Park
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_pressao_enrustida.md
+  - setor:
+      caminho: setor_caverninha.md
+  - setor:
+      caminho: setor_exquadrilha.md
+  - setor:
+      caminho: setor_canil.md
+  - setor:
+      caminho: setor_bloco_do_guerreiro.md
+  - setor:
+      caminho: setor_bloco_do_cabelin.md
+  - setor:
+      caminho: setor_consciencia_limpa.md
+  - setor:
+      caminho: setor_haiti.md
+  - setor:
+      caminho: setor_achados_e_perdidos.md
+  - setor:
+      caminho: setor_bloco_do_rock_bocaina.md
+  - setor:
+      caminho: setor_bloco_45.md
+  - setor:
+      caminho: setor_essencia.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Patrocinadores
+  destino:
+    secao_textual:
+      caminho: patrocinadores.md
+- texto: Introdução
+  destino:
+    secao_textual:
+      caminho: introducao.md
+- texto: Índice e Graduação
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

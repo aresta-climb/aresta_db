@@ -1,0 +1,16 @@
+{
+  "capa": [0],
+  "advertencia": [1],
+  "apresentacao": [2],
+  "como_chegar": [3],
+  "mapas_gerais": [4],
+  "lista_de_setores": [5],
+  "setor_chegada": [6],
+  "setor_sunshine_e_teto_preto": [7],
+  "setor_positivo_central": [8],
+  "setor_negativo_central": [9],
+  "setor_arquibancada": [10],
+  "setor_genesis": [11],
+  "setor_acampamento": [12],
+  "contatos": [13]
+}

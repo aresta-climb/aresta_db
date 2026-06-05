@@ -1,0 +1,2706 @@
+# Croqui: Gruta da Lapinha
+
+## Informações Gerais
+
+- **descricao**: Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.
+- **id**: br_mg_lagoa_santa_gruta_da_lapinha
+- **nome**: Gruta da Lapinha
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Guia de escaladas da Lapinha
+            
+            Lagoa Santa - MG
+            
+            | ![Mapa geral da Gruta da Lapinha](imagens/capa_p0_i0.webp) |
+            | :--: |
+            | *Mapa geral da Gruta da Lapinha* |
+            
+            **Autores:** Daniel Ferreira Mariano e Eustáquio Macedo Melo Júnior
+            
+            **Ano:** 2002
+  - **[1]**:
+    - **texto**: Créditos
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Créditos
+            
+            Este guia é de autoria de:
+            - **Daniel Ferreira Mariano**
+            - **Eustáquio Macedo Melo Júnior**
+            
+            **Ano:** 2002
+            
+            **Disponível em:** [www.rumos.net.br](http://www.rumos.net.br)
+            
+            | ![Logo Rumos Navegação em Montanhas](imagens/creditos_p0_i3.webp) |
+            | :--: |
+            | *Logo Rumos Navegação em Montanhas* |
+            
+            | ![Logo AltaMontanha.com](imagens/creditos_p0_i1.webp) |
+            | :--: |
+            | *Logo AltaMontanha.com* |
+            
+            | ![Logo Loja AltaMontanha.com](imagens/creditos_p0_i2.webp) |
+            | :--: |
+            | *Logo Loja AltaMontanha.com* |
+            
+            | ![Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/creditos_p0_i0.webp) |
+            | :--: |
+            | *Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais* |
+            
+            > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
+  - **[2]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            Este mapa apresenta uma visão geral da Gruta da Lapinha, indicando a localização dos setores (Mapas 1 a 10) e pontos de referência como o estacionamento, a praça central e a entrada da gruta.
+            
+            | ![Mapa Geral da Gruta da Lapinha com Localização dos Setores](imagens/mapas_gerais_p0_i0.webp) |
+            | :--: |
+            | *Mapa Geral da Gruta da Lapinha com Localização dos Setores* |
+            
+            **Legenda do Mapa:**
+            - **Mapa 1 a 10:** Setores de escalada detalhados neste guia.
+            - **Gruta "Túneis":** Topografia incompleta.
+            - **"Vale Verde":** Fora de escala.
+            - **Sala de aula**
+            - **Restaurante Castelinho**
+            - **Praça central**
+            - **Estacionamento da Gruta da Lapinha**
+            - **Entrada da Gruta da Lapinha**
+            - **Trilha de acesso**
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_mapa_1
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Castelinho
+    
+    Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.
+- **nome**: Castelinho
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_1_p0_i0.webp)
+    - **largura_mapa**: 330
+    - **altura_mapa**: 246
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 122
+          - **y**: 178
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 138
+          - **y**: 193
+          - **comprimento**: 9
+          - **largura**: 8
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 193
+          - **y**: 220
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 211
+          - **y**: 212
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 225
+          - **y**: 198
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 275
+          - **y**: 166
+          - **comprimento**: 10
+          - **largura**: 9
+- **escaladas**:
+  - **[0]**:
+    - **via_movel**:
+      - **nome**: Sai que é vaca
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Márcio Soares Macena
+        - Wilson Novaes
+  - **[1]**:
+    - **via_movel**:
+      - **nome**: Favo de Mel
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Márcio Soares Macena
+        - Wilson Novaes
+  - **[2]**:
+    - **via_movel**:
+      - **nome**: Retorno do Marco
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_3
+      - **conquistadores**:
+        - Antonio C. Magalhães
+        - Marco Antônio Canelas
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Tomara que não chova
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Christian A. N. Costa
+        - Leo Guimarães "Léo Dandão"
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Castelinho
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Marcelo Henrique Grijó Utsch
+        - Cristiano Loureiro
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Projeto
+      - **id_no_mapa**: 06
+
+
+## Parte: setor_mapa_2
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Mapa 2
+    
+    Localizado próximo à entrada da gruta. 
+    **Atenção:** "Não entre em cavernas".
+- **nome**: Setor Mapa 2
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_2_p0_i0.webp)
+    - **largura_mapa**: 369
+    - **altura_mapa**: 276
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 153
+          - **y**: 102
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[1]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 177
+          - **y**: 114
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[2]**:
+        - **id**: Entrada_da_gruta
+        - **label**: Entrada da gruta
+        - **box**:
+          - **x**: 148
+          - **y**: 28
+          - **comprimento**: 89
+          - **largura**: 15
+      - **[3]**:
+        - **id**: Restaurante_Castelinho
+        - **label**: Restaurante Castelinho
+        - **box**:
+          - **x**: 59
+          - **y**: 92
+          - **comprimento**: 80
+          - **largura**: 35
+      - **[4]**:
+        - **id**: Centro_Dr_Lund
+        - **label**: Centro Dr. Lund
+        - **box**:
+          - **x**: 236
+          - **y**: 204
+          - **comprimento**: 57
+          - **largura**: 29
+- **escaladas**:
+  - **[0]**:
+    - **via_movel**:
+      - **nome**: Ajoelhou tem que Rezar
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: O Exibicionista
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+
+
+## Parte: setor_mapa_3
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Gruta - Mapa 3
+    
+    Parte interna e externa da gruta com vias esportivas e móveis.
+- **nome**: Setor Gruta - Mapa 3
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_3_p0_i0.webp)
+    - **largura_mapa**: 438
+    - **altura_mapa**: 323
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 240
+          - **y**: 72
+          - **comprimento**: 12
+          - **largura**: 10
+      - **[1]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 245
+          - **y**: 60
+          - **comprimento**: 12
+          - **largura**: 10
+      - **[2]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 243
+          - **y**: 48
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[3]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 238
+          - **y**: 35
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[4]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 226
+          - **y**: 39
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[5]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 212
+          - **y**: 48
+          - **comprimento**: 11
+          - **largura**: 11
+      - **[6]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 192
+          - **y**: 62
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[7]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 155
+          - **y**: 99
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 70
+          - **y**: 122
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[9]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 84
+          - **y**: 183
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[10]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 104
+          - **y**: 189
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[11]**:
+        - **id**: 20
+        - **label**: 20
+        - **box**:
+          - **x**: 177
+          - **y**: 149
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[12]**:
+        - **id**: 21
+        - **label**: 21
+        - **box**:
+          - **x**: 205
+          - **y**: 142
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[13]**:
+        - **id**: 22
+        - **label**: 22
+        - **box**:
+          - **x**: 233
+          - **y**: 135
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[14]**:
+        - **id**: 23
+        - **label**: 23
+        - **box**:
+          - **x**: 247
+          - **y**: 155
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[15]**:
+        - **id**: 24
+        - **label**: 24
+        - **box**:
+          - **x**: 271
+          - **y**: 147
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[16]**:
+        - **id**: 25
+        - **label**: 25
+        - **box**:
+          - **x**: 306
+          - **y**: 141
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[17]**:
+        - **id**: 26
+        - **label**: 26
+        - **box**:
+          - **x**: 305
+          - **y**: 126
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[18]**:
+        - **id**: 27
+        - **label**: 27
+        - **box**:
+          - **x**: 357
+          - **y**: 74
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[19]**:
+        - **id**: 28
+        - **label**: 28
+        - **box**:
+          - **x**: 372
+          - **y**: 53
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[20]**:
+        - **id**: 29
+        - **label**: 29
+        - **box**:
+          - **x**: 388
+          - **y**: 29
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[21]**:
+        - **id**: 30
+        - **label**: 30
+        - **box**:
+          - **x**: 399
+          - **y**: 15
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[22]**:
+        - **id**: 45
+        - **label**: 45
+        - **box**:
+          - **x**: 348
+          - **y**: 141
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[23]**:
+        - **id**: 46
+        - **label**: 46
+        - **box**:
+          - **x**: 361
+          - **y**: 168
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[24]**:
+        - **id**: 47
+        - **label**: 47
+        - **box**:
+          - **x**: 362
+          - **y**: 187
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[25]**:
+        - **id**: 48
+        - **label**: 48
+        - **box**:
+          - **x**: 365
+          - **y**: 203
+          - **comprimento**: 14
+          - **largura**: 12
+- **escaladas**:
+  - **[0]**:
+    - **via_movel**:
+      - **nome**: Lua Cheia
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Vladmir Haddad
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Jornada nas Estrelas
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Vladmir Haddad
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Egotrip
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Vladmir Haddad
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Boicote de comunicação
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Fao
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Vicio
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Vladmir Haddad
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Conspiração Sanguessuga
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Alexandre
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: Gota D’água
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Vladmir Haddad
+  - **[7]**:
+    - **via_movel**:
+      - **nome**: Sai de Baixo
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Danilo Abreu
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Pipeline
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Gabriel Fillizola
+        - Sílvio Om
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Jurubeba
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_8B
+      - **conquistadores**:
+        - Wagner Morin Gomes
+        - Wilson Novaes
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Perigo Mora ao Lado
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Márcio Soares Macena
+        - Mozart
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Pretexto da Traição
+      - **id_no_mapa**: 20
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+        - Ramaya Vallias
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Sorriso do Lagarto
+      - **id_no_mapa**: 21
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - J. Roberto Cardoso "Dagó"
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Orgasmatrom
+      - **id_no_mapa**: 22
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - J. Roberto Cardoso "Dagó"
+  - **[14]**:
+    - **via_movel**:
+      - **nome**: Escaramuça
+      - **id_no_mapa**: 23
+      - **dificuldade**: BR_3
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+  - **[15]**:
+    - **via_movel**:
+      - **nome**: Túnel do Tempo
+      - **id_no_mapa**: 24
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[16]**:
+    - **via_movel**:
+      - **nome**: Dédalos
+      - **id_no_mapa**: 25
+      - **dificuldade**: BR_4SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[17]**:
+    - **via_movel**:
+      - **nome**: Bouquet de Rosas
+      - **id_no_mapa**: 26
+      - **dificuldade**: BR_4SUP
+      - **conquistadores**:
+        - Antonio C. Magalhães
+        - Danilo Abreu
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: Fogo no Rabo
+      - **id_no_mapa**: 27
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Bobeou Sobrou
+      - **id_no_mapa**: 28
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Los Cubanos
+      - **id_no_mapa**: 29
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[21]**:
+    - **via_movel**:
+      - **nome**: Folião
+      - **id_no_mapa**: 30
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[22]**:
+    - **via_esportiva**:
+      - **nome**: Escalador sem mãe
+      - **id_no_mapa**: 45
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Jovinei M. Medeiros
+        - Dante M. Borges
+        - Sérgio B. da Silva.
+  - **[23]**:
+    - **via_esportiva**:
+      - **nome**: Projeto inacabado
+      - **id_no_mapa**: 46
+  - **[24]**:
+    - **via_esportiva**:
+      - **nome**: Sobrevibrenf´s
+      - **id_no_mapa**: 47
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Leonardo Hoffmann
+  - **[25]**:
+    - **via_esportiva**:
+      - **nome**: Sobreviventes
+      - **id_no_mapa**: 48
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Anderson (Neném)
+        - Douglas
+        - Bombom
+
+
+## Parte: setor_mapa_4
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Gruta - Mapa 4 (Sala de Aula)
+    
+    Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
+- **nome**: Setor Gruta - Mapa 4 (Sala de Aula)
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_4_p0_i0.webp)
+    - **largura_mapa**: 434
+    - **altura_mapa**: 325
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 27
+        - **label**: 27
+        - **box**:
+          - **x**: 122
+          - **y**: 191
+          - **comprimento**: 16
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 28
+        - **label**: 28
+        - **box**:
+          - **x**: 89
+          - **y**: 174
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 29
+        - **label**: 29
+        - **box**:
+          - **x**: 68
+          - **y**: 154
+          - **comprimento**: 12
+          - **largura**: 8
+      - **[3]**:
+        - **id**: 30
+        - **label**: 30
+        - **box**:
+          - **x**: 54
+          - **y**: 142
+          - **comprimento**: 11
+          - **largura**: 9
+      - **[4]**:
+        - **id**: 31
+        - **label**: 31
+        - **box**:
+          - **x**: 30
+          - **y**: 98
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 32
+        - **label**: 32
+        - **box**:
+          - **x**: 33
+          - **y**: 79
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 33
+        - **label**: 33
+        - **box**:
+          - **x**: 38
+          - **y**: 54
+          - **comprimento**: 11
+          - **largura**: 8
+      - **[7]**:
+        - **id**: 34
+        - **label**: 34
+        - **box**:
+          - **x**: 42
+          - **y**: 38
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 35
+        - **label**: 35
+        - **box**:
+          - **x**: 61
+          - **y**: 34
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[9]**:
+        - **id**: 36
+        - **label**: 36
+        - **box**:
+          - **x**: 64
+          - **y**: 55
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[10]**:
+        - **id**: 37
+        - **label**: 37
+        - **box**:
+          - **x**: 52
+          - **y**: 64
+          - **comprimento**: 11
+          - **largura**: 9
+      - **[11]**:
+        - **id**: 38
+        - **label**: 38
+        - **box**:
+          - **x**: 50
+          - **y**: 121
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[12]**:
+        - **id**: 39
+        - **label**: 39
+        - **box**:
+          - **x**: 76
+          - **y**: 132
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[13]**:
+        - **id**: 40
+        - **label**: 40
+        - **box**:
+          - **x**: 78
+          - **y**: 144
+          - **comprimento**: 10
+          - **largura**: 8
+      - **[14]**:
+        - **id**: 41
+        - **label**: 41
+        - **box**:
+          - **x**: 82
+          - **y**: 160
+          - **comprimento**: 10
+          - **largura**: 9
+      - **[15]**:
+        - **id**: 42
+        - **label**: 42
+        - **box**:
+          - **x**: 117
+          - **y**: 175
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[16]**:
+        - **id**: 43
+        - **label**: 43
+        - **box**:
+          - **x**: 135
+          - **y**: 171
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[17]**:
+        - **id**: 44
+        - **label**: 44
+        - **box**:
+          - **x**: 149
+          - **y**: 158
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[18]**:
+        - **id**: 45
+        - **label**: 45
+        - **box**:
+          - **x**: 200
+          - **y**: 198
+          - **comprimento**: 15
+          - **largura**: 11
+      - **[19]**:
+        - **id**: 46
+        - **label**: 46
+        - **box**:
+          - **x**: 229
+          - **y**: 188
+          - **comprimento**: 16
+          - **largura**: 12
+      - **[20]**:
+        - **id**: 47
+        - **label**: 47
+        - **box**:
+          - **x**: 249
+          - **y**: 188
+          - **comprimento**: 14
+          - **largura**: 13
+      - **[21]**:
+        - **id**: 48
+        - **label**: 48
+        - **box**:
+          - **x**: 270
+          - **y**: 182
+          - **comprimento**: 15
+          - **largura**: 13
+      - **[22]**:
+        - **id**: 49
+        - **label**: 49
+        - **box**:
+          - **x**: 320
+          - **y**: 228
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[23]**:
+        - **id**: 50
+        - **label**: 50
+        - **box**:
+          - **x**: 338
+          - **y**: 257
+          - **comprimento**: 15
+          - **largura**: 12
+      - **[24]**:
+        - **id**: 51
+        - **label**: 51
+        - **box**:
+          - **x**: 358
+          - **y**: 270
+          - **comprimento**: 16
+          - **largura**: 13
+      - **[25]**:
+        - **id**: Sala_de_aula
+        - **label**: Sala de aula
+        - **box**:
+          - **x**: 186
+          - **y**: 46
+          - **comprimento**: 65
+          - **largura**: 40
+      - **[26]**:
+        - **id**: Savassinha
+        - **label**: Savassinha
+        - **box**:
+          - **x**: 360
+          - **y**: 172
+          - **comprimento**: 109
+          - **largura**: 21
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Fogo no Rabo
+      - **id_no_mapa**: 27
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Bobeou Sobrou
+      - **id_no_mapa**: 28
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Los Cubanos
+      - **id_no_mapa**: 29
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[3]**:
+    - **via_movel**:
+      - **nome**: Folião
+      - **id_no_mapa**: 30
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[4]**:
+    - **via_movel**:
+      - **nome**: Luzes
+      - **id_no_mapa**: 31
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Via sem informação
+      - **id_no_mapa**: 32
+      - **conquistadores**:
+        - Leonardo Guimarães "Léo Dandão"
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: Êta Sô
+      - **id_no_mapa**: 33
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Via do Tetinho
+      - **id_no_mapa**: 34
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Leonardo Guimarães "Léo Dandão"
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Ataque das Bolinhas
+      - **id_no_mapa**: 35
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Via do curso
+      - **id_no_mapa**: 36
+      - **dificuldade**: BR_3
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Viajandão Gramando na Chuva
+      - **id_no_mapa**: 37
+      - **dificuldade**: BR_3
+      - **conquistadores**:
+        - Eustáquio M. Melo Júnior e alunos
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Martelo Voador
+      - **id_no_mapa**: 38
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Ramaya Vallias
+        - Sérgio Soares
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Coquetel de Maracujá
+      - **id_no_mapa**: 39
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Ravenloft
+      - **id_no_mapa**: 40
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Leonardo Guimarães "Léo Dandão"
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: Muro das Lamentações
+      - **id_no_mapa**: 41
+      - **dificuldade**: BR_7B
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Equilíbrio Distante
+      - **id_no_mapa**: 42
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Viviane da Silva Euler
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Careta do Calango
+      - **id_no_mapa**: 43
+      - **dificuldade**: BR_9A
+      - **conquistadores**:
+        - Cristiano Loureiro "Negão"
+  - **[17]**:
+    - **via_movel**:
+      - **nome**: Pierrô e Colombina
+      - **id_no_mapa**: 44
+      - **dificuldade**: BR_4SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Lúcia Magalhães
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: Escalador sem mãe
+      - **id_no_mapa**: 45
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Jovinei M. Medeiros
+        - Dante M. Borges
+        - Sérgio B. da Silva.
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Projeto inacabado
+      - **id_no_mapa**: 46
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Sobrevibrenf´s
+      - **id_no_mapa**: 47
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Leonardo Hoffmann
+  - **[21]**:
+    - **via_esportiva**:
+      - **nome**: Sobreviventes
+      - **id_no_mapa**: 48
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Anderson (Neném)
+        - Douglas
+        - Bombom
+  - **[22]**:
+    - **via_esportiva**:
+      - **nome**: Scarface
+      - **id_no_mapa**: 49
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Gustavo Piancastelli
+        - Ronie
+  - **[23]**:
+    - **via_esportiva**:
+      - **nome**: Posições Exóticas
+      - **id_no_mapa**: 50
+      - **dificuldade**: BR_7B
+      - **conquistadores**:
+        - Ivo Ferreira Marcelino
+  - **[24]**:
+    - **via_esportiva**:
+      - **nome**: Garotos não Choram
+      - **id_no_mapa**: 51
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Emerson Alves Azeredo
+
+
+## Parte: setor_mapa_5
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Mapa 5
+    
+    Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
+    Confira a localização no mapa.
+- **nome**: Setor Mapa 5
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_5_p0_i0.webp)
+    - **largura_mapa**: 417
+    - **altura_mapa**: 310
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 52
+        - **label**: 52
+        - **box**:
+          - **x**: 379
+          - **y**: 20
+          - **comprimento**: 14
+          - **largura**: 9
+      - **[1]**:
+        - **id**: 53
+        - **label**: 53
+        - **box**:
+          - **x**: 370
+          - **y**: 36
+          - **comprimento**: 13
+          - **largura**: 10
+      - **[2]**:
+        - **id**: 54
+        - **label**: 54
+        - **box**:
+          - **x**: 370
+          - **y**: 54
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 55
+        - **label**: 55
+        - **box**:
+          - **x**: 364
+          - **y**: 71
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[4]**:
+        - **id**: 56
+        - **label**: 56
+        - **box**:
+          - **x**: 185
+          - **y**: 137
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 57
+        - **label**: 57
+        - **box**:
+          - **x**: 178
+          - **y**: 152
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 58
+        - **label**: 58
+        - **box**:
+          - **x**: 162
+          - **y**: 155
+          - **comprimento**: 13
+          - **largura**: 10
+      - **[7]**:
+        - **id**: 59
+        - **label**: 59
+        - **box**:
+          - **x**: 147
+          - **y**: 158
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 60
+        - **label**: 60
+        - **box**:
+          - **x**: 49
+          - **y**: 141
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[9]**:
+        - **id**: Pasto
+        - **label**: Pasto
+        - **box**:
+          - **x**: 282
+          - **y**: 159
+          - **comprimento**: 42
+          - **largura**: 18
+      - **[10]**:
+        - **id**: Teto
+        - **label**: Teto
+        - **box**:
+          - **x**: 94
+          - **y**: 188
+          - **comprimento**: 33
+          - **largura**: 17
+      - **[11]**:
+        - **id**: Mancha_amarela
+        - **label**: Mancha amarela
+        - **box**:
+          - **x**: 178
+          - **y**: 226
+          - **comprimento**: 55
+          - **largura**: 31
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Vía em Top Rope
+      - **nome**: Ben Moon
+      - **id_no_mapa**: 52
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Eustáquio Macedo
+        - Emerson Alves Azeredo
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Come Quieto
+      - **id_no_mapa**: 53
+      - **dificuldade**: BR_8B
+      - **conquistadores**:
+        - Alexandre Galvão
+        - XXX
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: O Perigo que Veio do Céu
+      - **id_no_mapa**: 54
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Charles Costa Marinho
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Arranca Couro
+      - **id_no_mapa**: 55
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Charles C. Marinho
+        - Emerson A. Azeredo
+        - Fabiano Fernandes
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Ônibus Inglês
+      - **id_no_mapa**: 56
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+        - Leonardo Hoffmann
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Gigante de Bronze
+      - **id_no_mapa**: 57
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - Anderson B. Felisário
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Karrenglass
+      - **id_no_mapa**: 58
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Eduardo V. de A. "Ralf"
+        - Ricardo Leal
+        - Rodrigo Tinoco
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Retorno dos Anões
+      - **id_no_mapa**: 59
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Fábio Luiz Faria "Fabinho"
+        - Míriam Morato Duarte
+        - Denise
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Compromisso Sexual
+      - **id_no_mapa**: 60
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Emerson A. Azeredo
+        - Eustáquio Júnior
+        - Fabiano Fernandes
+
+
+## Parte: setor_mapa_6
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Vale Verde (Mapa 6)
+    
+    Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
+    O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
+- **nome**: Vale Verde (Mapa 6)
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_6_p0_i0.webp)
+    - **largura_mapa**: 465
+    - **altura_mapa**: 340
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 61
+        - **label**: 61
+        - **box**:
+          - **x**: 31
+          - **y**: 140
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 62
+        - **label**: 62
+        - **box**:
+          - **x**: 79
+          - **y**: 164
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 63
+        - **label**: 63
+        - **box**:
+          - **x**: 122
+          - **y**: 189
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 64
+        - **label**: 64
+        - **box**:
+          - **x**: 239
+          - **y**: 178
+          - **comprimento**: 10
+          - **largura**: 8
+      - **[4]**:
+        - **id**: 65
+        - **label**: 65
+        - **box**:
+          - **x**: 223
+          - **y**: 156
+          - **comprimento**: 10
+          - **largura**: 8
+      - **[5]**:
+        - **id**: 66
+        - **label**: 66
+        - **box**:
+          - **x**: 223
+          - **y**: 145
+          - **comprimento**: 10
+          - **largura**: 8
+      - **[6]**:
+        - **id**: 67
+        - **label**: 67
+        - **box**:
+          - **x**: 236
+          - **y**: 150
+          - **comprimento**: 10
+          - **largura**: 8
+      - **[7]**:
+        - **id**: 68
+        - **label**: 68
+        - **box**:
+          - **x**: 266
+          - **y**: 122
+          - **comprimento**: 10
+          - **largura**: 10
+      - **[8]**:
+        - **id**: 69
+        - **label**: 69
+        - **box**:
+          - **x**: 280
+          - **y**: 97
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[9]**:
+        - **id**: 70
+        - **label**: 70
+        - **box**:
+          - **x**: 307
+          - **y**: 104
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[10]**:
+        - **id**: 71
+        - **label**: 71
+        - **box**:
+          - **x**: 278
+          - **y**: 135
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[11]**:
+        - **id**: 72
+        - **label**: 72
+        - **box**:
+          - **x**: 307
+          - **y**: 175
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[12]**:
+        - **id**: 73
+        - **label**: 73
+        - **box**:
+          - **x**: 321
+          - **y**: 202
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[13]**:
+        - **id**: 74
+        - **label**: 74
+        - **box**:
+          - **x**: 344
+          - **y**: 217
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[14]**:
+        - **id**: 75
+        - **label**: 75
+        - **box**:
+          - **x**: 421
+          - **y**: 236
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[15]**:
+        - **id**: Vale_Verde
+        - **label**: Vale Verde
+        - **box**:
+          - **x**: 95
+          - **y**: 220
+          - **comprimento**: 130
+          - **largura**: 25
+      - **[16]**:
+        - **id**: Raul_Seixas
+        - **label**: Bloco do Raul Seixas
+        - **box**:
+          - **x**: 340
+          - **y**: 266
+          - **comprimento**: 51
+          - **largura**: 21
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Psico Circus
+      - **id_no_mapa**: 62
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - Anderson B. Felisário
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Os impossíveis
+      - **id_no_mapa**: 63
+      - **dificuldade**: BR_8B
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - Anderson B. Felisário
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Carbonáticus Calcicus
+      - **id_no_mapa**: 64
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Eduardo Viana de Azevedo "Ralf"
+  - **[3]**:
+    - **via_movel**:
+      - **nome**: Para não dizer que não falei de flores
+      - **id_no_mapa**: 65
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Ricardo Jardim Leal
+  - **[4]**:
+    - **via_movel**:
+      - **nome**: As Aparências Enganam
+      - **id_no_mapa**: 66
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Júlio César Cardoso
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Eu quero é ver o oco
+      - **id_no_mapa**: 67
+      - **dificuldade**: BR_7B
+      - **conquistadores**:
+        - Ricardo Jardim Leal
+        - Leonardo Oliveira
+        - Danilo Tolentino
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: Cortando Prego
+      - **id_no_mapa**: 68
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Edgardo Abreu "Caca"
+        - Leandro Antônio Reis
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Vive lá brenf
+      - **id_no_mapa**: 69
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - André "DJ"
+        - Léo Hoffmann
+        - André "Granola"
+        - Guta Piancastelli
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Rastafary Baby
+      - **id_no_mapa**: 70
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Leonardo Hoffman
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Varinha de Condon
+      - **id_no_mapa**: 71
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Wilson Novaes
+        - Márcio Soares Macenas
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Tempestade Cerebral
+      - **id_no_mapa**: 72
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - André C. B. "Andrezão"
+        - Anderson B. Felisário
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Chambinho
+      - **id_no_mapa**: 73
+      - **dificuldade**: BR_8C
+      - **conquistadores**:
+        - Anderson Felisário
+        - Andrezão
+        - Eduardo "Ralf"
+        - Eustáquio Jr.
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Revolução dos Micos
+      - **id_no_mapa**: 74
+      - **dificuldade**: BR_7B
+      - **conquistadores**:
+        - Eduardo Amaral
+        - Jean
+        - Ane Ouriques
+        - Leonardo Rocenik
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Al Capote
+      - **id_no_mapa**: 75
+      - **dificuldade**: BR_8B
+      - **conquistadores**:
+        - Ricardo Jardim Leal
+
+
+## Parte: setor_mapa_7
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Mapa 7
+    
+    Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
+- **nome**: Setor Mapa 7
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_7_p0_i0.webp)
+    - **largura_mapa**: 510
+    - **altura_mapa**: 380
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 76
+        - **label**: 76
+        - **box**:
+          - **x**: 342
+          - **y**: 306
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 77
+        - **label**: 77
+        - **box**:
+          - **x**: 323
+          - **y**: 297
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 78
+        - **label**: 78
+        - **box**:
+          - **x**: 301
+          - **y**: 267
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 79
+        - **label**: 79
+        - **box**:
+          - **x**: 258
+          - **y**: 105
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[4]**:
+        - **id**: 80
+        - **label**: 80
+        - **box**:
+          - **x**: 276
+          - **y**: 132
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 81
+        - **label**: 81
+        - **box**:
+          - **x**: 294
+          - **y**: 159
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 82
+        - **label**: 82
+        - **box**:
+          - **x**: 417
+          - **y**: 312
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[7]**:
+        - **id**: 83
+        - **label**: 83
+        - **box**:
+          - **x**: 426
+          - **y**: 328
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 84
+        - **label**: 84
+        - **box**:
+          - **x**: 446
+          - **y**: 352
+          - **comprimento**: 12
+          - **largura**: 9
+      - **[9]**:
+        - **id**: 85
+        - **label**: 85
+        - **box**:
+          - **x**: 462
+          - **y**: 352
+          - **comprimento**: 11
+          - **largura**: 10
+      - **[10]**:
+        - **id**: 86
+        - **label**: 86
+        - **box**:
+          - **x**: 482
+          - **y**: 350
+          - **comprimento**: 12
+          - **largura**: 9
+      - **[11]**:
+        - **id**: Monte_Calvario
+        - **label**: Monte Calvário
+        - **box**:
+          - **x**: 422
+          - **y**: 88
+          - **comprimento**: 99
+          - **largura**: 57
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Cariocas não dizem Uai
+      - **id_no_mapa**: 76
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Ivo Júnior
+        - Rma
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Doutor Lund
+      - **id_no_mapa**: 77
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Mário Almeida Neto
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Aceitam-se Sugestões
+      - **id_no_mapa**: 78
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Juan Kempen
+        - Pedro Assis Leite
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Rosa dos Ventos
+      - **id_no_mapa**: 79
+      - **dificuldade**: BR_9A
+      - **conquistadores**:
+        - Ramaya Vallias
+        - Léo Quirino
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Monte Calvário
+      - **id_no_mapa**: 80
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Ramaya Vallias
+        - Léo Quirino
+  - **[5]**:
+    - **via_movel**:
+      - **nome**: Pó-na-beiça
+      - **id_no_mapa**: 81
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Wilson Novaes
+        - Márcio Soares Macenas
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Três dentro, três fora
+      - **id_no_mapa**: 82
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Jovinei M. Medeiros
+        - Helon B. Neto
+        - Paulo R. Patrocínio
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Só para eles
+      - **id_no_mapa**: 83
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+        - Ramaya Vallias
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Só para elas
+      - **id_no_mapa**: 84
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+        - Ramaya Vallias
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Prestobarba
+      - **id_no_mapa**: 85
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Bigode Limpo
+      - **id_no_mapa**: 86
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Antonio Carlos Magalhães
+        - Emerson Alves Azeredo
+
+
+## Parte: setor_mapa_8
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Túnel de Pedra (Mapa 8)
+    
+    Vias localizadas na região do Túnel de Pedra.
+    O setor possui uma grande concentração de vias esportivas de graduação variada.
+- **nome**: Setor Túnel de Pedra (Mapa 8)
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_8_p0_i0.webp)
+    - **largura_mapa**: 490
+    - **altura_mapa**: 360
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 82
+        - **label**: 82
+        - **box**:
+          - **x**: 10
+          - **y**: 97
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 83
+        - **label**: 83
+        - **box**:
+          - **x**: 21
+          - **y**: 114
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 84
+        - **label**: 84
+        - **box**:
+          - **x**: 45
+          - **y**: 143
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 85
+        - **label**: 85
+        - **box**:
+          - **x**: 63
+          - **y**: 142
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[4]**:
+        - **id**: 86
+        - **label**: 86
+        - **box**:
+          - **x**: 86
+          - **y**: 140
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 87
+        - **label**: 87
+        - **box**:
+          - **x**: 126
+          - **y**: 141
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 88
+        - **label**: 88
+        - **box**:
+          - **x**: 122
+          - **y**: 158
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[7]**:
+        - **id**: 89
+        - **label**: 89
+        - **box**:
+          - **x**: 102
+          - **y**: 154
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 91
+        - **label**: 91
+        - **box**:
+          - **x**: 243
+          - **y**: 324
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[9]**:
+        - **id**: 92
+        - **label**: 92
+        - **box**:
+          - **x**: 181
+          - **y**: 194
+          - **comprimento**: 12
+          - **largura**: 9
+      - **[10]**:
+        - **id**: 93
+        - **label**: 93
+        - **box**:
+          - **x**: 192
+          - **y**: 182
+          - **comprimento**: 11
+          - **largura**: 9
+      - **[11]**:
+        - **id**: 94
+        - **label**: 94
+        - **box**:
+          - **x**: 210
+          - **y**: 173
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[12]**:
+        - **id**: 95
+        - **label**: 95
+        - **box**:
+          - **x**: 238
+          - **y**: 159
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[13]**:
+        - **id**: 96
+        - **label**: 96
+        - **box**:
+          - **x**: 221
+          - **y**: 130
+          - **comprimento**: 12
+          - **largura**: 9
+      - **[14]**:
+        - **id**: 97
+        - **label**: 97
+        - **box**:
+          - **x**: 207
+          - **y**: 139
+          - **comprimento**: 12
+          - **largura**: 8
+      - **[15]**:
+        - **id**: 98
+        - **label**: 98
+        - **box**:
+          - **x**: 200
+          - **y**: 158
+          - **comprimento**: 11
+          - **largura**: 11
+      - **[16]**:
+        - **id**: 99
+        - **label**: 99
+        - **box**:
+          - **x**: 180
+          - **y**: 124
+          - **comprimento**: 14
+          - **largura**: 11
+      - **[17]**:
+        - **id**: 100
+        - **label**: 100
+        - **box**:
+          - **x**: 152
+          - **y**: 116
+          - **comprimento**: 17
+          - **largura**: 10
+      - **[18]**:
+        - **id**: 101
+        - **label**: 101
+        - **box**:
+          - **x**: 158
+          - **y**: 98
+          - **comprimento**: 17
+          - **largura**: 9
+      - **[19]**:
+        - **id**: 102
+        - **label**: 102
+        - **box**:
+          - **x**: 180
+          - **y**: 86
+          - **comprimento**: 17
+          - **largura**: 11
+      - **[20]**:
+        - **id**: 103
+        - **label**: 103
+        - **box**:
+          - **x**: 206
+          - **y**: 104
+          - **comprimento**: 18
+          - **largura**: 10
+      - **[21]**:
+        - **id**: 104
+        - **label**: 104
+        - **box**:
+          - **x**: 230
+          - **y**: 98
+          - **comprimento**: 17
+          - **largura**: 10
+      - **[22]**:
+        - **id**: 105
+        - **label**: 105
+        - **box**:
+          - **x**: 240
+          - **y**: 70
+          - **comprimento**: 17
+          - **largura**: 10
+      - **[23]**:
+        - **id**: 106
+        - **label**: 106
+        - **box**:
+          - **x**: 214
+          - **y**: 55
+          - **comprimento**: 19
+          - **largura**: 10
+      - **[24]**:
+        - **id**: 107
+        - **label**: 107
+        - **box**:
+          - **x**: 168
+          - **y**: 40
+          - **comprimento**: 19
+          - **largura**: 9
+      - **[25]**:
+        - **id**: 108
+        - **label**: 108
+        - **box**:
+          - **x**: 138
+          - **y**: 42
+          - **comprimento**: 17
+          - **largura**: 9
+      - **[26]**:
+        - **id**: 109
+        - **label**: 109
+        - **box**:
+          - **x**: 128
+          - **y**: 28
+          - **comprimento**: 17
+          - **largura**: 10
+      - **[27]**:
+        - **id**: Tunel_de_pedra
+        - **label**: Túnel de pedra
+        - **box**:
+          - **x**: 392
+          - **y**: 55
+          - **comprimento**: 128
+          - **largura**: 78
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Bigode de Cristo
+      - **id_no_mapa**: 87
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Fábio Luiz Farias "Fabinho"
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Bigode Sujo
+      - **id_no_mapa**: 88
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Emerson A. Azeredo
+        - Eustáquio M. M. Júnior
+        - Gilberto Torres
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Bigode de Espinho
+      - **id_no_mapa**: 89
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Alexandre F. de Queiroz "Caverna"
+        - Edgardo Abreu "Caca"
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Era para ser a via 90, mas não tem marcação 90 no mapa.
+      - **nome**: Ecos do Além
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Dante Martins Borges
+        - Sérgio Bastos da Silva
+  - **[4]**:
+    - **via_movel**:
+      - **nome**: Trombeta Acéfala
+      - **id_no_mapa**: 91
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Eustáquio M. Melo Júnior
+        - Leonardo Hoffmann
+  - **[5]**:
+    - **via_movel**:
+      - **nome**: Meio Cubanos
+      - **id_no_mapa**: 92
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Roberto Lincoln de Freitas
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Golpe Ninja
+      - **id_no_mapa**: 93
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Dante Martins Borges
+        - Sérgio Bastos da Silva
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Tripla Traição
+      - **id_no_mapa**: 94
+      - **conquistadores**:
+        - Emerson A. Azeredo
+        - Eustáquio M. M. Júnior
+        - Léo Hoffmann
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Noivado da Feiticeira
+      - **id_no_mapa**: 95
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Emerson A. Azeredo
+        - Leonardo Hoffmann
+        - Ramaya Vallias
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Planeta dos Macacos
+      - **id_no_mapa**: 96
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Alexandre "Caverna"
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Rota de colisão
+      - **id_no_mapa**: 97
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Marco Antônio Canelas
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Projeto Daniel Salim
+      - **id_no_mapa**: 98
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Vale Perdido
+      - **id_no_mapa**: 99
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Emerson Alves Azeredo
+        - Gilberto Torres
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Consolo da Surucucu
+      - **id_no_mapa**: 100
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Vinícius B. Assis
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: Santos e Hereges
+      - **id_no_mapa**: 101
+      - **dificuldade**: BR_9B
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Mário Almeida Neto
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: O Império Contra Ataca
+      - **id_no_mapa**: 102
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Eustáquio M. M. Júnior
+        - Fabiano da Silva Fernandes
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Jegue Voador
+      - **id_no_mapa**: 103
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Léo Hoffmann
+        - Marco Antônio Canelas
+        - Marcelo Andrê
+  - **[17]**:
+    - **via_esportiva**:
+      - **nome**: Labirinto das Maritacas
+      - **id_no_mapa**: 104
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Emerson Alves Azeredo
+        - Gilberto Torres
+  - **[18]**:
+    - **via_movel**:
+      - **nome**: Tentações de Maria Madalena
+      - **id_no_mapa**: 105
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Eustáquio M. Melo Júnior
+        - Leonardo Hoffmann
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Sai do chão
+      - **id_no_mapa**: 106
+      - **dificuldade**: BR_9A
+      - **conquistadores**:
+        - Jovinei Miguel Medeiros
+        - Helon Brazil Neto
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Ato Imperdoável
+      - **id_no_mapa**: 107
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Eustáquio M. M. Júnior
+        - Fabiano da Silva Fernandes
+  - **[21]**:
+    - **via_esportiva**:
+      - **nome**: Projeto Rodrigo do Paraná
+      - **id_no_mapa**: 108
+  - **[22]**:
+    - **via_esportiva**:
+      - **nome**: Pequena Criança
+      - **id_no_mapa**: 109
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Wilson Novaes
+        - Ivo Ferreira Marcelino
+        - Alexandre Magos
+
+
+## Parte: setor_mapa_9
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Savassinha (Mapa 9)
+    
+    Setor com vias de alto nível técnico e físico.
+    Vias localizadas em uma das áreas mais frequentadas da Lapinha.
+- **nome**: Savassinha (Mapa 9)
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_9_p0_i0.webp)
+    - **largura_mapa**: 500
+    - **altura_mapa**: 370
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 105
+        - **label**: 105
+        - **box**:
+          - **x**: 155
+          - **y**: 354
+          - **comprimento**: 20
+          - **largura**: 11
+      - **[1]**:
+        - **id**: 106
+        - **label**: 106
+        - **box**:
+          - **x**: 126
+          - **y**: 338
+          - **comprimento**: 19
+          - **largura**: 11
+      - **[2]**:
+        - **id**: 107
+        - **label**: 107
+        - **box**:
+          - **x**: 76
+          - **y**: 321
+          - **comprimento**: 21
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 108
+        - **label**: 108
+        - **box**:
+          - **x**: 41
+          - **y**: 322
+          - **comprimento**: 18
+          - **largura**: 10
+      - **[4]**:
+        - **id**: 109
+        - **label**: 109
+        - **box**:
+          - **x**: 29
+          - **y**: 307
+          - **comprimento**: 18
+          - **largura**: 10
+      - **[5]**:
+        - **id**: 110
+        - **label**: 110
+        - **box**:
+          - **x**: 90
+          - **y**: 239
+          - **comprimento**: 19
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 111
+        - **label**: 111
+        - **box**:
+          - **x**: 114
+          - **y**: 208
+          - **comprimento**: 18
+          - **largura**: 11
+      - **[7]**:
+        - **id**: 112
+        - **label**: 112
+        - **box**:
+          - **x**: 142
+          - **y**: 191
+          - **comprimento**: 18
+          - **largura**: 12
+      - **[8]**:
+        - **id**: 113
+        - **label**: 113
+        - **box**:
+          - **x**: 162
+          - **y**: 178
+          - **comprimento**: 17
+          - **largura**: 12
+      - **[9]**:
+        - **id**: 114
+        - **label**: 114
+        - **box**:
+          - **x**: 184
+          - **y**: 178
+          - **comprimento**: 17
+          - **largura**: 12
+      - **[10]**:
+        - **id**: 115
+        - **label**: 115
+        - **box**:
+          - **x**: 195
+          - **y**: 198
+          - **comprimento**: 18
+          - **largura**: 12
+      - **[11]**:
+        - **id**: 116
+        - **label**: 116
+        - **box**:
+          - **x**: 183
+          - **y**: 215
+          - **comprimento**: 18
+          - **largura**: 12
+      - **[12]**:
+        - **id**: 117
+        - **label**: 117
+        - **box**:
+          - **x**: 168
+          - **y**: 230
+          - **comprimento**: 19
+          - **largura**: 12
+      - **[13]**:
+        - **id**: 118
+        - **label**: 118
+        - **box**:
+          - **x**: 154
+          - **y**: 248
+          - **comprimento**: 19
+          - **largura**: 11
+      - **[14]**:
+        - **id**: 119
+        - **label**: 119
+        - **box**:
+          - **x**: 130
+          - **y**: 261
+          - **comprimento**: 19
+          - **largura**: 12
+      - **[15]**:
+        - **id**: 120
+        - **label**: 120
+        - **box**:
+          - **x**: 102
+          - **y**: 272
+          - **comprimento**: 19
+          - **largura**: 11
+      - **[16]**:
+        - **id**: 121
+        - **label**: 121
+        - **box**:
+          - **x**: 449
+          - **y**: 141
+          - **comprimento**: 20
+          - **largura**: 12
+      - **[17]**:
+        - **id**: 122
+        - **label**: 122
+        - **box**:
+          - **x**: 420
+          - **y**: 131
+          - **comprimento**: 21
+          - **largura**: 12
+      - **[18]**:
+        - **id**: 123
+        - **label**: 123
+        - **box**:
+          - **x**: 451
+          - **y**: 76
+          - **comprimento**: 20
+          - **largura**: 12
+      - **[19]**:
+        - **id**: 124
+        - **label**: 124
+        - **box**:
+          - **x**: 404
+          - **y**: 79
+          - **comprimento**: 21
+          - **largura**: 12
+      - **[20]**:
+        - **id**: Savassinha
+        - **label**: Savassinha
+        - **box**:
+          - **x**: 116
+          - **y**: 81
+          - **comprimento**: 155
+          - **largura**: 32
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Corvo Gigante
+      - **id_no_mapa**: 110
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Gilberto Torres
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Gralha Pigmeia
+      - **id_no_mapa**: 111
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - W. Novaes
+        - Ivo Marcelino
+        - Alexandre Magos
+        - Léo Hoffmann
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Anjo de Pedra
+      - **id_no_mapa**: 112
+      - **dificuldade**: BR_5SUP
+      - **conquistadores**:
+        - Rodrigo Tinoco França
+        - Vinícius
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Um Porco que Sobe
+      - **id_no_mapa**: 113
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Leonardo Hoffmann
+        - Henriquinho
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Um Corpo que Cai
+      - **id_no_mapa**: 114
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Emerson A. Azeredo
+        - Fábio C. Araújo
+        - Júlio C. Cardoso
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Realidade da Coisa
+      - **id_no_mapa**: 115
+      - **dificuldade**: BR_9B
+      - **conquistadores**:
+        - Fabinho de Petrópolis
+        - Marquinhos
+        - Xacundum
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Realidade Sobreposta
+      - **id_no_mapa**: 116
+      - **dificuldade**: BR_8C
+      - **conquistadores**:
+        - Fabiano da Silva Fernandes
+        - Fabinho de Teresópolis
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Talhadeira Passa
+      - **id_no_mapa**: 117
+      - **dificuldade**: BR_8B
+      - **conquistadores**:
+        - Felipe
+        - Abobrinha
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Cova dos Leões
+      - **id_no_mapa**: 118
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Emerson Alves Azeredo
+        - Gilberto Torres
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Mentalidade Suburbana
+      - **id_no_mapa**: 119
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Ricardo J. Leal
+        - Rodrigo Tinoco
+        - Fábio L. Farias "Fabinho"
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Rato Assassino
+      - **id_no_mapa**: 120
+      - **dificuldade**: BR_8A
+      - **conquistadores**:
+        - Fabinho de Petrópolis
+        - Alexandre Xacundum
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Masturbações de Calígula
+      - **id_no_mapa**: 123
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Márcio Soares Macenas
+        - Wilson Novaes
+  - **[12]**:
+    - **via_movel**:
+      - **descricao**: Vía de proteção mista
+      - **nome**: Primeiro General
+      - **id_no_mapa**: 124
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Roberto Lincoln de Freitas
+
+
+## Parte: setor_mapa_10
+
+### Setor (Pico: Gruta da Lapinha)
+
+- **descricao**:
+    # Setor Bloco Romano (Mapa 10)
+    
+    Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
+    Possui vias predominantemente esportivas.
+- **nome**: Bloco Romano (Mapa 10)
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mapa_10_p0_i0.webp)
+    - **largura_mapa**: 359
+    - **altura_mapa**: 263
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 125
+        - **label**: 125
+        - **box**:
+          - **x**: 122
+          - **y**: 182
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[1]**:
+        - **id**: 126
+        - **label**: 126
+        - **box**:
+          - **x**: 102
+          - **y**: 163
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 127
+        - **label**: 127
+        - **box**:
+          - **x**: 66
+          - **y**: 166
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[3]**:
+        - **id**: 128
+        - **label**: 128
+        - **box**:
+          - **x**: 44
+          - **y**: 152
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[4]**:
+        - **id**: 129
+        - **label**: 129
+        - **box**:
+          - **x**: 32
+          - **y**: 137
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[5]**:
+        - **id**: 130
+        - **label**: 130
+        - **box**:
+          - **x**: 49
+          - **y**: 87
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[6]**:
+        - **id**: 131
+        - **label**: 131
+        - **box**:
+          - **x**: 75
+          - **y**: 59
+          - **comprimento**: 14
+          - **largura**: 12
+      - **[7]**:
+        - **id**: Bloco_Romano
+        - **label**: Bloco Romano
+        - **box**:
+          - **x**: 237
+          - **y**: 76
+          - **comprimento**: 172
+          - **largura**: 25
+      - **[8]**:
+        - **id**: Teto
+        - **label**: Teto
+        - **box**:
+          - **x**: 206
+          - **y**: 139
+          - **comprimento**: 36
+          - **largura**: 18
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Vía em Top Rope
+      - **nome**: Spartacus
+      - **id_no_mapa**: 125
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Fabiano Fernandes da Silva
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: A Era dos Patrícios
+      - **id_no_mapa**: 126
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Gilberto Torres
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Coliseu
+      - **id_no_mapa**: 127
+      - **dificuldade**: BR_6
+      - **conquistadores**:
+        - Ramaya Vallias
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Pobre César
+      - **id_no_mapa**: 128
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Emerson
+        - Eustáquio
+        - Fabiano Fernandes
+        - Gilberto Torres
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Soprano (inacabada)
+      - **id_no_mapa**: 129
+      - **conquistadores**:
+        - M. Macena
+        - Eduardo Feliciano
+        - A. Magos
+        - Ivo Marcelino
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Sodoma e Gomorra
+      - **id_no_mapa**: 130
+      - **dificuldade**: BR_4
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
+        - Eustáquio Macedo Melo Júnior
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Calígula
+      - **id_no_mapa**: 131
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Eustáquio
+        - Fabiano
+        - Gilberto Torres
+        - Emerson Azeredo
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
+    - **checksum_sha256**: 62a972fe6e8f30f6e636d276f401029a7d49a419775bfd097ff742e8d0455cf8
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/creditos_p0_i0.webp)
+    - **checksum_sha256**: 0a1d32803d7f00a6a15aee8c5c28f279de6509496465cbab6a51589f476ace71
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/creditos_p0_i1.webp)
+    - **checksum_sha256**: a90f59ed83561dae6f8b09b7f0f56ef5661fa9ca42677c45a0d5ae25b074036f
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/creditos_p0_i2.webp)
+    - **checksum_sha256**: 0a202e424c83e16a41f8c0efcf7f31d272958f2188aa35f24445a0207ba17d15
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/creditos_p0_i3.webp)
+    - **checksum_sha256**: 8eb6750a3217dd5c6133d90bf69c4acbe042953aa3cfe0e1729009bd9835c4b3
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0_i0.webp)
+    - **checksum_sha256**: 62a972fe6e8f30f6e636d276f401029a7d49a419775bfd097ff742e8d0455cf8
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_10_p0_i0.webp)
+    - **checksum_sha256**: 75b179f92e187a612bab741f9849b0cc51eed0272c7d406ea6efe6b931c7c780
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_1_p0_i0.webp)
+    - **checksum_sha256**: 47479117c3c0421aff27796f2539cf0cc7b47454c0f0cc8679b38e8b996343eb
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_2_p0_i0.webp)
+    - **checksum_sha256**: 963fec6411a164bd15633c7d0a77148ccedfed48c43643818262d3a45a401814
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_3_p0_i0.webp)
+    - **checksum_sha256**: e1cc5b87d2cf6f1c06a7b9f2753f4cdf0a250d6b3aac4a11e921a99e54b25228
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_4_p0_i0.webp)
+    - **checksum_sha256**: bfc898d70882e428bb26ef4755e4c88ad28b7c5e7572f05ea8dc19b1db2a0512
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_5_p0_i0.webp)
+    - **checksum_sha256**: 87ad809b9d4b91eb0927b455cfa9bce479b4c74155e78f674a72e9360c451f21
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_6_p0_i0.webp)
+    - **checksum_sha256**: c051c0519ed5cafdf5af6b387dbee3278e21a01ab054ee5d2c235520c5e5bed2
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_7_p0_i0.webp)
+    - **checksum_sha256**: 51fa8ade3d81d0ac60a5d6993929e65248a22ad2a7354de961c50ff8c4e899b4
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_8_p0_i0.webp)
+    - **checksum_sha256**: dae4e2f505b7bbe2ffaef21956a5551a432332d105d5018452e14fa5cd453747
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_mapa_9_p0_i0.webp)
+    - **checksum_sha256**: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
+
+

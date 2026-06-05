@@ -1,0 +1,1095 @@
+# Croqui: Salão Encantado
+
+## Informações Gerais
+
+- **descricao**: Croqui do Salão Encantado em Januária, MG.
+- **id**: br_mg_januaria_salao_encantado
+- **nome**: Salão Encantado
+- **creditos**:
+  - ACEC-MG
+  - AENMG
+  - Equilíbrio Natural
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            | ![Salão Encantado](imagens/capa_p0_i0.webp) |
+            | :--: |
+            | *Salão Encantado* |
+  - **[1]**:
+    - **texto**: Informações
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # CROQUI DO SALÃO ENCANTADO – JANUÁRIA MG
+            
+            | ![AENMG](imagens/infos_p0_i1.webp) |
+            | :--: |
+            | *AENMG* |
+            
+            | ![EQUILÍBRIO NATURAL](imagens/infos_p0_i0.webp) |
+            | :--: |
+            | *EQUILÍBRIO NATURAL* |
+            
+            ## Importante!!
+            A região do Salão Encantado é foco do **mosquito palha**.
+            **É extremamente necessário o uso de repelentes para evitar a ação do mosquito.**
+            Aconselhável o uso de roupas compridas (blusa longa e calça).
+            
+            O local possui temperaturas um pouco elevadas em horários próximos ao meio dia. Aconselha-se levar muita água para não desidratar.
+            
+            ## Como chegar
+            **De carro.** Em Montes Claros siga para o Distrito Industrial (Av. João 23) até a fábrica de cimento. Passe em frente a fábrica e continue na estrada (BR 135) seguindo para Januária. A primeira cidade é Mirabela, continue seguindo a BR 135 passando por Japonvar seguindo até a cidade de Lontra e logo depois a cidade de Januária. A distância de Lontra até a ponte sobre o rio são Francisco são exatamente 40 km. Depois de passar sobre a ponte, aproximadamente 10 km depois chegará no posto da policia rodoviária, logo depois será o trevo de januária, vire a esquerda no trevo. Chegará a um segundo trevo (chapada gaúcha) continue seguindo reto até um terceiro trevo que fica próximo ao aeroporto. Vire a esquerda no terceiro trevo no sentido para Barreiro em uma estrada de terra. Siga na estrada aproximadamente 5 km depois do trevo e vire a esquerda em um aglomerado rochoso.
+            
+            **De Ônibus.** Chegando na rodoviária de Januária (aproximadamente 10 km do salão encantado), seguir em direção à comunidade de Barreiro próximo ao aeroporto. De Montes Claros, procurar na rodoviária pela empresa Transnorte. Até o dia 01 de outubro de 2012 o horário de saída do ônibus é as 05:00 horas (cinco horas da manhã).
+            
+            **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro ou de ônibus para Januária.
+  - **[2]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            ## Como chegar ao Salão Encantado – Januária
+            
+            | ![Como chegar](imagens/mapas_gerais_p0_i0.webp) |
+            | :--: |
+            | *Como chegar* |
+            
+            ## Mapa dos Setores
+            
+            | ![Mapa dos Setores](imagens/mapas_gerais_p1_i0.webp) |
+            | :--: |
+            | *Mapa dos Setores* |
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_parede_principal
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**: 
+- **nome**: Parede Principal
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_principal_p0_i0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1503
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 324
+          - **y**: 317
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 572
+          - **y**: 366
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 668
+          - **y**: 327
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 754
+          - **y**: 219
+          - **comprimento**: 37
+          - **largura**: 40
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 990
+          - **y**: 200
+          - **comprimento**: 27
+          - **largura**: 31
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 1080
+          - **y**: 202
+          - **comprimento**: 30
+          - **largura**: 33
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 1158
+          - **y**: 621
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 1181
+          - **y**: 545
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1297
+          - **y**: 527
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1343
+          - **y**: 510
+          - **comprimento**: 38
+          - **largura**: 40
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 1317
+          - **y**: 141
+          - **comprimento**: 48
+          - **largura**: 40
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 1550
+          - **y**: 136
+          - **comprimento**: 43
+          - **largura**: 39
+      - **[12]**:
+        - **id**: Claraboia
+        - **label**: Claraboia
+        - **box**:
+          - **x**: 1348
+          - **y**: 458
+          - **comprimento**: 157
+          - **largura**: 37
+      - **[13]**:
+        - **id**: Platô
+        - **label**: Platô
+        - **box**:
+          - **x**: 814
+          - **y**: 566
+          - **comprimento**: 86
+          - **largura**: 41
+      - **[14]**:
+        - **id**: Pracinha
+        - **label**: Pracinha
+        - **box**:
+          - **x**: 1624
+          - **y**: 754
+          - **comprimento**: 151
+          - **largura**: 38
+      - **[15]**:
+        - **id**: Estacionamento_01
+        - **label**: Estacionamento
+        - **box**:
+          - **x**: 274
+          - **y**: 1463
+          - **comprimento**: 205
+          - **largura**: 30
+      - **[16]**:
+        - **id**: Estacionamento_02
+        - **label**: Estacionamento
+        - **box**:
+          - **x**: 794
+          - **y**: 1482
+          - **comprimento**: 230
+          - **largura**: 34
+      - **[17]**:
+        - **id**: Setor_Sertão
+        - **label**: Setor Sertão
+        - **box**:
+          - **x**: 1913
+          - **y**: 740
+          - **comprimento**: 36
+          - **largura**: 203
+          - **angulo_graus_x100**: -298
+      - **[18]**:
+        - **id**: Setor_Mocó
+        - **label**: Setor Mocó
+        - **box**:
+          - **x**: 1974
+          - **y**: 744
+          - **comprimento**: 34
+          - **largura**: 183
+          - **angulo_graus_x100**: 650
+      - **[19]**:
+        - **id**: Setor_Abrigo
+        - **label**: Setor Abrigo
+        - **box**:
+          - **x**: 2013
+          - **y**: 812
+          - **comprimento**: 36
+          - **largura**: 199
+          - **angulo_graus_x100**: 1655
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Pescador de Planta
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Maria Doida
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_6SUP
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Chuva de Bromélias
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_6SUP
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Visitante Oculto
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8A
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Bestial Devastation
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7A
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Velho Chico
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7B
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Dom Quixote
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_7A
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Cordadinha
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_6SUP_BARRA_7A
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Calazar Certo
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_7B
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Cabeça de Rato
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7A
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Pelas Mãos do Senhor
+      - **id_no_mapa**: 11
+      - **dificuldade**: PROJETO
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Uma Lágrima que Cai
+      - **id_no_mapa**: 12
+      - **dificuldade**: PROJETO
+
+
+## Parte: setor_da_pracinha
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
+    
+    | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp) |
+    | :--: |
+    | *Escalador na via Pelas Mãos do Senhor* |
+- **nome**: Setor da Pracinha
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_da_pracinha_p0_i1.webp)
+    - **largura_mapa**: 1801
+    - **altura_mapa**: 505
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 348
+          - **y**: 60
+          - **comprimento**: 30
+          - **largura**: 45
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 438
+          - **y**: 49
+          - **comprimento**: 37
+          - **largura**: 46
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 526
+          - **y**: 28
+          - **comprimento**: 41
+          - **largura**: 50
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 958
+          - **y**: 50
+          - **comprimento**: 35
+          - **largura**: 45
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 1041
+          - **y**: 87
+          - **comprimento**: 32
+          - **largura**: 44
+      - **[5]**:
+        - **id**: Claraboia
+        - **label**: Claraboia
+        - **box**:
+          - **x**: 746
+          - **y**: 70
+          - **comprimento**: 192
+          - **largura**: 49
+      - **[6]**:
+        - **id**: Platô
+        - **label**: Platô
+        - **box**:
+          - **x**: 294
+          - **y**: 138
+          - **comprimento**: 107
+          - **largura**: 45
+          - **angulo_graus_x100**: 2536
+      - **[7]**:
+        - **id**: Praça
+        - **label**: Praça
+        - **box**:
+          - **x**: 380
+          - **y**: 226
+          - **comprimento**: 119
+          - **largura**: 55
+      - **[8]**:
+        - **id**: Estacionamento
+        - **label**: Estacionamento
+        - **box**:
+          - **x**: 125
+          - **y**: 386
+          - **comprimento**: 60
+          - **largura**: 307
+          - **angulo_graus_x100**: -4730
+      - **[9]**:
+        - **id**: Abrigo
+        - **label**: Abrigo
+        - **box**:
+          - **x**: 1729
+          - **y**: 194
+          - **comprimento**: 140
+          - **largura**: 54
+      - **[10]**:
+        - **id**: Sertão
+        - **label**: Sertão
+        - **box**:
+          - **x**: 1681
+          - **y**: 264
+          - **comprimento**: 158
+          - **largura**: 42
+      - **[11]**:
+        - **id**: Mocó
+        - **label**: Mocó
+        - **box**:
+          - **x**: 1727
+          - **y**: 322
+          - **comprimento**: 114
+          - **largura**: 46
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via clássica do setor.
+      - **nome**: Velho Chico
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_7B
+      - **extensao**: 40
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Termina na metade da parede.
+      - **nome**: Dom Quixote
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7A
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Termina um pouco acima da via Dom Quixote.
+      - **nome**: Cordadinha
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_6SUP_BARRA_7A
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via que passa pelo teto a direita da claraboia. Via de muita resistência.
+      - **nome**: Pelas Mãos do Senhor
+      - **id_no_mapa**: 04
+      - **dificuldade**: PROJETO
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base
+      - **nome**: Uma Lágrima que Cai
+      - **id_no_mapa**: 05
+      - **dificuldade**: PROJETO
+
+
+## Parte: setor_do_plato
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
+    
+    | ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp) |
+    | :--: |
+    | *Escalador na via Visitante Oculto* |
+- **nome**: Setor do Platô
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_plato_p0.webp)
+    - **largura_mapa**: 592
+    - **altura_mapa**: 680
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 111
+          - **y**: 268
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 198
+          - **y**: 80
+          - **comprimento**: 29
+          - **largura**: 38
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 248
+          - **y**: 99
+          - **comprimento**: 29
+          - **largura**: 38
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 302
+          - **y**: 120
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 546
+          - **y**: 371
+          - **comprimento**: 25
+          - **largura**: 32
+      - **[5]**:
+        - **id**: Estacionamento
+        - **label**: Estacionamento
+        - **box**:
+          - **x**: 305
+          - **y**: 600
+          - **comprimento**: 46
+          - **largura**: 242
+          - **angulo_graus_x100**: -5526
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via na aresta esquerda do platô.
+      - **nome**: Pescador de Planta
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via da parede.
+      - **nome**: Maria Doida
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_6SUP
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Via técnica. Recomendada para quem quer escalar 6º grau.
+      - **nome**: Chuva de Bromélias
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_6SUP
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via longa e técnica uma fenda na metade da parede. Opção para quem quer escalar 8º grau.
+      - **nome**: Visitante Oculto
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8A
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer até o platô mais baixo.
+      - **nome**: Bestial Devastation
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7A
+
+
+## Parte: setor_da_claraboia
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
+    
+    | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp) |
+    | :--: |
+    | *Escalador na via Calazar Certo* |
+- **nome**: Setor da Claraboia
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_da_claraboia_p0.webp)
+    - **largura_mapa**: 704
+    - **altura_mapa**: 580
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 228
+          - **y**: 374
+          - **comprimento**: 29
+          - **largura**: 36
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 174
+          - **y**: 324
+          - **comprimento**: 29
+          - **largura**: 37
+      - **[2]**:
+        - **id**: Pracinha
+        - **label**: Pracinha
+        - **box**:
+          - **x**: 362
+          - **y**: 476
+          - **comprimento**: 134
+          - **largura**: 35
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via mais clássica do salão encantado. Via longa em chorreiras e agarrões. Recomendada para todos.
+      - **nome**: Calazar Certo
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_7B
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau positivo para chegar ao grampo.
+      - **nome**: Cabeça de Rato
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7A
+
+
+## Parte: setor_do_sertao
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
+    
+    | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp) |
+    | :--: |
+    | *Conquista da via Dazão e o Pé de Feijão* |
+- **nome**: Setor do Sertão
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_sertao_p0_i0.webp)
+    - **largura_mapa**: 410
+    - **altura_mapa**: 1017
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 56
+          - **y**: 857
+          - **comprimento**: 25
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 104
+          - **y**: 756
+          - **comprimento**: 23
+          - **largura**: 29
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 218
+          - **y**: 582
+          - **comprimento**: 24
+          - **largura**: 29
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 236
+          - **y**: 526
+          - **comprimento**: 20
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 252
+          - **y**: 423
+          - **comprimento**: 21
+          - **largura**: 30
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 244
+          - **y**: 362
+          - **comprimento**: 24
+          - **largura**: 31
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 219
+          - **y**: 303
+          - **comprimento**: 24
+          - **largura**: 30
+      - **[7]**:
+        - **id**: Abrigo
+        - **label**: Abrigo
+        - **box**:
+          - **x**: 133
+          - **y**: 38
+          - **comprimento**: 82
+          - **largura**: 35
+          - **angulo_graus_x100**: 1810
+      - **[8]**:
+        - **id**: Mocó
+        - **label**: Mocó
+        - **box**:
+          - **x**: 273
+          - **y**: 92
+          - **comprimento**: 36
+          - **largura**: 74
+      - **[9]**:
+        - **id**: Pracinha
+        - **label**: Pracinha
+        - **box**:
+          - **x**: 176
+          - **y**: 914
+          - **comprimento**: 117
+          - **largura**: 33
+          - **angulo_graus_x100**: -4464
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via do setor. Começa na aresta.
+      - **nome**: Sol da Manhã
+      - **id_no_mapa**: 01
+      - **dificuldade**: PROJETO
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Via completa e longa. Um pouco de Resistência e técnica
+      - **nome**: Filha do Sol
+      - **id_no_mapa**: 02
+      - **dificuldade**: PROJETO
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via de grampos acima da filha do sol.
+      - **nome**: Nuvens de Agosto
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_7A_BARRA_7B
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via com grampos a direita da nuvens de agosto
+      - **nome**: A Laka
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_7B_BARRA_7C
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Via com grampos. O ideal é sair com a primeira costura clipada.
+      - **nome**: Dazão e o pé de Feijão
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7A
+  - **[5]**:
+    - **via_esportiva**:
+      - **descricao**: Penúltima via da parede.
+      - **nome**: Explosão de Sabores
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7B
+  - **[6]**:
+    - **via_esportiva**:
+      - **descricao**: Via oposições em fendas. Protegida com chapeletas.
+      - **nome**: Insolação
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_7A
+
+
+## Parte: setor_do_moco
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
+    
+    | ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp) |
+    | :--: |
+    | *Escaladores no setor do mocó* |
+- **nome**: Setor do Mocó
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_moco_p0.webp)
+    - **largura_mapa**: 1083
+    - **altura_mapa**: 430
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 338
+          - **y**: 105
+          - **comprimento**: 21
+          - **largura**: 32
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 525
+          - **y**: 307
+          - **comprimento**: 22
+          - **largura**: 28
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 582
+          - **y**: 291
+          - **comprimento**: 21
+          - **largura**: 28
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 636
+          - **y**: 270
+          - **comprimento**: 21
+          - **largura**: 27
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 704
+          - **y**: 250
+          - **comprimento**: 24
+          - **largura**: 31
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 776
+          - **y**: 266
+          - **comprimento**: 20
+          - **largura**: 28
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 936
+          - **y**: 202
+          - **comprimento**: 20
+          - **largura**: 27
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 977
+          - **y**: 137
+          - **comprimento**: 24
+          - **largura**: 30
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1006
+          - **y**: 63
+          - **comprimento**: 23
+          - **largura**: 30
+      - **[9]**:
+        - **id**: Abrigo
+        - **label**: Abrigo
+        - **box**:
+          - **x**: 66
+          - **y**: 212
+          - **comprimento**: 35
+          - **largura**: 84
+          - **angulo_graus_x100**: -4434
+      - **[10]**:
+        - **id**: Sertão
+        - **label**: Sertão
+        - **box**:
+          - **x**: 176
+          - **y**: 329
+          - **comprimento**: 78
+          - **largura**: 24
+      - **[11]**:
+        - **id**: Pracinha
+        - **label**: Pracinha
+        - **box**:
+          - **x**: 222
+          - **y**: 390
+          - **comprimento**: 102
+          - **largura**: 25
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via em cima do platô.
+      - **nome**: Vezúvio
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via da parede.
+      - **nome**: Meia Pegada
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7A
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Via antes da árvore.
+      - **nome**: Rasta Man
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_7A
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via depois da árvore.
+      - **nome**: Malandragem da um Tempo
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_7B_BARRA_7C
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Via antes da aresta.
+      - **nome**: Complexo Bipolar
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7C_BARRA_8A
+  - **[5]**:
+    - **via_esportiva**:
+      - **descricao**: Via na aresta.
+      - **nome**: Aresta que me Resta
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7A
+  - **[6]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via na parede de trás.
+      - **nome**: Barbarvore
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_6
+  - **[7]**:
+    - **via_esportiva**:
+      - **descricao**: Via depois da árvore.
+      - **nome**: Suposta Exposição
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_6
+  - **[8]**:
+    - **via_esportiva**:
+      - **descricao**: Última via da parede.
+      - **nome**: Bicho Morto
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_6SUP
+
+
+## Parte: setor_do_abrigo
+
+### Setor (Pico: Salão Encantado)
+
+- **descricao**:
+    O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
+    
+    | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp) |
+    | :--: |
+    | *Escalador na via Estrela no Coco* |
+- **nome**: Setor do Abrigo
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_abrigo_p0_i0.webp)
+    - **largura_mapa**: 1276
+    - **altura_mapa**: 835
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 163
+          - **y**: 474
+          - **comprimento**: 30
+          - **largura**: 52
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 466
+          - **y**: 344
+          - **comprimento**: 33
+          - **largura**: 45
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 528
+          - **y**: 346
+          - **comprimento**: 34
+          - **largura**: 46
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 634
+          - **y**: 378
+          - **comprimento**: 33
+          - **largura**: 51
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 833
+          - **y**: 547
+          - **comprimento**: 30
+          - **largura**: 50
+      - **[5]**:
+        - **id**: Sertão
+        - **label**: Sertão
+        - **box**:
+          - **x**: 1201
+          - **y**: 25
+          - **comprimento**: 150
+          - **largura**: 50
+      - **[6]**:
+        - **id**: Mocó
+        - **label**: Mocó
+        - **box**:
+          - **x**: 1193
+          - **y**: 102
+          - **comprimento**: 130
+          - **largura**: 53
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Primeira via da parede.
+      - **nome**: Gamon
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Via atrás de um bloco de pedra.
+      - **nome**: Estrela no Coco
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7B
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Via a direita da estrela no coco.
+      - **nome**: Fendinha
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_7A
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via a direita do bloco de pedra.
+      - **nome**: Guariba
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_6
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Ultima via da parede.
+      - **nome**: Tardia
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7A
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
+    - **checksum_sha256**: 0ab7762be0ddbf55a1b473fb4a32f3e6e4395a2abf37005de4d8522c8a4311f2
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/infos_p0_i0.webp)
+    - **checksum_sha256**: 111b123a552d9440244610ce41bcdfe8c5af3cc86b72e1cca090e56488a52c6b
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/infos_p0_i1.webp)
+    - **checksum_sha256**: 1dd67185233c82bdb943ab9f2ad5e7add6ef540cec41ec20a4b728104696ded5
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0_i0.webp)
+    - **checksum_sha256**: cf5a77d8c638d74be364fd7732985b847de6a4328e54833265019a04b1ae225b
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1_i0.webp)
+    - **checksum_sha256**: 3b99ed0ff1b2779ed43a20f1d945a761bd59f334bc39b245cd41ae565d874dc1
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/setor_da_claraboia_p0.webp)
+    - **checksum_sha256**: b72ab4e7ed7ebc351c59c93c96c50f06089419d7a20f143ca1c62cfb983853dd
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_da_claraboia_p1.webp)
+    - **checksum_sha256**: 3990d6723d4cfbd3af32284b97f3ad819f80cc79ee50780ceada202e454a6dc0
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_da_pracinha_p0_i0.webp)
+    - **checksum_sha256**: 9663cb8d80562fb7e09deda7aaafe0609a51400305ddf3d65aeb3d4360e5dc1f
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/setor_da_pracinha_p0_i1.webp)
+    - **checksum_sha256**: ffd7880590985b9bca54af49611f7cb8e1076bc01f88b16c37c1b43cff298277
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/setor_do_abrigo_p0_i0.webp)
+    - **checksum_sha256**: 36097b9d58a6e8c0329a204ae32ea49d26802c6911c89644ce34501b90ceedef
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/setor_do_abrigo_p0_i1.webp)
+    - **checksum_sha256**: 420ac69eb85888cea5b95117610c77f93d19f9157cb663bab6dc4a1680006ce6
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/setor_do_moco_p0.webp)
+    - **checksum_sha256**: fece16e9e088ed2969eeb59be686e84feeb3c41c3e5eaa760394204951b910ec
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/setor_do_moco_p0_2.webp)
+    - **checksum_sha256**: 31e9fd52afcd671606c15c73e7b36e44fba4746e3af75ddcd404f2f9c9e28b4a
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/setor_do_plato_p0.webp)
+    - **checksum_sha256**: 61a3c81321ea2b5a935b659a1823735bcc16d73d77c07b8bb81aaeb5e6f76cc4
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/setor_do_plato_p1.webp)
+    - **checksum_sha256**: f88985648b85414e298afe2a65d576c6b15fe52b50cece370158898232749752
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_do_sertao_p0_i0.webp)
+    - **checksum_sha256**: 15491d7fa7580f330aaabdce1e424f2146059472e7305778c23742f81db75525
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/setor_do_sertao_p0_i1.webp)
+    - **checksum_sha256**: d113dd8e00ffba4fda3cee1f41a5bc3166f214893d16202be214470d3c2333c2
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/setor_parede_principal_p0_i0.webp)
+    - **checksum_sha256**: 5774476d9339c1ad497498e763b55cb56ea641852a091b9b72005d59e7609bfe
+
+

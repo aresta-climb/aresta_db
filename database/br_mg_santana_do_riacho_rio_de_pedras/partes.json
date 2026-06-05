@@ -1,0 +1,16 @@
+{
+    "capa": [0],
+    "introducao": [1],
+    "informacoes_importantes": [2],
+    "galeria_fotos": [3, 4],
+    "trilha": [5],
+    "setor_bloco_da_preguica": [6, 7, 8],
+    "setor_setor_do_poco": [9, 10, 11, 12],
+    "setor_setor_segundo_andar": [13, 14, 15, 16, 17, 18, 19],
+    "setor_setor_totem": [20, 21, 22],
+    "setor_setor_do_canion": [23, 24, 25, 26, 27, 28, 29],
+    "setor_setor_jardim_da_luci": [30, 31, 32],
+    "setor_setor_espinhaco": [33, 34, 35, 36],
+    "atencao": [37],
+    "contra_capa": [38]
+}

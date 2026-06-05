@@ -1,0 +1,47 @@
+id: br_mg_extrema_falesia_da_esfinge
+nome: Falésia da Esfinge
+descricao: Um belíssimo vale localizado no município de Extrema/MG, com mais de 20
+  vias em granito de diferentes estilos.
+caminho_thumbnail: imagens/capa_p0_i0.webp
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Falésia da Esfinge
+  estado: MG
+  url_google_maps: https://goo.gl/maps/rGeBpLYkDVM2
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_headwall.md
+  - setor:
+      caminho: setor_roca_master.md
+  - setor:
+      caminho: setor_ecumenico.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Introdução
+  destino:
+    secao_textual:
+      caminho: introducao.md
+- texto: Segurança
+  destino:
+    secao_textual:
+      caminho: seguranca.md
+- texto: Localização
+  destino:
+    secao_textual:
+      caminho: localizacao.md
+- texto: Código de Conduta
+  destino:
+    secao_textual:
+      caminho: codigo_conduta.md
+- texto: Mapa de Setores
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Próximas Versões
+  destino:
+    secao_textual:
+      caminho: proximas_versoes.md
+ultima_migracao: 1

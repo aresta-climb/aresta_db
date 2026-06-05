@@ -1,0 +1,132 @@
+---
+nome: Setor Pasto
+mapas:
+- caminho_imagem_mapa: imagens/setor_pasto_p0_i8.webp
+  largura_mapa: 1078
+  altura_mapa: 1434
+  pontos_de_interesse:
+  - id: Setor_Entrada
+    label: Setor Entrada
+    box:
+      x: 926
+      y: 42
+      comprimento: 217
+      largura: 34
+  - id: '01'
+    label: '01'
+    box:
+      x: 550
+      y: 499
+      comprimento: 39
+      largura: 36
+  - id: '02'
+    label: '02'
+    box:
+      x: 515
+      y: 584
+      comprimento: 42
+      largura: 32
+  - id: '03'
+    label: '03'
+    box:
+      x: 482
+      y: 618
+      comprimento: 37
+      largura: 31
+  - id: Fechadura
+    label: Fechadura
+    box:
+      x: 310
+      y: 1024
+      comprimento: 166
+      largura: 39
+  - id: PASTO
+    label: PASTO
+    box:
+      x: 908
+      y: 1038
+      comprimento: 269
+      largura: 77
+  - id: '04'
+    label: '04'
+    box:
+      x: 483
+      y: 1089
+      comprimento: 38
+      largura: 28
+  - id: '05'
+    label: '05'
+    box:
+      x: 528
+      y: 1224
+      comprimento: 41
+      largura: 33
+  - id: Setor_Fechadura
+    label: Setor Fechadura
+    box:
+      x: 94
+      y: 1303
+      comprimento: 167
+      largura: 88
+escaladas:
+- via_esportiva:
+    nome: Cemitério das Caranguejeiras - Direita
+    id_no_mapa: '01'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Vinicius
+    - Joviney
+- via_esportiva:
+    nome: Água Suja - Esquerda
+    id_no_mapa: '01'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
+    descricao: Mesmo Top da Via 1
+    conquistadores:
+    - Rômulo
+    - Claudinho
+    - Roberto Lincoln
+- via_movel:
+    nome: O Babão
+    id_no_mapa: '02'
+    dificuldade: BR_6
+    protecoes_moveis: Móvel
+    conquistadores:
+    - Roberto Lincoln
+    - Rômulo
+- via_esportiva:
+    nome: Kactos Kid
+    id_no_mapa: '03'
+    dificuldade: INDEFINIDO
+    descricao: Top Rope
+    conquistadores:
+    - Roberto
+- via_movel:
+    nome: Demônios da Mente
+    id_no_mapa: '04'
+    dificuldade: BR_6SUP
+    protecoes_moveis: Móvel
+    conquistadores:
+    - Roberto Lincoln
+    - Rômulo
+- via_esportiva:
+    nome: Rolha de Algodão
+    id_no_mapa: '05'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Fabinho
+    - Half
+    - Tinoco
+---
+# Setor Pasto
+
+**Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
+
+**Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
+
+![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp)

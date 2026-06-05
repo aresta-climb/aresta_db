@@ -1,0 +1,62 @@
+id: br_mg_arcos_rastro
+nome: Afloramento Rastro
+descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Afloramento Rastro
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_zona_leste.md
+  - setor:
+      caminho: setor_chegada.md
+  - setor:
+      caminho: setor_onca.md
+  - setor:
+      caminho: setor_toca_dos_gatos.md
+  - setor:
+      caminho: setor_intermediario.md
+  - setor:
+      caminho: setor_vale_das_sombras.md
+  - setor:
+      caminho: setor_parede_dos_conflitos.md
+  - setor:
+      caminho: setor_leao_de_judah.md
+  - setor:
+      caminho: setor_antigo_camping.md
+  - setor:
+      caminho: setor_beco_do_tiu.md
+  - setor:
+      caminho: setor_savassinha.md
+  - setor:
+      caminho: setor_grutinha.md
+  - setor:
+      caminho: setor_mezanino.md
+  - setor:
+      caminho: setor_1o_andar.md
+  - setor:
+      caminho: setor_2o_andar.md
+  - setor:
+      caminho: setor_jardim_suspenso.md
+  - setor:
+      caminho: setor_3o_andar.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Atenção e Regras
+  destino:
+    secao_textual:
+      caminho: atencao_e_regras.md
+- texto: Parcerias e Contato
+  destino:
+    secao_textual:
+      caminho: parcerias_e_contato.md
+ultima_migracao: 1
+publicar_croqui: true

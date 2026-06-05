@@ -1,0 +1,977 @@
+# Croqui: Parque Natural Municipal das Andorinhas
+
+## Informações Gerais
+
+- **id**: br_mg_ouro_preto_andorinhas
+- **nome**: Parque Natural Municipal das Andorinhas
+- **creditos**:
+  - ATM 2018
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_pedra_branca_p0_i0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais - Parque Natural Municipal das Andorinhas
+            
+            | ![Mapa 1](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa 1* |
+            
+            | ![Mapa 2](imagens/mapas_gerais_p1.webp) |
+            | :--: |
+            | *Mapa 2* |
+            
+            ## Legenda do Mapa
+            
+            ### Setores de Escalada
+            - Pedra do Arco
+            - Campo Escola
+            - Tchau Querida
+            - Pedra Branca
+            
+            ### Pontos de Interesse
+            - Mirante Pedra do Jacaré
+            - Cachoeira das Andorinhas
+            - Sede do Parque
+            
+            ### Trilhas
+            - **Trilha Setores de Escalada**: Trilha principal de acesso aos setores.
+            - **Trilha das Andorinhas**
+            - **Trilha da Folhinha**
+            - **Trilha dos Pelados**
+            - **Trilha do Véu das Noivas**
+            - **Trilha do Vermelhão**
+            - **Trilha do Baú**
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_pedra_do_arco
+
+### Setor (Pico: Andorinhas)
+
+- **descricao**:
+    # Setor Pedra do Arco
+    
+    Setor com vias de 12m até 17m.
+    
+    Tempo de aproximação: 20min.
+    
+    Características: Escalada vertical e negativa.
+    
+    Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+- **nome**: Pedra do Arco
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_do_arco_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 880
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 252
+          - **y**: 801
+          - **comprimento**: 28
+          - **largura**: 34
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 406
+          - **y**: 798
+          - **comprimento**: 21
+          - **largura**: 29
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 527
+          - **y**: 760
+          - **comprimento**: 32
+          - **largura**: 37
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 802
+          - **y**: 674
+          - **comprimento**: 25
+          - **largura**: 32
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 954
+          - **y**: 598
+          - **comprimento**: 25
+          - **largura**: 35
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1110
+          - **y**: 554
+          - **comprimento**: 31
+          - **largura**: 32
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1458
+          - **y**: 821
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 1574
+          - **y**: 751
+          - **comprimento**: 24
+          - **largura**: 30
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 1938
+          - **y**: 741
+          - **comprimento**: 33
+          - **largura**: 42
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Aresta do Apicultor
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_9B
+      - **extensao**: 17
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Se Segura Malandro
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_7B
+      - **extensao**: 15
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Filosofia Lusitana
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_8B
+      - **extensao**: 17
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Titanomaquia
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_9A
+      - **extensao**: 17
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Sika Loca
+      - **id_no_mapa**: 5
+      - **dificuldade**: INDEFINIDO
+      - **extensao**: 17
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - F. de Melo
+        - R. 'Mussula'
+        - Fred Moreira
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Caba Não Mundão
+      - **id_no_mapa**: 6
+      - **dificuldade**: INDEFINIDO
+      - **extensao**: 17
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: Marreta Porreta
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_6SUP
+      - **extensao**: 12
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Ian Belo
+        - Felipe Dias
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Cabron da Peste
+      - **id_no_mapa**: 8
+      - **dificuldade**: INDEFINIDO
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Paralaxologística
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_8B
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+
+
+## Parte: setor_campo_escola
+
+### Setor (Pico: Andorinhas)
+
+- **descricao**:
+    # Setor Campo Escola
+    
+    Setor com vias de 8m até 10m.
+    
+    Tempo de aproximação: 25min.
+    
+    Características: Escalada positiva.
+    
+    Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+- **nome**: Campo Escola
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_campo_escola_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1464
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 296
+          - **y**: 924
+          - **comprimento**: 40
+          - **largura**: 50
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 512
+          - **y**: 912
+          - **comprimento**: 41
+          - **largura**: 44
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 636
+          - **y**: 873
+          - **comprimento**: 39
+          - **largura**: 46
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 687
+          - **y**: 1004
+          - **comprimento**: 38
+          - **largura**: 51
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 816
+          - **y**: 963
+          - **comprimento**: 38
+          - **largura**: 50
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1008
+          - **y**: 961
+          - **comprimento**: 45
+          - **largura**: 56
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1235
+          - **y**: 930
+          - **comprimento**: 44
+          - **largura**: 52
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 1480
+          - **y**: 833
+          - **comprimento**: 43
+          - **largura**: 52
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Vivi Fernandes
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_6
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Kid Bengala
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_4
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Lolla
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_3
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Emanuelle
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_3
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[4]**:
+    - **via_movel**:
+      - **nome**: Bruna Surfistinha
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_4
+      - **extensao**: 10
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Ian Belo
+        - Felipe Dias
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Hilda Furacão
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_5
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: Cicciolina
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_4
+      - **extensao**: 10
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Ian Belo
+        - Felipe Dias
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Bordel
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_3
+      - **extensao**: 8
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Rodrigo 'Mussula'
+
+
+## Parte: setor_tchau_querida
+
+### Setor (Pico: Andorinhas)
+
+- **descricao**:
+    # Setor Tchau Querida
+    
+    Setor com vias de 11m até 12m.
+    
+    Tempo de aproximação: 10min.
+    
+    Características: Escalada vertical e negativa.
+    
+    Recomendações: Uso de capacete.
+- **nome**: Tchau Querida
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tchau_querida_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1441
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 552
+          - **y**: 1168
+          - **comprimento**: 37
+          - **largura**: 54
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 670
+          - **y**: 1206
+          - **comprimento**: 27
+          - **largura**: 39
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 872
+          - **y**: 1185
+          - **comprimento**: 29
+          - **largura**: 44
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 1362
+          - **y**: 1156
+          - **comprimento**: 26
+          - **largura**: 41
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 1552
+          - **y**: 1156
+          - **comprimento**: 27
+          - **largura**: 41
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1766
+          - **y**: 1096
+          - **comprimento**: 26
+          - **largura**: 41
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1913
+          - **y**: 1064
+          - **comprimento**: 36
+          - **largura**: 45
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Temer Jamais
+      - **id_no_mapa**: 1
+      - **dificuldade**: INDEFINIDO
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Escalar sem Temer
+      - **id_no_mapa**: 2
+      - **dificuldade**: INDEFINIDO
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Tchau Querida
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_7B_BARRA_7C
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: República do Pó Royal
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_8A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: República das Bananas
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_7A
+      - **extensao**: 11
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: República do Café com Leite
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_7A
+      - **extensao**: 11
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Lava Jato
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_7B
+      - **extensao**: 11
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+
+
+## Parte: setor_pedra_branca
+
+### Setor (Pico: Andorinhas)
+
+- **descricao**:
+    # Setor Pedra Branca
+    
+    Setor com vias de 9m até 12m.
+    
+    Tempo de aproximação: 25min.
+    
+    Características: Escalada vertical.
+    
+    Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+- **nome**: Pedra Branca
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_branca_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1430
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 269
+          - **y**: 1375
+          - **comprimento**: 30
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 712
+          - **y**: 1078
+          - **comprimento**: 27
+          - **largura**: 40
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 874
+          - **y**: 1001
+          - **comprimento**: 34
+          - **largura**: 44
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 994
+          - **y**: 982
+          - **comprimento**: 37
+          - **largura**: 49
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 1076
+          - **y**: 858
+          - **comprimento**: 30
+          - **largura**: 42
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 1178
+          - **y**: 875
+          - **comprimento**: 28
+          - **largura**: 44
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 1231
+          - **y**: 766
+          - **comprimento**: 26
+          - **largura**: 39
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 1336
+          - **y**: 726
+          - **comprimento**: 29
+          - **largura**: 45
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 1377
+          - **y**: 610
+          - **comprimento**: 30
+          - **largura**: 45
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1428
+          - **y**: 521
+          - **comprimento**: 53
+          - **largura**: 46
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 1493
+          - **y**: 474
+          - **comprimento**: 52
+          - **largura**: 47
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 1570
+          - **y**: 541
+          - **comprimento**: 52
+          - **largura**: 44
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 1689
+          - **y**: 570
+          - **comprimento**: 52
+          - **largura**: 48
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 1808
+          - **y**: 550
+          - **comprimento**: 55
+          - **largura**: 47
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 1860
+          - **y**: 475
+          - **comprimento**: 53
+          - **largura**: 48
+      - **[15]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 1964
+          - **y**: 376
+          - **comprimento**: 53
+          - **largura**: 48
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Vaca Virgem
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_6
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Ângela Poleto
+  - **[1]**:
+    - **via_movel**:
+      - **nome**: Route 162
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_5
+      - **extensao**: 10
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Dia de Protesto
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_6
+      - **extensao**: 9
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Atestado de Cadena
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_7C
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Janela do Universo
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Musgonoszói
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_6
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Fala meu Justo
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_7B
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Regletes Ocultos
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_6
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[8]**:
+    - **via_movel**:
+      - **nome**: Batata com Sal
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_5
+      - **extensao**: 10
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Igor Murta
+        - Natália Simone
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Argentina
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_5
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Rodrigo 'Mussula'
+        - Marcelo Henriques
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Alemanha
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_7A
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Rodrigo 'Mussula'
+        - Marcelo Henriques
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Melodrama
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - F. de Melo
+        - R. 'Mussula'
+        - Pablo Brito
+  - **[12]**:
+    - **via_movel**:
+      - **nome**: Sapiência
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_7B
+      - **extensao**: 12
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Lagartixa de Pedra
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[14]**:
+    - **via_movel**:
+      - **nome**: Meu Amigo Friend
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_6
+      - **extensao**: 10
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Meu Amigo Broca
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_6
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Rodrigo 'Mussula'
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Babilon Go Up
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_8C
+      - **extensao**: 10
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
+      - **conquistadores**:
+        - F. de Melo
+        - R. 'Mussula'
+        - L. 'Minicraque'
+  - **[17]**:
+    - **via_esportiva**:
+      - **nome**: Sem Dúvida Nem Piedade
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_8B
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Leonardo 'Thunder'
+        - F. Melo
+        - Mussula
+  - **[18]**:
+    - **via_movel**:
+      - **nome**: Chanasclý
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_5
+      - **extensao**: 12
+      - **protecoes_moveis**: Móvel
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Leonardo 'Thunder'
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Segredo da Cadena
+      - **id_no_mapa**: 20
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Fábio de Melo
+        - Marcelo Henriques
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: ccfccce8595ca9b12616502a4d2ed721463d08f2448bdcd4c2d2785dd301a445
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
+    - **checksum_sha256**: 1880d30192693089d990e4984aa40b0196b46e859bf2cf55772a366830a426cf
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/setor_campo_escola_p0.webp)
+    - **checksum_sha256**: 77c7edbae88a499b22a60aef038de1dea0cfd862389870d02825e33aea0e39ec
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/setor_pedra_branca_p0.webp)
+    - **checksum_sha256**: 45b649897965af777f34cae30675680af99bcccbd3a5a8c95898a1027b67cd5c
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/setor_pedra_branca_p0_i0.webp)
+    - **checksum_sha256**: ccc5d20699f66366e98cbf9cfa047c91c0540639cbb2871c341c095ca8fa0038
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/setor_pedra_do_arco_p0.webp)
+    - **checksum_sha256**: 5645c4d90ba14445907172296c0222d0f73e2cb917ac5fda89e84552ffb83ebe
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_tchau_querida_p0.webp)
+    - **checksum_sha256**: 1d38e55236e681b23e438e548a4d2b70fa0c4d6a265a33c9c7fc0acbfb8cbe94
+
+

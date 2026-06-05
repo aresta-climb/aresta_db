@@ -1,0 +1,59 @@
+id: br_mg_passa_vinte_gruta
+nome: Gruta de Passa Vinte
+descricao: Guia de Escalada da Gruta de Passa Vinte - MG
+creditos:
+- Jobson Pereira
+- Juliano Magalhães
+caminho_thumbnail: imagens/capa_p0.webp
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Gruta de Passa Vinte
+  descricao: A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da
+    escalada esportiva em Novembro de 2008. Atualmente, o setor possui aproximadamente
+    150 vias, com graduações que vão do IV a 11c.
+  estado: Minas Gerais
+  localizacao:
+    latitude: -221929720
+    longitude: -442365830
+  url_google_maps: https://goo.gl/maps/GV6WQ7tfJhWc2RxP7
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_chegada.md
+  - setor:
+      caminho: setor_sunshine_e_teto_preto.md
+  - setor:
+      caminho: setor_positivo_central.md
+  - setor:
+      caminho: setor_negativo_central.md
+  - setor:
+      caminho: setor_arquibancada.md
+  - setor:
+      caminho: setor_genesis.md
+  - setor:
+      caminho: setor_acampamento.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Advertência
+  destino:
+    secao_textual:
+      caminho: advertencia.md
+- texto: Apresentação
+  destino:
+    secao_textual:
+      caminho: apresentacao.md
+- texto: Como Chegar
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Contatos
+  destino:
+    secao_textual:
+      caminho: contatos.md
+ultima_migracao: 1

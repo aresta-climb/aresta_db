@@ -1,0 +1,42 @@
+id: br_mg_januaria_salao_encantado
+nome: Salão Encantado
+descricao: Croqui do Salão Encantado em Januária, MG.
+creditos:
+- ACEC-MG
+- AENMG
+- Equilíbrio Natural
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Salão Encantado
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_parede_principal.md
+  - setor:
+      caminho: setor_da_pracinha.md
+  - setor:
+      caminho: setor_do_plato.md
+  - setor:
+      caminho: setor_da_claraboia.md
+  - setor:
+      caminho: setor_do_sertao.md
+  - setor:
+      caminho: setor_do_moco.md
+  - setor:
+      caminho: setor_do_abrigo.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Informações
+  destino:
+    secao_textual:
+      caminho: infos.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

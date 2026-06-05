@@ -1,0 +1,36 @@
+id: br_mg_luminosa_pedra_do_ze
+nome: Pedra do Zé
+creditos:
+- Bruno Matta (Kbeça)
+caminho_thumbnail: imagens/capa_p0.webp
+picos:
+- nome: Pedra do Zé
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_principal.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Agradecimentos
+  destino:
+    secao_textual:
+      caminho: agradecimentos.md
+- texto: Orientações aos Escaladores
+  destino:
+    secao_textual:
+      caminho: orientacoes_aos_escaladores.md
+- texto: Localização & Acesso
+  destino:
+    secao_textual:
+      caminho: estacionamento_e_acesso.md
+- texto: Como Chegar
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Créditos
+  destino:
+    secao_textual:
+      caminho: creditos.md
+ultima_migracao: 1

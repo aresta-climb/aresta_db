@@ -1,0 +1,29 @@
+id: br_mg_diamantina_diamaboulder
+nome: Diamaboulder (Cerrado Groove)
+descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG, com
+  blocos de quartzito de alta qualidade.
+creditos:
+- Danilo Barbosa
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Cerrado Groove
+  setores_ou_grupos:
+  - grupo:
+      caminho: grupo_regiao_1.md
+  - grupo:
+      caminho: grupo_regiao_2.md
+  - grupo:
+      caminho: grupo_regiao_3.md
+  - grupo:
+      caminho: grupo_regiao_4.md
+caminho_thumbnail: imagens/capa_p0_i0.webp
+botoes:
+- texto: Informações
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Informações
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1

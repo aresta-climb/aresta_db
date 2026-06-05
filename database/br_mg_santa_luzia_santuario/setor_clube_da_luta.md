@@ -1,0 +1,233 @@
+---
+nome: Setor Clube da Luta
+mapas:
+- caminho_imagem_mapa: imagens/setor_clube_da_luta_p1.webp
+  largura_mapa: 1137
+  altura_mapa: 2048
+  pontos_de_interesse:
+  - id: '01'
+    label: '01'
+    box:
+      x: 448
+      y: 58
+      comprimento: 43
+      largura: 41
+  - id: '02'
+    label: '02'
+    box:
+      x: 450
+      y: 146
+      comprimento: 54
+      largura: 49
+  - id: '03'
+    label: '03'
+    box:
+      x: 450
+      y: 240
+      comprimento: 57
+      largura: 52
+  - id: '04'
+    label: '04'
+    box:
+      x: 424
+      y: 339
+      comprimento: 53
+      largura: 62
+  - id: '05'
+    label: '05'
+    box:
+      x: 366
+      y: 456
+      comprimento: 54
+      largura: 57
+  - id: '06'
+    label: '06'
+    box:
+      x: 320
+      y: 600
+      comprimento: 47
+      largura: 60
+  - id: '07'
+    label: '07'
+    box:
+      x: 250
+      y: 711
+      comprimento: 43
+      largura: 56
+  - id: 08
+    label: 08
+    box:
+      x: 228
+      y: 836
+      comprimento: 46
+      largura: 54
+  - id: 09
+    label: 09
+    box:
+      x: 231
+      y: 974
+      comprimento: 46
+      largura: 47
+  - id: '10'
+    label: '10'
+    box:
+      x: 268
+      y: 1134
+      comprimento: 60
+      largura: 51
+  - id: '11'
+    label: '11'
+    box:
+      x: 303
+      y: 1250
+      comprimento: 64
+      largura: 53
+  - id: '12'
+    label: '12'
+    box:
+      x: 358
+      y: 1378
+      comprimento: 73
+      largura: 53
+  - id: '13'
+    label: '13'
+    box:
+      x: 376
+      y: 1520
+      comprimento: 63
+      largura: 61
+  - id: '14'
+    label: '14'
+    box:
+      x: 389
+      y: 1666
+      comprimento: 58
+      largura: 55
+  - id: '15'
+    label: '15'
+    box:
+      x: 412
+      y: 1808
+      comprimento: 59
+      largura: 62
+  - id: '16'
+    label: '16'
+    box:
+      x: 412
+      y: 1948
+      comprimento: 65
+      largura: 54
+escaladas:
+- via_esportiva:
+    nome: POLLY SHELBY
+    id_no_mapa: '01'
+    dificuldade: BR_9C
+- via_esportiva:
+    nome: BLACK DOG
+    id_no_mapa: '02'
+    dificuldade: BR_9C
+- via_esportiva:
+    nome: INCONSCIENTE COLETIVO
+    id_no_mapa: '03'
+    dificuldade: BR_9B
+- via_esportiva:
+    nome: DISCÍPULOS DE BIBIU
+    id_no_mapa: '04'
+    dificuldade: BR_9A
+- via_esportiva:
+    nome: EL NINHO
+    id_no_mapa: '05'
+    dificuldade: BR_7C
+- via_multiplas_enfiadas:
+    nome: O PECADOR
+    id_no_mapa: '06'
+    dificuldade_maxima: BR_8B
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: BR_7B
+    - via_esportiva:
+        nome: P2
+        dificuldade: BR_8B
+- via_multiplas_enfiadas:
+    nome: PROMESSA É DÍVIDA
+    id_no_mapa: '07'
+    dificuldade_maxima: BR_8A
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: BR_7A
+    - via_esportiva:
+        nome: P2
+        dificuldade: BR_8A
+- via_multiplas_enfiadas:
+    nome: RINS DE PEDRA
+    id_no_mapa: '08'
+    dificuldade_maxima: BR_8B
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: BR_6
+    - via_esportiva:
+        nome: P2
+        dificuldade: BR_8B
+- via_multiplas_enfiadas:
+    nome: PAGADOR DE PROMESSA
+    id_no_mapa: '09'
+    dificuldade_maxima: BR_8B
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: BR_8A
+    - via_esportiva:
+        nome: P2
+        dificuldade: BR_8B
+- via_esportiva:
+    nome: BIBI CORAGEM
+    id_no_mapa: '10'
+    dificuldade: BR_7C
+- via_esportiva:
+    nome: DE MALANDRO A GRANFINO
+    id_no_mapa: '11'
+    dificuldade: BR_10A
+- via_esportiva:
+    nome: CLUBE DA LUTA
+    id_no_mapa: '12'
+    dificuldade: BR_9B
+- via_esportiva:
+    nome: ROLO COMPRESSOR
+    id_no_mapa: '13'
+    dificuldade: BR_9B
+- via_multiplas_enfiadas:
+    nome: O ESPECIALISTA
+    id_no_mapa: '14'
+    dificuldade_maxima: BR_9C
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: BR_9B
+    - via_esportiva:
+        nome: P2
+        dificuldade: BR_9C
+    - via_esportiva:
+        nome: P3
+        dificuldade: PROJETO
+- via_esportiva:
+    nome: O GUARDA COSTA
+    id_no_mapa: '15'
+    dificuldade: BR_9B
+- via_multiplas_enfiadas:
+    nome: MARIA MADALENA
+    id_no_mapa: '16'
+    dificuldade_maxima: PROJETO
+    enfiadas:
+    - via_esportiva:
+        nome: P1
+        dificuldade: PROJETO
+    - via_esportiva:
+        nome: P2
+        dificuldade: PROJETO
+---
+# Setor Clube da Luta
+
+![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp)

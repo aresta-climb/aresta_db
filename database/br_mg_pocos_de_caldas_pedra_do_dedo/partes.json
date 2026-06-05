@@ -1,0 +1,7 @@
+{
+    "capa": [0],
+    "regras_de_visitacao": [0],
+    "mapas_gerais": [1],
+    "setor_pedra_do_dedo": [2, 3, 4, 5, 6],
+    "setor_caminho_da_cachu": [7]
+}

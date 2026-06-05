@@ -1,0 +1,20 @@
+{
+    "capa": [0],
+    "aviso": [1],
+    "creditos": [2],
+    "agradecimentos": [3],
+    "a_escalada": [5],
+    "regras_e_conduta": [6],
+    "sitio_do_rod_e_hospedagem": [7],
+    "parque_sumidouro": [8],
+    "apa_carste": [9],
+    "comercio_local": [10],
+    "telefones_uteis": [11],
+    "como_chegar": [12],
+    "como_usar_guia": [13],
+    "mapas_gerais": [14],
+    "setor_g1": [15, 16],
+    "setor_g2": [17, 18],
+    "setor_g3": [19, 20],
+    "contra_capa": [21]
+}

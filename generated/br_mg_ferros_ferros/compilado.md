@@ -1,0 +1,2110 @@
+# Croqui: Ferros
+
+## Informações Gerais
+
+- **descricao**:
+    Guia de escaladas de Ferros, Minas Gerais.
+    Um dos maiores polos de escalada em granito do Brasil, com centenas de vias que variam de curtas esportivas a longas paredes de mais de 200 metros.
+    
+- **id**: br_mg_ferros_ferros
+- **nome**: Ferros
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Guia de Escaladas – Ferros / MG
+            
+            | ![Capa](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa* |
+            
+            **Autores:**
+            - Pedro Bugim Ruel Vergnano
+            - Antonio Carlos Magalhães
+            - Celso José Ferreira Gomes
+            
+            **Ano:** 2018
+  - **[1]**:
+    - **texto**: Apresentação
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Apresentação
+            
+            Esse guia apresenta as primeiras 166 vias de escalada implantadas no município mineiro de Ferros, ao longo dos últimos doze anos. Chama a atenção ao fato de que mais da metade dessas vias foi o resultado das conquistas dos últimos seis anos, o que nos mostra um notável incremento das atividades na área. Não obstante, o potencial para novas conquistas nos pontos já regularmente frequentados ainda permanece muito elevado, no Vale do Roncador e nas inúmeras paredes vizinhas.
+            
+            O **Vale do Roncador** é a área com paredes que mais se destaca na região. Dominado pelo córrego homônimo, tributário do rio Tanque, é ladeado por paredes rochosas muito próximas entre si. Na margem esquerda do córrego, ou seja, à direita de quem entra no vale, subindo o curso de água, situa-se a Parede Principal (Paredes de Aço). No lado oposto, a Parede das Aderências. No momento retratado por esse guia, o Vale do Roncador concentra mais de 140 vias de escalada!
+            
+            Apresentando vias clássicas em agarras e aderências, vias esportivas e atléticas, vias com proteção fixa, móvel e mista, além da paisagem notável cortada pelo rio Tanque, o **Complexo de Ferros** é altamente recomendado a todos os tipos de escaladores, desde os iniciantes até os mais experientes, desde os de estilo eclético e que queiram simplesmente praticar o esporte em geral ou se aprimorar na variedade de estilos, até os de estilo mais específico e que, igualmente, queiram se dedicar ao seu estilo predileto ou nele se aprimorar.
+            
+            Assim, pela variedade e quantidade de vias existentes, pela segura e confortável proteção fixa implantada, pela excelente qualidade da rocha, o mineiríssimo granitóide Borrachudo, e pela facilidade de acesso às áreas de escalada, **Ferros apresenta-se hoje como o mais completo polo de escaladas em granito de Minas Gerais.**
+            
+            *Os autores, fevereiro de 2015*
+            
+            ---
+            
+            # ATENÇÃO!
+            
+            Escalada é um esporte de risco! Esse guia não capacita o leitor a praticar o montanhismo de forma segura. Para tal, procure instrutores qualificados, de preferência federados e/ou guias de um clube oficial de montanhismo. Lembre-se: Você é responsável pelos seus próprios atos.
+            
+            O montanhismo é um esporte de liberdade e tudo o que não precisamos é levar as regras e leis da cidade para a montanha. Mas isto só é possível porque o montanhista que se define como tal segue dois princípios básicos: proteger as montanhas e respeitar os outros que as frequentam.
+            
+            Consulte sempre o código de ética vigente no local em que pretende praticar o montanhismo e pense antes de cada ato na montanha, refletindo assim os nossos ideais no esporte através dos tempos. Não deprede a vegetação, priorize as proteções móveis às fixas, evite a equipagem de vias de parede (vindo de cima) ou a abertura de vias/variantes que interfiram no traçado de outras existentes e seja sempre cortês com os montanhistas, moradores e usuários da região.
+            
+            ## Links Úteis
+            
+            - **CBME** (Confederação Brasileira de Montanhismo e Escalada): http://www.cbme.org.br
+            - **CEM** (Centro Excursionista Mineiro): http://www.sitedocem.org.br
+            - **Tonico** (Site pessoal do Tonico Magalhães): http://www.tonicomagalhaes.com.br
+            - **FEMEMG** (Federação de Montanhismo e Escalada de Minas Gerais): http://www.fememg.org
+            - **FEMERJ** (Federação de Montanhismo do Estado do Rio de Janeiro): http://www.femerj.org
+            - **FEMESP** (Federação de Montanhismo do Estado de São Paulo): http://www.femesp.org
+            - **FEPAM** (Federação Paranaense de Montanhismo): http://www.fepampr.org.br
+            - **ACE** (Associação Capixaba de Escalada): http://www.ace-es.org.br/
+            - **FGM** (Federação Gaúcha de Montanhismo): http://www.fgm.org.br
+            - **FEMECE** (Federação de Montanhismo e Escalada do Estado do Ceará): http://www.femece.org.br
+            
+            ---
+            
+            # Agradecimentos
+            
+            A **todos os meus parceiros de conquista em Ferros**, pelos momentos incríveis que passamos na parede e por todas as experiências e aventuras vividas.
+            
+            Agradecimentos ao amigo **Celso Ferreira Gomes**, pela elaboração do esboço do guia oficial de Ferros, postado no site do Tonico, com informações valiosas para que este presente guia fosse formulado, pela contribuição de dados e pelo minucioso trabalho de revisão.
+            
+            Agradecimentos especiais ao amigo **Tonico Magalhães, e à esposa Nádia Moreira**, grande escalador e conquistador, por vossa hospitalidade ímpar nas investidas às paredes de Ferros e pela contribuição com dados precisos e preciosos para a criação deste guia.
+            
+            Ao Celso e ao Tonico, meu muito obrigado pelo convite para participar deste projeto que, embora muito trabalhoso, está sendo também muito gratificante!
+            
+            *Pedro Bugim*
+            
+            Ao **Centro Excursionista Mineiro**, por tão bem congregar o povo da montanha de Minas Gerais;
+            
+            Ao **Tonico**, amigo de fé e parceiro de mais de cem conquistas;
+            
+            Ao amigo **Pedro Bugim**, uma pessoa verdadeiramente incansável na batalha de executar, e bem, o que se propõe a fazer;
+            
+            Aos escaladores e escaladoras com quem já tive a satisfação de escalar em Ferros, especialmente no Vale do Roncador;
+            
+            E às pessoas que, animadas por esse guia, nos venham a dar a satisfação da presença.
+            
+            *Celso Ferreira Gomes*
+  - **[2]**:
+    - **texto**: Sobre Ferros e História
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Sobre Ferros
+            
+            **Ferros** é um município brasileiro localizado no Centro-Leste do Estado de Minas Gerais. Sua localização global está situada a 19°13'58 sul e 43°01'20 oeste. A população, de acordo com o censo do IBGE de 2010, é de 10.725 habitantes, sendo dividida meio-a-meio entre a zona urbana e a rural. Dista cerca de 180 km da Capital, Belo Horizonte, no sentido nordeste (saída para Vitória - ES) seguindo pelo percurso: BR 381, MG 434-129 e BR120.
+            
+            A principal atividade econômica do município é a pecuária leiteira e de corte. Em férteis pastagens desenvolvidas nas baixas a médias encostas, o gado girolando produz o leite que é utilizado para fazer principalmente o famoso queijo do Tipo Sêrro e os requeijões negros, típicos da grande bacia leiteira do Leste do Espinhaço.
+            
+            Ferros também é portadora de fantásticas jazidas de água marinha. O garimpo subterrâneo dessas gemas é uma atividade secular na região.
+            
+            ## História
+            
+            A região de Ferros era chamada no final do século XVIII por **Sertão Proibido**. Isto se devia ao controle da coroa portuguesa na Estrada-Real entre Diamantina e Ouro Preto que proibia o desvio da produção de ouro e diamantes pelo vale do Rio Doce visando escapar do pagamento do Quinto. A estrada que acompanha a fazenda e o Rio Tanque, onde estão as escaladas, foi então um ramo alternativo e clandestino da Estrada-Real naquela época.
+            
+            | ![Nova Matriz de Santana – Ferros / MG](imagens/sobre_ferros_e_historia_p0_i1.webp) |
+            | :--: |
+            | *Nova Matriz de Santana – Ferros / MG* |
+            
+            Sob a denominação de Santana dos Ferros, surgiu um povoado em função das explorações de ouro e diamantes desenvolvidas às margens do rio Santo Antônio, no último quartel do século XVIII, tendo como fundadores Pedro Fernandes Alves e José Ferreira Santiago, que ali teriam se fixado com o objetivo de minerar. Segundo o cônego Raimundo Trindade e o historiador Waldemar Barbosa, o povoado, em fins do século XIX, prosperou em razão do incremento das atividades de lavoura e pecuária, sendo elevado à vila, com a criação, por lei de 1884, do município, emancipando-se do município de Itabira. A elevação da vila à categoria de Cidade ocorreu dois anos depois. O nome atual, Ferros, foi adotado em 1923, e pode decorrer do processo de mineração então adotado, que, para a retirada do cascalho aurífero do fundo do rio Santo Antônio, compreendia o emprego de ganchos especiais de ferro. Os desbravadores, ao se espalharem pelas profundezas para abrir novas picadas, deixavam suas ferramentas guardadas e, na volta, as recolhiam, tornando o local um depósito de ferros.
+            
+            Medida em que delas precisavam, recorriam ao depósito, dizendo: "Vamos aos Ferros!". Por outro lado, nós acreditamos que a origem do nome Ferros possa estar relacionada com os estreitos, porém contínuos, filetes de minério de ferro compacto que cortam diversos locais do município e que foram pré-historicamente e historicamente utilizados como material para machados arqueológicos (já encontrados nas áreas das escaladas) ou como primorosa pedra de amolar para foices e facões. Ao longo do tempo, Ferros incorporou ao seu território um grande número de distritos, assim chamados: Esmeralda de Ferros, Cubas, Sete Cachoeiras, Borba Gato, Santa Rita do Rio do Peixe e Santo Antônio. O município possui seu acervo arquitetônico bem preservado e conserva prédios remanescentes de seus primeiros tempos, como as capelas de São José e Nossa Senhora do Rosário e o sobrado da Praça Monsenhor Alípio, que funcionou como Casa de Câmara e Cadeia, passando depois a Fórum e Coletoria, e que atualmente funciona como Casa de Câmara, Biblioteca Municipal, Agência de Passagens e Associação dos Comerciantes.
+            
+            A área das fazendas Retiro das Águas e Roncador, onde estão as escaladas, foi palco de ocupação tupi-guarani pré-histórica com datação de cerâmica confirmada em 670 anos, isto é, cerca de 160 anos antes do descobrimento do Brasil, remontando à idade Média Européia. Muito tempo depois disso, sabe-se ainda que em meados a fins do século XIX as últimas tribos botocudas rebeladas que habitavam Ferros e todo o Vale do Rio Doce foram expulsas e mortas pelas forças imperiais e teriam sido vistas pela última vez nos Vales do Roncador e Água Limpa.
+            
+            Ferros se notabiliza em diversas personalidades importantes. Podemos destacar o romancista Roberto Drummond, da mesma família do famoso poeta modernista Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.
+  - **[3]**:
+    - **texto**: Geografia e Logística
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Geografia
+            
+            Ferros possui uma expressiva área de 1090 km², englobando a sede e os seis distritos que possui. Sua altitude máxima é 1260 m na Serra dos Cocais e a altitude mínima é de cerca de 400 m no encontro dos rios Tanque e Santo Antônio. O clima é quente e úmido com inverno seco e verão chuvoso. A temperatura média anual é de 21°C, com temperaturas mais elevadas entre os meses de agosto a março, sendo a máxima 38°C e a mínima 8°C. O período com maior incidência de chuvas é de outubro a março, com média anual de 1200 mm. O município tem muitas serras, ramificações da Cordilheira do Espinhaço: Santana, Rosário, Caçu, Ferreiros, Taquaral, Sapé, Cuité, Bolívia, Cocais, Cumeeiras e outras.
+            
+            Segundo dados da Companhia Energética de Minas Gerais (Cemig), a temperatura mínima registrada em Ferros foi de 3,6ºC, ocorrida no dia 17 de julho de 2000. Já a máxima foi de 38,2ºC, registrada nos dias 16 de novembro de 1985 e 24 de setembro de 1994. O maior acumulado de chuva registrado na cidade em 24 horas foi de 186,0 mm, em 20 de fevereiro de 1990.
+            
+            ## Vegetação Predominante
+            
+            O município de Ferros apresenta cerca de 60% de sua superfície coberta por matas e formações naturais, localizadas preferencialmente em encostas e topos de morros e 5% de área ocupada por reflorestamento de eucalipto, notadamente da Cenibra. Por ter uma topografia acidentada em geral, as férteis baixadas junto aos rios normalmente foram ocupadas pelas habitações e pelas plantações há séculos, inclusive pelas populações pré-históricas que lá existiram e plantavam mandioca, milho, feijão, inhame e batata-doce.
+            
+            Apresenta normalmente uma floresta estacional semi-caduca típica das altas porções da bacia do Rio Doce, podendo ser considerada como uma mata atlântica com leves influências da caatinga e dos cerrados. As matas da região, normalmente de porte médio, possuem expressivas quantidades de braúna, vinhático, garapa, jatobá, angico, ipê felpudo, grão-de-galo, sucupira, peroba, moreira, jacaré, etc. É muito comum nas matas de Ferros a presença de jaboticabeiras e diversos tipos de mandiocas e abacaxis nativos.
+            
+            ## Fauna
+            
+            Em função da bem preservada cobertura florestal de Ferros e da baixíssima densidade populacional, a presença da fauna é consideravelmente rica. Têm sido relatadas observações de diversos felinos, incluindo onças e gatos mouriscos em várias regiões do município, inclusive no Vale do Roncador onde estão as escaladas. Ao longo dos principais rios podem ser encontrados bandos de capivara. Diversos macacos têm sido vistos, inclusive enormes grupos de grigós no vale das escaladas. Outros relatos envolvem lobo guará, raposas, tatu, paca, veado, lontra, porcos do mato, jacu, sagüi-de-cara-branca, etc. Nos rios a fauna é também abundante tendo sido descritos piaus, traíras, bagres, etc. No rio Tanque, que banha a fazenda onde estão as escaladas, pesquisas indicaram uma espécie endêmica chamada de Cachara, um tipo de surubim pequeno com uma cabeça enorme.
+            
+            ## Hidrografia
+            
+            A rede fluvial do município é densa, rica em pequenos e médios cursos de água, favorecendo assim uma maior divisão de propriedades e fartura hídrica.
+            
+            | ![O Rio Tanque e a praia em sua margem](imagens/geografia_e_logistica_p1_i1.webp) |
+            | :--: |
+            | *O Rio Tanque e a praia em sua margem* |
+            
+            O principal rio é o Santo Antônio, que corta a sede, e correndo para o leste, depois de um percurso de 283 km, vai despejar suas águas no rio Doce já no Vale do Aço. No município de Ferros, o rio Santo Antônio ainda recebe as águas do rio Tanque e rio do Peixe. Faz parte da bacia hidrográfica do rio Doce e tem suas abundantes nascentes principais localizadas na Serra do Espinhaço nos subsetores Serra do Cipó e Serra do Itambé.
+            
+            As sub bacias dos rios Santo Antônio e Tanque são consideradas as de melhor qualidade de água de todo o vale do Rio Doce, não tendo sido afetadas pelo acidente da Samarco de 2016.
+            
+            O córrego Roncador que domina o vale das escaladas, pode ser considerado uma manancial de altíssima capacidade. Do vale das escaladas, com uma área de apenas 2,5 quilômetros quadrados, escorre uma surpreendente vazão média de cerca de 50 litros por segundo. A razão disso é que o **eixo do vale é coincidente com uma importante falha geológica, ainda ativa**, por onde ascende tão rico aquífero. É farta a água para consumo nas escaladas e para o banho refrescante ao final.
+            
+            ## Área das Escaladas
+            
+            O complexo de vias de escalada de Ferros situa-se nas **Fazendas Roncador** e **Retiro das Águas**, de propriedade do montanhista (detentor de mais de 480 conquistas em sua carreira e conquistador da maioria das vias em Ferros) Antonio Carlos Magalhães (Tonico).
+            
+            As escaladas em Ferros foram iniciadas após a pioneira conquista da via “Iron Men” (4º V – 130 metros), pelo Tonico, seu filho Juliano Magalhães e Marcos Leiras, em 26 de fevereiro de 2006, na chamada Parede Principal, a qual se tornaria a parede com maior concentração de vias longas do local.
+            
+            Além de relativa proximidade ao centro de Belo Horizonte (aproximadamente 3 horas de carro), este polo de escaladas impressiona pelo enorme potencial, com paredes de todos os estilos e tamanhos, apresentando vias longas, curtas, de aderência, agarras, negativos, fendas, proteções fixas e móveis, graduações das mais simplórias até vias complexas de alta graduação, etc.
+            
+            Nos diversos setores da região, é possível fazer escaladas curtas para treinar lances sejam atléticos, ou de puro equilíbrio, ou entrar em vias longas, com mais de quatro enfiadas de corda, testando assim o psicológico e a resistência do escalador.
+            
+            Além das inúmeras possibilidades de escalada, a região conta com agradável rio Tanque, com suas águas cálidas (26 a 28 graus) para banho após as atividades, bem como locais estratégicos de camping, como as próprias praias à beira rio.
+            
+            Água potável é encontrada em abundância, notadamente ao longo de todo o vale do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas de água fresca bem próximo às bases.
+  - **[4]**:
+    - **texto**: Como Chegar
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Como Chegar
+            
+            **De Carro:**
+            
+            Saindo de BH, pegue a BR-262 em direção à Vitória. Vire à esquerda no trevo entre Vitória e Itabira, direção Itabira. Mais adiante, no trevo entre Itabira e Santa Maria do Itabira, pegue à direita, em direção a esta última cidade. No antigo bar “Parada Certa”, que fica a cerca de 20 km de Santa Maria do Itabira, pode-se seguir pelo asfalto em direção ao trevo de Ferros, ou pegar um caminho mais curto, com mais estrada de terra, evitando passar pela cidade. Do centro de Ferros até a área de escaladas, siga o mapa na próxima página. O trajeto total possui cerca de 190 quilômetros, feitos em aproximadamente 3 horas.
+            
+            **De ônibus:**
+            
+            Pegar o ônibus da viação SARITUR, na rodoviária de BH, com destino a Ferros (valor em março de 2018: R$60). A viagem dura em torno de quatro horas.
+            
+            Chegando em Ferros, é fácil conseguir um táxi com corrida combinada, por aproximadamente R$50,00, para percorrer os 11 Km do centro da cidade à área propícia para camping, próxima à base das escaladas. Lembre-se de combinar com o taxista a corrida de retorno!
+            
+            | ![Mapa de BH para Ferros](imagens/como_chegar_p0_i0.webp) |
+            | :--: |
+            | *Mapa de BH para Ferros* |
+  - **[5]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            Mapas de localização das áreas de escalada em Ferros.
+            
+            ## Mapa de Acesso (esquemático)
+            | ![Mapa de Acesso](imagens/mapas_gerais_p1_i1.webp) |
+            | :--: |
+            | *Mapa de Acesso* |
+            
+            ## Mapa de Acesso (satélite)
+            | ![Mapa de Acesso Satélite](imagens/mapas_gerais_p2_i1.webp) |
+            | :--: |
+            | *Mapa de Acesso Satélite* |
+            
+            ## Esquema de Trilhas e Setores
+            | ![Esquema de Trilhas e Setores](imagens/mapas_gerais_p3_i0.webp) |
+            | :--: |
+            | *Esquema de Trilhas e Setores* |
+            
+            **Legenda**
+            - Trilhas
+            - Estrada de Terra
+            - A - Fazenda Retiro das Águas
+            - B - Praia do Rio Tanque
+            - C - Cachoeira
+            - D - 1ª travessia do córrego
+            - E - 2ª travessia do córrego
+            - F - Pasto
+            - G - Tronqueira
+            
+            **Setores**
+            - I - Subsetor Cachoeira
+            - II - P. das Aderências - Extrema Esquerda
+            - III - P. das Aderências - Esquerda 1 e 2
+            - IV - Parede das Aderências - Central
+            - V - Parede das Aderências - Setor de Cima
+            - VI - P. das Aderências - Direita
+            - VII - P. Principal - Setor Clássicas Curtas
+            - VIII - Parede Principal - Extrema Direita
+            - IX - Parede Principal - Central
+            - X - Parede Principal - Setor de Cima
+            - XI - P. Principal - Clássicas Longas
+            - XII - Parede dos Solos
+            - XIII - Setor Esportivas
+  - **[6]**:
+    - **texto**: Guia na Web
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # GUIA DE FERROS NA WEB
+            
+            Para ficar sempre com o guia atualizado, utilize os endereços abaixo, ou o leitor de código QR de seu smartphone.
+            
+            **Guia de Ferros Atualizado na Web (PDF)**
+            [http://www.grupounicad.com.br/pedro/Guia_Ferros.pdf](http://www.grupounicad.com.br/pedro/Guia_Ferros.pdf)
+            
+            | ![QR Code PDF](imagens/guia_na_web_p0_i0.webp) |
+            | :--: |
+            | *QR Code PDF* |
+            
+            **Mapa das Áreas de Escalada de Ferros (Google)**
+            [http://zip.net/bnl28l](http://zip.net/bnl28l)
+            
+            | ![QR Code Google Maps](imagens/guia_na_web_p0_i1.webp) |
+            | :--: |
+            | *QR Code Google Maps* |
+- **ultima_migracao**: 1
+
+
+## Parte: setor_cachoeira
+
+### Setor (Pico: Ferros)
+
+- **descricao**:
+    | ![Maria Fernanda na conquista da “Pé na Chapa”](imagens/setor_cachoeira_p2_i1.webp) |
+    | :--: |
+    | *Maria Fernanda na conquista da “Pé na Chapa”* |
+    
+    O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
+    
+    A base destas vias fica a dez minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
+    
+    Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
+- **nome**: Subsetor Cachoeira
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p0_i1.webp)
+    - **largura_mapa**: 992
+    - **altura_mapa**: 624
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i1.webp)
+    - **largura_mapa**: 1558
+    - **altura_mapa**: 989
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i3.webp)
+    - **largura_mapa**: 1400
+    - **altura_mapa**: 872
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via protegida por três grampos de ½ (incluindo o grampo de topo), muito boa para treinamento de guiadas e top-ropes com iniciantes. Rapel / top-rope com corda única de 50m.
+      - **nome**: Pé na Chapa
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_2
+      - **exposicao**: E1
+      - **extensao**: 15
+      - **conquistadores**:
+        - Pedro Bugim
+        - Maria Fernanda Patrício
+      - **data_abertura**: 2012-02-21
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Via semelhante à anterior, contando com três grampos, sendo um de top-rope.
+      - **nome**: Desenferrujando
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_2
+      - **exposicao**: E1
+      - **extensao**: 15
+      - **conquistadores**:
+        - Maria Fernanda Patrício
+        - Pedro Bugim
+      - **data_abertura**: 2014-03-03
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Via com boa grampeação, até atingir o topo da falésia, onde existe uma parada dupla. Ótima opção para o primeiro contato com o esporte, ou para quem está começando a guiar, perfeita para ensinar técnicas de posicionamento, equalização e costuras, sem preocupação com a parte técnica em si. Rapel / top-rope em corda única de 60m.
+      - **nome**: Ferrugem
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_1SUP
+      - **extensao**: 30
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Nádia Moreira
+      - **data_abertura**: 2007-04-08
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: ESCALADA SOLO. Via conquistada em solo integral, não possuindo proteções fixas. A descida é feita por trilha ao lado direito da falésia, ou pela via “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue a linha natural da pedra até o topo.
+      - **nome**: A Ferro Quente
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_2
+      - **extensao**: 25
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2010-02-16
+
+
+## Parte: grupo_aderencias
+
+### Grupo (Pico: Ferros)
+
+- **descricao**:
+    # A Parede das Aderências
+    
+    Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
+    
+    As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”, paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico. Os graus específicos mais frequentes ficam entre IV e V (crux), havendo uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O Psicopata de Ferros”).
+    
+    Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho do vale.
+    
+    Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
+    
+    | ![Tonico, na conquista da “Solamente” - solo integral](imagens/grupo_aderencias_p0_i1.webp) |
+    | :--: |
+    | *Tonico, na conquista da “Solamente” - solo integral* |
+    
+    Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
+- **nome**: Parede das Aderências
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Gustavo “Xaxá” Carrozzino próximo às bases do setor](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i1.webp) |
+          | :--: |
+          | *Gustavo “Xaxá” Carrozzino próximo às bases do setor* |
+          
+          Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
+          
+          Para acessar as bases das vias neste setor, é necessário pegar a trilha do Vale do Roncador, que se inicia um pouco depois do Subsetor Cachoeira, subindo em diagonal para a direita da estrada de terra.
+          
+          Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção ao fazer este procedimento, primeiro para não causar lesões, e em segundo lugar, para não causar danos à estrutura da cerca. Existe um bom espaço que possibilita a passagem por baixo da cerca, sem grandes esforços.
+          
+          Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou” e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
+          
+          Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
+      - **nome**: Extrema Esquerda
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp)
+      - **escaladas**:
+        - **[0]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: ESCALADA SOLO. Via conquistada em solo integral, sem grampos. A descida deve ser feita desescalando-se a própria linha ou caminhando-se pelo mato do lado esquerdo.
+            - **nome**: Solamente
+            - **id_no_mapa**: 1
+            - **dificuldade_media**: BR_1
+            - **dificuldade_maxima**: BR_2
+            - **comprimento_total**: 120
+            - **conquistadores**:
+              - Tonico Magalhães
+            - **data_abertura**: 2010-11-27
+        - **[1]**:
+          - **via_esportiva**:
+            - **descricao**: Via que começa passando por uma sequência de platôs com vegetação, até chegar ao primeiro grampo, na parede já limpa. Após a segunda proteção, segue em diagonal para a direita, tornando a subir logo após, na direção do final do óbvio diedro. Após a virada do diedro, com um grampo no lance, segue-se em leve diagonal para a esquerda, até a última proteção da via.
+            - **nome**: Nesse Mato Tem Cachorro
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_3
+            - **exposicao**: E2
+            - **extensao**: 55
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2012-02-22
+        - **[2]**:
+          - **via_esportiva**:
+            - **descricao**: Variante da via anterior, segue reta após a segunda proteção da via principal, passando por um pouco de mato, até fazer a virada do diedro, com um grampo logo acima do mesmo para proteção. Depois da virada, segue por uma linha branca na pedra, com mais um grampo intermediário, até chegar à parada final da “Nesse Mato Tem Cachorro”. Por possuir apenas duas proteções em 30 metros, apesar de fácil, esta via deve ser abordada com cautela.
+            - **nome**: Vr. Cachorro Louco
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_3
+            - **exposicao**: E3
+            - **extensao**: 30
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2012-02-22
+        - **[3]**:
+          - **via_esportiva**:
+            - **descricao**: Via predominantemente em aderência e agarras, com boa grampeação até a parada final. Segue desde a base até o final em linha praticamente reta, terminando na barreira de vegetação.
+            - **nome**: Libera Liberou
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_3
+            - **exposicao**: E1
+            - **extensao**: 35
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+            - **data_abertura**: 2009-08-01
+        - **[4]**:
+          - **via_esportiva**:
+            - **descricao**: Saída fácil em dois lances com boas agarras e bom posicionamento para os pés. Após o segundo grampo, seguem-se quatro lances bem íngremes de VI grau, com notável escassez de agarras e posicionamento delicado e instável para os pés, especialmente porque, nesse trecho, a rocha mostra-se mais friável. Após a parada dupla, seguem-se mais três lances fáceis até o final da via. A parada dupla é uma boa opção para o top-rope envolvendo a sequência de lances de VI.
+            - **nome**: Dez Mil e Uma Noites
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_6
+            - **exposicao**: E1
+            - **extensao**: 45
+            - **conquistadores**:
+              - Celso Ferreira Gomes
+              - Tonico Magalhães
+            - **data_abertura**: 2012-05-06
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Pedro Bugim na conquista da “O Psicopata de Ferros”](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp) |
+          | :--: |
+          | *Pedro Bugim na conquista da “O Psicopata de Ferros”* |
+          
+          O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
+          
+          Apesar do setor ser predominantemente de aderência, três vias destoam das demais, sendo quase que completamente em móvel (“Fissurim”, “O Psicopata de Ferros” e “Vr. Caçadora de Micuim”), seguindo por bonitas fendas, proporcionando ao escalador um bom treino desta técnica.
+          
+          O acesso às bases é feito pela trilha principal do Vale do Roncador. Após a primeira travessia do córrego, anda-se aproximadamente 100 metros até encontrar – à esquerda - a entrada da picada que leva às bases das primeiras vias neste setor (“Cordada 171”, “Inês é Morta” e “Sempre Viva”), logo antes de passar por uma porteira. Esta trilha, apesar de pouco visível, está marcada com um totem de pedra em seu início.
+          
+          Para as demais vias da parte esquerda deste setor, basta continuar por poucos metros na trilha principal, uma vez que as bases saem quase diretamente desta trilha.
+          
+          Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metros na trilha principal até encontrar a picada que sobe à esquerda. Desta picada, pode-se costear a parede, seguindo por cima ou para baixo, com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço de Minhoca”.
+      - **nome**: Esquerda
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p1_i1.webp)
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p2_i0.webp)
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p3_i0.webp)
+      - **escaladas**:
+        - **[0]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro que pode ter sua proteção melhorada com friends médios e pequenos (opcionais). Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido na altura do quinto grampo. O nome da via está relacionado com a soma das idades dos autores!
+            - **nome**: Cordada 171
+            - **id_no_mapa**: 1
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_4SUP
+            - **exposicao**: E1
+            - **comprimento_total**: 90
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+              - Glesse Gripp
+            - **data_abertura**: 2015-02-17
+        - **[1]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo após o lance inicial protegido por um grampo. ESTILO: MISTA
+            - **nome**: Inês é Morta
+            - **id_no_mapa**: 2
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_4
+            - **comprimento_total**: 100
+            - **tipo_via_multiplas_enfiadas**: MISTA
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-10-29
+        - **[2]**:
+          - **via_esportiva**:
+            - **descricao**: Via curta que se junta com a “Inês é Morta” em sua metade inferior.
+            - **nome**: Sempre Viva
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_3
+            - **extensao**: 35
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Glesse Gripp
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-12-08
+        - **[3]**:
+          - **via_movel**:
+            - **descricao**: Via mista, iniciando com um lance de agarras (crux) protegido por grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda única pela via “Zé Marta”. ESTILO: MOVEL
+            - **nome**: Fissurim
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_5
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+            - **data_abertura**: 2009-06-13
+        - **[4]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via interessante que se inicia em um veio de cristal. Possui uma extensão surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos. Homenageia o sogro do Tonico Magalhães que foi o supervisor da fazenda.
+            - **nome**: Zé Marta
+            - **id_no_mapa**: 5
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_4
+            - **comprimento_total**: 90
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Júlio César Cardoso
+            - **data_abertura**: 2009-05-30
+        - **[5]**:
+          - **via_esportiva**:
+            - **descricao**: Inicia em um lance atlético (crux) e continua em aderência até o final.
+            - **nome**: Bolinha
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_6
+            - **extensao**: 30
+            - **conquistadores**:
+              - Wagner de Oliveira
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2015-09-07
+        - **[6]**:
+          - **via_esportiva**:
+            - **descricao**: Toda equipada com grampos, termina numa parada dupla da via Maria Diz Graça.
+            - **nome**: Testa de Ferro
+            - **id_no_mapa**: 7
+            - **dificuldade**: BR_4
+            - **extensao**: 25
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+            - **data_abertura**: 2007-04-07
+        - **[7]**:
+          - **via_esportiva**:
+            - **descricao**: Via esportiva em aderência complexa, apesar de curta, com proteções generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz Graça.
+            - **nome**: Ferro na Boneca
+            - **id_no_mapa**: 8
+            - **dificuldade**: BR_7A
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Júlio César Cardoso
+            - **data_abertura**: 2008-10-05
+        - **[8]**:
+          - **via_esportiva**:
+            - **descricao**: Uma das vias mais antigas do polo. Possui belíssimos lances de aderência e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
+            - **nome**: Maria Diz Graça
+            - **id_no_mapa**: 9
+            - **dificuldade**: BR_5
+            - **extensao**: 45
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Gustavo “Xaxá” Carrozzino
+            - **data_abertura**: 2006-07-15
+        - **[9]**:
+          - **via_esportiva**:
+            - **descricao**: O crux é o terceiro e exigente lance de aderência. Com boa proteção fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada do Vale do Roncador.
+            - **nome**: Zé Mangueira
+            - **id_no_mapa**: 10
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 60
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Gustavo “Xaxá” Carrozzino
+              - Júlio César Cardoso
+            - **data_abertura**: 2008-10-07
+        - **[10]**:
+          - **via_esportiva**:
+            - **descricao**: Pequena via, porém complexa, com boas passadas em aderência e boa grampeação.
+            - **nome**: Sherlock Holmes
+            - **id_no_mapa**: 11
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2012-03-25
+        - **[11]**:
+          - **via_esportiva**:
+            - **descricao**: Via curta with bons lances de agarras e aderência, contando com 6 grampos. Ideal para top-rope.
+            - **nome**: Professor Moriarty
+            - **id_no_mapa**: 12
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E1
+            - **extensao**: 30
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2012-04-07
+        - **[12]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Interessante via que segue, quase em sua totalidade, a visível faixa branca que corta toda a extensão vertical da parede neste setor. O crux fica nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde inclinação e passa por lances bastante divertidos, em aderência e cristaleiras.
+            - **nome**: Que Qui Ocê Foi Fazê Nu Mato?
+            - **id_no_mapa**: 13
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_5
+            - **exposicao**: E2
+            - **comprimento_total**: 130
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2012-02-20
+        - **[13]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Boa via que possui seu crux logo nos primeiros 15 metros, em aderência e pequenos cristais. É necessário fazer proteção móvel com friend médio, em um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m. ESTILO: MISTA
+            - **nome**: O Psicopata de Ferros
+            - **id_no_mapa**: 14
+            - **dificuldade_media**: BR_4
+            - **dificuldade_maxima**: BR_6
+            - **exposicao**: E2
+            - **comprimento_total**: 70
+            - **tipo_via_multiplas_enfiadas**: MISTA
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2012-02-20
+        - **[14]**:
+          - **via_movel**:
+            - **descricao**: Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros. Boa via para quem está começando a guiar em móvel, pois além de relativamente curta, possui graduação baixa e com boas opções de proteção. ESTILO: MOVEL
+            - **nome**: Vr. Caçadora de Micuim
+            - **id_no_mapa**: 15
+            - **dificuldade**: BR_3
+            - **exposicao**: E1
+            - **extensao**: 35
+            - **conquistadores**:
+              - Claudney Neves
+              - Carla Paiva
+            - **data_abertura**: 2014-10-01
+        - **[15]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via que segue uma linha natural, sempre com boa proteção e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros, sendo posteriormente complementada.
+            - **nome**: Frio na Barriga
+            - **id_no_mapa**: 16
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_3SUP
+            - **comprimento_total**: 100
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+              - Celso Ferreira Gomes
+              - Vicente Alvarenga
+            - **data_abertura**: 2009-04-21
+        - **[16]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via relativamente longa e constante, que conta com 25 grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m.
+            - **nome**: Pescoço de Minhoca
+            - **id_no_mapa**: 17
+            - **dificuldade_media**: BR_4
+            - **dificuldade_maxima**: BR_4
+            - **comprimento_total**: 140
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-07-20
+        - **[17]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via altamente recomendada para quem gosta de aderência em graduação não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel. ESTILO: MISTA
+            - **nome**: Grampos de Ferros
+            - **id_no_mapa**: 18
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_4SUP
+            - **comprimento_total**: 110
+            - **tipo_via_multiplas_enfiadas**: MISTA
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2010-09-10
+        - **[18]**:
+          - **via_multiplas_enfiadas**:
+            - **descricao**: Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda.
+            - **nome**: Prateado
+            - **id_no_mapa**: 19
+            - **dificuldade_media**: BR_3
+            - **dificuldade_maxima**: BR_4
+            - **comprimento_total**: 130
+            - **conquistadores**:
+              - Celso Ferreira Gomes
+              - Tonico Magalhães
+              - Glesse Gripp
+            - **data_abertura**: 2011-09-18
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Parede das Aderências – Face Central
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p1_i0.webp)
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
+      - **escaladas**:
+        - **[0]**:
+          - **via_movel**:
+            - **descricao**: Via mista.
+            - **nome**: O Psicopata de Ferros
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_6
+            - **exposicao**: E2
+            - **extensao**: 70
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Luciano Bender
+            - **data_abertura**: 2011-06-25
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Parede das Aderências – Setor de Cima
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p0_i1.webp)
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **descricao**: ESCALADA SOLO. Via conquistada em solo integral.
+            - **nome**: Solamente
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_2
+            - **extensao**: 120
+            - **conquistadores**:
+              - Tonico Magalhães
+            - **data_abertura**: 2010-06-03
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Parede das Aderências – Extrema Direita
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp)
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **descricao**: Via curta e explosiva.
+            - **nome**: Ferro na Boneca
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_7A
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Luciano Bender
+            - **data_abertura**: 2011-06-25
+
+
+## Parte: grupo_principal
+
+### Grupo (Pico: Ferros)
+
+- **descricao**:
+    | ![A Parede Principal, vista do topo da Parede das Aderências – Central](imagens/grupo_principal_p0_i1.webp) |
+    | :--: |
+    | *A Parede Principal, vista do topo da Parede das Aderências – Central* |
+    
+    Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão.
+- **nome**: Parede Principal (Paredes de Aço)
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Rodrigo Magalhães guiando a “Couro de Lobisomem”](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp) |
+          | :--: |
+          | *Rodrigo Magalhães guiando a “Couro de Lobisomem”* |
+          
+          Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede.
+      - **nome**: Parede Principal – Setor Clássicas Curtas
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp)
+          - **largura_mapa**: 1024
+          - **altura_mapa**: 602
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1229
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp)
+          - **largura_mapa**: 869
+          - **altura_mapa**: 1210
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **descricao**: Segue por uma óbvia cristaleira até seu final.
+            - **nome**: A Medalha de Lúcia
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 30
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2015-09-18
+        - **[1]**:
+          - **via_esportiva**:
+            - **descricao**: Interessante via que inicia em um lance levemente atlético.
+            - **nome**: Águas de Março
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 65
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patricio
+            - **data_abertura**: 2013-03-31
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Vou Dançar o Xaxaxá
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_4
+            - **extensao**: 65
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2010-11-28
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Casas da Banha
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 45
+            - **conquistadores**:
+              - Luciano Bender
+              - Gustavo “Xaxá” Carrozzino
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-04-21
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Ferradura
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 10
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Júlio César Cardoso
+            - **data_abertura**: 2007-06-03
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Ferrolho
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_4
+            - **extensao**: 25
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Júlio César Cardoso
+            - **data_abertura**: 2007-06-03
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Cambal a Quatro
+            - **id_no_mapa**: 7
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 30
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Juliano Magalhães
+              - Valdinei
+            - **data_abertura**: 2008-02-03
+        - **[7]**:
+          - **via_esportiva**:
+            - **nome**: El Bigodón
+            - **id_no_mapa**: 8
+            - **dificuldade**: BR_5
+            - **extensao**: 30
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Gustavo “Xaxá” Carrozzino
+              - Nádia Moreira
+            - **data_abertura**: 2006-08-27
+        - **[8]**:
+          - **via_movel**:
+            - **nome**: Testa de Aço
+            - **id_no_mapa**: 9
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 30
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Gustavo “Xaxá” Carrozzino
+            - **data_abertura**: 2007-10-28
+        - **[9]**:
+          - **via_movel**:
+            - **nome**: Me Ferrei
+            - **id_no_mapa**: 10
+            - **dificuldade**: BR_6
+            - **extensao**: 18
+            - **conquistadores**:
+              - Luciano Bender
+              - Tonico Magalhães
+            - **data_abertura**: 2011-06-22
+        - **[10]**:
+          - **via_movel**:
+            - **nome**: Amor Profano
+            - **id_no_mapa**: 11
+            - **dificuldade**: BR_5
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+            - **data_abertura**: 2007-08-13
+        - **[11]**:
+          - **via_esportiva**:
+            - **nome**: Deu Tilt
+            - **id_no_mapa**: 12
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 15
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Daniel Maia
+            - **data_abertura**: 2008-03-22
+        - **[12]**:
+          - **via_esportiva**:
+            - **nome**: Ferroada
+            - **id_no_mapa**: 13
+            - **dificuldade**: BR_3
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Nádia Moreira
+            - **data_abertura**: 2007-04-23
+        - **[13]**:
+          - **via_esportiva**:
+            - **nome**: Scarface
+            - **id_no_mapa**: 14
+            - **dificuldade**: BR_4
+            - **extensao**: 20
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2013-05-30
+        - **[14]**:
+          - **via_esportiva**:
+            - **nome**: Se Meu Fusca Falasse
+            - **id_no_mapa**: 15
+            - **dificuldade**: BR_4
+            - **extensao**: 15
+            - **conquistadores**:
+              - Celso Ferreira Gomes
+              - Tonico Magalhães
+            - **data_abertura**: 2010-02-16
+        - **[15]**:
+          - **via_esportiva**:
+            - **nome**: Couro de Lobisomem
+            - **id_no_mapa**: 16
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 18
+            - **conquistadores**:
+              - Rodrigo Magalhães
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-07-17
+        - **[16]**:
+          - **via_esportiva**:
+            - **nome**: Enferrujados
+            - **id_no_mapa**: 17
+            - **dificuldade**: BR_4
+            - **extensao**: 15
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Daniel Maia
+              - Nádia Moreira
+            - **data_abertura**: 2007-06-17
+        - **[17]**:
+          - **via_esportiva**:
+            - **nome**: Rastro de Cobra
+            - **id_no_mapa**: 18
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 18
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Celso Ferreira Gomes
+            - **data_abertura**: 2011-07-17
+        - **[18]**:
+          - **via_esportiva**:
+            - **nome**: Entrando no Ferro
+            - **id_no_mapa**: 19
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 25
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Luciano Bender
+            - **data_abertura**: 2011-06-22
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Larissa Lopez na “Flor da Pele”](imagens/grupo_principal_setor_direita_p7_i0.webp) |
+          | :--: |
+          | *Larissa Lopez na “Flor da Pele”* |
+      - **nome**: Parede Principal – Direita
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p1_i1.webp)
+          - **largura_mapa**: 1024
+          - **altura_mapa**: 615
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p2_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1283
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Macambúzio
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 80
+            - **conquistadores**:
+              - Pedro Bugim
+              - Jeferson Costa
+            - **data_abertura**: 2017-03-01
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Pente Frio
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 65
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Jeferson Costa
+            - **data_abertura**: 2015-04-05
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: El Barrigón
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_4
+            - **extensao**: 45
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Fábio Cotta
+            - **data_abertura**: 2006-10-15
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Lobos do Caraça
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_4
+            - **extensao**: 100
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Fábio Cotta
+            - **data_abertura**: 2006-10-29
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: O Tempo e o Vento
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_3
+            - **exposicao**: E1
+            - **extensao**: 100
+            - **conquistadores**:
+              - Pedro Bugim
+              - Maria Fernanda Patrício
+            - **data_abertura**: 2014-03-01
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: O Burro e o Capacete
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 75
+            - **conquistadores**:
+              - Tonico Magalhães
+              - Glesse Gripp
+            - **data_abertura**: 2011-05-15
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Tá Bão
+            - **id_no_mapa**: 7
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E1
+            - **extensao**: 35
+        - **[7]**:
+          - **via_movel**:
+            - **nome**: Amor meu Grande amor
+            - **id_no_mapa**: 8
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 45
+        - **[8]**:
+          - **via_movel**:
+            - **nome**: Rapidinha no Escurinho
+            - **id_no_mapa**: 9
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 50
+        - **[9]**:
+          - **via_esportiva**:
+            - **nome**: Pelanca
+            - **id_no_mapa**: 10
+            - **dificuldade**: BR_5
+            - **exposicao**: E1
+            - **extensao**: 45
+        - **[10]**:
+          - **via_esportiva**:
+            - **nome**: Flor da Pele
+            - **id_no_mapa**: 11
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E1
+            - **extensao**: 35
+        - **[11]**:
+          - **via_esportiva**:
+            - **nome**: Alma Nova
+            - **id_no_mapa**: 12
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 25
+        - **[12]**:
+          - **via_esportiva**:
+            - **nome**: Pele Vermelha
+            - **id_no_mapa**: 13
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 45
+        - **[13]**:
+          - **via_esportiva**:
+            - **nome**: Pelinha
+            - **id_no_mapa**: 14
+            - **dificuldade**: BR_2
+            - **exposicao**: E3
+            - **extensao**: 20
+        - **[14]**:
+          - **via_esportiva**:
+            - **nome**: Cutícula
+            - **id_no_mapa**: 15
+            - **dificuldade**: BR_2
+            - **exposicao**: E3
+            - **extensao**: 18
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp) |
+          | :--: |
+          | *Escaladores na “Cordão do Bola Preta”* |
+      - **nome**: Parede Principal – Setor Central
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p1_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1268
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p2_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1225
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Ferro no Judas
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 130
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Marcado a Ferro
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_5
+            - **extensao**: 180
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Rolam as Pedras
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 130
+        - **[3]**:
+          - **via_movel**:
+            - **nome**: Tromba D’Água
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_4
+            - **exposicao**: E3
+            - **extensao**: 175
+        - **[4]**:
+          - **via_movel**:
+            - **nome**: Ferro Velho
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_4
+            - **exposicao**: E2
+            - **extensao**: 140
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Pum Medonho
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 110
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Pr. Chapado
+            - **id_no_mapa**: 7
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 135
+        - **[7]**:
+          - **via_esportiva**:
+            - **nome**: Dona Flor e Suas Duas Marretas
+            - **id_no_mapa**: 8
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E2
+            - **extensao**: 130
+        - **[8]**:
+          - **via_esportiva**:
+            - **nome**: Pé de Pano
+            - **id_no_mapa**: 9
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 150
+        - **[9]**:
+          - **via_movel**:
+            - **nome**: CDF
+            - **id_no_mapa**: 10
+            - **dificuldade**: BR_4
+            - **extensao**: 130
+        - **[10]**:
+          - **via_esportiva**:
+            - **nome**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+            - **id_no_mapa**: 11
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E1
+            - **extensao**: 115
+        - **[11]**:
+          - **via_esportiva**:
+            - **nome**: Hilda Furacão
+            - **id_no_mapa**: 12
+            - **dificuldade**: BR_4
+            - **extensao**: 165
+        - **[12]**:
+          - **via_esportiva**:
+            - **nome**: Iron Men
+            - **id_no_mapa**: 13
+            - **dificuldade**: BR_5
+            - **extensao**: 160
+        - **[13]**:
+          - **via_movel**:
+            - **nome**: Cordão do Bola Preta
+            - **id_no_mapa**: 14
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E2
+            - **extensao**: 130
+        - **[14]**:
+          - **via_esportiva**:
+            - **nome**: Rainha da Base
+            - **id_no_mapa**: 15
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E2
+            - **extensao**: 120
+        - **[15]**:
+          - **via_esportiva**:
+            - **nome**: A Ferro e Fogo
+            - **id_no_mapa**: 16
+            - **dificuldade**: BR_4
+            - **extensao**: 150
+        - **[16]**:
+          - **via_esportiva**:
+            - **nome**: Chuva Ácida
+            - **id_no_mapa**: 17
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E1
+            - **extensao**: 50
+        - **[17]**:
+          - **via_esportiva**:
+            - **nome**: A Decadência da Bufa
+            - **id_no_mapa**: 18
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E1
+            - **extensao**: 125
+        - **[18]**:
+          - **via_esportiva**:
+            - **nome**: Tatu do Jeca
+            - **id_no_mapa**: 19
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E1
+            - **extensao**: 30
+        - **[19]**:
+          - **via_esportiva**:
+            - **nome**: Jeca Tatu
+            - **id_no_mapa**: 20
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 90
+        - **[20]**:
+          - **via_esportiva**:
+            - **nome**: Valeu Papito
+            - **id_no_mapa**: 21
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 90
+        - **[21]**:
+          - **via_esportiva**:
+            - **nome**: Macambúzio
+            - **id_no_mapa**: 23
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 80
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Vista da Parede Principal – Setor de Cima](imagens/grupo_principal_setor_setor_de_cima_p0_i4.webp) |
+          | :--: |
+          | *Vista da Parede Principal – Setor de Cima* |
+      - **nome**: Parede Principal – Setor de Cima
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1268
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1261
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Um Momento no Tempo
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_6
+            - **exposicao**: E2
+            - **extensao**: 120
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Noite de São João
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_3SUP
+            - **exposicao**: E2
+            - **extensao**: 120
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp) |
+          | :--: |
+          | *Laura Petroni e João Pedro na P1 da “Trio Elétrico”* |
+      - **nome**: Parede Principal – Setor Clássicas Longas
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p1_i1.webp)
+          - **largura_mapa**: 1024
+          - **altura_mapa**: 649
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p2_i0.webp)
+          - **largura_mapa**: 1603
+          - **altura_mapa**: 952
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Quarto 304
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_2SUP
+            - **exposicao**: E1
+            - **extensao**: 120
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: O Nome da Rosa
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E1
+            - **extensao**: 120
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: O Retorno de Jedi
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 150
+        - **[3]**:
+          - **via_movel**:
+            - **nome**: Ih, Ferrou!
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_6
+            - **exposicao**: E2
+            - **extensao**: 185
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Jardim do Éden
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_7A
+            - **exposicao**: E1
+            - **extensao**: 220
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: A Dois Passos do Paraíso
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_7C
+            - **exposicao**: E1
+            - **extensao**: 85
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Conquista do Paraíso
+            - **id_no_mapa**: 7
+            - **dificuldade**: BR_7A
+            - **extensao**: 165
+        - **[7]**:
+          - **via_esportiva**:
+            - **nome**: Purgatório
+            - **id_no_mapa**: 8
+            - **dificuldade**: BR_8B
+            - **exposicao**: E2
+            - **extensao**: 120
+        - **[8]**:
+          - **via_movel**:
+            - **nome**: Arco de Ferros
+            - **id_no_mapa**: 9
+            - **dificuldade**: BR_7A
+            - **exposicao**: E2
+            - **extensao**: 50
+        - **[9]**:
+          - **via_esportiva**:
+            - **nome**: Conrado Ferro
+            - **id_no_mapa**: 10
+            - **dificuldade**: BR_8C
+            - **exposicao**: E2
+            - **extensao**: 120
+        - **[10]**:
+          - **via_esportiva**:
+            - **nome**: Quem com Ferro Fere
+            - **id_no_mapa**: 11
+            - **dificuldade**: BR_5
+            - **exposicao**: E1
+            - **extensao**: 90
+        - **[11]**:
+          - **via_esportiva**:
+            - **nome**: Tanto Bate Até Que Fura
+            - **id_no_mapa**: 12
+            - **dificuldade**: BR_7A
+            - **exposicao**: E1
+            - **extensao**: 65
+        - **[12]**:
+          - **via_esportiva**:
+            - **nome**: Trem de Ferro
+            - **id_no_mapa**: 13
+            - **dificuldade**: BR_5
+            - **exposicao**: E2
+            - **extensao**: 80
+        - **[13]**:
+          - **via_esportiva**:
+            - **nome**: Up Ester
+            - **id_no_mapa**: 14
+            - **dificuldade**: BR_5SUP
+            - **exposicao**: E1
+            - **extensao**: 100
+        - **[14]**:
+          - **via_esportiva**:
+            - **nome**: Até Que a Vida Nos Separe
+            - **id_no_mapa**: 15
+            - **dificuldade**: BR_4SUP
+            - **exposicao**: E1
+            - **extensao**: 120
+        - **[15]**:
+          - **via_movel**:
+            - **nome**: Vr. Pilhado
+            - **id_no_mapa**: 16
+            - **dificuldade**: BR_5SUP
+            - **exposicao**: E3
+            - **extensao**: 70
+        - **[16]**:
+          - **via_esportiva**:
+            - **nome**: Pr. CEM
+            - **id_no_mapa**: 17
+            - **dificuldade**: BR_5
+            - **exposicao**: E1
+            - **extensao**: 165
+        - **[17]**:
+          - **via_esportiva**:
+            - **nome**: Vr. SEM
+            - **id_no_mapa**: 18
+            - **dificuldade**: BR_6SUP
+            - **exposicao**: E1
+            - **extensao**: 30
+        - **[18]**:
+          - **via_esportiva**:
+            - **nome**: Engatilhados
+            - **id_no_mapa**: 19
+            - **dificuldade**: BR_4
+            - **exposicao**: E1
+            - **extensao**: 150
+        - **[19]**:
+          - **via_esportiva**:
+            - **nome**: Trio Elétrico
+            - **id_no_mapa**: 20
+            - **dificuldade**: BR_6
+            - **exposicao**: E2
+            - **extensao**: 160
+        - **[20]**:
+          - **via_esportiva**:
+            - **nome**: Eu Não Sou de Ferro
+            - **id_no_mapa**: 21
+            - **dificuldade**: BR_5
+            - **extensao**: 220
+        - **[21]**:
+          - **via_movel**:
+            - **nome**: Rio de Mão Dupla
+            - **id_no_mapa**: 22
+            - **dificuldade**: BR_6
+            - **exposicao**: E4
+            - **extensao**: 140
+        - **[22]**:
+          - **via_esportiva**:
+            - **nome**: Grand Finale
+            - **id_no_mapa**: 23
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 30
+        - **[23]**:
+          - **via_esportiva**:
+            - **nome**: À Francesa
+            - **id_no_mapa**: 24
+            - **dificuldade**: BR_2SUP
+            - **extensao**: 100
+        - **[24]**:
+          - **via_movel**:
+            - **nome**: Atalho dos Duendes
+            - **id_no_mapa**: 25
+            - **dificuldade**: BR_3
+            - **extensao**: 70
+
+
+## Parte: setor_vias_esportivas
+
+### Setor (Pico: Ferros)
+
+- **descricao**:
+    | ![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp) |
+    | :--: |
+    | *Visão geral do Setor das Vias Esportivas* |
+    | ![Tonico martelando a “Bruxa Albano”](imagens/setor_vias_esportivas_p2_i3.webp) |
+    | :--: |
+    | *Tonico martelando a “Bruxa Albano”* |
+    
+    Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
+    
+    Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
+    
+    Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
+- **nome**: Setor Vias Esportivas
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p1_i1.webp)
+    - **largura_mapa**: 765
+    - **altura_mapa**: 567
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p3_i1.webp)
+    - **largura_mapa**: 568
+    - **altura_mapa**: 487
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Ótima via na extrema esquerda da falésia, toda protegida por grampos.
+      - **nome**: Diedro da Rabada
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_7A
+      - **extensao**: 15
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Nádia Moreira
+      - **data_abertura**: 2007-08-15
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: Via positiva exigente em regletes.
+      - **nome**: Mestre Sala
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_7C
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-04
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: Bem parecida com via anterior. Termina na mesma parada dupla.
+      - **nome**: Porta-Bandeira
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_7B
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-04
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
+      - **nome**: Gangorra
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_8A
+      - **dificuldade_artificial**: A0
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-05
+  - **[4]**:
+    - **via_esportiva**:
+      - **descricao**: Via atlética cujo lance inicial é o mais difícil.
+      - **nome**: Jabá com Jerimum
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_6
+      - **extensao**: 15
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Nádia Moreira
+      - **data_abertura**: 2007-08-14
+  - **[5]**:
+    - **via_esportiva**:
+      - **descricao**: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
+      - **nome**: Bruxa Albano
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_6
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Tonico Magalhães
+        - Glesse Gripp
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2010-10-02
+  - **[6]**:
+    - **via_esportiva**:
+      - **descricao**: Via emblemática do setor das Esportivas e bem protegida com grampos.
+      - **nome**: Vomitão em Ferros
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_8A
+      - **extensao**: 15
+      - **conquistadores**:
+        - Emerson Caverna
+        - Fabiano Fernandes
+      - **data_abertura**: 2007-03-17
+  - **[7]**:
+    - **via_esportiva**:
+      - **descricao**: Variante mais fácil da Vomitão em Ferros.
+      - **nome**: Iron Slow
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_7C
+      - **extensao**: 15
+      - **conquistadores**:
+        - Emerson Caverna
+        - Fabiano Fernandes
+      - **data_abertura**: 2007-03-17
+  - **[8]**:
+    - **via_esportiva**:
+      - **descricao**: Via curta e bem grampeada.
+      - **nome**: Bicho de Pé
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_5
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-05
+  - **[9]**:
+    - **via_esportiva**:
+      - **descricao**: Bem parecida com via anterior.
+      - **nome**: Os Três Mosqueteiros
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_6
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-05
+  - **[10]**:
+    - **via_esportiva**:
+      - **descricao**: A via é muito bonita e segue uma aresta com agarras grandes.
+      - **nome**: Nó de Porco
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_5
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+        - Tonico Magalhães
+      - **data_abertura**: 2008-02-04
+  - **[11]**:
+    - **via_esportiva**:
+      - **descricao**: O segundo lance é o crux e possui uma passada em uma agarra alta.
+      - **nome**: Ícaro
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_5
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Tonico Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-05
+  - **[12]**:
+    - **via_esportiva**:
+      - **descricao**: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
+      - **nome**: Champinha
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_6
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Tonico Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-06
+  - **[13]**:
+    - **via_esportiva**:
+      - **descricao**: Via atlética cujo crux é o último lance.
+      - **nome**: Falcatrua
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_7A
+      - **extensao**: 15
+      - **conquistadores**:
+        - Juliano Magalhães
+        - Valdinei Lima
+      - **data_abertura**: 2008-02-06
+
+
+## Parte: setor_parede_dos_solos
+
+### Setor (Pico: Ferros)
+
+- **descricao**: Pequena parede apropriada à modalidade solo, que conta com quatro vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½ polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente após as conquistas de outubro de 2010. As vias são do tipo *escalada clássica*, apesar de curtas, combinando agarras e aderências, sendo a volta à base feita por caminhada. A aptidão à escalada solo deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los com corda.
+- **nome**: Parede dos Solos
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_dos_solos_p0_i1.webp)
+    - **largura_mapa**: 659
+    - **altura_mapa**: 418
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: ESCALADA SOLO
+      - **nome**: Caipora
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Glesse Gripp
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2011-12-10
+  - **[1]**:
+    - **via_esportiva**:
+      - **descricao**: ESCALADA SOLO
+      - **nome**: Iaci
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_3SUP
+      - **extensao**: 18
+      - **conquistadores**:
+        - Glesse Gripp
+        - Tonico Magalhães
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2010-10-23
+  - **[2]**:
+    - **via_esportiva**:
+      - **descricao**: ESCALADA SOLO
+      - **nome**: Boitatá
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_3SUP
+      - **extensao**: 18
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Glesse Gripp
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2010-10-24
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: ESCALADA SOLO
+      - **nome**: Maracujá
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_3
+      - **extensao**: 18
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Glesse Gripp
+        - Celso Ferreira Gomes
+      - **data_abertura**: 2010-10-24
+
+
+## Parte: grupo_pedra_do_neri
+
+### Grupo (Pico: Ferros)
+
+- **descricao**:
+    | ![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp) |
+    | :--: |
+    | *Pedra do Neri* |
+- **nome**: Pedra do Neri
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Pedra do Neri – Face das Esportivas
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
+          - **largura_mapa**: 640
+          - **altura_mapa**: 346
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp)
+          - **largura_mapa**: 1455
+          - **altura_mapa**: 73
+      - **escaladas**:
+        - **[0]**:
+          - **via_movel**:
+            - **nome**: Fissura Lapada na Rachada
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 15
+        - **[1]**:
+          - **via_movel**:
+            - **nome**: Fissura Sopa de Pedra
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 15
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Até o Osso
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_8A
+            - **extensao**: 15
+        - **[3]**:
+          - **via_movel**:
+            - **nome**: Diedro Caboclo D’Água
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_8A
+            - **extensao**: 15
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Balangandã
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_7C
+            - **extensao**: 15
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Pé de Chinelo
+            - **id_no_mapa**: 6
+            - **dificuldade**: BR_7A
+            - **extensao**: 15
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Juliano Magalhães escalando da Face das Esportivas](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp) |
+          | :--: |
+          | *Juliano Magalhães escalando da Face das Esportivas* |
+      - **nome**: Pedra do Neri – Face das Aderências
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)
+          - **largura_mapa**: 850
+          - **altura_mapa**: 510
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp)
+          - **largura_mapa**: 883
+          - **altura_mapa**: 671
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Queima de Arquivo
+            - **id_no_mapa**: 1
+            - **dificuldade**: BR_7B
+            - **extensao**: 12
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Aquidaban
+            - **id_no_mapa**: 2
+            - **dificuldade**: BR_3SUP
+            - **extensao**: 12
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Tempestade
+            - **id_no_mapa**: 3
+            - **dificuldade**: BR_7C
+            - **extensao**: 12
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Chuva de Verão
+            - **id_no_mapa**: 4
+            - **dificuldade**: BR_4
+            - **extensao**: 12
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Brumas de Inverno
+            - **id_no_mapa**: 5
+            - **dificuldade**: BR_4
+            - **extensao**: 10
+
+
+## Parte: setor_parede_da_cenibra
+
+### Setor (Pico: Ferros)
+
+- **descricao**: 
+- **nome**: Parede da CENIBRA
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_cenibra_p0_i1.webp)
+    - **largura_mapa**: 960
+    - **altura_mapa**: 720
+- **escaladas**:
+  - **[0]**:
+    - **via_movel**:
+      - **nome**: Pr. Pellé 70
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_3SUP
+      - **extensao**: 100
+
+
+## Parte: setor_parede_da_agua_limpa
+
+### Setor (Pico: Ferros)
+
+- **descricao**:
+    | ![Vivianne Sawczuk na conquista da “Dama de Ferros”](imagens/setor_parede_da_agua_limpa_p0_i1.webp) |
+    | :--: |
+    | *Vivianne Sawczuk na conquista da “Dama de Ferros”* |
+    
+    As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar lá, deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estrada adentra ao mágico vale.
+    
+    O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
+- **nome**: Parede da Água Limpa
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1268
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p2_i1.webp)
+- **escaladas**:
+  - **[0]**:
+    - **via_multiplas_enfiadas**:
+      - **descricao**: Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada. Corta toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
+      - **nome**: Pr. Dama de Ferros
+      - **id_no_mapa**: 1
+      - **dificuldade_media**: BR_4
+      - **dificuldade_maxima**: BR_4SUP
+      - **exposicao**: E2
+      - **duracao**: D2
+      - **comprimento_total**: 405
+      - **conquistadores**:
+        - Pedro Bugim
+        - Vivianne Sawczuk
+        - Tiago “Fox” Bastos
+        - Elton Soares
+        - Rodrigo Tinoco
+        - Alexandre Mesquita
+        - Luciano Bender
+        - Gustavo “Xaxá” Carrozzino
+        - Celso Ferreira Gomes
+        - Tonico Magalhães
+      - **data_abertura**: 2015-09-06
+
+
+## Parte: setor_outras_vias
+
+### Setor (Pico: Ferros)
+
+- **descricao**:
+    | ![Outras Vias](imagens/setor_outras_vias_p0.webp) |
+    | :--: |
+    | *Outras Vias* |
+- **nome**: Outras Vias
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **descricao**: Via localizada na última parede do Vale do Roncador, após a parede das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
+      - **nome**: Amazonita
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_2
+      - **extensao**: 200
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Vicente Alvarenga
+      - **data_abertura**: 2013-07-19
+  - **[1]**:
+    - **via_movel**:
+      - **descricao**: Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
+      - **nome**: Fissura Cachoeira Quente
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_6
+      - **extensao**: 50
+      - **conquistadores**:
+        - Tonico Magalhães
+        - Luciando Bender
+      - **data_abertura**: 2013-07-21
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/como_chegar_p0_i0.webp)
+    - **checksum_sha256**: eb11fb1d3d00687c48522a7ba1c78f794309b3f3866c0ecf03ddffb3da5a498c
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/grupo_aderencias_p0_i1.webp)
+    - **checksum_sha256**: 0181a938ac7ee9bb21668f842df4273e312fd4b2351b9499ccef03e15cd07126
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_p0_i1.webp)
+    - **checksum_sha256**: ac48bcb43a5fd64171365adfddd0c3e105eed9c918c81fce3baf9d9768c03cf1
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)
+    - **checksum_sha256**: c260e6012f64193838fc053f69fff0d1e35b6b7819584c7eeaff58322bca4db0
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp)
+    - **checksum_sha256**: b5fc8a2bafa0ca9da805e1c5d0a881aaeffc3b9b6d2ca2842581378aba7be4ef
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp)
+    - **checksum_sha256**: b5fc8a2bafa0ca9da805e1c5d0a881aaeffc3b9b6d2ca2842581378aba7be4ef
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
+    - **checksum_sha256**: e25eccdaf78a4d90dc8ecf6f609c767e705c9cb3c8eef105fe61a21741faa1bc
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp)
+    - **checksum_sha256**: 0539826dd98ab0ea8c13455cd9cb990280fd6e7cd21c2870b2a36939486c2927
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_p0_i1.webp)
+    - **checksum_sha256**: 614e0273e3c9e8f8d647150fadd7778d1ed711ec3f83e79070d48d27dee5ddaa
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p11_i3.webp)
+    - **checksum_sha256**: ba701ec42b4207b1e5967254c9f500cb8681de1c5104162cefa43b4c5f7d7dac
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p1_i0.webp)
+    - **checksum_sha256**: 7a45c21c36fa688a8580a951b40f0de921550652e9b8d12c25f3c388544a920c
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p2_i0.webp)
+    - **checksum_sha256**: e2d80ab96417025460eb6bf1472397bc62c851e9b4d09bd233f480fd24e9b6fc
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
+    - **checksum_sha256**: da54c146dc57bda88fc383177bf52f7260612c2dc7b6f9c807db886d462d3e9b
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp)
+    - **checksum_sha256**: 16a63c191f4b1097f010f51d0365dfc29b501897ecad033ac0e7b49ac7c52f3f
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp)
+    - **checksum_sha256**: 917269d5f538317d6930ddd23a271594c27874536d710541739c0d3ad4ee8f2a
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp)
+    - **checksum_sha256**: cdedd6a2834f064a746c5204a620c0b2fad86edd3bab53c3bebe5db5f2ba2af2
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
+    - **checksum_sha256**: c2acea2b6e963e583224ed01aba7669326c855aed4433ab7c8ed577fbf882177
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_longas_p1_i1.webp)
+    - **checksum_sha256**: e644f51029f9c3b02422c4bb41e0f56eed9ccf33f116dd61116220ac64916d00
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_classicas_longas_p2_i0.webp)
+    - **checksum_sha256**: cea59da2af299536a07be9f22954f46a140d20e1ada22b02810129b333f9563e
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_direita_p1_i1.webp)
+    - **checksum_sha256**: e110970a94620861fca6296ea70a40b50fa86c800a7f92178d0a9b6a71e585d9
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_direita_p2_i0.webp)
+    - **checksum_sha256**: e1cae7bff863265a70612ed4d0e6ef59bbe2480ce3a3f69852ec109d5f3718ed
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_direita_p7_i0.webp)
+    - **checksum_sha256**: c9807c0d02153d7945ec194b97ba040aaf42dd16bce1c5d3035992ed74c71ade
+  - **[22]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p0_i4.webp)
+    - **checksum_sha256**: dc2ec01b428b6088f72afa327b7a9c1eb5510a8dd942bea36de78fdf69059a83
+  - **[23]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
+    - **checksum_sha256**: 53f2cb3b51ba8b1bb455afcdc39860f384c49e3c7af0fdeb4baec19dcc4aa5c9
+  - **[24]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp)
+    - **checksum_sha256**: ae0243edf0636c965a3bb11bf7c17669da9e26e729b914cba96681b4373105c7
+  - **[25]**:
+    - **caminho**: ![caminho](imagens/guia_na_web_p0_i0.webp)
+    - **checksum_sha256**: 3647cedc8939f88ebd88301fcea0be250889080d73e7fbeb850bc51f1f94c803
+  - **[26]**:
+    - **caminho**: ![caminho](imagens/guia_na_web_p0_i1.webp)
+    - **checksum_sha256**: d424a5dae0a2a38686376d45aeb069a8b66b388f4e9b0d48b1ab371ac35e0715
+  - **[27]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1_i1.webp)
+    - **checksum_sha256**: 93ce7977e13ba4b2e565cf1e513e10c12e8a223890e63cd736bfbc9316182814
+  - **[28]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p3_i0.webp)
+    - **checksum_sha256**: a6db2e236827a67f243bb4c37716b69eb5a810f27b90cf6a92c14c7c5af14b23
+  - **[29]**:
+    - **caminho**: ![caminho](imagens/setor_cachoeira_p0_i1.webp)
+    - **checksum_sha256**: d3d40c3cbde304a19e1a39d9bb9434746e7fcd5e3e3cddc8836834efadffb6ec
+  - **[30]**:
+    - **caminho**: ![caminho](imagens/setor_cachoeira_p1_i1.webp)
+    - **checksum_sha256**: 7474f4be524393bd5d667673012be4a25b1a4564291a67644772d50ce452b527
+  - **[31]**:
+    - **caminho**: ![caminho](imagens/setor_cachoeira_p1_i3.webp)
+    - **checksum_sha256**: 42de7f4c5ad5fc71f67a31948fa118beeec41757f328b79e4a4ca3ea93e9a91c
+  - **[32]**:
+    - **caminho**: ![caminho](imagens/setor_cachoeira_p2_i1.webp)
+    - **checksum_sha256**: e06864d6d76979a2fa81146286c6a3aa40f8e207dd22e307a44a17b6ecd42352
+  - **[33]**:
+    - **caminho**: ![caminho](imagens/setor_outras_vias_p0.webp)
+    - **checksum_sha256**: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
+  - **[34]**:
+    - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p0_i1.webp)
+    - **checksum_sha256**: 0f837bd9c66b5aa34c5761b152fa647fe3a7ecfe3d50878f74dae8fc8db6fbc6
+  - **[35]**:
+    - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
+    - **checksum_sha256**: 60767c9fcbb88a1aa8d0194bd0478e45a38de0c66d97054d112be820829a8082
+  - **[36]**:
+    - **caminho**: ![caminho](imagens/setor_parede_da_cenibra_p0_i1.webp)
+    - **checksum_sha256**: 1780fe8ffacd1a0760bb890068c8c7da7d21060fdebb8a0058d5ca1edcfcac62
+  - **[37]**:
+    - **caminho**: ![caminho](imagens/setor_parede_dos_solos_p0_i1.webp)
+    - **checksum_sha256**: 365a16ae8387a063799f065a6c03fd4badec89a7846401f6ab6a7c30d40453aa
+  - **[38]**:
+    - **caminho**: ![caminho](imagens/setor_vias_esportivas_p0_i1.webp)
+    - **checksum_sha256**: e38fbaa410dbe871f0fccf4f4314c82d9cbf05d51f564a5f7390bcbdff8f8b7e
+  - **[39]**:
+    - **caminho**: ![caminho](imagens/setor_vias_esportivas_p1_i1.webp)
+    - **checksum_sha256**: 380655eb9ea0a8f9fcebe663c83da60b192044f80b39a25034f434f02559131b
+  - **[40]**:
+    - **caminho**: ![caminho](imagens/setor_vias_esportivas_p3_i1.webp)
+    - **checksum_sha256**: 5ae2cded1fa59f0b827952a65222a3aa1043cadb687d39e8afc3d41a22ffaf01
+
+

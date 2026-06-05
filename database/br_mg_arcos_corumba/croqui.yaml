@@ -1,0 +1,41 @@
+id: br_mg_arcos_corumba
+nome: Arcos - Corumbá
+descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais, com
+  diversos setores de escalada esportiva.
+creditos:
+- alexsandro martins
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Corumbá
+  estado: MG
+  url_google_maps: https://maps.app.goo.gl/kyRAVySvQXDD47uB9
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_pataxos.md
+  - setor:
+      caminho: setor_cataguas.md
+  - setor:
+      caminho: setor_xavante.md
+  - setor:
+      caminho: setor_yanomami.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Atenção e Regras
+  destino:
+    secao_textual:
+      caminho: atencao_e_regras.md
+- texto: Parcerias e Contato
+  destino:
+    secao_textual:
+      caminho: parcerias_e_contato.md
+ultima_migracao: 1
+publicar_croqui: true

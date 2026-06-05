@@ -1,0 +1,13 @@
+pymupdf>=1.27.0
+Pillow>=12.1.0
+PyYAML>=6.0.0
+paddleocr
+paddleocr[doc-parser]
+paddleocr[ie]
+numpy
+protobuf
+pyqt6
+grpcio-tools
+pytest
+pytest-xdist
+pytest-testmon

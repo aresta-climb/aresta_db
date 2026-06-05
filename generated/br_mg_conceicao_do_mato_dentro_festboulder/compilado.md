@@ -1,0 +1,4207 @@
+# Croqui: Fest Boulder
+
+## Informações Gerais
+
+- **descricao**: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas Gerais. Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares para a prática de boulder no Brasil.
+- **id**: br_mg_conceicao_do_mato_dentro_festboulder
+- **nome**: Fest Boulder
+- **creditos**:
+  - Gabriel Vargas Mendonça
+  - Carlos Oliveira
+  - Filipe Madeira
+  - Alexandre Vasconcelos Levy
+  - Nayara Meireles
+  - Alexandre Fei
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Croqui Fest Boulder 2023
+            
+            | ![Capa do Croqui Fest Boulder 2023](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa do Croqui Fest Boulder 2023* |
+            
+            **Conceição do Mato Dentro - 2023**
+            
+            **Elaborado por:**
+            - Gabriel Vargas Mendonça
+            - Carlos Oliveira
+            - Filipe Madeira
+            - Alexandre Vasconcelos Levy
+            - Nayara Meireles
+            - Alexandre Fei
+            
+            **Estrutura do Evento:**
+            - Sorteio
+            - Show ao Vivo
+            - Camping
+            - Praça de Alimentação
+            
+            **Instagram:** @cmd_festboulder
+  - **[1]**:
+    - **texto**: Introdução
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Introdução
+            
+            ## Conceição do Mato Dentro/MG
+            
+            Considerada a “capital mineira do ecoturismo” – por abrigar inúmeras belezas naturais – CONCEIÇÃO DO MATO DENTRO encontra-se na região central de MINAS GERAIS, na vertente oriental da SERRA DO CIPÓ da CORDILHEIRA DO ESPINHAÇO. Nacionalmente reconhecida como um dos melhores lugares para a prática de escalada em “Boulder”, o local conta com inúmeras linhas já abertas, com nível de dificuldade variando entre V0 a V13, além de diversos projetos que ainda não tiveram SUA PRIMEIRA Ascensão.
+            
+            ## O Festival
+            
+            Grande parte dos festivais de escalada no Brasil ocorrem entre os meses de junho a agosto (épocas de estiagem, sem ocorrência de chuvas), e CONCEIÇÃO DO MATO DENTRO não fica de fora desta programação. OUTROS FESTIVAIS OCORREM NA MESMA ÉPOCA, EM OURO PRETO, SABARÁ E MILHO VERDE. Desta forma, tem-se o circuito perfeito, que consideramos o circuito ESTRADA REAL de Boulder.
+            
+            O principal objetivo deste projeto é atrair e propiciar muita escalada e diversão a todos os participantes, em UM dos picos mais promissores do Brasil para a prática de escalada em “Boulder”.
+            
+            Boulder é uma das modalidades da escalada em rocha, praticada sem o uso de equipamentos convencionais, como cordas e mosquetões. O boulder consiste em escalar blocos de pedras, onde os movimentos apresentam dificuldade técnica e exigem força.
+  - **[2]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            | ![Mapa Geral dos Setores](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa Geral dos Setores* |
+            
+            O Croqui Fest Boulder 2023 está dividido em quatro grupos principais de setores:
+            - **Salão de Pedras**
+            - **JK**
+            - **Colina**
+            - **Pedreira**
+            
+            [Link para o Google Maps](https://www.google.com/maps/search/?api=1&query=-19.0305,-43.4241) (Nota: Localização aproximada baseada no mapa visual).
+  - **[3]**:
+    - **texto**: Rupestre
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Rupestre
+            
+            | ![Pinturas Rupestres](imagens/secao_rupestre_p0.webp) |
+            | :--: |
+            | *Pinturas Rupestres* |
+            
+            **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
+            
+            Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão em blocos próximos, respeitando sempre as áreas de preservação.
+- **ultima_migracao**: 1
+
+
+## Parte: grupo_salao_de_pedras
+
+### Grupo (Pico: Conceição do Mato Dentro)
+
+- **descricao**:
+    # Grupo Salão de Pedras
+    
+    O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.
+- **nome**: Salão de Pedras
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_p0.webp)
+    - **largura_mapa**: 718
+    - **altura_mapa**: 477
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 305
+          - **y**: 340
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 420
+          - **y**: 360
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 705
+          - **y**: 360
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 490
+          - **y**: 340
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 655
+          - **y**: 320
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 710
+          - **y**: 360
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 710
+          - **y**: 400
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 450
+          - **y**: 280
+          - **comprimento**: 30
+          - **largura**: 30
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Ônibus
+          
+          O setor Ônibus possui dois blocos principais com diversas linhas de boulder.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Ônibus
+      - **id_no_mapa**: 1
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_onibus_p0.webp)
+          - **largura_mapa**: 866
+          - **altura_mapa**: 458
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 70
+                - **y**: 370
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 170
+                - **y**: 410
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 10
+              - **label**: 10
+              - **box**:
+                - **x**: 230
+                - **y**: 430
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 9
+              - **label**: 9
+              - **box**:
+                - **x**: 290
+                - **y**: 445
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 490
+                - **y**: 380
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 570
+                - **y**: 380
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 650
+                - **y**: 380
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[7]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 750
+                - **y**: 400
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[8]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 830
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[9]**:
+              - **id**: 11
+              - **label**: 11
+              - **box**:
+                - **x**: 850
+                - **y**: 450
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[10]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 858
+                - **y**: 430
+                - **comprimento**: 16
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_onibus_p1.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 531
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 230
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 510
+                - **y**: 530
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 730
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 740
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 210
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Pirulito
+            - **id_no_mapa**: 1
+            - **dificuldade**: V1
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Trocador
+            - **id_no_mapa**: 2
+            - **dificuldade**: V6
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Roleta
+            - **id_no_mapa**: 3
+            - **dificuldade**: V8
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Zebra
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Linguinha
+            - **id_no_mapa**: 5
+            - **dificuldade**: V6
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Gnomo
+            - **id_no_mapa**: 6
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Variante Y
+            - **id_no_mapa**: 7
+            - **dificuldade**: V4
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Moleza
+            - **id_no_mapa**: 8
+            - **dificuldade**: V0
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Inconsolável
+            - **id_no_mapa**: 9
+            - **dificuldade**: V6
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Passageiro
+            - **id_no_mapa**: 10
+            - **dificuldade**: V4
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Fada
+            - **id_no_mapa**: 11
+            - **dificuldade**: V1
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Primeiro Esquenta
+            - **id_no_mapa**: 1
+            - **dificuldade**: V1
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Mimetismo
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[13]**:
+          - **boulder**:
+            - **nome**: Aborda
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[14]**:
+          - **boulder**:
+            - **nome**: Easy Line
+            - **id_no_mapa**: 4
+            - **dificuldade**: V1
+        - **[15]**:
+          - **boulder**:
+            - **nome**: Saidex
+            - **id_no_mapa**: 5
+            - **dificuldade**: V1
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Super Herói
+          
+          O setor Super Herói possui linhas clássicas em um bloco bem característico.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Super Herói
+      - **id_no_mapa**: 2
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp)
+          - **largura_mapa**: 760
+          - **altura_mapa**: 505
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 340
+                - **y**: 460
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 520
+                - **y**: 390
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 400
+                - **y**: 420
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 280
+                - **y**: 420
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Super Homem
+            - **id_no_mapa**: 1
+            - **dificuldade**: V1
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Super Herói Cover
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Herói
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Heroína
+            - **id_no_mapa**: 4
+            - **dificuldade**: V3
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Caverninha
+          
+          O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Caverninha
+      - **id_no_mapa**: 3
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 370
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 310
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 470
+                - **y**: 330
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 510
+                - **y**: 230
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 150
+                - **y**: 155
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 150
+                - **y**: 250
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 568
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 200
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 285
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 754
+                - **y**: 554
+                - **comprimento**: 8
+                - **largura**: 28
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 749
+                - **y**: 530
+                - **comprimento**: 18
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 744
+                - **y**: 550
+                - **comprimento**: 28
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 750
+                - **y**: 556
+                - **comprimento**: 10
+                - **largura**: 23
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 570
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 360
+                - **y**: 520
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 490
+                - **y**: 510
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 540
+                - **y**: 545
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 740
+                - **y**: 550
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Terceira Camada
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Caverninha
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Cavernoso
+            - **id_no_mapa**: 3
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Natural
+            - **id_no_mapa**: 4
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Natural SDS
+            - **id_no_mapa**: 5
+            - **dificuldade**: V8
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Simba
+            - **id_no_mapa**: 1
+            - **dificuldade**: V8
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Dragão
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Abaulados
+            - **id_no_mapa**: 3
+            - **dificuldade**: V3
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Simba
+            - **id_no_mapa**: 4
+            - **dificuldade**: V8
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Capitão Caverna
+            - **id_no_mapa**: 5
+            - **dificuldade**: V6
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Confuso
+            - **id_no_mapa**: 6
+            - **dificuldade**: V6
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Combinação Perfeita
+            - **id_no_mapa**: 1
+            - **dificuldade**: V12
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Trinca Ferro
+            - **id_no_mapa**: 2
+            - **dificuldade**: V11
+        - **[13]**:
+          - **boulder**:
+            - **nome**: Trinca Carangueijo
+            - **id_no_mapa**: 3
+            - **dificuldade**: V8
+        - **[14]**:
+          - **boulder**:
+            - **nome**: Natural
+            - **id_no_mapa**: 4
+            - **dificuldade**: V6
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Campo Escola
+          
+          O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Campo Escola
+      - **id_no_mapa**: 4
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp)
+          - **largura_mapa**: 582
+          - **altura_mapa**: 577
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 350
+                - **y**: 410
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 510
+                - **y**: 380
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 568
+                - **y**: 380
+                - **comprimento**: 27
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 290
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 430
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 555
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 365
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 200
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 310
+                - **y**: 280
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 420
+                - **y**: 280
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 570
+                - **y**: 290
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 720
+                - **y**: 310
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 751
+                - **y**: 340
+                - **comprimento**: 12
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Tré Bien
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Muvuca
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Ninja de Verde
+            - **id_no_mapa**: 3
+            - **dificuldade**: V1
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Ninja de Amarelo
+            - **id_no_mapa**: 4
+            - **dificuldade**: V1
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Ninja de Rosa
+            - **id_no_mapa**: 5
+            - **dificuldade**: V0
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Casé
+            - **id_no_mapa**: 6
+            - **dificuldade**: V3
+        - **[6]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+            - **dificuldade**: V0
+        - **[7]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V1
+        - **[8]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V1
+        - **[9]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 4
+            - **dificuldade**: V1
+        - **[10]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 5
+            - **dificuldade**: V1
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Das Meninas
+            - **id_no_mapa**: 6
+            - **dificuldade**: V3
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Escorpião
+          
+          O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Escorpião
+      - **id_no_mapa**: 5
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 367
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 400
+                - **y**: 320
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 510
+                - **y**: 320
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 750
+                - **y**: 356
+                - **comprimento**: 21
+                - **largura**: 22
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 380
+                - **y**: 280
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 480
+                - **y**: 280
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 370
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 230
+                - **y**: 350
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 390
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Super Foot Hook
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Foot Hook
+            - **id_no_mapa**: 2
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Escorpião
+            - **id_no_mapa**: 3
+            - **dificuldade**: V8
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Yakisoba
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Uaikisoba
+            - **id_no_mapa**: 5
+            - **dificuldade**: V7
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Insaciável
+            - **id_no_mapa**: 1
+            - **dificuldade**: V10
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Sicronismo
+            - **id_no_mapa**: 2
+            - **dificuldade**: V8
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Troféu
+          
+          O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Troféu
+      - **id_no_mapa**: 6
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 365
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 190
+                - **y**: 325
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 390
+                - **y**: 325
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 550
+                - **y**: 325
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Trofeuzinho
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Troféu
+            - **id_no_mapa**: 2
+            - **dificuldade**: V10
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Dreads de Goiás
+            - **id_no_mapa**: 3
+            - **dificuldade**: V7
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor X-Tudo
+          
+          O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: X-Tudo
+      - **id_no_mapa**: 7
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 366
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 450
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 590
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 424
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 380
+                - **y**: 405
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 424
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 430
+                - **y**: 410
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: X-Tudo
+            - **id_no_mapa**: 1
+            - **dificuldade**: V3
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pão com Ovo
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Nossa Senhora de Conceição
+            - **id_no_mapa**: 1
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Kansas
+            - **id_no_mapa**: 1
+            - **dificuldade**: V3
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Domínio Digital
+          
+          O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Domínio Digital
+      - **id_no_mapa**: 8
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_dominio_digital_p0.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 375
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 110
+                - **y**: 240
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 730
+                - **y**: 255
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 750
+                - **y**: 290
+                - **comprimento**: 21
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Domínio Digital
+            - **id_no_mapa**: 1
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V0
+        - **[2]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V0
+
+
+## Parte: grupo_colina
+
+### Grupo (Pico: Conceição do Mato Dentro)
+
+- **descricao**:
+    # Grupo Colina
+    
+    A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.
+- **nome**: Colina
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_p0.webp)
+    - **largura_mapa**: 726
+    - **altura_mapa**: 472
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 542
+          - **y**: 362
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 638
+          - **y**: 222
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 438
+          - **y**: 262
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 38
+          - **y**: 162
+          - **comprimento**: 35
+          - **largura**: 35
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 708
+          - **y**: 442
+          - **comprimento**: 34
+          - **largura**: 35
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Choquito
+          
+          O setor Choquito possui blocos com linhas variadas.
+          
+          > [!CAUTION]
+          > **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
+          > | ![Pintura Rupestre](imagens/grupo_colina_setor_choquito_p0_i1.webp) |
+          | :--: |
+          | *Pintura Rupestre* |
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Choquito
+      - **id_no_mapa**: 1
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_choquito_p0.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 532
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 250
+                - **y**: 350
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 360
+                - **y**: 470
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 420
+                - **y**: 420
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 720
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 755
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_choquito_p1.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 531
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 320
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 500
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Paradise
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Quebra Costela
+            - **id_no_mapa**: 2
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Choquito
+            - **id_no_mapa**: 4
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Jungle
+            - **id_no_mapa**: 5
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+            - **dificuldade**: V0
+        - **[6]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V3
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Godzilla
+          
+          O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Godzilla
+      - **id_no_mapa**: 2
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p0.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 529
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 415
+                - **y**: 520
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 515
+                - **y**: 435
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 575
+                - **y**: 480
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p1.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 528
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 330
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 480
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 630
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p2.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 531
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 370
+                - **y**: 510
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 430
+                - **y**: 480
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: King Kong
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Gorilaz
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Chimpanzé
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Macaco Prego
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Rolamento
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Godzilla
+            - **id_no_mapa**: 3
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Enxada
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Obra de Arte
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Show Time
+          
+          O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Show Time
+      - **id_no_mapa**: 3
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_show_time_p0.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 531
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 380
+                - **y**: 470
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 510
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 590
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 670
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_show_time_p1.webp)
+          - **largura_mapa**: 753
+          - **altura_mapa**: 528
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 572
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 442
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 382
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 252
+                - **y**: 340
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 222
+                - **y**: 270
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 132
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: ET Teimoso
+            - **id_no_mapa**: 1
+            - **dificuldade**: V0
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Show Time
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Zela Time
+            - **id_no_mapa**: 3
+            - **dificuldade**: V1
+        - **[3]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 4
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+            - **dificuldade**: V0
+        - **[5]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V2
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Meia Lua
+            - **id_no_mapa**: 3
+            - **dificuldade**: V3
+        - **[7]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 4
+            - **dificuldade**: V5
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Zela Time
+            - **id_no_mapa**: 5
+            - **dificuldade**: V1
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Show Time
+            - **id_no_mapa**: 6
+            - **dificuldade**: V5
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Hiperespaço
+          
+          O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Hiperespaço
+      - **id_no_mapa**: 4
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_hiperespaco_p0.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 533
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 48
+                - **y**: 430
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 82
+                - **y**: 430
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 262
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 382
+                - **y**: 440
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 592
+                - **y**: 515
+                - **comprimento**: 35
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 751
+                - **y**: 455
+                - **comprimento**: 12
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Solstício
+            - **id_no_mapa**: 1
+            - **dificuldade**: V8
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Equinócio
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Eclipse
+            - **id_no_mapa**: 3
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Antares
+            - **id_no_mapa**: 4
+            - **dificuldade**: V9
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Don Carlitos
+            - **id_no_mapa**: 5
+            - **dificuldade**: V4
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Jardins Suspensos
+            - **id_no_mapa**: 6
+            - **dificuldade**: V5
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Mergulho em Copo d'Água
+          
+          O setor Mergulho em Copo d'Água possui um bloco isolado com uma linha clássica.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Mergulho em Copo d'Água
+      - **id_no_mapa**: 5
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 529
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 280
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Mergulho em Copo d'Água
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+
+
+## Parte: grupo_jk
+
+### Grupo (Pico: Conceição do Mato Dentro)
+
+- **descricao**:
+    # Grupo JK
+    
+    O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.
+- **nome**: JK
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_jk_p0.webp)
+    - **largura_mapa**: 542
+    - **altura_mapa**: 427
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 302
+          - **y**: 222
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 458
+          - **y**: 112
+          - **comprimento**: 25
+          - **largura**: 25
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Mufasa
+          
+          O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Mufasa
+      - **id_no_mapa**: 1
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_jk_setor_mufasa_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 529
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 268
+                - **y**: 228
+                - **comprimento**: 25
+                - **largura**: 25
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 508
+                - **y**: 268
+                - **comprimento**: 25
+                - **largura**: 25
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Bloody Hell
+            - **id_no_mapa**: 1
+            - **dificuldade**: V11
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Mufasa
+            - **id_no_mapa**: 2
+            - **dificuldade**: V10
+
+
+## Parte: grupo_pedreira
+
+### Grupo (Pico: Conceição do Mato Dentro)
+
+- **descricao**:
+    # Grupo Pedreira
+    
+    A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.
+- **nome**: Pedreira
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_p0.webp)
+    - **largura_mapa**: 592
+    - **altura_mapa**: 438
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 282
+          - **y**: 252
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 202
+          - **y**: 252
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 138
+          - **y**: 312
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 118
+          - **y**: 262
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 232
+          - **y**: 318
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 482
+          - **y**: 418
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 348
+          - **y**: 348
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 268
+          - **y**: 342
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 538
+          - **y**: 422
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 98
+          - **y**: 408
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 278
+          - **y**: 402
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 62
+          - **y**: 222
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 438
+          - **y**: 332
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 492
+          - **y**: 358
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 402
+          - **y**: 312
+          - **comprimento**: 25
+          - **largura**: 25
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Preguiça
+          
+          O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Preguiça
+      - **id_no_mapa**: 1
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p0.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 546
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 280
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 550
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 575
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 680
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 760
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p1.webp)
+          - **largura_mapa**: 756
+          - **altura_mapa**: 548
+          - **pontos_de_interesse**: []
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p2.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 548
+          - **pontos_de_interesse**: []
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Preguiça de Sofrer
+            - **id_no_mapa**: 1
+            - **dificuldade**: V12
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Preguicinha
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Tá Lá
+            - **id_no_mapa**: 4
+            - **dificuldade**: V8
+        - **[4]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 5
+            - **dificuldade**: V2
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Salsichção
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Era Uma Vez
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Frank
+            - **id_no_mapa**: 1
+            - **dificuldade**: V8
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Stout
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Carlos Drummond
+            - **id_no_mapa**: 3
+            - **dificuldade**: V7
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Manda Lá
+          
+          O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Manda Lá
+      - **id_no_mapa**: 2
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_manda_la_p0.webp)
+          - **largura_mapa**: 437
+          - **altura_mapa**: 585
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 180
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 260
+                - **y**: 425
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Amand-lá
+            - **id_no_mapa**: 1
+            - **dificuldade**: V10
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Manda Lá
+            - **id_no_mapa**: 2
+            - **dificuldade**: V8
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Trabalhador
+          
+          O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Trabalhador
+      - **id_no_mapa**: 3
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_trabalhador_p0.webp)
+          - **largura_mapa**: 758
+          - **altura_mapa**: 566
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 150
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 220
+                - **y**: 545
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_trabalhador_p1.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 570
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 320
+                - **y**: 550
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 465
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 420
+                - **y**: 340
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Hueco Fontaine
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pitt Bull
+            - **id_no_mapa**: 2
+            - **dificuldade**: V10
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Trabalhador Brasileiro
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Trabalho Árduo
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Estamos Trabalhando
+            - **id_no_mapa**: 3
+            - **dificuldade**: V8
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Sanfoneiro Maluco
+          
+          O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Sanfoneiro Maluco
+      - **id_no_mapa**: 4
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p0.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 533
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 395
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 630
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 230
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p1.webp)
+          - **largura_mapa**: 439
+          - **altura_mapa**: 564
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 155
+                - **y**: 430
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp)
+          - **largura_mapa**: 756
+          - **altura_mapa**: 536
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 260
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 420
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Sanfoneiro Maluco
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Inacreditável
+            - **id_no_mapa**: 2
+            - **dificuldade**: V8
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Chapeleiro Maluco
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Webb da Paraíba
+            - **id_no_mapa**: 1
+            - **dificuldade**: V9
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Efeito Dominó
+            - **id_no_mapa**: 1
+            - **dificuldade**: V10
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Zuzuzela
+            - **id_no_mapa**: 2
+            - **dificuldade**: V6
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Samurai
+          
+          O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Samurai
+      - **id_no_mapa**: 5
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_samurai_p0.webp)
+          - **largura_mapa**: 754
+          - **altura_mapa**: 534
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 425
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 380
+                - **y**: 365
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 680
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 100
+                - **y**: 290
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_samurai_p1.webp)
+          - **largura_mapa**: 436
+          - **altura_mapa**: 568
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 160
+                - **y**: 510
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Purgatório
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Samurai
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Ômega 3
+            - **id_no_mapa**: 3
+            - **dificuldade**: V11
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Purgatório do Samurai
+            - **id_no_mapa**: 4
+            - **dificuldade**: V12
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Ouro Branco
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Bomba Atômica
+          
+          O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Bomba Atômica
+      - **id_no_mapa**: 6
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p0.webp)
+          - **largura_mapa**: 754
+          - **altura_mapa**: 532
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 720
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 645
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 510
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 755
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 755
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 670
+                - **y**: 390
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 345
+                - **y**: 270
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 435
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[8]**:
+              - **id**: 9
+              - **label**: 9
+              - **box**:
+                - **x**: 170
+                - **y**: 280
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p1.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 528
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 590
+                - **y**: 485
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p2.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 527
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 690
+                - **y**: 470
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 690
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 690
+                - **y**: 410
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 425
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 425
+                - **y**: 340
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 495
+                - **y**: 400
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p3.webp)
+          - **largura_mapa**: 753
+          - **altura_mapa**: 529
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 250
+                - **y**: 450
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 190
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 505
+                - **y**: 460
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Viajante
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Viajante SDS
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+        - **[2]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V9
+        - **[3]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 5
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Champagne
+            - **id_no_mapa**: 6
+            - **dificuldade**: V8
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Bonitinho
+            - **id_no_mapa**: 7
+            - **dificuldade**: V1
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Caravana
+            - **id_no_mapa**: 8
+            - **dificuldade**: V7
+        - **[8]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 9
+            - **dificuldade**: V1
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Bomba Atômica
+            - **id_no_mapa**: 1
+            - **dificuldade**: V11
+        - **[10]**:
+          - **boulder**:
+            - **nome**: No Claro
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[11]**:
+          - **boulder**:
+            - **nome**: No Escuro
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Falafofancho
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[13]**:
+          - **boulder**:
+            - **nome**: No Claro SDS
+            - **id_no_mapa**: 4
+            - **dificuldade**: V9
+        - **[14]**:
+          - **boulder**:
+            - **nome**: No Escuro SDS
+            - **id_no_mapa**: 5
+            - **dificuldade**: V7
+        - **[15]**:
+          - **boulder**:
+            - **nome**: Falafofancho SDS
+            - **id_no_mapa**: 6
+            - **dificuldade**: V6
+        - **[16]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+            - **dificuldade**: V3
+        - **[17]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V3
+        - **[18]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V1
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Jubileu
+          
+          O setor Jubileu possui blocos interessantes com linhas de dificuldade intermediária.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Jubileu
+      - **id_no_mapa**: 7
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p0.webp)
+          - **largura_mapa**: 754
+          - **altura_mapa**: 546
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 640
+                - **y**: 430
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p1.webp)
+          - **largura_mapa**: 756
+          - **altura_mapa**: 565
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 585
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p2.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 547
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 185
+                - **y**: 415
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 610
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Jubileu
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Eu Te Disse
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+            - **dificuldade**: V2
+        - **[3]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V2
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Conceição
+          
+          O setor Conceição apresenta blocos com agarras boas e linhas de técnica.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Conceição
+      - **id_no_mapa**: 8
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_conceicao_p0.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 535
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 260
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 550
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_conceicao_p1.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 550
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 365
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 600
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 760
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Conceição do Mato Dentro
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 2
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Tobogã
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: No Dab
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 3
+            - **dificuldade**: V2
+  - **[8]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Bobsled
+          
+          O setor Bobsled possui um bloco com linhas atléticas e passagens de força.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Bobsled
+      - **id_no_mapa**: 9
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bobsled_p0.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 531
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 140
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 70
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 290
+                - **y**: 465
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 645
+                - **y**: 415
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Eterna Juventude
+            - **id_no_mapa**: 1
+            - **dificuldade**: V9
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Episódio do Dia
+            - **id_no_mapa**: 2
+            - **dificuldade**: V8
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Saideira
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Bobsled
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+  - **[9]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Aresta do Cabeça
+          
+          O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Aresta do Cabeça
+      - **id_no_mapa**: 11
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp)
+          - **largura_mapa**: 440
+          - **altura_mapa**: 564
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 180
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Aresta do Cabeça
+            - **id_no_mapa**: 1
+            - **dificuldade**: V6
+  - **[10]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Equinócio
+          
+          O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Equinócio
+      - **id_no_mapa**: 10
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_equinocio_p0.webp)
+          - **largura_mapa**: 756
+          - **altura_mapa**: 529
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 290
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 420
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 610
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Campo Minado
+            - **id_no_mapa**: 1
+            - **dificuldade**: V6
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Kalil
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Costela de Adão
+            - **id_no_mapa**: 3
+            - **dificuldade**: V2
+  - **[11]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Witness
+          
+          O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Witness
+      - **id_no_mapa**: 12
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_witness_p0.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 570
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 340
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 400
+                - **y**: 555
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 575
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_witness_p1.webp)
+          - **largura_mapa**: 442
+          - **altura_mapa**: 581
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 215
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Mandarim
+            - **id_no_mapa**: 1
+            - **dificuldade**: V13
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pressão Corporal
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Witness the Weakness
+            - **id_no_mapa**: 3
+            - **dificuldade**: V11
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Picasso
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+  - **[12]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor La Fúria
+          
+          O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: La Fúria
+      - **id_no_mapa**: 13
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p0.webp)
+          - **largura_mapa**: 760
+          - **altura_mapa**: 570
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 480
+                - **y**: 25
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 275
+                - **y**: 25
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 480
+                - **y**: 70
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 275
+                - **y**: 70
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 480
+                - **y**: 115
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 275
+                - **y**: 115
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 105
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 35
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p1.webp)
+          - **largura_mapa**: 759
+          - **altura_mapa**: 571
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 750
+                - **y**: 215
+                - **comprimento**: 19
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 750
+                - **y**: 265
+                - **comprimento**: 19
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 570
+                - **y**: 25
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 750
+                - **y**: 555
+                - **comprimento**: 19
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 570
+                - **y**: 65
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 570
+                - **y**: 105
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 570
+                - **y**: 145
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p2.webp)
+          - **largura_mapa**: 760
+          - **altura_mapa**: 551
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 748
+                - **y**: 500
+                - **comprimento**: 25
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 9
+              - **label**: 9
+              - **box**:
+                - **x**: 565
+                - **y**: 545
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 10
+              - **label**: 10
+              - **box**:
+                - **x**: 290
+                - **y**: 545
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p3.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 548
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 10
+              - **label**: 10
+              - **box**:
+                - **x**: 650
+                - **y**: 435
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: La Furia
+            - **id_no_mapa**: 1
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: La Discordia
+            - **id_no_mapa**: 2
+            - **dificuldade**: V9
+        - **[2]**:
+          - **boulder**:
+            - **nome**: La Paloma
+            - **id_no_mapa**: 3
+            - **dificuldade**: V9
+        - **[3]**:
+          - **boulder**:
+            - **nome**: La Discrepância
+            - **id_no_mapa**: 4
+            - **dificuldade**: V11
+        - **[4]**:
+          - **boulder**:
+            - **nome**: La Fuerza
+            - **id_no_mapa**: 5
+            - **dificuldade**: V11
+        - **[5]**:
+          - **boulder**:
+            - **nome**: La Sinceridad
+            - **id_no_mapa**: 6
+            - **dificuldade**: V12
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Rei da Cápsula
+            - **id_no_mapa**: 7
+            - **dificuldade**: V10
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Choffer
+            - **id_no_mapa**: 8
+            - **dificuldade**: V9
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Bem Vindo
+            - **id_no_mapa**: 1
+            - **dificuldade**: V2
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Bem Vindo a Conceição
+            - **id_no_mapa**: 2
+            - **dificuldade**: V3
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Bem Vindo aos Clássicos
+            - **id_no_mapa**: 3
+            - **dificuldade**: V5
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Né Possível
+            - **id_no_mapa**: 4
+            - **dificuldade**: V4
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Malditos
+            - **id_no_mapa**: 5
+            - **dificuldade**: V7
+        - **[13]**:
+          - **boulder**:
+            - **nome**: Guardião
+            - **id_no_mapa**: 6
+            - **dificuldade**: V3
+        - **[14]**:
+          - **boulder**:
+            - **nome**: Deixa Rolar
+            - **id_no_mapa**: 7
+            - **dificuldade**: V6
+        - **[15]**:
+          - **boulder**:
+            - **nome**: La Resistência
+            - **id_no_mapa**: 8
+            - **id_no_mapa_fim**: 8
+            - **dificuldade**: V8
+        - **[16]**:
+          - **boulder**:
+            - **nome**: Maldito La Furia
+            - **id_no_mapa**: 9
+            - **id_no_mapa_fim**: 9
+            - **dificuldade**: V8
+        - **[17]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 10
+            - **id_no_mapa_fim**: 10
+        - **[18]**:
+          - **boulder**:
+            - **nome**: Travessia da Fúria
+            - **id_no_mapa**: 10
+            - **dificuldade**: V5
+  - **[13]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Jah
+          
+          O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Jah
+      - **id_no_mapa**: 14
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jah_p0.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 567
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 130
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 220
+                - **y**: 385
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 315
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 415
+                - **y**: 440
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 460
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 360
+                - **y**: 275
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 750
+                - **y**: 500
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 760
+                - **y**: 540
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jah_p1.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 541
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 9
+              - **label**: 9
+              - **box**:
+                - **x**: 460
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 10
+              - **label**: 10
+              - **box**:
+                - **x**: 600
+                - **y**: 530
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Lágrimas de Jah
+            - **id_no_mapa**: 1
+            - **dificuldade**: V8
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Em Busca de Jah
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Jah Rastafari
+            - **id_no_mapa**: 3
+            - **dificuldade**: V9
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Ordem e Progresso
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Ordem e Progresso SDS
+            - **id_no_mapa**: 5
+            - **dificuldade**: V8
+        - **[5]**:
+          - **boulder**:
+            - **nome**: JahJah
+            - **id_no_mapa**: 6
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Verdinho
+            - **id_no_mapa**: 7
+            - **dificuldade**: V9
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Skunk
+            - **id_no_mapa**: 8
+            - **dificuldade**: V8
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Mescladinho
+            - **id_no_mapa**: 9
+            - **dificuldade**: V7
+        - **[9]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 10
+            - **dificuldade**: V3
+  - **[14]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Pole Dance
+          
+          O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Pole Dance
+      - **id_no_mapa**: 15
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p0.webp)
+          - **largura_mapa**: 760
+          - **altura_mapa**: 566
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 160
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 210
+                - **y**: 545
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 290
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 260
+                - **y**: 555
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 240
+                - **y**: 285
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 420
+                - **y**: 555
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **box**:
+                - **x**: 630
+                - **y**: 560
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **box**:
+                - **x**: 750
+                - **y**: 560
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p1.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 530
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 380
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 430
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 520
+                - **y**: 415
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 720
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 760
+                - **y**: 495
+                - **comprimento**: 30
+                - **largura**: 30
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p2.webp)
+          - **largura_mapa**: 756
+          - **altura_mapa**: 534
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 240
+                - **y**: 285
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 180
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 405
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 545
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 685
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **box**:
+                - **x**: 755
+                - **y**: 505
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Fuck Beach
+            - **id_no_mapa**: 1
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Incrível Fuck Beach
+            - **id_no_mapa**: 2
+            - **dificuldade**: V8
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Incrível Pole Dance
+            - **id_no_mapa**: 3
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Incrível
+            - **id_no_mapa**: 4
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Pole Dance
+            - **id_no_mapa**: 5
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Pole Dance SDS
+            - **id_no_mapa**: 6
+            - **dificuldade**: V7
+        - **[6]**:
+          - **boulder**:
+            - **nome**: De la Rocha
+            - **id_no_mapa**: 7
+            - **dificuldade**: V7
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Siga-me os Bons SDS
+            - **id_no_mapa**: 8
+            - **dificuldade**: V4
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Repense
+            - **id_no_mapa**: 1
+            - **dificuldade**: INDEFINIDO
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Vamo Nessa
+            - **id_no_mapa**: 2
+            - **dificuldade**: V5
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Vem que Tem
+            - **id_no_mapa**: 3
+            - **dificuldade**: V5
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Pense Bem
+            - **id_no_mapa**: 4
+            - **dificuldade**: V7
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Conclusão
+            - **id_no_mapa**: 5
+            - **dificuldade**: V4
+        - **[13]**:
+          - **boulder**:
+            - **nome**: Siga-me os Bons
+            - **id_no_mapa**: 1
+            - **dificuldade**: V3
+        - **[14]**:
+          - **boulder**:
+            - **nome**: Siga-me os Bons SDS
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[15]**:
+          - **boulder**:
+            - **nome**: Conceicion
+            - **id_no_mapa**: 3
+            - **dificuldade**: V4
+        - **[16]**:
+          - **boulder**:
+            - **nome**: Tô Concê
+            - **id_no_mapa**: 4
+            - **dificuldade**: V4
+        - **[17]**:
+          - **boulder**:
+            - **nome**: Rocktrip
+            - **id_no_mapa**: 5
+            - **dificuldade**: V5
+        - **[18]**:
+          - **boulder**:
+            - **nome**: Rocklands
+            - **id_no_mapa**: 6
+            - **dificuldade**: V4
+  - **[15]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Rock and Roll
+          
+          O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Rock and Roll
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_rock_and_roll_p0.webp)
+          - **largura_mapa**: 757
+          - **altura_mapa**: 534
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 180
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 330
+                - **y**: 525
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 645
+                - **y**: 470
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 760
+                - **y**: 490
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Rock It
+            - **id_no_mapa**: 1
+            - **dificuldade**: V0
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Rock and Roll
+            - **id_no_mapa**: 2
+            - **dificuldade**: V1
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Go Chucky Go
+            - **id_no_mapa**: 3
+            - **dificuldade**: V2
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Go Johnny Go
+            - **id_no_mapa**: 4
+            - **dificuldade**: V3
+  - **[16]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Bloco dos Canelas
+          
+          O setor Bloco dos Canelas possui um bloco com linhas interessantes em um ambiente agradável.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Bloco dos Canelas
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_dos_canelas_p0.webp)
+          - **largura_mapa**: 755
+          - **altura_mapa**: 533
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 280
+                - **y**: 515
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 620
+                - **y**: 415
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Canelas as Ar
+            - **id_no_mapa**: 1
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Canelas ao Vento
+            - **id_no_mapa**: 2
+            - **dificuldade**: V7
+  - **[17]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Mãos de Sebo
+          
+          O setor Mãos de Sebo possui um bloco com linhas que exigem técnica e controle de agarras.
+          
+          Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+      - **nome**: Mãos de Sebo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_maos_de_sebo_p0.webp)
+          - **largura_mapa**: 761
+          - **altura_mapa**: 544
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **box**:
+                - **x**: 150
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **box**:
+                - **x**: 265
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **box**:
+                - **x**: 435
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **box**:
+                - **x**: 750
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **box**:
+                - **x**: 770
+                - **y**: 535
+                - **comprimento**: 30
+                - **largura**: 30
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: (sem nome)
+            - **id_no_mapa**: 1
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Mãos de Tesoura
+            - **id_no_mapa**: 2
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Fei Long
+            - **id_no_mapa**: 3
+            - **dificuldade**: V8
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Mãos de Sebo
+            - **id_no_mapa**: 4
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Mãozinha
+            - **id_no_mapa**: 5
+            - **dificuldade**: V2
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0.webp)
+    - **checksum_sha256**: c0edb815fe114f9562599153f09c23965b0ac46bed797893e1fc978d180448c8
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_p0.webp)
+    - **checksum_sha256**: 90151a35f5128fd53676156a0337e4f094bc6319d94de4dcb0cc38b9b7b36245
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_choquito_p0.webp)
+    - **checksum_sha256**: c180b8856b43a3895a71996b7033c22a41a2ae4add3c5c46007ca75dc8f3e81d
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_choquito_p0_i1.webp)
+    - **checksum_sha256**: 2ada23d03bab7b527c63f30ad4090ba1277c47c2549ed829594bc804dbac82e9
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_choquito_p1.webp)
+    - **checksum_sha256**: b097deef6b78802f859ebf1b6b7b1592acac5687f40977c23207495289a086a3
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_godzilla_p0.webp)
+    - **checksum_sha256**: bf6ef12349d9ae05ce670f00bc92a8e2804c1f2204c0e22e5433b009b9093e1b
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_godzilla_p1.webp)
+    - **checksum_sha256**: 5355adf2487b3d05f0de320129a2885eabfe344e9457fc5a17cb9bdc474855d2
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_godzilla_p2.webp)
+    - **checksum_sha256**: 098734baecd09dbb9d5f639cbbfdd156ebec719b63b63a1481216f0dd2fa911d
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_hiperespaco_p0.webp)
+    - **checksum_sha256**: fcd281398c34b38cd3fec0fd633163e5acefe69641b576e04a55b1b1c80b7473
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp)
+    - **checksum_sha256**: 09e911891f29700e6d5f381803f1e2d81e77533cdf83f98f2815cf0a125c9242
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_show_time_p0.webp)
+    - **checksum_sha256**: 644cf125549d220191d34502d8cc9b2d33caed0a463b46c3ab3b9bb19dbc7f68
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/grupo_colina_setor_show_time_p1.webp)
+    - **checksum_sha256**: b4c32b3e67dfbd511357f1a632f79d2f0fb378a8aebe344a2e5e473a6ced4123
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/grupo_jk_p0.webp)
+    - **checksum_sha256**: 26766dfa8b4b8dd575f4872592adde76898b017c8fdf3cde646865fa56f18b03
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/grupo_jk_setor_mufasa_p0.webp)
+    - **checksum_sha256**: 61dd51f2070098b1cde416f475c72e42af9e1e1fe448862bd1af9f8892412425
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_p0.webp)
+    - **checksum_sha256**: a50901187d2b7799874e6c3fcb0b6b3304021a71c6e273a40676967b8e0bf060
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp)
+    - **checksum_sha256**: 22316811f8601daada14db0820f13978446e8b85d2276efc44bc27c0705d2aef
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_dos_canelas_p0.webp)
+    - **checksum_sha256**: bdd7220e5ab95bd18bb7c136a817a6d22f20ae222f812562382b539ca7df0c15
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bobsled_p0.webp)
+    - **checksum_sha256**: 86456d49aa2ffc2f64c62ba7b3e7791e3405ddb69db30613441ff38ff1763966
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bomba_atomica_p0.webp)
+    - **checksum_sha256**: dd7b33da5ffef3bdaa08355deb871001a03bfb6cd11b924992de7a6c6fb00449
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bomba_atomica_p1.webp)
+    - **checksum_sha256**: 013e0a00d16598d5f9305ffa6b8a27fc9874d681e77064365f56c37080f95589
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bomba_atomica_p2.webp)
+    - **checksum_sha256**: 0f744f982d2d8647c1fcdaa983eebee483d46f7ed8aa1efcab27dbae3cfb036b
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bomba_atomica_p3.webp)
+    - **checksum_sha256**: f002f15661c8212fe49b130f4b53e28e10bb836bba998c39ac817ba330b498c8
+  - **[22]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_conceicao_p0.webp)
+    - **checksum_sha256**: 0111ba98708557de5aa08152cbeb5ecae559cb56a8a059601f39f492715f968e
+  - **[23]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_conceicao_p1.webp)
+    - **checksum_sha256**: 467c3aeaf17668067ea2c15adcfda54a83527e1af1fdb9fe7f61596e5080c683
+  - **[24]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_equinocio_p0.webp)
+    - **checksum_sha256**: 9a0fb19ec545634601e30294e9d86befe29e47292625efc81765d544487a75b2
+  - **[25]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_jah_p0.webp)
+    - **checksum_sha256**: 44784043080d775bfee0fb6a1a26d08994bd2f48560860e0441d29698072b447
+  - **[26]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_jah_p1.webp)
+    - **checksum_sha256**: 3b36fb665504e5c095b0a34fa474bedcd570a3e6eb22458740e3102946724e52
+  - **[27]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_jubileu_p0.webp)
+    - **checksum_sha256**: b9a05d565208fb964d0141e96aecd892b237e4cae743b23299c9df7eabecc220
+  - **[28]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_jubileu_p1.webp)
+    - **checksum_sha256**: 8839b17aa28767bfd00886d73eb9c7779074f0c5e848e079a97ee4b2b28af1a6
+  - **[29]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_jubileu_p2.webp)
+    - **checksum_sha256**: edfce9310c8c5dff2d55d57f9a3fb6c98abffac88a8a2f3c233dc33842261305
+  - **[30]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_la_furia_p0.webp)
+    - **checksum_sha256**: 8f31cd3e675de465480efc96365fb8fe1f44808999440f033a3ef4e08f5f55c7
+  - **[31]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_la_furia_p1.webp)
+    - **checksum_sha256**: 5dfea772ae92e03e996b01ff85b93fe8ef0f5a282c7dc67027dc7db4b01e16fa
+  - **[32]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_la_furia_p2.webp)
+    - **checksum_sha256**: c7d754f0211c243284f0da753454f2309d325dd88c4da19dbd82b6ab69b71758
+  - **[33]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_la_furia_p3.webp)
+    - **checksum_sha256**: 834bb0bcfb449a45ecfc66115df08a551bc651a329a24619e1027a73a94dc8a9
+  - **[34]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_manda_la_p0.webp)
+    - **checksum_sha256**: 819814d966c84b1e44f78fbbfe55b2b7f960637c6debc1b8d038c85913aaa7ad
+  - **[35]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_maos_de_sebo_p0.webp)
+    - **checksum_sha256**: 7692d0c41c4fbce4217dbb6060192e2d8765b88b1befd0eb035a0e3e0042911b
+  - **[36]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_pole_dance_p0.webp)
+    - **checksum_sha256**: 42a74a6bc8cdaccda8e4c5fb21959996303f1a63c908e09405d4eacf8a7900e8
+  - **[37]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_pole_dance_p1.webp)
+    - **checksum_sha256**: c6c7a627481981bf53bcc0fe3eeb2d79c635ac1943e8ecc2029fb6eed1bef538
+  - **[38]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_pole_dance_p2.webp)
+    - **checksum_sha256**: eeccddcdb8f5a65dbf0ce5ddbe7d772b6759b40039e946b3001880f6ad09838a
+  - **[39]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_preguica_p0.webp)
+    - **checksum_sha256**: 2376ea3abb1e8d80aa5a67847cf55c12709fde0e4279ba23063288dcba4e42d0
+  - **[40]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_preguica_p1.webp)
+    - **checksum_sha256**: ed0fa60a6d20c714aeff9b3dfbb3e0b12c3681c507d30ee8715e33d01458dc76
+  - **[41]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_preguica_p2.webp)
+    - **checksum_sha256**: 2e5a168813eaaf4ce9a93d6a9ac9d1cf6eb03030b617a9ea96b98941e136dcb0
+  - **[42]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_rock_and_roll_p0.webp)
+    - **checksum_sha256**: 56ba728bb21fdac28329369ec7a4e1f1fc33bd72c2c9d812bb4813646ea93890
+  - **[43]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_samurai_p0.webp)
+    - **checksum_sha256**: 610309b56ea4f71ad04ca30537b53628ebd9a8b95b905083e6105794e7bc1d8d
+  - **[44]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_samurai_p1.webp)
+    - **checksum_sha256**: 305198a02118943bc4447c84d478974c51af1d348fb6316e87739694d45bfe2c
+  - **[45]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p0.webp)
+    - **checksum_sha256**: 158df7c3a6a49fe5d6c22b54296f9a2337bc477c8b853ccf88c277fa85c78579
+  - **[46]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p1.webp)
+    - **checksum_sha256**: 96c779e6890d1e2cac4ad4131a4308e84aaa4d9660c61703fe0abe9b409706bb
+  - **[47]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp)
+    - **checksum_sha256**: 4cd992876a75d4e7e0a04fc93ea02d7cb05b748ebf86d74f56ddc68a18f5f3e8
+  - **[48]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_trabalhador_p0.webp)
+    - **checksum_sha256**: 378ab574302d711101691ee6cc4aa748df3c872fd18444614ccd4675dfb3b2cc
+  - **[49]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_trabalhador_p1.webp)
+    - **checksum_sha256**: 0cfa183308c03a7a0a38fc1c6b5c4e83646bf0ff6fa490652354a382b9c6c27b
+  - **[50]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_witness_p0.webp)
+    - **checksum_sha256**: 57a0c27845745e4ca3a7b411a1399c714b2b6518f1192037ea8c5f84cb424f94
+  - **[51]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_witness_p1.webp)
+    - **checksum_sha256**: 515f5d8ddc52cc45575c39035ec698e238a218745da70e84c228908fa1151287
+  - **[52]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_p0.webp)
+    - **checksum_sha256**: 5a9b1d33f1be4eddcdc824c29eab2b7640954c1a90cda2c67af322cdc8321531
+  - **[53]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp)
+    - **checksum_sha256**: 079302760a815677e3cecf57ce4004e502a83ffaf906d18831672cfe3377fb0d
+  - **[54]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp)
+    - **checksum_sha256**: ae1436ad1d98a2509e2e5093a51c9a3dcf5fac378cb325d6b7b861a2451836b3
+  - **[55]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp)
+    - **checksum_sha256**: 43f16a5e3e0f828965d725bc4310e153ad2d273ba383c1e2bf520c939b5b74d3
+  - **[56]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp)
+    - **checksum_sha256**: a9fb9f90f40e3b35ee6b2a03d0ca686e8e93f4064a9082b8b7e10751e2afc6b2
+  - **[57]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp)
+    - **checksum_sha256**: 9895deea59f9e7194c3907deaf08c9449430824dcb3f1b6c53abf670a62dcf2e
+  - **[58]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_dominio_digital_p0.webp)
+    - **checksum_sha256**: fde330f7815005eaec4168e0d4fcd840f60c1d7bcd8200c77bdd4172a8681f99
+  - **[59]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp)
+    - **checksum_sha256**: 0c1c9f6418b1d1fcbb21d6d9e878de40cafffaff7a749ccac8a21666eceae959
+  - **[60]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp)
+    - **checksum_sha256**: 01e54010925ed26e2570532ac85ac7c7343b8c78d239961d7ca718b51171c731
+  - **[61]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_onibus_p0.webp)
+    - **checksum_sha256**: 0195e8cb5d6af78a3b02758f0cc54f3fa4b9cae504077bb15ee5f081e10e312b
+  - **[62]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_onibus_p1.webp)
+    - **checksum_sha256**: dd158c3e7ab5841dad58aa9fb975a56d8a70ffce45c15db8275c810d9708edd7
+  - **[63]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp)
+    - **checksum_sha256**: 1c6ced760bc1f4d1c11b5af952c4a4d1f6f59ace6ba99636d6f1f30874830b02
+  - **[64]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp)
+    - **checksum_sha256**: 7538e2b82a71c0667b116b074584841318ae1c9af1c1e72fdc6dc7fa0d050cd0
+  - **[65]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp)
+    - **checksum_sha256**: cfc2a31e86cafdfcf592d2976e13a7de78d5e1a3de82cec227492ea5e1b4a204
+  - **[66]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp)
+    - **checksum_sha256**: dc38737c167978b1d0414ef37e97d7b095ddb7c4bd21fec8241f8be839a24cc8
+  - **[67]**:
+    - **caminho**: ![caminho](imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp)
+    - **checksum_sha256**: c078c845388d115d5a8deed74735e8df74b37d3eb1f382fc39f2f2ff03300471
+  - **[68]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: cacdd30da7a749d154ef1de89cc24417f7eb3d46d7b04d92cb6872dab60360e8
+  - **[69]**:
+    - **caminho**: ![caminho](imagens/secao_rupestre_p0.webp)
+    - **checksum_sha256**: 2669dee73a68d04536457203308779ee5bd430160e06b15d6a281ca9593206f9
+
+

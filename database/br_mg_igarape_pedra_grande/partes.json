@@ -1,0 +1,19 @@
+{
+    "capa": [0],
+    "introducao": [1],
+    "regras": [2],
+    "historia": [3],
+    "complexo_pedra_grande": [4],
+    "igarameca_info": [5],
+    "mapas_gerais": [6, 15],
+    "setor_estacionamento": [7, 8],
+    "setor_familia_i": [9, 10],
+    "setor_familia_ii": [11, 12],
+    "setor_micos": [13, 14],
+    "setor_totem": [16],
+    "setor_igarameca": [17, 18],
+    "setor_pracinha": [19, 20],
+    "setor_tetos": [21],
+    "setor_trad": [22],
+    "patrocinadores": [23]
+}

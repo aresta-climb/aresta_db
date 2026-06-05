@@ -1,0 +1,347 @@
+---
+nome: Terceiro Andar
+mapas:
+- caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
+  largura_mapa: 1280
+  altura_mapa: 1707
+  pontos_de_interesse:
+  - id: '01'
+    label: '01'
+    box:
+      x: 364
+      y: 548
+      comprimento: 46
+      largura: 38
+  - id: '02'
+    label: '02'
+    box:
+      x: 460
+      y: 624
+      comprimento: 49
+      largura: 37
+  - id: '03'
+    label: '03'
+    box:
+      x: 523
+      y: 694
+      comprimento: 52
+      largura: 41
+  - id: '04'
+    label: '04'
+    box:
+      x: 596
+      y: 751
+      comprimento: 50
+      largura: 36
+  - id: '05'
+    label: '05'
+    box:
+      x: 654
+      y: 838
+      comprimento: 33
+      largura: 31
+  - id: '06'
+    label: '06'
+    box:
+      x: 702
+      y: 838
+      comprimento: 36
+      largura: 31
+- caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
+  largura_mapa: 1280
+  altura_mapa: 1707
+  pontos_de_interesse:
+  - id: '05'
+    label: '05'
+    box:
+      x: 192
+      y: 1022
+      comprimento: 29
+      largura: 25
+  - id: '06'
+    label: '06'
+    box:
+      x: 230
+      y: 1028
+      comprimento: 31
+      largura: 27
+  - id: '07'
+    label: '07'
+    box:
+      x: 292
+      y: 1040
+      comprimento: 34
+      largura: 28
+  - id: '08'
+    label: '08'
+    box:
+      x: 356
+      y: 1036
+      comprimento: 31
+      largura: 28
+  - id: '09'
+    label: '09'
+    box:
+      x: 412
+      y: 1036
+      comprimento: 31
+      largura: 29
+- caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
+  largura_mapa: 1280
+  altura_mapa: 1707
+  pontos_de_interesse:
+  - id: '10'
+    label: '10'
+    box:
+      x: 478
+      y: 1028
+      comprimento: 40
+      largura: 29
+  - id: '11'
+    label: '11'
+    box:
+      x: 541
+      y: 1002
+      comprimento: 36
+      largura: 30
+  - id: '12'
+    label: '12'
+    box:
+      x: 630
+      y: 946
+      comprimento: 29
+      largura: 25
+  - id: '13'
+    label: '13'
+    box:
+      x: 668
+      y: 947
+      comprimento: 31
+      largura: 24
+  - id: '14'
+    label: '14'
+    box:
+      x: 746
+      y: 980
+      comprimento: 38
+      largura: 29
+- caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
+  largura_mapa: 1280
+  altura_mapa: 1707
+  pontos_de_interesse:
+  - id: '01'
+    label: '01'
+    box:
+      x: 192
+      y: 1032
+      comprimento: 37
+      largura: 29
+  - id: '02'
+    label: '02'
+    box:
+      x: 278
+      y: 1032
+      comprimento: 41
+      largura: 32
+  - id: '03'
+    label: '03'
+    box:
+      x: 448
+      y: 1011
+      comprimento: 39
+      largura: 30
+  - id: '04'
+    label: '04'
+    box:
+      x: 527
+      y: 950
+      comprimento: 40
+      largura: 27
+  - id: '05'
+    label: '05'
+    box:
+      x: 645
+      y: 928
+      comprimento: 40
+      largura: 30
+escaladas:
+- via_esportiva:
+    nome: Pêro no Mucho
+    id_no_mapa: '01'
+    dificuldade: BR_5
+    extensao: 10
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 1
+    conquistadores:
+    - Diego Leonardo
+    - Jéssica Basso
+    data_abertura: '2014'
+- via_esportiva:
+    nome: Meia Hora
+    id_no_mapa: '02'
+    dificuldade: BR_6
+    extensao: 15
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Daiex de Almeida
+    data_abertura: '2012'
+- via_esportiva:
+    nome: Falta de Educação
+    id_no_mapa: '03'
+    dificuldade: BR_6SUP
+    extensao: 20
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Daiex de Almeida
+    data_abertura: '2012'
+- via_esportiva:
+    nome: De Mão Beijada
+    id_no_mapa: '04'
+    dificuldade: BR_7A
+    extensao: 20
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Laurêncio Jr
+    - Diego Leonardo
+    data_abertura: '2012'
+- via_esportiva:
+    nome: Efeito Cascata
+    id_no_mapa: '05'
+    dificuldade: BR_7C
+    extensao: 20
+    quantidade_protecoes_intermediarias: 5
+    conquistadores:
+    - Alessandro Imbeloni
+    - Mara Imbeloni
+    data_abertura: '2013'
+    descricao: Falta topo.
+- via_esportiva:
+    nome: Efeito Colateral
+    id_no_mapa: '06'
+    dificuldade: BR_9A
+    extensao: 25
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego
+    - Difora
+    - Chorão
+    data_abertura: '2008'
+- via_esportiva:
+    nome: Só pra Variar
+    id_no_mapa: '07'
+    dificuldade: BR_9C
+    extensao: 25
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Gustavo Maneira
+    data_abertura: '2011'
+- via_esportiva:
+    nome: Rock Supimpa
+    id_no_mapa: '08'
+    dificuldade: BR_9B
+    extensao: 25
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Gustavo Maneira
+    data_abertura: '2012'
+- via_esportiva:
+    nome: Você Decide
+    id_no_mapa: '09'
+    dificuldade: BR_8A
+    extensao: 10
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Pedro Andrade
+    data_abertura: '2014'
+- via_esportiva:
+    nome: Grande Hotel
+    id_no_mapa: '10'
+    dificuldade: BR_9A
+    extensao: 25
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Alexandre FEI
+    - Diego Leonardo
+    data_abertura: '2013'
+- via_esportiva:
+    nome: Cura Trimura
+    id_no_mapa: '11'
+    dificuldade: BR_8B
+    extensao: 25
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Laurêncio Jr.
+    data_abertura: '2013'
+- via_esportiva:
+    nome: Próprio Veneno
+    id_no_mapa: '12'
+    dificuldade: BR_7C
+    extensao: 20
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Laurêncio Jr
+    - Rafael Furtado
+    data_abertura: '2013'
+- via_esportiva:
+    nome: Própria Loucura
+    id_no_mapa: '13'
+    dificuldade: BR_9A
+    extensao: 20
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego Leonardo
+    - Rafael Furtado
+    data_abertura: '2016'
+- via_esportiva:
+    nome: Honney Money
+    id_no_mapa: '14'
+    dificuldade: BR_6SUP
+    extensao: 10
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Diego
+    - Gustavinho
+    - Rafinha
+    data_abertura: '2016'
+- via_esportiva:
+    nome: Efeito Variado
+    id_no_mapa: '06'
+    dificuldade: BR_9A
+    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra
+      Variar.
+- via_esportiva:
+    nome: Só paracolateral
+    id_no_mapa: '07'
+    dificuldade: BR_9A
+    descricao: Primeiro crux da via Só pra Variar com segundo crux da Efeito Colateral.
+- via_esportiva:
+    nome: Trimura do Hotel
+    id_no_mapa: '11'
+    dificuldade: PROJETO
+    descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
+---
+# Setor Terceiro Andar
+
+![Setor Terceiro Andar](imagens/setor_terceiro_andar_p0_i0.webp)
+
+O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
+
+> [!TIP]
+> Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**

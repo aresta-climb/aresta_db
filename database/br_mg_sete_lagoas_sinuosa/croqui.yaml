@@ -1,0 +1,76 @@
+id: br_mg_sete_lagoas_sinuosa
+nome: Sinuosa
+creditos:
+- Jean Carlos
+- Luciana dos Anjos
+- Yuri Vieira
+- Hugo Aguiar
+- Henrique Barcelos
+- Ricardo "Animal"
+- Tadeu Rassi
+- Michel Ângelo
+- Carlos Souza
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Sinuosa
+  estado: MG
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_de_esquerda.md
+  - setor:
+      caminho: setor_panelinha.md
+  - setor:
+      caminho: setor_7_paralelo.md
+  - setor:
+      caminho: setor_sentinela.md
+  - setor:
+      caminho: setor_death_horse.md
+  - setor:
+      caminho: setor_gameleira.md
+  - setor:
+      caminho: setor_vale_das_sombras.md
+  - setor:
+      caminho: setor_imigrantes.md
+  - setor:
+      caminho: setor_vale_zela.md
+  - setor:
+      caminho: setor_macaubas.md
+  - setor:
+      caminho: setor_primordios.md
+  - setor:
+      caminho: setor_4_picos.md
+  - grupo:
+      caminho: grupo_vale_oculto.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Regras e Segurança
+  destino:
+    secao_textual:
+      caminho: regras_e_seguranca.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Turismo e Equipamentos
+  destino:
+    secao_textual:
+      caminho: turismo_e_equipamentos.md
+- texto: Curiosidades
+  destino:
+    secao_textual:
+      caminho: curiosidades.md
+- texto: Considerações Finais
+  destino:
+    secao_textual:
+      caminho: consideracoes_finais.md
+- texto: Ficha Técnica
+  destino:
+    secao_textual:
+      caminho: ficha_tecnica.md
+ultima_migracao: 1
+publicar_croqui: true

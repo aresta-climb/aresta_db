@@ -1,0 +1,19 @@
+{
+    "capa": [0],
+    "mapas_gerais": [1],
+    "setor_highlines": [2],
+    "setor_ensolarado": [3, 4, 5, 6, 7],
+    "setor_garganta": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    "setor_tapa_na_cara": [18, 19],
+    "setor_terceiro_andar": [20, 21, 22, 23, 24],
+    "setor_paulistas": [25, 26, 27, 28],
+    "setor_mezanino": [29, 30, 31, 32, 33, 34],
+    "setor_shana_crazy": [35, 36, 37, 38],
+    "setor_tsunami": [39, 40, 41, 42],
+    "setor_udao": [43, 44, 45],
+    "setor_tereza": [46, 47, 48],
+    "setor_bem_vindo": [49, 50, 51, 52, 53],
+    "setor_tetos": [54, 55, 56, 57, 58, 59, 60],
+    "setor_segundo_andar": [61, 62, 63],
+    "setor_pirados_de_rocha": [64, 65]
+}

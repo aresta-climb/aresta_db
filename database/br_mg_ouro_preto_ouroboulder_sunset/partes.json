@@ -1,0 +1,16 @@
+{
+  "capa": [0],
+  "introducao": [1],
+  "conversao_e_legenda": [2],
+  "mapas_gerais": [3],
+  "responsabilidade_e_orientacoes": [4, 5],
+  "grupo_sunset": [6],
+  "grupo_sunset_setor_aleijadinho": [7],
+  "grupo_sunset_setor_capitao_jack": [8],
+  "grupo_sunset_setor_jahngada": [9],
+  "grupo_sunset_setor_planetario": [10, 11],
+  "grupo_sunset_setor_free_solo": [11, 12],
+  "grupo_sunset_setor_carrapicho": [12],
+  "grupo_sunset_setor_sunset": [13],
+  "grupo_sunset_setor_camaroa": [14]
+}

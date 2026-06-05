@@ -1,0 +1,41 @@
+id: br_mg_pocos_de_caldas_veu
+nome: Setor Véu das Noivas
+descricao: Croqui de boulders no Setor Véu das Noivas em Poços de Caldas, MG.
+creditos:
+- ACEC-MG
+- Serras Montanhismo
+picos:
+- nome: Véu das Noivas
+  descricao: Localizado em Poços de Caldas, MG.
+  estado: MG
+  localizacao:
+    latitude: -217754170
+    longitude: -466184720
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_bloco_casamento.md
+  - setor:
+      caminho: setor_bloco_da_pressao.md
+  - setor:
+      caminho: setor_bloco_gaveta.md
+  - setor:
+      caminho: setor_bloco_ditinho.md
+  - setor:
+      caminho: setor_bloco_angular.md
+  - setor:
+      caminho: setor_bloco_high.md
+  - setor:
+      caminho: setor_bloco_sala_de_estar.md
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: false
+revisado_bounding_circle: false
+botoes:
+- texto: Informações
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Informações
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
+ultima_migracao: 1

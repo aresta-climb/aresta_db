@@ -1,0 +1,23 @@
+{
+    "capa": [0],
+    "mapas_gerais": [21, 1],
+    "setor_zona_leste": [2],
+    "setor_chegada": [3],
+    "setor_onca": [4, 5],
+    "setor_toca_dos_gatos": [6],
+    "setor_intermediario": [7],
+    "setor_vale_das_sombras": [8],
+    "setor_parede_dos_conflitos": [9],
+    "setor_leao_de_judah": [10],
+    "setor_antigo_camping": [11],
+    "setor_beco_do_tiu": [12],
+    "setor_savassinha": [13],
+    "setor_grutinha": [14],
+    "setor_mezanino": [15],
+    "setor_1o_andar": [16],
+    "setor_2o_andar": [17],
+    "setor_jardim_suspenso": [18],
+    "setor_3o_andar": [19],
+    "atencao_e_regras": [20],
+    "parcerias_e_contato": [22]
+}

@@ -1,0 +1,61 @@
+id: br_mg_ferros_ferros
+nome: Ferros
+descricao: 'Guia de escaladas de Ferros, Minas Gerais.
+
+  Um dos maiores polos de escalada em granito do Brasil, com centenas de vias que
+  variam de curtas esportivas a longas paredes de mais de 200 metros.
+
+  '
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Ferros
+  url_google_maps: http://zip.net/bnl28l
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_cachoeira.md
+  - grupo:
+      caminho: grupo_aderencias.md
+  - grupo:
+      caminho: grupo_principal.md
+  - setor:
+      caminho: setor_vias_esportivas.md
+  - setor:
+      caminho: setor_parede_dos_solos.md
+  - grupo:
+      caminho: grupo_pedra_do_neri.md
+  - setor:
+      caminho: setor_parede_da_agua_limpa.md
+  - setor:
+      caminho: setor_parede_da_cenibra.md
+  - setor:
+      caminho: setor_outras_vias.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Apresentação
+  destino:
+    secao_textual:
+      caminho: apresentacao.md
+- texto: Sobre Ferros e História
+  destino:
+    secao_textual:
+      caminho: sobre_ferros_e_historia.md
+- texto: Geografia e Logística
+  destino:
+    secao_textual:
+      caminho: geografia_e_logistica.md
+- texto: Como Chegar
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Guia na Web
+  destino:
+    secao_textual:
+      caminho: guia_na_web.md
+ultima_migracao: 1

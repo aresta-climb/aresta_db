@@ -1,0 +1,11 @@
+{
+  "capa": [0],
+  "como_chegar": [1],
+  "setor_bloco_casamento": [2, 3],
+  "setor_bloco_da_pressao": [3],
+  "setor_bloco_gaveta": [4],
+  "setor_bloco_ditinho": [4],
+  "setor_bloco_angular": [5],
+  "setor_bloco_high": [6],
+  "setor_bloco_sala_de_estar": [7]
+}

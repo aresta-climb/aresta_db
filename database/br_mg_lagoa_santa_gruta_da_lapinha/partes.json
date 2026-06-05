@@ -1,0 +1,15 @@
+{
+    "capa": [0],
+    "creditos": [1],
+    "mapas_gerais": [0],
+    "setor_mapa_1": [2],
+    "setor_mapa_2": [3],
+    "setor_mapa_3": [4, 6],
+    "setor_mapa_4": [5, 6],
+    "setor_mapa_5": [7],
+    "setor_mapa_6": [8],
+    "setor_mapa_7": [9],
+    "setor_mapa_8": [10],
+    "setor_mapa_9": [11],
+    "setor_mapa_10": [12]
+}

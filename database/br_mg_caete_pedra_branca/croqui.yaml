@@ -1,0 +1,23 @@
+id: br_mg_caete_pedra_branca
+nome: Pedra Branca
+creditos:
+- Mauricio Juntolli
+- Danilo Stehling
+caminho_thumbnail: imagens/pagina_0_imagem_0.webp
+revisado_manualmente: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Pedra Branca
+  estado: MG
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_01.md
+  - setor:
+      caminho: setor_02.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+ultima_migracao: 1
+publicar_croqui: true

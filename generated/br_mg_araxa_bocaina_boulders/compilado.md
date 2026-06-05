@@ -1,0 +1,1779 @@
+# Croqui: Guia de Boulders - Bocaina Park
+
+## Informações Gerais
+
+- **descricao**: O Bocaina Park é um parque particular de esportes, lazer e bem estar localizado a 30 km do de Araxá aos pés da serra da Bocaina.
+- **id**: br_mg_araxa_bocaina_boulders
+- **nome**: Guia de Boulders - Bocaina Park
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            # Guia de Boulders - Bocaina Park
+            
+            | ![Capa](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa* |
+  - **[1]**:
+    - **texto**: Patrocinadores
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            # Patrocínio e Apoio
+            
+            | ![Patrocinadores](imagens/patrocinadores_p0.webp) |
+            | :--: |
+            | *Patrocinadores* |
+  - **[2]**:
+    - **texto**: Introdução
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            # Introdução
+            
+            O **Bocaina Park** é um parque particular de esportes, lazer e bem estar que esta localizado a 30 km do centro de Araxá aos pés da serra da Bocaina. Ele nasceu de um sonho e da união de amigos escaladores locais que começaram o desenvolvimento do lugar há cerca de 15 anos conquistando as primeiras vias e setores de escalada, e viabilizando o acesso através de trilhas de acesso e uma boa convivência com a comunidade local, e ao mesmo tempo realizando um trabalho de reflorestamento e preservação da fauna e flora em conjunto com uma conscientização dos visitantes.
+            
+            Foi criado para atuar no desenvolvimento de esportes de montanha na serra da Bocaina com a pratica de atividades conscientes nos meios naturais e fortalecendo o turismo de esportes de montanha na cidade através com eventos de qualidade, canais de comunicação eficientes, promovendo saúde e sustentabilidade, que após um trabalho de estruturação e viabilização podem ser praticados diversos esportes e atividades de montanha como: Escalada, Highline, corrida, caminhadas, montain bike, voo livre, meditação e descanso, tudo isso em contato pleno com a natureza.
+            
+            Atualmente no **Bocaina Park** oferecemos serviços de hospedagem com o **Camping Bocaina** com uma estrutura adequada e confortável para os visitantes, praça de alimentação com o **Açaí Bocaina** que funciona de Quarta a Domingo com, lanches, açaís, bebidas, almoços e jantas, a casa dos guardiões que é um local destinado para as pessoas que ajudam a cuidar do Bocaina Park e serra da Bocaina.
+            
+            **Bocaina Park** está localizado em um ambiente natural e preservado. Nossa intenção é deixar para as futuras gerações um local ainda melhor e mais preservado do que quando chegamos aqui. Para isso, solicitamos a todos que sejam conscientes em cada ato, economizem água, respeitem todo e qualquer animal que encontrar e preservem as formas de vida que temos ao nosso redor.
+            
+            | ![Graduações de boulders no croqui](imagens/introducao_p1.webp) |
+            | :--: |
+            | *Graduações de boulders no croqui* |
+  - **[3]**:
+    - **texto**: Índice e Graduação
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            # Índice geral 
+            
+            | ![Índice Geral](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Índice Geral* |
+            
+            ## Blocos
+            
+            | Número | Nome do Bloco |
+            | :--- | :--- |
+            | 1 | Pressão Enrustida |
+            | 2 | Caverninha |
+            | 3 | Exquadrilha |
+            | 4 | Canil |
+            | 5 | Bloco do Guerreiro |
+            | 6 | Bloco do Cabelin |
+            | 7 | Consciência Limpa |
+            | 8 | Haiti |
+            | 9 | Achados e Perdidos |
+            | 10 | Bloco do Rock Bocaina |
+            | 11 | Bloco 45º |
+            | 12 | Essência |
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_pressao_enrustida
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Pressão Enrustida
+- **nome**: Pressão Enrustida
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pressao_enrustida_p0.webp)
+    - **largura_mapa**: 1069
+    - **altura_mapa**: 868
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 299
+          - **y**: 634
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 366
+          - **y**: 652
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 542
+          - **y**: 626
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 631
+          - **y**: 628
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 701
+          - **y**: 540
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **nome**: Café com Leite
+      - **id_no_mapa**: 01
+      - **dificuldade**: V0
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com as mãos juntas em agarrão, virando reto no bloco.
+      - **nome**: Maltodextrina
+      - **id_no_mapa**: 02
+      - **dificuldade**: V0
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com as mãos em regletes abaixo do agarrão do Maltodextrina, e virando reto.
+      - **nome**: Maltodextrina SDS
+      - **id_no_mapa**: 03
+      - **dificuldade**: V2
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída do Maltodextrina e vira no Não contava com minhas astúcia.
+      - **nome**: Pinga Preta
+      - **id_no_mapa**: 04
+      - **dificuldade**: V3
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com as mãos juntas em agarrão investido no teto.
+      - **nome**: Pressão Enrustida
+      - **id_no_mapa**: 05
+      - **dificuldade**: V4
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com as duas mãos juntas em agarrão em bloco pequeno passando para Pressão inrrustida no bloco da esquerda.
+      - **nome**: Não Contava com Minha Astúcia
+      - **id_no_mapa**: 06
+      - **dificuldade**: V1
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saída do Não Contava com minha astúcia fazendo travessia para esquerda virando no Maltodextrina.
+      - **nome**: Rapé
+      - **id_no_mapa**: 07
+      - **dificuldade**: V3
+
+
+## Parte: setor_caverninha
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Caverninha
+- **nome**: Caverninha
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p0.webp)
+    - **largura_mapa**: 1064
+    - **altura_mapa**: 868
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 500
+          - **y**: 712
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p1.webp)
+    - **largura_mapa**: 1069
+    - **altura_mapa**: 868
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 428
+          - **y**: 657
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 462
+          - **y**: 662
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 462
+          - **y**: 698
+          - **comprimento**: 19
+          - **largura**: 17
+      - **[3]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 466
+          - **y**: 740
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[4]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 500
+          - **y**: 800
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[5]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 694
+          - **y**: 726
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p2.webp)
+    - **largura_mapa**: 1069
+    - **altura_mapa**: 865
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 659
+          - **y**: 726
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 652
+          - **y**: 757
+          - **comprimento**: 18
+          - **largura**: 18
+      - **[2]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 799
+          - **y**: 774
+          - **comprimento**: 24
+          - **largura**: 22
+      - **[3]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 970
+          - **y**: 696
+          - **comprimento**: 22
+          - **largura**: 17
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída com as mãos juntas em reglete bom, seguindo para sequencia de reglete e agarrão virando no meio do bloco.
+      - **nome**: Mingau
+      - **id_no_mapa**: 01
+      - **dificuldade**: V2
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída agaixado com as duas mãos em agarrão, seguindo reto por batente lateral virando a esquerda do bloco na parte de cima.
+      - **nome**: Pretinho Irlandês
+      - **id_no_mapa**: 02
+      - **dificuldade**: V2
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída do pretinho Irlandes seguindo primeiros movimentos na fenda reta virando na direita.
+      - **nome**: Ratos e Raízes
+      - **id_no_mapa**: 03
+      - **dificuldade**: V1
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída do Pretinho Irlandes indo para pinçá a direita da agarra de saída seguindo para batentes escorridos e virando no centro do bloco
+      - **nome**: Tripa Eterna
+      - **id_no_mapa**: 04
+      - **dificuldade**: V4
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída do Pretinho Irlandes indo para pinça a direita da agarra de saída, seguindo para batentes escorridos virando a direita do bloco.
+      - **nome**: Trip Eterna
+      - **id_no_mapa**: 05
+      - **dificuldade**: V6
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com a mao esquerda em batentee mao direita em reglete e calchanhar equerdo na altura da mão esquerda, passando por buracos no teto, seguindo para agarra triangular e virando no Trip Eterna.
+      - **nome**: Mecanismo
+      - **id_no_mapa**: 06
+      - **dificuldade**: V7
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saida sentado com as mãos em dois batentes escorridos, virando no Pretinho Irlandês.
+      - **nome**: Pedrada
+      - **id_no_mapa**: 07
+      - **dificuldade**: V3
+  - **[7]**:
+    - **boulder**:
+      - **descricao**: Saída sentado em batentes escorridos seguindo para esquerda em sequencia de regletes no meio do bloco virando em abaulado grande.
+      - **nome**: Aedes Egipse
+      - **id_no_mapa**: 08
+      - **dificuldade**: V5
+  - **[8]**:
+    - **boulder**:
+      - **descricao**: Saída do pedrada, e seguir sequencia de batentes e regletes pela parte debaixo do bloco virando na aresta esquerda.
+      - **nome**: V9 do Rafinha
+      - **id_no_mapa**: 09
+      - **dificuldade**: V9
+  - **[9]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com as duas mãos em reglete grande baixo e calcanhar esquerdo mais alto que as mãos, virando no Trip Eterna.
+      - **nome**: Os Trabalhos Não Param
+      - **id_no_mapa**: 10
+      - **dificuldade**: V6
+  - **[10]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com a mão esquerda em batente de compressão e direita em reglete aberto acima da cabeça.
+      - **nome**: Trabalho em Equipe
+      - **id_no_mapa**: 11
+      - **dificuldade**: V5
+
+
+## Parte: setor_exquadrilha
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Exquadrilha
+- **nome**: Exquadrilha
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_exquadrilha_p0.webp)
+    - **largura_mapa**: 1062
+    - **altura_mapa**: 870
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 472
+          - **y**: 688
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 366
+          - **y**: 661
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 327
+          - **y**: 662
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 535
+          - **y**: 654
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 578
+          - **y**: 649
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída com as mãos em regletes invertidos e pés com tail em batente grande e segue pelo Exquadrilha da Fumaça.
+      - **nome**: Fumaça Sagrada
+      - **id_no_mapa**: 01
+      - **dificuldade**: V7
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para direita em agarrão virando na lateral no bloco.
+      - **nome**: Exquadrilha da Fumaça
+      - **id_no_mapa**: 02
+      - **dificuldade**: V5
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída com as mãos em buracos na laca, seguindo para agarrão e virando a direita do bloco.
+      - **nome**: Quadrilha da Fumaça
+      - **id_no_mapa**: 03
+      - **dificuldade**: V4
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída com as mãos buracos na laca, seguindo para agarrão e virando reto proa.
+      - **nome**: Planet Hemp
+      - **id_no_mapa**: 04
+      - **dificuldade**: V5
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída do exquadrilha e virando no Planet Hemp.
+      - **nome**: Cypress Hill
+      - **id_no_mapa**: 05
+      - **dificuldade**: V6
+
+
+## Parte: setor_canil
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Canil
+- **nome**: Canil
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canil_p0.webp)
+    - **largura_mapa**: 1062
+    - **altura_mapa**: 865
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 231
+          - **y**: 789
+          - **comprimento**: 24
+          - **largura**: 24
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 388
+          - **y**: 814
+          - **comprimento**: 23
+          - **largura**: 24
+      - **[2]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 814
+          - **y**: 548
+          - **comprimento**: 24
+          - **largura**: 24
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída deitado com mão esquerda em pinça e direita na mesma agarra em reglete lateral.
+      - **nome**: Sucrilhos no Prato
+      - **id_no_mapa**: 01
+      - **dificuldade**: V7
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída deitado com mao esquerda em pinça na borda e direita batente investido.
+      - **nome**: Titan
+      - **id_no_mapa**: 02
+      - **dificuldade**: V4
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saida do Sucrilhos no Prato fazendo travessia para direita virando no Loboulder.
+      - **nome**: Lobão
+      - **id_no_mapa**: 03
+      - **dificuldade**: V7
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída do Sucrilhos no Prato e virando no Titan.
+      - **nome**: Tião Macalé
+      - **id_no_mapa**: 04
+      - **dificuldade**: V5
+  - **[4]**:
+    - **boulder**:
+      - **nome**: Zac
+      - **id_no_mapa**: 05
+      - **dificuldade**: V6
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Sai agachado com as mãos juntas em agarrão.
+      - **nome**: Loboulder
+      - **id_no_mapa**: 06
+      - **dificuldade**: V2
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saída do loboulder em travessia para esquerda virando no Sucrilhos no Prato.
+      - **nome**: Savana
+      - **id_no_mapa**: 07
+      - **dificuldade**: V6
+
+
+## Parte: setor_bloco_do_guerreiro
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Bloco do Guerreiro
+- **nome**: Bloco do Guerreiro
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_guerreiro_p0.webp)
+    - **largura_mapa**: 1064
+    - **altura_mapa**: 871
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 370
+          - **y**: 631
+          - **comprimento**: 19
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 578
+          - **y**: 602
+          - **comprimento**: 23
+          - **largura**: 23
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 786
+          - **y**: 594
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 924
+          - **y**: 625
+          - **comprimento**: 17
+          - **largura**: 18
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_guerreiro_p1.webp)
+    - **largura_mapa**: 1084
+    - **altura_mapa**: 881
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 496
+          - **y**: 605
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 756
+          - **y**: 454
+          - **comprimento**: 19
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 764
+          - **y**: 512
+          - **comprimento**: 21
+          - **largura**: 21
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com mão esquerda em reglete e direita em pinça pequena seguindo para abaulado virando reto.
+      - **nome**: Strike
+      - **id_no_mapa**: 01
+      - **dificuldade**: V7_BARRA_V8
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída em pé em regletes na aresta indo para abaulado e virando reto.
+      - **nome**: Chove e Não Molha
+      - **id_no_mapa**: 02
+      - **dificuldade**: V3
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com as mãos em abaulado virando reto.
+      - **nome**: Palhaço Pirulito
+      - **id_no_mapa**: 03
+      - **dificuldade**: V1
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saida agachado, com a mão esquerda em reglete escorrido e direita em reglete de meia falange com calcanhar na mão direita e segue a linha reta.
+      - **nome**: Marreteiro
+      - **id_no_mapa**: 04
+      - **dificuldade**: V5
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado da mão e direita em reglete no teto.
+      - **nome**: Guerreiro da Bocaina
+      - **id_no_mapa**: 05
+      - **dificuldade**: V6
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com as mãos em regletes no batentão.
+      - **nome**: High Line
+      - **id_no_mapa**: 06
+      - **dificuldade**: V5
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com as mãos em regletes investidos.
+      - **nome**: Colchão de Mola
+      - **id_no_mapa**: 07
+      - **dificuldade**: V4
+
+
+## Parte: setor_bloco_do_cabelin
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Bloco do Cabelin
+- **nome**: Bloco do Cabelin
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_cabelin_p0.webp)
+    - **largura_mapa**: 1086
+    - **altura_mapa**: 885
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 415
+          - **y**: 797
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_cabelin_p1.webp)
+    - **largura_mapa**: 1092
+    - **altura_mapa**: 878
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 202
+          - **y**: 637
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 222
+          - **y**: 670
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 372
+          - **y**: 820
+          - **comprimento**: 21
+          - **largura**: 21
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 569
+          - **y**: 558
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 632
+          - **y**: 692
+          - **comprimento**: 23
+          - **largura**: 25
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 658
+          - **y**: 688
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_cabelin_p2.webp)
+    - **largura_mapa**: 1094
+    - **altura_mapa**: 893
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 299
+          - **y**: 698
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 296
+          - **y**: 612
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 330
+          - **y**: 698
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 425
+          - **y**: 746
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 453
+          - **y**: 733
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 476
+          - **y**: 718
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 502
+          - **y**: 707
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com as mãos juntas em batente bom a direita do bloco e segue pela fenda diagonal para direita e vira na proa.
+      - **nome**: Sexto Sentido
+      - **id_no_mapa**: 01
+      - **dificuldade**: V4
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Mesma saída do sexto sentido, travessia horizontal por baixo e entra no cabeludo.
+      - **nome**: Dread Lock
+      - **id_no_mapa**: 02
+      - **dificuldade**: V7
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro movimento para cima da pedra e sai pra direita e vira no cabelinho.
+      - **nome**: Cabeludo
+      - **id_no_mapa**: 03
+      - **dificuldade**: V7
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com as mãos em agarrões e vira no buraco, no meio do bloco.
+      - **nome**: Jacinto Barriguinha
+      - **id_no_mapa**: 04
+      - **dificuldade**: V2
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Mesma saída do Cabelinho virando reto no buraco.
+      - **nome**: Compressor
+      - **id_no_mapa**: 05
+      - **dificuldade**: V8
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com mão esquerda em pinça e direita em reglete pequeno, virando a direita do bloco.
+      - **nome**: Cabelinho
+      - **id_no_mapa**: 06
+      - **dificuldade**: V5
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho, e mão direita em pequeno reglete abaulado.
+      - **nome**: Mágico de Oz
+      - **id_no_mapa**: 07
+      - **dificuldade**: V7
+  - **[7]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com mão esquerda em reglete investido e mão direita em pinça investida.
+      - **nome**: Mágico de Oz SDS
+      - **id_no_mapa**: 08
+      - **dificuldade**: V8
+  - **[8]**:
+    - **boulder**:
+      - **descricao**: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando no Capim Gordura.
+      - **nome**: Mr. Gordura
+      - **id_no_mapa**: 09
+      - **dificuldade**: V9
+  - **[9]**:
+    - **boulder**:
+      - **descricao**: Saída deitado em agarrão, seguindo para esquerda passando por traz da árvore e virando no Mágico de Oz.
+      - **nome**: País das Maravilhas
+      - **id_no_mapa**: 10
+      - **dificuldade**: V10
+  - **[10]**:
+    - **boulder**:
+      - **descricao**: Saída do País das Maravilhas e vira reto no bloco.
+      - **nome**: Capim Louco
+      - **id_no_mapa**: 11
+      - **dificuldade**: V3
+  - **[11]**:
+    - **boulder**:
+      - **descricao**: Saída do País das Maravilhas e segue para direita pela fenda.
+      - **nome**: Capim Gordura
+      - **id_no_mapa**: 12
+      - **dificuldade**: V5
+  - **[12]**:
+    - **boulder**:
+      - **nome**: Roleta Russa
+      - **id_no_mapa**: 13
+      - **dificuldade**: V6
+  - **[13]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na altura no quadril, virando reto e seguindo até o final do bloco.
+      - **nome**: La Qualitê
+      - **id_no_mapa**: 14
+      - **dificuldade**: V10
+
+
+## Parte: setor_consciencia_limpa
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Consciência Limpa
+- **nome**: Consciência Limpa
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_consciencia_limpa_p0.webp)
+    - **largura_mapa**: 1096
+    - **altura_mapa**: 893
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 467
+          - **y**: 684
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 682
+          - **y**: 692
+          - **comprimento**: 27
+          - **largura**: 29
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_consciencia_limpa_p1.webp)
+    - **largura_mapa**: 1099
+    - **altura_mapa**: 895
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 410
+          - **y**: 589
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 635
+          - **y**: 700
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 710
+          - **y**: 687
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída agachado em regletes bons e segue reto.
+      - **nome**: Canarim
+      - **id_no_mapa**: 01
+      - **dificuldade**: V2
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda da planta.
+      - **nome**: Sabiá
+      - **id_no_mapa**: 02
+      - **dificuldade**: V1
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com mão direita em reglete lateral branco e esquerda proximo as pedras .
+      - **nome**: Consciência Limpa
+      - **id_no_mapa**: 03
+      - **dificuldade**: V2
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com as mãos juntas em batente baixo e segue reto pela aresta.
+      - **nome**: Consciência
+      - **id_no_mapa**: 04
+      - **dificuldade**: V1
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com mão direita em agarra lateral e esquerda na aresta.
+      - **nome**: Mulheres Poderosas
+      - **id_no_mapa**: 05
+      - **dificuldade**: V2
+
+
+## Parte: setor_haiti
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Haiti
+- **nome**: Haiti
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_haiti_p0.webp)
+    - **largura_mapa**: 1092
+    - **altura_mapa**: 893
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 511
+          - **y**: 668
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 928
+          - **y**: 750
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 982
+          - **y**: 750
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 1015
+          - **y**: 735
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com a mão esquerda em reglete e direita em batente pequeno, seguindo reto virando no Taiti.
+      - **nome**: Jamaica Abaixo de Zero
+      - **id_no_mapa**: 01
+      - **dificuldade**: V7
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída do Jamaica Abaixo de Zero seguindo para direita virando no Haiti.
+      - **nome**: Jamaica
+      - **id_no_mapa**: 02
+      - **dificuldade**: V6
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída do Jamaica Abaixo de Zero, virando à esquerda do Taiti.
+      - **nome**: Kuaiti
+      - **id_no_mapa**: 03
+      - **dificuldade**: V8
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com as mãos juntas em batente grande seguindo para batentes lisos e virando a esquerda no bloco.
+      - **nome**: Taiti
+      - **id_no_mapa**: 04
+      - **dificuldade**: V7
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Mesma saída do Taíti seguindo a esquerda até batentes escorrido e virando reto.
+      - **nome**: Haiti
+      - **id_no_mapa**: 05
+      - **dificuldade**: V7
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Mesma saída do Haíti seguindo pela aresta em regletes laterais e virando reto.
+      - **nome**: Nem Lá, Nem Cá
+      - **id_no_mapa**: 06
+      - **dificuldade**: V5
+
+
+## Parte: setor_achados_e_perdidos
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Achados e Perdidos
+- **nome**: Achados e Perdidos
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_achados_e_perdidos_p0.webp)
+    - **largura_mapa**: 1071
+    - **altura_mapa**: 865
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 71
+          - **y**: 537
+          - **comprimento**: 24
+          - **largura**: 24
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 286
+          - **y**: 656
+          - **comprimento**: 28
+          - **largura**: 32
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 370
+          - **y**: 686
+          - **comprimento**: 28
+          - **largura**: 32
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 919
+          - **y**: 659
+          - **comprimento**: 30
+          - **largura**: 30
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: saida agachado com as mãos em agarrao a esquerda do bloco e faz uma travessia para direita e vira no centro do bloco no boulder atitude no trecho.
+      - **nome**: Fala Comigo
+      - **id_no_mapa**: 01
+      - **dificuldade**: V6
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saida do atitude no trecho e segue para esquerda.
+      - **nome**: Tendinite No More
+      - **id_no_mapa**: 02
+      - **dificuldade**: V2
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: saida agachado com as duas maos juntas em um cristal e segue reto (no meio do bloco).
+      - **nome**: Atitude no Trecho
+      - **id_no_mapa**: 03
+      - **dificuldade**: V3
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saida em pé a direita do bloco com mão direita em pinça escorrida e esquerda de balcão no equilibrio e segue pela esquerda.
+      - **nome**: Achados e Perdidos
+      - **id_no_mapa**: 04
+      - **dificuldade**: V3
+
+
+## Parte: setor_bloco_do_rock_bocaina
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Bloco do Rock Bocaina
+- **nome**: Bloco do Rock Bocaina
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_rock_bocaina_p0.webp)
+    - **largura_mapa**: 1079
+    - **altura_mapa**: 883
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 151
+          - **y**: 742
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 212
+          - **y**: 748
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 991
+          - **y**: 684
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saida em pé a esquerda do bloco com as mãos em agarrões e segue a aresta por cima virando no centro do bloco.
+      - **nome**: Açaí Bocaina
+      - **id_no_mapa**: 01
+      - **dificuldade**: V5
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saida do acai bocaina, e segue travessia para direita por baixo dominando no final .
+      - **nome**: Rock Bocaina
+      - **id_no_mapa**: 02
+      - **dificuldade**: V8
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída da aresta a direita do bloco e vai arestando até o topo.
+      - **nome**: Dedão de Aquiles
+      - **id_no_mapa**: 03
+      - **dificuldade**: V3
+
+
+## Parte: setor_bloco_45
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Bloco 45º
+- **nome**: Bloco 45º
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_45_p0.webp)
+    - **largura_mapa**: 1084
+    - **altura_mapa**: 883
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 122
+          - **y**: 717
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 161
+          - **y**: 718
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 141
+          - **y**: 752
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 254
+          - **y**: 682
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 296
+          - **y**: 775
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 682
+          - **y**: 580
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 618
+          - **y**: 554
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 803
+          - **y**: 501
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[8]**:
+        - **id**: P1
+        - **label**: P
+        - **box**:
+          - **x**: 384
+          - **y**: 740
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[9]**:
+        - **id**: P2
+        - **label**: P
+        - **box**:
+          - **x**: 675
+          - **y**: 659
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[10]**:
+        - **id**: P3
+        - **label**: P
+        - **box**:
+          - **x**: 714
+          - **y**: 662
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[11]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 674
+          - **y**: 693
+          - **comprimento**: 23
+          - **largura**: 26
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_45_p1.webp)
+    - **largura_mapa**: 1091
+    - **altura_mapa**: 813
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 660
+          - **y**: 428
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 626
+          - **y**: 497
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 691
+          - **y**: 420
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 659
+          - **y**: 498
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 619
+          - **y**: 410
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 597
+          - **y**: 501
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 751
+          - **y**: 491
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[7]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 867
+          - **y**: 430
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_45_p2.webp)
+    - **largura_mapa**: 1087
+    - **altura_mapa**: 812
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 656
+          - **y**: 430
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 623
+          - **y**: 498
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 689
+          - **y**: 422
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 656
+          - **y**: 500
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 618
+          - **y**: 414
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 594
+          - **y**: 503
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 748
+          - **y**: 492
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[7]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 865
+          - **y**: 432
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[8]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 899
+          - **y**: 435
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[9]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 1012
+          - **y**: 402
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**: Saída do bem vindo e entra para a face da esquerda da pedra, virando por ela.
+      - **nome**: Esquina do Gueto
+      - **id_no_mapa**: 01
+      - **dificuldade**: V2
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco, segue reto.
+      - **nome**: Bem-Vindo
+      - **id_no_mapa**: 02
+      - **dificuldade**: V4
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Saída do bem vindo, virando no Família Bocaina.
+      - **nome**: Siri Cascudo
+      - **id_no_mapa**: 03
+      - **dificuldade**: V6
+  - **[3]**:
+    - **boulder**:
+      - **descricao**: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+      - **nome**: Índios
+      - **id_no_mapa**: 04
+      - **dificuldade**: V5
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo na mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
+      - **nome**: Índios SDS
+      - **id_no_mapa**: 05
+      - **dificuldade**: V9
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com a mão direita em reglete bom e esquerda junta na mesma agarra, saindo para uma agarra de ombro de esquerda.
+      - **nome**: Família Bocaina
+      - **id_no_mapa**: 06
+      - **dificuldade**: V10
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com as mãos em regletes invertidos.
+      - **nome**: Sananga
+      - **id_no_mapa**: 07
+      - **dificuldade**: V9
+  - **[7]**:
+    - **boulder**:
+      - **descricao**: Saída em pé com a mão esquerda em reglete pequeno e mão direita em mono dedo.
+      - **nome**: Espírito San
+      - **id_no_mapa**: 08
+      - **dificuldade**: V8_BARRA_V9
+  - **[8]**:
+    - **boulder**:
+      - **descricao**: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda em reglete ruim.
+      - **nome**: Tiro ao Alvo
+      - **id_no_mapa**: 09
+      - **dificuldade**: V8
+  - **[9]**:
+    - **boulder**:
+      - **descricao**: Saída sentado com mão esquerda em reglete pequeno e direita em reglete liso com o pÉ esquerdo alto.
+      - **nome**: Tiro ao Alvo SDS
+      - **id_no_mapa**: 10
+      - **dificuldade**: V10
+  - **[10]**:
+    - **boulder**:
+      - **descricao**: Mesma agarra de saida do tiro ao alvo e vai pra direita.
+      - **nome**: Mão na Massa
+      - **id_no_mapa**: 11
+      - **dificuldade**: V7
+  - **[11]**:
+    - **boulder**:
+      - **descricao**: Saida do tiro ao alvo SDS e vai pra direita.
+      - **nome**: Mão na Massa SDS
+      - **id_no_mapa**: 12
+      - **dificuldade**: V8
+  - **[12]**:
+    - **boulder**:
+      - **descricao**: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira no carvoeiro.
+      - **nome**: Bicho de Pé
+      - **id_no_mapa**: 13
+      - **dificuldade**: V5
+  - **[13]**:
+    - **boulder**:
+      - **descricao**: Saida do tiro ao alvo SDS e vira no carvoeiro.
+      - **nome**: Bicho de Pé SDS
+      - **id_no_mapa**: 14
+      - **dificuldade**: V6
+  - **[14]**:
+    - **boulder**:
+      - **descricao**: SaÍdA sentado com as duas mãos juntas em reglete batente ruim e pés ruins.
+      - **nome**: Curto e Gross
+      - **id_no_mapa**: 15
+      - **dificuldade**: V4
+  - **[15]**:
+    - **boulder**:
+      - **descricao**: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal pra esquerda em agarroes.
+      - **nome**: Carvoeiro
+      - **id_no_mapa**: 16
+      - **dificuldade**: V1
+  - **[16]**:
+    - **boulder**:
+      - **descricao**: Saída do carvoeiro e faz travessia para direita contornando o bloco.
+      - **nome**: Kadron
+      - **id_no_mapa**: 17
+      - **dificuldade**: V3
+  - **[17]**:
+    - **boulder**:
+      - **descricao**: Sai sentado com as mãos em agarrao a direita do bloco e segue reto.
+      - **nome**: Saída pela Culatra
+      - **id_no_mapa**: 18
+      - **dificuldade**: V2
+  - **[18]**:
+    - **boulder**:
+      - **descricao**: Saída do bem vindo e virando no índios.
+      - **nome**: Siri sem Casca
+      - **id_no_mapa**: 19
+      - **dificuldade**: V6
+  - **[19]**:
+    - **boulder**:
+      - **descricao**: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+      - **nome**: Siri Queijo
+      - **id_no_mapa**: 20
+      - **dificuldade**: V7
+  - **[20]**:
+    - **boulder**:
+      - **descricao**: Saída com a mão esquerda em escama na fenda, mão direita em agarrão baixo com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
+      - **nome**: Problema Legal
+      - **id_no_mapa**: 21
+      - **dificuldade**: V7
+  - **[21]**:
+    - **boulder**:
+      - **descricao**: Saída do sananga virando no Família Bocaina.
+      - **nome**: Pecado de Chó
+      - **id_no_mapa**: 22
+      - **dificuldade**: V10_BARRA_V11
+  - **[22]**:
+    - **boulder**:
+      - **descricao**: Saída do sananga virando no indios.
+      - **nome**: Ayuaska
+      - **id_no_mapa**: 23
+      - **dificuldade**: V11
+
+
+## Parte: setor_essencia
+
+### Setor (Pico: Bocaina Park)
+
+- **descricao**: # Setor Essência
+- **nome**: Essência
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_essencia_p0.webp)
+    - **largura_mapa**: 1089
+    - **altura_mapa**: 818
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 234
+          - **y**: 475
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 345
+          - **y**: 535
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 387
+          - **y**: 567
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 638
+          - **y**: 724
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 689
+          - **y**: 737
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 853
+          - **y**: 668
+          - **comprimento**: 20
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 866
+          - **y**: 630
+          - **comprimento**: 20
+          - **largura**: 20
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_essencia_p1.webp)
+    - **largura_mapa**: 1094
+    - **altura_mapa**: 782
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 376
+          - **y**: 428
+          - **comprimento**: 20
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **nome**: Agricultor
+      - **id_no_mapa**: 01
+      - **dificuldade**: V2
+  - **[1]**:
+    - **boulder**:
+      - **nome**: Garimpeiro
+      - **id_no_mapa**: 02
+      - **dificuldade**: V4
+  - **[2]**:
+    - **boulder**:
+      - **nome**: A Regra é Clara
+      - **id_no_mapa**: 03
+      - **dificuldade**: V5
+  - **[3]**:
+    - **boulder**:
+      - **nome**: Essência
+      - **id_no_mapa**: 04
+      - **dificuldade**: V4
+  - **[4]**:
+    - **boulder**:
+      - **nome**: Indecência
+      - **id_no_mapa**: 05
+      - **dificuldade**: V3
+  - **[5]**:
+    - **boulder**:
+      - **nome**: Regra do Jogo
+      - **id_no_mapa**: 06
+      - **dificuldade**: V1
+  - **[6]**:
+    - **boulder**:
+      - **nome**: Carta de Euforia
+      - **id_no_mapa**: 07
+      - **dificuldade**: V5
+  - **[7]**:
+    - **boulder**:
+      - **nome**: Escravos de Chó
+      - **id_no_mapa**: 08
+      - **dificuldade**: V5
+  - **[8]**:
+    - **boulder**:
+      - **nome**: Jardim de Infância
+      - **id_no_mapa**: 09
+      - **dificuldade**: V0
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0.webp)
+    - **checksum_sha256**: 876d52af193b9aadf5833b3a748c7c6ac3f4f57631f39749daaa47d5a8e71ef2
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/introducao_p1.webp)
+    - **checksum_sha256**: e9ac224fda1d7cf8e792bc1859fc9aba4ee721d71398d9c1792ed86c7b142b7c
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: d333f58ec0010a57de784baa91d231833de81323abedec2c54bf4f9566e1de24
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
+    - **checksum_sha256**: 3b8752d7f0ee00f80c90f83a576799315400d96996f4b464402e1e1c938f79fa
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/setor_achados_e_perdidos_p0.webp)
+    - **checksum_sha256**: 41d74ca78c31aa861890c4104f7f65c988a1cb3061f72d678358e348e70bcb51
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_45_p0.webp)
+    - **checksum_sha256**: 4e9ccc5d0b2792720981d62ea3c1dbd5f5840a915c1fea933edd9e84a9243c3e
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_45_p1.webp)
+    - **checksum_sha256**: b30c59fd4667ea8792d1f11c7108d9ea6c04b76ab2ea22c6d1b7e289b6b13bb3
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_45_p2.webp)
+    - **checksum_sha256**: ae675d48b1ea8f4953b0fe6067d624b890450ee2e981a1c504c1b639da319883
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_cabelin_p0.webp)
+    - **checksum_sha256**: 77ee9abe8f0628e9bf29a1f06474591bf38f4da5996ccb44d55067a9d3f6ba1f
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_cabelin_p1.webp)
+    - **checksum_sha256**: 4c6ad1be7e6da9820a0639a6076dddcbd9268e20c1c7b38cea3ef513943c930e
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_cabelin_p2.webp)
+    - **checksum_sha256**: 0d05e6dc8dd0e2980afd81c9a33f841784ee4398e13beec6c0d66dfbea68643f
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_guerreiro_p0.webp)
+    - **checksum_sha256**: c20cf1f1d2d2588dbf97275ff4a4e5d3e07f5dcf1220f9a6e15464eefe552648
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_guerreiro_p1.webp)
+    - **checksum_sha256**: 2caf89fe141b601c6a869c904738e11f5e6761656dc734c6b8c47b05813db1cf
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_do_rock_bocaina_p0.webp)
+    - **checksum_sha256**: 4645a2f03197c1930d162791e335452609908fa445d148f80e77be93a50e2a8b
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/setor_canil_p0.webp)
+    - **checksum_sha256**: c8cb23c9f352ed1dbcebbd73524d972b33678daf4faf7b399e0947528183ca84
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_caverninha_p0.webp)
+    - **checksum_sha256**: 4d6f5dc5c2f89c3e80a563f9e1b5b16c3aa1a2eb4c646e89c834a2617ea28293
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/setor_caverninha_p1.webp)
+    - **checksum_sha256**: f2002f3bc7c8585ac0058a407a1fe47acda677a3ec8befe85607c11a328ec3e2
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/setor_caverninha_p2.webp)
+    - **checksum_sha256**: bd9a055e34d2ca2385289bd1b1a4ffff6b44386d3ba90710f3a700eac77a250f
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/setor_consciencia_limpa_p0.webp)
+    - **checksum_sha256**: 182f574fc1e74ae824650f715e1a04cb2f1c414b0352908b2682499a91d913a3
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/setor_consciencia_limpa_p1.webp)
+    - **checksum_sha256**: e2257b4c10d50b1a11f52024bbb8bcb393c9549ba95012b866992cc52ff33017
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/setor_essencia_p0.webp)
+    - **checksum_sha256**: d8cbf304004986d81ba7d05ddd4f1003e5a0672ea73bb53fdfc47bbbb29a7909
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/setor_essencia_p1.webp)
+    - **checksum_sha256**: b2284df0aa2a3f5ec344615ac5b1ebefc6f9c8a355ca51d1797b18336577ebd7
+  - **[22]**:
+    - **caminho**: ![caminho](imagens/setor_exquadrilha_p0.webp)
+    - **checksum_sha256**: 644a501a99b3fced3f941daf092b1563140823295109f7a2a157bfe7ec8ac93d
+  - **[23]**:
+    - **caminho**: ![caminho](imagens/setor_haiti_p0.webp)
+    - **checksum_sha256**: 344fa4b4172f51c3778b6a8bb3ef82849e5b7a6f4a62e7299c0661217e64d752
+  - **[24]**:
+    - **caminho**: ![caminho](imagens/setor_pressao_enrustida_p0.webp)
+    - **checksum_sha256**: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
+
+

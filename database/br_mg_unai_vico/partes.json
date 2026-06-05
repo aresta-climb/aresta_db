@@ -1,0 +1,20 @@
+{
+    "capa": [0],
+    "como_chegar": [4],
+    "boas_praticas_e_responsabilidades": [5, 6, 7, 8],
+    "caracteristicas_ambientais": [9, 10, 11, 12],
+    "historia": [13, 14, 15, 16, 17, 18, 19],
+    "mapas_gerais": [20, 21, 22, 23],
+    "setor_carrancas": [24, 25, 26, 27, 28, 29, 30],
+    "setor_aurora": [31, 32, 33, 34, 35, 36],
+    "setor_tailandia": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+    "setor_bandeirantes": [55, 56, 57, 58],
+    "setor_laranjeira": [59, 60, 61, 62, 63, 64],
+    "setor_facas": [65, 66],
+    "setor_alma_brejeira": [67, 68],
+    "setor_previsao_do_tempo": [69, 70, 71, 72],
+    "setor_jazida": [73, 74, 75, 76],
+    "setor_planetario": [77, 78, 79, 80, 81, 82],
+    "setor_brejo": [83, 84, 85, 86],
+    "setor_agreste": [87, 88]
+}

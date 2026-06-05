@@ -1,0 +1,58 @@
+id: br_mg_barao_de_cocais_cambotas
+nome: Cambotas
+descricao: O complexo de escalada de Cambotas, localizado em Barão de Cocais, MG,
+  é um dos mais tradicionais e desafiadores do estado, oferecendo vias de alta qualidade
+  em quartzito.
+caminho_thumbnail: imagens/capa_p0.webp
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Cambotas
+  estado: MG
+  localizacao:
+    latitude: -198980280
+    longitude: -435366330
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_chamine.md
+  - setor:
+      caminho: setor_caverninha.md
+  - setor:
+      caminho: setor_torres.md
+  - setor:
+      caminho: setor_felinas.md
+  - setor:
+      caminho: setor_fendas.md
+  - setor:
+      caminho: setor_arco.md
+  - setor:
+      caminho: setor_aresta.md
+  - setor:
+      caminho: setor_polegar.md
+  - setor:
+      caminho: setor_totem.md
+  - setor:
+      caminho: setor_enigma_da_esfinge.md
+  - setor:
+      caminho: setor_jardim_da_fantasia.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Principais Vias I
+  destino:
+    secao_textual:
+      caminho: setor_principais_vias_1.md
+- texto: Principais Vias II
+  destino:
+    secao_textual:
+      caminho: setor_principais_vias_2.md
+- texto: Contato
+  destino:
+    secao_textual:
+      caminho: contato.md
+ultima_migracao: 1

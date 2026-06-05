@@ -1,0 +1,624 @@
+---
+nome: Setor Vale dos Espinhos
+mapas:
+- caminho_imagem_mapa: imagens/setor_vale_dos_espinhos_p0_i6.webp
+  largura_mapa: 753
+  altura_mapa: 1309
+  pontos_de_interesse:
+  - id: '01'
+    label: '01'
+    box:
+      x: 330
+      y: 86
+      comprimento: 30
+      largura: 19
+  - id: '33'
+    label: '33'
+    box:
+      x: 490
+      y: 103
+      comprimento: 29
+      largura: 16
+  - id: Setor_Sentinela_Top
+    label: Setor Sentinela
+    box:
+      x: 684
+      y: 132
+      comprimento: 115
+      largura: 46
+  - id: '02'
+    label: '02'
+    box:
+      x: 281
+      y: 130
+      comprimento: 34
+      largura: 19
+  - id: '03'
+    label: '03'
+    box:
+      x: 262
+      y: 165
+      comprimento: 30
+      largura: 16
+  - id: '04'
+    label: '04'
+    box:
+      x: 232
+      y: 196
+      comprimento: 33
+      largura: 19
+  - id: '34'
+    label: '34'
+    box:
+      x: 216
+      y: 224
+      comprimento: 30
+      largura: 15
+  - id: '05'
+    label: '05'
+    box:
+      x: 176
+      y: 334
+      comprimento: 34
+      largura: 19
+  - id: '06'
+    label: '06'
+    box:
+      x: 176
+      y: 395
+      comprimento: 33
+      largura: 20
+  - id: 09
+    label: 09
+    box:
+      x: 398
+      y: 409
+      comprimento: 37
+      largura: 26
+  - id: '07'
+    label: '07'
+    box:
+      x: 224
+      y: 444
+      comprimento: 25
+      largura: 15
+  - id: '35'
+    label: '35'
+    box:
+      x: 318
+      y: 450
+      comprimento: 33
+      largura: 19
+  - id: 08
+    label: 08
+    box:
+      x: 380
+      y: 444
+      comprimento: 33
+      largura: 20
+  - id: '37'
+    label: '37'
+    box:
+      x: 546
+      y: 448
+      comprimento: 39
+      largura: 27
+  - id: '36'
+    label: '36'
+    box:
+      x: 402
+      y: 480
+      comprimento: 35
+      largura: 20
+  - id: '32'
+    label: '32'
+    box:
+      x: 523
+      y: 541
+      comprimento: 34
+      largura: 18
+  - id: '31'
+    label: '31'
+    box:
+      x: 518
+      y: 606
+      comprimento: 31
+      largura: 19
+  - id: '10'
+    label: '10'
+    box:
+      x: 346
+      y: 683
+      comprimento: 33
+      largura: 22
+  - id: '30'
+    label: '30'
+    box:
+      x: 522
+      y: 682
+      comprimento: 33
+      largura: 19
+  - id: '14'
+    label: '14'
+    box:
+      x: 235
+      y: 699
+      comprimento: 22
+      largura: 14
+  - id: '13'
+    label: '13'
+    box:
+      x: 250
+      y: 748
+      comprimento: 30
+      largura: 19
+  - id: '15'
+    label: '15'
+    box:
+      x: 62
+      y: 761
+      comprimento: 29
+      largura: 20
+  - id: '12'
+    label: '12'
+    box:
+      x: 250
+      y: 786
+      comprimento: 30
+      largura: 19
+  - id: '29'
+    label: '29'
+    box:
+      x: 548
+      y: 820
+      comprimento: 29
+      largura: 15
+  - id: '11'
+    label: '11'
+    box:
+      x: 264
+      y: 832
+      comprimento: 27
+      largura: 20
+  - id: '28'
+    label: '28'
+    box:
+      x: 542
+      y: 854
+      comprimento: 30
+      largura: 15
+  - id: '27'
+    label: '27'
+    box:
+      x: 541
+      y: 888
+      comprimento: 28
+      largura: 15
+  - id: '26'
+    label: '26'
+    box:
+      x: 544
+      y: 926
+      comprimento: 31
+      largura: 16
+  - id: Setor_Sentinela_Bottom
+    label: Setor Sentinela
+    box:
+      x: 682
+      y: 996
+      comprimento: 108
+      largura: 39
+  - id: '16'
+    label: '16'
+    box:
+      x: 176
+      y: 1010
+      comprimento: 24
+      largura: 17
+  - id: '17'
+    label: '17'
+    box:
+      x: 260
+      y: 1018
+      comprimento: 30
+      largura: 19
+  - id: '18'
+    label: '18'
+    box:
+      x: 284
+      y: 1056
+      comprimento: 29
+      largura: 20
+  - id: '25'
+    label: '25'
+    box:
+      x: 488
+      y: 1055
+      comprimento: 34
+      largura: 20
+  - id: Acesso_escalando
+    label: Acesso escalando
+    box:
+      x: 504
+      y: 1083
+      comprimento: 201
+      largura: 16
+  - id: '24'
+    label: '24'
+    box:
+      x: 504
+      y: 1116
+      comprimento: 28
+      largura: 15
+  - id: '23'
+    label: '23'
+    box:
+      x: 514
+      y: 1146
+      comprimento: 33
+      largura: 19
+  - id: '22'
+    label: '22'
+    box:
+      x: 540
+      y: 1172
+      comprimento: 32
+      largura: 17
+  - id: Clarabóia
+    label: Clarabóia
+    box:
+      x: 373
+      y: 1196
+      comprimento: 154
+      largura: 29
+  - id: '21'
+    label: '21'
+    box:
+      x: 552
+      y: 1206
+      comprimento: 33
+      largura: 19
+  - id: '20'
+    label: '20'
+    box:
+      x: 556
+      y: 1232
+      comprimento: 34
+      largura: 19
+  - id: '19'
+    label: '19'
+    box:
+      x: 540
+      y: 1260
+      comprimento: 31
+      largura: 19
+escaladas:
+- via_esportiva:
+    nome: Quase Nove
+    id_no_mapa: '01'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Pedro Leite
+    - Vinícius Wilson
+- via_esportiva:
+    nome: A Revolta da Bunda
+    id_no_mapa: '02'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Pedro Leite
+    - Vinícius Wilson
+- via_esportiva:
+    nome: O Faxineiro
+    id_no_mapa: '03'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Pedro Leite
+    - Vinícius Wilson
+- via_esportiva:
+    nome: Esquadrilha da Fumaça
+    id_no_mapa: '04'
+    dificuldade: BR_7B
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Pedro Leite
+    - Vinícius Wilson
+- via_esportiva:
+    nome: Ronco do V8
+    id_no_mapa: '05'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Sandro Almeida
+    - Cláudia Heringer
+    - Bruno Berbari
+- via_esportiva:
+    nome: Lagrimas de Calcário
+    id_no_mapa: '06'
+    dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Sandro Almeida
+    - Cláudia Heringer
+    - Bruno Berbari
+- via_esportiva:
+    nome: Tá Chovendo Carrapato
+    id_no_mapa: '07'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Márcio Vasconcelos
+    - Joviney Miguel
+- via_esportiva:
+    nome: Tá Esperando o quê?
+    id_no_mapa: 08
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Quem Sabe ano que Vem
+    id_no_mapa: 09
+    dificuldade: BR_8A
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Pedro Leite
+    - Vinícius Wilson
+- via_esportiva:
+    nome: Eau Rouge
+    id_no_mapa: '10'
+    dificuldade: BR_9A
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Sem informação
+    id_no_mapa: '11'
+    dificuldade: INDEFINIDO
+    descricao: Fixa
+- via_esportiva:
+    nome: Via inacabada
+    id_no_mapa: '12'
+    dificuldade: INDEFINIDO
+- via_esportiva:
+    nome: Cachinhos Dourados
+    id_no_mapa: '13'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    descricao: Lance difícil só na saída. Depois fica fácil.
+    conquistadores:
+    - Christian Costa
+    - Guilherme Côrrea
+- via_movel:
+    nome: Manto e Adaga
+    id_no_mapa: '14'
+    dificuldade: BR_6
+    protecoes_moveis: Móvel
+    conquistadores:
+    - Roberto Lincoln
+- via_movel:
+    nome: R770
+    id_no_mapa: '15'
+    dificuldade: BR_5SUP
+    protecoes_moveis: Móvel
+    conquistadores:
+    - Roberto Lincoln
+- via_movel:
+    nome: Sem informação
+    id_no_mapa: '16'
+    dificuldade: INDEFINIDO
+    protecoes_moveis: Mista
+- via_esportiva:
+    nome: Jornada nas Estrelas
+    id_no_mapa: '17'
+    dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 14
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Super Canaleta
+    id_no_mapa: '18'
+    dificuldade: BR_9B
+    quantidade_protecoes_intermediarias: 16
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Laboratório
+    id_no_mapa: '19'
+    dificuldade: BR_9B
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Dark Side of the Moon
+    id_no_mapa: '20'
+    dificuldade: BR_9A
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Mega Sena
+    id_no_mapa: '21'
+    dificuldade: BR_8B
+    quantidade_protecoes_intermediarias: 13
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: La Torância
+    id_no_mapa: '22'
+    dificuldade: BR_7B
+    quantidade_protecoes_intermediarias: 11
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Comunidade Flebótomo
+    id_no_mapa: '23'
+    dificuldade: BR_8C
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_movel:
+    nome: Sem informação
+    id_no_mapa: '24'
+    dificuldade: INDEFINIDO
+    protecoes_moveis: Mista
+    descricao: Via longa – Usar corda de 60 mts
+- via_multiplas_enfiadas:
+    nome: Duplo Sentido
+    id_no_mapa: '25'
+    enfiadas:
+    - via_esportiva:
+        nome: 1ª Enfiada
+        dificuldade: BR_7A
+        quantidade_protecoes_intermediarias: 9
+        quantidade_protecoes_parada: 2
+    - via_esportiva:
+        nome: 2ª Enfiada
+        dificuldade: BR_6SUP
+        quantidade_protecoes_intermediarias: 4
+        quantidade_protecoes_parada: 2
+    conquistadores:
+    - Marcus Rufino
+    - Márcio Vasconcelos
+- via_esportiva:
+    nome: Fantástico
+    id_no_mapa: '26'
+    dificuldade: BR_5SUP
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - Marcus Rufino
+    - Felipe B
+- via_movel:
+    nome: Show da Vida
+    id_no_mapa: '27'
+    dificuldade: BR_7B
+    protecoes_moveis: Móvel
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - Marcus Rufino
+- via_esportiva:
+    nome: Madame Surtô
+    id_no_mapa: '28'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Lupin
+    id_no_mapa: '29'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Wall Ride
+    id_no_mapa: '30'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 11
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Dr. Lund
+    id_no_mapa: '31'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Kero Mais
+    id_no_mapa: '32'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    descricao: Via longa – Usar corda de 60 mts
+    conquistadores:
+    - GT Baú 2021
+- via_esportiva:
+    nome: Bruxa de Blair
+    id_no_mapa: '33'
+    dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Roberto Lincoln
+    - Marco Durães
+- via_esportiva:
+    nome: Mentirinha
+    id_no_mapa: '34'
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Roberto Lincoln
+    - Marco Durães
+- via_esportiva:
+    nome: Zé Arigó
+    id_no_mapa: '35'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Roberto Lincoln
+    - Marco Durães
+- via_esportiva:
+    nome: Visionário
+    id_no_mapa: '36'
+    dificuldade: PROJETO
+    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Dy Oliveira
+    - Marco Durães
+- via_esportiva:
+    nome: Skywalker
+    id_no_mapa: '37'
+    dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Dy Oliveira
+    - Marco Durães
+---
+# Setor Vale dos Espinhos
+
+**Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.
+
+**Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’

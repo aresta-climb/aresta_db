@@ -1,0 +1,52 @@
+id: br_mg_araxa_bocaina_esportivas
+nome: Bocaina Park (Esportivas)
+descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos de\
+  \ escalada esportiva da região. \nEste croqui cobre as 220 vias do parque, distribuídas\
+  \ em diversos setores com graduações que vão do 4º ao 10º grau.\n"
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Bocaina Park
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_highlines.md
+  - setor:
+      caminho: setor_ensolarado.md
+  - setor:
+      caminho: setor_garganta.md
+  - setor:
+      caminho: setor_tapa_na_cara.md
+  - setor:
+      caminho: setor_terceiro_andar.md
+  - setor:
+      caminho: setor_paulistas.md
+  - setor:
+      caminho: setor_mezanino.md
+  - setor:
+      caminho: setor_shana_crazy.md
+  - setor:
+      caminho: setor_tsunami.md
+  - setor:
+      caminho: setor_udao.md
+  - setor:
+      caminho: setor_tereza.md
+  - setor:
+      caminho: setor_bem_vindo.md
+  - setor:
+      caminho: setor_tetos.md
+  - setor:
+      caminho: setor_segundo_andar.md
+  - setor:
+      caminho: setor_pirados_de_rocha.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

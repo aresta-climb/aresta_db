@@ -1,0 +1,8 @@
+{
+    "capa": [0],
+    "avisos": [0],
+    "como_chegar": [1, 2],
+    "setor_o_vale": [3, 4, 5],
+    "setor_as_pilastras": [6, 7],
+    "setor_a_pedreira": [8, 9, 10]
+}

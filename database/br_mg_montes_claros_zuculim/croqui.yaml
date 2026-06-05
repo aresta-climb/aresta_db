@@ -1,0 +1,29 @@
+id: br_mg_montes_claros_zuculim
+nome: Fazenda Zuculin
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Fazenda Zuculin
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_1.md
+  - setor:
+      caminho: setor_2_do_buraco.md
+  - setor:
+      caminho: setor_3.md
+  - setor:
+      caminho: setor_4_da_caverna.md
+caminho_thumbnail: imagens/capa_p0.webp
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Regras Importantes
+  destino:
+    secao_textual:
+      caminho: regras_importantes.md
+- texto: Como chegar e Trilha de Acesso
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1

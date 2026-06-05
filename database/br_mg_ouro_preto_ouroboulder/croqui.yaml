@@ -1,0 +1,68 @@
+id: br_mg_ouro_preto_ouroboulder
+nome: Ouroboulder
+caminho_thumbnail: imagens/capa_p0.webp
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Ouroboulder (PNMA)
+  estado: MG
+  localizacao:
+    latitude: -203677334
+    longitude: -435075136
+  url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
+  setores_ou_grupos:
+  - grupo:
+      caminho: grupo_pedreira.md
+  - grupo:
+      caminho: grupo_mont_blanc.md
+  - grupo:
+      caminho: grupo_bonsai.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Apoio
+  destino:
+    secao_textual:
+      caminho: apoio.md
+- texto: O Evento
+  destino:
+    secao_textual:
+      caminho: o_evento.md
+- texto: A Cidade
+  destino:
+    secao_textual:
+      caminho: a_cidade.md
+- texto: Parque Municipal das Andorinhas
+  destino:
+    secao_textual:
+      caminho: parque_municipal_das_andorinhas.md
+- texto: Regras e Boa Convivência
+  destino:
+    secao_textual:
+      caminho: regras_e_boa_convivencia.md
+- texto: Geologia e História
+  destino:
+    secao_textual:
+      caminho: geologia_e_historia.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+- texto: Agradecimentos
+  destino:
+    secao_textual:
+      caminho: agradecimentos.md
+- texto: Créditos
+  destino:
+    secao_textual:
+      caminho: creditos.md
+- texto: Telefones Úteis
+  destino:
+    secao_textual:
+      caminho: telefones_uteis.md
+- texto: Contatos
+  destino:
+    secao_textual:
+      caminho: contatos.md
+ultima_migracao: 1

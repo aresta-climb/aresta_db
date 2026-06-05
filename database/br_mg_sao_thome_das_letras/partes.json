@@ -1,0 +1,19 @@
+{
+  "capa": [0],
+  "equipe": [1],
+  "apresentacao": [2],
+  "mapas_gerais": [3, 4, 5],
+  "parque_antonio_rosa_info": [6, 9],
+  "setor_leao": [7, 10, 11, 12, 13],
+  "setor_guardiao": [7, 8, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+  "setor_mirante": [7, 29, 30, 31, 32],
+  "setor_piramide": [8],
+  "setor_bruxa": [8, 34, 35, 36, 37],
+  "cultural_chico_taquara": [28],
+  "cultural_inscricoes_rupestres": [33],
+  "aspectos_geograficos": [38],
+  "setor_cruzeiro": [39, 40, 41, 42],
+  "telefones_uteis": [43],
+  "setor_toca_furada": [44, 45, 46],
+  "setor_shangri_la": [47, 48, 49, 50]
+}

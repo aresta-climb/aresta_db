@@ -1,0 +1,10 @@
+{
+    "capa": [0],
+    "mapas_gerais": [10, 1],
+    "setor_pataxos": [2, 3],
+    "setor_cataguas": [4],
+    "setor_xavante": [5, 6],
+    "setor_yanomami": [7, 8],
+    "atencao_e_regras": [9],
+    "parcerias_e_contato": [11]
+}

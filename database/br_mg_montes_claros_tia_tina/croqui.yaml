@@ -1,0 +1,34 @@
+id: br_mg_montes_claros_tia_tina
+nome: Setor Tia Tina (Montes Claros)
+descricao: Guia de escalada do Setor Tia Tina em Montes Claros, MG.
+creditos:
+- AENMG - Associação de Escaladores do Norte de Minas Gerais
+caminho_thumbnail: imagens/capa_p0_i0.webp
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Setor Tia Tina
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_saara.md
+  - setor:
+      caminho: setor_fenda.md
+  - setor:
+      caminho: setor_do_buraco.md
+  - setor:
+      caminho: setor_da_frente.md
+  - setor:
+      caminho: setor_passagem.md
+  - setor:
+      caminho: setor_arvore_da_vida.md
+  - setor:
+      caminho: setor_planeta_dos_macacos.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1

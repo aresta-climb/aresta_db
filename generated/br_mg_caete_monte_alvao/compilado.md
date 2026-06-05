@@ -1,0 +1,1306 @@
+# Croqui: Monte Alvão - Caeté
+
+## Informações Gerais
+
+- **descricao**:
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+    
+- **id**: br_mg_caete_monte_alvao
+- **nome**: Monte Alvão - Caeté
+- **creditos**:
+  - Gabriel Franco Ferreira
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/mapas_gerais_p0.webp)
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **revisado_manualmente**: True
+- **botoes**:
+  - **[0]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Mapas Gerais
+            
+            ## Mapa Alto Monte Alvão
+            
+            | ![Mapa Alto Monte Alvão](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa Alto Monte Alvão* |
+            
+            Este mapa apresenta a visão geral do Alto Monte Alvão, destacando as trilhas de acesso e a localização dos setores de escalada.
+            
+            ### Legenda
+            
+            **Trilhas:**
+            - **Trilha da Mata:** representada pela linha tracejada amarela.
+            - **Volta ao Monte:** representada pela linha tracejada vermelha.
+            - **Trilha:** representada pela linha tracejada azul.
+            
+            **Setores de Escalada:**
+            - **Afloramento Quartzito:** cinza.
+            - **Caverna do Bin Laden:** rosa.
+            - **Forno da Onça:** amarelo.
+            - **Ground Control:** roxo.
+            - **Mirante da Cruz:** ciano.
+            - **Vale Gaules:** laranja avermelhado.
+            - **Parede do Ladrão:** azul ciano.
+            - **Curto e Grosso:** verde.
+            - **Malibu:** magenta.
+            - **Terra do Nunca:** lilás claro.
+            
+            **Uso do Solo e Vegetação:**
+            - **Eucalipto:** verde escuro.
+            - **Mata Nativa:** verde médio.
+            - **Pastagem:** verde claro.
+            - **Lagoas:** azul.
+            - **Área do Camping:** laranja.
+            
+            ### Informações Geográficas
+            - **Sistema de Referência:** SIRGAS 2000
+            - **Projeção:** UTM 23 K
+            - **Data:** 06/2022
+            - **Autor:** Gabriel Franco Ferreira
+            - **Local:** ALTO MONTE ALVÃO
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_vale_gaules
+
+### Setor (Pico: Alto Monte Alvão)
+
+- **descricao**:
+    # Vale Gaules
+    
+    O setor Vale Gaules está localizado no Alto Monte Alvão.
+- **nome**: Vale Gaules
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_gaules_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1728
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 416
+          - **y**: 1324
+          - **comprimento**: 34
+          - **largura**: 45
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 290
+          - **y**: 1258
+          - **comprimento**: 35
+          - **largura**: 44
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 310
+          - **y**: 1106
+          - **comprimento**: 28
+          - **largura**: 39
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 318
+          - **y**: 988
+          - **comprimento**: 29
+          - **largura**: 37
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 410
+          - **y**: 886
+          - **comprimento**: 35
+          - **largura**: 42
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 524
+          - **y**: 788
+          - **comprimento**: 31
+          - **largura**: 41
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 755
+          - **y**: 647
+          - **comprimento**: 34
+          - **largura**: 42
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 894
+          - **y**: 579
+          - **comprimento**: 29
+          - **largura**: 38
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 862
+          - **y**: 482
+          - **comprimento**: 29
+          - **largura**: 39
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 732
+          - **y**: 504
+          - **comprimento**: 45
+          - **largura**: 41
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 646
+          - **y**: 512
+          - **comprimento**: 41
+          - **largura**: 40
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Beijo Grego
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_7C
+      - **extensao**: 20
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: A surpresa do Cesar
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_6
+      - **extensao**: 18
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: O sítio dos deuses
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_5
+      - **extensao**: 18
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[3]**:
+    - **via_movel**:
+      - **descricao**: Parada fixa
+      - **nome**: Todos caminhos levam a Roma
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_5SUP
+      - **extensao**: 18
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Love Actually
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_5SUP
+      - **extensao**: 18
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Mama Gás
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_7A
+      - **extensao**: 15
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Java Lee
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Java Porco
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_7A
+      - **extensao**: 12
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Absolut com limão
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_7B
+      - **extensao**: 15
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[9]**:
+    - **via_esportiva**:
+      - **descricao**: Inacabada
+      - **nome**: Ribit
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7A
+      - **extensao**: 15
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Xanax
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_7C
+      - **extensao**: 20
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **conquistadores**:
+        - Jg
+
+
+## Parte: setor_parede_do_ladrao_e_forno_da_onca
+
+### Grupo (Pico: Alto Monte Alvão)
+
+- **descricao**:
+    # Parede do Ladrão e Forno da Onça
+    
+    Estes setores estão localizados lado a lado no Alto Monte Alvão.
+- **nome**: Parede do Ladrão e Forno da Onça
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1712
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1am
+        - **label**: 1am
+        - **box**:
+          - **x**: 106
+          - **y**: 728
+          - **comprimento**: 28
+          - **largura**: 41
+      - **[1]**:
+        - **id**: 2am
+        - **label**: 2am
+        - **box**:
+          - **x**: 167
+          - **y**: 840
+          - **comprimento**: 36
+          - **largura**: 47
+      - **[2]**:
+        - **id**: 3am
+        - **label**: 3am
+        - **box**:
+          - **x**: 159
+          - **y**: 720
+          - **comprimento**: 34
+          - **largura**: 43
+      - **[3]**:
+        - **id**: 4am
+        - **label**: 4am
+        - **box**:
+          - **x**: 238
+          - **y**: 756
+          - **comprimento**: 29
+          - **largura**: 39
+      - **[4]**:
+        - **id**: 5am
+        - **label**: 5am
+        - **box**:
+          - **x**: 255
+          - **y**: 670
+          - **comprimento**: 28
+          - **largura**: 41
+      - **[5]**:
+        - **id**: 6am
+        - **label**: 6am
+        - **box**:
+          - **x**: 678
+          - **y**: 711
+          - **comprimento**: 35
+          - **largura**: 48
+      - **[6]**:
+        - **id**: 1az
+        - **label**: 1az
+        - **box**:
+          - **x**: 852
+          - **y**: 728
+          - **comprimento**: 26
+          - **largura**: 39
+      - **[7]**:
+        - **id**: 2az
+        - **label**: 2az
+        - **box**:
+          - **x**: 1000
+          - **y**: 684
+          - **comprimento**: 29
+          - **largura**: 35
+      - **[8]**:
+        - **id**: 3az
+        - **label**: 3az
+        - **box**:
+          - **x**: 1141
+          - **y**: 642
+          - **comprimento**: 32
+          - **largura**: 42
+      - **[9]**:
+        - **id**: 4az
+        - **label**: 4az
+        - **box**:
+          - **x**: 1426
+          - **y**: 748
+          - **comprimento**: 32
+          - **largura**: 43
+      - **[10]**:
+        - **id**: 5az
+        - **label**: 5az
+        - **box**:
+          - **x**: 1512
+          - **y**: 688
+          - **comprimento**: 31
+          - **largura**: 44
+      - **[11]**:
+        - **id**: 6az
+        - **label**: 6az
+        - **box**:
+          - **x**: 1614
+          - **y**: 572
+          - **comprimento**: 33
+          - **largura**: 44
+      - **[12]**:
+        - **id**: 7az
+        - **label**: 7az
+        - **box**:
+          - **x**: 1752
+          - **y**: 558
+          - **comprimento**: 32
+          - **largura**: 47
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **nome**: Forno da Onça
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Cuidado Ketely
+            - **id_no_mapa**: 1am
+            - **dificuldade**: BR_6
+            - **extensao**: 24
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: You will survive
+            - **id_no_mapa**: 2am
+            - **dificuldade**: BR_7A
+            - **extensao**: 20
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Cara ou Coroa
+            - **id_no_mapa**: 3am
+            - **dificuldade**: BR_6
+            - **extensao**: 22
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: French CanCan
+            - **id_no_mapa**: 4am
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 28
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: On the road again
+            - **id_no_mapa**: 5am
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 18
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[5]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Incrível mas verdadeiro
+            - **id_no_mapa**: 6am
+            - **dificuldade_media**: BR_6
+            - **dificuldade_maxima**: BR_6
+            - **quantidade_costuras_intermediarias**: 12
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 50
+            - **numero_enfiadas**: 2
+            - **tipo_via_multiplas_enfiadas**: MISTA
+            - **conquistadores**:
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_4
+                  - **extensao**: 15
+              - **[1]**:
+                - **via_esportiva**:
+                  - **descricao**: mista
+                  - **nome**: L2
+                  - **dificuldade**: BR_6
+                  - **extensao**: 35
+  - **[1]**:
+    - **conteudo**:
+      - **nome**: Parede do Ladrão
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Bouder com leite
+            - **id_no_mapa**: 1az
+            - **dificuldade**: BR_5
+            - **extensao**: 25
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Chipie chipie
+            - **id_no_mapa**: 2az
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 23
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Bambi
+            - **id_no_mapa**: 3az
+            - **dificuldade**: BR_4
+            - **extensao**: 20
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Ana Thor
+            - **id_no_mapa**: 4az
+            - **dificuldade**: BR_7C
+            - **extensao**: 15
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+        - **[4]**:
+          - **via_esportiva**:
+            - **descricao**: Base no platô superior
+            - **nome**: Au bout des doigts
+            - **id_no_mapa**: 5az
+            - **dificuldade**: BR_7B
+            - **extensao**: 22
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 3
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Jg
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Boom Boom
+            - **id_no_mapa**: 6az
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 28
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Petit Pichou
+            - **id_no_mapa**: 7az
+            - **dificuldade**: BR_6SUP
+            - **extensao**: 28
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+
+
+## Parte: setor_caverna_bin_laden_mirante_da_cruz_e_ground_control
+
+### Grupo (Pico: Alto Monte Alvão)
+
+- **descricao**:
+    # Caverna, Mirante e Ground Control
+    
+    Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
+- **nome**: Caverna, Mirante e Ground Control
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1721
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1ros
+        - **label**: 1ros
+        - **box**:
+          - **x**: 948
+          - **y**: 184
+          - **comprimento**: 30
+          - **largura**: 47
+      - **[1]**:
+        - **id**: 2ros
+        - **label**: 2ros
+        - **box**:
+          - **x**: 982
+          - **y**: 286
+          - **comprimento**: 29
+          - **largura**: 46
+      - **[2]**:
+        - **id**: 3ros
+        - **label**: 3ros
+        - **box**:
+          - **x**: 904
+          - **y**: 256
+          - **comprimento**: 30
+          - **largura**: 50
+      - **[3]**:
+        - **id**: 4ros
+        - **label**: 4ros
+        - **box**:
+          - **x**: 937
+          - **y**: 360
+          - **comprimento**: 34
+          - **largura**: 44
+      - **[4]**:
+        - **id**: 5ros
+        - **label**: 5ros
+        - **box**:
+          - **x**: 816
+          - **y**: 248
+          - **comprimento**: 35
+          - **largura**: 50
+      - **[5]**:
+        - **id**: 6ros
+        - **label**: 6ros
+        - **box**:
+          - **x**: 912
+          - **y**: 182
+          - **comprimento**: 31
+          - **largura**: 47
+      - **[6]**:
+        - **id**: 1az
+        - **label**: 1
+        - **box**:
+          - **x**: 570
+          - **y**: 1194
+          - **comprimento**: 27
+          - **largura**: 43
+      - **[7]**:
+        - **id**: 2az
+        - **label**: 2
+        - **box**:
+          - **x**: 528
+          - **y**: 1362
+          - **comprimento**: 38
+          - **largura**: 46
+      - **[8]**:
+        - **id**: 3az
+        - **label**: 3
+        - **box**:
+          - **x**: 590
+          - **y**: 1407
+          - **comprimento**: 39
+          - **largura**: 52
+      - **[9]**:
+        - **id**: 4az
+        - **label**: 4
+        - **box**:
+          - **x**: 536
+          - **y**: 1508
+          - **comprimento**: 28
+          - **largura**: 40
+      - **[10]**:
+        - **id**: 5az
+        - **label**: 5
+        - **box**:
+          - **x**: 606
+          - **y**: 1494
+          - **comprimento**: 37
+          - **largura**: 51
+      - **[11]**:
+        - **id**: 6az
+        - **label**: 6
+        - **box**:
+          - **x**: 608
+          - **y**: 1575
+          - **comprimento**: 35
+          - **largura**: 50
+      - **[12]**:
+        - **id**: 1rox
+        - **label**: 1rox
+        - **box**:
+          - **x**: 1052
+          - **y**: 163
+          - **comprimento**: 29
+          - **largura**: 50
+      - **[13]**:
+        - **id**: 2rox
+        - **label**: 2rox
+        - **box**:
+          - **x**: 1116
+          - **y**: 194
+          - **comprimento**: 32
+          - **largura**: 57
+      - **[14]**:
+        - **id**: 3rox
+        - **label**: 3rox
+        - **box**:
+          - **x**: 1172
+          - **y**: 196
+          - **comprimento**: 37
+          - **largura**: 47
+      - **[15]**:
+        - **id**: 4rox
+        - **label**: 4rox
+        - **box**:
+          - **x**: 1252
+          - **y**: 210
+          - **comprimento**: 35
+          - **largura**: 47
+      - **[16]**:
+        - **id**: 5rox
+        - **label**: 5rox
+        - **box**:
+          - **x**: 1359
+          - **y**: 213
+          - **comprimento**: 30
+          - **largura**: 50
+      - **[17]**:
+        - **id**: 6rox
+        - **label**: 6rox
+        - **box**:
+          - **x**: 1456
+          - **y**: 218
+          - **comprimento**: 34
+          - **largura**: 53
+      - **[18]**:
+        - **id**: 7rox
+        - **label**: 7rox
+        - **box**:
+          - **x**: 1582
+          - **y**: 220
+          - **comprimento**: 33
+          - **largura**: 50
+      - **[19]**:
+        - **id**: 8rox
+        - **label**: 8rox
+        - **box**:
+          - **x**: 1664
+          - **y**: 236
+          - **comprimento**: 33
+          - **largura**: 50
+      - **[20]**:
+        - **id**: 9rox
+        - **label**: 9rox
+        - **box**:
+          - **x**: 1730
+          - **y**: 303
+          - **comprimento**: 32
+          - **largura**: 48
+      - **[21]**:
+        - **id**: 10rox
+        - **label**: 10rox
+        - **box**:
+          - **x**: 1753
+          - **y**: 246
+          - **comprimento**: 56
+          - **largura**: 46
+      - **[22]**:
+        - **id**: 11rox
+        - **label**: 11rox
+        - **box**:
+          - **x**: 1634
+          - **y**: 436
+          - **comprimento**: 45
+          - **largura**: 53
+      - **[23]**:
+        - **id**: 12rox
+        - **label**: 12rox
+        - **box**:
+          - **x**: 1543
+          - **y**: 438
+          - **comprimento**: 50
+          - **largura**: 51
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **nome**: Caverna do Bin Laden
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Capitã Minhoca
+            - **id_no_mapa**: 1ros
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 22
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[1]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: He Man
+            - **id_no_mapa**: 2ros
+            - **dificuldade_media**: BR_6SUP
+            - **dificuldade_maxima**: BR_7B
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 65
+            - **numero_enfiadas**: 4
+            - **tipo_via_multiplas_enfiadas**: TODA_FIXA
+            - **conquistadores**:
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_6
+                  - **extensao**: 18
+              - **[1]**:
+                - **via_esportiva**:
+                  - **nome**: L2
+                  - **dificuldade**: BR_3
+                  - **extensao**: 15
+              - **[2]**:
+                - **via_esportiva**:
+                  - **nome**: L3
+                  - **dificuldade**: BR_7B
+                  - **extensao**: 15
+              - **[3]**:
+                - **via_esportiva**:
+                  - **descricao**: free
+                  - **nome**: L4
+                  - **dificuldade**: BR_2SUP
+                  - **extensao**: 20
+        - **[2]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Esqueleto
+            - **id_no_mapa**: 3ros
+            - **dificuldade_media**: BR_6
+            - **dificuldade_maxima**: BR_6
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 65
+            - **numero_enfiadas**: 4
+            - **tipo_via_multiplas_enfiadas**: MISTA
+            - **conquistadores**:
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_6
+                  - **extensao**: 18
+              - **[1]**:
+                - **via_esportiva**:
+                  - **nome**: L2
+                  - **dificuldade**: BR_3
+                  - **extensao**: 15
+              - **[2]**:
+                - **via_esportiva**:
+                  - **descricao**: mista
+                  - **nome**: L3
+                  - **dificuldade**: BR_6
+                  - **extensao**: 15
+              - **[3]**:
+                - **via_esportiva**:
+                  - **descricao**: free
+                  - **nome**: L4
+                  - **dificuldade**: BR_2SUP
+                  - **extensao**: 20
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Allahu Akbar
+            - **id_no_mapa**: 4ros
+            - **dificuldade**: BR_7A
+            - **extensao**: 22
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Saída à Francesa
+            - **id_no_mapa**: 5ros
+            - **dificuldade**: BR_8B
+            - **extensao**: 24
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Jg
+        - **[5]**:
+          - **via_esportiva**:
+            - **descricao**: 10?
+            - **nome**: Paris em Chamas
+            - **id_no_mapa**: 6ros
+            - **dificuldade**: BR_10A
+            - **extensao**: 24
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Fred Gonçalves
+  - **[1]**:
+    - **conteudo**:
+      - **nome**: Mirante da Cruz
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Urubu tá com raiva do boi
+            - **id_no_mapa**: 1az
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 7
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Maria Teresa
+            - **id_no_mapa**: 2az
+            - **dificuldade**: BR_6
+            - **extensao**: 26
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Uma gota de milagre
+            - **id_no_mapa**: 3az
+            - **dificuldade**: BR_7A
+            - **extensao**: 28
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Quem não chora não mama
+            - **id_no_mapa**: 4az
+            - **dificuldade**: BR_7B
+            - **extensao**: 28
+            - **quantidade_protecoes_intermediarias**: 9
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Chapolin
+            - **id_no_mapa**: 5az
+            - **dificuldade**: BR_7A
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 9
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Desvio na pista
+            - **id_no_mapa**: 6az
+            - **dificuldade**: BR_7B
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 9
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - jg
+  - **[2]**:
+    - **conteudo**:
+      - **nome**: Ground Control
+      - **escaladas**:
+        - **[0]**:
+          - **via_movel**:
+            - **nome**: Essa via não é minha
+            - **id_no_mapa**: 1rox
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 70
+            - **conquistadores**:
+              - Rander Jr Sidnei
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Vento da Patagônia
+            - **id_no_mapa**: 2rox
+            - **dificuldade**: BR_5
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Danilo Steling
+        - **[2]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Mr Bean
+            - **id_no_mapa**: 3rox
+            - **dificuldade_media**: BR_6SUP
+            - **dificuldade_maxima**: BR_7A
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 70
+            - **numero_enfiadas**: 3
+            - **tipo_via_multiplas_enfiadas**: TODA_FIXA
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_6
+                  - **extensao**: 30
+              - **[1]**:
+                - **via_esportiva**:
+                  - **nome**: L2
+                  - **dificuldade**: BR_7A
+                  - **extensao**: 18
+              - **[2]**:
+                - **via_esportiva**:
+                  - **descricao**: free
+                  - **nome**: L3
+                  - **dificuldade**: BR_2SUP
+                  - **extensao**: 22
+        - **[3]**:
+          - **via_esportiva**:
+            - **descricao**: Variante Mr Bean
+            - **nome**: Lagarto de aniversário
+            - **id_no_mapa**: 4rox
+            - **dificuldade**: BR_6
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 10
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Cavuca tatu
+            - **id_no_mapa**: 5rox
+            - **dificuldade**: BR_7A
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 10
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[5]**:
+          - **via_movel**:
+            - **descricao**: Parada fixa
+            - **nome**: Zé colmeia e Dona Flor
+            - **id_no_mapa**: 6rox
+            - **dificuldade**: BR_4SUP
+            - **extensao**: 30
+            - **conquistadores**:
+              - Sidnei
+              - Natita
+        - **[6]**:
+          - **via_esportiva**:
+            - **nome**: Tirolês
+            - **id_no_mapa**: 7rox
+            - **dificuldade**: BR_5
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+        - **[7]**:
+          - **via_esportiva**:
+            - **nome**: 10 c
+            - **id_no_mapa**: 8rox
+            - **dificuldade**: BR_6
+            - **extensao**: 30
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - sidnei
+              - Jg
+        - **[8]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Sabor Baunilha
+            - **id_no_mapa**: 9rox
+            - **dificuldade_media**: BR_7B
+            - **dificuldade_maxima**: BR_7B
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 50
+            - **numero_enfiadas**: 2
+            - **conquistadores**:
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_7B
+                  - **extensao**: 30
+              - **[1]**:
+                - **via_esportiva**:
+                  - **descricao**: expo
+                  - **nome**: L2
+                  - **dificuldade**: BR_5SUP
+                  - **extensao**: 20
+        - **[9]**:
+          - **via_movel**:
+            - **descricao**: Parada fixa
+            - **nome**: O charme da Trad
+            - **id_no_mapa**: 10rox
+            - **dificuldade**: BR_6
+            - **extensao**: 60
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Jg
+        - **[10]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Café Ole
+            - **id_no_mapa**: 11rox
+            - **dificuldade_media**: BR_5
+            - **dificuldade_maxima**: BR_5SUP
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 55
+            - **numero_enfiadas**: 2
+            - **conquistadores**:
+              - Jg
+              - Ana de Papel
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_4SUP
+                  - **extensao**: 20
+              - **[1]**:
+                - **via_esportiva**:
+                  - **nome**: L2
+                  - **dificuldade**: BR_5SUP
+                  - **extensao**: 35
+        - **[11]**:
+          - **via_multiplas_enfiadas**:
+            - **nome**: Tio Tonton
+            - **id_no_mapa**: 12rox
+            - **dificuldade_media**: BR_6SUP
+            - **dificuldade_maxima**: BR_7B
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
+            - **comprimento_total**: 55
+            - **numero_enfiadas**: 2
+            - **conquistadores**:
+              - Jg
+            - **enfiadas**:
+              - **[0]**:
+                - **via_esportiva**:
+                  - **nome**: L1
+                  - **dificuldade**: BR_4SUP
+                  - **extensao**: 20
+              - **[1]**:
+                - **via_esportiva**:
+                  - **descricao**: crux 7b
+                  - **nome**: L2
+                  - **dificuldade**: BR_6
+
+
+## Parte: setor_curto_e_grosso_malibu_e_terra_do_nunca
+
+### Grupo (Pico: Alto Monte Alvão)
+
+- **descricao**:
+    # Curto e Grosso, Malibu e Terra do Nunca
+    
+    Estes setores estão localizados na parte sul do Alto Monte Alvão.
+- **nome**: Curto e Grosso, Malibu e Terra do Nunca
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1716
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1az
+        - **label**: 1az
+        - **box**:
+          - **x**: 212
+          - **y**: 402
+          - **comprimento**: 35
+          - **largura**: 49
+      - **[1]**:
+        - **id**: 1ve
+        - **label**: 1ve
+        - **box**:
+          - **x**: 722
+          - **y**: 848
+          - **comprimento**: 19
+          - **largura**: 35
+      - **[2]**:
+        - **id**: 2ve
+        - **label**: 2ve
+        - **box**:
+          - **x**: 746
+          - **y**: 869
+          - **comprimento**: 21
+          - **largura**: 40
+      - **[3]**:
+        - **id**: 3ve
+        - **label**: 3ve
+        - **box**:
+          - **x**: 719
+          - **y**: 944
+          - **comprimento**: 32
+          - **largura**: 39
+      - **[4]**:
+        - **id**: 4ve
+        - **label**: 4ve
+        - **box**:
+          - **x**: 789
+          - **y**: 902
+          - **comprimento**: 32
+          - **largura**: 41
+      - **[5]**:
+        - **id**: 1ro
+        - **label**: 1ro
+        - **box**:
+          - **x**: 1756
+          - **y**: 1474
+          - **comprimento**: 31
+          - **largura**: 45
+      - **[6]**:
+        - **id**: 2ro
+        - **label**: 2ro
+        - **box**:
+          - **x**: 1686
+          - **y**: 1468
+          - **comprimento**: 26
+          - **largura**: 42
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **nome**: Terra do Nunca
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: La Speza
+            - **id_no_mapa**: 1az
+            - **dificuldade**: BR_6
+            - **extensao**: 25
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Samuel Corleone
+  - **[1]**:
+    - **conteudo**:
+      - **nome**: Curto e Grosso
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Gekke Greda
+            - **id_no_mapa**: 1ve
+            - **dificuldade**: BR_7B
+            - **extensao**: 12
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Angela Van Dutch
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: O Breizh
+            - **id_no_mapa**: 2ve
+            - **dificuldade**: BR_7A
+            - **extensao**: 12
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Morgan Hervaut
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Dedo no C* e Gritaria
+            - **id_no_mapa**: 3ve
+            - **dificuldade**: BR_8A
+            - **extensao**: 12
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Cristian Charme
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Tea Time
+            - **id_no_mapa**: 4ve
+            - **dificuldade**: BR_6
+            - **extensao**: 12
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Arthur King
+  - **[2]**:
+    - **conteudo**:
+      - **nome**: Malibu
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Mimi Zokko
+            - **id_no_mapa**: 1ro
+            - **dificuldade**: BR_5SUP
+            - **extensao**: 25
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Mariposa
+            - **id_no_mapa**: 2ro
+            - **dificuldade**: BR_6
+            - **extensao**: 25
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **conquistadores**:
+              - Jg
+              - Ana Gonzalez Sanchez
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: 06813d85af3d184beda6027820fcc4ca557712ed744a965e71894fb2502b5844
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp)
+    - **checksum_sha256**: bba17d956c3bfdd09536f225cfcce83f890e7aa979c6adf826428970e3809a4b
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp)
+    - **checksum_sha256**: 1687af806a79f79622af0e00423628d795e1d001d3e4304e680a2c85c069c115
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp)
+    - **checksum_sha256**: 0ab0c33a9c6a2028f6970fefe31cb8aa94b05aae961bcb2c4d206e2bbf9fdea0
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/setor_vale_gaules_p0.webp)
+    - **checksum_sha256**: 00b3eb6458969b4ac6a1809a657c5418768f7483869a14e36d2d62a86a0dc120
+
+

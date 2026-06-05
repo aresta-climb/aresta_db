@@ -1,0 +1,5 @@
+# Dependências mínimas para o script de deploy (deploy_generated.py).
+# Não inclui paddleocr, pyqt6, etc., que são ferramentas locais de extração.
+PyYAML>=6.0.0
+protobuf>=4.0.0
+grpcio-tools>=1.50.0

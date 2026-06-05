@@ -1,0 +1,13 @@
+{
+  "capa": [0],
+  "introducao": [1, 3],
+  "regras": [2],
+  "mapas_gerais": [4],
+  "como_chegar_e_aproximacao": [4, 5],
+  "setor_cangaco": [6, 7, 8],
+  "setor_ditados": [9, 10],
+  "setor_cervejas": [11, 12],
+  "setor_questao_de_tempo": [13, 14],
+  "setor_hospicio": [15],
+  "contracapa": [16]
+}

@@ -1,0 +1,3904 @@
+# Croqui: Igarameca - Complexo Pedra Grande
+
+## Informações Gerais
+
+- **descricao**: Este croqui documenta e divulga a prática da escalada esportiva no Complexo da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
+- **id**: br_mg_igarape_pedra_grande
+- **nome**: Igarameca - Complexo Pedra Grande
+- **creditos**:
+  - Equipe Igarameca
+  - alexsandro
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # Igarameca Climb
+            
+            | ![Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande](imagens/capa_p0.webp) |
+            | :--: |
+            | *Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande* |
+            
+            **CROQUI 2024 - ESCALADAS ESPORTIVA - PEDRA GRANDE**
+            
+            Alexsandro
+  - **[1]**:
+    - **texto**: Introdução
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # Introdução
+            
+            Este croqui é apenas um auxílio de consulta a localização, não serve como instruções a prática da escalada.
+            Não nos responsabilizamos pelas informações aqui contidas, são apenas ponto de vista.
+            
+            ## ATENÇÃO
+            
+            Os nomes das vias, seus respectivos conquistadores e a graduação sugerida para cada uma delas são resultados de uma pesquisa oral conduzida entre os escaladores que frequentam o pico, e com base em registros fragmentados sobre o tema.
+            
+            O resultado desse trabalho pode eventualmente conter erros, os quais peço que não sejam entendidos como desrespeito.
+            
+            O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro da maneira mais exata possível.
+            
+            ## OBSERVAÇÕES
+            
+            Como algumas vias são de conquistadores(as) desconhecidos(as) foi utilizado apelido + (*) para identificá-las.
+            
+            Caso encontre algum engano nos dados citados neste croqui, peço que me envie a correção.
+            
+            Terei satisfação em atendê-lo, pois todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse trabalho.
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+            
+            Muito obrigado aos conquistadores e conquistadoras das linhas (rotas) de escalada, **GRATIDÃO** a vocês sempre!!!
+            
+            Obrigado a todas as pessoas que contribuíram para o desenvolvimento desse excepcional parque natural de escaladas.
+            
+            Obrigado em especial ao **Bruno Berbari** e **Warleson Campos (Bunitin)** na captação e catalogação das vias.
+            
+            > Organização, Revisão e Graduação sugerida das vias: **Equipe Igarameca**
+            > arte/desenhos/produção: **alexsandro**
+            > 1ª versão - Junho/2024 (vias esportivas) 24 páginas
+  - **[2]**:
+    - **texto**: Recomendações e Regras
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # SEJA CONSCIENTE!
+            
+            - **UTILIZE APENAS AS TRILHAS PRINCIPAIS;**
+            - **As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra;
+            - **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...);
+            - Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados;
+            - Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice-versa;
+            - Fogueiras além de provocar queimadas, danificam o local;
+            - Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos e/ou caminhões;
+            - Utilize equipamentos de segurança e verifique seu estado de conservação;
+            - Cuidado com pedras soltas principalmente em setores e vias novas;
+            - Antes de conquistar uma via de escalada entre em contato com a Equipe Igarameca.
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+  - **[3]**:
+    - **texto**: História de Igarapé
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # História de Igarapé - MG
+            
+            Igarapé localiza-se na Região Metropolitana de Belo Horizonte, é um município brasileiro do estado de Minas Gerais. Seu nome que vem do tupi-guarani, e significa "caminho da canoa", enquanto cidade teve suas bases iniciais de ocupação do território no "garimpo de ouro" no distrito de São Joaquim de Bicas e posteriormente na agropecuária. Certamente centenas de anos antes, por aqui já existiam fazendas e diversas famílias com residências fixas.
+            
+            Com base em documentos podemos afirmar que por volta de 1830, já existia muita gente vivendo no próprio local que seria mais tarde o Barreiro (nesta época, o Barreiro nem era propriamente um povoado, era um simples aglomerado de pequenas e velhas fazendas mais ou menos perto umas das outras) e, posteriormente, denominada cidade de Igarapé.
+            
+            Portanto, a ideia de que a origem da cidade remonta a estas antigas fazendas existentes, não pode ser tomada como o marco da fundação de Igarapé, afinal, em tempos mais longínquos viviam os povos indígenas, verdadeiros habitantes originários da região, bem como de todo o continente.
+            
+            | ![Vista de Igarapé](imagens/historia_p0.webp) |
+            | :--: |
+            | *Vista de Igarapé* |
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+  - **[4]**:
+    - **texto**: Sobre o Complexo Pedra Grande
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # COMPLEXO PEDRA GRANDE
+            
+            A Pedra Grande, um marco histórico e geográfico de Igarapé, tem sido uma referência importante para viajantes ao longo dos anos. No século XX, a mineração de ferro ameaçou a integridade da Serra do Itatiaiuçu, o que levou à criação da Área de Proteção Especial (APE) e, posteriormente, da Área de Proteção Ambiental (APA) Municipal de Igarapé, visando preservar os mananciais de abastecimento humano.
+            
+            A Pedra Grande possui características escultóricas naturais que atraem visitantes, oferece belezas naturais, como matas e fontes d'água, que aumentam o turismo e promovem atividades de aventura na região. No entanto, a visitação descontrolada tem causado depredação e poluição. Esta atitude é repudiada por escaladores que frequentam o local e se empenham em recolher seus próprios lixos e os de visitantes descuidados.
+            
+            O município de Igarapé decretou o tombamento sob proteção Municipal do bem cultural denominado "Conjunto Natural e Paisagístico da Pedra Grande" que também é cartograficamente importante, situada na Serra do Itatiaiuçu, compondo a zona limítrofe entre Igarapé, Itatiaiuçu e Mateus Leme. A área tem significância econômica devido às jazidas de ferro e manganês, sendo notável por sua beleza cênica e valor didático.
+            
+            O bem natural tem importância regional estratégica por ser berço de nascentes responsáveis pela recarga hídrica de um dos aquíferos que abastecem a região metropolitana de Belo Horizonte. A área faz parte do Quadrilátero Ferrífero, uma província geológica conhecida por seus depósitos e minas de ferro, manganês, ouro, calcário e bauxita, recursos naturais amplamente explorados pelas mineradoras que se instalaram na região.
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+  - **[5]**:
+    - **texto**: Sobre o Igarameca
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # IGARAMECA
+            
+            Não se sabe ao certo quando começou a escada na região, estudos em andamento apontam entre as décadas de 80/90. Há três anos, um grupo de escaladores de Belo Horizonte se reuniu com a ideia de transformar o Complexo da Pedra Grande em um dos principais picos de escalada da região. Foi assim que nasceu o @igarameca, numa prosa após um dia de muito climbing no pé da pedra.
+            
+            Esse sonho tem se tornado realidade dia após dia, com muito trabalho, dedicação e claro, muita escalada boa. Atualmente o complexo possui mais de 150 vias esportivas e 500 boulders, além de rotas tradicionais e móveis, todas esculpidas na rocha única de Itabirito.
+            
+            Os croquis são os "mapas" que guiam os praticantes da escalada no local, sendo um facilitador para a pratica do esporte e acreditamos resultar em um ganho a todos. E para que cada vez mais escaladores possam usufruir e desbravar o potencial do local, inicialmente estamos lançando este **CROQUI DOS SETORES E VIAS DE ESCALADAS ESPORTIVA** catalogadas no complexo da Pedra Grande em Igarapé/MG, atualizações serão adicionadas no decorrer do projeto... "e as vias trad, móvel e os boulders!?". C A L M A turma, anos e anos de desenvolvimento, muita informação a receber e em breve teremos um livro gigante repleto de informações e detalhes!!! Vamoooo!!!
+            
+            | ![Anotações e croquis iniciais](imagens/igarameca_info_p0.webp) |
+            | :--: |
+            | *Anotações e croquis iniciais* |
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+  - **[6]**:
+    - **texto**: Mapas Gerais
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # Mapas Gerais
+            
+            ## Mapa Geral dos Setores
+            
+            | ![Mapa Geral dos Setores - Vista Aérea](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *Mapa Geral dos Setores - Vista Aérea* |
+            
+            ## Complexo Pedra Grande
+            
+            | ![Panorama do Complexo Pedra Grande com Setores](imagens/mapas_gerais_p1.webp) |
+            | :--: |
+            | *Panorama do Complexo Pedra Grande com Setores* |
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+  - **[7]**:
+    - **texto**: Patrocinadores
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            ---
+            ---
+            
+            # Patrocinadores
+            
+            Essas marcas apoiam a escalada na região e o croqui de Igarameca 2024:
+            
+            | ![Marcas que apoiam a escalada na região](imagens/patrocinadores_p0.webp) |
+            | :--: |
+            | *Marcas que apoiam a escalada na região* |
+            
+            - JGariglio
+            - Grupo Abaco
+            - Cíclica
+            - Dinamic Boulder
+            - Grimpi Aventura
+            - Bolinha Plotagens
+            - Valverde Consultoria Online
+            - La Plata
+            - Aprender
+            - Cajumel Terapias
+            - Abrigo Base
+            - Heringer Fitness
+            - Mandala Climb
+            - AET (Associação de Escalada Tradicional MG)
+            - Cadena Ouro Preto
+            - Igarameca Climb
+            
+            [@igarameca](https://www.instagram.com/igarameca)
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+
+
+## Parte: setor_estacionamento
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Estacionamento
+    
+    O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
+- **nome**: Setor Estacionamento
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p0.webp)
+    - **largura_mapa**: 1995
+    - **altura_mapa**: 1222
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 532
+          - **y**: 525
+          - **comprimento**: 31
+          - **largura**: 38
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 590
+          - **y**: 561
+          - **comprimento**: 34
+          - **largura**: 40
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 616
+          - **y**: 600
+          - **comprimento**: 25
+          - **largura**: 32
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 650
+          - **y**: 623
+          - **comprimento**: 31
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 776
+          - **y**: 705
+          - **comprimento**: 24
+          - **largura**: 32
+      - **[5]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 905
+          - **y**: 377
+          - **comprimento**: 22
+          - **largura**: 28
+      - **[6]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 914
+          - **y**: 774
+          - **comprimento**: 29
+          - **largura**: 36
+      - **[7]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 977
+          - **y**: 807
+          - **comprimento**: 38
+          - **largura**: 44
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1042
+          - **y**: 848
+          - **comprimento**: 29
+          - **largura**: 35
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1110
+          - **y**: 886
+          - **comprimento**: 40
+          - **largura**: 35
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 1194
+          - **y**: 918
+          - **comprimento**: 40
+          - **largura**: 37
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 1349
+          - **y**: 1036
+          - **comprimento**: 40
+          - **largura**: 36
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 1684
+          - **y**: 1070
+          - **comprimento**: 39
+          - **largura**: 36
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 1728
+          - **y**: 1023
+          - **comprimento**: 40
+          - **largura**: 34
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 1764
+          - **y**: 962
+          - **comprimento**: 41
+          - **largura**: 35
+      - **[15]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 1802
+          - **y**: 922
+          - **comprimento**: 41
+          - **largura**: 35
+      - **[16]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 1840
+          - **y**: 475
+          - **comprimento**: 39
+          - **largura**: 34
+      - **[17]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 1876
+          - **y**: 367
+          - **comprimento**: 39
+          - **largura**: 36
+      - **[18]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 1898
+          - **y**: 517
+          - **comprimento**: 40
+          - **largura**: 38
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p1.webp)
+    - **largura_mapa**: 1067
+    - **altura_mapa**: 1440
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 344
+          - **y**: 188
+          - **comprimento**: 33
+          - **largura**: 35
+      - **[1]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 402
+          - **y**: 185
+          - **comprimento**: 33
+          - **largura**: 36
+      - **[2]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 474
+          - **y**: 213
+          - **comprimento**: 37
+          - **largura**: 34
+      - **[3]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 266
+          - **y**: 234
+          - **comprimento**: 37
+          - **largura**: 35
+      - **[4]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 314
+          - **y**: 231
+          - **comprimento**: 31
+          - **largura**: 32
+      - **[5]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 516
+          - **y**: 240
+          - **comprimento**: 31
+          - **largura**: 31
+      - **[6]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 558
+          - **y**: 235
+          - **comprimento**: 31
+          - **largura**: 34
+      - **[7]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 642
+          - **y**: 428
+          - **comprimento**: 44
+          - **largura**: 41
+      - **[8]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 635
+          - **y**: 505
+          - **comprimento**: 42
+          - **largura**: 42
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 624
+          - **y**: 558
+          - **comprimento**: 41
+          - **largura**: 37
+      - **[10]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 616
+          - **y**: 611
+          - **comprimento**: 36
+          - **largura**: 42
+      - **[11]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 607
+          - **y**: 668
+          - **comprimento**: 32
+          - **largura**: 29
+      - **[12]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 605
+          - **y**: 708
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[13]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 604
+          - **y**: 768
+          - **comprimento**: 32
+          - **largura**: 44
+      - **[14]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 594
+          - **y**: 864
+          - **comprimento**: 34
+          - **largura**: 33
+      - **[15]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 583
+          - **y**: 914
+          - **comprimento**: 32
+          - **largura**: 29
+      - **[16]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 568
+          - **y**: 960
+          - **comprimento**: 28
+          - **largura**: 38
+      - **[17]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 553
+          - **y**: 1022
+          - **comprimento**: 34
+          - **largura**: 31
+      - **[18]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 542
+          - **y**: 1076
+          - **comprimento**: 33
+          - **largura**: 39
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Bacon com Linguiça
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 8
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Pauleti
+      - **data_abertura**: 2006
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Quatchú
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 9
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2006
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Xoquito
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+      - **data_abertura**: 2006
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Slow Motion
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+        - Toninho
+      - **data_abertura**: 2023
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Berbaridade Máxima
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_8C
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+        - Chinha
+      - **data_abertura**: 2023
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Cirque du Soleil
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_9B
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+        - Moleza
+      - **data_abertura**: 2010
+  - **[6]**:
+    - **via_esportiva**:
+      - **descricao**: Finaliza na via 06 (Cirque du Soleil).
+      - **nome**: Route Setter
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_9A
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 15
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2010
+  - **[7]**:
+    - **via_esportiva**:
+      - **descricao**: Saída na via 07 (Route Setter).
+      - **nome**: Teto Preto
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2023
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: 101 Dalmatas
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 13
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2023
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Fúria de Titãs
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_10A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 13
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Toninho
+        - Ró
+      - **data_abertura**: 2010
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Prima Donna
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_10A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Toninho
+        - Bunitin
+      - **data_abertura**: 2023
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Dama de Ferro
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_10C
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Moleza
+      - **data_abertura**: 2010
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Primeira de Todas
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 9
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2006
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Brinco de Odalisca
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 9
+      - **conquistadores**:
+        - Márcio Maçona
+        - Jovinei
+      - **data_abertura**: 2023
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: 10%
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_6_BARRA_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 9
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2006
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Quebra Tudo
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_6_BARRA_6SUP
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2006
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Acorrentado
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2006
+  - **[17]**:
+    - **via_esportiva**:
+      - **nome**: Fidefenda
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_5SUP
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2006
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: Cochyna Blue
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2006
+
+
+## Parte: setor_familia_i
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Família I
+    
+    O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
+- **nome**: Setor Família I
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_i_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1154
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 708
+          - **y**: 226
+          - **comprimento**: 27
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 652
+          - **y**: 248
+          - **comprimento**: 27
+          - **largura**: 31
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 590
+          - **y**: 288
+          - **comprimento**: 32
+          - **largura**: 34
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 544
+          - **y**: 341
+          - **comprimento**: 37
+          - **largura**: 40
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 500
+          - **y**: 385
+          - **comprimento**: 27
+          - **largura**: 34
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 466
+          - **y**: 444
+          - **comprimento**: 32
+          - **largura**: 35
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 514
+          - **y**: 548
+          - **comprimento**: 21
+          - **largura**: 31
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 546
+          - **y**: 645
+          - **comprimento**: 22
+          - **largura**: 28
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 828
+          - **y**: 1076
+          - **comprimento**: 21
+          - **largura**: 28
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 918
+          - **y**: 1097
+          - **comprimento**: 35
+          - **largura**: 26
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 997
+          - **y**: 1106
+          - **comprimento**: 36
+          - **largura**: 34
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 1109
+          - **y**: 1104
+          - **comprimento**: 34
+          - **largura**: 33
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 1200
+          - **y**: 1126
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 1360
+          - **y**: 1088
+          - **comprimento**: 37
+          - **largura**: 36
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 1436
+          - **y**: 1038
+          - **comprimento**: 36
+          - **largura**: 33
+      - **[15]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 1592
+          - **y**: 811
+          - **comprimento**: 37
+          - **largura**: 30
+      - **[16]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 1661
+          - **y**: 728
+          - **comprimento**: 38
+          - **largura**: 37
+      - **[17]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 1717
+          - **y**: 680
+          - **comprimento**: 34
+          - **largura**: 33
+      - **[18]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 1752
+          - **y**: 626
+          - **comprimento**: 37
+          - **largura**: 37
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_i_p1.webp)
+    - **largura_mapa**: 1047
+    - **altura_mapa**: 1427
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 513
+          - **y**: 145
+          - **comprimento**: 38
+          - **largura**: 30
+      - **[1]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 552
+          - **y**: 187
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[2]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 627
+          - **y**: 268
+          - **comprimento**: 36
+          - **largura**: 35
+      - **[3]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 762
+          - **y**: 424
+          - **comprimento**: 35
+          - **largura**: 31
+      - **[4]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 820
+          - **y**: 514
+          - **comprimento**: 40
+          - **largura**: 35
+      - **[5]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 910
+          - **y**: 632
+          - **comprimento**: 36
+          - **largura**: 29
+      - **[6]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 924
+          - **y**: 780
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[7]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 930
+          - **y**: 914
+          - **comprimento**: 35
+          - **largura**: 33
+      - **[8]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 904
+          - **y**: 999
+          - **comprimento**: 34
+          - **largura**: 32
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 842
+          - **y**: 1082
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[10]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 228
+          - **y**: 1148
+          - **comprimento**: 37
+          - **largura**: 28
+      - **[11]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 811
+          - **y**: 1142
+          - **comprimento**: 30
+          - **largura**: 30
+      - **[12]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 277
+          - **y**: 1170
+          - **comprimento**: 34
+          - **largura**: 33
+      - **[13]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 318
+          - **y**: 1206
+          - **comprimento**: 28
+          - **largura**: 29
+      - **[14]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 402
+          - **y**: 1244
+          - **comprimento**: 33
+          - **largura**: 25
+      - **[15]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 425
+          - **y**: 1290
+          - **comprimento**: 32
+          - **largura**: 26
+      - **[16]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 628
+          - **y**: 1282
+          - **comprimento**: 33
+          - **largura**: 25
+      - **[17]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 466
+          - **y**: 1314
+          - **comprimento**: 26
+          - **largura**: 27
+      - **[18]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 574
+          - **y**: 1311
+          - **comprimento**: 31
+          - **largura**: 30
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Florestinha
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6SUP
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Ação Total
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Rômulo
+      - **data_abertura**: 2011
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Escravos da Pedra
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_8C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2011
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Esquerdinha Caviar
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Rômulo
+      - **data_abertura**: 2011
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Mônica
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[5]**:
+    - **via_esportiva**:
+      - **descricao**: CUIDADO: Colmeia de abelha na base da via!
+      - **nome**: Queijo Suíço
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7A_BARRA_7B
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Aranha Gato
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_6_BARRA_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2011
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Chapas Onorixicas
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Mecena
+        - Ivo
+      - **data_abertura**: 2011
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Tora Flex
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2011
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Totalflex
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+      - **data_abertura**: 2011
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Haja Broca
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 11
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Juliana
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Lisebra
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Mecena
+        - Ivo
+      - **data_abertura**: 2011
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Croque Monsieur
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 9
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: Playground
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 8
+      - **conquistadores**:
+        - Macena
+      - **data_abertura**: 2013
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Depressão Pós Reforma
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Macena
+      - **data_abertura**: 2013
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Chuvasca
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 6
+      - **conquistadores**:
+        - Macena
+      - **data_abertura**: 2013
+  - **[17]**:
+    - **via_esportiva**:
+      - **descricao**: Termina no mesmo tope que a via Franzinha.
+      - **nome**: Pau Oco
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 6
+      - **conquistadores**:
+        - Toninho
+        - Fran
+      - **data_abertura**: 2013
+  - **[18]**:
+    - **via_esportiva**:
+      - **descricao**: Termina no mesmo tope que a via Pau Oco.
+      - **nome**: Franzinha
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 6
+      - **conquistadores**:
+        - Toninho
+        - Fran
+      - **data_abertura**: 2013
+
+
+## Parte: setor_familia_ii
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Família II
+    
+    Sombra após 14h (varia de acordo com a estação).
+- **nome**: Setor Família II
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_ii_p0.webp)
+    - **largura_mapa**: 1224
+    - **altura_mapa**: 1271
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 154
+          - **y**: 323
+          - **comprimento**: 32
+          - **largura**: 28
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 228
+          - **y**: 349
+          - **comprimento**: 34
+          - **largura**: 40
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 368
+          - **y**: 556
+          - **comprimento**: 35
+          - **largura**: 41
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 476
+          - **y**: 584
+          - **comprimento**: 28
+          - **largura**: 30
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 558
+          - **y**: 587
+          - **comprimento**: 31
+          - **largura**: 32
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 632
+          - **y**: 580
+          - **comprimento**: 29
+          - **largura**: 33
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 748
+          - **y**: 606
+          - **comprimento**: 34
+          - **largura**: 39
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 902
+          - **y**: 563
+          - **comprimento**: 21
+          - **largura**: 30
+      - **[8]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 1112
+          - **y**: 812
+          - **comprimento**: 39
+          - **largura**: 37
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1140
+          - **y**: 878
+          - **comprimento**: 42
+          - **largura**: 34
+      - **[10]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1166
+          - **y**: 950
+          - **comprimento**: 30
+          - **largura**: 32
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_ii_p1.webp)
+    - **largura_mapa**: 1032
+    - **altura_mapa**: 1442
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 270
+          - **y**: 467
+          - **comprimento**: 29
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 278
+          - **y**: 556
+          - **comprimento**: 31
+          - **largura**: 38
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 283
+          - **y**: 687
+          - **comprimento**: 32
+          - **largura**: 36
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 277
+          - **y**: 859
+          - **comprimento**: 26
+          - **largura**: 32
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 296
+          - **y**: 932
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 312
+          - **y**: 1036
+          - **comprimento**: 25
+          - **largura**: 31
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 334
+          - **y**: 1118
+          - **comprimento**: 30
+          - **largura**: 39
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 414
+          - **y**: 1148
+          - **comprimento**: 24
+          - **largura**: 32
+      - **[8]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 547
+          - **y**: 1153
+          - **comprimento**: 32
+          - **largura**: 30
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 518
+          - **y**: 1187
+          - **comprimento**: 31
+          - **largura**: 30
+      - **[10]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 488
+          - **y**: 1223
+          - **comprimento**: 27
+          - **largura**: 28
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Filhos da Revolução
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Toninho
+      - **data_abertura**: 2012
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Pedra Vermelha
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7C
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2012
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Projeto
+      - **id_no_mapa**: 03
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+      - **data_abertura**: 2012
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Projeto
+      - **id_no_mapa**: 04
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Alex
+      - **data_abertura**: 2012
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada)
+      - **id_no_mapa**: 05
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Alex
+      - **data_abertura**: 2012
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Trinca Ferro
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+      - **data_abertura**: 2013
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Marimbondes me Mordam
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 8
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2009
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Sumchine
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_6SUP_BARRA_7A
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2009
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Cater Pillar
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Cater
+      - **data_abertura**: 2009
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Pula Um
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 7
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2009
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Cerro Azul
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_6_BARRA_6SUP
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 15
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2009
+
+
+## Parte: setor_micos
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Micos
+    
+    Sombra até 11h e após 15h.
+    Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
+    Escalar com a corda passada na primeira proteção nas vias esportivas.
+    Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho. A rocha fica logo a direita.
+- **nome**: Setor Micos
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p0.webp)
+    - **largura_mapa**: 1861
+    - **altura_mapa**: 1246
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 668
+          - **y**: 711
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 696
+          - **y**: 754
+          - **comprimento**: 31
+          - **largura**: 37
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p1.webp)
+    - **largura_mapa**: 1101
+    - **altura_mapa**: 1234
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 342
+          - **y**: 698
+          - **comprimento**: 34
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 968
+          - **y**: 726
+          - **comprimento**: 35
+          - **largura**: 40
+      - **[2]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 874
+          - **y**: 748
+          - **comprimento**: 35
+          - **largura**: 41
+      - **[3]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 862
+          - **y**: 804
+          - **comprimento**: 29
+          - **largura**: 36
+      - **[4]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 368
+          - **y**: 838
+          - **comprimento**: 36
+          - **largura**: 40
+      - **[5]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 838
+          - **y**: 906
+          - **comprimento**: 30
+          - **largura**: 36
+      - **[6]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 820
+          - **y**: 1015
+          - **comprimento**: 29
+          - **largura**: 32
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p2.webp)
+    - **largura_mapa**: 1119
+    - **altura_mapa**: 840
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 294
+          - **y**: 780
+          - **comprimento**: 27
+          - **largura**: 32
+      - **[1]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 375
+          - **y**: 803
+          - **comprimento**: 30
+          - **largura**: 34
+      - **[2]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 480
+          - **y**: 818
+          - **comprimento**: 27
+          - **largura**: 31
+      - **[3]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 589
+          - **y**: 820
+          - **comprimento**: 28
+          - **largura**: 31
+      - **[4]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 681
+          - **y**: 811
+          - **comprimento**: 40
+          - **largura**: 42
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Eu Também Vou
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Lambe Lambe
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2011
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: TNT
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_9B
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: For My Brother
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+      - **data_abertura**: 2011
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Diamante Negro
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+        - Rômulo
+      - **data_abertura**: 2011
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Chapa Quente
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Ró
+        - Chinha
+        - Rômulo
+      - **data_abertura**: 2011
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: (via inacabada)
+      - **id_no_mapa**: 07
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 0
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2011
+
+
+## Parte: setor_totem
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Totem
+    
+    Sombra até 10h e após 16h.
+- **nome**: Setor Totem
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p0.webp)
+    - **largura_mapa**: 1112
+    - **altura_mapa**: 1418
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 216
+          - **y**: 1395
+          - **comprimento**: 40
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 562
+          - **y**: 1204
+          - **comprimento**: 31
+          - **largura**: 39
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 804
+          - **y**: 1039
+          - **comprimento**: 31
+          - **largura**: 36
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 917
+          - **y**: 970
+          - **comprimento**: 34
+          - **largura**: 41
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p1.webp)
+    - **largura_mapa**: 1114
+    - **altura_mapa**: 917
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 392
+          - **y**: 645
+          - **comprimento**: 40
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 629
+          - **y**: 716
+          - **comprimento**: 34
+          - **largura**: 39
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 825
+          - **y**: 750
+          - **comprimento**: 24
+          - **largura**: 31
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 890
+          - **y**: 786
+          - **comprimento**: 27
+          - **largura**: 38
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Takeyeasy
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+        - Alexandre
+      - **data_abertura**: 2005
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Pâncepis
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+        - Alexandre
+      - **data_abertura**: 2005
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Totem
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Ró
+        - Alex
+        - Ruy
+      - **data_abertura**: 2005
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: 69
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 10
+      - **conquistadores**:
+        - Berbari
+        - Tchoco
+        - Tonin
+        - Alex
+        - Ruy
+      - **data_abertura**: 2005
+
+
+## Parte: setor_igarameca
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Igarameca
+    
+    Sombra após 12h (varia de acordo com a estação).
+- **nome**: Setor Igarameca
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1232
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 317
+          - **y**: 1002
+          - **comprimento**: 22
+          - **largura**: 27
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 340
+          - **y**: 955
+          - **comprimento**: 30
+          - **largura**: 34
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 330
+          - **y**: 656
+          - **comprimento**: 26
+          - **largura**: 25
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 325
+          - **y**: 622
+          - **comprimento**: 26
+          - **largura**: 25
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 520
+          - **y**: 697
+          - **comprimento**: 21
+          - **largura**: 28
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 611
+          - **y**: 709
+          - **comprimento**: 14
+          - **largura**: 20
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 644
+          - **y**: 428
+          - **comprimento**: 27
+          - **largura**: 33
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 650
+          - **y**: 770
+          - **comprimento**: 27
+          - **largura**: 29
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 706
+          - **y**: 814
+          - **comprimento**: 27
+          - **largura**: 27
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 796
+          - **y**: 896
+          - **comprimento**: 35
+          - **largura**: 30
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 876
+          - **y**: 941
+          - **comprimento**: 29
+          - **largura**: 28
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 940
+          - **y**: 968
+          - **comprimento**: 35
+          - **largura**: 30
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 1064
+          - **y**: 1002
+          - **comprimento**: 31
+          - **largura**: 27
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 1118
+          - **y**: 1014
+          - **comprimento**: 29
+          - **largura**: 22
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 1186
+          - **y**: 1083
+          - **comprimento**: 33
+          - **largura**: 30
+      - **[15]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 1238
+          - **y**: 1102
+          - **comprimento**: 39
+          - **largura**: 34
+      - **[16]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 1274
+          - **y**: 1161
+          - **comprimento**: 33
+          - **largura**: 34
+      - **[17]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 1342
+          - **y**: 1214
+          - **comprimento**: 29
+          - **largura**: 29
+      - **[18]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 1394
+          - **y**: 1218
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[19]**:
+        - **id**: 20
+        - **label**: 20
+        - **box**:
+          - **x**: 1412
+          - **y**: 1191
+          - **comprimento**: 24
+          - **largura**: 24
+      - **[20]**:
+        - **id**: 21
+        - **label**: 21
+        - **box**:
+          - **x**: 1438
+          - **y**: 1171
+          - **comprimento**: 22
+          - **largura**: 22
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p1.webp)
+    - **largura_mapa**: 1022
+    - **altura_mapa**: 1450
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 212
+          - **y**: 534
+          - **comprimento**: 34
+          - **largura**: 29
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 328
+          - **y**: 518
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 395
+          - **y**: 508
+          - **comprimento**: 24
+          - **largura**: 27
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 434
+          - **y**: 503
+          - **comprimento**: 24
+          - **largura**: 26
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 450
+          - **y**: 574
+          - **comprimento**: 22
+          - **largura**: 27
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 478
+          - **y**: 626
+          - **comprimento**: 21
+          - **largura**: 26
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 530
+          - **y**: 646
+          - **comprimento**: 30
+          - **largura**: 37
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 488
+          - **y**: 680
+          - **comprimento**: 21
+          - **largura**: 27
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 458
+          - **y**: 741
+          - **comprimento**: 22
+          - **largura**: 26
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 435
+          - **y**: 782
+          - **comprimento**: 32
+          - **largura**: 28
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 412
+          - **y**: 822
+          - **comprimento**: 31
+          - **largura**: 27
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 398
+          - **y**: 887
+          - **comprimento**: 35
+          - **largura**: 30
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 402
+          - **y**: 938
+          - **comprimento**: 27
+          - **largura**: 26
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 392
+          - **y**: 976
+          - **comprimento**: 25
+          - **largura**: 23
+      - **[14]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 380
+          - **y**: 1034
+          - **comprimento**: 29
+          - **largura**: 25
+      - **[15]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 362
+          - **y**: 1073
+          - **comprimento**: 25
+          - **largura**: 22
+      - **[16]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 334
+          - **y**: 1105
+          - **comprimento**: 27
+          - **largura**: 24
+      - **[17]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 292
+          - **y**: 1142
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[18]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 316
+          - **y**: 1216
+          - **comprimento**: 35
+          - **largura**: 29
+      - **[19]**:
+        - **id**: 20
+        - **label**: 20
+        - **box**:
+          - **x**: 368
+          - **y**: 1274
+          - **comprimento**: 35
+          - **largura**: 32
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p2.webp)
+    - **largura_mapa**: 938
+    - **altura_mapa**: 530
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 516
+          - **y**: 326
+          - **comprimento**: 23
+          - **largura**: 27
+      - **[1]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 482
+          - **y**: 368
+          - **comprimento**: 21
+          - **largura**: 27
+      - **[2]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 386
+          - **y**: 490
+          - **comprimento**: 24
+          - **largura**: 31
+      - **[3]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 218
+          - **y**: 508
+          - **comprimento**: 22
+          - **largura**: 23
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Beatrix
+      - **id_no_mapa**: 01
+      - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 8
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2023
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Na Boca da Gruta Tem Dente
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 16
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+        - Alex
+      - **data_abertura**: 2004
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Sunday Bloody Sunday
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_8C
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Alex
+        - Ruy
+      - **data_abertura**: 2006
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: People Let's Stop The War
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Alex
+        - Toninho
+      - **data_abertura**: 2006
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Apolo 13
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_10B
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 20
+      - **conquistadores**:
+        - Berbari
+        - Moleza
+        - Alex
+        - Chinha
+      - **data_abertura**: 2012
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Liga Extraordinária
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_9C
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 25
+      - **conquistadores**:
+        - Berbari
+        - Moleza
+        - Alex
+      - **data_abertura**: 2012
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Poneis Malditos
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_9B
+      - **quantidade_protecoes_intermediarias**: 11
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 25
+      - **conquistadores**:
+        - Berbari
+        - Moleza
+        - Alex
+      - **data_abertura**: 2011
+  - **[7]**:
+    - **via_esportiva**:
+      - **descricao**: Variante da Boneis Malditos.
+      - **nome**: I Like This
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 13
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 30
+      - **conquistadores**:
+        - Berbari
+        - Alex
+        - Toninho
+      - **data_abertura**: 2010
+  - **[8]**:
+    - **via_multiplas_enfiadas**:
+      - **nome**: Igarameca
+      - **id_no_mapa**: 09
+      - **dificuldade_media**: BR_7B
+      - **dificuldade_maxima**: BR_9A
+      - **numero_enfiadas**: 2
+      - **comprimento_total**: 10
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+        - Pilão
+      - **data_abertura**: 2022
+      - **enfiadas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Enfiada 1
+            - **dificuldade**: BR_7B
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Enfiada 2
+            - **dificuldade**: BR_9A
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: U.F.O
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+        - Toninho
+      - **data_abertura**: 2022
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: 127 Horas
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+      - **data_abertura**: 2022
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Lero Lero é Mato
+      - **id_no_mapa**: 12
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 15
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+      - **data_abertura**: 2022
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Renegados de Igarapé
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 23
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+        - Bolinha
+      - **data_abertura**: 2022
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Coisa Linda
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 23
+      - **conquistadores**:
+        - Bunitinho
+        - Bolinha
+      - **data_abertura**: 2022
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: Doce Veneno
+      - **id_no_mapa**: 15
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 15
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+      - **data_abertura**: 2022
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Alguém Tem Que Ceder
+      - **id_no_mapa**: 16
+      - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 16
+      - **conquistadores**:
+        - Berbari
+        - Bunitinho
+        - Chinha
+      - **data_abertura**: 2022
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Napa
+      - **id_no_mapa**: 17
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 20
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2022
+  - **[17]**:
+    - **via_esportiva**:
+      - **nome**: Alpes Suínos*
+      - **id_no_mapa**: 18
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 16
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 35
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2022
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: Viagem ao Centro da Terra
+      - **id_no_mapa**: 19
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 14
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 35
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2022
+  - **[19]**:
+    - **via_esportiva**:
+      - **descricao**: Via inacabada.
+      - **nome**: Rolitos
+      - **id_no_mapa**: 20
+      - **dificuldade**: INDEFINIDO
+      - **quantidade_protecoes_intermediarias**: 1
+      - **quantidade_protecoes_parada**: 0
+      - **conquistadores**:
+        - Bunitin
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Balança Mas Não Cai
+      - **id_no_mapa**: 21
+      - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 25
+      - **conquistadores**:
+        - Bunitinho
+        - Marcão
+      - **data_abertura**: 2022
+
+
+## Parte: setor_pracinha
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Pracinha
+    
+    | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
+    | :--: |
+    | *Setor pracinha* |
+    
+    Sombra o dia todo (varia de acordo com a estação).
+- **nome**: Setor Pracinha
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p0.webp)
+    - **largura_mapa**: 1107
+    - **altura_mapa**: 1413
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 761
+          - **y**: 780
+          - **comprimento**: 26
+          - **largura**: 25
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 732
+          - **y**: 754
+          - **comprimento**: 25
+          - **largura**: 23
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 696
+          - **y**: 744
+          - **comprimento**: 26
+          - **largura**: 28
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 666
+          - **y**: 714
+          - **comprimento**: 26
+          - **largura**: 29
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 698
+          - **y**: 638
+          - **comprimento**: 27
+          - **largura**: 25
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 732
+          - **y**: 647
+          - **comprimento**: 27
+          - **largura**: 30
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 767
+          - **y**: 663
+          - **comprimento**: 26
+          - **largura**: 30
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 805
+          - **y**: 661
+          - **comprimento**: 30
+          - **largura**: 28
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 962
+          - **y**: 525
+          - **comprimento**: 29
+          - **largura**: 30
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p2.webp)
+    - **largura_mapa**: 1109
+    - **altura_mapa**: 1413
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 349
+          - **y**: 854
+          - **comprimento**: 36
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 605
+          - **y**: 873
+          - **comprimento**: 36
+          - **largura**: 36
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 646
+          - **y**: 866
+          - **comprimento**: 29
+          - **largura**: 33
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 724
+          - **y**: 866
+          - **comprimento**: 33
+          - **largura**: 41
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p3.webp)
+    - **largura_mapa**: 1109
+    - **altura_mapa**: 1391
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: P1
+        - **label**: P1
+        - **box**:
+          - **x**: 764
+          - **y**: 152
+          - **comprimento**: 35
+          - **largura**: 38
+      - **[1]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 200
+          - **y**: 662
+          - **comprimento**: 29
+          - **largura**: 33
+      - **[2]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 284
+          - **y**: 728
+          - **comprimento**: 28
+          - **largura**: 31
+      - **[3]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 408
+          - **y**: 914
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[4]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 481
+          - **y**: 1036
+          - **comprimento**: 26
+          - **largura**: 35
+      - **[5]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1006
+          - **y**: 1164
+          - **comprimento**: 25
+          - **largura**: 31
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Conflito sensual
+      - **id_no_mapa**: 01
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 20
+      - **conquistadores**:
+        - Berbari
+        - Bunitin
+      - **data_abertura**: 2022
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Duracell
+      - **id_no_mapa**: 02
+      - **dificuldade**: BR_8C
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 22
+      - **conquistadores**:
+        - Bunitin
+        - Marcão
+      - **data_abertura**: 2022
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Djavú
+      - **id_no_mapa**: 03
+      - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 22
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Tonin
+      - **data_abertura**: 2022
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Muita coisa envolvida
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 22
+      - **conquistadores**:
+        - Berbari
+        - Tonin
+      - **data_abertura**: 2022
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Netfrix
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 18
+      - **conquistadores**:
+        - Berbari
+        - Tonin
+      - **data_abertura**: 2022
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Pouca prática
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 18
+      - **conquistadores**:
+        - Berbari
+        - Tonin
+      - **data_abertura**: 2022
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Vainafé
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 18
+      - **conquistadores**:
+        - Berbari
+        - Tonin
+      - **data_abertura**: 2022
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: People crazy
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 20
+      - **conquistadores**:
+        - Berbari
+        - Toninho
+      - **data_abertura**: 2022
+  - **[8]**:
+    - **via_multiplas_enfiadas**:
+      - **descricao**: Via clássica longa que percorre a aresta.
+      - **nome**: Aresta Daniel
+      - **id_no_mapa**: 09
+      - **dificuldade_media**: BR_6SUP
+      - **numero_enfiadas**: 2
+      - **comprimento_total**: 60
+      - **conquistadores**:
+        - Gilberto
+        - Ágata
+      - **data_abertura**: 2005
+
+
+## Parte: setor_tetos
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor dos Tetos
+    
+    | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
+    | :--: |
+    | *Setor dos Tetos* |
+    
+    Sombra após 14h.
+- **nome**: Setor dos Tetos
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p0.webp)
+    - **largura_mapa**: 1201
+    - **altura_mapa**: 1413
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 22
+          - **y**: 1383
+          - **comprimento**: 25
+          - **largura**: 32
+      - **[1]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 472
+          - **y**: 1386
+          - **comprimento**: 28
+          - **largura**: 26
+      - **[2]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 754
+          - **y**: 1300
+          - **comprimento**: 26
+          - **largura**: 28
+      - **[3]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 823
+          - **y**: 1250
+          - **comprimento**: 24
+          - **largura**: 29
+      - **[4]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 850
+          - **y**: 1154
+          - **comprimento**: 29
+          - **largura**: 34
+      - **[5]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 1064
+          - **y**: 1191
+          - **comprimento**: 29
+          - **largura**: 30
+      - **[6]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 1088
+          - **y**: 1224
+          - **comprimento**: 23
+          - **largura**: 27
+      - **[7]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 1112
+          - **y**: 1264
+          - **comprimento**: 24
+          - **largura**: 29
+      - **[8]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 1140
+          - **y**: 1316
+          - **comprimento**: 25
+          - **largura**: 27
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 1178
+          - **y**: 1322
+          - **comprimento**: 35
+          - **largura**: 32
+      - **[10]**:
+        - **id**: P1
+        - **label**: P1
+        - **box**:
+          - **x**: 691
+          - **y**: 1038
+          - **comprimento**: 24
+          - **largura**: 27
+      - **[11]**:
+        - **id**: P2
+        - **label**: P2
+        - **box**:
+          - **x**: 654
+          - **y**: 825
+          - **comprimento**: 28
+          - **largura**: 32
+      - **[12]**:
+        - **id**: P3
+        - **label**: P3
+        - **box**:
+          - **x**: 680
+          - **y**: 704
+          - **comprimento**: 28
+          - **largura**: 31
+      - **[13]**:
+        - **id**: P4
+        - **label**: P4
+        - **box**:
+          - **x**: 704
+          - **y**: 571
+          - **comprimento**: 29
+          - **largura**: 32
+      - **[14]**:
+        - **id**: P5
+        - **label**: P5
+        - **box**:
+          - **x**: 710
+          - **y**: 410
+          - **comprimento**: 28
+          - **largura**: 29
+      - **[15]**:
+        - **id**: P6
+        - **label**: P6
+        - **box**:
+          - **x**: 687
+          - **y**: 300
+          - **comprimento**: 28
+          - **largura**: 29
+      - **[16]**:
+        - **id**: P7
+        - **label**: P7
+        - **box**:
+          - **x**: 782
+          - **y**: 29
+          - **comprimento**: 28
+          - **largura**: 28
+- **escaladas**:
+  - **[0]**:
+    - **via_multiplas_enfiadas**:
+      - **nome**: Aresta Daniel
+      - **id_no_mapa**: 01
+      - **dificuldade_media**: BR_6SUP
+      - **numero_enfiadas**: 2
+      - **comprimento_total**: 60
+      - **conquistadores**:
+        - Gilberto
+        - Ágata
+      - **data_abertura**: 2005
+  - **[1]**:
+    - **via_multiplas_enfiadas**:
+      - **nome**: A Quina
+      - **id_no_mapa**: 02
+      - **numero_enfiadas**: 4
+      - **conquistadores**:
+        - André
+        - Tigrão
+  - **[2]**:
+    - **via_multiplas_enfiadas**:
+      - **nome**: Pachamama
+      - **id_no_mapa**: 03
+      - **numero_enfiadas**: 7
+      - **comprimento_total**: 130
+      - **conquistadores**:
+        - Berbari
+        - Tonin
+        - Bunitin
+        - Neander
+        - Chinha
+        - Paulão
+        - Bolinha
+      - **data_abertura**: 2024-06-14
+  - **[3]**:
+    - **via_esportiva**:
+      - **descricao**: Via inacabada.
+      - **nome**: Baba Yaga
+      - **id_no_mapa**: 04
+      - **dificuldade**: BR_5
+      - **conquistadores**:
+        - Berbari
+        - Neander
+        - Bunitin
+        - Ana
+      - **data_abertura**: 2024
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Soy Loco Por Ti América
+      - **id_no_mapa**: 05
+      - **dificuldade**: BR_9C_BARRA_10A
+      - **quantidade_protecoes_intermediarias**: 12
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 30
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2016
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Afrodite
+      - **id_no_mapa**: 06
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 11
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 30
+      - **conquistadores**:
+        - Bunitinho
+        - Clebinho
+      - **data_abertura**: 2024
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Ponto de Equilíbrio
+      - **id_no_mapa**: 07
+      - **dificuldade**: BR_8B_BARRA_8C
+      - **quantidade_protecoes_intermediarias**: 11
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 30
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+      - **data_abertura**: 2019
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Lilith
+      - **id_no_mapa**: 08
+      - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 11
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 30
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Bunitinho
+      - **data_abertura**: 2024
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Deu Brasil
+      - **id_no_mapa**: 09
+      - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 12
+      - **conquistadores**:
+        - Berbari
+        - Chinha
+        - Bolinha
+      - **data_abertura**: 2019
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Deu Nois
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
+      - **extensao**: 14
+      - **conquistadores**:
+        - Berbari
+        - Alex
+        - Tonin
+      - **data_abertura**: 2006
+
+
+## Parte: setor_trad
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    # Setor Trad
+    
+    Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
+    
+    Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
+- **nome**: Setor Trad
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_trad_p0.webp)
+    - **largura_mapa**: 2048
+    - **altura_mapa**: 1414
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 01
+        - **label**: 01
+        - **box**:
+          - **x**: 86
+          - **y**: 1153
+          - **comprimento**: 19
+          - **largura**: 20
+      - **[1]**:
+        - **id**: a
+        - **label**: a
+        - **box**:
+          - **x**: 128
+          - **y**: 1142
+          - **comprimento**: 23
+          - **largura**: 25
+      - **[2]**:
+        - **id**: b
+        - **label**: b
+        - **box**:
+          - **x**: 160
+          - **y**: 1140
+          - **comprimento**: 21
+          - **largura**: 25
+      - **[3]**:
+        - **id**: 02
+        - **label**: 02
+        - **box**:
+          - **x**: 109
+          - **y**: 1173
+          - **comprimento**: 22
+          - **largura**: 22
+      - **[4]**:
+        - **id**: 03
+        - **label**: 03
+        - **box**:
+          - **x**: 168
+          - **y**: 1174
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[5]**:
+        - **id**: 04
+        - **label**: 04
+        - **box**:
+          - **x**: 202
+          - **y**: 1170
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[6]**:
+        - **id**: 05
+        - **label**: 05
+        - **box**:
+          - **x**: 230
+          - **y**: 1182
+          - **comprimento**: 25
+          - **largura**: 24
+      - **[7]**:
+        - **id**: c
+        - **label**: c
+        - **box**:
+          - **x**: 263
+          - **y**: 1184
+          - **comprimento**: 20
+          - **largura**: 25
+      - **[8]**:
+        - **id**: 06
+        - **label**: 06
+        - **box**:
+          - **x**: 290
+          - **y**: 1156
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[9]**:
+        - **id**: d
+        - **label**: d
+        - **box**:
+          - **x**: 366
+          - **y**: 1150
+          - **comprimento**: 20
+          - **largura**: 25
+      - **[10]**:
+        - **id**: 07
+        - **label**: 07
+        - **box**:
+          - **x**: 396
+          - **y**: 1142
+          - **comprimento**: 25
+          - **largura**: 25
+      - **[11]**:
+        - **id**: e
+        - **label**: e
+        - **box**:
+          - **x**: 404
+          - **y**: 1096
+          - **comprimento**: 21
+          - **largura**: 25
+      - **[12]**:
+        - **id**: 08
+        - **label**: 08
+        - **box**:
+          - **x**: 449
+          - **y**: 1158
+          - **comprimento**: 24
+          - **largura**: 25
+      - **[13]**:
+        - **id**: f
+        - **label**: f
+        - **box**:
+          - **x**: 488
+          - **y**: 1158
+          - **comprimento**: 21
+          - **largura**: 24
+      - **[14]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 473
+          - **y**: 1130
+          - **comprimento**: 24
+          - **largura**: 25
+      - **[15]**:
+        - **id**: g
+        - **label**: g
+        - **box**:
+          - **x**: 536
+          - **y**: 1080
+          - **comprimento**: 21
+          - **largura**: 25
+      - **[16]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 592
+          - **y**: 568
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[17]**:
+        - **id**: 16
+        - **label**: 16
+        - **box**:
+          - **x**: 1108
+          - **y**: 632
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[18]**:
+        - **id**: 09
+        - **label**: 09
+        - **box**:
+          - **x**: 468
+          - **y**: 728
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[19]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 630
+          - **y**: 1270
+          - **comprimento**: 25
+          - **largura**: 29
+      - **[20]**:
+        - **id**: h
+        - **label**: h
+        - **box**:
+          - **x**: 814
+          - **y**: 1269
+          - **comprimento**: 21
+          - **largura**: 36
+      - **[21]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 842
+          - **y**: 1266
+          - **comprimento**: 25
+          - **largura**: 37
+      - **[22]**:
+        - **id**: i
+        - **label**: i
+        - **box**:
+          - **x**: 884
+          - **y**: 1246
+          - **comprimento**: 21
+          - **largura**: 35
+      - **[23]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 935
+          - **y**: 1234
+          - **comprimento**: 22
+          - **largura**: 26
+      - **[24]**:
+        - **id**: 15
+        - **label**: 15
+        - **box**:
+          - **x**: 964
+          - **y**: 1239
+          - **comprimento**: 23
+          - **largura**: 24
+      - **[25]**:
+        - **id**: j
+        - **label**: j
+        - **box**:
+          - **x**: 1137
+          - **y**: 1248
+          - **comprimento**: 20
+          - **largura**: 35
+      - **[26]**:
+        - **id**: k
+        - **label**: k
+        - **box**:
+          - **x**: 1213
+          - **y**: 1250
+          - **comprimento**: 20
+          - **largura**: 35
+      - **[27]**:
+        - **id**: 17
+        - **label**: 17
+        - **box**:
+          - **x**: 1481
+          - **y**: 1216
+          - **comprimento**: 24
+          - **largura**: 33
+      - **[28]**:
+        - **id**: m
+        - **label**: m
+        - **box**:
+          - **x**: 1450
+          - **y**: 1222
+          - **comprimento**: 20
+          - **largura**: 33
+      - **[29]**:
+        - **id**: n
+        - **label**: n
+        - **box**:
+          - **x**: 1574
+          - **y**: 1198
+          - **comprimento**: 22
+          - **largura**: 23
+      - **[30]**:
+        - **id**: 18
+        - **label**: 18
+        - **box**:
+          - **x**: 1606
+          - **y**: 1192
+          - **comprimento**: 26
+          - **largura**: 25
+      - **[31]**:
+        - **id**: 19
+        - **label**: 19
+        - **box**:
+          - **x**: 1641
+          - **y**: 1163
+          - **comprimento**: 24
+          - **largura**: 24
+      - **[32]**:
+        - **id**: 20
+        - **label**: 20
+        - **box**:
+          - **x**: 1716
+          - **y**: 1098
+          - **comprimento**: 25
+          - **largura**: 23
+      - **[33]**:
+        - **id**: 21
+        - **label**: 21
+        - **box**:
+          - **x**: 1742
+          - **y**: 1083
+          - **comprimento**: 23
+          - **largura**: 22
+      - **[34]**:
+        - **id**: 22
+        - **label**: 22
+        - **box**:
+          - **x**: 1770
+          - **y**: 1068
+          - **comprimento**: 23
+          - **largura**: 21
+      - **[35]**:
+        - **id**: 23
+        - **label**: 23
+        - **box**:
+          - **x**: 1832
+          - **y**: 1050
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[36]**:
+        - **id**: 24
+        - **label**: 24
+        - **box**:
+          - **x**: 1894
+          - **y**: 1042
+          - **comprimento**: 25
+          - **largura**: 33
+      - **[37]**:
+        - **id**: L
+        - **label**: L
+        - **box**:
+          - **x**: 1363
+          - **y**: 1212
+          - **comprimento**: 30
+          - **largura**: 27
+- **escaladas**:
+  - **[0]**:
+    - **via_movel**:
+      - **nome**: Aresta Daniel
+      - **id_no_mapa**: 01
+      - **dificuldade**: INDEFINIDO
+  - **[1]**:
+    - **via_movel**:
+      - **nome**: Barriga Verde
+      - **id_no_mapa**: 02
+      - **dificuldade**: INDEFINIDO
+  - **[2]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: a
+      - **dificuldade**: INDEFINIDO
+  - **[3]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: b
+      - **dificuldade**: INDEFINIDO
+  - **[4]**:
+    - **via_movel**:
+      - **nome**: Tosco Climb
+      - **id_no_mapa**: 03
+      - **dificuldade**: INDEFINIDO
+  - **[5]**:
+    - **via_movel**:
+      - **nome**: Curió Não Se Cria
+      - **id_no_mapa**: 04
+      - **dificuldade**: INDEFINIDO
+  - **[6]**:
+    - **via_movel**:
+      - **nome**: A Quina
+      - **id_no_mapa**: 05
+      - **dificuldade**: INDEFINIDO
+  - **[7]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: c
+      - **dificuldade**: INDEFINIDO
+  - **[8]**:
+    - **via_movel**:
+      - **nome**: Formigão Iannotta
+      - **dificuldade**: INDEFINIDO
+  - **[9]**:
+    - **via_movel**:
+      - **nome**: Crayzy
+      - **dificuldade**: INDEFINIDO
+  - **[10]**:
+    - **via_movel**:
+      - **nome**: Igarapé Cascão
+      - **id_no_mapa**: 06
+      - **dificuldade**: INDEFINIDO
+  - **[11]**:
+    - **via_movel**:
+      - **nome**: Outra saída da Igarapé Cascão
+      - **id_no_mapa**: d
+      - **dificuldade**: INDEFINIDO
+  - **[12]**:
+    - **via_movel**:
+      - **nome**: Pachamama
+      - **id_no_mapa**: 07
+      - **dificuldade**: INDEFINIDO
+  - **[13]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: e
+      - **dificuldade**: INDEFINIDO
+  - **[14]**:
+    - **via_movel**:
+      - **nome**: Absoluta Inconsequência
+      - **id_no_mapa**: 08
+      - **dificuldade**: INDEFINIDO
+  - **[15]**:
+    - **via_movel**:
+      - **nome**: Inconsequência Moderada
+      - **id_no_mapa**: 09
+      - **dificuldade**: INDEFINIDO
+  - **[16]**:
+    - **via_movel**:
+      - **nome**: Mentiras Sinceras
+      - **id_no_mapa**: 10
+      - **dificuldade**: INDEFINIDO
+  - **[17]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: f
+      - **dificuldade**: INDEFINIDO
+  - **[18]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: g
+      - **dificuldade**: INDEFINIDO
+  - **[19]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 11
+      - **dificuldade**: INDEFINIDO
+  - **[20]**:
+    - **via_movel**:
+      - **nome**: Bituca
+      - **id_no_mapa**: 12
+      - **dificuldade**: INDEFINIDO
+  - **[21]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: h
+      - **dificuldade**: INDEFINIDO
+  - **[22]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: i
+      - **dificuldade**: INDEFINIDO
+  - **[23]**:
+    - **via_movel**:
+      - **nome**: Último Dente
+      - **id_no_mapa**: 13
+      - **dificuldade**: INDEFINIDO
+  - **[24]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 14
+      - **dificuldade**: INDEFINIDO
+  - **[25]**:
+    - **via_movel**:
+      - **nome**: Inanição
+      - **id_no_mapa**: 15
+      - **dificuldade**: INDEFINIDO
+  - **[26]**:
+    - **via_movel**:
+      - **nome**: Lembranças da Vovó
+      - **id_no_mapa**: 16
+      - **dificuldade**: INDEFINIDO
+  - **[27]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: j
+      - **dificuldade**: INDEFINIDO
+  - **[28]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: k
+      - **dificuldade**: INDEFINIDO
+  - **[29]**:
+    - **via_movel**:
+      - **nome**: Palestra Botânica
+      - **dificuldade**: INDEFINIDO
+  - **[30]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: L
+      - **dificuldade**: INDEFINIDO
+  - **[31]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: m
+      - **dificuldade**: INDEFINIDO
+  - **[32]**:
+    - **via_movel**:
+      - **nome**: Netflix
+      - **id_no_mapa**: 17
+      - **dificuldade**: INDEFINIDO
+  - **[33]**:
+    - **via_movel**:
+      - **nome**: ???
+      - **id_no_mapa**: n
+      - **dificuldade**: INDEFINIDO
+  - **[34]**:
+    - **via_movel**:
+      - **nome**: Que Nem Mendigo
+      - **id_no_mapa**: 18
+      - **dificuldade**: INDEFINIDO
+  - **[35]**:
+    - **via_movel**:
+      - **nome**: Wally Caolho
+      - **id_no_mapa**: 19
+      - **dificuldade**: INDEFINIDO
+  - **[36]**:
+    - **via_movel**:
+      - **nome**: Me Leve ao Cume
+      - **id_no_mapa**: 20
+      - **dificuldade**: INDEFINIDO
+  - **[37]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 21
+      - **dificuldade**: INDEFINIDO
+  - **[38]**:
+    - **via_movel**:
+      - **nome**: Vale Tudo
+      - **id_no_mapa**: 22
+      - **dificuldade**: INDEFINIDO
+  - **[39]**:
+    - **via_movel**:
+      - **nome**: sem nome
+      - **id_no_mapa**: 23
+      - **dificuldade**: INDEFINIDO
+  - **[40]**:
+    - **via_movel**:
+      - **nome**: Mulher do Fim do Mundo
+      - **id_no_mapa**: 24
+      - **dificuldade**: INDEFINIDO
+  - **[41]**:
+    - **via_movel**:
+      - **nome**: Marimbondos Me Mordam
+      - **dificuldade**: INDEFINIDO
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/capa_p0.webp)
+    - **checksum_sha256**: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/historia_p0.webp)
+    - **checksum_sha256**: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/igarameca_info_p0.webp)
+    - **checksum_sha256**: a25c26a236f78956f6a9eef3b49be1a49e00ac995003bbc7b521a82708113c10
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
+    - **checksum_sha256**: 46f1c43fe65af207fde61b213d7876a9eee14afe36a686633b6309a4b9e0bb2c
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
+    - **checksum_sha256**: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
+    - **checksum_sha256**: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
+    - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
+    - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
+    - **checksum_sha256**: 6bdd83988c397b97a71fbdfafd750dfefaedc313fa2ac737f4f6f8913c5e1845
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
+    - **checksum_sha256**: 34ba6540f609b3296b1d175c15593faba7044e3f802db4ba60504210ae611d0d
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
+    - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
+    - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
+    - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
+    - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
+    - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
+    - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
+    - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
+    - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
+    - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
+    - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
+    - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
+    - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
+  - **[22]**:
+    - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
+    - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
+  - **[23]**:
+    - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
+    - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
+  - **[24]**:
+    - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
+    - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
+  - **[25]**:
+    - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
+    - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
+  - **[26]**:
+    - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
+    - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
+
+

@@ -1,0 +1,224 @@
+import pytest
+from PyQt6.QtWidgets import QMainWindow, QToolBar, QStackedWidget, QWidget, QDialog
+from PyQt6.QtCore import Qt
+from editor.legacy_views.area_principal import JanelaPrincipal, PaginaDados, PaginaImagens, PaginaMapas, PaginaHistorico
+from PyQt6.QtGui import QIcon
+from unittest.mock import MagicMock, patch
+
+def test_janela_principal_usa_icones_qtawesome(qtbot):
+    with patch("editor.views.estilo.Icones.obter") as mock_obter:
+        mock_obter.return_value = QIcon()
+        janela = JanelaPrincipal()
+        qtbot.addWidget(janela)
+        
+        # Coleta os nomes de ícones solicitados ao helper
+        nomes_solicitados = [chamada.args[0] for chamada in mock_obter.call_args_list]
+        
+        # Verifica se as principais ações solicitaram ícones ao helper
+        acoes_obrigatorias = ["novo", "salvar", "publicar", "dados", "imagens", "mapas"]
+        for acao in acoes_obrigatorias:
+            assert acao in nomes_solicitados, f"Ícone para '{acao}' não foi solicitado ao helper Icones"
+
+def test_janela_principal_e_uma_main_window(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    assert isinstance(janela, QMainWindow)
+
+def test_janela_principal_tem_areas_obrigatorias(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    # Verifica Toolbar Superior
+    toolbar_superior = janela.findChild(QToolBar, "toolbar_superior")
+    assert toolbar_superior is not None
+    assert janela.toolBarArea(toolbar_superior) == Qt.ToolBarArea.TopToolBarArea
+    
+    # Verifica Toolbar Lateral
+    toolbar_lateral = janela.findChild(QToolBar, "toolbar_lateral")
+    assert toolbar_lateral is not None
+    assert janela.toolBarArea(toolbar_lateral) == Qt.ToolBarArea.LeftToolBarArea
+    
+    # Verifica Widget Central (Stacked)
+    widget_central = janela.findChild(QStackedWidget)
+    assert widget_central is not None
+
+def test_janela_principal_exibe_pagina_dados_inicialmente(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    stack = janela.findChild(QStackedWidget)
+    assert isinstance(stack.currentWidget(), PaginaDados)
+
+def test_toolbar_superior_tem_acoes_globais(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    toolbar = janela.findChild(QToolBar, "toolbar_superior")
+    acoes = toolbar.actions()
+    textos_acoes = [a.toolTip() for a in acoes] # Usando tooltip para identificar ações com ícone
+    
+    assert "Abrir Novo" in textos_acoes
+    assert "Salvar" in textos_acoes
+    assert "Desfazer" in textos_acoes
+    assert "Refazer" in textos_acoes
+    assert "Exportar .croqui" in textos_acoes
+    assert "Conectar com celular..." in textos_acoes
+    assert "Publicar para produção" in textos_acoes
+
+def test_toolbar_lateral_tem_navegacao_entre_visoes(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    toolbar = janela.findChild(QToolBar, "toolbar_lateral")
+    acoes = toolbar.actions()
+    textos_acoes = [a.toolTip() for a in acoes]
+    
+    assert "Dados" in textos_acoes
+    assert "Imagens" in textos_acoes
+    assert "Mapas" in textos_acoes
+    assert "Histórico" in textos_acoes
+
+def test_navegacao_lateral_troca_paginas(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    stack = janela.findChild(QStackedWidget)
+    
+    toolbar = janela.findChild(QToolBar, "toolbar_lateral")
+    acoes = toolbar.actions()
+    
+    # Encontra ação de Imagens
+    acao_imagens = next(a for a in acoes if a.toolTip() == "Imagens")
+    acao_imagens.trigger()
+    assert isinstance(stack.currentWidget(), PaginaImagens)
+    
+    # Encontra ação de Mapas
+    acao_mapas = next(a for a in acoes if a.toolTip() == "Mapas")
+    acao_mapas.trigger()
+    assert isinstance(stack.currentWidget(), PaginaMapas)
+    
+    # Encontra ação de Histórico
+    acao_historico = next(a for a in acoes if a.toolTip() == "Histórico")
+    acao_historico.trigger()
+    assert isinstance(stack.currentWidget(), PaginaHistorico)
+    
+    # Volta para Dados
+    acao_dados = next(a for a in acoes if a.toolTip() == "Dados")
+    acao_dados.trigger()
+    assert isinstance(stack.currentWidget(), PaginaDados)
+
+def test_clique_publicar_inicia_worker(qtbot):
+    # Mock do Diálogo para não abrir janela real no teste
+    with patch("editor.legacy_views.area_principal.DialogoPublicar") as MockDialog:
+        MockDialog.return_value.exec.return_value = QDialog.DialogCode.Accepted
+        MockDialog.return_value.obter_dados.return_value = {"titulo": "Test", "descricao": "Test"}
+        
+        # Mock do Worker para não iniciar thread real
+        with patch("editor.core.worker.TarefaPublicacao") as MockWorker:
+            janela = JanelaPrincipal(auth=MagicMock(), caminho_croqui="temp_croqui")
+            qtbot.addWidget(janela)
+            
+            toolbar = janela.findChild(QToolBar, "toolbar_superior")
+            acoes = toolbar.actions()
+            acao_publicar = next(a for a in acoes if a.toolTip() == "Publicar para produção")
+            
+            acao_publicar.trigger()
+            
+            assert MockWorker.called
+
+def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot):
+    """Verifica se a inicialização da janela não dispara avisos de QFont no terminal."""
+    avisos = []
+    
+    def message_handler(mode, context, message):
+        # Captura avisos específicos de fonte
+        if ("QFont" in message or "PointSize" in message) and "Cannot find font directory" not in message:
+            avisos.append(message)
+            
+    from PyQt6.QtCore import qInstallMessageHandler
+    
+    # Instala o interceptor
+    original_handler = qInstallMessageHandler(message_handler)
+    
+    try:
+        janela = JanelaPrincipal()
+        qtbot.addWidget(janela)
+        
+        # Simula hover sobre os botões da barra lateral para disparar repaints
+        for acao in janela.grupo_nav:
+            botao = janela.toolbar_lateral.widgetForAction(acao)
+            if botao:
+                qtbot.mouseMove(botao)
+                qtbot.wait(50) # Pequena pausa para processar eventos de pintura
+    finally:
+        # Restaura o handler original
+        qInstallMessageHandler(original_handler)
+        
+    assert len(avisos) == 0, f"Avisos de fonte detectados: {avisos}"
+
+from editor.core.croqui_experimental import GerenciadorCroquiExperimental
+
+def test_salvar_croqui_exibe_notificacao(qtbot):
+    # Mock do Gerenciador para não salvar arquivos reais
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"), \
+         patch("editor.legacy_views.area_principal.QMessageBox.information") as mock_info:
+        
+        janela = JanelaPrincipal(caminho_croqui="temp_croqui")
+        qtbot.addWidget(janela)
+        janela.croqui_data = {"id": "teste"} # Simula croqui carregado
+        
+        # Mock do open para não tentar escrever no disco
+        with patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
+             patch.object(janela, "exibir_notificacao") as mock_notif:
+            
+            janela.salvar_croqui()
+            
+            # Verifica que QMessageBox NÃO foi chamado
+            mock_info.assert_not_called()
+            # Verifica que a notificação FOI chamada
+            mock_notif.assert_called_once_with("Croqui salvo e compilado com sucesso!")
+
+def test_janela_principal_tem_icone_configurado(qtbot):
+    """Garante que a Janela Principal carrega o ícone de montanha."""
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    assert not janela.windowIcon().isNull()
+
+def test_atalhos_teclado_desfazer_refazer(qtbot):
+    from PyQt6.QtGui import QKeySequence
+    from PyQt6.QtCore import Qt
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    # Verifica desfazer
+    shortcuts_undo = janela.acao_desfazer.shortcuts()
+    assert QKeySequence.StandardKey.Undo in shortcuts_undo, "Atalho padrão de Undo (Ctrl+Z) ausente"
+    assert janela.acao_desfazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
+    
+    # Verifica refazer
+    shortcuts_redo = janela.acao_refazer.shortcuts()
+    assert QKeySequence.StandardKey.Redo in shortcuts_redo, "Atalho padrão de Redo (Ctrl+Y/Ctrl+Shift+Z) ausente"
+    assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
+
+def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
+    from PyQt6.QtWidgets import QLineEdit
+    from PyQt6.QtWidgets import QApplication
+    
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
+        janela = JanelaPrincipal(caminho_croqui="temp_croqui")
+        qtbot.addWidget(janela)
+        janela.croqui_data = {"id": "teste"}
+        
+        edit = QLineEdit(janela)
+        
+        with patch.object(QApplication, "focusWidget", return_value=edit), \
+             patch.object(edit, "clearFocus") as mock_clear, \
+             patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
+             patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
+             
+            janela.salvar_croqui()
+            
+        mock_clear.assert_called_once()

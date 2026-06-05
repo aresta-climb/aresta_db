@@ -1,0 +1,27 @@
+id: br_mg_pocos_de_caldas_pilastras_e_pedreira
+nome: Pilastras + Pedreira
+descricao: Croqui das Pilastras e Pedreira em Poços de Caldas, MG.
+picos:
+- nome: Poços de Caldas
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_o_vale.md
+  - setor:
+      caminho: setor_as_pilastras.md
+  - setor:
+      caminho: setor_a_pedreira.md
+caminho_thumbnail: imagens/capa_p0_i1.webp
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Avisos
+  destino:
+    secao_textual:
+      caminho: avisos.md
+- texto: Como chegar
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
+ultima_migracao: 1

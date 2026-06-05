@@ -1,0 +1,30 @@
+id: br_mg_sacramento_vo_gusta
+nome: Pico da Vó Gusta
+descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
+creditos:
+- Autores do Croqui Original
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: true
+revisado_bounding_circle: true
+status_desenho_extraivel: NAO_TEM_DESENHO
+picos:
+- nome: Pico da Vó Gusta
+  estado: MG
+  url_google_maps: https://maps.app.goo.gl/YdKBBSys29mFQNLz7
+  localizacao:
+    latitude: -199973890
+    longitude: -473989720
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_quintal.md
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

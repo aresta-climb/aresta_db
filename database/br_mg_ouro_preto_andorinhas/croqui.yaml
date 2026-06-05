@@ -1,0 +1,25 @@
+id: br_mg_ouro_preto_andorinhas
+nome: Parque Natural Municipal das Andorinhas
+creditos:
+- ATM 2018
+caminho_thumbnail: imagens/setor_pedra_branca_p0_i0.webp
+revisado_manualmente: true
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Andorinhas
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_pedra_do_arco.md
+  - setor:
+      caminho: setor_campo_escola.md
+  - setor:
+      caminho: setor_tchau_querida.md
+  - setor:
+      caminho: setor_pedra_branca.md
+botoes:
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      caminho: mapas_gerais.md
+ultima_migracao: 1
+publicar_croqui: true

@@ -1,0 +1,18 @@
+{
+  "capa": [0],
+  "mapas_gerais": [1],
+  "setor_principais_vias_1": [1],
+  "setor_principais_vias_2": [2],
+  "setor_chamine": [1, 13],
+  "setor_caverninha": [1, 2, 13],
+  "setor_torres": [1, 2, 9, 13],
+  "setor_felinas": [1, 2, 4, 12, 13, 14],
+  "setor_fendas": [1, 2, 12],
+  "setor_arco": [1, 2, 3, 5, 7, 11, 12],
+  "setor_aresta": [1, 2, 3, 5, 10, 11],
+  "setor_polegar": [1, 2, 13],
+  "setor_totem": [1, 2, 10],
+  "setor_enigma_da_esfinge": [6],
+  "setor_jardim_da_fantasia": [8],
+  "contato": [15]
+}

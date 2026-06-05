@@ -1,0 +1,357 @@
+# Croqui: Pedra Filha (Pedrinha)
+
+## Informações Gerais
+
+- **descricao**: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas técnicas em dois setores principais.
+- **id**: br_mg_caete_pedra_filha
+- **nome**: Pedra Filha (Pedrinha)
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_de_cima_p0.webp)
+- **revisado_manualmente**: True
+- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **ultima_migracao**: 1
+- **publicar_croqui**: True
+- **botoes**: []
+
+
+## Parte: setor_de_cima
+
+### Setor (Pico: Pedra Filha (Pedrinha))
+
+- **descricao**:
+    # Setor de Cima
+    
+    O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.
+- **nome**: Setor de Cima
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_de_cima_p0.webp)
+    - **largura_mapa**: 760
+    - **altura_mapa**: 384
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 90
+          - **y**: 373
+          - **comprimento**: 11
+          - **largura**: 14
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 107
+          - **y**: 372
+          - **comprimento**: 12
+          - **largura**: 12
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 123
+          - **y**: 372
+          - **comprimento**: 10
+          - **largura**: 14
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 165
+          - **y**: 374
+          - **comprimento**: 14
+          - **largura**: 15
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 198
+          - **y**: 370
+          - **comprimento**: 14
+          - **largura**: 15
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 226
+          - **y**: 370
+          - **comprimento**: 15
+          - **largura**: 15
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 258
+          - **y**: 368
+          - **comprimento**: 14
+          - **largura**: 14
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 286
+          - **y**: 370
+          - **comprimento**: 15
+          - **largura**: 14
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 366
+          - **y**: 370
+          - **comprimento**: 15
+          - **largura**: 16
+      - **[9]**:
+        - **id**: 10
+        - **label**: 10
+        - **box**:
+          - **x**: 434
+          - **y**: 367
+          - **comprimento**: 20
+          - **largura**: 18
+      - **[10]**:
+        - **id**: 11
+        - **label**: 11
+        - **box**:
+          - **x**: 464
+          - **y**: 366
+          - **comprimento**: 19
+          - **largura**: 18
+      - **[11]**:
+        - **id**: 12
+        - **label**: 12
+        - **box**:
+          - **x**: 491
+          - **y**: 368
+          - **comprimento**: 20
+          - **largura**: 19
+      - **[12]**:
+        - **id**: 13
+        - **label**: 13
+        - **box**:
+          - **x**: 527
+          - **y**: 368
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[13]**:
+        - **id**: 14
+        - **label**: 14
+        - **box**:
+          - **x**: 572
+          - **y**: 370
+          - **comprimento**: 20
+          - **largura**: 19
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Mico Leão Noiado
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_7B
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Maridos Alforriados
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_5SUP
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Sábado de Aleluia
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_6SUP
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Sem Nome
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_7B
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Mancha Amarela
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_7B
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Mancha Preta
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_5
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: DNA Zica Preta
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_5
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Desvio de Conduta
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_7B
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: O Desgrama
+      - **id_no_mapa**: 10
+      - **dificuldade**: BR_7C
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Bin Laden
+      - **id_no_mapa**: 11
+      - **dificuldade**: BR_8A
+  - **[10]**:
+    - **via_esportiva**:
+      - **nome**: Dia após Dia
+      - **id_no_mapa**: 12
+      - **dificuldade**: BR_7A
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Quarta-Feira Cinzas
+      - **id_no_mapa**: 13
+      - **dificuldade**: BR_6
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Independence Day
+      - **id_no_mapa**: 14
+      - **dificuldade**: BR_5
+
+
+## Parte: setor_de_baixo
+
+### Setor (Pico: Pedra Filha (Pedrinha))
+
+- **descricao**:
+    # Setor de Baixo
+    
+    O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).
+- **nome**: Setor de Baixo
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_de_baixo_p1.webp)
+    - **largura_mapa**: 1241
+    - **altura_mapa**: 636
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **box**:
+          - **x**: 188
+          - **y**: 606
+          - **comprimento**: 15
+          - **largura**: 23
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **box**:
+          - **x**: 312
+          - **y**: 602
+          - **comprimento**: 16
+          - **largura**: 22
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **box**:
+          - **x**: 405
+          - **y**: 590
+          - **comprimento**: 18
+          - **largura**: 21
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **box**:
+          - **x**: 445
+          - **y**: 585
+          - **comprimento**: 16
+          - **largura**: 20
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **box**:
+          - **x**: 513
+          - **y**: 584
+          - **comprimento**: 18
+          - **largura**: 21
+      - **[5]**:
+        - **id**: 6
+        - **label**: 6
+        - **box**:
+          - **x**: 574
+          - **y**: 587
+          - **comprimento**: 13
+          - **largura**: 18
+      - **[6]**:
+        - **id**: 7
+        - **label**: 7
+        - **box**:
+          - **x**: 829
+          - **y**: 580
+          - **comprimento**: 16
+          - **largura**: 22
+      - **[7]**:
+        - **id**: 8
+        - **label**: 8
+        - **box**:
+          - **x**: 940
+          - **y**: 576
+          - **comprimento**: 17
+          - **largura**: 21
+      - **[8]**:
+        - **id**: 9
+        - **label**: 9
+        - **box**:
+          - **x**: 1064
+          - **y**: 573
+          - **comprimento**: 17
+          - **largura**: 20
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Extremo Norte
+      - **id_no_mapa**: 1
+      - **dificuldade**: BR_5
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Rapa do Tacho
+      - **id_no_mapa**: 2
+      - **dificuldade**: BR_6
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Lindona 'Tindoida'
+      - **id_no_mapa**: 3
+      - **dificuldade**: BR_7A
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Pandora
+      - **id_no_mapa**: 4
+      - **dificuldade**: BR_8A
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: A Espera de um Milagre
+      - **id_no_mapa**: 5
+      - **dificuldade**: BR_7A
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Insanidade Mental
+      - **id_no_mapa**: 6
+      - **dificuldade**: BR_9A
+      - **dificuldade_artificial**: A0
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Sem Bússola
+      - **id_no_mapa**: 7
+      - **dificuldade**: BR_6SUP
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Casal 20
+      - **id_no_mapa**: 8
+      - **dificuldade**: BR_6SUP
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Maldita Obsessão
+      - **id_no_mapa**: 9
+      - **dificuldade**: BR_7B
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/setor_de_baixo_p1.webp)
+    - **checksum_sha256**: fc63ef4bc5eea290dc89e8f3b7a8ab8e627d9ec6944972ff83cdaefbd9bb1572
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/setor_de_cima_p0.webp)
+    - **checksum_sha256**: 89777869e4ce42931b2036452a129f7fc7c2208f06df31bbbf2df809cfdf5a77
+
+

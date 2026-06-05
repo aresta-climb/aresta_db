@@ -1,0 +1,1053 @@
+id: br_mg_ouro_preto_ouroboulder_sunset
+nome: OuroBoulder Sunset
+creditos:
+- OuroBoulder 2020
+caminho_thumbnail: imagens/capa_p0.webp
+revisado_manualmente: true
+status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+picos:
+- nome: Sunset
+  setores_ou_grupos:
+  - grupo:
+      conteudo:
+        nome: Sunset
+        mapas:
+        - caminho_imagem_mapa: imagens/grupo_sunset_p0.webp
+          largura_mapa: 811
+          altura_mapa: 825
+          pontos_de_interesse:
+          - id: Sunset
+            label: Sunset
+            box:
+              x: 768
+              y: 45
+              comprimento: 75
+              largura: 30
+          - id: Camaroa
+            label: Camaroa
+            box:
+              x: 102
+              y: 86
+              comprimento: 92
+              largura: 31
+          - id: Aresta_Punk
+            label: Aresta Punk
+            box:
+              x: 252
+              y: 114
+              comprimento: 65
+              largura: 46
+          - id: Planetario
+            label: Planetario
+            box:
+              x: 381
+              y: 160
+              comprimento: 102
+              largura: 30
+          - id: Free_Solo
+            label: Free Solo
+            box:
+              x: 487
+              y: 128
+              comprimento: 56
+              largura: 55
+          - id: Carrapicho
+            label: Carrapicho
+            box:
+              x: 578
+              y: 185
+              comprimento: 110
+              largura: 30
+          - id: Jahngada
+            label: Jahngada
+            box:
+              x: 454
+              y: 298
+              comprimento: 104
+              largura: 36
+          - id: Capitão_Jack
+            label: Capitão Jack
+            box:
+              x: 242
+              y: 370
+              comprimento: 78
+              largura: 53
+          - id: Aleijadinho
+            label: Aleijadinho
+            box:
+              x: 343
+              y: 488
+              comprimento: 118
+              largura: 33
+          - id: Estacionamento
+            label: Estacionamento
+            box:
+              x: 109
+              y: 766
+              comprimento: 160
+              largura: 32
+        setores:
+        - conteudo:
+            nome: Aleijadinho
+            escaladas:
+            - boulder:
+                nome: Aleijadinho
+                id_no_mapa: '01'
+                dificuldade: V5
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_aleijadinho_p0.webp
+              largura_mapa: 843
+              altura_mapa: 960
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 420
+                  y: 590
+                  comprimento: 27
+                  largura: 27
+            descricao: '# Bloco Aleijadinho'
+        - conteudo:
+            nome: Capitão Jack
+            escaladas:
+            - boulder:
+                nome: Amnesia
+                id_no_mapa: '01'
+                id_no_mapa_fim: x
+                destaque: true
+                dificuldade: V3
+            - boulder:
+                nome: Capitão Jack
+                id_no_mapa: '02'
+                id_no_mapa_fim: y
+                destaque: true
+                dificuldade: V6
+                descricao: Virada exposta, atenção na segurança!
+            - boulder:
+                nome: Purple Rase
+                id_no_mapa: '03'
+                id_no_mapa_fim: x
+                dificuldade: V5
+                descricao: Começa em uma fenda bem a esquerda, faz a travessia e vira
+                  no Amnésia
+            - boulder:
+                nome: Sunshine
+                id_no_mapa: '4'
+                id_no_mapa_fim: x
+                dificuldade: V6
+                descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p0.webp
+              largura_mapa: 386
+              altura_mapa: 344
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 250
+                  y: 306
+                  comprimento: 16
+                  largura: 19
+              - id: X
+                label: X
+                box:
+                  x: 12
+                  y: 12
+                  comprimento: 17
+                  largura: 17
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
+              largura_mapa: 847
+              altura_mapa: 814
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 804
+                  y: 702
+                  comprimento: 17
+                  largura: 21
+              - id: '02'
+                label: '02'
+                box:
+                  x: 378
+                  y: 666
+                  comprimento: 17
+                  largura: 20
+              - id: '03'
+                label: '03'
+                box:
+                  x: 294
+                  y: 734
+                  comprimento: 17
+                  largura: 20
+              - id: y
+                label: y
+                box:
+                  x: 256
+                  y: 12
+                  comprimento: 19
+                  largura: 21
+              - id: x
+                label: x
+                box:
+                  x: 562
+                  y: 15
+                  comprimento: 17
+                  largura: 18
+            descricao: '# Bloco Capitão Jack'
+        - conteudo:
+            nome: Jahngada
+            escaladas:
+            - boulder:
+                nome: Jahngada
+                id_no_mapa: '01'
+                id_no_mapa_fim: x
+                dificuldade: V9
+                destaque: true
+                descricao: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
+            - boulder:
+                nome: Jahngada SDS
+                id_no_mapa: '02'
+                id_no_mapa_fim: x
+                dificuldade: V10
+                destaque: true
+            - boulder:
+                nome: Guaicuí
+                id_no_mapa: '03'
+                id_no_mapa_fim: y
+                dificuldade: V5
+            - boulder:
+                nome: Camundongo
+                id_no_mapa: '04'
+                id_no_mapa_fim: z
+                dificuldade: V7
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p0.webp
+              largura_mapa: 839
+              altura_mapa: 680
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 499
+                  y: 470
+                  comprimento: 18
+                  largura: 22
+              - id: '02'
+                label: '02'
+                box:
+                  x: 364
+                  y: 541
+                  comprimento: 19
+                  largura: 20
+              - id: '03'
+                label: '03'
+                box:
+                  x: 43
+                  y: 500
+                  comprimento: 20
+                  largura: 21
+              - id: x
+                label: x
+                box:
+                  x: 425
+                  y: 60
+                  comprimento: 18
+                  largura: 20
+              - id: y
+                label: y
+                box:
+                  x: 97
+                  y: 164
+                  comprimento: 20
+                  largura: 21
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
+              largura_mapa: 445
+              altura_mapa: 399
+              pontos_de_interesse:
+              - id: '04'
+                label: '04'
+                box:
+                  x: 245
+                  y: 284
+                  comprimento: 18
+                  largura: 18
+              - id: z
+                label: z
+                box:
+                  x: 213
+                  y: 110
+                  comprimento: 16
+                  largura: 18
+            descricao: '# Bloco Jahngada'
+        - conteudo:
+            nome: Planetário
+            escaladas:
+            - boulder:
+                nome: Planetário
+                id_no_mapa: '01'
+                id_no_mapa_fim: x
+                destaque: true
+                dificuldade: V11
+            - boulder:
+                nome: Náufrago
+                id_no_mapa: '02'
+                id_no_mapa_fim: y
+                destaque: true
+                dificuldade: V7
+            - boulder:
+                nome: Golfinho
+                id_no_mapa: '03'
+                id_no_mapa_fim: z
+                dificuldade: V4
+            - boulder:
+                nome: Clarete
+                id_no_mapa: '04'
+                id_no_mapa_fim: w
+                dificuldade: V3
+            - boulder:
+                nome: Odisséia na Babilônia
+                id_no_mapa: '01'
+                id_no_mapa_fim: x
+                dificuldade: V6
+                destaque: true
+            - boulder:
+                nome: Canais da Babilônia
+                id_no_mapa: '01'
+                id_no_mapa_fim: y
+                dificuldade: V5
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p0.webp
+              largura_mapa: 832
+              altura_mapa: 536
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 532
+                  y: 519
+                  comprimento: 19
+                  largura: 18
+              - id: x
+                label: x
+                box:
+                  x: 445
+                  y: 30
+                  comprimento: 18
+                  largura: 19
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
+              largura_mapa: 829
+              altura_mapa: 486
+              pontos_de_interesse:
+              - id: '02'
+                label: '02'
+                box:
+                  x: 346
+                  y: 454
+                  comprimento: 17
+                  largura: 19
+              - id: '03'
+                label: '03'
+                box:
+                  x: 468
+                  y: 409
+                  comprimento: 17
+                  largura: 18
+              - id: '04'
+                label: '04'
+                box:
+                  x: 632
+                  y: 338
+                  comprimento: 18
+                  largura: 19
+              - id: y
+                label: y
+                box:
+                  x: 250
+                  y: 105
+                  comprimento: 21
+                  largura: 22
+              - id: z
+                label: z
+                box:
+                  x: 494
+                  y: 46
+                  comprimento: 19
+                  largura: 18
+              - id: w
+                label: w
+                box:
+                  x: 613
+                  y: 42
+                  comprimento: 18
+                  largura: 20
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
+              largura_mapa: 850
+              altura_mapa: 522
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 190
+                  y: 498
+                  comprimento: 19
+                  largura: 19
+              - id: y
+                label: y
+                box:
+                  x: 118
+                  y: 10
+                  comprimento: 19
+                  largura: 18
+              - id: x
+                label: x
+                box:
+                  x: 586
+                  y: 7
+                  comprimento: 17
+                  largura: 16
+            descricao: '# Bloco Planetário'
+        - conteudo:
+            nome: Free Solo
+            escaladas:
+            - boulder:
+                nome: Fomiagem
+                id_no_mapa: '02'
+                id_no_mapa_fim: W
+                dificuldade: V4
+            - boulder:
+                nome: Projeto
+                id_no_mapa: '03'
+                id_no_mapa_fim: Z
+                destaque: true
+            - boulder:
+                nome: Free Solo
+                id_no_mapa: '01'
+                destaque: true
+                dificuldade: V5
+            - boulder:
+                nome: Tartaruga
+                id_no_mapa: '02'
+                dificuldade: V3
+                descricao: Apenas desafio de virar o bloco
+            - boulder:
+                nome: Mobilete
+                id_no_mapa: '03'
+                dificuldade: V3
+            - boulder:
+                nome: Walkmachine
+                id_no_mapa: '04'
+                dificuldade: V6
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p0.webp
+              largura_mapa: 866
+              altura_mapa: 489
+              pontos_de_interesse:
+              - id: '02'
+                label: '02'
+                box:
+                  x: 670
+                  y: 462
+                  comprimento: 19
+                  largura: 20
+              - id: '03'
+                label: '03'
+                box:
+                  x: 500
+                  y: 448
+                  comprimento: 19
+                  largura: 18
+              - id: Z
+                label: Z
+                box:
+                  x: 662
+                  y: 12
+                  comprimento: 18
+                  largura: 19
+              - id: W
+                label: W
+                box:
+                  x: 771
+                  y: 10
+                  comprimento: 20
+                  largura: 19
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
+              largura_mapa: 839
+              altura_mapa: 460
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 353
+                  y: 394
+                  comprimento: 18
+                  largura: 18
+              - id: '03'
+                label: '03'
+                box:
+                  x: 514
+                  y: 357
+                  comprimento: 19
+                  largura: 20
+              - id: '04'
+                label: '04'
+                box:
+                  x: 697
+                  y: 360
+                  comprimento: 18
+                  largura: 18
+              - id: '02'
+                label: '02'
+                box:
+                  x: 742
+                  y: 354
+                  comprimento: 19
+                  largura: 20
+            descricao: '# Bloco Free Solo'
+        - conteudo:
+            nome: Carrapicho
+            escaladas:
+            - boulder:
+                nome: Carrapato
+                id_no_mapa: '01'
+                dificuldade: V5
+            - boulder:
+                nome: Carrapicho
+                id_no_mapa: '02'
+                dificuldade: V6
+            - boulder:
+                nome: Oratório
+                id_no_mapa: '03'
+                dificuldade: V7
+            - boulder:
+                nome: Pistol
+                id_no_mapa: '04'
+                dificuldade: V2
+            - boulder:
+                nome: Dart Vader
+                id_no_mapa: '05'
+                dificuldade: V4
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p0.webp
+              largura_mapa: 440
+              altura_mapa: 564
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 293
+                  y: 506
+                  comprimento: 18
+                  largura: 19
+              - id: '02'
+                label: '02'
+                box:
+                  x: 160
+                  y: 544
+                  comprimento: 18
+                  largura: 18
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
+              largura_mapa: 399
+              altura_mapa: 309
+              pontos_de_interesse:
+              - id: '03'
+                label: '03'
+                box:
+                  x: 152
+                  y: 188
+                  comprimento: 18
+                  largura: 19
+              - id: '04'
+                label: '04'
+                box:
+                  x: 348
+                  y: 221
+                  comprimento: 17
+                  largura: 18
+              - id: '05'
+                label: '05'
+                box:
+                  x: 54
+                  y: 194
+                  comprimento: 17
+                  largura: 18
+            descricao: '# Bloco Carrapicho'
+        - conteudo:
+            nome: Sunset
+            escaladas:
+            - boulder:
+                nome: Sucrilhos
+                id_no_mapa: '01'
+                dificuldade: V5
+                destaque: true
+            - boulder:
+                nome: Faxineiro do Universo
+                id_no_mapa: '02'
+                dificuldade: V5
+            - boulder:
+                nome: Arestinha Vibration
+                id_no_mapa: '03'
+                dificuldade: V1
+            - boulder:
+                nome: Sujeirinha
+                id_no_mapa: '04'
+                dificuldade: V3
+            - boulder:
+                nome: Projeto Sunset
+                id_no_mapa: '05'
+                dificuldade: V3
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p0.webp
+              largura_mapa: 832
+              altura_mapa: 459
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 328
+                  y: 408
+                  comprimento: 19
+                  largura: 19
+              - id: '04'
+                label: '04'
+                box:
+                  x: 512
+                  y: 357
+                  comprimento: 19
+                  largura: 18
+              - id: '02'
+                label: '02'
+                box:
+                  x: 658
+                  y: 294
+                  comprimento: 19
+                  largura: 19
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
+              largura_mapa: 488
+              altura_mapa: 648
+              pontos_de_interesse:
+              - id: '03'
+                label: '03'
+                box:
+                  x: 195
+                  y: 554
+                  comprimento: 18
+                  largura: 19
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
+              largura_mapa: 338
+              altura_mapa: 456
+              pontos_de_interesse:
+              - id: '05'
+                label: '05'
+                box:
+                  x: 246
+                  y: 386
+                  comprimento: 19
+                  largura: 20
+            descricao: '# Bloco Sunset'
+        - conteudo:
+            nome: Camaroa
+            escaladas:
+            - boulder:
+                nome: Fissura
+                id_no_mapa: '01'
+                dificuldade: V8
+                destaque: true
+            - boulder:
+                nome: Pure
+                id_no_mapa: '02'
+                dificuldade: V6
+                destaque: true
+            - boulder:
+                nome: Lpita
+                id_no_mapa: '03'
+                id_no_mapa_fim: z
+                dificuldade: V7
+                destaque: true
+            - boulder:
+                nome: Nave
+                id_no_mapa: '04'
+                id_no_mapa_fim: w
+                dificuldade: V3
+                destaque: true
+            - boulder:
+                nome: Camaroa
+                id_no_mapa: '05'
+                dificuldade: V10
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p0.webp
+              largura_mapa: 834
+              altura_mapa: 384
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                box:
+                  x: 222
+                  y: 234
+                  comprimento: 20
+                  largura: 22
+              - id: '02'
+                label: '02'
+                box:
+                  x: 490
+                  y: 339
+                  comprimento: 21
+                  largura: 22
+              - id: '04'
+                label: '04'
+                box:
+                  x: 605
+                  y: 360
+                  comprimento: 20
+                  largura: 21
+              - id: '03'
+                label: '03'
+                box:
+                  x: 680
+                  y: 361
+                  comprimento: 19
+                  largura: 20
+            - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
+              largura_mapa: 835
+              altura_mapa: 606
+              pontos_de_interesse:
+              - id: '05'
+                label: '05'
+                box:
+                  x: 461
+                  y: 480
+                  comprimento: 20
+                  largura: 19
+            descricao: '# Bloco Camaroa'
+        descricao: '# Grupo Sunset
+
+
+          O local está localizado a 15 minutos da entrada do setor da pedreira, bem
+          no cume da montanha, o que proporciona um visual amplo e belo, sempre com
+          um maravilhoso pôr-do-sol!
+
+
+          Os boulders deste setor oferecem uma característica mais técnica e menos
+          negativa. Os acessos entre os blocos são mais íngremes e requerem maior
+          atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva
+          e totens.'
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      conteudo: '# OuroBoulder - Sunset
+
+
+        ESCALADA EM BOULDER
+
+
+        | ![Capa OuroBoulder Sunset](imagens/capa_p0.webp) |
+
+        | :--: |
+
+        | *Capa OuroBoulder Sunset* |
+
+
+        ## Parceiros
+
+        - Wood Tropia
+
+        - Alto Estilo
+
+        - Bio2
+
+        - Buffalo Wax
+
+        - Conquista
+
+        - Índica
+
+        - Bocaina Climb
+
+        - 4Climb
+
+        - Sano Agarras'
+- texto: Introdução
+  destino:
+    secao_textual:
+      conteudo: '# Introdução
+
+
+        O Ouroboulder é um encontro de escaladores que acontece na cidade de Ouro
+        Preto desde 2006. O grande potencial do pico reuniu atletas de todo país logo
+        no primeiro ano, desde então faz parte do circuito de escaladores durante
+        a alta temporada no Brasil.
+
+
+        ## Linha do Tempo
+
+
+        - **2006**: 1º Festival Pico do Itacolomi
+
+        - **2007**: Descoberta Setor da Pedreira; Visita do espanhol Dani Andrada
+
+        - **2008... 2012**
+
+        - **2013**: Felipe Camargo cadena o Libertadores, o que seria o primeiro V14
+        do Brasil; 1º Croqui impresso do Brasil
+
+        - **2014**
+
+        - **2015**: 10 anos de Ouroboulder
+
+        - **2016... 2018**
+
+        - **2019**: O Japonês Jun Shibanuma manda o Libertadores de flash, decota
+        para V13 e abre o Last Samurai V14
+
+        - **2020**: Primeiro ano sem festival (COVID-19); Descoberta do setor Sunset
+
+
+        | ![Registro durante a confraternização do Ouroboulder de 2013](imagens/introducao_p0_i0.webp)
+        |
+
+        | :--: |
+
+        | *Registro durante a confraternização do Ouroboulder de 2013* |
+
+
+        *Registro durante a confraternização do Ouroboulder de 2013. Foto: Estúdio
+        Buena Onda.*'
+- texto: Conversão e Legenda
+  destino:
+    secao_textual:
+      conteudo: '# Tabela de Conversão e Legenda
+
+
+        ## Considerações
+
+        Este croqui foi produzido para orientar escaladores a respeito dos setores
+        de escalada, vias e cuidados a se tomar ao se praticar a escalada de boulder
+        em Ouro Preto. As graduações dos boulders são apenas uma sugestão embasadas
+        em conhecimento local e pesquisas no site 8a.nu.
+
+
+        ## Tabela de Conversão (V -> Francesa)
+
+        | Brasil (V) | Francesa |
+
+        | :--- | :--- |
+
+        | V0 | 5B |
+
+        | V1 | 5C |
+
+        | V2 | 6A/6A+ |
+
+        | V3 | 6B/6B+ |
+
+        | V4 | 6C/6C+ |
+
+        | V5 | 7A |
+
+        | V6 | 7A+ |
+
+        | V7 | 7B |
+
+        | V8 | 7B+ |
+
+        | V9 | 7C |
+
+        | V10 | 7C+ |
+
+        | V11 | 8A |
+
+        | V12 | 8A+ |
+
+        | V13 | 8B |
+
+        | V14 | 8B+ |
+
+        | V15 | 9C |
+
+        | V16 | 9C+ |
+
+
+        ## Legenda
+
+        | ![Legenda](imagens/conversao_e_legenda_p0.webp) |
+
+        | :--: |
+
+        | *Legenda* |
+
+
+        - **Número (ex: ①)**: Indicação de onde o boulder se inicia.
+
+        - **Letra (ex: Z)**: Indica o final do boulder.
+
+        - **Diamante**: Linha clássica.
+
+        - **Emoji Braço**: Escala de dificuldade.
+
+        - **Emoji Cocô**: Linha forçada (Problema).
+
+
+        ### Escala de Dificuldade
+
+        - **Fácil**: V0 a V3 (Amarelo)
+
+        - **Médio**: V4 a V6 (Verde)
+
+        - **Forte**: V7 a V9 (Azul)
+
+        - **Muito Forte**: V10 e V11 (Vermelho)
+
+        - **Extremo**: Acima de V11 (Preto)'
+- texto: Mapas Gerais
+  destino:
+    secao_textual:
+      conteudo: '# Mapas Gerais
+
+
+        ## Como Chegar
+
+
+        ### Distâncias
+
+        - **São Paulo**: 628km
+
+        - **Rio de Janeiro**: 393km
+
+        - **Brasília**: 827km
+
+        - **Vitória**: 444km
+
+
+        ### Em Ouro Preto
+
+        O principal setor de escalada é a Pedreira que se localiza no Morro São Sebastião.
+        O acesso ao morro é através da Rua Henri Gorceix, uma íngreme e longa ladeira
+        que se inicia ao lado esquerdo do antigo casarão da Escola de Minas, localizado
+        na Praça Tiradentes. Ao final da ladeira, chega-se à praça principal do morro
+        São Sebastião.
+
+
+        | ![Mapa de Acesso Ouro Preto](imagens/mapas_gerais_p0.webp) |
+
+        | :--: |
+
+        | *Mapa de Acesso Ouro Preto* |
+
+
+        - **Linha Vermelha Contínua**: Acesso aos setores de boulder.
+
+        - **Linha Vermelha Tracejada**: Trilha.
+
+        - **Linha Azul**: Acesso aos setores de vias.
+
+        - **Estrela Amarela (*)**: Praça do Morro São Sebastião.
+
+        - **Círculo Azul (Nascente)**: Nascente Rio das Velhas.
+
+        - **Exclamação (!)**: Sinalização do Ouroboulder.'
+- texto: Responsabilidade e Orientações
+  destino:
+    secao_textual:
+      conteudo: '# Responsabilidade e Orientações
+
+
+        O principal objetivo do guia de montanha é fortalecer as práticas na natureza
+        de forma consciente, segura e controlada. Portanto, é responsabilidade de
+        cada leitor se atentar aos cuidados, normas e diretrizes de cada local, respeitando
+        a ética local, os moradores e horários de visitação.
+
+
+        ## Atenção
+
+
+        - **Risco**: A prática de atividades na natureza oferece risco. Procure orientações
+        corretas.
+
+        - **Fogueiras**: Não é permitido fazer fogueiras nos parques e ambientes públicos.
+
+        - **Prudência**: Evite praticar atividades outdoor sozinho. Avise familiares
+        e amigos.
+
+        - **Acidentes Naturais**: Fique atento a pedras soltas, buracos, animais,
+        penhascos, raios, etc.
+
+        - **Respeito**: Preserve a vida do próximo e respeite o momento de cada um.
+
+        - **Lixo**: **RECOLHA SEU LIXO.** Caminhe sempre dentro das trilhas existentes.
+
+        - **Prevenção**: Previna-se contra desidratação, insolação, frio e fome.
+
+
+        ## Cães e Animais Domésticos
+
+
+        - Os principais picos estão em áreas de preservação ambiental com espécimes
+        endêmicas ameaçadas.
+
+        - Cães podem cavar buracos, caçar fauna local e danificar a vegetação (como
+        orquídeas raras).
+
+        - Animais domésticos podem ser vetores de doenças para a fauna local.
+
+        - Respeite o espaço individual; muitas pessoas ficam desconfortáveis com animais
+        circulando nos crash pads e perto de alimentos.
+
+
+        ## Gestão Local
+
+        Antes de praticar qualquer atividade, atente-se aos gestores:
+
+        - **Parque Municipal das Andorinhas**
+
+        - **Parque Estadual do Itacolomi**'
+ultima_migracao: 1
+publicar_croqui: true
+arquivos_externos:
+- caminho: imagens/capa_p0.webp
+  checksum_sha256: b0c19afb64dc5ecdea6682dbd7b31a92fab38ce152066a859052e7c8e24312d4
+- caminho: imagens/conversao_e_legenda_p0.webp
+  checksum_sha256: 2278679473a7d653e2906310ccb17ea686c37e4ae976523a8fc1cf17f186559e
+- caminho: imagens/grupo_sunset_p0.webp
+  checksum_sha256: 200959c53d5214862beb98a84125424647d2d47ecfb37b3bc4fce5e8af5ae190
+- caminho: imagens/grupo_sunset_setor_aleijadinho_p0.webp
+  checksum_sha256: 45b342d993cd9b59ba9127bf380e614fda80e45ad58fd8b2b5354973df11592f
+- caminho: imagens/grupo_sunset_setor_camaroa_p0.webp
+  checksum_sha256: eb73d3d92a8a9074834f73a90a5a6b0f788632f568a81daad0efad54f839f79b
+- caminho: imagens/grupo_sunset_setor_camaroa_p1.webp
+  checksum_sha256: b39ea938ee85c4d5f9f62061e545cd3c84df257d772dc623c33e3c27b0185094
+- caminho: imagens/grupo_sunset_setor_capitao_jack_p0.webp
+  checksum_sha256: 93430d4d18405a8cded0b6839555466564d0b18f9182fd2a458cbc2b8b839548
+- caminho: imagens/grupo_sunset_setor_capitao_jack_p1.webp
+  checksum_sha256: ae72f06891e83bb819c9acec7d068255535953e222d2975bdee86a3a09160611
+- caminho: imagens/grupo_sunset_setor_carrapicho_p0.webp
+  checksum_sha256: 8e06fb0a594ca36b9f49e6e63a8dc333e84a31703de60a9a7f5641fcc8804d8c
+- caminho: imagens/grupo_sunset_setor_carrapicho_p1.webp
+  checksum_sha256: 98472ccacd3cd28ca9881c68738932d32eca614e2407d06cd34ad10f0782a053
+- caminho: imagens/grupo_sunset_setor_free_solo_p0.webp
+  checksum_sha256: c61dfacb7fc5df848ed0b8908ff5170cae98158a2a34bc572d39dc861a980584
+- caminho: imagens/grupo_sunset_setor_free_solo_p1.webp
+  checksum_sha256: 6dcb718c08142ecd9c63d6663a7bbceb788c7b542c91e2df89440c478f61d6fa
+- caminho: imagens/grupo_sunset_setor_jahngada_p0.webp
+  checksum_sha256: a9e16efdf40ee7ba3e002eb2e9bcc4237a1b1d96b3234d0f6eff9c78639dc58b
+- caminho: imagens/grupo_sunset_setor_jahngada_p1.webp
+  checksum_sha256: 5288055b392be17864381916ca27f550bae205b8743c79811fb4818c1ce1e1c1
+- caminho: imagens/grupo_sunset_setor_planetario_p0.webp
+  checksum_sha256: 4e5dd02db9dd90bc9d0872ecb56ee7980a4f31507c154509e51def43562b9bf3
+- caminho: imagens/grupo_sunset_setor_planetario_p1.webp
+  checksum_sha256: 924aa2029c1b19abab06e1d9c59662332f43c1751caefe82855040594859a705
+- caminho: imagens/grupo_sunset_setor_planetario_p2.webp
+  checksum_sha256: 62af4acbef4415d38fdb487c9a5d0d486ac8a2c858b35fcfe4b623cc452ff2aa
+- caminho: imagens/grupo_sunset_setor_sunset_p0.webp
+  checksum_sha256: d57446323c5978a3c6d3f1fa263095913e76e098dd99675e7aaa56284390b14d
+- caminho: imagens/grupo_sunset_setor_sunset_p1.webp
+  checksum_sha256: d34e68e1d3ad3d9a8a67d984c948d9d136ce00b04c6b80911284267c7478b1bd
+- caminho: imagens/grupo_sunset_setor_sunset_p2.webp
+  checksum_sha256: cd9eeaf27370694f6356d1bc4ea7ff3c561d50143b662d2bff71db12f41b6f33
+- caminho: imagens/introducao_p0_i0.webp
+  checksum_sha256: 6be356b2f418891b1b379f7433ba4f8240e7531ebed1b2e0a246aac7817cfa05
+- caminho: imagens/mapas_gerais_p0.webp
+  checksum_sha256: 76bf730bbb663e5e0907044c468a68cc1d80079a776eeab308e29d1f9a2ac852
