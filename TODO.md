@@ -3,9 +3,6 @@
 Tarefas ainda a fazer na database.
 
 ## Editor
-- quero que adicione testes que evitem que isso regrida: qualquer modificação do widget uma vez que foi construído inicialmente vai ser INCREMENTAL, e NUNCA vai re-gerar o widget todo. Por exemplo, adicionar um teste para tipo de campo e verificar que o widget não é re-construído em caso de remoções/adições, apenas editado localmente.
-- quando for dar undo e estiver em uma outra view, precisa voltar o foco para a view em que estou dando undo. Por exemplo, faço uma edição no Croqui principal, depois vou para um setor, estou editando um setor, depois dou undos até desfazer a minha edição do croqui principal. É pra voltar o croqui principal em foco na hora que fizer o undo pra eu ver o que foi desfeito. E aí dando redo continua no croqui principal, mas se continuar vai me voltar para o setor porque as mudanças vão ser lá.
-- Clicar em botões de seção está demorando muito
 - Muitas melhorias para undo/redo:
   - No editor de mapas, adicionar novos pontos ou remover pontos não está como parte do ctrl+z
 

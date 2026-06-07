@@ -2,9 +2,9 @@
 
 - [x] 1.1 Adicionar o campo `bool publicar_croqui = 16` em `aresta_api/proto/croqui.proto`.
 - [x] 1.2 Atualizar protos gerados executando `build.py` (ou gerador equivalente).
-- [ ] 1.3 Adicionar as flags CLI `--producao` e `--no-producao` com `argparse.BooleanOptionalAction(default=True)` em `scripts/deploy_generated.py`.
-- [ ] 1.4 Adicionar o parâmetro `is_producao: bool = True` na função `deploy()` e passá-lo para os passos sequenciais se necessário em `scripts/deploy_generated.py`.
-- [ ] 1.5 Modificar `passo_c_gerar_indice` para filtrar `compilados` de forma que apenas aqueles onde `croqui_data.get('publicar_croqui', False) == True` sejam inclusos quando `is_producao` for `True`.
+- [x] 1.3 Adicionar as flags CLI `--producao` e `--no-producao` com `argparse.BooleanOptionalAction(default=True)` em `scripts/deploy_generated.py`.
+- [x] 1.4 Adicionar o parâmetro `is_producao: bool = True` na função `deploy()` e passá-lo para os passos sequenciais se necessário em `scripts/deploy_generated.py`.
+- [x] 1.5 Modificar `passo_c_gerar_indice` para filtrar `compilados` de forma que apenas aqueles onde `croqui_data.get('publicar_croqui', False) == True` sejam inclusos quando `is_producao` for `True`.
 
 ## 2. Compatibilidade no Aresta Editor
 
