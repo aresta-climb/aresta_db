@@ -17,7 +17,7 @@ class TelaDeAbertura(QWidget):
         from editor.core.storage import GerenciadorCaminhos
         caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_app.png")
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
-        self.setFixedSize(450, 420)
+        self.setFixedSize(450, 650)
         self.init_ui()
 
     def init_ui(self):
@@ -30,9 +30,9 @@ class TelaDeAbertura(QWidget):
         self.container.setObjectName("container")
         self.container.setStyleSheet("""
             #container {
-                background-color: #1a1b26;
+                background-color: #ffffff;
                 border-radius: 15px;
-                border: 1px solid #414868;
+                border: 1px solid #dee2e6;
             }
         """)
         container_layout = QVBoxLayout(self.container)
@@ -46,45 +46,37 @@ class TelaDeAbertura(QWidget):
         self.btn_close.setStyleSheet("""
             QPushButton {
                 background: transparent;
-                color: #f7768e;
+                color: #adb5bd;
                 font-size: 24px;
                 border: none;
                 margin-top: -10px;
                 margin-right: -10px;
             }
-            QPushButton:hover { color: #ff9e64; }
+            QPushButton:hover { color: #dc3545; }
         """)
         self.btn_close.clicked.connect(QApplication.quit)
         container_layout.addWidget(self.btn_close, alignment=Qt.AlignmentFlag.AlignRight)
         
         # Header com Logo Aresta e Título
-        header_layout = QHBoxLayout()
+        header_layout = QVBoxLayout()
         header_layout.setSpacing(15)
         
         self.label_logo = QLabel()
+        self.label_logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
         from editor.core.storage import GerenciadorCaminhos
         caminho_logo = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_splash.png")
         pixmap = QPixmap(str(caminho_logo))
         if not pixmap.isNull():
-            pixmap = pixmap.scaled(80, 80, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            pixmap = pixmap.scaled(280, 280, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
         self.label_logo.setPixmap(pixmap)
-        header_layout.addStretch()
         header_layout.addWidget(self.label_logo)
         
-        self.label_titulo = QLabel("Editor Aresta")
-        self.label_titulo.setStyleSheet("""
-            color: #7aa2f7;
-            font-size: 28px;
-            font-weight: bold;
-        """)
-        header_layout.addWidget(self.label_titulo)
-        header_layout.addStretch()
         container_layout.addLayout(header_layout)
         container_layout.addSpacing(10)
         
         # Status
         self.label_status = QLabel("Iniciando...")
-        self.label_status.setStyleSheet("color: #a9b1d6; font-size: 14px; margin-bottom: 15px;")
+        self.label_status.setStyleSheet("color: #495057; font-size: 14px; margin-bottom: 15px;")
         self.label_status.setWordWrap(True)
         container_layout.addWidget(self.label_status, alignment=Qt.AlignmentFlag.AlignCenter)
         
@@ -98,16 +90,16 @@ class TelaDeAbertura(QWidget):
         self.progress_bar.setFixedHeight(25)
         self.progress_bar.setStyleSheet("""
             QProgressBar {
-                background-color: #24283b;
-                color: #ffffff;
-                border: 1px solid #414868;
+                background-color: #e9ecef;
+                color: #495057;
+                border: 1px solid #dee2e6;
                 border-radius: 6px;
                 text-align: center;
                 font-weight: bold;
                 font-size: 12px;
             }
             QProgressBar::chunk {
-                background-color: #7aa2f7;
+                background-color: #495057;
                 border-radius: 5px;
             }
         """)
@@ -126,7 +118,7 @@ class TelaDeAbertura(QWidget):
         )
         self.label_auth_instrucao.setWordWrap(True)
         self.label_auth_instrucao.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label_auth_instrucao.setStyleSheet("color: #a0a0a0; font-size: 14px; line-height: 1.4;")
+        self.label_auth_instrucao.setStyleSheet("color: #495057; font-size: 14px; line-height: 1.4;")
         self.auth_layout.addWidget(self.label_auth_instrucao)
         
         # Container para Código + Botão Copiar
@@ -139,9 +131,9 @@ class TelaDeAbertura(QWidget):
         self.edit_auth_code.setFixedWidth(150)
         self.edit_auth_code.setStyleSheet("""
             QLineEdit {
-                background: #1a1b26;
-                color: #ff9e64;
-                border: 1px solid #414868;
+                background: #f8f9fa;
+                color: #495057;
+                border: 1px solid #dee2e6;
                 border-radius: 4px;
                 padding: 5px;
                 font-family: 'Consolas', monospace;
@@ -155,13 +147,13 @@ class TelaDeAbertura(QWidget):
         self.btn_copy.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_copy.setStyleSheet("""
             QPushButton {
-                background: #414868;
-                color: white;
+                background: #e9ecef;
+                color: #495057;
                 border: none;
                 border-radius: 4px;
                 padding: 6px;
             }
-            QPushButton:hover { background: #565f89; }
+            QPushButton:hover { background: #dee2e6; }
         """)
         self.btn_copy.clicked.connect(self.copiar_codigo)
         
@@ -172,21 +164,21 @@ class TelaDeAbertura(QWidget):
         self.auth_layout.addLayout(self.codigo_layout)
         
         self.btn_abrir_github = QPushButton(" Abrir GitHub")
-        self.btn_abrir_github.setIcon(Icones.obter("github", cor="#1a1b26"))
+        self.btn_abrir_github.setIcon(Icones.obter("github", cor="#ffffff"))
         self.btn_abrir_github.setIconSize(QSize(20, 20))
         self.btn_abrir_github.setFixedWidth(200)
         self.btn_abrir_github.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_abrir_github.setStyleSheet("""
             QPushButton {
-                background: #7aa2f7;
-                color: #1a1b26;
+                background: #6c757d;
+                color: #ffffff;
                 border: none;
                 border-radius: 4px;
                 padding: 10px;
                 font-weight: bold;
                 font-size: 14px;
             }
-            QPushButton:hover { background: #89b4fa; }
+            QPushButton:hover { background: #5a6268; }
         """)
         self.btn_abrir_github.clicked.connect(self.abrir_link_github)
         self.auth_layout.addWidget(self.btn_abrir_github, alignment=Qt.AlignmentFlag.AlignCenter)

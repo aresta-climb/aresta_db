@@ -8,8 +8,7 @@ def test_tela_abertura_componentes_iniciais(qtbot):
     abertura = TelaDeAbertura()
     qtbot.addWidget(abertura)
     
-    assert abertura.label_titulo.text() == "Editor Aresta"
-    assert abertura.progress_bar.value() == 0
+    assert abertura.label_status.text() == "Iniciando..."
     assert not abertura.progress_bar.isVisible()
     assert not abertura.auth_container.isVisible()
 
