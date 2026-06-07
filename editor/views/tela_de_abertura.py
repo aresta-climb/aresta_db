@@ -1,6 +1,7 @@
+from pathlib import Path
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QProgressBar, QLineEdit, QPushButton, QHBoxLayout, QApplication
 from PyQt6.QtCore import Qt, QUrl, QSize
-from PyQt6.QtGui import QDesktopServices
+from PyQt6.QtGui import QDesktopServices, QPixmap
 from .estilo import Icones
 
 class TelaDeAbertura(QWidget):
@@ -12,7 +13,10 @@ class TelaDeAbertura(QWidget):
         super().__init__()
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-        self.setWindowIcon(Icones.obter("logo", cor="#556b2f"))
+        from PyQt6.QtGui import QIcon
+        from editor.core.storage import GerenciadorCaminhos
+        caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_app.png")
+        self.setWindowIcon(QIcon(str(caminho_logo_janela)))
         self.setFixedSize(450, 420)
         self.init_ui()
 
@@ -58,7 +62,12 @@ class TelaDeAbertura(QWidget):
         header_layout.setSpacing(15)
         
         self.label_logo = QLabel()
-        self.label_logo.setPixmap(Icones.obter("logo", cor="#7aa2f7").pixmap(48, 48))
+        from editor.core.storage import GerenciadorCaminhos
+        caminho_logo = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_splash.png")
+        pixmap = QPixmap(str(caminho_logo))
+        if not pixmap.isNull():
+            pixmap = pixmap.scaled(80, 80, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        self.label_logo.setPixmap(pixmap)
         header_layout.addStretch()
         header_layout.addWidget(self.label_logo)
         
@@ -213,3 +222,13 @@ class TelaDeAbertura(QWidget):
 
     def abrir_link_github(self):
         QDesktopServices.openUrl(QUrl("https://github.com/login/device"))
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self._drag_pos = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
+            event.accept()
+
+    def mouseMoveEvent(self, event):
+        if event.buttons() & Qt.MouseButton.LeftButton and hasattr(self, '_drag_pos'):
+            self.move(event.globalPosition().toPoint() - self._drag_pos)
+            event.accept()

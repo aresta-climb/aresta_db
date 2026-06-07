@@ -43,10 +43,14 @@ import sys
 import io
 
 # Força o uso de UTF-8 para stdout e stderr, especialmente importante no Windows
-if sys.stdout.encoding != 'utf-8':
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-if sys.stderr.encoding != 'utf-8':
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+# Em executáveis --windowed do PyInstaller, sys.stdout e sys.stderr podem ser None.
+if sys.stdout is not None and getattr(sys.stdout, 'encoding', None) != 'utf-8':
+    if hasattr(sys.stdout, 'buffer'):
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+if sys.stderr is not None and getattr(sys.stderr, 'encoding', None) != 'utf-8':
+    if hasattr(sys.stderr, 'buffer'):
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 import hashlib
 import datetime

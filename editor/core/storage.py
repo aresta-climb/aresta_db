@@ -21,6 +21,20 @@ class GerenciadorCaminhos:
             
         return Path(appdata) / self.nome_app
 
+    def obter_caminho_recurso_interno(self, caminho_relativo: str) -> Path:
+        """
+        Retorna o caminho absoluto para um recurso interno empacotado (ex: imagens).
+        Lida corretamente com o sys._MEIPASS quando compilado com PyInstaller.
+        """
+        import sys
+        if hasattr(sys, '_MEIPASS'):
+            base_path = Path(sys._MEIPASS)
+        else:
+            # Como storage.py está em editor/core, voltamos um nível para chegar em editor/
+            base_path = Path(__file__).resolve().parent.parent
+            
+        return base_path / caminho_relativo
+
     def obter_caminho_base_repo(self) -> Path:
         """
         Retorna o caminho para o repositório aresta_db local.

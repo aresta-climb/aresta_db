@@ -31,6 +31,7 @@ def executar_build():
         "--distpath", str(DIRETORIO_EDITOR / "dist"),
         "--workpath", str(DIRETORIO_EDITOR / "build"),
         "--specpath", str(DIRETORIO_EDITOR),
+        "--add-data", f"{DIRETORIO_EDITOR / 'recursos'}{os.pathsep}recursos",
     ]
 
     # Gera o ícone .ico dinamicamente para o executável
@@ -49,16 +50,19 @@ def executar_build():
         _app = QApplication.instance() or QApplication(sys.argv)
         
         caminho_icone = DIRETORIO_EDITOR / "logo.ico"
+        caminho_png = DIRETORIO_EDITOR / "recursos" / "logo_app.png"
         
         # Gera múltiplas resoluções para um .ico profissional (Windows)
         tamanhos = [16, 32, 48, 64, 128, 256]
         imagens_pil = []
+        img_original = Image.open(str(caminho_png))
+        if img_original.mode != 'RGBA':
+            img_original = img_original.convert('RGBA')
+            
+        resample_filter = getattr(Image, 'Resampling', Image).LANCZOS
         for tam in tamanhos:
-            pixmap = Icones.obter("logo", cor="#556b2f").pixmap(tam, tam)
-            buffer = QBuffer()
-            buffer.open(QBuffer.OpenModeFlag.ReadWrite)
-            pixmap.save(buffer, "PNG")
-            imagens_pil.append(Image.open(io.BytesIO(buffer.data().data())).copy())
+            img_resized = img_original.resize((tam, tam), resample_filter)
+            imagens_pil.append(img_resized)
             
         # Salva o arquivo .ico com todas as resoluções embutidas
         imagens_pil[-1].save(

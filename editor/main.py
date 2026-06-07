@@ -9,6 +9,8 @@ if parent_dir not in sys.path:
 
 from PyQt6.QtWidgets import QApplication, QMessageBox, QDialog
 from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QIcon
+from pathlib import Path
 
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.worker import TarefaInicializacao
@@ -37,7 +39,9 @@ class ControladorAplicativo:
         if not self.app:
             self.app = QApplication(sys.argv)
             
-        self.app.setWindowIcon(Icones.obter("logo", cor="#556b2f"))
+        storage = GerenciadorCaminhos()
+        caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
+        self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
         self.abertura = TelaDeAbertura()
         self.janela_principal = None
         self.tela_carregamento = None

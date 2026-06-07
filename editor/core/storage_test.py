@@ -32,5 +32,23 @@ class TestStorage(unittest.TestCase):
         # Deve chamar mkdir para a pasta base, base_repo, croquis_experimentais e .trash_interna
         self.assertGreaterEqual(mock_mkdir.call_count, 4)
 
+    @patch("sys._MEIPASS", "C:/Temp/_MEI12345", create=True)
+    def test_obter_caminho_recurso_interno_pyinstaller(self):
+        gerenciador = GerenciadorCaminhos()
+        caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/Temp/_MEI12345/recursos/logo_splash.png")
+
+    def test_obter_caminho_recurso_interno_dev_mode(self):
+        # Em modo de desenvolvimento normal, sys._MEIPASS não existe
+        import sys
+        if hasattr(sys, '_MEIPASS'):
+            del sys._MEIPASS
+            
+        gerenciador = GerenciadorCaminhos()
+        caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
+        from editor.core import storage
+        esperado = str(Path(storage.__file__).resolve().parent.parent / "recursos/logo_splash.png")
+        self.assertEqual(str(caminho), esperado)
+
 if __name__ == "__main__":
     unittest.main()

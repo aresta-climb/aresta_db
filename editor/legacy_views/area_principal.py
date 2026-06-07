@@ -264,17 +264,34 @@ class JanelaPrincipal(QMainWindow):
         self.espacador_superior = QLabel()
         self.espacador_superior.setFixedWidth(63)
         self.espacador_superior.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        pixmap_logo = Icones.obter("logo", cor="#556b2f").pixmap(24, 24)
-        self.espacador_superior.setPixmap(pixmap_logo)
+        from PyQt6.QtGui import QPixmap, QIcon, QPainter, QPainterPath, QColor
+        from editor.core.storage import GerenciadorCaminhos
+        storage_atual = self.storage or GerenciadorCaminhos()
+        caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")
+        pixmap = QPixmap(str(caminho_logo_app))
         
-        # Efeito sutil para indicar que não é um botão interativo
-        from PyQt6.QtWidgets import QGraphicsOpacityEffect
-        efeito = QGraphicsOpacityEffect(self.espacador_superior)
-        efeito.setOpacity(0.7)
-        self.espacador_superior.setGraphicsEffect(efeito)
+        if not pixmap.isNull():
+            pixmap = pixmap.scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            
+            # Aplica bordas arredondadas ao pixmap
+            rounded = QPixmap(pixmap.size())
+            rounded.fill(QColor("transparent"))
+            
+            painter = QPainter(rounded)
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+            
+            path = QPainterPath()
+            path.addRoundedRect(0, 0, pixmap.width(), pixmap.height(), 4, 4)
+            painter.setClipPath(path)
+            painter.drawPixmap(0, 0, pixmap)
+            painter.end()
+            
+            pixmap = rounded
+
+        self.espacador_superior.setPixmap(pixmap)
         
         # Define o ícone da janela
-        self.setWindowIcon(Icones.obter("logo", cor="#556b2f"))
+        self.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         self.addToolBar(Qt.ToolBarArea.TopToolBarArea, self.toolbar_superior)
         
@@ -501,7 +518,8 @@ class JanelaPrincipal(QMainWindow):
             
             if houve_renomeacao:
                 # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
-                self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
+                if hasattr(self, 'croqui_model') and self.croqui_model:
+                    self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
                 self.pagina_mapas.carregar_mapas(self.caminho_croqui)
                 self.pagina_imagens.carregar_imagens(self.caminho_croqui)
                 

@@ -272,7 +272,11 @@ class TelaDeCarregamento(QDialog):
         self.setWindowTitle("Iniciar Editor Aresta")
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
-        self.setWindowIcon(Icones.obter("logo", cor="#556b2f"))
+        from PyQt6.QtGui import QIcon
+        from editor.core.storage import GerenciadorCaminhos
+        storage_atual = storage or GerenciadorCaminhos()
+        caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")
+        self.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         # Habilitar botões de minimizar/maximizar em QDialog
         self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowMinMaxButtonsHint)

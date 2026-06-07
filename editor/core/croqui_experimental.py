@@ -408,6 +408,9 @@ class GerenciadorCroquiExperimental:
         Renomeia a pasta de um croqui experimental, preservando o prefixo numérico (timestamp).
         Retorna o novo Path.
         """
+        if not self.caminhos:
+            return caminho_raiz  # Sem storage, não renomeia
+            
         nome_antigo = caminho_raiz.name
         partes = nome_antigo.split("_", 1)
         

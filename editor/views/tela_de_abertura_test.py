@@ -81,3 +81,53 @@ def test_tela_abertura_nao_fica_no_topo(qtbot):
     assert not (flags & Qt.WindowType.WindowStaysOnTopHint)
     # Verifica que FramelessWindowHint continua presente
     assert flags & Qt.WindowType.FramelessWindowHint
+
+def test_tela_abertura_logo_oficial(qtbot):
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+    
+    pixmap = abertura.label_logo.pixmap()
+    assert pixmap is not None
+    assert not pixmap.isNull()
+
+def test_tela_abertura_drag_and_drop(qtbot):
+    abertura = TelaDeAbertura()
+    abertura.show()
+    qtbot.addWidget(abertura)
+    
+    pos_inicial = abertura.pos()
+    
+    from PyQt6.QtGui import QMouseEvent
+    from PyQt6.QtCore import QPointF, QEvent
+    
+    # Simula o clique inicial
+    pos_local = QPointF(10.0, 10.0)
+    pos_global = abertura.mapToGlobal(pos_local.toPoint())
+    
+    evento_press = QMouseEvent(
+        QEvent.Type.MouseButtonPress,
+        pos_local,
+        QPointF(pos_global.x(), pos_global.y()),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    abertura.mousePressEvent(evento_press)
+    
+    # Simula o movimento
+    pos_global_movida = QPointF(pos_global.x() + 50, pos_global.y() + 50)
+    pos_local_movida = QPointF(60.0, 60.0)
+    
+    evento_move = QMouseEvent(
+        QEvent.Type.MouseMove,
+        pos_local_movida,
+        pos_global_movida,
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    abertura.mouseMoveEvent(evento_move)
+    
+    nova_pos = abertura.pos()
+    assert nova_pos.x() == pos_inicial.x() + 50
+    assert nova_pos.y() == pos_inicial.y() + 50
