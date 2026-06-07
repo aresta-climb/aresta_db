@@ -1338,6 +1338,10 @@ class WidgetEditorDados(QWidget):
             
         # Trata seleção do nó virtual de adição
         if node and node.eh_no_adicao:
+            if getattr(self, '_removendo_item', False):
+                self.tree_view.selectionModel().clearSelection()
+                return
+                
             self._adicionando_item = True
             try:
                 self._executar_adicionar_item(index)
@@ -1551,9 +1555,19 @@ class WidgetEditorDados(QWidget):
         if repeated_container is None or idx_no_pai is None:
             return
 
+        # Limpa a selecao e foco antes de remover para que o QTreeView nao 
+        # tente mover o foco automaticamente para o proximo no (que seria '+ Adicionar')
+        self.tree_view.selectionModel().clearSelection()
+        from PyQt6.QtCore import QModelIndex
+        self.tree_view.setCurrentIndex(QModelIndex())
+        
         msg_pai = expando_node.parent_node.message
-
-        self.controller.remover_repeated(msg_pai, campo.name, idx_no_pai, getattr(msg_pai, campo.name)[idx_no_pai])
+        
+        self._removendo_item = True
+        try:
+            self.controller.remover_repeated(msg_pai, campo.name, idx_no_pai, getattr(msg_pai, campo.name)[idx_no_pai])
+        finally:
+            self._removendo_item = False
 
         janela = self.window()
         if janela and hasattr(janela, "is_dirty"):

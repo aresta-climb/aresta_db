@@ -32,6 +32,11 @@ O parser e o modelador da árvore SHALL ser compatível com runtimes modernos do
   * "Excluir Item" (para remover o elemento correspondente).
   * "Mover para Cima" (para reordená-lo decrementando seu índice).
   * "Mover para Baixo" (para reordená-lo incrementando seu índice).
+- **AND** o menu de contexto SHALL ser funcional e persistente, sobrevivendo a flutuações e re-layouts da árvore no Qt.
+
+#### Scenario: Remoção de item recém-adicionado
+- **WHEN** o usuário adiciona um novo item na árvore e em seguida clica em "Excluir item"
+- **THEN** o sistema SHALL excluir o item corretamente, não importando eventuais re-layouts em plano de fundo que ocorram antes ou durante a exibição do menu de contexto.
 
 ### Requirement: Transparência de Wrappers de Arquivo
 O sistema SHALL esconder os wrappers e mensagens marcadas com `MensagemFormatoUi.ONEOF` do usuário, exibindo e editando a sub-mensagem ou campo ativo diretamente. Ao criar ou inicializar um novo elemento de uma mensagem que inclui um `oneof`, o sistema SHALL selecionar automaticamente o campo com `oneof_default` se presente, ou solicitar a escolha caso contrário.

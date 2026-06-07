@@ -1473,3 +1473,46 @@ def test_undo_redo_navegacao_foco(qapp):
     # O foco deve continuar no pico (pois o undo/redo do pico solicita foco para ele)
     indexes = widget.tree_view.selectionModel().selectedIndexes()
     assert indexes[0].data() == "Pico Editado"
+
+def test_exclusao_nao_dispara_adicao_automatica(qapp, monkeypatch):
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.widget_editor_dados import _get_id
+    from PyQt6.QtGui import QUndoStack
+    from PyQt6.QtCore import QModelIndex
+
+    croqui = Croqui()
+    pico1 = croqui.picos.add()
+    pico1.nome = "Pico 1"
+    
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+
+    widget.expandir_arvore_ate_alvos()
+
+    exp_picos_idx = widget.tree_model.find_expando_index(_get_id(widget.croqui), "picos")
+    assert exp_picos_idx.isValid(), "Expando Picos nao encontrado"
+    
+    widget.tree_view.expand(exp_picos_idx)
+
+    pico_idx = widget.tree_model.index(0, 0, exp_picos_idx)
+    assert pico_idx.isValid() and pico_idx.internalPointer().name == "[0]", "Pico 1 nao encontrado"
+    
+    widget.tree_view.setCurrentIndex(pico_idx)
+    widget.tree_view.selectionModel().select(
+        pico_idx, 
+        widget.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+    )
+    qapp.processEvents()
+    
+    widget._executar_remover_item(pico_idx)
+    qapp.processEvents()
+
+    assert len(croqui.picos) == 0, "A exclusao disparou uma adicao automatica!"
+
+    selected_indexes_after = widget.tree_view.selectionModel().selectedIndexes()
+    assert len(selected_indexes_after) == 0, "A selecao permaneceu travada no no de adicao"
