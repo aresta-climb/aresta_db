@@ -62,6 +62,28 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador.refazer()
         self.assertEqual(estado["valor"], 10)
 
+    def test_foco_requisitado_emitido(self):
+        gerenciador = GerenciadorHistorico()
+        estado = {"valor": 0}
+        
+        cmd = ComandoTeste(estado, 0, 10)
+        cmd.contexto_ui = "page:mapas/file:teste.md"
+        
+        focos_recebidos = []
+        gerenciador.sinal_foco_requisitado.connect(focos_recebidos.append)
+        
+        gerenciador.executar(cmd) # Push não emite undo/redo na pilha de indexChanged? Push actually emits indexChanged!
+        # Wait, push increases index from 0 to 1. diff > 0.
+        # But should push emit foco_requisitado? Usually we want it on undo/redo.
+        # Wait, if push emits it, it just re-focuses what the user just clicked. That's fine.
+        
+        # We will just assert that the signal was emitted at least once with the correct path.
+        self.assertIn("page:mapas/file:teste.md", focos_recebidos)
+        
+        focos_recebidos.clear()
+        gerenciador.desfazer()
+        self.assertIn("page:mapas/file:teste.md", focos_recebidos)
+
     def test_cmd_remover_arquivo_fisico(self):
         import tempfile
         from pathlib import Path

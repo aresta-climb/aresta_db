@@ -1434,7 +1434,7 @@ def test_undo_redo_navegacao_foco(qapp):
     
     # O contexto deve ser o pico
     from editor.views.widget_editor_dados import get_node_path
-    assert controller.contexto_atual_path == get_node_path(pico_idx.internalPointer())
+    assert controller.contexto_atual_path == "page:dados/" + get_node_path(pico_idx.internalPointer())
 
     # Executa uma alteração
     controller.alterar_primitivo(pico, "nome", "Pico Original", "Pico Editado")

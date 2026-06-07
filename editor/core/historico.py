@@ -13,6 +13,7 @@ class GerenciadorHistorico(QObject):
     sinal_campo_alterado = pyqtSignal(object, str, object)  # id_msg, campo, novo_valor
     sinal_item_adicionado = pyqtSignal(object, str, int)    # id_msg, campo, indice
     sinal_item_removido = pyqtSignal(object, str, int)      # id_msg, campo, indice
+    sinal_foco_requisitado = pyqtSignal(str)                # contexto_ui
 
     def __init__(self):
         super().__init__()
@@ -74,6 +75,9 @@ class GerenciadorHistorico(QObject):
 
         if not cmd:
             return
+
+        if hasattr(cmd, 'contexto_ui') and cmd.contexto_ui:
+            self.sinal_foco_requisitado.emit(cmd.contexto_ui)
 
         if cmd.childCount() > 0:
             for i in range(cmd.childCount()):

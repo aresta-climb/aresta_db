@@ -1364,11 +1364,17 @@ class WidgetEditorDados(QWidget):
             self.form_padrao.load_node(node)
             
         if hasattr(self.controller, 'set_contexto'):
-            self.controller.set_contexto(get_node_path(node))
+            self.controller.set_contexto("page:dados/" + get_node_path(node))
 
     def _on_foco_requisitado(self, path):
-        print(f"FOCO REQUISITADO PARA: {path}")
-        if not path: return
+        from editor.core.contexto import ContextoUIPath
+        ctx = ContextoUIPath(path)
+        if ctx.pagina is not None and ctx.pagina != "dados":
+            return
+            
+        path_local = ctx.caminho_local_arvore
+        print(f"FOCO REQUISITADO PARA: {path_local}")
+        if not path_local: return
         
         # Verifica se já estamos no nó para evitar loop/flicker
         indexes = self.tree_view.selectionModel().selectedIndexes()
@@ -1376,11 +1382,11 @@ class WidgetEditorDados(QWidget):
             current_node = indexes[0].internalPointer()
             curr_path = get_node_path(current_node) if current_node else None
             print(f"CURRENT PATH: {curr_path}")
-            if curr_path == path:
+            if curr_path == path_local:
                 print("JA ESTAMOS NO NO, RETORNANDO")
                 return
                 
-        idx = self.tree_model.find_index_for_path(path)
+        idx = self.tree_model.find_index_for_path(path_local)
         if idx and idx.isValid():
             self.tree_view.selectionModel().select(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
             self.tree_view.scrollTo(idx)

@@ -253,6 +253,8 @@ class JanelaPrincipal(QMainWindow):
         self.setCentralWidget(self.container_central)
         
         self._setup_paginas()
+        self.historico.sinal_foco_requisitado.connect(self._on_foco_requisitado)
+        
         
     def _setup_toolbars(self):
         self.toolbar_superior = QToolBar("Barra Superior")
@@ -430,6 +432,26 @@ class JanelaPrincipal(QMainWindow):
             self._acoes_contextuais = acoes
             for acao in acoes:
                 self.toolbar_superior.addAction(acao)
+
+    def _on_foco_requisitado(self, uri: str):
+        if not uri: return
+        from editor.core.contexto import ContextoUIPath
+        ctx = ContextoUIPath(uri)
+        
+        if ctx.pagina == "dados":
+            if self.stack.currentIndex() != 0:
+                self._trocar_pagina(0)
+        elif ctx.pagina == "imagens":
+            if self.stack.currentIndex() != 1:
+                self._trocar_pagina(1)
+        elif ctx.pagina == "mapas":
+            if self.stack.currentIndex() != 2:
+                self._trocar_pagina(2)
+            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and hasattr(self.pagina_mapas.editor, 'selecionar_arquivo'):
+                self.pagina_mapas.editor.selecionar_arquivo(ctx.arquivo_mapa)
+        elif ctx.pagina == "historico":
+            if self.stack.currentIndex() != 3:
+                self._trocar_pagina(3)
         
     def carregar_croqui(self):
         """Carrega os dados do croqui a partir do sistema de arquivos."""
@@ -453,6 +475,8 @@ class JanelaPrincipal(QMainWindow):
                 
                 from editor.models.croqui_model import CroquiModel
                 self.croqui_model = CroquiModel(croqui_msg)
+                if hasattr(self.croqui_model, "foco_requisitado"):
+                    self.croqui_model.foco_requisitado.connect(self._on_foco_requisitado)
                 
                 from editor.controllers.croqui_controller import CroquiController
                 self.croqui_controller = CroquiController(self.croqui_model, self.historico.obter_pilha())

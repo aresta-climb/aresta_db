@@ -32,6 +32,9 @@ class CmdMoverPonto(QUndoCommand):
         self.estado_antigo = estado_antigo
         self.estado_novo = estado_novo
         self.widget_editor = widget_editor
+        import os
+        nome_arquivo = os.path.basename(str(chave_mapa[0]))
+        self.contexto_ui = f"page:mapas/file:{nome_arquivo}"
 
     def undo(self):
         dados = self.widget_editor.dados_arquivos.get(self.chave_mapa)
@@ -860,6 +863,18 @@ class WidgetEditorMapas(QWidget):
             self.visualizador.fitInView(dados['cena'].sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
             if self.modo_desenho: self.cancelar_modo_desenho()
             if self.modo_conversao: self.parar_modo_conversao()
+
+    def selecionar_arquivo(self, nome_arquivo: str):
+        """Seleciona um arquivo na lista pelo nome do arquivo."""
+        import os
+        for i in range(self.list_widget.count()):
+            item = self.list_widget.item(i)
+            chave = item.data(Qt.ItemDataRole.UserRole)
+            if chave and isinstance(chave, tuple) and len(chave) > 0:
+                caminho = str(chave[0])
+                if os.path.basename(caminho) == nome_arquivo:
+                    self.list_widget.setCurrentRow(i)
+                    return
 
     def adicionar_poi(self, tipo):
         if not self.dados_atuais: return

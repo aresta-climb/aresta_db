@@ -37,6 +37,9 @@ class CmdMoverImagem(QUndoCommand):
         self.estado_antigo = estado_antigo  # (rect, pos)
         self.estado_novo = estado_novo      # (rect, pos)
         self.widget_editor = widget_editor
+        import os
+        nome_arquivo = os.path.basename(caminho_imagem)
+        self.contexto_ui = f"page:imagens/file:{nome_arquivo}"
 
     def undo(self):
         state = self.widget_editor.states.get(self.caminho_imagem)

@@ -44,3 +44,22 @@ def test_area_principal_historico_conexoes(qtbot):
     # Simula clique/gatilho no acao_refazer
     janela.acao_refazer.trigger()
     assert estado["valor"] == 1
+
+def test_janela_roteamento_foco(qtbot):
+    from unittest.mock import patch
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+
+    with patch.object(janela.pagina_mapas.editor, 'selecionar_arquivo') as mock_selecionar:
+        # Roteamento para Dados
+        janela.stack.setCurrentIndex(1) # Muda para imagens antes
+        janela._on_foco_requisitado("page:dados/node:root")
+        assert janela.stack.currentIndex() == 0
+
+        # Roteamento para Mapas
+        janela._on_foco_requisitado("page:mapas/file:setor.md")
+        assert janela.stack.currentIndex() == 2
+        mock_selecionar.assert_called_once_with("setor.md")
+
+
