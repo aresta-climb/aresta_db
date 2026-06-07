@@ -244,3 +244,65 @@ def test_importar_croqui_com_pasta_raiz_aninhada(gerenciador, tmp_path):
     assert (caminho_final / "database" / "croqui.yaml").exists()
     assert not (caminho_final / "minha_pasta_extra").exists()
     assert "pico_aninhado" in caminho_final.name
+
+def test_id_original_salvo_ao_criar_e_importar(gerenciador, storage_temp):
+    """Verifica se o id_original é salvo no yaml ao criar novo ou importar de oficial."""
+    # Teste 1: Criar novo
+    id_novo = "br_sp_novo_teste"
+    with patch("editor.core.croqui_experimental.deploy"):
+        caminho_novo = gerenciador.criar_novo_croqui(id_novo, "Pico Novo", "SP", "User")
+        
+    yaml_novo = caminho_novo / "croqui_experimental.yaml"
+    with open(yaml_novo, "r", encoding="utf-8") as f:
+        dados_novo = yaml.safe_load(f)
+    assert dados_novo.get("id_original") == id_novo
+
+    # Teste 2: Criar a partir de oficial
+    id_oficial = "br_sp_oficial_teste"
+    caminho_repo = storage_temp.obter_caminho_base_repo()
+    caminho_oficial = caminho_repo / "database" / id_oficial
+    caminho_oficial.mkdir(parents=True)
+    (caminho_oficial / "croqui.yaml").write_text(f"id: {id_oficial}\nnome: Pico Oficial")
+    
+    with patch("editor.core.croqui_experimental.deploy"):
+        caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "User")
+        
+    yaml_exp = caminho_exp / "croqui_experimental.yaml"
+    with open(yaml_exp, "r", encoding="utf-8") as f:
+        dados_exp = yaml.safe_load(f)
+    assert dados_exp.get("id_original") == id_oficial
+
+def test_renomear_pasta_croqui_sucesso(gerenciador, storage_temp):
+    """Verifica se renomeia mantendo o timestamp e retorna o novo caminho."""
+    # Cria uma pasta mock com nome formatado (timestamp_id)
+    caminho_exp = storage_temp.obter_caminho_croquis_experimentais()
+    timestamp = "20260606120000"
+    old_id = "br_mg_antigo"
+    pasta_antiga = caminho_exp / f"{timestamp}_{old_id}"
+    pasta_antiga.mkdir()
+    (pasta_antiga / "teste.txt").write_text("ok")
+    
+    # Chama o método que deve renomear
+    novo_id = "br_mg_novo"
+    nova_pasta = gerenciador.renomear_pasta_croqui(pasta_antiga, novo_id)
+    
+    # Validações
+    assert not pasta_antiga.exists()
+    assert nova_pasta.exists()
+    assert nova_pasta.name == f"{timestamp}_{novo_id}"
+    assert (nova_pasta / "teste.txt").read_text() == "ok"
+    
+def test_renomear_pasta_croqui_sem_timestamp_prefixo(gerenciador, storage_temp):
+    """Verifica comportamento se a pasta não tiver prefixo numérico claro."""
+    caminho_exp = storage_temp.obter_caminho_croquis_experimentais()
+    pasta_antiga = caminho_exp / "apenas_texto"
+    pasta_antiga.mkdir()
+    
+    nova_pasta = gerenciador.renomear_pasta_croqui(pasta_antiga, "novo_nome")
+    
+    assert not pasta_antiga.exists()
+    assert nova_pasta.exists()
+    # Se não tinha timestamp, pode prefixar com a hora atual ou usar apenas o id,
+    # assumiremos que o novo método gere um prefixo novo para manter padrão
+    assert nova_pasta.name.endswith("_novo_nome")
+    assert nova_pasta.name.split("_")[0].isdigit()

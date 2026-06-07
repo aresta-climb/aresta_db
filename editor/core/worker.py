@@ -167,6 +167,30 @@ class TarefaPublicacao(QThread):
             
             # 3. Copiar Arquivos
             self.status.emit("Copiando alterações...")
+            
+            # Verificar se houve mudança de ID para remover o antigo
+            import yaml
+            from google.protobuf.json_format import ParseDict
+            from aresta_api.proto.generated.croqui_experimental_pb2 import CroquiExperimental
+            
+            id_original = None
+            yaml_meta = self.caminho_database_croqui.parent / "croqui_experimental.yaml"
+            if yaml_meta.is_file():
+                try:
+                    with open(yaml_meta, "r", encoding="utf-8") as f:
+                        dados_meta = yaml.safe_load(f) or {}
+                        meta = CroquiExperimental()
+                        ParseDict(dados_meta, meta, ignore_unknown_fields=True)
+                        id_original = meta.id_original if meta.id_original else None
+                except Exception:
+                    pass
+                    
+            if id_original and id_original != self.id_croqui:
+                destino_antigo = self.storage.obter_caminho_base_repo() / "database" / id_original
+                if destino_antigo.exists():
+                    shutil.rmtree(destino_antigo)
+                    repo.index.remove_all([f"database/{id_original}"])
+                    
             destino = self.storage.obter_caminho_base_repo() / "database" / self.id_croqui
             if destino.exists():
                 shutil.rmtree(destino)

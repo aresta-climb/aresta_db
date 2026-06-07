@@ -170,6 +170,8 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
         with patch("builtins.open", MagicMock()), \
              patch("editor.legacy_views.area_principal.yaml.dump"), \
              patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical"), \
+             patch.object(GerenciadorCroquiExperimental, "renomear_pasta_croqui", return_value=Path("temp_croqui")), \
              patch.object(janela, "exibir_notificacao") as mock_notif:
             
             janela.salvar_croqui()
@@ -217,8 +219,71 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch("builtins.open", MagicMock()), \
              patch("editor.legacy_views.area_principal.yaml.dump"), \
              patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical"), \
+             patch.object(GerenciadorCroquiExperimental, "renomear_pasta_croqui", return_value=Path("temp_croqui")), \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
              
             janela.salvar_croqui()
             
         mock_clear.assert_called_once()
+
+from pathlib import Path
+
+def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
+    # Setup de diretório simulando um croqui
+    croquis_dir = tmp_path / "croquis_experimentais"
+    croquis_dir.mkdir()
+    pasta_croqui = croquis_dir / "20260501_old_id"
+    pasta_croqui.mkdir()
+    (pasta_croqui / "database").mkdir()
+    
+    with open(pasta_croqui / "database" / "croqui.yaml", "w", encoding="utf-8") as f:
+        f.write("id: old_id\n")
+
+    # Mocks para não chamar métodos pesados/reais do UI e Worker
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"), \
+         patch("editor.legacy_views.area_principal.QMessageBox.information"), \
+         patch("editor.legacy_views.area_principal.NotificacaoToast"), \
+         patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental") as MockGerenciador:
+         
+        # Configurar o mock do gerenciador para retornar a nova pasta simulada
+        mock_gen_instance = MockGerenciador.return_value
+        nova_pasta = croquis_dir / "20260501_new_id"
+        mock_gen_instance.renomear_pasta_croqui.return_value = nova_pasta
+
+        # Instanciar a janela
+        janela = JanelaPrincipal(caminho_croqui=str(pasta_croqui))
+        qtbot.addWidget(janela)
+        
+        # Simular a extração que retornaria o novo ID alterado na UI
+        janela.croqui_model = MagicMock()
+        janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "new_id"}
+        
+        # Simular editores de imagem e mapa
+        janela.pagina_mapas.editor = MagicMock()
+        janela.pagina_imagens.editor = MagicMock()
+
+        with patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
+            
+            # Executar a ação alvo
+            janela.salvar_croqui()
+            
+            # Se chamou error dialog, printar o erro
+            if mock_crit.called:
+                print("ERRO:", mock_crit.call_args)
+            assert not mock_crit.called
+
+        # Verificações
+        mock_gen_instance.renomear_pasta_croqui.assert_called_once()
+        args, kwargs = mock_gen_instance.renomear_pasta_croqui.call_args
+        assert str(args[0]) == str(pasta_croqui) # pasta antiga passada corretamente
+        assert args[1] == "new_id" # novo id passado corretamente
+        
+        # Garantir que a Janela atualizou sua referência interna de caminho
+        assert str(janela.caminho_croqui) == str(nova_pasta)
+        
+        # Garantir que a árvore carregou as páginas com o novo caminho
+        janela.pagina_mapas.editor.salvar_todas_mudancas.assert_called_once()
+        janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()

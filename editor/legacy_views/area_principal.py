@@ -464,6 +464,17 @@ class JanelaPrincipal(QMainWindow):
                     self.caminho_croqui / "database"
                 )
                 
+            novo_id = self.croqui_data.get("id") if self.croqui_data else None
+            id_atual = None
+            if self.caminho_croqui:
+                partes = self.caminho_croqui.name.split("_", 1)
+                id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else self.caminho_croqui.name
+
+            if novo_id and id_atual and novo_id != id_atual:
+                from editor.core.croqui_experimental import GerenciadorCroquiExperimental
+                gerenciador = GerenciadorCroquiExperimental(self.storage if self.storage else None)
+                self.caminho_croqui = gerenciador.renomear_pasta_croqui(self.caminho_croqui, novo_id)
+                
             # 1. Salva database/croqui.yaml
             yaml_path = self.caminho_croqui / "database" / "croqui.yaml"
             with open(yaml_path, "w", encoding="utf-8") as f:

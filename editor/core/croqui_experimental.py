@@ -28,7 +28,7 @@ class GerenciadorCroquiExperimental:
     def __init__(self, gerenciador_caminhos: GerenciadorCaminhos):
         self.caminhos = gerenciador_caminhos
         
-    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "") -> Path:
+    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "", id_original: str = None) -> Path:
         """
         Cria uma nova estrutura de pastas para um croqui experimental (privado).
         """
@@ -45,9 +45,13 @@ class GerenciadorCroquiExperimental:
         meta = CroquiExperimental()
         meta.autores.append(nome_usuario)
         meta.resumo_edicao = resumo_edicao
-        
-        meta.data_criacao.GetCurrentTime()
-        meta.ultima_edicao.GetCurrentTime()
+        if id_original:
+            meta.id_original = id_original
+            
+        from datetime import timezone
+        now = datetime.now(timezone.utc)
+        meta.data_criacao.FromDatetime(now)
+        meta.ultima_edicao.FromDatetime(now)
         
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
         
@@ -86,7 +90,7 @@ class GerenciadorCroquiExperimental:
         Cria um novo croqui a partir de metadados, inicializa o croqui.yaml e realiza o primeiro build.
         """
         # 1. Cria a estrutura base (pastas e git inicial)
-        caminho_raiz = self._criar_estrutura_croqui(id_croqui, nome_usuario, "Inicialização automática")
+        caminho_raiz = self._criar_estrutura_croqui(id_croqui, nome_usuario, "Inicialização automática", id_croqui)
         
         try:
             # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
@@ -146,7 +150,7 @@ class GerenciadorCroquiExperimental:
         Cria um croqui experimental a partir de um croqui oficial, copiando os arquivos.
         """
         # 1. Inicializa o croqui experimental (cria pastas e git inicial)
-        caminho_experimental = self._criar_estrutura_croqui(id_oficial, nome_usuario, resumo_edicao)
+        caminho_experimental = self._criar_estrutura_croqui(id_oficial, nome_usuario, resumo_edicao, id_oficial)
         
         try:
             # 2. Localiza o croqui oficial no repo sincronizado
@@ -207,18 +211,23 @@ class GerenciadorCroquiExperimental:
         if not yaml_path.is_file():
             return
             
+        from google.protobuf.json_format import ParseDict, MessageToDict
+        
         with open(yaml_path, "r", encoding="utf-8") as f:
             dados = yaml.safe_load(f) or {}
             
-        autores = set(dados.get("autores", []))
-        autores.add(nome_usuario)
-        dados["autores"] = list(autores)
+        meta = CroquiExperimental()
+        ParseDict(dados, meta, ignore_unknown_fields=True)
         
+        if nome_usuario not in meta.autores:
+            meta.autores.append(nome_usuario)
+            
         from datetime import timezone
-        dados["ultima_edicao"] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        meta.ultima_edicao.FromDatetime(datetime.now(timezone.utc))
         
+        dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
         with open(yaml_path, "w", encoding="utf-8") as f:
-            yaml.dump(dados, f, allow_unicode=True, sort_keys=False)
+            yaml.dump(dict_meta, f, allow_unicode=True, sort_keys=False)
 
     def compilar_croqui(self, caminho_raiz: Path):
         """
@@ -393,3 +402,36 @@ class GerenciadorCroquiExperimental:
             # Remove a pasta de extração (ou a nova pasta se já tiver renomeado) em caso de falha
             self.excluir_croqui(caminho_extracao)
             raise e
+
+    def renomear_pasta_croqui(self, caminho_raiz: Path, novo_id: str) -> Path:
+        """
+        Renomeia a pasta de um croqui experimental, preservando o prefixo numérico (timestamp).
+        Retorna o novo Path.
+        """
+        nome_antigo = caminho_raiz.name
+        partes = nome_antigo.split("_", 1)
+        
+        if len(partes) > 1 and partes[0].isdigit():
+            prefixo = partes[0]
+            novo_nome = f"{prefixo}_{novo_id}"
+        else:
+            # Se não houver prefixo claro, cria um novo
+            ts = datetime.now().strftime("%Y%m%d%H%M%S")
+            novo_nome = f"{ts}_{novo_id}"
+            
+        novo_caminho = caminho_raiz.parent / novo_nome
+        
+        # Move a pasta
+        import time
+        for i in range(5):
+            try:
+                caminho_raiz.rename(novo_caminho)
+                break
+            except PermissionError:
+                if i == 4:
+                    # Alternativa: tentar com shutil
+                    shutil.move(str(caminho_raiz), str(novo_caminho))
+                    break
+                time.sleep(0.2)
+                
+        return novo_caminho
