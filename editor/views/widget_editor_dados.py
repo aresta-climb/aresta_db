@@ -248,6 +248,87 @@ class WidgetEditorMarkdown(QWidget):
                     break
                 form = form.parent() if hasattr(form, "parent") and callable(form.parent) else None
 
+def _extrair_titulo_heuristico(msg):
+    for field_name in ["nome", "titulo", "id"]:
+        try:
+            if msg.HasField(field_name):
+                return str(getattr(msg, field_name))
+        except ValueError:
+            pass
+    return None
+
+class WidgetColapsavel(QWidget):
+    def __init__(self, msg, title_prefix, lazy_loader_cb, parent=None):
+        super().__init__(parent)
+        self.msg = msg
+        self.title_prefix = title_prefix
+        self.lazy_loader_cb = lazy_loader_cb
+        self._was_loaded = False
+        
+        self._layout = QVBoxLayout(self)
+        self._layout.setContentsMargins(0, 0, 0, 0)
+        self._layout.setSpacing(0)
+        
+        self.header_widget = QWidget(self)
+        self.header_layout = QHBoxLayout(self.header_widget)
+        self.header_layout.setContentsMargins(0, 0, 0, 0)
+        self.header_layout.setSpacing(6)
+        
+        from PyQt6.QtWidgets import QToolButton
+        self.toggle_button = QToolButton(self)
+        self.toggle_button.setStyleSheet("QToolButton { border: none; font-weight: bold; text-align: left; background-color: #e6e6e6; padding: 6px; }")
+        self.toggle_button.setCheckable(True)
+        self.toggle_button.setChecked(False)
+        self.update_title()
+        self.toggle_button.setSizePolicy(self.toggle_button.sizePolicy().Policy.Expanding, self.toggle_button.sizePolicy().Policy.Fixed)
+        
+        self.header_layout.addWidget(self.toggle_button)
+        
+        self.content_area = QFrame(self)
+        self.content_area.setObjectName("SubMessageFrame")
+        self.content_area.setStyleSheet("""
+            QFrame#SubMessageFrame {
+                border: 1.5px solid #2b579a;
+                border-top: none;
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+                background-color: #fdfdfd;
+            }
+        """)
+        self.content_layout = QVBoxLayout(self.content_area)
+        self.content_layout.setContentsMargins(10, 10, 10, 10)
+        self.content_layout.setSpacing(6)
+        
+        self.content_area.setVisible(False)
+        
+        self._layout.addWidget(self.header_widget)
+        self._layout.addWidget(self.content_area)
+        
+        self.toggle_button.toggled.connect(self._on_toggled)
+        
+    def add_header_widget(self, widget):
+        self.header_layout.addWidget(widget)
+        
+    def update_title(self):
+        heuristico = _extrair_titulo_heuristico(self.msg)
+        texto = f"▶ {self.title_prefix}"
+        if heuristico:
+            texto += f" - {heuristico}"
+        if self.toggle_button.isChecked():
+            texto = texto.replace("▶", "▼")
+        self.toggle_button.setText(texto)
+
+    def _on_toggled(self, checked):
+        if checked:
+            if not self._was_loaded:
+                self.lazy_loader_cb(self.msg, self.content_layout)
+                self._was_loaded = True
+            self.content_area.setVisible(True)
+        else:
+            self.content_area.setVisible(False)
+        self.update_title()
+
+
 class ContainerRepeatedWidget(QWidget):
     def __init__(self, msg, field, formulario, parent=None):
         self.model = formulario.model
@@ -289,10 +370,9 @@ class ContainerRepeatedWidget(QWidget):
         if self.desc_label:
             self.layout_principal.addWidget(self.desc_label)
 
-        # Layout para os itens da lista
         self.items_layout = QVBoxLayout()
         self.items_layout.setContentsMargins(0, 0, 0, 0)
-        self.items_layout.setSpacing(6)
+        self.items_layout.setSpacing(10)
         self.layout_principal.addLayout(self.items_layout)
 
         # Renderiza os itens iniciais
@@ -347,24 +427,22 @@ class ContainerRepeatedWidget(QWidget):
 
         if self.field.type == FieldDescriptor.TYPE_MESSAGE:
             item_msg = self.repeated_container[idx]
-            frame = QFrame()
-            frame.setObjectName("SubMessageFrame")
-            frame.setStyleSheet("""
-                QFrame#SubMessageFrame {
-                    border: 1.5px solid #2b579a;
-                    border-radius: 6px;
-                    background-color: #fdfdfd;
-                }
-            """)
-            frame_layout = QVBoxLayout(frame)
-            frame_layout.setContentsMargins(10, 10, 10, 10)
-            frame_layout.setSpacing(6)
-
-            self.formulario._render_message_fields(item_msg, frame_layout)
-
-            btn_remove.setSizePolicy(btn_remove.sizePolicy().horizontalPolicy(), btn_remove.sizePolicy().verticalPolicy())
-            frame_layout.addWidget(btn_remove, 0, Qt.AlignmentFlag.AlignRight)
-            item_layout.addWidget(frame)
+            
+            def lazy_loader(msg, layout):
+                self.formulario._render_message_fields(msg, layout)
+                
+            prefix = f"Item {idx}"
+            if hasattr(self.field, "name"):
+                prefix = f"{self.field.name.replace('_', ' ').capitalize()} [{idx}]"
+            
+            colapsavel = WidgetColapsavel(item_msg, prefix, lazy_loader, parent=self)
+            colapsavel.add_header_widget(btn_remove)
+            
+            if not hasattr(self, "_widgets_colapsaveis"):
+                self._widgets_colapsaveis = []
+            self._widgets_colapsaveis.append((item_msg, colapsavel))
+            
+            item_layout.addWidget(colapsavel)
         else:
             widget = ProtobufWidgetFactory.create_widget(self.field)
             widget.setProperty("protobuf_field", f"{self.field.name}[{idx}]")
@@ -527,6 +605,11 @@ class ContainerRepeatedWidget(QWidget):
 
 class WidgetFormularioPadrao(QStackedWidget):
     def _on_campo_alterado(self, msg_id, campo, novo_valor):
+        if campo in ["nome", "titulo", "id"]:
+            for colapsavel in self.findChildren(WidgetColapsavel):
+                if id(colapsavel.msg) == msg_id:
+                    colapsavel.update_title()
+
         for widget in self.findChildren(QWidget):
             w_field = widget.property("protobuf_field")
             w_msg_id = widget.property("protobuf_msg_id")

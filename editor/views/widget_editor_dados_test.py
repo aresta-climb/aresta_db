@@ -1516,3 +1516,86 @@ def test_exclusao_nao_dispara_adicao_automatica(qapp, monkeypatch):
 
     selected_indexes_after = widget.tree_view.selectionModel().selectedIndexes()
     assert len(selected_indexes_after) == 0, "A selecao permaneceu travada no no de adicao"
+
+def test_repeated_fields_usa_widget_colapsavel(qapp):
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetColapsavel
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico TDD"
+    
+    class MockFormulario:
+        model = None
+        controller = None
+        def _mark_dirty(self): pass
+        def _notify_tree_changed(self): pass
+        def _render_message_fields(self, msg, layout): pass
+        
+    field = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, field, MockFormulario(), None)
+    
+    assert container.items_layout.count() == 1
+    item_widget = container.items_layout.itemAt(0).widget()
+    
+    colapsaveis = item_widget.findChildren(WidgetColapsavel)
+    assert len(colapsaveis) == 1, "WidgetColapsavel nao foi instanciado para o repeated field de mensagem"
+
+def test_widget_colapsavel_lazy_load(qapp):
+    from editor.views.widget_editor_dados import WidgetColapsavel
+    from aresta_api.proto.generated.croqui_pb2 import Pico
+    from PyQt6.QtWidgets import QWidget
+    
+    pico = Pico(nome="Pico TDD Lazy")
+    
+    chamou_lazy = False
+    def lazy_loader(msg, layout):
+        nonlocal chamou_lazy
+        chamou_lazy = True
+        
+    widget = WidgetColapsavel(pico, "1", lazy_loader)
+    
+    # Ao instanciar, nao deve ter chamado o loader
+    assert not chamou_lazy
+    
+    # Ao expandir, deve chamar
+    widget.toggle_button.setChecked(True)
+    assert chamou_lazy
+
+def test_widget_colapsavel_heuristica_titulo(qapp):
+    from editor.views.widget_editor_dados import _extrair_titulo_heuristico
+    from aresta_api.proto.generated.croqui_pb2 import Pico
+    from unittest.mock import Mock
+    
+    # Tem nome
+    pico = Pico(nome="Pico Especial")
+    assert _extrair_titulo_heuristico(pico) == "Pico Especial"
+    
+    # Fake obj com id
+    ponto = Mock()
+    ponto.HasField.side_effect = lambda f: f == "id"
+    ponto.id = "P01"
+    assert _extrair_titulo_heuristico(ponto) == "P01"
+    
+    # Sem nada
+    pico2 = Pico()
+    assert _extrair_titulo_heuristico(pico2) is None
+
+def test_widget_colapsavel_undo_redo_atualiza_titulo(qapp):
+    from editor.views.widget_editor_dados import WidgetColapsavel
+    from aresta_api.proto.generated.croqui_pb2 import Pico
+    
+    pico = Pico(nome="Original")
+    
+    def lazy_loader(msg, layout): pass
+        
+    widget = WidgetColapsavel(pico, "Item 0", lazy_loader)
+    
+    # Titulo inicial
+    assert widget.toggle_button.text() == "▶ Item 0 - Original"
+    
+    # Mudanca por Undo
+    pico.nome = "Alterado"
+    widget.update_title()
+    
+    assert widget.toggle_button.text() == "▶ Item 0 - Alterado"
