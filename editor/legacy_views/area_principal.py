@@ -464,8 +464,21 @@ class JanelaPrincipal(QMainWindow):
                     self.caminho_croqui / "database"
                 )
                 
+            # 1. Salva database/croqui.yaml na pasta ATUAL
+            yaml_path = self.caminho_croqui / "database" / "croqui.yaml"
+            with open(yaml_path, "w", encoding="utf-8") as f:
+                yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
+                
+            # 2. Salva Mapas na pasta ATUAL
+            self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
+            
+            # 3. Salva Imagens na pasta ATUAL
+            self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
+            
+            # Verifica se precisa renomear a pasta (mudou o ID)
             novo_id = self.croqui_data.get("id") if self.croqui_data else None
             id_atual = None
+            houve_renomeacao = False
             if self.caminho_croqui:
                 partes = self.caminho_croqui.name.split("_", 1)
                 id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else self.caminho_croqui.name
@@ -474,18 +487,8 @@ class JanelaPrincipal(QMainWindow):
                 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
                 gerenciador = GerenciadorCroquiExperimental(self.storage if self.storage else None)
                 self.caminho_croqui = gerenciador.renomear_pasta_croqui(self.caminho_croqui, novo_id)
+                houve_renomeacao = True
                 
-            # 1. Salva database/croqui.yaml
-            yaml_path = self.caminho_croqui / "database" / "croqui.yaml"
-            with open(yaml_path, "w", encoding="utf-8") as f:
-                yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
-                
-            # 2. Salva Mapas
-            self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
-            
-            # 3. Salva Imagens
-            self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
-            
             # 4. Compila (o que também faz o commit git conforme GerenciadorCroquiExperimental)
             from editor.core.croqui_experimental import GerenciadorCroquiExperimental
             gerenciador = GerenciadorCroquiExperimental(self.storage if self.storage else None)
@@ -496,6 +499,12 @@ class JanelaPrincipal(QMainWindow):
             self.is_dirty = False
             self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
             
+            if houve_renomeacao:
+                # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
+                self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
+                self.pagina_mapas.carregar_mapas(self.caminho_croqui)
+                self.pagina_imagens.carregar_imagens(self.caminho_croqui)
+                
         except Exception as e:
             QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
 

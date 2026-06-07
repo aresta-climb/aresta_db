@@ -434,4 +434,10 @@ class GerenciadorCroquiExperimental:
                     break
                 time.sleep(0.2)
                 
+        # Limpeza do compilado antigo para não gerar duplicação local
+        id_antigo = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_antigo
+        caminho_velho_compilado = novo_caminho / "compilado" / id_antigo
+        if caminho_velho_compilado.is_dir() and id_antigo != novo_id:
+            shutil.rmtree(caminho_velho_compilado, ignore_errors=True)
+                
         return novo_caminho

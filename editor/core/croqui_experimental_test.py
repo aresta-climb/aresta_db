@@ -306,3 +306,30 @@ def test_renomear_pasta_croqui_sem_timestamp_prefixo(gerenciador, storage_temp):
     # assumiremos que o novo método gere um prefixo novo para manter padrão
     assert nova_pasta.name.endswith("_novo_nome")
     assert nova_pasta.name.split("_")[0].isdigit()
+
+def test_renomear_pasta_croqui_limpa_compilado_antigo(gerenciador, storage_temp):
+    """Verifica se o conteúdo compilado com o ID antigo é apagado ao renomear o croqui."""
+    caminho_exp = storage_temp.obter_caminho_croquis_experimentais()
+    timestamp = "20260606120000"
+    old_id = "br_mg_id_velho"
+    novo_id = "br_mg_id_novo"
+    
+    pasta_antiga = caminho_exp / f"{timestamp}_{old_id}"
+    pasta_antiga.mkdir(parents=True)
+    
+    # Simula a estrutura do compilado antigo
+    pasta_compilado_antigo = pasta_antiga / "compilado" / old_id
+    pasta_compilado_antigo.mkdir(parents=True)
+    (pasta_compilado_antigo / "index.html").write_text("ok")
+    
+    # Chama o método
+    nova_pasta = gerenciador.renomear_pasta_croqui(pasta_antiga, novo_id)
+    
+    # Verifica
+    assert nova_pasta.exists()
+    assert not pasta_antiga.exists()
+    
+    # O diretório 'br_mg_id_velho' NÃO deve existir mais dentro de 'compilado' do novo path
+    compilado_velho = nova_pasta / "compilado" / old_id
+    assert not compilado_velho.exists()
+

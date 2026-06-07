@@ -262,6 +262,9 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
         # Simular editores de imagem e mapa
         janela.pagina_mapas.editor = MagicMock()
         janela.pagina_imagens.editor = MagicMock()
+        janela.pagina_mapas.carregar_mapas = MagicMock()
+        janela.pagina_imagens.carregar_imagens = MagicMock()
+        janela.croqui_model.carregar_arquivos_externos = MagicMock()
 
         with patch("builtins.open", MagicMock()), \
              patch("editor.legacy_views.area_principal.yaml.dump"), \
@@ -284,6 +287,11 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
         # Garantir que a Janela atualizou sua referência interna de caminho
         assert str(janela.caminho_croqui) == str(nova_pasta)
         
-        # Garantir que a árvore carregou as páginas com o novo caminho
+        # Garantir que salvou as edições (para a pasta antes do reload)
         janela.pagina_mapas.editor.salvar_todas_mudancas.assert_called_once()
         janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()
+        
+        # Garantir que os subeditores receberam a recarga do path com o novo diretório
+        janela.pagina_mapas.carregar_mapas.assert_called_once_with(nova_pasta)
+        janela.pagina_imagens.carregar_imagens.assert_called_once_with(nova_pasta)
+        janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(nova_pasta / "database")
