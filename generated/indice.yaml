@@ -166,6 +166,9 @@ croquis:
   checksum_sha256_croqui: 1277396db2f5da1b4d8948360615143678a0cfbf1e5cc574221898a9676ad39d
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
   timestamp_update: '2026-06-02T22:46:32Z'
+  localizacao:
+    latitude: -195480000
+    longitude: -439900000
 - id: br_mg_sabara_pedra_rachada_setor_horizonte
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
@@ -182,6 +185,9 @@ croquis:
   checksum_sha256_croqui: b5c2aea9da73286d15d764b771d17c3fe278f5f2a63f7563158d3df98bee061d
   checksum_sha256_thumbnail: 83839077a1e4d6e4fd3c794ca5d5c9db433e6e933db95d3cc185f8b24e99c539
   timestamp_update: '2026-06-02T22:46:32Z'
+  localizacao:
+    latitude: -199973890
+    longitude: -473989720
 - id: br_mg_santa_luzia_santuario
   nome: Santuário de Santa Luzia
   descricao: ''
@@ -198,4 +204,4 @@ croquis:
   checksum_sha256_croqui: 2029444cbf2d3c6bc593902565f21d1c06037e6529e2d7ed540b5471a0e11b07
   checksum_sha256_thumbnail: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
   timestamp_update: '2026-06-02T22:46:32Z'
-url_base: https://meca-climb.github.io/kmon_serving
+url_base: https://aresta-climb.github.io/aresta_serving

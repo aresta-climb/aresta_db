@@ -191,7 +191,7 @@ def test_passo_c_gerar_indice(tmp_path):
     deploy_module.GENERATED_DIR.mkdir()
     
     compilados = [
-        ("pico1", {"nome": "Pico 1", "descricao": "Desc", "publicar_croqui": True}, tmp_path / "pico1.binarypb"),
+        ("pico1", {"nome": "Pico 1", "descricao": "Desc", "publicar_croqui": True, "picos": [{"localizacao": {"latitude": -123000000, "longitude": -456000000}}]}, tmp_path / "pico1.binarypb"),
         ("pico2", {"nome": "Pico 2", "descricao": "Desc", "publicar_croqui": True}, tmp_path / "pico2.binarypb")
     ]
     checksums = {
@@ -226,9 +226,12 @@ def test_passo_c_gerar_indice(tmp_path):
     # pico1 deve manter a data
     assert croquis_dict["pico1"]["checksum_sha256_croqui"] == "hash123"
     assert "2024-05-05" in croquis_dict["pico1"]["timestamp_update"]
+    assert croquis_dict["pico1"]["localizacao"]["latitude"] == -123000000
+    assert croquis_dict["pico1"]["localizacao"]["longitude"] == -456000000
     
     # pico2 deve atualizar a data para hoje (formato ISO 8601 UTC)
     assert croquis_dict["pico2"]["checksum_sha256_croqui"] == "hashNEW"
+    assert "localizacao" not in croquis_dict["pico2"]
     val = croquis_dict["pico2"]["timestamp_update"]
     assert "T" in val and val.endswith("Z")
 

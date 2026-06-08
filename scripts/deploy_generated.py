@@ -484,6 +484,12 @@ def passo_c_gerar_indice(
         resumo.url            = url_relativa
         resumo.checksum_sha256_croqui = new_checksum
 
+        picos = croqui_data.get("picos", [])
+        if picos and "localizacao" in picos[0]:
+            loc = picos[0]["localizacao"]
+            resumo.localizacao.latitude = loc.get("latitude", 0)
+            resumo.localizacao.longitude = loc.get("longitude", 0)
+
         # Thumbnail Checksum
         thumb_path = GENERATED_DIR / croqui_id / "imagens" / "thumbnail.webp"
         thumb_checksum = ""
@@ -518,6 +524,11 @@ def passo_c_gerar_indice(
             "checksum_sha256_thumbnail": resumo.checksum_sha256_thumbnail,
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
         }
+        if resumo.HasField("localizacao"):
+            item_yaml["localizacao"] = {
+                "latitude": resumo.localizacao.latitude,
+                "longitude": resumo.localizacao.longitude,
+            }
         indice_list.append(item_yaml)
 
     # indice.yaml — escrito antes do .binarypb para debug
