@@ -7,7 +7,7 @@ from editor.controllers.croqui_controller import CroquiController
 from PyQt6.QtGui import QUndoStack
 from editor.views.widget_editor_dados import WidgetEditorDados
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
-from editor.legacy_views.editor_mapas import WidgetEditorMapas
+from editor.views.widget_editor_mapas import WidgetEditorMapas
 
 @pytest.fixture(scope="session")
 def qapp():
@@ -145,6 +145,41 @@ def test_widget_editor_dados_select_root_node(qapp):
     line_edits = widget.form_padrao.findChildren(QLineEdit)
     nomes_campos = [le.text() for le in line_edits]
     assert "Complexo Pedra Grande" in nomes_campos
+
+
+def test_form_renderiza_botao_para_mapa(qapp):
+    """[TDD] Verifica que um Mapa renderiza um botão em vez de sub-campos do Protobuf."""
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from PyQt6.QtWidgets import QPushButton
+    
+    setor = Setor()
+    mapa = setor.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa.webp"
+    
+    node = ProtobufNode(name="Mapa", message=mapa, descriptor=mapa.DESCRIPTOR)
+    
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    
+    croqui_dummy = Croqui()
+    model = CroquiModel(croqui_dummy)
+    controller = CroquiController(model, QUndoStack())
+    form = WidgetFormularioPadrao(model, controller)
+    form.load_node(node)
+    
+    # Busca por botões
+    botoes = form.findChildren(QPushButton)
+    textos = [b.text() for b in botoes]
+    assert "Abrir no Editor de Mapas" in textos
+    
+    # Garante que não renderizou outros campos (como caminho_imagem_mapa) como QLineEdit
+    from PyQt6.QtWidgets import QLineEdit
+    line_edits = form.findChildren(QLineEdit)
+    assert len(line_edits) == 0
 
 
 def test_widget_formulario_padrao_no_overlap(qapp):

@@ -12,7 +12,7 @@ from editor.views.estilo import Icones
 from ..core.servidor_celular import ServidorCelular
 from ..core.monitor_inatividade import MonitorInatividade
 from .dialogo_conexao_celular import DialogoConexaoCelular
-from editor.legacy_views.editor_mapas import WidgetEditorMapas
+from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.notificacao import NotificacaoToast
 from ..core.historico import GerenciadorHistorico
@@ -124,11 +124,10 @@ class PaginaMapas(PaginaBase):
         self.editor = WidgetEditorMapas(parent=self)
         self.layout().addWidget(self.editor)
         
-    def carregar_mapas(self, caminho_croqui):
-        if caminho_croqui:
-            # Os arquivos de mapa (setor_*.md, grupo_*.md) ficam na pasta database
-            pasta_database = Path(caminho_croqui) / "database"
-            self.editor.carregar_pasta(str(pasta_database))
+    def carregar_mapas(self, model, controller, caminho_db=None):
+        if model:
+            self.editor.controller = controller
+            self.editor.carregar_de_modelo(model, caminho_db)
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent=None):
@@ -486,7 +485,7 @@ class JanelaPrincipal(QMainWindow):
                 
                 # Configura a UI
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
-                self.pagina_mapas.carregar_mapas(self.caminho_croqui)
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.croqui_controller, self.caminho_croqui / "database")
                 self.pagina_imagens.carregar_imagens(self.caminho_croqui)
                 
     def salvar_croqui(self):
@@ -544,7 +543,7 @@ class JanelaPrincipal(QMainWindow):
                 # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
                 if hasattr(self, 'croqui_model') and self.croqui_model:
                     self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
-                self.pagina_mapas.carregar_mapas(self.caminho_croqui)
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.croqui_controller, self.caminho_croqui / "database")
                 self.pagina_imagens.carregar_imagens(self.caminho_croqui)
                 
         except Exception as e:

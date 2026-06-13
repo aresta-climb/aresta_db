@@ -295,3 +295,25 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
         janela.pagina_mapas.carregar_mapas.assert_called_once_with(nova_pasta)
         janela.pagina_imagens.carregar_imagens.assert_called_once_with(nova_pasta)
         janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(nova_pasta / "database")
+
+
+def test_pagina_mapas_recebe_model_e_controller(qtbot):
+    from editor.legacy_views.area_principal import PaginaMapas
+    from unittest.mock import MagicMock
+    
+    pagina = PaginaMapas()
+    qtbot.addWidget(pagina)
+    
+    # Mocks
+    model_mock = MagicMock()
+    controller_mock = MagicMock()
+    
+    # Mock do editor interno para verificar se recebe os argumentos corretos
+    pagina.editor = MagicMock()
+    
+    # Executa o metodo
+    pagina.carregar_mapas(model_mock, controller_mock)
+    
+    # Verifica se os atributos do editor MVC foram atualizados
+    assert pagina.editor.controller == controller_mock
+    pagina.editor.carregar_de_modelo.assert_called_once_with(model_mock)

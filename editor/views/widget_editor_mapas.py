@@ -60,12 +60,27 @@ def registrar_movimento_final(item, estado_inicial):
         chave_mapa = None
         idx_poi = -1
         for k, d in widget_editor.dados_arquivos.items():
-            if item in d['itens_bb']:
+            if item in d.get('itens_bb', []):
                 chave_mapa = k
                 idx_poi = d['itens_bb'].index(item)
                 break
         
         if chave_mapa is not None and idx_poi != -1:
+            dados = widget_editor.dados_arquivos[chave_mapa]
+            if hasattr(widget_editor, 'controller') and widget_editor.controller:
+                from google.protobuf.json_format import ParseDict
+                from aresta_api.proto.generated import croqui_pb2
+                poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
+                ParseDict(estado_inicial, poi_antigo)
+                poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
+                ParseDict(estado_final, poi_novo)
+                if hasattr(widget_editor.controller, 'set_contexto'):
+                    p_idx, sg_idx, m_idx = dados['pico_idx'], dados['sg_idx'], dados['mapa_idx']
+                    path_str = f'node:root/node:Croqui/node:picos/item:{p_idx}/node:setores_ou_grupos/item:{sg_idx}/node:setor/node:mapas/item:{m_idx}'
+                    widget_editor.controller.set_contexto('page:mapas/' + path_str)
+                widget_editor.controller.alterar_repeated_item(dados['mapa_msg'], 'pontos_de_interesse', idx_poi, poi_antigo, poi_novo)
+                return
+            
             historico = None
             window = widget_editor.window()
             if window and hasattr(window, "historico"):
@@ -704,10 +719,6 @@ class WidgetEditorMapas(QWidget):
         self.btn_converter.clicked.connect(self.alternar_modo_conversao)
         layout_esquerdo.addWidget(self.btn_converter)
 
-        self.btn_restaurar = QPushButton(" Restaurar")
-        self.btn_restaurar.clicked.connect(self.restaurar_arquivo_atual)
-        layout_esquerdo.addWidget(self.btn_restaurar)
-
         layout_esquerdo.addStretch()
 
         layout_bulk = QVBoxLayout()
@@ -743,15 +754,7 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.addLayout(layout_bulk)
         layout_esquerdo.addSpacing(10)
 
-        self.btn_salvar = QPushButton(" SALVAR ALTERAÇÕES")
-        self.btn_salvar.setObjectName("btn_salvar")
-        from editor.views.estilo import Icones
-        self.btn_salvar.setIcon(Icones.obter("salvar", cor="white"))
-        self.btn_salvar.clicked.connect(self.salvar_todas_mudancas)
-        self.btn_salvar.setFixedHeight(45)
-        self.btn_salvar.setVisible(self.standalone)
-        layout_esquerdo.addWidget(self.btn_salvar)
-        
+
         self.splitter.addWidget(self.widget_esquerdo)
         
         # Painel Direito (Visualizador)
@@ -791,14 +794,40 @@ class WidgetEditorMapas(QWidget):
         self.splitter.setSizes([250, 750])
         layout_principal.addWidget(self.splitter)
 
-    def carregar_pasta(self, caminho_pasta):
-        self.caminho_pasta = caminho_pasta
+    def carregar_de_modelo(self, modelo, caminho_db=None):
+        self.modelo = modelo
+        self.caminho_db = caminho_db
         self.list_widget.clear()
-        self.dados_arquivos = {} # Crucial: limpar dados antigos!
-        for padrao in ["setor_*.md", "grupo_*.md"]:
-            for f in glob.glob(os.path.join(caminho_pasta, padrao)):
-                self.carregar_markdown(f)
+        self.dados_arquivos = {}
+        if hasattr(self, '_on_repeated_item_alterado'):
+            try:
+                self.modelo.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
+                self.modelo.repeated_adicionado.disconnect(self._on_repeated_adicionado)
+                self.modelo.repeated_removido.disconnect(self._on_repeated_removido)
+            except Exception: pass
+        self.modelo.repeated_item_alterado.connect(self._on_repeated_item_alterado)
+        self.modelo.repeated_adicionado.connect(self._on_repeated_adicionado)
+        self.modelo.repeated_removido.connect(self._on_repeated_removido)
         
+        croqui_msg = modelo.obter_croqui_readonly()
+        
+        for p_idx, pico in enumerate(croqui_msg.picos):
+            for sg_idx, sg in enumerate(pico.setores_ou_grupos):
+                if sg.HasField("setor"):
+                    setor = sg.setor.conteudo
+                    for m_idx, mapa in enumerate(setor.mapas):
+                        disp = mapa.caminho_imagem_mapa if mapa.caminho_imagem_mapa else f"Mapa {m_idx+1}"
+                        ui_item = QListWidgetItem(f"{setor.nome} - {disp}")
+                        chave = (pico.nome, setor.nome, m_idx)
+                        self.dados_arquivos[chave] = {
+                            'mapa_msg': mapa,
+                            'pico_idx': p_idx,
+                            'sg_idx': sg_idx,
+                            'mapa_idx': m_idx
+                        }
+                        ui_item.setData(Qt.ItemDataRole.UserRole, chave)
+                        self.list_widget.addItem(ui_item)
+
         if self.list_widget.count() > 0:
             self.list_widget.setCurrentRow(0)
             self.label_placeholder.setVisible(False)
@@ -856,6 +885,38 @@ class WidgetEditorMapas(QWidget):
         chave = self.list_widget.item(indice).data(Qt.ItemDataRole.UserRole)
         dados = self.dados_arquivos.get(chave)
         if dados:
+            if 'cena' not in dados:
+                cena = CenaDesenho(self)
+                itens_bb = []
+                mapa_msg = dados.get('mapa_msg')
+                
+                if mapa_msg:
+                    import os
+                    from pathlib import Path
+                    from google.protobuf.json_format import MessageToDict
+                    
+                    if mapa_msg.caminho_imagem_mapa and hasattr(self, 'caminho_db') and self.caminho_db:
+                        img_path = str(Path(self.caminho_db) / mapa_msg.caminho_imagem_mapa)
+                        if os.path.exists(img_path):
+                            cena.addPixmap(QPixmap(img_path))
+                    
+                    for pt_msg in mapa_msg.pontos_de_interesse:
+                        pt = MessageToDict(pt_msg, preserving_proto_field_name=True)
+                        item = None
+                        if 'circular' in pt:
+                            item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
+                        elif 'box' in pt:
+                            item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
+                        elif 'area_livre' in pt:
+                            item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
+                        
+                        if item:
+                            cena.addItem(item)
+                            itens_bb.append(item)
+                
+                dados['cena'] = cena
+                dados['itens_bb'] = itens_bb
+
             self.label_placeholder.setVisible(False)
             self.visualizador.setVisible(True)
             self.dados_atuais = dados
@@ -901,24 +962,52 @@ class WidgetEditorMapas(QWidget):
                 item_gui = ItemBoundingBox(pt_dict, self.deletar_item_poi, self.marcar_modificado)
             
             if item_gui:
+                if hasattr(self, 'controller') and self.controller:
+                    from aresta_api.proto.generated import croqui_pb2
+                    from google.protobuf.json_format import ParseDict
+                    novo_poi = croqui_pb2.Mapa.PontoDeInteresse()
+                    ParseDict(pt_dict, novo_poi)
+                    indice_insercao = len(self.dados_atuais['itens_bb'])
+                    if hasattr(self.controller, 'set_contexto'):
+                        d = self.dados_atuais
+                        path_str = f'node:root/node:Croqui/node:picos/item:{d['pico_idx']}/node:setores_ou_grupos/item:{d['sg_idx']}/node:setor/node:mapas/item:{d['mapa_idx']}'
+                        self.controller.set_contexto('page:mapas/' + path_str)
+                    self.controller.adicionar_repeated(self.dados_atuais['mapa_msg'], 'pontos_de_interesse', indice_insercao, novo_poi)
+                    return
                 self.dados_atuais['cena'].addItem(item_gui)
                 self.dados_atuais['itens_bb'].append(item_gui)
-                self.dados_atuais['dados_yaml']['mapas'][self.dados_atuais['indice_mapa']].setdefault('pontos_de_interesse', []).append(pt_dict)
+                if 'dados_yaml' in self.dados_atuais:
+                    self.dados_atuais['dados_yaml']['mapas'][self.dados_atuais['indice_mapa']].setdefault('pontos_de_interesse', []).append(pt_dict)
                 self.marcar_modificado()
 
     def deletar_item_poi(self, item):
         chave_unica = None
         for k, d in self.dados_arquivos.items():
-            if item in d['itens_bb']:
+            if item in d.get('itens_bb', []):
                 chave_unica = k
                 break
         if not chave_unica: return
         
         dados = self.dados_arquivos[chave_unica]
-        dados['cena'].removeItem(item)
         idx = dados['itens_bb'].index(item)
+        
+        if hasattr(self, 'controller') and self.controller:
+            from aresta_api.proto.generated import croqui_pb2
+            from google.protobuf.json_format import ParseDict
+            poi_removido = croqui_pb2.Mapa.PontoDeInteresse()
+            estado_atual = item.obter_dict_atualizado()
+            ParseDict(estado_atual, poi_removido)
+            if hasattr(self.controller, 'set_contexto'):
+                d = dados
+                path_str = f'node:root/node:Croqui/node:picos/item:{d['pico_idx']}/node:setores_ou_grupos/item:{d['sg_idx']}/node:setor/node:mapas/item:{d['mapa_idx']}'
+                self.controller.set_contexto('page:mapas/' + path_str)
+            self.controller.remover_repeated(dados['mapa_msg'], 'pontos_de_interesse', idx, poi_removido)
+            return
+            
+        dados['cena'].removeItem(item)
         dados['itens_bb'].pop(idx)
-        dados['dados_yaml']['mapas'][dados['indice_mapa']]['pontos_de_interesse'].pop(idx)
+        if 'dados_yaml' in dados:
+            dados['dados_yaml']['mapas'][dados['indice_mapa']]['pontos_de_interesse'].pop(idx)
         self.marcar_modificado()
 
     def marcar_modificado(self):
@@ -926,66 +1015,7 @@ class WidgetEditorMapas(QWidget):
             self.esta_modificado = True
             self.alterado.emit(True)
 
-    def salvar_todas_mudancas(self, mostrar_mensagem=True):
-        processados = set()
-        for k, dados in self.dados_arquivos.items():
-            mapa = dados['dados_yaml']['mapas'][dados['indice_mapa']]
-            mapa['pontos_de_interesse'] = [it.obter_dict_atualizado() for it in dados['itens_bb']]
-            
-            caminho = dados['caminho_arquivo']
-            if caminho not in processados:
-                self.gerenciador_arquivos.salvar_arquivo(caminho, dados['dados_yaml'], dados['corpo_markdown'])
-                processados.add(caminho)
-        
-        self.esta_modificado = False
-        self.alterado.emit(False)
-        if mostrar_mensagem:
-            # Tenta encontrar a JanelaPrincipal para exibir a notificação moderna
-            janela = self.window()
-            if hasattr(janela, "exibir_notificacao"):
-                janela.exibir_notificacao("Arquivos salvos!")
-            else:
-                QMessageBox.information(self, "Sucesso", "Arquivos salvos!")
 
-    def restaurar_arquivo_atual(self):
-        if not self.dados_atuais: return
-        fp = self.dados_atuais['caminho_arquivo']
-        
-        if QMessageBox.question(self, "Confirmação", f"Descartar todas as mudanças não salvas em {os.path.basename(fp)}?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No) == QMessageBox.StandardButton.No:
-            return
-
-        try:
-            dados_yaml, corpo_md = self.gerenciador_arquivos.ler_arquivo(fp)
-            if not dados_yaml: return
-            
-            for chave, dados in self.dados_arquivos.items():
-                if dados['caminho_arquivo'] == fp:
-                    idx_mapa = dados['indice_mapa']
-                    mapa = dados_yaml['mapas'][idx_mapa]
-                    
-                    for it in dados['itens_bb']:
-                        dados['cena'].removeItem(it)
-                    dados['itens_bb'] = []
-                    
-                    for pt in mapa.get('pontos_de_interesse', []):
-                        item = None
-                        if 'circular' in pt:
-                            item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
-                        elif 'box' in pt:
-                            item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
-                        elif 'area_livre' in pt:
-                            item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
-                        
-                        if item:
-                            dados['cena'].addItem(item)
-                            dados['itens_bb'].append(item)
-                    
-                    dados['dados_yaml'] = dados_yaml
-                    dados['corpo_markdown'] = corpo_md
-            
-            self.ao_selecionar_arquivo(self.list_widget.currentRow())
-        except Exception as e:
-            QMessageBox.critical(self, "Erro", f"Erro ao restaurar arquivo: {e}")
 
     # Lógica de Desenho e Conversão
     def iniciar_modo_desenho(self, dados):
@@ -1173,3 +1203,39 @@ class WidgetEditorMapas(QWidget):
         elif tipo == 'box':
             self.slider_box.blockSignals(True); self.slider_box.setValue(0); self.slider_box.blockSignals(False)
             self.label_box.setText("0%")
+
+    def _recarregar_pois_cena_atual(self):
+        if not self.dados_atuais or 'cena' not in self.dados_atuais: return
+        cena = self.dados_atuais['cena']
+        mapa_msg = self.dados_atuais['mapa_msg']
+        
+        for item in self.dados_atuais.get('itens_bb', []):
+            cena.removeItem(item)
+        self.dados_atuais['itens_bb'] = []
+        
+        from google.protobuf.json_format import MessageToDict
+        for pt_msg in mapa_msg.pontos_de_interesse:
+            pt = MessageToDict(pt_msg, preserving_proto_field_name=True)
+            item = None
+            if 'circular' in pt:
+                item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
+            elif 'box' in pt:
+                item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
+            elif 'area_livre' in pt:
+                item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
+            
+            if item:
+                cena.addItem(item)
+                self.dados_atuais['itens_bb'].append(item)
+
+    def _on_repeated_item_alterado(self, msg, campo_nome, index):
+        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
+            self._recarregar_pois_cena_atual()
+
+    def _on_repeated_adicionado(self, msg, campo_nome, index):
+        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
+            self._recarregar_pois_cena_atual()
+
+    def _on_repeated_removido(self, msg, campo_nome, index):
+        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
+            self._recarregar_pois_cena_atual()

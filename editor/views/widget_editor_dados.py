@@ -5,7 +5,7 @@ from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
-from editor.legacy_views.editor_mapas import WidgetEditorMapas
+from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
@@ -942,6 +942,27 @@ class WidgetFormularioPadrao(QStackedWidget):
                         self._render_field_container(msg, conteudo_field, parent_layout)
                 else:
                     parent_layout.addWidget(QLabel("ERRO: Campo 'conteudo' não encontrado na mensagem ONEOF_CONTEUDO."))
+                return
+            elif formato_msg == croqui_pb2.MensagemFormatoUi.MAPA:
+                btn_mapa = QPushButton("Abrir no Editor de Mapas")
+                btn_mapa.setStyleSheet("padding: 8px; font-weight: bold; background-color: #4CAF50; color: white;")
+                
+                # Procura a janela principal ou WidgetEditorDados pai
+                parent = self.parent()
+                while parent:
+                    if hasattr(parent, "stacked_widget") and hasattr(parent, "tree_view"):
+                        def go_to_map():
+                            parent.stacked_widget.setCurrentIndex(2)
+                            # E a tree view node? Já está focada no Mapa. O WidgetEditorMapas responde ao mesmo model.
+                            # Para forçar o roteamento caso necessário (geralmente index(2) é suficiente)
+                            if hasattr(parent.editor_mapas, "selecionar_arquivo"):
+                                # Se quisermos abrir um arquivo específico, poderíamos.
+                                pass
+                        btn_mapa.clicked.connect(go_to_map)
+                        break
+                    parent = parent.parent()
+                    
+                parent_layout.addWidget(btn_mapa)
                 return
             
         # Mapeia campos contidos em oneofs para não renderizá-los duplicados
