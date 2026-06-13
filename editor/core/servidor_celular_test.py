@@ -103,3 +103,68 @@ def test_deve_obter_ip_local():
     assert "." in ip
     # Verifica se não é o localhost 127.0.0.1 (queremos o IP da rede Wi-Fi/LAN)
     assert ip != "127.0.0.1"
+
+def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+    
+    servidor = ServidorCelular(pasta_compilado)
+    servidor.iniciar()
+    esperar_porta(servidor)
+    
+    url = f"http://127.0.0.1:{servidor.porta}/handshake"
+    
+    # Usa um Session para testar o Keep-Alive
+    with requests.Session() as s:
+        resposta = s.get(url)
+        assert resposta.status_code == 200
+        assert resposta.json() == {"status": "conectado"}
+        
+        # Verifica se o Content-Length está presente para suportar HTTP/1.1
+        assert "Content-Length" in resposta.headers, "Deve enviar Content-Length no handshake para não travar conexões HTTP/1.1"
+        assert int(resposta.headers["Content-Length"]) > 0
+        
+        # Faz uma segunda requisição na mesma sessão TCP para provar que a conexão não caiu
+        resposta_2 = s.get(url)
+        assert resposta_2.status_code == 200
+    
+    servidor.parar()
+
+def test_deve_retornar_304_se_etag_sha256_bater(tmp_path):
+    import hashlib
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+    arquivo_teste = pasta_compilado / "dados.bin"
+    conteudo = b"dados super pesados do croqui"
+    arquivo_teste.write_bytes(conteudo)
+    
+    # Calcula o sha256 esperado
+    sha256_esperado = hashlib.sha256(conteudo).hexdigest()
+    
+    servidor = ServidorCelular(pasta_compilado)
+    servidor.iniciar()
+    esperar_porta(servidor)
+    
+    url = f"http://127.0.0.1:{servidor.porta}/dados.bin"
+    
+    with requests.Session() as s:
+        # Primeira chamada - Deve retornar 200 e trazer o ETag
+        resp1 = s.get(url)
+        assert resp1.status_code == 200
+        assert "ETag" in resp1.headers
+        
+        etag = resp1.headers["ETag"]
+        # O ETag deve conter o hash sha256 do arquivo (ex: "hash" ou W/"hash")
+        assert sha256_esperado in etag
+        
+        # Segunda chamada enviando If-None-Match
+        resp2 = s.get(url, headers={"If-None-Match": etag})
+        assert resp2.status_code == 304, "Deveria retornar Not Modified"
+        assert not resp2.content, "Body deveria estar vazio no 304"
+        assert resp2.headers.get("ETag") == etag, "Deve reenviar o ETag no 304"
+        
+        # Terceira chamada enviando um If-None-Match furado
+        resp3 = s.get(url, headers={"If-None-Match": '"fake-hash"'})
+        assert resp3.status_code == 200, "Deveria baixar novamente pois o ETag não bate"
+        
+    servidor.parar()

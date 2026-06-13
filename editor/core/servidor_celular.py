@@ -5,6 +5,7 @@ from socketserver import ThreadingMixIn
 from PyQt6.QtCore import QObject, pyqtSignal
 import random
 from pathlib import Path
+import hashlib
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Servidor HTTP que trata cada requisição em uma thread separada.
@@ -15,6 +16,9 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 class ManipuladorHandshake(SimpleHTTPRequestHandler):
     """Manipulador que emite um sinal quando uma requisição é recebida."""
     
+    # Habilita HTTP/1.1 para suportar Keep-Alive nativamente
+    protocol_version = "HTTP/1.1"
+
     # Mapeamento customizado de extensões para garantir exibição correta no navegador
     extensions_map = SimpleHTTPRequestHandler.extensions_map.copy()
     extensions_map.update({
@@ -26,13 +30,42 @@ class ManipuladorHandshake(SimpleHTTPRequestHandler):
 
     def __init__(self, *args, servidor_obj=None, **kwargs):
         self.servidor_obj = servidor_obj
+        self.current_etag = None
         super().__init__(*args, **kwargs)
+
+    def _calcular_sha256(self, caminho_arquivo):
+        """Calcula o SHA-256 de um arquivo lendo em chunks para economizar RAM."""
+        sha256 = hashlib.sha256()
+        try:
+            with open(caminho_arquivo, 'rb') as f:
+                for chunk in iter(lambda: f.read(8192), b''):
+                    sha256.update(chunk)
+            return f'"{sha256.hexdigest()}"'
+        except Exception:
+            return None
+
+    def end_headers(self):
+        """Sobrescreve o end_headers para injetar o ETag se existir."""
+        if hasattr(self, 'current_etag') and self.current_etag:
+            self.send_header('ETag', self.current_etag)
+        super().end_headers()
 
     def do_GET(self):
         # Traduz o caminho da URL para o caminho do sistema de arquivos
         caminho_fisico = Path(self.translate_path(self.path))
         eh_arquivo_real = caminho_fisico.is_file()
         eh_handshake = self.path == "/handshake"
+
+        # Lógica de ETag e HTTP 304 para arquivos
+        if eh_arquivo_real:
+            etag = self._calcular_sha256(caminho_fisico)
+            if etag:
+                self.current_etag = etag
+                if_none_match = self.headers.get('If-None-Match')
+                if if_none_match == etag:
+                    self.send_response(304)
+                    self.end_headers()
+                    return
 
         # Emite o sinal se o recurso existir ou for o handshake
         # Nota: diretórios agora também são válidos para listagem
@@ -45,10 +78,12 @@ class ManipuladorHandshake(SimpleHTTPRequestHandler):
                 self.servidor_obj.dispositivo_conectado.emit()
 
         if eh_handshake:
+            conteudo = b'{"status": "conectado"}'
             self.send_response(200)
             self.send_header("Content-type", "application/json")
+            self.send_header("Content-Length", str(len(conteudo)))
             self.end_headers()
-            self.wfile.write(b'{"status": "conectado"}')
+            self.wfile.write(conteudo)
             return
 
         return super().do_GET()
