@@ -1,102 +1,30 @@
 import socket
 import threading
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-from socketserver import ThreadingMixIn
-from PyQt6.QtCore import QObject, pyqtSignal
 import random
+import mimetypes
 from pathlib import Path
-import hashlib
+from PyQt6.QtCore import QObject, pyqtSignal
 
-class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
-    """Servidor HTTP que trata cada requisição em uma thread separada.
-    Isso evita que uma conexão lenta de celular trave o servidor ou o shutdown.
-    """
-    daemon_threads = True
+import uvicorn
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
-class ManipuladorHandshake(SimpleHTTPRequestHandler):
-    """Manipulador que emite um sinal quando uma requisição é recebida."""
-    
-    # Habilita HTTP/1.1 para suportar Keep-Alive nativamente
-    protocol_version = "HTTP/1.1"
-
-    # Mapeamento customizado de extensões para garantir exibição correta no navegador
-    extensions_map = SimpleHTTPRequestHandler.extensions_map.copy()
-    extensions_map.update({
-        '.yaml': 'text/plain; charset=utf-8',
-        '.yml': 'text/plain; charset=utf-8',
-        '.md': 'text/plain; charset=utf-8',
-        '.binarypb': 'application/octet-stream',
-    })
-
-    def __init__(self, *args, servidor_obj=None, **kwargs):
-        self.servidor_obj = servidor_obj
-        self.current_etag = None
-        super().__init__(*args, **kwargs)
-
-    def _calcular_sha256(self, caminho_arquivo):
-        """Calcula o SHA-256 de um arquivo lendo em chunks para economizar RAM."""
-        sha256 = hashlib.sha256()
-        try:
-            with open(caminho_arquivo, 'rb') as f:
-                for chunk in iter(lambda: f.read(8192), b''):
-                    sha256.update(chunk)
-            return f'"{sha256.hexdigest()}"'
-        except Exception:
-            return None
-
-    def end_headers(self):
-        """Sobrescreve o end_headers para injetar o ETag se existir."""
-        if hasattr(self, 'current_etag') and self.current_etag:
-            self.send_header('ETag', self.current_etag)
-        super().end_headers()
-
-    def do_GET(self):
-        # Traduz o caminho da URL para o caminho do sistema de arquivos
-        caminho_fisico = Path(self.translate_path(self.path))
-        eh_arquivo_real = caminho_fisico.is_file()
-        eh_handshake = self.path == "/handshake"
-
-        # Lógica de ETag e HTTP 304 para arquivos
-        if eh_arquivo_real:
-            etag = self._calcular_sha256(caminho_fisico)
-            if etag:
-                self.current_etag = etag
-                if_none_match = self.headers.get('If-None-Match')
-                if if_none_match == etag:
-                    self.send_response(304)
-                    self.end_headers()
-                    return
-
-        # Emite o sinal se o recurso existir ou for o handshake
-        # Nota: diretórios agora também são válidos para listagem
-        recurso_existe = eh_arquivo_real or caminho_fisico.is_dir()
-        
-        if self.servidor_obj and (recurso_existe or eh_handshake):
-            if self.path != "/favicon.ico":
-                print(f"[INFO] Requisição válida em {self.path}. Dispositivo conectado.")
-                self.servidor_obj.conectado = True
-                self.servidor_obj.dispositivo_conectado.emit()
-
-        if eh_handshake:
-            conteudo = b'{"status": "conectado"}'
-            self.send_response(200)
-            self.send_header("Content-type", "application/json")
-            self.send_header("Content-Length", str(len(conteudo)))
-            self.end_headers()
-            self.wfile.write(conteudo)
-            return
-
-        return super().do_GET()
+# Mapeamento customizado de extensões para garantir exibição correta no navegador (usado pelo StaticFiles nativamente)
+mimetypes.add_type('text/plain', '.yaml')
+mimetypes.add_type('text/plain', '.yml')
+mimetypes.add_type('text/plain', '.md')
+mimetypes.add_type('application/octet-stream', '.binarypb')
 
 class ServidorCelular(QObject):
-    """Gerencia um servidor HTTP local para conexão com o aplicativo móvel."""
+    """Gerencia um servidor HTTP local para conexão com o aplicativo móvel usando FastAPI/Uvicorn."""
     dispositivo_conectado = pyqtSignal()
     
     def __init__(self, pasta_compilado, parent=None):
         super().__init__(parent)
         self.pasta_compilado = Path(pasta_compilado)
         self.porta = None
-        self.httpd = None
+        self.server = None
         self.thread = None
         self._servindo = False
         self.conectado = False
@@ -108,7 +36,6 @@ class ServidorCelular(QObject):
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if s.connect_ex(('127.0.0.1', porta)) != 0:
                     return porta
-        # Se falhar as tentativas, deixa o SO escolher uma porta (porta 0)
         return 0
 
     def obter_ip_local(self):
@@ -145,7 +72,7 @@ class ServidorCelular(QObject):
         return buffer.getvalue()
 
     def iniciar(self):
-        """Inicia o servidor HTTP em uma thread separada."""
+        """Inicia o servidor HTTP ASGI em uma thread separada."""
         if self._servindo:
             return
 
@@ -156,28 +83,52 @@ class ServidorCelular(QObject):
                 # Obtém a porta dentro da thread
                 self.porta = self.obter_porta_disponivel()
                 
-                def handler_factory(*args, **kwargs):
-                    return ManipuladorHandshake(*args, servidor_obj=self, directory=str(self.pasta_compilado), **kwargs)
+                app = FastAPI(title="Servidor Celular Aresta", docs_url=None, redoc_url=None)
+                
+                @app.get("/handshake")
+                def handshake():
+                    self.conectado = True
+                    self.dispositivo_conectado.emit()
+                    return JSONResponse(content={"status": "conectado"})
 
-                self.httpd = ThreadedHTTPServer(('0.0.0.0', self.porta), handler_factory)
-                # Garante que a porta final seja a do servidor (caso o SO tenha escolhido uma diferente)
-                self.porta = self.httpd.server_port
+                @app.middleware("http")
+                async def notify_connection(request: Request, call_next):
+                    response = await call_next(request)
+                    # Notificar via sinal qt sempre que um recurso for acessado com sucesso
+                    if response.status_code in (200, 206, 304) and request.url.path != "/favicon.ico":
+                        self.conectado = True
+                        self.dispositivo_conectado.emit()
+                    return response
+
+                # Monta a pasta de arquivos compilados, gerenciando ETags e 304 nativamente
+                app.mount("/", StaticFiles(directory=str(self.pasta_compilado)), name="static")
+
+                config = uvicorn.Config(
+                    app=app,
+                    host="0.0.0.0",
+                    port=self.porta,
+                    log_level="warning", # Para não poluir o terminal, igual ao http.server
+                )
+                self.server = uvicorn.Server(config)
+                
                 print(f"[INFO] Servidor Celular rodando em http://0.0.0.0:{self.porta}")
-                self.httpd.serve_forever()
-                print("[INFO] Loop serve_forever() do servidor celular encerrado com sucesso.")
+                # run() é bloqueante e vai rodar o asyncio event loop desta thread
+                self.server.run()
+                print("[INFO] Loop ASGI do servidor celular encerrado com sucesso.")
             except Exception as e:
                 import traceback
-                print(f"[ERROR] Falha no servidor celular: {e}")
+                print(f"[ERROR] Falha no servidor celular ASGI: {e}")
                 traceback.print_exc()
             finally:
                 self._servindo = False
+                self.server = None
                 print("[DEBUG] Thread do servidor celular finalizada.")
 
         self.thread = threading.Thread(target=run_server, daemon=True)
         self.thread.start()
 
     def parar(self):
-        """Encerra o servidor HTTP sem bloquear a UI."""
+        """Encerra o servidor HTTP sem bloquear a UI e sem usar threads extras."""
         if not self._servindo:
             return
             
@@ -185,24 +136,7 @@ class ServidorCelular(QObject):
         self._servindo = False
         self.conectado = False
         
-        # Copia referências para a thread de shutdown
-        httpd_para_fechar = self.httpd
-        
-        def shutdown_process():
-            try:
-                if httpd_para_fechar:
-                    print("[DEBUG] Chamando httpd.shutdown()...")
-                    # shutdown() acorda o loop serve_forever e o encerra
-                    httpd_para_fechar.shutdown()
-                    print("[DEBUG] httpd.shutdown() retornou. Fechando socket...")
-                    httpd_para_fechar.server_close()
-                    print("[INFO] Socket do servidor celular liberado.")
-            except Exception as e:
-                print(f"[WARN] Erro ao encerrar HTTPd em background: {e}")
-
-        # Executa o shutdown em uma thread separada para evitar QUALQUER travamento na UI
-        threading.Thread(target=shutdown_process, daemon=True).start()
-            
-        self.httpd = None
-        self.thread = None
-        print("[INFO] Sinal de encerramento enviado para o servidor celular.")
+        if self.server:
+            print("[DEBUG] Setando should_exit = True no Uvicorn...")
+            self.server.should_exit = True
+            print("[INFO] Sinal de encerramento nativo enviado para o servidor celular.")

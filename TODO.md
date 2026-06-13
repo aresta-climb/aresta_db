@@ -3,6 +3,7 @@
 Tarefas ainda a fazer na database.
 
 ## Editor
+- Continuar a partir da migração do editor de mapas, na conversa de aresta_db: "Migrating Editor Mapas MVC"
 - Muitas melhorias para undo/redo:
   - No editor de mapas, adicionar novos pontos ou remover pontos não está como parte do ctrl+z
 

@@ -11,3 +11,6 @@ grpcio-tools
 pytest
 pytest-xdist
 pytest-testmon
+fastapi
+uvicorn
+httpx
