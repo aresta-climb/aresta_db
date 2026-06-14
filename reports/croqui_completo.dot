@@ -1,0 +1,1521 @@
+digraph G {
+    fontname="Arial";
+    rankdir=LR;
+    node [shape=none, fontname=Arial];
+    labelloc="t";
+    labeljust="l";
+    label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5"><b>Legenda de Colunas</b>&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td colspan="4" align="left">Dentre os croquis publicados que criaram esta mensagem, quantos preencheram o campo.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Em Publicados</b>&nbsp;&nbsp;</td><td colspan="4" align="left">No total de croquis publicados no banco, quantos preencheram o campo.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Relativo Todos</b>&nbsp;&nbsp;</td><td colspan="4" align="left">Dentre todos os croquis que criaram esta mensagem, quantos preencheram o campo.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Em Todos</b>&nbsp;&nbsp;</td><td colspan="4" align="left">No total global de croquis no banco, quantos preencheram o campo.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+        </table>
+    >;
+
+    "aresta.Croqui" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um croqui de escalada, que pode incluir um ou mais picos."><b>Croqui</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Identificador único do croqui. Ideal formato como &quot;br_mg_igarape_pedra_grande&quot;.">id&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="id" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome oficial do croqui.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição curta do pico do croqui, que será exibida na lista de croquis. Máximo recomendado de 100 palavras.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#a2005c"><font color="white">63% (14/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#a2005c"><font color="white">63% (14/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#a70057"><font color="white">65% (23/35)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#a70057"><font color="white">65% (23/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Créditos ao criador do croqui.">creditos&nbsp;&nbsp;</td>
+                <td bgcolor="#b90045"><font color="white">72% (16/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#b90045"><font color="white">72% (16/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#a0005e"><font color="white">62% (22/35)&nbsp;&nbsp;</font></td>
+                <td port="creditos" bgcolor="#a0005e"><font color="white">62% (22/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Botões que aparecem no croqui para mostrarem mais informações.">botoes&nbsp;&nbsp;</td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+                <td port="botoes" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Picos que fazem parte desse croqui.">picos&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="picos" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Repositório interno de arquivos externos que não estão incluídos no .binarypb.">arquivos_externos&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="arquivos_externos" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Caminho para a thumbnail do croqui (imagem em miniatura para prever croquis não baixados). Essa imagem deve ter no máximo 1200x1200.">caminho_thumbnail&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+                <td port="caminho_thumbnail" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa se o croqui já foi revisado manualmente para garantir qualidade.">revisado_manualmente&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#a70057"><font color="white">65% (23/35)&nbsp;&nbsp;</font></td>
+                <td port="revisado_manualmente" bgcolor="#a70057"><font color="white">65% (23/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa se o croqui já foi revisado para ter bounding circles apropriados.">revisado_bounding_circle&nbsp;&nbsp;</td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+                <td port="revisado_bounding_circle" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa se o croqui tem desenhos extraíveis do PDF. Isso indica se as linhas do croqui podem ser extraídas do PDF como desenho vetorial, o que resulta em extrações de PDF de mais alta qualidade.">status_desenho_extraivel&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#e90015"><font color="white">91% (32/35)&nbsp;&nbsp;</font></td>
+                <td port="status_desenho_extraivel" bgcolor="#e90015"><font color="white">91% (32/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Identificador da última migração aplicada a este croqui (prefixo numérico sequencial).">ultima_migracao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="ultima_migracao" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Define se o croqui está publicado no índice principal para os usuários do aplicativo. Se false (padrão do proto3), ele funcionará apenas como rascunho.">publicar_croqui&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#a0005e"><font color="white">62% (22/35)&nbsp;&nbsp;</font></td>
+                <td port="publicar_croqui" bgcolor="#a0005e"><font color="white">62% (22/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Botao" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um botão que leva a alguma outra parte do croqui."><b>Botao</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Texto que aparecerá no botão.">texto&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (34/34)&nbsp;&nbsp;</font></td>
+                <td port="texto" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa o que será mostrado caso o botão for clicado.">destino&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (34/34)&nbsp;&nbsp;</font></td>
+                <td port="destino" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.DestinoBotao" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa o que será mostrado caso o botão for clicado."><b>DestinoBotao</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Uma seção textual em Markdown.">secao_textual&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (34/34)&nbsp;&nbsp;</font></td>
+                <td port="secao_textual" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ArquivoMarkdown" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um arquivo markdown com informações sobre o croqui."><b>ArquivoMarkdown</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">caminho&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/34)&nbsp;&nbsp;</font></td>
+                <td port="caminho" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">conteudo&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (34/34)&nbsp;&nbsp;</font></td>
+                <td port="conteudo" bgcolor="#f70007"><font color="white">97% (34/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Pico" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um pico de escalada completo (ex: Serra do Cipó, Gruta da Lapinha)."><b>Pico</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome oficial do pico de escalada.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Visão geral, história e informações gerais de acesso.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (5/35)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#2400da"><font color="white">14% (5/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Estado do local de escalada.">estado&nbsp;&nbsp;</td>
+                <td bgcolor="#73008b"><font color="white">45% (10/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#73008b"><font color="white">45% (10/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#6d0091"><font color="white">42% (15/35)&nbsp;&nbsp;</font></td>
+                <td port="estado" bgcolor="#6d0091"><font color="white">42% (15/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Localização do ponto de referência principal (geralmente o estacionamento).">localizacao&nbsp;&nbsp;</td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+                <td port="localizacao" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Link para o ponto de referência principal no Google Maps.">url_google_maps&nbsp;&nbsp;</td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4100bd"><font color="white">25% (9/35)&nbsp;&nbsp;</font></td>
+                <td port="url_google_maps" bgcolor="#4100bd"><font color="white">25% (9/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome da associação local responsável (ex: ARESTA).">nome_associacao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="nome_associacao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Link para a página onde o escalador pode se afiliar.">url_filiacao_associacao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="url_filiacao_associacao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix para contribuições diretas ao fundo de manutenção local.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Patrocinadores atuais do croqui deste local.">patrocinadores&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="patrocinadores" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Elementos de escalada contidos neste pico (setores ou grupos).">setores_ou_grupos&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="setores_ou_grupos" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Coordenada" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Estrutura de geolocalização.  Utiliza-se o padrão E7 para armazenamento de coordenadas. Esse padrão representa basicamente pegar a coordenada (por exemplo a retornada pelo Google Maps) e multiplicar o valor por 10^7. Para obter a coordenada novamente, basta dividir o valor por 10^7.  Isso utiliza basicamente metade do espaço de armazenamento comparado com tipo double, e ainda permite precisão de 1,1cm no pior caso para as coordenadas. Utiliza-se sintaxe alternativa para economizar espaço  scripts/deploy_generated.py automaticamente converte as coordenadas de arquivos .yaml e .md que forem colados como doubles para esse formato E7."><b>Coordenada</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">latitude&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (2/2)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (6/6)&nbsp;&nbsp;</font></td>
+                <td port="latitude" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">longitude&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (2/2)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (6/6)&nbsp;&nbsp;</font></td>
+                <td port="longitude" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Patrocinador" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Dados de um patrocinador que apoia financeiramente a manutenção ou os croquis."><b>Patrocinador</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome da empresa ou entidade apoiadora.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Slogan curto ou mensagem de agradecimento.">mensagem&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="mensagem" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL do arquivo de imagem da marca do patrocinador.">url_logo&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="url_logo" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Link para o site oficial ou Instagram do patrocinador.">url_link&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="url_link" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.SetorOuGrupo" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um elemento (Setor ou Grupo) de um Pico."><b>SetorOuGrupo</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Use para referenciar um outro arquivo que contenha informação de setor caso necessário.">setor&nbsp;&nbsp;</td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#e1001d"><font color="white">88% (31/35)&nbsp;&nbsp;</font></td>
+                <td port="setor" bgcolor="#e1001d"><font color="white">88% (31/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Use para referenciar um outro arquivo que contenha informação de grupo caso necessário.">grupo&nbsp;&nbsp;</td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+                <td port="grupo" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ArquivoSetor" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Use para referenciar um outro arquivo que contenha informação de setor caso necessário."><b>ArquivoSetor</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">caminho&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="caminho" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa uma parede ou setor específico dentro de um Pico. Para boulders, isso costuma ser o bloco.">conteudo&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="conteudo" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Setor" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma parede ou setor específico dentro de um Pico. Para boulders, isso costuma ser o bloco."><b>Setor</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome do setor (ex: Savassinha).">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Coordenada do estacionamento.">localizacao_estacionamento&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="localizacao_estacionamento" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Coordenada da escalada do setor.">localizacao_escalada&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="localizacao_escalada" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Trilhas que vão do estacionamento ao setor.">trilhas&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="trilhas" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Possível sinal de celular no setor.">sinal_de_celular&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="sinal_de_celular" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Setor e acesso favorável a crianças.">amigavel_a_criancas&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="amigavel_a_criancas" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Setor e acesso favorável a bebês.">amigavel_a_bebes&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+                <td port="amigavel_a_bebes" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Características da escalada no setor, insolação, qualidade da rocha, etc.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se presente, representa o ID do setor no mapa acima (do grupo ou geral).">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Mapas do setor.">mapas&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="mapas" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Todas as escaladas deste setor.">escaladas&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="escaladas" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Trilha" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Dados de uma trilha de aproximação."><b>Trilha</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome dessa trilha.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição dessa trilha.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Tempo estimado de caminhada da trilha.">tempo_aproximacao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="tempo_aproximacao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Cada ponto de interesse da trilha em sequência, do início ao fim.">pontos&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="pontos" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.PontoDeInteresse" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Ponto de interesse de uma trilha."><b>PontoDeInteresse</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome do ponto de interesse.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição do ponto de interesse.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Localização do ponto de interesse.">localizacao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="localizacao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Mapa" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um mapa do setor."><b>Mapa</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Caminho do arquivo (geralmente em .webp) contendo a foto desenhada da parede.">caminho_imagem_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="caminho_imagem_mapa" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Largura do mapa em pixels.">largura_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="largura_mapa" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Altura do mapa em pixels.">altura_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="altura_mapa" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Posição de cada ponto de interesse.">pontos_de_interesse&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#bd0041"><font color="white">74% (26/35)&nbsp;&nbsp;</font></td>
+                <td port="pontos_de_interesse" bgcolor="#bd0041"><font color="white">74% (26/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Mapa.PontoDeInteresse" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Ponto de interesse de uma trilha."><b>PontoDeInteresse</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="ID do ponto de interesse no mapa.">id&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (26/26)&nbsp;&nbsp;</font></td>
+                <td port="id" bgcolor="#bd0041"><font color="white">74% (26/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Label do ponto de interesse que estava escrita no mapa.">label&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (26/26)&nbsp;&nbsp;</font></td>
+                <td port="label" bgcolor="#bd0041"><font color="white">74% (26/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Bounding area circular.">circular&nbsp;&nbsp;</td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1d00e1"><font color="white">11% (3/26)&nbsp;&nbsp;</font></td>
+                <td port="circular" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Bounding box retangular, angulação opcional.">box&nbsp;&nbsp;</td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f50009"><font color="white">96% (25/26)&nbsp;&nbsp;</font></td>
+                <td port="box" bgcolor="#b60048"><font color="white">71% (25/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Bounding area livre.">area_livre&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/26)&nbsp;&nbsp;</font></td>
+                <td port="area_livre" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.BoundingCircular" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Circulo de enquadramento / bounding area circula rde parte da imagem."><b>BoundingCircular</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Coordenadas (x, y) do centro do círculo em pixels.">x&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td port="x" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">y&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td port="y" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Raio do círculo em pixels.">raio&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td port="raio" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.BoundingBox" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Caixa de enquadramento / bounding box retangular de parte da imagem. Definido pela posição central (x, y), comprimento e largura. Opcionalmente aceita um ângulo para especificar a box de maneira angulada."><b>BoundingBox</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Coordenadas (x, y) do centro da caixa em pixels.">x&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (25/25)&nbsp;&nbsp;</font></td>
+                <td port="x" bgcolor="#b60048"><font color="white">71% (25/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">y&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (25/25)&nbsp;&nbsp;</font></td>
+                <td port="y" bgcolor="#b60048"><font color="white">71% (25/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Comprimento (eixo horizontal local) e largura (eixo vertical local) em pixels.">comprimento&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (25/25)&nbsp;&nbsp;</font></td>
+                <td port="comprimento" bgcolor="#b60048"><font color="white">71% (25/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">largura&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (21/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f3000b"><font color="white">95% (21/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (25/25)&nbsp;&nbsp;</font></td>
+                <td port="largura" bgcolor="#b60048"><font color="white">71% (25/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Ângulo em graus * 10^2 (sentido horário, relativo ao eixo horizontal). Isso permite armazenar até 2 casas decimais de precisão angular em inteiros. Se não especificado, assume-se 0.">angulo_graus_x100&nbsp;&nbsp;</td>
+                <td bgcolor="#3000ce"><font color="white">19% (4/21)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2800d6"><font color="white">16% (4/25)&nbsp;&nbsp;</font></td>
+                <td port="angulo_graus_x100" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.BoundingAreaLivre" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Área de enquadramento livre pra parte da imagem. Definido pela posição dos cantos da área de bounding box, que formam um polígono. Os cantos devem ser consecutivos."><b>BoundingAreaLivre</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Coordenadas dos pontos que formam a área, na ordem. x1, y1, x2, y2, x3, y3, x4, y4, etc...">coordenadas&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/0)&nbsp;&nbsp;</font></td>
+                <td port="coordenadas" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Escalada" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma escalada de qualquer tipo."><b>Escalada</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Representa uma linha de escalada esportiva (via) individual de uma enfiada e somente com proteções fixas.">via_esportiva&nbsp;&nbsp;</td>
+                <td bgcolor="#dc0022"><font color="white">86% (19/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#dc0022"><font color="white">86% (19/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cc0032"><font color="white">80% (28/35)&nbsp;&nbsp;</font></td>
+                <td port="via_esportiva" bgcolor="#cc0032"><font color="white">80% (28/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa uma linha de escalada (via) individual de uma enfiada ou totalmente móvel ou mista com proteções fixas.">via_movel&nbsp;&nbsp;</td>
+                <td bgcolor="#7f007f"><font color="white">50% (11/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#7f007f"><font color="white">50% (11/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#7b0083"><font color="white">48% (17/35)&nbsp;&nbsp;</font></td>
+                <td port="via_movel" bgcolor="#7b0083"><font color="white">48% (17/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa uma linha de boulder individual.">boulder&nbsp;&nbsp;</td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+                <td port="boulder" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa uma via de escalada de múltiplas enfiadas.">via_multiplas_enfiadas&nbsp;&nbsp;</td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+                <td port="via_multiplas_enfiadas" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Um highline montado na rocha.">highline&nbsp;&nbsp;</td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+                <td port="highline" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ViaEsportiva" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma linha de escalada esportiva (via) individual de uma enfiada e somente com proteções fixas."><b>ViaEsportiva</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome da via.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (19/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#dc0022"><font color="white">86% (19/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (28/28)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#cc0032"><font color="white">80% (28/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *começa* a via. Provavelmente um número, como 1, ou a, ou 1a, etc.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (19/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#dc0022"><font color="white">86% (19/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (28/28)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#cc0032"><font color="white">80% (28/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa marcando o *meio* da via, se houver. Esse campo é opcional, mas se existir é provavelmente um número, letra ou símbolo (como um triângulo).">id_no_mapa_meio&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_meio" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *termina* a via, se houver. Esse campo é opcional, mas se existir é provavelmente outro número ou uma letra, como &quot;x&quot;.">id_no_mapa_fim&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0900f5"><font color="white">3% (1/28)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_fim" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se é um destaque para o setor.">destaque&nbsp;&nbsp;</td>
+                <td bgcolor="#4300bb"><font color="white">26% (5/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3900c5"><font color="white">22% (5/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3600c8"><font color="white">21% (6/28)&nbsp;&nbsp;</font></td>
+                <td port="destaque" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de dificuldade em livre da via (ex &quot;BR_6sup&quot;).">dificuldade&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (19/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#dc0022"><font color="white">86% (19/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (28/28)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade" bgcolor="#cc0032"><font color="white">80% (28/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de escalada em artificial, se houver trechos de artificial (ex: &quot;A1&quot;, &quot;A2&quot;).">dificuldade_artificial&nbsp;&nbsp;</td>
+                <td bgcolor="#2800d6"><font color="white">15% (3/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (4/28)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_artificial" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de exposição da via. Normalmente não preenchido em vias esportivas, que costumam ser &quot;E1&quot;.">exposicao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1200ec"><font color="white">7% (2/28)&nbsp;&nbsp;</font></td>
+                <td port="exposicao" bgcolor="#0e00f0"><font color="white">5% (2/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Tipo de parede predominante (negativo, vertical, positivo).">tipo_parede&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="tipo_parede" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Extensão da via, em metros.">extensao&nbsp;&nbsp;</td>
+                <td bgcolor="#780086"><font color="white">47% (9/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#680096"><font color="white">40% (9/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#760088"><font color="white">46% (13/28)&nbsp;&nbsp;</font></td>
+                <td port="extensao" bgcolor="#5e00a0"><font color="white">37% (13/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de proteções fixas intermediárias (chapeletas) na via (define quantas costuras levar).">quantidade_protecoes_intermediarias&nbsp;&nbsp;</td>
+                <td bgcolor="#ae0050"><font color="white">68% (13/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#960068"><font color="white">59% (13/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#880076"><font color="white">53% (15/28)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_protecoes_intermediarias" bgcolor="#6d0091"><font color="white">42% (15/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de proteções fixas na parada da via (define quantas costuras levar).">quantidade_protecoes_parada&nbsp;&nbsp;</td>
+                <td bgcolor="#a1005d"><font color="white">63% (12/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#8b0073"><font color="white">54% (12/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#760088"><font color="white">46% (13/28)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_protecoes_parada" bgcolor="#5e00a0"><font color="white">37% (13/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">tipo_ancoragem&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="tipo_ancoragem" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nomes dos conquistadores.">conquistadores&nbsp;&nbsp;</td>
+                <td bgcolor="#780086"><font color="white">47% (9/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#680096"><font color="white">40% (9/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#760088"><font color="white">46% (13/28)&nbsp;&nbsp;</font></td>
+                <td port="conquistadores" bgcolor="#5e00a0"><font color="white">37% (13/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data de abertura da via (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_abertura&nbsp;&nbsp;</td>
+                <td bgcolor="#5d00a1"><font color="white">36% (7/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#5100ad"><font color="white">31% (7/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4800b6"><font color="white">28% (8/28)&nbsp;&nbsp;</font></td>
+                <td port="data_abertura" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data da última manutenção da via (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="data_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Dicas de segurança, movimentação chave (beta) e equipamentos recomendados.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#860078"><font color="white">52% (10/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#73008b"><font color="white">45% (10/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#91006d"><font color="white">57% (16/28)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#74008a"><font color="white">45% (16/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL local do arquivo .mp4 para o vídeo demonstrativo do beta (se baixado via Wi-Fi).">url_video_beta&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="url_video_beta" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix do mantenedor ou conquistador específico desta via.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/19)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/28)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ViaMovel" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma linha de escalada (via) individual de uma enfiada ou totalmente móvel ou mista com proteções fixas."><b>ViaMovel</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome da via.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (11/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#7f007f"><font color="white">50% (11/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (17/17)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#7b0083"><font color="white">48% (17/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *começa* a via. Provavelmente um número, como 1, ou a, ou 1a, etc.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#d0002e"><font color="white">81% (9/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#680096"><font color="white">40% (9/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#e1001e"><font color="white">88% (15/17)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#6d0091"><font color="white">42% (15/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa marcando o *meio* da via, se houver. Esse campo é opcional, mas se existir é provavelmente um número, letra ou símbolo (como um triângulo).">id_no_mapa_meio&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_meio" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *termina* a via, se houver. Esse campo é opcional, mas se existir é provavelmente outro número ou uma letra, como &quot;x&quot;.">id_no_mapa_fim&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_fim" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se é um destaque para o setor.">destaque&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="destaque" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de dificuldade em livre da via (ex &quot;BR_6sup&quot;).">dificuldade&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (11/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#7f007f"><font color="white">50% (11/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#f0000f"><font color="white">94% (16/17)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade" bgcolor="#74008a"><font color="white">45% (16/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de escalada em artificial, se houver trechos de artificial (ex: &quot;A1&quot;, &quot;A2&quot;).">dificuldade_artificial&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0f00f0"><font color="white">5% (1/17)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_artificial" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau do lance em artificial se escalado em livre.">dificuldade_artificial_em_livre&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_artificial_em_livre" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de exposição da via.">exposicao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1e00e1"><font color="white">11% (2/17)&nbsp;&nbsp;</font></td>
+                <td port="exposicao" bgcolor="#0e00f0"><font color="white">5% (2/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Tipo de parede predominante (negativo, vertical, positivo).">tipo_parede&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="tipo_parede" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Extensão da via, em metros.">extensao&nbsp;&nbsp;</td>
+                <td bgcolor="#4500b9"><font color="white">27% (3/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#690096"><font color="white">41% (7/17)&nbsp;&nbsp;</font></td>
+                <td port="extensao" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de proteções fixas intermediárias (chapeletas) na via.">quantidade_protecoes_intermediarias&nbsp;&nbsp;</td>
+                <td bgcolor="#1700e7"><font color="white">9% (1/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2d00d2"><font color="white">17% (3/17)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_protecoes_intermediarias" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de proteções fixas na parada da via.">quantidade_protecoes_parada&nbsp;&nbsp;</td>
+                <td bgcolor="#5c00a2"><font color="white">36% (4/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4b00b3"><font color="white">29% (5/17)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_protecoes_parada" bgcolor="#2400da"><font color="white">14% (5/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Tipo de proteções móveis a serem usadas na via. Descrição textual.">protecoes_moveis&nbsp;&nbsp;</td>
+                <td bgcolor="#5c00a2"><font color="white">36% (4/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4b00b3"><font color="white">29% (5/17)&nbsp;&nbsp;</font></td>
+                <td port="protecoes_moveis" bgcolor="#2400da"><font color="white">14% (5/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">tipo_ancoragem&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="tipo_ancoragem" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nomes dos conquistadores.">conquistadores&nbsp;&nbsp;</td>
+                <td bgcolor="#8b0073"><font color="white">54% (6/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4500b9"><font color="white">27% (6/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#960069"><font color="white">58% (10/17)&nbsp;&nbsp;</font></td>
+                <td port="conquistadores" bgcolor="#4800b6"><font color="white">28% (10/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data de abertura da via (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_abertura&nbsp;&nbsp;</td>
+                <td bgcolor="#4500b9"><font color="white">27% (3/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#3c00c3"><font color="white">23% (4/17)&nbsp;&nbsp;</font></td>
+                <td port="data_abertura" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data da última manutenção da via (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="data_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Dicas de segurança, movimentação chave (beta) e equipamentos recomendados.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#a2005c"><font color="white">63% (7/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#5100ad"><font color="white">31% (7/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#c3003c"><font color="white">76% (13/17)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#5e00a0"><font color="white">37% (13/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL local do arquivo .mp4 para o vídeo demonstrativo do beta (se baixado via Wi-Fi).">url_video_beta&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="url_video_beta" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix do mantenedor ou conquistador específico desta via.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/11)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/17)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Boulder" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma linha de boulder individual."><b>Boulder</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome do boulder.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (7/7)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *começa* o boulder. Provavelmente um número, como 1, ou a, ou 1a, etc.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (7/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa marcando o *meio* do boulder, se houver. Esse campo é opcional, mas se existir é provavelmente um número, letra ou símbolo (como um triângulo).">id_no_mapa_meio&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_meio" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *termina* o boulder, se houver. Esse campo é opcional, mas se existir é provavelmente outro número ou uma letra, como &quot;x&quot;.">id_no_mapa_fim&nbsp;&nbsp;</td>
+                <td bgcolor="#5500aa"><font color="white">33% (1/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#6d0091"><font color="white">42% (3/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_fim" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se é um destaque para o setor.">destaque&nbsp;&nbsp;</td>
+                <td bgcolor="#5500aa"><font color="white">33% (1/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="destaque" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de dificuldade (ex: &quot;V3&quot;, &quot;V8&quot;).">dificuldade&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (7/7)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Tipo de parede predominante (negativo, vertical, positivo).">tipo_parede&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="tipo_parede" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nomes dos conquistadores ou primeira ascensão.">conquistadores&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="conquistadores" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data de abertura do boulder (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_abertura&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="data_abertura" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Dicas de segurança, movimentação chave (beta) e número/posicionamento de crashpads recomendados.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (3/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#da0024"><font color="white">85% (6/7)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL local do arquivo .mp4 para o vídeo demonstrativo do beta (se baixado via Wi-Fi).">url_video_beta&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="url_video_beta" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix do mantenedor ou conquistador específico deste boulder.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/3)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ViaMultiplasEnfiadas" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa uma via de escalada de múltiplas enfiadas."><b>ViaMultiplasEnfiadas</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome da via.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (7/7)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *começa* a via. Provavelmente um número, como 1, ou a, ou 1a, etc.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (7/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#3300cc"><font color="white">20% (7/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa marcando o *meio* da via, se houver. Esse campo é opcional, mas se existir é provavelmente um número, letra ou símbolo (como um triângulo).">id_no_mapa_meio&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_meio" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *termina* a via, se houver. Esse campo é opcional, mas se existir é provavelmente outro número ou uma letra, como &quot;x&quot;.">id_no_mapa_fim&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_fim" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se é um destaque para o setor.">destaque&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="destaque" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Mapas da via de múltiplas enfiadas, se houver.">mapas&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="mapas" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de dificuldade médio da via (ex: &quot;5sup&quot;, &quot;7a&quot;).">dificuldade_media&nbsp;&nbsp;</td>
+                <td bgcolor="#7f007f"><font color="white">50% (2/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#6d0091"><font color="white">42% (3/7)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_media" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de dificuldade do lance mais difícil da via (ex: &quot;5sup&quot;, &quot;7a&quot;).">dificuldade_maxima&nbsp;&nbsp;</td>
+                <td bgcolor="#bf003f"><font color="white">75% (3/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#da0024"><font color="white">85% (6/7)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_maxima" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de escalada em artificial, se houver trechos de artificial (ex: &quot;A1&quot;, &quot;A2&quot;).">dificuldade_artificial&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_artificial" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau do lance em artificial se escalado em livre.">dificuldade_artificial_em_livre&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="dificuldade_artificial_em_livre" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Grau de exposição da via trad (ex: &quot;E2&quot;, &quot;E3&quot;). Determina a qualidade/risco das proteções.">exposicao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4800b6"><font color="white">28% (2/7)&nbsp;&nbsp;</font></td>
+                <td port="exposicao" bgcolor="#0e00f0"><font color="white">5% (2/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Duração estimada para escalar a via.">duracao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#4800b6"><font color="white">28% (2/7)&nbsp;&nbsp;</font></td>
+                <td port="duracao" bgcolor="#0e00f0"><font color="white">5% (2/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de enfiadas.">numero_enfiadas&nbsp;&nbsp;</td>
+                <td bgcolor="#7f007f"><font color="white">50% (2/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#91006d"><font color="white">57% (4/7)&nbsp;&nbsp;</font></td>
+                <td port="numero_enfiadas" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Comprimento total da via.">comprimento_total&nbsp;&nbsp;</td>
+                <td bgcolor="#7f007f"><font color="white">50% (2/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#b60048"><font color="white">71% (5/7)&nbsp;&nbsp;</font></td>
+                <td port="comprimento_total" bgcolor="#2400da"><font color="white">14% (5/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Comprimento da maior enfiada da via.">comprimento_maior_enfiada&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="comprimento_maior_enfiada" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de costuras a levar para proteções intermediárias por enfiada.">quantidade_costuras_intermediarias&nbsp;&nbsp;</td>
+                <td bgcolor="#3f00bf"><font color="white">25% (1/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_costuras_intermediarias" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Número de equipamentos a levar para proteções nas paradas da via.">quantidade_equipamentos_parada&nbsp;&nbsp;</td>
+                <td bgcolor="#3f00bf"><font color="white">25% (1/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="quantidade_equipamentos_parada" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se a via é toda fixa, mista ou toda em móvel.">tipo_via_multiplas_enfiadas&nbsp;&nbsp;</td>
+                <td bgcolor="#3f00bf"><font color="white">25% (1/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#6d0091"><font color="white">42% (3/7)&nbsp;&nbsp;</font></td>
+                <td port="tipo_via_multiplas_enfiadas" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição do rack/equipamentos móveis recomendados (ex: &quot;Camalots duplos #0.3-3, 1 jogo stoppers&quot;).">equipamento_recomendado&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2400da"><font color="white">14% (1/7)&nbsp;&nbsp;</font></td>
+                <td port="equipamento_recomendado" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Detalhamento de cada enfiada da via, se houver.">enfiadas&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#91006d"><font color="white">57% (4/7)&nbsp;&nbsp;</font></td>
+                <td port="enfiadas" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Relato por escrito do croqui (enfiada por enfiada, orientações, etc).">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#3f00bf"><font color="white">25% (1/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#91006d"><font color="white">57% (4/7)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#1d00e1"><font color="white">11% (4/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome dos conquistadores.">conquistadores&nbsp;&nbsp;</td>
+                <td bgcolor="#bf003f"><font color="white">75% (3/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#da0024"><font color="white">85% (6/7)&nbsp;&nbsp;</font></td>
+                <td port="conquistadores" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data de abertura da via (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_abertura&nbsp;&nbsp;</td>
+                <td bgcolor="#3f00bf"><font color="white">25% (1/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#6d0091"><font color="white">42% (3/7)&nbsp;&nbsp;</font></td>
+                <td port="data_abertura" bgcolor="#1500e9"><font color="white">8% (3/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data da última manutenção da via.">data_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="data_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL local do arquivo .mp4 para o vídeo demonstrativo do beta (se baixado via Wi-Fi).">url_video_beta&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="url_video_beta" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix do mantenedor ou conquistador específico desta via.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/7)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Highline" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Um highline montado na rocha."><b>Highline</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome do highline.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *começa* o highline. Provavelmente um número, como 1, ou a, ou 1a, etc.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa marcando o *meio* do highline, se houver. Esse campo é opcional, mas se existir é provavelmente um número, letra ou símbolo (como um triângulo).">id_no_mapa_meio&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_meio" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="ID no mapa com o local onde *termina* o highline, se houver. Esse campo é opcional, mas se existir é provavelmente outro número ou uma letra, como &quot;x&quot;.">id_no_mapa_fim&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa_fim" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se é um destaque para o setor.">destaque&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="destaque" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Distância do highline.">distancia&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="distancia" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Altura do highline.">altura&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="altura" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Exposição do highline.">exposicao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="exposicao" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome dos conquistadores.">conquistadores&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="conquistadores" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data de abertura do highline (ex: &quot;1997&quot; ou &quot;1997-06&quot; ou &quot;1997-06-30&quot;).">data_abertura&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="data_abertura" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Data da última manutenção do highline.">data_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="data_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição do acesso do highline.">descricao_acesso&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="descricao_acesso" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição da ancoragem do highline.">descricao_ancoragem&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#0b00f3"><font color="white">4% (1/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="descricao_ancoragem" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Outras descrições do highline.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL local do arquivo .mp4 para o vídeo demonstrativo do beta (se baixado via Wi-Fi).">url_video_beta&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="url_video_beta" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Chave Pix do mantenedor ou conquistador específico deste highline.">chave_pix_manutencao&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/1)&nbsp;&nbsp;</font></td>
+                <td port="chave_pix_manutencao" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ArquivoGrupo" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Use para referenciar um outro arquivo que contenha informação de grupo caso necessário."><b>ArquivoGrupo</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">caminho&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/8)&nbsp;&nbsp;</font></td>
+                <td port="caminho" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Representa um grupo de setores (ex: Vale Oculto na Sinuosa, ou conjuntos de blocos de Boulder).">conteudo&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (8/8)&nbsp;&nbsp;</font></td>
+                <td port="conteudo" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Grupo" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Representa um grupo de setores (ex: Vale Oculto na Sinuosa, ou conjuntos de blocos de Boulder)."><b>Grupo</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Nome do grupo (ex: Vale Oculto).">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (8/8)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Características do grupo, acesso, etc.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (8/8)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Se presente, representa o ID do grupo no mapa geral.">id_no_mapa&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/8)&nbsp;&nbsp;</font></td>
+                <td port="id_no_mapa" bgcolor="#cccccc"><font color="black">0% (0/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Coordenada do estacionamento.">localizacao_estacionamento&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1f00df"><font color="white">12% (1/8)&nbsp;&nbsp;</font></td>
+                <td port="localizacao_estacionamento" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Coordenada da escalada do setor.">localizacao_escalada&nbsp;&nbsp;</td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#cccccc"><font color="black">0% (0/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#1f00df"><font color="white">12% (1/8)&nbsp;&nbsp;</font></td>
+                <td port="localizacao_escalada" bgcolor="#0700f7"><font color="white">2% (1/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Mapas do grupo para detalhar os setores (geralmente mapas de acesso ou visão geral).">mapas&nbsp;&nbsp;</td>
+                <td bgcolor="#bf003f"><font color="white">75% (3/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2200dc"><font color="white">13% (3/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#bf003f"><font color="white">75% (6/8)&nbsp;&nbsp;</font></td>
+                <td port="mapas" bgcolor="#2b00d3"><font color="white">17% (6/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Setores que compõem este grupo.">setores&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (4/4)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#2e00d0"><font color="white">18% (4/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (8/8)&nbsp;&nbsp;</font></td>
+                <td port="setores" bgcolor="#3a00c4"><font color="white">22% (8/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ArquivoExterno" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="5" tooltip="Informações sobre arquivos externos que não estão incluídos no .binarypb."><b>ArquivoExterno</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo Pub.</b>&nbsp;&nbsp;</td><td><b>Em Publicados</b>&nbsp;&nbsp;</td><td><b>Relativo Todos</b>&nbsp;&nbsp;</td><td><b>Em Todos</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Caminho do arquivo, relativo à localização do .binarypb.">caminho&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="caminho" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Checksum SHA256 do arquivo.">checksum_sha256&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+                <td port="checksum_sha256" bgcolor="#ff0000"><font color="white">100% (35/35)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Croqui":"botoes":e -> "aresta.Botao":w;
+    "aresta.Croqui":"picos":e -> "aresta.Pico":w;
+    "aresta.Croqui":"arquivos_externos":e -> "aresta.ArquivoExterno":w;
+    "aresta.Botao":"destino":e -> "aresta.DestinoBotao":w;
+    "aresta.DestinoBotao":"secao_textual":e -> "aresta.ArquivoMarkdown":w;
+    "aresta.Pico":"localizacao":e -> "aresta.Coordenada":w;
+    "aresta.Pico":"patrocinadores":e -> "aresta.Patrocinador":w;
+    "aresta.Pico":"setores_ou_grupos":e -> "aresta.SetorOuGrupo":w;
+    "aresta.SetorOuGrupo":"setor":e -> "aresta.ArquivoSetor":w;
+    "aresta.SetorOuGrupo":"grupo":e -> "aresta.ArquivoGrupo":w;
+    "aresta.ArquivoSetor":"conteudo":e -> "aresta.Setor":w;
+    "aresta.Setor":"localizacao_estacionamento":e -> "aresta.Coordenada":w;
+    "aresta.Setor":"localizacao_escalada":e -> "aresta.Coordenada":w;
+    "aresta.Setor":"trilhas":e -> "aresta.Trilha":w;
+    "aresta.Setor":"mapas":e -> "aresta.Mapa":w;
+    "aresta.Setor":"escaladas":e -> "aresta.Escalada":w;
+    "aresta.Trilha":"pontos":e -> "aresta.PontoDeInteresse":w;
+    "aresta.PontoDeInteresse":"localizacao":e -> "aresta.Coordenada":w;
+    "aresta.Mapa":"pontos_de_interesse":e -> "aresta.Mapa.PontoDeInteresse":w;
+    "aresta.Mapa.PontoDeInteresse":"circular":e -> "aresta.BoundingCircular":w;
+    "aresta.Mapa.PontoDeInteresse":"box":e -> "aresta.BoundingBox":w;
+    "aresta.Mapa.PontoDeInteresse":"area_livre":e -> "aresta.BoundingAreaLivre":w;
+    "aresta.Escalada":"via_esportiva":e -> "aresta.ViaEsportiva":w;
+    "aresta.Escalada":"via_movel":e -> "aresta.ViaMovel":w;
+    "aresta.Escalada":"boulder":e -> "aresta.Boulder":w;
+    "aresta.Escalada":"via_multiplas_enfiadas":e -> "aresta.ViaMultiplasEnfiadas":w;
+    "aresta.Escalada":"highline":e -> "aresta.Highline":w;
+    "aresta.ViaMultiplasEnfiadas":"mapas":e -> "aresta.Mapa":w;
+    "aresta.ViaMultiplasEnfiadas":"enfiadas":e -> "aresta.Escalada":w;
+    "aresta.ArquivoGrupo":"conteudo":e -> "aresta.Grupo":w;
+    "aresta.Grupo":"localizacao_estacionamento":e -> "aresta.Coordenada":w;
+    "aresta.Grupo":"localizacao_escalada":e -> "aresta.Coordenada":w;
+    "aresta.Grupo":"mapas":e -> "aresta.Mapa":w;
+    "aresta.Grupo":"setores":e -> "aresta.ArquivoSetor":w;
+}

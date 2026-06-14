@@ -17,6 +17,11 @@ Use Python 3.13, pois PaddlePaddle não suporta Python 3.14.
 Caso você for extrair informações de mapas, instale o PaddlePaddle:
 https://www.paddlepaddle.org.cn/en/install/quick
 
+#### Instale Graphviz
+
+Caso você vá gerar visualizações em grafo (ex: uso do protobuf), o sistema requer o binário do Graphviz instalado:
+https://graphviz.org/download/
+
 #### Instale dependências Python
 
 Após instalado, instale as dependências em requirements.txt antes de rodar quaisquer scripts:

@@ -1,0 +1,121 @@
+digraph G {
+    fontname="Arial";
+    rankdir=LR;
+    node [shape=none, fontname=Arial];
+    labelloc="t";
+    labeljust="l";
+    label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3"><b>Legenda de Colunas</b>&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Relativo</b>&nbsp;&nbsp;</td><td colspan="2" align="left">Dentre as instâncias criadas desta mensagem, em quantas o campo foi preenchido.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td align="left"><b>Absoluto</b>&nbsp;&nbsp;</td><td colspan="2" align="left">No total de croquis processados, em quantos o campo foi preenchido.&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+        </table>
+    >;
+
+    "aresta.Indice" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3" tooltip="Representa um índice de croquis de escalada, apontando para onde recuperar o croqui inteiro."><b>Indice</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo</b>&nbsp;&nbsp;</td><td><b>Absoluto</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="URL base da qual todos os croquis possuem suas URLs relativas a.">url_base&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="url_base" bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Lista de croquis disponíveis.">croquis&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+                <td port="croquis" bgcolor="#ff0000"><font color="white">100% (1/1)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.ResumoCroqui" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3" tooltip="Resumo de um croqui que está disponível para o índice."><b>ResumoCroqui</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo</b>&nbsp;&nbsp;</td><td><b>Absoluto</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left" tooltip="Identificador único do croqui.">id&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="id" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome do local do croqui.">nome&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="nome" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Descrição curta e em alto nível do local.">descricao&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="descricao" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Nome do arquivo do croqui.">nome_arquivo&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="nome_arquivo" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="URL para recuperar o croqui inteiro, relativo ao website do indice.">url&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="url" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Checksum SHA256 da última versão do croqui. Se diferente do checksum da versão baixada, há atualizações.">checksum_sha256_croqui&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="checksum_sha256_croqui" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Checksum SHA256 da última versão da thumbnail. Se diferente do checksum da versão baixada, há atualizações. A thumbnail *sempre* será localizada em &quot;imagens/thumbnail.webp&quot;, relativa à pasta onde está o croqui.binarypb.">checksum_sha256_thumbnail&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="checksum_sha256_thumbnail" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Timestamp do último update.">timestamp_update&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="timestamp_update" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left" tooltip="Coordenada principal do croqui (baseada no estacionamento do primeiro pico).">localizacao&nbsp;&nbsp;</td>
+                <td bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+                <td port="localizacao" bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "google.protobuf.Timestamp" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3"><b>Timestamp</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo</b>&nbsp;&nbsp;</td><td><b>Absoluto</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">seconds&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="seconds" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">nanos&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+                <td port="nanos" bgcolor="#ff0000"><font color="white">100% (22/22)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Coordenada" [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3" tooltip="Estrutura de geolocalização.  Utiliza-se o padrão E7 para armazenamento de coordenadas. Esse padrão representa basicamente pegar a coordenada (por exemplo a retornada pelo Google Maps) e multiplicar o valor por 10^7. Para obter a coordenada novamente, basta dividir o valor por 10^7.  Isso utiliza basicamente metade do espaço de armazenamento comparado com tipo double, e ainda permite precisão de 1,1cm no pior caso para as coordenadas. Utiliza-se sintaxe alternativa para economizar espaço  scripts/deploy_generated.py automaticamente converte as coordenadas de arquivos .yaml e .md que forem colados como doubles para esse formato E7."><b>Coordenada</b>&nbsp;&nbsp;</td></tr>
+            <tr><td><b>Campo</b>&nbsp;&nbsp;</td><td><b>Relativo</b>&nbsp;&nbsp;</td><td><b>Absoluto</b>&nbsp;&nbsp;</td></tr>
+            <tr>
+                <td align="left">latitude&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (2/2)&nbsp;&nbsp;</font></td>
+                <td port="latitude" bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+            </tr>
+            <tr>
+                <td align="left">longitude&nbsp;&nbsp;</td>
+                <td bgcolor="#ff0000"><font color="white">100% (2/2)&nbsp;&nbsp;</font></td>
+                <td port="longitude" bgcolor="#1700e7"><font color="white">9% (2/22)&nbsp;&nbsp;</font></td>
+            </tr>
+        </table>
+    >];
+
+    "aresta.Indice":"croquis":e -> "aresta.ResumoCroqui":w;
+    "aresta.ResumoCroqui":"timestamp_update":e -> "google.protobuf.Timestamp":w;
+    "aresta.ResumoCroqui":"localizacao":e -> "aresta.Coordenada":w;
+}

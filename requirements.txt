@@ -14,3 +14,4 @@ pytest-testmon
 fastapi
 uvicorn
 httpx
+graphviz

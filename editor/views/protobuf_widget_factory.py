@@ -3,80 +3,13 @@ import re
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QSpinBox, QCheckBox, QComboBox, QDoubleSpinBox, QLabel, QScrollArea
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
+from aresta_api.core.proto_comments import get_proto_comments
 
 class ProtobufWidgetFactory:
-    _comments_cache = None
-    
     @classmethod
     def _load_comments(cls):
-        if cls._comments_cache is not None:
-            return cls._comments_cache
-            
-        cls._comments_cache = {}
-        # Procuramos croqui.proto em localizações conhecidas
-        proto_paths = [
-            "aresta_api/proto/croqui.proto",
-            "../aresta_api/proto/croqui.proto",
-            "proto/croqui.proto"
-        ]
-        proto_file = None
-        for p in proto_paths:
-            if os.path.exists(p):
-                proto_file = p
-                break
-                
-        if not proto_file:
-            # Tenta encontrar recursivamente no workspace caso executado de outro CWD
-            for root, dirs, files in os.walk("."):
-                if "croqui.proto" in files:
-                    proto_file = os.path.join(root, "croqui.proto")
-                    break
-                    
-        if not proto_file:
-            return cls._comments_cache
-            
-        try:
-            with open(proto_file, "r", encoding="utf-8") as f:
-                lines = f.readlines()
-        except Exception:
-            return cls._comments_cache
-            
-        current_msg = None
-        pending_comments = []
-        
-        for line in lines:
-            line = line.strip()
-            if not line:
-                continue
-                
-            if line.startswith("//"):
-                content = line[2:].strip()
-                if not any(content.startswith(x) for x in ("Copyright", "==", "--", "NEXT_ID", "TODO")):
-                    pending_comments.append(content)
-                continue
-                
-            msg_match = re.match(r"message\s+(\w+)", line)
-            if msg_match:
-                current_msg = msg_match.group(1)
-                pending_comments = []
-                continue
-                
-            if line == "}":
-                current_msg = None
-                pending_comments = []
-                continue
-                
-            if current_msg:
-                field_match = re.match(r"(?:repeated\s+)?([\w\.]+)\s+(\w+)\s*=", line)
-                if field_match:
-                    field_name = field_match.group(2)
-                    if pending_comments:
-                        cls._comments_cache[(current_msg, field_name)] = " ".join(pending_comments)
-                    pending_comments = []
-                elif line.startswith("oneof"):
-                    pending_comments = []
-                    
-        return cls._comments_cache
+        # Apenas para retrocompatibilidade
+        return get_proto_comments()
     
     @staticmethod
     def create_widget(field_descriptor):
@@ -131,11 +64,11 @@ class ProtobufWidgetFactory:
         """
         Extracts documentation from protobuf source comments.
         """
-        cls._load_comments()
-        if cls._comments_cache and field_descriptor.containing_type:
+        cache = get_proto_comments()
+        if cache and field_descriptor.containing_type:
             msg_name = field_descriptor.containing_type.name
             field_name = field_descriptor.name
-            return cls._comments_cache.get((msg_name, field_name), "")
+            return cache.get((msg_name, field_name), "")
         return ""
 
 
