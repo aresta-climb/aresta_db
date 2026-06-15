@@ -169,7 +169,6 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
         # Mock do open para não tentar escrever no disco
         with patch("builtins.open", MagicMock()), \
              patch("editor.legacy_views.area_principal.yaml.dump"), \
-             patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
              patch("editor.legacy_views.area_principal.QMessageBox.critical"), \
              patch.object(GerenciadorCroquiExperimental, "renomear_pasta_croqui", return_value=Path("temp_croqui")), \
              patch.object(janela, "exibir_notificacao") as mock_notif:
@@ -218,7 +217,6 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch.object(edit, "clearFocus") as mock_clear, \
              patch("builtins.open", MagicMock()), \
              patch("editor.legacy_views.area_principal.yaml.dump"), \
-             patch.object(janela.pagina_mapas.editor, "salvar_todas_mudancas"), \
              patch("editor.legacy_views.area_principal.QMessageBox.critical"), \
              patch.object(GerenciadorCroquiExperimental, "renomear_pasta_croqui", return_value=Path("temp_croqui")), \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
@@ -288,13 +286,11 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
         assert str(janela.caminho_croqui) == str(nova_pasta)
         
         # Garantir que salvou as edições (para a pasta antes do reload)
-        janela.pagina_mapas.editor.salvar_todas_mudancas.assert_called_once()
         janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()
         
         # Garantir que os subeditores receberam a recarga do path com o novo diretório
-        janela.pagina_mapas.carregar_mapas.assert_called_once_with(nova_pasta)
+        janela.pagina_mapas.carregar_mapas.assert_called_once_with(janela.croqui_model, janela.historico.obter_pilha(), nova_pasta / "database")
         janela.pagina_imagens.carregar_imagens.assert_called_once_with(nova_pasta)
-        janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(nova_pasta / "database")
 
 
 def test_pagina_mapas_recebe_model_e_controller(qtbot):
@@ -312,8 +308,14 @@ def test_pagina_mapas_recebe_model_e_controller(qtbot):
     pagina.editor = MagicMock()
     
     # Executa o metodo
-    pagina.carregar_mapas(model_mock, controller_mock)
-    
-    # Verifica se os atributos do editor MVC foram atualizados
-    assert pagina.editor.controller == controller_mock
-    pagina.editor.carregar_de_modelo.assert_called_once_with(model_mock)
+    # Como carregar_mapas instancia um MapasController internamente, 
+    # devemos mockar a classe MapasController do module editor.controllers.mapas_controller
+    with patch("editor.controllers.mapas_controller.MapasController") as MockControllerClass:
+        pagina.carregar_mapas(model_mock, controller_mock)
+        
+        # Verifica se o MapasController foi instanciado
+        MockControllerClass.assert_called_once_with(model_mock, controller_mock)
+        
+        # E se o editor recebeu o controller criado
+        assert pagina.editor.mapas_controller == MockControllerClass.return_value
+        pagina.editor.configurar_lista_mapas.assert_called_once()

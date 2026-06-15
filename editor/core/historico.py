@@ -70,7 +70,8 @@ class GerenciadorHistorico(QObject):
             CmdAdicionarRepeated,
             CmdRemoverRepeated,
             CmdAlterarOneof,
-            CmdAlterarRepeatedItem
+            CmdAlterarRepeatedItem,
+            CmdAlterarMultiplosRepeatedItems
         )
 
         if not cmd:
@@ -104,6 +105,10 @@ class GerenciadorHistorico(QObject):
             valor = cmd.valor_antigo if is_undo else cmd.valor_novo
             chave = f"{cmd.campo_nome}[{cmd.index}]"
             self.sinal_campo_alterado.emit(id(cmd.msg), chave, valor)
+
+        elif isinstance(cmd, CmdAlterarMultiplosRepeatedItems):
+            # Para múltiplos itens, emitimos o sinal de alteração no nome do campo repetido (apenas informativo)
+            self.sinal_campo_alterado.emit(id(cmd.msg), cmd.campo_nome, cmd.alteracoes)
 
         elif isinstance(cmd, CmdAlterarOneof):
             valor = cmd.nome_antigo if is_undo else cmd.nome_novo

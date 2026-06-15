@@ -124,10 +124,14 @@ class PaginaMapas(PaginaBase):
         self.editor = WidgetEditorMapas(parent=self)
         self.layout().addWidget(self.editor)
         
-    def carregar_mapas(self, model, controller, caminho_db=None):
+    def carregar_mapas(self, model, undo_stack, caminho_db=None):
         if model:
-            self.editor.controller = controller
-            self.editor.carregar_de_modelo(model, caminho_db)
+            from editor.controllers.mapas_controller import MapasController
+            mapas_controller = MapasController(model, undo_stack)
+            if caminho_db:
+                mapas_controller.set_caminho_db(caminho_db)
+            self.editor.mapas_controller = mapas_controller
+            self.editor.configurar_lista_mapas()
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent=None):
@@ -446,8 +450,30 @@ class JanelaPrincipal(QMainWindow):
         elif ctx.pagina == "mapas":
             if self.stack.currentIndex() != 2:
                 self._trocar_pagina(2)
-            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and hasattr(self.pagina_mapas.editor, 'selecionar_arquivo'):
-                self.pagina_mapas.editor.selecionar_arquivo(ctx.arquivo_mapa)
+            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor'):
+                # Busca o mapa na hierarquia pelo filename original (legacy)
+                encontrou = False
+                for p_idx, pico in enumerate(self.croqui_model.croqui_msg.picos):
+                    if encontrou: break
+                    for sg_idx, sg in enumerate(pico.setores_ou_grupos):
+                        if encontrou: break
+                        if not sg.HasField('setor'): continue
+                        for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
+                            from pathlib import Path
+                            if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
+                                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                else:
+                                    self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                encontrou = True
+                                break
+            elif ctx.caminho_local_arvore and hasattr(self.pagina_mapas, 'editor'):
+                # Busca via node path. Ex: node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:mapas/item:0
+                import re
+                match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                if match and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
+                    p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
@@ -485,7 +511,7 @@ class JanelaPrincipal(QMainWindow):
                 
                 # Configura a UI
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
-                self.pagina_mapas.carregar_mapas(self.croqui_model, self.croqui_controller, self.caminho_croqui / "database")
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), self.caminho_croqui / "database")
                 self.pagina_imagens.carregar_imagens(self.caminho_croqui)
                 
     def salvar_croqui(self):
@@ -510,7 +536,8 @@ class JanelaPrincipal(QMainWindow):
                 yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
                 
             # 2. Salva Mapas na pasta ATUAL
-            self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
+            if hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
+                self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
             
             # 3. Salva Imagens na pasta ATUAL
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
@@ -542,8 +569,9 @@ class JanelaPrincipal(QMainWindow):
             if houve_renomeacao:
                 # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
                 if hasattr(self, 'croqui_model') and self.croqui_model:
-                    self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
-                self.pagina_mapas.carregar_mapas(self.croqui_model, self.croqui_controller, self.caminho_croqui / "database")
+                    # Força a atualização do widget de mapas se estiver ativo e houver modelo
+                    if getattr(self, "croqui_model", None) is not None:
+                        self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), self.caminho_croqui / "database")
                 self.pagina_imagens.carregar_imagens(self.caminho_croqui)
                 
         except Exception as e:

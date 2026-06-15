@@ -247,3 +247,25 @@ Texto da capa do croqui.
     assert dados_yaml["ultima_migracao"] >= 1
 
 
+
+
+def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
+    from PyQt6.QtCore import Qt
+    import yaml
+    db_path = tmp_path / 'database'
+    db_path.mkdir(parents=True)
+    croqui_yaml = {'picos': [{'setores_ou_grupos': [{'setor': {'conteudo': {'mapas': [{'caminho_imagem_mapa': 'mapa_1.webp'}, {'caminho_imagem_mapa': 'mapa_2.webp'}]}}}]}]}
+    with open(db_path / 'croqui.yaml', 'w', encoding='utf-8') as fw:
+        yaml.dump(croqui_yaml, fw)
+    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    janela.carregar_croqui()
+    list_widget = janela.pagina_mapas.editor.list_widget
+    uri = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/node:Setor/expando:mapas/item:1"
+    
+    janela.stack.setCurrentIndex(0)
+    janela.croqui_model.notificar_foco_requisitado(uri)
+    assert janela.stack.currentIndex() == 2
+    item_selecionado = list_widget.currentItem()
+    assert item_selecionado is not None
+    assert item_selecionado.text() == 'mapa_2.webp'
+    assert janela.pagina_mapas.editor.dados_atuais['mapa_idx'] == 1

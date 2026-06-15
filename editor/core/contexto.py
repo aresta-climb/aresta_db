@@ -27,6 +27,8 @@ class ContextoUIPath:
                 if self._pagina == "mapas":
                     if resto.startswith("file:"):
                         self._arquivo_mapa = resto.split(":", 1)[1]
+                    else:
+                        self._caminho_local_arvore = resto
                 else:
                     self._caminho_local_arvore = resto
         else:

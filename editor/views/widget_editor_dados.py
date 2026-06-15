@@ -49,7 +49,8 @@ def get_node_path(node):
         if curr.eh_no_adicao:
             path.append("+adicao")
         elif curr.is_expando:
-            path.append(f"expando:{curr.name}")
+            nome_campo = curr.descriptor.name if curr.descriptor else curr.name
+            path.append(f"expando:{nome_campo}")
         elif curr.index_in_repeated is not None:
             path.append(f"item:{curr.index_in_repeated}")
         else:
@@ -429,7 +430,7 @@ class ContainerRepeatedWidget(QWidget):
             item_msg = self.repeated_container[idx]
             
             def lazy_loader(msg, layout):
-                self.formulario._render_message_fields(msg, layout)
+                self.formulario._render_message_fields(msg, layout, extra_path=f"expando:{self.field.name}/item:{idx}")
                 
             prefix = f"Item {idx}"
             if hasattr(self.field, "name"):
@@ -925,7 +926,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         self.layout.addWidget(line)
         self.layout.addSpacing(10)
 
-    def _render_message_fields(self, msg, parent_layout):
+    def _render_message_fields(self, msg, parent_layout, extra_path=None):
         if not msg:
             return
             
@@ -937,7 +938,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 if conteudo_field:
                     if conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
                         conteudo_msg = getattr(msg, "conteudo")
-                        self._render_message_fields(conteudo_msg, parent_layout)
+                        self._render_message_fields(conteudo_msg, parent_layout, extra_path)
                     else:
                         self._render_field_container(msg, conteudo_field, parent_layout)
                 else:
@@ -947,21 +948,15 @@ class WidgetFormularioPadrao(QStackedWidget):
                 btn_mapa = QPushButton("Abrir no Editor de Mapas")
                 btn_mapa.setStyleSheet("padding: 8px; font-weight: bold; background-color: #4CAF50; color: white;")
                 
-                # Procura a janela principal ou WidgetEditorDados pai
-                parent = self.parent()
-                while parent:
-                    if hasattr(parent, "stacked_widget") and hasattr(parent, "tree_view"):
-                        def go_to_map():
-                            parent.stacked_widget.setCurrentIndex(2)
-                            # E a tree view node? Já está focada no Mapa. O WidgetEditorMapas responde ao mesmo model.
-                            # Para forçar o roteamento caso necessário (geralmente index(2) é suficiente)
-                            if hasattr(parent.editor_mapas, "selecionar_arquivo"):
-                                # Se quisermos abrir um arquivo específico, poderíamos.
-                                pass
-                        btn_mapa.clicked.connect(go_to_map)
-                        break
-                    parent = parent.parent()
-                    
+                def go_to_map():
+                    if self.current_node and self.controller:
+                        path = "page:mapas/" + get_node_path(self.current_node)
+                        if extra_path:
+                            path += "/" + extra_path
+                        if hasattr(self, 'model'):
+                            self.model.notificar_foco_requisitado(path)
+                        
+                btn_mapa.clicked.connect(go_to_map)
                 parent_layout.addWidget(btn_mapa)
                 return
             
@@ -974,7 +969,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 
         # 1. Renderiza os oneofs primeiro
         for oneof in msg.DESCRIPTOR.oneofs:
-            self._render_oneof_container(msg, oneof, parent_layout)
+            self._render_oneof_container(msg, oneof, parent_layout, extra_path)
             parent_layout.addSpacing(10)
             
         # 2. Renderiza os demais campos individuais
@@ -1007,19 +1002,19 @@ class WidgetFormularioPadrao(QStackedWidget):
             if field.label == FieldDescriptor.LABEL_REPEATED:
                 self._render_repeated_field(msg, field, parent_layout)
             else:
-                self._render_field_container(msg, field, parent_layout)
+                self._render_field_container(msg, field, parent_layout, extra_path)
                 
             parent_layout.addSpacing(10)
 
-    def _render_oneof_container(self, msg, oneof, parent_layout):
+    def _render_oneof_container(self, msg, oneof, parent_layout, extra_path=None):
         container = QWidget()
         container_layout = QVBoxLayout(container)
         container_layout.setContentsMargins(0, 0, 0, 0)
         parent_layout.addWidget(container)
         self.field_containers[(_get_id(msg), oneof.name)] = (container_layout, container, oneof, msg)
-        self._render_oneof_inner(msg, oneof, container_layout, container)
+        self._render_oneof_inner(msg, oneof, container_layout, container, extra_path)
 
-    def _render_oneof_inner(self, msg, oneof, layout, container):
+    def _render_oneof_inner(self, msg, oneof, layout, container, extra_path=None):
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
@@ -1085,7 +1080,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 
                 self._mark_dirty()
                 self._notify_tree_changed()
-                self._render_oneof_inner(m, o, layout, container)
+                self._render_oneof_inner(m, o, layout, container, extra_path)
             return on_oneof_changed
             
         combo.currentIndexChanged.connect(make_on_oneof_changed())
@@ -1110,7 +1105,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 frame_layout.setContentsMargins(10, 10, 10, 10)
                 frame_layout.setSpacing(6)
                 
-                self._render_message_fields(sub_msg, frame_layout)
+                self._render_message_fields(sub_msg, frame_layout, extra_path)
                 layout.addWidget(frame)
             else:
                 opts = f.GetOptions()
@@ -1128,15 +1123,15 @@ class WidgetFormularioPadrao(QStackedWidget):
                     self._setup_primitive_widget(widget, msg, f)
                     layout.addWidget(widget)
 
-    def _render_field_container(self, msg, field, parent_layout):
+    def _render_field_container(self, msg, field, parent_layout, extra_path=None):
         container = QWidget()
         container_layout = QVBoxLayout(container)
         container_layout.setContentsMargins(0, 0, 0, 0)
         parent_layout.addWidget(container)
         self.field_containers[(_get_id(msg), field.name)] = (container_layout, container, field, msg)
-        self._render_field_inner(msg, field, container_layout, container)
+        self._render_field_inner(msg, field, container_layout, container, extra_path)
 
-    def _render_field_inner(self, msg, field, layout, container):
+    def _render_field_inner(self, msg, field, layout, container, extra_path=None):
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
@@ -1255,7 +1250,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 frame_layout.setContentsMargins(10, 10, 10, 10)
                 frame_layout.setSpacing(6)
                 
-                self._render_message_fields(sub_msg, frame_layout)
+                self._render_message_fields(sub_msg, frame_layout, extra_path)
                 card_layout.addWidget(frame)
             else:
                 opts = field.GetOptions()
@@ -1394,22 +1389,7 @@ class WidgetEditorDados(QWidget):
         
         self.form_padrao = WidgetFormularioPadrao(self.model, self.controller)
         
-        # Import mock/dummy setup for images/maps or instantiate carefully.
-        # Since WidgetEditorImagens and WidgetEditorMapas might require complex setup (like db paths),
-        # we try to instantiate them. If they fail, we can mock them in tests.
-        try:
-            self.editor_imagens = WidgetEditorImagens() 
-        except Exception:
-            self.editor_imagens = QWidget()
-            
-        try:
-            self.editor_mapas = WidgetEditorMapas() 
-        except Exception:
-            self.editor_mapas = QWidget()
-        
         self.stacked_widget.addWidget(self.form_padrao)
-        self.stacked_widget.addWidget(self.editor_imagens)
-        self.stacked_widget.addWidget(self.editor_mapas)
         
         self.layout.addWidget(self.tree_view, 1)
         self.layout.addWidget(self.stacked_widget, 2)
@@ -1457,19 +1437,8 @@ class WidgetEditorDados(QWidget):
             self.stacked_widget.setCurrentIndex(0)
             return
             
-        options = node.descriptor.GetOptions()
-        mime_type = ""
-        if isinstance(node.descriptor, FieldDescriptor):
-            if options.HasExtension(croqui_pb2.mime_type):
-                mime_type = options.Extensions[croqui_pb2.mime_type]
-            
-        if mime_type.startswith("image/"):
-            self.stacked_widget.setCurrentIndex(1)
-        elif mime_type == "application/x-aresta-map":
-            self.stacked_widget.setCurrentIndex(2)
-        else:
-            self.stacked_widget.setCurrentIndex(0)
-            self.form_padrao.load_node(node)
+        self.stacked_widget.setCurrentIndex(0)
+        self.form_padrao.load_node(node)
             
         if hasattr(self.controller, 'set_contexto'):
             self.controller.set_contexto("page:dados/" + get_node_path(node))

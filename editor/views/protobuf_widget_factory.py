@@ -3,7 +3,7 @@ import re
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QSpinBox, QCheckBox, QComboBox, QDoubleSpinBox, QLabel, QScrollArea
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
-from aresta_api.core.proto_comments import get_proto_comments
+from editor.core.proto_comments import get_proto_comments
 
 class ProtobufWidgetFactory:
     @classmethod

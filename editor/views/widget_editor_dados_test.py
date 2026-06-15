@@ -25,7 +25,7 @@ def test_widget_editor_dados_instantiation(qapp):
     # Verifica componentes principais
     assert isinstance(widget.tree_view, QTreeView)
     assert isinstance(widget.stacked_widget, QStackedWidget)
-    assert widget.stacked_widget.count() >= 3  # Formulário padrão, Imagens, Mapas
+    assert widget.stacked_widget.count() >= 1  # Formulário padrão
 
 def test_widget_editor_dados_routing(qapp):
     croqui = Croqui()
@@ -180,6 +180,49 @@ def test_form_renderiza_botao_para_mapa(qapp):
     from PyQt6.QtWidgets import QLineEdit
     line_edits = form.findChildren(QLineEdit)
     assert len(line_edits) == 0
+
+
+def test_form_botao_mapa_emite_foco_requisitado(qapp):
+    """[TDD] Verifica que clicar no botão do mapa emite foco_requisitado para a aba de mapas."""
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from PyQt6.QtWidgets import QPushButton
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico A"
+    setor_grupo = pico.setores_ou_grupos.add()
+    setor = setor_grupo.setor
+    mapa = setor.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa.webp"
+    
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    form = WidgetFormularioPadrao(model, controller)
+    
+    node = ProtobufNode(name="Mapa", message=mapa, descriptor=mapa.DESCRIPTOR)
+    
+    form.load_node(node)
+    
+    botoes = form.findChildren(QPushButton)
+    btn_mapa = next((b for b in botoes if b.text() == "Abrir no Editor de Mapas"), None)
+    assert btn_mapa is not None
+
+    focos_recebidos = []
+    model.foco_requisitado.connect(focos_recebidos.append)
+    
+    # Simula o clique
+    btn_mapa.clicked.emit()
+    
+    # Deve ter emitido o foco e setado o contexto
+    assert len(focos_recebidos) == 1
+    assert focos_recebidos[0] == "page:mapas/node:Mapa"
+    assert controller.contexto_atual_path == focos_recebidos[0]
 
 
 def test_widget_formulario_padrao_no_overlap(qapp):

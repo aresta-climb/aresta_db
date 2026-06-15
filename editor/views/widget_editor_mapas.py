@@ -18,75 +18,28 @@ from PyQt6.QtGui import (
     QPixmap, QPen, QColor, QFont, QBrush, QPolygonF, QTransform, QPainterPath,
     QUndoCommand
 )
-from ..core.mapas_lib import converter_box_para_circulo, GerenciadorArquivosMapa
 import copy
-
-class CmdMoverPonto(QUndoCommand):
-    """
-    Comando para desfazer/refazer modificações (posição, tamanho, rotação, nome) em um POI.
-    """
-    def __init__(self, chave_mapa, idx_poi, estado_antigo, estado_novo, widget_editor, parent=None):
-        super().__init__(parent)
-        self.chave_mapa = chave_mapa
-        self.idx_poi = idx_poi
-        self.estado_antigo = estado_antigo
-        self.estado_novo = estado_novo
-        self.widget_editor = widget_editor
-        import os
-        nome_arquivo = os.path.basename(str(chave_mapa[0]))
-        self.contexto_ui = f"page:mapas/file:{nome_arquivo}"
-
-    def undo(self):
-        dados = self.widget_editor.dados_arquivos.get(self.chave_mapa)
-        if dados and 0 <= self.idx_poi < len(dados['itens_bb']):
-            item = dados['itens_bb'][self.idx_poi]
-            item.carregar_de_dict(self.estado_antigo)
-            dados['dados_yaml']['mapas'][dados['indice_mapa']]['pontos_de_interesse'][self.idx_poi] = self.estado_antigo
-            self.widget_editor.marcar_modificado()
-
-    def redo(self):
-        dados = self.widget_editor.dados_arquivos.get(self.chave_mapa)
-        if dados and 0 <= self.idx_poi < len(dados['itens_bb']):
-            item = dados['itens_bb'][self.idx_poi]
-            item.carregar_de_dict(self.estado_novo)
-            dados['dados_yaml']['mapas'][dados['indice_mapa']]['pontos_de_interesse'][self.idx_poi] = self.estado_novo
-            self.widget_editor.marcar_modificado()
-
+from google.protobuf.json_format import ParseDict
+from aresta_api.proto.generated import croqui_pb2
 
 def registrar_movimento_final(item, estado_inicial):
     estado_final = copy.deepcopy(item.obter_dict_atualizado())
     if estado_inicial and estado_inicial != estado_final:
         widget_editor = item.scene().widget_editor
-        chave_mapa = None
-        idx_poi = -1
-        for k, d in widget_editor.dados_arquivos.items():
-            if item in d.get('itens_bb', []):
-                chave_mapa = k
-                idx_poi = d['itens_bb'].index(item)
-                break
-        
-        if chave_mapa is not None and idx_poi != -1:
-            dados = widget_editor.dados_arquivos[chave_mapa]
-            if hasattr(widget_editor, 'controller') and widget_editor.controller:
-                from google.protobuf.json_format import ParseDict
-                from aresta_api.proto.generated import croqui_pb2
+        if hasattr(widget_editor, 'mapas_controller') and widget_editor.mapas_controller:
+            idx_poi = -1
+            for idx, gui_item in widget_editor.itens_poi.items():
+                if gui_item == item:
+                    idx_poi = idx
+                    break
+            
+            if idx_poi != -1 and widget_editor.msg_mapa_proxy:
                 poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
                 ParseDict(estado_inicial, poi_antigo)
                 poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
                 ParseDict(estado_final, poi_novo)
-                if hasattr(widget_editor.controller, 'set_contexto'):
-                    p_idx, sg_idx, m_idx = dados['pico_idx'], dados['sg_idx'], dados['mapa_idx']
-                    path_str = f'node:root/node:Croqui/node:picos/item:{p_idx}/node:setores_ou_grupos/item:{sg_idx}/node:setor/node:mapas/item:{m_idx}'
-                    widget_editor.controller.set_contexto('page:mapas/' + path_str)
-                widget_editor.controller.alterar_repeated_item(dados['mapa_msg'], 'pontos_de_interesse', idx_poi, poi_antigo, poi_novo)
-                return
-            
-            historico = None
-            window = widget_editor.window()
-            if window and hasattr(window, "historico"):
-                historico = window.historico
-            if historico:
-                historico.executar(CmdMoverPonto(chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor))
+                
+                widget_editor.mapas_controller.mover_poi(widget_editor.msg_mapa_proxy, idx_poi, poi_antigo, poi_novo)
                 return
     item.marcar_alterado()
 
@@ -185,8 +138,8 @@ class BaseItemPOI:
                         window = widget_editor.window()
                         if window and hasattr(window, "historico"):
                             historico = window.historico
-                        if historico:
-                            historico.executar(CmdMoverPonto(chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor))
+                        if historico and hasattr(widget_editor, 'mapas_controller') and widget_editor.mapas_controller:
+                            widget_editor.mapas_controller.mover_ponto_de_interesse(historico, chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor)
                             return
                             
                     self.pt_dict['id'] = novo_id
@@ -598,13 +551,15 @@ class CenaDesenho(QGraphicsScene):
 class WidgetEditorMapas(QWidget):
     alterado = pyqtSignal(bool)
     
-    def __init__(self, caminho_pasta=None, parent=None, standalone=False):
+    def __init__(self, mapas_controller=None, parent=None, standalone=False):
         super().__init__(parent)
         self.standalone = standalone
-        self.caminho_pasta = caminho_pasta
+        self.mapas_controller = mapas_controller
+        self.msg_mapa_proxy = None
+        self.itens_poi = {} # idx_poi -> QGraphicsItem
+        
         self.dados_arquivos = {}
         self.esta_modificado = False
-        self.gerenciador_arquivos = GerenciadorArquivosMapa()
         self.bulk_base_dims = {}
         
         self.modo_desenho = False
@@ -642,9 +597,8 @@ class WidgetEditorMapas(QWidget):
                 border-radius: 4px;
             }
         """)
-
-        if self.caminho_pasta:
-            self.carregar_pasta(self.caminho_pasta)
+        
+        # Removido o carregamento automatico de pasta legada
 
     @property
     def convert_mode(self): return self.modo_conversao
@@ -683,12 +637,11 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.setContentsMargins(10, 10, 10, 10)
         layout_esquerdo.setSpacing(8)
         
-        label_titulo = QLabel("Arquivos de Mapa")
-        label_titulo.setStyleSheet("font-weight: bold; color: #444; font-size: 13px;")
-        layout_esquerdo.addWidget(label_titulo)
+        self.label_titulo_arquivos = QLabel("Arquivos de Mapa")
+        self.label_titulo_arquivos.setStyleSheet("font-weight: bold; color: #444; font-size: 13px;")
+        layout_esquerdo.addWidget(self.label_titulo_arquivos)
 
         self.list_widget = QListWidget()
-        self.list_widget.currentRowChanged.connect(self.ao_selecionar_arquivo)
         layout_esquerdo.addWidget(self.list_widget)
         
         layout_botoes = QVBoxLayout()
@@ -701,7 +654,7 @@ class WidgetEditorMapas(QWidget):
         self.btn_add_circ.clicked.connect(lambda: self.adicionar_poi('circular'))
         layout_botoes.addWidget(self.btn_add_circ)
 
-        self.btn_add_box = QPushButton(" Nova Box")
+        self.btn_add_box = QPushButton(" Novo Retângulo")
         self.btn_add_box.setIcon(Icones.obter("imagens"))
         self.btn_add_box.clicked.connect(lambda: self.adicionar_poi('box'))
         layout_botoes.addWidget(self.btn_add_box)
@@ -714,8 +667,8 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.addLayout(layout_botoes)
         layout_esquerdo.addSpacing(10)
 
-        self.btn_converter = QPushButton(" Box -> Círculo")
-        self.btn_converter.setToolTip("Converte Boxes em Círculos. Se já estiver no modo, clique novamente para converter TODAS as boxes.")
+        self.btn_converter = QPushButton(" Retângulo -> Círculo")
+        self.btn_converter.setToolTip("Converte Retângulos em Círculos. Se já estiver no modo, clique novamente para converter TODOS os retângulos.")
         self.btn_converter.clicked.connect(self.alternar_modo_conversao)
         layout_esquerdo.addWidget(self.btn_converter)
 
@@ -739,7 +692,7 @@ class WidgetEditorMapas(QWidget):
         layout_bulk.addWidget(self.slider_circ)
         layout_bulk.addWidget(self.label_circ)
 
-        layout_bulk.addWidget(QLabel("Boxes:"))
+        layout_bulk.addWidget(QLabel("Retângulos:"))
         self.slider_box = QSlider(Qt.Orientation.Horizontal)
         self.slider_box.setRange(-50, 50)
         self.slider_box.setValue(0)
@@ -777,168 +730,186 @@ class WidgetEditorMapas(QWidget):
         self.label_conversao.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout_direito.addWidget(self.label_conversao)
 
-        self.label_info = QLabel("Dicas: Ctrl+Arrastar (Resize) | Shift+Arrastar (Girar Box)")
+        self.label_info = QLabel("Dicas: Ctrl+Arrastar (Redimensionar) | Shift+Arrastar (Girar Retângulo)")
         self.label_info.setStyleSheet("color: #6c757d; font-style: italic; font-size: 11px;")
         self.label_info.setAlignment(Qt.AlignmentFlag.AlignRight)
         layout_direito.addWidget(self.label_info)
         
-        # Placeholder quando não há mapa
-        self.label_placeholder = QLabel("Selecione um arquivo de mapa na lista à esquerda para começar a editar.")
+        self.label_placeholder = QLabel(
+            "Selecione um mapa na árvore de Dados para começar a editar." if not self.standalone else "Selecione um arquivo de mapa na lista à esquerda para começar a editar."
+        )
         self.label_placeholder.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_placeholder.setStyleSheet("color: #999; font-size: 16px; font-style: italic;")
         layout_direito.addWidget(self.label_placeholder)
         
         layout_direito.addWidget(self.visualizador)
         
+        # Conecta o clique no item
+        self.list_widget.itemSelectionChanged.connect(self._on_mapa_selecionado)
+        
+        # O painel esquerdo agora é sempre adicionado. A visibilidade do widget_esquerdo
+        # é mantida globalmente, mas para standalone tem comportamentos customizados em outros cantos.
+        self.splitter.addWidget(self.widget_esquerdo)
         self.splitter.addWidget(widget_direito)
-        self.splitter.setSizes([250, 750])
+        
+        self.splitter.setSizes([200, 800])
+        
         layout_principal.addWidget(self.splitter)
 
-    def carregar_de_modelo(self, modelo, caminho_db=None):
-        self.modelo = modelo
-        self.caminho_db = caminho_db
-        self.list_widget.clear()
-        self.dados_arquivos = {}
-        if hasattr(self, '_on_repeated_item_alterado'):
-            try:
-                self.modelo.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
-                self.modelo.repeated_adicionado.disconnect(self._on_repeated_adicionado)
-                self.modelo.repeated_removido.disconnect(self._on_repeated_removido)
-            except Exception: pass
-        self.modelo.repeated_item_alterado.connect(self._on_repeated_item_alterado)
-        self.modelo.repeated_adicionado.connect(self._on_repeated_adicionado)
-        self.modelo.repeated_removido.connect(self._on_repeated_removido)
+    def configurar_lista_mapas(self):
+        """Conecta o modelo reativo e preenche a lista."""
+        if not self.mapas_controller or not self.mapas_controller.model:
+            return
+            
+        model = self.mapas_controller.model
+        model.dado_alterado.connect(self._atualizar_lista_mapas)
+        model.repeated_adicionado.connect(self._atualizar_lista_mapas)
+        model.repeated_removido.connect(self._atualizar_lista_mapas)
         
-        croqui_msg = modelo.obter_croqui_readonly()
+        self._atualizar_lista_mapas()
+        
+    def _atualizar_lista_mapas(self, *args):
+        """Reconstrói a lista lendo do CroquiModel."""
+        self.list_widget.clear()
+        if not self.mapas_controller or not self.mapas_controller.model: return
+        
+        croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
+        from PyQt6.QtWidgets import QListWidgetItem
+        from PyQt6.QtCore import Qt
+        from pathlib import Path
         
         for p_idx, pico in enumerate(croqui_msg.picos):
             for sg_idx, sg in enumerate(pico.setores_ou_grupos):
-                if sg.HasField("setor"):
-                    setor = sg.setor.conteudo
-                    for m_idx, mapa in enumerate(setor.mapas):
-                        disp = mapa.caminho_imagem_mapa if mapa.caminho_imagem_mapa else f"Mapa {m_idx+1}"
-                        ui_item = QListWidgetItem(f"{setor.nome} - {disp}")
-                        chave = (pico.nome, setor.nome, m_idx)
-                        self.dados_arquivos[chave] = {
-                            'mapa_msg': mapa,
-                            'pico_idx': p_idx,
-                            'sg_idx': sg_idx,
-                            'mapa_idx': m_idx
-                        }
-                        ui_item.setData(Qt.ItemDataRole.UserRole, chave)
-                        self.list_widget.addItem(ui_item)
-
-        if self.list_widget.count() > 0:
-            self.list_widget.setCurrentRow(0)
-            self.label_placeholder.setVisible(False)
-        else:
-            self.label_placeholder.setVisible(True)
-
-    def carregar_markdown(self, caminho_arquivo):
-        try:
-            dados_yaml, corpo_md = self.gerenciador_arquivos.ler_arquivo(caminho_arquivo)
-            if not dados_yaml or 'mapas' not in dados_yaml:
-                return
-            
-            for indice_mapa, mapa in enumerate(dados_yaml['mapas']):
-                img_rel = mapa.get('caminho_imagem_mapa')
-                if not img_rel: continue
-                img_path = os.path.normpath(os.path.join(os.path.dirname(caminho_arquivo), img_rel))
-                if not os.path.exists(img_path): continue
-                
-                cena = CenaDesenho(self)
-                cena.addPixmap(QPixmap(img_path))
-                itens_bb = []
-                for pt in mapa.get('pontos_de_interesse', []):
-                    item = None
-                    if 'circular' in pt:
-                        item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
-                    elif 'box' in pt:
-                        item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
-                    elif 'area_livre' in pt:
-                        item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
+                if not getattr(sg, 'setor', None): continue
+                for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
+                    if not mapa.caminho_imagem_mapa: continue
+                    nome = Path(mapa.caminho_imagem_mapa).name
+                    item = QListWidgetItem(nome)
+                    item.setData(Qt.ItemDataRole.UserRole, (p_idx, sg_idx, m_idx))
+                    self.list_widget.addItem(item)
                     
-                    if item:
-                        cena.addItem(item)
-                        itens_bb.append(item)
-                
-                chave = (caminho_arquivo, indice_mapa)
-                self.dados_arquivos[chave] = {
-                    'caminho_arquivo': caminho_arquivo, 'indice_mapa': indice_mapa,
-                    'dados_yaml': dados_yaml, 'corpo_markdown': corpo_md,
-                    'cena': cena, 'itens_bb': itens_bb
-                }
-                disp = os.path.basename(caminho_arquivo)
-                if len(dados_yaml['mapas']) > 1: disp += f" (M{indice_mapa+1})"
-                ui_item = QListWidgetItem(disp)
-                ui_item.setData(Qt.ItemDataRole.UserRole, chave)
-                self.list_widget.addItem(ui_item)
-        except Exception as e:
-            print(f"Erro ao carregar {caminho_arquivo}: {e}")
-
-    def ao_selecionar_arquivo(self, indice):
-        if indice < 0: 
-            self.label_placeholder.setVisible(True)
-            self.visualizador.setVisible(False)
-            return
+    def _on_mapa_selecionado(self):
+        item = self.list_widget.currentItem()
+        if not item: return
         
-        chave = self.list_widget.item(indice).data(Qt.ItemDataRole.UserRole)
-        dados = self.dados_arquivos.get(chave)
-        if dados:
-            if 'cena' not in dados:
-                cena = CenaDesenho(self)
-                itens_bb = []
-                mapa_msg = dados.get('mapa_msg')
-                
-                if mapa_msg:
-                    import os
-                    from pathlib import Path
-                    from google.protobuf.json_format import MessageToDict
-                    
-                    if mapa_msg.caminho_imagem_mapa and hasattr(self, 'caminho_db') and self.caminho_db:
-                        img_path = str(Path(self.caminho_db) / mapa_msg.caminho_imagem_mapa)
-                        if os.path.exists(img_path):
-                            cena.addPixmap(QPixmap(img_path))
-                    
-                    for pt_msg in mapa_msg.pontos_de_interesse:
-                        pt = MessageToDict(pt_msg, preserving_proto_field_name=True)
-                        item = None
-                        if 'circular' in pt:
-                            item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
-                        elif 'box' in pt:
-                            item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
-                        elif 'area_livre' in pt:
-                            item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
-                        
-                        if item:
-                            cena.addItem(item)
-                            itens_bb.append(item)
-                
-                dados['cena'] = cena
-                dados['itens_bb'] = itens_bb
+        indices = item.data(Qt.ItemDataRole.UserRole)
+        if not indices: return
+        
+        p_idx, sg_idx, m_idx = indices
+        if not self.mapas_controller or not self.mapas_controller.model: return
+        
+        croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
+        try:
+            mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.mapas[m_idx]
+            self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+        except IndexError:
+            pass # Prevenção de falhas de sincronia na deleção
 
-            self.label_placeholder.setVisible(False)
-            self.visualizador.setVisible(True)
-            self.dados_atuais = dados
-            self.visualizador.setScene(dados['cena'])
-            self.visualizador.fitInView(dados['cena'].sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
-            if self.modo_desenho: self.cancelar_modo_desenho()
-            if self.modo_conversao: self.parar_modo_conversao()
-
-    def selecionar_arquivo(self, nome_arquivo: str):
-        """Seleciona um arquivo na lista pelo nome do arquivo."""
-        import os
+    def selecionar_mapa_por_indices(self, pico_idx, grupo_idx, mapa_idx):
+        """Seleciona visualmente o mapa na lista dado os seus índices, disparando a atualização da tela."""
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
-            chave = item.data(Qt.ItemDataRole.UserRole)
-            if chave and isinstance(chave, tuple) and len(chave) > 0:
-                caminho = str(chave[0])
-                if os.path.basename(caminho) == nome_arquivo:
-                    self.list_widget.setCurrentRow(i)
-                    return
+            indices = item.data(Qt.ItemDataRole.UserRole)
+            if indices and indices == (pico_idx, grupo_idx, mapa_idx):
+                self.list_widget.setCurrentItem(item)
+                return True
+        return False
+
+    def set_mapa_atual(self, msg_mapa_proxy, pico_idx=-1, grupo_idx=-1, mapa_idx=-1):
+        """Define o mapa atual para exibição na view, limpando a cena."""
+        self.msg_mapa_proxy = msg_mapa_proxy
+        self.pico_idx = pico_idx
+        self.sg_idx = grupo_idx
+        self.mapa_idx = mapa_idx
+        self.dados_atuais = {
+            'cena': CenaDesenho(self),
+            'itens_bb': [],
+            'mapa_msg': msg_mapa_proxy,
+            'pico_idx': pico_idx,
+            'sg_idx': grupo_idx,
+            'mapa_idx': mapa_idx
+        }
+        self.itens_poi.clear()
+        
+        # Conectar sinais do Model caso haja um MapasController com o Model (necessário para reatividade)
+        if self.mapas_controller and self.mapas_controller.model:
+            if hasattr(self.mapas_controller, 'set_contexto') and pico_idx >= 0 and grupo_idx >= 0 and mapa_idx >= 0:
+                path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:mapas/item:{mapa_idx}"
+                self.mapas_controller.set_contexto(path)
+                
+            model = self.mapas_controller.model
+            try:
+                model.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
+                model.repeated_adicionado.disconnect(self._on_repeated_adicionado)
+                model.repeated_removido.disconnect(self._on_repeated_removido)
+            except Exception: pass
+            model.repeated_item_alterado.connect(self._on_repeated_item_alterado)
+            model.repeated_adicionado.connect(self._on_repeated_adicionado)
+            model.repeated_removido.connect(self._on_repeated_removido)
+            
+        self._renderizar_mapa()
+        
+    def _renderizar_mapa(self):
+        """Lê a mensagem Protobuf e renderiza a cena inteira."""
+        if not self.msg_mapa_proxy:
+            self.visualizador.setScene(None)
+            self.label_placeholder.show()
+            return
+            
+        self.label_placeholder.hide()
+        dados = self.dados_atuais
+        cena = dados['cena']
+        cena.clear()
+        self.itens_poi.clear()
+        dados['itens_bb'] = []
+        
+        img_path = None
+        if self.mapas_controller:
+            img_path = self.mapas_controller.obter_caminho_imagem_mapa(self.msg_mapa_proxy)
+            
+        if img_path and str(img_path) and os.path.exists(str(img_path)):
+            pixmap = QPixmap(str(img_path))
+            item_img = cena.addPixmap(pixmap)
+            item_img.setZValue(-100)
+            
+        for i, poi in enumerate(self.msg_mapa_proxy.pontos_de_interesse):
+            self._adicionar_item_cena(poi, i, cena)
+            
+        self.visualizador.setScene(cena)
+        self.visualizador.fitInView(cena.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+
+        # Sincroniza a seleção na lista se os índices foram passados
+        if self.pico_idx >= 0 and self.sg_idx >= 0 and self.mapa_idx >= 0:
+            for i in range(self.list_widget.count()):
+                item = self.list_widget.item(i)
+                if item.data(Qt.ItemDataRole.UserRole) == (self.pico_idx, self.sg_idx, self.mapa_idx):
+                    self.list_widget.blockSignals(True)
+                    self.list_widget.setCurrentItem(item)
+                    self.list_widget.blockSignals(False)
+                    break
+    def _adicionar_item_cena(self, poi, index, cena):
+        # Transforma mensagem protobuf em dicionário genérico para os itens gráficos legacy
+        from google.protobuf.json_format import MessageToDict
+        pt_dict = MessageToDict(poi, preserving_proto_field_name=True)
+        
+        def cb_deletar(item):
+            self.deletar_item_poi(item)
+            
+        item_visual = None
+        if poi.HasField('box'):
+            item_visual = ItemBoundingBox(pt_dict, cb_deletar)
+        elif poi.HasField('circular'):
+            item_visual = ItemBoundingCircular(pt_dict, cb_deletar)
+        elif poi.HasField('area_livre'):
+            item_visual = ItemBoundingAreaLivre(pt_dict, cb_deletar)
+            
+        if item_visual:
+            cena.addItem(item_visual)
+            self.itens_poi[index] = item_visual
+            self.dados_atuais['itens_bb'].append(item_visual)
 
     def adicionar_poi(self, tipo):
-        if not self.dados_atuais: return
+        if not self.dados_atuais or not self.mapas_controller: return
         
         if tipo == 'area_livre':
             self.iniciar_modo_desenho(self.dados_atuais)
@@ -952,70 +923,37 @@ class WidgetEditorMapas(QWidget):
             rect_visao = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
             cx, cy = rect_visao.center().x(), rect_visao.center().y()
             
-            pt_dict = {'id': novo_id, 'label': novo_label}
-            item_gui = None
-            if tipo == 'circular':
-                pt_dict['circular'] = {'x': int(cx), 'y': int(cy), 'raio': 40}
-                item_gui = ItemBoundingCircular(pt_dict, self.deletar_item_poi, self.marcar_modificado)
-            elif tipo == 'box':
-                pt_dict['box'] = {'x': int(cx-40), 'y': int(cy-40), 'comprimento': 80, 'largura': 80}
-                item_gui = ItemBoundingBox(pt_dict, self.deletar_item_poi, self.marcar_modificado)
+            from aresta_api.proto.generated import croqui_pb2
+            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
             
-            if item_gui:
-                if hasattr(self, 'controller') and self.controller:
-                    from aresta_api.proto.generated import croqui_pb2
-                    from google.protobuf.json_format import ParseDict
-                    novo_poi = croqui_pb2.Mapa.PontoDeInteresse()
-                    ParseDict(pt_dict, novo_poi)
-                    indice_insercao = len(self.dados_atuais['itens_bb'])
-                    if hasattr(self.controller, 'set_contexto'):
-                        d = self.dados_atuais
-                        path_str = f'node:root/node:Croqui/node:picos/item:{d['pico_idx']}/node:setores_ou_grupos/item:{d['sg_idx']}/node:setor/node:mapas/item:{d['mapa_idx']}'
-                        self.controller.set_contexto('page:mapas/' + path_str)
-                    self.controller.adicionar_repeated(self.dados_atuais['mapa_msg'], 'pontos_de_interesse', indice_insercao, novo_poi)
-                    return
-                self.dados_atuais['cena'].addItem(item_gui)
-                self.dados_atuais['itens_bb'].append(item_gui)
-                if 'dados_yaml' in self.dados_atuais:
-                    self.dados_atuais['dados_yaml']['mapas'][self.dados_atuais['indice_mapa']].setdefault('pontos_de_interesse', []).append(pt_dict)
-                self.marcar_modificado()
+            if tipo == 'circular':
+                novo_poi.circular.x = int(cx)
+                novo_poi.circular.y = int(cy)
+                novo_poi.circular.raio = 40
+            elif tipo == 'box':
+                novo_poi.box.x = int(cx-40)
+                novo_poi.box.y = int(cy-40)
+                novo_poi.box.comprimento = 80
+                novo_poi.box.largura = 80
+            
+            self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
 
     def deletar_item_poi(self, item):
-        chave_unica = None
-        for k, d in self.dados_arquivos.items():
-            if item in d.get('itens_bb', []):
-                chave_unica = k
+        if not self.mapas_controller: return
+        
+        idx_poi = -1
+        for idx, gui_item in self.itens_poi.items():
+            if gui_item == item:
+                idx_poi = idx
                 break
-        if not chave_unica: return
-        
-        dados = self.dados_arquivos[chave_unica]
-        idx = dados['itens_bb'].index(item)
-        
-        if hasattr(self, 'controller') and self.controller:
-            from aresta_api.proto.generated import croqui_pb2
-            from google.protobuf.json_format import ParseDict
-            poi_removido = croqui_pb2.Mapa.PontoDeInteresse()
-            estado_atual = item.obter_dict_atualizado()
-            ParseDict(estado_atual, poi_removido)
-            if hasattr(self.controller, 'set_contexto'):
-                d = dados
-                path_str = f'node:root/node:Croqui/node:picos/item:{d['pico_idx']}/node:setores_ou_grupos/item:{d['sg_idx']}/node:setor/node:mapas/item:{d['mapa_idx']}'
-                self.controller.set_contexto('page:mapas/' + path_str)
-            self.controller.remover_repeated(dados['mapa_msg'], 'pontos_de_interesse', idx, poi_removido)
-            return
-            
-        dados['cena'].removeItem(item)
-        dados['itens_bb'].pop(idx)
-        if 'dados_yaml' in dados:
-            dados['dados_yaml']['mapas'][dados['indice_mapa']]['pontos_de_interesse'].pop(idx)
-        self.marcar_modificado()
+                
+        if idx_poi != -1:
+            self.mapas_controller.deletar_poi(self.msg_mapa_proxy, idx_poi)
 
     def marcar_modificado(self):
         if not self.esta_modificado:
             self.esta_modificado = True
             self.alterado.emit(True)
-
-
 
     # Lógica de Desenho e Conversão
     def iniciar_modo_desenho(self, dados):
@@ -1077,20 +1015,15 @@ class WidgetEditorMapas(QWidget):
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             novo_id, novo_label = dialogo.obter_valores()
             if novo_id or novo_label:
-                coords = []
+                from aresta_api.proto.generated import croqui_pb2
+                novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
                 for p in self.pontos_desenho:
-                    coords.append(int(p.x()))
-                    coords.append(int(p.y()))
+                    novo_poi.area_livre.coordenadas.append(int(p.x()))
+                    novo_poi.area_livre.coordenadas.append(int(p.y()))
                 
-                pt_dict = {
-                    'id': novo_id, 'label': novo_label,
-                    'area_livre': {'coordenadas': coords}
-                }
-                item_gui = ItemBoundingAreaLivre(pt_dict, self.deletar_item_poi, self.marcar_modificado)
-                self.dados_atuais['cena'].addItem(item_gui)
-                self.dados_atuais['itens_bb'].append(item_gui)
-                self.dados_atuais['dados_yaml']['mapas'][self.dados_atuais['indice_mapa']].setdefault('pontos_de_interesse', []).append(pt_dict)
-                self.marcar_modificado()
+                if self.mapas_controller:
+                    self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
+
         self.cancelar_modo_desenho()
 
     def cancelar_modo_desenho(self):
@@ -1109,10 +1042,13 @@ class WidgetEditorMapas(QWidget):
     def alternar_modo_conversao(self):
         if self.modo_desenho: return
         if self.modo_conversao:
-            if self.dados_atuais:
-                boxes = [it for it in self.dados_atuais['itens_bb'] if isinstance(it, ItemBoundingBox)]
-                for box in boxes:
-                    self.converter_box_para_circulo(box)
+            if self.dados_atuais and self.mapas_controller:
+                indices = []
+                for idx_poi, gui_item in list(self.itens_poi.items()):
+                    if isinstance(gui_item, ItemBoundingBox):
+                        indices.append(idx_poi)
+                if indices:
+                    self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, indices)
             self.parar_modo_conversao()
         else:
             self.iniciar_modo_conversao()
@@ -1133,40 +1069,35 @@ class WidgetEditorMapas(QWidget):
         self.origem_selecao = None
 
     def finalizar_area_conversao(self, rect):
-        if not self.dados_atuais: return
+        if not self.dados_atuais or not self.mapas_controller: return
         a_converter = []
-        for it in self.dados_atuais['itens_bb']:
-            if isinstance(it, ItemBoundingBox):
-                if rect.contains(it.mapToScene(it.rect().center())):
-                    a_converter.append(it)
+        for idx_poi, gui_item in list(self.itens_poi.items()):
+            if isinstance(gui_item, ItemBoundingBox):
+                if rect.contains(gui_item.mapToScene(gui_item.rect().center())):
+                    a_converter.append(idx_poi)
         if a_converter:
-            for it in a_converter:
-                self.converter_box_para_circulo(it)
+            self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, a_converter)
         self.parar_modo_conversao()
-
-    def converter_box_para_circulo(self, item):
-        pt_dict = item.pt_dict
-        novo_pt_dict = converter_box_para_circulo(pt_dict)
-        if not novo_pt_dict: return
-        
-        idx = self.dados_atuais['itens_bb'].index(item)
-        self.dados_atuais['cena'].removeItem(item)
-        
-        novo_item = ItemBoundingCircular(novo_pt_dict, self.deletar_item_poi, self.marcar_modificado)
-        self.dados_atuais['cena'].addItem(novo_item)
-        self.dados_atuais['itens_bb'][idx] = novo_item
-        self.dados_atuais['dados_yaml']['mapas'][self.dados_atuais['indice_mapa']]['pontos_de_interesse'][idx] = novo_pt_dict
-        self.marcar_modificado()
 
     # Bulk Sliders logic
     def ao_pressionar_slider_bulk(self, tipo):
         if not self.dados_atuais: return
         self.bulk_base_dims = {}
-        for it in self.dados_atuais['itens_bb']:
-            if tipo == 'circular' and isinstance(it, ItemBoundingCircular):
-                self.bulk_base_dims[id(it)] = it.rect().width() / 2
-            elif tipo == 'box' and isinstance(it, ItemBoundingBox):
-                self.bulk_base_dims[id(it)] = (it.rect().width(), it.rect().height())
+        from copy import deepcopy
+        for idx, gui_item in self.itens_poi.items():
+            if tipo == 'circular' and isinstance(gui_item, ItemBoundingCircular):
+                self.bulk_base_dims[id(gui_item)] = {
+                    'r': gui_item.rect().width() / 2,
+                    'estado_inicial': deepcopy(gui_item.obter_dict_atualizado()),
+                    'idx': idx
+                }
+            elif tipo == 'box' and isinstance(gui_item, ItemBoundingBox):
+                self.bulk_base_dims[id(gui_item)] = {
+                    'w': gui_item.rect().width(),
+                    'h': gui_item.rect().height(),
+                    'estado_inicial': deepcopy(gui_item.obter_dict_atualizado()),
+                    'idx': idx
+                }
 
     def ao_mover_slider_bulk(self, valor, tipo):
         if not self.bulk_base_dims: return
@@ -1174,28 +1105,54 @@ class WidgetEditorMapas(QWidget):
         mudou = False
         if tipo == 'circular':
             self.label_circ.setText(f"{valor:+}%")
-            for it in self.dados_atuais['itens_bb']:
-                if isinstance(it, ItemBoundingCircular) and id(it) in self.bulk_base_dims:
-                    base_r = self.bulk_base_dims[id(it)]
+            for gui_item in self.itens_poi.values():
+                if isinstance(gui_item, ItemBoundingCircular) and id(gui_item) in self.bulk_base_dims:
+                    base_r = self.bulk_base_dims[id(gui_item)]['r']
                     novo_r = max(2, base_r * fator)
-                    it.setRect(-novo_r, -novo_r, 2 * novo_r, 2 * novo_r)
-                    it.atualizar_pos_texto(-novo_r, -novo_r)
+                    gui_item.setRect(-novo_r, -novo_r, 2 * novo_r, 2 * novo_r)
+                    gui_item.atualizar_pos_texto(-novo_r, -novo_r)
                     mudou = True
         elif tipo == 'box':
             self.label_box.setText(f"{valor:+}%")
-            for it in self.dados_atuais['itens_bb']:
-                if isinstance(it, ItemBoundingBox) and id(it) in self.bulk_base_dims:
-                    base_w, base_h = self.bulk_base_dims[id(it)]
+            for gui_item in self.itens_poi.values():
+                if isinstance(gui_item, ItemBoundingBox) and id(gui_item) in self.bulk_base_dims:
+                    base_w = self.bulk_base_dims[id(gui_item)]['w']
+                    base_h = self.bulk_base_dims[id(gui_item)]['h']
                     novo_w = max(4, base_w * fator)
                     novo_h = max(4, base_h * fator)
-                    centro_cena_antigo = it.mapToScene(it.rect().center())
-                    it.setRect(0, 0, novo_w, novo_h)
-                    it.setTransformOriginPoint(it.rect().center())
-                    it.setPos(centro_cena_antigo - it.rect().center())
+                    centro_cena_antigo = gui_item.mapToScene(gui_item.rect().center())
+                    gui_item.setRect(0, 0, novo_w, novo_h)
+                    gui_item.setTransformOriginPoint(gui_item.rect().center())
+                    gui_item.setPos(centro_cena_antigo - gui_item.rect().center())
                     mudou = True
-        if mudou: self.marcar_modificado()
 
     def ao_soltar_slider_bulk(self, tipo):
+        if self.bulk_base_dims and self.mapas_controller:
+            # Dispatch changes to controller
+            from aresta_api.proto.generated import croqui_pb2
+            from google.protobuf.json_format import ParseDict
+            
+            # Cria nome da ação
+            nome_acao = "Redimensionar Círculos" if tipo == 'circular' else "Redimensionar Retângulos"
+            self.mapas_controller.iniciar_grupo_undo(nome_acao)
+            
+            # Simples iterar e aplicar modificações
+            for uid, state in self.bulk_base_dims.items():
+                idx = state['idx']
+                gui_item = self.itens_poi.get(idx)
+                if gui_item:
+                    estado_inicial = state['estado_inicial']
+                    estado_final = gui_item.obter_dict_atualizado()
+                    
+                    if estado_inicial != estado_final:
+                        poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
+                        ParseDict(estado_inicial, poi_antigo)
+                        poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
+                        ParseDict(estado_final, poi_novo)
+                        self.mapas_controller.mover_poi(self.msg_mapa_proxy, idx, poi_antigo, poi_novo)
+                        
+            self.mapas_controller.finalizar_grupo_undo()
+            
         self.bulk_base_dims = {}
         if tipo == 'circular':
             self.slider_circ.blockSignals(True); self.slider_circ.setValue(0); self.slider_circ.blockSignals(False)
@@ -1204,38 +1161,31 @@ class WidgetEditorMapas(QWidget):
             self.slider_box.blockSignals(True); self.slider_box.setValue(0); self.slider_box.blockSignals(False)
             self.label_box.setText("0%")
 
-    def _recarregar_pois_cena_atual(self):
-        if not self.dados_atuais or 'cena' not in self.dados_atuais: return
-        cena = self.dados_atuais['cena']
-        mapa_msg = self.dados_atuais['mapa_msg']
-        
-        for item in self.dados_atuais.get('itens_bb', []):
-            cena.removeItem(item)
-        self.dados_atuais['itens_bb'] = []
-        
-        from google.protobuf.json_format import MessageToDict
-        for pt_msg in mapa_msg.pontos_de_interesse:
-            pt = MessageToDict(pt_msg, preserving_proto_field_name=True)
-            item = None
-            if 'circular' in pt:
-                item = ItemBoundingCircular(pt, self.deletar_item_poi, self.marcar_modificado)
-            elif 'box' in pt:
-                item = ItemBoundingBox(pt, self.deletar_item_poi, self.marcar_modificado)
-            elif 'area_livre' in pt:
-                item = ItemBoundingAreaLivre(pt, self.deletar_item_poi, self.marcar_modificado)
-            
-            if item:
-                cena.addItem(item)
-                self.dados_atuais['itens_bb'].append(item)
-
     def _on_repeated_item_alterado(self, msg, campo_nome, index):
-        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
-            self._recarregar_pois_cena_atual()
+        if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
+            poi = msg.pontos_de_interesse[index]
+            item_existente = self.itens_poi.get(index)
+            if item_existente:
+                from google.protobuf.json_format import MessageToDict
+                pt_dict = MessageToDict(poi, preserving_proto_field_name=True)
+                # Verifica se o tipo da Box foi convertido (ex: box -> circular)
+                mesmo_tipo = False
+                if poi.HasField('box') and isinstance(item_existente, ItemBoundingBox):
+                    mesmo_tipo = True
+                elif poi.HasField('circular') and isinstance(item_existente, ItemBoundingCircular):
+                    mesmo_tipo = True
+                elif poi.HasField('area_livre') and isinstance(item_existente, ItemBoundingAreaLivre):
+                    mesmo_tipo = True
+                    
+                if mesmo_tipo:
+                    item_existente.carregar_de_dict(pt_dict)
+                else:
+                    self._renderizar_mapa()
 
     def _on_repeated_adicionado(self, msg, campo_nome, index):
-        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
-            self._recarregar_pois_cena_atual()
+        if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
+            self._renderizar_mapa()
 
     def _on_repeated_removido(self, msg, campo_nome, index):
-        if hasattr(self, 'dados_atuais') and self.dados_atuais and self.dados_atuais.get('mapa_msg') == msg and campo_nome == 'pontos_de_interesse':
-            self._recarregar_pois_cena_atual()
+        if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
+            self._renderizar_mapa()

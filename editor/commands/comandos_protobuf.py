@@ -116,6 +116,33 @@ class CmdAlterarRepeatedItem(QUndoCommand):
             self.model.notificar_foco_requisitado(self.context_path)
 
 
+class CmdAlterarMultiplosRepeatedItems(QUndoCommand):
+    """Comando para alterar múltiplos itens em uma coleção repeated simultaneamente via Model."""
+    def __init__(self, model, msg, campo_nome, alteracoes, context_path=None, parent=None):
+        super().__init__(parent)
+        self.model = model
+        self.msg = msg
+        self.campo_nome = campo_nome
+        self.alteracoes = []
+        for index, valor_antigo, valor_novo in alteracoes:
+            self.alteracoes.append((index, _copia_segura(valor_antigo), _copia_segura(valor_novo)))
+        self.context_path = context_path
+        self.setText(f"Alterados {len(self.alteracoes)} itens em {self.campo_nome}")
+
+    def undo(self):
+        # Desfazer na ordem normal (se não houver deleção, tanto faz, mas iteramos normal)
+        for index, valor_antigo, _ in self.alteracoes:
+            self.model._alterar_repeated_item(self.msg, self.campo_nome, index, valor_antigo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def redo(self):
+        for index, _, valor_novo in self.alteracoes:
+            self.model._alterar_repeated_item(self.msg, self.campo_nome, index, valor_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+
 class CmdMoverRepeated(QUndoCommand):
     """Comando para mover um item de uma coleção repeated para outra posição via Model."""
     def __init__(self, model, msg, campo_nome, index_from, index_to, context_path=None, parent=None):

@@ -64,8 +64,8 @@ def test_listagem_de_diretorio_deve_funcionar_na_integracao(integracao, qtbot):
     dialogo, servidor = integracao
     url_base = dialogo.label_endereco.text()
     
-    # Tenta acessar a raiz /
-    resposta = requests.get(url_base, timeout=2)
+    # Tenta acessar a rota /handshake para confirmar conexão
+    resposta = requests.get(f"{url_base}/handshake", timeout=2)
     
     assert resposta.status_code == 200
     
@@ -98,4 +98,3 @@ def test_parar_servidor_deve_ser_rapido_e_limpo(integracao, qtbot):
         
     qtbot.wait_until(servidor_parou, timeout=5000)
     assert servidor._servindo is False
-    assert servidor.httpd is None

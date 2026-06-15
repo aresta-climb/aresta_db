@@ -6,7 +6,8 @@ from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
     CmdRemoverRepeated,
     CmdAlterarOneof,
-    CmdAlterarRepeatedItem
+    CmdAlterarRepeatedItem,
+    CmdAlterarMultiplosRepeatedItems
 )
 from editor.models.croqui_model import CroquiModel
 
@@ -152,6 +153,34 @@ class TestComandosProtobuf(unittest.TestCase):
                 
             # O índice interno ainda deve ser atualizado
             assert gerenciador._ultimo_index == 1
+
+    def test_cmd_alterar_multiplos_repeated_items(self):
+        croqui = Croqui()
+        croqui.creditos.extend(["Um", "Dois", "Tres"])
+        model = CroquiModel(croqui)
+        
+        # Cria e executa comando alterando indices 0 e 2
+        alteracoes = [
+            (0, "Um", "NovoUm"),
+            (2, "Tres", "NovoTres")
+        ]
+        cmd = CmdAlterarMultiplosRepeatedItems(model, croqui, "creditos", alteracoes)
+        cmd.redo()
+        
+        self.assertEqual(croqui.creditos[0], "NovoUm")
+        self.assertEqual(croqui.creditos[1], "Dois")
+        self.assertEqual(croqui.creditos[2], "NovoTres")
+        
+        # Desfaz
+        cmd.undo()
+        self.assertEqual(croqui.creditos[0], "Um")
+        self.assertEqual(croqui.creditos[1], "Dois")
+        self.assertEqual(croqui.creditos[2], "Tres")
+        
+        # Refaz novamente
+        cmd.redo()
+        self.assertEqual(croqui.creditos[0], "NovoUm")
+        self.assertEqual(croqui.creditos[2], "NovoTres")
 
     def test_gerenciador_historico_sinais(self):
         from editor.core.historico import GerenciadorHistorico
