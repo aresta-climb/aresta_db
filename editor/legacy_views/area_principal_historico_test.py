@@ -44,6 +44,9 @@ def test_area_principal_historico_conexoes(qtbot):
     # Simula clique/gatilho no acao_refazer
     janela.acao_refazer.trigger()
     assert estado["valor"] == 1
+    
+    # Limpa a pilha para que o closeEvent do Qtbot no teardown não trave mostrando messagebox
+    janela.historico.obter_pilha().setClean()
 
 def test_janela_roteamento_foco(qtbot):
     from unittest.mock import patch, MagicMock

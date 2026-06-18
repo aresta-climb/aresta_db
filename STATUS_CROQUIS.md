@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 14/06/2026 16:51:32
+Relatório gerado em: 18/06/2026 20:29:17
 
-| Croqui | Publicado (22/48) | Revisado Manual (22/48) | Revisado Circ (3/48) | Desenho Extraível (23/9/16) | Pontos de Interesse (24/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
+| Croqui | Publicado (22/48) | Revisado Manual (22/48) | Revisado Circ (4/48) | Desenho Extraível (23/9/16) | Pontos de Interesse (24/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ❌ | ⚠️ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ❌ | ⚠️ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -30,7 +30,7 @@ Relatório gerado em: 14/06/2026 16:51:32
 | br_mg_montes_claros_zuculim | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ouro_preto_andorinhas | ✅ | ✅ | ❌ | ⚠️ | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ouro_preto_ouroboulder | ❌ | ❌ | ❌ | ⚠️ | ✅ (41/41) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ❌ | ⚠️ | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ✅ | ⚠️ | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_paraisopolis_pedra_da_divisa | ✅ | ✅ | ✅ | ✅ (não) | ✅ (5/5) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_gruta | ❌ | ❌ | ❌ | ⚠️ | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_pedra_do_carapuca | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |

@@ -14,9 +14,9 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 418
+      x: 419
       y: 589
-      raio: 10
+      raio: 11
 ---
 
 # Bloco Aleijadinho

@@ -186,3 +186,35 @@ def test_mover_repeated_quando_unico_elemento(qapp):
         # Move para baixo
         controller.mover_repeated_para_baixo(croqui, "creditos", 0)
         mock_push.assert_not_called()
+
+def test_croqui_controller_adicionar_mapa_com_arquivo(qapp):
+    from pathlib import Path
+    from aresta_api.proto.generated.croqui_pb2 import Mapa
+    from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    
+    proxy = model.obter_croqui_readonly()
+    proxy_setor = proxy.picos[0].setores_ou_grupos[0].setor.conteudo
+    
+    img_bytes = b"fake"
+    caminho_absoluto = Path("/fake/path.webp")
+    novo_mapa = Mapa()
+    
+    with patch.object(undo_stack, 'push') as mock_push:
+        controller.adicionar_mapa_com_arquivo(proxy_setor, "mapas", 0, novo_mapa, caminho_absoluto, img_bytes)
+        
+        mock_push.assert_called_once()
+        cmd = mock_push.call_args[0][0]
+        assert isinstance(cmd, CmdAdicionarMapaArquivo)
+        assert cmd.campo_nome == "mapas"
+        assert cmd.index == 0
+        assert cmd.caminho_absoluto == caminho_absoluto
+        assert cmd.img_bytes == img_bytes

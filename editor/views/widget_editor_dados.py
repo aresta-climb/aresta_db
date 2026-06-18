@@ -387,6 +387,55 @@ class ContainerRepeatedWidget(QWidget):
 
     def _on_add_clicked(self):
         f = self.field
+        idx = len(self.repeated_container)
+        
+        # Interceptação de "Mapas"
+        if f.name == "mapas":
+            from pathlib import Path
+            from editor.core.storage import GerenciadorCaminhos
+            
+            db_dir = getattr(self.formulario.model, '_caminho_db_atual', None)
+            if not db_dir:
+                db_dir = GerenciadorCaminhos().obter_caminho_base_repo()
+                
+            nome_setor = getattr(self.msg, "nome", "setor_desconhecido")
+            import re
+            import unicodedata
+            nome_setor_fmt = unicodedata.normalize('NFKD', nome_setor).encode('ASCII', 'ignore').decode('utf-8')
+            nome_setor_fmt = re.sub(r'[^a-zA-Z0-9]+', '_', nome_setor_fmt).strip('_').lower()
+            
+            nome_sugerido = f"setor_{nome_setor_fmt}_p{idx}.webp"
+            
+            from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+            from scripts.comprimir_imagens import comprimir_imagem_para_bytes
+            from google.protobuf.message_factory import GetMessageClass
+            
+            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, self)
+            if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
+                caminho_img = dialog.caminho_imagem_selecionada
+                with open(caminho_img, "rb") as arquivo_img:
+                    raw_bytes = arquivo_img.read()
+                
+                # Compressao em memoria (max_area = 4194304)
+                img_bytes, final_w, final_h = comprimir_imagem_para_bytes(raw_bytes, quality=85, max_area=4194304)
+                
+                novo_mapa = GetMessageClass(f.message_type)()
+                novo_mapa.caminho_imagem_mapa = dialog.obter_caminho_final_relativo()
+                novo_mapa.largura_mapa = final_w
+                novo_mapa.altura_mapa = final_h
+                
+                self.controller.adicionar_mapa_com_arquivo(
+                    msg=self.msg,
+                    campo_nome=f.name,
+                    index=idx,
+                    valor=novo_mapa,
+                    caminho_absoluto=dialog.obter_caminho_final_absoluto(),
+                    img_bytes=img_bytes
+                )
+                self.formulario._mark_dirty()
+                self.formulario._notify_tree_changed()
+            return
+            
         if f.type == FieldDescriptor.TYPE_MESSAGE:
             msg_class = GetMessageClass(f.message_type)
             val = msg_class()
@@ -403,7 +452,6 @@ class ContainerRepeatedWidget(QWidget):
             else:
                 val = ""
 
-        idx = len(self.repeated_container)
         self.controller.adicionar_repeated(self.msg, f.name, idx, val)
         self.formulario._mark_dirty()
         self.formulario._notify_tree_changed()
@@ -953,6 +1001,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                         path = "page:mapas/" + get_node_path(self.current_node)
                         if extra_path:
                             path += "/" + extra_path
+                        self.controller.set_contexto(path)
                         if hasattr(self, 'model'):
                             self.model.notificar_foco_requisitado(path)
                         
@@ -1387,6 +1436,7 @@ class WidgetEditorDados(QWidget):
         self.stacked_widget = QStackedWidget()
         
         self.form_padrao = WidgetFormularioPadrao(self.model, self.controller)
+        self.form_padrao.widget_editor = self
         
         self.stacked_widget.addWidget(self.form_padrao)
         

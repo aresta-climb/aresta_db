@@ -63,6 +63,23 @@ def run_tests(testmon=False, parallel=False):
     if result.returncode != 0 and result.returncode != 5:
         sys.exit(result.returncode)
 
+def run_coverage():
+    print("Running tests with coverage...")
+    test_paths = ["scripts", "aresta_api", "editor", "migracoes", "build_test.py"]
+    if (ROOT_DIR / "tests").exists():
+        test_paths.append("tests")
+        
+    pytest_args = [
+        "--import-mode=importlib",
+        "--cov",
+        "--cov-report=html:reports/coverage"
+    ]
+    cmd = [sys.executable, "-m", "pytest"] + pytest_args + test_paths
+    result = subprocess.run(cmd, cwd=str(ROOT_DIR), check=False)
+    
+    if result.returncode != 0 and result.returncode != 5:
+        sys.exit(result.returncode)
+
 def run_deploy():
     print("\nRunning deploy_generated...")
     script_path = ROOT_DIR / "scripts" / "deploy_generated.py"
@@ -79,7 +96,7 @@ def main():
         "cmd", 
         nargs="?", 
         default="tudo",
-        choices=["protos", "test", "deploy", "saude", "tudo"],
+        choices=["protos", "test", "coverage", "deploy", "saude", "tudo"],
         help="Comando a ser executado (padrão: tudo)"
     )
     parser.add_argument(
@@ -124,6 +141,9 @@ def main():
     elif args.cmd == "test":
         generate_protos(force=args.force)
         run_tests(testmon=args.testmon, parallel=args.parallel)
+    elif args.cmd == "coverage":
+        generate_protos(force=args.force)
+        run_coverage()
     elif args.cmd == "deploy":
         generate_protos(force=args.force)
         run_deploy()

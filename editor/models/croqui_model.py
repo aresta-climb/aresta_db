@@ -102,10 +102,11 @@ class CroquiModel(QObject):
         self.dado_alterado.emit(msg, ext_descriptor.name)
 
     def carregar_arquivos_externos(self, caminho_db):
-        """
-        Carrega recursivamente os arquivos externos (.md)
-        referenciados por 'caminho' e os insere em 'conteudo' na mensagem nativa.
-        """
+        """Carrega e mescla no protobuf os arquivos externos de Setor/Grupo e Markdowns."""
+        if not caminho_db:
+            return
+            
+        self._caminho_db_atual = caminho_db
         from google.protobuf import json_format
         import yaml
         

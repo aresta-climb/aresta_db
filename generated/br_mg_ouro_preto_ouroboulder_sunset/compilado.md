@@ -289,9 +289,9 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 418
+                - **x**: 419
                 - **y**: 589
-                - **raio**: 10
+                - **raio**: 11
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
@@ -300,8 +300,8 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Amnesia
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: x
+            - **id_no_mapa**: 1_b
+            - **id_no_mapa_fim**: x_b
             - **destaque**: True
             - **dificuldade**: V3
         - **[1]**:
@@ -317,13 +317,13 @@
             - **descricao**: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
             - **nome**: Purple Rase
             - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: x
+            - **id_no_mapa_fim**: x_b
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **descricao**: Começa perto do chão de areia bem a direita e vira no Amnésia
             - **nome**: Sunshine
-            - **id_no_mapa**: 4
+            - **id_no_mapa**: 1
             - **id_no_mapa_fim**: x
             - **dificuldade**: V6
       - **mapas**:
@@ -340,8 +340,8 @@
                 - **y**: 307
                 - **raio**: 9
             - **[1]**:
-              - **id**: X
-              - **label**: X
+              - **id**: x
+              - **label**: x
               - **circular**:
                 - **x**: 12
                 - **y**: 12
@@ -352,7 +352,7 @@
           - **altura_mapa**: 814
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
+              - **id**: 1_b
               - **label**: 1
               - **circular**:
                 - **x**: 805
@@ -380,7 +380,7 @@
                 - **y**: 13
                 - **raio**: 10
             - **[4]**:
-              - **id**: x
+              - **id**: x_b
               - **label**: x
               - **circular**:
                 - **x**: 562
@@ -642,12 +642,12 @@
           - **boulder**:
             - **descricao**: Apenas desafio de virar o bloco
             - **nome**: Tartaruga
-            - **id_no_mapa**: 2
+            - **id_no_mapa**: 2_b
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Mobilete
-            - **id_no_mapa**: 3
+            - **id_no_mapa**: 3_b
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
@@ -665,7 +665,7 @@
               - **label**: 2
               - **circular**:
                 - **x**: 671
-                - **y**: 461
+                - **y**: 463
                 - **raio**: 9
             - **[1]**:
               - **id**: 3
@@ -697,11 +697,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 353
-                - **y**: 394
+                - **x**: 354
+                - **y**: 396
                 - **raio**: 9
             - **[1]**:
-              - **id**: 3
+              - **id**: 3_b
               - **label**: 3
               - **circular**:
                 - **x**: 516
@@ -715,12 +715,12 @@
                 - **y**: 360
                 - **raio**: 9
             - **[3]**:
-              - **id**: 2
+              - **id**: 2_b
               - **label**: 2
               - **circular**:
-                - **x**: 742
-                - **y**: 355
-                - **raio**: 8
+                - **x**: 743
+                - **y**: 356
+                - **raio**: 9
   - **[5]**:
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
