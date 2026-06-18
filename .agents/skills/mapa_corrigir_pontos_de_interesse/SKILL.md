@@ -38,7 +38,7 @@ Para confirmar que cada ponto de interesse está na posição correta, você pos
 > **Loop de Iteração Visual (Execute até acertar)**
 > É possível que as bounding boxes necessitem ajustes manuais finos. Faça os ajustes abaixo em loop sem interrupção até atingir um enquadramento **perfeito**:
 > 
-> 1. Use `run_command`: `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>` para cuspir a imagem processada. **Você tem autonomia para rodar isto quantas vezes precisar sem permissão.**
+> 1. Use `run_command`: `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>` para cuspir a imagem processada. **Você tem autonomia para rodar isto quantas vezes precisar.** *Nota:* Se o script der erro de "JSONDecodeError" ou similar, isso significa que você estragou a sintaxe do JSON. Corrija a sintaxe com prioridade máxima antes de continuar!
 > 2. Use `view_file` na imagem recém gerada `_processado.webp` para visualizá-la.
 > 3. Observe a caixa (ou círculo) vermelho. Ele está perfeitamente delimitando APENAS o texto/label do ponto correspondente? Se não estiver:
 > 4. Ajuste os valores literais no arquivo `.json`:

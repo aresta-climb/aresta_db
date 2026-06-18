@@ -64,9 +64,14 @@ Um exemplo de como ficaria a seção de pontos de interesse do arquivo JSON:
 }
 ```
 
-## 3. Conferindo que todos os pontos de interesse foram extraídos
+## 3. Conferindo e Auto-Validando (Sanity Check)
 
-Volte à imagem, e confirme que **cada** ponto de interesse da imagem tem uma entrada correspondente no arquivo `<imagem>.json`. Se algum tiver faltando, adicione, até que todos os pontos tenham sido extraídos.
+> [!IMPORTANT]
+> **Loop de Validação Rigorosa:** O OCR costuma ser falho e ambiguidades visuais são comuns. 
+> 1. Se o OCR retornar um texto quebrado ou ilegível, não confie cegamente. Use o contexto visual da imagem e outras vias ao redor para **deduzir logicamente** o ID ou Label correto.
+> 2. Conte mentalmente e anote quantos pontos de interesse existem visualmente no mapa da imagem.
+> 3. Conte quantas entradas você acabou de registrar no arquivo `raw_mapas/<imagem>.json`.
+> 4. **Os números batem perfeitamente?** Volte à imagem e procure em todos os cantos. Se algum estiver faltando, adicione. Se houver sobras, remova os falsos positivos. Só finalize quando tiver certeza que cobriu 100% da imagem.
 
 ## 4. Quando usar essa habilidade
 

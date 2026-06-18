@@ -33,4 +33,21 @@ python -m pip install -r requirements-deploy.txt
 
 ## Como converter um novo croqui PDF
 
-Comece com a workflow `preparacao_pdf_para_conversao`. Chame essa workflow com o caminho do PDF do croqui a ser convertido, e siga as instruçõest
+1. Inicie a conversão chamando o orquestrador pelo agente (Antigravity):
+   Digite `/processar_croqui_completo` e forneça o caminho do PDF do croqui.
+   O orquestrador guiará o processo em 3 fases (Preparação, Conversão e Extração de Mapas).
+
+2. Durante o processo, o agente fará paradas estratégicas (Checkpoints) solicitando que você valide os dados gerados usando o Editor de Croquis.
+
+### Dependências do Editor
+
+O editor de croquis é uma interface gráfica para auxiliar a validação. Antes de abri-lo pela primeira vez, certifique-se de instalar suas dependências:
+
+```bash
+python -m pip install -r editor/requirements.txt
+```
+
+Para rodar o editor para inspecionar e revisar um croqui específico:
+```bash
+python editor/main.py database/<pais>_<estado>_<cidade>_<pico_de_escalada>
+```

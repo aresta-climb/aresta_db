@@ -61,9 +61,23 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
   - **IMPORTANTE**: TODA a informação do setor, incluindo partes textuais, deve ser transcrita para algum campo do protobuf ou da área de markdown.
   - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> `ViaEsportiva`
 
-## 2. Revise as imagens de todos os arquivos
+## 2. Regras Estritas de Formatação e Sintaxe
 
-Tem uma chance razoável de as imagens escolhidas para cada arquivo não serem as mais representativas para serem usadas. Conferir cada imagem na respectiva página do PDF para confirmar que é a imagem correta a ser usada, e atualizar o caminho se necessário.
+> [!WARNING]
+> **O YAML DEVE SER PERFEITO:** Você está escrevendo YAML Frontmatter. Qualquer erro de indentação, aspas não fechadas, ou listas mal formatadas no YAML fará com que o parser do Protobuf quebre na etapa final. Revise minuciosamente a sintaxe do seu output.
+> - Sempre use aspas em strings no YAML se elas contiverem caracteres especiais (ex: dois pontos `:`).
+> - Garanta que a indentação obedeça à estrutura exata do `croqui.proto`.
+
+> [!IMPORTANT]
+> **Caminhos de Imagens:** Toda vez que precisar referenciar uma imagem no Markdown, use APENAS caminhos relativos começando a partir da pasta base de imagens. Exemplo correto: `![Mapa Geral](raw_pdf_contents/imagens/p2_i0.webp)`.
+
+## 3. Revisão Final (Self-Correction)
+
+Antes de finalizar sua tarefa, você **DEVE** reler o arquivo `.md` que você acabou de criar.
+1. **Sintaxe YAML:** Verifique visualmente se a estrutura YAML está alinhada e as aspas estão corretas.
+2. **Imagens:** Confira se as imagens escolhidas são as mais representativas e os caminhos estão perfeitamente formatados.
+3. **Integralidade:** Certifique-se de que *nenhuma* informação do PDF original foi omitida.
+Se encontrar qualquer problema sintático, edite o arquivo e corrija de imediato antes de devolver a resposta.
 
 ## Quando usar essa habilidade
 

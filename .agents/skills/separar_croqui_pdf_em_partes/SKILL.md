@@ -23,9 +23,35 @@ Além disso, provavelmente haverão várias partes que não são úteis para o w
 
 ## Como separar o PDF
 
+### 1. Criação Resiliente da Pasta do Croqui
+
+Antes de separar as páginas, você precisa identificar as informações exatas sobre a localização do croqui:
+- País
+- Estado
+- Cidade
+- Nome do Pico de Escalada
+
+**Estratégia de Busca (Siga estritamente a ordem):**
+1. **Capa e Introdução:** Inspecione visualmente as primeiras páginas do PDF para extrair esses dados.
+2. **Resto do PDF:** Se faltar alguma informação (por exemplo, a cidade ou estado), inspecione o restante do PDF lendo outras páginas.
+3. **Busca na Internet:** Se mesmo após vasculhar o PDF você não encontrar todas as informações geográficas, utilize a ferramenta de `search_web` na internet para pesquisar onde fica o pico de escalada e deduzir a cidade, estado e país corretos.
+4. **Último Recurso:** Apenas se não encontrar de forma alguma após a busca exaustiva na web, utilize `desconhecido` para o campo faltante. Não invente ou alucine dados geográficos.
+
+Com essas informações completas e validadas, crie a pasta para o croqui dentro da pasta `database` seguindo rigorosamente o formato: `database/<pais>_<estado>_<cidade>_<pico_de_escalada>`.
+- Use apenas letras minúsculas.
+- Remova todos os acentos.
+- Substitua espaços por `_` (underscores).
+
+> [!WARNING]
+> A correta formatação do arquivo `partes.json` que você irá criar na etapa 2 é fundamental. Erros de sintaxe ou vírgulas sobrando impedirão o andamento de toda a arquitetura. Revise cuidadosamente o JSON resultante.
+
+**MUITO IMPORTANTE:** Ao finalizar seu trabalho, você **DEVE** retornar na sua mensagem final o caminho exato da pasta que você criou, para que o agente orquestrador saiba onde continuar o fluxo.
+
+### 2. Separação em Partes
+
 Leia todas as páginas do PDF, identificando o conteúdo de cada uma, e construa um mapa de parte de
 interesse para páginas que compõem essa parte baseado nas partes de interesse e não interesse mencionadas acima.
-Esse mapa deve ser um arquivo JSON com uma estrutura como a seguinte:
+Esse mapa deve ser um arquivo `partes.json` dentro da pasta que você acabou de criar. Ele deve ter uma estrutura como a seguinte:
 
 ```json
 {
