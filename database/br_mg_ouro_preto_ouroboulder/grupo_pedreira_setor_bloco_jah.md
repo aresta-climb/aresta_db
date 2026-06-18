@@ -7,53 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 372
-      y: 287
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 752
+      y: 437
+      raio: 16
   - id: B
     label: B
-    box:
-      x: 658
-      y: 263
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1318
+      y: 403
+      raio: 16
   - id: '1'
     label: '1'
-    box:
-      x: 418
-      y: 640
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 840
+      y: 983
+      raio: 16
   - id: '2'
     label: '2'
-    box:
-      x: 684
-      y: 660
-      comprimento: 25
-      largura: 30
-  - id: 1A_legend
-    label: 1A De Jah V0/1
-    box:
-      x: 275
-      y: 762
-      comprimento: 114
-      largura: 28
-  - id: 1B_legend
-    label: 1B Jah V1
-    box:
-      x: 254
-      y: 792
-      comprimento: 72
-      largura: 27
-  - id: 2B_legend
-    label: 2B Invertido V2
-    box:
-      x: 276
-      y: 819
-      comprimento: 115
-      largura: 28
+    circular:
+      x: 1391
+      y: 1013
+      raio: 16
 escaladas:
 - boulder:
     nome: De Jah

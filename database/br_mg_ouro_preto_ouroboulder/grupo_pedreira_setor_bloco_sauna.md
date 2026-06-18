@@ -7,74 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 798
+    circular:
+      x: 799
       y: 166
-      comprimento: 30
-      largura: 37
+      raio: 17
   - id: B
     label: B
-    box:
+    circular:
       x: 1392
-      y: 304
-      comprimento: 31
-      largura: 53
+      y: 297
+      raio: 16
   - id: C
     label: C
-    box:
-      x: 1630
-      y: 340
-      comprimento: 26
-      largura: 30
+    circular:
+      x: 1632
+      y: 339
+      raio: 16
   - id: '1'
     label: '1'
-    box:
-      x: 1130
-      y: 1191
-      comprimento: 35
-      largura: 30
+    circular:
+      x: 1132
+      y: 1193
+      raio: 16
   - id: '2'
     label: '2'
-    box:
-      x: 1238
-      y: 1172
-      comprimento: 26
-      largura: 29
+    circular:
+      x: 1239
+      y: 1173
+      raio: 15
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 1391
-      y: 1089
-      comprimento: 18
-      largura: 22
-  - id: 1A_legend
-    label: 1A Sauna Seca V4
-    box:
-      x: 1670
-      y: 1228
-      comprimento: 273
-      largura: 37
-  - id: 2B_legend
-    label: 2B Sauna Úmida V4
-    box:
-      x: 1682
-      y: 1272
-      comprimento: 304
-      largura: 41
-  - id: 3A_legend
-    label: 3A Sauna Mista V5
-    box:
-      x: 1675
-      y: 1316
-      comprimento: 284
-      largura: 33
-  - id: 3C_legend
-    label: 3C Sauna a Vapor V6
-    box:
-      x: 1689
-      y: 1362
-      comprimento: 318
-      largura: 43
+      y: 1094
+      raio: 17
 escaladas:
 - boulder:
     nome: Sauna Seca

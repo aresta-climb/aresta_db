@@ -499,6 +499,20 @@ class VisualizadorMapa(QGraphicsView):
         else:
             self.scale(1/1.15, 1/1.15)
 
+    def keyPressEvent(self, evento):
+        if evento.key() in (Qt.Key.Key_Delete, Qt.Key.Key_Backspace):
+            cena = self.scene()
+            if cena:
+                deletado = False
+                for item in cena.selectedItems():
+                    if isinstance(item, BaseItemPOI) and hasattr(item, 'callback_deletar') and item.callback_deletar:
+                        item.callback_deletar(item)
+                        deletado = True
+                if deletado:
+                    evento.accept()
+                    return
+        super().keyPressEvent(evento)
+
 
 class CenaDesenho(QGraphicsScene):
     def __init__(self, widget_editor):

@@ -280,6 +280,43 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     assert widget.slider_box.value() == 0
     assert widget.label_box.text() == "0%"
 
+def test_deletar_poi_com_tecla_delete(qtbot, mocker):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PyQt6.QtCore import Qt
+
+    # Configuração
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa_proto = croqui_pb2.Mapa()
+    poi = mapa_proto.pontos_de_interesse.add()
+    poi.id = "poi_1"
+    poi.label = "POI 1"
+    poi.box.x = 10
+    poi.box.y = 10
+    poi.box.comprimento = 20
+    poi.box.largura = 20
+    
+    widget.set_mapa_atual(ReadOnlyProxy(mapa_proto))
+    
+    # Pegar o item renderizado
+    assert len(widget.itens_poi) == 1
+    item = list(widget.itens_poi.values())[0]
+    
+    # Mock do callback_deletar
+    item.callback_deletar = mocker.MagicMock()
+    
+    # Selecionar o item na cena
+    item.setSelected(True)
+    
+    # Simular pressionamento da tecla Delete na cena (ou no view)
+    qtbot.keyClick(widget.visualizador.viewport(), Qt.Key.Key_Delete)
+    
+    # Verificar se o callback foi chamado
+    item.callback_deletar.assert_called_once_with(item)
+
 def test_configurar_lista_mapas_todos_niveis(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     from PyQt6.QtCore import Qt

@@ -501,123 +501,66 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **box**:
-                - **x**: 640
-                - **y**: 440
-                - **comprimento**: 26
-                - **largura**: 30
+              - **circular**:
+                - **x**: 636
+                - **y**: 444
+                - **raio**: 16
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **box**:
-                - **x**: 897
-                - **y**: 176
-                - **comprimento**: 26
-                - **largura**: 29
+              - **circular**:
+                - **x**: 898
+                - **y**: 178
+                - **raio**: 16
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **box**:
-                - **x**: 1670
-                - **y**: 100
-                - **comprimento**: 26
-                - **largura**: 30
+              - **circular**:
+                - **x**: 1666
+                - **y**: 113
+                - **raio**: 16
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 140
-                - **y**: 855
-                - **comprimento**: 26
-                - **largura**: 30
+              - **circular**:
+                - **x**: 150
+                - **y**: 857
+                - **raio**: 16
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 232
-                - **y**: 963
-                - **comprimento**: 32
-                - **largura**: 34
+              - **circular**:
+                - **x**: 234
+                - **y**: 965
+                - **raio**: 17
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
+              - **circular**:
                 - **x**: 538
-                - **y**: 1090
-                - **comprimento**: 26
-                - **largura**: 31
+                - **y**: 1091
+                - **raio**: 16
             - **[6]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
+              - **circular**:
                 - **x**: 924
-                - **y**: 1052
-                - **comprimento**: 25
-                - **largura**: 31
+                - **y**: 1055
+                - **raio**: 16
             - **[7]**:
               - **id**: 5
               - **label**: 5
-              - **box**:
-                - **x**: 1536
-                - **y**: 1086
-                - **comprimento**: 33
-                - **largura**: 44
+              - **circular**:
+                - **x**: 1537
+                - **y**: 1091
+                - **raio**: 16
             - **[8]**:
               - **id**: 6
               - **label**: 6
-              - **box**:
-                - **x**: 1780
-                - **y**: 965
-                - **comprimento**: 26
-                - **largura**: 30
-            - **[9]**:
-              - **id**: 1C_legend
-              - **label**: 1C Travessia ext V2
-              - **box**:
-                - **x**: 220
-                - **y**: 1193
-                - **comprimento**: 283
-                - **largura**: 34
-            - **[10]**:
-              - **id**: 2C_legend
-              - **label**: 2C Travessia V1
-              - **box**:
-                - **x**: 188
-                - **y**: 1237
-                - **comprimento**: 229
-                - **largura**: 34
-            - **[11]**:
-              - **id**: 3A_legend
-              - **label**: 3A Enjambrado V3
-              - **box**:
-                - **x**: 215
-                - **y**: 1282
-                - **comprimento**: 284
-                - **largura**: 39
-            - **[12]**:
-              - **id**: 4B_legend
-              - **label**: 4B Face Vertical V1
-              - **box**:
-                - **x**: 213
-                - **y**: 1324
-                - **comprimento**: 282
-                - **largura**: 35
-            - **[13]**:
-              - **id**: 5C_legend
-              - **label**: 5C Será V1
-              - **box**:
-                - **x**: 152
-                - **y**: 1368
-                - **comprimento**: 163
-                - **largura**: 35
-            - **[14]**:
-              - **id**: 6_legend
-              - **label**: 6 Bem-vindo ao Climb V0
-              - **box**:
-                - **x**: 274
-                - **y**: 1412
-                - **comprimento**: 390
-                - **largura**: 37
+              - **circular**:
+                - **x**: 1769
+                - **y**: 979
+                - **raio**: 18
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
           - **largura_mapa**: 2048
@@ -626,139 +569,73 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **box**:
+              - **circular**:
                 - **x**: 12
-                - **y**: 240
-                - **comprimento**: 25
-                - **largura**: 30
+                - **y**: 371
+                - **raio**: 17
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **box**:
+              - **circular**:
                 - **x**: 720
-                - **y**: 312
-                - **comprimento**: 25
-                - **largura**: 31
+                - **y**: 313
+                - **raio**: 17
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **box**:
+              - **circular**:
                 - **x**: 1570
-                - **y**: 420
-                - **comprimento**: 27
-                - **largura**: 31
+                - **y**: 422
+                - **raio**: 17
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **box**:
+              - **circular**:
                 - **x**: 1816
-                - **y**: 394
-                - **comprimento**: 27
-                - **largura**: 31
+                - **y**: 396
+                - **raio**: 17
             - **[4]**:
               - **id**: E
               - **label**: E
-              - **box**:
+              - **circular**:
                 - **x**: 1978
                 - **y**: 560
-                - **comprimento**: 27
-                - **largura**: 31
+                - **raio**: 17
             - **[5]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 50
-                - **y**: 746
-                - **comprimento**: 18
-                - **largura**: 28
+              - **circular**:
+                - **x**: 53
+                - **y**: 749
+                - **raio**: 16
             - **[6]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 762
-                - **y**: 1112
-                - **comprimento**: 27
-                - **largura**: 31
+              - **circular**:
+                - **x**: 764
+                - **y**: 1115
+                - **raio**: 17
             - **[7]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 1662
-                - **y**: 1082
-                - **comprimento**: 31
-                - **largura**: 36
+              - **circular**:
+                - **x**: 1664
+                - **y**: 1085
+                - **raio**: 15
             - **[8]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 1806
-                - **y**: 990
-                - **comprimento**: 25
-                - **largura**: 36
+              - **circular**:
+                - **x**: 1805
+                - **y**: 995
+                - **raio**: 17
             - **[9]**:
               - **id**: 5
               - **label**: 5
-              - **box**:
-                - **x**: 1938
-                - **y**: 974
-                - **comprimento**: 29
-                - **largura**: 36
-            - **[10]**:
-              - **id**: 1E_legend
-              - **label**: 1E Travessia ext V2
-              - **box**:
-                - **x**: 1079
-                - **y**: 55
-                - **comprimento**: 282
-                - **largura**: 34
-            - **[11]**:
-              - **id**: 2A_legend
-              - **label**: 2A Monodedo V1
-              - **box**:
-                - **x**: 1068
-                - **y**: 99
-                - **comprimento**: 265
-                - **largura**: 32
-            - **[12]**:
-              - **id**: 2B_legend
-              - **label**: 2B Movimentos Eróticos V1
-              - **box**:
-                - **x**: 1142
-                - **y**: 143
-                - **comprimento**: 413
-                - **largura**: 34
-            - **[13]**:
-              - **id**: 2E_legend
-              - **label**: 2E Travessia V1
-              - **box**:
-                - **x**: 1048
-                - **y**: 187
-                - **comprimento**: 226
-                - **largura**: 34
-            - **[14]**:
-              - **id**: 3C_legend
-              - **label**: 3C Enjambrado V3
-              - **box**:
-                - **x**: 1076
-                - **y**: 231
-                - **comprimento**: 282
-                - **largura**: 34
-            - **[15]**:
-              - **id**: 4D_legend
-              - **label**: 4D Face Vertical V1
-              - **box**:
-                - **x**: 1076
-                - **y**: 275
-                - **comprimento**: 285
-                - **largura**: 34
-            - **[16]**:
-              - **id**: 5E_legend
-              - **label**: 5E Será V1
-              - **box**:
-                - **x**: 1014
-                - **y**: 318
-                - **comprimento**: 157
-                - **largura**: 33
+              - **circular**:
+                - **x**: 1940
+                - **y**: 976
+                - **raio**: 17
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -813,59 +690,31 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **box**:
-                - **x**: 372
-                - **y**: 287
-                - **comprimento**: 25
-                - **largura**: 30
+              - **circular**:
+                - **x**: 752
+                - **y**: 437
+                - **raio**: 16
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **box**:
-                - **x**: 658
-                - **y**: 263
-                - **comprimento**: 25
-                - **largura**: 30
+              - **circular**:
+                - **x**: 1318
+                - **y**: 403
+                - **raio**: 16
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 418
-                - **y**: 640
-                - **comprimento**: 25
-                - **largura**: 30
+              - **circular**:
+                - **x**: 840
+                - **y**: 983
+                - **raio**: 16
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 684
-                - **y**: 660
-                - **comprimento**: 25
-                - **largura**: 30
-            - **[4]**:
-              - **id**: 1A_legend
-              - **label**: 1A De Jah V0/1
-              - **box**:
-                - **x**: 275
-                - **y**: 762
-                - **comprimento**: 114
-                - **largura**: 28
-            - **[5]**:
-              - **id**: 1B_legend
-              - **label**: 1B Jah V1
-              - **box**:
-                - **x**: 254
-                - **y**: 792
-                - **comprimento**: 72
-                - **largura**: 27
-            - **[6]**:
-              - **id**: 2B_legend
-              - **label**: 2B Invertido V2
-              - **box**:
-                - **x**: 276
-                - **y**: 819
-                - **comprimento**: 115
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1391
+                - **y**: 1013
+                - **raio**: 16
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -895,83 +744,45 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **box**:
-                - **x**: 798
+              - **circular**:
+                - **x**: 799
                 - **y**: 166
-                - **comprimento**: 30
-                - **largura**: 37
+                - **raio**: 17
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **box**:
+              - **circular**:
                 - **x**: 1392
-                - **y**: 304
-                - **comprimento**: 31
-                - **largura**: 53
+                - **y**: 297
+                - **raio**: 16
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **box**:
-                - **x**: 1630
-                - **y**: 340
-                - **comprimento**: 26
-                - **largura**: 30
+              - **circular**:
+                - **x**: 1632
+                - **y**: 339
+                - **raio**: 16
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 1130
-                - **y**: 1191
-                - **comprimento**: 35
-                - **largura**: 30
+              - **circular**:
+                - **x**: 1132
+                - **y**: 1193
+                - **raio**: 16
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 1238
-                - **y**: 1172
-                - **comprimento**: 26
-                - **largura**: 29
+              - **circular**:
+                - **x**: 1239
+                - **y**: 1173
+                - **raio**: 15
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
+              - **circular**:
                 - **x**: 1391
-                - **y**: 1089
-                - **comprimento**: 18
-                - **largura**: 22
-            - **[6]**:
-              - **id**: 1A_legend
-              - **label**: 1A Sauna Seca V4
-              - **box**:
-                - **x**: 1670
-                - **y**: 1228
-                - **comprimento**: 273
-                - **largura**: 37
-            - **[7]**:
-              - **id**: 2B_legend
-              - **label**: 2B Sauna Úmida V4
-              - **box**:
-                - **x**: 1682
-                - **y**: 1272
-                - **comprimento**: 304
-                - **largura**: 41
-            - **[8]**:
-              - **id**: 3A_legend
-              - **label**: 3A Sauna Mista V5
-              - **box**:
-                - **x**: 1675
-                - **y**: 1316
-                - **comprimento**: 284
-                - **largura**: 33
-            - **[9]**:
-              - **id**: 3C_legend
-              - **label**: 3C Sauna a Vapor V6
-              - **box**:
-                - **x**: 1689
-                - **y**: 1362
-                - **comprimento**: 318
-                - **largura**: 43
+                - **y**: 1094
+                - **raio**: 17
       - **escaladas**:
         - **[0]**:
           - **boulder**:
