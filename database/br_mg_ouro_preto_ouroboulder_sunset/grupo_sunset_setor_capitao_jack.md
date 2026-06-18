@@ -3,8 +3,8 @@ nome: Capitão Jack
 escaladas:
 - boulder:
     nome: Amnesia
-    id_no_mapa: '1'
-    id_no_mapa_fim: x
+    id_no_mapa: 1_b
+    id_no_mapa_fim: x_b
     destaque: true
     dificuldade: V3
 - boulder:
@@ -17,12 +17,12 @@ escaladas:
 - boulder:
     nome: Purple Rase
     id_no_mapa: '3'
-    id_no_mapa_fim: x
+    id_no_mapa_fim: x_b
     dificuldade: V5
     descricao: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
 - boulder:
     nome: Sunshine
-    id_no_mapa: '4'
+    id_no_mapa: '1'
     id_no_mapa_fim: x
     dificuldade: V6
     descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
@@ -37,8 +37,8 @@ mapas:
       x: 251
       y: 307
       raio: 9
-  - id: X
-    label: X
+  - id: x
+    label: x
     circular:
       x: 12
       y: 12
@@ -47,7 +47,7 @@ mapas:
   largura_mapa: 845
   altura_mapa: 805
   pontos_de_interesse:
-  - id: '1'
+  - id: 1_b
     label: '1'
     circular:
       x: 805
@@ -71,7 +71,7 @@ mapas:
       x: 256
       y: 13
       raio: 10
-  - id: x
+  - id: x_b
     label: x
     circular:
       x: 562

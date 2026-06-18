@@ -1,0 +1,6 @@
+[run]
+omit =
+    aresta_api/proto/*
+    *_test.py
+    tests/*
+    */__init__.py

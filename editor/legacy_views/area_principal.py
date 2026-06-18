@@ -152,7 +152,7 @@ class JanelaPrincipal(QMainWindow):
         self.servidor_celular = None
         self.monitor_inatividade = None
         self.dialogo_celular = None
-        self.historico = GerenciadorHistorico()
+        self.historico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
         
         self.setWindowTitle("Aresta Editor")
@@ -314,12 +314,27 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_lateral.setStyleSheet(Icones.QSS_BARRA_LATERAL)
         self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, self.toolbar_lateral)
 
+    def atualizar_titulo(self):
+        """Atualiza o título da janela baseado no workspace, nome do croqui e estado de modificação."""
+        titulo_base = "Aresta Editor"
+        
+        if self.workspace:
+            tag = self.workspace.obter_tag_titulo()
+            if tag:
+                titulo_base += f" - {tag}"
+                
+        if self.croqui_data:
+            nome_croqui = self.croqui_data.get('nome', 'Sem Nome')
+            titulo_base += f" - {nome_croqui}"
+            
+        if not self.historico.obter_pilha().isClean():
+            titulo_base += " *"
+            
+        self.setWindowTitle(titulo_base)
+
     def _on_clean_changed(self, is_clean: bool):
         """Atualiza o título da janela baseado no estado limpo da pilha de histórico."""
-        if not is_clean:
-            self.setWindowTitle("Aresta Editor *")
-        else:
-            self.setWindowTitle("Aresta Editor")
+        self.atualizar_titulo()
         
     def _setup_acoes_globais(self):
         self.acao_abrir = QAction(Icones.obter("novo"), "Abrir Novo", self)
@@ -520,10 +535,7 @@ class JanelaPrincipal(QMainWindow):
                 self.croqui_data = yaml.safe_load(f)
                 
                 # Configura o título com tag de workspace
-                nome_croqui = self.croqui_data.get('nome', 'Sem Nome')
-                tag = self.workspace.obter_tag_titulo()
-                titulo = f"Aresta Editor - {tag} - {nome_croqui}" if tag else f"Aresta Editor - {nome_croqui}"
-                self.setWindowTitle(titulo)
+                self.atualizar_titulo()
                 
                 from google.protobuf.json_format import ParseDict
                 from aresta_api.proto.generated.croqui_pb2 import Croqui
@@ -745,7 +757,7 @@ class JanelaPrincipal(QMainWindow):
             
         # Inicia o servidor se não estiver rodando
         if not self.servidor_celular:
-            pasta_compilado = self.workspace.obter_caminho_compilado()
+            pasta_compilado = self.workspace.obter_pasta_servidor_celular()
             if not pasta_compilado.exists():
                 pasta_compilado.mkdir(parents=True, exist_ok=True)
             

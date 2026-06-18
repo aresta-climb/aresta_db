@@ -3,6 +3,7 @@ from PyQt6.QtWidgets import QApplication
 from editor.legacy_views.area_principal import JanelaPrincipal
 from PyQt6.QtCore import QObject, pyqtSignal
 from unittest.mock import MagicMock, patch
+from pathlib import Path
 
 # Classes fake que herdam de QObject para o Qt aceitar
 class ServidorFake(QObject):
@@ -31,7 +32,9 @@ class DialogoFake(QObject):
 
 @pytest.fixture
 def janela(qtbot):
-    janela = JanelaPrincipal(caminho_croqui="C:/fake/croqui")
+    janela = JanelaPrincipal()
+    janela.workspace = MagicMock()
+    janela.workspace.obter_pasta_servidor_celular.return_value = Path("fake_path")
     qtbot.addWidget(janela)
     return janela
 

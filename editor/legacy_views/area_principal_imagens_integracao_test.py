@@ -20,7 +20,8 @@ def test_salvamento_global_chama_salvamento_de_imagens(qtbot):
          patch("editor.legacy_views.area_principal.open", MagicMock()), \
          patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental.compilar_croqui"):
         
-        janela = JanelaPrincipal(caminho_croqui="temp_croqui")
+        from editor.core.workspace import ExperimentalWorkspace
+        janela = JanelaPrincipal(workspace=ExperimentalWorkspace("temp_croqui"))
         qtbot.addWidget(janela)
         janela.croqui_data = {"id": "teste"}
         

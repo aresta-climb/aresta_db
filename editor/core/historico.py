@@ -15,9 +15,9 @@ class GerenciadorHistorico(QObject):
     sinal_item_removido = pyqtSignal(object, str, int)      # id_msg, campo, indice
     sinal_foco_requisitado = pyqtSignal(str)                # contexto_ui
 
-    def __init__(self):
-        super().__init__()
-        self._pilha = QUndoStack()
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._pilha = QUndoStack(self)
         self._ultimo_index = 0
         self._pilha.indexChanged.connect(self._on_index_changed)
 

@@ -21,6 +21,7 @@ def test_experimental_workspace_paths(tmp_paths):
     
     assert ws.obter_caminho_database() == tmp_paths / "database"
     assert ws.obter_caminho_compilado() == tmp_paths / "compilado"
+    assert ws.obter_pasta_servidor_celular() == tmp_paths / "compilado"
     assert ws.can_publish_pr() is True
     assert ws.obter_tag_titulo() == ""
 
@@ -60,6 +61,7 @@ def test_local_repo_workspace_paths(tmp_paths):
     
     assert ws.obter_caminho_database() == tmp_paths
     assert ws.obter_caminho_compilado() == tmp_paths.parent.parent / "generated" / tmp_paths.name
+    assert ws.obter_pasta_servidor_celular() == tmp_paths.parent.parent / "generated"
     assert ws.can_publish_pr() is False
     assert ws.obter_tag_titulo() == "[Local Mode]"
 
@@ -153,7 +155,6 @@ def test_captura_mensagens(tmp_paths):
         
         assert "Aviso: ID duplicado." in msgs
         assert "Erro ao tentar fazer algo." in msgs
-        assert "Warning: isso falhou feio" in msgs
+        assert "  Warning: isso falhou feio" in msgs
         assert "Isso é um print normal." not in msgs
-        assert "tudo certo!" in msgs # '!' está nas palavras-chave
-
+        assert "tudo certo!" not in msgs

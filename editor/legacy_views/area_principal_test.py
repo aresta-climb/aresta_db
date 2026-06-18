@@ -573,3 +573,68 @@ def test_botao_abrir_desabilitado_em_modo_local(mock_carregar, qtbot):
     qtbot.addWidget(janela)
     
     assert not janela.acao_abrir.isEnabled()
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_atualizar_titulo_mantem_workspace_tag(mock_carregar, qtbot):
+    workspace_mock = MagicMock()
+    workspace_mock.obter_tag_titulo.return_value = "[Local Mode]"
+    
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    janela.croqui_data = {"nome": "Croqui Teste"}
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
+    
+    janela.atualizar_titulo()
+    assert janela.windowTitle() == "Aresta Editor - [Local Mode] - Croqui Teste"
+    janela.close()
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_atualizar_titulo_dirty_state(mock_carregar, qtbot):
+    workspace_mock = MagicMock()
+    workspace_mock.obter_tag_titulo.return_value = "[Local Mode]"
+    
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    janela.croqui_data = {"nome": "Croqui Teste"}
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
+    
+    janela.atualizar_titulo()
+    assert janela.windowTitle() == "Aresta Editor - [Local Mode] - Croqui Teste *"
+    
+    # Restaura para limpo para não abrir prompt de confirmação ao fechar
+    janela.historico.obter_pilha().isClean.return_value = True
+    janela.close()
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_cancelar_fechamento_nao_deleta_undo_stack(mock_carregar, qtbot):
+    from PyQt6.QtGui import QUndoCommand, QCloseEvent
+    from PyQt6.QtWidgets import QMessageBox
+    from unittest.mock import MagicMock
+    
+    workspace_mock = MagicMock()
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    # Suja o histórico para forçar a verificação no closeEvent
+    cmd = QUndoCommand()
+    janela.historico.obter_pilha().push(cmd)
+    
+    # Chama o closeEvent simulando o usuário clicando em "Cancel" no alerta
+    with patch("editor.legacy_views.area_principal.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
+        event = MagicMock(spec=QCloseEvent)
+        janela.closeEvent(event)
+        
+        event.ignore.assert_called_once()
+        
+    # Agora testa se o QUndoStack ainda está vivo e não explode com RuntimeError
+    try:
+        janela.historico.obter_pilha().isClean()
+    except RuntimeError:
+        import pytest
+        pytest.fail("O QUndoStack foi indevidamente deletado após cancelar o fechamento!")
+        
+    # Limpa o estado e fecha a janela corretamente
+    janela.historico.limpar()
+    janela.close()

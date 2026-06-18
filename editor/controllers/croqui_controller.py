@@ -65,3 +65,8 @@ class CroquiController:
         from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
         cmd = CmdAlterarMetadadosCaminhoNovo(self.model, msg, field_ext, valor_antigo, valor_novo, self.contexto_atual_path)
         self.undo_stack.push(cmd)
+
+    def adicionar_mapa_com_arquivo(self, msg, campo_nome, index, valor, caminho_absoluto, img_bytes):
+        from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
+        cmd = CmdAdicionarMapaArquivo(self.model, msg, campo_nome, index, valor, caminho_absoluto, img_bytes, self.contexto_atual_path)
+        self.undo_stack.push(cmd)

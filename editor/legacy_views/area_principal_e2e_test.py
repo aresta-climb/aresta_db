@@ -41,7 +41,8 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
         
-    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    from editor.core.workspace import ExperimentalWorkspace
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     
     # We must explicitly set the croqui_msg on the editor_dados mock 
     # to test the extraction logic, or trigger _extrair_arquivos_externos.
@@ -121,7 +122,8 @@ Texto da capa do croqui.
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
         
-    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    from editor.core.workspace import ExperimentalWorkspace
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
     
     croqui_msg = janela.pagina_dados.editor_dados.croqui
@@ -174,7 +176,8 @@ Corpo original.
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
         
-    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    from editor.core.workspace import ExperimentalWorkspace
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
     
     croqui_msg = janela.pagina_dados.editor_dados.croqui
@@ -231,7 +234,8 @@ Texto da capa do croqui.
         yaml.dump(croqui_yaml, f)
         
     # 3. Abre a janela e carrega o croqui
-    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    from editor.core.workspace import ExperimentalWorkspace
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
     
     # 4. Verifica se os dados em memória e no arquivo foram migrados com sucesso
@@ -257,7 +261,8 @@ def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
     croqui_yaml = {'picos': [{'setores_ou_grupos': [{'setor': {'conteudo': {'mapas': [{'caminho_imagem_mapa': 'mapa_1.webp'}, {'caminho_imagem_mapa': 'mapa_2.webp'}]}}}]}]}
     with open(db_path / 'croqui.yaml', 'w', encoding='utf-8') as fw:
         yaml.dump(croqui_yaml, fw)
-    janela = JanelaPrincipal(caminho_croqui=str(tmp_path))
+    from editor.core.workspace import ExperimentalWorkspace
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
     list_widget = janela.pagina_mapas.editor.list_widget
     uri = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/node:Setor/expando:mapas/item:1"

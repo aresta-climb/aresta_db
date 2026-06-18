@@ -18,12 +18,12 @@ escaladas:
     dificuldade: V5
 - boulder:
     nome: Tartaruga
-    id_no_mapa: '2'
+    id_no_mapa: 2_b
     dificuldade: V3
     descricao: Apenas desafio de virar o bloco
 - boulder:
     nome: Mobilete
-    id_no_mapa: '3'
+    id_no_mapa: 3_b
     dificuldade: V3
 - boulder:
     nome: Walkmachine
@@ -38,7 +38,7 @@ mapas:
     label: '2'
     circular:
       x: 671
-      y: 461
+      y: 463
       raio: 9
   - id: '3'
     label: '3'
@@ -65,10 +65,10 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 353
-      y: 394
+      x: 354
+      y: 396
       raio: 9
-  - id: '3'
+  - id: 3_b
     label: '3'
     circular:
       x: 516
@@ -80,12 +80,12 @@ mapas:
       x: 698
       y: 360
       raio: 9
-  - id: '2'
+  - id: 2_b
     label: '2'
     circular:
-      x: 742
-      y: 355
-      raio: 8
+      x: 743
+      y: 356
+      raio: 9
 ---
 
 # Bloco Free Solo

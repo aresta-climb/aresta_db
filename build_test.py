@@ -70,15 +70,38 @@ class TestRootBuild(unittest.TestCase):
         self.assertIn("deploy_generated.py", str(args[0][1]))
         self.assertTrue(kwargs['check'])
 
+    @patch('subprocess.run')
+    def test_run_coverage(self, mock_run):
+        mock_run.return_value.returncode = 0
+        
+        # Caso em que a pasta tests existe
+        with patch('pathlib.Path.exists', return_value=True):
+            root_build.run_coverage()
+            args, kwargs = mock_run.call_args
+            self.assertIn("tests", args[0])
+            self.assertIn("pytest", args[0])
+            self.assertIn("--cov", args[0])
+            self.assertIn("--cov-report=html:reports/coverage", args[0])
+            self.assertEqual(kwargs['cwd'], str(root_build.ROOT_DIR))
+            
+        # Caso em que a pasta tests NÃO existe
+        mock_run.reset_mock()
+        with patch('pathlib.Path.exists', return_value=False):
+            root_build.run_coverage()
+            args, _ = mock_run.call_args
+            self.assertNotIn("tests", args[0])
+
+    @patch('root_build.run_coverage')
     @patch('root_build.generate_protos')
     @patch('root_build.run_tests')
     @patch('root_build.run_deploy')
-    def test_main_commands(self, mock_deploy, mock_tests, mock_protos):
+    def test_main_commands(self, mock_deploy, mock_tests, mock_protos, mock_coverage):
         # Comando: protos
         with patch('sys.argv', ['build.py', 'protos']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_not_called()
+        mock_coverage.assert_not_called()
         
         # Comando: test com force
         mock_protos.reset_mock()
@@ -91,21 +114,36 @@ class TestRootBuild(unittest.TestCase):
         mock_protos.reset_mock()
         mock_tests.reset_mock()
         mock_deploy.reset_mock()
+        mock_coverage.reset_mock()
         with patch('sys.argv', ['build.py', 'tudo']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_called_once()
         mock_deploy.assert_called_once()
+        mock_coverage.assert_not_called()
         
         # Comando padrão: agora deve ser 'tudo'
         mock_protos.reset_mock()
         mock_tests.reset_mock()
         mock_deploy.reset_mock()
+        mock_coverage.reset_mock()
         with patch('sys.argv', ['build.py']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_called_once()
         mock_deploy.assert_called_once()
+        mock_coverage.assert_not_called()
+        
+        # Comando: coverage
+        mock_protos.reset_mock()
+        mock_tests.reset_mock()
+        mock_deploy.reset_mock()
+        mock_coverage.reset_mock()
+        with patch('sys.argv', ['build.py', 'coverage']):
+            root_build.main()
+        mock_protos.assert_called_with(force=False)
+        mock_tests.assert_not_called()
+        mock_coverage.assert_called_once()
 
     @patch('root_build.generate_protos')
     @patch('root_build.run_tests')

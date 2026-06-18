@@ -66,6 +66,7 @@ class EditorWorkspace(Protocol):
     
     def obter_caminho_database(self) -> Path: ...
     def obter_caminho_compilado(self) -> Path: ...
+    def obter_pasta_servidor_celular(self) -> Path: ...
     def can_publish_pr(self) -> bool: ...
     def obter_tag_titulo(self) -> str: ...
     
@@ -88,6 +89,9 @@ class ExperimentalWorkspace(EditorWorkspace):
 
     def obter_caminho_compilado(self) -> Path:
         return self.caminho_raiz / "compilado"
+
+    def obter_pasta_servidor_celular(self) -> Path:
+        return self.obter_caminho_compilado()
 
     def can_publish_pr(self) -> bool:
         return True
@@ -128,6 +132,11 @@ class LocalRepoWorkspace(EditorWorkspace):
         nome_pasta = self.caminho_raiz.name
         # Caminho sobe database, sobe aresta_db, entra em generated e adiciona a pasta
         return self.caminho_raiz.parent.parent / "generated" / nome_pasta
+
+    def obter_pasta_servidor_celular(self) -> Path:
+        # No modo local, o servidor deve servir a raiz da pasta generated para que
+        # o indice.binarypb seja encontrado na raiz do servidor
+        return self.obter_caminho_compilado().parent
 
     def can_publish_pr(self) -> bool:
         # O usuário já está em seu repo local. Deve usar o terminal para PR.
