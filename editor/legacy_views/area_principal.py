@@ -16,29 +16,9 @@ from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.notificacao import NotificacaoToast
 from ..core.historico import GerenciadorHistorico
-
-class DialogoErrosCompilacao(QDialog):
-    """Diálogo para exibir avisos e erros encontrados durante a compilação."""
-    def __init__(self, erros, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Avisos na Compilação")
-        self.setMinimumSize(600, 400)
-        
-        layout = QVBoxLayout(self)
-        
-        self.lbl_info = QLabel("A compilação terminou, mas os seguintes avisos/erros foram gerados:")
-        layout.addWidget(self.lbl_info)
-        
-        self.text_edit = QTextEdit()
-        self.text_edit.setReadOnly(True)
-        # Junta todas as mensagens
-        texto = "\n".join(erros)
-        self.text_edit.setPlainText(texto)
-        layout.addWidget(self.text_edit)
-        
-        self.btn_fechar = QPushButton("Fechar")
-        self.btn_fechar.clicked.connect(self.accept)
-        layout.addWidget(self.btn_fechar)
+from editor.models.compilacao_log import CompilacaoLog
+from editor.controllers.compilacao_controller import CompilacaoController
+from editor.views.widget_saida_compilacao import WidgetSaidaCompilacao
 
 class DialogoPublicar(QDialog):
     """Diálogo para coletar informações para o Pull Request."""
@@ -177,6 +157,13 @@ class JanelaPrincipal(QMainWindow):
         
         self.setWindowTitle("Aresta Editor")
         self.resize(1200, 800)
+        
+        # Componentes do Painel de Saída de Compilação
+        self.compilacao_log = CompilacaoLog()
+        self.widget_saida_compilacao = WidgetSaidaCompilacao(self)
+        self.compilacao_controller = CompilacaoController(self.compilacao_log, self.widget_saida_compilacao)
+        self.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, self.widget_saida_compilacao)
+        self.widget_saida_compilacao.hide()
         
         # Estilo Global
         self.setStyleSheet("""
@@ -376,6 +363,8 @@ class JanelaPrincipal(QMainWindow):
         if self.workspace and not self.workspace.can_publish_pr():
             self.acao_publicar.setEnabled(False)
             self.acao_publicar.setToolTip("Publicar pelo Editor não suportado no Local Mode.")
+            self.acao_abrir.setEnabled(False)
+            self.acao_abrir.setToolTip("Abrir outro croqui não suportado no Local Mode.")
         
         # Adiciona o espaçador primeiro para alinhar com a área de conteúdo
         self.toolbar_superior.addWidget(self.espacador_superior)
@@ -604,9 +593,9 @@ class JanelaPrincipal(QMainWindow):
             self.historico.obter_pilha().setClean()
             
             if erros:
-                dialogo = DialogoErrosCompilacao(erros, self)
-                dialogo.exec()
+                self.compilacao_controller.processar_resultado(erros)
             else:
+                self.compilacao_controller.processar_resultado([])
                 self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
             
             if houve_renomeacao:

@@ -328,23 +328,8 @@ def test_pagina_mapas_recebe_model_e_controller(qtbot):
         pagina.editor.configurar_lista_mapas.assert_called_once()
 
 
-def test_dialogo_erros_compilacao(qtbot):
-    from editor.legacy_views.area_principal import DialogoErrosCompilacao
-    
-    erros = ["Erro 1", "Aviso 2"]
-    dialogo = DialogoErrosCompilacao(erros)
-    qtbot.addWidget(dialogo)
-    
-    # Verifica inicializacao correta
-    assert dialogo.windowTitle() == "Avisos na Compilação"
-    assert "Erro 1\nAviso 2" in dialogo.text_edit.toPlainText()
-    
-    # Simula fechar
-    dialogo.btn_fechar.click()
-    assert dialogo.result() == QDialog.DialogCode.Accepted
-
-def test_salvar_croqui_exibe_dialogo_erros(qtbot):
-    from editor.legacy_views.area_principal import JanelaPrincipal, DialogoErrosCompilacao
+def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
+    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock, patch
     from pathlib import Path
     
@@ -363,17 +348,228 @@ def test_salvar_croqui_exibe_dialogo_erros(qtbot):
     
     with patch("builtins.open", MagicMock()), \
          patch("editor.legacy_views.area_principal.yaml.dump"), \
-         patch("editor.legacy_views.area_principal.DialogoErrosCompilacao") as MockDialogo, \
-         patch.object(janela, "exibir_notificacao") as mock_notif:
+         patch.object(janela, "exibir_notificacao") as mock_notif, \
+         patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
          
-        # Configura o mock do diálogo para aceitar imediatamente
-        MockDialogo.return_value.exec.return_value = QDialog.DialogCode.Accepted
-        
         janela.salvar_croqui()
         
-        # Verifica se o diálogo foi instanciado com os erros esperados
-        MockDialogo.assert_called_once_with(["Erro no mapa"], janela)
-        MockDialogo.return_value.exec.assert_called_once()
+        # Verifica se os erros foram passados pro controlador
+def test_salvar_croqui_exibe_notificacao(qtbot):
+    # Mock do Gerenciador para não salvar arquivos reais
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"), \
+         patch("editor.legacy_views.area_principal.QMessageBox.information") as mock_info:
+        
+        mock_workspace = MagicMock()
+        mock_workspace.obter_caminho_database.return_value = Path("temp_croqui")
+        mock_workspace.caminho_raiz.name = "temp_croqui"
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui"), [])
+        janela = JanelaPrincipal(workspace=mock_workspace)
+        qtbot.addWidget(janela)
+        janela.croqui_data = {"id": "teste"} # Simula croqui carregado
+        janela.croqui_model = MagicMock()
+        
+        janela.pagina_dados = MagicMock()
+        janela.pagina_mapas = MagicMock()
+        janela.pagina_imagens = MagicMock()
+        
+        # Mock do open para não tentar escrever no disco
+        with patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
+             patch.object(janela, "exibir_notificacao") as mock_notif:
+            
+            janela.salvar_croqui()
+            
+            # Verifica que QMessageBox NÃO foi chamado
+            mock_info.assert_not_called()
+            if mock_crit.called:
+                print("ERRO NO SALVAR:", mock_crit.call_args)
+            assert not mock_crit.called
+            # Verifica que a notificação FOI chamada
+            mock_notif.assert_called_once_with("Croqui salvo e compilado com sucesso!")
+
+def test_janela_principal_tem_icone_configurado(qtbot):
+    """Garante que a Janela Principal carrega o ícone de montanha."""
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    assert not janela.windowIcon().isNull()
+
+def test_atalhos_teclado_desfazer_refazer(qtbot):
+    from PyQt6.QtGui import QKeySequence
+    from PyQt6.QtCore import Qt
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    # Verifica desfazer
+    shortcuts_undo = janela.acao_desfazer.shortcuts()
+    assert QKeySequence.StandardKey.Undo in shortcuts_undo, "Atalho padrão de Undo (Ctrl+Z) ausente"
+    assert janela.acao_desfazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
+    
+    # Verifica refazer
+    shortcuts_redo = janela.acao_refazer.shortcuts()
+    assert QKeySequence.StandardKey.Redo in shortcuts_redo, "Atalho padrão de Redo (Ctrl+Y/Ctrl+Shift+Z) ausente"
+    assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
+
+def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
+    from PyQt6.QtWidgets import QLineEdit
+    from PyQt6.QtWidgets import QApplication
+    
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
+        mock_workspace = MagicMock()
+        mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
+        janela = JanelaPrincipal(auth=MagicMock(), workspace=mock_workspace)
+        qtbot.addWidget(janela)
+        janela.croqui_data = {"id": "teste"}
+        
+        edit = QLineEdit(janela)
+        
+        with patch.object(QApplication, "focusWidget", return_value=edit), \
+             patch.object(edit, "clearFocus") as mock_clear, \
+             patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
+             patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
+             
+            janela.salvar_croqui()
+            
+        mock_clear.assert_called_once()
+
+from pathlib import Path
+
+def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
+    # Setup de diretório simulando um croqui
+    croquis_dir = tmp_path / "croquis_experimentais"
+    croquis_dir.mkdir()
+    pasta_croqui = croquis_dir / "20260501_old_id"
+    pasta_croqui.mkdir()
+    (pasta_croqui / "database").mkdir()
+    
+    with open(pasta_croqui / "database" / "croqui.yaml", "w", encoding="utf-8") as f:
+        f.write("id: old_id\n")
+
+    # Mocks para não chamar métodos pesados/reais do UI e Worker
+    with patch("editor.legacy_views.area_principal.QMessageBox.information"), \
+         patch("editor.legacy_views.area_principal.NotificacaoToast"):
+         
+        nova_pasta = croquis_dir / "20260501_new_id"
+        mock_workspace = MagicMock()
+        mock_workspace.caminho_raiz = pasta_croqui
+        mock_workspace.obter_caminho_database.return_value = pasta_croqui / "database"
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (nova_pasta, [])
+        
+        # Instanciar a janela
+        janela = JanelaPrincipal(workspace=mock_workspace)
+        qtbot.addWidget(janela)
+        
+        # Simular a extração que retornaria o novo ID alterado na UI
+        janela.croqui_model = MagicMock()
+        janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "new_id"}
+        
+        # Simular editores de imagem e mapa
+        janela.pagina_mapas.editor = MagicMock()
+        janela.pagina_imagens.editor = MagicMock()
+        janela.pagina_mapas.carregar_mapas = MagicMock()
+        janela.pagina_imagens.carregar_imagens = MagicMock()
+        janela.croqui_model.carregar_arquivos_externos = MagicMock()
+
+        with patch("builtins.open", MagicMock()), \
+             patch("editor.legacy_views.area_principal.yaml.dump"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
+            
+            # Executar a ação alvo
+            janela.salvar_croqui()
+            
+            # Se chamou error dialog, printar o erro
+            if mock_crit.called:
+                print("ERRO:", mock_crit.call_args)
+            assert not mock_crit.called
+
+        # Verificações
+        mock_workspace.processar_renomeacao_e_compilacao.assert_called_once_with("new_id", "old_id", janela.storage)
+        
+        # Garantir que salvou as edições (para a pasta antes do reload)
+        janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()
+        
+        # Garantir que os subeditores receberam a recarga do path com o novo diretório
+        janela.pagina_mapas.carregar_mapas.assert_called_once_with(janela.croqui_model, janela.historico.obter_pilha(), pasta_croqui / "database")
+        janela.pagina_imagens.carregar_imagens.assert_called_once_with(pasta_croqui / "database")
+
+
+def test_pagina_mapas_recebe_model_e_controller(qtbot):
+    from editor.legacy_views.area_principal import PaginaMapas
+    from unittest.mock import MagicMock
+    
+    pagina = PaginaMapas()
+    qtbot.addWidget(pagina)
+    
+    # Mocks
+    model_mock = MagicMock()
+    controller_mock = MagicMock()
+    
+    # Mock do editor interno para verificar se recebe os argumentos corretos
+    pagina.editor = MagicMock()
+    
+    # Executa o metodo
+    # Como carregar_mapas instancia um MapasController internamente, 
+    # devemos mockar a classe MapasController do module editor.controllers.mapas_controller
+    with patch("editor.controllers.mapas_controller.MapasController") as MockControllerClass:
+        pagina.carregar_mapas(model_mock, controller_mock)
+        
+        # Verifica se o MapasController foi instanciado
+        MockControllerClass.assert_called_once_with(model_mock, controller_mock)
+        
+        # E se o editor recebeu o controller criado
+        assert pagina.editor.mapas_controller == MockControllerClass.return_value
+        pagina.editor.configurar_lista_mapas.assert_called_once()
+
+
+def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import MagicMock, patch
+    from pathlib import Path
+    
+    mock_workspace = MagicMock()
+    mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
+    mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui"), ["Erro no mapa"])
+    
+    janela = JanelaPrincipal(auth=MagicMock(), workspace=mock_workspace)
+    qtbot.addWidget(janela)
+    
+    janela.croqui_data = {"id": "teste"}
+    janela.croqui_model = MagicMock()
+    janela.pagina_dados = MagicMock()
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_imagens = MagicMock()
+    
+    with patch("builtins.open", MagicMock()), \
+         patch("editor.legacy_views.area_principal.yaml.dump"), \
+         patch.object(janela, "exibir_notificacao") as mock_notif, \
+         patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
+         
+        janela.salvar_croqui()
+        
+        # Verifica se os erros foram passados pro controlador
+        mock_processar.assert_called_once_with(["Erro no mapa"])
         
         # Verifica que a notificação toast NÃO foi chamada
         mock_notif.assert_not_called()
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_botao_abrir_habilitado_em_modo_normal(mock_carregar, qtbot):
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+    
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    assert janela.acao_abrir.isEnabled()
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_botao_abrir_desabilitado_em_modo_local(mock_carregar, qtbot):
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = False
+    
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    assert not janela.acao_abrir.isEnabled()

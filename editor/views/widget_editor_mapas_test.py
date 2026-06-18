@@ -522,3 +522,22 @@ def test_poi_snapping_to_integers():
     
     assert snapped_valor_poly.x() == 6.0
     assert snapped_valor_poly.y() == 6.0
+
+class TestWidgetEditorMapasLayout(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.app = QApplication.instance()
+        if not cls.app:
+            cls.app = QApplication([])
+
+    def test_lista_mapas_cresce_ate_conteudo(self):
+        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
+        from editor.views.widget_editor_mapas import WidgetEditorMapas
+        
+        widget = WidgetEditorMapas()
+        
+        # O list_widget deve ter politica vertical Maximum (para não crescer infinitamente)
+        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Maximum)
+        
+        # E deve ter o size adjust policy configurado para ajustar ao conteudo
+        self.assertEqual(widget.list_widget.sizeAdjustPolicy(), QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)

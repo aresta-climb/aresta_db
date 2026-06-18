@@ -276,7 +276,7 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Aleijadinho
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **dificuldade**: V5
             - **destaque**: True
       - **mapas**:
@@ -286,8 +286,8 @@
           - **altura_mapa**: 960
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 418
                 - **y**: 589
@@ -300,7 +300,7 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Amnesia
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **id_no_mapa_fim**: x
             - **destaque**: True
             - **dificuldade**: V3
@@ -308,7 +308,7 @@
           - **boulder**:
             - **descricao**: Virada exposta, atenção na segurança!
             - **nome**: Capitão Jack
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **id_no_mapa_fim**: y
             - **destaque**: True
             - **dificuldade**: V6
@@ -316,7 +316,7 @@
           - **boulder**:
             - **descricao**: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
             - **nome**: Purple Rase
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **id_no_mapa_fim**: x
             - **dificuldade**: V5
         - **[3]**:
@@ -333,8 +333,8 @@
           - **altura_mapa**: 344
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 251
                 - **y**: 307
@@ -352,22 +352,22 @@
           - **altura_mapa**: 814
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 805
                 - **y**: 704
                 - **raio**: 9
             - **[1]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 379
                 - **y**: 666
                 - **raio**: 10
             - **[2]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 294
                 - **y**: 734
@@ -395,27 +395,27 @@
           - **boulder**:
             - **descricao**: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
             - **nome**: Jahngada
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **id_no_mapa_fim**: x
             - **dificuldade**: V9
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Jahngada SDS
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **id_no_mapa_fim**: x
             - **dificuldade**: V10
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Guaicuí
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **id_no_mapa_fim**: y
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **nome**: Camundongo
-            - **id_no_mapa**: 04
+            - **id_no_mapa**: 4
             - **id_no_mapa_fim**: z
             - **dificuldade**: V7
       - **mapas**:
@@ -425,22 +425,22 @@
           - **altura_mapa**: 680
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 499
                 - **y**: 470
                 - **raio**: 9
             - **[1]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 365
                 - **y**: 542
                 - **raio**: 8
             - **[2]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 43
                 - **y**: 501
@@ -465,8 +465,8 @@
           - **altura_mapa**: 399
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 245
                 - **y**: 284
@@ -486,40 +486,40 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Planetário
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **id_no_mapa_fim**: x
             - **destaque**: True
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **nome**: Náufrago
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **id_no_mapa_fim**: y
             - **destaque**: True
             - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
             - **nome**: Golfinho
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **id_no_mapa_fim**: z
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Clarete
-            - **id_no_mapa**: 04
+            - **id_no_mapa**: 4
             - **id_no_mapa_fim**: w
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Odisséia na Babilônia
-            - **id_no_mapa**: 01_b
+            - **id_no_mapa**: 1_b
             - **id_no_mapa_fim**: x_b
             - **dificuldade**: V6
             - **destaque**: True
         - **[5]**:
           - **boulder**:
             - **nome**: Canais da Babilônia
-            - **id_no_mapa**: 01_b
+            - **id_no_mapa**: 1_b
             - **id_no_mapa_fim**: y_b
             - **dificuldade**: V5
       - **mapas**:
@@ -529,8 +529,8 @@
           - **altura_mapa**: 536
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 532
                 - **y**: 520
@@ -548,22 +548,22 @@
           - **altura_mapa**: 486
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 346
                 - **y**: 454
                 - **raio**: 9
             - **[1]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 468
                 - **y**: 409
                 - **raio**: 9
             - **[2]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 632
                 - **y**: 338
@@ -595,8 +595,8 @@
           - **altura_mapa**: 522
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01_b
-              - **label**: 01
+              - **id**: 1_b
+              - **label**: 1
               - **circular**:
                 - **x**: 191
                 - **y**: 499
@@ -623,36 +623,36 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Fomiagem
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **id_no_mapa_fim**: W
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Projeto
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **id_no_mapa_fim**: Z
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Free Solo
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **destaque**: True
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **descricao**: Apenas desafio de virar o bloco
             - **nome**: Tartaruga
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Mobilete
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **nome**: Walkmachine
-            - **id_no_mapa**: 04
+            - **id_no_mapa**: 4
             - **dificuldade**: V6
       - **mapas**:
         - **[0]**:
@@ -661,15 +661,15 @@
           - **altura_mapa**: 489
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 671
                 - **y**: 461
                 - **raio**: 9
             - **[1]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 500
                 - **y**: 448
@@ -694,29 +694,29 @@
           - **altura_mapa**: 460
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 353
                 - **y**: 394
                 - **raio**: 9
             - **[1]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 516
                 - **y**: 358
                 - **raio**: 9
             - **[2]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 698
                 - **y**: 360
                 - **raio**: 9
             - **[3]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 742
                 - **y**: 355
@@ -729,27 +729,27 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Carrapato
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Carrapicho
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Oratório
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Pistol
-            - **id_no_mapa**: 04
+            - **id_no_mapa**: 4
             - **dificuldade**: V2
         - **[4]**:
           - **boulder**:
             - **nome**: Dart Vader
-            - **id_no_mapa**: 05
+            - **id_no_mapa**: 5
             - **dificuldade**: V4
       - **mapas**:
         - **[0]**:
@@ -758,15 +758,15 @@
           - **altura_mapa**: 564
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 294
                 - **y**: 507
                 - **raio**: 9
             - **[1]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 160
                 - **y**: 545
@@ -777,22 +777,22 @@
           - **altura_mapa**: 309
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 152
                 - **y**: 189
                 - **raio**: 9
             - **[1]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 348
                 - **y**: 221
                 - **raio**: 9
             - **[2]**:
-              - **id**: 05
-              - **label**: 05
+              - **id**: 5
+              - **label**: 5
               - **circular**:
                 - **x**: 54
                 - **y**: 194
@@ -805,28 +805,28 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Sucrilhos
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **dificuldade**: V5
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Faxineiro do Universo
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Arestinha Vibration
-            - **id_no_mapa**: 03
+            - **id_no_mapa**: 3
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: Sujeirinha
-            - **id_no_mapa**: 04
+            - **id_no_mapa**: 4
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Projeto Sunset
-            - **id_no_mapa**: 05
+            - **id_no_mapa**: 5
             - **dificuldade**: V3
             - **destaque**: True
       - **mapas**:
@@ -836,22 +836,22 @@
           - **altura_mapa**: 459
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 329
                 - **y**: 409
                 - **raio**: 9
             - **[1]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 514
                 - **y**: 357
                 - **raio**: 9
             - **[2]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 658
                 - **y**: 294
@@ -862,8 +862,8 @@
           - **altura_mapa**: 648
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 195
                 - **y**: 554
@@ -874,8 +874,8 @@
           - **altura_mapa**: 456
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 05
-              - **label**: 05
+              - **id**: 5
+              - **label**: 5
               - **circular**:
                 - **x**: 246
                 - **y**: 386
@@ -888,33 +888,31 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Fissura
-            - **id_no_mapa**: 01
+            - **id_no_mapa**: 1
             - **dificuldade**: V8
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Pure
-            - **id_no_mapa**: 02
+            - **id_no_mapa**: 2
             - **dificuldade**: V6
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Lpita
-            - **id_no_mapa**: 03
-            - **id_no_mapa_fim**: z
+            - **id_no_mapa**: 3
             - **dificuldade**: V7
             - **destaque**: True
         - **[3]**:
           - **boulder**:
             - **nome**: Nave
-            - **id_no_mapa**: 04
-            - **id_no_mapa_fim**: w
+            - **id_no_mapa**: 4
             - **dificuldade**: V3
             - **destaque**: True
         - **[4]**:
           - **boulder**:
             - **nome**: Camaroa
-            - **id_no_mapa**: 05
+            - **id_no_mapa**: 5
             - **dificuldade**: V10
             - **destaque**: True
       - **mapas**:
@@ -924,29 +922,29 @@
           - **altura_mapa**: 384
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: 1
+              - **label**: 1
               - **circular**:
                 - **x**: 222
                 - **y**: 234
                 - **raio**: 8
             - **[1]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 2
+              - **label**: 2
               - **circular**:
                 - **x**: 490
                 - **y**: 339
                 - **raio**: 9
             - **[2]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 4
+              - **label**: 4
               - **circular**:
                 - **x**: 605
                 - **y**: 361
                 - **raio**: 9
             - **[3]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 3
+              - **label**: 3
               - **circular**:
                 - **x**: 682
                 - **y**: 361
@@ -957,8 +955,8 @@
           - **altura_mapa**: 606
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 05
-              - **label**: 05
+              - **id**: 5
+              - **label**: 5
               - **circular**:
                 - **x**: 462
                 - **y**: 480

@@ -643,7 +643,12 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.addWidget(self.label_titulo_arquivos)
 
         self.list_widget = QListWidget()
+        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
+        self.list_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Maximum)
+        self.list_widget.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
         layout_esquerdo.addWidget(self.list_widget)
+        
+        layout_esquerdo.addStretch()
         
         layout_botoes = QVBoxLayout()
         layout_botoes.setSpacing(4)
@@ -672,8 +677,6 @@ class WidgetEditorMapas(QWidget):
         self.btn_converter.setToolTip("Converte Retângulos em Círculos. Se já estiver no modo, clique novamente para converter TODOS os retângulos.")
         self.btn_converter.clicked.connect(self.alternar_modo_conversao)
         layout_esquerdo.addWidget(self.btn_converter)
-
-        layout_esquerdo.addStretch()
 
         layout_bulk = QVBoxLayout()
         label_bulk = QLabel("Redimensionamento:")
@@ -709,8 +712,6 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.addSpacing(10)
 
 
-        self.splitter.addWidget(self.widget_esquerdo)
-        
         # Painel Direito (Visualizador)
         widget_direito = QWidget()
         layout_direito = QVBoxLayout(widget_direito)
