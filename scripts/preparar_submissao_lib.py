@@ -764,7 +764,7 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
                     ids.add(poi["id"])
         return ids
 
-    def validar_escalada(escalada, ids_validos, erros_contexto):
+    def validar_escalada(escalada, ids_validos, erros_contexto, ids_vistos):
         if not isinstance(escalada, dict):
             return
             
@@ -780,15 +780,31 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
             
         nome_via = dados_via.get("nome", "Sem Nome")
         
+        id_refs = []
+        has_any_id = False
         for campo in ["id_no_mapa", "id_no_mapa_meio", "id_no_mapa_fim"]:
             id_ref = dados_via.get(campo)
-            if id_ref and str(id_ref) not in ids_validos:
-                erros_contexto.append(f"Via '{nome_via}': {campo} '{id_ref}' não encontrado nos mapas.")
+            if id_ref:
+                has_any_id = True
+                id_str = str(id_ref)
+                if id_str not in ids_validos:
+                    erros_contexto.append(f"Via '{nome_via}': {campo} '{id_ref}' não encontrado nos mapas.")
+                id_refs.append(id_str)
+            else:
+                id_refs.append(None)
+                
+        if has_any_id:
+            combo = tuple(id_refs)
+            if combo in ids_vistos:
+                if nome_via not in ids_vistos[combo]:
+                    ids_vistos[combo].append(nome_via)
+            else:
+                ids_vistos[combo] = [nome_via]
 
         # Se for multiplas enfiadas, validar as enfiadas recursivamente
         if tipo_via == "via_multiplas_enfiadas" and "enfiadas" in dados_via:
             for e in dados_via["enfiadas"]:
-                validar_escalada(e, ids_validos, erros_contexto)
+                validar_escalada(e, ids_validos, erros_contexto, ids_vistos)
 
     def formatar_ids(ids_set):
         if not ids_set:
@@ -815,8 +831,15 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
         if id_setor and str(id_setor) not in ids_pai:
              erros_setor.append(f"Setor '{setor_nome}': id_no_mapa '{id_setor}' não encontrado nos mapas superiores.")
 
+        ids_vistos = {}
         for esc in setor_conteudo.get("escaladas", []):
-            validar_escalada(esc, ids_permitidos, erros_setor)
+            validar_escalada(esc, ids_permitidos, erros_setor, ids_vistos)
+
+        for combo, nomes in ids_vistos.items():
+            if len(nomes) > 1:
+                nomes_str = ", ".join(nomes)
+                combo_str = ", ".join([str(x) for x in combo if x is not None])
+                erros_setor.append(f"A combinação de IDs de mapa ({combo_str}) está duplicada e sendo usada pelas escaladas: {nomes_str}.")
             
         if erros_setor:
             erros.append(f"- {contexto_str}:")
@@ -825,9 +848,22 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
             erros.append(f"    * IDs de mapa disponíveis no contexto: {formatar_ids(ids_permitidos)}")
 
     def processar_setores_ou_grupos(setores_ou_grupos, ids_pico, pico_nome):
+        ids_vistos_pico = {}
         for item in setores_ou_grupos:
             if "setor" in item:
                 processar_setor(item["setor"], ids_pico, pico_nome)
+                
+                setor_conteudo = item["setor"].get("conteudo", {})
+                id_setor = setor_conteudo.get("id_no_mapa")
+                nome_setor = setor_conteudo.get("nome", "Setor Sem Nome")
+                if id_setor:
+                    id_str = str(id_setor)
+                    item_nome = f"Setor '{nome_setor}'"
+                    if id_str in ids_vistos_pico:
+                        ids_vistos_pico[id_str].append(item_nome)
+                    else:
+                        ids_vistos_pico[id_str] = [item_nome]
+
             elif "grupo" in item:
                 grupo_conteudo = item["grupo"].get("conteudo", {})
                 grupo_nome = grupo_conteudo.get("nome", "Grupo Sem Nome")
@@ -836,18 +872,54 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
                 
                 erros_grupo = []
                 id_grupo = grupo_conteudo.get("id_no_mapa")
-                if id_grupo and str(id_grupo) not in ids_pico:
-                    erros_grupo.append(f"Grupo '{grupo_nome}': id_no_mapa '{id_grupo}' não encontrado nos mapas do pico.")
+                if id_grupo:
+                    id_str = str(id_grupo)
+                    if id_str not in ids_pico:
+                        erros_grupo.append(f"Grupo '{grupo_nome}': id_no_mapa '{id_grupo}' não encontrado nos mapas do pico.")
+                    
+                    item_nome = f"Grupo '{grupo_nome}'"
+                    if id_str in ids_vistos_pico:
+                        ids_vistos_pico[id_str].append(item_nome)
+                    else:
+                        ids_vistos_pico[id_str] = [item_nome]
                 
+                ids_vistos_grupo = {}
+                # Processar setores dentro do grupo
+                for s_ref in grupo_conteudo.get("setores", []):
+                    processar_setor(s_ref, ids_contexto_grupo, pico_nome, grupo_nome)
+                    
+                    setor_conteudo = s_ref.get("conteudo", {})
+                    id_setor = setor_conteudo.get("id_no_mapa")
+                    nome_setor = setor_conteudo.get("nome", "Setor Sem Nome")
+                    if id_setor:
+                        id_str = str(id_setor)
+                        item_nome = f"Setor '{nome_setor}'"
+                        if id_str in ids_vistos_grupo:
+                            ids_vistos_grupo[id_str].append(item_nome)
+                        else:
+                            ids_vistos_grupo[id_str] = [item_nome]
+
+                for id_str, nomes in ids_vistos_grupo.items():
+                    if len(nomes) > 1:
+                        nomes_str = ", ".join(nomes)
+                        erros_grupo.append(f"O id_no_mapa '{id_str}' está duplicado e sendo usado por: {nomes_str}.")
+
                 if erros_grupo:
                     erros.append(f"- Pico '{pico_nome}' -> Grupo '{grupo_nome}':")
                     for e in erros_grupo:
                         erros.append(f"    * {e}")
                     erros.append(f"    * IDs de mapa disponíveis no contexto: {formatar_ids(ids_pico)}")
 
-                # Processar setores dentro do grupo
-                for s_ref in grupo_conteudo.get("setores", []):
-                    processar_setor(s_ref, ids_contexto_grupo, pico_nome, grupo_nome)
+        erros_pico = []
+        for id_str, nomes in ids_vistos_pico.items():
+            if len(nomes) > 1:
+                nomes_str = ", ".join(nomes)
+                erros_pico.append(f"O id_no_mapa '{id_str}' está duplicado e sendo usado por: {nomes_str}.")
+        
+        if erros_pico:
+            erros.append(f"- Pico '{pico_nome}':")
+            for e in erros_pico:
+                erros.append(f"    * {e}")
 
     for pico in croqui_data.get("picos", []):
         pico_nome = pico.get("nome", "Pico Sem Nome")

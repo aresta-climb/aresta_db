@@ -86,10 +86,13 @@ class ControladorAplicativo:
         if self.janela_principal:
             self.janela_principal.close()
             
+        from editor.core.workspace import ExperimentalWorkspace
+        workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
+        
         self.janela_principal = JanelaPrincipal(
             storage=self.tarefa.storage,
             auth=self.tarefa.auth,
-            caminho_croqui=self.tela_carregamento.caminho_croqui_selecionado
+            workspace=workspace
         )
         # Conecta o sinal para permitir voltar para a seleção
         self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
@@ -107,5 +110,28 @@ class ControladorAplicativo:
         return self.app.exec()
 
 if __name__ == "__main__":
+    # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
+    # E é de fato um diretório que contém croqui.yaml
+    if len(sys.argv) > 1 and "database" in sys.argv[1]:
+        caminho_str = sys.argv[1]
+        caminho_path = Path(caminho_str).resolve()
+        
+        if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
+            app = QApplication.instance()
+            if not app:
+                app = QApplication(sys.argv)
+                
+            storage = GerenciadorCaminhos()
+            caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
+            app.setWindowIcon(QIcon(str(caminho_logo_app)))
+            
+            from editor.core.workspace import LocalRepoWorkspace
+            workspace = LocalRepoWorkspace(caminho_path)
+            
+            janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)
+            janela.show()
+            sys.exit(app.exec())
+            
+    # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
     controlador = ControladorAplicativo()
     sys.exit(controlador.executar())

@@ -38,3 +38,6 @@ Precisa de MUITO trabalho no croqui de Cambotas pra fazer sentido dele.
 ## Bombonera
 
 Tem um 8-9 no mapa que temos que ver o que fazer para mapear para a via.
+
+## Aresta Editor
+- Refatorar o Editor de Imagens (`WidgetEditorImagens`) para utilizar o `QUndoStack` nativo para manipulações (Rotacionar, Adicionar Máscara, Deletar Máscara). Isso garantirá que o rastreamento de estado limpo (Clean State / is_dirty) via histórico seja refletido automaticamente nas imagens também.

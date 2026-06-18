@@ -255,8 +255,9 @@ class GerenciadorCroquiExperimental:
             else:
                 repo = pygit2.Repository(str(caminho_raiz))
             
+            from scripts.deploy_generated import URL_BASE_PADRAO
             deploy(
-                url_base=None,
+                url_base=URL_BASE_PADRAO,
                 output_dir=caminho_compilado,
                 target_path=str(caminho_database),
                 force_thumbnails=True,

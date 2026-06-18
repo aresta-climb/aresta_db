@@ -84,7 +84,7 @@ def test_widget_editor_dados_integracao_historico(qtbot):
         
     finally:
         # Evita que closeEvent abra a caixa de diálogo QMessageBox perguntando se deseja salvar
-        janela.is_dirty = False
+        janela.historico.obter_pilha().setClean()
 
 
 def test_atalho_qlineedit_engole_desfazer_global_e_como_evitar(qtbot):
@@ -137,4 +137,4 @@ def test_atalho_qlineedit_engole_desfazer_global_e_como_evitar(qtbot):
         # A pilha global DEVE ter sido acionada, voltando a count() para 0
         assert janela.historico.obter_pilha().index() == 0, "O Ctrl+Z foi engolido pelo QLineEdit e a ação global de desfazer não rodou!"
     finally:
-        janela.is_dirty = False
+        janela.historico.obter_pilha().setClean()

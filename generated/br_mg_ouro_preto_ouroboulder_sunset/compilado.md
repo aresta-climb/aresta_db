@@ -167,6 +167,7 @@
             - **Parque Estadual do Itacolomi**
 - **ultima_migracao**: 1
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: grupo_sunset
@@ -287,11 +288,10 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
-                - **x**: 420
-                - **y**: 590
-                - **comprimento**: 27
-                - **largura**: 27
+              - **circular**:
+                - **x**: 418
+                - **y**: 589
+                - **raio**: 10
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
@@ -335,19 +335,17 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
-                - **x**: 250
-                - **y**: 306
-                - **comprimento**: 16
-                - **largura**: 19
+              - **circular**:
+                - **x**: 251
+                - **y**: 307
+                - **raio**: 9
             - **[1]**:
               - **id**: X
               - **label**: X
-              - **box**:
+              - **circular**:
                 - **x**: 12
                 - **y**: 12
-                - **comprimento**: 17
-                - **largura**: 17
+                - **raio**: 9
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_capitao_jack_p1.webp)
           - **largura_mapa**: 847
@@ -356,43 +354,38 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
-                - **x**: 804
-                - **y**: 702
-                - **comprimento**: 17
-                - **largura**: 21
+              - **circular**:
+                - **x**: 805
+                - **y**: 704
+                - **raio**: 9
             - **[1]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
-                - **x**: 378
+              - **circular**:
+                - **x**: 379
                 - **y**: 666
-                - **comprimento**: 17
-                - **largura**: 20
+                - **raio**: 10
             - **[2]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 294
                 - **y**: 734
-                - **comprimento**: 17
-                - **largura**: 20
+                - **raio**: 9
             - **[3]**:
               - **id**: y
               - **label**: y
-              - **box**:
+              - **circular**:
                 - **x**: 256
-                - **y**: 12
-                - **comprimento**: 19
-                - **largura**: 21
+                - **y**: 13
+                - **raio**: 10
             - **[4]**:
               - **id**: x
               - **label**: x
-              - **box**:
+              - **circular**:
                 - **x**: 562
                 - **y**: 15
-                - **comprimento**: 17
-                - **largura**: 18
+                - **raio**: 9
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco Jahngada
@@ -434,43 +427,38 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
+              - **circular**:
                 - **x**: 499
                 - **y**: 470
-                - **comprimento**: 18
-                - **largura**: 22
+                - **raio**: 9
             - **[1]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
-                - **x**: 364
-                - **y**: 541
-                - **comprimento**: 19
-                - **largura**: 20
+              - **circular**:
+                - **x**: 365
+                - **y**: 542
+                - **raio**: 8
             - **[2]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 43
-                - **y**: 500
-                - **comprimento**: 20
-                - **largura**: 21
+                - **y**: 501
+                - **raio**: 8
             - **[3]**:
               - **id**: x
               - **label**: x
-              - **box**:
+              - **circular**:
                 - **x**: 425
-                - **y**: 60
-                - **comprimento**: 18
-                - **largura**: 20
+                - **y**: 61
+                - **raio**: 10
             - **[4]**:
               - **id**: y
               - **label**: y
-              - **box**:
+              - **circular**:
                 - **x**: 97
                 - **y**: 164
-                - **comprimento**: 20
-                - **largura**: 21
+                - **raio**: 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_jahngada_p1.webp)
           - **largura_mapa**: 445
@@ -479,19 +467,17 @@
             - **[0]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
+              - **circular**:
                 - **x**: 245
                 - **y**: 284
-                - **comprimento**: 18
-                - **largura**: 18
+                - **raio**: 9
             - **[1]**:
               - **id**: z
               - **label**: z
-              - **box**:
-                - **x**: 213
-                - **y**: 110
-                - **comprimento**: 16
-                - **largura**: 18
+              - **circular**:
+                - **x**: 214
+                - **y**: 111
+                - **raio**: 9
   - **[3]**:
     - **conteudo**:
       - **descricao**: # Bloco Planetário
@@ -526,15 +512,15 @@
         - **[4]**:
           - **boulder**:
             - **nome**: Odisséia na Babilônia
-            - **id_no_mapa**: 01
-            - **id_no_mapa_fim**: x
+            - **id_no_mapa**: 01_b
+            - **id_no_mapa_fim**: x_b
             - **dificuldade**: V6
             - **destaque**: True
         - **[5]**:
           - **boulder**:
             - **nome**: Canais da Babilônia
-            - **id_no_mapa**: 01
-            - **id_no_mapa_fim**: y
+            - **id_no_mapa**: 01_b
+            - **id_no_mapa_fim**: y_b
             - **dificuldade**: V5
       - **mapas**:
         - **[0]**:
@@ -545,19 +531,17 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
+              - **circular**:
                 - **x**: 532
-                - **y**: 519
-                - **comprimento**: 19
-                - **largura**: 18
+                - **y**: 520
+                - **raio**: 9
             - **[1]**:
               - **id**: x
               - **label**: x
-              - **box**:
+              - **circular**:
                 - **x**: 445
-                - **y**: 30
-                - **comprimento**: 18
-                - **largura**: 19
+                - **y**: 31
+                - **raio**: 9
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p2.webp)
           - **largura_mapa**: 829
@@ -566,80 +550,71 @@
             - **[0]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
+              - **circular**:
                 - **x**: 346
                 - **y**: 454
-                - **comprimento**: 17
-                - **largura**: 19
+                - **raio**: 9
             - **[1]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 468
                 - **y**: 409
-                - **comprimento**: 17
-                - **largura**: 18
+                - **raio**: 9
             - **[2]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
+              - **circular**:
                 - **x**: 632
                 - **y**: 338
-                - **comprimento**: 18
-                - **largura**: 19
+                - **raio**: 9
             - **[3]**:
               - **id**: y
               - **label**: y
-              - **box**:
-                - **x**: 250
-                - **y**: 105
-                - **comprimento**: 21
-                - **largura**: 22
+              - **circular**:
+                - **x**: 248
+                - **y**: 106
+                - **raio**: 11
             - **[4]**:
               - **id**: z
               - **label**: z
-              - **box**:
-                - **x**: 494
-                - **y**: 46
-                - **comprimento**: 19
-                - **largura**: 18
+              - **circular**:
+                - **x**: 495
+                - **y**: 47
+                - **raio**: 9
             - **[5]**:
               - **id**: w
               - **label**: w
-              - **box**:
-                - **x**: 613
+              - **circular**:
+                - **x**: 614
                 - **y**: 42
-                - **comprimento**: 18
-                - **largura**: 20
+                - **raio**: 10
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p1.webp)
           - **largura_mapa**: 850
           - **altura_mapa**: 522
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
+              - **id**: 01_b
               - **label**: 01
-              - **box**:
-                - **x**: 190
-                - **y**: 498
-                - **comprimento**: 19
-                - **largura**: 19
+              - **circular**:
+                - **x**: 191
+                - **y**: 499
+                - **raio**: 9
             - **[1]**:
-              - **id**: y
+              - **id**: y_b
               - **label**: y
-              - **box**:
+              - **circular**:
                 - **x**: 118
                 - **y**: 10
-                - **comprimento**: 19
-                - **largura**: 18
+                - **raio**: 9
             - **[2]**:
-              - **id**: x
+              - **id**: x_b
               - **label**: x
-              - **box**:
-                - **x**: 586
-                - **y**: 7
-                - **comprimento**: 17
-                - **largura**: 16
+              - **circular**:
+                - **x**: 585
+                - **y**: 6
+                - **raio**: 8
   - **[4]**:
     - **conteudo**:
       - **descricao**: # Bloco Free Solo
@@ -688,35 +663,31 @@
             - **[0]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
-                - **x**: 670
-                - **y**: 462
-                - **comprimento**: 19
-                - **largura**: 20
+              - **circular**:
+                - **x**: 671
+                - **y**: 461
+                - **raio**: 9
             - **[1]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 500
                 - **y**: 448
-                - **comprimento**: 19
-                - **largura**: 18
+                - **raio**: 9
             - **[2]**:
               - **id**: Z
               - **label**: Z
-              - **box**:
+              - **circular**:
                 - **x**: 662
                 - **y**: 12
-                - **comprimento**: 18
-                - **largura**: 19
+                - **raio**: 9
             - **[3]**:
               - **id**: W
               - **label**: W
-              - **box**:
-                - **x**: 771
-                - **y**: 10
-                - **comprimento**: 20
-                - **largura**: 19
+              - **circular**:
+                - **x**: 772
+                - **y**: 9
+                - **raio**: 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_free_solo_p1.webp)
           - **largura_mapa**: 839
@@ -725,35 +696,31 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
+              - **circular**:
                 - **x**: 353
                 - **y**: 394
-                - **comprimento**: 18
-                - **largura**: 18
+                - **raio**: 9
             - **[1]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
-                - **x**: 514
-                - **y**: 357
-                - **comprimento**: 19
-                - **largura**: 20
+              - **circular**:
+                - **x**: 516
+                - **y**: 358
+                - **raio**: 9
             - **[2]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
-                - **x**: 697
+              - **circular**:
+                - **x**: 698
                 - **y**: 360
-                - **comprimento**: 18
-                - **largura**: 18
+                - **raio**: 9
             - **[3]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
+              - **circular**:
                 - **x**: 742
-                - **y**: 354
-                - **comprimento**: 19
-                - **largura**: 20
+                - **y**: 355
+                - **raio**: 8
   - **[5]**:
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
@@ -793,19 +760,17 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
-                - **x**: 293
-                - **y**: 506
-                - **comprimento**: 18
-                - **largura**: 19
+              - **circular**:
+                - **x**: 294
+                - **y**: 507
+                - **raio**: 9
             - **[1]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
+              - **circular**:
                 - **x**: 160
-                - **y**: 544
-                - **comprimento**: 18
-                - **largura**: 18
+                - **y**: 545
+                - **raio**: 9
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_carrapicho_p1.webp)
           - **largura_mapa**: 399
@@ -814,27 +779,24 @@
             - **[0]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 152
-                - **y**: 188
-                - **comprimento**: 18
-                - **largura**: 19
+                - **y**: 189
+                - **raio**: 9
             - **[1]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
+              - **circular**:
                 - **x**: 348
                 - **y**: 221
-                - **comprimento**: 17
-                - **largura**: 18
+                - **raio**: 9
             - **[2]**:
               - **id**: 05
               - **label**: 05
-              - **box**:
+              - **circular**:
                 - **x**: 54
                 - **y**: 194
-                - **comprimento**: 17
-                - **largura**: 18
+                - **raio**: 9
   - **[6]**:
     - **conteudo**:
       - **descricao**: # Bloco Sunset
@@ -876,27 +838,24 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
-                - **x**: 328
-                - **y**: 408
-                - **comprimento**: 19
-                - **largura**: 19
+              - **circular**:
+                - **x**: 329
+                - **y**: 409
+                - **raio**: 9
             - **[1]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
-                - **x**: 512
+              - **circular**:
+                - **x**: 514
                 - **y**: 357
-                - **comprimento**: 19
-                - **largura**: 18
+                - **raio**: 9
             - **[2]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
+              - **circular**:
                 - **x**: 658
                 - **y**: 294
-                - **comprimento**: 19
-                - **largura**: 19
+                - **raio**: 9
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p1.webp)
           - **largura_mapa**: 488
@@ -905,11 +864,10 @@
             - **[0]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
+              - **circular**:
                 - **x**: 195
                 - **y**: 554
-                - **comprimento**: 18
-                - **largura**: 19
+                - **raio**: 9
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p2.webp)
           - **largura_mapa**: 338
@@ -918,11 +876,10 @@
             - **[0]**:
               - **id**: 05
               - **label**: 05
-              - **box**:
+              - **circular**:
                 - **x**: 246
                 - **y**: 386
-                - **comprimento**: 19
-                - **largura**: 20
+                - **raio**: 9
   - **[7]**:
     - **conteudo**:
       - **descricao**: # Bloco Camaroa
@@ -969,35 +926,31 @@
             - **[0]**:
               - **id**: 01
               - **label**: 01
-              - **box**:
+              - **circular**:
                 - **x**: 222
                 - **y**: 234
-                - **comprimento**: 20
-                - **largura**: 22
+                - **raio**: 8
             - **[1]**:
               - **id**: 02
               - **label**: 02
-              - **box**:
+              - **circular**:
                 - **x**: 490
                 - **y**: 339
-                - **comprimento**: 21
-                - **largura**: 22
+                - **raio**: 9
             - **[2]**:
               - **id**: 04
               - **label**: 04
-              - **box**:
+              - **circular**:
                 - **x**: 605
-                - **y**: 360
-                - **comprimento**: 20
-                - **largura**: 21
+                - **y**: 361
+                - **raio**: 9
             - **[3]**:
               - **id**: 03
               - **label**: 03
-              - **box**:
-                - **x**: 680
+              - **circular**:
+                - **x**: 682
                 - **y**: 361
-                - **comprimento**: 19
-                - **largura**: 20
+                - **raio**: 8
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_camaroa_p1.webp)
           - **largura_mapa**: 835
@@ -1006,11 +959,10 @@
             - **[0]**:
               - **id**: 05
               - **label**: 05
-              - **box**:
-                - **x**: 461
+              - **circular**:
+                - **x**: 462
                 - **y**: 480
-                - **comprimento**: 20
-                - **largura**: 19
+                - **raio**: 10
 
 
 ## Arquivos Externos

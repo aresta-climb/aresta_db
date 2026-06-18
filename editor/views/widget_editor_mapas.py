@@ -34,13 +34,16 @@ def registrar_movimento_final(item, estado_inicial):
                     break
             
             if idx_poi != -1 and widget_editor.msg_mapa_proxy:
-                poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
-                ParseDict(estado_inicial, poi_antigo)
-                poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
-                ParseDict(estado_final, poi_novo)
-                
-                widget_editor.mapas_controller.mover_poi(widget_editor.msg_mapa_proxy, idx_poi, poi_antigo, poi_novo)
-                return
+                try:
+                    poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
+                    ParseDict(estado_inicial, poi_antigo)
+                    poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
+                    ParseDict(estado_final, poi_novo)
+                    
+                    widget_editor.mapas_controller.mover_poi(widget_editor.msg_mapa_proxy, idx_poi, poi_antigo, poi_novo)
+                    return
+                except Exception as e:
+                    print(f"Erro ao registrar movimento do POI: {e}")
     item.marcar_alterado()
 
 
@@ -116,38 +119,16 @@ class BaseItemPOI:
             dialogo = DialogoEdicaoPOI(id_atual, label_atual)
             if dialogo.exec() == QDialog.DialogCode.Accepted:
                 novo_id, novo_label = dialogo.obter_valores()
-                if novo_id or novo_label:
+                if novo_id != id_atual or novo_label != label_atual:
                     estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
                     
-                    # Cria o estado final desejado
-                    estado_final = copy.deepcopy(estado_inicial)
-                    estado_final['id'] = novo_id
-                    estado_final['label'] = novo_label
-                    
-                    widget_editor = self.scene().widget_editor
-                    chave_mapa = None
-                    idx_poi = -1
-                    for k, d in widget_editor.dados_arquivos.items():
-                        if self in d['itens_bb']:
-                            chave_mapa = k
-                            idx_poi = d['itens_bb'].index(self)
-                            break
-                    
-                    if chave_mapa is not None and idx_poi != -1:
-                        historico = None
-                        window = widget_editor.window()
-                        if window and hasattr(window, "historico"):
-                            historico = window.historico
-                        if historico and hasattr(widget_editor, 'mapas_controller') and widget_editor.mapas_controller:
-                            widget_editor.mapas_controller.mover_ponto_de_interesse(historico, chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor)
-                            return
-                            
                     self.pt_dict['id'] = novo_id
                     self.pt_dict['label'] = novo_label
                     texto_exibicao = novo_id if novo_id else novo_label
                     self.item_texto.setPlainText(texto_exibicao)
                     self.setToolTip(f"ID: {novo_id} | Label: {novo_label}")
-                    self.marcar_alterado()
+                    
+                    registrar_movimento_final(self, estado_inicial)
 
         elif acao == acao_deletar:
             if callback_deletar:
@@ -225,8 +206,8 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
             diff_x = abs(delta_local.x()) - self.dist_inicio_redim_abs.x()
             diff_y = abs(delta_local.y()) - self.dist_inicio_redim_abs.y()
             
-            novo_w = max(5, self.rect_inicio_redim.width() + 2 * diff_x)
-            novo_h = max(5, self.rect_inicio_redim.height() + 2 * diff_y)
+            novo_w = max(5, round(self.rect_inicio_redim.width() + 2 * diff_x))
+            novo_h = max(5, round(self.rect_inicio_redim.height() + 2 * diff_y))
             
             self.setRect(0, 0, novo_w, novo_h)
             novo_centro = self.rect().center()
@@ -249,7 +230,10 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
     def itemChange(self, mudanca, valor):
-        if mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionHasChanged:
+        if mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionChange:
+            if self.scene():
+                return QPointF(round(valor.x()), round(valor.y()))
+        elif mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionHasChanged:
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
@@ -258,8 +242,8 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
         dados_box = {
             'x': int(round(self.x() + rect.width() / 2)),
             'y': int(round(self.y() + rect.height() / 2)),
-            'comprimento': int(rect.width()),
-            'largura': int(rect.height())
+            'comprimento': int(round(rect.width())),
+            'largura': int(round(rect.height()))
         }
         angulo = self.rotation()
         while angulo > 360: angulo -= 360
@@ -319,7 +303,7 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
     def mouseMoveEvent(self, evento):
         if hasattr(self, 'redimensionando') and self.redimensionando:
             delta = evento.pos() - self.pos_inicio_redim
-            r = max(5, self.rect_inicio_redim.width() / 2 + delta.x())
+            r = max(5, round(self.rect_inicio_redim.width() / 2 + delta.x()))
             self.setRect(-r, -r, 2 * r, 2 * r)
             self.atualizar_pos_texto(-r, -r)
             evento.accept()
@@ -332,15 +316,18 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
     def itemChange(self, mudanca, valor):
-        if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionHasChanged:
+        if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange:
+            if self.scene():
+                return QPointF(round(valor.x()), round(valor.y()))
+        elif mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionHasChanged:
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
     def obter_dict_atualizado(self):
-        r = int(self.rect().width() / 2)
+        r = int(round(self.rect().width() / 2))
         self.pt_dict['circular'] = {
-            'x': int(self.x()),
-            'y': int(self.y()),
+            'x': int(round(self.x())),
+            'y': int(round(self.y())),
             'raio': r
         }
         return self.pt_dict
@@ -361,7 +348,12 @@ class AlcaVertice(QGraphicsEllipseItem):
 
     def itemChange(self, mudanca, valor):
         if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange:
-            self.item_pai.atualizar_ponto(self.indice, valor)
+            if self.scene():
+                novo_valor = QPointF(round(valor.x()), round(valor.y()))
+                self.item_pai.atualizar_ponto(self.indice, novo_valor)
+                return novo_valor
+            else:
+                self.item_pai.atualizar_ponto(self.indice, valor)
         return super().itemChange(mudanca, valor)
 
     def mousePressEvent(self, evento):
@@ -408,6 +400,7 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
         self.pt_dict.update(pt_dict)
         coords = self.pt_dict['area_livre']['coordenadas']
         self.pontos = [QPointF(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
+        self.setPos(0, 0)
         self.setPolygon(QPolygonF(self.pontos))
         
         # Reconstrói as alças
@@ -446,6 +439,14 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
         min_y = min(p.y() for p in self.pontos)
         self.atualizar_pos_texto(min_x, min_y)
 
+    def itemChange(self, mudanca, valor):
+        if mudanca == QGraphicsPolygonItem.GraphicsItemChange.ItemPositionChange:
+            if self.scene():
+                return QPointF(round(valor.x()), round(valor.y()))
+        elif mudanca == QGraphicsPolygonItem.GraphicsItemChange.ItemPositionHasChanged:
+            self.marcar_alterado()
+        return super().itemChange(mudanca, valor)
+
     def contextMenuEvent(self, evento):
         menu = QMenu()
         acao_renomear = menu.addAction("Renomear Ponto de Interesse")
@@ -480,8 +481,8 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
         pos = self.pos()
         coords = []
         for p in self.pontos:
-            coords.append(int(p.x() + pos.x()))
-            coords.append(int(p.y() + pos.y()))
+            coords.append(int(round(p.x() + pos.x())))
+            coords.append(int(round(p.y() + pos.y())))
         self.pt_dict['area_livre'] = {'coordenadas': coords}
         return self.pt_dict
 
@@ -770,23 +771,61 @@ class WidgetEditorMapas(QWidget):
         
     def _atualizar_lista_mapas(self, *args):
         """Reconstrói a lista lendo do CroquiModel."""
-        self.list_widget.clear()
-        if not self.mapas_controller or not self.mapas_controller.model: return
-        
-        croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
         from PyQt6.QtWidgets import QListWidgetItem
         from PyQt6.QtCore import Qt
         from pathlib import Path
         
+        # Salva seleção atual
+        current_item = self.list_widget.currentItem()
+        selected_data = current_item.data(Qt.ItemDataRole.UserRole) if current_item else None
+
+        self.list_widget.clear()
+        if not self.mapas_controller or not self.mapas_controller.model: return
+        
+        croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
+        
         for p_idx, pico in enumerate(croqui_msg.picos):
             for sg_idx, sg in enumerate(pico.setores_ou_grupos):
-                if not getattr(sg, 'setor', None): continue
-                for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
-                    if not mapa.caminho_imagem_mapa: continue
-                    nome = Path(mapa.caminho_imagem_mapa).name
-                    item = QListWidgetItem(nome)
-                    item.setData(Qt.ItemDataRole.UserRole, (p_idx, sg_idx, m_idx))
-                    self.list_widget.addItem(item)
+                # Mapas do Setor
+                if getattr(sg, 'setor', None):
+                    for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
+                        if not mapa.caminho_imagem_mapa: continue
+                        nome = Path(mapa.caminho_imagem_mapa).name
+                        item = QListWidgetItem(nome)
+                        item.setData(Qt.ItemDataRole.UserRole, ('setor', p_idx, sg_idx, m_idx))
+                        self.list_widget.addItem(item)
+                
+                # Mapas do Grupo e seus Sub-setores
+                if getattr(sg, 'grupo', None):
+                    for m_idx, mapa in enumerate(sg.grupo.conteudo.mapas):
+                        if not mapa.caminho_imagem_mapa: continue
+                        nome = Path(mapa.caminho_imagem_mapa).name
+                        item = QListWidgetItem(nome)
+                        item.setData(Qt.ItemDataRole.UserRole, ('grupo', p_idx, sg_idx, m_idx))
+                        self.list_widget.addItem(item)
+                    
+                    for s_idx, subsetor in enumerate(sg.grupo.conteudo.setores):
+                        for m_idx, mapa in enumerate(subsetor.conteudo.mapas):
+                            if not mapa.caminho_imagem_mapa: continue
+                            nome = Path(mapa.caminho_imagem_mapa).name
+                            item = QListWidgetItem(nome)
+                            item.setData(Qt.ItemDataRole.UserRole, ('subsetor', p_idx, sg_idx, s_idx, m_idx))
+                            self.list_widget.addItem(item)
+
+        # Restaura a seleção da lista
+        if selected_data:
+            for i in range(self.list_widget.count()):
+                item = self.list_widget.item(i)
+                if item.data(Qt.ItemDataRole.UserRole) == selected_data:
+                    self.list_widget.blockSignals(True)
+                    self.list_widget.setCurrentItem(item)
+                    self.list_widget.blockSignals(False)
+                    break
+        elif hasattr(self, 'pico_idx') and self.pico_idx >= 0 and self.sg_idx >= 0 and self.mapa_idx >= 0:
+            self.list_widget.blockSignals(True)
+            s_idx = getattr(self, 's_idx', -1)
+            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx)
+            self.list_widget.blockSignals(False)
                     
     def _on_mapa_selecionado(self):
         item = self.list_widget.currentItem()
@@ -795,46 +834,78 @@ class WidgetEditorMapas(QWidget):
         indices = item.data(Qt.ItemDataRole.UserRole)
         if not indices: return
         
-        p_idx, sg_idx, m_idx = indices
+        if len(indices) == 3:
+            # Compatibilidade com índices antigos por segurança, assumindo setor
+            p_idx, sg_idx, m_idx = indices
+            tipo = 'setor'
+            s_idx = -1
+        elif len(indices) == 5:
+            tipo, p_idx, sg_idx, s_idx, m_idx = indices
+        else:
+            tipo, p_idx, sg_idx, m_idx = indices
+            s_idx = -1
+            
         if not self.mapas_controller or not self.mapas_controller.model: return
         
         croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
         try:
-            mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.mapas[m_idx]
-            self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+            if tipo == 'grupo':
+                mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.mapas[m_idx]
+            elif tipo == 'subsetor':
+                mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.setores[s_idx].conteudo.mapas[m_idx]
+            else: # setor
+                mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.mapas[m_idx]
+                
+            # O set_mapa_atual interno ainda não precisa do tipo pois ele emite sinais usando MapasController
+            # que depois vai salvar_mapa. Precisamos ver se o MapasController também requer ajuste.
+            self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx, tipo=tipo)
         except IndexError:
             pass # Prevenção de falhas de sincronia na deleção
 
-    def selecionar_mapa_por_indices(self, pico_idx, grupo_idx, mapa_idx):
+    def selecionar_mapa_por_indices(self, pico_idx, grupo_idx, mapa_idx, s_idx=-1):
         """Seleciona visualmente o mapa na lista dado os seus índices, disparando a atualização da tela."""
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
             indices = item.data(Qt.ItemDataRole.UserRole)
-            if indices and indices == (pico_idx, grupo_idx, mapa_idx):
-                self.list_widget.setCurrentItem(item)
-                return True
+            if indices:
+                if len(indices) == 3 and indices == (pico_idx, grupo_idx, mapa_idx):
+                    self.list_widget.setCurrentItem(item)
+                    return True
+                elif len(indices) == 4 and indices[1:] == (pico_idx, grupo_idx, mapa_idx) and s_idx == -1:
+                    self.list_widget.setCurrentItem(item)
+                    return True
+                elif len(indices) == 5 and indices[1:] == (pico_idx, grupo_idx, s_idx, mapa_idx):
+                    self.list_widget.setCurrentItem(item)
+                    return True
         return False
 
-    def set_mapa_atual(self, msg_mapa_proxy, pico_idx=-1, grupo_idx=-1, mapa_idx=-1):
+    def set_mapa_atual(self, msg_mapa_proxy, pico_idx=-1, grupo_idx=-1, mapa_idx=-1, s_idx=-1, tipo='setor'):
         """Define o mapa atual para exibição na view, limpando a cena."""
         self.msg_mapa_proxy = msg_mapa_proxy
         self.pico_idx = pico_idx
         self.sg_idx = grupo_idx
         self.mapa_idx = mapa_idx
+        self.s_idx = s_idx
         self.dados_atuais = {
             'cena': CenaDesenho(self),
             'itens_bb': [],
             'mapa_msg': msg_mapa_proxy,
             'pico_idx': pico_idx,
             'sg_idx': grupo_idx,
-            'mapa_idx': mapa_idx
+            'mapa_idx': mapa_idx,
+            's_idx': s_idx
         }
         self.itens_poi.clear()
         
         # Conectar sinais do Model caso haja um MapasController com o Model (necessário para reatividade)
         if self.mapas_controller and self.mapas_controller.model:
-            if hasattr(self.mapas_controller, 'set_contexto') and pico_idx >= 0 and grupo_idx >= 0 and mapa_idx >= 0:
-                path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:mapas/item:{mapa_idx}"
+            if hasattr(self.mapas_controller, 'set_contexto') and pico_idx >= 0 and mapa_idx >= 0:
+                if tipo == 'grupo':
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:mapas/item:{mapa_idx}"
+                elif tipo == 'subsetor':
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:setores/item:{s_idx}/expando:setor/expando:mapas/item:{mapa_idx}"
+                else:
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:setor/expando:mapas/item:{mapa_idx}"
                 self.mapas_controller.set_contexto(path)
                 
             model = self.mapas_controller.model
@@ -847,15 +918,19 @@ class WidgetEditorMapas(QWidget):
             model.repeated_adicionado.connect(self._on_repeated_adicionado)
             model.repeated_removido.connect(self._on_repeated_removido)
             
-        self._renderizar_mapa()
+        self._renderizar_mapa(reset_zoom=True)
         
-    def _renderizar_mapa(self):
+    def _renderizar_mapa(self, reset_zoom=True):
         """Lê a mensagem Protobuf e renderiza a cena inteira."""
         if not self.msg_mapa_proxy:
             self.visualizador.setScene(None)
             self.label_placeholder.show()
             return
             
+        old_transform = self.visualizador.transform()
+        old_h_scroll = self.visualizador.horizontalScrollBar().value()
+        old_v_scroll = self.visualizador.verticalScrollBar().value()
+        
         self.label_placeholder.hide()
         dados = self.dados_atuais
         cena = dados['cena']
@@ -876,17 +951,20 @@ class WidgetEditorMapas(QWidget):
             self._adicionar_item_cena(poi, i, cena)
             
         self.visualizador.setScene(cena)
-        self.visualizador.fitInView(cena.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+        
+        if reset_zoom:
+            self.visualizador.fitInView(cena.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+        else:
+            self.visualizador.setTransform(old_transform)
+            self.visualizador.horizontalScrollBar().setValue(old_h_scroll)
+            self.visualizador.verticalScrollBar().setValue(old_v_scroll)
 
         # Sincroniza a seleção na lista se os índices foram passados
-        if self.pico_idx >= 0 and self.sg_idx >= 0 and self.mapa_idx >= 0:
-            for i in range(self.list_widget.count()):
-                item = self.list_widget.item(i)
-                if item.data(Qt.ItemDataRole.UserRole) == (self.pico_idx, self.sg_idx, self.mapa_idx):
-                    self.list_widget.blockSignals(True)
-                    self.list_widget.setCurrentItem(item)
-                    self.list_widget.blockSignals(False)
-                    break
+        if getattr(self, 'pico_idx', -1) >= 0 and getattr(self, 'sg_idx', -1) >= 0 and getattr(self, 'mapa_idx', -1) >= 0:
+            self.list_widget.blockSignals(True)
+            s_idx = getattr(self, 's_idx', -1)
+            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx)
+            self.list_widget.blockSignals(False)
     def _adicionar_item_cena(self, poi, index, cena):
         # Transforma mensagem protobuf em dicionário genérico para os itens gráficos legacy
         from google.protobuf.json_format import MessageToDict

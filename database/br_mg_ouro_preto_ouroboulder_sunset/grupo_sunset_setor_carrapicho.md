@@ -28,42 +28,37 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 293
-      y: 506
-      comprimento: 18
-      largura: 19
+    circular:
+      x: 294
+      y: 507
+      raio: 9
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 160
-      y: 544
-      comprimento: 18
-      largura: 18
+      y: 545
+      raio: 9
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
   largura_mapa: 399
   altura_mapa: 309
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 152
-      y: 188
-      comprimento: 18
-      largura: 19
+      y: 189
+      raio: 9
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 348
       y: 221
-      comprimento: 17
-      largura: 18
+      raio: 9
   - id: '05'
     label: '05'
-    box:
+    circular:
       x: 54
       y: 194
-      comprimento: 17
-      largura: 18
+      raio: 9
 ---
 # Bloco Carrapicho

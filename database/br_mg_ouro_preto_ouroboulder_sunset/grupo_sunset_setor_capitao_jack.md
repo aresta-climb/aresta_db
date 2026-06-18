@@ -33,56 +33,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 250
-      y: 306
-      comprimento: 16
-      largura: 19
+    circular:
+      x: 251
+      y: 307
+      raio: 9
   - id: X
     label: X
-    box:
+    circular:
       x: 12
       y: 12
-      comprimento: 17
-      largura: 17
+      raio: 9
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
   largura_mapa: 845
   altura_mapa: 805
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 804
-      y: 702
-      comprimento: 17
-      largura: 21
+    circular:
+      x: 805
+      y: 704
+      raio: 9
   - id: '02'
     label: '02'
-    box:
-      x: 378
+    circular:
+      x: 379
       y: 666
-      comprimento: 17
-      largura: 20
+      raio: 10
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 294
       y: 734
-      comprimento: 17
-      largura: 20
+      raio: 9
   - id: y
     label: y
-    box:
+    circular:
       x: 256
-      y: 12
-      comprimento: 19
-      largura: 21
+      y: 13
+      raio: 10
   - id: x
     label: x
-    box:
+    circular:
       x: 562
       y: 15
-      comprimento: 17
-      largura: 18
+      raio: 9
 ---
 # Bloco Capitão Jack

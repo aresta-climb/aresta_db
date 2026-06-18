@@ -13,10 +13,9 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 420
-      y: 590
-      comprimento: 27
-      largura: 27
+    circular:
+      x: 418
+      y: 589
+      raio: 10
 ---
 # Bloco Aleijadinho

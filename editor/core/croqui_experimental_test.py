@@ -133,6 +133,8 @@ def test_compilar_croqui_sucesso(gerenciador, storage_temp):
         kwargs = mock_deploy.call_args.kwargs
         assert kwargs["force_thumbnails"] is True
         assert kwargs["gerar_arquivos_de_debug"] is True
+        from scripts.deploy_generated import URL_BASE_PADRAO
+        assert kwargs["url_base"] == URL_BASE_PADRAO
     
     # E deve haver um commit de compilação
     repo = pygit2.Repository(str(caminho_raiz := caminho_croqui))

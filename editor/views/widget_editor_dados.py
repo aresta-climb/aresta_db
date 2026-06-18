@@ -1360,8 +1360,7 @@ class WidgetFormularioPadrao(QStackedWidget):
 
     def _mark_dirty(self):
         window = self.window()
-        if window and hasattr(window, "is_dirty"):
-            window.is_dirty = True
+
 
     def _notify_tree_changed(self):
         pass
@@ -1581,8 +1580,7 @@ class WidgetEditorDados(QWidget):
         self.controller.adicionar_repeated(msg_pai, campo.name, idx, val)
 
         janela = self.window()
-        if janela and hasattr(janela, "is_dirty"):
-            janela.is_dirty = True
+
 
         novo_indice = len(repeated_container) - 1
         
@@ -1643,8 +1641,7 @@ class WidgetEditorDados(QWidget):
             self._removendo_item = False
 
         janela = self.window()
-        if janela and hasattr(janela, "is_dirty"):
-            janela.is_dirty = True
+
 
         self.stacked_widget.setCurrentIndex(0)
         self.form_padrao.load_node(None)
@@ -1706,8 +1703,7 @@ class WidgetEditorDados(QWidget):
         self.controller.mover_repeated_para_cima(msg_pai, campo.name, idx_no_pai)
 
         janela = self.window()
-        if janela and hasattr(janela, "is_dirty"):
-            janela.is_dirty = True
+
 
         # Re-seleciona o item na nova posição (idx_no_pai - 1) no mesmo expando node
         novo_idx = self.tree_model.index(idx_no_pai - 1, 0, parent_idx)
@@ -1738,8 +1734,7 @@ class WidgetEditorDados(QWidget):
         self.controller.mover_repeated_para_baixo(msg_pai, campo.name, idx_no_pai)
 
         janela = self.window()
-        if janela and hasattr(janela, "is_dirty"):
-            janela.is_dirty = True
+
 
         # Re-seleciona o item na nova posição (idx_no_pai + 1) no mesmo expando node
         novo_idx = self.tree_model.index(idx_no_pai + 1, 0, parent_idx)

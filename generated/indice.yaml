@@ -139,9 +139,9 @@ croquis:
   descricao: ''
   nome_arquivo: compilado.binarypb
   url: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256_croqui: 337aca86c6ab5667616c8439395d83dbc937e2d9ba04d0a8db69e48449ef9545
+  checksum_sha256_croqui: e5b9003ffcee98c28ee6831d7a3a68b6d020de10f0252f20b3694ea7f8ba9d99
   checksum_sha256_thumbnail: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
-  timestamp_update: '2026-06-02T22:46:32Z'
+  timestamp_update: '2026-06-18T19:18:52Z'
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
   descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,

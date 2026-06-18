@@ -17,6 +17,29 @@ from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.notificacao import NotificacaoToast
 from ..core.historico import GerenciadorHistorico
 
+class DialogoErrosCompilacao(QDialog):
+    """Diálogo para exibir avisos e erros encontrados durante a compilação."""
+    def __init__(self, erros, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Avisos na Compilação")
+        self.setMinimumSize(600, 400)
+        
+        layout = QVBoxLayout(self)
+        
+        self.lbl_info = QLabel("A compilação terminou, mas os seguintes avisos/erros foram gerados:")
+        layout.addWidget(self.lbl_info)
+        
+        self.text_edit = QTextEdit()
+        self.text_edit.setReadOnly(True)
+        # Junta todas as mensagens
+        texto = "\n".join(erros)
+        self.text_edit.setPlainText(texto)
+        layout.addWidget(self.text_edit)
+        
+        self.btn_fechar = QPushButton("Fechar")
+        self.btn_fechar.clicked.connect(self.accept)
+        layout.addWidget(self.btn_fechar)
+
 class DialogoPublicar(QDialog):
     """Diálogo para coletar informações para o Pull Request."""
     def __init__(self, titulo_padrao="", parent=None):
@@ -101,15 +124,10 @@ class PaginaImagens(PaginaBase):
         self.editor = WidgetEditorImagens("", modo_integrado=True, parent=self)
         self.layout().addWidget(self.editor)
         
-    def carregar_imagens(self, caminho_croqui):
-        if caminho_croqui:
-            self.editor.folder_path = str(caminho_croqui)
-            # Tenta encontrar a pasta de imagens (padrão experimental ou oficial direto)
-            imagens_path = Path(caminho_croqui) / "database" / "imagens"
-            if not imagens_path.exists():
-                imagens_path = Path(caminho_croqui) / "imagens"
-                
-            self.editor.imagens_path = str(imagens_path)
+    def carregar_imagens(self, caminho_db):
+        if caminho_db:
+            self.editor.folder_path = str(caminho_db)
+            self.editor.imagens_path = str(Path(caminho_db) / "imagens")
             self.editor.load_images_list()
 class PaginaMapas(PaginaBase):
     def __init__(self, parent=None):
@@ -141,14 +159,13 @@ class JanelaPrincipal(QMainWindow):
     # Sinal emitido quando o usuário deseja voltar para a tela de carregamento
     solicitar_abrir_novo = pyqtSignal()
     
-    def __init__(self, storage=None, auth=None, caminho_croqui=None, parent=None):
+    def __init__(self, storage=None, auth=None, workspace=None, parent=None):
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
         self.storage = storage
         self.auth = auth
-        self.caminho_croqui = Path(caminho_croqui) if caminho_croqui else None
+        self.workspace = workspace
         self.croqui_data = None
-        self.is_dirty = False
         self._acoes_contextuais = []
         self._worker_pr = None
         
@@ -156,6 +173,7 @@ class JanelaPrincipal(QMainWindow):
         self.monitor_inatividade = None
         self.dialogo_celular = None
         self.historico = GerenciadorHistorico()
+        self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
         
         self.setWindowTitle("Aresta Editor")
         self.resize(1200, 800)
@@ -234,7 +252,7 @@ class JanelaPrincipal(QMainWindow):
         
         self._setup_ui()
         
-        if self.caminho_croqui:
+        if self.workspace:
             self.carregar_croqui()
         
     def _setup_ui(self):
@@ -308,6 +326,13 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_lateral.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.toolbar_lateral.setStyleSheet(Icones.QSS_BARRA_LATERAL)
         self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, self.toolbar_lateral)
+
+    def _on_clean_changed(self, is_clean: bool):
+        """Atualiza o título da janela baseado no estado limpo da pilha de histórico."""
+        if not is_clean:
+            self.setWindowTitle("Aresta Editor *")
+        else:
+            self.setWindowTitle("Aresta Editor")
         
     def _setup_acoes_globais(self):
         self.acao_abrir = QAction(Icones.obter("novo"), "Abrir Novo", self)
@@ -347,6 +372,10 @@ class JanelaPrincipal(QMainWindow):
         self.acao_publicar = QAction(Icones.obter("publicar"), "Publicar", self)
         self.acao_publicar.setToolTip("Publicar para produção")
         self.acao_publicar.triggered.connect(self.publicar_croqui)
+        
+        if self.workspace and not self.workspace.can_publish_pr():
+            self.acao_publicar.setEnabled(False)
+            self.acao_publicar.setToolTip("Publicar pelo Editor não suportado no Local Mode.")
         
         # Adiciona o espaçador primeiro para alinhar com a área de conteúdo
         self.toolbar_superior.addWidget(self.espacador_superior)
@@ -468,35 +497,51 @@ class JanelaPrincipal(QMainWindow):
                                 encontrou = True
                                 break
             elif ctx.caminho_local_arvore and hasattr(self.pagina_mapas, 'editor'):
-                # Busca via node path. Ex: node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:mapas/item:0
+                # Busca via node path
                 import re
-                match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                if match and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                    p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
-                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
+                match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                if match_s:
+                    p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
+                else:
+                    match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                    if match:
+                        p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                
+                if p_idx >= 0 and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
+                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
         
     def carregar_croqui(self):
         """Carrega os dados do croqui a partir do sistema de arquivos."""
-        if not self.caminho_croqui:
+        if not self.workspace:
             return
             
+        caminho_db = self.workspace.obter_caminho_database()
+        
         # Roda as migrações no banco de dados antes de carregar
         from scripts.migrador import aplicar_migracoes
-        aplicar_migracoes(self.caminho_croqui / "database")
+        aplicar_migracoes(caminho_db)
             
-        yaml_path = self.caminho_croqui / "database" / "croqui.yaml"
+        yaml_path = caminho_db / "croqui.yaml"
         if yaml_path.exists():
             with open(yaml_path, "r", encoding="utf-8") as f:
                 self.croqui_data = yaml.safe_load(f)
-                self.setWindowTitle(f"Aresta Editor - {self.croqui_data.get('nome', 'Sem Nome')}")
+                
+                # Configura o título com tag de workspace
+                nome_croqui = self.croqui_data.get('nome', 'Sem Nome')
+                tag = self.workspace.obter_tag_titulo()
+                titulo = f"Aresta Editor - {tag} - {nome_croqui}" if tag else f"Aresta Editor - {nome_croqui}"
+                self.setWindowTitle(titulo)
                 
                 from google.protobuf.json_format import ParseDict
                 from aresta_api.proto.generated.croqui_pb2 import Croqui
                 
                 croqui_msg = ParseDict(self.croqui_data, Croqui(), ignore_unknown_fields=True)
+                import json
+                croqui_msg.Extensions[Croqui.ext_metadados_arquivo].dados_json_originais = json.dumps(self.croqui_data, ensure_ascii=False)
                 
                 from editor.models.croqui_model import CroquiModel
                 self.croqui_model = CroquiModel(croqui_msg)
@@ -507,31 +552,31 @@ class JanelaPrincipal(QMainWindow):
                 self.croqui_controller = CroquiController(self.croqui_model, self.historico.obter_pilha())
                 
                 # Inicializa/limpa rastreadores
-                self.croqui_model.carregar_arquivos_externos(self.caminho_croqui / "database")
+                self.croqui_model.carregar_arquivos_externos(caminho_db)
                 
                 # Configura a UI
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
-                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), self.caminho_croqui / "database")
-                self.pagina_imagens.carregar_imagens(self.caminho_croqui)
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
+                self.pagina_imagens.carregar_imagens(caminho_db)
                 
     def salvar_croqui(self):
-        """Salva as alterações, compila e faz commit no git local."""
-        if not self.caminho_croqui or not self.croqui_data:
+        """Salva as alterações, compila e faz commit no git local se aplicável."""
+        if not self.workspace or not self.croqui_data:
             return
             
         foco_atual = QApplication.focusWidget()
         if foco_atual:
             foco_atual.clearFocus()
             
+        caminho_db = self.workspace.obter_caminho_database()
+            
         try:
             if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados:
                 # Usar a assinatura atualizada que não recebe dicionários de tracking
-                self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(
-                    self.caminho_croqui / "database"
-                )
+                self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
                 
-            # 1. Salva database/croqui.yaml na pasta ATUAL
-            yaml_path = self.caminho_croqui / "database" / "croqui.yaml"
+            # 1. Salva croqui.yaml na pasta ATUAL do db
+            yaml_path = caminho_db / "croqui.yaml"
             with open(yaml_path, "w", encoding="utf-8") as f:
                 yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
                 
@@ -544,42 +589,41 @@ class JanelaPrincipal(QMainWindow):
             
             # Verifica se precisa renomear a pasta (mudou o ID)
             novo_id = self.croqui_data.get("id") if self.croqui_data else None
-            id_atual = None
-            houve_renomeacao = False
-            if self.caminho_croqui:
-                partes = self.caminho_croqui.name.split("_", 1)
-                id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else self.caminho_croqui.name
+            
+            nome_raiz = self.workspace.caminho_raiz.name
+            partes = nome_raiz.split("_", 1)
+            id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
 
+            houve_renomeacao = False
             if novo_id and id_atual and novo_id != id_atual:
-                from editor.core.croqui_experimental import GerenciadorCroquiExperimental
-                gerenciador = GerenciadorCroquiExperimental(self.storage if self.storage else None)
-                self.caminho_croqui = gerenciador.renomear_pasta_croqui(self.caminho_croqui, novo_id)
                 houve_renomeacao = True
                 
-            # 4. Compila (o que também faz o commit git conforme GerenciadorCroquiExperimental)
-            from editor.core.croqui_experimental import GerenciadorCroquiExperimental
-            gerenciador = GerenciadorCroquiExperimental(self.storage if self.storage else None)
+            # 4. Processa renomeação (se houver) e Compila
+            caminho_retornado, erros = self.workspace.processar_renomeacao_e_compilacao(novo_id, id_atual, self.storage)
             
-            if self.storage:
-                gerenciador.compilar_croqui(self.caminho_croqui)
+            self.historico.obter_pilha().setClean()
             
-            self.is_dirty = False
-            self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
+            if erros:
+                dialogo = DialogoErrosCompilacao(erros, self)
+                dialogo.exec()
+            else:
+                self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
             
             if houve_renomeacao:
                 # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
+                novo_db = self.workspace.obter_caminho_database()
                 if hasattr(self, 'croqui_model') and self.croqui_model:
                     # Força a atualização do widget de mapas se estiver ativo e houver modelo
                     if getattr(self, "croqui_model", None) is not None:
-                        self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), self.caminho_croqui / "database")
-                self.pagina_imagens.carregar_imagens(self.caminho_croqui)
+                        self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), novo_db)
+                self.pagina_imagens.carregar_imagens(novo_db)
                 
         except Exception as e:
             QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
 
     def exportar_croqui(self):
         """Gera o arquivo .croqui (ZIP)."""
-        if not self.caminho_croqui:
+        if not self.workspace:
             return
             
         from PyQt6.QtWidgets import QFileDialog
@@ -601,7 +645,7 @@ class JanelaPrincipal(QMainWindow):
                 self.progresso_export.setWindowModality(Qt.WindowModality.WindowModal)
                 self.progresso_export.show()
                 
-                self._worker_export = TarefaExportacao(self.caminho_croqui, Path(destino))
+                self._worker_export = TarefaExportacao(self.workspace.caminho_raiz, Path(destino))
                 self._worker_export.sucesso.connect(lambda: self.exibir_notificacao("Croqui exportado com sucesso!"))
                 self._worker_export.sucesso.connect(self.progresso_export.close)
                 self._worker_export.erro.connect(lambda e: QMessageBox.critical(self, "Erro ao Exportar", f"Falha na exportação:\n{e}"))
@@ -613,10 +657,10 @@ class JanelaPrincipal(QMainWindow):
 
     def publicar_croqui(self):
         """Cria um Pull Request no GitHub com as alterações do croqui."""
-        if not self.caminho_croqui or not self.auth:
+        if not self.workspace or not self.auth:
             return
             
-        if self.is_dirty:
+        if not self.historico.obter_pilha().isClean():
             resposta = QMessageBox.question(
                 self, "Salvar Necessário",
                 "Você precisa salvar suas alterações antes de publicar. Deseja salvar agora?",
@@ -628,7 +672,7 @@ class JanelaPrincipal(QMainWindow):
                 return
 
         # Coleta dados da PR
-        titulo_sugerido = self.croqui_data.get("nome", self.caminho_croqui.name) if self.croqui_data else self.caminho_croqui.name
+        titulo_sugerido = self.croqui_data.get("nome", self.workspace.caminho_raiz.name) if self.croqui_data else self.workspace.caminho_raiz.name
         dialogo = DialogoPublicar(titulo_padrao=titulo_sugerido, parent=self)
         if dialogo.exec() != QDialog.DialogCode.Accepted:
             return
@@ -648,8 +692,8 @@ class JanelaPrincipal(QMainWindow):
         self._worker_pr = TarefaPublicacao(
             token=self.auth.recuperar_token(),
             storage=self.storage,
-            caminho_database_croqui=self.caminho_croqui / "database",
-            id_croqui=self.croqui_data.get("id") if self.croqui_data else self.caminho_croqui.name,
+            caminho_database_croqui=self.workspace.obter_caminho_database(),
+            id_croqui=self.croqui_data.get("id") if self.croqui_data else self.workspace.caminho_raiz.name,
             dados_pr=dados_pr
         )
         
@@ -671,7 +715,7 @@ class JanelaPrincipal(QMainWindow):
 
     def _on_abrir_novo_clicado(self):
         """Trata o clique no botão de voltar para a tela de carregamento."""
-        if self.is_dirty:
+        if not self.historico.obter_pilha().isClean():
             resposta = QMessageBox.question(
                 self, "Modificações Pendentes",
                 "Existem modificações não salvas. Deseja salvar antes de sair?",
@@ -688,7 +732,7 @@ class JanelaPrincipal(QMainWindow):
 
     def closeEvent(self, event):
         """Intercepta o fechamento da janela para verificar modificações."""
-        if self.is_dirty:
+        if not self.historico.obter_pilha().isClean():
             resposta = QMessageBox.question(
                 self, "Sair do Editor",
                 "Existem modificações não salvas. Deseja salvar antes de sair?",
@@ -706,13 +750,13 @@ class JanelaPrincipal(QMainWindow):
             event.accept()
     def _exibir_conexao_celular(self):
         """Inicia o servidor e exibe o diálogo de conexão com o celular."""
-        if not self.caminho_croqui:
+        if not self.workspace:
             QMessageBox.warning(self, "Aviso", "Abra um croqui antes de conectar ao celular.")
             return
             
         # Inicia o servidor se não estiver rodando
         if not self.servidor_celular:
-            pasta_compilado = Path(self.caminho_croqui) / "compilado"
+            pasta_compilado = self.workspace.obter_caminho_compilado()
             if not pasta_compilado.exists():
                 pasta_compilado.mkdir(parents=True, exist_ok=True)
             

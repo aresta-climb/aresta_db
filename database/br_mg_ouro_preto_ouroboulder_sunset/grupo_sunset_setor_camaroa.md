@@ -35,42 +35,37 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 222
       y: 234
-      comprimento: 20
-      largura: 22
+      raio: 8
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 490
       y: 339
-      comprimento: 21
-      largura: 22
+      raio: 9
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 605
-      y: 360
-      comprimento: 20
-      largura: 21
+      y: 361
+      raio: 9
   - id: '03'
     label: '03'
-    box:
-      x: 680
+    circular:
+      x: 682
       y: 361
-      comprimento: 19
-      largura: 20
+      raio: 8
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
   largura_mapa: 835
   altura_mapa: 606
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    box:
-      x: 461
+    circular:
+      x: 462
       y: 480
-      comprimento: 20
-      largura: 19
+      raio: 10
 ---
 # Bloco Camaroa

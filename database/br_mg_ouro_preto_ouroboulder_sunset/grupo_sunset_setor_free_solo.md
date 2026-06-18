@@ -36,63 +36,55 @@ mapas:
   pontos_de_interesse:
   - id: '02'
     label: '02'
-    box:
-      x: 670
-      y: 462
-      comprimento: 19
-      largura: 20
+    circular:
+      x: 671
+      y: 461
+      raio: 9
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 500
       y: 448
-      comprimento: 19
-      largura: 18
+      raio: 9
   - id: Z
     label: Z
-    box:
+    circular:
       x: 662
       y: 12
-      comprimento: 18
-      largura: 19
+      raio: 9
   - id: W
     label: W
-    box:
-      x: 771
-      y: 10
-      comprimento: 20
-      largura: 19
+    circular:
+      x: 772
+      y: 9
+      raio: 10
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
   largura_mapa: 839
   altura_mapa: 460
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 353
       y: 394
-      comprimento: 18
-      largura: 18
+      raio: 9
   - id: '03'
     label: '03'
-    box:
-      x: 514
-      y: 357
-      comprimento: 19
-      largura: 20
+    circular:
+      x: 516
+      y: 358
+      raio: 9
   - id: '04'
     label: '04'
-    box:
-      x: 697
+    circular:
+      x: 698
       y: 360
-      comprimento: 18
-      largura: 18
+      raio: 9
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 742
-      y: 354
-      comprimento: 19
-      largura: 20
+      y: 355
+      raio: 8
 ---
 # Bloco Free Solo

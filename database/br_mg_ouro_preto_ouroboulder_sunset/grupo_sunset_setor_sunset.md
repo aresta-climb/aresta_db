@@ -30,46 +30,41 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 328
-      y: 408
-      comprimento: 19
-      largura: 19
+    circular:
+      x: 329
+      y: 409
+      raio: 9
   - id: '04'
     label: '04'
-    box:
-      x: 512
+    circular:
+      x: 514
       y: 357
-      comprimento: 19
-      largura: 18
+      raio: 9
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 658
       y: 294
-      comprimento: 19
-      largura: 19
+      raio: 9
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
   largura_mapa: 488
   altura_mapa: 648
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 195
       y: 554
-      comprimento: 18
-      largura: 19
+      raio: 9
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
   largura_mapa: 338
   altura_mapa: 456
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    box:
+    circular:
       x: 246
       y: 386
-      comprimento: 19
-      largura: 20
+      raio: 9
 ---
 # Bloco Sunset

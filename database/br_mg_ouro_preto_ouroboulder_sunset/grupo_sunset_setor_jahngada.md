@@ -31,56 +31,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 499
       y: 470
-      comprimento: 18
-      largura: 22
+      raio: 9
   - id: '02'
     label: '02'
-    box:
-      x: 364
-      y: 541
-      comprimento: 19
-      largura: 20
+    circular:
+      x: 365
+      y: 542
+      raio: 8
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 43
-      y: 500
-      comprimento: 20
-      largura: 21
+      y: 501
+      raio: 8
   - id: x
     label: x
-    box:
+    circular:
       x: 425
-      y: 60
-      comprimento: 18
-      largura: 20
+      y: 61
+      raio: 10
   - id: y
     label: y
-    box:
+    circular:
       x: 97
       y: 164
-      comprimento: 20
-      largura: 21
+      raio: 10
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
   largura_mapa: 445
   altura_mapa: 399
   pontos_de_interesse:
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 245
       y: 284
-      comprimento: 18
-      largura: 18
+      raio: 9
   - id: z
     label: z
-    box:
-      x: 213
-      y: 110
-      comprimento: 16
-      largura: 18
+    circular:
+      x: 214
+      y: 111
+      raio: 9
 ---
 # Bloco Jahngada

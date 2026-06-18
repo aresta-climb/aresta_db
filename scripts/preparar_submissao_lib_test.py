@@ -143,6 +143,105 @@ def test_validar_referencias_mapa_id_inexistente():
     assert any("id_no_mapa_meio 'C'" in e for e in erros)
     assert any("* IDs de mapa disponíveis no contexto: ['A']" in e for e in erros)
 
+def test_validar_referencias_mapa_id_duplicado():
+    croqui = {
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}],
+                        "escaladas": [
+                            {"boulder": {"nome": "Pedra 1", "id_no_mapa": "A"}},
+                            {"boulder": {"nome": "Pedra 2", "id_no_mapa": "A"}}
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("A combinação de IDs de mapa (A) está duplicada e sendo usada pelas escaladas: Pedra 1, Pedra 2." in e for e in erros)
+
+def test_validar_referencias_mapa_id_combo_permitida():
+    croqui = {
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{"pontos_de_interesse": [{"id": "A"}, {"id": "B"}]}],
+                        "escaladas": [
+                            {"boulder": {"nome": "Pedra 1", "id_no_mapa": "A"}},
+                            {"boulder": {"nome": "Pedra 2", "id_no_mapa": "A", "id_no_mapa_meio": "B"}}
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert not erros
+
+def test_validar_referencias_mapa_id_meio_duplicado():
+    croqui = {
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{"pontos_de_interesse": [{"id": "M1"}]}],
+                        "escaladas": [
+                            {"via_esportiva": {"nome": "Via 1", "id_no_mapa_meio": "M1"}},
+                            {"via_esportiva": {"nome": "Via 2", "id_no_mapa_meio": "M1"}}
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("A combinação de IDs de mapa (M1) está duplicada e sendo usada pelas escaladas: Via 1, Via 2." in e for e in erros)
+
+def test_validar_referencias_mapa_id_setor_duplicado_no_grupo():
+    croqui = {
+        "picos": [{
+            "setores_ou_grupos": [{
+                "grupo": {
+                    "conteudo": {
+                        "nome": "Grupo 1",
+                        "mapas": [{"pontos_de_interesse": [{"id": "S_ID"}]}],
+                        "setores": [
+                            {"conteudo": {"nome": "Setor A", "id_no_mapa": "S_ID"}},
+                            {"conteudo": {"nome": "Setor B", "id_no_mapa": "S_ID"}}
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("O id_no_mapa 'S_ID' está duplicado e sendo usado por: Setor 'Setor A', Setor 'Setor B'." in e for e in erros)
+
+def test_validar_referencias_mapa_id_grupo_duplicado_no_pico():
+    croqui = {
+        "picos": [{
+            "nome": "Pico Master",
+            "mapas": [{"pontos_de_interesse": [{"id": "G_ID"}]}],
+            "setores_ou_grupos": [
+                {"grupo": {"conteudo": {"nome": "Grupo A", "id_no_mapa": "G_ID"}}},
+                {"grupo": {"conteudo": {"nome": "Grupo B", "id_no_mapa": "G_ID"}}},
+                {"setor": {"conteudo": {"nome": "Setor Solto", "id_no_mapa": "G_ID"}}}
+            ]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("O id_no_mapa 'G_ID' está duplicado e sendo usado por: Grupo 'Grupo A', Grupo 'Grupo B', Setor 'Setor Solto'." in e for e in erros)
+
+
 def test_validar_referencias_mapa_no_grupo_valido():
     croqui = {
         "picos": [{

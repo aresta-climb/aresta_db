@@ -25,14 +25,14 @@ escaladas:
     dificuldade: V3
 - boulder:
     nome: Odisséia na Babilônia
-    id_no_mapa: '01'
-    id_no_mapa_fim: x
+    id_no_mapa: 01_b
+    id_no_mapa_fim: x_b
     dificuldade: V6
     destaque: true
 - boulder:
     nome: Canais da Babilônia
-    id_no_mapa: '01'
-    id_no_mapa_fim: y
+    id_no_mapa: 01_b
+    id_no_mapa_fim: y_b
     dificuldade: V5
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p0.webp
@@ -41,88 +41,77 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 532
-      y: 519
-      comprimento: 19
-      largura: 18
+      y: 520
+      raio: 9
   - id: x
     label: x
-    box:
+    circular:
       x: 445
-      y: 30
-      comprimento: 18
-      largura: 19
+      y: 31
+      raio: 9
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
   largura_mapa: 829
   altura_mapa: 486
   pontos_de_interesse:
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 346
       y: 454
-      comprimento: 17
-      largura: 19
+      raio: 9
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 468
       y: 409
-      comprimento: 17
-      largura: 18
+      raio: 9
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 632
       y: 338
-      comprimento: 18
-      largura: 19
+      raio: 9
   - id: y
     label: y
-    box:
-      x: 250
-      y: 105
-      comprimento: 21
-      largura: 22
+    circular:
+      x: 248
+      y: 106
+      raio: 11
   - id: z
     label: z
-    box:
-      x: 494
-      y: 46
-      comprimento: 19
-      largura: 18
+    circular:
+      x: 495
+      y: 47
+      raio: 9
   - id: w
     label: w
-    box:
-      x: 613
+    circular:
+      x: 614
       y: 42
-      comprimento: 18
-      largura: 20
+      raio: 10
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
   largura_mapa: 850
   altura_mapa: 522
   pontos_de_interesse:
-  - id: '01'
+  - id: 01_b
     label: '01'
-    box:
-      x: 190
-      y: 498
-      comprimento: 19
-      largura: 19
-  - id: y
+    circular:
+      x: 191
+      y: 499
+      raio: 9
+  - id: y_b
     label: y
-    box:
+    circular:
       x: 118
       y: 10
-      comprimento: 19
-      largura: 18
-  - id: x
+      raio: 9
+  - id: x_b
     label: x
-    box:
-      x: 586
-      y: 7
-      comprimento: 17
-      largura: 16
+    circular:
+      x: 585
+      y: 6
+      raio: 8
 ---
 # Bloco Planetário
