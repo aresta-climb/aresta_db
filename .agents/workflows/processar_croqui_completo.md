@@ -65,7 +65,9 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 ### Fase 3: Extração de Informações dos Mapas
 
 1. Execute `python scripts/preparar_extracao_de_mapas.py database/<croqui>`.
-2. Para cada `<mapa>.json` criado dentro de `imagens/raw_mapas/`, dispare (em um único `invoke_subagent` paralelo) um batalhão de agentes do tipo `ExtratorMapas`.
+2. Dispare sub-agentes do tipo `ExtratorMapas` em paralelo usando a ferramenta `invoke_subagent`.
+   > [!IMPORTANT]
+   > **Limite de Lote (Batching):** Cada sub-agente deve processar no máximo **8 mapas**. Divida os arquivos de mapas restantes em lotes de no máximo 8 unidades por sub-agente. Isso evita que a execução exceda o limite de 1 hora de expiração de token/sessão das credenciais do sub-agente, mantendo o processo estável.
 3. A missão de cada sub-agente é identificar pontos e corrigir a posição (caixas de contenção) usando as detecções do OCR e do JSON do respectivo setor.
 4. Aguarde a conclusão de todos. Se houver falha na iteração das boxes, aplique a lógica de **Auto-Correção** para repassar o loop visual de `visualizar_mapa_processado.py` ao sub-agente.
 5. Quando todos concluírem com sucesso, execute `python scripts/finalizar_mapas.py database/<croqui>` para transferir os dados do JSON para o Markdown correspondente.

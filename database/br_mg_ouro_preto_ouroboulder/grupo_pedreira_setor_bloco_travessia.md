@@ -2,127 +2,127 @@
 nome: 'Bloco: Travessia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
     circular:
-      x: 636
-      y: 444
-      raio: 16
+      x: 312
+      y: 288
+      raio: 13
   - id: B
     label: B
     circular:
-      x: 898
-      y: 178
-      raio: 16
+      x: 444
+      y: 118
+      raio: 13
   - id: C
     label: C
     circular:
-      x: 1666
-      y: 113
-      raio: 16
+      x: 814
+      y: 74
+      raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 150
-      y: 857
-      raio: 16
+      x: 38
+      y: 553
+      raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 234
-      y: 965
-      raio: 17
+      x: 112
+      y: 632
+      raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 538
-      y: 1091
-      raio: 16
+      x: 262
+      y: 706
+      raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 924
-      y: 1055
-      raio: 16
+      x: 452
+      y: 684
+      raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 1537
-      y: 1091
-      raio: 16
+      x: 752
+      y: 706
+      raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 1769
-      y: 979
-      raio: 18
+      x: 862
+      y: 634
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
     circular:
-      x: 12
-      y: 371
-      raio: 17
+      x: 10
+      y: 345
+      raio: 13
   - id: B
     label: B
     circular:
-      x: 720
-      y: 313
-      raio: 17
+      x: 554
+      y: 242
+      raio: 13
   - id: C
     label: C
     circular:
-      x: 1570
-      y: 422
-      raio: 17
+      x: 1220
+      y: 342
+      raio: 13
   - id: D
     label: D
     circular:
-      x: 1816
-      y: 396
-      raio: 17
+      x: 1390
+      y: 330
+      raio: 13
   - id: E
     label: E
     circular:
-      x: 1978
-      y: 560
-      raio: 17
+      x: 1522
+      y: 430
+      raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 53
-      y: 749
-      raio: 16
+      x: 24
+      y: 553
+      raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 764
-      y: 1115
-      raio: 17
+      x: 588
+      y: 855
+      raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1664
-      y: 1085
-      raio: 15
+      x: 1272
+      y: 852
+      raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 1805
-      y: 995
-      raio: 17
+      x: 1374
+      y: 784
+      raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 1940
-      y: 976
-      raio: 17
+      x: 1491
+      y: 750
+      raio: 13
 escaladas:
 - boulder:
     nome: Travessia ext
@@ -157,3 +157,4 @@ escaladas:
     id_no_mapa: 2B
     dificuldade: V1
 ---
+

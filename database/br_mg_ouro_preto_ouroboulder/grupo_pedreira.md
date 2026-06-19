@@ -8,205 +8,191 @@ localizacao_escalada:
   longitude: -435064877
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1529
+  altura_mapa: 1135
   pontos_de_interesse:
-  - id: nat_geo
-    label: Nat Geo
-    box:
-      x: 1055
-      y: 350
-      comprimento: 82
-      largura: 24
-  - id: red_bull
-    label: Red Bull
-    box:
-      x: 586
-      y: 377
-      comprimento: 99
-      largura: 24
-  - id: bob
-    label: Bob
-    box:
-      x: 482
-      y: 390
-      comprimento: 43
-      largura: 22
-  - id: mata_mata
-    label: Mata Mata
-    box:
-      x: 522
-      y: 482
-      comprimento: 106
-      largura: 21
-  - id: fiat_lux
-    label: Fiat Lux
-    box:
-      x: 722
-      y: 505
-      comprimento: 81
-      largura: 24
-  - id: entretidos
-    label: Entretidos
-    box:
-      x: 853
-      y: 548
-      comprimento: 100
-      largura: 23
-  - id: joao_de_barro
-    label: João de Barro
-    box:
-      x: 586
-      y: 570
-      comprimento: 135
-      largura: 21
-  - id: ianque
-    label: Ianque
-    box:
-      x: 766
-      y: 565
-      comprimento: 62
-      largura: 18
-  - id: jah
-    label: Jah
-    box:
-      x: 415
-      y: 588
-      comprimento: 42
-      largura: 25
-  - id: to_de_boa
-    label: Tô de Boa
-    box:
-      x: 942
-      y: 586
-      comprimento: 85
-      largura: 18
   - id: travessia
     label: Travessia
     box:
-      x: 340
-      y: 616
-      comprimento: 95
-      largura: 24
-  - id: abaulados
-    label: Abaulados
+      x: 190
+      y: 450
+      comprimento: 80
+      largura: 14
+  - id: jah
+    label: Jah
     box:
-      x: 1486
-      y: 626
-      comprimento: 105
-      largura: 23
+      x: 275
+      y: 428
+      comprimento: 35
+      largura: 15
   - id: sauna
     label: Sauna
     box:
-      x: 544
-      y: 638
-      comprimento: 63
-      largura: 21
+      x: 358
+      y: 466
+      comprimento: 48
+      largura: 15
+  - id: joao_de_barro
+    label: João de Barro
+    box:
+      x: 358
+      y: 408
+      comprimento: 110
+      largura: 19
+  - id: mata_mata
+    label: Mata Mata
+    box:
+      x: 335
+      y: 338
+      comprimento: 84
+      largura: 18
+  - id: red_bull
+    label: Red Bull
+    box:
+      x: 387
+      y: 255
+      comprimento: 64
+      largura: 19
+  - id: bob
+    label: Bob
+    box:
+      x: 338
+      y: 258
+      comprimento: 30
+      largura: 15
   - id: lagartixa
     label: Lagartixa
     box:
-      x: 667
-      y: 703
-      comprimento: 94
-      largura: 24
-  - id: pedra_queimada
-    label: Pedra Queimada
+      x: 360
+      y: 512
+      comprimento: 71
+      largura: 17
+  - id: entretidos
+    label: Entretidos
     box:
-      x: 1188
-      y: 707
-      comprimento: 162
-      largura: 24
+      x: 520
+      y: 395
+      comprimento: 80
+      largura: 17
+  - id: fiat_lux
+    label: Fiat Lux
+    box:
+      x: 480
+      y: 362
+      comprimento: 65
+      largura: 14
   - id: teto_de_vidro
     label: Teto de Vidro
     box:
-      x: 973
-      y: 754
-      comprimento: 120
-      largura: 21
+      x: 615
+      y: 554
+      comprimento: 105
+      largura: 18
+  - id: to_de_boa
+    label: Tô de Boa
+    box:
+      x: 605
+      y: 425
+      comprimento: 78
+      largura: 18
+  - id: pedra_queimada
+    label: Pedra Queimada
+    box:
+      x: 770
+      y: 518
+      comprimento: 150
+      largura: 15
+  - id: hora_da_janta
+    label: Hora da Janta
+    box:
+      x: 535
+      y: 770
+      comprimento: 100
+      largura: 15
+  - id: mezanino
+    label: Mezanino
+    box:
+      x: 690
+      y: 761
+      comprimento: 75
+      largura: 14
+  - id: chicletes
+    label: Chicletes
+    box:
+      x: 625
+      y: 827
+      comprimento: 75
+      largura: 14
+  - id: longevidade
+    label: Longevidade
+    box:
+      x: 395
+      y: 924
+      comprimento: 92
+      largura: 17
+  - id: sossega_leao
+    label: Sossega Leão
+    box:
+      x: 910
+      y: 786
+      comprimento: 105
+      largura: 19
+  - id: sonar
+    label: Sonar
+    box:
+      x: 535
+      y: 850
+      comprimento: 45
+      largura: 16
+  - id: meia_parede
+    label: Meia-Parede
+    box:
+      x: 884
+      y: 833
+      comprimento: 96
+      largura: 18
   - id: nave_mae
     label: Nave Mãe
     box:
-      x: 1296
-      y: 796
-      comprimento: 98
-      largura: 21
+      x: 850
+      y: 585
+      comprimento: 85
+      largura: 17
+  - id: abaulados
+    label: Abaulados
+    box:
+      x: 1030
+      y: 454
+      comprimento: 83
+      largura: 17
   - id: deep_inside
     label: Deep Inside
     box:
-      x: 1515
-      y: 850
-      comprimento: 118
-      largura: 27
-  - id: conhaque
-    label: Conhaque
-    box:
-      x: 1778
-      y: 862
+      x: 1045
+      y: 624
       comprimento: 99
       largura: 19
   - id: complexo
     label: Complexo
     box:
-      x: 1582
-      y: 891
-      comprimento: 99
-      largura: 24
-  - id: eletron_positron
+      x: 1105
+      y: 660
+      comprimento: 75
+      largura: 15
+  - id: conhaque
+    label: Conhaque
+    box:
+      x: 1280
+      y: 635
+      comprimento: 83
+      largura: 18
+  - id: eletron
     label: Elétron/Positron
     box:
-      x: 1899
-      y: 960
-      comprimento: 160
-      largura: 23
-  - id: mezanino
-    label: Mezanino
-    box:
-      x: 1072
-      y: 1020
-      comprimento: 97
-      largura: 23
-  - id: hora_da_janta
-    label: Hora da Janta
-    box:
-      x: 896
-      y: 1032
-      comprimento: 129
-      largura: 17
-  - id: sossega_leao
-    label: Sossega Leão
-    box:
-      x: 1355
-      y: 1058
-      comprimento: 136
-      largura: 23
-  - id: chicletes
-    label: Chicletes
-    box:
-      x: 964
-      y: 1106
-      comprimento: 93
-      largura: 23
-  - id: meia_parede
-    label: Meia-Parede
-    box:
-      x: 1243
-      y: 1125
+      x: 1330
+      y: 710
       comprimento: 122
-      largura: 20
-  - id: longevidade
-    label: Longevidade
-    box:
-      x: 690
-      y: 1234
-      comprimento: 120
-      largura: 26
-  - id: sonar
-    label: Sonar
-    box:
-      x: 1178
-      y: 1298
-      comprimento: 59
-      largura: 31
+      largura: 18
 setores:
 - caminho: grupo_pedreira_setor_bloco_travessia.md
 - caminho: grupo_pedreira_setor_bloco_jah.md
@@ -234,3 +220,4 @@ setores:
 - caminho: grupo_pedreira_setor_bloco_conhaque.md
 - caminho: grupo_pedreira_setor_bloco_eletron.md
 ---
+

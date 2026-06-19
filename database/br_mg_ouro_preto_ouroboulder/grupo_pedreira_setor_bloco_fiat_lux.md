@@ -2,37 +2,21 @@
 nome: 'Bloco: Fiat Lux'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 582
-      y: 790
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 904
+      y: 818
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 498
-      y: 693
-      comprimento: 25
-      largura: 30
-  - id: 1_legend
-    label: 1 Fiat Lux V11
-    box:
-      x: 1789
-      y: 352
-      comprimento: 202
-      largura: 35
-  - id: 2_legend
-    label: 2 Frita Crux V4 (vira pela aresta atrás do bloco)
-    box:
-      x: 1840
-      y: 408
-      comprimento: 318
-      largura: 65
+    circular:
+      x: 782
+      y: 818
+      raio: 13
 escaladas:
 - boulder:
     nome: Fiat Lux
@@ -44,3 +28,4 @@ escaladas:
     dificuldade: V4
     descricao: (vira pela aresta atrás do bloco)
 ---
+

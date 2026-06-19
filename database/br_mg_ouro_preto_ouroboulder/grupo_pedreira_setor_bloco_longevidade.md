@@ -2,195 +2,97 @@
 nome: 'Bloco: Longevidade'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1576
+  altura_mapa: 1182
   pontos_de_interesse:
-  - id: A
-    label: A
-    box:
-      x: 926
-      y: 257
-      comprimento: 25
-      largura: 30
-  - id: B
-    label: B
-    box:
-      x: 398
-      y: 317
-      comprimento: 25
-      largura: 30
-  - id: C
-    label: C
-    box:
-      x: 204
-      y: 530
-      comprimento: 25
-      largura: 30
   - id: '1'
     label: '1'
-    box:
-      x: 106
-      y: 640
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 172
+      y: 647
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 18
-      y: 733
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 17
+      y: 724
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 704
-      y: 683
-      comprimento: 25
-      largura: 30
-  - id: 1A_legend
-    label: 1A Areia nos Olhos V4
-    box:
-      x: 550
-      y: 854
-      comprimento: 149
-      largura: 24
-  - id: 2A_legend
-    label: 2A Areia nos Olhos ext V6
-    box:
-      x: 574
-      y: 882
-      comprimento: 197
-      largura: 24
-  - id: 3B_legend
-    label: 3B Fala Você V11
-    box:
-      x: 540
-      y: 910
-      comprimento: 129
-      largura: 24
-  - id: 3C_legend
-    label: 3C De Olho na Vida V5
-    box:
-      x: 562
-      y: 939
-      comprimento: 172
-      largura: 24
+    circular:
+      x: 1100
+      y: 815
+      raio: 13
+  - id: A
+    label: A
+    circular:
+      x: 1436
+      y: 298
+      raio: 13
+  - id: B
+    label: B
+    circular:
+      x: 622
+      y: 372
+      raio: 13
+  - id: C
+    label: C
+    circular:
+      x: 322
+      y: 552
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1576
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 40
-      y: 240
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 61
+      y: 288
+      raio: 13
   - id: B
     label: B
-    box:
-      x: 330
-      y: 195
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 515
+      y: 227
+      raio: 13
   - id: C
     label: C
-    box:
-      x: 548
-      y: 240
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 855
+      y: 284
+      raio: 13
   - id: D
     label: D
-    box:
-      x: 992
-      y: 650
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1568
+      y: 758
+      raio: 13
   - id: '1'
     label: '1'
-    box:
-      x: 340
-      y: 617
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 538
+      y: 720
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 666
-      y: 711
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1038
+      y: 835
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 784
-      y: 786
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1224
+      y: 930
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 880
-      y: 718
-      comprimento: 25
-      largura: 30
-  - id: 1A_legend
-    label: 1A Fala Vida V3
-    box:
-      x: 449
-      y: 745
-      comprimento: 112
-      largura: 26
-  - id: 1B_legend
-    label: 1B Vida Curta V2
-    box:
-      x: 454
-      y: 772
-      comprimento: 122
-      largura: 28
-  - id: 1C_legend
-    label: 1C Sem Vida V3
-    box:
-      x: 450
-      y: 800
-      comprimento: 115
-      largura: 28
-  - id: 2C_legend
-    label: 2C Arenito V5
-    box:
-      x: 444
-      y: 828
-      comprimento: 101
-      largura: 28
-  - id: 3A_legend
-    label: 3A Vida Longa V8
-    box:
-      x: 458
-      y: 856
-      comprimento: 130
-      largura: 28
-  - id: 3C_legend
-    label: 3C Longevidade V7
-    box:
-      x: 465
-      y: 884
-      comprimento: 144
-      largura: 28
-  - id: 3D_legend
-    label: 3D Guerreiro Jedi V11
-    box:
-      x: 474
-      y: 912
-      comprimento: 161
-      largura: 29
-  - id: 4D_legend
-    label: 4D Jedi V10
-    box:
-      x: 437
-      y: 942
-      comprimento: 88
-      largura: 29
+    circular:
+      x: 1378
+      y: 835
+      raio: 13
 escaladas:
 - boulder:
     nome: Areia nos Olhos
@@ -241,3 +143,4 @@ escaladas:
     id_no_mapa: 4D
     dificuldade: V10
 ---
+

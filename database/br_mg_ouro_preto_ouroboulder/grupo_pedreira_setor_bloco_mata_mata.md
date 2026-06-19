@@ -2,161 +2,93 @@
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1576
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 248
-      y: 353
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 380
+      y: 399
+      raio: 13
+  - id: ★
+    label: ★
+    circular:
+      x: 690
+      y: 610
+      raio: 13
+  - id: ▲
+    label: ▲
+    circular:
+      x: 765
+      y: 803
+      raio: 13
   - id: '1'
     label: '1'
-    box:
-      x: 384
-      y: 815
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 599
+      y: 961
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 662
-      y: 735
-      comprimento: 25
-      largura: 30
-  - id: 1A_legend
-    label: 1A Mata-Mata V2
-    box:
-      x: 498
-      y: 910
-      comprimento: 125
-      largura: 24
-  - id: 2A_triangle_legend
-    label: 2A Mata-Mata ext V3
-    box:
-      x: 520
-      y: 939
-      comprimento: 170
-      largura: 24
-  - id: 2A_star_legend
-    label: 2A 001 V3
-    box:
-      x: 479
-      y: 969
-      comprimento: 88
-      largura: 24
+    circular:
+      x: 1053
+      y: 876
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1576
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 322
-      y: 687
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 502
+      y: 815
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 598
-      y: 625
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 936
+      y: 740
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 788
-      y: 783
-      comprimento: 25
-      largura: 30
-  - id: 1_legend
-    label: 1 Sem as Mãos VO
-    box:
-      x: 162
-      y: 624
-      comprimento: 135
-      largura: 24
-  - id: 2_legend
-    label: 2 Ética VO
-    box:
-      x: 132
-      y: 653
-      comprimento: 74
-      largura: 26
-  - id: 3_legend
-    label: 3 Risada VO
-    box:
-      x: 138
-      y: 682
-      comprimento: 85
-      largura: 28
+    circular:
+      x: 1243
+      y: 938
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 710
-      y: 627
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1121
+      y: 722
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 882
-      y: 610
-      comprimento: 25
-      largura: 30
-  - id: 1_legend
-    label: 1 Batentes V1
-    box:
-      x: 500
-      y: 566
-      comprimento: 98
-      largura: 23
-  - id: 2_legend
-    label: 2 Regletes V2
-    box:
-      x: 500
-      y: 596
-      comprimento: 98
-      largura: 25
+    circular:
+      x: 1404
+      y: 691
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1576
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 284
-      y: 670
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 457
+      y: 780
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 612
-      y: 755
-      comprimento: 25
-      largura: 30
-  - id: 1_legend
-    label: 1 Cocal é Gueto V3
-    box:
-      x: 152
-      y: 744
-      comprimento: 139
-      largura: 24
-  - id: 2_legend
-    label: 2 002 V2
-    box:
-      x: 115
-      y: 773
-      comprimento: 64
-      largura: 26
+    circular:
+      x: 962
+      y: 890
+      raio: 13
 escaladas:
 - boulder:
     nome: Mata-Mata
@@ -199,3 +131,4 @@ escaladas:
     id_no_mapa: '2'
     dificuldade: V2
 ---
+

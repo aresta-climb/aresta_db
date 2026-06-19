@@ -8,51 +8,58 @@ localizacao_escalada:
   longitude: -435034308
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1527
+  altura_mapa: 1134
   pontos_de_interesse:
   - id: mont_blanc
     label: Mont Blanc
     box:
-      x: 822
-      y: 340
-      comprimento: 167
-      largura: 37
+      x: 535
+      y: 231
+      comprimento: 128
+      largura: 24
+  - id: o_pequeno
+    label: O Pequeno
+    box:
+      x: 525
+      y: 474
+      comprimento: 120
+      largura: 25
   - id: salao_dos_ossos
     label: Salão dos Ossos
     box:
-      x: 829
-      y: 680
-      comprimento: 240
-      largura: 85
+      x: 518
+      y: 511
+      comprimento: 175
+      largura: 25
   - id: parada_obrigatoria
     label: Parada Obrigatória
     box:
-      x: 753
-      y: 882
-      comprimento: 262
-      largura: 31
-  - id: caboclo_da_mata
+      x: 445
+      y: 648
+      comprimento: 190
+      largura: 23
+  - id: cabocla_da_mata
     label: Caboclo da Mata
     box:
-      x: 634
-      y: 966
-      comprimento: 241
-      largura: 34
+      x: 365
+      y: 713
+      comprimento: 175
+      largura: 24
   - id: silencio_da_mutuca
     label: Silêncio da Mutuca
     box:
-      x: 1333
-      y: 1118
-      comprimento: 270
-      largura: 34
+      x: 888
+      y: 830
+      comprimento: 206
+      largura: 24
   - id: espreguicadeira
     label: Espreguiçadeira
     box:
-      x: 1669
-      y: 1316
-      comprimento: 224
-      largura: 31
+      x: 1165
+      y: 978
+      comprimento: 176
+      largura: 25
 setores:
 - caminho: grupo_mont_blanc_setor_bloco_mont_blanc.md
 - caminho: grupo_mont_blanc_setor_bloco_parada_obrigatoria.md
@@ -62,3 +69,4 @@ setores:
 - caminho: grupo_mont_blanc_setor_bloco_silencio_da_mutuca.md
 - caminho: grupo_mont_blanc_setor_bloco_espreguicadeira.md
 ---
+

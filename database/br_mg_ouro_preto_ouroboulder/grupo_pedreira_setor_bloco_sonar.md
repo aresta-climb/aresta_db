@@ -2,58 +2,33 @@
 nome: 'Bloco: Sonar'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 832
-      y: 316
-      comprimento: 31
-      largura: 39
+    circular:
+      x: 642
+      y: 233
+      raio: 13
   - id: B
     label: B
-    box:
-      x: 1234
-      y: 446
-      comprimento: 31
-      largura: 33
+    circular:
+      x: 938
+      y: 358
+      raio: 13
   - id: C
     label: C
-    box:
-      x: 1900
-      y: 865
-      comprimento: 30
-      largura: 34
+    circular:
+      x: 1455
+      y: 708
+      raio: 13
   - id: '1'
     label: '1'
-    box:
-      x: 802
-      y: 1135
-      comprimento: 22
-      largura: 34
-  - id: 1A_legend
-    label: 1A Braúna V4
-    box:
-      x: 1592
-      y: 136
-      comprimento: 203
-      largura: 32
-  - id: 1B_legend
-    label: 1B Sonar V5
-    box:
-      x: 1582
-      y: 180
-      comprimento: 183
-      largura: 33
-  - id: 1C_legend
-    label: 1C Periscópio V3
-    box:
-      x: 1618
-      y: 224
-      comprimento: 252
-      largura: 34
+    circular:
+      x: 571
+      y: 934
+      raio: 13
 escaladas:
 - boulder:
     nome: Braúna
@@ -68,3 +43,4 @@ escaladas:
     id_no_mapa: 1C
     dificuldade: V5
 ---
+

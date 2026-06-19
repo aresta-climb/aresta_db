@@ -2,139 +2,67 @@
 nome: 'Bloco: Pedra Queimada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: A
     label: A
-    box:
-      x: 952
-      y: 237
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1508
+      y: 280
+      raio: 13
   - id: B
     label: B
-    box:
-      x: 436
-      y: 260
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 684
+      y: 306
+      raio: 13
   - id: '1'
     label: '1'
-    box:
-      x: 250
-      y: 687
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 392
+      y: 802
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 450
-      y: 723
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 705
+      y: 855
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 328
-      y: 660
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 513
+      y: 778
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 488
-      y: 675
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 760
+      y: 785
+      raio: 13
   - id: '5'
     label: '5'
-    box:
-      x: 700
-      y: 509
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 1108
+      y: 603
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 832
-      y: 640
-      comprimento: 25
-      largura: 30
-  - id: 5A_legend
-    label: 5A Dinamite V2
-    box:
-      x: 626
-      y: 288
-      comprimento: 123
-      largura: 27
-  - id: 5B_legend
-    label: 5B Pedra Queimada V8
-    box:
-      x: 652
-      y: 316
-      comprimento: 177
-      largura: 28
-  - id: 6A_legend
-    label: 6A Dinamite sds V5/6
-    box:
-      x: 649
-      y: 344
-      comprimento: 170
-      largura: 28
-  - id: 6B_legend
-    label: 6B Pedra Queimada sds V9
-    box:
-      x: 666
-      y: 372
-      comprimento: 205
-      largura: 29
-  - id: 1_legend
-    label: 1 Flap V5
-    box:
-      x: 572
-      y: 588
-      comprimento: 80
-      largura: 27
-  - id: 2_legend
-    label: 2 Alfândega V9
-    box:
-      x: 588
-      y: 618
-      comprimento: 113
-      largura: 27
-  - id: 3_legend
-    label: 3 México V9
-    box:
-      x: 582
-      y: 646
-      comprimento: 101
-      largura: 27
-  - id: 4_legend
-    label: 4 Passaporte V6
-    box:
-      x: 594
-      y: 686
-      comprimento: 123
-      largura: 27
+    circular:
+      x: 1308
+      y: 758
+      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 408
-      y: 620
-      comprimento: 25
-      largura: 30
-  - id: 1_legend
-    label: 1 Identidade V0
-    box:
-      x: 908
-      y: 68
-      comprimento: 123
-      largura: 27
+    circular:
+      x: 630
+      y: 730
+      raio: 13
 escaladas:
 - boulder:
     nome: Flap
@@ -174,3 +102,4 @@ escaladas:
     id_no_mapa: '1'
     dificuldade: V0
 ---
+

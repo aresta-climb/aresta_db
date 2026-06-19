@@ -2,72 +2,39 @@
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 1575
+  altura_mapa: 1182
   pontos_de_interesse:
-  - id: A
-    label: A
-    box:
-      x: 190
-      y: 540
-      comprimento: 30
-      largura: 30
-  - id: B
-    label: B
-    box:
-      x: 530
-      y: 420
-      comprimento: 30
-      largura: 30
-  - id: C
-    label: C
-    box:
-      x: 1470
-      y: 350
-      comprimento: 30
-      largura: 30
   - id: '1'
     label: '1'
-    box:
-      x: 520
-      y: 1155
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 410
+      y: 880
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 1490
-      y: 1240
-      comprimento: 30
-      largura: 30
-  - id: 1A_legend
-    label: 1A Billy The Kid V1
-    box:
-      x: 1123
-      y: 1064
-      comprimento: 294
-      largura: 37
-  - id: 1B_legend
-    label: 1B Durango Kid V3
-    box:
-      x: 1124
-      y: 1108
-      comprimento: 295
-      largura: 34
-  - id: 1C_legend
-    label: 1C Pedra V7
-    box:
-      x: 1073
-      y: 1152
-      comprimento: 196
-      largura: 36
-  - id: 2_legend
-    label: 2 Semiárido V5
-    box:
-      x: 1104
-      y: 1196
-      comprimento: 244
-      largura: 37
+    circular:
+      x: 1140
+      y: 944
+      raio: 13
+  - id: A
+    label: A
+    circular:
+      x: 148
+      y: 420
+      raio: 13
+  - id: B
+    label: B
+    circular:
+      x: 410
+      y: 285
+      raio: 13
+  - id: C
+    label: C
+    circular:
+      x: 1128
+      y: 255
+      raio: 13
 escaladas:
 - boulder:
     nome: Billy The Kid
@@ -86,3 +53,4 @@ escaladas:
     id_no_mapa: '2'
     dificuldade: V5
 ---
+
