@@ -452,7 +452,6 @@ def passo_c_gerar_indice(
         ]
 
     for croqui_id, croqui_data, _ in compilados_filtrados:
-        nome_arquivo = "compilado.binarypb"
 
         new_checksum = checksums.get(croqui_id, "")
         old_resumo = dados_anteriores.get(croqui_id)
@@ -475,7 +474,7 @@ def passo_c_gerar_indice(
         resumo.id             = croqui_id
         resumo.nome           = croqui_data.get("nome", croqui_id)
         resumo.descricao      = extrair_descricao(croqui_data)
-        resumo.nome_arquivo   = nome_arquivo
+        resumo.caminho_relativo = f"{croqui_id}/compilado.binarypb"
         resumo.checksum_sha256_croqui = new_checksum
 
         picos = croqui_data.get("picos", [])
@@ -512,7 +511,7 @@ def passo_c_gerar_indice(
             "id":             resumo.id,
             "nome":           resumo.nome,
             "descricao":      resumo.descricao,
-            "nome_arquivo":   resumo.nome_arquivo,
+            "caminho_relativo": resumo.caminho_relativo,
             "checksum_sha256_croqui": resumo.checksum_sha256_croqui,
             "checksum_sha256_thumbnail": resumo.checksum_sha256_thumbnail,
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
