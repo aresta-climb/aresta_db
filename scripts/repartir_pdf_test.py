@@ -325,3 +325,31 @@ def test_extrair_componentes_raw(tmp_path):
         
         # Ambas as chamadas de save devem ter acontecido
         assert mock_pil.save.call_count >= 2
+
+def test_serializar_objeto_pymupdf_quad():
+    import pymupdf
+    from scripts.repartir_pdf import _serializar_objeto_pymupdf
+    
+    quad = pymupdf.Quad(pymupdf.Point(0, 0), pymupdf.Point(10, 0), pymupdf.Point(0, 10), pymupdf.Point(10, 10))
+    res = _serializar_objeto_pymupdf(quad)
+    assert res == [[0.0, 0.0], [10.0, 0.0], [0.0, 10.0], [10.0, 10.0]]
+
+def test_translate_coordinates_quad():
+    import pymupdf
+    from scripts.repartir_pdf import translate_coordinates
+    
+    quad = pymupdf.Quad(pymupdf.Point(10, 10), pymupdf.Point(20, 10), pymupdf.Point(10, 20), pymupdf.Point(20, 20))
+    drawings = [{"rect": pymupdf.Rect(0, 0, 100, 100), "items": [("qu", quad)]}]
+    img_bbox = pymupdf.Rect(0, 0, 50, 50)
+    zoom = 1.0
+    img_size_px = (100, 100) # scale will be 2.0
+    
+    translated_draws, translated_text = translate_coordinates(drawings, None, img_bbox, zoom, img_size_px)
+    
+    assert len(translated_draws) == 1
+    items = translated_draws[0]["items"]
+    assert items[0][0] == "qu"
+    quad_list = items[0][1]
+    
+    # Scale is 2.0, origin is (0,0), so (10,10) -> (20,20)
+    assert quad_list == [[20.0, 20.0], [40.0, 20.0], [20.0, 40.0], [40.0, 40.0]]
