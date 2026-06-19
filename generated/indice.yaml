@@ -139,9 +139,9 @@ croquis:
   descricao: ''
   nome_arquivo: compilado.binarypb
   url: br_mg_ouro_preto_ouroboulder/compilado.binarypb
-  checksum_sha256_croqui: 1e935e20a8fd5f7f304d738b749664bf01aea16ea9e63b05ca73a8afcd42c075
+  checksum_sha256_croqui: ce82a23df5df45129cb24192a2a6be7afd691200faa2466496854b17e4271933
   checksum_sha256_thumbnail: bbf28b6a3d2e987124c6389e4d47ead46ddb50ee2baffece1c6e1184b368ca76
-  timestamp_update: '2026-06-18T23:48:16Z'
+  timestamp_update: '2026-06-19T00:14:29Z'
   localizacao:
     latitude: -203677334
     longitude: -435075136

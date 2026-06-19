@@ -56,6 +56,13 @@ def _serializar_objeto_pymupdf(obj):
         return [obj.x, obj.y]
     if isinstance(obj, pymupdf.Matrix):
         return [obj.a, obj.b, obj.c, obj.d, obj.e, obj.f]
+    if isinstance(obj, pymupdf.Quad):
+        return [
+            [obj.ul.x, obj.ul.y],
+            [obj.ur.x, obj.ur.y],
+            [obj.ll.x, obj.ll.y],
+            [obj.lr.x, obj.lr.y]
+        ]
     if isinstance(obj, dict):
         return {k: _serializar_objeto_pymupdf(v) for k, v in obj.items()}
     if isinstance(obj, (list, tuple)):
@@ -75,6 +82,13 @@ def translate_coordinates(drawings, text_dict, img_bbox, zoom, img_size_px):
             return pymupdf.Rect(tx(obj.x0), ty(obj.y0), tx(obj.x1), ty(obj.y1))
         if isinstance(obj, pymupdf.Point):
             return pymupdf.Point(tx(obj.x), ty(obj.y))
+        if isinstance(obj, pymupdf.Quad):
+            return pymupdf.Quad(
+                pymupdf.Point(tx(obj.ul.x), ty(obj.ul.y)),
+                pymupdf.Point(tx(obj.ur.x), ty(obj.ur.y)),
+                pymupdf.Point(tx(obj.ll.x), ty(obj.ll.y)),
+                pymupdf.Point(tx(obj.lr.x), ty(obj.lr.y))
+            )
         if isinstance(obj, dict):
             return {k: transform_obj(v) for k, v in obj.items()}
         if isinstance(obj, (list, tuple)):

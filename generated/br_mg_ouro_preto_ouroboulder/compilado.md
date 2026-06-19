@@ -260,8 +260,8 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_p1.webp)
-    - **largura_mapa**: 2048
-    - **altura_mapa**: 1536
+    - **largura_mapa**: 1529
+    - **altura_mapa**: 1135
     - **pontos_de_interesse**:
       - **[0]**:
         - **id**: nat_geo
@@ -495,8 +495,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -563,8 +563,8 @@
                 - **raio**: 18
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -684,8 +684,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_jah_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -738,8 +738,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -812,8 +812,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -857,8 +857,8 @@
                 - **largura**: 41
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -926,8 +926,8 @@
                 - **largura**: 26
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1035,8 +1035,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1088,8 +1088,8 @@
                 - **largura**: 24
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -1141,8 +1141,8 @@
                 - **largura**: 28
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -1178,8 +1178,8 @@
                 - **largura**: 25
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -1271,8 +1271,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1332,8 +1332,8 @@
                 - **largura**: 33
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1458,8 +1458,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1579,8 +1579,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1704,8 +1704,8 @@
                 - **largura**: 28
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -1869,8 +1869,8 @@
                 - **largura**: 46
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -2202,8 +2202,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2239,8 +2239,8 @@
                 - **largura**: 40
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2308,8 +2308,8 @@
                 - **largura**: 35
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2361,8 +2361,8 @@
                 - **largura**: 67
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2460,8 +2460,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2514,8 +2514,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -2599,8 +2599,8 @@
                 - **largura**: 38
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -2739,8 +2739,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -2776,8 +2776,8 @@
                 - **largura**: 34
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -2940,8 +2940,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3073,8 +3073,8 @@
                 - **largura**: 27
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3146,8 +3146,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3354,8 +3354,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3391,8 +3391,8 @@
                 - **largura**: 27
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3428,8 +3428,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3481,8 +3481,8 @@
                 - **largura**: 33
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3552,8 +3552,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3637,8 +3637,8 @@
                 - **largura**: 24
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3836,8 +3836,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3918,8 +3918,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3939,8 +3939,8 @@
                 - **largura**: 27
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -3984,8 +3984,8 @@
                 - **largura**: 27
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4029,8 +4029,8 @@
                 - **largura**: 27
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -4107,8 +4107,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4336,8 +4336,8 @@
                 - **largura**: 35
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 38
+          - **altura_mapa**: 38
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4493,8 +4493,8 @@
                 - **largura**: 28
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -4562,8 +4562,8 @@
                 - **largura**: 27
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -4615,8 +4615,8 @@
                 - **largura**: 27
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4644,8 +4644,8 @@
                 - **largura**: 27
         - **[5]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4729,8 +4729,8 @@
                 - **largura**: 28
         - **[6]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -4889,8 +4889,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -4910,8 +4910,8 @@
                 - **largura**: 37
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -4931,8 +4931,8 @@
                 - **largura**: 35
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5023,8 +5023,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5124,8 +5124,8 @@
                 - **largura**: 30
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5321,8 +5321,8 @@
                 - **largura**: 36
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 38
+          - **altura_mapa**: 38
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5484,8 +5484,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 38
+          - **altura_mapa**: 38
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5561,8 +5561,8 @@
                 - **largura**: 37
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5606,8 +5606,8 @@
                 - **largura**: 32
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -5675,8 +5675,8 @@
                 - **largura**: 28
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -5728,8 +5728,8 @@
                 - **largura**: 28
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -5820,8 +5820,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -5944,8 +5944,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_eletron_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6078,8 +6078,8 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_p1.webp)
-    - **largura_mapa**: 2048
-    - **altura_mapa**: 1536
+    - **largura_mapa**: 1527
+    - **altura_mapa**: 1134
     - **pontos_de_interesse**:
       - **[0]**:
         - **id**: mont_blanc
@@ -6137,8 +6137,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6294,8 +6294,8 @@
                 - **largura**: 31
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -6315,8 +6315,8 @@
                 - **largura**: 35
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -6336,8 +6336,8 @@
                 - **largura**: 31
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6494,8 +6494,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6571,8 +6571,8 @@
                 - **largura**: 41
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -6665,8 +6665,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6831,8 +6831,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -6892,8 +6892,8 @@
                 - **largura**: 36
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -6960,8 +6960,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7029,8 +7029,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7111,8 +7111,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7203,8 +7203,8 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_p1.webp)
-    - **largura_mapa**: 2048
-    - **altura_mapa**: 1536
+    - **largura_mapa**: 1527
+    - **altura_mapa**: 1134
     - **pontos_de_interesse**:
       - **[0]**:
         - **id**: Crocancia
@@ -7262,8 +7262,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7365,8 +7365,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -7386,8 +7386,8 @@
                 - **largura**: 48
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -7407,8 +7407,8 @@
                 - **largura**: 34
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7484,8 +7484,8 @@
                 - **largura**: 37
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7646,8 +7646,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -7667,8 +7667,8 @@
                 - **largura**: 47
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -7720,8 +7720,8 @@
                 - **largura**: 36
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -7813,8 +7813,8 @@
                 - **largura**: 35
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: C
@@ -7919,8 +7919,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -7951,8 +7951,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -8054,8 +8054,8 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_pedra_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
@@ -8166,265 +8166,265 @@
     - **checksum_sha256**: 79305bc49e10c77807fc502fe2e08628f6e51ae6f94dccf0af5037eda158db69
   - **[3]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_p1.webp)
-    - **checksum_sha256**: afb4d6fec606bebc0ffe28587f5795298c19f2c75d0da8aaa90d12784f66aada
+    - **checksum_sha256**: a14ef5d2f611248af5a4a594b19c57674050633d2669c218a4b1b15296d36083
   - **[4]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp)
-    - **checksum_sha256**: a7069d72a4f14ac322108d23f3cced2d8eb7d8a98b8974ee53c993d1966f0d96
+    - **checksum_sha256**: d6092c9f10385b6b9961ddcb0cf292dae15ed1d42a2828e77bcb2e01793efd22
   - **[5]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp)
-    - **checksum_sha256**: 7ecadea1dd8660196a8fe21c32bd6524589c34c1c3a4fac3d358557b204f1bb2
+    - **checksum_sha256**: 5fd1fd0f37566daca66e6a0d95c645f30318d2de4af4d895e833522ef838e9f7
   - **[6]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
-    - **checksum_sha256**: 5aafbce6e5698a9de445624d04e4fdc12147458b15ca9df7bd7dc6a82ebf0d75
+    - **checksum_sha256**: b0442bfe78977458a4f76148ccb4fd42695f4e092065ec5efd342e528ef8ea90
   - **[7]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp)
-    - **checksum_sha256**: 5a28adffde59a68f8e9af2362e60e898db370a194b573f2ee841f52fcadb5385
+    - **checksum_sha256**: 82889fdcc4e031d980352ca2dd4e2556942e3da6b85d6f347011b1157866d2c3
   - **[8]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
-    - **checksum_sha256**: 8be51a4900b51e997a5c121f9f19d02ff75128e93e3e16cf12913abd4e0acb3c
+    - **checksum_sha256**: efc4d2f707613bd0d918e8e7d34d6e3efdb0825dc5c704ae50c48a2c4197f4ea
   - **[9]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp)
-    - **checksum_sha256**: 7752ce8fdf4151f1a9198b3b73000ab92b42c91fd9eecbcb693d9354f7191e11
+    - **checksum_sha256**: 2320ffc7fe899f36fd76e628aecb0da7f28b9dc3ff9b89b86f5e3313d4a5f3a0
   - **[10]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p0.webp)
-    - **checksum_sha256**: df8715ce62e64d1a227177bb06eb7ffd3904e04446f84048a3aeaffa82f041b5
+    - **checksum_sha256**: 74744bf4e4fa27814f9d069f9ff17e19fa31c7e0ae654b5a0ecf8315fc440aff
   - **[11]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
-    - **checksum_sha256**: 34e5fac390927b6991c9c5556fc5437d963827da6df6eac71ad39129db9dd29a
+    - **checksum_sha256**: 60c0045342a4cf564cbc7b33ddb54882eb14b5379b6e5facc0018021f5629612
   - **[12]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
-    - **checksum_sha256**: 52c3eb2c63062827040403b9ae8d0c8bf3c57b6bc591c1c939215241360e2f23
+    - **checksum_sha256**: 69571d1243dfd403c6742df12fb848a93bbe2dd2cfedfd6843f5e9d0dfaaacbb
   - **[13]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
-    - **checksum_sha256**: 47eca5394de03796deef7c88538cda54c769bc87f8d1479f2f8c397233d48f1c
+    - **checksum_sha256**: 3923fed1745aa5190623382edd016a39cce9456e41ed3d44c2aa6db7960e2e4d
   - **[14]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_pedra_p0.webp)
-    - **checksum_sha256**: dc9e66f81fa6c098c2971ceb67e194db2f3cecf87eddd88a4b4b30aca9ea86d0
+    - **checksum_sha256**: f8a68900a5c9c847e1bccb2475e3047580e5a7adaeca0f5f734ac70bcf977770
   - **[15]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp)
-    - **checksum_sha256**: 20978fb1c9d14f906f1422f9ca4ba889a663d86ddec76e1d6a0ab8da366b8af6
+    - **checksum_sha256**: 75b85fe531878deb11c9b859d72d69e0cdb74cd74ec65121bea827b9fa35b53d
   - **[16]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_p1.webp)
-    - **checksum_sha256**: 1234ea4faeaa67bd7fd14ba46f27d608d757c76e1327e44c35b2cf1962fa8361
+    - **checksum_sha256**: 51ce83771d303cc419f49e28b6138dacbff49aa630d59900999ff44239d47cdb
   - **[17]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp)
-    - **checksum_sha256**: f47ce2f55654f5a07c811b8457360094f092b7c1c52424c775bad9f02ea50bed
+    - **checksum_sha256**: ec03717286a5e25d42a1b207fff69c2048c5f83d3f3571074b18ad33990a31c3
   - **[18]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp)
-    - **checksum_sha256**: 0ba4fbc080008e3d0d9010d13f1278e1bd0509af56398eec970cab75c6a86535
+    - **checksum_sha256**: 956653cecb30fa4affd5f41b95b981ee6b6601b50a63f9e4f749f4a1b75c7c8b
   - **[19]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp)
-    - **checksum_sha256**: af3beaf33566ca703b647c77e4d7bd3f19ad1d60206756d0d0ce1f10efa735c2
+    - **checksum_sha256**: 887dadd51be8112138ce944fb0c370135fd87288c3152482fa6d0cba2e8358c1
   - **[20]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
-    - **checksum_sha256**: eff5ab13ff87ff7a8096f7cca506b9b82b4211c925725cda51c0e1d468ee6f83
+    - **checksum_sha256**: 32c7d185f2d5157c088b0c56f4414ffc57c12ab02c29b9bde910565f927b62de
   - **[21]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp)
-    - **checksum_sha256**: a245493c4f691b9472e5ae8b877999d8ab6c984c9b4f9a384a73b1b22993e7ee
+    - **checksum_sha256**: 09424ec73cf0f5bb6fec4292fd399e7acdf4613c6a905d7a74b7297c9998be49
   - **[22]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp)
-    - **checksum_sha256**: 7707c91b8b1e27ec0addc8c07fccf32c22c3fe9eb197ccffe356809543b3fa65
+    - **checksum_sha256**: 4fba2a28535b36fad5e40d825cfea71cebb39007ac08c5975ef5d42e3f7069fa
   - **[23]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp)
-    - **checksum_sha256**: 0b9830789603811aa051ca2e6183356f7fe9d815050df6c02e6d7c57a8f386a0
+    - **checksum_sha256**: 5b3446f4a9aea91cc170964e32a6e869fd9ee79cb9453ff2a50aace7570bb949
   - **[24]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
-    - **checksum_sha256**: 5b5ca7973082c126ff7df0eafdb9dd8a611bd00d383f29824bc43688ec6dd405
+    - **checksum_sha256**: 3aceaccc3ada3e0f25838a77e9941624eb72fd4bb0437706f30307b073fd70d3
   - **[25]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp)
-    - **checksum_sha256**: 08d4aa2b362a324e9bdb900d0c2ded2a5d1e4243b20c8574b775b8a56597ffd5
+    - **checksum_sha256**: e20f8df48646ea870a6fb9bcf398b6c4c36254b3ac3e518599ff01c9deb65fa6
   - **[26]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
-    - **checksum_sha256**: 220e383ab7566a40a9a798f13c4630f572b676949f15fd6688ecd05b65e86859
+    - **checksum_sha256**: 4a8cf6ffec86a12d468e2f616a4589499e8144b3fdbf13bb87a744b0c2f9f5ec
   - **[27]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp)
-    - **checksum_sha256**: b64a80b1a50ca0f7c5b72c1474fc365c46045f7f969fe355973fc59d17589795
+    - **checksum_sha256**: d8ebf34257ba66f0e7da36125c883fcc5e5268489cad21da74df8b095ea2fc87
   - **[28]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp)
-    - **checksum_sha256**: 77f1308973f38938ac336ff0e36a4c71359534efbe7638bdb246e7f23c9e406d
+    - **checksum_sha256**: 7934cd4abbbeaa13cce81fa965510fbb693d0691024e81d509f8f3f46a0fd855
   - **[29]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_p1.webp)
-    - **checksum_sha256**: a9246a7c4c3c17ced3e61211dbccb390dfc27668f8005a65977241b9a752df58
+    - **checksum_sha256**: 7884e0ef5187518312602c7a9c82e929af7727408e37c1ee16eef141288d8ee1
   - **[30]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
-    - **checksum_sha256**: a73a472511c0c4e6ea4de89b308a4079ce8f6b3c344026a4cb719a604dd82b43
+    - **checksum_sha256**: cc1b9cd38d39d8302c8582cb89cfa8a5a7a6c522e9ce4f932b4b7235dd71130a
   - **[31]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
-    - **checksum_sha256**: d61f1a3d9c3a5d32d04212e63712dd625cfbc16cfc293450d4bfcb2074d2cf28
+    - **checksum_sha256**: 2009799a71180648fd0efdc0933ae3aa2be446db998a2380b970e294cde59af2
   - **[32]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
-    - **checksum_sha256**: 8cf5ba673f2293a330cc726c54eaa38b79457c102c61d26ae048d6c5a5ab3d4d
+    - **checksum_sha256**: d4872bcb3abdb758faa7fcba22bd849986421844d9291bdc8213d25d08564f28
   - **[33]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
-    - **checksum_sha256**: 0d6fd6e6b44a561adc3c8f33a517d51b636a5be4aeb031a4c31003e8ef512244
+    - **checksum_sha256**: 4d1a509cc1c5429ab343293ab82e4eb4e2b7c2cc56eeb2e5147241ecc280613e
   - **[34]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
-    - **checksum_sha256**: 08434d4f3870837ca9325497ce41fcab91a685569df3a6f378ec1caa6ab057a8
+    - **checksum_sha256**: 05b877c8226e674f985860a1c894198c9855a7cb3e14c042861844d4f31aee23
   - **[35]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
-    - **checksum_sha256**: c76148158bcbd8d881bcc401bc5ba9fad8ece2672150d8a0f284d542a4a40687
+    - **checksum_sha256**: f56c167996d9a9fa99bb037c58ebce80946688ceb6dfe6465683d1b3888dfc53
   - **[36]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
-    - **checksum_sha256**: 7c1d9bccd84872d4e2487179f9d041462b0c9bf55b19ddce0de3f66be8d2ff1c
+    - **checksum_sha256**: fd1a85437fed0c96602cbc7678492de16232577b9ac399099da5ae43b0531598
   - **[37]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
-    - **checksum_sha256**: e7bbd0be8d6b194ec929e52307c6ffbea3f72864f2a3b6fab61f9bab3d5edc60
+    - **checksum_sha256**: 60a97950e5d7593a7621b8eaee04a4642e0d27fbe77809f433c7334012e05264
   - **[38]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
-    - **checksum_sha256**: b0340a5ce9e8fac35084f23d578f6bf8be1c869d34af7c00f6d3a934b5dda2d1
+    - **checksum_sha256**: a740add85a1ffbb2d6298f6e2a0890193b3946bd624862adc574c1ee3519e3ee
   - **[39]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
-    - **checksum_sha256**: ec624ec75ed52e0816ca7aa23451acc49c757b37b01087122315f3be64bd5fdd
+    - **checksum_sha256**: 81ef4426af8acdf37777a53e4267ba9e0bb5edd44d34f5a5b2a4a754045d773e
   - **[40]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
-    - **checksum_sha256**: ab97520a250f2eb2cec654ac643da3881d32ef489bc03fcdd0fc7f6fd20c2681
+    - **checksum_sha256**: c4dc8d7dbe494b493a3764525d5078e78ac0101984ef06c4ffab40fd964c5626
   - **[41]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
-    - **checksum_sha256**: 43359a73afb1ddba7f632ea9808fd8298ec0beffbfd3d15d34878d0156ae2cc5
+    - **checksum_sha256**: 995a76d40832456d0fae88cbc818d2d246d53ec51d91e2d1a83c0be924d1a554
   - **[42]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp)
-    - **checksum_sha256**: 149462d65abae9f16aff67dece4f0261374c85b2a9fdc0e48104fd3e0ce31073
+    - **checksum_sha256**: 2c56acbeb9db67a74986b8720916e16566fad9b8745090bf1ed83b716fac3731
   - **[43]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
-    - **checksum_sha256**: 6ae38838adcda35e772fc72af2f56a3b765cf4b12cdbe145ed33dca69dec3d31
+    - **checksum_sha256**: 1fc2eda38c21e9f05feb024f24c0f7ac167a7830151aecb26d5b2e5ca45bc4f4
   - **[44]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
-    - **checksum_sha256**: ac79d440f8bc541d8b7b3bd7f0e34df9ea1e2d4e304c418cbbfa6920d77ff19e
+    - **checksum_sha256**: e20ffa66c3d0758053760b34ff46d18a5ec4d429eb1e6bbc06157d6d913eca2b
   - **[45]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
-    - **checksum_sha256**: 9a92d3c05ac36cabd62647d7c9163f0ad027a06f8c677badb7dadabf78427358
+    - **checksum_sha256**: f14c6313d9ea2da687fd223c60b35d9da82eec4546ea5c1ec2d05ae1a3b4bf98
   - **[46]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_eletron_p0.webp)
-    - **checksum_sha256**: 2c00e6575ceceb6f7eb373787f0e1771479cc21df6b858429404f6719cdbf9de
+    - **checksum_sha256**: e6055337b3dc0e4db8d43f3cef9d05b8818e89e633f09c76cb31e4dad2509a17
   - **[47]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
-    - **checksum_sha256**: f746372c9614a44564d904de8abda8e8967990f1d571860e4a31946984dbfae1
+    - **checksum_sha256**: 96d26b1f7152357a42a87dbc3f8bae3c335f74fea501af590c542787f8c8a707
   - **[48]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
-    - **checksum_sha256**: e9872e65dd05bd922c8fdb0fb35d48e13d0411eee5dcca105721ab7008f4361d
+    - **checksum_sha256**: eebee3a072d3bfeda120563abfc12050461422331f9e366ec9bce3db9ed4121c
   - **[49]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
-    - **checksum_sha256**: 7e9e23aa4bddf5313b58361c91c191d877d6f215f18baf48f57fde6b32bf8d67
+    - **checksum_sha256**: 78561da415455212d303c725f2985f1e5d17aeb5fd9363e0190654b3b094fe83
   - **[50]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
-    - **checksum_sha256**: 931529e397db0cd2104af7b1e98d837460f1dbfc0f4a7daa57e86d29d4d8f8e0
+    - **checksum_sha256**: a704569eb9a131936886312bfc2f72bd856155b4bda9c80ad161f9b863832ca0
   - **[51]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
-    - **checksum_sha256**: 2b770fbbebd2583bd258d184f7e5b718754649d4ff675ddc93565b39d0571e71
+    - **checksum_sha256**: 14cfdadbf0348a664799c417599689ba92e0a774a51bba5dc030f93d751f6041
   - **[52]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
-    - **checksum_sha256**: 6c7ceddbe1bb6e77ab1f405069fa47a08f251eac65e2959479614bf2c5ea0508
+    - **checksum_sha256**: 544332240512a2a12859fde458ff8c77f74f529da25432cc30fd026cafd60747
   - **[53]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_jah_p0.webp)
-    - **checksum_sha256**: b32f45d927e70760e67851e332a9adb370ca468a987a9e8978e5cf14471d18b7
+    - **checksum_sha256**: 05067fb4a4b2a855646baf19644cfdb1dfdde0a80dd418072f5736457c7dfb5c
   - **[54]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp)
-    - **checksum_sha256**: 4cdf0dc3d829a0febe1977a3f4c58a1ed6db1015f24cfdf7df40e04df90388d5
+    - **checksum_sha256**: 93c64e3da13482b6d44545cad93b199943e8d2ab26e55802da40b8ec2a795f7d
   - **[55]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
-    - **checksum_sha256**: f6bee5f1deced65088848fa2dfb2f4507afed50d304d3db3b74071e086335fc5
+    - **checksum_sha256**: 8411d610eb20373f67e810cc9ee98b59da8b3f1b232d9c62c09362c2e9209192
   - **[56]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
-    - **checksum_sha256**: b6e006022b85572a12477fd4a94c95eb216cdea2baa46bf4f1866c9efc43795b
+    - **checksum_sha256**: efc980db901ff96ed2153105875522107543da66620ebbac1269ccace4b582a9
   - **[57]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp)
-    - **checksum_sha256**: ff15aaa0379c5f7be75dd11b4d2d32eaa057ee23d9460d90ea9e53b4c586a0c4
+    - **checksum_sha256**: a2c2c15415492c0c2c473089419d42663c48043aa3610b6f7f142ffa6ed93f22
   - **[58]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
-    - **checksum_sha256**: c7e771f272bcb96a0730a805a82cf3343d89faac62bdcdabb7e70978151717d4
+    - **checksum_sha256**: c485d7fb367c3ae8dbf7daf94def0a216e2f3eeecf177047d7c4cad32795ed53
   - **[59]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
-    - **checksum_sha256**: 072e4ae51ba67ae786c42b5f570efe91bcab779dc63bcd77800505c4593b99e6
+    - **checksum_sha256**: 966b1a69e32547968ff41463986106891b371aad0c33c4c7f5f60525590003e5
   - **[60]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp)
-    - **checksum_sha256**: 45c419b93683e5aefb7e41a5a27f5ffe21356266f0870062432de8676c127e0d
+    - **checksum_sha256**: 3708890364b2ad2165d865a65e916435809e1e2fc45bf2d153ac080f60d9dc7f
   - **[61]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
-    - **checksum_sha256**: d3bd4d0e2c800f356447f8540b22075fc6d49a9ae3d60a991df557160cabc6da
+    - **checksum_sha256**: 2a3a2b61a19c76185053fac092a4cc7eaf6ae578b180919862fa1806390fa810
   - **[62]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
-    - **checksum_sha256**: 10f4cb52d86c803b9c1b25029c2e2499fca1305a09eef41d907153dbef3ebf3f
+    - **checksum_sha256**: 788233f821d14417b0ea90356be6e49eecb880e295f631927a0394bf68f8b976
   - **[63]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
-    - **checksum_sha256**: 2c16a8150caee0ed2b6031962aa1c6286033b544cdcbb4d3affdecb1d74f29bd
+    - **checksum_sha256**: 4c6d72939a94aad243fd35b092fd258bf45dfa7dfe615901614fa99596776ef1
   - **[64]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
-    - **checksum_sha256**: d5b0e882f056ac79254a4a852953d849aee253483ecf0707c7228fe5f2b1abd9
+    - **checksum_sha256**: 656d7410a42c96240f5b444f58ada705f51084b65fa8069017329d3282b3463f
   - **[65]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
-    - **checksum_sha256**: d93c8b07bdcacefb7287f00aafabfdc9a3810740dff68da490aede0d8cfce5ec
+    - **checksum_sha256**: e59b915a788ac6d4c76429cf842ec6223e36999fcd8f8b8a47b57e6c10dd2e4d
   - **[66]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp)
-    - **checksum_sha256**: ae04770d7a643ad2256cc063ef58bc42b551fb679decceefa36cbcab2270941e
+    - **checksum_sha256**: debeb836451cbf844b1adb768d7752f10ec433c01a0cc86fa24a748024178dfa
   - **[67]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
-    - **checksum_sha256**: 05130f11a36e83ae82fd1ec885e6b5831a8303e2a2e66d13a424f1c7127049ae
+    - **checksum_sha256**: ed894f6a75d948d31cdb12048a9871225d616527cb6d72ddc82803a8cb80bf87
   - **[68]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
-    - **checksum_sha256**: d419a6810fb39588724f488a13fe075f404151a9fe8c5d2a92bceabcb72c9315
+    - **checksum_sha256**: 2f7279367ca6f7bdadaf3a6ced9e266b304c07ed70dce3c06d90111f5bb604b7
   - **[69]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
-    - **checksum_sha256**: 33076829950ae0ade1cf9feb0effcd5f8dbe9e4549e15c21d3c58b823b4fa111
+    - **checksum_sha256**: 6562aff8cbaf0e1581ffb3009fcde7ddcd7eecd925cf0026c9135b7f55948306
   - **[70]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
-    - **checksum_sha256**: 8a02bc68c25302899fb6115fe20d595037ffcac5db676bcb58a9ea2b797503af
+    - **checksum_sha256**: e6c773b12d68b6d1ff9fc19e90f401056c18d987b0d018f57546b738f3762e0a
   - **[71]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
-    - **checksum_sha256**: 554f64479626f7484bf10d2e98f2cc1d456740acaf222215e8606d766be61b50
+    - **checksum_sha256**: 63177e8443d1986e854f4ee13081cbfb94d69c23c8b69450497384b1a027294b
   - **[72]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp)
-    - **checksum_sha256**: 88ff3a09014aee8e1599946c0b5bdb352e857e4dad598e4acb876d6ada0567aa
+    - **checksum_sha256**: 0546853eb3c128c2985383a15d78714828610cad26bb9274b23d1bf38cadcc1e
   - **[73]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
-    - **checksum_sha256**: 0e060d578d5f194c55257c12b07541cb4f790b80975805f29d3f9fedce397318
+    - **checksum_sha256**: ab5c4e32daa59975ced51cc505192c13ed36a91b4d4761231c4429b51de875ca
   - **[74]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
-    - **checksum_sha256**: 1377b3a10df33205bad92d86d3769ddaef494f80700a6037d463f3c6879a73be
+    - **checksum_sha256**: 3c8e45bc275dddbfd1c90c875183bab51e28fcd92f90b2d979158dd1503a63b3
   - **[75]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
-    - **checksum_sha256**: 20257838011d50ac0d91b40332a4586c3968e3579c51be8fc9d190df2d531bf4
+    - **checksum_sha256**: ec171156e3437126b3b86705ed307a4dc8b70c962aab5b48329c13a1714ff98a
   - **[76]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
-    - **checksum_sha256**: e75a409e2d301f149274ae0ffd0948bb2cd0adcc00b1d9c7edc9e22008d981b5
+    - **checksum_sha256**: ecd5220a56e71a81bcd8fb69f2515ccf4ea0108b307a0b8ef101a6177ca4e35b
   - **[77]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
-    - **checksum_sha256**: 04a3c39fdb6d40d22f7f11f8d3d747ecab585ece997901525a04436aebbc48e5
+    - **checksum_sha256**: be140bc793e08d119d428fc77ed4272f6610848c96e92144e7fe8c93ad1a68bd
   - **[78]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
-    - **checksum_sha256**: 67aee1c20be0d9b7628df1ede2c495014f19e36f5961abb72814aa518d1c3d5f
+    - **checksum_sha256**: 1a4638fdcbccd96aa565f2287b5d6c205dd39126dcd5f212bc3d857ac69929f0
   - **[79]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
-    - **checksum_sha256**: 3378529d2509e6ab43e6e0b9a8db9c58753db89c56e857077acc2b14154c15a4
+    - **checksum_sha256**: abf00a12c03c43290d8c88b6a321ddb0b374aeef558e0df4da9ebc4eaea432b3
   - **[80]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
-    - **checksum_sha256**: 0878cd2c9855d28017432ada80a8cf8505ec6058ea80c5a62835ec6d20aa5b0a
+    - **checksum_sha256**: 9dfd8f2972c6bf3a66f3cbcda5cafaaf27934fb467e7a7e3d5e14c899446803e
   - **[81]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
-    - **checksum_sha256**: 17f094d9faf089c2e6063e104883c09f4c30c16e6828abdb25637e9031dba1ca
+    - **checksum_sha256**: ae061410389a7f673cfa0c7ba313b6c3a9f7a0513f9d7b1742580f92192a0f28
   - **[82]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
-    - **checksum_sha256**: 592f906123dee206d2a2eca005e1721763d56c318b97f213f280f954014ec9a5
+    - **checksum_sha256**: 1ff210c8970c39ce7d6890cde25e89680e3a84b59e9dc0054b61c7a6c035eaaa
   - **[83]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
-    - **checksum_sha256**: 685919ab8d563a4dd047ee018ab901c8e2e6d6a04ad2d819e01dcd362740dc24
+    - **checksum_sha256**: 90f734b9280098259f5f9b802e8dd2c6925440b915cc7667fd6880839a644679
   - **[84]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
-    - **checksum_sha256**: a64615847e9c80e951fbad36b26803abc38dc5c8de7a185d6cd1ed617cb1fc8f
+    - **checksum_sha256**: 6d5682ed0fe6ab4df9741e4968ae4af7abc663dd9be1c82bdcbdd30db4a13b74
   - **[85]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
-    - **checksum_sha256**: 072d9bfe8e4046f179fb15ea65c213f218bedb11e5b73399aa44ec27d67f9d3d
+    - **checksum_sha256**: ba96339e2487ea2a46e098ca2876cb6fea30a0324279c785b9948d71dca5505b
   - **[86]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
-    - **checksum_sha256**: 2b965c73b5b72b678bd2beb6a8c817a0e923f625a4cd6facb84888d6f9353353
+    - **checksum_sha256**: 610f8dae0714d29efeb737564dfa4c67c2a7c288ffba7b3cb4508f5a3eeac8a5
   - **[87]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
-    - **checksum_sha256**: 87ce0daef127d217aaba22d24a0ace4f60dc1bb0e718cb2bf86034655647063d
+    - **checksum_sha256**: bec0d24a587492b8b04f0306cc8f7e486bf902fcd64557b5cacc8b91ca212123
   - **[88]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
-    - **checksum_sha256**: cff280c5f2e0a1d4f17bc0f5921077c61de95c29dd62c05edc3b87f94354fa00
+    - **checksum_sha256**: dfb43acf92c4a75f62c3228409595dd775c0f73de2a81b33d0108bfb3f1ef9a7
   - **[89]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
-    - **checksum_sha256**: a829c4dea044e5384602852366f835e41ea1b369c2618c2ed6e77dfec79deefd
+    - **checksum_sha256**: 6770206b9b137b69e86952df89177b53461f20d9774b650d350dffc6ef6c651e
   - **[90]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: ffc99257fd391b719aefca787f76d302074a74d1947c90ee8fa274f60350de4a
