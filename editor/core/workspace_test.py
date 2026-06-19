@@ -82,8 +82,6 @@ def test_local_repo_workspace_processar(mock_run, mock_deploy, tmp_paths):
     assert args["output_dir"] == ws.obter_caminho_compilado().parent
     assert args["target_path"] == str(ws.obter_caminho_database())
     assert args["is_producao"] is False
-    from scripts.deploy_generated import URL_BASE_PADRAO
-    assert args["url_base"] == URL_BASE_PADRAO
     
     assert resultado == tmp_paths
     assert isinstance(msgs, list)

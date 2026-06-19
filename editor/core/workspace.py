@@ -169,12 +169,10 @@ class LocalRepoWorkspace(EditorWorkspace):
 
         # No modo local, invocamos a compilação local de forma explícita, sem o wrapper que commita
         # is_producao=False gera HTMLs que apontam para imagens e assets locais
-        from scripts.deploy_generated import URL_BASE_PADRAO
         
         with capturar_saida() as out:
             try:
                 deploy(
-                    url_base=URL_BASE_PADRAO,
                     output_dir=self.obter_caminho_compilado().parent,
                     target_path=str(self.obter_caminho_database()),
                     force_thumbnails=True,

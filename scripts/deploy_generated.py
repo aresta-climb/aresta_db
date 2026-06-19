@@ -36,7 +36,7 @@ Pipeline:
   C) Gera <output_dir>/indice.binarypb e <output_dir>/indice.yaml
 
 Uso:
-  python scripts/deploy_generated.py [--url-base <URL>] [--output-dir <DIR>]
+  python scripts/deploy_generated.py [--output-dir <DIR>]
 """
 
 import sys
@@ -77,7 +77,6 @@ DATABASE_DIR = ROOT_DIR / "database"
 # Pode ser substituído via --output-dir na linha de comando
 GENERATED_DIR: Path  # definido em deploy()
 
-URL_BASE_PADRAO = "https://aresta-climb.github.io/aresta_serving"
 
 # Subdiretórios dentro de imagens/ que são artefatos de processamento e
 # NÃO devem ser exportados para o frontend.
@@ -428,7 +427,6 @@ def passo_b_calcular_checksums(
 def passo_c_gerar_indice(
     compilados: list[tuple[str, dict, Path]],
     checksums: dict[str, str],
-    url_base: str | None,
     dados_anteriores: dict[str, indice_pb2.ResumoCroqui] = None,
     preservados: list[indice_pb2.ResumoCroqui] = None,
     is_producao: bool = True,
@@ -443,8 +441,6 @@ def passo_c_gerar_indice(
     preservados = preservados or []
 
     indice     = indice_pb2.Indice()
-    if url_base is not None:
-        indice.url_base = url_base.rstrip("/")
     
     indice_list = []  # para o YAML
 
@@ -457,7 +453,6 @@ def passo_c_gerar_indice(
 
     for croqui_id, croqui_data, _ in compilados_filtrados:
         nome_arquivo = "compilado.binarypb"
-        url_relativa = f"{croqui_id}/{nome_arquivo}"
 
         new_checksum = checksums.get(croqui_id, "")
         old_resumo = dados_anteriores.get(croqui_id)
@@ -481,7 +476,6 @@ def passo_c_gerar_indice(
         resumo.nome           = croqui_data.get("nome", croqui_id)
         resumo.descricao      = extrair_descricao(croqui_data)
         resumo.nome_arquivo   = nome_arquivo
-        resumo.url            = url_relativa
         resumo.checksum_sha256_croqui = new_checksum
 
         picos = croqui_data.get("picos", [])
@@ -497,7 +491,7 @@ def passo_c_gerar_indice(
             thumb_checksum = calcular_sha256(thumb_path)
             resumo.checksum_sha256_thumbnail = thumb_checksum
 
-        print(f"  Adicionado/Atualizado: {croqui_id} ({url_relativa})")
+        print(f"  Adicionado/Atualizado: {croqui_id}")
 
     # Depois adicionamos os preservados
     for resumo_preservado in preservados:
@@ -519,7 +513,6 @@ def passo_c_gerar_indice(
             "nome":           resumo.nome,
             "descricao":      resumo.descricao,
             "nome_arquivo":   resumo.nome_arquivo,
-            "url":            resumo.url,
             "checksum_sha256_croqui": resumo.checksum_sha256_croqui,
             "checksum_sha256_thumbnail": resumo.checksum_sha256_thumbnail,
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -535,8 +528,6 @@ def passo_c_gerar_indice(
     indice_yaml_path = GENERATED_DIR / "indice.yaml"
     with open(indice_yaml_path, "w", encoding="utf-8") as f:
         yaml_content = {"croquis": indice_list}
-        if url_base is not None:
-            yaml_content["url_base"] = url_base.rstrip("/")
         yaml.dump(
             yaml_content,
             f, allow_unicode=True, sort_keys=False,
@@ -554,14 +545,10 @@ def passo_c_gerar_indice(
     print(f"  {total_dirs} pastas de croqui + indice.binarypb + indice.yaml")
 
 
-def deploy(url_base: str | None, output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True) -> None:
+def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True) -> None:
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
 
-    if url_base is not None:
-        print(f"URL base do indice : {url_base}")
-    else:
-        print(f"URL base do indice : <não definida>")
     print(f"Diretorio de saida : {GENERATED_DIR}")
     if target_path:
         print(f"Alvo específico    : {target_path}")
@@ -662,7 +649,6 @@ def deploy(url_base: str | None, output_dir: Path, target_path: str = None, forc
     passo_c_gerar_indice(
         compilados_finais_para_checksum, 
         checksums, 
-        url_base, 
         dados_anteriores, 
         preservados=preservados_metadados,
         is_producao=is_producao
@@ -695,11 +681,6 @@ def create_parser():
         help="Caminho opcional para um croqui específico (ex: database/meu_croqui). Se omitido, processa todos.",
     )
     parser.add_argument(
-        "--url-base",
-        default=URL_BASE_PADRAO,
-        help=f"URL base do GitHub Pages (padrao: {URL_BASE_PADRAO})",
-    )
-    parser.add_argument(
         "--output-dir",
         "-o",
         default=str(ROOT_DIR / "generated"),
@@ -723,11 +704,6 @@ def create_parser():
         help="Atualiza o arquivo STATUS_CROQUIS.md ao final (padrao: True).",
     )
     parser.add_argument(
-        "--sem-url-base",
-        action="store_true",
-        help="Não gera a URL base no índice (define como vazio).",
-    )
-    parser.add_argument(
         "--arquivos-de-debug",
         action=argparse.BooleanOptionalAction,
         default=True,
@@ -747,10 +723,8 @@ if __name__ == "__main__":
         print(f"Erro ao gerar protos: {e}")
         sys.exit(1)
 
-    url_base = None if args.sem_url_base else args.url_base
     try:
         deploy(
-            url_base, 
             output_dir, 
             target_path=args.croqui_caminho, 
             force_thumbnails=args.force_thumbnails,

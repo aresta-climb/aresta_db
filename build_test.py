@@ -16,15 +16,17 @@ _spec.loader.exec_module(root_build)
 
 class TestRootBuild(unittest.TestCase):
     
-    @patch('aresta_api.build.generate_protos')
-    def test_generate_protos(self, mock_aresta_build):
+    @patch('subprocess.run')
+    def test_generate_protos(self, mock_run):
         # Testa chamada sem force
         root_build.generate_protos(force=False)
-        mock_aresta_build.assert_called_with(argv=[])
+        args, kwargs = mock_run.call_args
+        self.assertNotIn('-f', args[0])
         
         # Testa chamada com force
         root_build.generate_protos(force=True)
-        mock_aresta_build.assert_called_with(argv=['-f'])
+        args, kwargs = mock_run.call_args
+        self.assertIn('-f', args[0])
 
     @patch('subprocess.run')
     def test_run_tests(self, mock_run):

@@ -1,0 +1,50 @@
+name: Deploy para Cloudflare R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'generated/**'
+      - 'migracoes/**'
+      - '.github/workflows/deploy.yml'
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Otimizado
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            generated
+            migracoes
+
+      - name: Obter Versão do Banco
+        run: |
+          # Descobre o maior número no início dos arquivos .py da pasta migracoes/ (ignorando testes)
+          NUM=$(find migracoes -maxdepth 1 -name "*.py" ! -name "*_test.py" | awk -F'/' '{print $NF}' | grep -o '^[0-9]\+' | sort -n | tail -1)
+          # Se a pasta não tiver arquivos (NUM vazio), define como 0 (fallback)
+          NUM=${NUM:-0}
+          # Remove zeros à esquerda garantindo base 10 (ex: 0005 vira 5)
+          NUM=$((10#$NUM))
+          echo "DB_VERSION=v$NUM" >> $GITHUB_ENV
+          echo "Deploying version: v$NUM"
+
+      - name: S3 Sync para R2
+        # Faz sync apenas da pasta com a versão atual, preservando as velhas no R2
+        run: aws s3 sync generated/ s3://aresta-serving/${{ env.DB_VERSION }}/ --endpoint-url ${{ secrets.CLOUDFLARE_S3_API_URL }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          AWS_REGION: auto
+
+      - name: Purge Cache do Indice
+        # Invalida o cache cirurgicamente no Cloudflare apenas para o indice atualizado
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+               -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}" \
+               -H "Content-Type: application/json" \
+               --data '{"files":["https://cdn.aresta.app/${{ env.DB_VERSION }}/indice.binarypb"]}'

@@ -1048,7 +1048,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             if field.containing_oneof:
                 continue
                 
-            if field.label == FieldDescriptor.LABEL_REPEATED:
+            if field.is_repeated:
                 self._render_repeated_field(msg, field, parent_layout)
             else:
                 self._render_field_container(msg, field, parent_layout, extra_path)

@@ -1,4 +1,8 @@
 import pytest
+pytestmark = pytest.mark.filterwarnings(
+    "ignore::DeprecationWarning:websockets.*",
+    "ignore::DeprecationWarning:uvicorn.*"
+)
 from editor.core.servidor_celular import ServidorCelular
 from pathlib import Path
 import socket

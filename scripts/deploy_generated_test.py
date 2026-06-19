@@ -208,7 +208,7 @@ def test_passo_c_gerar_indice(tmp_path):
         "pico2": r2
     }
     
-    passo_c_gerar_indice(compilados, checksums, None, dados_anteriores)
+    passo_c_gerar_indice(compilados, checksums, dados_anteriores)
     
     # Verifica se os arquivos foram criados
     assert (deploy_module.GENERATED_DIR / "indice.yaml").exists()
@@ -247,7 +247,7 @@ def test_passo_c_gerar_indice_com_producao(tmp_path):
     checksums = {"pico_pub": "1", "pico_rascunho": "2", "pico_legacy": "3"}
     
     # Executa COM is_producao=True (padrão)
-    passo_c_gerar_indice(compilados, checksums, None, {}, is_producao=True)
+    passo_c_gerar_indice(compilados, checksums, {}, is_producao=True)
     
     with open(deploy_module.GENERATED_DIR / "indice.yaml", "r") as f:
         indice_prod = yaml.safe_load(f)
@@ -257,7 +257,7 @@ def test_passo_c_gerar_indice_com_producao(tmp_path):
     assert "pico_pub" in ids_prod
     
     # Executa COM is_producao=False
-    passo_c_gerar_indice(compilados, checksums, None, {}, is_producao=False)
+    passo_c_gerar_indice(compilados, checksums, {}, is_producao=False)
     
     with open(deploy_module.GENERATED_DIR / "indice.yaml", "r") as f:
         indice_dev = yaml.safe_load(f)
@@ -307,7 +307,7 @@ def test_deploy_seletivo(
     
     from scripts.deploy_generated import deploy
     # Passamos o caminho como string
-    deploy("http://base", tmp_path / "generated", target_path=str(pico1_dir))
+    deploy(tmp_path / "generated", target_path=str(pico1_dir))
     
     # Verificar se preparar_generated foi chamado com limpar=False
     mock_preparar.assert_called_with(limpar=False)
@@ -454,19 +454,6 @@ def test_create_parser_output_dir():
 
 
 
-def test_create_parser_sem_url_base():
-    from scripts.deploy_generated import create_parser
-    parser = create_parser()
-    
-    # Por padrão deve ser False
-    args = parser.parse_args([])
-    assert args.sem_url_base is False
-    
-    # Deve ser True se passar a flag
-    args = parser.parse_args(["--sem-url-base"])
-    assert args.sem_url_base is True
-
-
 
 
 def test_carregar_um_croqui(tmp_path):
@@ -529,7 +516,7 @@ def test_deploy_resilience_to_failures(
     
     # O deploy deve lançar RuntimeError devido ao erro no pico2, mas apenas ao final
     with pytest.raises(RuntimeError):
-        deploy(None, tmp_path / "generated")
+        deploy(tmp_path / "generated")
     
     # Verifica que os arquivos da compilação bem-sucedida (pico1) estão lá
     

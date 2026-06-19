@@ -16,18 +16,15 @@ def generate_protos(force=False):
         print(f"Error: aresta_api/proto not found. Did you clone the aresta_api submodule?")
         sys.exit(1)
 
+    # Chama o build script em um subprocesso limpo para garantir isolamento total
+    # e idêntica geração (evitando diferenças de CWD ou sys.path via import)
+    argv = ['-f'] if force else []
+    script = str(ROOT_DIR / "aresta_api" / "build.py")
     try:
-        import aresta_api.build as aresta_api_build
-        
-        # Chama a função principal diretamente no mesmo processo
-        # Passamos argv=['-f'] se force=True, senão []
-        argv = ['-f'] if force else []
-        aresta_api_build.generate_protos(argv=argv)
-    except SystemExit as e:
-        # build.py usa sys.exit() ao final de alguns de seus fluxos, se for != 0 ou None, capturamos o erro
-        if e.code and e.code != 0:
-            print(f"Error compiling protos via aresta_api/build.py. Exit code: {e.code}")
-            sys.exit(e.code)
+        subprocess.run([sys.executable, script] + argv, check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error compiling protos via aresta_api/build.py. Exit code: {e.returncode}")
+        sys.exit(e.returncode)
 
 
 # Benchmark de Performance dos Testes em Paralelo (rodando todos os 253 testes no Windows com 24 threads):
