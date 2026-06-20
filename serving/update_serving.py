@@ -5,6 +5,7 @@ import subprocess
 import yaml
 from pathlib import Path
 from botocore.exceptions import ClientError
+from botocore.config import Config
 from concurrent.futures import ThreadPoolExecutor
 
 def get_db_version() -> str:
@@ -56,11 +57,15 @@ class Deployer:
         self.db_version = get_db_version()
         self.bucket = os.environ.get("R2_BUCKET", "aresta")
         
+        # Aumentamos o pool de conexões HTTP (keep-alive) para bater com nossos 50 workers
+        # O padrão do boto3 é de apenas 10 conexões TCP.
+        boto_config = Config(max_pool_connections=50)
+        
         endpoint = os.environ.get("R2_ENDPOINT_URL")
         if endpoint:
-            self.s3 = boto3.client("s3", endpoint_url=endpoint)
+            self.s3 = boto3.client("s3", endpoint_url=endpoint, config=boto_config)
         else:
-            self.s3 = boto3.client("s3")
+            self.s3 = boto3.client("s3", config=boto_config)
             
         self.purger = CloudflarePurger()
 
@@ -108,7 +113,7 @@ class Deployer:
 
     def _upload_files_parallel(self, files: list[str]):
         if not files: return
-        with ThreadPoolExecutor(max_workers=10) as executor:
+        with ThreadPoolExecutor(max_workers=50) as executor:
             # list() força a execução e levanta eventuais exceções
             list(executor.map(self._upload_file, files))
 
