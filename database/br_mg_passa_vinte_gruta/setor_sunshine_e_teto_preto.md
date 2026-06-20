@@ -1,4 +1,4 @@
----
+---
 nome: Sunshine & Teto Preto
 mapas:
 - caminho_imagem_mapa: imagens/setor_sunshine_e_teto_preto_p0.webp
@@ -152,85 +152,124 @@ mapas:
       y: 940
       comprimento: 250
       largura: 30
+  referencias:
+  - escalada: Ementhal
+    ids:
+    - '01'
+  - escalada: Sunshine
+    ids:
+    - '02'
+  - escalada: Ext. Sunshine (Projeto)
+    ids:
+    - '03'
+    - '03'
+  - escalada: Luna
+    ids:
+    - '04'
+  - escalada: Freddie Mercury
+    ids:
+    - '05'
+  - escalada: Ariete
+    ids:
+    - '06'
+  - escalada: Eunuco (Projeto)
+    ids:
+    - '07'
+  - escalada: Pau Mandado
+    ids:
+    - '08'
+  - escalada: Imperatriz
+    ids:
+    - '09'
+  - escalada: Casamento de Viúva
+    ids:
+    - '10'
+  - escalada: Manda Chuva (Projeto)
+    ids:
+    - '11'
+  - escalada: Celibato
+    ids:
+    - '12'
+  - escalada: Manicaca
+    ids:
+    - '13'
+  - escalada: Ghidorah
+    ids:
+    - '14'
+  - escalada: Hidra
+    ids:
+    - '15'
+  - escalada: Medusa
+    ids:
+    - '16'
+  - escalada: Kátia Flávia
+    ids:
+    - '17'
+  - escalada: Ext. Kátia Flávia
+    ids:
+    - '18'
+    - '18'
+  - escalada: Casamento da Imperatriz (Projeto)
+    ids:
+    - '19'
 escaladas:
 - via_esportiva:
     nome: Ementhal
-    id_no_mapa: '01'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Sunshine
-    id_no_mapa: '02'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Ext. Sunshine (Projeto)
-    id_no_mapa: '03'
-    id_no_mapa_fim: '03'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Luna
-    id_no_mapa: '04'
     dificuldade: BR_8A_BARRA_8B
 - via_esportiva:
     nome: Freddie Mercury
-    id_no_mapa: '05'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Ariete
-    id_no_mapa: '06'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Eunuco (Projeto)
-    id_no_mapa: '07'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Pau Mandado
-    id_no_mapa: '08'
     dificuldade: BR_9C_BARRA_10A
     destaque: true
 - via_esportiva:
     nome: Imperatriz
-    id_no_mapa: '09'
     dificuldade: BR_9B
 - via_esportiva:
     nome: Casamento de Viúva
-    id_no_mapa: '10'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Manda Chuva (Projeto)
-    id_no_mapa: '11'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Celibato
-    id_no_mapa: '12'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Manicaca
-    id_no_mapa: '13'
     dificuldade: BR_7C_BARRA_8A
 - via_esportiva:
     nome: Ghidorah
-    id_no_mapa: '14'
     dificuldade: BR_6
 - via_esportiva:
     nome: Hidra
-    id_no_mapa: '15'
     dificuldade: BR_5
 - via_esportiva:
     nome: Medusa
-    id_no_mapa: '16'
     dificuldade: BR_5
 - via_esportiva:
     nome: Kátia Flávia
-    id_no_mapa: '17'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Ext. Kátia Flávia
-    id_no_mapa: '18'
-    id_no_mapa_fim: '18'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Casamento da Imperatriz (Projeto)
-    id_no_mapa: '19'
     dificuldade: PROJETO
----
+---
 

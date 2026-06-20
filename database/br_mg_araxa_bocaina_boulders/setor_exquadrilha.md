@@ -1,4 +1,4 @@
----
+---
 nome: Exquadrilha
 mapas:
 - caminho_imagem_mapa: imagens/setor_exquadrilha_p0.webp
@@ -40,35 +40,42 @@ mapas:
       y: 649
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Fumaça Sagrada
+    ids:
+    - '01'
+  - escalada: Exquadrilha da Fumaça
+    ids:
+    - '02'
+  - escalada: Quadrilha da Fumaça
+    ids:
+    - '03'
+  - escalada: Planet Hemp
+    ids:
+    - '04'
+  - escalada: Cypress Hill
+    ids:
+    - '05'
 escaladas:
 - boulder:
     nome: Fumaça Sagrada
-    id_no_mapa: '01'
     dificuldade: V7
-    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente
-      grande e segue pelo Exquadrilha da Fumaça.
+    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente grande e segue pelo Exquadrilha da Fumaça.
 - boulder:
     nome: Exquadrilha da Fumaça
-    id_no_mapa: '02'
     dificuldade: V5
-    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para
-      direita em agarrão virando na lateral no bloco.
+    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para direita em agarrão virando na lateral no bloco.
 - boulder:
     nome: Quadrilha da Fumaça
-    id_no_mapa: '03'
     dificuldade: V4
-    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando
-      a direita do bloco.
+    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando a direita do bloco.
 - boulder:
     nome: Planet Hemp
-    id_no_mapa: '04'
     dificuldade: V5
-    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando
-      reto proa.
+    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando reto proa.
 - boulder:
     nome: Cypress Hill
-    id_no_mapa: '05'
     dificuldade: V6
     descricao: Saída do exquadrilha e virando no Planet Hemp.
----
+---
 # Setor Exquadrilha

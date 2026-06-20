@@ -1,4 +1,4 @@
----
+---
 nome: Setor Clube da Luta
 mapas:
 - caminho_imagem_mapa: imagens/setor_clube_da_luta_p1.webp
@@ -117,30 +117,73 @@ mapas:
       y: 1948
       comprimento: 65
       largura: 54
+  referencias:
+  - escalada: POLLY SHELBY
+    ids:
+    - '01'
+  - escalada: BLACK DOG
+    ids:
+    - '02'
+  - escalada: INCONSCIENTE COLETIVO
+    ids:
+    - '03'
+  - escalada: DISCÍPULOS DE BIBIU
+    ids:
+    - '04'
+  - escalada: EL NINHO
+    ids:
+    - '05'
+  - escalada: O PECADOR
+    ids:
+    - '06'
+  - escalada: PROMESSA É DÍVIDA
+    ids:
+    - '07'
+  - escalada: RINS DE PEDRA
+    ids:
+    - '08'
+  - escalada: PAGADOR DE PROMESSA
+    ids:
+    - '09'
+  - escalada: BIBI CORAGEM
+    ids:
+    - '10'
+  - escalada: DE MALANDRO A GRANFINO
+    ids:
+    - '11'
+  - escalada: CLUBE DA LUTA
+    ids:
+    - '12'
+  - escalada: ROLO COMPRESSOR
+    ids:
+    - '13'
+  - escalada: O ESPECIALISTA
+    ids:
+    - '14'
+  - escalada: O GUARDA COSTA
+    ids:
+    - '15'
+  - escalada: MARIA MADALENA
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: POLLY SHELBY
-    id_no_mapa: '01'
     dificuldade: BR_9C
 - via_esportiva:
     nome: BLACK DOG
-    id_no_mapa: '02'
     dificuldade: BR_9C
 - via_esportiva:
     nome: INCONSCIENTE COLETIVO
-    id_no_mapa: '03'
     dificuldade: BR_9B
 - via_esportiva:
     nome: DISCÍPULOS DE BIBIU
-    id_no_mapa: '04'
     dificuldade: BR_9A
 - via_esportiva:
     nome: EL NINHO
-    id_no_mapa: '05'
     dificuldade: BR_7C
 - via_multiplas_enfiadas:
     nome: O PECADOR
-    id_no_mapa: '06'
     dificuldade_maxima: BR_8B
     enfiadas:
     - via_esportiva:
@@ -151,7 +194,6 @@ escaladas:
         dificuldade: BR_8B
 - via_multiplas_enfiadas:
     nome: PROMESSA É DÍVIDA
-    id_no_mapa: '07'
     dificuldade_maxima: BR_8A
     enfiadas:
     - via_esportiva:
@@ -162,7 +204,6 @@ escaladas:
         dificuldade: BR_8A
 - via_multiplas_enfiadas:
     nome: RINS DE PEDRA
-    id_no_mapa: '08'
     dificuldade_maxima: BR_8B
     enfiadas:
     - via_esportiva:
@@ -173,7 +214,6 @@ escaladas:
         dificuldade: BR_8B
 - via_multiplas_enfiadas:
     nome: PAGADOR DE PROMESSA
-    id_no_mapa: '09'
     dificuldade_maxima: BR_8B
     enfiadas:
     - via_esportiva:
@@ -184,23 +224,18 @@ escaladas:
         dificuldade: BR_8B
 - via_esportiva:
     nome: BIBI CORAGEM
-    id_no_mapa: '10'
     dificuldade: BR_7C
 - via_esportiva:
     nome: DE MALANDRO A GRANFINO
-    id_no_mapa: '11'
     dificuldade: BR_10A
 - via_esportiva:
     nome: CLUBE DA LUTA
-    id_no_mapa: '12'
     dificuldade: BR_9B
 - via_esportiva:
     nome: ROLO COMPRESSOR
-    id_no_mapa: '13'
     dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: O ESPECIALISTA
-    id_no_mapa: '14'
     dificuldade_maxima: BR_9C
     enfiadas:
     - via_esportiva:
@@ -214,11 +249,9 @@ escaladas:
         dificuldade: PROJETO
 - via_esportiva:
     nome: O GUARDA COSTA
-    id_no_mapa: '15'
     dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: MARIA MADALENA
-    id_no_mapa: '16'
     dificuldade_maxima: PROJETO
     enfiadas:
     - via_esportiva:
@@ -227,7 +260,7 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: PROJETO
----
+---
 # Setor Clube da Luta
 
 ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp)

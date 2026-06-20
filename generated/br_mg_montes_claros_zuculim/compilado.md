@@ -73,7 +73,7 @@
             | ![Trilha de Acesso Área de Escalada](imagens/mapas_gerais_p1_i0.webp) |
             | :--: |
             | *Trilha de Acesso Área de Escalada* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_1
@@ -85,38 +85,57 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_1_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Escada de Macaco
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Chuva de Medo
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Usuário de Crock
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Detenção sem Muro
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Chave Reserva
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Mamba Negra
+        - **ids**:
+          - 6
     - **largura_mapa**: 1744
     - **altura_mapa**: 1155
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Escada de Macaco
-      - **id_no_mapa**: 1
       - **dificuldade**: PROJETO
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Chuva de Medo
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_8A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Usuário de Crock
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Detenção sem Muro
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Chave Reserva
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Mamba Negra
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_8A
 
 
@@ -129,53 +148,81 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_2_do_buraco_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aureura Boreal
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Zuculin
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Morador Verde
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Prisão de Bolt
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Nova Era
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Dinastia Ming
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Aprendiz de Conquisteiro
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Totem
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Tempestade de Calcário
+        - **ids**:
+          - 9
     - **largura_mapa**: 1894
     - **altura_mapa**: 1228
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Aureura Boreal
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Zuculin
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7C
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Morador Verde
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7B
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Prisão de Bolt
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7C_BARRA_8A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Nova Era
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Dinastia Ming
-      - **id_no_mapa**: 6
       - **dificuldade**: INDEFINIDO
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Aprendiz de Conquisteiro
-      - **id_no_mapa**: 7
       - **dificuldade**: PROJETO
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Totem
-      - **id_no_mapa**: 8
       - **dificuldade**: PROJETO
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Tempestade de Calcário
-      - **id_no_mapa**: 9
       - **dificuldade**: PROJETO
 
 
@@ -188,34 +235,50 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_3_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Tempestade de Calcário
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Lombra
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Água Fresca
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Navegantes da Ilusão
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Pérola Negra
+        - **ids**:
+          - 5
     - **largura_mapa**: 1820
     - **altura_mapa**: 727
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Tempestade de Calcário
-      - **id_no_mapa**: 1
       - **dificuldade**: PROJETO
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Falta Top Duplo
       - **nome**: Lombra
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Água Fresca
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Navegantes da Ilusão
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Pérola Negra
-      - **id_no_mapa**: 5
       - **dificuldade**: PROJETO
 
 
@@ -228,43 +291,65 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_4_da_caverna_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pérola Negra
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Calabouço
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Iluminado
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Zuzu Dreams
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Zuzutime
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Zuzulin
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Epinefrina 05
+        - **ids**:
+          - 7
     - **largura_mapa**: 1652
     - **altura_mapa**: 1044
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Pérola Negra
-      - **id_no_mapa**: 1
       - **dificuldade**: PROJETO
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Calabouço
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_8B
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Iluminado
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_9C
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Zuzu Dreams
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_9A_BARRA_9B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Zuzutime
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_8C
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Zuzulin
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_8A
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Epinefrina 05
-      - **id_no_mapa**: 7
       - **dificuldade**: PROJETO
 
 

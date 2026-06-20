@@ -1,4 +1,4 @@
----
+---
 nome: Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp
@@ -61,10 +61,34 @@ mapas:
       y: 833
       comprimento: 43
       largura: 52
+  referencias:
+  - escalada: Vivi Fernandes
+    ids:
+    - '1'
+  - escalada: Kid Bengala
+    ids:
+    - '2'
+  - escalada: Lolla
+    ids:
+    - '3'
+  - escalada: Emanuelle
+    ids:
+    - '4'
+  - escalada: Bruna Surfistinha
+    ids:
+    - '5'
+  - escalada: Hilda Furacão
+    ids:
+    - '6'
+  - escalada: Cicciolina
+    ids:
+    - '7'
+  - escalada: Bordel
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Vivi Fernandes
-    id_no_mapa: '1'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -74,7 +98,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Kid Bengala
-    id_no_mapa: '2'
     dificuldade: BR_4
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -84,7 +107,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Lolla
-    id_no_mapa: '3'
     dificuldade: BR_3
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -94,7 +116,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Emanuelle
-    id_no_mapa: '4'
     dificuldade: BR_3
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -104,7 +125,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_movel:
     nome: Bruna Surfistinha
-    id_no_mapa: '5'
     dificuldade: BR_4
     extensao: 10
     protecoes_moveis: Móvel
@@ -114,7 +134,6 @@ escaladas:
     - Felipe Dias
 - via_esportiva:
     nome: Hilda Furacão
-    id_no_mapa: '6'
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -123,7 +142,6 @@ escaladas:
     - Fábio de Melo
 - via_movel:
     nome: Cicciolina
-    id_no_mapa: '7'
     dificuldade: BR_4
     extensao: 10
     protecoes_moveis: Móvel
@@ -133,14 +151,13 @@ escaladas:
     - Felipe Dias
 - via_esportiva:
     nome: Bordel
-    id_no_mapa: '8'
     dificuldade: BR_3
     extensao: 8
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     conquistadores:
     - Rodrigo 'Mussula'
----
+---
 # Setor Campo Escola
 
 Setor com vias de 8m até 10m.

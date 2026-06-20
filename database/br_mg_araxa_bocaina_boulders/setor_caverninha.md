@@ -1,4 +1,4 @@
----
+---
 nome: Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverninha_p0.webp
@@ -12,6 +12,40 @@ mapas:
       y: 712
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Mingau
+    ids:
+    - '01'
+  - escalada: Pretinho Irlandês
+    ids:
+    - '02'
+  - escalada: Ratos e Raízes
+    ids:
+    - '03'
+  - escalada: Tripa Eterna
+    ids:
+    - '04'
+  - escalada: Trip Eterna
+    ids:
+    - '05'
+  - escalada: Mecanismo
+    ids:
+    - '06'
+  - escalada: Pedrada
+    ids:
+    - '07'
+  - escalada: Aedes Egipse
+    ids:
+    - '08'
+  - escalada: V9 do Rafinha
+    ids:
+    - '09'
+  - escalada: Os Trabalhos Não Param
+    ids:
+    - '10'
+  - escalada: Trabalho em Equipe
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_caverninha_p1.webp
   largura_mapa: 1069
   altura_mapa: 868
@@ -93,70 +127,47 @@ mapas:
 escaladas:
 - boulder:
     nome: Mingau
-    id_no_mapa: '01'
     dificuldade: V2
-    descricao: Saída com as mãos juntas em reglete bom, seguindo para sequencia de
-      reglete e agarrão virando no meio do bloco.
+    descricao: Saída com as mãos juntas em reglete bom, seguindo para sequencia de reglete e agarrão virando no meio do bloco.
 - boulder:
     nome: Pretinho Irlandês
-    id_no_mapa: '02'
     dificuldade: V2
-    descricao: Saída agaixado com as duas mãos em agarrão, seguindo reto por batente
-      lateral virando a esquerda do bloco na parte de cima.
+    descricao: Saída agaixado com as duas mãos em agarrão, seguindo reto por batente lateral virando a esquerda do bloco na parte de cima.
 - boulder:
     nome: Ratos e Raízes
-    id_no_mapa: '03'
     dificuldade: V1
-    descricao: Saída do pretinho Irlandes seguindo primeiros movimentos na fenda reta
-      virando na direita.
+    descricao: Saída do pretinho Irlandes seguindo primeiros movimentos na fenda reta virando na direita.
 - boulder:
     nome: Tripa Eterna
-    id_no_mapa: '04'
     dificuldade: V4
-    descricao: Saída do Pretinho Irlandes indo para pinçá a direita da agarra de saída
-      seguindo para batentes escorridos e virando no centro do bloco
+    descricao: Saída do Pretinho Irlandes indo para pinçá a direita da agarra de saída seguindo para batentes escorridos e virando no centro do bloco
 - boulder:
     nome: Trip Eterna
-    id_no_mapa: '05'
     dificuldade: V6
-    descricao: Saída do Pretinho Irlandes indo para pinça a direita da agarra de saída,
-      seguindo para batentes escorridos virando a direita do bloco.
+    descricao: Saída do Pretinho Irlandes indo para pinça a direita da agarra de saída, seguindo para batentes escorridos virando a direita do bloco.
 - boulder:
     nome: Mecanismo
-    id_no_mapa: '06'
     dificuldade: V7
-    descricao: Saída sentado com a mao esquerda em batentee mao direita em reglete
-      e calchanhar equerdo na altura da mão esquerda, passando por buracos no teto,
-      seguindo para agarra triangular e virando no Trip Eterna.
+    descricao: Saída sentado com a mao esquerda em batentee mao direita em reglete e calchanhar equerdo na altura da mão esquerda, passando por buracos no teto, seguindo para agarra triangular e virando no Trip Eterna.
 - boulder:
     nome: Pedrada
-    id_no_mapa: '07'
     dificuldade: V3
-    descricao: Saida sentado com as mãos em dois batentes escorridos, virando no Pretinho
-      Irlandês.
+    descricao: Saida sentado com as mãos em dois batentes escorridos, virando no Pretinho Irlandês.
 - boulder:
     nome: Aedes Egipse
-    id_no_mapa: '08'
     dificuldade: V5
-    descricao: Saída sentado em batentes escorridos seguindo para esquerda em sequencia
-      de regletes no meio do bloco virando em abaulado grande.
+    descricao: Saída sentado em batentes escorridos seguindo para esquerda em sequencia de regletes no meio do bloco virando em abaulado grande.
 - boulder:
     nome: V9 do Rafinha
-    id_no_mapa: '09'
     dificuldade: V9
-    descricao: Saída do pedrada, e seguir sequencia de batentes e regletes pela parte
-      debaixo do bloco virando na aresta esquerda.
+    descricao: Saída do pedrada, e seguir sequencia de batentes e regletes pela parte debaixo do bloco virando na aresta esquerda.
 - boulder:
     nome: Os Trabalhos Não Param
-    id_no_mapa: '10'
     dificuldade: V6
-    descricao: Saída sentado com as duas mãos em reglete grande baixo e calcanhar
-      esquerdo mais alto que as mãos, virando no Trip Eterna.
+    descricao: Saída sentado com as duas mãos em reglete grande baixo e calcanhar esquerdo mais alto que as mãos, virando no Trip Eterna.
 - boulder:
     nome: Trabalho em Equipe
-    id_no_mapa: '11'
     dificuldade: V5
-    descricao: Saída sentado com a mão esquerda em batente de compressão e direita
-      em reglete aberto acima da cabeça.
----
+    descricao: Saída sentado com a mão esquerda em batente de compressão e direita em reglete aberto acima da cabeça.
+---
 # Setor Caverninha

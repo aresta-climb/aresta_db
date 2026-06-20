@@ -93,7 +93,7 @@
             - **E-mail:** comercial@canelaema.com.br
             - **GPS:** 19º53'5290'' 43º32'1188''
             - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_chamine
@@ -105,6 +105,11 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_chamine_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Bin Laden
+        - **ids**:
+          - 35
     - **largura_mapa**: 1768
     - **altura_mapa**: 605
 - **escaladas**:
@@ -112,7 +117,6 @@
     - **via_esportiva**:
       - **descricao**: Via difícil, técnica. Agarras abauladas em local sombrio tornam essa via mais delicada. Ótima opção. Molha bastante no verão.
       - **nome**: Bin Laden
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_8B
       - **extensao**: 25
       - **conquistadores**:
@@ -136,6 +140,23 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Princesa léia
+        - **ids**:
+          - 31
+      - **[1]**:
+        - **escalada**: Double trouble
+        - **ids**:
+          - 32
+      - **[2]**:
+        - **escalada**: Supurados
+        - **ids**:
+          - 33
+      - **[3]**:
+        - **escalada**: O doce e o amargo
+        - **ids**:
+          - 34
     - **largura_mapa**: 1768
     - **altura_mapa**: 605
 - **escaladas**:
@@ -143,7 +164,6 @@
     - **via_movel**:
       - **descricao**: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em cima da caverninha usada como abrigo. Peças pequenas e médias.
       - **nome**: Princesa léia
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7A
       - **extensao**: 40
       - **conquistadores**:
@@ -153,7 +173,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio da técnica móvel. Terceira enfiada exposta. Peças médias e grandes.
       - **nome**: Double trouble
-      - **id_no_mapa**: 32
       - **dificuldade_maxima**: BR_7B
       - **exposicao**: E3
       - **numero_enfiadas**: 3
@@ -166,7 +185,6 @@
     - **via_movel**:
       - **descricao**: Via mista muito interessante. Possui belas fendas em rocha muito sólida. Peças pequenas e médias. Crux protegido com chapeletas.
       - **nome**: Supurados
-      - **id_no_mapa**: 33
       - **dificuldade**: INDEFINIDO
       - **extensao**: 30
       - **conquistadores**:
@@ -176,7 +194,6 @@
     - **via_esportiva**:
       - **descricao**: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem um teto espetacular na parte final da via. Muito bonita!
       - **nome**: O doce e o amargo
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_9A
       - **extensao**: 60
       - **conquistadores**:
@@ -199,6 +216,11 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_torres_p2.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Projeto?
+        - **ids**:
+          - 39
     - **largura_mapa**: 2048
     - **altura_mapa**: 1448
 - **escaladas**:
@@ -227,7 +249,6 @@
     - **via_movel**:
       - **descricao**: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
       - **nome**: Projeto?
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Edgardo Abreu
@@ -243,6 +264,35 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_felinas_p0_i7.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pó branco
+        - **ids**:
+          - 7
+      - **[1]**:
+        - **escalada**: Gata borralheira
+        - **ids**:
+          - 6
+      - **[2]**:
+        - **escalada**: Marvada onça
+        - **ids**:
+          - 5
+      - **[3]**:
+        - **escalada**: Tigresa
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Pantera
+        - **ids**:
+          - 3
+      - **[5]**:
+        - **escalada**: Suçuarana
+        - **ids**:
+          - 2
+      - **[6]**:
+        - **escalada**: Davi e Golias
+        - **ids**:
+          - 1
     - **largura_mapa**: 487
     - **altura_mapa**: 958
   - **[1]**:
@@ -267,7 +317,6 @@
     - **via_esportiva**:
       - **descricao**: Via exigente, boulderistica. Molha no verão.
       - **nome**: Pó branco
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_8A
       - **extensao**: 20
       - **conquistadores**:
@@ -277,7 +326,6 @@
     - **via_esportiva**:
       - **descricao**: Via interessante com belas passadas em canaleta. Bastante técnica, molha bastante no verão, tornando impraticável a escalada nos meses mais úmidos.
       - **nome**: Gata borralheira
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7C
       - **extensao**: 30
       - **conquistadores**:
@@ -289,7 +337,6 @@
     - **via_esportiva**:
       - **descricao**: Via técnica com um pequeno teto no meio. Uma das mais frequentadas da parede.
       - **nome**: Marvada onça
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7C
       - **extensao**: 30
       - **conquistadores**:
@@ -298,7 +345,6 @@
     - **via_esportiva**:
       - **descricao**: Mistura técnica e resistência em bela passadas. Possui dois tetos. A primeira proteção após o segundo teto deve ser trocada.
       - **nome**: Tigresa
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A_BARRA_8B
       - **extensao**: 50
       - **conquistadores**:
@@ -309,7 +355,6 @@
     - **via_esportiva**:
       - **descricao**: Técnica e forte. Talvez a via mais frequentada da parede. Muito estética!
       - **nome**: Pantera
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8B
       - **extensao**: 90
       - **conquistadores**:
@@ -321,7 +366,6 @@
     - **via_esportiva**:
       - **descricao**: Via fixa mais acessível de todo o complexo. Bastante frequentada.
       - **nome**: Suçuarana
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7A
       - **extensao**: 40
       - **conquistadores**:
@@ -330,7 +374,6 @@
     - **via_movel**:
       - **descricao**: Bem fácil no inicio, tem um crux no meio protegido com P's e depois um presente com belas sequencias em fenda frontal pouco vistas em MG. Termina em um grampo. Peças pequenas e médias.
       - **nome**: Davi e Golias
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7B
       - **extensao**: 30
       - **conquistadores**:
@@ -356,6 +399,27 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fendas_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Noites equatoriais
+        - **ids**:
+          - 16
+      - **[1]**:
+        - **escalada**: Vomitão no reglete
+        - **ids**:
+          - 18
+      - **[2]**:
+        - **escalada**: Soul rebel
+        - **ids**:
+          - 20
+      - **[3]**:
+        - **escalada**: Positive vibration
+        - **ids**:
+          - 21
+      - **[4]**:
+        - **escalada**: Princesa Kel
+        - **ids**:
+          - 22
     - **largura_mapa**: 1768
     - **altura_mapa**: 605
 - **escaladas**:
@@ -363,7 +427,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Segue sistema de fendas principal da parede. Exige boa leitura de via.
       - **nome**: Noites equatoriais
-      - **id_no_mapa**: 16
       - **dificuldade_maxima**: BR_7A
       - **exposicao**: E3
       - **tipo_via_multiplas_enfiadas**: MISTA
@@ -378,7 +441,6 @@
     - **via_esportiva**:
       - **descricao**: Via vertical e pequenos regletes. Boa opção, mas molha no verão.
       - **nome**: Vomitão no reglete
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7B
       - **extensao**: 30
       - **conquistadores**:
@@ -387,7 +449,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Soul rebel
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7B
       - **extensao**: 30
       - **conquistadores**:
@@ -396,7 +457,6 @@
     - **via_movel**:
       - **descricao**: Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção com abelhas próximo da via, à esquerda.
       - **nome**: Positive vibration
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7A
       - **extensao**: 40
       - **conquistadores**:
@@ -405,7 +465,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da parede principal. Grampos somente nas paradas.
       - **nome**: Princesa Kel
-      - **id_no_mapa**: 22
       - **dificuldade_maxima**: INDEFINIDO
       - **tipo_via_multiplas_enfiadas**: TODA_MOVEL
       - **conquistadores**:
@@ -426,6 +485,31 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_arco_p2.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Onde os fracos não tem vez
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Horizonte dos eventos
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Arco da Santa vitamina
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Malateus?
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Clandestino
+        - **ids**:
+          - 14
+      - **[5]**:
+        - **escalada**: Totalmente demais
+        - **ids**:
+          - 15
     - **largura_mapa**: 2048
     - **altura_mapa**: 1448
 - **escaladas**:
@@ -433,7 +517,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Via muito exigente que corta a parede principal na sua parte mais negativa. Começa na 'aresta que me resta' e termina na 'aresta eletrizante'.
       - **nome**: Onde os fracos não tem vez
-      - **id_no_mapa**: 10
       - **dificuldade_maxima**: BR_8B
       - **exposicao**: E3
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
@@ -445,7 +528,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Primeira via da parede. Segue linha natural de fendas e chaminés até a base do arco. Peças médias e grandes, inclusive cam's 3,5 e 4 ou similares.
       - **nome**: Horizonte dos eventos
-      - **id_no_mapa**: 11
       - **dificuldade_maxima**: BR_7C
       - **exposicao**: E3
       - **tipo_via_multiplas_enfiadas**: MISTA
@@ -457,7 +539,6 @@
     - **via_movel**:
       - **descricao**: Via em arco horizontal. Peças médias e grandes. Cam 4 e 5 ou similares.
       - **nome**: Arco da Santa vitamina
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7C
       - **extensao**: 25
       - **conquistadores**:
@@ -467,7 +548,6 @@
     - **via_movel**:
       - **descricao**: Via inacabada que atravessa a parede principal passando por um belo arco. Linha muito estética e que deve se tornar uma das mais bonitas escaladas do lugar.
       - **nome**: Malateus?
-      - **id_no_mapa**: 13
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Matheus (SP)
@@ -475,7 +555,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Boa opção de via longa para um fim de tarde. Para fazer a quarta enfiada deixar corda fixa em P3. Usar fitas longas, especialmente na 3ª e 4ª enfiadas. 4ª enfiada exige bastante atenção. Rapel de P3 até P1 com corda de 60m. Com corda de 50m deve-se fixar entre P3 e P2 ou fracionar o rapel até P1.
       - **nome**: Clandestino
-      - **id_no_mapa**: 14
       - **dificuldade_maxima**: BR_7A
       - **exposicao**: E3
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
@@ -488,7 +567,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Linda via que corta o arco em grande teto protegido com chapeletas.
       - **nome**: Totalmente demais
-      - **id_no_mapa**: 15
       - **dificuldade_maxima**: BR_9B
       - **dificuldade_artificial**: A0
       - **exposicao**: E3
@@ -516,6 +594,43 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_aresta_p2.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Macadame
+        - **ids**:
+          - 3
+      - **[1]**:
+        - **escalada**: Limite da ousadia
+        - **ids**:
+          - 4
+      - **[2]**:
+        - **escalada**: Diedro urso branco (var.)
+        - **ids**:
+          - 4'
+      - **[3]**:
+        - **escalada**: Só para loucos
+        - **ids**:
+          - 5
+      - **[4]**:
+        - **escalada**: Canino quebrado
+        - **ids**:
+          - 6
+      - **[5]**:
+        - **escalada**: Vinicius?
+        - **ids**:
+          - 7
+      - **[6]**:
+        - **escalada**: Aresta eletrizante
+        - **ids**:
+          - 8
+      - **[7]**:
+        - **escalada**: Aresta que me resta
+        - **ids**:
+          - 9
+      - **[8]**:
+        - **escalada**: Aresta que me eletriza (var.)
+        - **ids**:
+          - 9'
     - **largura_mapa**: 2048
     - **altura_mapa**: 1448
 - **escaladas**:
@@ -523,7 +638,6 @@
     - **via_esportiva**:
       - **descricao**: Bela via em agarras, bastante negativa. Tem um interessante bote no inicio que pode ser previamente protegido pela chaminé. Equipada com chapeletas.
       - **nome**: Macadame
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8B
       - **extensao**: 30
       - **conquistadores**:
@@ -533,7 +647,6 @@
     - **via_movel**:
       - **descricao**: Interessante via em fenda. O crux é protegido com P's. Peças variadas médias e grandes.
       - **nome**: Limite da ousadia
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_9A
       - **extensao**: 30
       - **conquistadores**:
@@ -543,7 +656,6 @@
     - **via_movel**:
       - **descricao**: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends pequenos e médios. Nuts grandes.
       - **nome**: Diedro urso branco (var.)
-      - **id_no_mapa**: 4'
       - **dificuldade**: INDEFINIDO
       - **extensao**: 13
       - **conquistadores**:
@@ -554,7 +666,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas paradas possuem mosquetões de aço pra desequipagem. Usar costuras longas.
       - **nome**: Só para loucos
-      - **id_no_mapa**: 5
       - **dificuldade_maxima**: BR_8B
       - **numero_enfiadas**: 2
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
@@ -567,7 +678,6 @@
     - **via_esportiva**:
       - **descricao**: Bonita via com um teto no meio. A parte superior, após o teto molha em determinadas épocas do ano.
       - **nome**: Canino quebrado
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7B
       - **extensao**: 25
       - **conquistadores**:
@@ -577,7 +687,6 @@
     - **via_esportiva**:
       - **descricao**: Bela via, muito estética. Compartilha a primeira proteção com a 'canino quebrado'. Segue em diagonal pra esquerda. Top na proteção do teto.
       - **nome**: Vinicius?
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_6SUP
       - **extensao**: 20
       - **conquistadores**:
@@ -587,7 +696,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do estado. Exigente no inicio e exposta no final. Segue a aresta principal da parede num visual incrível. Exige boa leitura especialmente próximo ao cume. Indispensável um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais P's de 1/2 pol. Excentric grande, um jogo de friends e nuts na primeira enfiada.
       - **nome**: Aresta eletrizante
-      - **id_no_mapa**: 8
       - **dificuldade_maxima**: BR_7C
       - **exposicao**: E3
       - **tipo_via_multiplas_enfiadas**: MISTA
@@ -603,7 +711,6 @@
     - **via_esportiva**:
       - **descricao**: Boa via, bastante técnica em micro agarras.
       - **nome**: Aresta que me resta
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7B
       - **extensao**: 40
       - **conquistadores**:
@@ -612,7 +719,6 @@
     - **via_movel**:
       - **descricao**: Fenda em diagonal que une as duas vias anteriores. Peças médias.
       - **nome**: Aresta que me eletriza (var.)
-      - **id_no_mapa**: 9'
       - **dificuldade**: BR_7C
       - **dificuldade_artificial**: A1_MAIS
       - **extensao**: 10
@@ -637,6 +743,19 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_polegar_p1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Quadrado mágico
+        - **ids**:
+          - 36
+      - **[1]**:
+        - **escalada**: Projeto?
+        - **ids**:
+          - 37
+      - **[2]**:
+        - **escalada**: Projeto?
+        - **ids**:
+          - 38
     - **largura_mapa**: 2048
     - **altura_mapa**: 1448
 - **escaladas**:
@@ -644,7 +763,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel. Peças variadas, especialmente médias.
       - **nome**: Quadrado mágico
-      - **id_no_mapa**: 36
       - **dificuldade_maxima**: BR_8A
       - **tipo_via_multiplas_enfiadas**: MISTA
       - **conquistadores**:
@@ -655,7 +773,6 @@
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Projeto?
-      - **id_no_mapa**: 37
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Antonio Canelas
@@ -664,7 +781,6 @@
     - **via_esportiva**:
       - **descricao**: Projeto na grande chaminé entre o Polegar e a parede principal.
       - **nome**: Projeto?
-      - **id_no_mapa**: 38
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -686,6 +802,15 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Quebra cabeça
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Imagem e ação
+        - **ids**:
+          - 2
     - **largura_mapa**: 2048
     - **altura_mapa**: 1448
 - **escaladas**:
@@ -693,7 +818,6 @@
     - **via_esportiva**:
       - **descricao**: Via perigosa, muitas pontas quebradiças. Usar fitas longas. Molha em época de chuvas. Usa-se o top da 'imagem e ação'.
       - **nome**: Quebra cabeça
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **exposicao**: E3
       - **extensao**: 20
@@ -704,7 +828,6 @@
     - **via_esportiva**:
       - **descricao**: Linda via. Escalada bastante estética em aresta negativa. Proporciona belas imagens. Top equipado com mosquetões de aço para desequipagem da via.
       - **nome**: Imagem e ação
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7B
       - **extensao**: 20
       - **conquistadores**:

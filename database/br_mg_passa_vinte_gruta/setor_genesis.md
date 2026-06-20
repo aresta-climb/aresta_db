@@ -1,4 +1,4 @@
----
+---
 nome: Gênesis
 mapas:
 - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
@@ -194,104 +194,151 @@ mapas:
       y: 787
       comprimento: 500
       largura: 30
+  referencias:
+  - escalada: Tow Plac Two Plow
+    ids:
+    - '01'
+  - escalada: Periguete
+    ids:
+    - '02'
+  - escalada: The Glands
+    ids:
+    - '03'
+  - escalada: Ext. The Glands
+    ids:
+    - 04_topo
+    - 04_topo
+  - escalada: Quartzolit
+    ids:
+    - '05'
+  - escalada: Ext. Quartzolit (Projeto)
+    ids:
+    - '06'
+    - '06'
+  - escalada: Jorginho
+    ids:
+    - '07'
+  - escalada: Toca do Sadu
+    ids:
+    - 08_base
+  - escalada: Triplo X
+    ids:
+    - '09'
+  - escalada: Além do Horizonte
+    ids:
+    - 10_base
+  - escalada: Salto para Infinito
+    ids:
+    - '11'
+  - escalada: Êxodo
+    ids:
+    - '12'
+  - escalada: Gênesis
+    ids:
+    - '13'
+  - escalada: Ext. Gênesis
+    ids:
+    - '14'
+    - '14'
+  - escalada: Cronos
+    ids:
+    - '15'
+  - escalada: Goela Seca
+    ids:
+    - '16'
+  - escalada: Gogó
+    ids:
+    - '17'
+  - escalada: Ext. Gogó
+    ids:
+    - '18'
+    - '18'
+  - escalada: 3.6 Turbo
+    ids:
+    - '19'
+  - escalada: Brown & Brow
+    ids:
+    - '20'
+  - escalada: Sinairo P1
+    ids:
+    - '21'
+  - escalada: Sinario P2
+    ids:
+    - '22'
+    - '22'
+  - escalada: Sinairo P3
+    ids:
+    - '23'
+    - '23'
 escaladas:
 - via_esportiva:
     nome: Tow Plac Two Plow
-    id_no_mapa: '01'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Periguete
-    id_no_mapa: '02'
     dificuldade: BR_9C
 - via_esportiva:
     nome: The Glands
-    id_no_mapa: '03'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Ext. The Glands
-    id_no_mapa: '04_topo'
-    id_no_mapa_fim: '04_topo'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Quartzolit
-    id_no_mapa: '05'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Ext. Quartzolit (Projeto)
-    id_no_mapa: '06'
-    id_no_mapa_fim: '06'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Jorginho
-    id_no_mapa: '07'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Toca do Sadu
-    id_no_mapa: '08_base'
     dificuldade: BR_11A
 - via_esportiva:
     nome: Triplo X
-    id_no_mapa: '09'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Além do Horizonte
-    id_no_mapa: '10_base'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Salto para Infinito
-    id_no_mapa: '11'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Êxodo
-    id_no_mapa: '12'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Gênesis
-    id_no_mapa: '13'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Ext. Gênesis
-    id_no_mapa: '14'
-    id_no_mapa_fim: '14'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Cronos
-    id_no_mapa: '15'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Goela Seca
-    id_no_mapa: '16'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Gogó
-    id_no_mapa: '17'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Ext. Gogó
-    id_no_mapa: '18'
-    id_no_mapa_fim: '18'
     dificuldade: BR_10C
 - via_esportiva:
     nome: 3.6 Turbo
-    id_no_mapa: '19'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Brown & Brow
-    id_no_mapa: '20'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Sinairo P1
-    id_no_mapa: '21'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Sinario P2
-    id_no_mapa: '22'
-    id_no_mapa_fim: '22'
     dificuldade: BR_11B
 - via_esportiva:
     nome: Sinairo P3
-    id_no_mapa: '23'
-    id_no_mapa_fim: '23'
     dificuldade: PROJETO
----
+---
 

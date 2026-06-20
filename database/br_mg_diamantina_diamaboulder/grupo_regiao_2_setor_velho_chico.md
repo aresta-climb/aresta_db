@@ -1,4 +1,4 @@
----
+---
 nome: Velho Chico
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_velho_chico_p0_i0.webp
@@ -47,22 +47,29 @@ mapas:
       y: 314
       comprimento: 29
       largura: 35
+  referencias:
+  - escalada: Velho Chico
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Minduim
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Frango D'Água
+    ids:
+    - '3'
+    - 3_fim
 escaladas:
 - boulder:
     nome: Velho Chico
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V4
 - boulder:
     nome: Minduim
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V3
 - boulder:
     nome: Frango D'Água
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V3
----
+---
 # Bloco: Velho Chico
 ## Região 2

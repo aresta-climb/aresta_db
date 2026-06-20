@@ -1,6 +1,5 @@
----
+---
 nome: Witness
-id_no_mapa: '12'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p0.webp
   largura_mapa: 759
@@ -27,6 +26,19 @@ mapas:
       y: 500
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Mandarim
+    ids:
+    - '1'
+  - escalada: Pressão Corporal
+    ids:
+    - '2'
+  - escalada: Witness the Weakness
+    ids:
+    - '3'
+  - escalada: Picasso
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p1.webp
   largura_mapa: 442
   altura_mapa: 581
@@ -41,21 +53,18 @@ mapas:
 escaladas:
 - boulder:
     nome: Mandarim
-    id_no_mapa: '1'
     dificuldade: V13
 - boulder:
     nome: Pressão Corporal
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: Witness the Weakness
-    id_no_mapa: '3'
     dificuldade: V11
 - boulder:
     nome: Picasso
-    id_no_mapa: '1'
     dificuldade: V5
----
+---
+
 # Setor Witness
 
 O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.

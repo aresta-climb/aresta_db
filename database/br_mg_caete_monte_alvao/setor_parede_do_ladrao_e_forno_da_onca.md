@@ -1,4 +1,4 @@
----
+---
 nome: Parede do Ladrão e Forno da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp
@@ -96,13 +96,52 @@ mapas:
       y: 558
       comprimento: 32
       largura: 47
+  referencias:
+  - escalada: Cuidado Ketely
+    ids:
+    - 1am
+  - escalada: You will survive
+    ids:
+    - 2am
+  - escalada: Cara ou Coroa
+    ids:
+    - 3am
+  - escalada: French CanCan
+    ids:
+    - 4am
+  - escalada: On the road again
+    ids:
+    - 5am
+  - escalada: Incrível mas verdadeiro
+    ids:
+    - 6am
+  - escalada: Bouder com leite
+    ids:
+    - 1az
+  - escalada: Chipie chipie
+    ids:
+    - 2az
+  - escalada: Bambi
+    ids:
+    - 3az
+  - escalada: Ana Thor
+    ids:
+    - 4az
+  - escalada: Au bout des doigts
+    ids:
+    - 5az
+  - escalada: Boom Boom
+    ids:
+    - 6az
+  - escalada: Petit Pichou
+    ids:
+    - 7az
 setores:
 - conteudo:
     nome: Forno da Onça
     escaladas:
     - via_esportiva:
         nome: Cuidado Ketely
-        id_no_mapa: 1am
         dificuldade: BR_6
         extensao: 24
         quantidade_protecoes_intermediarias: 8
@@ -111,7 +150,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: You will survive
-        id_no_mapa: 2am
         dificuldade: BR_7A
         extensao: 20
         quantidade_protecoes_intermediarias: 6
@@ -120,7 +158,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: Cara ou Coroa
-        id_no_mapa: 3am
         dificuldade: BR_6
         extensao: 22
         quantidade_protecoes_intermediarias: 6
@@ -129,7 +166,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: French CanCan
-        id_no_mapa: 4am
         dificuldade: BR_6SUP
         extensao: 28
         quantidade_protecoes_intermediarias: 5
@@ -138,7 +174,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: On the road again
-        id_no_mapa: 5am
         dificuldade: BR_6SUP
         extensao: 18
         quantidade_protecoes_intermediarias: 5
@@ -147,7 +182,6 @@ setores:
         - Jg
     - via_multiplas_enfiadas:
         nome: Incrível mas verdadeiro
-        id_no_mapa: 6am
         dificuldade_media: BR_6
         dificuldade_maxima: BR_6
         quantidade_costuras_intermediarias: 12
@@ -172,35 +206,30 @@ setores:
     escaladas:
     - via_esportiva:
         nome: Bouder com leite
-        id_no_mapa: 1az
         dificuldade: BR_5
         extensao: 25
         quantidade_protecoes_intermediarias: 4
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: Chipie chipie
-        id_no_mapa: 2az
         dificuldade: BR_4SUP
         extensao: 23
         quantidade_protecoes_intermediarias: 6
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: Bambi
-        id_no_mapa: 3az
         dificuldade: BR_4
         extensao: 20
         quantidade_protecoes_intermediarias: 4
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: Ana Thor
-        id_no_mapa: 4az
         dificuldade: BR_7C
         extensao: 15
         quantidade_protecoes_intermediarias: 6
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: Au bout des doigts
-        id_no_mapa: 5az
         dificuldade: BR_7B
         extensao: 22
         quantidade_protecoes_intermediarias: 6
@@ -211,19 +240,17 @@ setores:
         descricao: Base no platô superior
     - via_esportiva:
         nome: Boom Boom
-        id_no_mapa: 6az
         dificuldade: BR_6SUP
         extensao: 28
         quantidade_protecoes_intermediarias: 8
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: Petit Pichou
-        id_no_mapa: 7az
         dificuldade: BR_6SUP
         extensao: 28
         quantidade_protecoes_intermediarias: 8
         quantidade_protecoes_parada: 2
----
+---
 # Parede do Ladrão e Forno da Onça
 
 Estes setores estão localizados lado a lado no Alto Monte Alvão.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Bombonera
 mapas:
 - caminho_imagem_mapa: imagens/setor_bombonera_p0_i0.webp
@@ -82,37 +82,69 @@ mapas:
       y: 927
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Lá Cancha
+    ids:
+    - '1'
+  - escalada: La Mano de Dios
+    ids:
+    - '2'
+  - escalada: Projeto (sem nome)
+    ids:
+    - '3'
+  - escalada: Projeto (sem nome)
+    ids:
+    - '4'
+  - escalada: Barra Brava
+    ids:
+    - '5'
+  - escalada: Lá Bombonera
+    ids:
+    - '6'
+  - escalada: Diego Armando Maradona
+    ids:
+    - '7'
+  - escalada: River Plate (principal)
+    ids:
+    - 8-9
+  - escalada: Boca Junior (variante)
+    ids:
+    - 8-9
+  - escalada: (via inacabada) Superclassicos
+    ids:
+    - '10'
+  - escalada: San Lourenzo
+    ids:
+    - '11'
+  - escalada: La Marca
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: Lá Cancha
-    id_no_mapa: '1'
     dificuldade: BR_8C
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: La Mano de Dios
-    id_no_mapa: '2'
     dificuldade: BR_9B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Projeto (sem nome)
-    id_no_mapa: '3'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Projeto (sem nome)
-    id_no_mapa: '4'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
     data_abertura: '2020'
 - via_esportiva:
     nome: Barra Brava
-    id_no_mapa: '5'
     dificuldade: BR_10A
     destaque: true
     quantidade_protecoes_intermediarias: 8
@@ -120,7 +152,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Lá Bombonera
-    id_no_mapa: '6'
     destaque: true
     dificuldade: BR_9B_BARRA_9C
     quantidade_protecoes_intermediarias: 9
@@ -128,7 +159,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Diego Armando Maradona
-    id_no_mapa: '7'
     destaque: true
     dificuldade: BR_9C
     quantidade_protecoes_intermediarias: 8
@@ -136,39 +166,34 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: River Plate (principal)
-    id_no_mapa: '8-9'
     destaque: true
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Boca Junior (variante)
-    id_no_mapa: '8-9'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: (via inacabada) Superclassicos
-    id_no_mapa: '10'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 1
 - via_esportiva:
     nome: San Lourenzo
-    id_no_mapa: '11'
     dificuldade: BR_8C
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: La Marca
-    id_no_mapa: '12'
     dificuldade: BR_8A_BARRA_8B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2023'
----
+---
 # Setor bombonera
 
 ![Bombonera](imagens/setor_bombonera_p1_i0.webp)

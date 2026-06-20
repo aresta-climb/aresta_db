@@ -9,6 +9,25 @@ picos:
         nome: O Vale
         mapas:
         - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
+          referencias:
+          - escalada: Macumba
+            ids:
+            - '1'
+          - escalada: Macumbinha
+            ids:
+            - '2'
+          - escalada: Garage Inc.
+            ids:
+            - '3'
+          - escalada: Perereca suicida
+            ids:
+            - '4'
+          - escalada: Via do Silas
+            ids:
+            - '5'
+          - escalada: Inacabada
+            ids:
+            - '6'
           largura_mapa: 1032
           altura_mapa: 581
         - caminho_imagem_mapa: imagens/setor_o_vale_p1_i1.webp
@@ -20,27 +39,21 @@ picos:
         escaladas:
         - via_esportiva:
             nome: Macumba
-            id_no_mapa: '1'
             dificuldade: BR_4
         - via_esportiva:
             nome: Macumbinha
-            id_no_mapa: '2'
             dificuldade: BR_5SUP
         - via_esportiva:
             nome: Garage Inc.
-            id_no_mapa: '3'
             dificuldade: BR_5SUP
         - via_esportiva:
             nome: Perereca suicida
-            id_no_mapa: '4'
             dificuldade: BR_5
         - via_esportiva:
             nome: Via do Silas
-            id_no_mapa: '5'
             dificuldade: BR_5
         - via_esportiva:
             nome: Inacabada
-            id_no_mapa: '6'
         descricao: "Escalada tranquila, com vias fáceis, boas para quem está iniciando\
           \ e aprendendo a guiar. \nA via número 1 inicia-se a direita da parede para\
           \ quem está chegando no vale, ou a esquerda para quem vem das pilastras\
@@ -50,70 +63,103 @@ picos:
         nome: As Pilastras
         mapas:
         - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
+          referencias:
+          - escalada: Pela raiz
+            ids:
+            - '1'
+          - escalada: Buraco de cobra
+            ids:
+            - '2'
+          - escalada: Normal
+            ids:
+            - '3'
+          - escalada: Bromélia
+            ids:
+            - '4'
+          - escalada: Pur musgo
+            ids:
+            - '5'
+          - escalada: Vai cabeça
+            ids:
+            - '6'
+          - escalada: Silas and Tubarrão
+            ids:
+            - '7'
+          - escalada: Projeto 8
+            ids:
+            - '8'
+          - escalada: Projeto 9
+            ids:
+            - '9'
+          - escalada: Projeto 10
+            ids:
+            - '10'
+          - escalada: Madame satã
+            ids:
+            - '11'
+          - escalada: Dançando com a Chuva
+            ids:
+            - '12'
+          - escalada: Gambá xereta
+            ids:
+            - '13'
+          - escalada: Top Rope
+            ids:
+            - '14'
+          - escalada: Facinha
+            ids:
+            - '15'
+          - escalada: Stuart Little
+            ids:
+            - '16'
           largura_mapa: 1032
           altura_mapa: 581
         escaladas:
         - via_esportiva:
             nome: Pela raiz
-            id_no_mapa: '1'
             dificuldade: BR_5
         - via_esportiva:
             nome: Buraco de cobra
-            id_no_mapa: '2'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Normal
-            id_no_mapa: '3'
             dificuldade: BR_6
         - via_movel:
             nome: Bromélia
-            id_no_mapa: '4'
             dificuldade: BR_5SUP
             descricao: Base em móvel ou fazer uma travessia até a base ao lado.
         - via_esportiva:
             nome: Pur musgo
-            id_no_mapa: '5'
             dificuldade: BR_5
         - via_esportiva:
             nome: Vai cabeça
-            id_no_mapa: '6'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Silas and Tubarrão
-            id_no_mapa: '7'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Projeto 8
-            id_no_mapa: '8'
         - via_esportiva:
             nome: Projeto 9
-            id_no_mapa: '9'
         - via_esportiva:
             nome: Projeto 10
-            id_no_mapa: '10'
         - via_movel:
             nome: Madame satã
-            id_no_mapa: '11'
             dificuldade: BR_5SUP
             descricao: Via mista.
         - via_esportiva:
             nome: Dançando com a Chuva
-            id_no_mapa: '12'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Gambá xereta
-            id_no_mapa: '13'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Top Rope
-            id_no_mapa: '14'
         - via_esportiva:
             nome: Facinha
-            id_no_mapa: '15'
             dificuldade: BR_4
         - via_esportiva:
             nome: Stuart Little
-            id_no_mapa: '16'
             dificuldade: BR_5
         descricao: '| ![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp)
           |
@@ -133,6 +179,22 @@ picos:
         nome: A Pedreira
         mapas:
         - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
+          referencias:
+          - escalada: Coisa do capeta
+            ids:
+            - '1'
+          - escalada: Sabão crácrá
+            ids:
+            - '2'
+          - escalada: Europa
+            ids:
+            - '3'
+          - escalada: Fica à vontade
+            ids:
+            - '4'
+          - escalada: Pe pra fora
+            ids:
+            - '5'
           largura_mapa: 910
           altura_mapa: 388
         - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp
@@ -141,23 +203,18 @@ picos:
         escaladas:
         - via_esportiva:
             nome: Coisa do capeta
-            id_no_mapa: '1'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Sabão crácrá
-            id_no_mapa: '2'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Europa
-            id_no_mapa: '3'
             dificuldade: BR_6
         - via_esportiva:
             nome: Fica à vontade
-            id_no_mapa: '4'
             dificuldade: BR_5
         - via_esportiva:
             nome: Pe pra fora
-            id_no_mapa: '5'
             dificuldade: BR_6SUP
         descricao: '| ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp)
           |
@@ -277,7 +334,7 @@ botoes:
         A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer
         o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire
         à esquerda novamente e já encontrara o primeiro setor, o Vale.'
-ultima_migracao: 1
+ultima_migracao: 2
 arquivos_externos:
 - caminho: imagens/capa_p0_i1.webp
   checksum_sha256: 67b4bb58759dbe4c7c6256d6af5d3fe58e3c864fa7240b0a726c9d03eb431bae

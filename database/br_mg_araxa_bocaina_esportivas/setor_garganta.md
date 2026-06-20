@@ -1,4 +1,4 @@
----
+---
 nome: Garganta
 mapas:
 - caminho_imagem_mapa: imagens/setor_garganta_p1.webp
@@ -26,6 +26,91 @@ mapas:
       y: 1060
       comprimento: 45
       largura: 33
+  referencias:
+  - escalada: Love's in the Air
+    ids:
+    - '01'
+  - escalada: BH em Chamas
+    ids:
+    - '02'
+  - escalada: Revolta dos Vinagres
+    ids:
+    - '03'
+  - escalada: De Pai para Filho
+    ids:
+    - '04'
+  - escalada: Amor de Mãe
+    ids:
+    - '05'
+  - escalada: Pagador de Promessa
+    ids:
+    - '06'
+  - escalada: Grande Família
+    ids:
+    - '07'
+  - escalada: Sangue do meu Sangue
+    ids:
+    - '8'
+  - escalada: Cocalcinhas
+    ids:
+    - '9'
+  - escalada: Guerreiro da Bocaina
+    ids:
+    - '10'
+  - escalada: Samurai Rastafari
+    ids:
+    - '11'
+  - escalada: Ceder Writhe
+    ids:
+    - '12'
+  - escalada: Sai pra Lá Sr. Doutor
+    ids:
+    - '13'
+  - escalada: Maniaco Sexual
+    ids:
+    - '14'
+  - escalada: Paraiboult
+    ids:
+    - '15'
+  - escalada: Mulheres ao Poder
+    ids:
+    - '16'
+  - escalada: Invasão Bacteriana
+    ids:
+    - '17'
+  - escalada: Yes We Can
+    ids:
+    - '18'
+  - escalada: Galo Doido
+    ids:
+    - '19'
+  - escalada: Baby Roots
+    ids:
+    - '20'
+  - escalada: Canelinha de Ouro
+    ids:
+    - '21'
+  - escalada: Rei Leão
+    ids:
+    - '22'
+  - escalada: Maluco Beleza
+    ids:
+    - '23'
+  - escalada: Peter Park
+    ids:
+    - '24'
+  - escalada: Super Poderosa
+    ids:
+    - '25'
+  - escalada: Cinco Vira, Dez Acaba
+    ids:
+    - '26'
+  - escalada: Dunas
+    ids:
+    - '27'
+  - escalada: Poeira Cósmica
+    ids:
+    - '28'
 - caminho_imagem_mapa: imagens/setor_garganta_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -264,7 +349,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Love's in the Air
-    id_no_mapa: '01'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -275,7 +359,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: BH em Chamas
-    id_no_mapa: '02'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -286,7 +369,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Revolta dos Vinagres
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -297,7 +379,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: De Pai para Filho
-    id_no_mapa: '04'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 2
@@ -307,7 +388,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Amor de Mãe
-    id_no_mapa: '05'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -317,7 +397,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Pagador de Promessa
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -328,7 +407,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Grande Família
-    id_no_mapa: '07'
     dificuldade: BR_6
     extensao: 15
     conquistadores:
@@ -337,7 +415,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Sangue do meu Sangue
-    id_no_mapa: 08
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -347,7 +424,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Cocalcinhas
-    id_no_mapa: 09
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -357,7 +433,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Guerreiro da Bocaina
-    id_no_mapa: '10'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -367,7 +442,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Samurai Rastafari
-    id_no_mapa: '11'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -377,7 +451,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Ceder Writhe
-    id_no_mapa: '12'
     dificuldade: BR_8C
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -387,7 +460,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Sai pra Lá Sr. Doutor
-    id_no_mapa: '13'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -397,7 +469,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Maniaco Sexual
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -407,7 +478,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Paraiboult
-    id_no_mapa: '15'
     dificuldade: INDEFINIDO
     extensao: 20
     quantidade_protecoes_intermediarias: 6
@@ -417,7 +487,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Mulheres ao Poder
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     extensao: 30
     quantidade_protecoes_intermediarias: 13
@@ -428,7 +497,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Invasão Bacteriana
-    id_no_mapa: '17'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -438,7 +506,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Yes We Can
-    id_no_mapa: '18'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -448,7 +515,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Galo Doido
-    id_no_mapa: '19'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 6
@@ -458,7 +524,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Baby Roots
-    id_no_mapa: '20'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -468,7 +533,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Canelinha de Ouro
-    id_no_mapa: '21'
     dificuldade: BR_6
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -478,7 +542,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Rei Leão
-    id_no_mapa: '22'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -489,7 +552,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Maluco Beleza
-    id_no_mapa: '23'
     dificuldade: BR_7B
     conquistadores:
     - Daiex de Almeida
@@ -497,7 +559,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Peter Park
-    id_no_mapa: '24'
     dificuldade: INDEFINIDO
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -507,7 +568,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Super Poderosa
-    id_no_mapa: '25'
     dificuldade: BR_7A
     extensao: 25
     quantidade_protecoes_intermediarias: 8
@@ -518,7 +578,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Cinco Vira, Dez Acaba
-    id_no_mapa: '26'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -528,7 +587,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Dunas
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -538,7 +596,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Poeira Cósmica
-    id_no_mapa: '28'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -546,7 +603,7 @@ escaladas:
     conquistadores:
     - Alex
     data_abertura: '2013'
----
+---
 # Setor Garganta
 
 ![Setor Garganta](imagens/setor_garganta_p0_i0.webp)

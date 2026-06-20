@@ -1,4 +1,4 @@
----
+---
 nome: Setor Ditados
 mapas:
 - caminho_imagem_mapa: imagens/setor_ditados_p0_i0.webp
@@ -73,10 +73,34 @@ mapas:
       y: 766
       comprimento: 114
       largura: 29
+  referencias:
+  - escalada: Boa noite Cinderela
+    ids:
+    - '14'
+  - escalada: Quem dorme com criança...
+    ids:
+    - '15'
+  - escalada: Quem planta vento...
+    ids:
+    - '16'
+  - escalada: A vida é dura...
+    ids:
+    - '17'
+  - escalada: Mais vale um na mão...
+    ids:
+    - '18'
+  - escalada: Por fora bela viola...
+    ids:
+    - 19_bot
+  - escalada: Em terra de rei...
+    ids:
+    - '20'
+  - escalada: Red
+    ids:
+    - '21'
 escaladas:
 - via_esportiva:
     nome: Boa noite Cinderela
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     conquistadores:
     - Ana Fujita
@@ -84,7 +108,6 @@ escaladas:
     data_abertura: '2018'
 - via_esportiva:
     nome: Quem dorme com criança...
-    id_no_mapa: '15'
     dificuldade: BR_7B
     conquistadores:
     - Ana Fujita
@@ -92,7 +115,6 @@ escaladas:
     data_abertura: '2018'
 - via_esportiva:
     nome: Quem planta vento...
-    id_no_mapa: '16'
     dificuldade: BR_8B
     conquistadores:
     - Ana Fujita
@@ -100,7 +122,6 @@ escaladas:
     data_abertura: '2018'
 - via_esportiva:
     nome: A vida é dura...
-    id_no_mapa: '17'
     dificuldade: BR_7B
     conquistadores:
     - Ana Fujita
@@ -108,7 +129,6 @@ escaladas:
     data_abertura: '2018'
 - via_esportiva:
     nome: Mais vale um na mão...
-    id_no_mapa: '18'
     dificuldade: BR_7A
     conquistadores:
     - Ana Fujita
@@ -116,7 +136,6 @@ escaladas:
     data_abertura: '2018'
 - via_esportiva:
     nome: Por fora bela viola...
-    id_no_mapa: '19_bot'
     dificuldade: BR_6
     conquistadores:
     - Ana Fujita
@@ -124,7 +143,6 @@ escaladas:
     data_abertura: '2018'
 - via_movel:
     nome: Em terra de rei...
-    id_no_mapa: '20'
     dificuldade: BR_6SUP
     protecoes_moveis: friends grandes
     conquistadores:
@@ -133,14 +151,13 @@ escaladas:
     data_abertura: '2018'
 - via_movel:
     nome: Red
-    id_no_mapa: '21'
     dificuldade: BR_4SUP
     protecoes_moveis: nuts e friends
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
     data_abertura: '2018'
----
+---
 
 ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp)
 

@@ -181,7 +181,7 @@
             - Seralts Soluções em Altura
             - JGariglio
             - Prefeitura de Extrema
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_headwall
@@ -216,6 +216,27 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_headwall_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Arthropoda
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Atratus Death
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Fenda do Café
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Taj Mahola
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Apertadinha
+        - **ids**:
+          - 5
     - **largura_mapa**: 367
     - **altura_mapa**: 144
 - **escaladas**:
@@ -223,7 +244,6 @@
     - **via_movel**:
       - **descricao**: Obs: Abelhas próximo a via, utilizar costuras longas.
       - **nome**: Arthropoda
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **exposicao**: E2
       - **extensao**: 60
@@ -238,7 +258,6 @@
     - **via_movel**:
       - **descricao**: Obs: Na ausência de peça móvel utilizar clip stick na saída.
       - **nome**: Atratus Death
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **extensao**: 50
       - **quantidade_protecoes_intermediarias**: 9
@@ -252,7 +271,6 @@
     - **via_movel**:
       - **descricao**: Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos. O rapel pode ser feito na parada da via ao lado.
       - **nome**: Fenda do Café
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
       - **extensao**: 40
       - **quantidade_protecoes_intermediarias**: 2
@@ -264,7 +282,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Taj Mahola
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_4SUP
       - **extensao**: 25
       - **quantidade_protecoes_intermediarias**: 4
@@ -276,7 +293,6 @@
     - **via_movel**:
       - **descricao**: OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.
       - **nome**: Apertadinha
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 2
@@ -326,13 +342,41 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_roca_master_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cão Castrado
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: The Nois
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Alicate
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Bebezão
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: A mão que balança o B
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Darth Helmet
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Tico Skywalker
+        - **ids**:
+          - 7
     - **largura_mapa**: 367
     - **altura_mapa**: 144
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Cão Castrado
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **extensao**: 50
       - **quantidade_protecoes_intermediarias**: 10
@@ -344,7 +388,6 @@
     - **via_esportiva**:
       - **descricao**: Obs: Importante utilizar costuras longas.
       - **nome**: The Nois
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_8B
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 15
@@ -359,7 +402,6 @@
   - **[2]**:
     - **via_movel**:
       - **nome**: Alicate
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7B
       - **extensao**: 50
       - **quantidade_protecoes_intermediarias**: 8
@@ -372,7 +414,6 @@
     - **via_esportiva**:
       - **descricao**: Obs: Importante utilizar costuras longas.
       - **nome**: Bebezão
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 12
@@ -385,7 +426,6 @@
     - **via_esportiva**:
       - **descricao**: Obs: Importante a utilização de algumas costuras longas.
       - **nome**: A mão que balança o B
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **extensao**: 50
       - **quantidade_protecoes_intermediarias**: 9
@@ -397,7 +437,6 @@
     - **via_esportiva**:
       - **descricao**: Obs: Utilizar corda de 70m e algumas costuras longas.
       - **nome**: Darth Helmet
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_6SUP
       - **extensao**: 70
       - **quantidade_protecoes_intermediarias**: 14
@@ -410,7 +449,6 @@
     - **via_movel**:
       - **descricao**: Obs: Importante a utilização de algumas costuras longas.
       - **nome**: Tico Skywalker
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 8
@@ -461,13 +499,37 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ecumenico_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Dízimo
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Cura G
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Show da Fé
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Ministério do Climb
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Pequenas Igrejas Grandes Negócios
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Meninos de Gesso
+        - **ids**:
+          - 6
     - **largura_mapa**: 367
     - **altura_mapa**: 144
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Dízimo
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_4SUP
       - **extensao**: 30
       - **quantidade_protecoes_intermediarias**: 4
@@ -478,7 +540,6 @@
     - **via_movel**:
       - **descricao**: Obs: Atenção no crux (lance próximo à chapeleta)
       - **nome**: Cura G
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 3
@@ -489,7 +550,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Show da Fé
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7A
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 12
@@ -501,7 +561,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Ministério do Climb
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7B
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 12
@@ -514,7 +573,6 @@
     - **via_esportiva**:
       - **descricao**: Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de algumas costuras longas.
       - **nome**: Pequenas Igrejas Grandes Negócios
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **extensao**: 60
       - **quantidade_protecoes_intermediarias**: 12
@@ -525,7 +583,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Meninos de Gesso
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_6SUP
       - **extensao**: 50
       - **quantidade_protecoes_intermediarias**: 9

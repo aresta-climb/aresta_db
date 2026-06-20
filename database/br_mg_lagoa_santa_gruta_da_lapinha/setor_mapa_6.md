@@ -1,4 +1,4 @@
----
+---
 nome: Vale Verde (Mapa 6)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
@@ -124,45 +124,82 @@ mapas:
       y: 266
       comprimento: 51
       largura: 21
+  referencias:
+  - escalada: Psico Circus
+    ids:
+    - '62'
+  - escalada: Os impossíveis
+    ids:
+    - '63'
+  - escalada: Carbonáticus Calcicus
+    ids:
+    - '64'
+  - escalada: Para não dizer que não falei de flores
+    ids:
+    - '65'
+  - escalada: As Aparências Enganam
+    ids:
+    - '66'
+  - escalada: Eu quero é ver o oco
+    ids:
+    - '67'
+  - escalada: Cortando Prego
+    ids:
+    - '68'
+  - escalada: Vive lá brenf
+    ids:
+    - '69'
+  - escalada: Rastafary Baby
+    ids:
+    - '70'
+  - escalada: Varinha de Condon
+    ids:
+    - '71'
+  - escalada: Tempestade Cerebral
+    ids:
+    - '72'
+  - escalada: Chambinho
+    ids:
+    - '73'
+  - escalada: Revolução dos Micos
+    ids:
+    - '74'
+  - escalada: Al Capote
+    ids:
+    - '75'
 escaladas:
 - via_esportiva:
     nome: Psico Circus
-    id_no_mapa: '62'
     dificuldade: BR_8A
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
 - via_esportiva:
     nome: Os impossíveis
-    id_no_mapa: '63'
     dificuldade: BR_8B
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
 - via_esportiva:
     nome: Carbonáticus Calcicus
-    id_no_mapa: '64'
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Hoffmann
     - Eduardo Viana de Azevedo "Ralf"
 - via_movel:
     nome: Para não dizer que não falei de flores
-    id_no_mapa: '65'
     dificuldade: BR_5SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Ricardo Jardim Leal
 - via_movel:
     nome: As Aparências Enganam
-    id_no_mapa: '66'
     dificuldade: BR_5SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Júlio César Cardoso
 - via_esportiva:
     nome: Eu quero é ver o oco
-    id_no_mapa: '67'
     dificuldade: BR_7B
     conquistadores:
     - Ricardo Jardim Leal
@@ -170,14 +207,12 @@ escaladas:
     - Danilo Tolentino
 - via_movel:
     nome: Cortando Prego
-    id_no_mapa: '68'
     dificuldade: BR_6SUP
     conquistadores:
     - Edgardo Abreu "Caca"
     - Leandro Antônio Reis
 - via_esportiva:
     nome: Vive lá brenf
-    id_no_mapa: '69'
     dificuldade: BR_6SUP
     conquistadores:
     - André "DJ"
@@ -186,27 +221,23 @@ escaladas:
     - Guta Piancastelli
 - via_esportiva:
     nome: Rastafary Baby
-    id_no_mapa: '70'
     dificuldade: BR_7C
     conquistadores:
     - Leonardo Hoffman
 - via_esportiva:
     nome: Varinha de Condon
-    id_no_mapa: '71'
     dificuldade: BR_7A
     conquistadores:
     - Wilson Novaes
     - Márcio Soares Macenas
 - via_esportiva:
     nome: Tempestade Cerebral
-    id_no_mapa: '72'
     dificuldade: BR_8A
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
 - via_esportiva:
     nome: Chambinho
-    id_no_mapa: '73'
     dificuldade: BR_8C
     conquistadores:
     - Anderson Felisário
@@ -215,7 +246,6 @@ escaladas:
     - Eustáquio Jr.
 - via_esportiva:
     nome: Revolução dos Micos
-    id_no_mapa: '74'
     dificuldade: BR_7B
     conquistadores:
     - Eduardo Amaral
@@ -224,11 +254,10 @@ escaladas:
     - Leonardo Rocenik
 - via_esportiva:
     nome: Al Capote
-    id_no_mapa: '75'
     dificuldade: BR_8B
     conquistadores:
     - Ricardo Jardim Leal
----
+---
 # Setor Vale Verde (Mapa 6)
 
 Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").

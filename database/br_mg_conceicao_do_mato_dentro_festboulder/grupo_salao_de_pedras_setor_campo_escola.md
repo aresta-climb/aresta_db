@@ -1,6 +1,5 @@
----
+---
 nome: Campo Escola
-id_no_mapa: '4'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp
   largura_mapa: 582
@@ -48,6 +47,43 @@ mapas:
       y: 525
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Tré Bien
+    ids:
+    - '1'
+  - escalada: Muvuca
+    ids:
+    - '2'
+  - escalada: Ninja de Verde
+    ids:
+    - '3'
+  - escalada: Ninja de Amarelo
+    ids:
+    - '4'
+  - escalada: Ninja de Rosa
+    ids:
+    - '5'
+  - escalada: Casé
+    ids:
+    - '6'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '5'
+  - escalada: Das Meninas
+    ids:
+    - '6'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp
   largura_mapa: 757
   altura_mapa: 365
@@ -97,53 +133,42 @@ mapas:
 escaladas:
 - boulder:
     nome: Tré Bien
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Muvuca
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Ninja de Verde
-    id_no_mapa: '3'
     dificuldade: V1
 - boulder:
     nome: Ninja de Amarelo
-    id_no_mapa: '4'
     dificuldade: V1
 - boulder:
     nome: Ninja de Rosa
-    id_no_mapa: '5'
     dificuldade: V0
 - boulder:
     nome: Casé
-    id_no_mapa: '6'
     dificuldade: V3
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '2'
     dificuldade: V1
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '3'
     dificuldade: V1
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '4'
     dificuldade: V1
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '5'
     dificuldade: V1
 - boulder:
     nome: Das Meninas
-    id_no_mapa: '6'
     dificuldade: V3
----
+---
+
 # Setor Campo Escola
 
 O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.

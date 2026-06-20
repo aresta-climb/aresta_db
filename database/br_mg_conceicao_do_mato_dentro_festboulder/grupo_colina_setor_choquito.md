@@ -1,6 +1,5 @@
----
+---
 nome: Choquito
-id_no_mapa: '1'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p0.webp
   largura_mapa: 759
@@ -41,6 +40,28 @@ mapas:
       y: 490
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Paradise
+    ids:
+    - '1'
+  - escalada: Quebra Costela
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: Choquito
+    ids:
+    - '4'
+  - escalada: Jungle
+    ids:
+    - '5'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p1.webp
   largura_mapa: 755
   altura_mapa: 531
@@ -62,32 +83,26 @@ mapas:
 escaladas:
 - boulder:
     nome: Paradise
-    id_no_mapa: '1'
     dificuldade: V4
 - boulder:
     nome: Quebra Costela
-    id_no_mapa: '2'
     dificuldade: V3
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '3'
 - boulder:
     nome: Choquito
-    id_no_mapa: '4'
     dificuldade: V3
 - boulder:
     nome: Jungle
-    id_no_mapa: '5'
     dificuldade: V5
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '2'
     dificuldade: V3
----
+---
+
 # Setor Choquito
 
 O setor Choquito possui blocos com linhas variadas.

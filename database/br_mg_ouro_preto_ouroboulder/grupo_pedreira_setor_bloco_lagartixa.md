@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
@@ -53,6 +53,85 @@ mapas:
       x: 1464
       y: 152
       raio: 13
+  referencias:
+  - escalada: Last Samurai
+    ids:
+    - '1'
+  - escalada: Samurai
+    ids:
+    - '2'
+  - escalada: Doce de Leite
+    ids:
+    - 3B/2B
+  - escalada: Panamá
+    ids:
+    - 4A/1A
+  - escalada: Doce de Leite sds
+    ids:
+    - 4B/1B
+  - escalada: Rocambole
+    ids:
+    - 5B/3B
+  - escalada: Falha Humana
+    ids:
+    - 6B/4B
+  - escalada: Teiú
+    ids:
+    - 1C
+  - escalada: Rabo de Lagartixa
+    ids:
+    - 4C
+  - escalada: Camaleão
+    ids:
+    - 5B
+  - escalada: Lagartixa
+    ids:
+    - 5C
+  - escalada: Rabo de Camaleão
+    ids:
+    - 6B
+  - escalada: Lagartixa sem Rabo
+    ids:
+    - 6C
+  - escalada: Guerreiro
+    ids:
+    - 1A
+  - escalada: Major
+    ids:
+    - 2A
+  - escalada: Geoterapia
+    ids:
+    - 2D
+  - escalada: Nativo
+    ids:
+    - 3B
+  - escalada: Protesto
+    ids:
+    - 4A
+  - escalada: Cadena Imaginária
+    ids:
+    - 4D
+  - escalada: Golpe Militar
+    ids:
+    - 5A
+  - escalada: Aurora Explosion
+    ids:
+    - 5B
+  - escalada: Escravos da Pedra
+    ids:
+    - 5D
+  - escalada: Ditadvor
+    ids:
+    - 6A
+  - escalada: Lobo Mau
+    ids:
+    - 6D
+  - escalada: Coronel
+    ids:
+    - 7A
+  - escalada: Chapeuzinho Vermelho
+    ids:
+    - 7C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -184,107 +263,81 @@ mapas:
 escaladas:
 - boulder:
     nome: Last Samurai
-    id_no_mapa: '1'
     dificuldade: V14
 - boulder:
     nome: Samurai
-    id_no_mapa: '2'
     dificuldade: V12
 - boulder:
     nome: Doce de Leite
-    id_no_mapa: 3B/2B
     dificuldade: V3
 - boulder:
     nome: Panamá
-    id_no_mapa: 4A/1A
     dificuldade: V10
 - boulder:
     nome: Doce de Leite sds
-    id_no_mapa: 4B/1B
     dificuldade: V5
 - boulder:
     nome: Rocambole
-    id_no_mapa: 5B/3B
     dificuldade: V5
 - boulder:
     nome: Falha Humana
-    id_no_mapa: 6B/4B
     dificuldade: V4
 - boulder:
     nome: Teiú
-    id_no_mapa: 1C
     dificuldade: V11
 - boulder:
     nome: Rabo de Lagartixa
-    id_no_mapa: 4C
     dificuldade: V10
 - boulder:
     nome: Camaleão
-    id_no_mapa: 5B
     dificuldade: V8
 - boulder:
     nome: Lagartixa
-    id_no_mapa: 5C
     dificuldade: V7
 - boulder:
     nome: Rabo de Camaleão
-    id_no_mapa: 6B
     dificuldade: V9
 - boulder:
     nome: Lagartixa sem Rabo
-    id_no_mapa: 6C
     dificuldade: V9
 - boulder:
     nome: Guerreiro
-    id_no_mapa: 1A
     dificuldade: V8_BARRA_V9
 - boulder:
     nome: Major
-    id_no_mapa: 2A
     dificuldade: V11
 - boulder:
     nome: Geoterapia
-    id_no_mapa: 2D
     dificuldade: V9
 - boulder:
     nome: Nativo
-    id_no_mapa: 3B
     dificuldade: V12
 - boulder:
     nome: Protesto
-    id_no_mapa: 4A
     dificuldade: V10
 - boulder:
     nome: Cadena Imaginária
-    id_no_mapa: 4D
     dificuldade: V8
 - boulder:
     nome: Golpe Militar
-    id_no_mapa: 5A
     dificuldade: V13
 - boulder:
     nome: Aurora Explosion
-    id_no_mapa: 5B
     dificuldade: V13
 - boulder:
     nome: Escravos da Pedra
-    id_no_mapa: 5D
     dificuldade: V9
 - boulder:
     nome: Ditadvor
-    id_no_mapa: 6A
     dificuldade: V12
 - boulder:
     nome: Lobo Mau
-    id_no_mapa: 6D
     dificuldade: V5
 - boulder:
     nome: Coronel
-    id_no_mapa: 7A
     dificuldade: V12
 - boulder:
     nome: Chapeuzinho Vermelho
-    id_no_mapa: 7C
     dificuldade: V13
----
+---
 

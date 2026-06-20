@@ -74,7 +74,7 @@
             - Sub-setor Beija Flor
             - Conjunto pôr-do-sol
             - Sub-setor Moctezuma
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -125,36 +125,52 @@
           - **x**: 1078
           - **y**: 477
           - **raio**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cambeva
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Vellozia
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Flor do Cerrado
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Sempre-viva
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Calliandra
+        - **ids**:
+          - 5
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **descricao**: Inicia sentado com a mão direita em um batente escorrido e a esquerda em uma fenda vertical e escala para a esquerda.
       - **nome**: Cambeva
-      - **id_no_mapa**: 1
       - **dificuldade**: V0
   - **[1]**:
     - **boulder**:
       - **descricao**: Começa como o “Cambeva”, mas vira à direita do teto.
       - **nome**: Vellozia
-      - **id_no_mapa**: 2
       - **dificuldade**: V0
   - **[2]**:
     - **boulder**:
       - **descricao**: Começa sentado com as duas mãos em um batente clássico e escala reto. Uma virada zela...
       - **nome**: Flor do Cerrado
-      - **id_no_mapa**: 3
       - **dificuldade**: V2
   - **[3]**:
     - **boulder**:
       - **descricao**: Extensão do “Calliandra”. Começa com a mão direita em um reglete abaixo do batente inicial do “Flor do Cerrado” e com a esquerda em um reglete texturado.
       - **nome**: Sempre-viva
-      - **id_no_mapa**: 4
       - **dificuldade**: V3
   - **[4]**:
     - **boulder**:
       - **descricao**: Começa com as duas mãos em um reglete e escala reto por regletes clássicos até o topo.
       - **nome**: Calliandra
-      - **id_no_mapa**: 5
       - **dificuldade**: V3
 
 
@@ -253,6 +269,31 @@
                 - **y**: 59
                 - **comprimento**: 193
                 - **largura**: 58
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sem querer
+              - **ids**:
+                - 6
+            - **[1]**:
+              - **escalada**: Horizonte
+              - **ids**:
+                - 7
+            - **[2]**:
+              - **escalada**: Fenda comunista
+              - **ids**:
+                - 8
+            - **[3]**:
+              - **escalada**: Pôr-do-sol
+              - **ids**:
+                - 9
+            - **[4]**:
+              - **escalada**: Bipa aérea
+              - **ids**:
+                - 10
+            - **[5]**:
+              - **escalada**: Base aérea
+              - **ids**:
+                - 11
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p1_i0.webp)
           - **largura_mapa**: 900
@@ -292,37 +333,31 @@
           - **boulder**:
             - **descricao**: Começa sentado com as duas mãos na agarra óbvia na base da proa, e escala reto
             - **nome**: Sem querer
-            - **id_no_mapa**: 6
             - **dificuldade**: V1
         - **[1]**:
           - **boulder**:
             - **descricao**: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda horizontal, até a saída do “Pôr-do-sol”.
             - **nome**: Horizonte
-            - **id_no_mapa**: 7
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **descricao**: Começa como o “Sem querer” e escala toda a fenda lateral, virando no “Base aérea”
             - **nome**: Fenda comunista
-            - **id_no_mapa**: 8
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **descricao**: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em formato de “L” e escala levemente para a esquerda, utilizando pequenos regletes na rocha.
             - **nome**: Pôr-do-sol
-            - **id_no_mapa**: 9
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **descricao**: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato de “L” e toca pra direita.
             - **nome**: Bipa aérea
-            - **id_no_mapa**: 10
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **descricao**: Boulder de movimentação específica. As duas mão começam juntas em uma agarra invertida muito boa na fenda horizontal e escala reto.
             - **nome**: Base aérea
-            - **id_no_mapa**: 11
             - **dificuldade**: V2
   - **[1]**:
     - **conteudo**:
@@ -356,6 +391,35 @@
                 - **y**: 45
                 - **comprimento**: 218
                 - **largura**: 66
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Essa moça
+              - **ids**:
+                - 12
+            - **[1]**:
+              - **escalada**: Goodsensation
+              - **ids**:
+                - 13
+            - **[2]**:
+              - **escalada**: Ponto alto
+              - **ids**:
+                - 14
+            - **[3]**:
+              - **escalada**: Ponto alto sds
+              - **ids**:
+                - 14
+            - **[4]**:
+              - **escalada**: Estrelado
+              - **ids**:
+                - 15
+            - **[5]**:
+              - **escalada**: Estrelado sds
+              - **ids**:
+                - 15
+            - **[6]**:
+              - **escalada**: Gostosinho
+              - **ids**:
+                - 16
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp)
           - **largura_mapa**: 720
@@ -395,43 +459,36 @@
           - **boulder**:
             - **descricao**: Saída na agarra grande, fazendo a travessia pra virar na face esquerda do bloco.
             - **nome**: Essa moça
-            - **id_no_mapa**: 12
             - **dificuldade**: V0
         - **[1]**:
           - **boulder**:
             - **descricao**: Saída na agarra grande, com a virada reta.
             - **nome**: Goodsensation
-            - **id_no_mapa**: 13
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **descricao**: Saída de uma pinça grande de direita e outra pinça menor de esquerda.
             - **nome**: Ponto alto
-            - **id_no_mapa**: 14
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **descricao**: Começa pra direita, em um reglete lateral de esquerda e um bico de direita.
             - **nome**: Ponto alto sds
-            - **id_no_mapa**: 14
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **descricao**: Saída em uma pinça de mão esquerda e mão direita em um batente/reglete.
             - **nome**: Estrelado
-            - **id_no_mapa**: 15
             - **dificuldade**: V1
         - **[5]**:
           - **boulder**:
             - **descricao**: Sai em um reglete lateral de esquerda e um bico de direita.
             - **nome**: Estrelado sds
-            - **id_no_mapa**: 15
             - **dificuldade**: V2
         - **[6]**:
           - **boulder**:
             - **descricao**: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais baixa.
             - **nome**: Gostosinho
-            - **id_no_mapa**: 16
             - **dificuldade**: V0
   - **[2]**:
     - **conteudo**:
@@ -465,30 +522,43 @@
                 - **x**: 172
                 - **y**: 709
                 - **raio**: 21
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Hematoma
+              - **ids**:
+                - 17
+            - **[1]**:
+              - **escalada**: Pedra de toque
+              - **ids**:
+                - 18
+            - **[2]**:
+              - **escalada**: Hematita
+              - **ids**:
+                - 19
+            - **[3]**:
+              - **escalada**: Especularica
+              - **ids**:
+                - 20
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **descricao**: Saída nas agarras baixas da "faixa branca" do bloco, escalando reto.
             - **nome**: Hematoma
-            - **id_no_mapa**: 17
             - **dificuldade**: V1
         - **[1]**:
           - **boulder**:
             - **descricao**: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita na agarra ao lado.
             - **nome**: Pedra de toque
-            - **id_no_mapa**: 18
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **descricao**: Escalada pela aresta do bloco. Mão direita em um micro reglete e a esquerda em um pocket na lateral.
             - **nome**: Hematita
-            - **id_no_mapa**: 19
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **descricao**: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda até a virada pelo final da aresta.
             - **nome**: Especularica
-            - **id_no_mapa**: 20
             - **dificuldade**: V5
 
 
@@ -521,6 +591,39 @@
           - **x**: 397
           - **y**: 692
           - **raio**: 16
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cubo Mágico
+        - **ids**:
+          - 21
+      - **[1]**:
+        - **escalada**: Jenga
+        - **ids**:
+          - 22
+      - **[2]**:
+        - **escalada**: Cara a Cara
+        - **ids**:
+          - 23
+      - **[3]**:
+        - **escalada**: Resta um
+        - **ids**:
+          - 24
+      - **[4]**:
+        - **escalada**: Pega Palito
+        - **ids**:
+          - 25
+      - **[5]**:
+        - **escalada**: Aresta da Sombra
+        - **ids**:
+          - 26
+      - **[6]**:
+        - **escalada**: Penumbra
+        - **ids**:
+          - 27
+      - **[7]**:
+        - **escalada**: Aresta do sol
+        - **ids**:
+          - 28
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -583,49 +686,41 @@
     - **boulder**:
       - **descricao**: Sai com a esquerda em uma agarra grande invertida e a direita em um gaston, escalando pela face do bloco.
       - **nome**: Cubo Mágico
-      - **id_no_mapa**: 21
       - **dificuldade**: V4
   - **[1]**:
     - **boulder**:
       - **descricao**: Saída com as mãos juntas em um laca / agarrão do lado direito, seguindo pela aresta.
       - **nome**: Jenga
-      - **id_no_mapa**: 22
       - **dificuldade**: V2
   - **[2]**:
     - **boulder**:
       - **descricao**: Começa com as mãos juntas no agarrão mais a esquerda, escalando pela parte mais baixa.
       - **nome**: Cara a Cara
-      - **id_no_mapa**: 23
       - **dificuldade**: V0
   - **[3]**:
     - **boulder**:
       - **descricao**: Saída no agarrão a direita da barriga, indo pra direita e fazendo a virada no meio do bloco.
       - **nome**: Resta um
-      - **id_no_mapa**: 24
       - **dificuldade**: V0
   - **[4]**:
     - **boulder**:
       - **descricao**: Boulder ao lado da árvore, saindo com a mão direita em uma invertida e a esquerda em um reglete pequeno, escalando reto pela face alta do bloco.
       - **nome**: Pega Palito
-      - **id_no_mapa**: 25
       - **dificuldade**: V2
   - **[5]**:
     - **boulder**:
       - **descricao**: Começa com a direita em um reglete e a esquerda em uma pequena agarra, com um move técnico de saída e escalada por agarras grandes.
       - **nome**: Aresta da Sombra
-      - **id_no_mapa**: 26
       - **dificuldade**: V0
   - **[6]**:
     - **boulder**:
       - **descricao**: Saída no agarrão mais a esquerda do bloco, indo reto por agarras grandes.
       - **nome**: Penumbra
-      - **id_no_mapa**: 27
       - **dificuldade**: V0
   - **[7]**:
     - **boulder**:
       - **descricao**: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no agarrão na parte baixa.
       - **nome**: Aresta do sol
-      - **id_no_mapa**: 28
       - **dificuldade**: V4
 
 
@@ -669,6 +764,35 @@
           - **x**: 623
           - **y**: 818
           - **raio**: 23
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Juruva
+        - **ids**:
+          - 29
+      - **[1]**:
+        - **escalada**: Bem-te-vi
+        - **ids**:
+          - 29
+      - **[2]**:
+        - **escalada**: Sabiá
+        - **ids**:
+          - 30
+      - **[3]**:
+        - **escalada**: Carcará
+        - **ids**:
+          - 31
+      - **[4]**:
+        - **escalada**: Trinca-Ferro
+        - **ids**:
+          - 32
+      - **[5]**:
+        - **escalada**: Beija-Flor
+        - **ids**:
+          - 33
+      - **[6]**:
+        - **escalada**: Bacurau
+        - **ids**:
+          - 34
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_beija_flor_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -693,43 +817,36 @@
     - **boulder**:
       - **descricao**: Começa com as mãos juntas em uma agarra lateral e segue para a esquerda do bloco com a virada pela barriga na lateral.
       - **nome**: Juruva
-      - **id_no_mapa**: 29
       - **dificuldade**: V4
   - **[1]**:
     - **boulder**:
       - **descricao**: Saindo no Carcará e virando no Juruva.
       - **nome**: Bem-te-vi
-      - **id_no_mapa**: 29
       - **dificuldade**: V6
   - **[2]**:
     - **boulder**:
       - **descricao**: Boulder com movimentação incrível! Saída com as mãos juntas em uma agarra lateral a esquerda, indo reto pelo meio do bloco.
       - **nome**: Sabiá
-      - **id_no_mapa**: 30
       - **dificuldade**: V2
   - **[3]**:
     - **boulder**:
       - **descricao**: Saída com a direita em um reglete baixo e a esquerda e uma pinça no teto, indo pra face mais negativa com uma movimentação incrível!
       - **nome**: Carcará
-      - **id_no_mapa**: 31
       - **dificuldade**: V6
   - **[4]**:
     - **boulder**:
       - **descricao**: Saída do módulo mais baixo no bloco até a saída do Carcará, finalizando na face negativa. Clássico!
       - **nome**: Trinca-Ferro
-      - **id_no_mapa**: 32
       - **dificuldade**: V7
   - **[5]**:
     - **boulder**:
       - **descricao**: Clássico! Saída com a direita em um reglete baixo e a esquerda e uma pinça no teto, indo pra face à direita com um move forte pra uma agarra perfeita na lateral esquerda.
       - **nome**: Beija-Flor
-      - **id_no_mapa**: 33
       - **dificuldade**: V7
   - **[6]**:
     - **boulder**:
       - **descricao**: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo do bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
       - **nome**: Bacurau
-      - **id_no_mapa**: 34
       - **dificuldade**: V8
 
 
@@ -773,6 +890,31 @@
           - **x**: 724
           - **y**: 867
           - **raio**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Viuvinha
+        - **ids**:
+          - 35
+      - **[1]**:
+        - **escalada**: Eu sou Jaó
+        - **ids**:
+          - 36
+      - **[2]**:
+        - **escalada**: Ritual
+        - **ids**:
+          - 37
+      - **[3]**:
+        - **escalada**: Improviso
+        - **ids**:
+          - 38
+      - **[4]**:
+        - **escalada**: Buraqueira
+        - **ids**:
+          - 39
+      - **[5]**:
+        - **escalada**: Mini Nave
+        - **ids**:
+          - 40
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p1_i0.webp)
     - **largura_mapa**: 678
@@ -802,37 +944,31 @@
     - **boulder**:
       - **descricao**: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas, indo reto até a virada.
       - **nome**: Viuvinha
-      - **id_no_mapa**: 35
       - **dificuldade**: V1
   - **[1]**:
     - **boulder**:
       - **descricao**: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia por agarras boas até a virada na parte mais alta à direita.
       - **nome**: Eu sou Jaó
-      - **id_no_mapa**: 36
       - **dificuldade**: V1
   - **[2]**:
     - **boulder**:
       - **descricao**: Começa nas agarras mais baixas à direita do bloco, com um crux de saída, fazendo a travessia para a virada na parte esquerda.
       - **nome**: Ritual
-      - **id_no_mapa**: 37
       - **dificuldade**: V3
   - **[3]**:
     - **boulder**:
       - **descricao**: Saída nas agarras baixas da direita do bloco, indo reto até a virada na parte mais alta.
       - **nome**: Improviso
-      - **id_no_mapa**: 38
       - **dificuldade**: V3
   - **[4]**:
     - **boulder**:
       - **descricao**: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo reto para a virada em agarras boas.
       - **nome**: Buraqueira
-      - **id_no_mapa**: 39
       - **dificuldade**: V1
   - **[5]**:
     - **boulder**:
       - **descricao**: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar os blocos de baixo, tocando por toda a aresta.
       - **nome**: Mini Nave
-      - **id_no_mapa**: 40
       - **dificuldade**: V1
 
 
@@ -872,6 +1008,35 @@
           - **x**: 211
           - **y**: 817
           - **raio**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mansa Musa
+        - **ids**:
+          - 41
+      - **[1]**:
+        - **escalada**: Musamansa
+        - **ids**:
+          - 41
+      - **[2]**:
+        - **escalada**: Martelo de Pedra
+        - **ids**:
+          - 42
+      - **[3]**:
+        - **escalada**: Moctezuma
+        - **ids**:
+          - 43
+      - **[4]**:
+        - **escalada**: Medeia
+        - **ids**:
+          - 44
+      - **[5]**:
+        - **escalada**: Maria Bonita
+        - **ids**:
+          - 45
+      - **[6]**:
+        - **escalada**: Herança de Ferro
+        - **ids**:
+          - 47
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p1_i0.webp)
     - **largura_mapa**: 930
@@ -908,43 +1073,36 @@
     - **boulder**:
       - **descricao**: Começa baixo na laca mais à esquerda do bloco, com movimentos fortes até a virada na à esquerda da fenda.
       - **nome**: Mansa Musa
-      - **id_no_mapa**: 41
       - **dificuldade**: V11
   - **[1]**:
     - **boulder**:
       - **descricao**: Saindo da agarra invertida de esquerda e do abaolado de direita.
       - **nome**: Musamansa
-      - **id_no_mapa**: 41
       - **dificuldade**: V4
   - **[2]**:
     - **boulder**:
       - **descricao**: Saída com a mão direita na agarrão alto e a esquerda na agarra do lado, indo para esquerda com a virada pelo slab.
       - **nome**: Martelo de Pedra
-      - **id_no_mapa**: 42
       - **dificuldade**: V3
   - **[3]**:
     - **boulder**:
       - **descricao**: Saída de um reglete de esquerda e de outro reglete um pouco mais alto de direita, indo reto com a virada em um slab técnico.
       - **nome**: Moctezuma
-      - **id_no_mapa**: 43
       - **dificuldade**: V6
   - **[4]**:
     - **boulder**:
       - **descricao**: Saída com a mão esquerda no reglete lateral e a direita na craca baixa na aresta do bloco, indo reto até dois regletes, com um move forte para um agarrão na virada.
       - **nome**: Medeia
-      - **id_no_mapa**: 44
       - **dificuldade**: V7
   - **[5]**:
     - **boulder**:
       - **descricao**: Boulder pela cracas na lateral do bloco indo reto até o crux na virada.
       - **nome**: Maria Bonita
-      - **id_no_mapa**: 45
       - **dificuldade**: V2
   - **[6]**:
     - **boulder**:
       - **descricao**: Saída com a mão esquerda na laca lateral e a mão direita no batente baixo, indo para a direita até um movimento forte em um batente liso.
       - **nome**: Herança de Ferro
-      - **id_no_mapa**: 47
       - **dificuldade**: V6
 
 
@@ -967,6 +1125,19 @@
           - **x**: 481
           - **y**: 843
           - **raio**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Moléstia
+        - **ids**:
+          - 46
+      - **[1]**:
+        - **escalada**: Jabuticaba
+        - **ids**:
+          - 48
+      - **[2]**:
+        - **escalada**: Caqui
+        - **ids**:
+          - 49
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_molestia_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -991,19 +1162,16 @@
     - **boulder**:
       - **descricao**: Boulder das antigas. Ainda sem betas.
       - **nome**: Moléstia
-      - **id_no_mapa**: 46
       - **dificuldade**: V8
   - **[1]**:
     - **boulder**:
       - **descricao**: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para um reglete clássico, com uma viara em um positivo.
       - **nome**: Jabuticaba
-      - **id_no_mapa**: 48
       - **dificuldade**: V5
   - **[2]**:
     - **boulder**:
       - **descricao**: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com uma virada técnica.
       - **nome**: Caqui
-      - **id_no_mapa**: 49
       - **dificuldade**: V4
 
 
@@ -1036,6 +1204,39 @@
           - **x**: 430
           - **y**: 1090
           - **raio**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Farol
+        - **ids**:
+          - 50
+      - **[1]**:
+        - **escalada**: Mirante
+        - **ids**:
+          - 51
+      - **[2]**:
+        - **escalada**: Queda do Gigante
+        - **ids**:
+          - 52
+      - **[3]**:
+        - **escalada**: Não me toque
+        - **ids**:
+          - 53
+      - **[4]**:
+        - **escalada**: Anemia
+        - **ids**:
+          - 54
+      - **[5]**:
+        - **escalada**: Biotônico
+        - **ids**:
+          - 55
+      - **[6]**:
+        - **escalada**: Diagnóstico
+        - **ids**:
+          - 56
+      - **[7]**:
+        - **escalada**: Vertigem
+        - **ids**:
+          - 57
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p1_i0.webp)
     - **largura_mapa**: 861
@@ -1103,49 +1304,41 @@
     - **boulder**:
       - **descricao**: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer a virada por agarradas boas na proa.
       - **nome**: Farol
-      - **id_no_mapa**: 50
       - **dificuldade**: V3
   - **[1]**:
     - **boulder**:
       - **descricao**: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a direita, com a virada pela lateral do bloco.
       - **nome**: Mirante
-      - **id_no_mapa**: 51
       - **dificuldade**: V4
   - **[2]**:
     - **boulder**:
       - **descricao**: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco por baixo até as cracas que possibilitam a virada pelo highball.
       - **nome**: Queda do Gigante
-      - **id_no_mapa**: 52
       - **dificuldade**: V8
   - **[3]**:
     - **boulder**:
       - **descricao**: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo feixo de cristais até a virada pelas cracas da direita.
       - **nome**: Não me toque
-      - **id_no_mapa**: 53
       - **dificuldade**: V5
   - **[4]**:
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Anemia
-      - **id_no_mapa**: 54
       - **dificuldade**: V7
   - **[5]**:
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Biotônico
-      - **id_no_mapa**: 55
       - **dificuldade**: V8
   - **[6]**:
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Diagnóstico
-      - **id_no_mapa**: 56
       - **dificuldade**: V3
   - **[7]**:
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Vertigem
-      - **id_no_mapa**: 57
       - **dificuldade**: V5
 
 

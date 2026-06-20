@@ -1,4 +1,4 @@
----
+---
 nome: Silicose
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_silicose_p0_i0.webp
@@ -33,17 +33,22 @@ mapas:
       y: 30
       comprimento: 32
       largura: 31
+  referencias:
+  - escalada: Silicato
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Silicose
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Silicato
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V2
 - boulder:
     nome: Silicose
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V7
----
+---
 # Bloco: Silicose
 ## Região 3

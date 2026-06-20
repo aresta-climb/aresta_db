@@ -1,11 +1,32 @@
----
+---
 nome: Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
+  referencias:
+  - escalada: Cão Castrado
+    ids:
+    - '1'
+  - escalada: The Nois
+    ids:
+    - '2'
+  - escalada: Alicate
+    ids:
+    - '3'
+  - escalada: Bebezão
+    ids:
+    - '4'
+  - escalada: A mão que balança o B
+    ids:
+    - '5'
+  - escalada: Darth Helmet
+    ids:
+    - '6'
+  - escalada: Tico Skywalker
+    ids:
+    - '7'
 escaladas:
 - via_esportiva:
     nome: Cão Castrado
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     extensao: 50
     quantidade_protecoes_intermediarias: 10
@@ -15,7 +36,6 @@ escaladas:
     - Tico
 - via_esportiva:
     nome: The Nois
-    id_no_mapa: '2'
     dificuldade: BR_8B
     extensao: 60
     quantidade_protecoes_intermediarias: 15
@@ -30,7 +50,6 @@ escaladas:
     descricao: 'Obs: Importante utilizar costuras longas.'
 - via_movel:
     nome: Alicate
-    id_no_mapa: '3'
     dificuldade: BR_7B
     extensao: 50
     quantidade_protecoes_intermediarias: 8
@@ -41,7 +60,6 @@ escaladas:
     protecoes_moveis: Nut 5 ou compatível.
 - via_esportiva:
     nome: Bebezão
-    id_no_mapa: '4'
     dificuldade: BR_8A
     extensao: 60
     quantidade_protecoes_intermediarias: 12
@@ -53,7 +71,6 @@ escaladas:
     descricao: 'Obs: Importante utilizar costuras longas.'
 - via_esportiva:
     nome: A mão que balança o B
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     extensao: 50
     quantidade_protecoes_intermediarias: 9
@@ -64,7 +81,6 @@ escaladas:
     descricao: 'Obs: Importante a utilização de algumas costuras longas.'
 - via_esportiva:
     nome: Darth Helmet
-    id_no_mapa: '6'
     dificuldade: BR_6SUP
     extensao: 70
     quantidade_protecoes_intermediarias: 14
@@ -76,7 +92,6 @@ escaladas:
     descricao: 'Obs: Utilizar corda de 70m e algumas costuras longas.'
 - via_movel:
     nome: Tico Skywalker
-    id_no_mapa: '7'
     dificuldade: BR_7A
     extensao: 60
     quantidade_protecoes_intermediarias: 8
@@ -86,7 +101,7 @@ escaladas:
     - Jorge Lima
     protecoes_moveis: Camalot (5 e 6) ou compatíveis.
     descricao: 'Obs: Importante a utilização de algumas costuras longas.'
----
+---
 
 ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp)
 

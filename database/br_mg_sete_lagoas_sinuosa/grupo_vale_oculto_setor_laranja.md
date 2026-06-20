@@ -1,4 +1,4 @@
----
+---
 nome: Sub Setor Laranja
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_laranja_p0_i0.webp
@@ -105,80 +105,105 @@ mapas:
       comprimento: 200
       largura: 30
       angulo_graus_x100: -1211
+  referencias:
+  - escalada: Interação Nativa
+    ids:
+    - '1'
+  - escalada: Trabalhador Brasileiro
+    ids:
+    - '2'
+  - escalada: Quebrando O Silêncio
+    ids:
+    - '3'
+  - escalada: Laranja Mecânica
+    ids:
+    - '4'
+  - escalada: Jardineiro
+    ids:
+    - '5'
+  - escalada: Escovação
+    ids:
+    - '6'
+  - escalada: Ataque em Massa
+    ids:
+    - '7'
+  - escalada: Zelador
+    ids:
+    - '8'
+  - escalada: Faxina Russa
+    ids:
+    - '9'
+  - escalada: Mandela
+    ids:
+    - '10'
+  - escalada: Patriotas Hipócritas
+    ids:
+    - '11'
+  - escalada: Dr. Máquina
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: Interação Nativa
-    id_no_mapa: '1'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Trabalhador Brasileiro
-    id_no_mapa: '2'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Quebrando O Silêncio
-    id_no_mapa: '3'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Laranja Mecânica
-    id_no_mapa: '4'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Jardineiro
-    id_no_mapa: '5'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Escovação
-    id_no_mapa: '6'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Ataque em Massa
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Zelador
-    id_no_mapa: '8'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Faxina Russa
-    id_no_mapa: '9'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Mandela
-    id_no_mapa: '10'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Patriotas Hipócritas
-    id_no_mapa: '11'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Dr. Máquina
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 1
----
+---
 # Setor Vale Oculto - Sub Setor Laranja
 
 ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp)

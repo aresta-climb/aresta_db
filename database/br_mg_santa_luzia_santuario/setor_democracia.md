@@ -1,4 +1,4 @@
----
+---
 nome: Setor Democracia
 mapas:
 - caminho_imagem_mapa: imagens/setor_democracia_p1.webp
@@ -110,10 +110,55 @@ mapas:
       y: 1885
       comprimento: 42
       largura: 34
+  referencias:
+  - escalada: O PODER DO ROCAMBOLE
+    ids:
+    - '01'
+  - escalada: TETO DE VIDRO
+    ids:
+    - '02'
+  - escalada: PECADO CAPITAL
+    ids:
+    - '03'
+  - escalada: GÊNESIS
+    ids:
+    - '04'
+  - escalada: VIA INACABADA 1
+    ids:
+    - '05'
+  - escalada: RIBEIRÃO DA MATA
+    ids:
+    - '06'
+  - escalada: SEU JOÃOZITO
+    ids:
+    - '07'
+  - escalada: BUFFALO BILL
+    ids:
+    - '08'
+  - escalada: HANIBALL
+    ids:
+    - '09'
+  - escalada: DEMOCRACIA
+    ids:
+    - '10'
+  - escalada: DIA DE REIS
+    ids:
+    - '11'
+  - escalada: JOANA D'ARC
+    ids:
+    - '12'
+  - escalada: ARTE SACRA
+    ids:
+    - '13'
+  - escalada: SANTA FÉ
+    ids:
+    - '14'
+  - escalada: VIA INACABADA 2
+    ids:
+    - '15'
 escaladas:
 - via_multiplas_enfiadas:
     nome: O PODER DO ROCAMBOLE
-    id_no_mapa: '01'
     dificuldade_maxima: BR_10A
     enfiadas:
     - via_esportiva:
@@ -127,30 +172,23 @@ escaladas:
         dificuldade: PROJETO
 - via_esportiva:
     nome: TETO DE VIDRO
-    id_no_mapa: '02'
     dificuldade: BR_9A
 - via_esportiva:
     nome: PECADO CAPITAL
-    id_no_mapa: '03'
     dificuldade: BR_8C
 - via_esportiva:
     nome: GÊNESIS
-    id_no_mapa: '04'
     dificuldade: BR_8B
 - via_esportiva:
     nome: VIA INACABADA 1
-    id_no_mapa: '05'
 - via_esportiva:
     nome: RIBEIRÃO DA MATA
-    id_no_mapa: '06'
     dificuldade: BR_7B
 - via_esportiva:
     nome: SEU JOÃOZITO
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
 - via_multiplas_enfiadas:
     nome: BUFFALO BILL
-    id_no_mapa: '08'
     dificuldade_maxima: BR_9A
     enfiadas:
     - via_esportiva:
@@ -164,7 +202,6 @@ escaladas:
         dificuldade: PROJETO
 - via_multiplas_enfiadas:
     nome: HANIBALL
-    id_no_mapa: '09'
     dificuldade_maxima: BR_9B
     enfiadas:
     - via_esportiva:
@@ -175,7 +212,6 @@ escaladas:
         dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: DEMOCRACIA
-    id_no_mapa: '10'
     dificuldade_maxima: BR_9C
     enfiadas:
     - via_esportiva:
@@ -192,7 +228,6 @@ escaladas:
         dificuldade: BR_9C
 - via_multiplas_enfiadas:
     nome: DIA DE REIS
-    id_no_mapa: '11'
     dificuldade_maxima: BR_8B
     enfiadas:
     - via_esportiva:
@@ -203,7 +238,6 @@ escaladas:
         dificuldade: BR_8B
 - via_multiplas_enfiadas:
     nome: JOANA D'ARC
-    id_no_mapa: '12'
     dificuldade_maxima: BR_8C
     enfiadas:
     - via_esportiva:
@@ -214,11 +248,9 @@ escaladas:
         dificuldade: BR_8C
 - via_esportiva:
     nome: ARTE SACRA
-    id_no_mapa: '13'
     dificuldade: BR_8A
 - via_multiplas_enfiadas:
     nome: SANTA FÉ
-    id_no_mapa: '14'
     dificuldade_maxima: BR_8B
     enfiadas:
     - via_esportiva:
@@ -229,8 +261,7 @@ escaladas:
         dificuldade: BR_8B
 - via_esportiva:
     nome: VIA INACABADA 2
-    id_no_mapa: '15'
----
+---
 # Setor Democracia
 
 ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp)

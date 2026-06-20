@@ -1,4 +1,4 @@
----
+---
 nome: 3º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_3o_andar_p0_i0.webp
@@ -180,162 +180,211 @@ mapas:
       y: 918
       comprimento: 67
       largura: 92
+  referencias:
+  - escalada: Pinguela de Ema
+    ids:
+    - '01'
+  - escalada: Pilares da Terra
+    ids:
+    - '02'
+  - escalada: Miranoku e Vai
+    ids:
+    - '03'
+  - escalada: Meia Seca
+    ids:
+    - '04'
+  - escalada: Helicoidal
+    ids:
+    - '05'
+  - escalada: Nem Ladrão Aguenta
+    ids:
+    - '06'
+  - escalada: Socorro
+    ids:
+    - '07'
+  - escalada: Iara
+    ids:
+    - '8'
+  - escalada: Come Hamburguer
+    ids:
+    - '9'
+  - escalada: (via inacabada)
+    ids:
+    - '10'
+  - escalada: Meio Selvagem
+    ids:
+    - '11'
+  - escalada: Gengiva de Peixe
+    ids:
+    - '12'
+  - escalada: Ego a Flor da Pele
+    ids:
+    - '13'
+  - escalada: Liberte Sua Garota Interior
+    ids:
+    - '14'
+  - escalada: Panela de Pressão
+    ids:
+    - '15'
+  - escalada: ka-fedalú
+    ids:
+    - '16'
+  - escalada: TNC
+    ids:
+    - '17'
+  - escalada: Império Galáctico
+    ids:
+    - '18'
+  - escalada: Estrela da Morte
+    ids:
+    - '19'
+  - escalada: Multiplicai a Resista Amém
+    ids:
+    - '20'
+  - escalada: Cachorrinha Lua
+    ids:
+    - '21'
+  - escalada: A Primeira de Muitas
+    ids:
+    - '22'
+  - escalada: E Volta Cão Arrependido
+    ids:
+    - '23'
+  - escalada: Exame de Próstata
+    ids:
+    - '24'
 escaladas:
 - via_esportiva:
     nome: Pinguela de Ema
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pilares da Terra
-    id_no_mapa: '02'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Miranoku e Vai
-    id_no_mapa: '03'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Meia Seca
-    id_no_mapa: '04'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Helicoidal
-    id_no_mapa: '05'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Nem Ladrão Aguenta
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Socorro
-    id_no_mapa: '07'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Iara
-    id_no_mapa: 08
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Come Hamburguer
-    id_no_mapa: 09
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '10'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Meio Selvagem
-    id_no_mapa: '11'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Gengiva de Peixe
-    id_no_mapa: '12'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Ego a Flor da Pele
-    id_no_mapa: '13'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2018-11-15'
 - via_esportiva:
     nome: Liberte Sua Garota Interior
-    id_no_mapa: '14'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2018-11-15'
 - via_esportiva:
     nome: Panela de Pressão
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: ka-fedalú
-    id_no_mapa: '16'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: TNC
-    id_no_mapa: '17'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Império Galáctico
-    id_no_mapa: '18'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Estrela da Morte
-    id_no_mapa: '19'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Multiplicai a Resista Amém
-    id_no_mapa: '20'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cachorrinha Lua
-    id_no_mapa: '21'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     data_abertura: '2020-09-11'
 - via_esportiva:
     nome: A Primeira de Muitas
-    id_no_mapa: '22'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: E Volta Cão Arrependido
-    id_no_mapa: '23'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Exame de Próstata
-    id_no_mapa: '24'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
----
+---
 # Setor 3º Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

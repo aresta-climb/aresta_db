@@ -1,4 +1,4 @@
----
+---
 nome: Flor da Montanha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_flor_da_montanha_p0_i0.webp
@@ -33,17 +33,22 @@ mapas:
       y: 14
       comprimento: 28
       largura: 25
+  referencias:
+  - escalada: Fina Flor
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Flor da Montanha
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Fina Flor
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V4
 - boulder:
     nome: Flor da Montanha
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V6
----
+---
 # Bloco: Flor da Montanha
 ## Região 2

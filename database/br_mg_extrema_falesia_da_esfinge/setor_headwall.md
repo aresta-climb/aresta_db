@@ -1,11 +1,26 @@
----
+---
 nome: Headwall
 mapas:
 - caminho_imagem_mapa: imagens/setor_headwall_p0_i0.webp
+  referencias:
+  - escalada: Arthropoda
+    ids:
+    - '1'
+  - escalada: Atratus Death
+    ids:
+    - '2'
+  - escalada: Fenda do Café
+    ids:
+    - '3'
+  - escalada: Taj Mahola
+    ids:
+    - '4'
+  - escalada: Apertadinha
+    ids:
+    - '5'
 escaladas:
 - via_movel:
     nome: Arthropoda
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     exposicao: E2
     extensao: 60
@@ -19,7 +34,6 @@ escaladas:
     descricao: 'Obs: Abelhas próximo a via, utilizar costuras longas.'
 - via_movel:
     nome: Atratus Death
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     extensao: 50
     quantidade_protecoes_intermediarias: 9
@@ -32,7 +46,6 @@ escaladas:
     descricao: 'Obs: Na ausência de peça móvel utilizar clip stick na saída.'
 - via_movel:
     nome: Fenda do Café
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
     extensao: 40
     quantidade_protecoes_intermediarias: 2
@@ -41,11 +54,9 @@ escaladas:
     - Anthony Hirata
     - Bruno Tebet
     protecoes_moveis: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
-    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em
-      três pontos. O rapel pode ser feito na parada da via ao lado.'
+    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos. O rapel pode ser feito na parada da via ao lado.'
 - via_esportiva:
     nome: Taj Mahola
-    id_no_mapa: '4'
     dificuldade: BR_4SUP
     extensao: 25
     quantidade_protecoes_intermediarias: 4
@@ -55,17 +66,15 @@ escaladas:
     - Tico
 - via_movel:
     nome: Apertadinha
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     extensao: 60
     quantidade_protecoes_intermediarias: 2
     conquistadores:
     - Zé Ricardo
     - Jorge Lima
-    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1
-      a 5, 10) ou compatíveis
+    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10) ou compatíveis
     descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
----
+---
 
 ![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp)
 

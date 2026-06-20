@@ -1,4 +1,4 @@
----
+---
 nome: Setor Sentinela
 mapas:
 - caminho_imagem_mapa: imagens/setor_sentinela_p0_i0.webp
@@ -61,48 +61,65 @@ mapas:
       y: 446
       comprimento: 35
       largura: 35
+  referencias:
+  - escalada: Brenfoterapia
+    ids:
+    - '1'
+  - escalada: Na Hora Certa
+    ids:
+    - '2'
+  - escalada: Nós Contra o Resto
+    ids:
+    - '3'
+  - escalada: Divisa dos Reinos
+    ids:
+    - '4'
+  - escalada: Rei Mal
+    ids:
+    - '5'
+  - escalada: Soldado Real
+    ids:
+    - '6'
+  - escalada: Nosso Rei
+    ids:
+    - '7'
+  - escalada: Vitamina M
+    ids:
+    - '8'
 escaladas:
 - via_movel:
     nome: Brenfoterapia
-    id_no_mapa: '1'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel. Rapel da chapa com cordelete.
 - via_esportiva:
     nome: Na Hora Certa
-    id_no_mapa: '2'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 4
 - via_esportiva:
     nome: Nós Contra o Resto
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
 - via_esportiva:
     nome: Divisa dos Reinos
-    id_no_mapa: '4'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Rei Mal
-    id_no_mapa: '5'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Soldado Real
-    id_no_mapa: '6'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Nosso Rei
-    id_no_mapa: '7'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
 - via_movel:
     nome: Vitamina M
-    id_no_mapa: '8'
     dificuldade: BR_5
     protecoes_moveis: Móvel. Rapel da chapa com cordelete.
----
+---
 # Setor Sentinela
 
 Setor um pouco mais afastado, localizado após subir as escadas do setor

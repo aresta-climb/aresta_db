@@ -1,4 +1,4 @@
----
+---
 nome: Pfizer
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
@@ -47,22 +47,29 @@ mapas:
       y: 218
       comprimento: 23
       largura: 23
+  referencias:
+  - escalada: Pfizer
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Barriga Branca
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Rosa
+    ids:
+    - '3'
+    - 3_fim
 escaladas:
 - boulder:
     nome: Pfizer
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V4
 - boulder:
     nome: Barriga Branca
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V1
 - boulder:
     nome: Rosa
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V0
----
+---
 # Bloco: Pfizer
 ## Região 4

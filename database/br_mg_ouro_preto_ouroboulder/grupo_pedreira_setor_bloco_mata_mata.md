@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
@@ -35,6 +35,37 @@ mapas:
       x: 1053
       y: 876
       raio: 13
+  referencias:
+  - escalada: Mata-Mata
+    ids:
+    - 1A
+  - escalada: Mata-Mata ext
+    ids:
+    - 2A▲
+  - escalada: '001'
+    ids:
+    - 2A★
+  - escalada: Sem as Mãos
+    ids:
+    - '1'
+  - escalada: Ética
+    ids:
+    - '2'
+  - escalada: Risada
+    ids:
+    - '3'
+  - escalada: Batentes
+    ids:
+    - '1'
+  - escalada: Regletes
+    ids:
+    - '2'
+  - escalada: Cocal é Gueto
+    ids:
+    - '1'
+  - escalada: '002'
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -92,43 +123,33 @@ mapas:
 escaladas:
 - boulder:
     nome: Mata-Mata
-    id_no_mapa: 1A
     dificuldade: V2
 - boulder:
     nome: Mata-Mata ext
-    id_no_mapa: 2A▲
     dificuldade: V3
 - boulder:
     nome: '001'
-    id_no_mapa: 2A★
     dificuldade: V3
 - boulder:
     nome: Sem as Mãos
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: Ética
-    id_no_mapa: '2'
     dificuldade: V0
 - boulder:
     nome: Risada
-    id_no_mapa: '3'
     dificuldade: V0
 - boulder:
     nome: Batentes
-    id_no_mapa: '1'
     dificuldade: V1
 - boulder:
     nome: Regletes
-    id_no_mapa: '2'
     dificuldade: V2
 - boulder:
     nome: Cocal é Gueto
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: '002'
-    id_no_mapa: '2'
     dificuldade: V2
----
+---
 

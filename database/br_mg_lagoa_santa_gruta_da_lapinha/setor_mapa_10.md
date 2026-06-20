@@ -1,4 +1,4 @@
----
+---
 nome: Bloco Romano (Mapa 10)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_10_p0_i0.webp
@@ -68,30 +68,48 @@ mapas:
       y: 139
       comprimento: 36
       largura: 18
+  referencias:
+  - escalada: Spartacus
+    ids:
+    - '125'
+  - escalada: A Era dos Patrícios
+    ids:
+    - '126'
+  - escalada: Coliseu
+    ids:
+    - '127'
+  - escalada: Pobre César
+    ids:
+    - '128'
+  - escalada: Soprano (inacabada)
+    ids:
+    - '129'
+  - escalada: Sodoma e Gomorra
+    ids:
+    - '130'
+  - escalada: Calígula
+    ids:
+    - '131'
 escaladas:
 - via_esportiva:
     nome: Spartacus
-    id_no_mapa: '125'
     dificuldade: BR_5
     conquistadores:
     - Fabiano Fernandes da Silva
     descricao: Vía em Top Rope
 - via_esportiva:
     nome: A Era dos Patrícios
-    id_no_mapa: '126'
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
 - via_esportiva:
     nome: Coliseu
-    id_no_mapa: '127'
     dificuldade: BR_6
     conquistadores:
     - Ramaya Vallias
 - via_esportiva:
     nome: Pobre César
-    id_no_mapa: '128'
     dificuldade: BR_7A
     conquistadores:
     - Emerson
@@ -100,7 +118,6 @@ escaladas:
     - Gilberto Torres
 - via_esportiva:
     nome: Soprano (inacabada)
-    id_no_mapa: '129'
     conquistadores:
     - M. Macena
     - Eduardo Feliciano
@@ -108,21 +125,19 @@ escaladas:
     - Ivo Marcelino
 - via_esportiva:
     nome: Sodoma e Gomorra
-    id_no_mapa: '130'
     dificuldade: BR_4
     conquistadores:
     - Daniel Fernandes "Salim"
     - Eustáquio Macedo Melo Júnior
 - via_esportiva:
     nome: Calígula
-    id_no_mapa: '131'
     dificuldade: BR_6SUP
     conquistadores:
     - Eustáquio
     - Fabiano
     - Gilberto Torres
     - Emerson Azeredo
----
+---
 # Setor Bloco Romano (Mapa 10)
 
 Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.

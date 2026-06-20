@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Sauna'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
@@ -41,23 +41,32 @@ mapas:
       x: 1078
       y: 832
       raio: 13
+  referencias:
+  - escalada: Sauna Seca
+    ids:
+    - 1A
+  - escalada: Sauna Úmida
+    ids:
+    - 2B
+  - escalada: Sauna Mista
+    ids:
+    - 3A
+  - escalada: Sauna a Vapor
+    ids:
+    - 3C
 escaladas:
 - boulder:
     nome: Sauna Seca
-    id_no_mapa: 1A
     dificuldade: V4
 - boulder:
     nome: Sauna Úmida
-    id_no_mapa: 2B
     dificuldade: V4
 - boulder:
     nome: Sauna Mista
-    id_no_mapa: 3A
     dificuldade: V5
 - boulder:
     nome: Sauna a Vapor
-    id_no_mapa: 3C
     dificuldade: V6
     descricao: (não usa a face direita da linha)
----
+---
 

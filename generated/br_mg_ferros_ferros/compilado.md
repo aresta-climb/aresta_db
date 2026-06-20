@@ -259,7 +259,7 @@
             | ![QR Code Google Maps](imagens/guia_na_web_p0_i1.webp) |
             | :--: |
             | *QR Code Google Maps* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_cachoeira
@@ -280,6 +280,23 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p0_i1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pé na Chapa
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Desenferrujando
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Ferrugem
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: A Ferro Quente
+        - **ids**:
+          - 4
     - **largura_mapa**: 992
     - **altura_mapa**: 624
   - **[1]**:
@@ -295,7 +312,6 @@
     - **via_esportiva**:
       - **descricao**: Via protegida por três grampos de ½ (incluindo o grampo de topo), muito boa para treinamento de guiadas e top-ropes com iniciantes. Rapel / top-rope com corda única de 50m.
       - **nome**: Pé na Chapa
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_2
       - **exposicao**: E1
       - **extensao**: 15
@@ -307,7 +323,6 @@
     - **via_esportiva**:
       - **descricao**: Via semelhante à anterior, contando com três grampos, sendo um de top-rope.
       - **nome**: Desenferrujando
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_2
       - **exposicao**: E1
       - **extensao**: 15
@@ -319,7 +334,6 @@
     - **via_esportiva**:
       - **descricao**: Via com boa grampeação, até atingir o topo da falésia, onde existe uma parada dupla. Ótima opção para o primeiro contato com o esporte, ou para quem está começando a guiar, perfeita para ensinar técnicas de posicionamento, equalização e costuras, sem preocupação com a parte técnica em si. Rapel / top-rope em corda única de 60m.
       - **nome**: Ferrugem
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_1SUP
       - **extensao**: 30
       - **conquistadores**:
@@ -330,7 +344,6 @@
     - **via_esportiva**:
       - **descricao**: ESCALADA SOLO. Via conquistada em solo integral, não possuindo proteções fixas. A descida é feita por trilha ao lado direito da falésia, ou pela via “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue a linha natural da pedra até o topo.
       - **nome**: A Ferro Quente
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_2
       - **extensao**: 25
       - **conquistadores**:
@@ -381,6 +394,27 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solamente
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Nesse Mato Tem Cachorro
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Vr. Cachorro Louco
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Libera Liberou
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Dez Mil e Uma Noites
+              - **ids**:
+                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp)
       - **escaladas**:
@@ -388,7 +422,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: ESCALADA SOLO. Via conquistada em solo integral, sem grampos. A descida deve ser feita desescalando-se a própria linha ou caminhando-se pelo mato do lado esquerdo.
             - **nome**: Solamente
-            - **id_no_mapa**: 1
             - **dificuldade_media**: BR_1
             - **dificuldade_maxima**: BR_2
             - **comprimento_total**: 120
@@ -399,7 +432,6 @@
           - **via_esportiva**:
             - **descricao**: Via que começa passando por uma sequência de platôs com vegetação, até chegar ao primeiro grampo, na parede já limpa. Após a segunda proteção, segue em diagonal para a direita, tornando a subir logo após, na direção do final do óbvio diedro. Após a virada do diedro, com um grampo no lance, segue-se em leve diagonal para a esquerda, até a última proteção da via.
             - **nome**: Nesse Mato Tem Cachorro
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_3
             - **exposicao**: E2
             - **extensao**: 55
@@ -411,7 +443,6 @@
           - **via_esportiva**:
             - **descricao**: Variante da via anterior, segue reta após a segunda proteção da via principal, passando por um pouco de mato, até fazer a virada do diedro, com um grampo logo acima do mesmo para proteção. Depois da virada, segue por uma linha branca na pedra, com mais um grampo intermediário, até chegar à parada final da “Nesse Mato Tem Cachorro”. Por possuir apenas duas proteções em 30 metros, apesar de fácil, esta via deve ser abordada com cautela.
             - **nome**: Vr. Cachorro Louco
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_3
             - **exposicao**: E3
             - **extensao**: 30
@@ -423,7 +454,6 @@
           - **via_esportiva**:
             - **descricao**: Via predominantemente em aderência e agarras, com boa grampeação até a parada final. Segue desde a base até o final em linha praticamente reta, terminando na barreira de vegetação.
             - **nome**: Libera Liberou
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_3
             - **exposicao**: E1
             - **extensao**: 35
@@ -435,7 +465,6 @@
           - **via_esportiva**:
             - **descricao**: Saída fácil em dois lances com boas agarras e bom posicionamento para os pés. Após o segundo grampo, seguem-se quatro lances bem íngremes de VI grau, com notável escassez de agarras e posicionamento delicado e instável para os pés, especialmente porque, nesse trecho, a rocha mostra-se mais friável. Após a parada dupla, seguem-se mais três lances fáceis até o final da via. A parada dupla é uma boa opção para o top-rope envolvendo a sequência de lances de VI.
             - **nome**: Dez Mil e Uma Noites
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_6
             - **exposicao**: E1
             - **extensao**: 45
@@ -463,6 +492,83 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cordada 171
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Inês é Morta
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Sempre Viva
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Zé Marta
+              - **ids**:
+                - 5
+            - **[4]**:
+              - **escalada**: Bolinha
+              - **ids**:
+                - 6
+            - **[5]**:
+              - **escalada**: Testa de Ferro
+              - **ids**:
+                - 7
+            - **[6]**:
+              - **escalada**: Ferro na Boneca
+              - **ids**:
+                - 8
+            - **[7]**:
+              - **escalada**: Maria Diz Graça
+              - **ids**:
+                - 9
+            - **[8]**:
+              - **escalada**: Zé Mangueira
+              - **ids**:
+                - 10
+            - **[9]**:
+              - **escalada**: Sherlock Holmes
+              - **ids**:
+                - 11
+            - **[10]**:
+              - **escalada**: Professor Moriarty
+              - **ids**:
+                - 12
+            - **[11]**:
+              - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **ids**:
+                - 13
+            - **[12]**:
+              - **escalada**: O Psicopata de Ferros
+              - **ids**:
+                - 14
+            - **[13]**:
+              - **escalada**: Frio na Barriga
+              - **ids**:
+                - 16
+            - **[14]**:
+              - **escalada**: Pescoço de Minhoca
+              - **ids**:
+                - 17
+            - **[15]**:
+              - **escalada**: Grampos de Ferros
+              - **ids**:
+                - 18
+            - **[16]**:
+              - **escalada**: Prateado
+              - **ids**:
+                - 19
+            - **[17]**:
+              - **escalada**: Fissurim
+              - **ids**:
+                - 4
+            - **[18]**:
+              - **escalada**: Vr. Caçadora de Micuim
+              - **ids**:
+                - 15
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p2_i0.webp)
         - **[2]**:
@@ -472,7 +578,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro que pode ter sua proteção melhorada com friends médios e pequenos (opcionais). Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido na altura do quinto grampo. O nome da via está relacionado com a soma das idades dos autores!
             - **nome**: Cordada 171
-            - **id_no_mapa**: 1
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_4SUP
             - **exposicao**: E1
@@ -486,7 +591,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo após o lance inicial protegido por um grampo. ESTILO: MISTA
             - **nome**: Inês é Morta
-            - **id_no_mapa**: 2
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_4
             - **comprimento_total**: 100
@@ -499,7 +603,6 @@
           - **via_esportiva**:
             - **descricao**: Via curta que se junta com a “Inês é Morta” em sua metade inferior.
             - **nome**: Sempre Viva
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_3
             - **extensao**: 35
             - **conquistadores**:
@@ -511,7 +614,6 @@
           - **via_movel**:
             - **descricao**: Via mista, iniciando com um lance de agarras (crux) protegido por grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda única pela via “Zé Marta”. ESTILO: MOVEL
             - **nome**: Fissurim
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_5
             - **extensao**: 20
             - **conquistadores**:
@@ -522,7 +624,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via interessante que se inicia em um veio de cristal. Possui uma extensão surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos. Homenageia o sogro do Tonico Magalhães que foi o supervisor da fazenda.
             - **nome**: Zé Marta
-            - **id_no_mapa**: 5
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_4
             - **comprimento_total**: 90
@@ -534,7 +635,6 @@
           - **via_esportiva**:
             - **descricao**: Inicia em um lance atlético (crux) e continua em aderência até o final.
             - **nome**: Bolinha
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_6
             - **extensao**: 30
             - **conquistadores**:
@@ -546,7 +646,6 @@
           - **via_esportiva**:
             - **descricao**: Toda equipada com grampos, termina numa parada dupla da via Maria Diz Graça.
             - **nome**: Testa de Ferro
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_4
             - **extensao**: 25
             - **conquistadores**:
@@ -557,7 +656,6 @@
           - **via_esportiva**:
             - **descricao**: Via esportiva em aderência complexa, apesar de curta, com proteções generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz Graça.
             - **nome**: Ferro na Boneca
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_7A
             - **extensao**: 20
             - **conquistadores**:
@@ -568,7 +666,6 @@
           - **via_esportiva**:
             - **descricao**: Uma das vias mais antigas do polo. Possui belíssimos lances de aderência e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
             - **nome**: Maria Diz Graça
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_5
             - **extensao**: 45
             - **conquistadores**:
@@ -579,7 +676,6 @@
           - **via_esportiva**:
             - **descricao**: O crux é o terceiro e exigente lance de aderência. Com boa proteção fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada do Vale do Roncador.
             - **nome**: Zé Mangueira
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_5SUP
             - **extensao**: 60
             - **conquistadores**:
@@ -591,7 +687,6 @@
           - **via_esportiva**:
             - **descricao**: Pequena via, porém complexa, com boas passadas em aderência e boa grampeação.
             - **nome**: Sherlock Holmes
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_5SUP
             - **extensao**: 20
             - **conquistadores**:
@@ -602,7 +697,6 @@
           - **via_esportiva**:
             - **descricao**: Via curta with bons lances de agarras e aderência, contando com 6 grampos. Ideal para top-rope.
             - **nome**: Professor Moriarty
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_3SUP
             - **exposicao**: E1
             - **extensao**: 30
@@ -614,7 +708,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Interessante via que segue, quase em sua totalidade, a visível faixa branca que corta toda a extensão vertical da parede neste setor. O crux fica nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde inclinação e passa por lances bastante divertidos, em aderência e cristaleiras.
             - **nome**: Que Qui Ocê Foi Fazê Nu Mato?
-            - **id_no_mapa**: 13
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_5
             - **exposicao**: E2
@@ -627,7 +720,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Boa via que possui seu crux logo nos primeiros 15 metros, em aderência e pequenos cristais. É necessário fazer proteção móvel com friend médio, em um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m. ESTILO: MISTA
             - **nome**: O Psicopata de Ferros
-            - **id_no_mapa**: 14
             - **dificuldade_media**: BR_4
             - **dificuldade_maxima**: BR_6
             - **exposicao**: E2
@@ -641,7 +733,6 @@
           - **via_movel**:
             - **descricao**: Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros. Boa via para quem está começando a guiar em móvel, pois além de relativamente curta, possui graduação baixa e com boas opções de proteção. ESTILO: MOVEL
             - **nome**: Vr. Caçadora de Micuim
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_3
             - **exposicao**: E1
             - **extensao**: 35
@@ -653,7 +744,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via que segue uma linha natural, sempre com boa proteção e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros, sendo posteriormente complementada.
             - **nome**: Frio na Barriga
-            - **id_no_mapa**: 16
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_3SUP
             - **comprimento_total**: 100
@@ -667,7 +757,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via relativamente longa e constante, que conta com 25 grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m.
             - **nome**: Pescoço de Minhoca
-            - **id_no_mapa**: 17
             - **dificuldade_media**: BR_4
             - **dificuldade_maxima**: BR_4
             - **comprimento_total**: 140
@@ -679,7 +768,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via altamente recomendada para quem gosta de aderência em graduação não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel. ESTILO: MISTA
             - **nome**: Grampos de Ferros
-            - **id_no_mapa**: 18
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_4SUP
             - **comprimento_total**: 110
@@ -692,7 +780,6 @@
           - **via_multiplas_enfiadas**:
             - **descricao**: Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda.
             - **nome**: Prateado
-            - **id_no_mapa**: 19
             - **dificuldade_media**: BR_3
             - **dificuldade_maxima**: BR_4
             - **comprimento_total**: 130
@@ -708,6 +795,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p1_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: O Psicopata de Ferros
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
       - **escaladas**:
@@ -715,7 +807,6 @@
           - **via_movel**:
             - **descricao**: Via mista.
             - **nome**: O Psicopata de Ferros
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_6
             - **exposicao**: E2
             - **extensao**: 70
@@ -730,6 +821,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p0_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solamente
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
       - **escaladas**:
@@ -737,7 +833,6 @@
           - **via_esportiva**:
             - **descricao**: ESCALADA SOLO. Via conquistada em solo integral.
             - **nome**: Solamente
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_2
             - **extensao**: 120
             - **conquistadores**:
@@ -750,6 +845,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ferro na Boneca
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
       - **escaladas**:
@@ -757,7 +857,6 @@
           - **via_esportiva**:
             - **descricao**: Via curta e explosiva.
             - **nome**: Ferro na Boneca
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_7A
             - **extensao**: 20
             - **conquistadores**:
@@ -790,6 +889,83 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: A Medalha de Lúcia
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Águas de Março
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Vou Dançar o Xaxaxá
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Casas da Banha
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Ferradura
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Ferrolho
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Cambal a Quatro
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: El Bigodón
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Deu Tilt
+              - **ids**:
+                - 12
+            - **[9]**:
+              - **escalada**: Ferroada
+              - **ids**:
+                - 13
+            - **[10]**:
+              - **escalada**: Scarface
+              - **ids**:
+                - 14
+            - **[11]**:
+              - **escalada**: Se Meu Fusca Falasse
+              - **ids**:
+                - 15
+            - **[12]**:
+              - **escalada**: Couro de Lobisomem
+              - **ids**:
+                - 16
+            - **[13]**:
+              - **escalada**: Enferrujados
+              - **ids**:
+                - 17
+            - **[14]**:
+              - **escalada**: Rastro de Cobra
+              - **ids**:
+                - 18
+            - **[15]**:
+              - **escalada**: Entrando no Ferro
+              - **ids**:
+                - 19
+            - **[16]**:
+              - **escalada**: Testa de Aço
+              - **ids**:
+                - 9
+            - **[17]**:
+              - **escalada**: Me Ferrei
+              - **ids**:
+                - 10
+            - **[18]**:
+              - **escalada**: Amor Profano
+              - **ids**:
+                - 11
           - **largura_mapa**: 1024
           - **altura_mapa**: 602
         - **[1]**:
@@ -805,7 +981,6 @@
           - **via_esportiva**:
             - **descricao**: Segue por uma óbvia cristaleira até seu final.
             - **nome**: A Medalha de Lúcia
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_3SUP
             - **extensao**: 30
             - **conquistadores**:
@@ -816,7 +991,6 @@
           - **via_esportiva**:
             - **descricao**: Interessante via que inicia em um lance levemente atlético.
             - **nome**: Águas de Março
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_4SUP
             - **extensao**: 65
             - **conquistadores**:
@@ -826,7 +1000,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Vou Dançar o Xaxaxá
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_4
             - **extensao**: 65
             - **conquistadores**:
@@ -836,7 +1009,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Casas da Banha
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_5SUP
             - **extensao**: 45
             - **conquistadores**:
@@ -848,7 +1020,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Ferradura
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_6SUP
             - **extensao**: 10
             - **conquistadores**:
@@ -858,7 +1029,6 @@
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Ferrolho
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_4
             - **extensao**: 25
             - **conquistadores**:
@@ -868,7 +1038,6 @@
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Cambal a Quatro
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_5SUP
             - **extensao**: 30
             - **conquistadores**:
@@ -879,7 +1048,6 @@
         - **[7]**:
           - **via_esportiva**:
             - **nome**: El Bigodón
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_5
             - **extensao**: 30
             - **conquistadores**:
@@ -890,7 +1058,6 @@
         - **[8]**:
           - **via_movel**:
             - **nome**: Testa de Aço
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_5SUP
             - **extensao**: 30
             - **conquistadores**:
@@ -900,7 +1067,6 @@
         - **[9]**:
           - **via_movel**:
             - **nome**: Me Ferrei
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_6
             - **extensao**: 18
             - **conquistadores**:
@@ -910,7 +1076,6 @@
         - **[10]**:
           - **via_movel**:
             - **nome**: Amor Profano
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_5
             - **extensao**: 20
             - **conquistadores**:
@@ -920,7 +1085,6 @@
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Deu Tilt
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_4SUP
             - **extensao**: 15
             - **conquistadores**:
@@ -930,7 +1094,6 @@
         - **[12]**:
           - **via_esportiva**:
             - **nome**: Ferroada
-            - **id_no_mapa**: 13
             - **dificuldade**: BR_3
             - **extensao**: 20
             - **conquistadores**:
@@ -940,7 +1103,6 @@
         - **[13]**:
           - **via_esportiva**:
             - **nome**: Scarface
-            - **id_no_mapa**: 14
             - **dificuldade**: BR_4
             - **extensao**: 20
             - **conquistadores**:
@@ -950,7 +1112,6 @@
         - **[14]**:
           - **via_esportiva**:
             - **nome**: Se Meu Fusca Falasse
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_4
             - **extensao**: 15
             - **conquistadores**:
@@ -960,7 +1121,6 @@
         - **[15]**:
           - **via_esportiva**:
             - **nome**: Couro de Lobisomem
-            - **id_no_mapa**: 16
             - **dificuldade**: BR_6SUP
             - **extensao**: 18
             - **conquistadores**:
@@ -971,7 +1131,6 @@
         - **[16]**:
           - **via_esportiva**:
             - **nome**: Enferrujados
-            - **id_no_mapa**: 17
             - **dificuldade**: BR_4
             - **extensao**: 15
             - **conquistadores**:
@@ -982,7 +1141,6 @@
         - **[17]**:
           - **via_esportiva**:
             - **nome**: Rastro de Cobra
-            - **id_no_mapa**: 18
             - **dificuldade**: BR_5SUP
             - **extensao**: 18
             - **conquistadores**:
@@ -992,7 +1150,6 @@
         - **[18]**:
           - **via_esportiva**:
             - **nome**: Entrando no Ferro
-            - **id_no_mapa**: 19
             - **dificuldade**: BR_5SUP
             - **extensao**: 25
             - **conquistadores**:
@@ -1009,6 +1166,67 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Macambúzio
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pente Frio
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: El Barrigón
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Lobos do Caraça
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: O Tempo e o Vento
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: O Burro e o Capacete
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Tá Bão
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Pelanca
+              - **ids**:
+                - 10
+            - **[8]**:
+              - **escalada**: Flor da Pele
+              - **ids**:
+                - 11
+            - **[9]**:
+              - **escalada**: Alma Nova
+              - **ids**:
+                - 12
+            - **[10]**:
+              - **escalada**: Pele Vermelha
+              - **ids**:
+                - 13
+            - **[11]**:
+              - **escalada**: Pelinha
+              - **ids**:
+                - 14
+            - **[12]**:
+              - **escalada**: Cutícula
+              - **ids**:
+                - 15
+            - **[13]**:
+              - **escalada**: Amor meu Grande amor
+              - **ids**:
+                - 8
+            - **[14]**:
+              - **escalada**: Rapidinha no Escurinho
+              - **ids**:
+                - 9
           - **largura_mapa**: 1024
           - **altura_mapa**: 615
         - **[1]**:
@@ -1019,7 +1237,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Macambúzio
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_3SUP
             - **extensao**: 80
             - **conquistadores**:
@@ -1029,7 +1246,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Pente Frio
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 65
@@ -1040,7 +1256,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: El Barrigón
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_4
             - **extensao**: 45
             - **conquistadores**:
@@ -1050,7 +1265,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Lobos do Caraça
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_4
             - **extensao**: 100
             - **conquistadores**:
@@ -1060,7 +1274,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: O Tempo e o Vento
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_3
             - **exposicao**: E1
             - **extensao**: 100
@@ -1071,7 +1284,6 @@
         - **[5]**:
           - **via_esportiva**:
             - **nome**: O Burro e o Capacete
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_3SUP
             - **extensao**: 75
             - **conquistadores**:
@@ -1081,62 +1293,53 @@
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Tá Bão
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 35
         - **[7]**:
           - **via_movel**:
             - **nome**: Amor meu Grande amor
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 45
         - **[8]**:
           - **via_movel**:
             - **nome**: Rapidinha no Escurinho
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 50
         - **[9]**:
           - **via_esportiva**:
             - **nome**: Pelanca
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_5
             - **exposicao**: E1
             - **extensao**: 45
         - **[10]**:
           - **via_esportiva**:
             - **nome**: Flor da Pele
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_3SUP
             - **exposicao**: E1
             - **extensao**: 35
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Alma Nova
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_3SUP
             - **extensao**: 25
         - **[12]**:
           - **via_esportiva**:
             - **nome**: Pele Vermelha
-            - **id_no_mapa**: 13
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 45
         - **[13]**:
           - **via_esportiva**:
             - **nome**: Pelinha
-            - **id_no_mapa**: 14
             - **dificuldade**: BR_2
             - **exposicao**: E3
             - **extensao**: 20
         - **[14]**:
           - **via_esportiva**:
             - **nome**: Cutícula
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_2
             - **exposicao**: E3
             - **extensao**: 18
@@ -1150,6 +1353,95 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p1_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ferro no Judas
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Marcado a Ferro
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Rolam as Pedras
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Pum Medonho
+              - **ids**:
+                - 6
+            - **[4]**:
+              - **escalada**: Pr. Chapado
+              - **ids**:
+                - 7
+            - **[5]**:
+              - **escalada**: Dona Flor e Suas Duas Marretas
+              - **ids**:
+                - 8
+            - **[6]**:
+              - **escalada**: Pé de Pano
+              - **ids**:
+                - 9
+            - **[7]**:
+              - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+              - **ids**:
+                - 11
+            - **[8]**:
+              - **escalada**: Hilda Furacão
+              - **ids**:
+                - 12
+            - **[9]**:
+              - **escalada**: Iron Men
+              - **ids**:
+                - 13
+            - **[10]**:
+              - **escalada**: Rainha da Base
+              - **ids**:
+                - 15
+            - **[11]**:
+              - **escalada**: A Ferro e Fogo
+              - **ids**:
+                - 16
+            - **[12]**:
+              - **escalada**: Chuva Ácida
+              - **ids**:
+                - 17
+            - **[13]**:
+              - **escalada**: A Decadência da Bufa
+              - **ids**:
+                - 18
+            - **[14]**:
+              - **escalada**: Tatu do Jeca
+              - **ids**:
+                - 19
+            - **[15]**:
+              - **escalada**: Jeca Tatu
+              - **ids**:
+                - 20
+            - **[16]**:
+              - **escalada**: Valeu Papito
+              - **ids**:
+                - 21
+            - **[17]**:
+              - **escalada**: Macambúzio
+              - **ids**:
+                - 23
+            - **[18]**:
+              - **escalada**: Tromba D’Água
+              - **ids**:
+                - 4
+            - **[19]**:
+              - **escalada**: Ferro Velho
+              - **ids**:
+                - 5
+            - **[20]**:
+              - **escalada**: CDF
+              - **ids**:
+                - 10
+            - **[21]**:
+              - **escalada**: Cordão do Bola Preta
+              - **ids**:
+                - 14
           - **largura_mapa**: 2048
           - **altura_mapa**: 1268
         - **[1]**:
@@ -1160,145 +1452,123 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Ferro no Judas
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_5SUP
             - **extensao**: 130
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Marcado a Ferro
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_5
             - **extensao**: 180
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Rolam as Pedras
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 130
         - **[3]**:
           - **via_movel**:
             - **nome**: Tromba D’Água
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_4
             - **exposicao**: E3
             - **extensao**: 175
         - **[4]**:
           - **via_movel**:
             - **nome**: Ferro Velho
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_4
             - **exposicao**: E2
             - **extensao**: 140
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Pum Medonho
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_3SUP
             - **extensao**: 110
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Pr. Chapado
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 135
         - **[7]**:
           - **via_esportiva**:
             - **nome**: Dona Flor e Suas Duas Marretas
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_3SUP
             - **exposicao**: E2
             - **extensao**: 130
         - **[8]**:
           - **via_esportiva**:
             - **nome**: Pé de Pano
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 150
         - **[9]**:
           - **via_movel**:
             - **nome**: CDF
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_4
             - **extensao**: 130
         - **[10]**:
           - **via_esportiva**:
             - **nome**: Eu Sei o Que Vocês Fizeram no Blackout Passado
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 115
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Hilda Furacão
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_4
             - **extensao**: 165
         - **[12]**:
           - **via_esportiva**:
             - **nome**: Iron Men
-            - **id_no_mapa**: 13
             - **dificuldade**: BR_5
             - **extensao**: 160
         - **[13]**:
           - **via_movel**:
             - **nome**: Cordão do Bola Preta
-            - **id_no_mapa**: 14
             - **dificuldade**: BR_4SUP
             - **exposicao**: E2
             - **extensao**: 130
         - **[14]**:
           - **via_esportiva**:
             - **nome**: Rainha da Base
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_4SUP
             - **exposicao**: E2
             - **extensao**: 120
         - **[15]**:
           - **via_esportiva**:
             - **nome**: A Ferro e Fogo
-            - **id_no_mapa**: 16
             - **dificuldade**: BR_4
             - **extensao**: 150
         - **[16]**:
           - **via_esportiva**:
             - **nome**: Chuva Ácida
-            - **id_no_mapa**: 17
             - **dificuldade**: BR_3SUP
             - **exposicao**: E1
             - **extensao**: 50
         - **[17]**:
           - **via_esportiva**:
             - **nome**: A Decadência da Bufa
-            - **id_no_mapa**: 18
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 125
         - **[18]**:
           - **via_esportiva**:
             - **nome**: Tatu do Jeca
-            - **id_no_mapa**: 19
             - **dificuldade**: BR_3SUP
             - **exposicao**: E1
             - **extensao**: 30
         - **[19]**:
           - **via_esportiva**:
             - **nome**: Jeca Tatu
-            - **id_no_mapa**: 20
             - **dificuldade**: BR_4SUP
             - **extensao**: 90
         - **[20]**:
           - **via_esportiva**:
             - **nome**: Valeu Papito
-            - **id_no_mapa**: 21
             - **dificuldade**: BR_3SUP
             - **extensao**: 90
         - **[21]**:
           - **via_esportiva**:
             - **nome**: Macambúzio
-            - **id_no_mapa**: 23
             - **dificuldade**: BR_3SUP
             - **extensao**: 80
   - **[3]**:
@@ -1311,6 +1581,15 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Um Momento no Tempo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Noite de São João
+              - **ids**:
+                - 2
           - **largura_mapa**: 2048
           - **altura_mapa**: 1268
         - **[1]**:
@@ -1321,14 +1600,12 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Um Momento no Tempo
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_6
             - **exposicao**: E2
             - **extensao**: 120
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Noite de São João
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_3SUP
             - **exposicao**: E2
             - **extensao**: 120
@@ -1342,6 +1619,107 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Quarto 304
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: O Nome da Rosa
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: O Retorno de Jedi
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Jardim do Éden
+              - **ids**:
+                - 5
+            - **[4]**:
+              - **escalada**: A Dois Passos do Paraíso
+              - **ids**:
+                - 6
+            - **[5]**:
+              - **escalada**: Conquista do Paraíso
+              - **ids**:
+                - 7
+            - **[6]**:
+              - **escalada**: Purgatório
+              - **ids**:
+                - 8
+            - **[7]**:
+              - **escalada**: Conrado Ferro
+              - **ids**:
+                - 10
+            - **[8]**:
+              - **escalada**: Quem com Ferro Fere
+              - **ids**:
+                - 11
+            - **[9]**:
+              - **escalada**: Tanto Bate Até Que Fura
+              - **ids**:
+                - 12
+            - **[10]**:
+              - **escalada**: Trem de Ferro
+              - **ids**:
+                - 13
+            - **[11]**:
+              - **escalada**: Up Ester
+              - **ids**:
+                - 14
+            - **[12]**:
+              - **escalada**: Até Que a Vida Nos Separe
+              - **ids**:
+                - 15
+            - **[13]**:
+              - **escalada**: Pr. CEM
+              - **ids**:
+                - 17
+            - **[14]**:
+              - **escalada**: Vr. SEM
+              - **ids**:
+                - 18
+            - **[15]**:
+              - **escalada**: Engatilhados
+              - **ids**:
+                - 19
+            - **[16]**:
+              - **escalada**: Trio Elétrico
+              - **ids**:
+                - 20
+            - **[17]**:
+              - **escalada**: Eu Não Sou de Ferro
+              - **ids**:
+                - 21
+            - **[18]**:
+              - **escalada**: Grand Finale
+              - **ids**:
+                - 23
+            - **[19]**:
+              - **escalada**: À Francesa
+              - **ids**:
+                - 24
+            - **[20]**:
+              - **escalada**: Ih, Ferrou!
+              - **ids**:
+                - 4
+            - **[21]**:
+              - **escalada**: Arco de Ferros
+              - **ids**:
+                - 9
+            - **[22]**:
+              - **escalada**: Vr. Pilhado
+              - **ids**:
+                - 16
+            - **[23]**:
+              - **escalada**: Rio de Mão Dupla
+              - **ids**:
+                - 22
+            - **[24]**:
+              - **escalada**: Atalho dos Duendes
+              - **ids**:
+                - 25
           - **largura_mapa**: 1024
           - **altura_mapa**: 649
         - **[1]**:
@@ -1352,170 +1730,145 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Quarto 304
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_2SUP
             - **exposicao**: E1
             - **extensao**: 120
         - **[1]**:
           - **via_esportiva**:
             - **nome**: O Nome da Rosa
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 120
         - **[2]**:
           - **via_esportiva**:
             - **nome**: O Retorno de Jedi
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_4SUP
             - **extensao**: 150
         - **[3]**:
           - **via_movel**:
             - **nome**: Ih, Ferrou!
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_6
             - **exposicao**: E2
             - **extensao**: 185
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Jardim do Éden
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_7A
             - **exposicao**: E1
             - **extensao**: 220
         - **[5]**:
           - **via_esportiva**:
             - **nome**: A Dois Passos do Paraíso
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_7C
             - **exposicao**: E1
             - **extensao**: 85
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Conquista do Paraíso
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_7A
             - **extensao**: 165
         - **[7]**:
           - **via_esportiva**:
             - **nome**: Purgatório
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_8B
             - **exposicao**: E2
             - **extensao**: 120
         - **[8]**:
           - **via_movel**:
             - **nome**: Arco de Ferros
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_7A
             - **exposicao**: E2
             - **extensao**: 50
         - **[9]**:
           - **via_esportiva**:
             - **nome**: Conrado Ferro
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_8C
             - **exposicao**: E2
             - **extensao**: 120
         - **[10]**:
           - **via_esportiva**:
             - **nome**: Quem com Ferro Fere
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_5
             - **exposicao**: E1
             - **extensao**: 90
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Tanto Bate Até Que Fura
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_7A
             - **exposicao**: E1
             - **extensao**: 65
         - **[12]**:
           - **via_esportiva**:
             - **nome**: Trem de Ferro
-            - **id_no_mapa**: 13
             - **dificuldade**: BR_5
             - **exposicao**: E2
             - **extensao**: 80
         - **[13]**:
           - **via_esportiva**:
             - **nome**: Up Ester
-            - **id_no_mapa**: 14
             - **dificuldade**: BR_5SUP
             - **exposicao**: E1
             - **extensao**: 100
         - **[14]**:
           - **via_esportiva**:
             - **nome**: Até Que a Vida Nos Separe
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 120
         - **[15]**:
           - **via_movel**:
             - **nome**: Vr. Pilhado
-            - **id_no_mapa**: 16
             - **dificuldade**: BR_5SUP
             - **exposicao**: E3
             - **extensao**: 70
         - **[16]**:
           - **via_esportiva**:
             - **nome**: Pr. CEM
-            - **id_no_mapa**: 17
             - **dificuldade**: BR_5
             - **exposicao**: E1
             - **extensao**: 165
         - **[17]**:
           - **via_esportiva**:
             - **nome**: Vr. SEM
-            - **id_no_mapa**: 18
             - **dificuldade**: BR_6SUP
             - **exposicao**: E1
             - **extensao**: 30
         - **[18]**:
           - **via_esportiva**:
             - **nome**: Engatilhados
-            - **id_no_mapa**: 19
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 150
         - **[19]**:
           - **via_esportiva**:
             - **nome**: Trio Elétrico
-            - **id_no_mapa**: 20
             - **dificuldade**: BR_6
             - **exposicao**: E2
             - **extensao**: 160
         - **[20]**:
           - **via_esportiva**:
             - **nome**: Eu Não Sou de Ferro
-            - **id_no_mapa**: 21
             - **dificuldade**: BR_5
             - **extensao**: 220
         - **[21]**:
           - **via_movel**:
             - **nome**: Rio de Mão Dupla
-            - **id_no_mapa**: 22
             - **dificuldade**: BR_6
             - **exposicao**: E4
             - **extensao**: 140
         - **[22]**:
           - **via_esportiva**:
             - **nome**: Grand Finale
-            - **id_no_mapa**: 23
             - **dificuldade**: BR_5SUP
             - **extensao**: 30
         - **[23]**:
           - **via_esportiva**:
             - **nome**: À Francesa
-            - **id_no_mapa**: 24
             - **dificuldade**: BR_2SUP
             - **extensao**: 100
         - **[24]**:
           - **via_movel**:
             - **nome**: Atalho dos Duendes
-            - **id_no_mapa**: 25
             - **dificuldade**: BR_3
             - **extensao**: 70
 
@@ -1541,6 +1894,63 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p1_i1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Diedro da Rabada
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Mestre Sala
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Porta-Bandeira
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Gangorra
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Jabá com Jerimum
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Bruxa Albano
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Vomitão em Ferros
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Iron Slow
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Bicho de Pé
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Os Três Mosqueteiros
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Nó de Porco
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Ícaro
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Champinha
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Falcatrua
+        - **ids**:
+          - 14
     - **largura_mapa**: 765
     - **altura_mapa**: 567
   - **[1]**:
@@ -1552,7 +1962,6 @@
     - **via_esportiva**:
       - **descricao**: Ótima via na extrema esquerda da falésia, toda protegida por grampos.
       - **nome**: Diedro da Rabada
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7A
       - **extensao**: 15
       - **conquistadores**:
@@ -1563,7 +1972,6 @@
     - **via_esportiva**:
       - **descricao**: Via positiva exigente em regletes.
       - **nome**: Mestre Sala
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7C
       - **extensao**: 15
       - **conquistadores**:
@@ -1574,7 +1982,6 @@
     - **via_esportiva**:
       - **descricao**: Bem parecida com via anterior. Termina na mesma parada dupla.
       - **nome**: Porta-Bandeira
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7B
       - **extensao**: 15
       - **conquistadores**:
@@ -1585,7 +1992,6 @@
     - **via_esportiva**:
       - **descricao**: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
       - **nome**: Gangorra
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A
       - **dificuldade_artificial**: A0
       - **extensao**: 15
@@ -1597,7 +2003,6 @@
     - **via_esportiva**:
       - **descricao**: Via atlética cujo lance inicial é o mais difícil.
       - **nome**: Jabá com Jerimum
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6
       - **extensao**: 15
       - **conquistadores**:
@@ -1608,7 +2013,6 @@
     - **via_esportiva**:
       - **descricao**: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
       - **nome**: Bruxa Albano
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_6
       - **extensao**: 15
       - **conquistadores**:
@@ -1621,7 +2025,6 @@
     - **via_esportiva**:
       - **descricao**: Via emblemática do setor das Esportivas e bem protegida com grampos.
       - **nome**: Vomitão em Ferros
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_8A
       - **extensao**: 15
       - **conquistadores**:
@@ -1632,7 +2035,6 @@
     - **via_esportiva**:
       - **descricao**: Variante mais fácil da Vomitão em Ferros.
       - **nome**: Iron Slow
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_7C
       - **extensao**: 15
       - **conquistadores**:
@@ -1643,7 +2045,6 @@
     - **via_esportiva**:
       - **descricao**: Via curta e bem grampeada.
       - **nome**: Bicho de Pé
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_5
       - **extensao**: 15
       - **conquistadores**:
@@ -1654,7 +2055,6 @@
     - **via_esportiva**:
       - **descricao**: Bem parecida com via anterior.
       - **nome**: Os Três Mosqueteiros
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6
       - **extensao**: 15
       - **conquistadores**:
@@ -1665,7 +2065,6 @@
     - **via_esportiva**:
       - **descricao**: A via é muito bonita e segue uma aresta com agarras grandes.
       - **nome**: Nó de Porco
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_5
       - **extensao**: 15
       - **conquistadores**:
@@ -1677,7 +2076,6 @@
     - **via_esportiva**:
       - **descricao**: O segundo lance é o crux e possui uma passada em uma agarra alta.
       - **nome**: Ícaro
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5
       - **extensao**: 15
       - **conquistadores**:
@@ -1689,7 +2087,6 @@
     - **via_esportiva**:
       - **descricao**: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
       - **nome**: Champinha
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **extensao**: 15
       - **conquistadores**:
@@ -1701,7 +2098,6 @@
     - **via_esportiva**:
       - **descricao**: Via atlética cujo crux é o último lance.
       - **nome**: Falcatrua
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
       - **extensao**: 15
       - **conquistadores**:
@@ -1719,6 +2115,23 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_dos_solos_p0_i1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Caipora
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Iaci
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Boitatá
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Maracujá
+        - **ids**:
+          - 4
     - **largura_mapa**: 659
     - **altura_mapa**: 418
 - **escaladas**:
@@ -1726,7 +2139,6 @@
     - **via_esportiva**:
       - **descricao**: ESCALADA SOLO
       - **nome**: Caipora
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_2
       - **extensao**: 12
       - **conquistadores**:
@@ -1738,7 +2150,6 @@
     - **via_esportiva**:
       - **descricao**: ESCALADA SOLO
       - **nome**: Iaci
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_3SUP
       - **extensao**: 18
       - **conquistadores**:
@@ -1750,7 +2161,6 @@
     - **via_esportiva**:
       - **descricao**: ESCALADA SOLO
       - **nome**: Boitatá
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_3SUP
       - **extensao**: 18
       - **conquistadores**:
@@ -1762,7 +2172,6 @@
     - **via_esportiva**:
       - **descricao**: ESCALADA SOLO
       - **nome**: Maracujá
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_3
       - **extensao**: 18
       - **conquistadores**:
@@ -1789,6 +2198,31 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Até o Osso
+              - **ids**:
+                - 3
+            - **[1]**:
+              - **escalada**: Balangandã
+              - **ids**:
+                - 5
+            - **[2]**:
+              - **escalada**: Pé de Chinelo
+              - **ids**:
+                - 6
+            - **[3]**:
+              - **escalada**: Fissura Lapada na Rachada
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Fissura Sopa de Pedra
+              - **ids**:
+                - 2
+            - **[5]**:
+              - **escalada**: Diedro Caboclo D’Água
+              - **ids**:
+                - 4
           - **largura_mapa**: 640
           - **altura_mapa**: 346
         - **[1]**:
@@ -1799,37 +2233,31 @@
         - **[0]**:
           - **via_movel**:
             - **nome**: Fissura Lapada na Rachada
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_5SUP
             - **extensao**: 15
         - **[1]**:
           - **via_movel**:
             - **nome**: Fissura Sopa de Pedra
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_5SUP
             - **extensao**: 15
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Até o Osso
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_8A
             - **extensao**: 15
         - **[3]**:
           - **via_movel**:
             - **nome**: Diedro Caboclo D’Água
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_8A
             - **extensao**: 15
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Balangandã
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_7C
             - **extensao**: 15
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Pé de Chinelo
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_7A
             - **extensao**: 15
   - **[1]**:
@@ -1842,6 +2270,27 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Queima de Arquivo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Aquidaban
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tempestade
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Chuva de Verão
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Brumas de Inverno
+              - **ids**:
+                - 5
           - **largura_mapa**: 850
           - **altura_mapa**: 510
         - **[1]**:
@@ -1852,31 +2301,26 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Queima de Arquivo
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_7B
             - **extensao**: 12
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Aquidaban
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_3SUP
             - **extensao**: 12
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Tempestade
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_7C
             - **extensao**: 12
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Chuva de Verão
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_4
             - **extensao**: 12
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Brumas de Inverno
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_4
             - **extensao**: 10
 
@@ -1890,13 +2334,17 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_cenibra_p0_i1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pr. Pellé 70
+        - **ids**:
+          - 1
     - **largura_mapa**: 960
     - **altura_mapa**: 720
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Pr. Pellé 70
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_3SUP
       - **extensao**: 100
 
@@ -1917,6 +2365,11 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pr. Dama de Ferros
+        - **ids**:
+          - 1
     - **largura_mapa**: 2048
     - **altura_mapa**: 1268
   - **[1]**:
@@ -1926,7 +2379,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada. Corta toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
       - **nome**: Pr. Dama de Ferros
-      - **id_no_mapa**: 1
       - **dificuldade_media**: BR_4
       - **dificuldade_maxima**: BR_4SUP
       - **exposicao**: E2
@@ -1960,7 +2412,6 @@
     - **via_esportiva**:
       - **descricao**: Via localizada na última parede do Vale do Roncador, após a parede das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
       - **nome**: Amazonita
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_2
       - **extensao**: 200
       - **conquistadores**:
@@ -1971,7 +2422,6 @@
     - **via_movel**:
       - **descricao**: Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
       - **nome**: Fissura Cachoeira Quente
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
       - **extensao**: 50
       - **conquistadores**:

@@ -1,38 +1,26 @@
----
+---
 nome: Planetário
 escaladas:
 - boulder:
     nome: Planetário
-    id_no_mapa: '1'
-    id_no_mapa_fim: x
     destaque: true
     dificuldade: V11
 - boulder:
     nome: Náufrago
-    id_no_mapa: '2'
-    id_no_mapa_fim: y
     destaque: true
     dificuldade: V7
 - boulder:
     nome: Golfinho
-    id_no_mapa: '3'
-    id_no_mapa_fim: z
     dificuldade: V4
 - boulder:
     nome: Clarete
-    id_no_mapa: '4'
-    id_no_mapa_fim: w
     dificuldade: V3
 - boulder:
     nome: Odisséia na Babilônia
-    id_no_mapa: 1_b
-    id_no_mapa_fim: x_b
     dificuldade: V6
     destaque: true
 - boulder:
     nome: Canais da Babilônia
-    id_no_mapa: 1_b
-    id_no_mapa_fim: y_b
     dificuldade: V5
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p0.webp
@@ -51,6 +39,31 @@ mapas:
       x: 445
       y: 31
       raio: 9
+  referencias:
+  - escalada: Planetário
+    ids:
+    - '1'
+    - x
+  - escalada: Náufrago
+    ids:
+    - '2'
+    - y
+  - escalada: Golfinho
+    ids:
+    - '3'
+    - z
+  - escalada: Clarete
+    ids:
+    - '4'
+    - w
+  - escalada: Odisséia na Babilônia
+    ids:
+    - 1_b
+    - x_b
+  - escalada: Canais da Babilônia
+    ids:
+    - 1_b
+    - y_b
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
   largura_mapa: 829
   altura_mapa: 486
@@ -113,6 +126,6 @@ mapas:
       x: 585
       y: 6
       raio: 8
----
+---
 
 # Bloco Planetário

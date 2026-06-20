@@ -1,4 +1,4 @@
----
+---
 nome: Setor dos Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p0.webp
@@ -124,10 +124,40 @@ mapas:
       y: 29
       comprimento: 28
       largura: 28
+  referencias:
+  - escalada: Aresta Daniel
+    ids:
+    - '01'
+  - escalada: A Quina
+    ids:
+    - '02'
+  - escalada: Pachamama
+    ids:
+    - '03'
+  - escalada: Baba Yaga
+    ids:
+    - '04'
+  - escalada: Soy Loco Por Ti América
+    ids:
+    - '05'
+  - escalada: Afrodite
+    ids:
+    - '06'
+  - escalada: Ponto de Equilíbrio
+    ids:
+    - '07'
+  - escalada: Lilith
+    ids:
+    - '8'
+  - escalada: Deu Brasil
+    ids:
+    - '9'
+  - escalada: Deu Nois
+    ids:
+    - '10'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Aresta Daniel
-    id_no_mapa: '01'
     dificuldade_media: BR_6SUP
     numero_enfiadas: 2
     comprimento_total: 60
@@ -137,14 +167,12 @@ escaladas:
     data_abertura: '2005'
 - via_multiplas_enfiadas:
     nome: A Quina
-    id_no_mapa: '02'
     numero_enfiadas: 4
     conquistadores:
     - André
     - Tigrão
 - via_multiplas_enfiadas:
     nome: Pachamama
-    id_no_mapa: '03'
     numero_enfiadas: 7
     comprimento_total: 130
     conquistadores:
@@ -158,7 +186,6 @@ escaladas:
     data_abertura: '2024-06-14'
 - via_esportiva:
     nome: Baba Yaga
-    id_no_mapa: '04'
     dificuldade: BR_5
     conquistadores:
     - Berbari
@@ -169,7 +196,6 @@ escaladas:
     descricao: Via inacabada.
 - via_esportiva:
     nome: Soy Loco Por Ti América
-    id_no_mapa: '05'
     dificuldade: BR_9C_BARRA_10A
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -180,7 +206,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Afrodite
-    id_no_mapa: '06'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -191,7 +216,6 @@ escaladas:
     data_abertura: '2024'
 - via_esportiva:
     nome: Ponto de Equilíbrio
-    id_no_mapa: '07'
     dificuldade: BR_8B_BARRA_8C
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -202,7 +226,6 @@ escaladas:
     data_abertura: '2019'
 - via_esportiva:
     nome: Lilith
-    id_no_mapa: 08
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -214,7 +237,6 @@ escaladas:
     data_abertura: '2024'
 - via_esportiva:
     nome: Deu Brasil
-    id_no_mapa: 09
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -226,7 +248,6 @@ escaladas:
     data_abertura: '2019'
 - via_esportiva:
     nome: Deu Nois
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -236,7 +257,7 @@ escaladas:
     - Alex
     - Tonin
     data_abertura: '2006'
----
+---
 # Setor dos Tetos
 
 ![Setor dos Tetos](imagens/setor_tetos_p1.webp)

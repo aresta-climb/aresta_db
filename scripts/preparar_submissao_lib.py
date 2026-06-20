@@ -533,9 +533,10 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict):
 
 def corrigir_database(pico_path: Path):
     """
-    Varre o croqui.yaml e todos os arquivos markdown referenciados para garantir
+    Função principal que coordena o processamento do database para garantir
     que imagens em raw_pdf_contents sejam migradas e os caminhos corrigidos.
     """
+    pico_path = Path(pico_path)
     # Executa o motor de migrações no início da rotina de correção
     from scripts.migrador import aplicar_migracoes
     aplicar_migracoes(pico_path)
@@ -735,198 +736,92 @@ def validar_pontos_de_interesse_recursivo(obj, path=""):
 
 def validar_referencias_mapa(croqui_data: dict) -> list[str]:
     """
-    Valida se id_no_mapa, id_no_mapa_meio e id_no_mapa_fim de cada escalada
-    existem em algum mapa do setor, grupo ou pico correspondente.
+    Valida se as entidades apontadas nas referências dos mapas (escalada, setor, grupo)
+    realmente existem dentro do mesmo Pico.
     Retorna uma lista de strings com descrições dos erros.
     """
     erros = []
     
-    # 0. Verifica se existe PELO MENOS UM POI em todo o croqui.
-    # Se não houver nenhum, pulamos a validação para evitar warnings em croquis
-    # que ainda não começaram a ser processados (sem mapas/POIs).
-    def tem_algum_poi_recursivo(obj):
-        if isinstance(obj, list):
-            return any(tem_algum_poi_recursivo(item) for item in obj)
-        elif isinstance(obj, dict):
-            if "pontos_de_interesse" in obj and obj["pontos_de_interesse"]:
-                return True
-            return any(tem_algum_poi_recursivo(v) for v in obj.values())
-        return False
-
-    if not tem_algum_poi_recursivo(croqui_data):
-        return []
-
-    def coletar_ids_de_mapas(mapas):
-        ids = set()
-        for mapa in mapas:
-            for poi in mapa.get("pontos_de_interesse", []):
-                if "id" in poi:
-                    ids.add(poi["id"])
-        return ids
-
-    def validar_escalada(escalada, ids_validos, erros_contexto, ids_vistos):
-        if not isinstance(escalada, dict):
-            return
-            
-        # A escalada pode ser um de vários tipos (via_esportiva, boulder, etc)
-        # Extraímos o dicionário real da escalada
-        tipo_via = list(escalada.keys())[0] if escalada else None
-        if not tipo_via:
-            return
-        
-        dados_via = escalada[tipo_via]
-        if not isinstance(dados_via, dict):
-            return
-            
-        nome_via = dados_via.get("nome", "Sem Nome")
-        
-        id_refs = []
-        has_any_id = False
-        for campo in ["id_no_mapa", "id_no_mapa_meio", "id_no_mapa_fim"]:
-            id_ref = dados_via.get(campo)
-            if id_ref:
-                has_any_id = True
-                id_str = str(id_ref)
-                if id_str not in ids_validos:
-                    erros_contexto.append(f"Via '{nome_via}': {campo} '{id_ref}' não encontrado nos mapas.")
-                id_refs.append(id_str)
-            else:
-                id_refs.append(None)
-                
-        if has_any_id:
-            combo = tuple(id_refs)
-            if combo in ids_vistos:
-                if nome_via not in ids_vistos[combo]:
-                    ids_vistos[combo].append(nome_via)
-            else:
-                ids_vistos[combo] = [nome_via]
-
-        # Se for multiplas enfiadas, validar as enfiadas recursivamente
-        if tipo_via == "via_multiplas_enfiadas" and "enfiadas" in dados_via:
-            for e in dados_via["enfiadas"]:
-                validar_escalada(e, ids_validos, erros_contexto, ids_vistos)
-
-    def formatar_ids(ids_set):
-        if not ids_set:
-            return "[]"
-        ids_sorted = sorted(list(ids_set))
-        return "[" + ", ".join([f"'{i}'" for i in ids_sorted]) + "]"
-
-    def processar_setor(setor, ids_pai, pico_nome, grupo_nome=None):
-        setor_conteudo = setor.get("conteudo", {})
-        setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
-        
-        if grupo_nome:
-            contexto_str = f"Pico '{pico_nome}' -> Grupo '{grupo_nome}' -> Setor '{setor_nome}'"
-        else:
-            contexto_str = f"Pico '{pico_nome}' -> Setor '{setor_nome}'"
-        
-        ids_setor = coletar_ids_de_mapas(setor_conteudo.get("mapas", []))
-        ids_permitidos = ids_setor | ids_pai
-        
-        erros_setor = []
-        
-        # Validação do ID do próprio setor no mapa pai (pico ou grupo)
-        id_setor = setor_conteudo.get("id_no_mapa")
-        if id_setor and str(id_setor) not in ids_pai:
-             erros_setor.append(f"Setor '{setor_nome}': id_no_mapa '{id_setor}' não encontrado nos mapas superiores.")
-
-        ids_vistos = {}
-        for esc in setor_conteudo.get("escaladas", []):
-            validar_escalada(esc, ids_permitidos, erros_setor, ids_vistos)
-
-        for combo, nomes in ids_vistos.items():
-            if len(nomes) > 1:
-                nomes_str = ", ".join(nomes)
-                combo_str = ", ".join([str(x) for x in combo if x is not None])
-                erros_setor.append(f"A combinação de IDs de mapa ({combo_str}) está duplicada e sendo usada pelas escaladas: {nomes_str}.")
-            
-        if erros_setor:
-            erros.append(f"- {contexto_str}:")
-            for e in erros_setor:
-                erros.append(f"    * {e}")
-            erros.append(f"    * IDs de mapa disponíveis no contexto: {formatar_ids(ids_permitidos)}")
-
-    def processar_setores_ou_grupos(setores_ou_grupos, ids_pico, pico_nome):
-        ids_vistos_pico = {}
-        for item in setores_ou_grupos:
-            if "setor" in item:
-                processar_setor(item["setor"], ids_pico, pico_nome)
-                
-                setor_conteudo = item["setor"].get("conteudo", {})
-                id_setor = setor_conteudo.get("id_no_mapa")
-                nome_setor = setor_conteudo.get("nome", "Setor Sem Nome")
-                if id_setor:
-                    id_str = str(id_setor)
-                    item_nome = f"Setor '{nome_setor}'"
-                    if id_str in ids_vistos_pico:
-                        ids_vistos_pico[id_str].append(item_nome)
-                    else:
-                        ids_vistos_pico[id_str] = [item_nome]
-
-            elif "grupo" in item:
-                grupo_conteudo = item["grupo"].get("conteudo", {})
-                grupo_nome = grupo_conteudo.get("nome", "Grupo Sem Nome")
-                ids_grupo = coletar_ids_de_mapas(grupo_conteudo.get("mapas", []))
-                ids_contexto_grupo = ids_grupo | ids_pico
-                
-                erros_grupo = []
-                id_grupo = grupo_conteudo.get("id_no_mapa")
-                if id_grupo:
-                    id_str = str(id_grupo)
-                    if id_str not in ids_pico:
-                        erros_grupo.append(f"Grupo '{grupo_nome}': id_no_mapa '{id_grupo}' não encontrado nos mapas do pico.")
-                    
-                    item_nome = f"Grupo '{grupo_nome}'"
-                    if id_str in ids_vistos_pico:
-                        ids_vistos_pico[id_str].append(item_nome)
-                    else:
-                        ids_vistos_pico[id_str] = [item_nome]
-                
-                ids_vistos_grupo = {}
-                # Processar setores dentro do grupo
-                for s_ref in grupo_conteudo.get("setores", []):
-                    processar_setor(s_ref, ids_contexto_grupo, pico_nome, grupo_nome)
-                    
-                    setor_conteudo = s_ref.get("conteudo", {})
-                    id_setor = setor_conteudo.get("id_no_mapa")
-                    nome_setor = setor_conteudo.get("nome", "Setor Sem Nome")
-                    if id_setor:
-                        id_str = str(id_setor)
-                        item_nome = f"Setor '{nome_setor}'"
-                        if id_str in ids_vistos_grupo:
-                            ids_vistos_grupo[id_str].append(item_nome)
-                        else:
-                            ids_vistos_grupo[id_str] = [item_nome]
-
-                for id_str, nomes in ids_vistos_grupo.items():
-                    if len(nomes) > 1:
-                        nomes_str = ", ".join(nomes)
-                        erros_grupo.append(f"O id_no_mapa '{id_str}' está duplicado e sendo usado por: {nomes_str}.")
-
-                if erros_grupo:
-                    erros.append(f"- Pico '{pico_nome}' -> Grupo '{grupo_nome}':")
-                    for e in erros_grupo:
-                        erros.append(f"    * {e}")
-                    erros.append(f"    * IDs de mapa disponíveis no contexto: {formatar_ids(ids_pico)}")
-
-        erros_pico = []
-        for id_str, nomes in ids_vistos_pico.items():
-            if len(nomes) > 1:
-                nomes_str = ", ".join(nomes)
-                erros_pico.append(f"O id_no_mapa '{id_str}' está duplicado e sendo usado por: {nomes_str}.")
-        
-        if erros_pico:
-            erros.append(f"- Pico '{pico_nome}':")
-            for e in erros_pico:
-                erros.append(f"    * {e}")
-
     for pico in croqui_data.get("picos", []):
         pico_nome = pico.get("nome", "Pico Sem Nome")
-        ids_pico = coletar_ids_de_mapas(pico.get("mapas", []))
-        if "setores_ou_grupos" in pico:
-            processar_setores_ou_grupos(pico["setores_ou_grupos"], ids_pico, pico_nome)
+        
+        nomes_escaladas = set()
+        nomes_setores = set()
+        nomes_grupos = set()
+        
+        mapas_para_validar = []
+        
+        if "mapas" in pico:
+            mapas_para_validar.append((f"Pico '{pico_nome}'", pico["mapas"]))
+            
+        def registrar_escaladas(escaladas_lista):
+            for esc in escaladas_lista:
+                tipo_via = list(esc.keys())[0] if esc else None
+                if tipo_via:
+                    via = esc[tipo_via]
+                    if tipo_via == "via_multiplas_enfiadas" and "enfiadas" in via:
+                        nomes_escaladas.add(via.get("nome", "Sem Nome"))
+                        for e in via["enfiadas"]:
+                            tipo_e = list(e.keys())[0] if e else None
+                            if tipo_e:
+                                nomes_escaladas.add(e[tipo_e].get("nome", "Sem Nome"))
+                    else:
+                        nomes_escaladas.add(via.get("nome", "Sem Nome"))
 
+        for obj_sg in pico.get("setores_ou_grupos", []):
+            if "grupo" in obj_sg:
+                grupo_conteudo = obj_sg["grupo"].get("conteudo", {})
+                grupo_nome = grupo_conteudo.get("nome", "Grupo Sem Nome")
+                nomes_grupos.add(grupo_nome)
+                
+                if "mapas" in grupo_conteudo:
+                    mapas_para_validar.append((f"Grupo '{grupo_nome}'", grupo_conteudo["mapas"]))
+                    
+                for obj_s in grupo_conteudo.get("setores", []):
+                    setor_conteudo = obj_s.get("conteudo", {})
+                    setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
+                    nomes_setores.add(setor_nome)
+                    
+                    if "mapas" in setor_conteudo:
+                        mapas_para_validar.append((f"Setor '{setor_nome}' (no Grupo '{grupo_nome}')", setor_conteudo["mapas"]))
+                        
+                    registrar_escaladas(setor_conteudo.get("escaladas", []))
+                                
+            elif "setor" in obj_sg:
+                setor_conteudo = obj_sg["setor"].get("conteudo", {})
+                setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
+                nomes_setores.add(setor_nome)
+                
+                if "mapas" in setor_conteudo:
+                    mapas_para_validar.append((f"Setor '{setor_nome}'", setor_conteudo["mapas"]))
+                    
+                registrar_escaladas(setor_conteudo.get("escaladas", []))
+
+        # Valida os mapas
+        for contexto_nome, mapas in mapas_para_validar:
+            for idx_mapa, mapa in enumerate(mapas):
+                ids_vistos = set()
+                for ref in mapa.get("referencias", []):
+                    # Validação de duplicação de ID no mesmo mapa
+                    for ref_id in ref.get("ids", []):
+                        if ref_id in ids_vistos:
+                            erros.append(f"O ID '{ref_id}' está duplicado nas referências do mesmo mapa (Mapa {idx_mapa+1} em {contexto_nome}).")
+                        ids_vistos.add(ref_id)
+                        
+                    # Validação de existência da entidade
+                    if "escalada" in ref:
+                        nome = ref["escalada"]
+                        if nome not in nomes_escaladas:
+                            erros.append(f"Referência à escalada '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                    if "setor" in ref:
+                        nome = ref["setor"]
+                        if nome not in nomes_setores:
+                            erros.append(f"Referência ao setor '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                    if "grupo" in ref:
+                        nome = ref["grupo"]
+                        if nome not in nomes_grupos:
+                            erros.append(f"Referência ao grupo '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                            
     return erros
 
 def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path, dados_extras: dict = None):
@@ -977,10 +872,11 @@ def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path,
     # 3.2 Valida referências de IDs no mapa (apenas avisos, não impede compilação)
     erros_mapa = validar_referencias_mapa(croqui_data)
     if erros_mapa:
-        print("\n  AVISO: Inconsistência de IDs nos mapas:")
+        print("\n" + "="*80)
+        print("AVISO: Inconsistência nas referências de mapa:")
         for e in erros_mapa:
-            print(f"    {e}")
-        print("")
+            print("  " + e)
+        print("="*80 + "\n")
 
     # 4. Injeta metadados extras (ex: checksums de imagens)
     if dados_extras:

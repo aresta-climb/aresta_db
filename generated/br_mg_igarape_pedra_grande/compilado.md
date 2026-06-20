@@ -209,7 +209,7 @@
             - Igarameca Climb
             
             [@igarameca](https://www.instagram.com/igarameca)
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -380,6 +380,83 @@
           - **y**: 517
           - **comprimento**: 40
           - **largura**: 38
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Bacon com Linguiça
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Quatchú
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Xoquito
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Slow Motion
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Berbaridade Máxima
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Cirque du Soleil
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Route Setter
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Teto Preto
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: 101 Dalmatas
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Fúria de Titãs
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Prima Donna
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Dama de Ferro
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Primeira de Todas
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Brinco de Odalisca
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: 10%
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Quebra Tudo
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Acorrentado
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Fidefenda
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Cochyna Blue
+        - **ids**:
+          - 19
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p1.webp)
     - **largura_mapa**: 1067
@@ -541,7 +618,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Bacon com Linguiça
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -554,7 +630,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Quatchú
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -567,7 +642,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Xoquito
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -580,7 +654,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Slow Motion
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -594,7 +667,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Berbaridade Máxima
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -607,7 +679,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Cirque du Soleil
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -622,7 +693,6 @@
     - **via_esportiva**:
       - **descricao**: Finaliza na via 06 (Cirque du Soleil).
       - **nome**: Route Setter
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -635,7 +705,6 @@
     - **via_esportiva**:
       - **descricao**: Saída na via 07 (Route Setter).
       - **nome**: Teto Preto
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -647,7 +716,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: 101 Dalmatas
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -659,7 +727,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Fúria de Titãs
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_10A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -673,7 +740,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Prima Donna
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_10A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -687,7 +753,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Dama de Ferro
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_10C
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -699,7 +764,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Primeira de Todas
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -711,7 +775,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Brinco de Odalisca
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -723,7 +786,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: 10%
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6_BARRA_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -735,7 +797,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Quebra Tudo
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6_BARRA_6SUP
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -747,7 +808,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Acorrentado
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -759,7 +819,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Fidefenda
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -772,7 +831,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Cochyna Blue
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -950,6 +1008,83 @@
           - **y**: 626
           - **comprimento**: 37
           - **largura**: 37
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Florestinha
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Ação Total
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Escravos da Pedra
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Esquerdinha Caviar
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Mônica
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Queijo Suíço
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Aranha Gato
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Chapas Onorixicas
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Tora Flex
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Totalflex
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Haja Broca
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Juliana
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Lisebra
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Croque Monsieur
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Playground
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Depressão Pós Reforma
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Chuvasca
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Pau Oco
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Franzinha
+        - **ids**:
+          - 19
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_i_p1.webp)
     - **largura_mapa**: 1047
@@ -1111,7 +1246,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Florestinha
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Berbari
@@ -1120,7 +1254,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Ação Total
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1133,7 +1266,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Escravos da Pedra
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1146,7 +1278,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Esquerdinha Caviar
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1159,7 +1290,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Mônica
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1172,7 +1302,6 @@
     - **via_esportiva**:
       - **descricao**: CUIDADO: Colmeia de abelha na base da via!
       - **nome**: Queijo Suíço
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7A_BARRA_7B
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1184,7 +1313,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Aranha Gato
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6_BARRA_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1197,7 +1325,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Chapas Onorixicas
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1209,7 +1336,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Tora Flex
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1222,7 +1348,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Totalflex
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1235,7 +1360,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Haja Broca
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1247,7 +1371,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Juliana
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1259,7 +1382,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Lisebra
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1271,7 +1393,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Croque Monsieur
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1283,7 +1404,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Playground
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1294,7 +1414,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Depressão Pós Reforma
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1305,7 +1424,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Chuvasca
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1317,7 +1435,6 @@
     - **via_esportiva**:
       - **descricao**: Termina no mesmo tope que a via Franzinha.
       - **nome**: Pau Oco
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1330,7 +1447,6 @@
     - **via_esportiva**:
       - **descricao**: Termina no mesmo tope que a via Pau Oco.
       - **nome**: Franzinha
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1444,6 +1560,51 @@
           - **y**: 950
           - **comprimento**: 30
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Filhos da Revolução
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Pedra Vermelha
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Trinca Ferro
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Marimbondes me Mordam
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Sumchine
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Cater Pillar
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Pula Um
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Cerro Azul
+        - **ids**:
+          - 11
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_ii_p1.webp)
     - **largura_mapa**: 1032
@@ -1541,7 +1702,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Filhos da Revolução
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1554,7 +1714,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Pedra Vermelha
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Berbari
@@ -1563,7 +1722,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Projeto
-      - **id_no_mapa**: 03
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1574,7 +1732,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Projeto
-      - **id_no_mapa**: 04
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1586,7 +1743,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 05
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1598,7 +1754,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Trinca Ferro
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1609,7 +1764,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Marimbondes me Mordam
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1621,7 +1775,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Sumchine
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1633,7 +1786,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Cater Pillar
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1646,7 +1798,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Pula Um
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1658,7 +1809,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Cerro Azul
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6_BARRA_6SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1703,6 +1853,35 @@
           - **y**: 754
           - **comprimento**: 31
           - **largura**: 37
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Eu Também Vou
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Lambe Lambe
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: TNT
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: For My Brother
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Diamante Negro
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Chapa Quente
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 07
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p1.webp)
     - **largura_mapa**: 1101
@@ -1813,7 +1992,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Eu Também Vou
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1825,7 +2003,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Lambe Lambe
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1837,7 +2014,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: TNT
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1849,7 +2025,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: For My Brother
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1861,7 +2036,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Diamante Negro
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1875,7 +2049,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Chapa Quente
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1889,7 +2062,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 07
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 0
       - **quantidade_protecoes_parada**: 2
@@ -1947,6 +2119,23 @@
           - **y**: 970
           - **comprimento**: 34
           - **largura**: 41
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Takeyeasy
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Pâncepis
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Totem
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: 69
+        - **ids**:
+          - 04
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p1.webp)
     - **largura_mapa**: 1114
@@ -1988,7 +2177,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Takeyeasy
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2002,7 +2190,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Pâncepis
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2016,7 +2203,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Totem
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2031,7 +2217,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: 69
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2228,6 +2413,91 @@
           - **y**: 1171
           - **comprimento**: 22
           - **largura**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Beatrix
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Na Boca da Gruta Tem Dente
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Sunday Bloody Sunday
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: People Let's Stop The War
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Apolo 13
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Liga Extraordinária
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Poneis Malditos
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: I Like This
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Igarameca
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: U.F.O
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: 127 Horas
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Lero Lero é Mato
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Renegados de Igarapé
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Coisa Linda
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Doce Veneno
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Alguém Tem Que Ceder
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Napa
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Alpes Suínos*
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Viagem ao Centro da Terra
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Rolitos
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Balança Mas Não Cai
+        - **ids**:
+          - 21
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p1.webp)
     - **largura_mapa**: 1022
@@ -2434,7 +2704,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Beatrix
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2446,7 +2715,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Na Boca da Gruta Tem Dente
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2459,7 +2727,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Sunday Bloody Sunday
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2472,7 +2739,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: People Let's Stop The War
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2485,7 +2751,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Apolo 13
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_10B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2499,7 +2764,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Liga Extraordinária
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_9C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2512,7 +2776,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Poneis Malditos
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -2526,7 +2789,6 @@
     - **via_esportiva**:
       - **descricao**: Variante da Boneis Malditos.
       - **nome**: I Like This
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -2539,7 +2801,6 @@
   - **[8]**:
     - **via_multiplas_enfiadas**:
       - **nome**: Igarameca
-      - **id_no_mapa**: 09
       - **dificuldade_media**: BR_7B
       - **dificuldade_maxima**: BR_9A
       - **numero_enfiadas**: 2
@@ -2565,7 +2826,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: U.F.O
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -2579,7 +2839,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: 127 Horas
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2592,7 +2851,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Lero Lero é Mato
-      - **id_no_mapa**: 12
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2605,7 +2863,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Renegados de Igarapé
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2619,7 +2876,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Coisa Linda
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2631,7 +2887,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Doce Veneno
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2644,7 +2899,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Alguém Tem Que Ceder
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2657,7 +2911,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Napa
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2669,7 +2922,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Alpes Suínos*
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 16
       - **quantidade_protecoes_parada**: 2
@@ -2681,7 +2933,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Viagem ao Centro da Terra
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
@@ -2694,7 +2945,6 @@
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Rolitos
-      - **id_no_mapa**: 20
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 1
       - **quantidade_protecoes_parada**: 0
@@ -2703,7 +2953,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Balança Mas Não Cai
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2805,6 +3054,43 @@
           - **y**: 525
           - **comprimento**: 29
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Conflito sensual
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Duracell
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Djavú
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Muita coisa envolvida
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Netfrix
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Pouca prática
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Vainafé
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: People crazy
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Aresta Daniel
+        - **ids**:
+          - 9
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p2.webp)
     - **largura_mapa**: 1109
@@ -2899,7 +3185,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Conflito sensual
-      - **id_no_mapa**: 01
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2911,7 +3196,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Duracell
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2923,7 +3207,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Djavú
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2936,7 +3219,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Muita coisa envolvida
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2948,7 +3230,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Netfrix
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2960,7 +3241,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Pouca prática
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2972,7 +3252,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Vainafé
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2984,7 +3263,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: People crazy
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2997,7 +3275,6 @@
     - **via_multiplas_enfiadas**:
       - **descricao**: Via clássica longa que percorre a aresta.
       - **nome**: Aresta Daniel
-      - **id_no_mapa**: 09
       - **dificuldade_media**: BR_6SUP
       - **numero_enfiadas**: 2
       - **comprimento_total**: 60
@@ -3162,11 +3439,51 @@
           - **y**: 29
           - **comprimento**: 28
           - **largura**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aresta Daniel
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: A Quina
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Pachamama
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Baba Yaga
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Soy Loco Por Ti América
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Afrodite
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Ponto de Equilíbrio
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Lilith
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Deu Brasil
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Deu Nois
+        - **ids**:
+          - 10
 - **escaladas**:
   - **[0]**:
     - **via_multiplas_enfiadas**:
       - **nome**: Aresta Daniel
-      - **id_no_mapa**: 01
       - **dificuldade_media**: BR_6SUP
       - **numero_enfiadas**: 2
       - **comprimento_total**: 60
@@ -3177,7 +3494,6 @@
   - **[1]**:
     - **via_multiplas_enfiadas**:
       - **nome**: A Quina
-      - **id_no_mapa**: 02
       - **numero_enfiadas**: 4
       - **conquistadores**:
         - André
@@ -3185,7 +3501,6 @@
   - **[2]**:
     - **via_multiplas_enfiadas**:
       - **nome**: Pachamama
-      - **id_no_mapa**: 03
       - **numero_enfiadas**: 7
       - **comprimento_total**: 130
       - **conquistadores**:
@@ -3201,7 +3516,6 @@
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Baba Yaga
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Berbari
@@ -3212,7 +3526,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Soy Loco Por Ti América
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_9C_BARRA_10A
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -3224,7 +3537,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Afrodite
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -3236,7 +3548,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Ponto de Equilíbrio
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8B_BARRA_8C
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -3248,7 +3559,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Lilith
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -3261,7 +3571,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Deu Brasil
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3274,7 +3583,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Deu Nois
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3607,46 +3915,191 @@
           - **y**: 1212
           - **comprimento**: 30
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aresta Daniel
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Barriga Verde
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: ???
+        - **ids**:
+          - a
+      - **[3]**:
+        - **escalada**: ???
+        - **ids**:
+          - b
+      - **[4]**:
+        - **escalada**: Tosco Climb
+        - **ids**:
+          - 03
+      - **[5]**:
+        - **escalada**: Curió Não Se Cria
+        - **ids**:
+          - 04
+      - **[6]**:
+        - **escalada**: A Quina
+        - **ids**:
+          - 05
+      - **[7]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - c
+      - **[8]**:
+        - **escalada**: Igarapé Cascão
+        - **ids**:
+          - 06
+      - **[9]**:
+        - **escalada**: Outra saída da Igarapé Cascão
+        - **ids**:
+          - d
+      - **[10]**:
+        - **escalada**: Pachamama
+        - **ids**:
+          - 07
+      - **[11]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - e
+      - **[12]**:
+        - **escalada**: Absoluta Inconsequência
+        - **ids**:
+          - 08
+      - **[13]**:
+        - **escalada**: Inconsequência Moderada
+        - **ids**:
+          - 09
+      - **[14]**:
+        - **escalada**: Mentiras Sinceras
+        - **ids**:
+          - 10
+      - **[15]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - f
+      - **[16]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - g
+      - **[17]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 11
+      - **[18]**:
+        - **escalada**: Bituca
+        - **ids**:
+          - 12
+      - **[19]**:
+        - **escalada**: ???
+        - **ids**:
+          - h
+      - **[20]**:
+        - **escalada**: ???
+        - **ids**:
+          - i
+      - **[21]**:
+        - **escalada**: Último Dente
+        - **ids**:
+          - 13
+      - **[22]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 14
+      - **[23]**:
+        - **escalada**: Inanição
+        - **ids**:
+          - 15
+      - **[24]**:
+        - **escalada**: Lembranças da Vovó
+        - **ids**:
+          - 16
+      - **[25]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - j
+      - **[26]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - k
+      - **[27]**:
+        - **escalada**: ???
+        - **ids**:
+          - L
+      - **[28]**:
+        - **escalada**: ???
+        - **ids**:
+          - m
+      - **[29]**:
+        - **escalada**: Netflix
+        - **ids**:
+          - 17
+      - **[30]**:
+        - **escalada**: ???
+        - **ids**:
+          - n
+      - **[31]**:
+        - **escalada**: Que Nem Mendigo
+        - **ids**:
+          - 18
+      - **[32]**:
+        - **escalada**: Wally Caolho
+        - **ids**:
+          - 19
+      - **[33]**:
+        - **escalada**: Me Leve ao Cume
+        - **ids**:
+          - 20
+      - **[34]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 21
+      - **[35]**:
+        - **escalada**: Vale Tudo
+        - **ids**:
+          - 22
+      - **[36]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 23
+      - **[37]**:
+        - **escalada**: Mulher do Fim do Mundo
+        - **ids**:
+          - 24
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Aresta Daniel
-      - **id_no_mapa**: 01
       - **dificuldade**: INDEFINIDO
   - **[1]**:
     - **via_movel**:
       - **nome**: Barriga Verde
-      - **id_no_mapa**: 02
       - **dificuldade**: INDEFINIDO
   - **[2]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: a
       - **dificuldade**: INDEFINIDO
   - **[3]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: b
       - **dificuldade**: INDEFINIDO
   - **[4]**:
     - **via_movel**:
       - **nome**: Tosco Climb
-      - **id_no_mapa**: 03
       - **dificuldade**: INDEFINIDO
   - **[5]**:
     - **via_movel**:
       - **nome**: Curió Não Se Cria
-      - **id_no_mapa**: 04
       - **dificuldade**: INDEFINIDO
   - **[6]**:
     - **via_movel**:
       - **nome**: A Quina
-      - **id_no_mapa**: 05
       - **dificuldade**: INDEFINIDO
   - **[7]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: c
       - **dificuldade**: INDEFINIDO
   - **[8]**:
     - **via_movel**:
@@ -3659,97 +4112,78 @@
   - **[10]**:
     - **via_movel**:
       - **nome**: Igarapé Cascão
-      - **id_no_mapa**: 06
       - **dificuldade**: INDEFINIDO
   - **[11]**:
     - **via_movel**:
       - **nome**: Outra saída da Igarapé Cascão
-      - **id_no_mapa**: d
       - **dificuldade**: INDEFINIDO
   - **[12]**:
     - **via_movel**:
       - **nome**: Pachamama
-      - **id_no_mapa**: 07
       - **dificuldade**: INDEFINIDO
   - **[13]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: e
       - **dificuldade**: INDEFINIDO
   - **[14]**:
     - **via_movel**:
       - **nome**: Absoluta Inconsequência
-      - **id_no_mapa**: 08
       - **dificuldade**: INDEFINIDO
   - **[15]**:
     - **via_movel**:
       - **nome**: Inconsequência Moderada
-      - **id_no_mapa**: 09
       - **dificuldade**: INDEFINIDO
   - **[16]**:
     - **via_movel**:
       - **nome**: Mentiras Sinceras
-      - **id_no_mapa**: 10
       - **dificuldade**: INDEFINIDO
   - **[17]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: f
       - **dificuldade**: INDEFINIDO
   - **[18]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: g
       - **dificuldade**: INDEFINIDO
   - **[19]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: 11
       - **dificuldade**: INDEFINIDO
   - **[20]**:
     - **via_movel**:
       - **nome**: Bituca
-      - **id_no_mapa**: 12
       - **dificuldade**: INDEFINIDO
   - **[21]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: h
       - **dificuldade**: INDEFINIDO
   - **[22]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: i
       - **dificuldade**: INDEFINIDO
   - **[23]**:
     - **via_movel**:
       - **nome**: Último Dente
-      - **id_no_mapa**: 13
       - **dificuldade**: INDEFINIDO
   - **[24]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: 14
       - **dificuldade**: INDEFINIDO
   - **[25]**:
     - **via_movel**:
       - **nome**: Inanição
-      - **id_no_mapa**: 15
       - **dificuldade**: INDEFINIDO
   - **[26]**:
     - **via_movel**:
       - **nome**: Lembranças da Vovó
-      - **id_no_mapa**: 16
       - **dificuldade**: INDEFINIDO
   - **[27]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: j
       - **dificuldade**: INDEFINIDO
   - **[28]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: k
       - **dificuldade**: INDEFINIDO
   - **[29]**:
     - **via_movel**:
@@ -3758,57 +4192,46 @@
   - **[30]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: L
       - **dificuldade**: INDEFINIDO
   - **[31]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: m
       - **dificuldade**: INDEFINIDO
   - **[32]**:
     - **via_movel**:
       - **nome**: Netflix
-      - **id_no_mapa**: 17
       - **dificuldade**: INDEFINIDO
   - **[33]**:
     - **via_movel**:
       - **nome**: ???
-      - **id_no_mapa**: n
       - **dificuldade**: INDEFINIDO
   - **[34]**:
     - **via_movel**:
       - **nome**: Que Nem Mendigo
-      - **id_no_mapa**: 18
       - **dificuldade**: INDEFINIDO
   - **[35]**:
     - **via_movel**:
       - **nome**: Wally Caolho
-      - **id_no_mapa**: 19
       - **dificuldade**: INDEFINIDO
   - **[36]**:
     - **via_movel**:
       - **nome**: Me Leve ao Cume
-      - **id_no_mapa**: 20
       - **dificuldade**: INDEFINIDO
   - **[37]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: 21
       - **dificuldade**: INDEFINIDO
   - **[38]**:
     - **via_movel**:
       - **nome**: Vale Tudo
-      - **id_no_mapa**: 22
       - **dificuldade**: INDEFINIDO
   - **[39]**:
     - **via_movel**:
       - **nome**: sem nome
-      - **id_no_mapa**: 23
       - **dificuldade**: INDEFINIDO
   - **[40]**:
     - **via_movel**:
       - **nome**: Mulher do Fim do Mundo
-      - **id_no_mapa**: 24
       - **dificuldade**: INDEFINIDO
   - **[41]**:
     - **via_movel**:

@@ -1,4 +1,4 @@
----
+---
 nome: Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
@@ -89,62 +89,81 @@ mapas:
       y: 441
       comprimento: 22
       largura: 18
+  referencias:
+  - escalada: (via inacabada)
+    ids:
+    - '01'
+  - escalada: Cara de Bunda com Contração
+    ids:
+    - '02'
+  - escalada: (sem nome)
+    ids:
+    - '03'
+  - escalada: Vida Maria
+    ids:
+    - '04'
+  - escalada: Mimimi
+    ids:
+    - '05'
+  - escalada: De todos nós
+    ids:
+    - '06'
+  - escalada: Cai Mais Não, Zé
+    ids:
+    - '07'
+  - escalada: Corte Profundo
+    ids:
+    - '8'
+  - escalada: Avenida Paulista
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '01'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Cara de Bunda com Contração
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2018-12-06'
 - via_esportiva:
     nome: (sem nome)
-    id_no_mapa: '03'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Vida Maria
-    id_no_mapa: '04'
     dificuldade: BR_7A_BARRA_7B
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mimimi
-    id_no_mapa: '05'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: De todos nós
-    id_no_mapa: '06'
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cai Mais Não, Zé
-    id_no_mapa: '07'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Corte Profundo
-    id_no_mapa: 08
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Avenida Paulista
-    id_no_mapa: 09
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
----
+---
 # Setor Jardim Suspenso
 
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.

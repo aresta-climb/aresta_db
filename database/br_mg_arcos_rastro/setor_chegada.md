@@ -1,4 +1,4 @@
----
+---
 nome: Setor Chegada
 mapas:
 - caminho_imagem_mapa: imagens/setor_chegada_p0_i0.webp
@@ -117,6 +117,37 @@ mapas:
       y: 230
       comprimento: 20
       largura: 17
+  referencias:
+  - escalada: Nanica
+    ids:
+    - '01'
+  - escalada: Bom Dia Tatá
+    ids:
+    - '02'
+  - escalada: Papa Folia
+    ids:
+    - '03'
+  - escalada: Tchau (variante)
+    ids:
+    - '04'
+  - escalada: Vai Jumarear
+    ids:
+    - '05'
+  - escalada: No Pain no Gain
+    ids:
+    - '06'
+  - escalada: Entre o medo e a loucura
+    ids:
+    - '07'
+  - escalada: Linha de Frente
+    ids:
+    - '8'
+  - escalada: Helow (variante)
+    ids:
+    - '9'
+  - escalada: Good Bye
+    ids:
+    - '10'
 escaladas:
 - via_movel:
     nome: sem nome
@@ -125,7 +156,6 @@ escaladas:
     descricao: Via em móvel/mista.
 - via_esportiva:
     nome: Nanica
-    id_no_mapa: '01'
     dificuldade: BR_4
     data_abertura: 26a28/jul/2013
     quantidade_protecoes_intermediarias: 3
@@ -137,35 +167,30 @@ escaladas:
     descricao: Via em móvel.
 - via_esportiva:
     nome: Bom Dia Tatá
-    id_no_mapa: '02'
     dificuldade: BR_4
     data_abertura: 26a28/jul/2013
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Papa Folia
-    id_no_mapa: '03'
     dificuldade: BR_4
     data_abertura: 26a28/jul/2013
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tchau (variante)
-    id_no_mapa: '04'
     dificuldade: BR_4
     data_abertura: 26a28/jul/2013
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Vai Jumarear
-    id_no_mapa: '05'
     destaque: true
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: No Pain no Gain
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -175,27 +200,23 @@ escaladas:
     descricao: Via mista.
 - via_esportiva:
     nome: Entre o medo e a loucura
-    id_no_mapa: '07'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Linha de Frente
-    id_no_mapa: 08
     dificuldade: PROJETO
 - via_esportiva:
     nome: Helow (variante)
-    id_no_mapa: 09
     destaque: true
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Good Bye
-    id_no_mapa: '10'
     destaque: true
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
 # Setor Chegada
 
 Este setor é o primeiro contato com o afloramento. Possui sombra até as 12h (variando de acordo com a estação).

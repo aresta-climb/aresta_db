@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra Queimada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
@@ -53,6 +53,34 @@ mapas:
       x: 1308
       y: 758
       raio: 13
+  referencias:
+  - escalada: Flap
+    ids:
+    - '1'
+  - escalada: Alfândega
+    ids:
+    - '2'
+  - escalada: México
+    ids:
+    - '3'
+  - escalada: Passaporte
+    ids:
+    - '4'
+  - escalada: Dinamite
+    ids:
+    - 5A
+  - escalada: Pedra Queimada
+    ids:
+    - 5B
+  - escalada: Dinamite sds
+    ids:
+    - 6A
+  - escalada: Pedra Queimada sds
+    ids:
+    - 6B
+  - escalada: Identidade
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -66,40 +94,31 @@ mapas:
 escaladas:
 - boulder:
     nome: Flap
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Alfândega
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: México
-    id_no_mapa: '3'
     dificuldade: V9
     descricao: (começa em duas agarras invertidas no teto)
 - boulder:
     nome: Passaporte
-    id_no_mapa: '4'
     dificuldade: V6
 - boulder:
     nome: Dinamite
-    id_no_mapa: 5A
     dificuldade: V2
 - boulder:
     nome: Pedra Queimada
-    id_no_mapa: 5B
     dificuldade: V8
 - boulder:
     nome: Dinamite sds
-    id_no_mapa: 6A
     dificuldade: V5_BARRA_V6
 - boulder:
     nome: Pedra Queimada sds
-    id_no_mapa: 6B
     dificuldade: V9
 - boulder:
     nome: Identidade
-    id_no_mapa: '1'
     dificuldade: V0
----
+---
 

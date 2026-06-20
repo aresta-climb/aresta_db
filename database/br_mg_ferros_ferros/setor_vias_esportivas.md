@@ -1,12 +1,54 @@
----
+---
 nome: Setor Vias Esportivas
 mapas:
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
+  referencias:
+  - escalada: Diedro da Rabada
+    ids:
+    - '1'
+  - escalada: Mestre Sala
+    ids:
+    - '2'
+  - escalada: Porta-Bandeira
+    ids:
+    - '3'
+  - escalada: Gangorra
+    ids:
+    - '4'
+  - escalada: Jabá com Jerimum
+    ids:
+    - '5'
+  - escalada: Bruxa Albano
+    ids:
+    - '6'
+  - escalada: Vomitão em Ferros
+    ids:
+    - '7'
+  - escalada: Iron Slow
+    ids:
+    - '8'
+  - escalada: Bicho de Pé
+    ids:
+    - '9'
+  - escalada: Os Três Mosqueteiros
+    ids:
+    - '10'
+  - escalada: Nó de Porco
+    ids:
+    - '11'
+  - escalada: Ícaro
+    ids:
+    - '12'
+  - escalada: Champinha
+    ids:
+    - '13'
+  - escalada: Falcatrua
+    ids:
+    - '14'
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
 escaladas:
 - via_esportiva:
     nome: Diedro da Rabada
-    id_no_mapa: '1'
     dificuldade: BR_7A
     extensao: 15
     conquistadores:
@@ -16,7 +58,6 @@ escaladas:
     descricao: Ótima via na extrema esquerda da falésia, toda protegida por grampos.
 - via_esportiva:
     nome: Mestre Sala
-    id_no_mapa: '2'
     dificuldade: BR_7C
     extensao: 15
     conquistadores:
@@ -26,7 +67,6 @@ escaladas:
     descricao: Via positiva exigente em regletes.
 - via_esportiva:
     nome: Porta-Bandeira
-    id_no_mapa: '3'
     dificuldade: BR_7B
     extensao: 15
     conquistadores:
@@ -36,7 +76,6 @@ escaladas:
     descricao: Bem parecida com via anterior. Termina na mesma parada dupla.
 - via_esportiva:
     nome: Gangorra
-    id_no_mapa: '4'
     dificuldade: BR_8A
     dificuldade_artificial: A0
     extensao: 15
@@ -44,11 +83,9 @@ escaladas:
     - Juliano Magalhães
     - Valdinei Lima
     data_abertura: '2008-02-05'
-    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia
-      no meio da Via Iron Slow. Possui um grampo ainda não evitado.
+    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
 - via_esportiva:
     nome: Jabá com Jerimum
-    id_no_mapa: '5'
     dificuldade: BR_6
     extensao: 15
     conquistadores:
@@ -58,7 +95,6 @@ escaladas:
     descricao: Via atlética cujo lance inicial é o mais difícil.
 - via_esportiva:
     nome: Bruxa Albano
-    id_no_mapa: '6'
     dificuldade: BR_6
     extensao: 15
     conquistadores:
@@ -67,11 +103,9 @@ escaladas:
     - Glesse Gripp
     - Celso Ferreira Gomes
     data_abertura: '2010-10-02'
-    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual
-      do fechamento da Lapinha em 2002.
+    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
 - via_esportiva:
     nome: Vomitão em Ferros
-    id_no_mapa: '7'
     dificuldade: BR_8A
     extensao: 15
     conquistadores:
@@ -81,7 +115,6 @@ escaladas:
     descricao: Via emblemática do setor das Esportivas e bem protegida com grampos.
 - via_esportiva:
     nome: Iron Slow
-    id_no_mapa: '8'
     dificuldade: BR_7C
     extensao: 15
     conquistadores:
@@ -91,7 +124,6 @@ escaladas:
     descricao: Variante mais fácil da Vomitão em Ferros.
 - via_esportiva:
     nome: Bicho de Pé
-    id_no_mapa: '9'
     dificuldade: BR_5
     extensao: 15
     conquistadores:
@@ -101,7 +133,6 @@ escaladas:
     descricao: Via curta e bem grampeada.
 - via_esportiva:
     nome: Os Três Mosqueteiros
-    id_no_mapa: '10'
     dificuldade: BR_6
     extensao: 15
     conquistadores:
@@ -111,7 +142,6 @@ escaladas:
     descricao: Bem parecida com via anterior.
 - via_esportiva:
     nome: Nó de Porco
-    id_no_mapa: '11'
     dificuldade: BR_5
     extensao: 15
     conquistadores:
@@ -122,7 +152,6 @@ escaladas:
     descricao: A via é muito bonita e segue uma aresta com agarras grandes.
 - via_esportiva:
     nome: Ícaro
-    id_no_mapa: '12'
     dificuldade: BR_5
     extensao: 15
     conquistadores:
@@ -133,7 +162,6 @@ escaladas:
     descricao: O segundo lance é o crux e possui uma passada em uma agarra alta.
 - via_esportiva:
     nome: Champinha
-    id_no_mapa: '13'
     dificuldade: BR_6
     extensao: 15
     conquistadores:
@@ -141,11 +169,9 @@ escaladas:
     - Tonico Magalhães
     - Valdinei Lima
     data_abertura: '2008-02-06'
-    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via
-      “Falcatrua”.
+    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
 - via_esportiva:
     nome: Falcatrua
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 15
     conquistadores:
@@ -153,7 +179,7 @@ escaladas:
     - Valdinei Lima
     data_abertura: '2008-02-06'
     descricao: Via atlética cujo crux é o último lance.
----
+---
 
 ![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp)
 ![Tonico martelando a “Bruxa Albano”](imagens/setor_vias_esportivas_p2_i3.webp)

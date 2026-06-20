@@ -1,33 +1,25 @@
----
+---
 nome: Free Solo
 escaladas:
 - boulder:
     nome: Fomiagem
-    id_no_mapa: '2'
-    id_no_mapa_fim: W
     dificuldade: V4
 - boulder:
     nome: Projeto
-    id_no_mapa: '3'
-    id_no_mapa_fim: Z
     destaque: true
 - boulder:
     nome: Free Solo
-    id_no_mapa: '1'
     destaque: true
     dificuldade: V5
 - boulder:
     nome: Tartaruga
-    id_no_mapa: 2_b
     dificuldade: V3
     descricao: Apenas desafio de virar o bloco
 - boulder:
     nome: Mobilete
-    id_no_mapa: 3_b
     dificuldade: V3
 - boulder:
     nome: Walkmachine
-    id_no_mapa: '4'
     dificuldade: V6
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p0.webp
@@ -58,6 +50,27 @@ mapas:
       x: 772
       y: 9
       raio: 10
+  referencias:
+  - escalada: Fomiagem
+    ids:
+    - '2'
+    - W
+  - escalada: Projeto
+    ids:
+    - '3'
+    - Z
+  - escalada: Free Solo
+    ids:
+    - '1'
+  - escalada: Tartaruga
+    ids:
+    - 2_b
+  - escalada: Mobilete
+    ids:
+    - 3_b
+  - escalada: Walkmachine
+    ids:
+    - '4'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
   largura_mapa: 839
   altura_mapa: 460
@@ -86,6 +99,6 @@ mapas:
       x: 743
       y: 356
       raio: 9
----
+---
 
 # Bloco Free Solo

@@ -1,6 +1,5 @@
----
+---
 nome: Super Herói
-id_no_mapa: '2'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp
   largura_mapa: 760
@@ -34,24 +33,34 @@ mapas:
       y: 420
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Super Homem
+    ids:
+    - '1'
+  - escalada: Super Herói Cover
+    ids:
+    - '2'
+  - escalada: Herói
+    ids:
+    - '3'
+  - escalada: Heroína
+    ids:
+    - '4'
 escaladas:
 - boulder:
     nome: Super Homem
-    id_no_mapa: '1'
     dificuldade: V1
 - boulder:
     nome: Super Herói Cover
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Herói
-    id_no_mapa: '3'
     dificuldade: V4
 - boulder:
     nome: Heroína
-    id_no_mapa: '4'
     dificuldade: V3
----
+---
+
 # Setor Super Herói
 
 O setor Super Herói possui linhas clássicas em um bloco bem característico.

@@ -17,12 +17,15 @@ picos:
         nome: Chaminé
         mapas:
         - caminho_imagem_mapa: imagens/setor_chamine_p0_i0.webp
+          referencias:
+          - escalada: Bin Laden
+            ids:
+            - '35'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
         - via_esportiva:
             nome: Bin Laden
-            id_no_mapa: '35'
             dificuldade: BR_8B
             extensao: 25
             conquistadores:
@@ -36,12 +39,24 @@ picos:
         nome: Caverninha
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
+          referencias:
+          - escalada: Princesa léia
+            ids:
+            - '31'
+          - escalada: Double trouble
+            ids:
+            - '32'
+          - escalada: Supurados
+            ids:
+            - '33'
+          - escalada: O doce e o amargo
+            ids:
+            - '34'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
         - via_movel:
             nome: Princesa léia
-            id_no_mapa: '31'
             dificuldade: BR_7A
             extensao: 40
             conquistadores:
@@ -51,7 +66,6 @@ picos:
               Começa em cima da caverninha usada como abrigo. Peças pequenas e médias.
         - via_multiplas_enfiadas:
             nome: Double trouble
-            id_no_mapa: '32'
             dificuldade_maxima: BR_7B
             exposicao: E3
             numero_enfiadas: 3
@@ -65,7 +79,6 @@ picos:
             comprimento_total: 80
         - via_movel:
             nome: Supurados
-            id_no_mapa: '33'
             dificuldade: INDEFINIDO
             extensao: 30
             conquistadores:
@@ -75,7 +88,6 @@ picos:
               muito sólida. Peças pequenas e médias. Crux protegido com chapeletas.
         - via_esportiva:
             nome: O doce e o amargo
-            id_no_mapa: '34'
             dificuldade: BR_9A
             extensao: 60
             conquistadores:
@@ -101,6 +113,10 @@ picos:
         nome: Torres
         mapas:
         - caminho_imagem_mapa: imagens/setor_torres_p2.webp
+          referencias:
+          - escalada: Projeto?
+            ids:
+            - '39'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
@@ -124,7 +140,6 @@ picos:
             comprimento_total: 50
         - via_movel:
             nome: Projeto?
-            id_no_mapa: '39'
             dificuldade: BR_4
             conquistadores:
             - Edgardo Abreu
@@ -147,6 +162,28 @@ picos:
         nome: Felinas
         mapas:
         - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
+          referencias:
+          - escalada: Pó branco
+            ids:
+            - '7'
+          - escalada: Gata borralheira
+            ids:
+            - '6'
+          - escalada: Marvada onça
+            ids:
+            - '5'
+          - escalada: Tigresa
+            ids:
+            - '4'
+          - escalada: Pantera
+            ids:
+            - '3'
+          - escalada: Suçuarana
+            ids:
+            - '2'
+          - escalada: Davi e Golias
+            ids:
+            - '1'
           largura_mapa: 487
           altura_mapa: 958
         - caminho_imagem_mapa: imagens/setor_felinas_p0_i28.webp
@@ -168,7 +205,6 @@ picos:
             descricao: Via técnica e exigente.
         - via_esportiva:
             nome: Pó branco
-            id_no_mapa: '7'
             dificuldade: BR_8A
             extensao: 20
             conquistadores:
@@ -177,7 +213,6 @@ picos:
             descricao: Via exigente, boulderistica. Molha no verão.
         - via_esportiva:
             nome: Gata borralheira
-            id_no_mapa: '6'
             dificuldade: BR_7C
             extensao: 30
             conquistadores:
@@ -190,7 +225,6 @@ picos:
               mais úmidos.
         - via_esportiva:
             nome: Marvada onça
-            id_no_mapa: '5'
             dificuldade: BR_7C
             extensao: 30
             conquistadores:
@@ -199,7 +233,6 @@ picos:
               da parede.
         - via_esportiva:
             nome: Tigresa
-            id_no_mapa: '4'
             dificuldade: BR_8A_BARRA_8B
             extensao: 50
             conquistadores:
@@ -210,7 +243,6 @@ picos:
               tetos. A primeira proteção após o segundo teto deve ser trocada.
         - via_esportiva:
             nome: Pantera
-            id_no_mapa: '3'
             dificuldade: BR_8B
             extensao: 90
             conquistadores:
@@ -222,7 +254,6 @@ picos:
               estética!
         - via_esportiva:
             nome: Suçuarana
-            id_no_mapa: '2'
             dificuldade: BR_7A
             extensao: 40
             conquistadores:
@@ -230,7 +261,6 @@ picos:
             descricao: Via fixa mais acessível de todo o complexo. Bastante frequentada.
         - via_movel:
             nome: Davi e Golias
-            id_no_mapa: '1'
             dificuldade: BR_7B
             extensao: 30
             conquistadores:
@@ -254,12 +284,27 @@ picos:
         nome: Fendas
         mapas:
         - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
+          referencias:
+          - escalada: Noites equatoriais
+            ids:
+            - '16'
+          - escalada: Vomitão no reglete
+            ids:
+            - '18'
+          - escalada: Soul rebel
+            ids:
+            - '20'
+          - escalada: Positive vibration
+            ids:
+            - '21'
+          - escalada: Princesa Kel
+            ids:
+            - '22'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
         - via_multiplas_enfiadas:
             nome: Noites equatoriais
-            id_no_mapa: '16'
             dificuldade_maxima: BR_7A
             exposicao: E3
             tipo_via_multiplas_enfiadas: MISTA
@@ -274,7 +319,6 @@ picos:
             comprimento_total: 200
         - via_esportiva:
             nome: Vomitão no reglete
-            id_no_mapa: '18'
             dificuldade: BR_7B
             extensao: 30
             conquistadores:
@@ -283,14 +327,12 @@ picos:
             descricao: Via vertical e pequenos regletes. Boa opção, mas molha no verão.
         - via_esportiva:
             nome: Soul rebel
-            id_no_mapa: '20'
             dificuldade: BR_7B
             extensao: 30
             conquistadores:
             - Gustavo Piancastelli
         - via_movel:
             nome: Positive vibration
-            id_no_mapa: '21'
             dificuldade: BR_7A
             extensao: 40
             conquistadores:
@@ -299,7 +341,6 @@ picos:
               #2 ou similar. Atenção com abelhas próximo da via, à esquerda.'
         - via_multiplas_enfiadas:
             nome: Princesa Kel
-            id_no_mapa: '22'
             dificuldade_maxima: INDEFINIDO
             tipo_via_multiplas_enfiadas: TODA_MOVEL
             conquistadores:
@@ -314,12 +355,30 @@ picos:
         nome: Arco
         mapas:
         - caminho_imagem_mapa: imagens/setor_arco_p2.webp
+          referencias:
+          - escalada: Onde os fracos não tem vez
+            ids:
+            - '10'
+          - escalada: Horizonte dos eventos
+            ids:
+            - '11'
+          - escalada: Arco da Santa vitamina
+            ids:
+            - '12'
+          - escalada: Malateus?
+            ids:
+            - '13'
+          - escalada: Clandestino
+            ids:
+            - '14'
+          - escalada: Totalmente demais
+            ids:
+            - '15'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
         - via_multiplas_enfiadas:
             nome: Onde os fracos não tem vez
-            id_no_mapa: '10'
             dificuldade_maxima: BR_8B
             exposicao: E3
             tipo_via_multiplas_enfiadas: TODA_FIXA
@@ -332,7 +391,6 @@ picos:
             comprimento_total: 130
         - via_multiplas_enfiadas:
             nome: Horizonte dos eventos
-            id_no_mapa: '11'
             dificuldade_maxima: BR_7C
             exposicao: E3
             tipo_via_multiplas_enfiadas: MISTA
@@ -345,7 +403,6 @@ picos:
             comprimento_total: 100
         - via_movel:
             nome: Arco da Santa vitamina
-            id_no_mapa: '12'
             dificuldade: BR_7C
             extensao: 25
             conquistadores:
@@ -355,7 +412,6 @@ picos:
               similares.
         - via_movel:
             nome: Malateus?
-            id_no_mapa: '13'
             dificuldade: INDEFINIDO
             conquistadores:
             - Matheus (SP)
@@ -364,7 +420,6 @@ picos:
               bonitas escaladas do lugar.
         - via_multiplas_enfiadas:
             nome: Clandestino
-            id_no_mapa: '14'
             dificuldade_maxima: BR_7A
             exposicao: E3
             tipo_via_multiplas_enfiadas: TODA_FIXA
@@ -380,7 +435,6 @@ picos:
             comprimento_total: 160
         - via_multiplas_enfiadas:
             nome: Totalmente demais
-            id_no_mapa: '15'
             dificuldade_maxima: BR_9B
             dificuldade_artificial: A0
             exposicao: E3
@@ -401,12 +455,39 @@ picos:
         nome: Aresta
         mapas:
         - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
+          referencias:
+          - escalada: Macadame
+            ids:
+            - '3'
+          - escalada: Limite da ousadia
+            ids:
+            - '4'
+          - escalada: Diedro urso branco (var.)
+            ids:
+            - 4'
+          - escalada: Só para loucos
+            ids:
+            - '5'
+          - escalada: Canino quebrado
+            ids:
+            - '6'
+          - escalada: Vinicius?
+            ids:
+            - '7'
+          - escalada: Aresta eletrizante
+            ids:
+            - '8'
+          - escalada: Aresta que me resta
+            ids:
+            - '9'
+          - escalada: Aresta que me eletriza (var.)
+            ids:
+            - 9'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
         - via_esportiva:
             nome: Macadame
-            id_no_mapa: '3'
             dificuldade: BR_8B
             extensao: 30
             conquistadores:
@@ -417,7 +498,6 @@ picos:
               com chapeletas.
         - via_movel:
             nome: Limite da ousadia
-            id_no_mapa: '4'
             dificuldade: BR_9A
             extensao: 30
             conquistadores:
@@ -427,7 +507,6 @@ picos:
               variadas médias e grandes.
         - via_movel:
             nome: Diedro urso branco (var.)
-            id_no_mapa: 4'
             dificuldade: INDEFINIDO
             extensao: 13
             conquistadores:
@@ -438,7 +517,6 @@ picos:
               Friends pequenos e médios. Nuts grandes.
         - via_multiplas_enfiadas:
             nome: Só para loucos
-            id_no_mapa: '5'
             dificuldade_maxima: BR_8B
             numero_enfiadas: 2
             tipo_via_multiplas_enfiadas: TODA_FIXA
@@ -452,7 +530,6 @@ picos:
             comprimento_total: 55
         - via_esportiva:
             nome: Canino quebrado
-            id_no_mapa: '6'
             dificuldade: BR_7B
             extensao: 25
             conquistadores:
@@ -462,7 +539,6 @@ picos:
               molha em determinadas épocas do ano.
         - via_esportiva:
             nome: Vinicius?
-            id_no_mapa: '7'
             dificuldade: BR_6SUP
             extensao: 20
             conquistadores:
@@ -473,7 +549,6 @@ picos:
               do teto.
         - via_multiplas_enfiadas:
             nome: Aresta eletrizante
-            id_no_mapa: '8'
             dificuldade_maxima: BR_7C
             exposicao: E3
             tipo_via_multiplas_enfiadas: MISTA
@@ -493,7 +568,6 @@ picos:
             comprimento_total: 200
         - via_esportiva:
             nome: Aresta que me resta
-            id_no_mapa: '9'
             dificuldade: BR_7B
             extensao: 40
             conquistadores:
@@ -501,7 +575,6 @@ picos:
             descricao: Boa via, bastante técnica em micro agarras.
         - via_movel:
             nome: Aresta que me eletriza (var.)
-            id_no_mapa: 9'
             dificuldade: BR_7C
             dificuldade_artificial: A1_MAIS
             extensao: 10
@@ -526,12 +599,21 @@ picos:
         nome: Polegar
         mapas:
         - caminho_imagem_mapa: imagens/setor_polegar_p1.webp
+          referencias:
+          - escalada: Quadrado mágico
+            ids:
+            - '36'
+          - escalada: Projeto?
+            ids:
+            - '37'
+          - escalada: Projeto?
+            ids:
+            - '38'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
         - via_multiplas_enfiadas:
             nome: Quadrado mágico
-            id_no_mapa: '36'
             dificuldade_maxima: BR_8A
             tipo_via_multiplas_enfiadas: MISTA
             conquistadores:
@@ -542,7 +624,6 @@ picos:
             comprimento_total: 100
         - via_esportiva:
             nome: Projeto?
-            id_no_mapa: '37'
             dificuldade: INDEFINIDO
             conquistadores:
             - Antonio Canelas
@@ -550,7 +631,6 @@ picos:
             descricao: Via inacabada.
         - via_esportiva:
             nome: Projeto?
-            id_no_mapa: '38'
             dificuldade: INDEFINIDO
             conquistadores:
             - Gustavo Piancastelli
@@ -572,12 +652,18 @@ picos:
         nome: Totem
         mapas:
         - caminho_imagem_mapa: imagens/setor_totem_p1.webp
+          referencias:
+          - escalada: Quebra cabeça
+            ids:
+            - '1'
+          - escalada: Imagem e ação
+            ids:
+            - '2'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
         - via_esportiva:
             nome: Quebra cabeça
-            id_no_mapa: '1'
             dificuldade: BR_6SUP
             exposicao: E3
             extensao: 20
@@ -588,7 +674,6 @@ picos:
               Molha em época de chuvas. Usa-se o top da 'imagem e ação'.
         - via_esportiva:
             nome: Imagem e ação
-            id_no_mapa: '2'
             dificuldade: BR_7B
             extensao: 20
             conquistadores:
@@ -774,7 +859,7 @@ botoes:
 
         - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262),
         KM 2,5, Caeté - MG, CEP 34800-000'
-ultima_migracao: 1
+ultima_migracao: 2
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 68e86d58f05be03b3a01fe75063c0eca1a6458b48fe66a1e866b30792c6eca5f

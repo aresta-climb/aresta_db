@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: O Pequeno'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp
@@ -23,6 +23,22 @@ mapas:
       x: 1074
       y: 960
       raio: 13
+  referencias:
+  - escalada: Toe de Ouro
+    ids:
+    - 1A
+  - escalada: Toebogã
+    ids:
+    - 1B
+  - escalada: Tobocrash
+    ids:
+    - 2B
+  - escalada: Jardim de Inverno
+    ids:
+    - '1'
+  - escalada: O Pequeno
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -42,23 +58,18 @@ mapas:
 escaladas:
 - boulder:
     nome: Toe de Ouro
-    id_no_mapa: 1A
     dificuldade: V9
 - boulder:
     nome: Toebogã
-    id_no_mapa: 1B
     dificuldade: V9
 - boulder:
     nome: Tobocrash
-    id_no_mapa: 2B
     dificuldade: V4
 - boulder:
     nome: Jardim de Inverno
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: O Pequeno
-    id_no_mapa: '2'
     dificuldade: V8
----
+---
 

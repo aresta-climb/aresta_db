@@ -93,7 +93,7 @@
             **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
             
             Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão em blocos próximos, respeitando sempre as áreas de preservação.
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: grupo_salao_de_pedras
@@ -185,7 +185,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Ônibus
-      - **id_no_mapa**: 1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_onibus_p0.webp)
@@ -280,6 +279,71 @@
                 - **y**: 430
                 - **comprimento**: 16
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pirulito
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Trocador
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Roleta
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Zebra
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Linguinha
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Gnomo
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Variante Y
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Moleza
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Inconsolável
+              - **ids**:
+                - 9
+            - **[9]**:
+              - **escalada**: Passageiro
+              - **ids**:
+                - 10
+            - **[10]**:
+              - **escalada**: Fada
+              - **ids**:
+                - 11
+            - **[11]**:
+              - **escalada**: Primeiro Esquenta
+              - **ids**:
+                - 1
+            - **[12]**:
+              - **escalada**: Mimetismo
+              - **ids**:
+                - 2
+            - **[13]**:
+              - **escalada**: Aborda
+              - **ids**:
+                - 3
+            - **[14]**:
+              - **escalada**: Easy Line
+              - **ids**:
+                - 4
+            - **[15]**:
+              - **escalada**: Saidex
+              - **ids**:
+                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_onibus_p1.webp)
           - **largura_mapa**: 761
@@ -329,82 +393,66 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Pirulito
-            - **id_no_mapa**: 1
             - **dificuldade**: V1
         - **[1]**:
           - **boulder**:
             - **nome**: Trocador
-            - **id_no_mapa**: 2
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Roleta
-            - **id_no_mapa**: 3
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Zebra
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: Linguinha
-            - **id_no_mapa**: 5
             - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
             - **nome**: Gnomo
-            - **id_no_mapa**: 6
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Variante Y
-            - **id_no_mapa**: 7
             - **dificuldade**: V4
         - **[7]**:
           - **boulder**:
             - **nome**: Moleza
-            - **id_no_mapa**: 8
             - **dificuldade**: V0
         - **[8]**:
           - **boulder**:
             - **nome**: Inconsolável
-            - **id_no_mapa**: 9
             - **dificuldade**: V6
         - **[9]**:
           - **boulder**:
             - **nome**: Passageiro
-            - **id_no_mapa**: 10
             - **dificuldade**: V4
         - **[10]**:
           - **boulder**:
             - **nome**: Fada
-            - **id_no_mapa**: 11
             - **dificuldade**: V1
         - **[11]**:
           - **boulder**:
             - **nome**: Primeiro Esquenta
-            - **id_no_mapa**: 1
             - **dificuldade**: V1
         - **[12]**:
           - **boulder**:
             - **nome**: Mimetismo
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[13]**:
           - **boulder**:
             - **nome**: Aborda
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[14]**:
           - **boulder**:
             - **nome**: Easy Line
-            - **id_no_mapa**: 4
             - **dificuldade**: V1
         - **[15]**:
           - **boulder**:
             - **nome**: Saidex
-            - **id_no_mapa**: 5
             - **dificuldade**: V1
   - **[1]**:
     - **conteudo**:
@@ -415,7 +463,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Super Herói
-      - **id_no_mapa**: 2
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp)
@@ -454,26 +501,39 @@
                 - **y**: 420
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Super Homem
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Super Herói Cover
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Herói
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Heroína
+              - **ids**:
+                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Super Homem
-            - **id_no_mapa**: 1
             - **dificuldade**: V1
         - **[1]**:
           - **boulder**:
             - **nome**: Super Herói Cover
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Herói
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Heroína
-            - **id_no_mapa**: 4
             - **dificuldade**: V3
   - **[2]**:
     - **conteudo**:
@@ -484,7 +544,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Caverninha
-      - **id_no_mapa**: 3
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp)
@@ -531,6 +590,67 @@
                 - **y**: 250
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Terceira Camada
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Caverninha
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Cavernoso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Natural SDS
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Dragão
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 4
+            - **[9]**:
+              - **escalada**: Capitão Caverna
+              - **ids**:
+                - 5
+            - **[10]**:
+              - **escalada**: Confuso
+              - **ids**:
+                - 6
+            - **[11]**:
+              - **escalada**: Combinação Perfeita
+              - **ids**:
+                - 1
+            - **[12]**:
+              - **escalada**: Trinca Ferro
+              - **ids**:
+                - 2
+            - **[13]**:
+              - **escalada**: Trinca Carangueijo
+              - **ids**:
+                - 3
+            - **[14]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp)
           - **largura_mapa**: 758
@@ -625,77 +745,62 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Terceira Camada
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Caverninha
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Cavernoso
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Natural
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Natural SDS
-            - **id_no_mapa**: 5
             - **dificuldade**: V8
         - **[5]**:
           - **boulder**:
             - **nome**: Simba
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[6]**:
           - **boulder**:
             - **nome**: Dragão
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[7]**:
           - **boulder**:
             - **nome**: Abaulados
-            - **id_no_mapa**: 3
             - **dificuldade**: V3
         - **[8]**:
           - **boulder**:
             - **nome**: Simba
-            - **id_no_mapa**: 4
             - **dificuldade**: V8
         - **[9]**:
           - **boulder**:
             - **nome**: Capitão Caverna
-            - **id_no_mapa**: 5
             - **dificuldade**: V6
         - **[10]**:
           - **boulder**:
             - **nome**: Confuso
-            - **id_no_mapa**: 6
             - **dificuldade**: V6
         - **[11]**:
           - **boulder**:
             - **nome**: Combinação Perfeita
-            - **id_no_mapa**: 1
             - **dificuldade**: V12
         - **[12]**:
           - **boulder**:
             - **nome**: Trinca Ferro
-            - **id_no_mapa**: 2
             - **dificuldade**: V11
         - **[13]**:
           - **boulder**:
             - **nome**: Trinca Carangueijo
-            - **id_no_mapa**: 3
             - **dificuldade**: V8
         - **[14]**:
           - **boulder**:
             - **nome**: Natural
-            - **id_no_mapa**: 4
             - **dificuldade**: V6
   - **[3]**:
     - **conteudo**:
@@ -706,7 +811,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Campo Escola
-      - **id_no_mapa**: 4
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp)
@@ -761,6 +865,55 @@
                 - **y**: 525
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tré Bien
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Muvuca
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Ninja de Verde
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Ninja de Amarelo
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Ninja de Rosa
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Casé
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[9]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[10]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 5
+            - **[11]**:
+              - **escalada**: Das Meninas
+              - **ids**:
+                - 6
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp)
           - **largura_mapa**: 757
@@ -818,62 +971,50 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Tré Bien
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Muvuca
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Ninja de Verde
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: Ninja de Amarelo
-            - **id_no_mapa**: 4
             - **dificuldade**: V1
         - **[4]**:
           - **boulder**:
             - **nome**: Ninja de Rosa
-            - **id_no_mapa**: 5
             - **dificuldade**: V0
         - **[5]**:
           - **boulder**:
             - **nome**: Casé
-            - **id_no_mapa**: 6
             - **dificuldade**: V3
         - **[6]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[7]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V1
         - **[8]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
         - **[9]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 4
             - **dificuldade**: V1
         - **[10]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 5
             - **dificuldade**: V1
         - **[11]**:
           - **boulder**:
             - **nome**: Das Meninas
-            - **id_no_mapa**: 6
             - **dificuldade**: V3
   - **[4]**:
     - **conteudo**:
@@ -884,7 +1025,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Escorpião
-      - **id_no_mapa**: 5
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp)
@@ -931,6 +1071,35 @@
                 - **y**: 280
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Super Foot Hook
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Foot Hook
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Escorpião
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Yakisoba
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Uaikisoba
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Insaciável
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Sicronismo
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp)
           - **largura_mapa**: 757
@@ -956,37 +1125,30 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Super Foot Hook
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Foot Hook
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Escorpião
-            - **id_no_mapa**: 3
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Yakisoba
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: Uaikisoba
-            - **id_no_mapa**: 5
             - **dificuldade**: V7
         - **[5]**:
           - **boulder**:
             - **nome**: Insaciável
-            - **id_no_mapa**: 1
             - **dificuldade**: V10
         - **[6]**:
           - **boulder**:
             - **nome**: Sicronismo
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
   - **[5]**:
     - **conteudo**:
@@ -997,7 +1159,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Troféu
-      - **id_no_mapa**: 6
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp)
@@ -1028,21 +1189,31 @@
                 - **y**: 325
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Trofeuzinho
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Troféu
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Dreads de Goiás
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Trofeuzinho
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Troféu
-            - **id_no_mapa**: 2
             - **dificuldade**: V10
         - **[2]**:
           - **boulder**:
             - **nome**: Dreads de Goiás
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
   - **[6]**:
     - **conteudo**:
@@ -1053,7 +1224,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: X-Tudo
-      - **id_no_mapa**: 7
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp)
@@ -1076,6 +1246,23 @@
                 - **y**: 255
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: X-Tudo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pão com Ovo
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Nossa Senhora de Conceição
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Kansas
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp)
           - **largura_mapa**: 758
@@ -1106,22 +1293,18 @@
         - **[0]**:
           - **boulder**:
             - **nome**: X-Tudo
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: Pão com Ovo
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Nossa Senhora de Conceição
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Kansas
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
   - **[7]**:
     - **conteudo**:
@@ -1132,7 +1315,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Domínio Digital
-      - **id_no_mapa**: 8
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_dominio_digital_p0.webp)
@@ -1163,21 +1345,31 @@
                 - **y**: 290
                 - **comprimento**: 21
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Domínio Digital
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Domínio Digital
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V0
         - **[2]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V0
 
 
@@ -1252,7 +1444,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Choquito
-      - **id_no_mapa**: 1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_choquito_p0.webp)
@@ -1299,6 +1490,35 @@
                 - **y**: 490
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Paradise
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Quebra Costela
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Choquito
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Jungle
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_choquito_p1.webp)
           - **largura_mapa**: 755
@@ -1324,36 +1544,29 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Paradise
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Quebra Costela
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
         - **[3]**:
           - **boulder**:
             - **nome**: Choquito
-            - **id_no_mapa**: 4
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Jungle
-            - **id_no_mapa**: 5
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[6]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
   - **[1]**:
     - **conteudo**:
@@ -1364,7 +1577,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Godzilla
-      - **id_no_mapa**: 2
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p0.webp)
@@ -1395,6 +1607,39 @@
                 - **y**: 480
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: King Kong
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Gorilaz
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Chimpanzé
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Macaco Prego
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Rolamento
+              - **ids**:
+                - 2
+            - **[5]**:
+              - **escalada**: Godzilla
+              - **ids**:
+                - 3
+            - **[6]**:
+              - **escalada**: Enxada
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Obra de Arte
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p1.webp)
           - **largura_mapa**: 757
@@ -1449,42 +1694,34 @@
         - **[0]**:
           - **boulder**:
             - **nome**: King Kong
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Gorilaz
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Chimpanzé
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Macaco Prego
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **nome**: Rolamento
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[5]**:
           - **boulder**:
             - **nome**: Godzilla
-            - **id_no_mapa**: 3
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Enxada
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[7]**:
           - **boulder**:
             - **nome**: Obra de Arte
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
   - **[2]**:
     - **conteudo**:
@@ -1495,7 +1732,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Show Time
-      - **id_no_mapa**: 3
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_show_time_p0.webp)
@@ -1534,6 +1770,47 @@
                 - **y**: 440
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: ET Teimoso
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Show Time
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Zela Time
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Meia Lua
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[8]**:
+              - **escalada**: Zela Time
+              - **ids**:
+                - 5
+            - **[9]**:
+              - **escalada**: Show Time
+              - **ids**:
+                - 6
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_show_time_p1.webp)
           - **largura_mapa**: 753
@@ -1591,52 +1868,42 @@
         - **[0]**:
           - **boulder**:
             - **nome**: ET Teimoso
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[1]**:
           - **boulder**:
             - **nome**: Show Time
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Zela Time
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[5]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[6]**:
           - **boulder**:
             - **nome**: Meia Lua
-            - **id_no_mapa**: 3
             - **dificuldade**: V3
         - **[7]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[8]**:
           - **boulder**:
             - **nome**: Zela Time
-            - **id_no_mapa**: 5
             - **dificuldade**: V1
         - **[9]**:
           - **boulder**:
             - **nome**: Show Time
-            - **id_no_mapa**: 6
             - **dificuldade**: V5
   - **[3]**:
     - **conteudo**:
@@ -1647,7 +1914,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Hiperespaço
-      - **id_no_mapa**: 4
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_hiperespaco_p0.webp)
@@ -1702,36 +1968,55 @@
                 - **y**: 455
                 - **comprimento**: 12
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solstício
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Equinócio
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Eclipse
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Antares
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Don Carlitos
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Jardins Suspensos
+              - **ids**:
+                - 6
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Solstício
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[1]**:
           - **boulder**:
             - **nome**: Equinócio
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Eclipse
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Antares
-            - **id_no_mapa**: 4
             - **dificuldade**: V9
         - **[4]**:
           - **boulder**:
             - **nome**: Don Carlitos
-            - **id_no_mapa**: 5
             - **dificuldade**: V4
         - **[5]**:
           - **boulder**:
             - **nome**: Jardins Suspensos
-            - **id_no_mapa**: 6
             - **dificuldade**: V5
   - **[4]**:
     - **conteudo**:
@@ -1742,7 +2027,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Mergulho em Copo d'Água
-      - **id_no_mapa**: 5
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp)
@@ -1757,11 +2041,15 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mergulho em Copo d'Água
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Mergulho em Copo d'Água
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
 
 
@@ -1806,7 +2094,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Mufasa
-      - **id_no_mapa**: 1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_jk_setor_mufasa_p0.webp)
@@ -1829,16 +2116,23 @@
                 - **y**: 268
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Bloody Hell
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mufasa
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Bloody Hell
-            - **id_no_mapa**: 1
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **nome**: Mufasa
-            - **id_no_mapa**: 2
             - **dificuldade**: V10
 
 
@@ -1987,7 +2281,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Preguiça
-      - **id_no_mapa**: 1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p0.webp)
@@ -2034,6 +2327,47 @@
                 - **y**: 535
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Preguiça de Sofrer
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Preguicinha
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Tá Lá
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Salsichção
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Era Uma Vez
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Frank
+              - **ids**:
+                - 1
+            - **[8]**:
+              - **escalada**: Stout
+              - **ids**:
+                - 2
+            - **[9]**:
+              - **escalada**: Carlos Drummond
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p1.webp)
           - **largura_mapa**: 756
@@ -2048,52 +2382,42 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Preguiça de Sofrer
-            - **id_no_mapa**: 1
             - **dificuldade**: V12
         - **[1]**:
           - **boulder**:
             - **nome**: Preguicinha
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Tá Lá
-            - **id_no_mapa**: 4
             - **dificuldade**: V8
         - **[4]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 5
             - **dificuldade**: V2
         - **[5]**:
           - **boulder**:
             - **nome**: Salsichção
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[6]**:
           - **boulder**:
             - **nome**: Era Uma Vez
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[7]**:
           - **boulder**:
             - **nome**: Frank
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[8]**:
           - **boulder**:
             - **nome**: Stout
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[9]**:
           - **boulder**:
             - **nome**: Carlos Drummond
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
   - **[1]**:
     - **conteudo**:
@@ -2104,7 +2428,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Manda Lá
-      - **id_no_mapa**: 2
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_manda_la_p0.webp)
@@ -2127,16 +2450,23 @@
                 - **y**: 425
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Amand-lá
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Manda Lá
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Amand-lá
-            - **id_no_mapa**: 1
             - **dificuldade**: V10
         - **[1]**:
           - **boulder**:
             - **nome**: Manda Lá
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
   - **[2]**:
     - **conteudo**:
@@ -2147,7 +2477,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Trabalhador
-      - **id_no_mapa**: 3
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_trabalhador_p0.webp)
@@ -2170,6 +2499,27 @@
                 - **y**: 545
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Hueco Fontaine
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pitt Bull
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Trabalhador Brasileiro
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Trabalho Árduo
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Estamos Trabalhando
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_trabalhador_p1.webp)
           - **largura_mapa**: 761
@@ -2203,27 +2553,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Hueco Fontaine
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Pitt Bull
-            - **id_no_mapa**: 2
             - **dificuldade**: V10
         - **[2]**:
           - **boulder**:
             - **nome**: Trabalhador Brasileiro
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Trabalho Árduo
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **nome**: Estamos Trabalhando
-            - **id_no_mapa**: 3
             - **dificuldade**: V8
   - **[3]**:
     - **conteudo**:
@@ -2234,7 +2579,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Sanfoneiro Maluco
-      - **id_no_mapa**: 4
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p0.webp)
@@ -2265,6 +2609,31 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sanfoneiro Maluco
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Inacreditável
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Chapeleiro Maluco
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Webb da Paraíba
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Efeito Dominó
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Zuzuzela
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p1.webp)
           - **largura_mapa**: 439
@@ -2303,32 +2672,26 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Sanfoneiro Maluco
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Inacreditável
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
         - **[2]**:
           - **boulder**:
             - **nome**: Chapeleiro Maluco
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Webb da Paraíba
-            - **id_no_mapa**: 1
             - **dificuldade**: V9
         - **[4]**:
           - **boulder**:
             - **nome**: Efeito Dominó
-            - **id_no_mapa**: 1
             - **dificuldade**: V10
         - **[5]**:
           - **boulder**:
             - **nome**: Zuzuzela
-            - **id_no_mapa**: 2
             - **dificuldade**: V6
   - **[4]**:
     - **conteudo**:
@@ -2339,7 +2702,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Samurai
-      - **id_no_mapa**: 5
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_samurai_p0.webp)
@@ -2378,6 +2740,27 @@
                 - **y**: 290
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Purgatório
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Samurai
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Ômega 3
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Purgatório do Samurai
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Ouro Branco
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_samurai_p1.webp)
           - **largura_mapa**: 436
@@ -2395,27 +2778,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Purgatório
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Samurai
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: Ômega 3
-            - **id_no_mapa**: 3
             - **dificuldade**: V11
         - **[3]**:
           - **boulder**:
             - **nome**: Purgatório do Samurai
-            - **id_no_mapa**: 4
             - **dificuldade**: V12
         - **[4]**:
           - **boulder**:
             - **nome**: Ouro Branco
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
   - **[5]**:
     - **conteudo**:
@@ -2426,7 +2804,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Bomba Atômica
-      - **id_no_mapa**: 6
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p0.webp)
@@ -2505,6 +2882,83 @@
                 - **y**: 280
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Viajante
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Viajante SDS
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Champagne
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Bonitinho
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Caravana
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 9
+            - **[9]**:
+              - **escalada**: Bomba Atômica
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: No Claro
+              - **ids**:
+                - 1
+            - **[11]**:
+              - **escalada**: No Escuro
+              - **ids**:
+                - 2
+            - **[12]**:
+              - **escalada**: Falafofancho
+              - **ids**:
+                - 3
+            - **[13]**:
+              - **escalada**: No Claro SDS
+              - **ids**:
+                - 4
+            - **[14]**:
+              - **escalada**: No Escuro SDS
+              - **ids**:
+                - 5
+            - **[15]**:
+              - **escalada**: Falafofancho SDS
+              - **ids**:
+                - 6
+            - **[16]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[17]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[18]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p1.webp)
           - **largura_mapa**: 755
@@ -2604,97 +3058,78 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Viajante
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Viajante SDS
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 5
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Champagne
-            - **id_no_mapa**: 6
             - **dificuldade**: V8
         - **[6]**:
           - **boulder**:
             - **nome**: Bonitinho
-            - **id_no_mapa**: 7
             - **dificuldade**: V1
         - **[7]**:
           - **boulder**:
             - **nome**: Caravana
-            - **id_no_mapa**: 8
             - **dificuldade**: V7
         - **[8]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 9
             - **dificuldade**: V1
         - **[9]**:
           - **boulder**:
             - **nome**: Bomba Atômica
-            - **id_no_mapa**: 1
             - **dificuldade**: V11
         - **[10]**:
           - **boulder**:
             - **nome**: No Claro
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[11]**:
           - **boulder**:
             - **nome**: No Escuro
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[12]**:
           - **boulder**:
             - **nome**: Falafofancho
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[13]**:
           - **boulder**:
             - **nome**: No Claro SDS
-            - **id_no_mapa**: 4
             - **dificuldade**: V9
         - **[14]**:
           - **boulder**:
             - **nome**: No Escuro SDS
-            - **id_no_mapa**: 5
             - **dificuldade**: V7
         - **[15]**:
           - **boulder**:
             - **nome**: Falafofancho SDS
-            - **id_no_mapa**: 6
             - **dificuldade**: V6
         - **[16]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[17]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
         - **[18]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
   - **[6]**:
     - **conteudo**:
@@ -2705,7 +3140,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Jubileu
-      - **id_no_mapa**: 7
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p0.webp)
@@ -2720,6 +3154,23 @@
                 - **y**: 430
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jubileu
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Eu Te Disse
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p1.webp)
           - **largura_mapa**: 756
@@ -2758,22 +3209,18 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Jubileu
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Eu Te Disse
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[3]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
   - **[7]**:
     - **conteudo**:
@@ -2784,7 +3231,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Conceição
-      - **id_no_mapa**: 8
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_conceicao_p0.webp)
@@ -2807,6 +3253,27 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Conceição do Mato Dentro
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tobogã
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: No Dab
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_conceicao_p1.webp)
           - **largura_mapa**: 759
@@ -2840,27 +3307,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Conceição do Mato Dentro
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[2]**:
           - **boulder**:
             - **nome**: Tobogã
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: No Dab
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 3
             - **dificuldade**: V2
   - **[8]**:
     - **conteudo**:
@@ -2871,7 +3333,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Bobsled
-      - **id_no_mapa**: 9
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bobsled_p0.webp)
@@ -2910,26 +3371,39 @@
                 - **y**: 415
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Eterna Juventude
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Episódio do Dia
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Saideira
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Bobsled
+              - **ids**:
+                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Eterna Juventude
-            - **id_no_mapa**: 1
             - **dificuldade**: V9
         - **[1]**:
           - **boulder**:
             - **nome**: Episódio do Dia
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
         - **[2]**:
           - **boulder**:
             - **nome**: Saideira
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Bobsled
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
   - **[9]**:
     - **conteudo**:
@@ -2940,7 +3414,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Aresta do Cabeça
-      - **id_no_mapa**: 11
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp)
@@ -2955,11 +3428,15 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aresta do Cabeça
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Aresta do Cabeça
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
   - **[10]**:
     - **conteudo**:
@@ -2970,7 +3447,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Equinócio
-      - **id_no_mapa**: 10
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_equinocio_p0.webp)
@@ -3001,21 +3477,31 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Campo Minado
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Kalil
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Costela de Adão
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Campo Minado
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
         - **[1]**:
           - **boulder**:
             - **nome**: Kalil
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Costela de Adão
-            - **id_no_mapa**: 3
             - **dificuldade**: V2
   - **[11]**:
     - **conteudo**:
@@ -3026,7 +3512,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Witness
-      - **id_no_mapa**: 12
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_witness_p0.webp)
@@ -3057,6 +3542,23 @@
                 - **y**: 500
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mandarim
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pressão Corporal
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Witness the Weakness
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Picasso
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_witness_p1.webp)
           - **largura_mapa**: 442
@@ -3074,22 +3576,18 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Mandarim
-            - **id_no_mapa**: 1
             - **dificuldade**: V13
         - **[1]**:
           - **boulder**:
             - **nome**: Pressão Corporal
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: Witness the Weakness
-            - **id_no_mapa**: 3
             - **dificuldade**: V11
         - **[3]**:
           - **boulder**:
             - **nome**: Picasso
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
   - **[12]**:
     - **conteudo**:
@@ -3100,7 +3598,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: La Fúria
-      - **id_no_mapa**: 13
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p0.webp)
@@ -3171,6 +3668,86 @@
                 - **y**: 515
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: La Furia
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: La Discordia
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: La Paloma
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: La Discrepância
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: La Fuerza
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: La Sinceridad
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Rei da Cápsula
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Choffer
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Bem Vindo
+              - **ids**:
+                - 1
+            - **[9]**:
+              - **escalada**: Bem Vindo a Conceição
+              - **ids**:
+                - 2
+            - **[10]**:
+              - **escalada**: Bem Vindo aos Clássicos
+              - **ids**:
+                - 3
+            - **[11]**:
+              - **escalada**: Né Possível
+              - **ids**:
+                - 4
+            - **[12]**:
+              - **escalada**: Malditos
+              - **ids**:
+                - 5
+            - **[13]**:
+              - **escalada**: Guardião
+              - **ids**:
+                - 6
+            - **[14]**:
+              - **escalada**: Deixa Rolar
+              - **ids**:
+                - 7
+            - **[15]**:
+              - **escalada**: La Resistência
+              - **ids**:
+                - 8
+                - 8
+            - **[16]**:
+              - **escalada**: Maldito La Furia
+              - **ids**:
+                - 9
+                - 9
+            - **[17]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 10
+                - 10
+            - **[18]**:
+              - **escalada**: Travessia da Fúria
+              - **ids**:
+                - 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p1.webp)
           - **largura_mapa**: 759
@@ -3278,99 +3855,77 @@
         - **[0]**:
           - **boulder**:
             - **nome**: La Furia
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: La Discordia
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: La Paloma
-            - **id_no_mapa**: 3
             - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
             - **nome**: La Discrepância
-            - **id_no_mapa**: 4
             - **dificuldade**: V11
         - **[4]**:
           - **boulder**:
             - **nome**: La Fuerza
-            - **id_no_mapa**: 5
             - **dificuldade**: V11
         - **[5]**:
           - **boulder**:
             - **nome**: La Sinceridad
-            - **id_no_mapa**: 6
             - **dificuldade**: V12
         - **[6]**:
           - **boulder**:
             - **nome**: Rei da Cápsula
-            - **id_no_mapa**: 7
             - **dificuldade**: V10
         - **[7]**:
           - **boulder**:
             - **nome**: Choffer
-            - **id_no_mapa**: 8
             - **dificuldade**: V9
         - **[8]**:
           - **boulder**:
             - **nome**: Bem Vindo
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[9]**:
           - **boulder**:
             - **nome**: Bem Vindo a Conceição
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
         - **[10]**:
           - **boulder**:
             - **nome**: Bem Vindo aos Clássicos
-            - **id_no_mapa**: 3
             - **dificuldade**: V5
         - **[11]**:
           - **boulder**:
             - **nome**: Né Possível
-            - **id_no_mapa**: 4
             - **dificuldade**: V4
         - **[12]**:
           - **boulder**:
             - **nome**: Malditos
-            - **id_no_mapa**: 5
             - **dificuldade**: V7
         - **[13]**:
           - **boulder**:
             - **nome**: Guardião
-            - **id_no_mapa**: 6
             - **dificuldade**: V3
         - **[14]**:
           - **boulder**:
             - **nome**: Deixa Rolar
-            - **id_no_mapa**: 7
             - **dificuldade**: V6
         - **[15]**:
           - **boulder**:
             - **nome**: La Resistência
-            - **id_no_mapa**: 8
-            - **id_no_mapa_fim**: 8
             - **dificuldade**: V8
         - **[16]**:
           - **boulder**:
             - **nome**: Maldito La Furia
-            - **id_no_mapa**: 9
-            - **id_no_mapa_fim**: 9
             - **dificuldade**: V8
         - **[17]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 10
-            - **id_no_mapa_fim**: 10
         - **[18]**:
           - **boulder**:
             - **nome**: Travessia da Fúria
-            - **id_no_mapa**: 10
             - **dificuldade**: V5
   - **[13]**:
     - **conteudo**:
@@ -3381,7 +3936,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Jah
-      - **id_no_mapa**: 14
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jah_p0.webp)
@@ -3452,6 +4006,47 @@
                 - **y**: 540
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Lágrimas de Jah
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Em Busca de Jah
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Jah Rastafari
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Ordem e Progresso
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Ordem e Progresso SDS
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: JahJah
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Verdinho
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Skunk
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Mescladinho
+              - **ids**:
+                - 9
+            - **[9]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jah_p1.webp)
           - **largura_mapa**: 757
@@ -3477,52 +4072,42 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Lágrimas de Jah
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[1]**:
           - **boulder**:
             - **nome**: Em Busca de Jah
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
             - **nome**: Jah Rastafari
-            - **id_no_mapa**: 3
             - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
             - **nome**: Ordem e Progresso
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: Ordem e Progresso SDS
-            - **id_no_mapa**: 5
             - **dificuldade**: V8
         - **[5]**:
           - **boulder**:
             - **nome**: JahJah
-            - **id_no_mapa**: 6
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Verdinho
-            - **id_no_mapa**: 7
             - **dificuldade**: V9
         - **[7]**:
           - **boulder**:
             - **nome**: Skunk
-            - **id_no_mapa**: 8
             - **dificuldade**: V8
         - **[8]**:
           - **boulder**:
             - **nome**: Mescladinho
-            - **id_no_mapa**: 9
             - **dificuldade**: V7
         - **[9]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 10
             - **dificuldade**: V3
   - **[14]**:
     - **conteudo**:
@@ -3533,7 +4118,6 @@
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
       - **nome**: Pole Dance
-      - **id_no_mapa**: 15
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p0.webp)
@@ -3604,6 +4188,83 @@
                 - **y**: 560
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fuck Beach
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Incrível Fuck Beach
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Incrível Pole Dance
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Incrível
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Pole Dance
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Pole Dance SDS
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: De la Rocha
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Siga-me os Bons SDS
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Repense
+              - **ids**:
+                - 1
+            - **[9]**:
+              - **escalada**: Vamo Nessa
+              - **ids**:
+                - 2
+            - **[10]**:
+              - **escalada**: Vem que Tem
+              - **ids**:
+                - 3
+            - **[11]**:
+              - **escalada**: Pense Bem
+              - **ids**:
+                - 4
+            - **[12]**:
+              - **escalada**: Conclusão
+              - **ids**:
+                - 5
+            - **[13]**:
+              - **escalada**: Siga-me os Bons
+              - **ids**:
+                - 1
+            - **[14]**:
+              - **escalada**: Siga-me os Bons SDS
+              - **ids**:
+                - 2
+            - **[15]**:
+              - **escalada**: Conceicion
+              - **ids**:
+                - 3
+            - **[16]**:
+              - **escalada**: Tô Concê
+              - **ids**:
+                - 4
+            - **[17]**:
+              - **escalada**: Rocktrip
+              - **ids**:
+                - 5
+            - **[18]**:
+              - **escalada**: Rocklands
+              - **ids**:
+                - 6
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p1.webp)
           - **largura_mapa**: 757
@@ -3706,97 +4367,78 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Fuck Beach
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Incrível Fuck Beach
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
         - **[2]**:
           - **boulder**:
             - **nome**: Incrível Pole Dance
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Incrível
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Pole Dance
-            - **id_no_mapa**: 5
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Pole Dance SDS
-            - **id_no_mapa**: 6
             - **dificuldade**: V7
         - **[6]**:
           - **boulder**:
             - **nome**: De la Rocha
-            - **id_no_mapa**: 7
             - **dificuldade**: V7
         - **[7]**:
           - **boulder**:
             - **nome**: Siga-me os Bons SDS
-            - **id_no_mapa**: 8
             - **dificuldade**: V4
         - **[8]**:
           - **boulder**:
             - **nome**: Repense
-            - **id_no_mapa**: 1
             - **dificuldade**: INDEFINIDO
         - **[9]**:
           - **boulder**:
             - **nome**: Vamo Nessa
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[10]**:
           - **boulder**:
             - **nome**: Vem que Tem
-            - **id_no_mapa**: 3
             - **dificuldade**: V5
         - **[11]**:
           - **boulder**:
             - **nome**: Pense Bem
-            - **id_no_mapa**: 4
             - **dificuldade**: V7
         - **[12]**:
           - **boulder**:
             - **nome**: Conclusão
-            - **id_no_mapa**: 5
             - **dificuldade**: V4
         - **[13]**:
           - **boulder**:
             - **nome**: Siga-me os Bons
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[14]**:
           - **boulder**:
             - **nome**: Siga-me os Bons SDS
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[15]**:
           - **boulder**:
             - **nome**: Conceicion
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[16]**:
           - **boulder**:
             - **nome**: Tô Concê
-            - **id_no_mapa**: 4
             - **dificuldade**: V4
         - **[17]**:
           - **boulder**:
             - **nome**: Rocktrip
-            - **id_no_mapa**: 5
             - **dificuldade**: V5
         - **[18]**:
           - **boulder**:
             - **nome**: Rocklands
-            - **id_no_mapa**: 6
             - **dificuldade**: V4
   - **[15]**:
     - **conteudo**:
@@ -3845,26 +4487,39 @@
                 - **y**: 490
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Rock It
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Rock and Roll
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Go Chucky Go
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Go Johnny Go
+              - **ids**:
+                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Rock It
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[1]**:
           - **boulder**:
             - **nome**: Rock and Roll
-            - **id_no_mapa**: 2
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **nome**: Go Chucky Go
-            - **id_no_mapa**: 3
             - **dificuldade**: V2
         - **[3]**:
           - **boulder**:
             - **nome**: Go Johnny Go
-            - **id_no_mapa**: 4
             - **dificuldade**: V3
   - **[16]**:
     - **conteudo**:
@@ -3897,16 +4552,23 @@
                 - **y**: 415
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Canelas as Ar
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Canelas ao Vento
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Canelas as Ar
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Canelas ao Vento
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
   - **[17]**:
     - **conteudo**:
@@ -3963,30 +4625,46 @@
                 - **y**: 535
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mãos de Tesoura
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Fei Long
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Mãos de Sebo
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Mãozinha
+              - **ids**:
+                - 5
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: (sem nome)
-            - **id_no_mapa**: 1
         - **[1]**:
           - **boulder**:
             - **nome**: Mãos de Tesoura
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Fei Long
-            - **id_no_mapa**: 3
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Mãos de Sebo
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Mãozinha
-            - **id_no_mapa**: 5
             - **dificuldade**: V2
 
 

@@ -1,4 +1,4 @@
----
+---
 nome: Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p1.webp
@@ -61,6 +61,130 @@ mapas:
       y: 782
       comprimento: 49
       largura: 36
+  referencias:
+  - escalada: Permissão Concebida
+    ids:
+    - '01'
+  - escalada: Bocaina Aventura
+    ids:
+    - '02'
+  - escalada: O Vento Levou
+    ids:
+    - '03'
+  - escalada: Titan
+    ids:
+    - '04'
+  - escalada: Mirian
+    ids:
+    - '05'
+  - escalada: Hipnose
+    ids:
+    - '06'
+  - escalada: Resta Um
+    ids:
+    - '07'
+  - escalada: Medo de quê Aresta
+    ids:
+    - '8'
+  - escalada: Pressão Psicológica
+    ids:
+    - '9'
+  - escalada: Zumbi da Bocaina
+    ids:
+    - '10'
+  - escalada: Curta e Grossa
+    ids:
+    - '11'
+  - escalada: Menos Curta e Mais Grossa
+    ids:
+    - '12'
+  - escalada: El Corazon
+    ids:
+    - '13'
+  - escalada: Sombra e Água Fresca
+    ids:
+    - '14'
+  - escalada: Vitamina C
+    ids:
+    - '15'
+  - escalada: Mão de Vaca
+    ids:
+    - '16'
+  - escalada: Natural Climb
+    ids:
+    - '17'
+  - escalada: Chape
+    ids:
+    - '18'
+  - escalada: Comando Delta
+    ids:
+    - '19'
+  - escalada: Rachando os Bico
+    ids:
+    - '20'
+  - escalada: Mato Seco
+    ids:
+    - '21'
+  - escalada: De um jeito ou de Outro
+    ids:
+    - '22'
+  - escalada: Arapuá
+    ids:
+    - '23'
+  - escalada: Carcará Uru
+    ids:
+    - '24'
+  - escalada: Rapadura
+    ids:
+    - '25'
+  - escalada: Zé Bunitim
+    ids:
+    - '26'
+  - escalada: Vai ser Fei
+    ids:
+    - '27'
+  - escalada: Estrela Solitária
+    ids:
+    - '28'
+  - escalada: Vergateza
+    ids:
+    - '29'
+  - escalada: Chico Curandeiro
+    ids:
+    - '30'
+  - escalada: Reforma Trabalhista
+    ids:
+    - '31'
+  - escalada: Arborigenas
+    ids:
+    - '32'
+  - escalada: Faz sua Parte
+    ids:
+    - '33'
+  - escalada: Delirando
+    ids:
+    - '34'
+  - escalada: Saraiva
+    ids:
+    - '35'
+  - escalada: Rolando Lero
+    ids:
+    - '36'
+  - escalada: Jardinagem
+    ids:
+    - '37'
+  - escalada: Soldados do Sol
+    ids:
+    - '38'
+  - escalada: Metamorfose Ambulante
+    ids:
+    - '39'
+  - escalada: Baby Rasta
+    ids:
+    - '40'
+  - escalada: Cara ou Crachá
+    ids:
+    - '41'
 - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -315,7 +439,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Permissão Concebida
-    id_no_mapa: '01'
     dificuldade: BR_8A
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -326,7 +449,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Bocaina Aventura
-    id_no_mapa: '02'
     dificuldade: PROJETO
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -337,7 +459,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: O Vento Levou
-    id_no_mapa: '03'
     dificuldade: BR_10A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -348,7 +469,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Titan
-    id_no_mapa: '04'
     dificuldade: PROJETO
     extensao: 10
     conquistadores:
@@ -357,7 +477,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Mirian
-    id_no_mapa: '05'
     dificuldade: BR_8C
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -370,7 +489,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Hipnose
-    id_no_mapa: '06'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -381,7 +499,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Resta Um
-    id_no_mapa: '07'
     dificuldade: BR_9A
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -393,7 +510,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Medo de quê Aresta
-    id_no_mapa: 08
     dificuldade: BR_10A
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -404,7 +520,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Pressão Psicológica
-    id_no_mapa: 09
     dificuldade: PROJETO
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -415,7 +530,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Zumbi da Bocaina
-    id_no_mapa: '10'
     dificuldade: BR_8B
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -427,7 +541,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Curta e Grossa
-    id_no_mapa: '11'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 8
@@ -439,7 +552,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Menos Curta e Mais Grossa
-    id_no_mapa: '12'
     dificuldade: BR_8C
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -451,7 +563,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: El Corazon
-    id_no_mapa: '13'
     dificuldade: BR_8B
     extensao: 15
     quantidade_protecoes_intermediarias: 8
@@ -461,7 +572,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Sombra e Água Fresca
-    id_no_mapa: '14'
     dificuldade: BR_6
     extensao: 5
     quantidade_protecoes_intermediarias: 2
@@ -471,7 +581,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Vitamina C
-    id_no_mapa: '15'
     dificuldade: BR_10A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -481,7 +590,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Mão de Vaca
-    id_no_mapa: '16'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 6
     conquistadores:
@@ -489,7 +597,6 @@ escaladas:
     descricao: Falta topo.
 - via_esportiva:
     nome: Natural Climb
-    id_no_mapa: '17'
     dificuldade: BR_8B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -499,11 +606,9 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Chape
-    id_no_mapa: '18'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: Comando Delta
-    id_no_mapa: '19'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -513,7 +618,6 @@ escaladas:
     data_abertura: '2005'
 - via_esportiva:
     nome: Rachando os Bico
-    id_no_mapa: '20'
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -523,20 +627,16 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Mato Seco
-    id_no_mapa: '21'
     dificuldade: PROJETO
     descricao: Inacabada.
 - via_esportiva:
     nome: De um jeito ou de Outro
-    id_no_mapa: '22'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: Arapuá
-    id_no_mapa: '23'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: Carcará Uru
-    id_no_mapa: '24'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -547,7 +647,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Rapadura
-    id_no_mapa: '25'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -557,7 +656,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Zé Bunitim
-    id_no_mapa: '26'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 6
@@ -568,7 +666,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Vai ser Fei
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     extensao: 25
     quantidade_protecoes_intermediarias: 7
@@ -578,7 +675,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Estrela Solitária
-    id_no_mapa: '28'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -588,7 +684,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Vergateza
-    id_no_mapa: '29'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -598,7 +693,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Chico Curandeiro
-    id_no_mapa: '30'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -608,7 +702,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Reforma Trabalhista
-    id_no_mapa: '31'
     dificuldade: BR_7A
     extensao: 18
     quantidade_protecoes_intermediarias: 5
@@ -618,7 +711,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Arborigenas
-    id_no_mapa: '32'
     dificuldade: PROJETO
     extensao: 18
     quantidade_protecoes_intermediarias: 6
@@ -628,7 +720,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Faz sua Parte
-    id_no_mapa: '33'
     dificuldade: BR_7A
     extensao: 25
     quantidade_protecoes_intermediarias: 6
@@ -639,7 +730,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Delirando
-    id_no_mapa: '34'
     dificuldade: BR_6SUP
     extensao: 18
     quantidade_protecoes_intermediarias: 5
@@ -649,7 +739,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Saraiva
-    id_no_mapa: '35'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 4
@@ -659,7 +748,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Rolando Lero
-    id_no_mapa: '36'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 5
@@ -669,7 +757,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Jardinagem
-    id_no_mapa: '37'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -679,7 +766,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Soldados do Sol
-    id_no_mapa: '38'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -689,7 +775,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Metamorfose Ambulante
-    id_no_mapa: '39'
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -699,7 +784,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Baby Rasta
-    id_no_mapa: '40'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -709,7 +793,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Cara ou Crachá
-    id_no_mapa: '41'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -718,7 +801,7 @@ escaladas:
     - Daiex
     - Saulo
     data_abertura: '2017'
----
+---
 # Setor Tetos
 
 ![Setor Tetos](imagens/setor_tetos_p0_i0.webp)

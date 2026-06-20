@@ -67,7 +67,7 @@
             | ![Mapa dos Setores](imagens/mapas_gerais_p1_i0.webp) |
             | :--: |
             | *Mapa dos Setores* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -246,66 +246,103 @@
           - **comprimento**: 36
           - **largura**: 199
           - **angulo_graus_x100**: 1655
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pescador de Planta
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Maria Doida
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Chuva de Bromélias
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Visitante Oculto
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Bestial Devastation
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Velho Chico
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Dom Quixote
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Cordadinha
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Calazar Certo
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Cabeça de Rato
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Pelas Mãos do Senhor
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Uma Lágrima que Cai
+        - **ids**:
+          - 12
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Pescador de Planta
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Maria Doida
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6SUP
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Chuva de Bromélias
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Visitante Oculto
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Bestial Devastation
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Velho Chico
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7B
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Dom Quixote
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7A
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Cordadinha
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP_BARRA_7A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Calazar Certo
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Cabeça de Rato
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Pelas Mãos do Senhor
-      - **id_no_mapa**: 11
       - **dificuldade**: PROJETO
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Uma Lágrima que Cai
-      - **id_no_mapa**: 12
       - **dificuldade**: PROJETO
 
 
@@ -424,37 +461,53 @@
           - **y**: 322
           - **comprimento**: 114
           - **largura**: 46
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Velho Chico
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Dom Quixote
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Cordadinha
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Pelas Mãos do Senhor
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Uma Lágrima que Cai
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Via clássica do setor.
       - **nome**: Velho Chico
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7B
       - **extensao**: 40
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Termina na metade da parede.
       - **nome**: Dom Quixote
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
   - **[2]**:
     - **via_esportiva**:
       - **descricao**: Termina um pouco acima da via Dom Quixote.
       - **nome**: Cordadinha
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP_BARRA_7A
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Via que passa pelo teto a direita da claraboia. Via de muita resistência.
       - **nome**: Pelas Mãos do Senhor
-      - **id_no_mapa**: 04
       - **dificuldade**: PROJETO
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base
       - **nome**: Uma Lágrima que Cai
-      - **id_no_mapa**: 05
       - **dificuldade**: PROJETO
 
 
@@ -524,36 +577,52 @@
           - **comprimento**: 46
           - **largura**: 242
           - **angulo_graus_x100**: -5526
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pescador de Planta
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Maria Doida
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Chuva de Bromélias
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Visitante Oculto
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Bestial Devastation
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Via na aresta esquerda do platô.
       - **nome**: Pescador de Planta
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Primeira via da parede.
       - **nome**: Maria Doida
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6SUP
   - **[2]**:
     - **via_esportiva**:
       - **descricao**: Via técnica. Recomendada para quem quer escalar 6º grau.
       - **nome**: Chuva de Bromélias
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Via longa e técnica uma fenda na metade da parede. Opção para quem quer escalar 8º grau.
       - **nome**: Visitante Oculto
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8A
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer até o platô mais baixo.
       - **nome**: Bestial Devastation
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
 
 
@@ -598,18 +667,25 @@
           - **y**: 476
           - **comprimento**: 134
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Calazar Certo
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Cabeça de Rato
+        - **ids**:
+          - 02
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Via mais clássica do salão encantado. Via longa em chorreiras e agarrões. Recomendada para todos.
       - **nome**: Calazar Certo
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7B
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau positivo para chegar ao grampo.
       - **nome**: Cabeça de Rato
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
 
 
@@ -712,48 +788,70 @@
           - **comprimento**: 117
           - **largura**: 33
           - **angulo_graus_x100**: -4464
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sol da Manhã
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Filha do Sol
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Nuvens de Agosto
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: A Laka
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Dazão e o pé de Feijão
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Explosão de Sabores
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Insolação
+        - **ids**:
+          - 07
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Primeira via do setor. Começa na aresta.
       - **nome**: Sol da Manhã
-      - **id_no_mapa**: 01
       - **dificuldade**: PROJETO
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Via completa e longa. Um pouco de Resistência e técnica
       - **nome**: Filha do Sol
-      - **id_no_mapa**: 02
       - **dificuldade**: PROJETO
   - **[2]**:
     - **via_esportiva**:
       - **descricao**: Primeira via de grampos acima da filha do sol.
       - **nome**: Nuvens de Agosto
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A_BARRA_7B
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Via com grampos a direita da nuvens de agosto
       - **nome**: A Laka
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7B_BARRA_7C
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Via com grampos. O ideal é sair com a primeira costura clipada.
       - **nome**: Dazão e o pé de Feijão
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
   - **[5]**:
     - **via_esportiva**:
       - **descricao**: Penúltima via da parede.
       - **nome**: Explosão de Sabores
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7B
   - **[6]**:
     - **via_esportiva**:
       - **descricao**: Via oposições em fendas. Protegida com chapeletas.
       - **nome**: Insolação
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7A
 
 
@@ -871,60 +969,88 @@
           - **y**: 390
           - **comprimento**: 102
           - **largura**: 25
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Vezúvio
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Meia Pegada
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Rasta Man
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Malandragem da um Tempo
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Complexo Bipolar
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Aresta que me Resta
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Barbarvore
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Suposta Exposição
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Bicho Morto
+        - **ids**:
+          - 09
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Via em cima do platô.
       - **nome**: Vezúvio
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Primeira via da parede.
       - **nome**: Meia Pegada
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
   - **[2]**:
     - **via_esportiva**:
       - **descricao**: Via antes da árvore.
       - **nome**: Rasta Man
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Via depois da árvore.
       - **nome**: Malandragem da um Tempo
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7B_BARRA_7C
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Via antes da aresta.
       - **nome**: Complexo Bipolar
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7C_BARRA_8A
   - **[5]**:
     - **via_esportiva**:
       - **descricao**: Via na aresta.
       - **nome**: Aresta que me Resta
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7A
   - **[6]**:
     - **via_esportiva**:
       - **descricao**: Primeira via na parede de trás.
       - **nome**: Barbarvore
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6
   - **[7]**:
     - **via_esportiva**:
       - **descricao**: Via depois da árvore.
       - **nome**: Suposta Exposição
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6
   - **[8]**:
     - **via_esportiva**:
       - **descricao**: Última via da parede.
       - **nome**: Bicho Morto
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_6SUP
 
 
@@ -1001,36 +1127,52 @@
           - **y**: 102
           - **comprimento**: 130
           - **largura**: 53
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Gamon
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Estrela no Coco
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Fendinha
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Guariba
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Tardia
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Primeira via da parede.
       - **nome**: Gamon
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Via atrás de um bloco de pedra.
       - **nome**: Estrela no Coco
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7B
   - **[2]**:
     - **via_esportiva**:
       - **descricao**: Via a direita da estrela no coco.
       - **nome**: Fendinha
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Via a direita do bloco de pedra.
       - **nome**: Guariba
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Ultima via da parede.
       - **nome**: Tardia
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
 
 

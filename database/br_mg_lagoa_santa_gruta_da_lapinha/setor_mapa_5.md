@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mapa 5
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_5_p0_i0.webp
@@ -89,10 +89,37 @@ mapas:
       y: 226
       comprimento: 55
       largura: 31
+  referencias:
+  - escalada: Ben Moon
+    ids:
+    - '52'
+  - escalada: Come Quieto
+    ids:
+    - '53'
+  - escalada: O Perigo que Veio do Céu
+    ids:
+    - '54'
+  - escalada: Arranca Couro
+    ids:
+    - '55'
+  - escalada: Ônibus Inglês
+    ids:
+    - '56'
+  - escalada: Gigante de Bronze
+    ids:
+    - '57'
+  - escalada: Karrenglass
+    ids:
+    - '58'
+  - escalada: Retorno dos Anões
+    ids:
+    - '59'
+  - escalada: Compromisso Sexual
+    ids:
+    - '60'
 escaladas:
 - via_esportiva:
     nome: Ben Moon
-    id_no_mapa: '52'
     dificuldade: BR_7C
     conquistadores:
     - Eustáquio Macedo
@@ -100,21 +127,18 @@ escaladas:
     descricao: Vía em Top Rope
 - via_esportiva:
     nome: Come Quieto
-    id_no_mapa: '53'
     dificuldade: BR_8B
     conquistadores:
     - Alexandre Galvão
     - XXX
 - via_esportiva:
     nome: O Perigo que Veio do Céu
-    id_no_mapa: '54'
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Charles Costa Marinho
 - via_esportiva:
     nome: Arranca Couro
-    id_no_mapa: '55'
     dificuldade: BR_7A
     conquistadores:
     - Charles C. Marinho
@@ -122,21 +146,18 @@ escaladas:
     - Fabiano Fernandes
 - via_esportiva:
     nome: Ônibus Inglês
-    id_no_mapa: '56'
     dificuldade: BR_6
     conquistadores:
     - Daniel Fernandes "Salim"
     - Leonardo Hoffmann
 - via_esportiva:
     nome: Gigante de Bronze
-    id_no_mapa: '57'
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
 - via_esportiva:
     nome: Karrenglass
-    id_no_mapa: '58'
     dificuldade: BR_5SUP
     conquistadores:
     - Eduardo V. de A. "Ralf"
@@ -144,7 +165,6 @@ escaladas:
     - Rodrigo Tinoco
 - via_esportiva:
     nome: Retorno dos Anões
-    id_no_mapa: '59'
     dificuldade: BR_6SUP
     conquistadores:
     - Fábio Luiz Faria "Fabinho"
@@ -152,13 +172,12 @@ escaladas:
     - Denise
 - via_esportiva:
     nome: Compromisso Sexual
-    id_no_mapa: '60'
     dificuldade: BR_7C
     conquistadores:
     - Emerson A. Azeredo
     - Eustáquio Júnior
     - Fabiano Fernandes
----
+---
 # Setor Mapa 5
 
 Vias localizadas próximo à região do "Pasto" e "Mancha amarela".

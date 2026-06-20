@@ -1,4 +1,4 @@
----
+---
 nome: Setor Macaúbas
 mapas:
 - caminho_imagem_mapa: imagens/setor_macaubas_p0_i0.webp
@@ -41,23 +41,30 @@ mapas:
       y: 184
       comprimento: 33
       largura: 266
+  referencias:
+  - escalada: Cobra Caoia
+    ids:
+    - '1'
+  - escalada: Lembranças de Mariazinha
+    ids:
+    - '2'
+  - escalada: Anfitriões do Dia
+    ids:
+    - '3'
 escaladas:
 - via_esportiva:
     nome: Cobra Caoia
-    id_no_mapa: '1'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Lembranças de Mariazinha
-    id_no_mapa: '2'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Anfitriões do Dia
-    id_no_mapa: '3'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
----
+---
 # Setor Macaúbas
 
 ![Setor Macaúbas](imagens/setor_macaubas_p0_i1.webp)

@@ -1,4 +1,4 @@
----
+---
 nome: Tchau Querida
 mapas:
 - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
@@ -54,10 +54,31 @@ mapas:
       y: 1064
       comprimento: 36
       largura: 45
+  referencias:
+  - escalada: Temer Jamais
+    ids:
+    - '1'
+  - escalada: Escalar sem Temer
+    ids:
+    - '2'
+  - escalada: Tchau Querida
+    ids:
+    - '3'
+  - escalada: República do Pó Royal
+    ids:
+    - '4'
+  - escalada: República das Bananas
+    ids:
+    - '5'
+  - escalada: República do Café com Leite
+    ids:
+    - '6'
+  - escalada: Lava Jato
+    ids:
+    - '7'
 escaladas:
 - via_esportiva:
     nome: Temer Jamais
-    id_no_mapa: '1'
     dificuldade: INDEFINIDO
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -67,7 +88,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Escalar sem Temer
-    id_no_mapa: '2'
     dificuldade: INDEFINIDO
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -77,7 +97,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Tchau Querida
-    id_no_mapa: '3'
     dificuldade: BR_7B_BARRA_7C
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -87,7 +106,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: República do Pó Royal
-    id_no_mapa: '4'
     dificuldade: BR_8A
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -97,7 +115,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: República das Bananas
-    id_no_mapa: '5'
     dificuldade: BR_7A
     extensao: 11
     quantidade_protecoes_intermediarias: 4
@@ -107,7 +124,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: República do Café com Leite
-    id_no_mapa: '6'
     dificuldade: BR_7A
     extensao: 11
     quantidade_protecoes_intermediarias: 4
@@ -117,7 +133,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Lava Jato
-    id_no_mapa: '7'
     dificuldade: BR_7B
     extensao: 11
     quantidade_protecoes_intermediarias: 4
@@ -125,7 +140,7 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
----
+---
 # Setor Tchau Querida
 
 Setor com vias de 11m até 12m.

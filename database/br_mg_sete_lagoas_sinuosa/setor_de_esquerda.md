@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_esquerda_p0_i0.webp
@@ -48,33 +48,42 @@ mapas:
       y: 537
       comprimento: 34
       largura: 260
+  referencias:
+  - escalada: Milicianos
+    ids:
+    - '1'
+  - escalada: Inimigos do Estado
+    ids:
+    - '2'
+  - escalada: Libera a Moça
+    ids:
+    - '3'
+  - escalada: Moça de 100 Anos
+    ids:
+    - '4'
 escaladas:
 - via_esportiva:
     nome: Milicianos
-    id_no_mapa: '1'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     extensao: 15
 - via_esportiva:
     nome: Inimigos do Estado
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     extensao: 15
     descricao: A primeira via do setor.
 - via_esportiva:
     nome: Libera a Moça
-    id_no_mapa: '3'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     extensao: 15
 - via_esportiva:
     nome: Moça de 100 Anos
-    id_no_mapa: '4'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
     extensao: 15
----
+---
 # Setor de Esquerda
 
 Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"

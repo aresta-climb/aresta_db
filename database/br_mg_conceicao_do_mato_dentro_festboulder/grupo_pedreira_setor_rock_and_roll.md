@@ -1,4 +1,4 @@
----
+---
 nome: Rock and Roll
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_rock_and_roll_p0.webp
@@ -33,24 +33,33 @@ mapas:
       y: 490
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Rock It
+    ids:
+    - '1'
+  - escalada: Rock and Roll
+    ids:
+    - '2'
+  - escalada: Go Chucky Go
+    ids:
+    - '3'
+  - escalada: Go Johnny Go
+    ids:
+    - '4'
 escaladas:
 - boulder:
     nome: Rock It
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: Rock and Roll
-    id_no_mapa: '2'
     dificuldade: V1
 - boulder:
     nome: Go Chucky Go
-    id_no_mapa: '3'
     dificuldade: V2
 - boulder:
     nome: Go Johnny Go
-    id_no_mapa: '4'
     dificuldade: V3
----
+---
 # Setor Rock and Roll
 
 O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.

@@ -120,7 +120,7 @@
             - Juliano Magalhães - Instagram: [@jzmagalhaes](https://www.instagram.com/jzmagalhaes)
             - Instagram: [@escalada_itatiaia](https://www.instagram.com/escalada_itatiaia)
             - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_chegada
@@ -327,109 +327,170 @@
           - **y**: 900
           - **comprimento**: 150
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Fake News
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Caliba
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Jack Sparrow
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Monty Python
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Dengoso
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Livre Arbítrio
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Mad Max P1
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Mad Max P2
+        - **ids**:
+          - 08
+          - 08
+      - **[8]**:
+        - **escalada**: Além da Cúpula do Trovão
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Perestroika P1
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Perestroika P2
+        - **ids**:
+          - 11
+          - 11
+      - **[11]**:
+        - **escalada**: Guliver
+        - **ids**:
+          - 12_base
+      - **[12]**:
+        - **escalada**: Ben Hur
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Carmina Burana P1
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Carmina Burana P2
+        - **ids**:
+          - 15
+          - 15
+      - **[15]**:
+        - **escalada**: 17 Quedas
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: 8d
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Cápsula do Tempo
+        - **ids**:
+          - 18_base
+      - **[18]**:
+        - **escalada**: Buraco Negro
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Macunaína
+        - **ids**:
+          - 20
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Fake News
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_9C
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Caliba
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_9B_BARRA_9C
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Jack Sparrow
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_9B
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Monty Python
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_9A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Dengoso
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Livre Arbítrio
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8B
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Mad Max P1
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8C
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Mad Max P2
-      - **id_no_mapa**: 08
-      - **id_no_mapa_fim**: 08
       - **dificuldade**: BR_9C
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Além da Cúpula do Trovão
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_9A
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Perestroika P1
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_9B
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Perestroika P2
-      - **id_no_mapa**: 11
-      - **id_no_mapa_fim**: 11
       - **dificuldade**: BR_9C
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Guliver
-      - **id_no_mapa**: 12_base
       - **dificuldade**: BR_10A
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Ben Hur
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_9C
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Carmina Burana P1
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_9B
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Carmina Burana P2
-      - **id_no_mapa**: 15
-      - **id_no_mapa_fim**: 15
       - **dificuldade**: BR_10A
   - **[15]**:
     - **via_esportiva**:
       - **nome**: 17 Quedas
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_9C
   - **[16]**:
     - **via_esportiva**:
       - **nome**: 8d
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_8C
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Cápsula do Tempo
-      - **id_no_mapa**: 18_base
       - **dificuldade**: BR_8C_BARRA_9A
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Buraco Negro
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_9B
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Macunaína
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_9B
 
 
@@ -613,104 +674,162 @@
           - **y**: 940
           - **comprimento**: 250
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ementhal
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Sunshine
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Ext. Sunshine (Projeto)
+        - **ids**:
+          - 03
+          - 03
+      - **[3]**:
+        - **escalada**: Luna
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Freddie Mercury
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Ariete
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Eunuco (Projeto)
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Pau Mandado
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Imperatriz
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Casamento de Viúva
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Manda Chuva (Projeto)
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Celibato
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Manicaca
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Ghidorah
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Hidra
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Medusa
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Kátia Flávia
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Ext. Kátia Flávia
+        - **ids**:
+          - 18
+          - 18
+      - **[18]**:
+        - **escalada**: Casamento da Imperatriz (Projeto)
+        - **ids**:
+          - 19
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Ementhal
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7C
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Sunshine
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7C
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Ext. Sunshine (Projeto)
-      - **id_no_mapa**: 03
-      - **id_no_mapa_fim**: 03
       - **dificuldade**: PROJETO
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Luna
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8A_BARRA_8B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Freddie Mercury
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_9A
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Ariete
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7C
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Eunuco (Projeto)
-      - **id_no_mapa**: 07
       - **dificuldade**: PROJETO
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Pau Mandado
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_9C_BARRA_10A
       - **destaque**: True
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Imperatriz
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_9B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Casamento de Viúva
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_8A
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Manda Chuva (Projeto)
-      - **id_no_mapa**: 11
       - **dificuldade**: PROJETO
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Celibato
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_8C
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Manicaca
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7C_BARRA_8A
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ghidorah
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Hidra
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Medusa
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_5
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Kátia Flávia
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7A
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Ext. Kátia Flávia
-      - **id_no_mapa**: 18
-      - **id_no_mapa_fim**: 18
       - **dificuldade**: BR_7A
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Casamento da Imperatriz (Projeto)
-      - **id_no_mapa**: 19
       - **dificuldade**: PROJETO
 
 
@@ -878,96 +997,151 @@
           - **y**: 921
           - **comprimento**: 700
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ayrton Senna
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Fernão Dias
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Via Dutra
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Rua Teresa
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Chico
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Juca Birita
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Jeca Tatu
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Kira
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: JucaTatuKira
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Free Willy
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Homer Simpson
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Velho do Saco
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Incontinência
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Vovó Mafalda
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Chaminé Só para Tiozinhos
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: TriJeferson
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Dunga
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Sub-Zero
+        - **ids**:
+          - 18
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Ayrton Senna
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7C
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Fernão Dias
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Via Dutra
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Rua Teresa
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Chico
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8B_BARRA_8C
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Juca Birita
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8A
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Jeca Tatu
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8C
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Kira
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_9A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: JucaTatuKira
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_8B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Free Willy
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_8C
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Homer Simpson
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Velho do Saco
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7A
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Incontinência
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8B
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Vovó Mafalda
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Chaminé Só para Tiozinhos
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7A
   - **[15]**:
     - **via_esportiva**:
       - **nome**: TriJeferson
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_9B
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Dunga
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_9A
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Sub-Zero
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_8C
 
 
@@ -1303,170 +1477,267 @@
           - **y**: 923
           - **comprimento**: 700
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Palo Santo P1
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Palo Santo P2
+        - **ids**:
+          - 02
+          - 02
+      - **[2]**:
+        - **escalada**: Left or Right
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Right na Caveira
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Piercing de Caveira
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Ext. Piercing
+        - **ids**:
+          - 06
+          - 06
+      - **[6]**:
+        - **escalada**: Mythos
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Esqueleto
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Brinco de Caveira
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Bruce Lee (Projeto)
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Bradock
+        - **ids**:
+          - 11_base
+      - **[11]**:
+        - **escalada**: Bozo
+        - **ids**:
+          - 12_base
+      - **[12]**:
+        - **escalada**: Fonte da Juventude
+        - **ids**:
+          - 13_base
+      - **[13]**:
+        - **escalada**: Cocoon P1
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Cocoon P2
+        - **ids**:
+          - 15_base
+          - 15_base
+      - **[15]**:
+        - **escalada**: Coconut
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Apocalipse
+        - **ids**:
+          - 17_base
+      - **[17]**:
+        - **escalada**: Homem de Pedra
+        - **ids**:
+          - 18_base
+      - **[18]**:
+        - **escalada**: Inferno de Dante
+        - **ids**:
+          - 19_base
+      - **[19]**:
+        - **escalada**: Golias
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Cova dos Leões
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Verbo Divino (Projeto)
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Dust in the Wind
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Ext. Dust (Projeto)
+        - **ids**:
+          - 24
+          - 24
+      - **[24]**:
+        - **escalada**: Doce de Amendoim
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Gengis Khan
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Gringos & Troianos
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Gringos & Troianos
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Cavalo de Tróia
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: Jacuzzi (Projeto)
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: Centauro
+        - **ids**:
+          - 31
+      - **[31]**:
+        - **escalada**: Ceci
+        - **ids**:
+          - 32
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Palo Santo P1
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_5
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Palo Santo P2
-      - **id_no_mapa**: 02
-      - **id_no_mapa_fim**: 02
       - **dificuldade**: BR_10A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Left or Right
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_9A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Right na Caveira
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_9B_BARRA_9C
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Piercing de Caveira
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_9B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Ext. Piercing
-      - **id_no_mapa**: 06
-      - **id_no_mapa_fim**: 06
       - **dificuldade**: BR_10B
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Mythos
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Esqueleto
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Brinco de Caveira
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_10C
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Bruce Lee (Projeto)
-      - **id_no_mapa**: 10
       - **dificuldade**: PROJETO
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Bradock
-      - **id_no_mapa**: 11_base
       - **dificuldade**: BR_10A
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Bozo
-      - **id_no_mapa**: 12_base
       - **dificuldade**: BR_9C
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Fonte da Juventude
-      - **id_no_mapa**: 13_base
       - **dificuldade**: BR_9B_BARRA_9C
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Cocoon P1
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Cocoon P2
-      - **id_no_mapa**: 15_base
-      - **id_no_mapa_fim**: 15_base
       - **dificuldade**: BR_10A
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Coconut
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_10B_BARRA_10C
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Apocalipse
-      - **id_no_mapa**: 17_base
       - **dificuldade**: BR_10B
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Homem de Pedra
-      - **id_no_mapa**: 18_base
       - **dificuldade**: BR_10C
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Inferno de Dante
-      - **id_no_mapa**: 19_base
       - **dificuldade**: BR_10B
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Golias
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_10C
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Cova dos Leões
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_10B
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Verbo Divino (Projeto)
-      - **id_no_mapa**: 22
       - **dificuldade**: PROJETO
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Dust in the Wind
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_10C
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Ext. Dust (Projeto)
-      - **id_no_mapa**: 24
-      - **id_no_mapa_fim**: 24
       - **dificuldade**: PROJETO
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Doce de Amendoim
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_10C
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Gengis Khan
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_9C
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Gringos & Troianos
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_9A
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Gringos & Troianos
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_11A_BARRA_11B
   - **[28]**:
     - **via_esportiva**:
       - **nome**: Cavalo de Tróia
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_11C
   - **[29]**:
     - **via_esportiva**:
       - **nome**: Jacuzzi (Projeto)
-      - **id_no_mapa**: 30
       - **dificuldade**: PROJETO
   - **[30]**:
     - **via_esportiva**:
       - **nome**: Centauro
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_6SUP
   - **[31]**:
     - **via_esportiva**:
       - **nome**: Ceci
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_6SUP
 
 
@@ -1762,148 +2033,230 @@
           - **y**: 107
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Fela
+        - **ids**:
+          - 01_base
+      - **[1]**:
+        - **escalada**: Ext. P1 Fela
+        - **ids**:
+          - 02
+          - 02
+      - **[2]**:
+        - **escalada**: Ext. P2 Fela
+        - **ids**:
+          - 03
+          - 03
+      - **[3]**:
+        - **escalada**: Arco do Triumfo
+        - **ids**:
+          - 04_base
+      - **[4]**:
+        - **escalada**: Remédio Amargo
+        - **ids**:
+          - 05_base
+      - **[5]**:
+        - **escalada**: Shoryuken
+        - **ids**:
+          - 06_base
+      - **[6]**:
+        - **escalada**: Jab
+        - **ids**:
+          - 07_base
+      - **[7]**:
+        - **escalada**: Soco Inglês
+        - **ids**:
+          - 08_base
+      - **[8]**:
+        - **escalada**: Ext. Soco Inglês P1
+        - **ids**:
+          - 09
+          - 09
+      - **[9]**:
+        - **escalada**: Ex. Soco Inglês P2 (Projeto)
+        - **ids**:
+          - 10
+          - 10
+      - **[10]**:
+        - **escalada**: Tapa na Cara
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Tapa na Sombra
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Ext. Tapa na Sombra P2
+        - **ids**:
+          - 13
+          - 13
+      - **[13]**:
+        - **escalada**: A Outra Face
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Mary Lou
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Superman
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Oia u Trem
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Mistério da Meia Noite
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Entre a Sombra e a Escuridão P1
+        - **ids**:
+          - 19_base
+      - **[19]**:
+        - **escalada**: Entre a Sombra e a Escuridão P2
+        - **ids**:
+          - 20
+          - 20
+      - **[20]**:
+        - **escalada**: Calabouço
+        - **ids**:
+          - 21_base
+      - **[21]**:
+        - **escalada**: Thanos (Projeto)
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Ext. Arco do Triumfo (Projeto)
+        - **ids**:
+          - 23
+          - 23
+      - **[23]**:
+        - **escalada**: Sombrinha
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Alcatraz
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Face Oculta (Projeto)
+        - **ids**:
+          - 27
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Fela
-      - **id_no_mapa**: 01_base
       - **dificuldade**: BR_9A
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Ext. P1 Fela
-      - **id_no_mapa**: 02
-      - **id_no_mapa_fim**: 02
       - **dificuldade**: BR_10A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Ext. P2 Fela
-      - **id_no_mapa**: 03
-      - **id_no_mapa_fim**: 03
       - **dificuldade**: BR_10B_BARRA_10C
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Arco do Triumfo
-      - **id_no_mapa**: 04_base
       - **dificuldade**: BR_9B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Remédio Amargo
-      - **id_no_mapa**: 05_base
       - **dificuldade**: BR_8B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Shoryuken
-      - **id_no_mapa**: 06_base
       - **dificuldade**: BR_8C
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Jab
-      - **id_no_mapa**: 07_base
       - **dificuldade**: BR_8C
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Soco Inglês
-      - **id_no_mapa**: 08_base
       - **dificuldade**: BR_7C
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Ext. Soco Inglês P1
-      - **id_no_mapa**: 09
-      - **id_no_mapa_fim**: 09
       - **dificuldade**: BR_10B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Ex. Soco Inglês P2 (Projeto)
-      - **id_no_mapa**: 10
-      - **id_no_mapa_fim**: 10
       - **dificuldade**: PROJETO
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Tapa na Cara
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8A
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Tapa na Sombra
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_9A
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Ext. Tapa na Sombra P2
-      - **id_no_mapa**: 13
-      - **id_no_mapa_fim**: 13
       - **dificuldade**: BR_10A
   - **[13]**:
     - **via_esportiva**:
       - **nome**: A Outra Face
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_10A
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Mary Lou
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_10A
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Superman
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_8C
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Oia u Trem
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_10A
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Mistério da Meia Noite
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_9A_BARRA_9B
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Entre a Sombra e a Escuridão P1
-      - **id_no_mapa**: 19_base
       - **dificuldade**: BR_9C
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Entre a Sombra e a Escuridão P2
-      - **id_no_mapa**: 20
-      - **id_no_mapa_fim**: 20
       - **dificuldade**: BR_10A
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Calabouço
-      - **id_no_mapa**: 21_base
       - **dificuldade**: BR_9B
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Thanos (Projeto)
-      - **id_no_mapa**: 22
       - **dificuldade**: PROJETO
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Ext. Arco do Triumfo (Projeto)
-      - **id_no_mapa**: 23
-      - **id_no_mapa_fim**: 23
       - **dificuldade**: PROJETO
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Sombrinha
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_8A
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Projeto
-      - **id_no_mapa**: 25
       - **dificuldade**: PROJETO
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Alcatraz
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_10A
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Face Oculta (Projeto)
-      - **id_no_mapa**: 27
       - **dificuldade**: PROJETO
 
 
@@ -2135,127 +2488,197 @@
           - **y**: 787
           - **comprimento**: 500
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Tow Plac Two Plow
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Periguete
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: The Glands
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Ext. The Glands
+        - **ids**:
+          - 04_topo
+          - 04_topo
+      - **[4]**:
+        - **escalada**: Quartzolit
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Ext. Quartzolit (Projeto)
+        - **ids**:
+          - 06
+          - 06
+      - **[6]**:
+        - **escalada**: Jorginho
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Toca do Sadu
+        - **ids**:
+          - 08_base
+      - **[8]**:
+        - **escalada**: Triplo X
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Além do Horizonte
+        - **ids**:
+          - 10_base
+      - **[10]**:
+        - **escalada**: Salto para Infinito
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Êxodo
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Gênesis
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Ext. Gênesis
+        - **ids**:
+          - 14
+          - 14
+      - **[14]**:
+        - **escalada**: Cronos
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Goela Seca
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Gogó
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Ext. Gogó
+        - **ids**:
+          - 18
+          - 18
+      - **[18]**:
+        - **escalada**: 3.6 Turbo
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Brown & Brow
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Sinairo P1
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Sinario P2
+        - **ids**:
+          - 22
+          - 22
+      - **[22]**:
+        - **escalada**: Sinairo P3
+        - **ids**:
+          - 23
+          - 23
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Tow Plac Two Plow
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_9C
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Periguete
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_9C
   - **[2]**:
     - **via_esportiva**:
       - **nome**: The Glands
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_9A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Ext. The Glands
-      - **id_no_mapa**: 04_topo
-      - **id_no_mapa_fim**: 04_topo
       - **dificuldade**: BR_9C
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Quartzolit
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_10A
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Ext. Quartzolit (Projeto)
-      - **id_no_mapa**: 06
-      - **id_no_mapa_fim**: 06
       - **dificuldade**: PROJETO
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Jorginho
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8B
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Toca do Sadu
-      - **id_no_mapa**: 08_base
       - **dificuldade**: BR_11A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Triplo X
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_9C
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Além do Horizonte
-      - **id_no_mapa**: 10_base
       - **dificuldade**: BR_8B
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Salto para Infinito
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_10B
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Êxodo
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_8B
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Gênesis
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8C
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ext. Gênesis
-      - **id_no_mapa**: 14
-      - **id_no_mapa_fim**: 14
       - **dificuldade**: BR_10C
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Cronos
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_9C
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Goela Seca
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_8C
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Gogó
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_9A
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Ext. Gogó
-      - **id_no_mapa**: 18
-      - **id_no_mapa_fim**: 18
       - **dificuldade**: BR_10C
   - **[18]**:
     - **via_esportiva**:
       - **nome**: 3.6 Turbo
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_9C
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Brown & Brow
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_10B
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Sinairo P1
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_10C
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Sinario P2
-      - **id_no_mapa**: 22
-      - **id_no_mapa_fim**: 22
       - **dificuldade**: BR_11B
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Sinairo P3
-      - **id_no_mapa**: 23
-      - **id_no_mapa_fim**: 23
       - **dificuldade**: PROJETO
 
 
@@ -2463,81 +2886,127 @@
           - **y**: 795
           - **comprimento**: 250
           - **largura**: 40
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Faraó
+        - **ids**:
+          - 01_base
+      - **[1]**:
+        - **escalada**: Esfinge
+        - **ids**:
+          - 02_base
+      - **[2]**:
+        - **escalada**: Camel
+        - **ids**:
+          - 03_base
+      - **[3]**:
+        - **escalada**: Bulimia
+        - **ids**:
+          - 04_base
+      - **[4]**:
+        - **escalada**: Venetica
+        - **ids**:
+          - 05_base
+      - **[5]**:
+        - **escalada**: Resigente
+        - **ids**:
+          - 06_base
+      - **[6]**:
+        - **escalada**: Bammalves
+        - **ids**:
+          - 07_base
+      - **[7]**:
+        - **escalada**: Tomahawk
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Souza Paiol
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Marlboro
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Hollywood
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Derby Azul
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Adelaide
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Bulica
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Stinger
+        - **ids**:
+          - 15
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Faraó
-      - **id_no_mapa**: 01_base
       - **dificuldade**: BR_6
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Esfinge
-      - **id_no_mapa**: 02_base
       - **dificuldade**: BR_7A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Camel
-      - **id_no_mapa**: 03_base
       - **dificuldade**: BR_7C
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Bulimia
-      - **id_no_mapa**: 04_base
       - **dificuldade**: BR_6SUP
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Venetica
-      - **id_no_mapa**: 05_base
       - **dificuldade**: BR_7A
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Resigente
-      - **id_no_mapa**: 06_base
       - **dificuldade**: BR_8A
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Bammalves
-      - **id_no_mapa**: 07_base
       - **dificuldade**: BR_8A
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tomahawk
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Souza Paiol
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Marlboro
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Hollywood
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7B
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Derby Azul
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Adelaide
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8C
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Bulica
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7B_BARRA_7C
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Stinger
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6SUP
 
 

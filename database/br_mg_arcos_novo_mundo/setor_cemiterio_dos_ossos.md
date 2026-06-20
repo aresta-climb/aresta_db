@@ -1,4 +1,4 @@
----
+---
 nome: Setor Cemitério dos Ossos
 mapas:
 - caminho_imagem_mapa: imagens/setor_cemiterio_dos_ossos_p0_i0.webp
@@ -56,17 +56,22 @@ mapas:
       y: 927
       comprimento: 43
       largura: 22
+  referencias:
+  - escalada: Dia da Maldade
+    ids:
+    - '1'
+  - escalada: Dente de Aço
+    ids:
+    - ''
 escaladas:
 - via_esportiva:
     nome: Dia da Maldade
-    id_no_mapa: '1'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Dente de Aço
-    id_no_mapa: ''
     dificuldade: INDEFINIDO
     descricao: via em móvel
----
+---
 # Setor Cemitério dos Ossos
 
 Sombra de 7h as 13h (varia de acordo com a estação).

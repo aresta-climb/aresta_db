@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Conhaque'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp
@@ -47,26 +47,37 @@ mapas:
       y: 24
       comprimento: 28
       largura: 28
+  referencias:
+  - escalada: Aderência
+    ids:
+    - 1A
+  - escalada: Dreher
+    ids:
+    - 2A
+  - escalada: Yoga
+    ids:
+    - 3A
+  - escalada: Conhaque
+    ids:
+    - 3B
+  - escalada: Conhaque Presidente
+    ids:
+    - '4'
 escaladas:
 - boulder:
     nome: Aderência
-    id_no_mapa: 1A
     dificuldade: VB
 - boulder:
     nome: Dreher
-    id_no_mapa: 2A
     dificuldade: V3
 - boulder:
     nome: Yoga
-    id_no_mapa: 3A
     dificuldade: V4
 - boulder:
     nome: Conhaque
-    id_no_mapa: 3B
     dificuldade: V4_BARRA_V5
 - boulder:
     nome: Conhaque Presidente
-    id_no_mapa: '4'
     dificuldade: V6
----
+---
 

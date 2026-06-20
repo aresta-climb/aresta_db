@@ -1,4 +1,4 @@
----
+---
 nome: Curto e Grosso, Malibu e Terra do Nunca
 mapas:
 - caminho_imagem_mapa: imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp
@@ -54,13 +54,34 @@ mapas:
       y: 1468
       comprimento: 26
       largura: 42
+  referencias:
+  - escalada: La Speza
+    ids:
+    - 1az
+  - escalada: Gekke Greda
+    ids:
+    - 1ve
+  - escalada: O Breizh
+    ids:
+    - 2ve
+  - escalada: Dedo no C* e Gritaria
+    ids:
+    - 3ve
+  - escalada: Tea Time
+    ids:
+    - 4ve
+  - escalada: Mimi Zokko
+    ids:
+    - 1ro
+  - escalada: Mariposa
+    ids:
+    - 2ro
 setores:
 - conteudo:
     nome: Terra do Nunca
     escaladas:
     - via_esportiva:
         nome: La Speza
-        id_no_mapa: 1az
         dificuldade: BR_6
         extensao: 25
         quantidade_protecoes_intermediarias: 8
@@ -73,7 +94,6 @@ setores:
     escaladas:
     - via_esportiva:
         nome: Gekke Greda
-        id_no_mapa: 1ve
         dificuldade: BR_7B
         extensao: 12
         quantidade_protecoes_intermediarias: 4
@@ -83,7 +103,6 @@ setores:
         - Angela Van Dutch
     - via_esportiva:
         nome: O Breizh
-        id_no_mapa: 2ve
         dificuldade: BR_7A
         extensao: 12
         quantidade_protecoes_intermediarias: 4
@@ -93,7 +112,6 @@ setores:
         - Morgan Hervaut
     - via_esportiva:
         nome: Dedo no C* e Gritaria
-        id_no_mapa: 3ve
         dificuldade: BR_8A
         extensao: 12
         quantidade_protecoes_intermediarias: 5
@@ -103,7 +121,6 @@ setores:
         - Cristian Charme
     - via_esportiva:
         nome: Tea Time
-        id_no_mapa: 4ve
         dificuldade: BR_6
         extensao: 12
         quantidade_protecoes_intermediarias: 4
@@ -116,7 +133,6 @@ setores:
     escaladas:
     - via_esportiva:
         nome: Mimi Zokko
-        id_no_mapa: 1ro
         dificuldade: BR_5SUP
         extensao: 25
         quantidade_protecoes_intermediarias: 8
@@ -125,7 +141,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: Mariposa
-        id_no_mapa: 2ro
         dificuldade: BR_6
         extensao: 25
         quantidade_protecoes_intermediarias: 8
@@ -133,7 +148,7 @@ setores:
         conquistadores:
         - Jg
         - Ana Gonzalez Sanchez
----
+---
 # Curto e Grosso, Malibu e Terra do Nunca
 
 Estes setores estão localizados na parte sul do Alto Monte Alvão.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Bosque
 mapas:
 - caminho_imagem_mapa: imagens/setor_bosque_p0_i0.webp
@@ -68,6 +68,34 @@ mapas:
       y: 968
       comprimento: 35
       largura: 35
+  referencias:
+  - escalada: La Cucaracha
+    ids:
+    - '1'
+  - escalada: (via inacabada) Bem Vindo ao Bosque
+    ids:
+    - '2'
+  - escalada: (via inacabada)
+    ids:
+    - '3'
+  - escalada: Malandro é Malandro
+    ids:
+    - '4'
+  - escalada: Mané é Mané
+    ids:
+    - '5'
+  - escalada: Segunda Divisão
+    ids:
+    - '6'
+  - escalada: Diedrinho
+    ids:
+    - '7'
+  - escalada: Dona Leci
+    ids:
+    - '8'
+  - escalada: Caminito
+    ids:
+    - '9'
 - caminho_imagem_mapa: imagens/setor_bosque_p1_i0.webp
   largura_mapa: 916
   altura_mapa: 1151
@@ -146,24 +174,20 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: La Cucaracha
-    id_no_mapa: '1'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     data_abertura: '2021'
 - via_esportiva:
     nome: (via inacabada) Bem Vindo ao Bosque
-    id_no_mapa: '2'
     dificuldade: INDEFINIDO
     data_abertura: '2020'
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '3'
     dificuldade: INDEFINIDO
     data_abertura: '2020'
 - via_esportiva:
     nome: Malandro é Malandro
-    id_no_mapa: '4'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 5
@@ -171,7 +195,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Mané é Mané
-    id_no_mapa: '5'
     dificuldade: BR_8B_BARRA_8C
     destaque: true
     quantidade_protecoes_intermediarias: 5
@@ -179,21 +202,18 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Segunda Divisão
-    id_no_mapa: '6'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2020'
 - via_esportiva:
     nome: Diedrinho
-    id_no_mapa: '7'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2020'
 - via_esportiva:
     nome: Dona Leci
-    id_no_mapa: '8'
     dificuldade: BR_5
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -201,11 +221,10 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Caminito
-    id_no_mapa: '9'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
     destaque: true
     quantidade_protecoes_parada: 2
     data_abertura: '2020'
----
+---
 Sombra o dia todo (varia de acordo com a estação).

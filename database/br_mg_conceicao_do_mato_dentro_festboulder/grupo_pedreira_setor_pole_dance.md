@@ -1,6 +1,5 @@
----
+---
 nome: Pole Dance
-id_no_mapa: '15'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p0.webp
   largura_mapa: 760
@@ -62,6 +61,64 @@ mapas:
       y: 560
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Fuck Beach
+    ids:
+    - '1'
+  - escalada: Incrível Fuck Beach
+    ids:
+    - '2'
+  - escalada: Incrível Pole Dance
+    ids:
+    - '3'
+  - escalada: Incrível
+    ids:
+    - '4'
+  - escalada: Pole Dance
+    ids:
+    - '5'
+  - escalada: Pole Dance SDS
+    ids:
+    - '6'
+  - escalada: De la Rocha
+    ids:
+    - '7'
+  - escalada: Siga-me os Bons SDS
+    ids:
+    - '8'
+  - escalada: Repense
+    ids:
+    - '1'
+  - escalada: Vamo Nessa
+    ids:
+    - '2'
+  - escalada: Vem que Tem
+    ids:
+    - '3'
+  - escalada: Pense Bem
+    ids:
+    - '4'
+  - escalada: Conclusão
+    ids:
+    - '5'
+  - escalada: Siga-me os Bons
+    ids:
+    - '1'
+  - escalada: Siga-me os Bons SDS
+    ids:
+    - '2'
+  - escalada: Conceicion
+    ids:
+    - '3'
+  - escalada: Tô Concê
+    ids:
+    - '4'
+  - escalada: Rocktrip
+    ids:
+    - '5'
+  - escalada: Rocklands
+    ids:
+    - '6'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p1.webp
   largura_mapa: 757
   altura_mapa: 530
@@ -150,81 +207,63 @@ mapas:
 escaladas:
 - boulder:
     nome: Fuck Beach
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Incrível Fuck Beach
-    id_no_mapa: '2'
     dificuldade: V8
 - boulder:
     nome: Incrível Pole Dance
-    id_no_mapa: '3'
     dificuldade: V7
 - boulder:
     nome: Incrível
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: Pole Dance
-    id_no_mapa: '5'
     dificuldade: V5
 - boulder:
     nome: Pole Dance SDS
-    id_no_mapa: '6'
     dificuldade: V7
 - boulder:
     nome: De la Rocha
-    id_no_mapa: '7'
     dificuldade: V7
 - boulder:
     nome: Siga-me os Bons SDS
-    id_no_mapa: '8'
     dificuldade: V4
 - boulder:
     nome: Repense
-    id_no_mapa: '1'
     dificuldade: INDEFINIDO
 - boulder:
     nome: Vamo Nessa
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Vem que Tem
-    id_no_mapa: '3'
     dificuldade: V5
 - boulder:
     nome: Pense Bem
-    id_no_mapa: '4'
     dificuldade: V7
 - boulder:
     nome: Conclusão
-    id_no_mapa: '5'
     dificuldade: V4
 - boulder:
     nome: Siga-me os Bons
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Siga-me os Bons SDS
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Conceicion
-    id_no_mapa: '3'
     dificuldade: V4
 - boulder:
     nome: Tô Concê
-    id_no_mapa: '4'
     dificuldade: V4
 - boulder:
     nome: Rocktrip
-    id_no_mapa: '5'
     dificuldade: V5
 - boulder:
     nome: Rocklands
-    id_no_mapa: '6'
     dificuldade: V4
----
+---
+
 # Setor Pole Dance
 
 O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.

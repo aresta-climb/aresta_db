@@ -57,45 +57,58 @@ picos:
               y: 166
               comprimento: 10
               largura: 9
+          referencias:
+          - escalada: Sai que é vaca
+            ids:
+            - '01'
+          - escalada: Favo de Mel
+            ids:
+            - '02'
+          - escalada: Retorno do Marco
+            ids:
+            - '03'
+          - escalada: Tomara que não chova
+            ids:
+            - '04'
+          - escalada: Castelinho
+            ids:
+            - '05'
+          - escalada: Projeto
+            ids:
+            - '06'
         escaladas:
         - via_movel:
             nome: Sai que é vaca
-            id_no_mapa: '01'
             dificuldade: BR_6
             conquistadores:
             - Márcio Soares Macena
             - Wilson Novaes
         - via_movel:
             nome: Favo de Mel
-            id_no_mapa: '02'
             dificuldade: BR_6
             conquistadores:
             - Márcio Soares Macena
             - Wilson Novaes
         - via_movel:
             nome: Retorno do Marco
-            id_no_mapa: '03'
             dificuldade: BR_3
             conquistadores:
             - Antonio C. Magalhães
             - Marco Antônio Canelas
         - via_esportiva:
             nome: Tomara que não chova
-            id_no_mapa: '04'
             dificuldade: BR_6SUP
             conquistadores:
             - Christian A. N. Costa
             - Leo Guimarães "Léo Dandão"
         - via_esportiva:
             nome: Castelinho
-            id_no_mapa: '05'
             dificuldade: BR_6
             conquistadores:
             - Marcelo Henrique Grijó Utsch
             - Cristiano Loureiro
         - via_esportiva:
             nome: Projeto
-            id_no_mapa: '06'
         descricao: '# Setor Castelinho
 
 
@@ -144,16 +157,21 @@ picos:
               y: 204
               comprimento: 57
               largura: 29
+          referencias:
+          - escalada: Ajoelhou tem que Rezar
+            ids:
+            - '07'
+          - escalada: O Exibicionista
+            ids:
+            - 08
         escaladas:
         - via_movel:
             nome: Ajoelhou tem que Rezar
-            id_no_mapa: '07'
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Carlos Magalhães
         - via_esportiva:
             nome: O Exibicionista
-            id_no_mapa: 08
             dificuldade: BR_5
             conquistadores:
             - Daniel Fernandes "Salim"
@@ -349,163 +367,219 @@ picos:
               y: 203
               comprimento: 14
               largura: 12
+          referencias:
+          - escalada: Lua Cheia
+            ids:
+            - 09
+          - escalada: Jornada nas Estrelas
+            ids:
+            - '10'
+          - escalada: Egotrip
+            ids:
+            - '11'
+          - escalada: Boicote de comunicação
+            ids:
+            - '12'
+          - escalada: Vicio
+            ids:
+            - '13'
+          - escalada: Conspiração Sanguessuga
+            ids:
+            - '14'
+          - escalada: Gota D’água
+            ids:
+            - '15'
+          - escalada: Sai de Baixo
+            ids:
+            - '16'
+          - escalada: Pipeline
+            ids:
+            - '17'
+          - escalada: Jurubeba
+            ids:
+            - '18'
+          - escalada: Perigo Mora ao Lado
+            ids:
+            - '19'
+          - escalada: Pretexto da Traição
+            ids:
+            - '20'
+          - escalada: Sorriso do Lagarto
+            ids:
+            - '21'
+          - escalada: Orgasmatrom
+            ids:
+            - '22'
+          - escalada: Escaramuça
+            ids:
+            - '23'
+          - escalada: Túnel do Tempo
+            ids:
+            - '24'
+          - escalada: Dédalos
+            ids:
+            - '25'
+          - escalada: Bouquet de Rosas
+            ids:
+            - '26'
+          - escalada: Fogo no Rabo
+            ids:
+            - '27'
+          - escalada: Bobeou Sobrou
+            ids:
+            - '28'
+          - escalada: Los Cubanos
+            ids:
+            - '29'
+          - escalada: Folião
+            ids:
+            - '30'
+          - escalada: Escalador sem mãe
+            ids:
+            - '45'
+          - escalada: Projeto inacabado
+            ids:
+            - '46'
+          - escalada: Sobrevibrenf´s
+            ids:
+            - '47'
+          - escalada: Sobreviventes
+            ids:
+            - '48'
         escaladas:
         - via_movel:
             nome: Lua Cheia
-            id_no_mapa: 09
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
         - via_esportiva:
             nome: Jornada nas Estrelas
-            id_no_mapa: '10'
             dificuldade: BR_7A
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
         - via_esportiva:
             nome: Egotrip
-            id_no_mapa: '11'
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
         - via_esportiva:
             nome: Boicote de comunicação
-            id_no_mapa: '12'
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
             - Fao
         - via_esportiva:
             nome: Vicio
-            id_no_mapa: '13'
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
         - via_esportiva:
             nome: Conspiração Sanguessuga
-            id_no_mapa: '14'
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
             - Alexandre
         - via_movel:
             nome: Gota D’água
-            id_no_mapa: '15'
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
         - via_movel:
             nome: Sai de Baixo
-            id_no_mapa: '16'
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Danilo Abreu
         - via_esportiva:
             nome: Pipeline
-            id_no_mapa: '17'
             dificuldade: BR_6SUP
             conquistadores:
             - Gabriel Fillizola
             - Sílvio Om
         - via_esportiva:
             nome: Jurubeba
-            id_no_mapa: '18'
             dificuldade: BR_8B
             conquistadores:
             - Wagner Morin Gomes
             - Wilson Novaes
         - via_esportiva:
             nome: Perigo Mora ao Lado
-            id_no_mapa: '19'
             dificuldade: BR_8A
             conquistadores:
             - Márcio Soares Macena
             - Mozart
         - via_esportiva:
             nome: Pretexto da Traição
-            id_no_mapa: '20'
             dificuldade: BR_6SUP
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
         - via_esportiva:
             nome: Sorriso do Lagarto
-            id_no_mapa: '21'
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
         - via_esportiva:
             nome: Orgasmatrom
-            id_no_mapa: '22'
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
         - via_movel:
             nome: Escaramuça
-            id_no_mapa: '23'
             dificuldade: BR_3
             conquistadores:
             - Antonio Carlos Magalhães
         - via_movel:
             nome: Túnel do Tempo
-            id_no_mapa: '24'
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_movel:
             nome: Dédalos
-            id_no_mapa: '25'
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_movel:
             nome: Bouquet de Rosas
-            id_no_mapa: '26'
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio C. Magalhães
             - Danilo Abreu
         - via_esportiva:
             nome: Fogo no Rabo
-            id_no_mapa: '27'
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Bobeou Sobrou
-            id_no_mapa: '28'
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Los Cubanos
-            id_no_mapa: '29'
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_movel:
             nome: Folião
-            id_no_mapa: '30'
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_esportiva:
             nome: Escalador sem mãe
-            id_no_mapa: '45'
             dificuldade: BR_8A
             conquistadores:
             - Jovinei M. Medeiros
@@ -513,16 +587,13 @@ picos:
             - Sérgio B. da Silva.
         - via_esportiva:
             nome: Projeto inacabado
-            id_no_mapa: '46'
         - via_esportiva:
             nome: Sobrevibrenf´s
-            id_no_mapa: '47'
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
         - via_esportiva:
             nome: Sobreviventes
-            id_no_mapa: '48'
             dificuldade: BR_6
             conquistadores:
             - Anderson (Neném)
@@ -729,127 +800,184 @@ picos:
               y: 172
               comprimento: 109
               largura: 21
+          referencias:
+          - escalada: Fogo no Rabo
+            ids:
+            - '27'
+          - escalada: Bobeou Sobrou
+            ids:
+            - '28'
+          - escalada: Los Cubanos
+            ids:
+            - '29'
+          - escalada: Folião
+            ids:
+            - '30'
+          - escalada: Luzes
+            ids:
+            - '31'
+          - escalada: Via sem informação
+            ids:
+            - '32'
+          - escalada: Êta Sô
+            ids:
+            - '33'
+          - escalada: Via do Tetinho
+            ids:
+            - '34'
+          - escalada: Ataque das Bolinhas
+            ids:
+            - '35'
+          - escalada: Via do curso
+            ids:
+            - '36'
+          - escalada: Viajandão Gramando na Chuva
+            ids:
+            - '37'
+          - escalada: Martelo Voador
+            ids:
+            - '38'
+          - escalada: Coquetel de Maracujá
+            ids:
+            - '39'
+          - escalada: Ravenloft
+            ids:
+            - '40'
+          - escalada: Muro das Lamentações
+            ids:
+            - '41'
+          - escalada: Equilíbrio Distante
+            ids:
+            - '42'
+          - escalada: Careta do Calango
+            ids:
+            - '43'
+          - escalada: Pierrô e Colombina
+            ids:
+            - '44'
+          - escalada: Escalador sem mãe
+            ids:
+            - '45'
+          - escalada: Projeto inacabado
+            ids:
+            - '46'
+          - escalada: Sobrevibrenf´s
+            ids:
+            - '47'
+          - escalada: Sobreviventes
+            ids:
+            - '48'
+          - escalada: Scarface
+            ids:
+            - '49'
+          - escalada: Posições Exóticas
+            ids:
+            - '50'
+          - escalada: Garotos não Choram
+            ids:
+            - '51'
         escaladas:
         - via_esportiva:
             nome: Fogo no Rabo
-            id_no_mapa: '27'
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Bobeou Sobrou
-            id_no_mapa: '28'
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Los Cubanos
-            id_no_mapa: '29'
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_movel:
             nome: Folião
-            id_no_mapa: '30'
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_movel:
             nome: Luzes
-            id_no_mapa: '31'
             dificuldade: BR_4
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_esportiva:
             nome: Via sem informação
-            id_no_mapa: '32'
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
         - via_movel:
             nome: Êta Sô
-            id_no_mapa: '33'
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_esportiva:
             nome: Via do Tetinho
-            id_no_mapa: '34'
             dificuldade: BR_5SUP
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
         - via_esportiva:
             nome: Ataque das Bolinhas
-            id_no_mapa: '35'
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Via do curso
-            id_no_mapa: '36'
             dificuldade: BR_3
         - via_esportiva:
             nome: Viajandão Gramando na Chuva
-            id_no_mapa: '37'
             dificuldade: BR_3
             conquistadores:
             - Eustáquio M. Melo Júnior e alunos
         - via_esportiva:
             nome: Martelo Voador
-            id_no_mapa: '38'
             dificuldade: BR_4
             conquistadores:
             - Ramaya Vallias
             - Sérgio Soares
         - via_esportiva:
             nome: Coquetel de Maracujá
-            id_no_mapa: '39'
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Ravenloft
-            id_no_mapa: '40'
             dificuldade: BR_6
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
         - via_esportiva:
             nome: Muro das Lamentações
-            id_no_mapa: '41'
             dificuldade: BR_7B
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Equilíbrio Distante
-            id_no_mapa: '42'
             dificuldade: BR_8A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
         - via_esportiva:
             nome: Careta do Calango
-            id_no_mapa: '43'
             dificuldade: BR_9A
             conquistadores:
             - Cristiano Loureiro "Negão"
         - via_movel:
             nome: Pierrô e Colombina
-            id_no_mapa: '44'
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
         - via_esportiva:
             nome: Escalador sem mãe
-            id_no_mapa: '45'
             dificuldade: BR_8A
             conquistadores:
             - Jovinei M. Medeiros
@@ -857,16 +985,13 @@ picos:
             - Sérgio B. da Silva.
         - via_esportiva:
             nome: Projeto inacabado
-            id_no_mapa: '46'
         - via_esportiva:
             nome: Sobrevibrenf´s
-            id_no_mapa: '47'
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
         - via_esportiva:
             nome: Sobreviventes
-            id_no_mapa: '48'
             dificuldade: BR_6
             conquistadores:
             - Anderson (Neném)
@@ -874,20 +999,17 @@ picos:
             - Bombom
         - via_esportiva:
             nome: Scarface
-            id_no_mapa: '49'
             dificuldade: BR_7A
             conquistadores:
             - Gustavo Piancastelli
             - Ronie
         - via_esportiva:
             nome: Posições Exóticas
-            id_no_mapa: '50'
             dificuldade: BR_7B
             conquistadores:
             - Ivo Ferreira Marcelino
         - via_esportiva:
             nome: Garotos não Choram
-            id_no_mapa: '51'
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
@@ -988,10 +1110,37 @@ picos:
               y: 226
               comprimento: 55
               largura: 31
+          referencias:
+          - escalada: Ben Moon
+            ids:
+            - '52'
+          - escalada: Come Quieto
+            ids:
+            - '53'
+          - escalada: O Perigo que Veio do Céu
+            ids:
+            - '54'
+          - escalada: Arranca Couro
+            ids:
+            - '55'
+          - escalada: Ônibus Inglês
+            ids:
+            - '56'
+          - escalada: Gigante de Bronze
+            ids:
+            - '57'
+          - escalada: Karrenglass
+            ids:
+            - '58'
+          - escalada: Retorno dos Anões
+            ids:
+            - '59'
+          - escalada: Compromisso Sexual
+            ids:
+            - '60'
         escaladas:
         - via_esportiva:
             nome: Ben Moon
-            id_no_mapa: '52'
             dificuldade: BR_7C
             conquistadores:
             - Eustáquio Macedo
@@ -999,21 +1148,18 @@ picos:
             descricao: Vía em Top Rope
         - via_esportiva:
             nome: Come Quieto
-            id_no_mapa: '53'
             dificuldade: BR_8B
             conquistadores:
             - Alexandre Galvão
             - XXX
         - via_esportiva:
             nome: O Perigo que Veio do Céu
-            id_no_mapa: '54'
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Charles Costa Marinho
         - via_esportiva:
             nome: Arranca Couro
-            id_no_mapa: '55'
             dificuldade: BR_7A
             conquistadores:
             - Charles C. Marinho
@@ -1021,21 +1167,18 @@ picos:
             - Fabiano Fernandes
         - via_esportiva:
             nome: Ônibus Inglês
-            id_no_mapa: '56'
             dificuldade: BR_6
             conquistadores:
             - Daniel Fernandes "Salim"
             - Leonardo Hoffmann
         - via_esportiva:
             nome: Gigante de Bronze
-            id_no_mapa: '57'
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
         - via_esportiva:
             nome: Karrenglass
-            id_no_mapa: '58'
             dificuldade: BR_5SUP
             conquistadores:
             - Eduardo V. de A. "Ralf"
@@ -1043,7 +1186,6 @@ picos:
             - Rodrigo Tinoco
         - via_esportiva:
             nome: Retorno dos Anões
-            id_no_mapa: '59'
             dificuldade: BR_6SUP
             conquistadores:
             - Fábio Luiz Faria "Fabinho"
@@ -1051,7 +1193,6 @@ picos:
             - Denise
         - via_esportiva:
             nome: Compromisso Sexual
-            id_no_mapa: '60'
             dificuldade: BR_7C
             conquistadores:
             - Emerson A. Azeredo
@@ -1190,45 +1331,82 @@ picos:
               y: 266
               comprimento: 51
               largura: 21
+          referencias:
+          - escalada: Psico Circus
+            ids:
+            - '62'
+          - escalada: Os impossíveis
+            ids:
+            - '63'
+          - escalada: Carbonáticus Calcicus
+            ids:
+            - '64'
+          - escalada: Para não dizer que não falei de flores
+            ids:
+            - '65'
+          - escalada: As Aparências Enganam
+            ids:
+            - '66'
+          - escalada: Eu quero é ver o oco
+            ids:
+            - '67'
+          - escalada: Cortando Prego
+            ids:
+            - '68'
+          - escalada: Vive lá brenf
+            ids:
+            - '69'
+          - escalada: Rastafary Baby
+            ids:
+            - '70'
+          - escalada: Varinha de Condon
+            ids:
+            - '71'
+          - escalada: Tempestade Cerebral
+            ids:
+            - '72'
+          - escalada: Chambinho
+            ids:
+            - '73'
+          - escalada: Revolução dos Micos
+            ids:
+            - '74'
+          - escalada: Al Capote
+            ids:
+            - '75'
         escaladas:
         - via_esportiva:
             nome: Psico Circus
-            id_no_mapa: '62'
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
         - via_esportiva:
             nome: Os impossíveis
-            id_no_mapa: '63'
             dificuldade: BR_8B
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
         - via_esportiva:
             nome: Carbonáticus Calcicus
-            id_no_mapa: '64'
             dificuldade: BR_7A
             conquistadores:
             - Leonardo Hoffmann
             - Eduardo Viana de Azevedo "Ralf"
         - via_movel:
             nome: Para não dizer que não falei de flores
-            id_no_mapa: '65'
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Ricardo Jardim Leal
         - via_movel:
             nome: As Aparências Enganam
-            id_no_mapa: '66'
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Júlio César Cardoso
         - via_esportiva:
             nome: Eu quero é ver o oco
-            id_no_mapa: '67'
             dificuldade: BR_7B
             conquistadores:
             - Ricardo Jardim Leal
@@ -1236,14 +1414,12 @@ picos:
             - Danilo Tolentino
         - via_movel:
             nome: Cortando Prego
-            id_no_mapa: '68'
             dificuldade: BR_6SUP
             conquistadores:
             - Edgardo Abreu "Caca"
             - Leandro Antônio Reis
         - via_esportiva:
             nome: Vive lá brenf
-            id_no_mapa: '69'
             dificuldade: BR_6SUP
             conquistadores:
             - André "DJ"
@@ -1252,27 +1428,23 @@ picos:
             - Guta Piancastelli
         - via_esportiva:
             nome: Rastafary Baby
-            id_no_mapa: '70'
             dificuldade: BR_7C
             conquistadores:
             - Leonardo Hoffman
         - via_esportiva:
             nome: Varinha de Condon
-            id_no_mapa: '71'
             dificuldade: BR_7A
             conquistadores:
             - Wilson Novaes
             - Márcio Soares Macenas
         - via_esportiva:
             nome: Tempestade Cerebral
-            id_no_mapa: '72'
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
         - via_esportiva:
             nome: Chambinho
-            id_no_mapa: '73'
             dificuldade: BR_8C
             conquistadores:
             - Anderson Felisário
@@ -1281,7 +1453,6 @@ picos:
             - Eustáquio Jr.
         - via_esportiva:
             nome: Revolução dos Micos
-            id_no_mapa: '74'
             dificuldade: BR_7B
             conquistadores:
             - Eduardo Amaral
@@ -1290,7 +1461,6 @@ picos:
             - Leonardo Rocenik
         - via_esportiva:
             nome: Al Capote
-            id_no_mapa: '75'
             dificuldade: BR_8B
             conquistadores:
             - Ricardo Jardim Leal
@@ -1393,52 +1563,79 @@ picos:
               y: 88
               comprimento: 99
               largura: 57
+          referencias:
+          - escalada: Cariocas não dizem Uai
+            ids:
+            - '76'
+          - escalada: Doutor Lund
+            ids:
+            - '77'
+          - escalada: Aceitam-se Sugestões
+            ids:
+            - '78'
+          - escalada: Rosa dos Ventos
+            ids:
+            - '79'
+          - escalada: Monte Calvário
+            ids:
+            - '80'
+          - escalada: Pó-na-beiça
+            ids:
+            - '81'
+          - escalada: Três dentro, três fora
+            ids:
+            - '82'
+          - escalada: Só para eles
+            ids:
+            - '83'
+          - escalada: Só para elas
+            ids:
+            - '84'
+          - escalada: Prestobarba
+            ids:
+            - '85'
+          - escalada: Bigode Limpo
+            ids:
+            - '86'
         escaladas:
         - via_esportiva:
             nome: Cariocas não dizem Uai
-            id_no_mapa: '76'
             dificuldade: BR_7A
             conquistadores:
             - Ivo Júnior
             - Rma
         - via_esportiva:
             nome: Doutor Lund
-            id_no_mapa: '77'
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
         - via_esportiva:
             nome: Aceitam-se Sugestões
-            id_no_mapa: '78'
             dificuldade: BR_7C
             conquistadores:
             - Juan Kempen
             - Pedro Assis Leite
         - via_esportiva:
             nome: Rosa dos Ventos
-            id_no_mapa: '79'
             dificuldade: BR_9A
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
         - via_esportiva:
             nome: Monte Calvário
-            id_no_mapa: '80'
             dificuldade: BR_5SUP
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
         - via_movel:
             nome: Pó-na-beiça
-            id_no_mapa: '81'
             dificuldade: BR_5
             conquistadores:
             - Wilson Novaes
             - Márcio Soares Macenas
         - via_esportiva:
             nome: Três dentro, três fora
-            id_no_mapa: '82'
             dificuldade: BR_7A
             conquistadores:
             - Jovinei M. Medeiros
@@ -1446,27 +1643,23 @@ picos:
             - Paulo R. Patrocínio
         - via_esportiva:
             nome: Só para eles
-            id_no_mapa: '83'
             dificuldade: BR_6SUP
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
         - via_esportiva:
             nome: Só para elas
-            id_no_mapa: '84'
             dificuldade: BR_4
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
         - via_esportiva:
             nome: Prestobarba
-            id_no_mapa: '85'
             dificuldade: BR_5
             conquistadores:
             - Daniel Fernandes "Salim"
         - via_esportiva:
             nome: Bigode Limpo
-            id_no_mapa: '86'
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
@@ -1680,17 +1873,82 @@ picos:
               y: 55
               comprimento: 128
               largura: 78
+          referencias:
+          - escalada: Bigode de Cristo
+            ids:
+            - '87'
+          - escalada: Bigode Sujo
+            ids:
+            - '88'
+          - escalada: Bigode de Espinho
+            ids:
+            - '89'
+          - escalada: Trombeta Acéfala
+            ids:
+            - '91'
+          - escalada: Meio Cubanos
+            ids:
+            - '92'
+          - escalada: Golpe Ninja
+            ids:
+            - '93'
+          - escalada: Tripla Traição
+            ids:
+            - '94'
+          - escalada: Noivado da Feiticeira
+            ids:
+            - '95'
+          - escalada: Planeta dos Macacos
+            ids:
+            - '96'
+          - escalada: Rota de colisão
+            ids:
+            - '97'
+          - escalada: Projeto Daniel Salim
+            ids:
+            - '98'
+          - escalada: Vale Perdido
+            ids:
+            - '99'
+          - escalada: Consolo da Surucucu
+            ids:
+            - '100'
+          - escalada: Santos e Hereges
+            ids:
+            - '101'
+          - escalada: O Império Contra Ataca
+            ids:
+            - '102'
+          - escalada: Jegue Voador
+            ids:
+            - '103'
+          - escalada: Labirinto das Maritacas
+            ids:
+            - '104'
+          - escalada: Tentações de Maria Madalena
+            ids:
+            - '105'
+          - escalada: Sai do chão
+            ids:
+            - '106'
+          - escalada: Ato Imperdoável
+            ids:
+            - '107'
+          - escalada: Projeto Rodrigo do Paraná
+            ids:
+            - '108'
+          - escalada: Pequena Criança
+            ids:
+            - '109'
         escaladas:
         - via_esportiva:
             nome: Bigode de Cristo
-            id_no_mapa: '87'
             dificuldade: BR_6
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Fábio Luiz Farias "Fabinho"
         - via_esportiva:
             nome: Bigode Sujo
-            id_no_mapa: '88'
             dificuldade: BR_7C
             conquistadores:
             - Emerson A. Azeredo
@@ -1698,7 +1956,6 @@ picos:
             - Gilberto Torres
         - via_esportiva:
             nome: Bigode de Espinho
-            id_no_mapa: '89'
             dificuldade: BR_6SUP
             conquistadores:
             - Alexandre F. de Queiroz "Caverna"
@@ -1712,34 +1969,29 @@ picos:
             - Sérgio Bastos da Silva
         - via_movel:
             nome: Trombeta Acéfala
-            id_no_mapa: '91'
             dificuldade: BR_5SUP
             conquistadores:
             - Eustáquio M. Melo Júnior
             - Leonardo Hoffmann
         - via_movel:
             nome: Meio Cubanos
-            id_no_mapa: '92'
             dificuldade: BR_6SUP
             conquistadores:
             - Roberto Lincoln de Freitas
         - via_esportiva:
             nome: Golpe Ninja
-            id_no_mapa: '93'
             dificuldade: BR_7C
             conquistadores:
             - Dante Martins Borges
             - Sérgio Bastos da Silva
         - via_esportiva:
             nome: Tripla Traição
-            id_no_mapa: '94'
             conquistadores:
             - Emerson A. Azeredo
             - Eustáquio M. M. Júnior
             - Léo Hoffmann
         - via_esportiva:
             nome: Noivado da Feiticeira
-            id_no_mapa: '95'
             dificuldade: BR_6
             conquistadores:
             - Emerson A. Azeredo
@@ -1747,50 +1999,42 @@ picos:
             - Ramaya Vallias
         - via_esportiva:
             nome: Planeta dos Macacos
-            id_no_mapa: '96'
             conquistadores:
             - Leonardo Hoffmann
             - Alexandre "Caverna"
         - via_esportiva:
             nome: Rota de colisão
-            id_no_mapa: '97'
             dificuldade: BR_8A
             conquistadores:
             - Leonardo Hoffmann
             - Marco Antônio Canelas
         - via_esportiva:
             nome: Projeto Daniel Salim
-            id_no_mapa: '98'
         - via_esportiva:
             nome: Vale Perdido
-            id_no_mapa: '99'
             dificuldade: BR_6SUP
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
         - via_esportiva:
             nome: Consolo da Surucucu
-            id_no_mapa: '100'
             dificuldade: BR_6SUP
             conquistadores:
             - Vinícius B. Assis
         - via_esportiva:
             nome: Santos e Hereges
-            id_no_mapa: '101'
             dificuldade: BR_9B
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
         - via_esportiva:
             nome: O Império Contra Ataca
-            id_no_mapa: '102'
             dificuldade: BR_7C
             conquistadores:
             - Eustáquio M. M. Júnior
             - Fabiano da Silva Fernandes
         - via_esportiva:
             nome: Jegue Voador
-            id_no_mapa: '103'
             dificuldade: BR_6SUP
             conquistadores:
             - Léo Hoffmann
@@ -1798,38 +2042,32 @@ picos:
             - Marcelo Andrê
         - via_esportiva:
             nome: Labirinto das Maritacas
-            id_no_mapa: '104'
             dificuldade: BR_6
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
         - via_movel:
             nome: Tentações de Maria Madalena
-            id_no_mapa: '105'
             dificuldade: BR_6
             conquistadores:
             - Eustáquio M. Melo Júnior
             - Leonardo Hoffmann
         - via_esportiva:
             nome: Sai do chão
-            id_no_mapa: '106'
             dificuldade: BR_9A
             conquistadores:
             - Jovinei Miguel Medeiros
             - Helon Brazil Neto
         - via_esportiva:
             nome: Ato Imperdoável
-            id_no_mapa: '107'
             dificuldade: BR_8A
             conquistadores:
             - Eustáquio M. M. Júnior
             - Fabiano da Silva Fernandes
         - via_esportiva:
             nome: Projeto Rodrigo do Paraná
-            id_no_mapa: '108'
         - via_esportiva:
             nome: Pequena Criança
-            id_no_mapa: '109'
             dificuldade: BR_7A
             conquistadores:
             - Wilson Novaes
@@ -1996,17 +2234,55 @@ picos:
               y: 81
               comprimento: 155
               largura: 32
+          referencias:
+          - escalada: Corvo Gigante
+            ids:
+            - '110'
+          - escalada: Gralha Pigmeia
+            ids:
+            - '111'
+          - escalada: Anjo de Pedra
+            ids:
+            - '112'
+          - escalada: Um Porco que Sobe
+            ids:
+            - '113'
+          - escalada: Um Corpo que Cai
+            ids:
+            - '114'
+          - escalada: Realidade da Coisa
+            ids:
+            - '115'
+          - escalada: Realidade Sobreposta
+            ids:
+            - '116'
+          - escalada: Talhadeira Passa
+            ids:
+            - '117'
+          - escalada: Cova dos Leões
+            ids:
+            - '118'
+          - escalada: Mentalidade Suburbana
+            ids:
+            - '119'
+          - escalada: Rato Assassino
+            ids:
+            - '120'
+          - escalada: Masturbações de Calígula
+            ids:
+            - '123'
+          - escalada: Primeiro General
+            ids:
+            - '124'
         escaladas:
         - via_esportiva:
             nome: Corvo Gigante
-            id_no_mapa: '110'
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
         - via_esportiva:
             nome: Gralha Pigmeia
-            id_no_mapa: '111'
             dificuldade: BR_6
             conquistadores:
             - W. Novaes
@@ -2015,21 +2291,18 @@ picos:
             - Léo Hoffmann
         - via_esportiva:
             nome: Anjo de Pedra
-            id_no_mapa: '112'
             dificuldade: BR_5SUP
             conquistadores:
             - Rodrigo Tinoco França
             - Vinícius
         - via_esportiva:
             nome: Um Porco que Sobe
-            id_no_mapa: '113'
             dificuldade: BR_7A
             conquistadores:
             - Leonardo Hoffmann
             - Henriquinho
         - via_esportiva:
             nome: Um Corpo que Cai
-            id_no_mapa: '114'
             dificuldade: BR_6
             conquistadores:
             - Emerson A. Azeredo
@@ -2037,7 +2310,6 @@ picos:
             - Júlio C. Cardoso
         - via_esportiva:
             nome: Realidade da Coisa
-            id_no_mapa: '115'
             dificuldade: BR_9B
             conquistadores:
             - Fabinho de Petrópolis
@@ -2045,28 +2317,24 @@ picos:
             - Xacundum
         - via_esportiva:
             nome: Realidade Sobreposta
-            id_no_mapa: '116'
             dificuldade: BR_8C
             conquistadores:
             - Fabiano da Silva Fernandes
             - Fabinho de Teresópolis
         - via_esportiva:
             nome: Talhadeira Passa
-            id_no_mapa: '117'
             dificuldade: BR_8B
             conquistadores:
             - Felipe
             - Abobrinha
         - via_esportiva:
             nome: Cova dos Leões
-            id_no_mapa: '118'
             dificuldade: BR_7A
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
         - via_esportiva:
             nome: Mentalidade Suburbana
-            id_no_mapa: '119'
             dificuldade: BR_7A
             conquistadores:
             - Ricardo J. Leal
@@ -2074,21 +2342,18 @@ picos:
             - Fábio L. Farias "Fabinho"
         - via_esportiva:
             nome: Rato Assassino
-            id_no_mapa: '120'
             dificuldade: BR_8A
             conquistadores:
             - Fabinho de Petrópolis
             - Alexandre Xacundum
         - via_esportiva:
             nome: Masturbações de Calígula
-            id_no_mapa: '123'
             dificuldade: BR_7A
             conquistadores:
             - Márcio Soares Macenas
             - Wilson Novaes
         - via_movel:
             nome: Primeiro General
-            id_no_mapa: '124'
             dificuldade: BR_6SUP
             conquistadores:
             - Roberto Lincoln de Freitas
@@ -2170,30 +2435,48 @@ picos:
               y: 139
               comprimento: 36
               largura: 18
+          referencias:
+          - escalada: Spartacus
+            ids:
+            - '125'
+          - escalada: A Era dos Patrícios
+            ids:
+            - '126'
+          - escalada: Coliseu
+            ids:
+            - '127'
+          - escalada: Pobre César
+            ids:
+            - '128'
+          - escalada: Soprano (inacabada)
+            ids:
+            - '129'
+          - escalada: Sodoma e Gomorra
+            ids:
+            - '130'
+          - escalada: Calígula
+            ids:
+            - '131'
         escaladas:
         - via_esportiva:
             nome: Spartacus
-            id_no_mapa: '125'
             dificuldade: BR_5
             conquistadores:
             - Fabiano Fernandes da Silva
             descricao: Vía em Top Rope
         - via_esportiva:
             nome: A Era dos Patrícios
-            id_no_mapa: '126'
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
         - via_esportiva:
             nome: Coliseu
-            id_no_mapa: '127'
             dificuldade: BR_6
             conquistadores:
             - Ramaya Vallias
         - via_esportiva:
             nome: Pobre César
-            id_no_mapa: '128'
             dificuldade: BR_7A
             conquistadores:
             - Emerson
@@ -2202,7 +2485,6 @@ picos:
             - Gilberto Torres
         - via_esportiva:
             nome: Soprano (inacabada)
-            id_no_mapa: '129'
             conquistadores:
             - M. Macena
             - Eduardo Feliciano
@@ -2210,14 +2492,12 @@ picos:
             - Ivo Marcelino
         - via_esportiva:
             nome: Sodoma e Gomorra
-            id_no_mapa: '130'
             dificuldade: BR_4
             conquistadores:
             - Daniel Fernandes "Salim"
             - Eustáquio Macedo Melo Júnior
         - via_esportiva:
             nome: Calígula
-            id_no_mapa: '131'
             dificuldade: BR_6SUP
             conquistadores:
             - Eustáquio
@@ -2338,7 +2618,7 @@ botoes:
         - **Entrada da Gruta da Lapinha**
 
         - **Trilha de acesso**'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

@@ -32,7 +32,6 @@ Para grupos (começando com o prefixo `grupo_`), siga RIGOROSAMENTE o formato da
     
 Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato da mensagem `Setor` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de escaladas na seção YAML. Inclua toda a informação disponível sobre cada escalada:
   - Nome da escalada
-  - Número da escalada (`id_no_mapa`), usado para referenciar a escalada no mapa
   - Dificuldade da escalada (mapeado obrigatoriamente para as enumerações `GrauVia` ou `GrauBoulder` encontradas em `aresta_api/proto/croqui.proto`, e.g., `BR_7A`, `BR_5SUP`, `V7`).
   - **Mapeamentos Especiais de Enumeração:**
     ```yaml
@@ -55,6 +54,7 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
   - Outros campos que fazem parte da mensagem e sub-mensagens de `Escalada` em `croqui.proto`. 
   - Note que vias de múltiplas enfiadas podem possuir um croqui dedicado à própria via. Nesses casos, adicione a imagem do croqui no campo `caminho_imagem_croqui` da mensagem `ViaMultiplasEnfiadas`.
   - Escolha as imagens dentre as imagens em `raw_pdf_contents/imagens/` que representam os mapas setor. Coloque o caminho para cada imagem em uma nova sub-mensagem `mapas`, campo `caminho_imagem_mapa`. Compare o conteúdo visual do pdf com cada imagem individual para decidir as imagens mais representativas para os mapas do setor.
+  - **IMPORTANTE:** Para cada escalada listada no setor, extraia a numeração/código que a representa no mapa visual e preencha a lista `referencias` dentro do mapa correspondente. Cada referência deve conter o campo `escalada` (com o nome exato da escalada) e o campo `ids` (uma lista com a numeração encontrada). Exemplo de estrutura no YAML: dentro de `mapas`, adicione `referencias: [{escalada: 'Nome da Via', ids: ['12']}]`. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
   - Caso o campo `caminho_imagem_croqui` já for preenchido, não é preciso adicionar nenhuma imagem de mapa na seção Markdown do arquivo, a não ser que seja para mostrar alguma outra parte da imagem (por exemplo foto de uma pessoa escalando).
   - Caso a imagem selecionada for do tipo `pX.webp`, confira se a imagem `pX_i0.webp` é a mesma imagem mas com resolução diferente. Se sim, prefira usar `pX_i0.webp` pois irá ter melhor qualidade e menor tamanho.
   - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado. Se houverem outras imagens sobre o setor, também incluir elas aqui com a funcionalidade de incluir imagens em Markdown.

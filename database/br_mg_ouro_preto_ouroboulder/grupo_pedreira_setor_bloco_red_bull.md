@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Red Bull'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
@@ -41,30 +41,43 @@ mapas:
       x: 738
       y: 380
       raio: 13
+  referencias:
+  - escalada: Flying Horse
+    ids:
+    - 1A▲
+  - escalada: Pingado
+    ids:
+    - 1A★
+  - escalada: Expresso
+    ids:
+    - 1B
+  - escalada: Macchiato
+    ids:
+    - 2A▲
+  - escalada: Red Bull
+    ids:
+    - 2A★
+  - escalada: Mad Dog
+    ids:
+    - 2B
 escaladas:
 - boulder:
     nome: Flying Horse
-    id_no_mapa: 1A▲
     dificuldade: V2
 - boulder:
     nome: Pingado
-    id_no_mapa: 1A★
     dificuldade: V3
 - boulder:
     nome: Expresso
-    id_no_mapa: 1B
     dificuldade: V7
 - boulder:
     nome: Macchiato
-    id_no_mapa: 2A▲
     dificuldade: V6
 - boulder:
     nome: Red Bull
-    id_no_mapa: 2A★
     dificuldade: V6
 - boulder:
     nome: Mad Dog
-    id_no_mapa: 2B
     dificuldade: V1
----
+---
 

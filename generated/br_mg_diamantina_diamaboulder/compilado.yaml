@@ -33,11 +33,14 @@ picos:
                   y: 112
                   comprimento: 25
                   largura: 25
+              referencias:
+              - escalada: Diamante de Sangue
+                ids:
+                - '1'
+                - 1_fim
             escaladas:
             - boulder:
                 nome: Diamante de Sangue
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V6_BARRA_V7
                 tipo_parede: NEGATIVO
                 descricao: Saída nos pockets mais baixos da face negativa, seguindo
@@ -94,6 +97,27 @@ picos:
                   y: 277
                   comprimento: 28
                   largura: 28
+              referencias:
+              - escalada: Menos Porco Mais Aranha
+                ids:
+                - '01'
+                - 01_fim
+              - escalada: Javaporco
+                ids:
+                - '02'
+                - 02_fim
+              - escalada: Chiqueirinho
+                ids:
+                - '03'
+                - 03_fim
+              - escalada: Pocilga
+                ids:
+                - '01'
+                - 01_fim
+              - escalada: Porco Aranha
+                ids:
+                - '02'
+                - 02_fim
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 1055
@@ -157,28 +181,18 @@ picos:
             escaladas:
             - boulder:
                 nome: Menos Porco Mais Aranha
-                id_no_mapa: '01'
-                id_no_mapa_fim: 01_fim
                 dificuldade: V4_BARRA_V5
             - boulder:
                 nome: Javaporco
-                id_no_mapa: '02'
-                id_no_mapa_fim: 02_fim
                 dificuldade: V3
             - boulder:
                 nome: Chiqueirinho
-                id_no_mapa: '03'
-                id_no_mapa_fim: 03_fim
                 dificuldade: V2_BARRA_V3
             - boulder:
                 nome: Pocilga
-                id_no_mapa: '01'
-                id_no_mapa_fim: 01_fim
                 dificuldade: V2
             - boulder:
                 nome: Porco Aranha
-                id_no_mapa: '02'
-                id_no_mapa_fim: 02_fim
                 dificuldade: V2
             descricao: '# Bloco: Chiqueirinho
 
@@ -221,16 +235,21 @@ picos:
                   y: 236
                   comprimento: 25
                   largura: 25
+              referencias:
+              - escalada: Boulder do Kbeca
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Projeto
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Boulder do Kbeca
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V7
             - boulder:
                 nome: Projeto
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: INDEFINIDO
             descricao: '# Bloco: Bloco do Kbeca
 
@@ -256,11 +275,14 @@ picos:
                   y: 175
                   comprimento: 27
                   largura: 32
+              referencias:
+              - escalada: Flor do Cerrado
+                ids:
+                - '1'
+                - 1_fim
             escaladas:
             - boulder:
                 nome: Flor do Cerrado
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V5
             descricao: '# Bloco: Flor do Cerrado
 
@@ -300,17 +322,22 @@ picos:
                   y: 166
                   comprimento: 22
                   largura: 23
+              referencias:
+              - escalada: Desenfreado
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Joelho Sem Freio
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Desenfreado
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V6
                 descricao: Saída com as mãos juntas no batente escorrido.
             - boulder:
                 nome: Joelho Sem Freio
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V3
                 descricao: Saída com a mão direita na aresta em meia altura e a mão
                   esquerda em abaulado invertido no teto.
@@ -449,51 +476,66 @@ picos:
                   y: 605
                   comprimento: 22
                   largura: 24
+              referencias:
+              - escalada: Consciência
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Groove
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Caldeirão
+                ids:
+                - '3'
+                - 3_fim
+              - escalada: Panela do Diabo
+                ids:
+                - '5'
+                - 5_fim
+              - escalada: Consciência para ter Coragem
+                ids:
+                - '6'
+                - 6_fim
+              - escalada: Caldeirão do Groove
+                ids:
+                - '7'
+                - 7_fim
+              - escalada: Coragem
+                ids:
+                - '8'
+                - 8_fim
             escaladas:
             - boulder:
                 nome: Consciência
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V4
                 descricao: Saída baixa em dois regletes pequenos logo à direita do
                   balcão arredondado, seguindo em travessia para a direita até dominar
                   como o panelaço.
             - boulder:
                 nome: Groove
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V3
                 descricao: Mesma saída do consciência, dominando na face positiva
                   logo acima do balcão.
             - boulder:
                 nome: Caldeirão
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V6
                 descricao: Saída nos agarrões da borda de fora do bloco e segue pelo
                   teto até finalizar como o panelaço (sem a utilização do "jorge"/bloco
                   de sustentação).
             - boulder:
                 nome: Panela do Diabo
-                id_no_mapa: '5'
-                id_no_mapa_fim: 5_fim
                 dificuldade: V4
             - boulder:
                 nome: Consciência para ter Coragem
-                id_no_mapa: '6'
-                id_no_mapa_fim: 6_fim
                 dificuldade: V7
                 descricao: Saída similar ao consciência, seguindo em travessia até
                   ligar no boulder coragem.
             - boulder:
                 nome: Caldeirão do Groove
-                id_no_mapa: '7'
-                id_no_mapa_fim: 7_fim
                 dificuldade: V7
             - boulder:
                 nome: Coragem
-                id_no_mapa: '8'
-                id_no_mapa_fim: 8_fim
                 dificuldade: V5
                 descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho
                   inverso do caldeirão, finalizando por agarrões na face vertical
@@ -564,26 +606,35 @@ picos:
                   y: 80
                   comprimento: 18
                   largura: 23
+              referencias:
+              - escalada: Colher de Pedra
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Colher de Pau
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Chaira de Pedra
+                ids:
+                - '3'
+                - 3_fim
+              - escalada: Faca de Pedra
+                ids:
+                - '4'
+                - 4_fim
             escaladas:
             - boulder:
                 nome: Colher de Pedra
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V2
             - boulder:
                 nome: Colher de Pau
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V5
             - boulder:
                 nome: Chaira de Pedra
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V8
             - boulder:
                 nome: Faca de Pedra
-                id_no_mapa: '4'
-                id_no_mapa_fim: 4_fim
                 dificuldade: V7
             descricao: '# Bloco: Faca de Pedra
 
@@ -609,11 +660,14 @@ picos:
                   y: 194
                   comprimento: 29
                   largura: 33
+              referencias:
+              - escalada: Serra do Groove
+                ids:
+                - '1'
+                - 1_fim
             escaladas:
             - boulder:
                 nome: Serra do Groove
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V3
             descricao: '# Bloco: Serra do Groove
 
@@ -667,6 +721,39 @@ picos:
                   y: 274
                   comprimento: 25
                   largura: 25
+              referencias:
+              - escalada: Monobloco
+                ids:
+                - 1 (P0)
+                - 1 (P0)_fim
+              - escalada: Canela Queimada
+                ids:
+                - 2 (P0)
+                - 2 (P0)_fim
+              - escalada: Canela de Ema
+                ids:
+                - 3 (P0)
+                - 3 (P0)_fim
+              - escalada: Primavera nos Dentes
+                ids:
+                - 1 (P1)
+                - 1 (P1)_fim
+              - escalada: Suave Coisa Nenhuma
+                ids:
+                - 2 (P1)
+                - 2 (P1)_fim
+              - escalada: Primavera Latina
+                ids:
+                - 3 (P1)
+                - 3 (P1)_fim
+              - escalada: Sangue Latino
+                ids:
+                - 4 (P1/P2)
+                - 4 (P1/P2)_fim
+              - escalada: Joelho de Porco
+                ids:
+                - 5 (P1/P2)
+                - 5 (P1/P2)_fim
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 941
@@ -762,37 +849,27 @@ picos:
             escaladas:
             - boulder:
                 nome: Monobloco
-                id_no_mapa: 1 (P0)
-                id_no_mapa_fim: 1 (P0)_fim
                 dificuldade: V3
                 descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco
                   principal, finalizando logo acima.
             - boulder:
                 nome: Canela Queimada
-                id_no_mapa: 2 (P0)
-                id_no_mapa_fim: 2 (P0)_fim
                 dificuldade: V2
                 descricao: Saída em batentes bem marcados e segue para a esquerda
                   (sem utilizar os pés no bloco de sustentação).
             - boulder:
                 nome: Canela de Ema
-                id_no_mapa: 3 (P0)
-                id_no_mapa_fim: 3 (P0)_fim
                 dificuldade: V3
                 descricao: Mesma saída do canela queimada mas segue a linha de agarras
                   da direita.
             - boulder:
                 nome: Primavera nos Dentes
-                id_no_mapa: 1 (P1)
-                id_no_mapa_fim: 1 (P1)_fim
                 dificuldade: V7
                 descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar
                   o bloco de sustentação como apoio de pés), seguindo pelos pequenos
                   regletes escorridos e pockets.
             - boulder:
                 nome: Suave Coisa Nenhuma
-                id_no_mapa: 2 (P1)
-                id_no_mapa_fim: 2 (P1)_fim
                 dificuldade: V6
                 descricao: Saída com a mão esquerda na agarra protuberante e mão direita
                   no batente abaulado, seguido de dinâmico no pocket estreito, finalizando
@@ -800,24 +877,18 @@ picos:
                   bloco de sustentação).
             - boulder:
                 nome: Primavera Latina
-                id_no_mapa: 3 (P1)
-                id_no_mapa_fim: 3 (P1)_fim
                 dificuldade: V10_BARRA_V11
                 descricao: Saída nas agarras da quina do bloco (logo à direita da
                   saída do joelho de porco) e segue em travessia para a esquerda até
                   finalizar como o primavera nos dentes.
             - boulder:
                 nome: Sangue Latino
-                id_no_mapa: 4 (P1/P2)
-                id_no_mapa_fim: 4 (P1/P2)_fim
                 dificuldade: V9
                 descricao: Mesma saída do primavera nos dentes, mas segue em diagonal
                   para a direita por abaulados e invertidas até finalizar como o joelho
                   de porco.
             - boulder:
                 nome: Joelho de Porco
-                id_no_mapa: 5 (P1/P2)
-                id_no_mapa_fim: 5 (P1/P2)_fim
                 dificuldade: V3
                 descricao: Saída com as mãos em copos idênticos quase ao final do
                   abrigo, seguindo por movimentos espremidos rumo à face externa do
@@ -864,16 +935,21 @@ picos:
                   y: 14
                   comprimento: 28
                   largura: 25
+              referencias:
+              - escalada: Fina Flor
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Flor da Montanha
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Fina Flor
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V4
             - boulder:
                 nome: Flor da Montanha
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V6
             descricao: '# Bloco: Flor da Montanha
 
@@ -927,21 +1003,28 @@ picos:
                   y: 314
                   comprimento: 29
                   largura: 35
+              referencias:
+              - escalada: Velho Chico
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Minduim
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Frango D'Água
+                ids:
+                - '3'
+                - 3_fim
             escaladas:
             - boulder:
                 nome: Velho Chico
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V4
             - boulder:
                 nome: Minduim
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V3
             - boulder:
                 nome: Frango D'Água
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V3
             descricao: '# Bloco: Velho Chico
 
@@ -993,16 +1076,21 @@ picos:
                   y: 216
                   comprimento: 21
                   largura: 25
+              referencias:
+              - escalada: Cenas Fortes
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Tela Quente
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Cenas Fortes
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V5
             - boulder:
                 nome: Tela Quente
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V3
             descricao: '# Bloco: Cenas Fortes
 
@@ -1168,6 +1256,75 @@ picos:
                   y: 310
                   comprimento: 27
                   largura: 25
+              referencias:
+              - escalada: Super Cine
+                ids:
+                - 1 (P1)
+                - 1 (P1)_fim
+              - escalada: Espetacular
+                ids:
+                - 2 (P1) / 5 (P2)
+                - 2 (P1) / 5 (P2)_fim
+              - escalada: Extra
+                ids:
+                - 3 (P1)
+                - 3 (P1)_fim
+              - escalada: Manchete
+                ids:
+                - 4 (P1)
+                - 4 (P1)_fim
+              - escalada: Esporte Espetacular
+                ids:
+                - 5 (P1) / 4 (P2)
+                - 5 (P1) / 4 (P2)_fim
+              - escalada: Fantástico Mundo dos Diamantes
+                ids:
+                - 6 (P1)
+                - 6 (P1)_fim
+              - escalada: Globo Curral
+                ids:
+                - 7 (P1) / 3 (P2)
+                - 7 (P1) / 3 (P2)_fim
+              - escalada: Manual
+                ids:
+                - 8 (P1) / 1 (P2)
+                - 8 (P1) / 1 (P2)_fim
+              - escalada: Altas Horas
+                ids:
+                - 9 (P1) / 2 (P2)
+                - 9 (P1) / 2 (P2)_fim
+              - escalada: Super Sinistro
+                ids:
+                - 10 (P1)
+                - 10 (P1)_fim
+              - escalada: Fantástico
+                ids:
+                - 11 (P1)
+                - 11 (P1)_fim
+              - escalada: Sessão da Tarde
+                ids:
+                - 6 (P2)
+                - 6 (P2)_fim
+              - escalada: Vale a Pena Ver de Novo
+                ids:
+                - 7 (P2)
+                - 7 (P2)_fim
+              - escalada: Vale a Pena Vir de Baixo
+                ids:
+                - 8 (P2)
+                - 8 (P2)_fim
+              - escalada: Chá da Tarde
+                ids:
+                - 9 (P2)
+                - 9 (P2)_fim
+              - escalada: Analógico
+                ids:
+                - 10 (P2)
+                - 10 (P2)_fim
+              - escalada: Digital
+                ids:
+                - 11 (P2)
+                - 11 (P2)_fim
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 964
@@ -1329,103 +1486,69 @@ picos:
             escaladas:
             - boulder:
                 nome: Super Cine
-                id_no_mapa: 1 (P1)
-                id_no_mapa_fim: 1 (P1)_fim
                 dificuldade: V7
             - boulder:
                 nome: Espetacular
-                id_no_mapa: 2 (P1) / 5 (P2)
-                id_no_mapa_fim: 2 (P1) / 5 (P2)_fim
                 dificuldade: V8_BARRA_V9
             - boulder:
                 nome: Extra
-                id_no_mapa: 3 (P1)
-                id_no_mapa_fim: 3 (P1)_fim
                 dificuldade: V10
             - boulder:
                 nome: Manchete
-                id_no_mapa: 4 (P1)
-                id_no_mapa_fim: 4 (P1)_fim
                 dificuldade: V9
             - boulder:
                 nome: Esporte Espetacular
-                id_no_mapa: 5 (P1) / 4 (P2)
-                id_no_mapa_fim: 5 (P1) / 4 (P2)_fim
                 dificuldade: V10_BARRA_V11
             - boulder:
                 nome: Fantástico Mundo dos Diamantes
-                id_no_mapa: 6 (P1)
-                id_no_mapa_fim: 6 (P1)_fim
                 dificuldade: V11
             - boulder:
                 nome: Globo Curral
-                id_no_mapa: 7 (P1) / 3 (P2)
-                id_no_mapa_fim: 7 (P1) / 3 (P2)_fim
                 dificuldade: V5
                 descricao: Saída em uma pequena pinça de mão esquerda e um reglete
                   raso de mão direita (assim como o Chá da Tarde) e escala pelo teto
                   até entrar no Altas Horas.
             - boulder:
                 nome: Manual
-                id_no_mapa: 8 (P1) / 1 (P2)
-                id_no_mapa_fim: 8 (P1) / 1 (P2)_fim
                 dificuldade: V8
             - boulder:
                 nome: Altas Horas
-                id_no_mapa: 9 (P1) / 2 (P2)
-                id_no_mapa_fim: 9 (P1) / 2 (P2)_fim
                 dificuldade: V3
             - boulder:
                 nome: Super Sinistro
-                id_no_mapa: 10 (P1)
-                id_no_mapa_fim: 10 (P1)_fim
                 dificuldade: V8_BARRA_V9
             - boulder:
                 nome: Fantástico
-                id_no_mapa: 11 (P1)
-                id_no_mapa_fim: 11 (P1)_fim
                 dificuldade: V10
             - boulder:
                 nome: Sessão da Tarde
-                id_no_mapa: 6 (P2)
-                id_no_mapa_fim: 6 (P2)_fim
                 dificuldade: V5
                 descricao: Mão esquerda no batente central dessa face do bloco e mão
                   direita em outro batente mais à direita, seguindo em linha reta
                   pelo sistema de agarras logo acima.
             - boulder:
                 nome: Vale a Pena Ver de Novo
-                id_no_mapa: 7 (P2)
-                id_no_mapa_fim: 7 (P2)_fim
                 dificuldade: V4_BARRA_V5
                 descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para
                   a direita após dominar a pinça. A parte final do boulder segue para
                   a direita por "cracas" na face positiva, cuidado com agarras frágeis.
             - boulder:
                 nome: Vale a Pena Vir de Baixo
-                id_no_mapa: 8 (P2)
-                id_no_mapa_fim: 8 (P2)_fim
                 dificuldade: V6_BARRA_V7
                 descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá
                   da Tarde.
             - boulder:
                 nome: Chá da Tarde
-                id_no_mapa: 9 (P2)
-                id_no_mapa_fim: 9 (P2)_fim
                 dificuldade: V7
                 descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça
                   de mão esquerda e um reglete raso de mão direita.
             - boulder:
                 nome: Analógico
-                id_no_mapa: 10 (P2)
-                id_no_mapa_fim: 10 (P2)_fim
                 dificuldade: V8_BARRA_V9
                 descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá
                   da Tarde.
             - boulder:
                 nome: Digital
-                id_no_mapa: 11 (P2)
-                id_no_mapa_fim: 11 (P2)_fim
                 dificuldade: V9_BARRA_V10
                 descricao: Extensão do Analógico.
             descricao: '# Bloco: Sessão da Tarde
@@ -1470,16 +1593,21 @@ picos:
                   y: 368
                   comprimento: 27
                   largura: 27
+              referencias:
+              - escalada: Calça Nova
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Que Raio de Reglete
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Calça Nova
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V2
             - boulder:
                 nome: Que Raio de Reglete
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V3
             descricao: '# Bloco: Que Raio de Reglete
 
@@ -1519,18 +1647,23 @@ picos:
                   y: 224
                   comprimento: 27
                   largura: 25
+              referencias:
+              - escalada: Iceberg
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Frigobar
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Iceberg
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V11
                 descricao: Saída baixa na extrema direita do bloco e segue por movimentos
                   exigentes de compressão (morfo).
             - boulder:
                 nome: Frigobar
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V5
                 descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta
                   e mão direita no abaulado alto mais à direita.
@@ -1572,16 +1705,21 @@ picos:
                   y: 30
                   comprimento: 32
                   largura: 31
+              referencias:
+              - escalada: Silicato
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Silicose
+                ids:
+                - '2'
+                - 2_fim
             escaladas:
             - boulder:
                 nome: Silicato
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V2
             - boulder:
                 nome: Silicose
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V7
             descricao: '# Bloco: Silicose
 
@@ -1648,6 +1786,43 @@ picos:
                   y: 342
                   comprimento: 25
                   largura: 25
+              referencias:
+              - escalada: Navio Pirata
+                ids:
+                - 1 (P0)
+                - 1 (P0)_fim
+              - escalada: Invasão do Navio Pirata
+                ids:
+                - 2 (P0)
+                - 2 (P0)_fim
+              - escalada: Capitão Gancho
+                ids:
+                - 3 (P0)
+                - 3 (P0)_fim
+              - escalada: Serra a Vista
+                ids:
+                - 1 (P1)
+                - 1 (P1)_fim
+              - escalada: Tapa Olho
+                ids:
+                - 2 (P1)
+                - 2 (P1)_fim
+              - escalada: A Estibordo
+                ids:
+                - 3 (P1)
+                - 3 (P1)_fim
+              - escalada: Proa
+                ids:
+                - 4 (P1)
+                - 4 (P1)_fim
+              - escalada: Papagaio de Pirata
+                ids:
+                - 1 (P2)
+                - 1 (P2)_fim
+              - escalada: Desce a Serra
+                ids:
+                - 2 (P2)
+                - 2 (P2)_fim
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 1080
@@ -1743,48 +1918,30 @@ picos:
             escaladas:
             - boulder:
                 nome: Navio Pirata
-                id_no_mapa: 1 (P0)
-                id_no_mapa_fim: 1 (P0)_fim
                 dificuldade: V0_BARRA_V1
             - boulder:
                 nome: Invasão do Navio Pirata
-                id_no_mapa: 2 (P0)
-                id_no_mapa_fim: 2 (P0)_fim
                 dificuldade: V1_BARRA_V2
             - boulder:
                 nome: Capitão Gancho
-                id_no_mapa: 3 (P0)
-                id_no_mapa_fim: 3 (P0)_fim
                 dificuldade: V2
             - boulder:
                 nome: Serra a Vista
-                id_no_mapa: 1 (P1)
-                id_no_mapa_fim: 1 (P1)_fim
                 dificuldade: V1_BARRA_V2
             - boulder:
                 nome: Tapa Olho
-                id_no_mapa: 2 (P1)
-                id_no_mapa_fim: 2 (P1)_fim
                 dificuldade: V2_BARRA_V3
             - boulder:
                 nome: A Estibordo
-                id_no_mapa: 3 (P1)
-                id_no_mapa_fim: 3 (P1)_fim
                 dificuldade: V3_BARRA_V4
             - boulder:
                 nome: Proa
-                id_no_mapa: 4 (P1)
-                id_no_mapa_fim: 4 (P1)_fim
                 dificuldade: V1
             - boulder:
                 nome: Papagaio de Pirata
-                id_no_mapa: 1 (P2)
-                id_no_mapa_fim: 1 (P2)_fim
                 dificuldade: V2
             - boulder:
                 nome: Desce a Serra
-                id_no_mapa: 2 (P2)
-                id_no_mapa_fim: 2 (P2)_fim
                 dificuldade: V3
             descricao: '# Bloco: Navio Pirata
 
@@ -1842,21 +1999,28 @@ picos:
                   y: 218
                   comprimento: 23
                   largura: 23
+              referencias:
+              - escalada: Pfizer
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Barriga Branca
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Rosa
+                ids:
+                - '3'
+                - 3_fim
             escaladas:
             - boulder:
                 nome: Pfizer
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V4
             - boulder:
                 nome: Barriga Branca
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V1
             - boulder:
                 nome: Rosa
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V0
             descricao: '# Bloco: Pfizer
 
@@ -1938,31 +2102,42 @@ picos:
                   y: 186
                   comprimento: 23
                   largura: 25
+              referencias:
+              - escalada: Pedra na Canela
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Sobe a Serra
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Pedra na Canela Ext
+                ids:
+                - '3'
+                - 3_fim
+              - escalada: Sobe a Serra Ext
+                ids:
+                - '4'
+                - 4_fim
+              - escalada: Ofurô
+                ids:
+                - '5'
+                - 5_fim
             escaladas:
             - boulder:
                 nome: Pedra na Canela
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V4
             - boulder:
                 nome: Sobe a Serra
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V5
             - boulder:
                 nome: Pedra na Canela Ext
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V5
             - boulder:
                 nome: Sobe a Serra Ext
-                id_no_mapa: '4'
-                id_no_mapa_fim: 4_fim
                 dificuldade: V5_BARRA_V6
             - boulder:
                 nome: Ofurô
-                id_no_mapa: '5'
-                id_no_mapa_fim: 5_fim
                 dificuldade: V7_BARRA_V8
             descricao: '# Bloco: Pedra na Canela
 
@@ -2016,21 +2191,28 @@ picos:
                   y: 274
                   comprimento: 26
                   largura: 25
+              referencias:
+              - escalada: Maozeiro
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Piseiro
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Expresso 22
+                ids:
+                - '3'
+                - 3_fim
             escaladas:
             - boulder:
                 nome: Maozeiro
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V7
             - boulder:
                 nome: Piseiro
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V4
             - boulder:
                 nome: Expresso 22
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V0
             descricao: '# Bloco: Piseiro
 
@@ -2098,26 +2280,35 @@ picos:
                   y: 468
                   comprimento: 25
                   largura: 25
+              referencias:
+              - escalada: Parteira
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Curandeira
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Raizeiro
+                ids:
+                - '3'
+                - 3_fim
+              - escalada: Garrafada
+                ids:
+                - '4'
+                - 4_fim
             escaladas:
             - boulder:
                 nome: Parteira
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V3_BARRA_V4
             - boulder:
                 nome: Curandeira
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V6_BARRA_V7
             - boulder:
                 nome: Raizeiro
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V4
             - boulder:
                 nome: Garrafada
-                id_no_mapa: '4'
-                id_no_mapa_fim: 4_fim
                 dificuldade: V3
             descricao: '# Bloco: Raizeiro
 
@@ -2185,26 +2376,35 @@ picos:
                   y: 116
                   comprimento: 28
                   largura: 33
+              referencias:
+              - escalada: Tijuco Preto
+                ids:
+                - '1'
+                - 1_fim
+              - escalada: Pé na Lapeira
+                ids:
+                - '2'
+                - 2_fim
+              - escalada: Sol a Fora
+                ids:
+                - '3'
+                - 3_fim
+              - escalada: Toque no Curralinho
+                ids:
+                - '4'
+                - 4_fim
             escaladas:
             - boulder:
                 nome: Tijuco Preto
-                id_no_mapa: '1'
-                id_no_mapa_fim: 1_fim
                 dificuldade: V6
             - boulder:
                 nome: Pé na Lapeira
-                id_no_mapa: '2'
-                id_no_mapa_fim: 2_fim
                 dificuldade: V4
             - boulder:
                 nome: Sol a Fora
-                id_no_mapa: '3'
-                id_no_mapa_fim: 3_fim
                 dificuldade: V3
             - boulder:
                 nome: Toque no Curralinho
-                id_no_mapa: '4'
-                id_no_mapa_fim: 4_fim
                 dificuldade: V3
             descricao: '# Bloco: Tijuco Preto
 
@@ -2263,7 +2463,7 @@ botoes:
         | :--: |
 
         | *Mapa das Regiões - Setor Cerrado Groove* |'
-ultima_migracao: 1
+ultima_migracao: 2
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 930a77641317c906f02d1bb82605b316f1dcd79272eec2b6745a77083b7209d4

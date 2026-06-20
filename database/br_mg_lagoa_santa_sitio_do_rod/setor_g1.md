@@ -1,4 +1,4 @@
----
+---
 nome: G1
 mapas:
 - caminho_imagem_mapa: imagens/pagina_15.webp
@@ -117,10 +117,52 @@ mapas:
       y: 720
       comprimento: 62
       largura: 34
+  referencias:
+  - escalada: Mão de martelo
+    ids:
+    - '1'
+  - escalada: Calibre 44
+    ids:
+    - '2'
+  - escalada: Antro dos mosquitos
+    ids:
+    - '3'
+  - escalada: Poder do silêncio
+    ids:
+    - '4'
+  - escalada: Não contavam com minha astucia
+    ids:
+    - '5'
+  - escalada: Terra do nunca
+    ids:
+    - '6'
+  - escalada: Voz apocalíptica
+    ids:
+    - '7'
+  - escalada: Vivendo no crux da larica
+    ids:
+    - '8'
+  - escalada: Capitão caverna
+    ids:
+    - '9'
+  - escalada: Sai do chão
+    ids:
+    - '10'
+  - escalada: Os pica pedra
+    ids:
+    - '11'
+  - escalada: O resgate dos barbarás no meio do corredor polonês
+    ids:
+    - '12'
+  - escalada: '?'
+    ids:
+    - '13'
+  - escalada: '?'
+    ids:
+    - '14'
 escaladas:
 - via_movel:
     nome: Mão de martelo
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     quantidade_protecoes_parada: 1
     conquistadores:
@@ -129,7 +171,6 @@ escaladas:
     descricao: 'Friends médios e tricam #5. Crux depois do platô. 1 grampo no topo.'
 - via_esportiva:
     nome: Calibre 44
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     conquistadores:
     - Grots
@@ -137,7 +178,6 @@ escaladas:
     descricao: Boa opção, **atenção** com o platô.
 - via_esportiva:
     nome: Antro dos mosquitos
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
     conquistadores:
     - Ivo Ferreira
@@ -145,16 +185,13 @@ escaladas:
     descricao: Via curta, porem de muita movimentação.
 - via_esportiva:
     nome: Poder do silêncio
-    id_no_mapa: '4'
     dificuldade: BR_7A
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas
-      por perto!**
+    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por perto!**
 - via_esportiva:
     nome: Não contavam com minha astucia
-    id_no_mapa: '5'
     dificuldade: BR_7B
     conquistadores:
     - Grots
@@ -163,7 +200,6 @@ escaladas:
     descricao: Curta, porem atraente. **Atenção se tem abelhas por perto!**
 - via_esportiva:
     nome: Terra do nunca
-    id_no_mapa: '6'
     dificuldade: BR_7C
     conquistadores:
     - Grots
@@ -171,7 +207,6 @@ escaladas:
     descricao: Ótima via, muito boa movimentação. **Atenção se tem abelhas por perto!**
 - via_esportiva:
     nome: Voz apocalíptica
-    id_no_mapa: '7'
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Hoffman
@@ -179,7 +214,6 @@ escaladas:
     descricao: Via interditada. Abelhas!
 - via_esportiva:
     nome: Vivendo no crux da larica
-    id_no_mapa: '8'
     dificuldade: BR_7B
     conquistadores:
     - Gabriel
@@ -187,7 +221,6 @@ escaladas:
     descricao: Via interditada. Abelhas!
 - via_movel:
     nome: Capitão caverna
-    id_no_mapa: '9'
     dificuldade: BR_7A
     quantidade_protecoes_parada: 2
     conquistadores:
@@ -196,7 +229,6 @@ escaladas:
     descricao: Ótima via, Peças pequenas e médias, camalot 4, top duplo P.
 - via_esportiva:
     nome: Sai do chão
-    id_no_mapa: '10'
     dificuldade: BR_7A
     conquistadores:
     - Ágata
@@ -204,7 +236,6 @@ escaladas:
     descricao: Via curtinha de boa escalada, podendo fazer a saida de boulder.
 - via_esportiva:
     nome: Os pica pedra
-    id_no_mapa: '11'
     dificuldade: BR_6
     conquistadores:
     - Ágata
@@ -212,7 +243,6 @@ escaladas:
     descricao: Boa opção.
 - via_esportiva:
     nome: O resgate dos barbarás no meio do corredor polonês
-    id_no_mapa: '12'
     dificuldade: BR_5SUP
     conquistadores:
     - Grots
@@ -220,15 +250,13 @@ escaladas:
     descricao: Via interditada. Abelhas!
 - via_esportiva:
     nome: '?'
-    id_no_mapa: '13'
     dificuldade: BR_9B
     descricao: '**Atenção se tem abelhas por perto!**'
 - via_esportiva:
     nome: '?'
-    id_no_mapa: '14'
     dificuldade: BR_6
     descricao: Via inacabada. Cuidado abelhas!
----
+---
 # Setor G1
 
 ![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp)

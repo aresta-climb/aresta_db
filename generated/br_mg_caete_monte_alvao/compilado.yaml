@@ -99,10 +99,43 @@ picos:
               y: 512
               comprimento: 41
               largura: 40
+          referencias:
+          - escalada: Beijo Grego
+            ids:
+            - '1'
+          - escalada: A surpresa do Cesar
+            ids:
+            - '2'
+          - escalada: O sítio dos deuses
+            ids:
+            - '3'
+          - escalada: Todos caminhos levam a Roma
+            ids:
+            - '4'
+          - escalada: Love Actually
+            ids:
+            - '5'
+          - escalada: Mama Gás
+            ids:
+            - '6'
+          - escalada: Java Lee
+            ids:
+            - '7'
+          - escalada: Java Porco
+            ids:
+            - '8'
+          - escalada: Absolut com limão
+            ids:
+            - '9'
+          - escalada: Ribit
+            ids:
+            - '10'
+          - escalada: Xanax
+            ids:
+            - '11'
         escaladas:
         - via_esportiva:
             nome: Beijo Grego
-            id_no_mapa: '1'
             dificuldade: BR_7C
             extensao: 20
             quantidade_protecoes_intermediarias: 5
@@ -111,7 +144,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: A surpresa do Cesar
-            id_no_mapa: '2'
             dificuldade: BR_6
             extensao: 18
             quantidade_protecoes_intermediarias: 3
@@ -120,7 +152,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: O sítio dos deuses
-            id_no_mapa: '3'
             dificuldade: BR_5
             extensao: 18
             quantidade_protecoes_intermediarias: 3
@@ -129,7 +160,6 @@ picos:
             - Jg
         - via_movel:
             nome: Todos caminhos levam a Roma
-            id_no_mapa: '4'
             dificuldade: BR_5SUP
             extensao: 18
             quantidade_protecoes_parada: 2
@@ -138,7 +168,6 @@ picos:
             descricao: Parada fixa
         - via_esportiva:
             nome: Love Actually
-            id_no_mapa: '5'
             dificuldade: BR_5SUP
             extensao: 18
             quantidade_protecoes_intermediarias: 4
@@ -147,7 +176,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: Mama Gás
-            id_no_mapa: '6'
             dificuldade: BR_7A
             extensao: 15
             quantidade_protecoes_intermediarias: 4
@@ -156,7 +184,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: Java Lee
-            id_no_mapa: '7'
             dificuldade: BR_7A
             extensao: 12
             quantidade_protecoes_intermediarias: 3
@@ -165,7 +192,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: Java Porco
-            id_no_mapa: '8'
             dificuldade: BR_7A
             extensao: 12
             quantidade_protecoes_intermediarias: 3
@@ -174,7 +200,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: Absolut com limão
-            id_no_mapa: '9'
             dificuldade: BR_7B
             extensao: 15
             quantidade_protecoes_intermediarias: 4
@@ -183,7 +208,6 @@ picos:
             - Jg
         - via_esportiva:
             nome: Ribit
-            id_no_mapa: '10'
             dificuldade: BR_7A
             extensao: 15
             quantidade_protecoes_intermediarias: 4
@@ -193,7 +217,6 @@ picos:
             descricao: Inacabada
         - via_esportiva:
             nome: Xanax
-            id_no_mapa: '11'
             dificuldade: BR_7C
             extensao: 20
             quantidade_protecoes_intermediarias: 6
@@ -380,13 +403,85 @@ picos:
               y: 438
               comprimento: 50
               largura: 51
+          referencias:
+          - escalada: Capitã Minhoca
+            ids:
+            - 1ros
+          - escalada: He Man
+            ids:
+            - 2ros
+          - escalada: Esqueleto
+            ids:
+            - 3ros
+          - escalada: Allahu Akbar
+            ids:
+            - 4ros
+          - escalada: Saída à Francesa
+            ids:
+            - 5ros
+          - escalada: Paris em Chamas
+            ids:
+            - 6ros
+          - escalada: Urubu tá com raiva do boi
+            ids:
+            - 1az
+          - escalada: Maria Teresa
+            ids:
+            - 2az
+          - escalada: Uma gota de milagre
+            ids:
+            - 3az
+          - escalada: Quem não chora não mama
+            ids:
+            - 4az
+          - escalada: Chapolin
+            ids:
+            - 5az
+          - escalada: Desvio na pista
+            ids:
+            - 6az
+          - escalada: Vento da Patagônia
+            ids:
+            - 2rox
+          - escalada: Mr Bean
+            ids:
+            - 3rox
+          - escalada: Lagarto de aniversário
+            ids:
+            - 4rox
+          - escalada: Cavuca tatu
+            ids:
+            - 5rox
+          - escalada: Tirolês
+            ids:
+            - 7rox
+          - escalada: 10 c
+            ids:
+            - 8rox
+          - escalada: Sabor Baunilha
+            ids:
+            - 9rox
+          - escalada: Café Ole
+            ids:
+            - 11rox
+          - escalada: Tio Tonton
+            ids:
+            - 12rox
+          - escalada: Essa via não é minha
+            ids:
+            - 1rox
+          - escalada: Zé colmeia e Dona Flor
+            ids:
+            - 6rox
+          - escalada: O charme da Trad
+            ids:
+            - 10rox
         setores:
         - conteudo:
             nome: Caverna do Bin Laden
             escaladas:
             - via_esportiva:
                 nome: Capitã Minhoca
-                id_no_mapa: 1ros
                 dificuldade: BR_5SUP
                 extensao: 22
                 quantidade_protecoes_intermediarias: 5
@@ -395,7 +490,6 @@ picos:
                 - Jg
             - via_multiplas_enfiadas:
                 nome: He Man
-                id_no_mapa: 2ros
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
                 quantidade_costuras_intermediarias: 8
@@ -425,7 +519,6 @@ picos:
                     descricao: free
             - via_multiplas_enfiadas:
                 nome: Esqueleto
-                id_no_mapa: 3ros
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
                 quantidade_costuras_intermediarias: 8
@@ -456,7 +549,6 @@ picos:
                     descricao: free
             - via_esportiva:
                 nome: Allahu Akbar
-                id_no_mapa: 4ros
                 dificuldade: BR_7A
                 extensao: 22
                 quantidade_protecoes_intermediarias: 6
@@ -465,7 +557,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: Saída à Francesa
-                id_no_mapa: 5ros
                 dificuldade: BR_8B
                 extensao: 24
                 quantidade_protecoes_intermediarias: 8
@@ -475,7 +566,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: Paris em Chamas
-                id_no_mapa: 6ros
                 dificuldade: BR_10A
                 descricao: 10?
                 extensao: 24
@@ -489,7 +579,6 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Urubu tá com raiva do boi
-                id_no_mapa: 1az
                 dificuldade: BR_5SUP
                 extensao: 30
                 quantidade_protecoes_intermediarias: 7
@@ -498,7 +587,6 @@ picos:
                 - jg
             - via_esportiva:
                 nome: Maria Teresa
-                id_no_mapa: 2az
                 dificuldade: BR_6
                 extensao: 26
                 quantidade_protecoes_intermediarias: 5
@@ -507,7 +595,6 @@ picos:
                 - jg
             - via_esportiva:
                 nome: Uma gota de milagre
-                id_no_mapa: 3az
                 dificuldade: BR_7A
                 extensao: 28
                 quantidade_protecoes_intermediarias: 8
@@ -516,7 +603,6 @@ picos:
                 - jg
             - via_esportiva:
                 nome: Quem não chora não mama
-                id_no_mapa: 4az
                 dificuldade: BR_7B
                 extensao: 28
                 quantidade_protecoes_intermediarias: 9
@@ -525,7 +611,6 @@ picos:
                 - jg
             - via_esportiva:
                 nome: Chapolin
-                id_no_mapa: 5az
                 dificuldade: BR_7A
                 extensao: 30
                 quantidade_protecoes_intermediarias: 9
@@ -534,7 +619,6 @@ picos:
                 - jg
             - via_esportiva:
                 nome: Desvio na pista
-                id_no_mapa: 6az
                 dificuldade: BR_7B
                 extensao: 30
                 quantidade_protecoes_intermediarias: 9
@@ -546,14 +630,12 @@ picos:
             escaladas:
             - via_movel:
                 nome: Essa via não é minha
-                id_no_mapa: 1rox
                 dificuldade: BR_4SUP
                 extensao: 70
                 conquistadores:
                 - Rander Jr Sidnei
             - via_esportiva:
                 nome: Vento da Patagônia
-                id_no_mapa: 2rox
                 dificuldade: BR_5
                 extensao: 30
                 quantidade_protecoes_intermediarias: 6
@@ -562,7 +644,6 @@ picos:
                 - Danilo Steling
             - via_multiplas_enfiadas:
                 nome: Mr Bean
-                id_no_mapa: 3rox
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7A
                 quantidade_costuras_intermediarias: 10
@@ -589,7 +670,6 @@ picos:
                     descricao: free
             - via_esportiva:
                 nome: Lagarto de aniversário
-                id_no_mapa: 4rox
                 dificuldade: BR_6
                 extensao: 30
                 quantidade_protecoes_intermediarias: 10
@@ -599,7 +679,6 @@ picos:
                 descricao: Variante Mr Bean
             - via_esportiva:
                 nome: Cavuca tatu
-                id_no_mapa: 5rox
                 dificuldade: BR_7A
                 extensao: 30
                 quantidade_protecoes_intermediarias: 10
@@ -608,7 +687,6 @@ picos:
                 - Jg
             - via_movel:
                 nome: Zé colmeia e Dona Flor
-                id_no_mapa: 6rox
                 dificuldade: BR_4SUP
                 extensao: 30
                 conquistadores:
@@ -617,14 +695,12 @@ picos:
                 descricao: Parada fixa
             - via_esportiva:
                 nome: Tirolês
-                id_no_mapa: 7rox
                 dificuldade: BR_5
                 extensao: 30
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: 10 c
-                id_no_mapa: 8rox
                 dificuldade: BR_6
                 extensao: 30
                 quantidade_protecoes_intermediarias: 8
@@ -634,7 +710,6 @@ picos:
                 - Jg
             - via_multiplas_enfiadas:
                 nome: Sabor Baunilha
-                id_no_mapa: 9rox
                 dificuldade_media: BR_7B
                 dificuldade_maxima: BR_7B
                 quantidade_costuras_intermediarias: 10
@@ -655,7 +730,6 @@ picos:
                     descricao: expo
             - via_movel:
                 nome: O charme da Trad
-                id_no_mapa: 10rox
                 dificuldade: BR_6
                 extensao: 60
                 conquistadores:
@@ -664,7 +738,6 @@ picos:
                 descricao: Parada fixa
             - via_multiplas_enfiadas:
                 nome: Café Ole
-                id_no_mapa: 11rox
                 dificuldade_media: BR_5
                 dificuldade_maxima: BR_5SUP
                 quantidade_costuras_intermediarias: 8
@@ -685,7 +758,6 @@ picos:
                     extensao: 35
             - via_multiplas_enfiadas:
                 nome: Tio Tonton
-                id_no_mapa: 12rox
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
                 quantidade_costuras_intermediarias: 10
@@ -807,13 +879,52 @@ picos:
               y: 558
               comprimento: 32
               largura: 47
+          referencias:
+          - escalada: Cuidado Ketely
+            ids:
+            - 1am
+          - escalada: You will survive
+            ids:
+            - 2am
+          - escalada: Cara ou Coroa
+            ids:
+            - 3am
+          - escalada: French CanCan
+            ids:
+            - 4am
+          - escalada: On the road again
+            ids:
+            - 5am
+          - escalada: Incrível mas verdadeiro
+            ids:
+            - 6am
+          - escalada: Bouder com leite
+            ids:
+            - 1az
+          - escalada: Chipie chipie
+            ids:
+            - 2az
+          - escalada: Bambi
+            ids:
+            - 3az
+          - escalada: Ana Thor
+            ids:
+            - 4az
+          - escalada: Au bout des doigts
+            ids:
+            - 5az
+          - escalada: Boom Boom
+            ids:
+            - 6az
+          - escalada: Petit Pichou
+            ids:
+            - 7az
         setores:
         - conteudo:
             nome: Forno da Onça
             escaladas:
             - via_esportiva:
                 nome: Cuidado Ketely
-                id_no_mapa: 1am
                 dificuldade: BR_6
                 extensao: 24
                 quantidade_protecoes_intermediarias: 8
@@ -822,7 +933,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: You will survive
-                id_no_mapa: 2am
                 dificuldade: BR_7A
                 extensao: 20
                 quantidade_protecoes_intermediarias: 6
@@ -831,7 +941,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: Cara ou Coroa
-                id_no_mapa: 3am
                 dificuldade: BR_6
                 extensao: 22
                 quantidade_protecoes_intermediarias: 6
@@ -840,7 +949,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: French CanCan
-                id_no_mapa: 4am
                 dificuldade: BR_6SUP
                 extensao: 28
                 quantidade_protecoes_intermediarias: 5
@@ -849,7 +957,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: On the road again
-                id_no_mapa: 5am
                 dificuldade: BR_6SUP
                 extensao: 18
                 quantidade_protecoes_intermediarias: 5
@@ -858,7 +965,6 @@ picos:
                 - Jg
             - via_multiplas_enfiadas:
                 nome: Incrível mas verdadeiro
-                id_no_mapa: 6am
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
                 quantidade_costuras_intermediarias: 12
@@ -883,35 +989,30 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Bouder com leite
-                id_no_mapa: 1az
                 dificuldade: BR_5
                 extensao: 25
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: Chipie chipie
-                id_no_mapa: 2az
                 dificuldade: BR_4SUP
                 extensao: 23
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: Bambi
-                id_no_mapa: 3az
                 dificuldade: BR_4
                 extensao: 20
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: Ana Thor
-                id_no_mapa: 4az
                 dificuldade: BR_7C
                 extensao: 15
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: Au bout des doigts
-                id_no_mapa: 5az
                 dificuldade: BR_7B
                 extensao: 22
                 quantidade_protecoes_intermediarias: 6
@@ -922,14 +1023,12 @@ picos:
                 descricao: Base no platô superior
             - via_esportiva:
                 nome: Boom Boom
-                id_no_mapa: 6az
                 dificuldade: BR_6SUP
                 extensao: 28
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
             - via_esportiva:
                 nome: Petit Pichou
-                id_no_mapa: 7az
                 dificuldade: BR_6SUP
                 extensao: 28
                 quantidade_protecoes_intermediarias: 8
@@ -995,13 +1094,34 @@ picos:
               y: 1468
               comprimento: 26
               largura: 42
+          referencias:
+          - escalada: La Speza
+            ids:
+            - 1az
+          - escalada: Gekke Greda
+            ids:
+            - 1ve
+          - escalada: O Breizh
+            ids:
+            - 2ve
+          - escalada: Dedo no C* e Gritaria
+            ids:
+            - 3ve
+          - escalada: Tea Time
+            ids:
+            - 4ve
+          - escalada: Mimi Zokko
+            ids:
+            - 1ro
+          - escalada: Mariposa
+            ids:
+            - 2ro
         setores:
         - conteudo:
             nome: Terra do Nunca
             escaladas:
             - via_esportiva:
                 nome: La Speza
-                id_no_mapa: 1az
                 dificuldade: BR_6
                 extensao: 25
                 quantidade_protecoes_intermediarias: 8
@@ -1014,7 +1134,6 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Gekke Greda
-                id_no_mapa: 1ve
                 dificuldade: BR_7B
                 extensao: 12
                 quantidade_protecoes_intermediarias: 4
@@ -1024,7 +1143,6 @@ picos:
                 - Angela Van Dutch
             - via_esportiva:
                 nome: O Breizh
-                id_no_mapa: 2ve
                 dificuldade: BR_7A
                 extensao: 12
                 quantidade_protecoes_intermediarias: 4
@@ -1034,7 +1152,6 @@ picos:
                 - Morgan Hervaut
             - via_esportiva:
                 nome: Dedo no C* e Gritaria
-                id_no_mapa: 3ve
                 dificuldade: BR_8A
                 extensao: 12
                 quantidade_protecoes_intermediarias: 5
@@ -1044,7 +1161,6 @@ picos:
                 - Cristian Charme
             - via_esportiva:
                 nome: Tea Time
-                id_no_mapa: 4ve
                 dificuldade: BR_6
                 extensao: 12
                 quantidade_protecoes_intermediarias: 4
@@ -1057,7 +1173,6 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Mimi Zokko
-                id_no_mapa: 1ro
                 dificuldade: BR_5SUP
                 extensao: 25
                 quantidade_protecoes_intermediarias: 8
@@ -1066,7 +1181,6 @@ picos:
                 - Jg
             - via_esportiva:
                 nome: Mariposa
-                id_no_mapa: 2ro
                 dificuldade: BR_6
                 extensao: 25
                 quantidade_protecoes_intermediarias: 8
@@ -1158,7 +1272,7 @@ botoes:
         - **Autor:** Gabriel Franco Ferreira
 
         - **Local:** ALTO MONTE ALVÃO'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/mapas_gerais_p0.webp

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
@@ -11,6 +11,40 @@ mapas:
       x: 954
       y: 1036
       raio: 13
+  referencias:
+  - escalada: Prodígio
+    ids:
+    - '1'
+  - escalada: Briga de Galo
+    ids:
+    - '1'
+  - escalada: Oráculo
+    ids:
+    - '2'
+  - escalada: 008
+    ids:
+    - '3'
+  - escalada: Afrodisíaco
+    ids:
+    - '1'
+  - escalada: Lava Pés
+    ids:
+    - 2A
+  - escalada: Mantra
+    ids:
+    - 2B
+  - escalada: Samadhi
+    ids:
+    - 2C
+  - escalada: Tantra
+    ids:
+    - 3C
+  - escalada: Psicótico
+    ids:
+    - '1'
+  - escalada: Popeye
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -80,47 +114,36 @@ mapas:
 escaladas:
 - boulder:
     nome: Prodígio
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Briga de Galo
-    id_no_mapa: '1'
     dificuldade: V6
 - boulder:
     nome: Oráculo
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: 008
-    id_no_mapa: '3'
     dificuldade: V5
 - boulder:
     nome: Afrodisíaco
-    id_no_mapa: '1'
     dificuldade: V9
 - boulder:
     nome: Lava Pés
-    id_no_mapa: 2A
     dificuldade: V7
 - boulder:
     nome: Mantra
-    id_no_mapa: 2B
     dificuldade: V8
 - boulder:
     nome: Samadhi
-    id_no_mapa: 2C
     dificuldade: V10
 - boulder:
     nome: Tantra
-    id_no_mapa: 3C
     dificuldade: V7
 - boulder:
     nome: Psicótico
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Popeye
-    id_no_mapa: '2'
     dificuldade: V2
----
+---
 

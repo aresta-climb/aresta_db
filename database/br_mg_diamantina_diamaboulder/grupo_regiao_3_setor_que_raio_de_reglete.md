@@ -1,4 +1,4 @@
----
+---
 nome: Que Raio de Reglete
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_que_raio_de_reglete_p0_i0.webp
@@ -33,17 +33,22 @@ mapas:
       y: 368
       comprimento: 27
       largura: 27
+  referencias:
+  - escalada: Calça Nova
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Que Raio de Reglete
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Calça Nova
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V2
 - boulder:
     nome: Que Raio de Reglete
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V3
----
+---
 # Bloco: Que Raio de Reglete
 ## Região 3

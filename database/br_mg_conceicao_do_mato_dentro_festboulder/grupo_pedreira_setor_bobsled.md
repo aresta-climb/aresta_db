@@ -1,6 +1,5 @@
----
+---
 nome: Bobsled
-id_no_mapa: '9'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bobsled_p0.webp
   largura_mapa: 757
@@ -34,24 +33,34 @@ mapas:
       y: 415
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Eterna Juventude
+    ids:
+    - '1'
+  - escalada: Episódio do Dia
+    ids:
+    - '2'
+  - escalada: Saideira
+    ids:
+    - '3'
+  - escalada: Bobsled
+    ids:
+    - '4'
 escaladas:
 - boulder:
     nome: Eterna Juventude
-    id_no_mapa: '1'
     dificuldade: V9
 - boulder:
     nome: Episódio do Dia
-    id_no_mapa: '2'
     dificuldade: V8
 - boulder:
     nome: Saideira
-    id_no_mapa: '3'
     dificuldade: V4
 - boulder:
     nome: Bobsled
-    id_no_mapa: '4'
     dificuldade: V7
----
+---
+
 # Setor Bobsled
 
 O setor Bobsled possui um bloco com linhas atléticas e passagens de força.

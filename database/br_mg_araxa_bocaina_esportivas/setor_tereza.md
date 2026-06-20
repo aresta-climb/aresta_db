@@ -1,4 +1,4 @@
----
+---
 nome: Tereza
 mapas:
 - caminho_imagem_mapa: imagens/setor_tereza_p1.webp
@@ -47,6 +47,25 @@ mapas:
       y: 875
       comprimento: 50
       largura: 40
+  referencias:
+  - escalada: Jaratataca
+    ids:
+    - '01'
+  - escalada: Grito da Aranha
+    ids:
+    - '02'
+  - escalada: Melhor Opção
+    ids:
+    - '03'
+  - escalada: Rapa do Tacho
+    ids:
+    - '04'
+  - escalada: Carrapato não tem Pai
+    ids:
+    - '05'
+  - escalada: Barriga Verde
+    ids:
+    - '06'
 - caminho_imagem_mapa: imagens/setor_tereza_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -61,7 +80,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Jaratataca
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -72,7 +90,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Grito da Aranha
-    id_no_mapa: '02'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -83,7 +100,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Melhor Opção
-    id_no_mapa: '03'
     dificuldade: BR_7A
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -94,7 +110,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Rapa do Tacho
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -104,7 +119,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Carrapato não tem Pai
-    id_no_mapa: '05'
     dificuldade: BR_5
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -115,7 +129,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Barriga Verde
-    id_no_mapa: '06'
     dificuldade: BR_5
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -123,7 +136,7 @@ escaladas:
     conquistadores:
     - Lucas Ramos
     data_abertura: '2006'
----
+---
 # Setor Tereza
 
 ![Setor Tereza](imagens/setor_tereza_p0_i0.webp)

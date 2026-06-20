@@ -1,4 +1,4 @@
----
+---
 nome: Panela do Diabo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_panela_do_diabo_p0_i0.webp
@@ -117,52 +117,62 @@ mapas:
       y: 605
       comprimento: 22
       largura: 24
+  referencias:
+  - escalada: Consciência
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Groove
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Caldeirão
+    ids:
+    - '3'
+    - 3_fim
+  - escalada: Panela do Diabo
+    ids:
+    - '5'
+    - 5_fim
+  - escalada: Consciência para ter Coragem
+    ids:
+    - '6'
+    - 6_fim
+  - escalada: Caldeirão do Groove
+    ids:
+    - '7'
+    - 7_fim
+  - escalada: Coragem
+    ids:
+    - '8'
+    - 8_fim
 escaladas:
 - boulder:
     nome: Consciência
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V4
-    descricao: Saída baixa em dois regletes pequenos logo à direita do balcão arredondado,
-      seguindo em travessia para a direita até dominar como o panelaço.
+    descricao: Saída baixa em dois regletes pequenos logo à direita do balcão arredondado, seguindo em travessia para a direita até dominar como o panelaço.
 - boulder:
     nome: Groove
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V3
-    descricao: Mesma saída do consciência, dominando na face positiva logo acima do
-      balcão.
+    descricao: Mesma saída do consciência, dominando na face positiva logo acima do balcão.
 - boulder:
     nome: Caldeirão
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V6
-    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até
-      finalizar como o panelaço (sem a utilização do "jorge"/bloco de sustentação).
+    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até finalizar como o panelaço (sem a utilização do "jorge"/bloco de sustentação).
 - boulder:
     nome: Panela do Diabo
-    id_no_mapa: '5'
-    id_no_mapa_fim: 5_fim
     dificuldade: V4
 - boulder:
     nome: Consciência para ter Coragem
-    id_no_mapa: '6'
-    id_no_mapa_fim: 6_fim
     dificuldade: V7
-    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder
-      coragem.
+    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder coragem.
 - boulder:
     nome: Caldeirão do Groove
-    id_no_mapa: '7'
-    id_no_mapa_fim: 7_fim
     dificuldade: V7
 - boulder:
     nome: Coragem
-    id_no_mapa: '8'
-    id_no_mapa_fim: 8_fim
     dificuldade: V5
-    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso
-      do caldeirão, finalizando por agarrões na face vertical do bloco.
----
+    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso do caldeirão, finalizando por agarrões na face vertical do bloco.
+---
 # Bloco: Panela do Diabo
 ## Região 2

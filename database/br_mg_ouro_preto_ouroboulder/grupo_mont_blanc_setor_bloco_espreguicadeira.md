@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Espreguiçadeira'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp
@@ -29,18 +29,25 @@ mapas:
       x: 866
       y: 204
       raio: 13
+  referencias:
+  - escalada: Heavy Metal
+    ids:
+    - '1'
+  - escalada: Rock n Roll
+    ids:
+    - 2A
+  - escalada: Hard Core
+    ids:
+    - 2B
 escaladas:
 - boulder:
     nome: Heavy Metal
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Rock n Roll
-    id_no_mapa: 2A
     dificuldade: V1_BARRA_V2
 - boulder:
     nome: Hard Core
-    id_no_mapa: 2B
     dificuldade: V6_BARRA_V7
----
+---
 

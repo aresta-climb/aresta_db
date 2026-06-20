@@ -1,4 +1,4 @@
----
+---
 nome: Ensolarado
 mapas:
 - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp
@@ -54,6 +54,70 @@ mapas:
       y: 789
       comprimento: 43
       largura: 34
+  referencias:
+  - escalada: Índios
+    ids:
+    - '01'
+  - escalada: Virando a Esquina
+    ids:
+    - '02'
+  - escalada: Feinomenal
+    ids:
+    - '03'
+  - escalada: Mirandinha fFlou
+    ids:
+    - '04'
+  - escalada: Quatro e Vinte
+    ids:
+    - '05'
+  - escalada: Yngyang
+    ids:
+    - '06'
+  - escalada: Sucuri
+    ids:
+    - '07'
+  - escalada: Mundo Mágico dos Abacates
+    ids:
+    - '8'
+  - escalada: Ariba Cabron
+    ids:
+    - '9'
+  - escalada: Família Martins
+    ids:
+    - '10'
+  - escalada: Zuzuquinha Mimada
+    ids:
+    - '11'
+  - escalada: De volta as Origens
+    ids:
+    - '12'
+  - escalada: Autista do Bando
+    ids:
+    - '13'
+  - escalada: Último Suspiro
+    ids:
+    - '14'
+  - escalada: Barba Negra
+    ids:
+    - '15'
+  - escalada: Capitão Gancho
+    ids:
+    - '16'
+  - escalada: Peter Pan do Cerrado
+    ids:
+    - '17'
+  - escalada: Indio Rastafari
+    ids:
+    - '18'
+  - escalada: Todo Cuidado e Pouco
+    ids:
+    - '19'
+  - escalada: Raul com Certeza
+    ids:
+    - '20'
+  - escalada: Raimundo Nonato
+    ids:
+    - '21'
 - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
   largura_mapa: 1280
   altura_mapa: 1280
@@ -188,7 +252,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Índios
-    id_no_mapa: '01'
     dificuldade: BR_7B
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -198,7 +261,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Virando a Esquina
-    id_no_mapa: '02'
     dificuldade: BR_5
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -208,7 +270,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Feinomenal
-    id_no_mapa: '03'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -219,7 +280,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Mirandinha fFlou
-    id_no_mapa: '04'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 6
@@ -230,7 +290,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Quatro e Vinte
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 6
@@ -240,7 +299,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Yngyang
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -250,7 +308,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Sucuri
-    id_no_mapa: '07'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -261,7 +318,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Mundo Mágico dos Abacates
-    id_no_mapa: 08
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -272,7 +328,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Ariba Cabron
-    id_no_mapa: 09
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -283,7 +338,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Família Martins
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -293,7 +347,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Zuzuquinha Mimada
-    id_no_mapa: '11'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -304,7 +357,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: De volta as Origens
-    id_no_mapa: '12'
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -315,7 +367,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Autista do Bando
-    id_no_mapa: '13'
     dificuldade: BR_9B
     extensao: 15
     quantidade_protecoes_intermediarias: 5
@@ -326,7 +377,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Último Suspiro
-    id_no_mapa: '14'
     dificuldade: BR_8B
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -337,7 +387,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Barba Negra
-    id_no_mapa: '15'
     dificuldade: BR_8B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -347,7 +396,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Capitão Gancho
-    id_no_mapa: '16'
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -358,7 +406,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Peter Pan do Cerrado
-    id_no_mapa: '17'
     dificuldade: BR_7B
     extensao: 20
     quantidade_protecoes_intermediarias: 3
@@ -368,7 +415,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Indio Rastafari
-    id_no_mapa: '18'
     dificuldade: BR_7C
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -378,7 +424,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Todo Cuidado e Pouco
-    id_no_mapa: '19'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -389,7 +434,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Raul com Certeza
-    id_no_mapa: '20'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -399,7 +443,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Raimundo Nonato
-    id_no_mapa: '21'
     dificuldade: BR_7C
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -407,7 +450,7 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2013'
----
+---
 # Setor Ensolarado
 
 ![Setor Ensolarado](imagens/setor_ensolarado_p0_i0.webp)

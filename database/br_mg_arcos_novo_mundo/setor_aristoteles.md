@@ -1,4 +1,4 @@
----
+---
 nome: Setor Aristóteles
 mapas:
 - caminho_imagem_mapa: imagens/setor_aristoteles_p0_i0.webp
@@ -139,33 +139,71 @@ mapas:
       y: 918
       comprimento: 47
       largura: 18
+  referencias:
+  - escalada: 300 de Arcos
+    ids:
+    - '1'
+  - escalada: Efeito Dominó
+    ids:
+    - '2'
+  - escalada: via em móvel
+    ids:
+    - ''
+  - escalada: Odisséia
+    ids:
+    - '3'
+  - escalada: Nesse Ritmo Nosso, Não
+    ids:
+    - '4'
+  - escalada: Danificada
+    ids:
+    - '5'
+  - escalada: Promessa é Dívida
+    ids:
+    - '6'
+  - escalada: Falsas Promessas
+    ids:
+    - '7'
+  - escalada: O Pagador de Promessa
+    ids:
+    - '8'
+  - escalada: Incrível!
+    ids:
+    - '9'
+  - escalada: Espeleopemba
+    ids:
+    - '10'
+  - escalada: sem nome
+    ids:
+    - '11'
+  - escalada: sem nome
+    ids:
+    - '12'
+  - escalada: via inacabada
+    ids:
+    - '13'
 escaladas:
 - via_esportiva:
     nome: 300 de Arcos
-    id_no_mapa: '1'
     dificuldade: BR_7B_BARRA_7C
     extensao: 30
     data_abertura: '2022'
 - via_esportiva:
     nome: Efeito Dominó
-    id_no_mapa: '2'
     dificuldade: BR_7C
     extensao: 30
     descricao: 7c - 30mt
 - via_movel:
     nome: via em móvel
-    id_no_mapa: ''
     dificuldade: INDEFINIDO
     descricao: sem nome
 - via_esportiva:
     nome: Odisséia
-    id_no_mapa: '3'
     dificuldade: BR_8A
     extensao: 40
     descricao: 8a - 40mt
 - via_esportiva:
     nome: Nesse Ritmo Nosso, Não
-    id_no_mapa: '4'
     dificuldade: BR_7A
     destaque: true
     extensao: 25
@@ -173,14 +211,12 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Danificada
-    id_no_mapa: '5'
     dificuldade: BR_5SUP
     extensao: 25
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Promessa é Dívida
-    id_no_mapa: '6'
     dificuldade: BR_5
     destaque: true
     extensao: 25
@@ -188,14 +224,12 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Falsas Promessas
-    id_no_mapa: '7'
     dificuldade: BR_8C_BARRA_9A
     extensao: 25
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: O Pagador de Promessa
-    id_no_mapa: '8'
     dificuldade: BR_8B_BARRA_8C
     destaque: true
     extensao: 25
@@ -203,31 +237,26 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Incrível!
-    id_no_mapa: '9'
     dificuldade: BR_7C
     extensao: 25
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Espeleopemba
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     extensao: 25
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: sem nome
-    id_no_mapa: '11'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: sem nome
-    id_no_mapa: '12'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: via inacabada
-    id_no_mapa: '13'
     dificuldade: INDEFINIDO
----
+---
 # Setor Aristóteles
 
 Sombra de 7h as 13h (varia de acordo com a estação).

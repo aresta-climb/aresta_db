@@ -1,4 +1,4 @@
----
+---
 nome: Caverna, Mirante e Ground Control
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
@@ -173,13 +173,85 @@ mapas:
       y: 438
       comprimento: 50
       largura: 51
+  referencias:
+  - escalada: Capitã Minhoca
+    ids:
+    - 1ros
+  - escalada: He Man
+    ids:
+    - 2ros
+  - escalada: Esqueleto
+    ids:
+    - 3ros
+  - escalada: Allahu Akbar
+    ids:
+    - 4ros
+  - escalada: Saída à Francesa
+    ids:
+    - 5ros
+  - escalada: Paris em Chamas
+    ids:
+    - 6ros
+  - escalada: Urubu tá com raiva do boi
+    ids:
+    - 1az
+  - escalada: Maria Teresa
+    ids:
+    - 2az
+  - escalada: Uma gota de milagre
+    ids:
+    - 3az
+  - escalada: Quem não chora não mama
+    ids:
+    - 4az
+  - escalada: Chapolin
+    ids:
+    - 5az
+  - escalada: Desvio na pista
+    ids:
+    - 6az
+  - escalada: Vento da Patagônia
+    ids:
+    - 2rox
+  - escalada: Mr Bean
+    ids:
+    - 3rox
+  - escalada: Lagarto de aniversário
+    ids:
+    - 4rox
+  - escalada: Cavuca tatu
+    ids:
+    - 5rox
+  - escalada: Tirolês
+    ids:
+    - 7rox
+  - escalada: 10 c
+    ids:
+    - 8rox
+  - escalada: Sabor Baunilha
+    ids:
+    - 9rox
+  - escalada: Café Ole
+    ids:
+    - 11rox
+  - escalada: Tio Tonton
+    ids:
+    - 12rox
+  - escalada: Essa via não é minha
+    ids:
+    - 1rox
+  - escalada: Zé colmeia e Dona Flor
+    ids:
+    - 6rox
+  - escalada: O charme da Trad
+    ids:
+    - 10rox
 setores:
 - conteudo:
     nome: Caverna do Bin Laden
     escaladas:
     - via_esportiva:
         nome: Capitã Minhoca
-        id_no_mapa: 1ros
         dificuldade: BR_5SUP
         extensao: 22
         quantidade_protecoes_intermediarias: 5
@@ -188,7 +260,6 @@ setores:
         - Jg
     - via_multiplas_enfiadas:
         nome: He Man
-        id_no_mapa: 2ros
         dificuldade_media: BR_6SUP
         dificuldade_maxima: BR_7B
         quantidade_costuras_intermediarias: 8
@@ -218,7 +289,6 @@ setores:
             descricao: free
     - via_multiplas_enfiadas:
         nome: Esqueleto
-        id_no_mapa: 3ros
         dificuldade_media: BR_6
         dificuldade_maxima: BR_6
         quantidade_costuras_intermediarias: 8
@@ -249,7 +319,6 @@ setores:
             descricao: free
     - via_esportiva:
         nome: Allahu Akbar
-        id_no_mapa: 4ros
         dificuldade: BR_7A
         extensao: 22
         quantidade_protecoes_intermediarias: 6
@@ -258,7 +327,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: Saída à Francesa
-        id_no_mapa: 5ros
         dificuldade: BR_8B
         extensao: 24
         quantidade_protecoes_intermediarias: 8
@@ -268,7 +336,6 @@ setores:
         - Jg
     - via_esportiva:
         nome: Paris em Chamas
-        id_no_mapa: 6ros
         dificuldade: BR_10A
         descricao: 10?
         extensao: 24
@@ -282,7 +349,6 @@ setores:
     escaladas:
     - via_esportiva:
         nome: Urubu tá com raiva do boi
-        id_no_mapa: 1az
         dificuldade: BR_5SUP
         extensao: 30
         quantidade_protecoes_intermediarias: 7
@@ -291,7 +357,6 @@ setores:
         - jg
     - via_esportiva:
         nome: Maria Teresa
-        id_no_mapa: 2az
         dificuldade: BR_6
         extensao: 26
         quantidade_protecoes_intermediarias: 5
@@ -300,7 +365,6 @@ setores:
         - jg
     - via_esportiva:
         nome: Uma gota de milagre
-        id_no_mapa: 3az
         dificuldade: BR_7A
         extensao: 28
         quantidade_protecoes_intermediarias: 8
@@ -309,7 +373,6 @@ setores:
         - jg
     - via_esportiva:
         nome: Quem não chora não mama
-        id_no_mapa: 4az
         dificuldade: BR_7B
         extensao: 28
         quantidade_protecoes_intermediarias: 9
@@ -318,7 +381,6 @@ setores:
         - jg
     - via_esportiva:
         nome: Chapolin
-        id_no_mapa: 5az
         dificuldade: BR_7A
         extensao: 30
         quantidade_protecoes_intermediarias: 9
@@ -327,7 +389,6 @@ setores:
         - jg
     - via_esportiva:
         nome: Desvio na pista
-        id_no_mapa: 6az
         dificuldade: BR_7B
         extensao: 30
         quantidade_protecoes_intermediarias: 9
@@ -339,14 +400,12 @@ setores:
     escaladas:
     - via_movel:
         nome: Essa via não é minha
-        id_no_mapa: 1rox
         dificuldade: BR_4SUP
         extensao: 70
         conquistadores:
         - Rander Jr Sidnei
     - via_esportiva:
         nome: Vento da Patagônia
-        id_no_mapa: 2rox
         dificuldade: BR_5
         extensao: 30
         quantidade_protecoes_intermediarias: 6
@@ -355,7 +414,6 @@ setores:
         - Danilo Steling
     - via_multiplas_enfiadas:
         nome: Mr Bean
-        id_no_mapa: 3rox
         dificuldade_media: BR_6SUP
         dificuldade_maxima: BR_7A
         quantidade_costuras_intermediarias: 10
@@ -382,7 +440,6 @@ setores:
             descricao: free
     - via_esportiva:
         nome: Lagarto de aniversário
-        id_no_mapa: 4rox
         dificuldade: BR_6
         extensao: 30
         quantidade_protecoes_intermediarias: 10
@@ -392,7 +449,6 @@ setores:
         descricao: Variante Mr Bean
     - via_esportiva:
         nome: Cavuca tatu
-        id_no_mapa: 5rox
         dificuldade: BR_7A
         extensao: 30
         quantidade_protecoes_intermediarias: 10
@@ -401,7 +457,6 @@ setores:
         - Jg
     - via_movel:
         nome: Zé colmeia e Dona Flor
-        id_no_mapa: 6rox
         dificuldade: BR_4SUP
         extensao: 30
         conquistadores:
@@ -410,14 +465,12 @@ setores:
         descricao: Parada fixa
     - via_esportiva:
         nome: Tirolês
-        id_no_mapa: 7rox
         dificuldade: BR_5
         extensao: 30
         quantidade_protecoes_intermediarias: 6
         quantidade_protecoes_parada: 2
     - via_esportiva:
         nome: 10 c
-        id_no_mapa: 8rox
         dificuldade: BR_6
         extensao: 30
         quantidade_protecoes_intermediarias: 8
@@ -427,7 +480,6 @@ setores:
         - Jg
     - via_multiplas_enfiadas:
         nome: Sabor Baunilha
-        id_no_mapa: 9rox
         dificuldade_media: BR_7B
         dificuldade_maxima: BR_7B
         quantidade_costuras_intermediarias: 10
@@ -448,7 +500,6 @@ setores:
             descricao: expo
     - via_movel:
         nome: O charme da Trad
-        id_no_mapa: 10rox
         dificuldade: BR_6
         extensao: 60
         conquistadores:
@@ -457,7 +508,6 @@ setores:
         descricao: Parada fixa
     - via_multiplas_enfiadas:
         nome: Café Ole
-        id_no_mapa: 11rox
         dificuldade_media: BR_5
         dificuldade_maxima: BR_5SUP
         quantidade_costuras_intermediarias: 8
@@ -478,7 +528,6 @@ setores:
             extensao: 35
     - via_multiplas_enfiadas:
         nome: Tio Tonton
-        id_no_mapa: 12rox
         dificuldade_media: BR_6SUP
         dificuldade_maxima: BR_7B
         quantidade_costuras_intermediarias: 10
@@ -496,7 +545,8 @@ setores:
             nome: L2
             dificuldade: BR_6
             descricao: crux 7b
----
+---
+
 # Caverna, Mirante e Ground Control
 
 Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.

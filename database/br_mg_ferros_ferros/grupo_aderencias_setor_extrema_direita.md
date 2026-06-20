@@ -1,12 +1,15 @@
----
+---
 nome: Parede das Aderências – Extrema Direita
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
+  referencias:
+  - escalada: Ferro na Boneca
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
 escaladas:
 - via_esportiva:
     nome: Ferro na Boneca
-    id_no_mapa: '1'
     dificuldade: BR_7A
     extensao: 20
     conquistadores:
@@ -14,5 +17,5 @@ escaladas:
     - Luciano Bender
     data_abertura: '2011-06-25'
     descricao: Via curta e explosiva.
----
+---
 

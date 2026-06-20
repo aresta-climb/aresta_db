@@ -1,4 +1,4 @@
----
+---
 nome: 1° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1_andar_p0.webp
@@ -194,10 +194,82 @@ mapas:
       y: 1314
       comprimento: 38
       largura: 43
+  referencias:
+  - escalada: Jardineiro
+    ids:
+    - '01'
+  - escalada: Somelier Canábico
+    ids:
+    - '02'
+  - escalada: Jovens Dinâmicos
+    ids:
+    - '03'
+  - escalada: Anunnaki
+    ids:
+    - '04'
+  - escalada: Peyote Sativo
+    ids:
+    - '05'
+  - escalada: Fake News
+    ids:
+    - '06'
+  - escalada: Bruxa
+    ids:
+    - '07'
+  - escalada: Fundão
+    ids:
+    - '08'
+  - escalada: Caminho da Luz
+    ids:
+    - '09'
+  - escalada: Eu quero é ver o oco
+    ids:
+    - '10'
+  - escalada: Mister Amaral
+    ids:
+    - '11'
+  - escalada: Loki
+    ids:
+    - '12'
+  - escalada: Thor
+    ids:
+    - '13'
+  - escalada: A Flor da Vida
+    ids:
+    - '14'
+  - escalada: Vale do Verde
+    ids:
+    - '15'
+  - escalada: Ragnarok
+    ids:
+    - '16'
+  - escalada: Filho de Odin
+    ids:
+    - '17'
+  - escalada: Vahala
+    ids:
+    - '18'
+  - escalada: Pedra no Saco
+    ids:
+    - '19'
+  - escalada: Endorfina
+    ids:
+    - '20'
+  - escalada: Isaurinha
+    ids:
+    - '21'
+  - escalada: Presentim
+    ids:
+    - '22'
+  - escalada: Antes tarde do que nunca
+    ids:
+    - '23'
+  - escalada: Ho Ho Ho
+    ids:
+    - '24'
 escaladas:
 - via_esportiva:
     nome: Jardineiro
-    id_no_mapa: '01'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -205,7 +277,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Somelier Canábico
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -213,7 +284,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Jovens Dinâmicos
-    id_no_mapa: '03'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -221,7 +291,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Anunnaki
-    id_no_mapa: '04'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -229,7 +298,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Peyote Sativo
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -237,7 +305,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Fake News
-    id_no_mapa: '06'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -245,14 +312,12 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Bruxa
-    id_no_mapa: '07'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     extensao: 8
 - via_esportiva:
     nome: Fundão
-    id_no_mapa: '08'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -260,7 +325,6 @@ escaladas:
     descricao: Extensão Projeto (6+2).
 - via_esportiva:
     nome: Caminho da Luz
-    id_no_mapa: '09'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -268,7 +332,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Eu quero é ver o oco
-    id_no_mapa: '10'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -276,7 +339,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Mister Amaral
-    id_no_mapa: '11'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -284,20 +346,17 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Loki
-    id_no_mapa: '12'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Thor
-    id_no_mapa: '13'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     destaque: true
 - via_esportiva:
     nome: A Flor da Vida
-    id_no_mapa: '14'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -306,7 +365,6 @@ escaladas:
     descricao: Possui Extensão Projeto (7+2).
 - via_esportiva:
     nome: Vale do Verde
-    id_no_mapa: '15'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -315,7 +373,6 @@ escaladas:
     descricao: Possui Extensão 8c (10+2).
 - via_esportiva:
     nome: Ragnarok
-    id_no_mapa: '16'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -323,7 +380,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Filho de Odin
-    id_no_mapa: '17'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -332,21 +388,18 @@ escaladas:
     descricao: Possui Extensão Proj. (5+2).
 - via_esportiva:
     nome: Vahala
-    id_no_mapa: '18'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
     extensao: 20
 - via_esportiva:
     nome: Pedra no Saco
-    id_no_mapa: '19'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     extensao: 20
 - via_esportiva:
     nome: Endorfina
-    id_no_mapa: '20'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -354,7 +407,6 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Isaurinha
-    id_no_mapa: '21'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -362,26 +414,23 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Presentim
-    id_no_mapa: '22'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 18
 - via_esportiva:
     nome: Antes tarde do que nunca
-    id_no_mapa: '23'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     extensao: 15
 - via_esportiva:
     nome: Ho Ho Ho
-    id_no_mapa: '24'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     extensao: 15
----
+---
 # 1° Andar
 
 O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.

@@ -51,42 +51,57 @@ picos:
               y: 540
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Café com Leite
+            ids:
+            - '01'
+          - escalada: Maltodextrina
+            ids:
+            - '02'
+          - escalada: Maltodextrina SDS
+            ids:
+            - '03'
+          - escalada: Pinga Preta
+            ids:
+            - '04'
+          - escalada: Pressão Enrustida
+            ids:
+            - '05'
+          - escalada: Não Contava com Minha Astúcia
+            ids:
+            - '06'
+          - escalada: Rapé
+            ids:
+            - '07'
         escaladas:
         - boulder:
             nome: Café com Leite
-            id_no_mapa: '01'
             dificuldade: V0
         - boulder:
             nome: Maltodextrina
-            id_no_mapa: '02'
             dificuldade: V0
             descricao: Saída agachado com as mãos juntas em agarrão, virando reto
               no bloco.
         - boulder:
             nome: Maltodextrina SDS
-            id_no_mapa: '03'
             dificuldade: V2
             descricao: Saída sentado com as mãos em regletes abaixo do agarrão do
               Maltodextrina, e virando reto.
         - boulder:
             nome: Pinga Preta
-            id_no_mapa: '04'
             dificuldade: V3
             descricao: Saída do Maltodextrina e vira no Não contava com minhas astúcia.
         - boulder:
             nome: Pressão Enrustida
-            id_no_mapa: '05'
             dificuldade: V4
             descricao: Saída sentado com as mãos juntas em agarrão investido no teto.
         - boulder:
             nome: Não Contava com Minha Astúcia
-            id_no_mapa: '06'
             dificuldade: V1
             descricao: Saída agachado com as duas mãos juntas em agarrão em bloco
               pequeno passando para Pressão inrrustida no bloco da esquerda.
         - boulder:
             nome: Rapé
-            id_no_mapa: '07'
             dificuldade: V3
             descricao: Saída do Não Contava com minha astúcia fazendo travessia para
               esquerda virando no Maltodextrina.
@@ -106,6 +121,40 @@ picos:
               y: 712
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Mingau
+            ids:
+            - '01'
+          - escalada: Pretinho Irlandês
+            ids:
+            - '02'
+          - escalada: Ratos e Raízes
+            ids:
+            - '03'
+          - escalada: Tripa Eterna
+            ids:
+            - '04'
+          - escalada: Trip Eterna
+            ids:
+            - '05'
+          - escalada: Mecanismo
+            ids:
+            - '06'
+          - escalada: Pedrada
+            ids:
+            - '07'
+          - escalada: Aedes Egipse
+            ids:
+            - 08
+          - escalada: V9 do Rafinha
+            ids:
+            - 09
+          - escalada: Os Trabalhos Não Param
+            ids:
+            - '10'
+          - escalada: Trabalho em Equipe
+            ids:
+            - '11'
         - caminho_imagem_mapa: imagens/setor_caverninha_p1.webp
           largura_mapa: 1069
           altura_mapa: 868
@@ -187,68 +236,57 @@ picos:
         escaladas:
         - boulder:
             nome: Mingau
-            id_no_mapa: '01'
             dificuldade: V2
             descricao: Saída com as mãos juntas em reglete bom, seguindo para sequencia
               de reglete e agarrão virando no meio do bloco.
         - boulder:
             nome: Pretinho Irlandês
-            id_no_mapa: '02'
             dificuldade: V2
             descricao: Saída agaixado com as duas mãos em agarrão, seguindo reto por
               batente lateral virando a esquerda do bloco na parte de cima.
         - boulder:
             nome: Ratos e Raízes
-            id_no_mapa: '03'
             dificuldade: V1
             descricao: Saída do pretinho Irlandes seguindo primeiros movimentos na
               fenda reta virando na direita.
         - boulder:
             nome: Tripa Eterna
-            id_no_mapa: '04'
             dificuldade: V4
             descricao: Saída do Pretinho Irlandes indo para pinçá a direita da agarra
               de saída seguindo para batentes escorridos e virando no centro do bloco
         - boulder:
             nome: Trip Eterna
-            id_no_mapa: '05'
             dificuldade: V6
             descricao: Saída do Pretinho Irlandes indo para pinça a direita da agarra
               de saída, seguindo para batentes escorridos virando a direita do bloco.
         - boulder:
             nome: Mecanismo
-            id_no_mapa: '06'
             dificuldade: V7
             descricao: Saída sentado com a mao esquerda em batentee mao direita em
               reglete e calchanhar equerdo na altura da mão esquerda, passando por
               buracos no teto, seguindo para agarra triangular e virando no Trip Eterna.
         - boulder:
             nome: Pedrada
-            id_no_mapa: '07'
             dificuldade: V3
             descricao: Saida sentado com as mãos em dois batentes escorridos, virando
               no Pretinho Irlandês.
         - boulder:
             nome: Aedes Egipse
-            id_no_mapa: 08
             dificuldade: V5
             descricao: Saída sentado em batentes escorridos seguindo para esquerda
               em sequencia de regletes no meio do bloco virando em abaulado grande.
         - boulder:
             nome: V9 do Rafinha
-            id_no_mapa: 09
             dificuldade: V9
             descricao: Saída do pedrada, e seguir sequencia de batentes e regletes
               pela parte debaixo do bloco virando na aresta esquerda.
         - boulder:
             nome: Os Trabalhos Não Param
-            id_no_mapa: '10'
             dificuldade: V6
             descricao: Saída sentado com as duas mãos em reglete grande baixo e calcanhar
               esquerdo mais alto que as mãos, virando no Trip Eterna.
         - boulder:
             nome: Trabalho em Equipe
-            id_no_mapa: '11'
             dificuldade: V5
             descricao: Saída sentado com a mão esquerda em batente de compressão e
               direita em reglete aberto acima da cabeça.
@@ -296,34 +334,45 @@ picos:
               y: 649
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Fumaça Sagrada
+            ids:
+            - '01'
+          - escalada: Exquadrilha da Fumaça
+            ids:
+            - '02'
+          - escalada: Quadrilha da Fumaça
+            ids:
+            - '03'
+          - escalada: Planet Hemp
+            ids:
+            - '04'
+          - escalada: Cypress Hill
+            ids:
+            - '05'
         escaladas:
         - boulder:
             nome: Fumaça Sagrada
-            id_no_mapa: '01'
             dificuldade: V7
             descricao: Saída com as mãos em regletes invertidos e pés com tail em
               batente grande e segue pelo Exquadrilha da Fumaça.
         - boulder:
             nome: Exquadrilha da Fumaça
-            id_no_mapa: '02'
             dificuldade: V5
             descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e
               segue para direita em agarrão virando na lateral no bloco.
         - boulder:
             nome: Quadrilha da Fumaça
-            id_no_mapa: '03'
             dificuldade: V4
             descricao: Saída com as mãos em buracos na laca, seguindo para agarrão
               e virando a direita do bloco.
         - boulder:
             nome: Planet Hemp
-            id_no_mapa: '04'
             dificuldade: V5
             descricao: Saída com as mãos buracos na laca, seguindo para agarrão e
               virando reto proa.
         - boulder:
             nome: Cypress Hill
-            id_no_mapa: '05'
             dificuldade: V6
             descricao: Saída do exquadrilha e virando no Planet Hemp.
         descricao: '# Setor Exquadrilha'
@@ -356,42 +405,57 @@ picos:
               y: 548
               comprimento: 24
               largura: 24
+          referencias:
+          - escalada: Sucrilhos no Prato
+            ids:
+            - '01'
+          - escalada: Titan
+            ids:
+            - '02'
+          - escalada: Lobão
+            ids:
+            - '03'
+          - escalada: Tião Macalé
+            ids:
+            - '04'
+          - escalada: Zac
+            ids:
+            - '05'
+          - escalada: Loboulder
+            ids:
+            - '06'
+          - escalada: Savana
+            ids:
+            - '07'
         escaladas:
         - boulder:
             nome: Sucrilhos no Prato
-            id_no_mapa: '01'
             dificuldade: V7
             descricao: Saída deitado com mão esquerda em pinça e direita na mesma
               agarra em reglete lateral.
         - boulder:
             nome: Titan
-            id_no_mapa: '02'
             dificuldade: V4
             descricao: Saída deitado com mao esquerda em pinça na borda e direita
               batente investido.
         - boulder:
             nome: Lobão
-            id_no_mapa: '03'
             dificuldade: V7
             descricao: Saida do Sucrilhos no Prato fazendo travessia para direita
               virando no Loboulder.
         - boulder:
             nome: Tião Macalé
-            id_no_mapa: '04'
             dificuldade: V5
             descricao: Saída do Sucrilhos no Prato e virando no Titan.
         - boulder:
             nome: Zac
-            id_no_mapa: '05'
             dificuldade: V6
         - boulder:
             nome: Loboulder
-            id_no_mapa: '06'
             dificuldade: V2
             descricao: Sai agachado com as mãos juntas em agarrão.
         - boulder:
             nome: Savana
-            id_no_mapa: '07'
             dificuldade: V6
             descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
               no Prato.
@@ -432,6 +496,28 @@ picos:
               y: 625
               comprimento: 17
               largura: 18
+          referencias:
+          - escalada: Strike
+            ids:
+            - '01'
+          - escalada: Chove e Não Molha
+            ids:
+            - '02'
+          - escalada: Palhaço Pirulito
+            ids:
+            - '03'
+          - escalada: Marreteiro
+            ids:
+            - '04'
+          - escalada: Guerreiro da Bocaina
+            ids:
+            - '05'
+          - escalada: High Line
+            ids:
+            - '06'
+          - escalada: Colchão de Mola
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
           largura_mapa: 1084
           altura_mapa: 881
@@ -460,42 +546,35 @@ picos:
         escaladas:
         - boulder:
             nome: Strike
-            id_no_mapa: '01'
             dificuldade: V7_BARRA_V8
             descricao: Saída sentado com mão esquerda em reglete e direita em pinça
               pequena seguindo para abaulado virando reto.
         - boulder:
             nome: Chove e Não Molha
-            id_no_mapa: '02'
             dificuldade: V3
             descricao: Saída em pé em regletes na aresta indo para abaulado e virando
               reto.
         - boulder:
             nome: Palhaço Pirulito
-            id_no_mapa: '03'
             dificuldade: V1
             descricao: Saída em pé com as mãos em abaulado virando reto.
         - boulder:
             nome: Marreteiro
-            id_no_mapa: '04'
             dificuldade: V5
             descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita
               em reglete de meia falange com calcanhar na mão direita e segue a linha
               reta.
         - boulder:
             nome: Guerreiro da Bocaina
-            id_no_mapa: '05'
             dificuldade: V6
             descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo
               ao lado da mão e direita em reglete no teto.
         - boulder:
             nome: High Line
-            id_no_mapa: '06'
             dificuldade: V5
             descricao: Saída em pé com as mãos em regletes no batentão.
         - boulder:
             nome: Colchão de Mola
-            id_no_mapa: '07'
             dificuldade: V4
             descricao: Saída em pé com as mãos em regletes investidos.
         descricao: '# Setor Bloco do Guerreiro'
@@ -514,6 +593,49 @@ picos:
               y: 797
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Sexto Sentido
+            ids:
+            - '01'
+          - escalada: Dread Lock
+            ids:
+            - '02'
+          - escalada: Cabeludo
+            ids:
+            - '03'
+          - escalada: Jacinto Barriguinha
+            ids:
+            - '04'
+          - escalada: Compressor
+            ids:
+            - '05'
+          - escalada: Cabelinho
+            ids:
+            - '06'
+          - escalada: Mágico de Oz
+            ids:
+            - '07'
+          - escalada: Mágico de Oz SDS
+            ids:
+            - 08
+          - escalada: Mr. Gordura
+            ids:
+            - 09
+          - escalada: País das Maravilhas
+            ids:
+            - '10'
+          - escalada: Capim Louco
+            ids:
+            - '11'
+          - escalada: Capim Gordura
+            ids:
+            - '12'
+          - escalada: Roleta Russa
+            ids:
+            - '13'
+          - escalada: La Qualitê
+            ids:
+            - '14'
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p1.webp
           largura_mapa: 1092
           altura_mapa: 878
@@ -616,80 +738,66 @@ picos:
         escaladas:
         - boulder:
             nome: Sexto Sentido
-            id_no_mapa: '01'
             dificuldade: V4
             descricao: Saída agachado com as mãos juntas em batente bom a direita
               do bloco e segue pela fenda diagonal para direita e vira na proa.
         - boulder:
             nome: Dread Lock
-            id_no_mapa: '02'
             dificuldade: V7
             descricao: Mesma saída do sexto sentido, travessia horizontal por baixo
               e entra no cabeludo.
         - boulder:
             nome: Cabeludo
-            id_no_mapa: '03'
             dificuldade: V7
             descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro
               movimento para cima da pedra e sai pra direita e vira no cabelinho.
         - boulder:
             nome: Jacinto Barriguinha
-            id_no_mapa: '04'
             dificuldade: V2
             descricao: Saída em pé com as mãos em agarrões e vira no buraco, no meio
               do bloco.
         - boulder:
             nome: Compressor
-            id_no_mapa: '05'
             dificuldade: V8
             descricao: Mesma saída do Cabelinho virando reto no buraco.
         - boulder:
             nome: Cabelinho
-            id_no_mapa: '06'
             dificuldade: V5
             descricao: Saída sentado com mão esquerda em pinça e direita em reglete
               pequeno, virando a direita do bloco.
         - boulder:
             nome: Mágico de Oz
-            id_no_mapa: '07'
             dificuldade: V7
             descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou
               biquinho, e mão direita em pequeno reglete abaulado.
         - boulder:
             nome: Mágico de Oz SDS
-            id_no_mapa: 08
             dificuldade: V8
             descricao: Saída em pé com mão esquerda em reglete investido e mão direita
               em pinça investida.
         - boulder:
             nome: Mr. Gordura
-            id_no_mapa: 09
             dificuldade: V9
             descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda
               virando no Capim Gordura.
         - boulder:
             nome: País das Maravilhas
-            id_no_mapa: '10'
             dificuldade: V10
             descricao: Saída deitado em agarrão, seguindo para esquerda passando por
               traz da árvore e virando no Mágico de Oz.
         - boulder:
             nome: Capim Louco
-            id_no_mapa: '11'
             dificuldade: V3
             descricao: Saída do País das Maravilhas e vira reto no bloco.
         - boulder:
             nome: Capim Gordura
-            id_no_mapa: '12'
             dificuldade: V5
             descricao: Saída do País das Maravilhas e segue para direita pela fenda.
         - boulder:
             nome: Roleta Russa
-            id_no_mapa: '13'
             dificuldade: V6
         - boulder:
             nome: La Qualitê
-            id_no_mapa: '14'
             dificuldade: V10
             descricao: Saída em pé com mão esquerda no bico e mão direita em pinça
               pequena na altura no quadril, virando reto e seguindo até o final do
@@ -717,6 +825,22 @@ picos:
               y: 692
               comprimento: 27
               largura: 29
+          referencias:
+          - escalada: Canarim
+            ids:
+            - '01'
+          - escalada: Sabiá
+            ids:
+            - '02'
+          - escalada: Consciência Limpa
+            ids:
+            - '03'
+          - escalada: Consciência
+            ids:
+            - '04'
+          - escalada: Mulheres Poderosas
+            ids:
+            - '05'
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p1.webp
           largura_mapa: 1099
           altura_mapa: 895
@@ -745,30 +869,25 @@ picos:
         escaladas:
         - boulder:
             nome: Canarim
-            id_no_mapa: '01'
             dificuldade: V2
             descricao: Saída agachado em regletes bons e segue reto.
         - boulder:
             nome: Sabiá
-            id_no_mapa: '02'
             dificuldade: V1
             descricao: Saída agachado com as duas mãos em agarras boas laterais e
               vira a esquerda da planta.
         - boulder:
             nome: Consciência Limpa
-            id_no_mapa: '03'
             dificuldade: V2
             descricao: Saída sentado com mão direita em reglete lateral branco e esquerda
               proximo as pedras .
         - boulder:
             nome: Consciência
-            id_no_mapa: '04'
             dificuldade: V1
             descricao: Saída agachado com as mãos juntas em batente baixo e segue
               reto pela aresta.
         - boulder:
             nome: Mulheres Poderosas
-            id_no_mapa: '05'
             dificuldade: V2
             descricao: Saída agachado com mão direita em agarra lateral e esquerda
               na aresta.
@@ -809,39 +928,52 @@ picos:
               y: 735
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Jamaica Abaixo de Zero
+            ids:
+            - '01'
+          - escalada: Jamaica
+            ids:
+            - '02'
+          - escalada: Kuaiti
+            ids:
+            - '03'
+          - escalada: Taiti
+            ids:
+            - '04'
+          - escalada: Haiti
+            ids:
+            - '05'
+          - escalada: Nem Lá, Nem Cá
+            ids:
+            - '06'
         escaladas:
         - boulder:
             nome: Jamaica Abaixo de Zero
-            id_no_mapa: '01'
             dificuldade: V7
             descricao: Saída sentado com a mão esquerda em reglete e direita em batente
               pequeno, seguindo reto virando no Taiti.
         - boulder:
             nome: Jamaica
-            id_no_mapa: '02'
             dificuldade: V6
             descricao: Saída do Jamaica Abaixo de Zero seguindo para direita virando
               no Haiti.
         - boulder:
             nome: Kuaiti
-            id_no_mapa: '03'
             dificuldade: V8
             descricao: Saída do Jamaica Abaixo de Zero, virando à esquerda do Taiti.
         - boulder:
             nome: Taiti
-            id_no_mapa: '04'
             dificuldade: V7
             descricao: Saída sentado com as mãos juntas em batente grande seguindo
               para batentes lisos e virando a esquerda no bloco.
         - boulder:
             nome: Haiti
-            id_no_mapa: '05'
             dificuldade: V7
             descricao: Mesma saída do Taíti seguindo a esquerda até batentes escorrido
               e virando reto.
         - boulder:
             nome: Nem Lá, Nem Cá
-            id_no_mapa: '06'
             dificuldade: V5
             descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais
               e virando reto.
@@ -882,28 +1014,37 @@ picos:
               y: 659
               comprimento: 30
               largura: 30
+          referencias:
+          - escalada: Fala Comigo
+            ids:
+            - '01'
+          - escalada: Tendinite No More
+            ids:
+            - '02'
+          - escalada: Atitude no Trecho
+            ids:
+            - '03'
+          - escalada: Achados e Perdidos
+            ids:
+            - '04'
         escaladas:
         - boulder:
             nome: Fala Comigo
-            id_no_mapa: '01'
             dificuldade: V6
             descricao: saida agachado com as mãos em agarrao a esquerda do bloco e
               faz uma travessia para direita e vira no centro do bloco no boulder
               atitude no trecho.
         - boulder:
             nome: Tendinite No More
-            id_no_mapa: '02'
             dificuldade: V2
             descricao: Saida do atitude no trecho e segue para esquerda.
         - boulder:
             nome: Atitude no Trecho
-            id_no_mapa: '03'
             dificuldade: V3
             descricao: saida agachado com as duas maos juntas em um cristal e segue
               reto (no meio do bloco).
         - boulder:
             nome: Achados e Perdidos
-            id_no_mapa: '04'
             dificuldade: V3
             descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida
               e esquerda de balcão no equilibrio e segue pela esquerda.
@@ -937,22 +1078,29 @@ picos:
               y: 684
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Açaí Bocaina
+            ids:
+            - '01'
+          - escalada: Rock Bocaina
+            ids:
+            - '02'
+          - escalada: Dedão de Aquiles
+            ids:
+            - '03'
         escaladas:
         - boulder:
             nome: Açaí Bocaina
-            id_no_mapa: '01'
             dificuldade: V5
             descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue
               a aresta por cima virando no centro do bloco.
         - boulder:
             nome: Rock Bocaina
-            id_no_mapa: '02'
             dificuldade: V8
             descricao: Saida do acai bocaina, e segue travessia para direita por baixo
               dominando no final .
         - boulder:
             nome: Dedão de Aquiles
-            id_no_mapa: '03'
             dificuldade: V3
             descricao: Saída da aresta a direita do bloco e vai arestando até o topo.
         descricao: '# Setor Bloco do Rock Bocaina'
@@ -1048,6 +1196,76 @@ picos:
               y: 693
               comprimento: 23
               largura: 26
+          referencias:
+          - escalada: Esquina do Gueto
+            ids:
+            - '01'
+          - escalada: Bem-Vindo
+            ids:
+            - '02'
+          - escalada: Siri Cascudo
+            ids:
+            - '03'
+          - escalada: Índios
+            ids:
+            - '04'
+          - escalada: Índios SDS
+            ids:
+            - '05'
+          - escalada: Família Bocaina
+            ids:
+            - '06'
+          - escalada: Sananga
+            ids:
+            - '07'
+          - escalada: Espírito San
+            ids:
+            - 08
+          - escalada: Tiro ao Alvo
+            ids:
+            - 09
+          - escalada: Tiro ao Alvo SDS
+            ids:
+            - '10'
+          - escalada: Mão na Massa
+            ids:
+            - '11'
+          - escalada: Mão na Massa SDS
+            ids:
+            - '12'
+          - escalada: Bicho de Pé
+            ids:
+            - '13'
+          - escalada: Bicho de Pé SDS
+            ids:
+            - '14'
+          - escalada: Curto e Gross
+            ids:
+            - '15'
+          - escalada: Carvoeiro
+            ids:
+            - '16'
+          - escalada: Kadron
+            ids:
+            - '17'
+          - escalada: Saída pela Culatra
+            ids:
+            - '18'
+          - escalada: Siri sem Casca
+            ids:
+            - '19'
+          - escalada: Siri Queijo
+            ids:
+            - '20'
+          - escalada: Problema Legal
+            ids:
+            - '21'
+          - escalada: Pecado de Chó
+            ids:
+            - '22'
+          - escalada: Ayuaska
+            ids:
+            - '23'
         - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
           largura_mapa: 1091
           altura_mapa: 813
@@ -1185,134 +1403,111 @@ picos:
         escaladas:
         - boulder:
             nome: Esquina do Gueto
-            id_no_mapa: '01'
             dificuldade: V2
             descricao: Saída do bem vindo e entra para a face da esquerda da pedra,
               virando por ela.
         - boulder:
             nome: Bem-Vindo
-            id_no_mapa: '02'
             dificuldade: V4
             descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda
               do bloco, segue reto.
         - boulder:
             nome: Siri Cascudo
-            id_no_mapa: '03'
             dificuldade: V6
             descricao: Saída do bem vindo, virando no Família Bocaina.
         - boulder:
             nome: Índios
-            id_no_mapa: '04'
             dificuldade: V5
             descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem
               marcada, virando no tiro ao alvo.
         - boulder:
             nome: Índios SDS
-            id_no_mapa: '05'
             dificuldade: V9
             descricao: Saída sentado com mão direita em reglete pequeno e calcanhar
               esquerdo na mão esquerda em agarrao, segue reto, passando pelo reglete
               da fenda vertical.
         - boulder:
             nome: Família Bocaina
-            id_no_mapa: '06'
             dificuldade: V10
             descricao: Saída sentado com a mão direita em reglete bom e esquerda junta
               na mesma agarra, saindo para uma agarra de ombro de esquerda.
         - boulder:
             nome: Sananga
-            id_no_mapa: '07'
             dificuldade: V9
             descricao: Saída em pé com as mãos em regletes invertidos.
         - boulder:
             nome: Espírito San
-            id_no_mapa: 08
             dificuldade: V8_BARRA_V9
             descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita
               em mono dedo.
         - boulder:
             nome: Tiro ao Alvo
-            id_no_mapa: 09
             dificuldade: V8
             descricao: Saída agachado com mão esquerda em um buraco abaulado e mão
               esquerda em reglete ruim.
         - boulder:
             nome: Tiro ao Alvo SDS
-            id_no_mapa: '10'
             dificuldade: V10
             descricao: Saída sentado com mão esquerda em reglete pequeno e direita
               em reglete liso com o pÉ esquerdo alto.
         - boulder:
             nome: Mão na Massa
-            id_no_mapa: '11'
             dificuldade: V7
             descricao: Mesma agarra de saida do tiro ao alvo e vai pra direita.
         - boulder:
             nome: Mão na Massa SDS
-            id_no_mapa: '12'
             dificuldade: V8
             descricao: Saida do tiro ao alvo SDS e vai pra direita.
         - boulder:
             nome: Bicho de Pé
-            id_no_mapa: '13'
             dificuldade: V5
             descricao: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira
               no carvoeiro.
         - boulder:
             nome: Bicho de Pé SDS
-            id_no_mapa: '14'
             dificuldade: V6
             descricao: Saida do tiro ao alvo SDS e vira no carvoeiro.
         - boulder:
             nome: Curto e Gross
-            id_no_mapa: '15'
             dificuldade: V4
             descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim
               e pés ruins.
         - boulder:
             nome: Carvoeiro
-            id_no_mapa: '16'
             dificuldade: V1
             descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda
               diagonal pra esquerda em agarroes.
         - boulder:
             nome: Kadron
-            id_no_mapa: '17'
             dificuldade: V3
             descricao: Saída do carvoeiro e faz travessia para direita contornando
               o bloco.
         - boulder:
             nome: Saída pela Culatra
-            id_no_mapa: '18'
             dificuldade: V2
             descricao: Sai sentado com as mãos em agarrao a direita do bloco e segue
               reto.
         - boulder:
             nome: Siri sem Casca
-            id_no_mapa: '19'
             dificuldade: V6
             descricao: Saída do bem vindo e virando no índios.
         - boulder:
             nome: Siri Queijo
-            id_no_mapa: '20'
             dificuldade: V7
             descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem
               marcada, virando no tiro ao alvo.
         - boulder:
             nome: Problema Legal
-            id_no_mapa: '21'
             dificuldade: V7
             descricao: Saída com a mão esquerda em escama na fenda, mão direita em
               agarrão baixo com calcanhar esquerdo na altura da mão esquerda, virando
               no Siri queijo.
         - boulder:
             nome: Pecado de Chó
-            id_no_mapa: '22'
             dificuldade: V10_BARRA_V11
             descricao: Saída do sananga virando no Família Bocaina.
         - boulder:
             nome: Ayuaska
-            id_no_mapa: '23'
             dificuldade: V11
             descricao: Saída do sananga virando no indios.
         descricao: '# Setor Bloco 45º'
@@ -1373,6 +1568,34 @@ picos:
               y: 630
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Agricultor
+            ids:
+            - '01'
+          - escalada: Garimpeiro
+            ids:
+            - '02'
+          - escalada: A Regra é Clara
+            ids:
+            - '03'
+          - escalada: Essência
+            ids:
+            - '04'
+          - escalada: Indecência
+            ids:
+            - '05'
+          - escalada: Regra do Jogo
+            ids:
+            - '06'
+          - escalada: Carta de Euforia
+            ids:
+            - '07'
+          - escalada: Escravos de Chó
+            ids:
+            - 08
+          - escalada: Jardim de Infância
+            ids:
+            - 09
         - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
           largura_mapa: 1094
           altura_mapa: 782
@@ -1387,39 +1610,30 @@ picos:
         escaladas:
         - boulder:
             nome: Agricultor
-            id_no_mapa: '01'
             dificuldade: V2
         - boulder:
             nome: Garimpeiro
-            id_no_mapa: '02'
             dificuldade: V4
         - boulder:
             nome: A Regra é Clara
-            id_no_mapa: '03'
             dificuldade: V5
         - boulder:
             nome: Essência
-            id_no_mapa: '04'
             dificuldade: V4
         - boulder:
             nome: Indecência
-            id_no_mapa: '05'
             dificuldade: V3
         - boulder:
             nome: Regra do Jogo
-            id_no_mapa: '06'
             dificuldade: V1
         - boulder:
             nome: Carta de Euforia
-            id_no_mapa: '07'
             dificuldade: V5
         - boulder:
             nome: Escravos de Chó
-            id_no_mapa: 08
             dificuldade: V5
         - boulder:
             nome: Jardim de Infância
-            id_no_mapa: 09
             dificuldade: V0
         descricao: '# Setor Essência'
 botoes:
@@ -1511,7 +1725,7 @@ botoes:
         \ Exquadrilha |\n| 4 | Canil |\n| 5 | Bloco do Guerreiro |\n| 6 | Bloco do\
         \ Cabelin |\n| 7 | Consciência Limpa |\n| 8 | Haiti |\n| 9 | Achados e Perdidos\
         \ |\n| 10 | Bloco do Rock Bocaina |\n| 11 | Bloco 45º |\n| 12 | Essência |"
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

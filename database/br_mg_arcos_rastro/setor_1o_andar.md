@@ -1,4 +1,4 @@
----
+---
 nome: 1º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1o_andar_p0_i0.webp
@@ -166,78 +166,101 @@ mapas:
       y: 468
       comprimento: 15
       largura: 15
+  referencias:
+  - escalada: Roolinhalala
+    ids:
+    - '01'
+  - escalada: Cabo José
+    ids:
+    - '02'
+  - escalada: Soldado Abatido
+    ids:
+    - '03'
+  - escalada: Via do Calango
+    ids:
+    - '04'
+  - escalada: 50cintis
+    ids:
+    - '05'
+  - escalada: Zac Marley
+    ids:
+    - '06'
+  - escalada: Cada Macaco no Seu Galho
+    ids:
+    - '07'
+  - escalada: Curte o Planeta que Você Vive
+    ids:
+    - '8'
+  - escalada: Subaco da Zen
+    ids:
+    - '9'
+  - escalada: Chuva de Espinho
+    ids:
+    - '10'
+  - escalada: Minha Criança
+    ids:
+    - '11'
 escaladas:
 - via_esportiva:
     nome: Roolinhalala
-    id_no_mapa: '01'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
     data_abertura: '2018'
 - via_esportiva:
     nome: Cabo José
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Soldado Abatido
-    id_no_mapa: '03'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Via do Calango
-    id_no_mapa: '04'
     dificuldade: PROJETO
 - via_esportiva:
     nome: 50cintis
-    id_no_mapa: '05'
     destaque: true
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Zac Marley
-    id_no_mapa: '06'
     destaque: true
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cada Macaco no Seu Galho
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Curte o Planeta que Você Vive
-    id_no_mapa: 08
     destaque: true
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Subaco da Zen
-    id_no_mapa: 09
     destaque: true
     dificuldade: BR_7A
 - via_esportiva:
     nome: Chuva de Espinho
-    id_no_mapa: '10'
     destaque: true
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Minha Criança
-    id_no_mapa: '11'
     destaque: true
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
----
+---
 # Setor 1º Andar
 
 Este setor possui sombra a partir das 13h (variando de acordo com a estação).

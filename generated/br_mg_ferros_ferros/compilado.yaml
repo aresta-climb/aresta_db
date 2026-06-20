@@ -16,6 +16,19 @@ picos:
         nome: Subsetor Cachoeira
         mapas:
         - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp
+          referencias:
+          - escalada: Pé na Chapa
+            ids:
+            - '1'
+          - escalada: Desenferrujando
+            ids:
+            - '2'
+          - escalada: Ferrugem
+            ids:
+            - '3'
+          - escalada: A Ferro Quente
+            ids:
+            - '4'
           largura_mapa: 992
           altura_mapa: 624
         - caminho_imagem_mapa: imagens/setor_cachoeira_p1_i1.webp
@@ -27,7 +40,6 @@ picos:
         escaladas:
         - via_esportiva:
             nome: Pé na Chapa
-            id_no_mapa: '1'
             dificuldade: BR_2
             exposicao: E1
             extensao: 15
@@ -40,7 +52,6 @@ picos:
               Rapel / top-rope com corda única de 50m.
         - via_esportiva:
             nome: Desenferrujando
-            id_no_mapa: '2'
             dificuldade: BR_2
             exposicao: E1
             extensao: 15
@@ -52,7 +63,6 @@ picos:
               um de top-rope.
         - via_esportiva:
             nome: Ferrugem
-            id_no_mapa: '3'
             dificuldade: BR_1SUP
             extensao: 30
             conquistadores:
@@ -66,7 +76,6 @@ picos:
               técnica em si. Rapel / top-rope em corda única de 60m.
         - via_esportiva:
             nome: A Ferro Quente
-            id_no_mapa: '4'
             dificuldade: BR_2
             extensao: 25
             conquistadores:
@@ -107,11 +116,26 @@ picos:
             nome: Extrema Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
+              referencias:
+              - escalada: Solamente
+                ids:
+                - '1'
+              - escalada: Nesse Mato Tem Cachorro
+                ids:
+                - '2'
+              - escalada: Vr. Cachorro Louco
+                ids:
+                - '3'
+              - escalada: Libera Liberou
+                ids:
+                - '4'
+              - escalada: Dez Mil e Uma Noites
+                ids:
+                - '5'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp
             escaladas:
             - via_multiplas_enfiadas:
                 nome: Solamente
-                id_no_mapa: '1'
                 dificuldade_media: BR_1
                 dificuldade_maxima: BR_2
                 comprimento_total: 120
@@ -123,7 +147,6 @@ picos:
                   pelo mato do lado esquerdo.
             - via_esportiva:
                 nome: Nesse Mato Tem Cachorro
-                id_no_mapa: '2'
                 dificuldade: BR_3
                 exposicao: E2
                 extensao: 55
@@ -139,7 +162,6 @@ picos:
                   a esquerda, até a última proteção da via.
             - via_esportiva:
                 nome: Vr. Cachorro Louco
-                id_no_mapa: '3'
                 dificuldade: BR_3
                 exposicao: E3
                 extensao: 30
@@ -156,7 +178,6 @@ picos:
                   esta via deve ser abordada com cautela.
             - via_esportiva:
                 nome: Libera Liberou
-                id_no_mapa: '4'
                 dificuldade: BR_3
                 exposicao: E1
                 extensao: 35
@@ -169,7 +190,6 @@ picos:
                   reta, terminando na barreira de vegetação.
             - via_esportiva:
                 nome: Dez Mil e Uma Noites
-                id_no_mapa: '5'
                 dificuldade: BR_6
                 exposicao: E1
                 extensao: 45
@@ -225,12 +245,69 @@ picos:
             nome: Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
+              referencias:
+              - escalada: Cordada 171
+                ids:
+                - '1'
+              - escalada: Inês é Morta
+                ids:
+                - '2'
+              - escalada: Sempre Viva
+                ids:
+                - '3'
+              - escalada: Zé Marta
+                ids:
+                - '5'
+              - escalada: Bolinha
+                ids:
+                - '6'
+              - escalada: Testa de Ferro
+                ids:
+                - '7'
+              - escalada: Ferro na Boneca
+                ids:
+                - '8'
+              - escalada: Maria Diz Graça
+                ids:
+                - '9'
+              - escalada: Zé Mangueira
+                ids:
+                - '10'
+              - escalada: Sherlock Holmes
+                ids:
+                - '11'
+              - escalada: Professor Moriarty
+                ids:
+                - '12'
+              - escalada: Que Qui Ocê Foi Fazê Nu Mato?
+                ids:
+                - '13'
+              - escalada: O Psicopata de Ferros
+                ids:
+                - '14'
+              - escalada: Frio na Barriga
+                ids:
+                - '16'
+              - escalada: Pescoço de Minhoca
+                ids:
+                - '17'
+              - escalada: Grampos de Ferros
+                ids:
+                - '18'
+              - escalada: Prateado
+                ids:
+                - '19'
+              - escalada: Fissurim
+                ids:
+                - '4'
+              - escalada: Vr. Caçadora de Micuim
+                ids:
+                - '15'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p2_i0.webp
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p3_i0.webp
             escaladas:
             - via_multiplas_enfiadas:
                 nome: Cordada 171
-                id_no_mapa: '1'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_4SUP
                 exposicao: E1
@@ -249,7 +326,6 @@ picos:
                   autores!
             - via_multiplas_enfiadas:
                 nome: Inês é Morta
-                id_no_mapa: '2'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_4
                 comprimento_total: 100
@@ -264,7 +340,6 @@ picos:
                   MISTA'
             - via_esportiva:
                 nome: Sempre Viva
-                id_no_mapa: '3'
                 dificuldade: BR_3
                 extensao: 35
                 conquistadores:
@@ -276,7 +351,6 @@ picos:
                   inferior.
             - via_movel:
                 nome: Fissurim
-                id_no_mapa: '4'
                 dificuldade: BR_5
                 extensao: 20
                 conquistadores:
@@ -290,7 +364,6 @@ picos:
                   MOVEL'
             - via_multiplas_enfiadas:
                 nome: Zé Marta
-                id_no_mapa: '5'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_4
                 comprimento_total: 90
@@ -304,7 +377,6 @@ picos:
                   que foi o supervisor da fazenda.
             - via_esportiva:
                 nome: Bolinha
-                id_no_mapa: '6'
                 dificuldade: BR_6
                 extensao: 30
                 conquistadores:
@@ -316,7 +388,6 @@ picos:
                   até o final.
             - via_esportiva:
                 nome: Testa de Ferro
-                id_no_mapa: '7'
                 dificuldade: BR_4
                 extensao: 25
                 conquistadores:
@@ -327,7 +398,6 @@ picos:
                   via Maria Diz Graça.
             - via_esportiva:
                 nome: Ferro na Boneca
-                id_no_mapa: '8'
                 dificuldade: BR_7A
                 extensao: 20
                 conquistadores:
@@ -339,7 +409,6 @@ picos:
                   Termina na Maria Diz Graça.
             - via_esportiva:
                 nome: Maria Diz Graça
-                id_no_mapa: '9'
                 dificuldade: BR_5
                 extensao: 45
                 conquistadores:
@@ -351,7 +420,6 @@ picos:
                   Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
             - via_esportiva:
                 nome: Zé Mangueira
-                id_no_mapa: '10'
                 dificuldade: BR_5SUP
                 extensao: 60
                 conquistadores:
@@ -364,7 +432,6 @@ picos:
                   o falecido morador da entrada do Vale do Roncador.
             - via_esportiva:
                 nome: Sherlock Holmes
-                id_no_mapa: '11'
                 dificuldade: BR_5SUP
                 extensao: 20
                 conquistadores:
@@ -375,7 +442,6 @@ picos:
                   e boa grampeação.
             - via_esportiva:
                 nome: Professor Moriarty
-                id_no_mapa: '12'
                 dificuldade: BR_3SUP
                 exposicao: E1
                 extensao: 30
@@ -387,7 +453,6 @@ picos:
                   com 6 grampos. Ideal para top-rope.
             - via_multiplas_enfiadas:
                 nome: Que Qui Ocê Foi Fazê Nu Mato?
-                id_no_mapa: '13'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_5
                 exposicao: E2
@@ -403,7 +468,6 @@ picos:
                   bastante divertidos, em aderência e cristaleiras.
             - via_multiplas_enfiadas:
                 nome: O Psicopata de Ferros
-                id_no_mapa: '14'
                 dificuldade_media: BR_4
                 dificuldade_maxima: BR_6
                 exposicao: E2
@@ -422,7 +486,6 @@ picos:
                   MISTA'
             - via_movel:
                 nome: Vr. Caçadora de Micuim
-                id_no_mapa: '15'
                 dificuldade: BR_3
                 exposicao: E1
                 extensao: 35
@@ -437,7 +500,6 @@ picos:
                   e com boas opções de proteção. ESTILO: MOVEL'
             - via_multiplas_enfiadas:
                 nome: Frio na Barriga
-                id_no_mapa: '16'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_3SUP
                 comprimento_total: 100
@@ -452,7 +514,6 @@ picos:
                   apenas 40 metros, sendo posteriormente complementada.
             - via_multiplas_enfiadas:
                 nome: Pescoço de Minhoca
-                id_no_mapa: '17'
                 dificuldade_media: BR_4
                 dificuldade_maxima: BR_4
                 comprimento_total: 140
@@ -465,7 +526,6 @@ picos:
                   única de 50m.
             - via_multiplas_enfiadas:
                 nome: Grampos de Ferros
-                id_no_mapa: '18'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_4SUP
                 comprimento_total: 110
@@ -480,7 +540,6 @@ picos:
                   ESTILO: MISTA'
             - via_multiplas_enfiadas:
                 nome: Prateado
-                id_no_mapa: '19'
                 dificuldade_media: BR_3
                 dificuldade_maxima: BR_4
                 comprimento_total: 130
@@ -534,11 +593,14 @@ picos:
             nome: Parede das Aderências – Face Central
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p1_i0.webp
+              referencias:
+              - escalada: O Psicopata de Ferros
+                ids:
+                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
             escaladas:
             - via_movel:
                 nome: O Psicopata de Ferros
-                id_no_mapa: '1'
                 dificuldade: BR_6
                 exposicao: E2
                 extensao: 70
@@ -552,11 +614,14 @@ picos:
             nome: Parede das Aderências – Setor de Cima
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p0_i1.webp
+              referencias:
+              - escalada: Solamente
+                ids:
+                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
             escaladas:
             - via_esportiva:
                 nome: Solamente
-                id_no_mapa: '1'
                 dificuldade: BR_2
                 extensao: 120
                 conquistadores:
@@ -568,11 +633,14 @@ picos:
             nome: Parede das Aderências – Extrema Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
+              referencias:
+              - escalada: Ferro na Boneca
+                ids:
+                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
             escaladas:
             - via_esportiva:
                 nome: Ferro na Boneca
-                id_no_mapa: '1'
                 dificuldade: BR_7A
                 extensao: 20
                 conquistadores:
@@ -628,6 +696,64 @@ picos:
             nome: Parede Principal – Setor Clássicas Curtas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
+              referencias:
+              - escalada: A Medalha de Lúcia
+                ids:
+                - '1'
+              - escalada: Águas de Março
+                ids:
+                - '2'
+              - escalada: Vou Dançar o Xaxaxá
+                ids:
+                - '3'
+              - escalada: Casas da Banha
+                ids:
+                - '4'
+              - escalada: Ferradura
+                ids:
+                - '5'
+              - escalada: Ferrolho
+                ids:
+                - '6'
+              - escalada: Cambal a Quatro
+                ids:
+                - '7'
+              - escalada: El Bigodón
+                ids:
+                - '8'
+              - escalada: Deu Tilt
+                ids:
+                - '12'
+              - escalada: Ferroada
+                ids:
+                - '13'
+              - escalada: Scarface
+                ids:
+                - '14'
+              - escalada: Se Meu Fusca Falasse
+                ids:
+                - '15'
+              - escalada: Couro de Lobisomem
+                ids:
+                - '16'
+              - escalada: Enferrujados
+                ids:
+                - '17'
+              - escalada: Rastro de Cobra
+                ids:
+                - '18'
+              - escalada: Entrando no Ferro
+                ids:
+                - '19'
+              - escalada: Testa de Aço
+                ids:
+                - '9'
+              - escalada: Me Ferrei
+                ids:
+                - '10'
+              - escalada: Amor Profano
+                ids:
+                - '11'
               largura_mapa: 1024
               altura_mapa: 602
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
@@ -639,7 +765,6 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: A Medalha de Lúcia
-                id_no_mapa: '1'
                 dificuldade: BR_3SUP
                 extensao: 30
                 conquistadores:
@@ -649,7 +774,6 @@ picos:
                 descricao: Segue por uma óbvia cristaleira até seu final.
             - via_esportiva:
                 nome: Águas de Março
-                id_no_mapa: '2'
                 dificuldade: BR_4SUP
                 extensao: 65
                 conquistadores:
@@ -659,7 +783,6 @@ picos:
                 descricao: Interessante via que inicia em um lance levemente atlético.
             - via_esportiva:
                 nome: Vou Dançar o Xaxaxá
-                id_no_mapa: '3'
                 dificuldade: BR_4
                 extensao: 65
                 conquistadores:
@@ -668,7 +791,6 @@ picos:
                 data_abertura: '2010-11-28'
             - via_esportiva:
                 nome: Casas da Banha
-                id_no_mapa: '4'
                 dificuldade: BR_5SUP
                 extensao: 45
                 conquistadores:
@@ -679,7 +801,6 @@ picos:
                 data_abertura: '2011-04-21'
             - via_esportiva:
                 nome: Ferradura
-                id_no_mapa: '5'
                 dificuldade: BR_6SUP
                 extensao: 10
                 conquistadores:
@@ -688,7 +809,6 @@ picos:
                 data_abertura: '2007-06-03'
             - via_esportiva:
                 nome: Ferrolho
-                id_no_mapa: '6'
                 dificuldade: BR_4
                 extensao: 25
                 conquistadores:
@@ -697,7 +817,6 @@ picos:
                 data_abertura: '2007-06-03'
             - via_esportiva:
                 nome: Cambal a Quatro
-                id_no_mapa: '7'
                 dificuldade: BR_5SUP
                 extensao: 30
                 conquistadores:
@@ -707,7 +826,6 @@ picos:
                 data_abertura: '2008-02-03'
             - via_esportiva:
                 nome: El Bigodón
-                id_no_mapa: '8'
                 dificuldade: BR_5
                 extensao: 30
                 conquistadores:
@@ -717,7 +835,6 @@ picos:
                 data_abertura: '2006-08-27'
             - via_movel:
                 nome: Testa de Aço
-                id_no_mapa: '9'
                 dificuldade: BR_5SUP
                 extensao: 30
                 conquistadores:
@@ -726,7 +843,6 @@ picos:
                 data_abertura: '2007-10-28'
             - via_movel:
                 nome: Me Ferrei
-                id_no_mapa: '10'
                 dificuldade: BR_6
                 extensao: 18
                 conquistadores:
@@ -735,7 +851,6 @@ picos:
                 data_abertura: '2011-06-22'
             - via_movel:
                 nome: Amor Profano
-                id_no_mapa: '11'
                 dificuldade: BR_5
                 extensao: 20
                 conquistadores:
@@ -744,7 +859,6 @@ picos:
                 data_abertura: '2007-08-13'
             - via_esportiva:
                 nome: Deu Tilt
-                id_no_mapa: '12'
                 dificuldade: BR_4SUP
                 extensao: 15
                 conquistadores:
@@ -753,7 +867,6 @@ picos:
                 data_abertura: '2008-03-22'
             - via_esportiva:
                 nome: Ferroada
-                id_no_mapa: '13'
                 dificuldade: BR_3
                 extensao: 20
                 conquistadores:
@@ -762,7 +875,6 @@ picos:
                 data_abertura: '2007-04-23'
             - via_esportiva:
                 nome: Scarface
-                id_no_mapa: '14'
                 dificuldade: BR_4
                 extensao: 20
                 conquistadores:
@@ -771,7 +883,6 @@ picos:
                 data_abertura: '2013-05-30'
             - via_esportiva:
                 nome: Se Meu Fusca Falasse
-                id_no_mapa: '15'
                 dificuldade: BR_4
                 extensao: 15
                 conquistadores:
@@ -780,7 +891,6 @@ picos:
                 data_abertura: '2010-02-16'
             - via_esportiva:
                 nome: Couro de Lobisomem
-                id_no_mapa: '16'
                 dificuldade: BR_6SUP
                 extensao: 18
                 conquistadores:
@@ -790,7 +900,6 @@ picos:
                 data_abertura: '2011-07-17'
             - via_esportiva:
                 nome: Enferrujados
-                id_no_mapa: '17'
                 dificuldade: BR_4
                 extensao: 15
                 conquistadores:
@@ -800,7 +909,6 @@ picos:
                 data_abertura: '2007-06-17'
             - via_esportiva:
                 nome: Rastro de Cobra
-                id_no_mapa: '18'
                 dificuldade: BR_5SUP
                 extensao: 18
                 conquistadores:
@@ -809,7 +917,6 @@ picos:
                 data_abertura: '2011-07-17'
             - via_esportiva:
                 nome: Entrando no Ferro
-                id_no_mapa: '19'
                 dificuldade: BR_5SUP
                 extensao: 25
                 conquistadores:
@@ -831,6 +938,52 @@ picos:
             nome: Parede Principal – Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp
+              referencias:
+              - escalada: Macambúzio
+                ids:
+                - '1'
+              - escalada: Pente Frio
+                ids:
+                - '2'
+              - escalada: El Barrigón
+                ids:
+                - '3'
+              - escalada: Lobos do Caraça
+                ids:
+                - '4'
+              - escalada: O Tempo e o Vento
+                ids:
+                - '5'
+              - escalada: O Burro e o Capacete
+                ids:
+                - '6'
+              - escalada: Tá Bão
+                ids:
+                - '7'
+              - escalada: Pelanca
+                ids:
+                - '10'
+              - escalada: Flor da Pele
+                ids:
+                - '11'
+              - escalada: Alma Nova
+                ids:
+                - '12'
+              - escalada: Pele Vermelha
+                ids:
+                - '13'
+              - escalada: Pelinha
+                ids:
+                - '14'
+              - escalada: Cutícula
+                ids:
+                - '15'
+              - escalada: Amor meu Grande amor
+                ids:
+                - '8'
+              - escalada: Rapidinha no Escurinho
+                ids:
+                - '9'
               largura_mapa: 1024
               altura_mapa: 615
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p2_i0.webp
@@ -839,7 +992,6 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Macambúzio
-                id_no_mapa: '1'
                 dificuldade: BR_3SUP
                 extensao: 80
                 conquistadores:
@@ -848,7 +1000,6 @@ picos:
                 data_abertura: '2017-03-01'
             - via_esportiva:
                 nome: Pente Frio
-                id_no_mapa: '2'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 65
@@ -858,7 +1009,6 @@ picos:
                 data_abertura: '2015-04-05'
             - via_esportiva:
                 nome: El Barrigón
-                id_no_mapa: '3'
                 dificuldade: BR_4
                 extensao: 45
                 conquistadores:
@@ -867,7 +1017,6 @@ picos:
                 data_abertura: '2006-10-15'
             - via_esportiva:
                 nome: Lobos do Caraça
-                id_no_mapa: '4'
                 dificuldade: BR_4
                 extensao: 100
                 conquistadores:
@@ -876,7 +1025,6 @@ picos:
                 data_abertura: '2006-10-29'
             - via_esportiva:
                 nome: O Tempo e o Vento
-                id_no_mapa: '5'
                 dificuldade: BR_3
                 exposicao: E1
                 extensao: 100
@@ -886,7 +1034,6 @@ picos:
                 data_abertura: '2014-03-01'
             - via_esportiva:
                 nome: O Burro e o Capacete
-                id_no_mapa: '6'
                 dificuldade: BR_3SUP
                 extensao: 75
                 conquistadores:
@@ -895,54 +1042,45 @@ picos:
                 data_abertura: '2011-05-15'
             - via_esportiva:
                 nome: Tá Bão
-                id_no_mapa: '7'
                 dificuldade: BR_4SUP
                 exposicao: E1
                 extensao: 35
             - via_movel:
                 nome: Amor meu Grande amor
-                id_no_mapa: '8'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 45
             - via_movel:
                 nome: Rapidinha no Escurinho
-                id_no_mapa: '9'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 50
             - via_esportiva:
                 nome: Pelanca
-                id_no_mapa: '10'
                 dificuldade: BR_5
                 exposicao: E1
                 extensao: 45
             - via_esportiva:
                 nome: Flor da Pele
-                id_no_mapa: '11'
                 dificuldade: BR_3SUP
                 exposicao: E1
                 extensao: 35
             - via_esportiva:
                 nome: Alma Nova
-                id_no_mapa: '12'
                 dificuldade: BR_3SUP
                 extensao: 25
             - via_esportiva:
                 nome: Pele Vermelha
-                id_no_mapa: '13'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 45
             - via_esportiva:
                 nome: Pelinha
-                id_no_mapa: '14'
                 dificuldade: BR_2
                 exposicao: E3
                 extensao: 20
             - via_esportiva:
                 nome: Cutícula
-                id_no_mapa: '15'
                 dificuldade: BR_2
                 exposicao: E3
                 extensao: 18
@@ -956,6 +1094,73 @@ picos:
             nome: Parede Principal – Setor Central
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
+              referencias:
+              - escalada: Ferro no Judas
+                ids:
+                - '1'
+              - escalada: Marcado a Ferro
+                ids:
+                - '2'
+              - escalada: Rolam as Pedras
+                ids:
+                - '3'
+              - escalada: Pum Medonho
+                ids:
+                - '6'
+              - escalada: Pr. Chapado
+                ids:
+                - '7'
+              - escalada: Dona Flor e Suas Duas Marretas
+                ids:
+                - '8'
+              - escalada: Pé de Pano
+                ids:
+                - '9'
+              - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+                ids:
+                - '11'
+              - escalada: Hilda Furacão
+                ids:
+                - '12'
+              - escalada: Iron Men
+                ids:
+                - '13'
+              - escalada: Rainha da Base
+                ids:
+                - '15'
+              - escalada: A Ferro e Fogo
+                ids:
+                - '16'
+              - escalada: Chuva Ácida
+                ids:
+                - '17'
+              - escalada: A Decadência da Bufa
+                ids:
+                - '18'
+              - escalada: Tatu do Jeca
+                ids:
+                - '19'
+              - escalada: Jeca Tatu
+                ids:
+                - '20'
+              - escalada: Valeu Papito
+                ids:
+                - '21'
+              - escalada: Macambúzio
+                ids:
+                - '23'
+              - escalada: Tromba D’Água
+                ids:
+                - '4'
+              - escalada: Ferro Velho
+                ids:
+                - '5'
+              - escalada: CDF
+                ids:
+                - '10'
+              - escalada: Cordão do Bola Preta
+                ids:
+                - '14'
               largura_mapa: 2048
               altura_mapa: 1268
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
@@ -964,124 +1169,102 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Ferro no Judas
-                id_no_mapa: '1'
                 dificuldade: BR_5SUP
                 extensao: 130
             - via_esportiva:
                 nome: Marcado a Ferro
-                id_no_mapa: '2'
                 dificuldade: BR_5
                 extensao: 180
             - via_esportiva:
                 nome: Rolam as Pedras
-                id_no_mapa: '3'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 130
             - via_movel:
                 nome: Tromba D’Água
-                id_no_mapa: '4'
                 dificuldade: BR_4
                 exposicao: E3
                 extensao: 175
             - via_movel:
                 nome: Ferro Velho
-                id_no_mapa: '5'
                 dificuldade: BR_4
                 exposicao: E2
                 extensao: 140
             - via_esportiva:
                 nome: Pum Medonho
-                id_no_mapa: '6'
                 dificuldade: BR_3SUP
                 extensao: 110
             - via_esportiva:
                 nome: Pr. Chapado
-                id_no_mapa: '7'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 135
             - via_esportiva:
                 nome: Dona Flor e Suas Duas Marretas
-                id_no_mapa: '8'
                 dificuldade: BR_3SUP
                 exposicao: E2
                 extensao: 130
             - via_esportiva:
                 nome: Pé de Pano
-                id_no_mapa: '9'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 150
             - via_movel:
                 nome: CDF
-                id_no_mapa: '10'
                 dificuldade: BR_4
                 extensao: 130
             - via_esportiva:
                 nome: Eu Sei o Que Vocês Fizeram no Blackout Passado
-                id_no_mapa: '11'
                 dificuldade: BR_4SUP
                 exposicao: E1
                 extensao: 115
             - via_esportiva:
                 nome: Hilda Furacão
-                id_no_mapa: '12'
                 dificuldade: BR_4
                 extensao: 165
             - via_esportiva:
                 nome: Iron Men
-                id_no_mapa: '13'
                 dificuldade: BR_5
                 extensao: 160
             - via_movel:
                 nome: Cordão do Bola Preta
-                id_no_mapa: '14'
                 dificuldade: BR_4SUP
                 exposicao: E2
                 extensao: 130
             - via_esportiva:
                 nome: Rainha da Base
-                id_no_mapa: '15'
                 dificuldade: BR_4SUP
                 exposicao: E2
                 extensao: 120
             - via_esportiva:
                 nome: A Ferro e Fogo
-                id_no_mapa: '16'
                 dificuldade: BR_4
                 extensao: 150
             - via_esportiva:
                 nome: Chuva Ácida
-                id_no_mapa: '17'
                 dificuldade: BR_3SUP
                 exposicao: E1
                 extensao: 50
             - via_esportiva:
                 nome: A Decadência da Bufa
-                id_no_mapa: '18'
                 dificuldade: BR_4SUP
                 exposicao: E1
                 extensao: 125
             - via_esportiva:
                 nome: Tatu do Jeca
-                id_no_mapa: '19'
                 dificuldade: BR_3SUP
                 exposicao: E1
                 extensao: 30
             - via_esportiva:
                 nome: Jeca Tatu
-                id_no_mapa: '20'
                 dificuldade: BR_4SUP
                 extensao: 90
             - via_esportiva:
                 nome: Valeu Papito
-                id_no_mapa: '21'
                 dificuldade: BR_3SUP
                 extensao: 90
             - via_esportiva:
                 nome: Macambúzio
-                id_no_mapa: '23'
                 dificuldade: BR_3SUP
                 extensao: 80
             descricao: '| ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp)
@@ -1094,6 +1277,13 @@ picos:
             nome: Parede Principal – Setor de Cima
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
+              referencias:
+              - escalada: Um Momento no Tempo
+                ids:
+                - '1'
+              - escalada: Noite de São João
+                ids:
+                - '2'
               largura_mapa: 2048
               altura_mapa: 1268
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp
@@ -1102,13 +1292,11 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Um Momento no Tempo
-                id_no_mapa: '1'
                 dificuldade: BR_6
                 exposicao: E2
                 extensao: 120
             - via_esportiva:
                 nome: Noite de São João
-                id_no_mapa: '2'
                 dificuldade: BR_3SUP
                 exposicao: E2
                 extensao: 120
@@ -1122,6 +1310,82 @@ picos:
             nome: Parede Principal – Setor Clássicas Longas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
+              referencias:
+              - escalada: Quarto 304
+                ids:
+                - '1'
+              - escalada: O Nome da Rosa
+                ids:
+                - '2'
+              - escalada: O Retorno de Jedi
+                ids:
+                - '3'
+              - escalada: Jardim do Éden
+                ids:
+                - '5'
+              - escalada: A Dois Passos do Paraíso
+                ids:
+                - '6'
+              - escalada: Conquista do Paraíso
+                ids:
+                - '7'
+              - escalada: Purgatório
+                ids:
+                - '8'
+              - escalada: Conrado Ferro
+                ids:
+                - '10'
+              - escalada: Quem com Ferro Fere
+                ids:
+                - '11'
+              - escalada: Tanto Bate Até Que Fura
+                ids:
+                - '12'
+              - escalada: Trem de Ferro
+                ids:
+                - '13'
+              - escalada: Up Ester
+                ids:
+                - '14'
+              - escalada: Até Que a Vida Nos Separe
+                ids:
+                - '15'
+              - escalada: Pr. CEM
+                ids:
+                - '17'
+              - escalada: Vr. SEM
+                ids:
+                - '18'
+              - escalada: Engatilhados
+                ids:
+                - '19'
+              - escalada: Trio Elétrico
+                ids:
+                - '20'
+              - escalada: Eu Não Sou de Ferro
+                ids:
+                - '21'
+              - escalada: Grand Finale
+                ids:
+                - '23'
+              - escalada: À Francesa
+                ids:
+                - '24'
+              - escalada: Ih, Ferrou!
+                ids:
+                - '4'
+              - escalada: Arco de Ferros
+                ids:
+                - '9'
+              - escalada: Vr. Pilhado
+                ids:
+                - '16'
+              - escalada: Rio de Mão Dupla
+                ids:
+                - '22'
+              - escalada: Atalho dos Duendes
+                ids:
+                - '25'
               largura_mapa: 1024
               altura_mapa: 649
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
@@ -1130,146 +1394,121 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Quarto 304
-                id_no_mapa: '1'
                 dificuldade: BR_2SUP
                 exposicao: E1
                 extensao: 120
             - via_esportiva:
                 nome: O Nome da Rosa
-                id_no_mapa: '2'
                 dificuldade: BR_4SUP
                 exposicao: E1
                 extensao: 120
             - via_esportiva:
                 nome: O Retorno de Jedi
-                id_no_mapa: '3'
                 dificuldade: BR_4SUP
                 extensao: 150
             - via_movel:
                 nome: Ih, Ferrou!
-                id_no_mapa: '4'
                 dificuldade: BR_6
                 exposicao: E2
                 extensao: 185
             - via_esportiva:
                 nome: Jardim do Éden
-                id_no_mapa: '5'
                 dificuldade: BR_7A
                 exposicao: E1
                 extensao: 220
             - via_esportiva:
                 nome: A Dois Passos do Paraíso
-                id_no_mapa: '6'
                 dificuldade: BR_7C
                 exposicao: E1
                 extensao: 85
             - via_esportiva:
                 nome: Conquista do Paraíso
-                id_no_mapa: '7'
                 dificuldade: BR_7A
                 extensao: 165
             - via_esportiva:
                 nome: Purgatório
-                id_no_mapa: '8'
                 dificuldade: BR_8B
                 exposicao: E2
                 extensao: 120
             - via_movel:
                 nome: Arco de Ferros
-                id_no_mapa: '9'
                 dificuldade: BR_7A
                 exposicao: E2
                 extensao: 50
             - via_esportiva:
                 nome: Conrado Ferro
-                id_no_mapa: '10'
                 dificuldade: BR_8C
                 exposicao: E2
                 extensao: 120
             - via_esportiva:
                 nome: Quem com Ferro Fere
-                id_no_mapa: '11'
                 dificuldade: BR_5
                 exposicao: E1
                 extensao: 90
             - via_esportiva:
                 nome: Tanto Bate Até Que Fura
-                id_no_mapa: '12'
                 dificuldade: BR_7A
                 exposicao: E1
                 extensao: 65
             - via_esportiva:
                 nome: Trem de Ferro
-                id_no_mapa: '13'
                 dificuldade: BR_5
                 exposicao: E2
                 extensao: 80
             - via_esportiva:
                 nome: Up Ester
-                id_no_mapa: '14'
                 dificuldade: BR_5SUP
                 exposicao: E1
                 extensao: 100
             - via_esportiva:
                 nome: Até Que a Vida Nos Separe
-                id_no_mapa: '15'
                 dificuldade: BR_4SUP
                 exposicao: E1
                 extensao: 120
             - via_movel:
                 nome: Vr. Pilhado
-                id_no_mapa: '16'
                 dificuldade: BR_5SUP
                 exposicao: E3
                 extensao: 70
             - via_esportiva:
                 nome: Pr. CEM
-                id_no_mapa: '17'
                 dificuldade: BR_5
                 exposicao: E1
                 extensao: 165
             - via_esportiva:
                 nome: Vr. SEM
-                id_no_mapa: '18'
                 dificuldade: BR_6SUP
                 exposicao: E1
                 extensao: 30
             - via_esportiva:
                 nome: Engatilhados
-                id_no_mapa: '19'
                 dificuldade: BR_4
                 exposicao: E1
                 extensao: 150
             - via_esportiva:
                 nome: Trio Elétrico
-                id_no_mapa: '20'
                 dificuldade: BR_6
                 exposicao: E2
                 extensao: 160
             - via_esportiva:
                 nome: Eu Não Sou de Ferro
-                id_no_mapa: '21'
                 dificuldade: BR_5
                 extensao: 220
             - via_movel:
                 nome: Rio de Mão Dupla
-                id_no_mapa: '22'
                 dificuldade: BR_6
                 exposicao: E4
                 extensao: 140
             - via_esportiva:
                 nome: Grand Finale
-                id_no_mapa: '23'
                 dificuldade: BR_5SUP
                 extensao: 30
             - via_esportiva:
                 nome: À Francesa
-                id_no_mapa: '24'
                 dificuldade: BR_2SUP
                 extensao: 100
             - via_movel:
                 nome: Atalho dos Duendes
-                id_no_mapa: '25'
                 dificuldade: BR_3
                 extensao: 70
             descricao: '| ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
@@ -1295,6 +1534,49 @@ picos:
         nome: Setor Vias Esportivas
         mapas:
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
+          referencias:
+          - escalada: Diedro da Rabada
+            ids:
+            - '1'
+          - escalada: Mestre Sala
+            ids:
+            - '2'
+          - escalada: Porta-Bandeira
+            ids:
+            - '3'
+          - escalada: Gangorra
+            ids:
+            - '4'
+          - escalada: Jabá com Jerimum
+            ids:
+            - '5'
+          - escalada: Bruxa Albano
+            ids:
+            - '6'
+          - escalada: Vomitão em Ferros
+            ids:
+            - '7'
+          - escalada: Iron Slow
+            ids:
+            - '8'
+          - escalada: Bicho de Pé
+            ids:
+            - '9'
+          - escalada: Os Três Mosqueteiros
+            ids:
+            - '10'
+          - escalada: Nó de Porco
+            ids:
+            - '11'
+          - escalada: Ícaro
+            ids:
+            - '12'
+          - escalada: Champinha
+            ids:
+            - '13'
+          - escalada: Falcatrua
+            ids:
+            - '14'
           largura_mapa: 765
           altura_mapa: 567
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
@@ -1303,7 +1585,6 @@ picos:
         escaladas:
         - via_esportiva:
             nome: Diedro da Rabada
-            id_no_mapa: '1'
             dificuldade: BR_7A
             extensao: 15
             conquistadores:
@@ -1314,7 +1595,6 @@ picos:
               grampos.
         - via_esportiva:
             nome: Mestre Sala
-            id_no_mapa: '2'
             dificuldade: BR_7C
             extensao: 15
             conquistadores:
@@ -1324,7 +1604,6 @@ picos:
             descricao: Via positiva exigente em regletes.
         - via_esportiva:
             nome: Porta-Bandeira
-            id_no_mapa: '3'
             dificuldade: BR_7B
             extensao: 15
             conquistadores:
@@ -1334,7 +1613,6 @@ picos:
             descricao: Bem parecida com via anterior. Termina na mesma parada dupla.
         - via_esportiva:
             nome: Gangorra
-            id_no_mapa: '4'
             dificuldade: BR_8A
             dificuldade_artificial: A0
             extensao: 15
@@ -1346,7 +1624,6 @@ picos:
               se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
         - via_esportiva:
             nome: Jabá com Jerimum
-            id_no_mapa: '5'
             dificuldade: BR_6
             extensao: 15
             conquistadores:
@@ -1356,7 +1633,6 @@ picos:
             descricao: Via atlética cujo lance inicial é o mais difícil.
         - via_esportiva:
             nome: Bruxa Albano
-            id_no_mapa: '6'
             dificuldade: BR_6
             extensao: 15
             conquistadores:
@@ -1369,7 +1645,6 @@ picos:
               do fechamento da Lapinha em 2002.
         - via_esportiva:
             nome: Vomitão em Ferros
-            id_no_mapa: '7'
             dificuldade: BR_8A
             extensao: 15
             conquistadores:
@@ -1380,7 +1655,6 @@ picos:
               grampos.
         - via_esportiva:
             nome: Iron Slow
-            id_no_mapa: '8'
             dificuldade: BR_7C
             extensao: 15
             conquistadores:
@@ -1390,7 +1664,6 @@ picos:
             descricao: Variante mais fácil da Vomitão em Ferros.
         - via_esportiva:
             nome: Bicho de Pé
-            id_no_mapa: '9'
             dificuldade: BR_5
             extensao: 15
             conquistadores:
@@ -1400,7 +1673,6 @@ picos:
             descricao: Via curta e bem grampeada.
         - via_esportiva:
             nome: Os Três Mosqueteiros
-            id_no_mapa: '10'
             dificuldade: BR_6
             extensao: 15
             conquistadores:
@@ -1410,7 +1682,6 @@ picos:
             descricao: Bem parecida com via anterior.
         - via_esportiva:
             nome: Nó de Porco
-            id_no_mapa: '11'
             dificuldade: BR_5
             extensao: 15
             conquistadores:
@@ -1421,7 +1692,6 @@ picos:
             descricao: A via é muito bonita e segue uma aresta com agarras grandes.
         - via_esportiva:
             nome: Ícaro
-            id_no_mapa: '12'
             dificuldade: BR_5
             extensao: 15
             conquistadores:
@@ -1433,7 +1703,6 @@ picos:
               alta.
         - via_esportiva:
             nome: Champinha
-            id_no_mapa: '13'
             dificuldade: BR_6
             extensao: 15
             conquistadores:
@@ -1445,7 +1714,6 @@ picos:
               da via “Falcatrua”.
         - via_esportiva:
             nome: Falcatrua
-            id_no_mapa: '14'
             dificuldade: BR_7A
             extensao: 15
             conquistadores:
@@ -1487,12 +1755,24 @@ picos:
         nome: Parede dos Solos
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp
+          referencias:
+          - escalada: Caipora
+            ids:
+            - '1'
+          - escalada: Iaci
+            ids:
+            - '2'
+          - escalada: Boitatá
+            ids:
+            - '3'
+          - escalada: Maracujá
+            ids:
+            - '4'
           largura_mapa: 659
           altura_mapa: 418
         escaladas:
         - via_esportiva:
             nome: Caipora
-            id_no_mapa: '1'
             dificuldade: BR_2
             extensao: 12
             conquistadores:
@@ -1503,7 +1783,6 @@ picos:
             descricao: ESCALADA SOLO
         - via_esportiva:
             nome: Iaci
-            id_no_mapa: '2'
             dificuldade: BR_3SUP
             extensao: 18
             conquistadores:
@@ -1514,7 +1793,6 @@ picos:
             descricao: ESCALADA SOLO
         - via_esportiva:
             nome: Boitatá
-            id_no_mapa: '3'
             dificuldade: BR_3SUP
             extensao: 18
             conquistadores:
@@ -1525,7 +1803,6 @@ picos:
             descricao: ESCALADA SOLO
         - via_esportiva:
             nome: Maracujá
-            id_no_mapa: '4'
             dificuldade: BR_3
             extensao: 18
             conquistadores:
@@ -1551,6 +1828,25 @@ picos:
             nome: Pedra do Neri – Face das Esportivas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp
+              referencias:
+              - escalada: Até o Osso
+                ids:
+                - '3'
+              - escalada: Balangandã
+                ids:
+                - '5'
+              - escalada: Pé de Chinelo
+                ids:
+                - '6'
+              - escalada: Fissura Lapada na Rachada
+                ids:
+                - '1'
+              - escalada: Fissura Sopa de Pedra
+                ids:
+                - '2'
+              - escalada: Diedro Caboclo D’Água
+                ids:
+                - '4'
               largura_mapa: 640
               altura_mapa: 346
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp
@@ -1559,32 +1855,26 @@ picos:
             escaladas:
             - via_movel:
                 nome: Fissura Lapada na Rachada
-                id_no_mapa: '1'
                 dificuldade: BR_5SUP
                 extensao: 15
             - via_movel:
                 nome: Fissura Sopa de Pedra
-                id_no_mapa: '2'
                 dificuldade: BR_5SUP
                 extensao: 15
             - via_esportiva:
                 nome: Até o Osso
-                id_no_mapa: '3'
                 dificuldade: BR_8A
                 extensao: 15
             - via_movel:
                 nome: Diedro Caboclo D’Água
-                id_no_mapa: '4'
                 dificuldade: BR_8A
                 extensao: 15
             - via_esportiva:
                 nome: Balangandã
-                id_no_mapa: '5'
                 dificuldade: BR_7C
                 extensao: 15
             - via_esportiva:
                 nome: Pé de Chinelo
-                id_no_mapa: '6'
                 dificuldade: BR_7A
                 extensao: 15
             descricao: ''
@@ -1592,6 +1882,22 @@ picos:
             nome: Pedra do Neri – Face das Aderências
             mapas:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp
+              referencias:
+              - escalada: Queima de Arquivo
+                ids:
+                - '1'
+              - escalada: Aquidaban
+                ids:
+                - '2'
+              - escalada: Tempestade
+                ids:
+                - '3'
+              - escalada: Chuva de Verão
+                ids:
+                - '4'
+              - escalada: Brumas de Inverno
+                ids:
+                - '5'
               largura_mapa: 850
               altura_mapa: 510
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp
@@ -1600,27 +1906,22 @@ picos:
             escaladas:
             - via_esportiva:
                 nome: Queima de Arquivo
-                id_no_mapa: '1'
                 dificuldade: BR_7B
                 extensao: 12
             - via_esportiva:
                 nome: Aquidaban
-                id_no_mapa: '2'
                 dificuldade: BR_3SUP
                 extensao: 12
             - via_esportiva:
                 nome: Tempestade
-                id_no_mapa: '3'
                 dificuldade: BR_7C
                 extensao: 12
             - via_esportiva:
                 nome: Chuva de Verão
-                id_no_mapa: '4'
                 dificuldade: BR_4
                 extensao: 12
             - via_esportiva:
                 nome: Brumas de Inverno
-                id_no_mapa: '5'
                 dificuldade: BR_4
                 extensao: 10
             descricao: '| ![Juliano Magalhães escalando da Face das Esportivas](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp)
@@ -1639,13 +1940,16 @@ picos:
         nome: Parede da Água Limpa
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
+          referencias:
+          - escalada: Pr. Dama de Ferros
+            ids:
+            - '1'
           largura_mapa: 2048
           altura_mapa: 1268
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
         escaladas:
         - via_multiplas_enfiadas:
             nome: Pr. Dama de Ferros
-            id_no_mapa: '1'
             dificuldade_media: BR_4
             dificuldade_maxima: BR_4SUP
             exposicao: E2
@@ -1699,12 +2003,15 @@ picos:
         nome: Parede da CENIBRA
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_cenibra_p0_i1.webp
+          referencias:
+          - escalada: Pr. Pellé 70
+            ids:
+            - '1'
           largura_mapa: 960
           altura_mapa: 720
         escaladas:
         - via_movel:
             nome: Pr. Pellé 70
-            id_no_mapa: '1'
             dificuldade: BR_3SUP
             extensao: 100
         descricao: ''
@@ -1714,7 +2021,6 @@ picos:
         escaladas:
         - via_esportiva:
             nome: Amazonita
-            id_no_mapa: '1'
             dificuldade: BR_2
             extensao: 200
             conquistadores:
@@ -1726,7 +2032,6 @@ picos:
               de ½ polegada.
         - via_movel:
             nome: Fissura Cachoeira Quente
-            id_no_mapa: '2'
             dificuldade: BR_6
             extensao: 50
             conquistadores:
@@ -2288,7 +2593,7 @@ botoes:
         | :--: |
 
         | *QR Code Google Maps* |'
-ultima_migracao: 1
+ultima_migracao: 2
 arquivos_externos:
 - caminho: imagens/como_chegar_p0_i0.webp
   checksum_sha256: eb11fb1d3d00687c48522a7ba1c78f794309b3f3866c0ecf03ddffb3da5a498c

@@ -1,4 +1,4 @@
----
+---
 nome: Bloco 45º
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_45_p0.webp
@@ -89,6 +89,76 @@ mapas:
       y: 693
       comprimento: 23
       largura: 26
+  referencias:
+  - escalada: Esquina do Gueto
+    ids:
+    - '01'
+  - escalada: Bem-Vindo
+    ids:
+    - '02'
+  - escalada: Siri Cascudo
+    ids:
+    - '03'
+  - escalada: Índios
+    ids:
+    - '04'
+  - escalada: Índios SDS
+    ids:
+    - '05'
+  - escalada: Família Bocaina
+    ids:
+    - '06'
+  - escalada: Sananga
+    ids:
+    - '07'
+  - escalada: Espírito San
+    ids:
+    - '08'
+  - escalada: Tiro ao Alvo
+    ids:
+    - '09'
+  - escalada: Tiro ao Alvo SDS
+    ids:
+    - '10'
+  - escalada: Mão na Massa
+    ids:
+    - '11'
+  - escalada: Mão na Massa SDS
+    ids:
+    - '12'
+  - escalada: Bicho de Pé
+    ids:
+    - '13'
+  - escalada: Bicho de Pé SDS
+    ids:
+    - '14'
+  - escalada: Curto e Gross
+    ids:
+    - '15'
+  - escalada: Carvoeiro
+    ids:
+    - '16'
+  - escalada: Kadron
+    ids:
+    - '17'
+  - escalada: Saída pela Culatra
+    ids:
+    - '18'
+  - escalada: Siri sem Casca
+    ids:
+    - '19'
+  - escalada: Siri Queijo
+    ids:
+    - '20'
+  - escalada: Problema Legal
+    ids:
+    - '21'
+  - escalada: Pecado de Chó
+    ids:
+    - '22'
+  - escalada: Ayuaska
+    ids:
+    - '23'
 - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
   largura_mapa: 1091
   altura_mapa: 813
@@ -226,130 +296,95 @@ mapas:
 escaladas:
 - boulder:
     nome: Esquina do Gueto
-    id_no_mapa: '01'
     dificuldade: V2
-    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando
-      por ela.
+    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando por ela.
 - boulder:
     nome: Bem-Vindo
-    id_no_mapa: '02'
     dificuldade: V4
-    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco,
-      segue reto.
+    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco, segue reto.
 - boulder:
     nome: Siri Cascudo
-    id_no_mapa: '03'
     dificuldade: V6
     descricao: Saída do bem vindo, virando no Família Bocaina.
 - boulder:
     nome: Índios
-    id_no_mapa: '04'
     dificuldade: V5
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada,
-      virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
 - boulder:
     nome: Índios SDS
-    id_no_mapa: '05'
     dificuldade: V9
-    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo
-      na mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
+    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo na mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
 - boulder:
     nome: Família Bocaina
-    id_no_mapa: '06'
     dificuldade: V10
-    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na
-      mesma agarra, saindo para uma agarra de ombro de esquerda.
+    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na mesma agarra, saindo para uma agarra de ombro de esquerda.
 - boulder:
     nome: Sananga
-    id_no_mapa: '07'
     dificuldade: V9
     descricao: Saída em pé com as mãos em regletes invertidos.
 - boulder:
     nome: Espírito San
-    id_no_mapa: '08'
     dificuldade: V8_BARRA_V9
-    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em
-      mono dedo.
+    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em mono dedo.
 - boulder:
     nome: Tiro ao Alvo
-    id_no_mapa: '09'
     dificuldade: V8
-    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda
-      em reglete ruim.
+    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda em reglete ruim.
 - boulder:
     nome: Tiro ao Alvo SDS
-    id_no_mapa: '10'
     dificuldade: V10
-    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete
-      liso com o pÉ esquerdo alto.
+    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete liso com o pÉ esquerdo alto.
 - boulder:
     nome: Mão na Massa
-    id_no_mapa: '11'
     dificuldade: V7
     descricao: Mesma agarra de saida do tiro ao alvo e vai pra direita.
 - boulder:
     nome: Mão na Massa SDS
-    id_no_mapa: '12'
     dificuldade: V8
     descricao: Saida do tiro ao alvo SDS e vai pra direita.
 - boulder:
     nome: Bicho de Pé
-    id_no_mapa: '13'
     dificuldade: V5
     descricao: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira no carvoeiro.
 - boulder:
     nome: Bicho de Pé SDS
-    id_no_mapa: '14'
     dificuldade: V6
     descricao: Saida do tiro ao alvo SDS e vira no carvoeiro.
 - boulder:
     nome: Curto e Gross
-    id_no_mapa: '15'
     dificuldade: V4
-    descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim e pés
-      ruins.
+    descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim e pés ruins.
 - boulder:
     nome: Carvoeiro
-    id_no_mapa: '16'
     dificuldade: V1
-    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal
-      pra esquerda em agarroes.
+    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal pra esquerda em agarroes.
 - boulder:
     nome: Kadron
-    id_no_mapa: '17'
     dificuldade: V3
     descricao: Saída do carvoeiro e faz travessia para direita contornando o bloco.
 - boulder:
     nome: Saída pela Culatra
-    id_no_mapa: '18'
     dificuldade: V2
     descricao: Sai sentado com as mãos em agarrao a direita do bloco e segue reto.
 - boulder:
     nome: Siri sem Casca
-    id_no_mapa: '19'
     dificuldade: V6
     descricao: Saída do bem vindo e virando no índios.
 - boulder:
     nome: Siri Queijo
-    id_no_mapa: '20'
     dificuldade: V7
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada,
-      virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
 - boulder:
     nome: Problema Legal
-    id_no_mapa: '21'
     dificuldade: V7
-    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão
-      baixo com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
+    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão baixo com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
 - boulder:
     nome: Pecado de Chó
-    id_no_mapa: '22'
     dificuldade: V10_BARRA_V11
     descricao: Saída do sananga virando no Família Bocaina.
 - boulder:
     nome: Ayuaska
-    id_no_mapa: '23'
     dificuldade: V11
     descricao: Saída do sananga virando no indios.
----
+---
 # Setor Bloco 45º

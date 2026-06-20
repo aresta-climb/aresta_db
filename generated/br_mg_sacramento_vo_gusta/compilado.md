@@ -65,7 +65,7 @@
             47°23'56.3"W 
             
             **MG428 Rod. Francisco Rodrigues Duarte, Sacramento - MG, 9Km de Rifaina**
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -163,11 +163,55 @@
           - **x**: 1546
           - **y**: 756
           - **raio**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sonho de Infância
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Presente Grego
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Tatu do Céu
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Base de apoio
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: De Pai pra Filho
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Pior dia da minha vida
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Cortina de Fumaça
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Faxineiro Fiel
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Arrependimento
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Aperta Bola
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Surpresa
+        - **ids**:
+          - 11
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Sonho de Infância
-      - **id_no_mapa**: 01
       - **conquistadores**:
         - Arthur
         - Matheus
@@ -179,7 +223,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Presente Grego
-      - **id_no_mapa**: 02
       - **conquistadores**:
         - Arthur
         - Matheus
@@ -191,7 +234,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Tatu do Céu
-      - **id_no_mapa**: 03
       - **conquistadores**:
         - Arthur
         - Fernanda
@@ -202,7 +244,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Base de apoio
-      - **id_no_mapa**: 04
       - **conquistadores**:
         - Matheus
         - Arthur
@@ -211,7 +252,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: De Pai pra Filho
-      - **id_no_mapa**: 05
       - **conquistadores**:
         - Matheus
         - Vinicius
@@ -221,7 +261,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Pior dia da minha vida
-      - **id_no_mapa**: 06
       - **conquistadores**:
         - Arthur
         - Homero
@@ -235,7 +274,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Cortina de Fumaça
-      - **id_no_mapa**: 07
       - **conquistadores**:
         - Arthur
         - Homero
@@ -248,7 +286,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Faxineiro Fiel
-      - **id_no_mapa**: 08
       - **conquistadores**:
         - Arthur
         - Zequiel
@@ -259,7 +296,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Arrependimento
-      - **id_no_mapa**: 09
       - **conquistadores**:
         - Matheus
         - Zequiel
@@ -270,7 +306,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Aperta Bola
-      - **id_no_mapa**: 10
       - **conquistadores**:
         - Matheus
         - Zequiel
@@ -281,7 +316,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Surpresa
-      - **id_no_mapa**: 11
       - **conquistadores**:
         - Matheus
         - Zequiel

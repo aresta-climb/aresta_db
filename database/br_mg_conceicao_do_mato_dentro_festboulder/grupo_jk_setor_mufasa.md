@@ -1,6 +1,5 @@
----
+---
 nome: Mufasa
-id_no_mapa: '1'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_jk_setor_mufasa_p0.webp
   largura_mapa: 758
@@ -20,16 +19,22 @@ mapas:
       y: 268
       comprimento: 25
       largura: 25
+  referencias:
+  - escalada: Bloody Hell
+    ids:
+    - '1'
+  - escalada: Mufasa
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Bloody Hell
-    id_no_mapa: '1'
     dificuldade: V11
 - boulder:
     nome: Mufasa
-    id_no_mapa: '2'
     dificuldade: V10
----
+---
+
 # Setor Mufasa
 
 O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.

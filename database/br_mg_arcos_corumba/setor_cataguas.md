@@ -1,4 +1,4 @@
----
+---
 nome: Setor Cataguás
 mapas:
 - caminho_imagem_mapa: imagens/setor_cataguas_p0_i0.webp
@@ -26,20 +26,25 @@ mapas:
       y: 966
       comprimento: 37
       largura: 42
+  referencias:
+  - escalada: (via inacabada)
+    ids:
+    - '1'
+  - escalada: Dos Pombos
+    ids:
+    - '2'
 escaladas:
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '1'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Dos Pombos
-    id_no_mapa: '2'
     destaque: true
     data_abertura: '2000-01-01'
 - via_movel:
     nome: sem nome (via mixta)
     data_abertura: '2008-01-01'
----
+---
 # Setor Cataguás
 
 > [!WARNING]

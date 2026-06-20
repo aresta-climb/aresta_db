@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale dos Espinhos
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_dos_espinhos_p0_i6.webp
@@ -292,10 +292,121 @@ mapas:
       y: 1260
       comprimento: 31
       largura: 19
+  referencias:
+  - escalada: Quase Nove
+    ids:
+    - '01'
+  - escalada: A Revolta da Bunda
+    ids:
+    - '02'
+  - escalada: O Faxineiro
+    ids:
+    - '03'
+  - escalada: Esquadrilha da Fumaça
+    ids:
+    - '04'
+  - escalada: Ronco do V8
+    ids:
+    - '05'
+  - escalada: Lagrimas de Calcário
+    ids:
+    - '06'
+  - escalada: Tá Chovendo Carrapato
+    ids:
+    - '07'
+  - escalada: Tá Esperando o quê?
+    ids:
+    - '8'
+  - escalada: Quem Sabe ano que Vem
+    ids:
+    - '9'
+  - escalada: Eau Rouge
+    ids:
+    - '10'
+  - escalada: Sem informação
+    ids:
+    - '11'
+  - escalada: Via inacabada
+    ids:
+    - '12'
+  - escalada: Cachinhos Dourados
+    ids:
+    - '13'
+  - escalada: Manto e Adaga
+    ids:
+    - '14'
+  - escalada: R770
+    ids:
+    - '15'
+  - escalada: Sem informação
+    ids:
+    - '16'
+  - escalada: Jornada nas Estrelas
+    ids:
+    - '17'
+  - escalada: Super Canaleta
+    ids:
+    - '18'
+  - escalada: Laboratório
+    ids:
+    - '19'
+  - escalada: Dark Side of the Moon
+    ids:
+    - '20'
+  - escalada: Mega Sena
+    ids:
+    - '21'
+  - escalada: La Torância
+    ids:
+    - '22'
+  - escalada: Comunidade Flebótomo
+    ids:
+    - '23'
+  - escalada: Sem informação
+    ids:
+    - '24'
+  - escalada: Duplo Sentido
+    ids:
+    - '25'
+  - escalada: Fantástico
+    ids:
+    - '26'
+  - escalada: Show da Vida
+    ids:
+    - '27'
+  - escalada: Madame Surtô
+    ids:
+    - '28'
+  - escalada: Lupin
+    ids:
+    - '29'
+  - escalada: Wall Ride
+    ids:
+    - '30'
+  - escalada: Dr. Lund
+    ids:
+    - '31'
+  - escalada: Kero Mais
+    ids:
+    - '32'
+  - escalada: Bruxa de Blair
+    ids:
+    - '33'
+  - escalada: Mentirinha
+    ids:
+    - '34'
+  - escalada: Zé Arigó
+    ids:
+    - '35'
+  - escalada: Visionário
+    ids:
+    - '36'
+  - escalada: Skywalker
+    ids:
+    - '37'
 escaladas:
 - via_esportiva:
     nome: Quase Nove
-    id_no_mapa: '01'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -304,7 +415,6 @@ escaladas:
     - Vinícius Wilson
 - via_esportiva:
     nome: A Revolta da Bunda
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -313,7 +423,6 @@ escaladas:
     - Vinícius Wilson
 - via_esportiva:
     nome: O Faxineiro
-    id_no_mapa: '03'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -322,7 +431,6 @@ escaladas:
     - Vinícius Wilson
 - via_esportiva:
     nome: Esquadrilha da Fumaça
-    id_no_mapa: '04'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -331,7 +439,6 @@ escaladas:
     - Vinícius Wilson
 - via_esportiva:
     nome: Ronco do V8
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -341,7 +448,6 @@ escaladas:
     - Bruno Berbari
 - via_esportiva:
     nome: Lagrimas de Calcário
-    id_no_mapa: '06'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -351,7 +457,6 @@ escaladas:
     - Bruno Berbari
 - via_esportiva:
     nome: Tá Chovendo Carrapato
-    id_no_mapa: '07'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -360,7 +465,6 @@ escaladas:
     - Joviney Miguel
 - via_esportiva:
     nome: Tá Esperando o quê?
-    id_no_mapa: 08
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -368,7 +472,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Quem Sabe ano que Vem
-    id_no_mapa: 09
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -377,7 +480,6 @@ escaladas:
     - Vinícius Wilson
 - via_esportiva:
     nome: Eau Rouge
-    id_no_mapa: '10'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -386,16 +488,13 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Sem informação
-    id_no_mapa: '11'
     dificuldade: INDEFINIDO
     descricao: Fixa
 - via_esportiva:
     nome: Via inacabada
-    id_no_mapa: '12'
     dificuldade: INDEFINIDO
 - via_esportiva:
     nome: Cachinhos Dourados
-    id_no_mapa: '13'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -405,26 +504,22 @@ escaladas:
     - Guilherme Côrrea
 - via_movel:
     nome: Manto e Adaga
-    id_no_mapa: '14'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
 - via_movel:
     nome: R770
-    id_no_mapa: '15'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
 - via_movel:
     nome: Sem informação
-    id_no_mapa: '16'
     dificuldade: INDEFINIDO
     protecoes_moveis: Mista
 - via_esportiva:
     nome: Jornada nas Estrelas
-    id_no_mapa: '17'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
@@ -433,7 +528,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Super Canaleta
-    id_no_mapa: '18'
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 16
     quantidade_protecoes_parada: 2
@@ -442,7 +536,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Laboratório
-    id_no_mapa: '19'
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -451,7 +544,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Dark Side of the Moon
-    id_no_mapa: '20'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -460,7 +552,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Mega Sena
-    id_no_mapa: '21'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
@@ -469,7 +560,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: La Torância
-    id_no_mapa: '22'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -478,7 +568,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Comunidade Flebótomo
-    id_no_mapa: '23'
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -487,13 +576,11 @@ escaladas:
     - GT Baú 2021
 - via_movel:
     nome: Sem informação
-    id_no_mapa: '24'
     dificuldade: INDEFINIDO
     protecoes_moveis: Mista
     descricao: Via longa – Usar corda de 60 mts
 - via_multiplas_enfiadas:
     nome: Duplo Sentido
-    id_no_mapa: '25'
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada
@@ -510,7 +597,6 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: Fantástico
-    id_no_mapa: '26'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -520,7 +606,6 @@ escaladas:
     - Felipe B
 - via_movel:
     nome: Show da Vida
-    id_no_mapa: '27'
     dificuldade: BR_7B
     protecoes_moveis: Móvel
     descricao: Via longa – Usar corda de 60 mts
@@ -528,7 +613,6 @@ escaladas:
     - Marcus Rufino
 - via_esportiva:
     nome: Madame Surtô
-    id_no_mapa: '28'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -537,7 +621,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Lupin
-    id_no_mapa: '29'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -546,7 +629,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Wall Ride
-    id_no_mapa: '30'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -555,7 +637,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Dr. Lund
-    id_no_mapa: '31'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -564,7 +645,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Kero Mais
-    id_no_mapa: '32'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -573,7 +653,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Bruxa de Blair
-    id_no_mapa: '33'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -582,7 +661,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Mentirinha
-    id_no_mapa: '34'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -591,7 +669,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Zé Arigó
-    id_no_mapa: '35'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -600,7 +677,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Visionário
-    id_no_mapa: '36'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -609,14 +685,13 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Skywalker
-    id_no_mapa: '37'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     conquistadores:
     - Dy Oliveira
     - Marco Durães
----
+---
 # Setor Vale dos Espinhos
 
 **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.

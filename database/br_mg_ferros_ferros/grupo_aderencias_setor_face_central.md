@@ -1,12 +1,15 @@
----
+---
 nome: Parede das Aderências – Face Central
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p1_i0.webp
+  referencias:
+  - escalada: O Psicopata de Ferros
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
 escaladas:
 - via_movel:
     nome: O Psicopata de Ferros
-    id_no_mapa: '1'
     dificuldade: BR_6
     exposicao: E2
     extensao: 70
@@ -15,5 +18,5 @@ escaladas:
     - Luciano Bender
     data_abertura: '2011-06-25'
     descricao: Via mista.
----
+---
 

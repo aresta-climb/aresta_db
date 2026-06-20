@@ -1,4 +1,4 @@
----
+---
 nome: Setor Túnel de Pedra (Mapa 8)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_8_p0_i0.webp
@@ -201,17 +201,82 @@ mapas:
       y: 55
       comprimento: 128
       largura: 78
+  referencias:
+  - escalada: Bigode de Cristo
+    ids:
+    - '87'
+  - escalada: Bigode Sujo
+    ids:
+    - '88'
+  - escalada: Bigode de Espinho
+    ids:
+    - '89'
+  - escalada: Trombeta Acéfala
+    ids:
+    - '91'
+  - escalada: Meio Cubanos
+    ids:
+    - '92'
+  - escalada: Golpe Ninja
+    ids:
+    - '93'
+  - escalada: Tripla Traição
+    ids:
+    - '94'
+  - escalada: Noivado da Feiticeira
+    ids:
+    - '95'
+  - escalada: Planeta dos Macacos
+    ids:
+    - '96'
+  - escalada: Rota de colisão
+    ids:
+    - '97'
+  - escalada: Projeto Daniel Salim
+    ids:
+    - '98'
+  - escalada: Vale Perdido
+    ids:
+    - '99'
+  - escalada: Consolo da Surucucu
+    ids:
+    - '100'
+  - escalada: Santos e Hereges
+    ids:
+    - '101'
+  - escalada: O Império Contra Ataca
+    ids:
+    - '102'
+  - escalada: Jegue Voador
+    ids:
+    - '103'
+  - escalada: Labirinto das Maritacas
+    ids:
+    - '104'
+  - escalada: Tentações de Maria Madalena
+    ids:
+    - '105'
+  - escalada: Sai do chão
+    ids:
+    - '106'
+  - escalada: Ato Imperdoável
+    ids:
+    - '107'
+  - escalada: Projeto Rodrigo do Paraná
+    ids:
+    - '108'
+  - escalada: Pequena Criança
+    ids:
+    - '109'
 escaladas:
 - via_esportiva:
     nome: Bigode de Cristo
-    id_no_mapa: '87'
     dificuldade: BR_6
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
 - via_esportiva:
     nome: Bigode Sujo
-    id_no_mapa: '88'
     dificuldade: BR_7C
     conquistadores:
     - Emerson A. Azeredo
@@ -219,7 +284,6 @@ escaladas:
     - Gilberto Torres
 - via_esportiva:
     nome: Bigode de Espinho
-    id_no_mapa: '89'
     dificuldade: BR_6SUP
     conquistadores:
     - Alexandre F. de Queiroz "Caverna"
@@ -233,34 +297,29 @@ escaladas:
     - Sérgio Bastos da Silva
 - via_movel:
     nome: Trombeta Acéfala
-    id_no_mapa: '91'
     dificuldade: BR_5SUP
     conquistadores:
     - Eustáquio M. Melo Júnior
     - Leonardo Hoffmann
 - via_movel:
     nome: Meio Cubanos
-    id_no_mapa: '92'
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
 - via_esportiva:
     nome: Golpe Ninja
-    id_no_mapa: '93'
     dificuldade: BR_7C
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
 - via_esportiva:
     nome: Tripla Traição
-    id_no_mapa: '94'
     conquistadores:
     - Emerson A. Azeredo
     - Eustáquio M. M. Júnior
     - Léo Hoffmann
 - via_esportiva:
     nome: Noivado da Feiticeira
-    id_no_mapa: '95'
     dificuldade: BR_6
     conquistadores:
     - Emerson A. Azeredo
@@ -268,50 +327,42 @@ escaladas:
     - Ramaya Vallias
 - via_esportiva:
     nome: Planeta dos Macacos
-    id_no_mapa: '96'
     conquistadores:
     - Leonardo Hoffmann
     - Alexandre "Caverna"
 - via_esportiva:
     nome: Rota de colisão
-    id_no_mapa: '97'
     dificuldade: BR_8A
     conquistadores:
     - Leonardo Hoffmann
     - Marco Antônio Canelas
 - via_esportiva:
     nome: Projeto Daniel Salim
-    id_no_mapa: '98'
 - via_esportiva:
     nome: Vale Perdido
-    id_no_mapa: '99'
     dificuldade: BR_6SUP
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
 - via_esportiva:
     nome: Consolo da Surucucu
-    id_no_mapa: '100'
     dificuldade: BR_6SUP
     conquistadores:
     - Vinícius B. Assis
 - via_esportiva:
     nome: Santos e Hereges
-    id_no_mapa: '101'
     dificuldade: BR_9B
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
 - via_esportiva:
     nome: O Império Contra Ataca
-    id_no_mapa: '102'
     dificuldade: BR_7C
     conquistadores:
     - Eustáquio M. M. Júnior
     - Fabiano da Silva Fernandes
 - via_esportiva:
     nome: Jegue Voador
-    id_no_mapa: '103'
     dificuldade: BR_6SUP
     conquistadores:
     - Léo Hoffmann
@@ -319,44 +370,38 @@ escaladas:
     - Marcelo Andrê
 - via_esportiva:
     nome: Labirinto das Maritacas
-    id_no_mapa: '104'
     dificuldade: BR_6
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
 - via_movel:
     nome: Tentações de Maria Madalena
-    id_no_mapa: '105'
     dificuldade: BR_6
     conquistadores:
     - Eustáquio M. Melo Júnior
     - Leonardo Hoffmann
 - via_esportiva:
     nome: Sai do chão
-    id_no_mapa: '106'
     dificuldade: BR_9A
     conquistadores:
     - Jovinei Miguel Medeiros
     - Helon Brazil Neto
 - via_esportiva:
     nome: Ato Imperdoável
-    id_no_mapa: '107'
     dificuldade: BR_8A
     conquistadores:
     - Eustáquio M. M. Júnior
     - Fabiano da Silva Fernandes
 - via_esportiva:
     nome: Projeto Rodrigo do Paraná
-    id_no_mapa: '108'
 - via_esportiva:
     nome: Pequena Criança
-    id_no_mapa: '109'
     dificuldade: BR_7A
     conquistadores:
     - Wilson Novaes
     - Ivo Ferreira Marcelino
     - Alexandre Magos
----
+---
 # Setor Túnel de Pedra (Mapa 8)
 
 Vias localizadas na região do Túnel de Pedra.

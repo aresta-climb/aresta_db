@@ -1,4 +1,4 @@
----
+---
 nome: Setor Estacionamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_estacionamento_p0.webp
@@ -138,6 +138,64 @@ mapas:
       y: 517
       comprimento: 40
       largura: 38
+  referencias:
+  - escalada: Bacon com Linguiça
+    ids:
+    - '01'
+  - escalada: Quatchú
+    ids:
+    - '02'
+  - escalada: Xoquito
+    ids:
+    - '03'
+  - escalada: Slow Motion
+    ids:
+    - '04'
+  - escalada: Berbaridade Máxima
+    ids:
+    - '05'
+  - escalada: Cirque du Soleil
+    ids:
+    - '06'
+  - escalada: Route Setter
+    ids:
+    - '07'
+  - escalada: Teto Preto
+    ids:
+    - '8'
+  - escalada: 101 Dalmatas
+    ids:
+    - '9'
+  - escalada: Fúria de Titãs
+    ids:
+    - '10'
+  - escalada: Prima Donna
+    ids:
+    - '11'
+  - escalada: Dama de Ferro
+    ids:
+    - '12'
+  - escalada: Primeira de Todas
+    ids:
+    - '13'
+  - escalada: Brinco de Odalisca
+    ids:
+    - '14'
+  - escalada: 10%
+    ids:
+    - '15'
+  - escalada: Quebra Tudo
+    ids:
+    - '16'
+  - escalada: Acorrentado
+    ids:
+    - '17'
+  - escalada: Fidefenda
+    ids:
+    - '18'
+  - escalada: Cochyna Blue
+    ids:
+    - '19'
 - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
   largura_mapa: 1067
   altura_mapa: 1440
@@ -278,7 +336,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Bacon com Linguiça
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -290,7 +347,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Quatchú
-    id_no_mapa: '02'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -302,7 +358,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Xoquito
-    id_no_mapa: '03'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -314,7 +369,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Slow Motion
-    id_no_mapa: '04'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -327,7 +381,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: Berbaridade Máxima
-    id_no_mapa: '05'
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -339,7 +392,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: Cirque du Soleil
-    id_no_mapa: '06'
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -352,7 +404,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Route Setter
-    id_no_mapa: '07'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -364,7 +415,6 @@ escaladas:
     descricao: Finaliza na via 06 (Cirque du Soleil).
 - via_esportiva:
     nome: Teto Preto
-    id_no_mapa: 08
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -376,7 +426,6 @@ escaladas:
     descricao: Saída na via 07 (Route Setter).
 - via_esportiva:
     nome: 101 Dalmatas
-    id_no_mapa: 09
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -387,7 +436,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: Fúria de Titãs
-    id_no_mapa: '10'
     dificuldade: BR_10A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -400,7 +448,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Prima Donna
-    id_no_mapa: '11'
     dificuldade: BR_10A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -413,7 +460,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: Dama de Ferro
-    id_no_mapa: '12'
     dificuldade: BR_10C
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -424,7 +470,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Primeira de Todas
-    id_no_mapa: '13'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -435,7 +480,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Brinco de Odalisca
-    id_no_mapa: '14'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -446,7 +490,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: 10%
-    id_no_mapa: '15'
     dificuldade: BR_6_BARRA_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -457,7 +500,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Quebra Tudo
-    id_no_mapa: '16'
     dificuldade: BR_6_BARRA_6SUP
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -468,7 +510,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Acorrentado
-    id_no_mapa: '17'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -479,7 +520,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Fidefenda
-    id_no_mapa: '18'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -491,7 +531,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Cochyna Blue
-    id_no_mapa: '19'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -500,7 +539,7 @@ escaladas:
     - Berbari
     - Chinha
     data_abertura: '2006'
----
+---
 # Setor Estacionamento
 
 O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.

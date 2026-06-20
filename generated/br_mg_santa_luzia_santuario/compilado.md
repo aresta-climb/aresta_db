@@ -138,7 +138,7 @@
             | ![Mapa geral dos setores do Santuário](imagens/mapas_gerais_p0.webp) |
             | :--: |
             | *Mapa geral dos setores do Santuário* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -287,36 +287,95 @@
           - **y**: 1948
           - **comprimento**: 65
           - **largura**: 54
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: POLLY SHELBY
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: BLACK DOG
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: INCONSCIENTE COLETIVO
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: DISCÍPULOS DE BIBIU
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: EL NINHO
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: O PECADOR
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: PROMESSA É DÍVIDA
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: RINS DE PEDRA
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: PAGADOR DE PROMESSA
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: BIBI CORAGEM
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: DE MALANDRO A GRANFINO
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: CLUBE DA LUTA
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: ROLO COMPRESSOR
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: O ESPECIALISTA
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: O GUARDA COSTA
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: MARIA MADALENA
+        - **ids**:
+          - 16
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: POLLY SHELBY
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_9C
   - **[1]**:
     - **via_esportiva**:
       - **nome**: BLACK DOG
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_9C
   - **[2]**:
     - **via_esportiva**:
       - **nome**: INCONSCIENTE COLETIVO
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_9B
   - **[3]**:
     - **via_esportiva**:
       - **nome**: DISCÍPULOS DE BIBIU
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_9A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: EL NINHO
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7C
   - **[5]**:
     - **via_multiplas_enfiadas**:
       - **nome**: O PECADOR
-      - **id_no_mapa**: 06
       - **dificuldade_maxima**: BR_8B
       - **enfiadas**:
         - **[0]**:
@@ -330,7 +389,6 @@
   - **[6]**:
     - **via_multiplas_enfiadas**:
       - **nome**: PROMESSA É DÍVIDA
-      - **id_no_mapa**: 07
       - **dificuldade_maxima**: BR_8A
       - **enfiadas**:
         - **[0]**:
@@ -344,7 +402,6 @@
   - **[7]**:
     - **via_multiplas_enfiadas**:
       - **nome**: RINS DE PEDRA
-      - **id_no_mapa**: 08
       - **dificuldade_maxima**: BR_8B
       - **enfiadas**:
         - **[0]**:
@@ -358,7 +415,6 @@
   - **[8]**:
     - **via_multiplas_enfiadas**:
       - **nome**: PAGADOR DE PROMESSA
-      - **id_no_mapa**: 09
       - **dificuldade_maxima**: BR_8B
       - **enfiadas**:
         - **[0]**:
@@ -372,27 +428,22 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: BIBI CORAGEM
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7C
   - **[10]**:
     - **via_esportiva**:
       - **nome**: DE MALANDRO A GRANFINO
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_10A
   - **[11]**:
     - **via_esportiva**:
       - **nome**: CLUBE DA LUTA
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_9B
   - **[12]**:
     - **via_esportiva**:
       - **nome**: ROLO COMPRESSOR
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_9B
   - **[13]**:
     - **via_multiplas_enfiadas**:
       - **nome**: O ESPECIALISTA
-      - **id_no_mapa**: 14
       - **dificuldade_maxima**: BR_9C
       - **enfiadas**:
         - **[0]**:
@@ -410,12 +461,10 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: O GUARDA COSTA
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_9B
   - **[15]**:
     - **via_multiplas_enfiadas**:
       - **nome**: MARIA MADALENA
-      - **id_no_mapa**: 16
       - **dificuldade_maxima**: PROJETO
       - **enfiadas**:
         - **[0]**:
@@ -585,11 +634,71 @@
           - **y**: 1844
           - **comprimento**: 48
           - **largura**: 38
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: MEU AMIGO CHARLIE BROWN
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: PAI NOSSO
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: NEM TUDO É PERFEITO
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: DIAS DE LUTA DIAS DE GLÓRIA
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: MADE IN BRAZIL
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: SANTA KLAUSS
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: ÓPANGARE
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: BERBARIDADE MÁXIMA
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: SANTA INQUISIÇÃO
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: TIRANOS DE PLANTÃO
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: SANTO GRAU
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: SANTA LINEA
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: SÓ OS LOUCOS SABEM
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: CHÁ NA CARTOLINA
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: AVE MARIA
+        - **ids**:
+          - 15
 - **escaladas**:
   - **[0]**:
     - **via_multiplas_enfiadas**:
       - **nome**: MEU AMIGO CHARLIE BROWN
-      - **id_no_mapa**: 01
       - **dificuldade_maxima**: BR_10A
       - **enfiadas**:
         - **[0]**:
@@ -607,7 +716,6 @@
   - **[1]**:
     - **via_multiplas_enfiadas**:
       - **nome**: PAI NOSSO
-      - **id_no_mapa**: 02
       - **dificuldade_maxima**: BR_9B
       - **enfiadas**:
         - **[0]**:
@@ -625,7 +733,6 @@
   - **[2]**:
     - **via_multiplas_enfiadas**:
       - **nome**: NEM TUDO É PERFEITO
-      - **id_no_mapa**: 03
       - **dificuldade_maxima**: BR_9B
       - **enfiadas**:
         - **[0]**:
@@ -639,7 +746,6 @@
   - **[3]**:
     - **via_multiplas_enfiadas**:
       - **nome**: DIAS DE LUTA DIAS DE GLÓRIA
-      - **id_no_mapa**: 04
       - **dificuldade_maxima**: BR_10A
       - **enfiadas**:
         - **[0]**:
@@ -653,7 +759,6 @@
   - **[4]**:
     - **via_multiplas_enfiadas**:
       - **nome**: MADE IN BRAZIL
-      - **id_no_mapa**: 05
       - **dificuldade_maxima**: BR_10B
       - **enfiadas**:
         - **[0]**:
@@ -671,7 +776,6 @@
   - **[5]**:
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA KLAUSS
-      - **id_no_mapa**: 06
       - **dificuldade_maxima**: BR_10C
       - **enfiadas**:
         - **[0]**:
@@ -689,22 +793,18 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: ÓPANGARE
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_9A
   - **[7]**:
     - **via_esportiva**:
       - **nome**: BERBARIDADE MÁXIMA
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_8A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: SANTA INQUISIÇÃO
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_10C
   - **[9]**:
     - **via_multiplas_enfiadas**:
       - **nome**: TIRANOS DE PLANTÃO
-      - **id_no_mapa**: 10
       - **dificuldade_maxima**: BR_9C
       - **enfiadas**:
         - **[0]**:
@@ -730,7 +830,6 @@
   - **[10]**:
     - **via_multiplas_enfiadas**:
       - **nome**: SANTO GRAU
-      - **id_no_mapa**: 11
       - **dificuldade_maxima**: PROJETO
       - **enfiadas**:
         - **[0]**:
@@ -744,7 +843,6 @@
   - **[11]**:
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA LINEA
-      - **id_no_mapa**: 12
       - **dificuldade_maxima**: PROJETO
       - **enfiadas**:
         - **[0]**:
@@ -762,7 +860,6 @@
   - **[12]**:
     - **via_multiplas_enfiadas**:
       - **nome**: SÓ OS LOUCOS SABEM
-      - **id_no_mapa**: 13
       - **dificuldade_maxima**: BR_9A
       - **enfiadas**:
         - **[0]**:
@@ -776,7 +873,6 @@
   - **[13]**:
     - **via_multiplas_enfiadas**:
       - **nome**: CHÁ NA CARTOLINA
-      - **id_no_mapa**: 14
       - **dificuldade_maxima**: BR_9B
       - **enfiadas**:
         - **[0]**:
@@ -794,7 +890,6 @@
   - **[14]**:
     - **via_multiplas_enfiadas**:
       - **nome**: AVE MARIA
-      - **id_no_mapa**: 15
       - **dificuldade_maxima**: BR_9C
       - **enfiadas**:
         - **[0]**:
@@ -948,11 +1043,71 @@
           - **y**: 1885
           - **comprimento**: 42
           - **largura**: 34
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: O PODER DO ROCAMBOLE
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: TETO DE VIDRO
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: PECADO CAPITAL
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: GÊNESIS
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: VIA INACABADA 1
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: RIBEIRÃO DA MATA
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: SEU JOÃOZITO
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: BUFFALO BILL
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: HANIBALL
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: DEMOCRACIA
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: DIA DE REIS
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: JOANA D'ARC
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: ARTE SACRA
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: SANTA FÉ
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: VIA INACABADA 2
+        - **ids**:
+          - 15
 - **escaladas**:
   - **[0]**:
     - **via_multiplas_enfiadas**:
       - **nome**: O PODER DO ROCAMBOLE
-      - **id_no_mapa**: 01
       - **dificuldade_maxima**: BR_10A
       - **enfiadas**:
         - **[0]**:
@@ -970,36 +1125,29 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: TETO DE VIDRO
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_9A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: PECADO CAPITAL
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8C
   - **[3]**:
     - **via_esportiva**:
       - **nome**: GÊNESIS
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: VIA INACABADA 1
-      - **id_no_mapa**: 05
   - **[5]**:
     - **via_esportiva**:
       - **nome**: RIBEIRÃO DA MATA
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7B
   - **[6]**:
     - **via_esportiva**:
       - **nome**: SEU JOÃOZITO
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6SUP
   - **[7]**:
     - **via_multiplas_enfiadas**:
       - **nome**: BUFFALO BILL
-      - **id_no_mapa**: 08
       - **dificuldade_maxima**: BR_9A
       - **enfiadas**:
         - **[0]**:
@@ -1017,7 +1165,6 @@
   - **[8]**:
     - **via_multiplas_enfiadas**:
       - **nome**: HANIBALL
-      - **id_no_mapa**: 09
       - **dificuldade_maxima**: BR_9B
       - **enfiadas**:
         - **[0]**:
@@ -1031,7 +1178,6 @@
   - **[9]**:
     - **via_multiplas_enfiadas**:
       - **nome**: DEMOCRACIA
-      - **id_no_mapa**: 10
       - **dificuldade_maxima**: BR_9C
       - **enfiadas**:
         - **[0]**:
@@ -1053,7 +1199,6 @@
   - **[10]**:
     - **via_multiplas_enfiadas**:
       - **nome**: DIA DE REIS
-      - **id_no_mapa**: 11
       - **dificuldade_maxima**: BR_8B
       - **enfiadas**:
         - **[0]**:
@@ -1067,7 +1212,6 @@
   - **[11]**:
     - **via_multiplas_enfiadas**:
       - **nome**: JOANA D'ARC
-      - **id_no_mapa**: 12
       - **dificuldade_maxima**: BR_8C
       - **enfiadas**:
         - **[0]**:
@@ -1081,12 +1225,10 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: ARTE SACRA
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8A
   - **[13]**:
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA FÉ
-      - **id_no_mapa**: 14
       - **dificuldade_maxima**: BR_8B
       - **enfiadas**:
         - **[0]**:
@@ -1100,7 +1242,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: VIA INACABADA 2
-      - **id_no_mapa**: 15
 
 
 ## Arquivos Externos

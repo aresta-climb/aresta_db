@@ -80,7 +80,7 @@
             - **Estacionamento da Gruta da Lapinha**
             - **Entrada da Gruta da Lapinha**
             - **Trilha de acesso**
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -147,11 +147,35 @@
           - **y**: 166
           - **comprimento**: 10
           - **largura**: 9
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sai que é vaca
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Favo de Mel
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Retorno do Marco
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Tomara que não chova
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Castelinho
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 06
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Sai que é vaca
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Márcio Soares Macena
@@ -159,7 +183,6 @@
   - **[1]**:
     - **via_movel**:
       - **nome**: Favo de Mel
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Márcio Soares Macena
@@ -167,7 +190,6 @@
   - **[2]**:
     - **via_movel**:
       - **nome**: Retorno do Marco
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Antonio C. Magalhães
@@ -175,7 +197,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Tomara que não chova
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Christian A. N. Costa
@@ -183,7 +204,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Castelinho
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Marcelo Henrique Grijó Utsch
@@ -191,7 +211,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Projeto
-      - **id_no_mapa**: 06
 
 
 ## Parte: setor_mapa_2
@@ -250,18 +269,25 @@
           - **y**: 204
           - **comprimento**: 57
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ajoelhou tem que Rezar
+        - **ids**:
+          - 07
+      - **[1]**:
+        - **escalada**: O Exibicionista
+        - **ids**:
+          - 08
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Ajoelhou tem que Rezar
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
   - **[1]**:
     - **via_esportiva**:
       - **nome**: O Exibicionista
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -490,11 +516,115 @@
           - **y**: 203
           - **comprimento**: 14
           - **largura**: 12
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Lua Cheia
+        - **ids**:
+          - 09
+      - **[1]**:
+        - **escalada**: Jornada nas Estrelas
+        - **ids**:
+          - 10
+      - **[2]**:
+        - **escalada**: Egotrip
+        - **ids**:
+          - 11
+      - **[3]**:
+        - **escalada**: Boicote de comunicação
+        - **ids**:
+          - 12
+      - **[4]**:
+        - **escalada**: Vicio
+        - **ids**:
+          - 13
+      - **[5]**:
+        - **escalada**: Conspiração Sanguessuga
+        - **ids**:
+          - 14
+      - **[6]**:
+        - **escalada**: Gota D’água
+        - **ids**:
+          - 15
+      - **[7]**:
+        - **escalada**: Sai de Baixo
+        - **ids**:
+          - 16
+      - **[8]**:
+        - **escalada**: Pipeline
+        - **ids**:
+          - 17
+      - **[9]**:
+        - **escalada**: Jurubeba
+        - **ids**:
+          - 18
+      - **[10]**:
+        - **escalada**: Perigo Mora ao Lado
+        - **ids**:
+          - 19
+      - **[11]**:
+        - **escalada**: Pretexto da Traição
+        - **ids**:
+          - 20
+      - **[12]**:
+        - **escalada**: Sorriso do Lagarto
+        - **ids**:
+          - 21
+      - **[13]**:
+        - **escalada**: Orgasmatrom
+        - **ids**:
+          - 22
+      - **[14]**:
+        - **escalada**: Escaramuça
+        - **ids**:
+          - 23
+      - **[15]**:
+        - **escalada**: Túnel do Tempo
+        - **ids**:
+          - 24
+      - **[16]**:
+        - **escalada**: Dédalos
+        - **ids**:
+          - 25
+      - **[17]**:
+        - **escalada**: Bouquet de Rosas
+        - **ids**:
+          - 26
+      - **[18]**:
+        - **escalada**: Fogo no Rabo
+        - **ids**:
+          - 27
+      - **[19]**:
+        - **escalada**: Bobeou Sobrou
+        - **ids**:
+          - 28
+      - **[20]**:
+        - **escalada**: Los Cubanos
+        - **ids**:
+          - 29
+      - **[21]**:
+        - **escalada**: Folião
+        - **ids**:
+          - 30
+      - **[22]**:
+        - **escalada**: Escalador sem mãe
+        - **ids**:
+          - 45
+      - **[23]**:
+        - **escalada**: Projeto inacabado
+        - **ids**:
+          - 46
+      - **[24]**:
+        - **escalada**: Sobrevibrenf´s
+        - **ids**:
+          - 47
+      - **[25]**:
+        - **escalada**: Sobreviventes
+        - **ids**:
+          - 48
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Lua Cheia
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -502,7 +632,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Jornada nas Estrelas
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -510,7 +639,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Egotrip
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -518,7 +646,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Boicote de comunicação
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
@@ -526,7 +653,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Vicio
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -534,7 +660,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Conspiração Sanguessuga
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
@@ -542,7 +667,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Gota D’água
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -550,7 +674,6 @@
   - **[7]**:
     - **via_movel**:
       - **nome**: Sai de Baixo
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -558,7 +681,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Pipeline
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Gabriel Fillizola
@@ -566,7 +688,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Jurubeba
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Wagner Morin Gomes
@@ -574,7 +695,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Perigo Mora ao Lado
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Márcio Soares Macena
@@ -582,7 +702,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Pretexto da Traição
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -590,7 +709,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Sorriso do Lagarto
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -598,7 +716,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Orgasmatrom
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -606,14 +723,12 @@
   - **[14]**:
     - **via_movel**:
       - **nome**: Escaramuça
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Antonio Carlos Magalhães
   - **[15]**:
     - **via_movel**:
       - **nome**: Túnel do Tempo
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -621,7 +736,6 @@
   - **[16]**:
     - **via_movel**:
       - **nome**: Dédalos
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_4SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -629,7 +743,6 @@
   - **[17]**:
     - **via_movel**:
       - **nome**: Bouquet de Rosas
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_4SUP
       - **conquistadores**:
         - Antonio C. Magalhães
@@ -637,7 +750,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Fogo no Rabo
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -645,7 +757,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Bobeou Sobrou
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -653,7 +764,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Los Cubanos
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -661,7 +771,6 @@
   - **[21]**:
     - **via_movel**:
       - **nome**: Folião
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -669,7 +778,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Escalador sem mãe
-      - **id_no_mapa**: 45
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Jovinei M. Medeiros
@@ -678,18 +786,15 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Projeto inacabado
-      - **id_no_mapa**: 46
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Sobrevibrenf´s
-      - **id_no_mapa**: 47
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Sobreviventes
-      - **id_no_mapa**: 48
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Anderson (Neném)
@@ -928,11 +1033,111 @@
           - **y**: 172
           - **comprimento**: 109
           - **largura**: 21
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Fogo no Rabo
+        - **ids**:
+          - 27
+      - **[1]**:
+        - **escalada**: Bobeou Sobrou
+        - **ids**:
+          - 28
+      - **[2]**:
+        - **escalada**: Los Cubanos
+        - **ids**:
+          - 29
+      - **[3]**:
+        - **escalada**: Folião
+        - **ids**:
+          - 30
+      - **[4]**:
+        - **escalada**: Luzes
+        - **ids**:
+          - 31
+      - **[5]**:
+        - **escalada**: Via sem informação
+        - **ids**:
+          - 32
+      - **[6]**:
+        - **escalada**: Êta Sô
+        - **ids**:
+          - 33
+      - **[7]**:
+        - **escalada**: Via do Tetinho
+        - **ids**:
+          - 34
+      - **[8]**:
+        - **escalada**: Ataque das Bolinhas
+        - **ids**:
+          - 35
+      - **[9]**:
+        - **escalada**: Via do curso
+        - **ids**:
+          - 36
+      - **[10]**:
+        - **escalada**: Viajandão Gramando na Chuva
+        - **ids**:
+          - 37
+      - **[11]**:
+        - **escalada**: Martelo Voador
+        - **ids**:
+          - 38
+      - **[12]**:
+        - **escalada**: Coquetel de Maracujá
+        - **ids**:
+          - 39
+      - **[13]**:
+        - **escalada**: Ravenloft
+        - **ids**:
+          - 40
+      - **[14]**:
+        - **escalada**: Muro das Lamentações
+        - **ids**:
+          - 41
+      - **[15]**:
+        - **escalada**: Equilíbrio Distante
+        - **ids**:
+          - 42
+      - **[16]**:
+        - **escalada**: Careta do Calango
+        - **ids**:
+          - 43
+      - **[17]**:
+        - **escalada**: Pierrô e Colombina
+        - **ids**:
+          - 44
+      - **[18]**:
+        - **escalada**: Escalador sem mãe
+        - **ids**:
+          - 45
+      - **[19]**:
+        - **escalada**: Projeto inacabado
+        - **ids**:
+          - 46
+      - **[20]**:
+        - **escalada**: Sobrevibrenf´s
+        - **ids**:
+          - 47
+      - **[21]**:
+        - **escalada**: Sobreviventes
+        - **ids**:
+          - 48
+      - **[22]**:
+        - **escalada**: Scarface
+        - **ids**:
+          - 49
+      - **[23]**:
+        - **escalada**: Posições Exóticas
+        - **ids**:
+          - 50
+      - **[24]**:
+        - **escalada**: Garotos não Choram
+        - **ids**:
+          - 51
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Fogo no Rabo
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -940,7 +1145,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bobeou Sobrou
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -948,7 +1152,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Los Cubanos
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -956,7 +1159,6 @@
   - **[3]**:
     - **via_movel**:
       - **nome**: Folião
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -964,7 +1166,6 @@
   - **[4]**:
     - **via_movel**:
       - **nome**: Luzes
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -972,13 +1173,11 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Via sem informação
-      - **id_no_mapa**: 32
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
   - **[6]**:
     - **via_movel**:
       - **nome**: Êta Sô
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -986,14 +1185,12 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Via do Tetinho
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Ataque das Bolinhas
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -1001,19 +1198,16 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Via do curso
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_3
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Viajandão Gramando na Chuva
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Eustáquio M. Melo Júnior e alunos
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Martelo Voador
-      - **id_no_mapa**: 38
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Ramaya Vallias
@@ -1021,7 +1215,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Coquetel de Maracujá
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -1029,14 +1222,12 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ravenloft
-      - **id_no_mapa**: 40
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Muro das Lamentações
-      - **id_no_mapa**: 41
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -1044,7 +1235,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Equilíbrio Distante
-      - **id_no_mapa**: 42
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -1052,14 +1242,12 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Careta do Calango
-      - **id_no_mapa**: 43
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Cristiano Loureiro "Negão"
   - **[17]**:
     - **via_movel**:
       - **nome**: Pierrô e Colombina
-      - **id_no_mapa**: 44
       - **dificuldade**: BR_4SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -1067,7 +1255,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Escalador sem mãe
-      - **id_no_mapa**: 45
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Jovinei M. Medeiros
@@ -1076,18 +1263,15 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Projeto inacabado
-      - **id_no_mapa**: 46
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Sobrevibrenf´s
-      - **id_no_mapa**: 47
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Sobreviventes
-      - **id_no_mapa**: 48
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Anderson (Neném)
@@ -1096,7 +1280,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Scarface
-      - **id_no_mapa**: 49
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -1104,14 +1287,12 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Posições Exóticas
-      - **id_no_mapa**: 50
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ivo Ferreira Marcelino
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Garotos não Choram
-      - **id_no_mapa**: 51
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -1230,12 +1411,48 @@
           - **y**: 226
           - **comprimento**: 55
           - **largura**: 31
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ben Moon
+        - **ids**:
+          - 52
+      - **[1]**:
+        - **escalada**: Come Quieto
+        - **ids**:
+          - 53
+      - **[2]**:
+        - **escalada**: O Perigo que Veio do Céu
+        - **ids**:
+          - 54
+      - **[3]**:
+        - **escalada**: Arranca Couro
+        - **ids**:
+          - 55
+      - **[4]**:
+        - **escalada**: Ônibus Inglês
+        - **ids**:
+          - 56
+      - **[5]**:
+        - **escalada**: Gigante de Bronze
+        - **ids**:
+          - 57
+      - **[6]**:
+        - **escalada**: Karrenglass
+        - **ids**:
+          - 58
+      - **[7]**:
+        - **escalada**: Retorno dos Anões
+        - **ids**:
+          - 59
+      - **[8]**:
+        - **escalada**: Compromisso Sexual
+        - **ids**:
+          - 60
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Vía em Top Rope
       - **nome**: Ben Moon
-      - **id_no_mapa**: 52
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Eustáquio Macedo
@@ -1243,7 +1460,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Come Quieto
-      - **id_no_mapa**: 53
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Alexandre Galvão
@@ -1251,7 +1467,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: O Perigo que Veio do Céu
-      - **id_no_mapa**: 54
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -1259,7 +1474,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Arranca Couro
-      - **id_no_mapa**: 55
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Charles C. Marinho
@@ -1268,7 +1482,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Ônibus Inglês
-      - **id_no_mapa**: 56
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -1276,7 +1489,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Gigante de Bronze
-      - **id_no_mapa**: 57
       - **dificuldade**: BR_6
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -1284,7 +1496,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Karrenglass
-      - **id_no_mapa**: 58
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Eduardo V. de A. "Ralf"
@@ -1293,7 +1504,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Retorno dos Anões
-      - **id_no_mapa**: 59
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Fábio Luiz Faria "Fabinho"
@@ -1302,7 +1512,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Compromisso Sexual
-      - **id_no_mapa**: 60
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Emerson A. Azeredo
@@ -1462,11 +1671,67 @@
           - **y**: 266
           - **comprimento**: 51
           - **largura**: 21
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Psico Circus
+        - **ids**:
+          - 62
+      - **[1]**:
+        - **escalada**: Os impossíveis
+        - **ids**:
+          - 63
+      - **[2]**:
+        - **escalada**: Carbonáticus Calcicus
+        - **ids**:
+          - 64
+      - **[3]**:
+        - **escalada**: Para não dizer que não falei de flores
+        - **ids**:
+          - 65
+      - **[4]**:
+        - **escalada**: As Aparências Enganam
+        - **ids**:
+          - 66
+      - **[5]**:
+        - **escalada**: Eu quero é ver o oco
+        - **ids**:
+          - 67
+      - **[6]**:
+        - **escalada**: Cortando Prego
+        - **ids**:
+          - 68
+      - **[7]**:
+        - **escalada**: Vive lá brenf
+        - **ids**:
+          - 69
+      - **[8]**:
+        - **escalada**: Rastafary Baby
+        - **ids**:
+          - 70
+      - **[9]**:
+        - **escalada**: Varinha de Condon
+        - **ids**:
+          - 71
+      - **[10]**:
+        - **escalada**: Tempestade Cerebral
+        - **ids**:
+          - 72
+      - **[11]**:
+        - **escalada**: Chambinho
+        - **ids**:
+          - 73
+      - **[12]**:
+        - **escalada**: Revolução dos Micos
+        - **ids**:
+          - 74
+      - **[13]**:
+        - **escalada**: Al Capote
+        - **ids**:
+          - 75
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Psico Circus
-      - **id_no_mapa**: 62
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -1474,7 +1739,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Os impossíveis
-      - **id_no_mapa**: 63
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -1482,7 +1746,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Carbonáticus Calcicus
-      - **id_no_mapa**: 64
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Leonardo Hoffmann
@@ -1490,7 +1753,6 @@
   - **[3]**:
     - **via_movel**:
       - **nome**: Para não dizer que não falei de flores
-      - **id_no_mapa**: 65
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -1498,7 +1760,6 @@
   - **[4]**:
     - **via_movel**:
       - **nome**: As Aparências Enganam
-      - **id_no_mapa**: 66
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -1506,7 +1767,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Eu quero é ver o oco
-      - **id_no_mapa**: 67
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ricardo Jardim Leal
@@ -1515,7 +1775,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Cortando Prego
-      - **id_no_mapa**: 68
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Edgardo Abreu "Caca"
@@ -1523,7 +1782,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Vive lá brenf
-      - **id_no_mapa**: 69
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - André "DJ"
@@ -1533,14 +1791,12 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Rastafary Baby
-      - **id_no_mapa**: 70
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Leonardo Hoffman
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Varinha de Condon
-      - **id_no_mapa**: 71
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Wilson Novaes
@@ -1548,7 +1804,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Tempestade Cerebral
-      - **id_no_mapa**: 72
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - André C. B. "Andrezão"
@@ -1556,7 +1811,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Chambinho
-      - **id_no_mapa**: 73
       - **dificuldade**: BR_8C
       - **conquistadores**:
         - Anderson Felisário
@@ -1566,7 +1820,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Revolução dos Micos
-      - **id_no_mapa**: 74
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Eduardo Amaral
@@ -1576,7 +1829,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Al Capote
-      - **id_no_mapa**: 75
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Ricardo Jardim Leal
@@ -1693,11 +1945,55 @@
           - **y**: 88
           - **comprimento**: 99
           - **largura**: 57
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cariocas não dizem Uai
+        - **ids**:
+          - 76
+      - **[1]**:
+        - **escalada**: Doutor Lund
+        - **ids**:
+          - 77
+      - **[2]**:
+        - **escalada**: Aceitam-se Sugestões
+        - **ids**:
+          - 78
+      - **[3]**:
+        - **escalada**: Rosa dos Ventos
+        - **ids**:
+          - 79
+      - **[4]**:
+        - **escalada**: Monte Calvário
+        - **ids**:
+          - 80
+      - **[5]**:
+        - **escalada**: Pó-na-beiça
+        - **ids**:
+          - 81
+      - **[6]**:
+        - **escalada**: Três dentro, três fora
+        - **ids**:
+          - 82
+      - **[7]**:
+        - **escalada**: Só para eles
+        - **ids**:
+          - 83
+      - **[8]**:
+        - **escalada**: Só para elas
+        - **ids**:
+          - 84
+      - **[9]**:
+        - **escalada**: Prestobarba
+        - **ids**:
+          - 85
+      - **[10]**:
+        - **escalada**: Bigode Limpo
+        - **ids**:
+          - 86
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Cariocas não dizem Uai
-      - **id_no_mapa**: 76
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ivo Júnior
@@ -1705,7 +2001,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Doutor Lund
-      - **id_no_mapa**: 77
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -1713,7 +2008,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Aceitam-se Sugestões
-      - **id_no_mapa**: 78
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Juan Kempen
@@ -1721,7 +2015,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Rosa dos Ventos
-      - **id_no_mapa**: 79
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Ramaya Vallias
@@ -1729,7 +2022,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Monte Calvário
-      - **id_no_mapa**: 80
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Ramaya Vallias
@@ -1737,7 +2029,6 @@
   - **[5]**:
     - **via_movel**:
       - **nome**: Pó-na-beiça
-      - **id_no_mapa**: 81
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Wilson Novaes
@@ -1745,7 +2036,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Três dentro, três fora
-      - **id_no_mapa**: 82
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Jovinei M. Medeiros
@@ -1754,7 +2044,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Só para eles
-      - **id_no_mapa**: 83
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -1762,7 +2051,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Só para elas
-      - **id_no_mapa**: 84
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -1770,14 +2058,12 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Prestobarba
-      - **id_no_mapa**: 85
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Daniel Fernandes "Salim"
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Bigode Limpo
-      - **id_no_mapa**: 86
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Antonio Carlos Magalhães
@@ -2024,11 +2310,99 @@
           - **y**: 55
           - **comprimento**: 128
           - **largura**: 78
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Bigode de Cristo
+        - **ids**:
+          - 87
+      - **[1]**:
+        - **escalada**: Bigode Sujo
+        - **ids**:
+          - 88
+      - **[2]**:
+        - **escalada**: Bigode de Espinho
+        - **ids**:
+          - 89
+      - **[3]**:
+        - **escalada**: Trombeta Acéfala
+        - **ids**:
+          - 91
+      - **[4]**:
+        - **escalada**: Meio Cubanos
+        - **ids**:
+          - 92
+      - **[5]**:
+        - **escalada**: Golpe Ninja
+        - **ids**:
+          - 93
+      - **[6]**:
+        - **escalada**: Tripla Traição
+        - **ids**:
+          - 94
+      - **[7]**:
+        - **escalada**: Noivado da Feiticeira
+        - **ids**:
+          - 95
+      - **[8]**:
+        - **escalada**: Planeta dos Macacos
+        - **ids**:
+          - 96
+      - **[9]**:
+        - **escalada**: Rota de colisão
+        - **ids**:
+          - 97
+      - **[10]**:
+        - **escalada**: Projeto Daniel Salim
+        - **ids**:
+          - 98
+      - **[11]**:
+        - **escalada**: Vale Perdido
+        - **ids**:
+          - 99
+      - **[12]**:
+        - **escalada**: Consolo da Surucucu
+        - **ids**:
+          - 100
+      - **[13]**:
+        - **escalada**: Santos e Hereges
+        - **ids**:
+          - 101
+      - **[14]**:
+        - **escalada**: O Império Contra Ataca
+        - **ids**:
+          - 102
+      - **[15]**:
+        - **escalada**: Jegue Voador
+        - **ids**:
+          - 103
+      - **[16]**:
+        - **escalada**: Labirinto das Maritacas
+        - **ids**:
+          - 104
+      - **[17]**:
+        - **escalada**: Tentações de Maria Madalena
+        - **ids**:
+          - 105
+      - **[18]**:
+        - **escalada**: Sai do chão
+        - **ids**:
+          - 106
+      - **[19]**:
+        - **escalada**: Ato Imperdoável
+        - **ids**:
+          - 107
+      - **[20]**:
+        - **escalada**: Projeto Rodrigo do Paraná
+        - **ids**:
+          - 108
+      - **[21]**:
+        - **escalada**: Pequena Criança
+        - **ids**:
+          - 109
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Bigode de Cristo
-      - **id_no_mapa**: 87
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -2036,7 +2410,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bigode Sujo
-      - **id_no_mapa**: 88
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Emerson A. Azeredo
@@ -2045,7 +2418,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Bigode de Espinho
-      - **id_no_mapa**: 89
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Alexandre F. de Queiroz "Caverna"
@@ -2061,7 +2433,6 @@
   - **[4]**:
     - **via_movel**:
       - **nome**: Trombeta Acéfala
-      - **id_no_mapa**: 91
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Eustáquio M. Melo Júnior
@@ -2069,14 +2440,12 @@
   - **[5]**:
     - **via_movel**:
       - **nome**: Meio Cubanos
-      - **id_no_mapa**: 92
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Roberto Lincoln de Freitas
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Golpe Ninja
-      - **id_no_mapa**: 93
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Dante Martins Borges
@@ -2084,7 +2453,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tripla Traição
-      - **id_no_mapa**: 94
       - **conquistadores**:
         - Emerson A. Azeredo
         - Eustáquio M. M. Júnior
@@ -2092,7 +2460,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Noivado da Feiticeira
-      - **id_no_mapa**: 95
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Emerson A. Azeredo
@@ -2101,14 +2468,12 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Planeta dos Macacos
-      - **id_no_mapa**: 96
       - **conquistadores**:
         - Leonardo Hoffmann
         - Alexandre "Caverna"
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Rota de colisão
-      - **id_no_mapa**: 97
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Leonardo Hoffmann
@@ -2116,11 +2481,9 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Projeto Daniel Salim
-      - **id_no_mapa**: 98
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Vale Perdido
-      - **id_no_mapa**: 99
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Emerson Alves Azeredo
@@ -2128,14 +2491,12 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Consolo da Surucucu
-      - **id_no_mapa**: 100
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Vinícius B. Assis
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Santos e Hereges
-      - **id_no_mapa**: 101
       - **dificuldade**: BR_9B
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -2143,7 +2504,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: O Império Contra Ataca
-      - **id_no_mapa**: 102
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Eustáquio M. M. Júnior
@@ -2151,7 +2511,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Jegue Voador
-      - **id_no_mapa**: 103
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Léo Hoffmann
@@ -2160,7 +2519,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Labirinto das Maritacas
-      - **id_no_mapa**: 104
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Emerson Alves Azeredo
@@ -2168,7 +2526,6 @@
   - **[18]**:
     - **via_movel**:
       - **nome**: Tentações de Maria Madalena
-      - **id_no_mapa**: 105
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Eustáquio M. Melo Júnior
@@ -2176,7 +2533,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Sai do chão
-      - **id_no_mapa**: 106
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Jovinei Miguel Medeiros
@@ -2184,7 +2540,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Ato Imperdoável
-      - **id_no_mapa**: 107
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Eustáquio M. M. Júnior
@@ -2192,11 +2547,9 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Projeto Rodrigo do Paraná
-      - **id_no_mapa**: 108
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Pequena Criança
-      - **id_no_mapa**: 109
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Wilson Novaes
@@ -2388,11 +2741,63 @@
           - **y**: 81
           - **comprimento**: 155
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Corvo Gigante
+        - **ids**:
+          - 110
+      - **[1]**:
+        - **escalada**: Gralha Pigmeia
+        - **ids**:
+          - 111
+      - **[2]**:
+        - **escalada**: Anjo de Pedra
+        - **ids**:
+          - 112
+      - **[3]**:
+        - **escalada**: Um Porco que Sobe
+        - **ids**:
+          - 113
+      - **[4]**:
+        - **escalada**: Um Corpo que Cai
+        - **ids**:
+          - 114
+      - **[5]**:
+        - **escalada**: Realidade da Coisa
+        - **ids**:
+          - 115
+      - **[6]**:
+        - **escalada**: Realidade Sobreposta
+        - **ids**:
+          - 116
+      - **[7]**:
+        - **escalada**: Talhadeira Passa
+        - **ids**:
+          - 117
+      - **[8]**:
+        - **escalada**: Cova dos Leões
+        - **ids**:
+          - 118
+      - **[9]**:
+        - **escalada**: Mentalidade Suburbana
+        - **ids**:
+          - 119
+      - **[10]**:
+        - **escalada**: Rato Assassino
+        - **ids**:
+          - 120
+      - **[11]**:
+        - **escalada**: Masturbações de Calígula
+        - **ids**:
+          - 123
+      - **[12]**:
+        - **escalada**: Primeiro General
+        - **ids**:
+          - 124
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Corvo Gigante
-      - **id_no_mapa**: 110
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -2400,7 +2805,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Gralha Pigmeia
-      - **id_no_mapa**: 111
       - **dificuldade**: BR_6
       - **conquistadores**:
         - W. Novaes
@@ -2410,7 +2814,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Anjo de Pedra
-      - **id_no_mapa**: 112
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Rodrigo Tinoco França
@@ -2418,7 +2821,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Um Porco que Sobe
-      - **id_no_mapa**: 113
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Leonardo Hoffmann
@@ -2426,7 +2828,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Um Corpo que Cai
-      - **id_no_mapa**: 114
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Emerson A. Azeredo
@@ -2435,7 +2836,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Realidade da Coisa
-      - **id_no_mapa**: 115
       - **dificuldade**: BR_9B
       - **conquistadores**:
         - Fabinho de Petrópolis
@@ -2444,7 +2844,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Realidade Sobreposta
-      - **id_no_mapa**: 116
       - **dificuldade**: BR_8C
       - **conquistadores**:
         - Fabiano da Silva Fernandes
@@ -2452,7 +2851,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Talhadeira Passa
-      - **id_no_mapa**: 117
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Felipe
@@ -2460,7 +2858,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Cova dos Leões
-      - **id_no_mapa**: 118
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Emerson Alves Azeredo
@@ -2468,7 +2865,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Mentalidade Suburbana
-      - **id_no_mapa**: 119
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ricardo J. Leal
@@ -2477,7 +2873,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Rato Assassino
-      - **id_no_mapa**: 120
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Fabinho de Petrópolis
@@ -2485,7 +2880,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Masturbações de Calígula
-      - **id_no_mapa**: 123
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Márcio Soares Macenas
@@ -2494,7 +2888,6 @@
     - **via_movel**:
       - **descricao**: Vía de proteção mista
       - **nome**: Primeiro General
-      - **id_no_mapa**: 124
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Roberto Lincoln de Freitas
@@ -2588,19 +2981,46 @@
           - **y**: 139
           - **comprimento**: 36
           - **largura**: 18
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Spartacus
+        - **ids**:
+          - 125
+      - **[1]**:
+        - **escalada**: A Era dos Patrícios
+        - **ids**:
+          - 126
+      - **[2]**:
+        - **escalada**: Coliseu
+        - **ids**:
+          - 127
+      - **[3]**:
+        - **escalada**: Pobre César
+        - **ids**:
+          - 128
+      - **[4]**:
+        - **escalada**: Soprano (inacabada)
+        - **ids**:
+          - 129
+      - **[5]**:
+        - **escalada**: Sodoma e Gomorra
+        - **ids**:
+          - 130
+      - **[6]**:
+        - **escalada**: Calígula
+        - **ids**:
+          - 131
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Vía em Top Rope
       - **nome**: Spartacus
-      - **id_no_mapa**: 125
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Fabiano Fernandes da Silva
   - **[1]**:
     - **via_esportiva**:
       - **nome**: A Era dos Patrícios
-      - **id_no_mapa**: 126
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
@@ -2608,14 +3028,12 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Coliseu
-      - **id_no_mapa**: 127
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Ramaya Vallias
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Pobre César
-      - **id_no_mapa**: 128
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Emerson
@@ -2625,7 +3043,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Soprano (inacabada)
-      - **id_no_mapa**: 129
       - **conquistadores**:
         - M. Macena
         - Eduardo Feliciano
@@ -2634,7 +3051,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Sodoma e Gomorra
-      - **id_no_mapa**: 130
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Daniel Fernandes "Salim"
@@ -2642,7 +3058,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Calígula
-      - **id_no_mapa**: 131
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Eustáquio

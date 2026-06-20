@@ -1,4 +1,4 @@
----
+---
 nome: Vale Gaules
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_gaules_p0.webp
@@ -82,10 +82,43 @@ mapas:
       y: 512
       comprimento: 41
       largura: 40
+  referencias:
+  - escalada: Beijo Grego
+    ids:
+    - '1'
+  - escalada: A surpresa do Cesar
+    ids:
+    - '2'
+  - escalada: O sítio dos deuses
+    ids:
+    - '3'
+  - escalada: Todos caminhos levam a Roma
+    ids:
+    - '4'
+  - escalada: Love Actually
+    ids:
+    - '5'
+  - escalada: Mama Gás
+    ids:
+    - '6'
+  - escalada: Java Lee
+    ids:
+    - '7'
+  - escalada: Java Porco
+    ids:
+    - '8'
+  - escalada: Absolut com limão
+    ids:
+    - '9'
+  - escalada: Ribit
+    ids:
+    - '10'
+  - escalada: Xanax
+    ids:
+    - '11'
 escaladas:
 - via_esportiva:
     nome: Beijo Grego
-    id_no_mapa: '1'
     dificuldade: BR_7C
     extensao: 20
     quantidade_protecoes_intermediarias: 5
@@ -94,7 +127,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: A surpresa do Cesar
-    id_no_mapa: '2'
     dificuldade: BR_6
     extensao: 18
     quantidade_protecoes_intermediarias: 3
@@ -103,7 +135,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: O sítio dos deuses
-    id_no_mapa: '3'
     dificuldade: BR_5
     extensao: 18
     quantidade_protecoes_intermediarias: 3
@@ -112,7 +143,6 @@ escaladas:
     - Jg
 - via_movel:
     nome: Todos caminhos levam a Roma
-    id_no_mapa: '4'
     dificuldade: BR_5SUP
     extensao: 18
     quantidade_protecoes_parada: 2
@@ -121,7 +151,6 @@ escaladas:
     descricao: Parada fixa
 - via_esportiva:
     nome: Love Actually
-    id_no_mapa: '5'
     dificuldade: BR_5SUP
     extensao: 18
     quantidade_protecoes_intermediarias: 4
@@ -130,7 +159,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: Mama Gás
-    id_no_mapa: '6'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -139,7 +167,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: Java Lee
-    id_no_mapa: '7'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -148,7 +175,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: Java Porco
-    id_no_mapa: '8'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -157,7 +183,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: Absolut com limão
-    id_no_mapa: '9'
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -166,7 +191,6 @@ escaladas:
     - Jg
 - via_esportiva:
     nome: Ribit
-    id_no_mapa: '10'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 4
@@ -176,14 +200,13 @@ escaladas:
     descricao: Inacabada
 - via_esportiva:
     nome: Xanax
-    id_no_mapa: '11'
     dificuldade: BR_7C
     extensao: 20
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
----
+---
 # Vale Gaules
 
 O setor Vale Gaules está localizado no Alto Monte Alvão.

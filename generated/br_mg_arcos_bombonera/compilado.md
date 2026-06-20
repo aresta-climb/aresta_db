@@ -89,7 +89,7 @@
             **ATUALIZAÇÕES/SUGESTÕES:** abrigobase@gmail.com
             
             **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -169,6 +169,39 @@
           - **y**: 985
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Água Bolhas
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Concretino
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Gado impresso (com abelha)
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Jaratataca
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: (sem nome)
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Teoria dos jogos
+        - **ids**:
+          - 8
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p1_i0.webp)
     - **largura_mapa**: 920
@@ -252,7 +285,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Água Bolhas
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 3
@@ -261,7 +293,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Concretino
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7C_BARRA_8A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
@@ -270,7 +301,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Gado impresso (com abelha)
-      - **id_no_mapa**: 3
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -278,14 +308,12 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 4
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2022
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Jaratataca
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 4
@@ -294,7 +322,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: (sem nome)
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_8C_BARRA_9A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -302,13 +329,11 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 7
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2022
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Teoria dos jogos
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -423,11 +448,59 @@
           - **y**: 927
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Lá Cancha
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: La Mano de Dios
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Projeto (sem nome)
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Projeto (sem nome)
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Barra Brava
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Lá Bombonera
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Diego Armando Maradona
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: River Plate (principal)
+        - **ids**:
+          - 8-9
+      - **[8]**:
+        - **escalada**: Boca Junior (variante)
+        - **ids**:
+          - 8-9
+      - **[9]**:
+        - **escalada**: (via inacabada) Superclassicos
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: San Lourenzo
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: La Marca
+        - **ids**:
+          - 12
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Lá Cancha
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_8C
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 6
@@ -435,7 +508,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: La Mano de Dios
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_9B
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
@@ -443,14 +515,12 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Projeto (sem nome)
-      - **id_no_mapa**: 3
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Projeto (sem nome)
-      - **id_no_mapa**: 4
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -458,7 +528,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Barra Brava
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_10A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 8
@@ -467,7 +536,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Lá Bombonera
-      - **id_no_mapa**: 6
       - **destaque**: True
       - **dificuldade**: BR_9B_BARRA_9C
       - **quantidade_protecoes_intermediarias**: 9
@@ -476,7 +544,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Diego Armando Maradona
-      - **id_no_mapa**: 7
       - **destaque**: True
       - **dificuldade**: BR_9C
       - **quantidade_protecoes_intermediarias**: 8
@@ -485,7 +552,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: River Plate (principal)
-      - **id_no_mapa**: 8-9
       - **destaque**: True
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 7
@@ -493,7 +559,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Boca Junior (variante)
-      - **id_no_mapa**: 8-9
       - **dificuldade**: BR_8A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 7
@@ -501,13 +566,11 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: (via inacabada) Superclassicos
-      - **id_no_mapa**: 10
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 1
   - **[10]**:
     - **via_esportiva**:
       - **nome**: San Lourenzo
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8C
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 7
@@ -515,7 +578,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: La Marca
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_8A_BARRA_8B
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 8
@@ -607,6 +669,43 @@
           - **y**: 968
           - **comprimento**: 35
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: La Cucaracha
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: (via inacabada) Bem Vindo ao Bosque
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Malandro é Malandro
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Mané é Mané
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Segunda Divisão
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Diedrinho
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Dona Leci
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Caminito
+        - **ids**:
+          - 9
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p1_i0.webp)
     - **largura_mapa**: 916
@@ -698,7 +797,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: La Cucaracha
-      - **id_no_mapa**: 1
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -706,19 +804,16 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: (via inacabada) Bem Vindo ao Bosque
-      - **id_no_mapa**: 2
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2020
   - **[2]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 3
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2020
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Malandro é Malandro
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
@@ -727,7 +822,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Mané é Mané
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_8B_BARRA_8C
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
@@ -736,7 +830,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Segunda Divisão
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -744,7 +837,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Diedrinho
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -752,7 +844,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Dona Leci
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 4
@@ -761,7 +852,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Caminito
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **destaque**: True

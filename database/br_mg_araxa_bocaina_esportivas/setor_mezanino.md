@@ -1,4 +1,4 @@
----
+---
 nome: Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
@@ -40,6 +40,67 @@ mapas:
       y: 997
       comprimento: 22
       largura: 28
+  referencias:
+  - escalada: Alberto Roberto
+    ids:
+    - '01'
+  - escalada: Chico Anísio
+    ids:
+    - '02'
+  - escalada: Onjacktallbeck
+    ids:
+    - '03'
+  - escalada: Princípio Ativo
+    ids:
+    - '04'
+  - escalada: Suindara
+    ids:
+    - '05'
+  - escalada: São Jorge
+    ids:
+    - '06'
+  - escalada: Ramadan
+    ids:
+    - '07'
+  - escalada: Sabotagem
+    ids:
+    - '08'
+  - escalada: Universo Paralelo
+    ids:
+    - '09'
+  - escalada: Egocentrismo
+    ids:
+    - '10'
+  - escalada: Farinha do Mesmo Saco
+    ids:
+    - '11'
+  - escalada: Bafo de Onça
+    ids:
+    - '12'
+  - escalada: 12 anos
+    ids:
+    - '13'
+  - escalada: Mais Água no Feijão
+    ids:
+    - '14'
+  - escalada: Puberdade
+    ids:
+    - '15'
+  - escalada: Eldorado
+    ids:
+    - '16'
+  - escalada: Mais uma Prova de Amor
+    ids:
+    - '17'
+  - escalada: Sabotagem do Universo
+    ids:
+    - '08'
+  - escalada: Universo Sabotada
+    ids:
+    - '09'
+  - escalada: Ego Paralelo
+    ids:
+    - '10'
 - caminho_imagem_mapa: imagens/setor_mezanino_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -164,7 +225,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Alberto Roberto
-    id_no_mapa: '01'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -175,7 +235,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Chico Anísio
-    id_no_mapa: '02'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -185,7 +244,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Onjacktallbeck
-    id_no_mapa: '03'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -195,7 +253,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Princípio Ativo
-    id_no_mapa: '04'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -206,7 +263,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Suindara
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -217,7 +273,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: São Jorge
-    id_no_mapa: '06'
     dificuldade: BR_7B
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -228,7 +283,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Ramadan
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -239,7 +293,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Sabotagem
-    id_no_mapa: '08'
     dificuldade: BR_10A
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -249,7 +302,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Universo Paralelo
-    id_no_mapa: '09'
     dificuldade: BR_10B
     extensao: 20
     quantidade_protecoes_intermediarias: 11
@@ -260,7 +312,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Egocentrismo
-    id_no_mapa: '10'
     dificuldade: BR_10B
     extensao: 25
     quantidade_protecoes_intermediarias: 11
@@ -272,7 +323,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Farinha do Mesmo Saco
-    id_no_mapa: '11'
     dificuldade: BR_9B
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -283,7 +333,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Bafo de Onça
-    id_no_mapa: '12'
     dificuldade: BR_9A
     extensao: 17
     quantidade_protecoes_intermediarias: 8
@@ -295,7 +344,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: 12 anos
-    id_no_mapa: '13'
     dificuldade: BR_5
     extensao: 20
     conquistadores:
@@ -303,7 +351,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Mais Água no Feijão
-    id_no_mapa: '14'
     dificuldade: BR_5
     extensao: 15
     conquistadores:
@@ -311,7 +358,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Puberdade
-    id_no_mapa: '15'
     dificuldade: BR_5
     extensao: 20
     quantidade_protecoes_intermediarias: 9
@@ -321,7 +367,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Eldorado
-    id_no_mapa: '16'
     dificuldade: BR_5
     extensao: 20
     conquistadores:
@@ -329,7 +374,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Mais uma Prova de Amor
-    id_no_mapa: '17'
     dificuldade: BR_5
     extensao: 20
     conquistadores:
@@ -337,20 +381,17 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Sabotagem do Universo
-    id_no_mapa: '08'
     dificuldade: BR_10B
     descricao: Primeiro crux da Sabotagem com o segundo crux da Universo Paralelo.
 - via_esportiva:
     nome: Universo Sabotada
-    id_no_mapa: '09'
     dificuldade: BR_9B
     descricao: Primeiro crux da Universo Paralelo com o segundo crux da Sabotagem.
 - via_esportiva:
     nome: Ego Paralelo
-    id_no_mapa: '10'
     dificuldade: BR_10C
     descricao: Primeiro crux da Egocentrismo com o segundo crux da Universo Paralelo.
----
+---
 # Setor Mezanino
 
 ![Setor Mezanino](imagens/setor_mezanino_p0_i0.webp)

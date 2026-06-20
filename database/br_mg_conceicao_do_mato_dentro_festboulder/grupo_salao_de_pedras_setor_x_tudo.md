@@ -1,6 +1,5 @@
----
+---
 nome: X-Tudo
-id_no_mapa: '7'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp
   largura_mapa: 758
@@ -20,6 +19,19 @@ mapas:
       y: 255
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: X-Tudo
+    ids:
+    - '1'
+  - escalada: Pão com Ovo
+    ids:
+    - '2'
+  - escalada: Nossa Senhora de Conceição
+    ids:
+    - '1'
+  - escalada: Kansas
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp
   largura_mapa: 758
   altura_mapa: 424
@@ -45,21 +57,18 @@ mapas:
 escaladas:
 - boulder:
     nome: X-Tudo
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Pão com Ovo
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Nossa Senhora de Conceição
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Kansas
-    id_no_mapa: '1'
     dificuldade: V3
----
+---
+
 # Setor X-Tudo
 
 O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.

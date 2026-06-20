@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Complexo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
@@ -47,6 +47,46 @@ mapas:
       x: 1988
       y: 994
       raio: 13
+  referencias:
+  - escalada: Talhadeira
+    ids:
+    - 1/1B
+  - escalada: Complexo
+    ids:
+    - 2A
+  - escalada: Ajoelhou, Tem que Rezar
+    ids:
+    - 2B
+  - escalada: Descomplicado
+    ids:
+    - 3B
+  - escalada: Sofá
+    ids:
+    - 1A
+  - escalada: Porosíssimo
+    ids:
+    - '1'
+  - escalada: Poroso
+    ids:
+    - '2'
+  - escalada: Não Poroso
+    ids:
+    - '3'
+  - escalada: Triangular
+    ids:
+    - '4'
+  - escalada: Boulder de Raiz
+    ids:
+    - '1'
+  - escalada: Travessia Ouro Preto-Bocaina
+    ids:
+    - '2'
+  - escalada: Perereca
+    ids:
+    - '3'
+  - escalada: Respira
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -146,55 +186,42 @@ mapas:
 escaladas:
 - boulder:
     nome: Talhadeira
-    id_no_mapa: 1/1B
     dificuldade: V4
 - boulder:
     nome: Complexo
-    id_no_mapa: 2A
     dificuldade: V5
 - boulder:
     nome: Ajoelhou, Tem que Rezar
-    id_no_mapa: 2B
     dificuldade: V5
 - boulder:
     nome: Descomplicado
-    id_no_mapa: 3B
     dificuldade: V3
 - boulder:
     nome: Sofá
-    id_no_mapa: 1A
     dificuldade: V3
 - boulder:
     nome: Porosíssimo
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Poroso
-    id_no_mapa: '2'
     dificuldade: V2
 - boulder:
     nome: Não Poroso
-    id_no_mapa: '3'
     dificuldade: V3
 - boulder:
     nome: Triangular
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: Boulder de Raiz
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Travessia Ouro Preto-Bocaina
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Perereca
-    id_no_mapa: '3'
     dificuldade: V4
 - boulder:
     nome: Respira
-    id_no_mapa: '1'
     dificuldade: V6
----
+---
 

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Fechadura
 mapas:
 - caminho_imagem_mapa: imagens/setor_fechadura_p0_i6.webp
@@ -166,10 +166,58 @@ mapas:
       y: 1108
       comprimento: 65
       largura: 45
+  referencias:
+  - escalada: Era de Aquários (Interditada)
+    ids:
+    - '01'
+  - escalada: Terra Devastada
+    ids:
+    - '02'
+  - escalada: Canabizados por Água
+    ids:
+    - '03'
+  - escalada: Cólico Espinhos
+    ids:
+    - '04'
+  - escalada: Passeio no Parque
+    ids:
+    - '05'
+  - escalada: Cobaia
+    ids:
+    - '06'
+  - escalada: Despedida de Solteiro
+    ids:
+    - '07'
+  - escalada: Primeira Batida
+    ids:
+    - '8'
+  - escalada: Menino de Toca
+    ids:
+    - '9'
+  - escalada: Via sem informação
+    ids:
+    - '10'
+  - escalada: Rins de Aço
+    ids:
+    - '11'
+  - escalada: Macacos me mordam
+    ids:
+    - '12'
+  - escalada: Novinha em Folha
+    ids:
+    - '13'
+  - escalada: Oposição em Árvore
+    ids:
+    - '14'
+  - escalada: Maggie
+    ids:
+    - '15'
+  - escalada: Chuva Orgânica
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: Era de Aquários (Interditada)
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -178,7 +226,6 @@ escaladas:
     - Rômulo
 - via_movel:
     nome: Terra Devastada
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -186,7 +233,6 @@ escaladas:
     - Isabel Diniz
 - via_esportiva:
     nome: Canabizados por Água
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -196,7 +242,6 @@ escaladas:
     - Rômulo
 - via_movel:
     nome: Cólico Espinhos
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -204,7 +249,6 @@ escaladas:
     - Marcelo Bocão
 - via_movel:
     nome: Passeio no Parque
-    id_no_mapa: '05'
     dificuldade: BR_4SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -214,7 +258,6 @@ escaladas:
     - Matheus Carneiro
 - via_esportiva:
     nome: Cobaia
-    id_no_mapa: '06'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -222,7 +265,6 @@ escaladas:
     - Matheus e Daniel Ferreira Mariano Carneiro
 - via_esportiva:
     nome: Despedida de Solteiro
-    id_no_mapa: '07'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -231,7 +273,6 @@ escaladas:
     - Ricardo Leal
 - via_esportiva:
     nome: Primeira Batida
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -241,7 +282,6 @@ escaladas:
     - Daida
 - via_esportiva:
     nome: Menino de Toca
-    id_no_mapa: 09
     dificuldade: INDEFINIDO
     descricao: Inacabada
     conquistadores:
@@ -250,12 +290,10 @@ escaladas:
     - Vinicinho
 - via_esportiva:
     nome: Via sem informação
-    id_no_mapa: '10'
     dificuldade: INDEFINIDO
     descricao: Fixa
 - via_esportiva:
     nome: Rins de Aço
-    id_no_mapa: '11'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -265,7 +303,6 @@ escaladas:
     - Fábio
 - via_movel:
     nome: Macacos me mordam
-    id_no_mapa: '12'
     dificuldade: BR_5SUP
     protecoes_moveis: Mista
     conquistadores:
@@ -273,7 +310,6 @@ escaladas:
     - Matheus
 - via_esportiva:
     nome: Novinha em Folha
-    id_no_mapa: '13'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -281,14 +317,12 @@ escaladas:
     - Ramaya Vallias
 - via_movel:
     nome: Oposição em Árvore
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
     - Edgardo Abreu “Caca”
 - via_esportiva:
     nome: Maggie
-    id_no_mapa: '15'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -296,13 +330,12 @@ escaladas:
     - Antônio Carlos Magalhães “Tonico”
 - via_esportiva:
     nome: Chuva Orgânica
-    id_no_mapa: '16'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio e Helon
----
+---
 # Setor Fechadura
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”. A trilha segue pela esquerda, por fora da gruta.

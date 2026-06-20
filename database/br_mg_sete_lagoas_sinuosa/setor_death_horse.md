@@ -1,4 +1,4 @@
----
+---
 nome: Setor Death Horse
 mapas:
 - caminho_imagem_mapa: imagens/setor_death_horse_p0_i0.webp
@@ -90,52 +90,71 @@ mapas:
       y: 450
       comprimento: 193
       largura: 28
+  referencias:
+  - escalada: Mary Jane
+    ids:
+    - '1'
+  - escalada: Nhen-hen-hen
+    ids:
+    - '2'
+  - escalada: Oleoduto
+    ids:
+    - '3'
+  - escalada: Território Demarcado
+    ids:
+    - '4'
+  - escalada: Abaeta
+    ids:
+    - '5'
+  - escalada: Sinuosa
+    ids:
+    - '6'
+  - escalada: Sabbath Blood Sabbath/Carrapatos
+    ids:
+    - '7'
+  - escalada: Secos e Molhados
+    ids:
+    - '8'
+  - escalada: Araticum
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: Mary Jane
-    id_no_mapa: '1'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Nhen-hen-hen
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Oleoduto
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Território Demarcado
-    id_no_mapa: '4'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Abaeta
-    id_no_mapa: '5'
     descricao: Projeto.
 - via_esportiva:
     nome: Sinuosa
-    id_no_mapa: '6'
     quantidade_protecoes_intermediarias: 20
     descricao: Projeto (Sem F/A).
 - via_esportiva:
     nome: Sabbath Blood Sabbath/Carrapatos
-    id_no_mapa: '7'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 16
 - via_esportiva:
     nome: Secos e Molhados
-    id_no_mapa: '8'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Araticum
-    id_no_mapa: '9'
     quantidade_protecoes_intermediarias: 14
     descricao: Projeto (Sem F/A).
----
+---
 # Setor Death Horse
 
 Setor que fica logo na entrada. Parede extensa, alta e com trechos muito

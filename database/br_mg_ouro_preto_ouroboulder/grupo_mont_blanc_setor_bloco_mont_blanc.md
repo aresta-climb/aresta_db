@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mont Blanc'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp
@@ -65,6 +65,52 @@ mapas:
       x: 1190
       y: 780
       raio: 13
+  referencias:
+  - escalada: Pico da Neblina ext
+    ids:
+    - 1A
+  - escalada: Inquilinismo Frenético ext
+    ids:
+    - 1C
+  - escalada: Pico da Neblina
+    ids:
+    - 2A
+  - escalada: Inquilinismo Frenético
+    ids:
+    - 2C
+  - escalada: Bife do Mário
+    ids:
+    - 3B
+  - escalada: Painel
+    ids:
+    - 4C
+  - escalada: Mont Blanc
+    ids:
+    - 5C
+  - escalada: Mont Blanc do Oeste
+    ids:
+    - 6C
+  - escalada: Deja Ir
+    ids:
+    - '7'
+  - escalada: Colibri
+    ids:
+    - '1'
+  - escalada: '005'
+    ids:
+    - '1'
+  - escalada: Raízes do Brasil
+    ids:
+    - 1A
+  - escalada: Raízes do Cerrado
+    ids:
+    - 2A
+  - escalada: Tec Bond
+    ids:
+    - 3B
+  - escalada: Super Bonder
+    ids:
+    - 4B
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -122,63 +168,48 @@ mapas:
 escaladas:
 - boulder:
     nome: Pico da Neblina ext
-    id_no_mapa: 1A
     dificuldade: V8
 - boulder:
     nome: Inquilinismo Frenético ext
-    id_no_mapa: 1C
     dificuldade: V11
 - boulder:
     nome: Pico da Neblina
-    id_no_mapa: 2A
     dificuldade: V7
 - boulder:
     nome: Inquilinismo Frenético
-    id_no_mapa: 2C
     dificuldade: V10
 - boulder:
     nome: Bife do Mário
-    id_no_mapa: 3B
     dificuldade: V9
 - boulder:
     nome: Painel
-    id_no_mapa: 4C
     dificuldade: V7
 - boulder:
     nome: Mont Blanc
-    id_no_mapa: 5C
     dificuldade: V10
 - boulder:
     nome: Mont Blanc do Oeste
-    id_no_mapa: 6C
     dificuldade: V11
 - boulder:
     nome: Deja Ir
-    id_no_mapa: '7'
     dificuldade: V12
 - boulder:
     nome: Colibri
-    id_no_mapa: '1'
     dificuldade: V10
 - boulder:
     nome: '005'
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Raízes do Brasil
-    id_no_mapa: 1A
     dificuldade: V4
 - boulder:
     nome: Raízes do Cerrado
-    id_no_mapa: 2A
     dificuldade: V3
 - boulder:
     nome: Tec Bond
-    id_no_mapa: 3B
     dificuldade: V5
 - boulder:
     nome: Super Bonder
-    id_no_mapa: 4B
     dificuldade: V6
----
+---
 

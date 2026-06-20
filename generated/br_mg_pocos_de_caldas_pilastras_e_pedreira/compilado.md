@@ -86,7 +86,7 @@
             | *Estacionamento e início da trilha* |
             
             A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire à esquerda novamente e já encontrara o primeiro setor, o Vale.
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_o_vale
@@ -100,6 +100,31 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_o_vale_p0_i2.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Macumba
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Macumbinha
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Garage Inc.
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Perereca suicida
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Via do Silas
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Inacabada
+        - **ids**:
+          - 6
     - **largura_mapa**: 1032
     - **altura_mapa**: 581
   - **[1]**:
@@ -114,32 +139,26 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Macumba
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_4
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Macumbinha
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_5SUP
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Garage Inc.
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5SUP
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Perereca suicida
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Via do Silas
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_5
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Inacabada
-      - **id_no_mapa**: 6
 
 
 ## Parte: setor_as_pilastras
@@ -158,86 +177,135 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_as_pilastras_p1_i1.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pela raiz
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Buraco de cobra
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Normal
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Bromélia
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Pur musgo
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Vai cabeça
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Silas and Tubarrão
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Projeto 8
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Projeto 9
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Projeto 10
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Madame satã
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Dançando com a Chuva
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Gambá xereta
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Top Rope
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Facinha
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Stuart Little
+        - **ids**:
+          - 16
     - **largura_mapa**: 1032
     - **altura_mapa**: 581
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Pela raiz
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Buraco de cobra
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Normal
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6
   - **[3]**:
     - **via_movel**:
       - **descricao**: Base em móvel ou fazer uma travessia até a base ao lado.
       - **nome**: Bromélia
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5SUP
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Pur musgo
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_5
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Vai cabeça
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Silas and Tubarrão
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Projeto 8
-      - **id_no_mapa**: 8
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Projeto 9
-      - **id_no_mapa**: 9
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Projeto 10
-      - **id_no_mapa**: 10
   - **[10]**:
     - **via_movel**:
       - **descricao**: Via mista.
       - **nome**: Madame satã
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_5SUP
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Dançando com a Chuva
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6SUP
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Gambá xereta
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6SUP
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Top Rope
-      - **id_no_mapa**: 14
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Facinha
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_4
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Stuart Little
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_5
 
 
@@ -264,6 +332,27 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_a_pedreira_p1_i2.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Coisa do capeta
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Sabão crácrá
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Europa
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Fica à vontade
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Pe pra fora
+        - **ids**:
+          - 5
     - **largura_mapa**: 910
     - **altura_mapa**: 388
   - **[1]**:
@@ -274,27 +363,22 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Coisa do capeta
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7A
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Sabão crácrá
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7A
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Europa
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Fica à vontade
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Pe pra fora
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
 
 

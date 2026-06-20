@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mr. Bean
 mapas:
 - caminho_imagem_mapa: imagens/setor_mr_bean_p0_i6.webp
@@ -243,10 +243,103 @@ mapas:
       y: 1166
       comprimento: 171
       largura: 59
+  referencias:
+  - escalada: Primogênito
+    ids:
+    - '01'
+  - escalada: Tá de Corpo Mole
+    ids:
+    - '02'
+  - escalada: Dente de Tubarão
+    ids:
+    - '03'
+  - escalada: Besteirinha
+    ids:
+    - '04'
+  - escalada: O Jogo que Jogamos
+    ids:
+    - '05'
+  - escalada: Boca Mordida
+    ids:
+    - '06'
+  - escalada: Tetris
+    ids:
+    - '07'
+  - escalada: Fenda Gerações
+    ids:
+    - '8'
+  - escalada: Encontros Temporais
+    ids:
+    - '9'
+  - escalada: Golpe de Mestre
+    ids:
+    - '10'
+  - escalada: Voo de Ícaro
+    ids:
+    - '11'
+  - escalada: Y da Questão
+    ids:
+    - '12'
+  - escalada: Seu Perdão
+    ids:
+    - '13'
+  - escalada: A Linda
+    ids:
+    - '14'
+  - escalada: Drama
+    ids:
+    - '15'
+  - escalada: Escolha de Sophia
+    ids:
+    - '16'
+  - escalada: Pra Você
+    ids:
+    - '17'
+  - escalada: Titanic
+    ids:
+    - '18'
+  - escalada: Por Baixo dos Panos
+    ids:
+    - '19'
+  - escalada: Lobo Solitário
+    ids:
+    - '20'
+  - escalada: Currículo Atualizado
+    ids:
+    - '21'
+  - escalada: Pra Morrer Menos
+    ids:
+    - '22'
+  - escalada: Conhecendo o Criador
+    ids:
+    - '23'
+  - escalada: Vida Após a Morte
+    ids:
+    - '24'
+  - escalada: De Frente com o Renegado
+    ids:
+    - '25'
+  - escalada: Contra Mão
+    ids:
+    - '26'
+  - escalada: Sete Trabalhos de Hércules
+    ids:
+    - '27'
+  - escalada: Inhônho não Deixa
+    ids:
+    - '28'
+  - escalada: Excesso de Confiança
+    ids:
+    - '29'
+  - escalada: A Última Sinfonia de Bethoven
+    ids:
+    - '30'
+  - escalada: Vai no Molhado Mesmo (Rapel do bico de pedra)
+    ids:
+    - '31'
 escaladas:
 - via_esportiva:
     nome: Primogênito
-    id_no_mapa: '01'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -254,7 +347,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Tá de Corpo Mole
-    id_no_mapa: '02'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -262,7 +354,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Dente de Tubarão
-    id_no_mapa: '03'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -270,7 +361,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Besteirinha
-    id_no_mapa: '04'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -278,7 +368,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: O Jogo que Jogamos
-    id_no_mapa: '05'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -286,7 +375,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Boca Mordida
-    id_no_mapa: '06'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -294,7 +382,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Tetris
-    id_no_mapa: '07'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -302,14 +389,12 @@ escaladas:
     - GT Baú 2020
 - via_movel:
     nome: Fenda Gerações
-    id_no_mapa: 08
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - GT Baú 2020
 - via_esportiva:
     nome: Encontros Temporais
-    id_no_mapa: 09
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -317,7 +402,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Golpe de Mestre
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -325,7 +409,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Voo de Ícaro
-    id_no_mapa: '11'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -333,7 +416,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Y da Questão
-    id_no_mapa: '12'
     dificuldade: BR_8B_BARRA_8C
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -341,7 +423,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Seu Perdão
-    id_no_mapa: '13'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -349,7 +430,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: A Linda
-    id_no_mapa: '14'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -357,7 +437,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Drama
-    id_no_mapa: '15'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -365,7 +444,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Escolha de Sophia
-    id_no_mapa: '16'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -373,7 +451,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Pra Você
-    id_no_mapa: '17'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -381,7 +458,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Titanic
-    id_no_mapa: '18'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -389,7 +465,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Por Baixo dos Panos
-    id_no_mapa: '19'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -397,7 +472,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Lobo Solitário
-    id_no_mapa: '20'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -405,7 +479,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Currículo Atualizado
-    id_no_mapa: '21'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -413,7 +486,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Pra Morrer Menos
-    id_no_mapa: '22'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -421,7 +493,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Conhecendo o Criador
-    id_no_mapa: '23'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -429,7 +500,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Vida Após a Morte
-    id_no_mapa: '24'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -437,7 +507,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: De Frente com o Renegado
-    id_no_mapa: '25'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -445,7 +514,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Contra Mão
-    id_no_mapa: '26'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -453,7 +521,6 @@ escaladas:
     - GT Baú 2020
 - via_esportiva:
     nome: Sete Trabalhos de Hércules
-    id_no_mapa: '27'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -462,7 +529,6 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: Inhônho não Deixa
-    id_no_mapa: '28'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -470,14 +536,12 @@ escaladas:
     - Otto
 - via_movel:
     nome: Excesso de Confiança
-    id_no_mapa: '29'
     dificuldade: BR_4
     protecoes_moveis: Móvel
     conquistadores:
     - GT Baú 2020
 - via_movel:
     nome: A Última Sinfonia de Bethoven
-    id_no_mapa: '30'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -485,13 +549,12 @@ escaladas:
     - Roberto Lincoln
 - via_movel:
     nome: Vai no Molhado Mesmo (Rapel do bico de pedra)
-    id_no_mapa: '31'
     dificuldade: BR_3
     protecoes_moveis: Móvel
     conquistadores:
     - Alberto Melo
     - Gabriel Lousada
----
+---
 # Setor Mr. Bean
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.

@@ -1,4 +1,4 @@
----
+---
 nome: Sub Setor Anfiteatro
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i0.webp
@@ -125,98 +125,129 @@ mapas:
       comprimento: 196
       largura: 31
       angulo_graus_x100: -1091
+  referencias:
+  - escalada: A Cara do Tia
+    ids:
+    - '1'
+  - escalada: Pedra no Caminho
+    ids:
+    - '2'
+  - escalada: Hora Marcada
+    ids:
+    - '3'
+  - escalada: Funcionário do Mês
+    ids:
+    - '4'
+  - escalada: Mancha Preta
+    ids:
+    - '5'
+  - escalada: Recepção Venenosa
+    ids:
+    - '6'
+  - escalada: Achados e Perdidos
+    ids:
+    - '7'
+  - escalada: Pelotão de Elite
+    ids:
+    - '8'
+  - escalada: Dono do Pico
+    ids:
+    - '10'
+  - escalada: Tio Certeiro
+    ids:
+    - '11'
+  - escalada: Tios Goró
+    ids:
+    - '12'
+  - escalada: Tioradentes
+    ids:
+    - '13'
+  - escalada: Tios D'Jah
+    ids:
+    - '14'
+  - escalada: Velho Tio
+    ids:
+    - '15'
+  - escalada: Tio Tonhas
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: A Cara do Tia
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pedra no Caminho
-    id_no_mapa: '2'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Hora Marcada
-    id_no_mapa: '3'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
 - via_esportiva:
     nome: Funcionário do Mês
-    id_no_mapa: '4'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mancha Preta
-    id_no_mapa: '5'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Recepção Venenosa
-    id_no_mapa: '6'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Achados e Perdidos
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pelotão de Elite
-    id_no_mapa: '8'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Dono do Pico
-    id_no_mapa: '10'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tio Certeiro
-    id_no_mapa: '11'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tios Goró
-    id_no_mapa: '12'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tioradentes
-    id_no_mapa: '13'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tios D'Jah
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Velho Tio
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tio Tonhas
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 1
----
+---
 # Setor Vale Oculto - Sub Setor Anfiteatro
 
 ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp)

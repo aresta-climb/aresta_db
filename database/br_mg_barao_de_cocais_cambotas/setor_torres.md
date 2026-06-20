@@ -1,7 +1,11 @@
----
+---
 nome: Torres
 mapas:
 - caminho_imagem_mapa: imagens/setor_torres_p2.webp
+  referencias:
+  - escalada: Projeto?
+    ids:
+    - '39'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Pinta de Baiano
@@ -23,14 +27,12 @@ escaladas:
     comprimento_total: 50
 - via_movel:
     nome: Projeto?
-    id_no_mapa: '39'
     dificuldade: BR_4
     conquistadores:
     - Edgardo Abreu
     - Luis Monteiro
-    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também
-      feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
----
+    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
+---
 # Setor Torres
 
 O setor Torres possui paredes positivas com vias longas.

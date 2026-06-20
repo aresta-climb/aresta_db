@@ -1,4 +1,4 @@
----
+---
 nome: Setor Hospício
 mapas:
 - caminho_imagem_mapa: imagens/setor_hospicio_p0_i0.webp
@@ -50,10 +50,25 @@ mapas:
       comprimento: 31
       largura: 144
       angulo_graus_x100: 735
+  referencias:
+  - escalada: Ócios do hospício
+    ids:
+    - '01'
+  - escalada: Psicanálise
+    ids:
+    - '02'
+  - escalada: Clínica de recuperação
+    ids:
+    - '03'
+  - escalada: Eletrochoque
+    ids:
+    - '04'
+  - escalada: Camisa de força
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Ócios do hospício
-    id_no_mapa: '01'
     dificuldade: BR_6
     conquistadores:
     - Antonio Calvo
@@ -63,7 +78,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Psicanálise
-    id_no_mapa: '02'
     dificuldade: BR_5
     conquistadores:
     - Antonio Calvo
@@ -73,7 +87,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Clínica de recuperação
-    id_no_mapa: '03'
     dificuldade: BR_5
     conquistadores:
     - Antonio Calvo
@@ -83,7 +96,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Eletrochoque
-    id_no_mapa: '04'
     dificuldade: BR_5SUP
     conquistadores:
     - Antonio Calvo
@@ -93,7 +105,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Camisa de força
-    id_no_mapa: '05'
     dificuldade: BR_4
     conquistadores:
     - Antonio Calvo
@@ -101,6 +112,6 @@ escaladas:
     - Leonard Moreira
     - Michel Gonçalves
     data_abertura: '2020'
----
+---
 
 **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 12 costuras.

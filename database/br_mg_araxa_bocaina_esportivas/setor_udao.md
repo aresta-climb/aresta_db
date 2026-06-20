@@ -1,4 +1,4 @@
----
+---
 nome: Udão
 mapas:
 - caminho_imagem_mapa: imagens/setor_udao_p1.webp
@@ -47,6 +47,46 @@ mapas:
       y: 854
       comprimento: 45
       largura: 34
+  referencias:
+  - escalada: Pulando a cerca
+    ids:
+    - '01'
+  - escalada: Cerca Elétrica
+    ids:
+    - '02'
+  - escalada: Clube da Esquina
+    ids:
+    - '03'
+  - escalada: Chuva de Meteoros
+    ids:
+    - '04'
+  - escalada: Pit Bitoca
+    ids:
+    - '05'
+  - escalada: Jovem Ganso
+    ids:
+    - '06'
+  - escalada: Filho de Vó
+    ids:
+    - '07'
+  - escalada: Loucura Alheia
+    ids:
+    - '8'
+  - escalada: Mistério de Ramadã
+    ids:
+    - '9'
+  - escalada: Chuva de Verão
+    ids:
+    - '10'
+  - escalada: Pole Dance
+    ids:
+    - '11'
+  - escalada: Brusqueta do Cerrado
+    ids:
+    - '12'
+  - escalada: Rota Aérea
+    ids:
+    - '13'
 - caminho_imagem_mapa: imagens/setor_udao_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -103,7 +143,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Pulando a cerca
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 6
@@ -114,7 +153,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Cerca Elétrica
-    id_no_mapa: '02'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 5
@@ -124,7 +162,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Clube da Esquina
-    id_no_mapa: '03'
     dificuldade: BR_5
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -135,7 +172,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Chuva de Meteoros
-    id_no_mapa: '04'
     dificuldade: BR_6
     extensao: 25
     quantidade_protecoes_intermediarias: 7
@@ -145,7 +181,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Pit Bitoca
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     extensao: 18
     quantidade_protecoes_intermediarias: 5
@@ -155,7 +190,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Jovem Ganso
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -166,7 +200,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Filho de Vó
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -177,7 +210,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Loucura Alheia
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -188,7 +220,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Mistério de Ramadã
-    id_no_mapa: 09
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -199,7 +230,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Chuva de Verão
-    id_no_mapa: '10'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -209,7 +239,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Pole Dance
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -219,7 +248,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Brusqueta do Cerrado
-    id_no_mapa: '12'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 5
@@ -229,7 +257,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Rota Aérea
-    id_no_mapa: '13'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -237,7 +264,7 @@ escaladas:
     conquistadores:
     - Gustavo
     data_abertura: '2016'
----
+---
 # Setor Udão
 
 ![Setor Udão](imagens/setor_udao_p0_i0.webp)

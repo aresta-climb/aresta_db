@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Meia-Parede'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp
@@ -11,6 +11,28 @@ mapas:
       x: 818
       y: 802
       raio: 13
+  referencias:
+  - escalada: Tatuagens do Ofício
+    ids:
+    - '1'
+  - escalada: Rastaman
+    ids:
+    - 1A
+  - escalada: Meia Parede
+    ids:
+    - 1B
+  - escalada: Slab
+    ids:
+    - 1A
+  - escalada: Aresta do Lenine
+    ids:
+    - 1B
+  - escalada: Jardim de Orquídeas
+    ids:
+    - '1'
+  - escalada: Jardim Suspenso
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -74,31 +96,24 @@ mapas:
 escaladas:
 - boulder:
     nome: Tatuagens do Ofício
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Rastaman
-    id_no_mapa: 1A
     dificuldade: V6
 - boulder:
     nome: Meia Parede
-    id_no_mapa: 1B
     dificuldade: V4
 - boulder:
     nome: Slab
-    id_no_mapa: 1A
     dificuldade: V4
 - boulder:
     nome: Aresta do Lenine
-    id_no_mapa: 1B
     dificuldade: V5
 - boulder:
     nome: Jardim de Orquídeas
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Jardim Suspenso
-    id_no_mapa: '2'
     dificuldade: V6
----
+---
 

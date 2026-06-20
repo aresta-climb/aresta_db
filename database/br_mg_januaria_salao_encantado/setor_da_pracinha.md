@@ -1,4 +1,4 @@
----
+---
 nome: Setor da Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_pracinha_p0_i1.webp
@@ -91,34 +91,45 @@ mapas:
       y: 322
       comprimento: 114
       largura: 46
+  referencias:
+  - escalada: Velho Chico
+    ids:
+    - '01'
+  - escalada: Dom Quixote
+    ids:
+    - '02'
+  - escalada: Cordadinha
+    ids:
+    - '03'
+  - escalada: Pelas Mãos do Senhor
+    ids:
+    - '04'
+  - escalada: Uma Lágrima que Cai
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Velho Chico
-    id_no_mapa: '01'
     dificuldade: BR_7B
     extensao: 40
     descricao: Via clássica do setor.
 - via_esportiva:
     nome: Dom Quixote
-    id_no_mapa: '02'
     dificuldade: BR_7A
     descricao: Termina na metade da parede.
 - via_esportiva:
     nome: Cordadinha
-    id_no_mapa: '03'
     dificuldade: BR_6SUP_BARRA_7A
     descricao: Termina um pouco acima da via Dom Quixote.
 - via_esportiva:
     nome: Pelas Mãos do Senhor
-    id_no_mapa: '04'
     dificuldade: PROJETO
     descricao: Via que passa pelo teto a direita da claraboia. Via de muita resistência.
 - via_esportiva:
     nome: Uma Lágrima que Cai
-    id_no_mapa: '05'
     dificuldade: PROJETO
     descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base
----
+---
 Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
 
 ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp)

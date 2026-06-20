@@ -46,7 +46,7 @@
             - **Trilha do Véu das Noivas**
             - **Trilha do Vermelhão**
             - **Trilha do Baú**
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -143,11 +143,47 @@
           - **y**: 741
           - **comprimento**: 33
           - **largura**: 42
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aresta do Apicultor
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Se Segura Malandro
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Filosofia Lusitana
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Titanomaquia
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Sika Loca
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Caba Não Mundão
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Marreta Porreta
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Cabron da Peste
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Paralaxologística
+        - **ids**:
+          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Aresta do Apicultor
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_9B
       - **extensao**: 17
       - **quantidade_protecoes_intermediarias**: 7
@@ -158,7 +194,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Se Segura Malandro
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7B
       - **extensao**: 15
       - **quantidade_protecoes_intermediarias**: 6
@@ -169,7 +204,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Filosofia Lusitana
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8B
       - **extensao**: 17
       - **quantidade_protecoes_intermediarias**: 7
@@ -180,7 +214,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Titanomaquia
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_9A
       - **extensao**: 17
       - **quantidade_protecoes_intermediarias**: 7
@@ -191,7 +224,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Sika Loca
-      - **id_no_mapa**: 5
       - **dificuldade**: INDEFINIDO
       - **extensao**: 17
       - **quantidade_protecoes_intermediarias**: 7
@@ -203,7 +235,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Caba Não Mundão
-      - **id_no_mapa**: 6
       - **dificuldade**: INDEFINIDO
       - **extensao**: 17
       - **quantidade_protecoes_intermediarias**: 7
@@ -214,7 +245,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Marreta Porreta
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_6SUP
       - **extensao**: 12
       - **protecoes_moveis**: Móvel
@@ -225,7 +255,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Cabron da Peste
-      - **id_no_mapa**: 8
       - **dificuldade**: INDEFINIDO
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 4
@@ -236,7 +265,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Paralaxologística
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_8B
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 4
@@ -331,11 +359,43 @@
           - **y**: 833
           - **comprimento**: 43
           - **largura**: 52
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Vivi Fernandes
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Kid Bengala
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Lolla
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Emanuelle
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Bruna Surfistinha
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Hilda Furacão
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Cicciolina
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Bordel
+        - **ids**:
+          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Vivi Fernandes
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -346,7 +406,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Kid Bengala
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_4
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -357,7 +416,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Lolla
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_3
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -368,7 +426,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Emanuelle
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_3
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -379,7 +436,6 @@
   - **[4]**:
     - **via_movel**:
       - **nome**: Bruna Surfistinha
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_4
       - **extensao**: 10
       - **protecoes_moveis**: Móvel
@@ -390,7 +446,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Hilda Furacão
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_5
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -400,7 +455,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Cicciolina
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_4
       - **extensao**: 10
       - **protecoes_moveis**: Móvel
@@ -411,7 +465,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Bordel
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_3
       - **extensao**: 8
       - **quantidade_protecoes_intermediarias**: 3
@@ -497,11 +550,39 @@
           - **y**: 1064
           - **comprimento**: 36
           - **largura**: 45
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Temer Jamais
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Escalar sem Temer
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Tchau Querida
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: República do Pó Royal
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: República das Bananas
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: República do Café com Leite
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Lava Jato
+        - **ids**:
+          - 7
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Temer Jamais
-      - **id_no_mapa**: 1
       - **dificuldade**: INDEFINIDO
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 5
@@ -512,7 +593,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Escalar sem Temer
-      - **id_no_mapa**: 2
       - **dificuldade**: INDEFINIDO
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 5
@@ -523,7 +603,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Tchau Querida
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7B_BARRA_7C
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 5
@@ -534,7 +613,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: República do Pó Royal
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 4
@@ -545,7 +623,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: República das Bananas
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7A
       - **extensao**: 11
       - **quantidade_protecoes_intermediarias**: 4
@@ -556,7 +633,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: República do Café com Leite
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **extensao**: 11
       - **quantidade_protecoes_intermediarias**: 4
@@ -567,7 +643,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Lava Jato
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7B
       - **extensao**: 11
       - **quantidade_protecoes_intermediarias**: 4
@@ -726,11 +801,91 @@
           - **y**: 376
           - **comprimento**: 53
           - **largura**: 48
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Vaca Virgem
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Route 162
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Dia de Protesto
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Atestado de Cadena
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Janela do Universo
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Musgonoszói
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Fala meu Justo
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Regletes Ocultos
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Batata com Sal
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Argentina
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Alemanha
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Melodrama
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Sapiência
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Lagartixa de Pedra
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Meu Amigo Friend
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Meu Amigo Broca
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Babilon Go Up
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Sem Dúvida Nem Piedade
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Chanasclý
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Segredo da Cadena
+        - **ids**:
+          - 20
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Vaca Virgem
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -741,7 +896,6 @@
   - **[1]**:
     - **via_movel**:
       - **nome**: Route 162
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_5
       - **extensao**: 10
       - **protecoes_moveis**: Móvel
@@ -752,7 +906,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Dia de Protesto
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6
       - **extensao**: 9
       - **quantidade_protecoes_intermediarias**: 2
@@ -762,7 +915,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Atestado de Cadena
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7C
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -773,7 +925,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Janela do Universo
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -784,7 +935,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Musgonoszói
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_6
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 4
@@ -795,7 +945,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Fala meu Justo
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7B
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -806,7 +955,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Regletes Ocultos
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_6
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -817,7 +965,6 @@
   - **[8]**:
     - **via_movel**:
       - **nome**: Batata com Sal
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_5
       - **extensao**: 10
       - **protecoes_moveis**: Móvel
@@ -828,7 +975,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Argentina
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_5
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -839,7 +985,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Alemanha
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7A
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 2
@@ -850,7 +995,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Melodrama
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -862,7 +1006,6 @@
   - **[12]**:
     - **via_movel**:
       - **nome**: Sapiência
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7B
       - **extensao**: 12
       - **protecoes_moveis**: Móvel
@@ -872,7 +1015,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Lagartixa de Pedra
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -883,7 +1025,6 @@
   - **[14]**:
     - **via_movel**:
       - **nome**: Meu Amigo Friend
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6
       - **extensao**: 10
       - **protecoes_moveis**: Móvel
@@ -894,7 +1035,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Meu Amigo Broca
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -905,7 +1045,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Babilon Go Up
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_8C
       - **extensao**: 10
       - **quantidade_protecoes_intermediarias**: 3
@@ -917,7 +1056,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Sem Dúvida Nem Piedade
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_8B
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 5
@@ -929,7 +1067,6 @@
   - **[18]**:
     - **via_movel**:
       - **nome**: Chanasclý
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_5
       - **extensao**: 12
       - **protecoes_moveis**: Móvel
@@ -939,7 +1076,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Segredo da Cadena
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 4

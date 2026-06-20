@@ -30,7 +30,7 @@
             Danilo Stehling
             
             Atualizado em: 2010
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -277,146 +277,228 @@
           - **y**: 384
           - **comprimento**: 70
           - **largura**: 14
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Parede Preta
+        - **ids**:
+          - 13
+      - **[1]**:
+        - **escalada**: Leão da Montanha
+        - **ids**:
+          - 14
+      - **[2]**:
+        - **escalada**: Face Norte
+        - **ids**:
+          - 15
+      - **[3]**:
+        - **escalada**: Criaturas da Noite
+        - **ids**:
+          - 16
+      - **[4]**:
+        - **escalada**: Tendência Suicida
+        - **ids**:
+          - 17
+      - **[5]**:
+        - **escalada**: Thor
+        - **ids**:
+          - 18
+      - **[6]**:
+        - **escalada**: Todinha pra Mim
+        - **ids**:
+          - 19
+      - **[7]**:
+        - **escalada**: Sombra do Gigante
+        - **ids**:
+          - 20
+      - **[8]**:
+        - **escalada**: Firinha Rinda
+        - **ids**:
+          - 21
+      - **[9]**:
+        - **escalada**: Piolhos Entorpecidos
+        - **ids**:
+          - 22
+      - **[10]**:
+        - **escalada**: Monstros
+        - **ids**:
+          - 23
+      - **[11]**:
+        - **escalada**: Princesa Escalafabeltica
+        - **ids**:
+          - 24
+      - **[12]**:
+        - **escalada**: Restos de Woodstock
+        - **ids**:
+          - 25
+      - **[13]**:
+        - **escalada**: ??
+        - **ids**:
+          - 26
+      - **[14]**:
+        - **escalada**: Via da Coruja
+        - **ids**:
+          - 27
+      - **[15]**:
+        - **escalada**: Dona Onça
+        - **ids**:
+          - 28
+      - **[16]**:
+        - **escalada**: Solidão das Idéias
+        - **ids**:
+          - 29
+      - **[17]**:
+        - **escalada**: A Espera dos Urubus
+        - **ids**:
+          - 30
+      - **[18]**:
+        - **escalada**: Gaviões
+        - **ids**:
+          - 31
+      - **[19]**:
+        - **escalada**: Azimut Vertical
+        - **ids**:
+          - 32
+      - **[20]**:
+        - **escalada**: Zique Zira da Raca Rouca
+        - **ids**:
+          - 33
+      - **[21]**:
+        - **escalada**: Mistérios da Fé
+        - **ids**:
+          - 34
+      - **[22]**:
+        - **escalada**: Nem Karaca Caia
+        - **ids**:
+          - 35
+      - **[23]**:
+        - **escalada**: Variante Culpa do Elninho
+        - **ids**:
+          - A
+      - **[24]**:
+        - **escalada**: Variante do Mergulho
+        - **ids**:
+          - B
+      - **[25]**:
+        - **escalada**: Variante por Aqui
+        - **ids**:
+          - C
+      - **[26]**:
+        - **escalada**: Variante do Judas
+        - **ids**:
+          - D
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Parede Preta
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Leão da Montanha
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Face Norte
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Criaturas da Noite
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Tendência Suicida
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Thor
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7A
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Todinha pra Mim
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_7B
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Sombra do Gigante
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7B
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Firinha Rinda
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Piolhos Entorpecidos
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_8B
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Monstros
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_9C
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Princesa Escalafabeltica
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_8B
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Restos de Woodstock
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_8C
   - **[13]**:
     - **via_esportiva**:
       - **nome**: ??
-      - **id_no_mapa**: 26
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Via da Coruja
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_3
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Dona Onça
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_6SUP
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Solidão das Idéias
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_8C
   - **[17]**:
     - **via_esportiva**:
       - **nome**: A Espera dos Urubus
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_8B
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Gaviões
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_9B
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Azimut Vertical
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_9A
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Zique Zira da Raca Rouca
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_8B
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Mistérios da Fé
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_6
       - **dificuldade_artificial**: A2_MAIS
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Nem Karaca Caia
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_8B
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Variante Culpa do Elninho
-      - **id_no_mapa**: A
       - **dificuldade**: BR_5
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Variante do Mergulho
-      - **id_no_mapa**: B
       - **dificuldade**: BR_6SUP
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Variante por Aqui
-      - **id_no_mapa**: C
       - **dificuldade**: BR_3
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Variante do Judas
-      - **id_no_mapa**: D
       - **dificuldade**: BR_4
 
 
@@ -545,71 +627,111 @@
           - **y**: 464
           - **comprimento**: 28
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Festival dos Lagartos
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Melhor Impossível
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Lombra Etílica
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Paredão SLU
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Libertas
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Micos
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Via da Perereca
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Barbarela
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Ciganos Molhados
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Abominável Morcego Amestrado
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Os Quatro Macacos
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Produção Independente
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Parede Preta
+        - **ids**:
+          - 13
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Festival dos Lagartos
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_3SUP
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Melhor Impossível
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_4
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Lombra Etílica
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Paredão SLU
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_5
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Libertas
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6SUP
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Micos
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_5
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Via da Perereca
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7B
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Barbarela
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Ciganos Molhados
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_5
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Abominável Morcego Amestrado
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Os Quatro Macacos
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7A
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Produção Independente
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6SUP
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Parede Preta
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
 

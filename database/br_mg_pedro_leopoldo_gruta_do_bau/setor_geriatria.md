@@ -1,4 +1,4 @@
----
+---
 nome: Setor Geriatria
 mapas:
 - caminho_imagem_mapa: imagens/setor_geriatria_p0_i6.webp
@@ -194,10 +194,79 @@ mapas:
       y: 940
       comprimento: 86
       largura: 46
+  referencias:
+  - escalada: Osteoporose
+    ids:
+    - '01'
+  - escalada: Pressão Baixa
+    ids:
+    - '02'
+  - escalada: Pressão Alta
+    ids:
+    - '03'
+  - escalada: Menopausa
+    ids:
+    - '04'
+  - escalada: Andropausa
+    ids:
+    - '05'
+  - escalada: Toque Retal
+    ids:
+    - '06'
+  - escalada: Papa Nicolau
+    ids:
+    - '07'
+  - escalada: Tira o Andador e Vai
+    ids:
+    - '8'
+  - escalada: Rupestre
+    ids:
+    - '9'
+  - escalada: Losartana
+    ids:
+    - '10'
+  - escalada: Captopril
+    ids:
+    - '11'
+  - escalada: Plenitude
+    ids:
+    - '12'
+  - escalada: Diabetes
+    ids:
+    - '13'
+  - escalada: Glifage
+    ids:
+    - '14'
+  - escalada: Insulina
+    ids:
+    - '15'
+  - escalada: AVC
+    ids:
+    - '16'
+  - escalada: Fusca Azul
+    ids:
+    - '17'
+  - escalada: The Equalizer
+    ids:
+    - '18'
+  - escalada: Casa da Fumaça
+    ids:
+    - '19'
+  - escalada: Sombra pro Morto
+    ids:
+    - '20'
+  - escalada: As Fúrias
+    ids:
+    - '21'
+  - escalada: Os Despertos
+    ids:
+    - '22'
+  - escalada: As Bondosas
+    ids:
+    - '23'
 escaladas:
 - via_esportiva:
     nome: Osteoporose
-    id_no_mapa: '01'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -206,7 +275,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Pressão Baixa
-    id_no_mapa: '02'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -215,7 +283,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Pressão Alta
-    id_no_mapa: '03'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -224,7 +291,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Menopausa
-    id_no_mapa: '04'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -233,7 +299,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Andropausa
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -242,7 +307,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Toque Retal
-    id_no_mapa: '06'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -251,7 +315,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Papa Nicolau
-    id_no_mapa: '07'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -260,7 +323,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Tira o Andador e Vai
-    id_no_mapa: 08
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -269,7 +331,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Rupestre
-    id_no_mapa: 09
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -278,7 +339,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Losartana
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -287,7 +347,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Captopril
-    id_no_mapa: '11'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -296,7 +355,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Plenitude
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -305,7 +363,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Diabetes
-    id_no_mapa: '13'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -314,7 +371,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Glifage
-    id_no_mapa: '14'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -323,7 +379,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Insulina
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -332,7 +387,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: AVC
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -341,7 +395,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Fusca Azul
-    id_no_mapa: '17'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -351,7 +404,6 @@ escaladas:
     - Eduardo Utsch
 - via_movel:
     nome: The Equalizer
-    id_no_mapa: '18'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
@@ -359,7 +411,6 @@ escaladas:
     - Rodrigo Soares
 - via_movel:
     nome: Casa da Fumaça
-    id_no_mapa: '19'
     dificuldade: BR_5
     protecoes_moveis: Móvel
     conquistadores:
@@ -367,7 +418,6 @@ escaladas:
     - Fábio Mello
 - via_esportiva:
     nome: Sombra pro Morto
-    id_no_mapa: '20'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -375,7 +425,6 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: As Fúrias
-    id_no_mapa: '21'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
@@ -383,7 +432,6 @@ escaladas:
     - André Braga
 - via_movel:
     nome: Os Despertos
-    id_no_mapa: '22'
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -391,13 +439,12 @@ escaladas:
     - André Braga
 - via_movel:
     nome: As Bondosas
-    id_no_mapa: '23'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
     - André Braga
----
+---
 # Setor Geriatria
 
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.

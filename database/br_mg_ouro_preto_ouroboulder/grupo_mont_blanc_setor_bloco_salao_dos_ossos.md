@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Salão dos Ossos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp
@@ -53,34 +53,49 @@ mapas:
       x: 1520
       y: 375
       raio: 13
+  referencias:
+  - escalada: Dolinha
+    ids:
+    - 1B
+  - escalada: '006'
+    ids:
+    - 2A
+  - escalada: '007'
+    ids:
+    - 3A
+  - escalada: Salão dos Ossos
+    ids:
+    - 3B
+  - escalada: Osso
+    ids:
+    - 4B
+  - escalada: Osso Duro de Roer
+    ids:
+    - 5B
+  - escalada: Tutano
+    ids:
+    - 5C
 escaladas:
 - boulder:
     nome: Dolinha
-    id_no_mapa: 1B
     dificuldade: V8
 - boulder:
     nome: '006'
-    id_no_mapa: 2A
     dificuldade: V1
 - boulder:
     nome: '007'
-    id_no_mapa: 3A
     dificuldade: V3
 - boulder:
     nome: Salão dos Ossos
-    id_no_mapa: 3B
     dificuldade: V5
 - boulder:
     nome: Osso
-    id_no_mapa: 4B
     dificuldade: V7
 - boulder:
     nome: Osso Duro de Roer
-    id_no_mapa: 5B
     dificuldade: V10
 - boulder:
     nome: Tutano
-    id_no_mapa: 5C
     dificuldade: V10
----
+---
 

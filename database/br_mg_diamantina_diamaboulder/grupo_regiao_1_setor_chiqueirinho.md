@@ -1,4 +1,4 @@
----
+---
 nome: Chiqueirinho
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p0_i0.webp
@@ -47,6 +47,27 @@ mapas:
       y: 277
       comprimento: 28
       largura: 28
+  referencias:
+  - escalada: Menos Porco Mais Aranha
+    ids:
+    - '01'
+    - 01_fim
+  - escalada: Javaporco
+    ids:
+    - '02'
+    - 02_fim
+  - escalada: Chiqueirinho
+    ids:
+    - '03'
+    - 03_fim
+  - escalada: Pocilga
+    ids:
+    - '01'
+    - 01_fim
+  - escalada: Porco Aranha
+    ids:
+    - '02'
+    - 02_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 1055
@@ -110,30 +131,20 @@ mapas:
 escaladas:
 - boulder:
     nome: Menos Porco Mais Aranha
-    id_no_mapa: '01'
-    id_no_mapa_fim: '01_fim'
     dificuldade: V4_BARRA_V5
 - boulder:
     nome: Javaporco
-    id_no_mapa: '02'
-    id_no_mapa_fim: '02_fim'
     dificuldade: V3
 - boulder:
     nome: Chiqueirinho
-    id_no_mapa: '03'
-    id_no_mapa_fim: '03_fim'
     dificuldade: V2_BARRA_V3
 - boulder:
     nome: Pocilga
-    id_no_mapa: '01'
-    id_no_mapa_fim: '01_fim'
     dificuldade: V2
 - boulder:
     nome: Porco Aranha
-    id_no_mapa: '02'
-    id_no_mapa_fim: '02_fim'
     dificuldade: V2
----
+---
 # Bloco: Chiqueirinho
 ## Região 1
 

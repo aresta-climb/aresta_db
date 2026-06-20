@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_cima_p0.webp
@@ -103,60 +103,87 @@ mapas:
       y: 370
       comprimento: 20
       largura: 19
+  referencias:
+  - escalada: Mico Leão Noiado
+    ids:
+    - '1'
+  - escalada: Maridos Alforriados
+    ids:
+    - '2'
+  - escalada: Sábado de Aleluia
+    ids:
+    - '3'
+  - escalada: Sem Nome
+    ids:
+    - '4'
+  - escalada: Mancha Amarela
+    ids:
+    - '6'
+  - escalada: Mancha Preta
+    ids:
+    - '7'
+  - escalada: DNA Zica Preta
+    ids:
+    - '8'
+  - escalada: Desvio de Conduta
+    ids:
+    - '9'
+  - escalada: O Desgrama
+    ids:
+    - '10'
+  - escalada: Bin Laden
+    ids:
+    - '11'
+  - escalada: Dia após Dia
+    ids:
+    - '12'
+  - escalada: Quarta-Feira Cinzas
+    ids:
+    - '13'
+  - escalada: Independence Day
+    ids:
+    - '14'
 escaladas:
 - via_esportiva:
     nome: Mico Leão Noiado
-    id_no_mapa: '1'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Maridos Alforriados
-    id_no_mapa: '2'
     dificuldade: BR_5SUP
 - via_esportiva:
     nome: Sábado de Aleluia
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Sem Nome
-    id_no_mapa: '4'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Mancha Amarela
-    id_no_mapa: '6'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Mancha Preta
-    id_no_mapa: '7'
     dificuldade: BR_5
 - via_esportiva:
     nome: DNA Zica Preta
-    id_no_mapa: '8'
     dificuldade: BR_5
 - via_esportiva:
     nome: Desvio de Conduta
-    id_no_mapa: '9'
     dificuldade: BR_7B
 - via_esportiva:
     nome: O Desgrama
-    id_no_mapa: '10'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Bin Laden
-    id_no_mapa: '11'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Dia após Dia
-    id_no_mapa: '12'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Quarta-Feira Cinzas
-    id_no_mapa: '13'
     dificuldade: BR_6
 - via_esportiva:
     nome: Independence Day
-    id_no_mapa: '14'
     dificuldade: BR_5
----
+---
 # Setor de Cima
 
 O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.

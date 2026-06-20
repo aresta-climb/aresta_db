@@ -1,4 +1,4 @@
----
+---
 nome: Shana Crazy
 mapas:
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp
@@ -12,6 +12,34 @@ mapas:
       y: 1038
       comprimento: 32
       largura: 26
+  referencias:
+  - escalada: Caroço de Manga
+    ids:
+    - '01'
+  - escalada: Caminho das pedras
+    ids:
+    - '02'
+  - escalada: Caminho das águas
+    ids:
+    - '03'
+  - escalada: Shana Crazy
+    ids:
+    - '04'
+  - escalada: Na racha
+    ids:
+    - '05'
+  - escalada: Lei Rounet
+    ids:
+    - '06'
+  - escalada: Maria da Penha
+    ids:
+    - '07'
+  - escalada: Para-raio de Maluco
+    ids:
+    - '8'
+  - escalada: Sandálias da Humildade
+    ids:
+    - '9'
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -79,7 +107,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Caroço de Manga
-    id_no_mapa: '01'
     dificuldade: BR_4
     extensao: 5
     quantidade_protecoes_intermediarias: 2
@@ -89,7 +116,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Caminho das pedras
-    id_no_mapa: '02'
     dificuldade: BR_5
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -99,7 +125,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Caminho das águas
-    id_no_mapa: '03'
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -109,7 +134,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Shana Crazy
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -119,7 +143,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Na racha
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -129,7 +152,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Lei Rounet
-    id_no_mapa: '06'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -139,7 +161,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Maria da Penha
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -149,7 +170,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Para-raio de Maluco
-    id_no_mapa: 08
     dificuldade: BR_6
     extensao: 12
     quantidade_protecoes_intermediarias: 7
@@ -160,7 +180,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Sandálias da Humildade
-    id_no_mapa: 09
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 7
@@ -168,7 +187,7 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2011'
----
+---
 # Setor Shana Crazy
 
 ![Setor Shana Crazy](imagens/setor_shana_crazy_p0_i0.webp)

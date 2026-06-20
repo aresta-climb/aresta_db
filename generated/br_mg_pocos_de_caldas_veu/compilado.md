@@ -44,7 +44,7 @@
             Após entrar na mata siga a trilha por aproximadamente 80/100 metros. Fique atento para a primeira bifurcação a direita, que pode passar desapercebida, pegue a direita e continue até atravessar uma cerca cortada e logo a frente um pequeno riacho, passe por ele e logo encontrará o setor a poucos metros.
             
             **Coordenadas do Setor:** 21°46'31.5"S 46°37'06.5"W (-21.775417, -46.618472)
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_bloco_casamento
@@ -56,6 +56,55 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_casamento_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Namoro
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Amizade
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Primeiro beijo
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Nó de gravata
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Lapela
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Bodas de ouro
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Dois corações
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Coração de pedra
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Coração de pedra ext
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Despedida de solteiro
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Casamento
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Dia dos namorados
+        - **ids**:
+          - 12
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
   - **[1]**:
@@ -66,62 +115,50 @@
   - **[0]**:
     - **boulder**:
       - **nome**: Namoro
-      - **id_no_mapa**: 1
       - **dificuldade**: V1
   - **[1]**:
     - **boulder**:
       - **nome**: Amizade
-      - **id_no_mapa**: 2
       - **dificuldade**: V1
   - **[2]**:
     - **boulder**:
       - **nome**: Primeiro beijo
-      - **id_no_mapa**: 3
       - **dificuldade**: V1
   - **[3]**:
     - **boulder**:
       - **nome**: Nó de gravata
-      - **id_no_mapa**: 4
       - **dificuldade**: V2
   - **[4]**:
     - **boulder**:
       - **nome**: Lapela
-      - **id_no_mapa**: 5
       - **dificuldade**: V2
   - **[5]**:
     - **boulder**:
       - **nome**: Bodas de ouro
-      - **id_no_mapa**: 6
       - **dificuldade**: V3
   - **[6]**:
     - **boulder**:
       - **nome**: Dois corações
-      - **id_no_mapa**: 7
       - **dificuldade**: V3_BARRA_V4
   - **[7]**:
     - **boulder**:
       - **nome**: Coração de pedra
-      - **id_no_mapa**: 8
       - **dificuldade**: V4
   - **[8]**:
     - **boulder**:
       - **nome**: Coração de pedra ext
-      - **id_no_mapa**: 9
       - **dificuldade**: V6
   - **[9]**:
     - **boulder**:
       - **nome**: Despedida de solteiro
-      - **id_no_mapa**: 10
       - **dificuldade**: V5
   - **[10]**:
     - **boulder**:
       - **nome**: Casamento
-      - **id_no_mapa**: 11
       - **dificuldade**: V7
   - **[11]**:
     - **boulder**:
       - **nome**: Dia dos namorados
-      - **id_no_mapa**: 12
       - **dificuldade**: V1
 
 
@@ -134,46 +171,68 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_da_pressao_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ponte de safena
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Pressão baixa
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Hipertensão
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Pulsar
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: 13\9
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: 12\8
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Pressão alta
+        - **ids**:
+          - 7
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Ponte de safena
-      - **id_no_mapa**: 1
       - **dificuldade**: V2
   - **[1]**:
     - **boulder**:
       - **nome**: Pressão baixa
-      - **id_no_mapa**: 2
       - **dificuldade**: V1
   - **[2]**:
     - **boulder**:
       - **descricao**: Travessia.
       - **nome**: Hipertensão
-      - **id_no_mapa**: 3
       - **dificuldade**: V6
   - **[3]**:
     - **boulder**:
       - **nome**: Pulsar
-      - **id_no_mapa**: 4
       - **dificuldade**: V0_BARRA_V1
   - **[4]**:
     - **boulder**:
       - **descricao**: SDS V3/4.
       - **nome**: 13\9
-      - **id_no_mapa**: 5
       - **dificuldade**: V3
   - **[5]**:
     - **boulder**:
       - **descricao**: SDS V3.
       - **nome**: 12\8
-      - **id_no_mapa**: 6
       - **dificuldade**: V2
   - **[6]**:
     - **boulder**:
       - **nome**: Pressão alta
-      - **id_no_mapa**: 7
       - **dificuldade**: V4
 
 
@@ -186,33 +245,49 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_gaveta_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Giovana
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Gavetinha
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Gaveta
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Gavetão
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Da gaveta ao Tumulto
+        - **ids**:
+          - 5
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Giovana
-      - **id_no_mapa**: 1
       - **dificuldade**: V0
   - **[1]**:
     - **boulder**:
       - **nome**: Gavetinha
-      - **id_no_mapa**: 2
       - **dificuldade**: V0
   - **[2]**:
     - **boulder**:
       - **nome**: Gaveta
-      - **id_no_mapa**: 3
       - **dificuldade**: V1
   - **[3]**:
     - **boulder**:
       - **nome**: Gavetão
-      - **id_no_mapa**: 4
       - **dificuldade**: V1
   - **[4]**:
     - **boulder**:
       - **nome**: Da gaveta ao Tumulto
-      - **id_no_mapa**: 5
       - **dificuldade**: V6
 
 
@@ -225,43 +300,65 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_ditinho_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Vezerin
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Ditinho
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: 11 de Maio
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Balbúrdia
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Da gaveta ao tumulto
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Mais forte que o três
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: 11 de Maio Direct
+        - **ids**:
+          - 7
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Vezerin
-      - **id_no_mapa**: 1
       - **dificuldade**: V0
   - **[1]**:
     - **boulder**:
       - **nome**: Ditinho
-      - **id_no_mapa**: 2
       - **dificuldade**: V4
   - **[2]**:
     - **boulder**:
       - **nome**: 11 de Maio
-      - **id_no_mapa**: 3
       - **dificuldade**: V3_BARRA_V4
   - **[3]**:
     - **boulder**:
       - **nome**: Balbúrdia
-      - **id_no_mapa**: 4
       - **dificuldade**: V5
   - **[4]**:
     - **boulder**:
       - **nome**: Da gaveta ao tumulto
-      - **id_no_mapa**: 5
       - **dificuldade**: V6
   - **[5]**:
     - **boulder**:
       - **nome**: Mais forte que o três
-      - **id_no_mapa**: 6
       - **dificuldade**: V2
   - **[6]**:
     - **boulder**:
       - **nome**: 11 de Maio Direct
-      - **id_no_mapa**: 7
       - **dificuldade**: V4
 
 
@@ -274,49 +371,74 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_angular_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Modular
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Seta
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Piramidal
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Diagonal
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Perpendicular
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Angular
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Singular
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Estrangular
+        - **ids**:
+          - 8
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Modular
-      - **id_no_mapa**: 1
       - **dificuldade**: V0
   - **[1]**:
     - **boulder**:
       - **nome**: Seta
-      - **id_no_mapa**: 2
       - **dificuldade**: V4
   - **[2]**:
     - **boulder**:
       - **descricao**: Direct (Bote para borda) V4.
       - **nome**: Piramidal
-      - **id_no_mapa**: 3
       - **dificuldade**: V3
   - **[3]**:
     - **boulder**:
       - **nome**: Diagonal
-      - **id_no_mapa**: 4
       - **dificuldade**: V4
   - **[4]**:
     - **boulder**:
       - **nome**: Perpendicular
-      - **id_no_mapa**: 5
       - **dificuldade**: V5
   - **[5]**:
     - **boulder**:
       - **nome**: Angular
-      - **id_no_mapa**: 6
       - **dificuldade**: V3
   - **[6]**:
     - **boulder**:
       - **nome**: Singular
-      - **id_no_mapa**: 7
       - **dificuldade**: V3
   - **[7]**:
     - **boulder**:
       - **nome**: Estrangular
-      - **id_no_mapa**: 8
       - **dificuldade**: V3_BARRA_V4
 
 
@@ -329,33 +451,49 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_high_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Raiz lateral
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: High Perrengue
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Mundunga
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: ???
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: HighBolinha
+        - **ids**:
+          - 5
     - **largura_mapa**: 794
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Raiz lateral
-      - **id_no_mapa**: 1
       - **dificuldade**: V1_BARRA_V2
   - **[1]**:
     - **boulder**:
       - **nome**: High Perrengue
-      - **id_no_mapa**: 2
       - **dificuldade**: V1
   - **[2]**:
     - **boulder**:
       - **nome**: Mundunga
-      - **id_no_mapa**: 3
       - **dificuldade**: V1
   - **[3]**:
     - **boulder**:
       - **nome**: ???
-      - **id_no_mapa**: 4
       - **dificuldade**: V2
   - **[4]**:
     - **boulder**:
       - **nome**: HighBolinha
-      - **id_no_mapa**: 5
       - **dificuldade**: V2_BARRA_V3
 
 
@@ -368,18 +506,25 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_sala_de_estar_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pegando passagem
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Chá das cinco
+        - **ids**:
+          - 2
     - **largura_mapa**: 794
     - **altura_mapa**: 562
 - **escaladas**:
   - **[0]**:
     - **boulder**:
       - **nome**: Pegando passagem
-      - **id_no_mapa**: 1
       - **dificuldade**: V1
   - **[1]**:
     - **boulder**:
       - **nome**: Chá das cinco
-      - **id_no_mapa**: 2
       - **dificuldade**: V1
 
 

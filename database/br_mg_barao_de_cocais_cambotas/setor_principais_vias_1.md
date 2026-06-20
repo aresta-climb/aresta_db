@@ -1,11 +1,86 @@
----
+---
 nome: Principais Vias I
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_1/p0.webp
+  referencias:
+  - escalada: Sonho patagônico
+    ids:
+    - '1'
+  - escalada: O tigre, a dama e o fanfarrão
+    ids:
+    - '2'
+  - escalada: O doce e o amargo
+    ids:
+    - '3'
+  - escalada: Supurados
+    ids:
+    - '4'
+  - escalada: Bilis-Líquen
+    ids:
+    - '5'
+  - escalada: Princesa Leia / Double trouble
+    ids:
+    - '6'
+  - escalada: Davi e Golias
+    ids:
+    - '7'
+  - escalada: Suçuarana
+    ids:
+    - '8'
+  - escalada: Pantera
+    ids:
+    - '9'
+  - escalada: Tigresa triteto
+    ids:
+    - '10'
+  - escalada: Pó branco / Carreirinha
+    ids:
+    - '11'
+  - escalada: Via inacabada
+    ids:
+    - '12'
+  - escalada: Positive vibration
+    ids:
+    - '13'
+  - escalada: Via inacabada (móvel)
+    ids:
+    - '14'
+  - escalada: Noites equatoriais
+    ids:
+    - '15'
+  - escalada: Totalmente demais
+    ids:
+    - '16'
+  - escalada: Clandestino
+    ids:
+    - '17'
+  - escalada: Aresta que me resta / Onde os fracos não tem vez
+    ids:
+    - '18'
+  - escalada: Directa na aresta
+    ids:
+    - '19'
+  - escalada: Aresta eletrizante
+    ids:
+    - '20'
+  - escalada: Abra-cadabra / Canino lascado / Só para loucos
+    ids:
+    - '21'
+  - escalada: Ponto de mutação
+    ids:
+    - '22'
+  - escalada: Imagem e ação
+    ids:
+    - '23'
+  - escalada: Corredor polonês
+    ids:
+    - '24'
+  - escalada: Quadrado mágico
+    ids:
+    - '25'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Sonho patagônico
-    id_no_mapa: '1'
     dificuldade_maxima: BR_7C
     tipo_via_multiplas_enfiadas: MISTA
     comprimento_total: 100
@@ -14,7 +89,6 @@ escaladas:
     - Marcus rufino
 - via_movel:
     nome: O tigre, a dama e o fanfarrão
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     exposicao: E3
     extensao: 45
@@ -23,7 +97,6 @@ escaladas:
     - Gustavo P. Vianna
 - via_esportiva:
     nome: O doce e o amargo
-    id_no_mapa: '3'
     dificuldade: BR_9A_BARRA_9B
     extensao: 60
     conquistadores:
@@ -31,7 +104,6 @@ escaladas:
     - Gustavo P. Vianna
 - via_movel:
     nome: Supurados
-    id_no_mapa: '4'
     dificuldade: BR_7C
     exposicao: E2
     extensao: 30
@@ -40,7 +112,6 @@ escaladas:
     - Breno Araújo
 - via_esportiva:
     nome: Bilis-Líquen
-    id_no_mapa: '5'
     dificuldade: BR_8A
     extensao: 30
     conquistadores:
@@ -48,7 +119,6 @@ escaladas:
     - Marcus rufino
 - via_multiplas_enfiadas:
     nome: Princesa Leia / Double trouble
-    id_no_mapa: '6'
     dificuldade_maxima: BR_7B_BARRA_7C
     exposicao: E3
     comprimento_total: 90
@@ -60,7 +130,6 @@ escaladas:
     - Breno Araújo
 - via_movel:
     nome: Davi e Golias
-    id_no_mapa: '7'
     dificuldade: BR_8A
     extensao: 50
     conquistadores:
@@ -68,28 +137,24 @@ escaladas:
     - Chander Cristian
 - via_esportiva:
     nome: Suçuarana
-    id_no_mapa: '8'
     dificuldade: BR_6SUP
     extensao: 30
     conquistadores:
     - Gustavo Piancastelli
 - via_esportiva:
     nome: Pantera
-    id_no_mapa: '9'
     dificuldade: BR_8B
     extensao: 80
     conquistadores:
     - Gustavo Piancastelli
 - via_esportiva:
     nome: Tigresa triteto
-    id_no_mapa: '10'
     dificuldade: BR_7C
     extensao: 55
     conquistadores:
     - Aloysio Carvalho
 - via_movel:
     nome: Pó branco / Carreirinha
-    id_no_mapa: '11'
     dificuldade: BR_8A
     descricao: Fixa é 8a, mista é 7b
     extensao: 60
@@ -98,7 +163,6 @@ escaladas:
     - Arthur Esteves
 - via_movel:
     nome: Via inacabada
-    id_no_mapa: '12'
     dificuldade: BR_7C_BARRA_8A
     exposicao: E3
     extensao: 80
@@ -107,7 +171,6 @@ escaladas:
     - Marcus rufino
 - via_esportiva:
     nome: Positive vibration
-    id_no_mapa: '13'
     dificuldade: BR_7C
     extensao: 40
     conquistadores:
@@ -115,7 +178,6 @@ escaladas:
     - Gustavo Piancastelli
 - via_movel:
     nome: Via inacabada (móvel)
-    id_no_mapa: '14'
     dificuldade: BR_7B
     exposicao: E3
     extensao: 130
@@ -124,7 +186,6 @@ escaladas:
     - Igor Murta
 - via_movel:
     nome: Noites equatoriais
-    id_no_mapa: '15'
     dificuldade: BR_7B
     dificuldade_artificial: A1
     exposicao: E3
@@ -134,7 +195,6 @@ escaladas:
     - Pedro Leite
 - via_multiplas_enfiadas:
     nome: Totalmente demais
-    id_no_mapa: '16'
     dificuldade_maxima: BR_7C
     dificuldade_artificial: A1
     dificuldade_artifical_em_livre: BR_9A
@@ -147,7 +207,6 @@ escaladas:
     - Gustavo Vianna
 - via_multiplas_enfiadas:
     nome: Clandestino
-    id_no_mapa: '17'
     dificuldade_maxima: BR_7A
     exposicao: E3
     comprimento_total: 180
@@ -158,7 +217,6 @@ escaladas:
     - Gustavo Vianna
 - via_multiplas_enfiadas:
     nome: Aresta que me resta / Onde os fracos não tem vez
-    id_no_mapa: '18'
     dificuldade_media: BR_7C
     dificuldade_maxima: BR_8B
     exposicao: E3
@@ -170,14 +228,12 @@ escaladas:
     - Breno Araújo
 - via_esportiva:
     nome: Directa na aresta
-    id_no_mapa: '19'
     dificuldade: BR_8A
     extensao: 40
     conquistadores:
     - Marcus rufino
 - via_multiplas_enfiadas:
     nome: Aresta eletrizante
-    id_no_mapa: '20'
     dificuldade_maxima: BR_7C
     exposicao: E4
     comprimento_total: 215
@@ -192,7 +248,6 @@ escaladas:
     - Pablo Gonçalves
 - via_esportiva:
     nome: Abra-cadabra / Canino lascado / Só para loucos
-    id_no_mapa: '21'
     dificuldade: BR_8C
     descricao: fixas 35m/8b, 25m/7c, 55m/8c cada uma
     extensao: 55
@@ -203,7 +258,6 @@ escaladas:
     - Gustavo Vianna
 - via_esportiva:
     nome: Ponto de mutação
-    id_no_mapa: '22'
     dificuldade: BR_9B
     extensao: 30
     conquistadores:
@@ -211,14 +265,12 @@ escaladas:
     - Marcus rufino
 - via_esportiva:
     nome: Imagem e ação
-    id_no_mapa: '23'
     dificuldade: BR_7B
     extensao: 30
     conquistadores:
     - Gustavo Vianna
 - via_esportiva:
     nome: Corredor polonês
-    id_no_mapa: '24'
     dificuldade: BR_9B
     extensao: 35
     conquistadores:
@@ -226,14 +278,13 @@ escaladas:
     - Marcus rufino
 - via_movel:
     nome: Quadrado mágico
-    id_no_mapa: '25'
     dificuldade: BR_8A
     descricao: 8a/6
     extensao: 90
     conquistadores:
     - Alexandre Fei
     - Gustavo Piancastelli
----
+---
 
 # Principais Vias da Serra da Cambota, Caeté, MG.
 

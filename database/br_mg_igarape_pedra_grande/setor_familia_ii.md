@@ -1,4 +1,4 @@
----
+---
 nome: Setor Família II
 mapas:
 - caminho_imagem_mapa: imagens/setor_familia_ii_p0.webp
@@ -82,6 +82,40 @@ mapas:
       y: 950
       comprimento: 30
       largura: 32
+  referencias:
+  - escalada: Filhos da Revolução
+    ids:
+    - '01'
+  - escalada: Pedra Vermelha
+    ids:
+    - '02'
+  - escalada: Projeto
+    ids:
+    - '03'
+  - escalada: Projeto
+    ids:
+    - '04'
+  - escalada: (via inacabada)
+    ids:
+    - '05'
+  - escalada: Trinca Ferro
+    ids:
+    - '06'
+  - escalada: Marimbondes me Mordam
+    ids:
+    - '07'
+  - escalada: Sumchine
+    ids:
+    - '8'
+  - escalada: Cater Pillar
+    ids:
+    - '9'
+  - escalada: Pula Um
+    ids:
+    - '10'
+  - escalada: Cerro Azul
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
   largura_mapa: 1032
   altura_mapa: 1442
@@ -166,7 +200,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Filhos da Revolução
-    id_no_mapa: '01'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -178,7 +211,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Pedra Vermelha
-    id_no_mapa: '02'
     dificuldade: BR_7C
     conquistadores:
     - Berbari
@@ -186,7 +218,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Projeto
-    id_no_mapa: '03'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -196,7 +227,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Projeto
-    id_no_mapa: '04'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -207,7 +237,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '05'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -218,7 +247,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Trinca Ferro
-    id_no_mapa: '06'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -228,7 +256,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Marimbondes me Mordam
-    id_no_mapa: '07'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -239,7 +266,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Sumchine
-    id_no_mapa: 08
     dificuldade: BR_6SUP_BARRA_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -250,7 +276,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Cater Pillar
-    id_no_mapa: 09
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -262,7 +287,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Pula Um
-    id_no_mapa: '10'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -273,7 +297,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Cerro Azul
-    id_no_mapa: '11'
     dificuldade: BR_6_BARRA_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -282,7 +305,7 @@ escaladas:
     - Berbari
     - Ró
     data_abertura: '2009'
----
+---
 # Setor Família II
 
 Sombra após 14h (varia de acordo com a estação).

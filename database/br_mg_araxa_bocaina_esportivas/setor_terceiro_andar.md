@@ -1,4 +1,4 @@
----
+---
 nome: Terceiro Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
@@ -47,6 +47,58 @@ mapas:
       y: 838
       comprimento: 36
       largura: 31
+  referencias:
+  - escalada: Pêro no Mucho
+    ids:
+    - '01'
+  - escalada: Meia Hora
+    ids:
+    - '02'
+  - escalada: Falta de Educação
+    ids:
+    - '03'
+  - escalada: De Mão Beijada
+    ids:
+    - '04'
+  - escalada: Efeito Cascata
+    ids:
+    - '05'
+  - escalada: Efeito Colateral
+    ids:
+    - '06'
+  - escalada: Só pra Variar
+    ids:
+    - '07'
+  - escalada: Rock Supimpa
+    ids:
+    - '08'
+  - escalada: Você Decide
+    ids:
+    - '09'
+  - escalada: Grande Hotel
+    ids:
+    - '10'
+  - escalada: Cura Trimura
+    ids:
+    - '11'
+  - escalada: Próprio Veneno
+    ids:
+    - '12'
+  - escalada: Própria Loucura
+    ids:
+    - '13'
+  - escalada: Honney Money
+    ids:
+    - '14'
+  - escalada: Efeito Variado
+    ids:
+    - '06'
+  - escalada: Só paracolateral
+    ids:
+    - '07'
+  - escalada: Trimura do Hotel
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -167,7 +219,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Pêro no Mucho
-    id_no_mapa: '01'
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -178,7 +229,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Meia Hora
-    id_no_mapa: '02'
     dificuldade: BR_6
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -189,7 +239,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Falta de Educação
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -200,7 +249,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: De Mão Beijada
-    id_no_mapa: '04'
     dificuldade: BR_7A
     extensao: 20
     quantidade_protecoes_intermediarias: 9
@@ -211,7 +259,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Efeito Cascata
-    id_no_mapa: '05'
     dificuldade: BR_7C
     extensao: 20
     quantidade_protecoes_intermediarias: 5
@@ -222,7 +269,6 @@ escaladas:
     descricao: Falta topo.
 - via_esportiva:
     nome: Efeito Colateral
-    id_no_mapa: '06'
     dificuldade: BR_9A
     extensao: 25
     quantidade_protecoes_intermediarias: 8
@@ -234,7 +280,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Só pra Variar
-    id_no_mapa: '07'
     dificuldade: BR_9C
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -245,7 +290,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Rock Supimpa
-    id_no_mapa: '08'
     dificuldade: BR_9B
     extensao: 25
     quantidade_protecoes_intermediarias: 8
@@ -256,7 +300,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Você Decide
-    id_no_mapa: '09'
     dificuldade: BR_8A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -267,7 +310,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Grande Hotel
-    id_no_mapa: '10'
     dificuldade: BR_9A
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -278,7 +320,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Cura Trimura
-    id_no_mapa: '11'
     dificuldade: BR_8B
     extensao: 25
     quantidade_protecoes_intermediarias: 9
@@ -288,7 +329,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Próprio Veneno
-    id_no_mapa: '12'
     dificuldade: BR_7C
     extensao: 20
     quantidade_protecoes_intermediarias: 6
@@ -299,7 +339,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Própria Loucura
-    id_no_mapa: '13'
     dificuldade: BR_9A
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -310,7 +349,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Honney Money
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -322,21 +360,17 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Efeito Variado
-    id_no_mapa: '06'
     dificuldade: BR_9A
-    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra
-      Variar.
+    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra Variar.
 - via_esportiva:
     nome: Só paracolateral
-    id_no_mapa: '07'
     dificuldade: BR_9A
     descricao: Primeiro crux da via Só pra Variar com segundo crux da Efeito Colateral.
 - via_esportiva:
     nome: Trimura do Hotel
-    id_no_mapa: '11'
     dificuldade: PROJETO
     descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
----
+---
 # Setor Terceiro Andar
 
 ![Setor Terceiro Andar](imagens/setor_terceiro_andar_p0_i0.webp)

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Nave-Mãe'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
@@ -95,6 +95,82 @@ mapas:
       x: 1448
       y: 685
       raio: 13
+  referencias:
+  - escalada: Monte Mor
+    ids:
+    - 1A
+  - escalada: Irmãos Coragem
+    ids:
+    - 1B
+  - escalada: Irmãos na Vibe
+    ids:
+    - 2B
+  - escalada: Ora-Por-Todos
+    ids:
+    - 4C/1A★
+  - escalada: Orai-Por-Noix
+    ids:
+    - 5C/1A▲
+  - escalada: Ora-Pra-Jah
+    ids:
+    - 5D/1B
+  - escalada: Ouroboulder
+    ids:
+    - 5E/1C
+  - escalada: Ora-Pro-Nóbis
+    ids:
+    - 6D/2B
+  - escalada: Ora-Pros-Crash
+    ids:
+    - 6E/2C
+  - escalada: Oratório
+    ids:
+    - 7E/5C
+  - escalada: Quebra Galho
+    ids:
+    - 8E/3C
+  - escalada: Libertadores
+    ids:
+    - 9F/2D
+  - escalada: Eu Acredito
+    ids:
+    - 10F/4D
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: Mortal Kombat
+    ids:
+    - 2▲ / 1▲
+  - escalada: Sub-Zero
+    ids:
+    - 2★ / 1★
+  - escalada: Raiden
+    ids:
+    - 3▲ / 2▲
+  - escalada: Carcomendo
+    ids:
+    - 3★ / 2★
+  - escalada: '003'
+    ids:
+    - '1'
+  - escalada: Novos Baianos
+    ids:
+    - 1A★
+  - escalada: De Inverno
+    ids:
+    - 1B★
+  - escalada: De Verão
+    ids:
+    - 1C★
+  - escalada: Maverick
+    ids:
+    - 1B▲
+  - escalada: Vem Verão
+    ids:
+    - 2B
+  - escalada: Passível
+    ids:
+    - 1A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -332,103 +408,78 @@ mapas:
 escaladas:
 - boulder:
     nome: Monte Mor
-    id_no_mapa: 1A
     dificuldade: V3
 - boulder:
     nome: Irmãos Coragem
-    id_no_mapa: 1B
     dificuldade: V8
 - boulder:
     nome: Irmãos na Vibe
-    id_no_mapa: 2B
     dificuldade: V8
 - boulder:
     nome: Ora-Por-Todos
-    id_no_mapa: 4C/1A★
     dificuldade: V3
 - boulder:
     nome: Orai-Por-Noix
-    id_no_mapa: 5C/1A▲
     dificuldade: V5
 - boulder:
     nome: Ora-Pra-Jah
-    id_no_mapa: 5D/1B
     dificuldade: V9
 - boulder:
     nome: Ouroboulder
-    id_no_mapa: 5E/1C
     dificuldade: V11
 - boulder:
     nome: Ora-Pro-Nóbis
-    id_no_mapa: 6D/2B
     dificuldade: V7
 - boulder:
     nome: Ora-Pros-Crash
-    id_no_mapa: 6E/2C
     dificuldade: V10
 - boulder:
     nome: Oratório
-    id_no_mapa: 7E/5C
     dificuldade: V10
 - boulder:
     nome: Quebra Galho
-    id_no_mapa: 8E/3C
     dificuldade: V6
 - boulder:
     nome: Libertadores
-    id_no_mapa: 9F/2D
     dificuldade: V14
 - boulder:
     nome: Eu Acredito
-    id_no_mapa: 10F/4D
     dificuldade: V11
 - boulder:
     nome: Umbriacone
-    id_no_mapa: '1'
     dificuldade: V8
 - boulder:
     nome: Mortal Kombat
-    id_no_mapa: 2▲ / 1▲
     dificuldade: V8
 - boulder:
     nome: Sub-Zero
-    id_no_mapa: 2★ / 1★
     dificuldade: V6
 - boulder:
     nome: Raiden
-    id_no_mapa: 3▲ / 2▲
     dificuldade: V4
 - boulder:
     nome: Carcomendo
-    id_no_mapa: 3★ / 2★
     dificuldade: V7
 - boulder:
     nome: '003'
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Novos Baianos
-    id_no_mapa: 1A★
     dificuldade: V11
 - boulder:
     nome: De Inverno
-    id_no_mapa: 1B★
     dificuldade: V10
 - boulder:
     nome: De Verão
-    id_no_mapa: 1C★
     dificuldade: V10
 - boulder:
     nome: Maverick
-    id_no_mapa: 1B▲
     dificuldade: V9
 - boulder:
     nome: Vem Verão
-    id_no_mapa: 2B
     dificuldade: V9
 - boulder:
     nome: Passível
-    id_no_mapa: 1A
     dificuldade: V2
----
+---
 

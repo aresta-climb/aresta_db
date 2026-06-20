@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
@@ -68,6 +68,34 @@ mapas:
       y: 525
       comprimento: 29
       largura: 30
+  referencias:
+  - escalada: Conflito sensual
+    ids:
+    - '01'
+  - escalada: Duracell
+    ids:
+    - '02'
+  - escalada: Djavú
+    ids:
+    - '03'
+  - escalada: Muita coisa envolvida
+    ids:
+    - '04'
+  - escalada: Netfrix
+    ids:
+    - '05'
+  - escalada: Pouca prática
+    ids:
+    - '06'
+  - escalada: Vainafé
+    ids:
+    - '07'
+  - escalada: People crazy
+    ids:
+    - '8'
+  - escalada: Aresta Daniel
+    ids:
+    - '9'
 - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
   largura_mapa: 1109
   altura_mapa: 1413
@@ -149,7 +177,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Conflito sensual
-    id_no_mapa: '01'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -160,7 +187,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Duracell
-    id_no_mapa: '02'
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -171,7 +197,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Djavú
-    id_no_mapa: '03'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -183,7 +208,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Muita coisa envolvida
-    id_no_mapa: '04'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -194,7 +218,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Netfrix
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -205,7 +228,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Pouca prática
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -216,7 +238,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Vainafé
-    id_no_mapa: '07'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -227,7 +248,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: People crazy
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -238,7 +258,6 @@ escaladas:
     data_abertura: '2022'
 - via_multiplas_enfiadas:
     nome: Aresta Daniel
-    id_no_mapa: 09
     dificuldade_media: BR_6SUP
     numero_enfiadas: 2
     comprimento_total: 60
@@ -247,7 +266,7 @@ escaladas:
     - Ágata
     data_abertura: '2005'
     descricao: Via clássica longa que percorre a aresta.
----
+---
 # Setor Pracinha
 
 ![Setor pracinha](imagens/setor_pracinha_p1.webp)

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Tô de Boa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
@@ -23,6 +23,31 @@ mapas:
       x: 484
       y: 320
       raio: 13
+  referencias:
+  - escalada: NBA
+    ids:
+    - '1'
+  - escalada: Pedra Única
+    ids:
+    - '2'
+  - escalada: Tô na Esquiva
+    ids:
+    - 1A
+  - escalada: Tô Legal
+    ids:
+    - 1B
+  - escalada: Tô Calmo
+    ids:
+    - 2C
+  - escalada: Tô de Boa
+    ids:
+    - 2D
+  - escalada: Jaguatirica
+    ids:
+    - 2E
+  - escalada: Tô Suave
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -78,36 +103,28 @@ mapas:
 escaladas:
 - boulder:
     nome: NBA
-    id_no_mapa: '1'
     dificuldade: V6
     descricao: (dinâmico de 2 regletes para a borda)
 - boulder:
     nome: Pedra Única
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Tô na Esquiva
-    id_no_mapa: 1A
     dificuldade: V6
 - boulder:
     nome: Tô Legal
-    id_no_mapa: 1B
     dificuldade: V3
 - boulder:
     nome: Tô Calmo
-    id_no_mapa: 2C
     dificuldade: V5
 - boulder:
     nome: Tô de Boa
-    id_no_mapa: 2D
     dificuldade: V5
 - boulder:
     nome: Jaguatirica
-    id_no_mapa: 2E
     dificuldade: V6
 - boulder:
     nome: Tô Suave
-    id_no_mapa: '3'
     dificuldade: V4_BARRA_V5
----
+---
 

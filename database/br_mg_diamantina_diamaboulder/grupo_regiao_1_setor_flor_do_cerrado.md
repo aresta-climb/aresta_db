@@ -1,4 +1,4 @@
----
+---
 nome: Flor do Cerrado
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_flor_do_cerrado_p0_i0.webp
@@ -19,12 +19,15 @@ mapas:
       y: 175
       comprimento: 27
       largura: 32
+  referencias:
+  - escalada: Flor do Cerrado
+    ids:
+    - '1'
+    - 1_fim
 escaladas:
 - boulder:
     nome: Flor do Cerrado
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V5
----
+---
 # Bloco: Flor do Cerrado
 ## Região 1

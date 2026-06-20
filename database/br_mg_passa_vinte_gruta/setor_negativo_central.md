@@ -1,4 +1,4 @@
----
+---
 nome: ”Negativo” Central
 mapas:
 - caminho_imagem_mapa: imagens/setor_negativo_central_p0.webp
@@ -285,138 +285,203 @@ mapas:
       y: 923
       comprimento: 700
       largura: 30
+  referencias:
+  - escalada: Palo Santo P1
+    ids:
+    - '01'
+  - escalada: Palo Santo P2
+    ids:
+    - '02'
+    - '02'
+  - escalada: Left or Right
+    ids:
+    - '03'
+  - escalada: Right na Caveira
+    ids:
+    - '04'
+  - escalada: Piercing de Caveira
+    ids:
+    - '05'
+  - escalada: Ext. Piercing
+    ids:
+    - '06'
+    - '06'
+  - escalada: Mythos
+    ids:
+    - '07'
+  - escalada: Esqueleto
+    ids:
+    - '08'
+  - escalada: Brinco de Caveira
+    ids:
+    - '09'
+  - escalada: Bruce Lee (Projeto)
+    ids:
+    - '10'
+  - escalada: Bradock
+    ids:
+    - 11_base
+  - escalada: Bozo
+    ids:
+    - 12_base
+  - escalada: Fonte da Juventude
+    ids:
+    - 13_base
+  - escalada: Cocoon P1
+    ids:
+    - '14'
+  - escalada: Cocoon P2
+    ids:
+    - 15_base
+    - 15_base
+  - escalada: Coconut
+    ids:
+    - '16'
+  - escalada: Apocalipse
+    ids:
+    - 17_base
+  - escalada: Homem de Pedra
+    ids:
+    - 18_base
+  - escalada: Inferno de Dante
+    ids:
+    - 19_base
+  - escalada: Golias
+    ids:
+    - '20'
+  - escalada: Cova dos Leões
+    ids:
+    - '21'
+  - escalada: Verbo Divino (Projeto)
+    ids:
+    - '22'
+  - escalada: Dust in the Wind
+    ids:
+    - '23'
+  - escalada: Ext. Dust (Projeto)
+    ids:
+    - '24'
+    - '24'
+  - escalada: Doce de Amendoim
+    ids:
+    - '25'
+  - escalada: Gengis Khan
+    ids:
+    - '26'
+  - escalada: Gringos & Troianos
+    ids:
+    - '27'
+  - escalada: Gringos & Troianos
+    ids:
+    - '28'
+  - escalada: Cavalo de Tróia
+    ids:
+    - '29'
+  - escalada: Jacuzzi (Projeto)
+    ids:
+    - '30'
+  - escalada: Centauro
+    ids:
+    - '31'
+  - escalada: Ceci
+    ids:
+    - '32'
 escaladas:
 - via_esportiva:
     nome: Palo Santo P1
-    id_no_mapa: '01'
     dificuldade: BR_5
 - via_esportiva:
     nome: Palo Santo P2
-    id_no_mapa: '02'
-    id_no_mapa_fim: '02'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Left or Right
-    id_no_mapa: '03'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Right na Caveira
-    id_no_mapa: '04'
     dificuldade: BR_9B_BARRA_9C
 - via_esportiva:
     nome: Piercing de Caveira
-    id_no_mapa: '05'
     dificuldade: BR_9B
 - via_esportiva:
     nome: Ext. Piercing
-    id_no_mapa: '06'
-    id_no_mapa_fim: '06'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Mythos
-    id_no_mapa: '07'
     dificuldade: BR_6
 - via_esportiva:
     nome: Esqueleto
-    id_no_mapa: '08'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Brinco de Caveira
-    id_no_mapa: '09'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Bruce Lee (Projeto)
-    id_no_mapa: '10'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Bradock
-    id_no_mapa: '11_base'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Bozo
-    id_no_mapa: '12_base'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Fonte da Juventude
-    id_no_mapa: '13_base'
     dificuldade: BR_9B_BARRA_9C
 - via_esportiva:
     nome: Cocoon P1
-    id_no_mapa: '14'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Cocoon P2
-    id_no_mapa: '15_base'
-    id_no_mapa_fim: '15_base'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Coconut
-    id_no_mapa: '16'
     dificuldade: BR_10B_BARRA_10C
 - via_esportiva:
     nome: Apocalipse
-    id_no_mapa: '17_base'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Homem de Pedra
-    id_no_mapa: '18_base'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Inferno de Dante
-    id_no_mapa: '19_base'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Golias
-    id_no_mapa: '20'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Cova dos Leões
-    id_no_mapa: '21'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Verbo Divino (Projeto)
-    id_no_mapa: '22'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Dust in the Wind
-    id_no_mapa: '23'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Ext. Dust (Projeto)
-    id_no_mapa: '24'
-    id_no_mapa_fim: '24'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Doce de Amendoim
-    id_no_mapa: '25'
     dificuldade: BR_10C
 - via_esportiva:
     nome: Gengis Khan
-    id_no_mapa: '26'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Gringos & Troianos
-    id_no_mapa: '27'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Gringos & Troianos
-    id_no_mapa: '28'
     dificuldade: BR_11A_BARRA_11B
 - via_esportiva:
     nome: Cavalo de Tróia
-    id_no_mapa: '29'
     dificuldade: BR_11C
 - via_esportiva:
     nome: Jacuzzi (Projeto)
-    id_no_mapa: '30'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Centauro
-    id_no_mapa: '31'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Ceci
-    id_no_mapa: '32'
     dificuldade: BR_6SUP
----
+---
 

@@ -1,4 +1,4 @@
----
+---
 nome: Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
@@ -40,6 +40,64 @@ mapas:
       y: 1213
       comprimento: 46
       largura: 32
+  referencias:
+  - escalada: Carapuça
+    ids:
+    - '01'
+  - escalada: Sainhaca
+    ids:
+    - '02'
+  - escalada: Excalibur
+    ids:
+    - '03'
+  - escalada: Só as Cachorras
+    ids:
+    - '04'
+  - escalada: Lendárias 11 Vacas
+    ids:
+    - '05'
+  - escalada: Chapeleta Voadora
+    ids:
+    - '06'
+  - escalada: Pau Podre
+    ids:
+    - '07'
+  - escalada: Bonsai Cearense
+    ids:
+    - '8'
+  - escalada: Macaco Velho
+    ids:
+    - '9'
+  - escalada: Sargento Pincel
+    ids:
+    - '10'
+  - escalada: Proparoxítona
+    ids:
+    - '11'
+  - escalada: Volte Sempre
+    ids:
+    - '12'
+  - escalada: Espírito de Equipe
+    ids:
+    - '13'
+  - escalada: Bem-vindo
+    ids:
+    - '14'
+  - escalada: Ganja no País das Maravilhas
+    ids:
+    - '15'
+  - escalada: Ritual Satânico
+    ids:
+    - '16'
+  - escalada: Sweet Home Alabama
+    ids:
+    - '17'
+  - escalada: Show de Calouros
+    ids:
+    - '18'
+  - escalada: Permissão Concebida
+    ids:
+    - '19'
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p2.webp
   largura_mapa: 1280
   altura_mapa: 1280
@@ -167,12 +225,10 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Carapuça
-    id_no_mapa: '01'
     dificuldade: PROJETO
     descricao: Inacabada.
 - via_esportiva:
     nome: Sainhaca
-    id_no_mapa: '02'
     dificuldade: BR_8A
     extensao: 45
     quantidade_protecoes_intermediarias: 18
@@ -184,7 +240,6 @@ escaladas:
     data_abertura: '2007'
 - via_esportiva:
     nome: Excalibur
-    id_no_mapa: '03'
     dificuldade: BR_7C
     extensao: 45
     quantidade_protecoes_intermediarias: 20
@@ -196,7 +251,6 @@ escaladas:
     data_abertura: '2007'
 - via_esportiva:
     nome: Só as Cachorras
-    id_no_mapa: '04'
     dificuldade: BR_7C
     extensao: 25
     quantidade_protecoes_intermediarias: 8
@@ -208,7 +262,6 @@ escaladas:
     descricao: Falta topo.
 - via_esportiva:
     nome: Lendárias 11 Vacas
-    id_no_mapa: '05'
     dificuldade: BR_7B
     extensao: 20
     quantidade_protecoes_intermediarias: 10
@@ -221,7 +274,6 @@ escaladas:
     data_abertura: '2007'
 - via_esportiva:
     nome: Chapeleta Voadora
-    id_no_mapa: '06'
     dificuldade: BR_7B
     extensao: 30
     conquistadores:
@@ -231,13 +283,11 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Pau Podre
-    id_no_mapa: '07'
     dificuldade: PROJETO
     descricao: Inacabada.
     data_abertura: '2007'
 - via_esportiva:
     nome: Bonsai Cearense
-    id_no_mapa: 08
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -247,7 +297,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Macaco Velho
-    id_no_mapa: 09
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 6
@@ -257,7 +306,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Sargento Pincel
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -267,7 +315,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Proparoxítona
-    id_no_mapa: '11'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -278,7 +325,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Volte Sempre
-    id_no_mapa: '12'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -289,7 +335,6 @@ escaladas:
     data_abertura: '2010'
 - via_esportiva:
     nome: Espírito de Equipe
-    id_no_mapa: '13'
     dificuldade: BR_6SUP
     extensao: 19
     quantidade_protecoes_intermediarias: 4
@@ -299,7 +344,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Bem-vindo
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -310,7 +354,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Ganja no País das Maravilhas
-    id_no_mapa: '15'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -320,7 +363,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Ritual Satânico
-    id_no_mapa: '16'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -331,7 +373,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Sweet Home Alabama
-    id_no_mapa: '17'
     dificuldade: BR_6SUP_BARRA_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -341,7 +382,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Show de Calouros
-    id_no_mapa: '18'
     dificuldade: BR_8A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -352,7 +392,6 @@ escaladas:
     descricao: Falta topo.
 - via_esportiva:
     nome: Permissão Concebida
-    id_no_mapa: '19'
     dificuldade: BR_8A
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -361,7 +400,7 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2009'
----
+---
 # Setor Bem-vindo
 
 O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).

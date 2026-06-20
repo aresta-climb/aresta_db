@@ -1,4 +1,4 @@
----
+---
 nome: Setor Savassinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_savassinha_p0_i0.webp
@@ -117,43 +117,74 @@ mapas:
       y: 142
       comprimento: 16
       largura: 13
+  referencias:
+  - escalada: 4i20
+    ids:
+    - '01'
+  - escalada: Reggae Por Nos
+    ids:
+    - '02'
+  - escalada: Seu Jorge
+    ids:
+    - '03'
+  - escalada: Tirocú do Meu Dedo
+    ids:
+    - '04'
+  - escalada: Oferenda
+    ids:
+    - '05'
+  - escalada: Scooby doo
+    ids:
+    - '06'
+  - escalada: Miolo
+    ids:
+    - '07'
+  - escalada: Curupira
+    ids:
+    - '8'
+  - escalada: Só Beleza
+    ids:
+    - '9'
+  - escalada: Di Menor*
+    ids:
+    - '10'
+  - escalada: Parceiros
+    ids:
+    - '11'
+  - escalada: Frango Com Farofa
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: 4i20
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Reggae Por Nos
-    id_no_mapa: '02'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Seu Jorge
-    id_no_mapa: '03'
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tirocú do Meu Dedo
-    id_no_mapa: '04'
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Oferenda
-    id_no_mapa: '05'
     dificuldade: BR_5
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Scooby doo
-    id_no_mapa: '06'
     dificuldade: BR_5
     destaque: true
     quantidade_protecoes_intermediarias: 3
@@ -161,45 +192,39 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Miolo
-    id_no_mapa: '07'
     dificuldade: BR_4
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Curupira
-    id_no_mapa: 08
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Só Beleza
-    id_no_mapa: 09
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 1
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Di Menor*
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Parceiros
-    id_no_mapa: '11'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Frango Com Farofa
-    id_no_mapa: '12'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
----
+---
 # Setor Savassinha
 
 Este setor possui sombra até as 12h (variando de acordo com a estação).

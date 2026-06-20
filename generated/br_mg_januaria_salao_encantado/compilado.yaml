@@ -162,54 +162,79 @@ picos:
               comprimento: 36
               largura: 199
               angulo_graus_x100: 1655
+          referencias:
+          - escalada: Pescador de Planta
+            ids:
+            - '01'
+          - escalada: Maria Doida
+            ids:
+            - '02'
+          - escalada: Chuva de Bromélias
+            ids:
+            - '03'
+          - escalada: Visitante Oculto
+            ids:
+            - '04'
+          - escalada: Bestial Devastation
+            ids:
+            - '05'
+          - escalada: Velho Chico
+            ids:
+            - '06'
+          - escalada: Dom Quixote
+            ids:
+            - '07'
+          - escalada: Cordadinha
+            ids:
+            - 08
+          - escalada: Calazar Certo
+            ids:
+            - 09
+          - escalada: Cabeça de Rato
+            ids:
+            - '10'
+          - escalada: Pelas Mãos do Senhor
+            ids:
+            - '11'
+          - escalada: Uma Lágrima que Cai
+            ids:
+            - '12'
         escaladas:
         - via_esportiva:
             nome: Pescador de Planta
-            id_no_mapa: '01'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Maria Doida
-            id_no_mapa: '02'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Chuva de Bromélias
-            id_no_mapa: '03'
             dificuldade: BR_6SUP
         - via_esportiva:
             nome: Visitante Oculto
-            id_no_mapa: '04'
             dificuldade: BR_8A
         - via_esportiva:
             nome: Bestial Devastation
-            id_no_mapa: '05'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Velho Chico
-            id_no_mapa: '06'
             dificuldade: BR_7B
         - via_esportiva:
             nome: Dom Quixote
-            id_no_mapa: '07'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Cordadinha
-            id_no_mapa: 08
             dificuldade: BR_6SUP_BARRA_7A
         - via_esportiva:
             nome: Calazar Certo
-            id_no_mapa: 09
             dificuldade: BR_7B
         - via_esportiva:
             nome: Cabeça de Rato
-            id_no_mapa: '10'
             dificuldade: BR_7A
         - via_esportiva:
             nome: Pelas Mãos do Senhor
-            id_no_mapa: '11'
             dificuldade: PROJETO
         - via_esportiva:
             nome: Uma Lágrima que Cai
-            id_no_mapa: '12'
             dificuldade: PROJETO
         descricao: ''
   - setor:
@@ -306,32 +331,43 @@ picos:
               y: 322
               comprimento: 114
               largura: 46
+          referencias:
+          - escalada: Velho Chico
+            ids:
+            - '01'
+          - escalada: Dom Quixote
+            ids:
+            - '02'
+          - escalada: Cordadinha
+            ids:
+            - '03'
+          - escalada: Pelas Mãos do Senhor
+            ids:
+            - '04'
+          - escalada: Uma Lágrima que Cai
+            ids:
+            - '05'
         escaladas:
         - via_esportiva:
             nome: Velho Chico
-            id_no_mapa: '01'
             dificuldade: BR_7B
             extensao: 40
             descricao: Via clássica do setor.
         - via_esportiva:
             nome: Dom Quixote
-            id_no_mapa: '02'
             dificuldade: BR_7A
             descricao: Termina na metade da parede.
         - via_esportiva:
             nome: Cordadinha
-            id_no_mapa: '03'
             dificuldade: BR_6SUP_BARRA_7A
             descricao: Termina um pouco acima da via Dom Quixote.
         - via_esportiva:
             nome: Pelas Mãos do Senhor
-            id_no_mapa: '04'
             dificuldade: PROJETO
             descricao: Via que passa pelo teto a direita da claraboia. Via de muita
               resistência.
         - via_esportiva:
             nome: Uma Lágrima que Cai
-            id_no_mapa: '05'
             dificuldade: PROJETO
             descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar
               na base
@@ -396,31 +432,42 @@ picos:
               comprimento: 46
               largura: 242
               angulo_graus_x100: -5526
+          referencias:
+          - escalada: Pescador de Planta
+            ids:
+            - '01'
+          - escalada: Maria Doida
+            ids:
+            - '02'
+          - escalada: Chuva de Bromélias
+            ids:
+            - '03'
+          - escalada: Visitante Oculto
+            ids:
+            - '04'
+          - escalada: Bestial Devastation
+            ids:
+            - '05'
         escaladas:
         - via_esportiva:
             nome: Pescador de Planta
-            id_no_mapa: '01'
             dificuldade: BR_6SUP
             descricao: Via na aresta esquerda do platô.
         - via_esportiva:
             nome: Maria Doida
-            id_no_mapa: '02'
             dificuldade: BR_6SUP
             descricao: Primeira via da parede.
         - via_esportiva:
             nome: Chuva de Bromélias
-            id_no_mapa: '03'
             dificuldade: BR_6SUP
             descricao: Via técnica. Recomendada para quem quer escalar 6º grau.
         - via_esportiva:
             nome: Visitante Oculto
-            id_no_mapa: '04'
             dificuldade: BR_8A
             descricao: Via longa e técnica uma fenda na metade da parede. Opção para
               quem quer escalar 8º grau.
         - via_esportiva:
             nome: Bestial Devastation
-            id_no_mapa: '05'
             dificuldade: BR_7A
             descricao: Ultima via da parede. Se quiser fazer a via a partir da base
               tem que descer até o platô mais baixo.
@@ -462,16 +509,21 @@ picos:
               y: 476
               comprimento: 134
               largura: 35
+          referencias:
+          - escalada: Calazar Certo
+            ids:
+            - '01'
+          - escalada: Cabeça de Rato
+            ids:
+            - '02'
         escaladas:
         - via_esportiva:
             nome: Calazar Certo
-            id_no_mapa: '01'
             dificuldade: BR_7B
             descricao: Via mais clássica do salão encantado. Via longa em chorreiras
               e agarrões. Recomendada para todos.
         - via_esportiva:
             nome: Cabeça de Rato
-            id_no_mapa: '02'
             dificuldade: BR_7A
             descricao: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau
               positivo para chegar ao grampo.
@@ -566,40 +618,55 @@ picos:
               comprimento: 117
               largura: 33
               angulo_graus_x100: -4464
+          referencias:
+          - escalada: Sol da Manhã
+            ids:
+            - '01'
+          - escalada: Filha do Sol
+            ids:
+            - '02'
+          - escalada: Nuvens de Agosto
+            ids:
+            - '03'
+          - escalada: A Laka
+            ids:
+            - '04'
+          - escalada: Dazão e o pé de Feijão
+            ids:
+            - '05'
+          - escalada: Explosão de Sabores
+            ids:
+            - '06'
+          - escalada: Insolação
+            ids:
+            - '07'
         escaladas:
         - via_esportiva:
             nome: Sol da Manhã
-            id_no_mapa: '01'
             dificuldade: PROJETO
             descricao: Primeira via do setor. Começa na aresta.
         - via_esportiva:
             nome: Filha do Sol
-            id_no_mapa: '02'
             dificuldade: PROJETO
             descricao: Via completa e longa. Um pouco de Resistência e técnica
         - via_esportiva:
             nome: Nuvens de Agosto
-            id_no_mapa: '03'
             dificuldade: BR_7A_BARRA_7B
             descricao: Primeira via de grampos acima da filha do sol.
         - via_esportiva:
             nome: A Laka
-            id_no_mapa: '04'
             dificuldade: BR_7B_BARRA_7C
             descricao: Via com grampos a direita da nuvens de agosto
         - via_esportiva:
             nome: Dazão e o pé de Feijão
-            id_no_mapa: '05'
             dificuldade: BR_7A
             descricao: Via com grampos. O ideal é sair com a primeira costura clipada.
         - via_esportiva:
             nome: Explosão de Sabores
-            id_no_mapa: '06'
             dificuldade: BR_7B
             descricao: Penúltima via da parede.
         - via_esportiva:
             nome: Insolação
-            id_no_mapa: '07'
             dificuldade: BR_7A
             descricao: Via oposições em fendas. Protegida com chapeletas.
         descricao: 'Setor com sol quase o dia todo. Horário ideal para escalar aqui
@@ -705,50 +772,69 @@ picos:
               y: 390
               comprimento: 102
               largura: 25
+          referencias:
+          - escalada: Vezúvio
+            ids:
+            - '01'
+          - escalada: Meia Pegada
+            ids:
+            - '02'
+          - escalada: Rasta Man
+            ids:
+            - '03'
+          - escalada: Malandragem da um Tempo
+            ids:
+            - '04'
+          - escalada: Complexo Bipolar
+            ids:
+            - '05'
+          - escalada: Aresta que me Resta
+            ids:
+            - '06'
+          - escalada: Barbarvore
+            ids:
+            - '07'
+          - escalada: Suposta Exposição
+            ids:
+            - 08
+          - escalada: Bicho Morto
+            ids:
+            - 09
         escaladas:
         - via_esportiva:
             nome: Vezúvio
-            id_no_mapa: '01'
             dificuldade: BR_6SUP
             descricao: Via em cima do platô.
         - via_esportiva:
             nome: Meia Pegada
-            id_no_mapa: '02'
             dificuldade: BR_7A
             descricao: Primeira via da parede.
         - via_esportiva:
             nome: Rasta Man
-            id_no_mapa: '03'
             dificuldade: BR_7A
             descricao: Via antes da árvore.
         - via_esportiva:
             nome: Malandragem da um Tempo
-            id_no_mapa: '04'
             dificuldade: BR_7B_BARRA_7C
             descricao: Via depois da árvore.
         - via_esportiva:
             nome: Complexo Bipolar
-            id_no_mapa: '05'
             dificuldade: BR_7C_BARRA_8A
             descricao: Via antes da aresta.
         - via_esportiva:
             nome: Aresta que me Resta
-            id_no_mapa: '06'
             dificuldade: BR_7A
             descricao: Via na aresta.
         - via_esportiva:
             nome: Barbarvore
-            id_no_mapa: '07'
             dificuldade: BR_6
             descricao: Primeira via na parede de trás.
         - via_esportiva:
             nome: Suposta Exposição
-            id_no_mapa: 08
             dificuldade: BR_6
             descricao: Via depois da árvore.
         - via_esportiva:
             nome: Bicho Morto
-            id_no_mapa: 09
             dificuldade: BR_6SUP
             descricao: Última via da parede.
         descricao: 'Setor localizado em outro bloco de rocha. Para chegar no setor
@@ -818,30 +904,41 @@ picos:
               y: 102
               comprimento: 130
               largura: 53
+          referencias:
+          - escalada: Gamon
+            ids:
+            - '01'
+          - escalada: Estrela no Coco
+            ids:
+            - '02'
+          - escalada: Fendinha
+            ids:
+            - '03'
+          - escalada: Guariba
+            ids:
+            - '04'
+          - escalada: Tardia
+            ids:
+            - '05'
         escaladas:
         - via_esportiva:
             nome: Gamon
-            id_no_mapa: '01'
             dificuldade: BR_6SUP
             descricao: Primeira via da parede.
         - via_esportiva:
             nome: Estrela no Coco
-            id_no_mapa: '02'
             dificuldade: BR_7B
             descricao: Via atrás de um bloco de pedra.
         - via_esportiva:
             nome: Fendinha
-            id_no_mapa: '03'
             dificuldade: BR_7A
             descricao: Via a direita da estrela no coco.
         - via_esportiva:
             nome: Guariba
-            id_no_mapa: '04'
             dificuldade: BR_6
             descricao: Via a direita do bloco de pedra.
         - via_esportiva:
             nome: Tardia
-            id_no_mapa: '05'
             dificuldade: BR_7A
             descricao: Ultima via da parede.
         descricao: 'O setor fica localizado acima da claraboia. Para chegar até o
@@ -946,7 +1043,7 @@ botoes:
         | :--: |
 
         | *Mapa dos Setores* |'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

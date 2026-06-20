@@ -1,4 +1,4 @@
----
+---
 nome: Pedra na Canela
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pedra_na_canela_p0_i0.webp
@@ -75,32 +75,43 @@ mapas:
       y: 186
       comprimento: 23
       largura: 25
+  referencias:
+  - escalada: Pedra na Canela
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Sobe a Serra
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Pedra na Canela Ext
+    ids:
+    - '3'
+    - 3_fim
+  - escalada: Sobe a Serra Ext
+    ids:
+    - '4'
+    - 4_fim
+  - escalada: Ofurô
+    ids:
+    - '5'
+    - 5_fim
 escaladas:
 - boulder:
     nome: Pedra na Canela
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V4
 - boulder:
     nome: Sobe a Serra
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V5
 - boulder:
     nome: Pedra na Canela Ext
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V5
 - boulder:
     nome: Sobe a Serra Ext
-    id_no_mapa: '4'
-    id_no_mapa_fim: 4_fim
     dificuldade: V5_BARRA_V6
 - boulder:
     nome: Ofurô
-    id_no_mapa: '5'
-    id_no_mapa_fim: 5_fim
     dificuldade: V7_BARRA_V8
----
+---
 # Bloco: Pedra na Canela
 ## Região 4

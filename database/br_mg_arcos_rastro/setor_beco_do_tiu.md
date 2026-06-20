@@ -1,4 +1,4 @@
----
+---
 nome: Setor Beco do Tiú
 mapas:
 - caminho_imagem_mapa: imagens/setor_beco_do_tiu_p0_i0.webp
@@ -96,10 +96,37 @@ mapas:
       y: 1142
       comprimento: 98
       largura: 13
+  referencias:
+  - escalada: Panqueca de Salada
+    ids:
+    - '01'
+  - escalada: Belí*
+    ids:
+    - '02'
+  - escalada: Chapa Caseira*
+    ids:
+    - '03'
+  - escalada: Turma do Picknick
+    ids:
+    - '04'
+  - escalada: Azul Royal
+    ids:
+    - '05'
+  - escalada: Amaralzinha
+    ids:
+    - '06'
+  - escalada: Usa Quatro e Sobra Um
+    ids:
+    - '07'
+  - escalada: Conexão 3G
+    ids:
+    - '8'
+  - escalada: Demorô+Saiu
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: Panqueca de Salada
-    id_no_mapa: '01'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 7
@@ -109,7 +136,6 @@ escaladas:
     dificuldade: BR_6
 - via_esportiva:
     nome: Belí*
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -121,7 +147,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Chapa Caseira*
-    id_no_mapa: '03'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 3
@@ -129,14 +154,12 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Turma do Picknick
-    id_no_mapa: '04'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
     data_abertura: 2022-09
 - via_esportiva:
     nome: Azul Royal
-    id_no_mapa: '05'
     dificuldade: BR_4
     destaque: true
     quantidade_protecoes_intermediarias: 2
@@ -144,31 +167,27 @@ escaladas:
     data_abertura: '2015-02-21'
 - via_esportiva:
     nome: Amaralzinha
-    id_no_mapa: '06'
     dificuldade: BR_4
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Usa Quatro e Sobra Um
-    id_no_mapa: '07'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Conexão 3G
-    id_no_mapa: 08
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Demorô+Saiu
-    id_no_mapa: 09
     dificuldade: BR_4
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
 # Setor Beco do Tiú
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

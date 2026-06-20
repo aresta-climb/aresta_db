@@ -1,24 +1,36 @@
----
+---
 nome: Extrema Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
+  referencias:
+  - escalada: Solamente
+    ids:
+    - '1'
+  - escalada: Nesse Mato Tem Cachorro
+    ids:
+    - '2'
+  - escalada: Vr. Cachorro Louco
+    ids:
+    - '3'
+  - escalada: Libera Liberou
+    ids:
+    - '4'
+  - escalada: Dez Mil e Uma Noites
+    ids:
+    - '5'
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp
 escaladas:
 - via_multiplas_enfiadas:
     nome: Solamente
-    id_no_mapa: '1'
     dificuldade_media: BR_1
     dificuldade_maxima: BR_2
     comprimento_total: 120
     conquistadores:
     - Tonico Magalhães
     data_abertura: '2010-11-27'
-    descricao: ESCALADA SOLO. Via conquistada em solo integral, sem grampos. A descida
-      deve ser feita desescalando-se a própria linha ou caminhando-se pelo mato do
-      lado esquerdo.
+    descricao: ESCALADA SOLO. Via conquistada em solo integral, sem grampos. A descida deve ser feita desescalando-se a própria linha ou caminhando-se pelo mato do lado esquerdo.
 - via_esportiva:
     nome: Nesse Mato Tem Cachorro
-    id_no_mapa: '2'
     dificuldade: BR_3
     exposicao: E2
     extensao: 55
@@ -26,14 +38,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-22'
-    descricao: Via que começa passando por uma sequência de platôs com vegetação,
-      até chegar ao primeiro grampo, na parede já limpa. Após a segunda proteção,
-      segue em diagonal para a direita, tornando a subir logo após, na direção do
-      final do óbvio diedro. Após a virada do diedro, com um grampo no lance, segue-se
-      em leve diagonal para a esquerda, até a última proteção da via.
+    descricao: Via que começa passando por uma sequência de platôs com vegetação, até chegar ao primeiro grampo, na parede já limpa. Após a segunda proteção, segue em diagonal para a direita, tornando a subir logo após, na direção do final do óbvio diedro. Após a virada do diedro, com um grampo no lance, segue-se em leve diagonal para a esquerda, até a última proteção da via.
 - via_esportiva:
     nome: Vr. Cachorro Louco
-    id_no_mapa: '3'
     dificuldade: BR_3
     exposicao: E3
     extensao: 30
@@ -41,15 +48,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-22'
-    descricao: Variante da via anterior, segue reta após a segunda proteção da via
-      principal, passando por um pouco de mato, até fazer a virada do diedro, com
-      um grampo logo acima do mesmo para proteção. Depois da virada, segue por uma
-      linha branca na pedra, com mais um grampo intermediário, até chegar à parada
-      final da “Nesse Mato Tem Cachorro”. Por possuir apenas duas proteções em 30
-      metros, apesar de fácil, esta via deve ser abordada com cautela.
+    descricao: Variante da via anterior, segue reta após a segunda proteção da via principal, passando por um pouco de mato, até fazer a virada do diedro, com um grampo logo acima do mesmo para proteção. Depois da virada, segue por uma linha branca na pedra, com mais um grampo intermediário, até chegar à parada final da “Nesse Mato Tem Cachorro”. Por possuir apenas duas proteções em 30 metros, apesar de fácil, esta via deve ser abordada com cautela.
 - via_esportiva:
     nome: Libera Liberou
-    id_no_mapa: '4'
     dificuldade: BR_3
     exposicao: E1
     extensao: 35
@@ -57,12 +58,9 @@ escaladas:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2009-08-01'
-    descricao: Via predominantemente em aderência e agarras, com boa grampeação até
-      a parada final. Segue desde a base até o final em linha praticamente reta, terminando
-      na barreira de vegetação.
+    descricao: Via predominantemente em aderência e agarras, com boa grampeação até a parada final. Segue desde a base até o final em linha praticamente reta, terminando na barreira de vegetação.
 - via_esportiva:
     nome: Dez Mil e Uma Noites
-    id_no_mapa: '5'
     dificuldade: BR_6
     exposicao: E1
     extensao: 45
@@ -70,13 +68,8 @@ escaladas:
     - Celso Ferreira Gomes
     - Tonico Magalhães
     data_abertura: '2012-05-06'
-    descricao: Saída fácil em dois lances com boas agarras e bom posicionamento para
-      os pés. Após o segundo grampo, seguem-se quatro lances bem íngremes de VI grau,
-      com notável escassez de agarras e posicionamento delicado e instável para os
-      pés, especialmente porque, nesse trecho, a rocha mostra-se mais friável. Após
-      a parada dupla, seguem-se mais três lances fáceis até o final da via. A parada
-      dupla é uma boa opção para o top-rope envolvendo a sequência de lances de VI.
----
+    descricao: Saída fácil em dois lances com boas agarras e bom posicionamento para os pés. Após o segundo grampo, seguem-se quatro lances bem íngremes de VI grau, com notável escassez de agarras e posicionamento delicado e instável para os pés, especialmente porque, nesse trecho, a rocha mostra-se mais friável. Após a parada dupla, seguem-se mais três lances fáceis até o final da via. A parada dupla é uma boa opção para o top-rope envolvendo a sequência de lances de VI.
+---
 
 ![Gustavo “Xaxá” Carrozzino próximo às bases do setor](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i1.webp)
 

@@ -1,4 +1,4 @@
----
+---
 nome: Achados e Perdidos
 mapas:
 - caminho_imagem_mapa: imagens/setor_achados_e_perdidos_p0.webp
@@ -33,29 +33,35 @@ mapas:
       y: 659
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Fala Comigo
+    ids:
+    - '01'
+  - escalada: Tendinite No More
+    ids:
+    - '02'
+  - escalada: Atitude no Trecho
+    ids:
+    - '03'
+  - escalada: Achados e Perdidos
+    ids:
+    - '04'
 escaladas:
 - boulder:
     nome: Fala Comigo
-    id_no_mapa: '01'
     dificuldade: V6
-    descricao: saida agachado com as mãos em agarrao a esquerda do bloco e faz uma
-      travessia para direita e vira no centro do bloco no boulder atitude no trecho.
+    descricao: saida agachado com as mãos em agarrao a esquerda do bloco e faz uma travessia para direita e vira no centro do bloco no boulder atitude no trecho.
 - boulder:
     nome: Tendinite No More
-    id_no_mapa: '02'
     dificuldade: V2
     descricao: Saida do atitude no trecho e segue para esquerda.
 - boulder:
     nome: Atitude no Trecho
-    id_no_mapa: '03'
     dificuldade: V3
-    descricao: saida agachado com as duas maos juntas em um cristal e segue reto (no
-      meio do bloco).
+    descricao: saida agachado com as duas maos juntas em um cristal e segue reto (no meio do bloco).
 - boulder:
     nome: Achados e Perdidos
-    id_no_mapa: '04'
     dificuldade: V3
-    descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida e
-      esquerda de balcão no equilibrio e segue pela esquerda.
----
+    descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida e esquerda de balcão no equilibrio e segue pela esquerda.
+---
 # Setor Achados e Perdidos

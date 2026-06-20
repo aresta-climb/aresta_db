@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pataxós
 mapas:
 - caminho_imagem_mapa: imagens/setor_pataxos_p0_i0.webp
@@ -159,10 +159,76 @@ mapas:
       y: 770
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Ditadura do Barulho
+    ids:
+    - '1'
+  - escalada: Nó 88
+    ids:
+    - '2'
+  - escalada: Mulher Mais Bonita do Mundo
+    ids:
+    - '3'
+  - escalada: Jogo Rápido
+    ids:
+    - '4'
+  - escalada: Baile da Betinha
+    ids:
+    - '5'
+  - escalada: Chove + Não Molha
+    ids:
+    - '6'
+  - escalada: Paisnkentá
+    ids:
+    - '7'
+  - escalada: Alá Magnólia
+    ids:
+    - '8'
+  - escalada: F.A. Foi Dela
+    ids:
+    - '9'
+  - escalada: Ilusão do 'eu'
+    ids:
+    - '10'
+  - escalada: (via inacabada)
+    ids:
+    - '11'
+  - escalada: Alienação Social
+    ids:
+    - '12'
+  - escalada: Siurana
+    ids:
+    - '13'
+  - escalada: Bond, Vagabond
+    ids:
+    - '14'
+  - escalada: Bond, Maribond
+    ids:
+    - '15'
+  - escalada: Charuto no Beiço
+    ids:
+    - '16'
+  - escalada: Chama o Bombeiro
+    ids:
+    - '17'
+  - escalada: Inter Escalar
+    ids:
+    - '18'
+  - escalada: (via inacabada) Capitão Fantástico
+    ids:
+    - '19'
+  - escalada: Aracnofobia
+    ids:
+    - '20'
+  - escalada: Mão de Alface
+    ids:
+    - '21'
+  - escalada: (via inacabada)
+    ids:
+    - '22'
 escaladas:
 - via_esportiva:
     nome: Ditadura do Barulho
-    id_no_mapa: '1'
     dificuldade: BR_3
     data_abertura: '2021-03-20'
     quantidade_protecoes_intermediarias: 3
@@ -170,14 +236,12 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Nó 88
-    id_no_mapa: '2'
     dificuldade: BR_6
     data_abertura: '2020-12-26'
     quantidade_protecoes_parada: 2
     destaque: true
 - via_esportiva:
     nome: Mulher Mais Bonita do Mundo
-    id_no_mapa: '3'
     dificuldade: BR_5
     data_abertura: '2020-10-12'
     quantidade_protecoes_intermediarias: 5
@@ -185,55 +249,46 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Jogo Rápido
-    id_no_mapa: '4'
     dificuldade: BR_7A_BARRA_7B
     data_abertura: '2020-11-01'
     destaque: true
 - via_esportiva:
     nome: Baile da Betinha
-    id_no_mapa: '5'
     dificuldade: BR_5SUP
     data_abertura: '2020-11-01'
     destaque: true
 - via_esportiva:
     nome: Chove + Não Molha
-    id_no_mapa: '6'
     dificuldade: BR_6
     data_abertura: '2021-01-01'
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Paisnkentá
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
     data_abertura: '2020-12-01'
     destaque: true
 - via_esportiva:
     nome: Alá Magnólia
-    id_no_mapa: '8'
     data_abertura: '2020-12-01'
     destaque: true
 - via_esportiva:
     nome: F.A. Foi Dela
-    id_no_mapa: '9'
     dificuldade: BR_4
     data_abertura: '2021-01-03'
     destaque: true
 - via_esportiva:
     nome: Ilusão do 'eu'
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     data_abertura: '2021-01-03'
     destaque: true
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '11'
     dificuldade: PROJETO
     data_abertura: '2008-01-01'
     quantidade_protecoes_intermediarias: 1
 - via_esportiva:
     nome: Alienação Social
-    id_no_mapa: '12'
     dificuldade: PROJETO
     data_abertura: '2020-11-01'
     quantidade_protecoes_intermediarias: 8
@@ -241,13 +296,11 @@ escaladas:
     destaque: true
 - via_esportiva:
     nome: Siurana
-    id_no_mapa: '13'
     dificuldade: BR_6SUP_BARRA_7A
     data_abertura: '2020-11-01'
     destaque: true
 - via_esportiva:
     nome: Bond, Vagabond
-    id_no_mapa: '14'
     dificuldade: BR_6SUP_BARRA_7A
     data_abertura: '2020-10-01'
     quantidade_protecoes_intermediarias: 10
@@ -255,7 +308,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Bond, Maribond
-    id_no_mapa: '15'
     dificuldade: BR_7A_BARRA_7B
     data_abertura: '2020-10-01'
     destaque: true
@@ -263,7 +315,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Charuto no Beiço
-    id_no_mapa: '16'
     dificuldade: BR_6
     destaque: true
     data_abertura: '2020-10-01'
@@ -271,7 +322,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Chama o Bombeiro
-    id_no_mapa: '17'
     dificuldade: BR_6SUP_BARRA_7A
     destaque: true
     data_abertura: '2020-10-01'
@@ -279,7 +329,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Inter Escalar
-    id_no_mapa: '18'
     dificuldade: BR_7A
     data_abertura: '2020-10-01'
     destaque: true
@@ -287,13 +336,11 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: (via inacabada) Capitão Fantástico
-    id_no_mapa: '19'
     dificuldade: PROJETO
     data_abertura: '2020-10-01'
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Aracnofobia
-    id_no_mapa: '20'
     dificuldade: BR_4
     data_abertura: '2020-10-01'
     destaque: true
@@ -301,7 +348,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mão de Alface
-    id_no_mapa: '21'
     dificuldade: BR_5SUP
     destaque: true
     data_abertura: '2020-10-01'
@@ -313,11 +359,10 @@ escaladas:
     data_abertura: '2021-01-01'
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '22'
     dificuldade: PROJETO
     data_abertura: '2020-10-01'
     quantidade_protecoes_intermediarias: 3
----
+---
 # Setor Pataxós
 
 Sombra a partir de 11h (varia de acordo com a sessão).

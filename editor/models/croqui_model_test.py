@@ -779,12 +779,11 @@ def test_croqui_model_preserva_ordem_dos_campos(tmp_path):
     db_path.mkdir(parents=True)
     caminho_setor = db_path / "setor_ordem.md"
     caminho_setor.write_text("---\n"
-                             "id_no_mapa: 'z_id'\n"
                              "sinal_de_celular: true\n"
                              "nome: 'A Nome'\n"
+                             "amigavel_a_bebes: false\n"
                              "escaladas:\n"
                              "  - boulder:\n"
-                             "      id_no_mapa: '123'\n"
                              "      nome: 'Meu Boulder'\n"
                              "---\n"
                              "Corpo markdown", encoding="utf-8")
@@ -815,13 +814,13 @@ def test_croqui_model_preserva_ordem_dos_campos(tmp_path):
 
     chaves = list(frontmatter.keys())
     # Os originais mantém a ordem. O novo campo vai pro fim.
-    assert chaves[:3] == ["id_no_mapa", "sinal_de_celular", "nome"]
+    assert chaves[:3] == ["sinal_de_celular", "nome", "amigavel_a_bebes"]
     assert "amigavel_a_criancas" in chaves[3:]
     
     # A ordem aninhada das chaves de boulder deve ter sido mantida recursivamente
     boulder_keys = list(frontmatter["escaladas"][0]["boulder"].keys())
-    assert boulder_keys[:2] == ["id_no_mapa", "nome"]
-    assert "data_abertura" in boulder_keys[2:]
+    assert boulder_keys[:1] == ["nome"]
+    assert "data_abertura" in boulder_keys[1:]
 
 def test_croqui_model_nao_vaza_extensoes_no_croqui_raiz(tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico
@@ -907,7 +906,6 @@ def test_croqui_model_preserva_ordem_grupo(tmp_path):
     db_path.mkdir(parents=True)
     caminho_grupo = db_path / "grupo_ordem.md"
     caminho_grupo.write_text("---\n"
-                             "id_no_mapa: 'g_id'\n"
                              "nome: 'Grupo 1'\n"
                              "mapas:\n"
                              "  - largura_mapa: 100\n"
@@ -937,8 +935,8 @@ def test_croqui_model_preserva_ordem_grupo(tmp_path):
     frontmatter = yaml.safe_load(texto_salvo.split("---", 2)[1])
 
     chaves_grupo = list(frontmatter.keys())
-    assert chaves_grupo[:3] == ["id_no_mapa", "nome", "mapas"]
-    assert "localizacao_escalada" in chaves_grupo[3:]
+    assert chaves_grupo[:2] == ["nome", "mapas"]
+    assert "localizacao_escalada" in chaves_grupo[2:]
     
     chaves_mapa = list(frontmatter["mapas"][0].keys())
     assert chaves_mapa == ["largura_mapa", "caminho_imagem_mapa"]

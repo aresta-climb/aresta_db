@@ -146,24 +146,61 @@ picos:
               y: 661
               comprimento: 110
               largura: 30
+          referencias:
+          - escalada: Fenômeno
+            ids:
+            - 01_bot
+          - escalada: Maradona
+            ids:
+            - 02_bot
+          - escalada: Primogênito
+            ids:
+            - 03_bot
+          - escalada: Mil e um nomes de bebês
+            ids:
+            - 04_top
+          - escalada: Diadorim
+            ids:
+            - 05_top
+          - escalada: Sem reservas, por favor
+            ids:
+            - 06_bot
+          - escalada: Antônio Conselheiro
+            ids:
+            - 07_bot
+          - escalada: Lampião
+            ids:
+            - 08_bot
+          - escalada: Maria Bonita
+            ids:
+            - 09_bot
+          - escalada: Corisco
+            ids:
+            - 10_bot
+          - escalada: Volta Seca
+            ids:
+            - 11_top
+          - escalada: Ameaça
+            ids:
+            - 12_top
+          - escalada: Zé Sereno
+            ids:
+            - 13_top
         escaladas:
         - via_esportiva:
             nome: Fenômeno
-            id_no_mapa: 01_bot
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_esportiva:
             nome: Maradona
-            id_no_mapa: 02_bot
             dificuldade: BR_7C
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_esportiva:
             nome: Primogênito
-            id_no_mapa: 03_bot
             dificuldade: BR_7A
             conquistadores:
             - Eliseu Frechou
@@ -171,7 +208,6 @@ picos:
             data_abertura: 2021-03
         - via_movel:
             nome: Mil e um nomes de bebês
-            id_no_mapa: 04_top
             dificuldade: BR_6
             protecoes_moveis: friends
             conquistadores:
@@ -179,14 +215,12 @@ picos:
             - Eliseu Frechou
         - via_esportiva:
             nome: Diadorim
-            id_no_mapa: 05_top
             dificuldade: BR_6SUP
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_movel:
             nome: Sem reservas, por favor
-            id_no_mapa: 06_bot
             dificuldade: BR_7B
             protecoes_moveis: friends
             conquistadores:
@@ -194,7 +228,6 @@ picos:
             - Eliseu Frechou
         - via_movel:
             nome: Antônio Conselheiro
-            id_no_mapa: 07_bot
             dificuldade: BR_7B
             protecoes_moveis: nuts opcional
             conquistadores:
@@ -202,14 +235,12 @@ picos:
             - Eliseu Frechou
         - via_esportiva:
             nome: Lampião
-            id_no_mapa: 08_bot
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_movel:
             nome: Maria Bonita
-            id_no_mapa: 09_bot
             dificuldade: BR_7A
             protecoes_moveis: friends e nuts
             conquistadores:
@@ -217,14 +248,12 @@ picos:
             - Eliseu Frechou
         - via_esportiva:
             nome: Corisco
-            id_no_mapa: 10_bot
             dificuldade: BR_6SUP
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_movel:
             nome: Volta Seca
-            id_no_mapa: 11_top
             dificuldade: BR_5
             protecoes_moveis: friends
             conquistadores:
@@ -234,14 +263,12 @@ picos:
             data_abertura: 2018-04
         - via_esportiva:
             nome: Ameaça
-            id_no_mapa: 12_top
             dificuldade: BR_7A
             conquistadores:
             - Ana Fujita
             - Eliseu Frechou
         - via_esportiva:
             nome: Zé Sereno
-            id_no_mapa: 13_top
             dificuldade: BR_7B
             conquistadores:
             - Eliseu Frechou
@@ -343,10 +370,34 @@ picos:
               y: 766
               comprimento: 114
               largura: 29
+          referencias:
+          - escalada: Boa noite Cinderela
+            ids:
+            - '14'
+          - escalada: Quem dorme com criança...
+            ids:
+            - '15'
+          - escalada: Quem planta vento...
+            ids:
+            - '16'
+          - escalada: A vida é dura...
+            ids:
+            - '17'
+          - escalada: Mais vale um na mão...
+            ids:
+            - '18'
+          - escalada: Por fora bela viola...
+            ids:
+            - 19_bot
+          - escalada: Em terra de rei...
+            ids:
+            - '20'
+          - escalada: Red
+            ids:
+            - '21'
         escaladas:
         - via_esportiva:
             nome: Boa noite Cinderela
-            id_no_mapa: '14'
             dificuldade: BR_6SUP
             conquistadores:
             - Ana Fujita
@@ -354,7 +405,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Quem dorme com criança...
-            id_no_mapa: '15'
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
@@ -362,7 +412,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Quem planta vento...
-            id_no_mapa: '16'
             dificuldade: BR_8B
             conquistadores:
             - Ana Fujita
@@ -370,7 +419,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: A vida é dura...
-            id_no_mapa: '17'
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
@@ -378,7 +426,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Mais vale um na mão...
-            id_no_mapa: '18'
             dificuldade: BR_7A
             conquistadores:
             - Ana Fujita
@@ -386,7 +433,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Por fora bela viola...
-            id_no_mapa: 19_bot
             dificuldade: BR_6
             conquistadores:
             - Ana Fujita
@@ -394,7 +440,6 @@ picos:
             data_abertura: '2018'
         - via_movel:
             nome: Em terra de rei...
-            id_no_mapa: '20'
             dificuldade: BR_6SUP
             protecoes_moveis: friends grandes
             conquistadores:
@@ -403,7 +448,6 @@ picos:
             data_abertura: '2018'
         - via_movel:
             nome: Red
-            id_no_mapa: '21'
             dificuldade: BR_4SUP
             protecoes_moveis: nuts e friends
             conquistadores:
@@ -543,10 +587,52 @@ picos:
               y: 713
               comprimento: 223
               largura: 27
+          referencias:
+          - escalada: Em terra de rei...
+            ids:
+            - '20'
+          - escalada: Red
+            ids:
+            - '21'
+          - escalada: Quadrupel
+            ids:
+            - '22'
+          - escalada: Pilsen
+            ids:
+            - '23'
+          - escalada: Black
+            ids:
+            - '24'
+          - escalada: Pale
+            ids:
+            - '25'
+          - escalada: Witbier
+            ids:
+            - '26'
+          - escalada: Blonde
+            ids:
+            - '27'
+          - escalada: Dubbel
+            ids:
+            - '28'
+          - escalada: Primeiro gole
+            ids:
+            - '29'
+          - escalada: Saidera
+            ids:
+            - '30'
+          - escalada: Porter
+            ids:
+            - '31'
+          - escalada: Bavariante
+            ids:
+            - '32'
+          - escalada: Old Ale
+            ids:
+            - '33'
         escaladas:
         - via_movel:
             nome: Em terra de rei...
-            id_no_mapa: '20'
             dificuldade: BR_6SUP
             protecoes_moveis: friends grandes
             conquistadores:
@@ -555,7 +641,6 @@ picos:
             data_abertura: '2018'
         - via_movel:
             nome: Red
-            id_no_mapa: '21'
             dificuldade: BR_4SUP
             protecoes_moveis: nuts e friends
             conquistadores:
@@ -564,7 +649,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Quadrupel
-            id_no_mapa: '22'
             dificuldade: BR_7A
             conquistadores:
             - Eliseu Frechou
@@ -572,7 +656,6 @@ picos:
             data_abertura: '2020'
         - via_movel:
             nome: Pilsen
-            id_no_mapa: '23'
             dificuldade: BR_5
             protecoes_moveis: friends
             conquistadores:
@@ -581,7 +664,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Black
-            id_no_mapa: '24'
             dificuldade: BR_6SUP
             conquistadores:
             - Ana Fujita
@@ -589,7 +671,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Pale
-            id_no_mapa: '25'
             dificuldade: BR_7A
             conquistadores:
             - Ana Fujita
@@ -597,7 +678,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Witbier
-            id_no_mapa: '26'
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
@@ -605,7 +685,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Blonde
-            id_no_mapa: '27'
             dificuldade: BR_7B
             conquistadores:
             - Ana Fujita
@@ -613,7 +692,6 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Dubbel
-            id_no_mapa: '28'
             dificuldade: BR_7C
             conquistadores:
             - Ana Fujita
@@ -621,14 +699,12 @@ picos:
             data_abertura: '2018'
         - via_esportiva:
             nome: Primeiro gole
-            id_no_mapa: '29'
             dificuldade: BR_4
             conquistadores:
             - Charlie Alves
             - Antônio Calvo
         - via_movel:
             nome: Saidera
-            id_no_mapa: '30'
             dificuldade: BR_6
             protecoes_moveis: nuts e friends
             conquistadores:
@@ -637,7 +713,6 @@ picos:
             - Leonard Moreira
         - via_movel:
             nome: Porter
-            id_no_mapa: '31'
             dificuldade: BR_7A
             protecoes_moveis: friends
             conquistadores:
@@ -645,14 +720,12 @@ picos:
             - Antônio Calvo
         - via_esportiva:
             nome: Bavariante
-            id_no_mapa: '32'
             dificuldade: BR_7A
             conquistadores:
             - Charlie Alves
             - Antônio Calvo
         - via_movel:
             nome: Old Ale
-            id_no_mapa: '33'
             dificuldade: BR_7A
             protecoes_moveis: nuts e friends
             conquistadores:
@@ -715,10 +788,19 @@ picos:
               y: 702
               comprimento: 110
               largura: 30
+          referencias:
+          - escalada: C'est la vie
+            ids:
+            - '01'
+          - escalada: Eu prefiro uma cerveja
+            ids:
+            - '02'
+          - escalada: Hospício jamais
+            ids:
+            - '03'
         escaladas:
         - via_esportiva:
             nome: C'est la vie
-            id_no_mapa: '01'
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Calvo
@@ -728,7 +810,6 @@ picos:
             data_abertura: '2020'
         - via_esportiva:
             nome: Eu prefiro uma cerveja
-            id_no_mapa: '02'
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Calvo
@@ -738,7 +819,6 @@ picos:
             data_abertura: '2020'
         - via_movel:
             nome: Hospício jamais
-            id_no_mapa: '03'
             dificuldade: BR_6SUP
             protecoes_moveis: friends médios e grandes
             conquistadores:
@@ -818,10 +898,25 @@ picos:
               comprimento: 31
               largura: 144
               angulo_graus_x100: 735
+          referencias:
+          - escalada: Ócios do hospício
+            ids:
+            - '01'
+          - escalada: Psicanálise
+            ids:
+            - '02'
+          - escalada: Clínica de recuperação
+            ids:
+            - '03'
+          - escalada: Eletrochoque
+            ids:
+            - '04'
+          - escalada: Camisa de força
+            ids:
+            - '05'
         escaladas:
         - via_esportiva:
             nome: Ócios do hospício
-            id_no_mapa: '01'
             dificuldade: BR_6
             conquistadores:
             - Antonio Calvo
@@ -831,7 +926,6 @@ picos:
             data_abertura: '2020'
         - via_esportiva:
             nome: Psicanálise
-            id_no_mapa: '02'
             dificuldade: BR_5
             conquistadores:
             - Antonio Calvo
@@ -841,7 +935,6 @@ picos:
             data_abertura: '2020'
         - via_esportiva:
             nome: Clínica de recuperação
-            id_no_mapa: '03'
             dificuldade: BR_5
             conquistadores:
             - Antonio Calvo
@@ -851,7 +944,6 @@ picos:
             data_abertura: '2020'
         - via_esportiva:
             nome: Eletrochoque
-            id_no_mapa: '04'
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Calvo
@@ -861,7 +953,6 @@ picos:
             data_abertura: '2020'
         - via_esportiva:
             nome: Camisa de força
-            id_no_mapa: '05'
             dificuldade: BR_4
             conquistadores:
             - Antonio Calvo
@@ -1109,7 +1200,7 @@ botoes:
         | :--: |
 
         | *Foto de escalada na contracapa* |'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

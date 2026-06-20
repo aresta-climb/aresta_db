@@ -1,4 +1,4 @@
----
+---
 nome: Setor Imigrantes
 mapas:
 - caminho_imagem_mapa: imagens/setor_imigrantes_p0_i0.webp
@@ -75,46 +75,63 @@ mapas:
       y: 1255
       comprimento: 215
       largura: 30
+  referencias:
+  - escalada: Ressucita Makita
+    ids:
+    - '1'
+  - escalada: Saporra
+    ids:
+    - '2'
+  - escalada: Tudo Pra Trás
+    ids:
+    - '3'
+  - escalada: Lamurias de Um Ex Casado
+    ids:
+    - '4'
+  - escalada: Nunca Se Engane
+    ids:
+    - '5'
+  - escalada: Chuva na Careca
+    ids:
+    - '6'
+  - escalada: Cuei Teimoso
+    ids:
+    - '7'
+  - escalada: Escalada Eclética
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Ressucita Makita
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Saporra
-    id_no_mapa: '2'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Tudo Pra Trás
-    id_no_mapa: '3'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Lamurias de Um Ex Casado
-    id_no_mapa: '4'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Nunca Se Engane
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Chuva na Careca
-    id_no_mapa: '6'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Cuei Teimoso
-    id_no_mapa: '7'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Escalada Eclética
-    id_no_mapa: '8'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
----
+---
 # Setor Imigrantes

@@ -96,7 +96,7 @@
             - **Contato/Informações:** @abrigobase
             - **Atualizações/Sugestões:** abrigobase@gmail.com
             - **Contribuição/Parceria:** Pix 37 99918-3634
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -173,17 +173,24 @@
           - **y**: 927
           - **comprimento**: 43
           - **largura**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Dia da Maldade
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Dente de Aço
+        - **ids**:
+          - 
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Dia da Maldade
-      - **id_no_mapa**: 1
       - **dificuldade**: INDEFINIDO
   - **[1]**:
     - **via_movel**:
       - **descricao**: via em móvel
       - **nome**: Dente de Aço
-      - **id_no_mapa**: 
       - **dificuldade**: INDEFINIDO
 
 
@@ -356,11 +363,67 @@
           - **y**: 918
           - **comprimento**: 47
           - **largura**: 18
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: 300 de Arcos
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Efeito Dominó
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: via em móvel
+        - **ids**:
+          - 
+      - **[3]**:
+        - **escalada**: Odisséia
+        - **ids**:
+          - 3
+      - **[4]**:
+        - **escalada**: Nesse Ritmo Nosso, Não
+        - **ids**:
+          - 4
+      - **[5]**:
+        - **escalada**: Danificada
+        - **ids**:
+          - 5
+      - **[6]**:
+        - **escalada**: Promessa é Dívida
+        - **ids**:
+          - 6
+      - **[7]**:
+        - **escalada**: Falsas Promessas
+        - **ids**:
+          - 7
+      - **[8]**:
+        - **escalada**: O Pagador de Promessa
+        - **ids**:
+          - 8
+      - **[9]**:
+        - **escalada**: Incrível!
+        - **ids**:
+          - 9
+      - **[10]**:
+        - **escalada**: Espeleopemba
+        - **ids**:
+          - 10
+      - **[11]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 11
+      - **[12]**:
+        - **escalada**: sem nome
+        - **ids**:
+          - 12
+      - **[13]**:
+        - **escalada**: via inacabada
+        - **ids**:
+          - 13
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: 300 de Arcos
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7B_BARRA_7C
       - **extensao**: 30
       - **data_abertura**: 2022
@@ -368,26 +431,22 @@
     - **via_esportiva**:
       - **descricao**: 7c - 30mt
       - **nome**: Efeito Dominó
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7C
       - **extensao**: 30
   - **[2]**:
     - **via_movel**:
       - **descricao**: sem nome
       - **nome**: via em móvel
-      - **id_no_mapa**: 
       - **dificuldade**: INDEFINIDO
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: 8a - 40mt
       - **nome**: Odisséia
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8A
       - **extensao**: 40
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Nesse Ritmo Nosso, Não
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A
       - **destaque**: True
       - **extensao**: 25
@@ -396,7 +455,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Danificada
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_5SUP
       - **extensao**: 25
       - **quantidade_protecoes_intermediarias**: 9
@@ -404,7 +462,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Promessa é Dívida
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_5
       - **destaque**: True
       - **extensao**: 25
@@ -413,7 +470,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Falsas Promessas
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_8C_BARRA_9A
       - **extensao**: 25
       - **quantidade_protecoes_intermediarias**: 13
@@ -421,7 +477,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: O Pagador de Promessa
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_8B_BARRA_8C
       - **destaque**: True
       - **extensao**: 25
@@ -430,7 +485,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Incrível!
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7C
       - **extensao**: 25
       - **quantidade_protecoes_intermediarias**: 11
@@ -438,7 +492,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Espeleopemba
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **extensao**: 25
       - **quantidade_protecoes_intermediarias**: 10
@@ -446,17 +499,14 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: sem nome
-      - **id_no_mapa**: 11
       - **dificuldade**: INDEFINIDO
   - **[12]**:
     - **via_esportiva**:
       - **nome**: sem nome
-      - **id_no_mapa**: 12
       - **dificuldade**: INDEFINIDO
   - **[13]**:
     - **via_esportiva**:
       - **nome**: via inacabada
-      - **id_no_mapa**: 13
       - **dificuldade**: INDEFINIDO
 
 
@@ -563,37 +613,53 @@
           - **y**: 920
           - **comprimento**: 43
           - **largura**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Questa Aresta
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Bonitinha Mais Ordinária
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Aperta Que Fica
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Tem Gente que Tenta o Cão
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Rolling Stones
+        - **ids**:
+          - 5
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Questa Aresta
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7A
       - **destaque**: True
       - **data_abertura**: 2018
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bonitinha Mais Ordinária
-      - **id_no_mapa**: 2
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2018
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Aperta Que Fica
-      - **id_no_mapa**: 3
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2018
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Tem Gente que Tenta o Cão
-      - **id_no_mapa**: 4
       - **dificuldade**: INDEFINIDO
       - **destaque**: True
       - **data_abertura**: 2018
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Rolling Stones
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 8
@@ -729,49 +795,75 @@
           - **y**: 919
           - **comprimento**: 43
           - **largura**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Dois Dedos pra Cima
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Bela, Recatada e do Climb
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Manteiga de Sucuri
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Nova Era
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Novo Mundo
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Chora Chorrera
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Inocência de Um Purista
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Maldita Dependência
+        - **ids**:
+          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Dois Dedos pra Cima
-      - **id_no_mapa**: 1
       - **data_abertura**: 2016
       - **dificuldade**: BR_7A
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bela, Recatada e do Climb
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7C
       - **data_abertura**: 15/05/2016
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Manteiga de Sucuri
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8A
       - **data_abertura**: 15/05/2016
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Nova Era
-      - **id_no_mapa**: 4
       - **destaque**: True
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2016
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Novo Mundo
-      - **id_no_mapa**: 5
       - **destaque**: True
       - **dificuldade**: BR_7C
       - **data_abertura**: 2016
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Chora Chorrera
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7B
       - **data_abertura**: 2016
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Inocência de Um Purista
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -779,7 +871,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Maldita Dependência
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_7A
       - **data_abertura**: 2016
 

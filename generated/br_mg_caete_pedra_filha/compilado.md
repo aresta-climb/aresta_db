@@ -8,7 +8,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_de_cima_p0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 - **botoes**: []
 
@@ -140,71 +140,111 @@
           - **y**: 370
           - **comprimento**: 20
           - **largura**: 19
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mico Leão Noiado
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Maridos Alforriados
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Sábado de Aleluia
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Sem Nome
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Mancha Amarela
+        - **ids**:
+          - 6
+      - **[5]**:
+        - **escalada**: Mancha Preta
+        - **ids**:
+          - 7
+      - **[6]**:
+        - **escalada**: DNA Zica Preta
+        - **ids**:
+          - 8
+      - **[7]**:
+        - **escalada**: Desvio de Conduta
+        - **ids**:
+          - 9
+      - **[8]**:
+        - **escalada**: O Desgrama
+        - **ids**:
+          - 10
+      - **[9]**:
+        - **escalada**: Bin Laden
+        - **ids**:
+          - 11
+      - **[10]**:
+        - **escalada**: Dia após Dia
+        - **ids**:
+          - 12
+      - **[11]**:
+        - **escalada**: Quarta-Feira Cinzas
+        - **ids**:
+          - 13
+      - **[12]**:
+        - **escalada**: Independence Day
+        - **ids**:
+          - 14
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Mico Leão Noiado
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7B
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Maridos Alforriados
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_5SUP
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Sábado de Aleluia
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Sem Nome
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7B
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Mancha Amarela
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Mancha Preta
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_5
   - **[6]**:
     - **via_esportiva**:
       - **nome**: DNA Zica Preta
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Desvio de Conduta
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7B
   - **[8]**:
     - **via_esportiva**:
       - **nome**: O Desgrama
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7C
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Bin Laden
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8A
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Dia após Dia
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7A
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Quarta-Feira Cinzas
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Independence Day
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_5
 
 
@@ -295,52 +335,80 @@
           - **y**: 573
           - **comprimento**: 17
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Extremo Norte
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Rapa do Tacho
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Lindona 'Tindoida'
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Pandora
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: A Espera de um Milagre
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Insanidade Mental
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Sem Bússola
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Casal 20
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Maldita Obsessão
+        - **ids**:
+          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Extremo Norte
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Rapa do Tacho
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Lindona 'Tindoida'
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Pandora
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_8A
   - **[4]**:
     - **via_esportiva**:
       - **nome**: A Espera de um Milagre
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7A
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Insanidade Mental
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_9A
       - **dificuldade_artificial**: A0
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Sem Bússola
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_6SUP
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Casal 20
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_6SUP
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Maldita Obsessão
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7B
 
 

@@ -1,4 +1,4 @@
----
+---
 nome: 2º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2o_andar_p0_i0.webp
@@ -229,36 +229,95 @@ mapas:
       y: 1087
       comprimento: 86
       largura: 16
+  referencias:
+  - escalada: Primeiro Prêmio
+    ids:
+    - '01'
+  - escalada: Segundo Prêmio
+    ids:
+    - '02'
+  - escalada: Monogamia Heteronormativa
+    ids:
+    - '03'
+  - escalada: Café Tabaco Cachaça
+    ids:
+    - '04'
+  - escalada: Daqui Ninguém Me Tira
+    ids:
+    - '05'
+  - escalada: Sombra e Água Fresca
+    ids:
+    - '06'
+  - escalada: Bicuda
+    ids:
+    - '07'
+  - escalada: Gardneria Angustata
+    ids:
+    - '8'
+  - escalada: Vai e Volta e Vai
+    ids:
+    - '9'
+  - escalada: Daqui Não Saio
+    ids:
+    - '10'
+  - escalada: Cafeína
+    ids:
+    - '11'
+  - escalada: Pequena Sereia
+    ids:
+    - '12'
+  - escalada: Engole o Choro
+    ids:
+    - '13'
+  - escalada: Stone Fischer
+    ids:
+    - '14'
+  - escalada: Frigobar de Pedra
+    ids:
+    - '15'
+  - escalada: Navio
+    ids:
+    - '16'
+  - escalada: Submarino
+    ids:
+    - '17'
+  - escalada: O Alquimista
+    ids:
+    - '18'
+  - escalada: Vozes da África
+    ids:
+    - '19'
+  - escalada: Meu Maior Amigo
+    ids:
+    - '20'
+  - escalada: Iemanjá
+    ids:
+    - '21'
 escaladas:
 - via_esportiva:
     nome: Primeiro Prêmio
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Segundo Prêmio
-    id_no_mapa: '02'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Monogamia Heteronormativa
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Café Tabaco Cachaça
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Daqui Ninguém Me Tira
-    id_no_mapa: '05'
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 9
@@ -266,86 +325,73 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Sombra e Água Fresca
-    id_no_mapa: '06'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Bicuda
-    id_no_mapa: '07'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Gardneria Angustata
-    id_no_mapa: 08
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Vai e Volta e Vai
-    id_no_mapa: 09
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Daqui Não Saio
-    id_no_mapa: '10'
     dificuldade: BR_5
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cafeína
-    id_no_mapa: '11'
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pequena Sereia
-    id_no_mapa: '12'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Engole o Choro
-    id_no_mapa: '13'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Stone Fischer
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Frigobar de Pedra
-    id_no_mapa: '15'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Navio
-    id_no_mapa: '16'
     dificuldade: BR_9B
     destaque: true
     quantidade_protecoes_intermediarias: 15
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Submarino
-    id_no_mapa: '17'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
     data_abertura: 2018-05
 - via_esportiva:
     nome: O Alquimista
-    id_no_mapa: '18'
     dificuldade: BR_8C_BARRA_9A
     destaque: true
     quantidade_protecoes_intermediarias: 5
@@ -353,26 +399,23 @@ escaladas:
     data_abertura: 2018-05
 - via_esportiva:
     nome: Vozes da África
-    id_no_mapa: '19'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Meu Maior Amigo
-    id_no_mapa: '20'
     dificuldade: BR_8B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Iemanjá
-    id_no_mapa: '21'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
----
+---
 # Setor 2º Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

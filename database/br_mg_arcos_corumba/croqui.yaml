@@ -37,5 +37,5 @@ botoes:
   destino:
     secao_textual:
       caminho: parcerias_e_contato.md
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true

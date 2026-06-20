@@ -1,6 +1,5 @@
----
+---
 nome: La Fúria
-id_no_mapa: '13'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p0.webp
   largura_mapa: 760
@@ -62,6 +61,67 @@ mapas:
       y: 515
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: La Furia
+    ids:
+    - '1'
+  - escalada: La Discordia
+    ids:
+    - '2'
+  - escalada: La Paloma
+    ids:
+    - '3'
+  - escalada: La Discrepância
+    ids:
+    - '4'
+  - escalada: La Fuerza
+    ids:
+    - '5'
+  - escalada: La Sinceridad
+    ids:
+    - '6'
+  - escalada: Rei da Cápsula
+    ids:
+    - '7'
+  - escalada: Choffer
+    ids:
+    - '8'
+  - escalada: Bem Vindo
+    ids:
+    - '1'
+  - escalada: Bem Vindo a Conceição
+    ids:
+    - '2'
+  - escalada: Bem Vindo aos Clássicos
+    ids:
+    - '3'
+  - escalada: Né Possível
+    ids:
+    - '4'
+  - escalada: Malditos
+    ids:
+    - '5'
+  - escalada: Guardião
+    ids:
+    - '6'
+  - escalada: Deixa Rolar
+    ids:
+    - '7'
+  - escalada: La Resistência
+    ids:
+    - '8'
+    - '8'
+  - escalada: Maldito La Furia
+    ids:
+    - '9'
+    - '9'
+  - escalada: (sem nome)
+    ids:
+    - '10'
+    - '10'
+  - escalada: Travessia da Fúria
+    ids:
+    - '10'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p1.webp
   largura_mapa: 759
   altura_mapa: 571
@@ -154,83 +214,62 @@ mapas:
 escaladas:
 - boulder:
     nome: La Furia
-    id_no_mapa: '1'
     dificuldade: V7
 - boulder:
     nome: La Discordia
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: La Paloma
-    id_no_mapa: '3'
     dificuldade: V9
 - boulder:
     nome: La Discrepância
-    id_no_mapa: '4'
     dificuldade: V11
 - boulder:
     nome: La Fuerza
-    id_no_mapa: '5'
     dificuldade: V11
 - boulder:
     nome: La Sinceridad
-    id_no_mapa: '6'
     dificuldade: V12
 - boulder:
     nome: Rei da Cápsula
-    id_no_mapa: '7'
     dificuldade: V10
 - boulder:
     nome: Choffer
-    id_no_mapa: '8'
     dificuldade: V9
 - boulder:
     nome: Bem Vindo
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Bem Vindo a Conceição
-    id_no_mapa: '2'
     dificuldade: V3
 - boulder:
     nome: Bem Vindo aos Clássicos
-    id_no_mapa: '3'
     dificuldade: V5
 - boulder:
     nome: Né Possível
-    id_no_mapa: '4'
     dificuldade: V4
 - boulder:
     nome: Malditos
-    id_no_mapa: '5'
     dificuldade: V7
 - boulder:
     nome: Guardião
-    id_no_mapa: '6'
     dificuldade: V3
 - boulder:
     nome: Deixa Rolar
-    id_no_mapa: '7'
     dificuldade: V6
 - boulder:
     nome: La Resistência
-    id_no_mapa: '8'
-    id_no_mapa_fim: '8'
     dificuldade: V8
 - boulder:
     nome: Maldito La Furia
-    id_no_mapa: '9'
-    id_no_mapa_fim: '9'
     dificuldade: V8
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '10'
-    id_no_mapa_fim: '10'
 - boulder:
     nome: Travessia da Fúria
-    id_no_mapa: '10'
     dificuldade: V5
----
+---
+
 # Setor La Fúria
 
 O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.

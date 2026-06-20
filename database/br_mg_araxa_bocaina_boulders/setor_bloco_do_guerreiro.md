@@ -1,4 +1,4 @@
----
+---
 nome: Bloco do Guerreiro
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p0.webp
@@ -33,6 +33,28 @@ mapas:
       y: 625
       comprimento: 17
       largura: 18
+  referencias:
+  - escalada: Strike
+    ids:
+    - '01'
+  - escalada: Chove e Não Molha
+    ids:
+    - '02'
+  - escalada: Palhaço Pirulito
+    ids:
+    - '03'
+  - escalada: Marreteiro
+    ids:
+    - '04'
+  - escalada: Guerreiro da Bocaina
+    ids:
+    - '05'
+  - escalada: High Line
+    ids:
+    - '06'
+  - escalada: Colchão de Mola
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
   largura_mapa: 1084
   altura_mapa: 881
@@ -61,41 +83,31 @@ mapas:
 escaladas:
 - boulder:
     nome: Strike
-    id_no_mapa: '01'
     dificuldade: V7_BARRA_V8
-    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena
-      seguindo para abaulado virando reto.
+    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena seguindo para abaulado virando reto.
 - boulder:
     nome: Chove e Não Molha
-    id_no_mapa: '02'
     dificuldade: V3
     descricao: Saída em pé em regletes na aresta indo para abaulado e virando reto.
 - boulder:
     nome: Palhaço Pirulito
-    id_no_mapa: '03'
     dificuldade: V1
     descricao: Saída em pé com as mãos em abaulado virando reto.
 - boulder:
     nome: Marreteiro
-    id_no_mapa: '04'
     dificuldade: V5
-    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em
-      reglete de meia falange com calcanhar na mão direita e segue a linha reta.
+    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em reglete de meia falange com calcanhar na mão direita e segue a linha reta.
 - boulder:
     nome: Guerreiro da Bocaina
-    id_no_mapa: '05'
     dificuldade: V6
-    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo
-      ao lado da mão e direita em reglete no teto.
+    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado da mão e direita em reglete no teto.
 - boulder:
     nome: High Line
-    id_no_mapa: '06'
     dificuldade: V5
     descricao: Saída em pé com as mãos em regletes no batentão.
 - boulder:
     nome: Colchão de Mola
-    id_no_mapa: '07'
     dificuldade: V4
     descricao: Saída em pé com as mãos em regletes investidos.
----
+---
 # Setor Bloco do Guerreiro

@@ -1,4 +1,4 @@
----
+---
 nome: Bacurau
 mapas:
 - caminho_imagem_mapa: imagens/setor_bacurau_p0_i0.webp
@@ -29,6 +29,25 @@ mapas:
       x: 724
       y: 867
       raio: 26
+  referencias:
+  - escalada: Viuvinha
+    ids:
+    - '35'
+  - escalada: Eu sou Jaó
+    ids:
+    - '36'
+  - escalada: Ritual
+    ids:
+    - '37'
+  - escalada: Improviso
+    ids:
+    - '38'
+  - escalada: Buraqueira
+    ids:
+    - '39'
+  - escalada: Mini Nave
+    ids:
+    - '40'
 - caminho_imagem_mapa: imagens/setor_bacurau_p1_i0.webp
   largura_mapa: 678
   altura_mapa: 1460
@@ -52,40 +71,28 @@ mapas:
 escaladas:
 - boulder:
     nome: Viuvinha
-    id_no_mapa: '35'
     dificuldade: V1
-    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras 
-      baixas, indo reto até a virada.
+    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas, indo reto até a virada.
 - boulder:
     nome: Eu sou Jaó
-    id_no_mapa: '36'
     dificuldade: V1
-    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a 
-      travessia por agarras boas até a virada na parte mais alta à direita.
+    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia por agarras boas até a virada na parte mais alta à direita.
 - boulder:
     nome: Ritual
-    id_no_mapa: '37'
     dificuldade: V3
-    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de
-      saída, fazendo a travessia para a virada na parte esquerda.
+    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de saída, fazendo a travessia para a virada na parte esquerda.
 - boulder:
     nome: Improviso
-    id_no_mapa: '38'
     dificuldade: V3
-    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a 
-      virada na parte mais alta.
+    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a virada na parte mais alta.
 - boulder:
     nome: Buraqueira
-    id_no_mapa: '39'
     dificuldade: V1
-    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, 
-      indo reto para a virada em agarras boas.
+    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo reto para a virada em agarras boas.
 - boulder:
     nome: Mini Nave
-    id_no_mapa: '40'
     dificuldade: V1
-    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, 
-      sem usar os blocos de baixo, tocando por toda a aresta.
----
+    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar os blocos de baixo, tocando por toda a aresta.
+---
 
 # Bacurau

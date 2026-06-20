@@ -124,7 +124,7 @@
             - **Instagram:** [@abrigobase](https://www.instagram.com/abrigobase)
             - **E-mail:** abrigobase@gmail.com
             - **Contribuição/Parceria PIX:** 37 99918-3634
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -323,11 +323,99 @@
           - **y**: 770
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ditadura do Barulho
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Nó 88
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Mulher Mais Bonita do Mundo
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Jogo Rápido
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Baile da Betinha
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Chove + Não Molha
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Paisnkentá
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Alá Magnólia
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: F.A. Foi Dela
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Ilusão do 'eu'
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Alienação Social
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Siurana
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Bond, Vagabond
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Bond, Maribond
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Charuto no Beiço
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Chama o Bombeiro
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Inter Escalar
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: (via inacabada) Capitão Fantástico
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Aracnofobia
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Mão de Alface
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 22
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Ditadura do Barulho
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_3
       - **data_abertura**: 2021-03-20
       - **quantidade_protecoes_intermediarias**: 3
@@ -336,7 +424,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Nó 88
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
       - **data_abertura**: 2020-12-26
       - **quantidade_protecoes_parada**: 2
@@ -344,7 +431,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Mulher Mais Bonita do Mundo
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **data_abertura**: 2020-10-12
       - **quantidade_protecoes_intermediarias**: 5
@@ -353,21 +439,18 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Jogo Rápido
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A_BARRA_7B
       - **data_abertura**: 2020-11-01
       - **destaque**: True
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Baile da Betinha
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_5SUP
       - **data_abertura**: 2020-11-01
       - **destaque**: True
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Chove + Não Molha
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_6
       - **data_abertura**: 2021-01-01
       - **quantidade_protecoes_intermediarias**: 5
@@ -375,41 +458,35 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Paisnkentá
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_6SUP
       - **data_abertura**: 2020-12-01
       - **destaque**: True
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Alá Magnólia
-      - **id_no_mapa**: 8
       - **data_abertura**: 2020-12-01
       - **destaque**: True
   - **[8]**:
     - **via_esportiva**:
       - **nome**: F.A. Foi Dela
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_4
       - **data_abertura**: 2021-01-03
       - **destaque**: True
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Ilusão do 'eu'
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **data_abertura**: 2021-01-03
       - **destaque**: True
   - **[10]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 11
       - **dificuldade**: PROJETO
       - **data_abertura**: 2008-01-01
       - **quantidade_protecoes_intermediarias**: 1
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Alienação Social
-      - **id_no_mapa**: 12
       - **dificuldade**: PROJETO
       - **data_abertura**: 2020-11-01
       - **quantidade_protecoes_intermediarias**: 8
@@ -418,14 +495,12 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Siurana
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **data_abertura**: 2020-11-01
       - **destaque**: True
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Bond, Vagabond
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **data_abertura**: 2020-10-01
       - **quantidade_protecoes_intermediarias**: 10
@@ -434,7 +509,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Bond, Maribond
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7A_BARRA_7B
       - **data_abertura**: 2020-10-01
       - **destaque**: True
@@ -443,7 +517,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Charuto no Beiço
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6
       - **destaque**: True
       - **data_abertura**: 2020-10-01
@@ -452,7 +525,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Chama o Bombeiro
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **destaque**: True
       - **data_abertura**: 2020-10-01
@@ -461,7 +533,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Inter Escalar
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7A
       - **data_abertura**: 2020-10-01
       - **destaque**: True
@@ -470,14 +541,12 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: (via inacabada) Capitão Fantástico
-      - **id_no_mapa**: 19
       - **dificuldade**: PROJETO
       - **data_abertura**: 2020-10-01
       - **quantidade_protecoes_intermediarias**: 5
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Aracnofobia
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_4
       - **data_abertura**: 2020-10-01
       - **destaque**: True
@@ -486,7 +555,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Mão de Alface
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_5SUP
       - **destaque**: True
       - **data_abertura**: 2020-10-01
@@ -500,7 +568,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 22
       - **dificuldade**: PROJETO
       - **data_abertura**: 2020-10-01
       - **quantidade_protecoes_intermediarias**: 3
@@ -548,16 +615,23 @@
           - **y**: 966
           - **comprimento**: 37
           - **largura**: 42
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Dos Pombos
+        - **ids**:
+          - 2
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: (via inacabada)
-      - **id_no_mapa**: 1
       - **dificuldade**: PROJETO
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Dos Pombos
-      - **id_no_mapa**: 2
       - **destaque**: True
       - **data_abertura**: 2000-01-01
   - **[2]**:
@@ -617,6 +691,31 @@
           - **y**: 1110
           - **comprimento**: 29
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Curumim
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Terra à Vista
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: (projeto)
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: (sem nome)
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Especiaria
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Tupi Or Not Tupi
+        - **ids**:
+          - 6
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_xavante_p0_i1.webp)
     - **largura_mapa**: 841
@@ -642,7 +741,6 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Curumim
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **destaque**: True
       - **data_abertura**: 2022-07-25
@@ -651,7 +749,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Terra à Vista
-      - **id_no_mapa**: 2
       - **destaque**: True
       - **dificuldade**: BR_7B
       - **data_abertura**: 2022-07-25
@@ -660,12 +757,10 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: (projeto)
-      - **id_no_mapa**: 3
       - **dificuldade**: PROJETO
   - **[3]**:
     - **via_esportiva**:
       - **nome**: (sem nome)
-      - **id_no_mapa**: 4
       - **dificuldade**: PROJETO
       - **data_abertura**: 2022-07-25
       - **quantidade_protecoes_intermediarias**: 7
@@ -673,7 +768,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Especiaria
-      - **id_no_mapa**: 5
       - **dificuldade**: PROJETO
       - **destaque**: True
       - **data_abertura**: 2022-07-25
@@ -682,7 +776,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Tupi Or Not Tupi
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **destaque**: True
       - **data_abertura**: 2022-07-25
@@ -877,11 +970,95 @@
           - **y**: 936
           - **comprimento**: 32
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Saidera
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Impaciência Tem Limite
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Gongolô
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Seg Sativa
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Gaiapiá
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Telefone Sem Fio
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Trabalhador Solo
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Quem avisa amigo é
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Inimigo do Fim
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Hipotenusa (variante)
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Força Yanomami (principal)
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Pluriverso Paralelo
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Tiro ao Alvo
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Visita Ilustre
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Hand Pan (variante)
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Labirinto (variante)
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Charada (variante)
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Vingador (variante)
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Trilogia (principal)
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Paga pra Ver
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Divida Ativa
+        - **ids**:
+          - 21
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Saidera
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **data_abertura**: 2022-12-01
       - **quantidade_protecoes_intermediarias**: 4
@@ -889,7 +1066,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Impaciência Tem Limite
-      - **id_no_mapa**: 2
       - **destaque**: True
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
@@ -897,7 +1073,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Gongolô
-      - **id_no_mapa**: 3
       - **destaque**: True
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
@@ -905,7 +1080,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Seg Sativa
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 8
@@ -913,7 +1087,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Gaiapiá
-      - **id_no_mapa**: 5
       - **destaque**: True
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
@@ -921,7 +1094,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Telefone Sem Fio
-      - **id_no_mapa**: 6
       - **destaque**: True
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
@@ -929,7 +1101,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Trabalhador Solo
-      - **id_no_mapa**: 7
       - **destaque**: True
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 10
@@ -937,7 +1108,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Quem avisa amigo é
-      - **id_no_mapa**: 8
       - **destaque**: True
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 11
@@ -945,7 +1115,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Inimigo do Fim
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 13
@@ -953,7 +1122,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Hipotenusa (variante)
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
@@ -961,24 +1129,20 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Força Yanomami (principal)
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Pluriverso Paralelo
-      - **id_no_mapa**: 12
       - **dificuldade**: PROJETO
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Tiro ao Alvo
-      - **id_no_mapa**: 13
       - **dificuldade**: PROJETO
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Visita Ilustre
-      - **id_no_mapa**: 14
       - **destaque**: True
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 18
@@ -986,7 +1150,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Hand Pan (variante)
-      - **id_no_mapa**: 15
       - **destaque**: True
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 17
@@ -994,7 +1157,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Labirinto (variante)
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7C
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 15
@@ -1002,28 +1164,24 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Charada (variante)
-      - **id_no_mapa**: 17
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Vingador (variante)
-      - **id_no_mapa**: 18
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Trilogia (principal)
-      - **id_no_mapa**: 19
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Paga pra Ver
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_8C_BARRA_9A
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 12
@@ -1031,7 +1189,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Divida Ativa
-      - **id_no_mapa**: 21
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2

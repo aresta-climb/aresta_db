@@ -1,13 +1,70 @@
----
+---
 nome: Parede Principal – Setor Clássicas Curtas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
+  referencias:
+  - escalada: A Medalha de Lúcia
+    ids:
+    - '1'
+  - escalada: Águas de Março
+    ids:
+    - '2'
+  - escalada: Vou Dançar o Xaxaxá
+    ids:
+    - '3'
+  - escalada: Casas da Banha
+    ids:
+    - '4'
+  - escalada: Ferradura
+    ids:
+    - '5'
+  - escalada: Ferrolho
+    ids:
+    - '6'
+  - escalada: Cambal a Quatro
+    ids:
+    - '7'
+  - escalada: El Bigodón
+    ids:
+    - '8'
+  - escalada: Deu Tilt
+    ids:
+    - '12'
+  - escalada: Ferroada
+    ids:
+    - '13'
+  - escalada: Scarface
+    ids:
+    - '14'
+  - escalada: Se Meu Fusca Falasse
+    ids:
+    - '15'
+  - escalada: Couro de Lobisomem
+    ids:
+    - '16'
+  - escalada: Enferrujados
+    ids:
+    - '17'
+  - escalada: Rastro de Cobra
+    ids:
+    - '18'
+  - escalada: Entrando no Ferro
+    ids:
+    - '19'
+  - escalada: Testa de Aço
+    ids:
+    - '9'
+  - escalada: Me Ferrei
+    ids:
+    - '10'
+  - escalada: Amor Profano
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp
 escaladas:
 - via_esportiva:
     nome: A Medalha de Lúcia
-    id_no_mapa: '1'
     dificuldade: BR_3SUP
     extensao: 30
     conquistadores:
@@ -17,7 +74,6 @@ escaladas:
     descricao: Segue por uma óbvia cristaleira até seu final.
 - via_esportiva:
     nome: Águas de Março
-    id_no_mapa: '2'
     dificuldade: BR_4SUP
     extensao: 65
     conquistadores:
@@ -27,7 +83,6 @@ escaladas:
     descricao: Interessante via que inicia em um lance levemente atlético.
 - via_esportiva:
     nome: Vou Dançar o Xaxaxá
-    id_no_mapa: '3'
     dificuldade: BR_4
     extensao: 65
     conquistadores:
@@ -36,7 +91,6 @@ escaladas:
     data_abertura: '2010-11-28'
 - via_esportiva:
     nome: Casas da Banha
-    id_no_mapa: '4'
     dificuldade: BR_5SUP
     extensao: 45
     conquistadores:
@@ -47,7 +101,6 @@ escaladas:
     data_abertura: '2011-04-21'
 - via_esportiva:
     nome: Ferradura
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     extensao: 10
     conquistadores:
@@ -56,7 +109,6 @@ escaladas:
     data_abertura: '2007-06-03'
 - via_esportiva:
     nome: Ferrolho
-    id_no_mapa: '6'
     dificuldade: BR_4
     extensao: 25
     conquistadores:
@@ -65,7 +117,6 @@ escaladas:
     data_abertura: '2007-06-03'
 - via_esportiva:
     nome: Cambal a Quatro
-    id_no_mapa: '7'
     dificuldade: BR_5SUP
     extensao: 30
     conquistadores:
@@ -75,7 +126,6 @@ escaladas:
     data_abertura: '2008-02-03'
 - via_esportiva:
     nome: El Bigodón
-    id_no_mapa: '8'
     dificuldade: BR_5
     extensao: 30
     conquistadores:
@@ -85,7 +135,6 @@ escaladas:
     data_abertura: '2006-08-27'
 - via_movel:
     nome: Testa de Aço
-    id_no_mapa: '9'
     dificuldade: BR_5SUP
     extensao: 30
     conquistadores:
@@ -94,7 +143,6 @@ escaladas:
     data_abertura: '2007-10-28'
 - via_movel:
     nome: Me Ferrei
-    id_no_mapa: '10'
     dificuldade: BR_6
     extensao: 18
     conquistadores:
@@ -103,7 +151,6 @@ escaladas:
     data_abertura: '2011-06-22'
 - via_movel:
     nome: Amor Profano
-    id_no_mapa: '11'
     dificuldade: BR_5
     extensao: 20
     conquistadores:
@@ -112,7 +159,6 @@ escaladas:
     data_abertura: '2007-08-13'
 - via_esportiva:
     nome: Deu Tilt
-    id_no_mapa: '12'
     dificuldade: BR_4SUP
     extensao: 15
     conquistadores:
@@ -121,7 +167,6 @@ escaladas:
     data_abertura: '2008-03-22'
 - via_esportiva:
     nome: Ferroada
-    id_no_mapa: '13'
     dificuldade: BR_3
     extensao: 20
     conquistadores:
@@ -130,7 +175,6 @@ escaladas:
     data_abertura: '2007-04-23'
 - via_esportiva:
     nome: Scarface
-    id_no_mapa: '14'
     dificuldade: BR_4
     extensao: 20
     conquistadores:
@@ -139,7 +183,6 @@ escaladas:
     data_abertura: '2013-05-30'
 - via_esportiva:
     nome: Se Meu Fusca Falasse
-    id_no_mapa: '15'
     dificuldade: BR_4
     extensao: 15
     conquistadores:
@@ -148,7 +191,6 @@ escaladas:
     data_abertura: '2010-02-16'
 - via_esportiva:
     nome: Couro de Lobisomem
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     extensao: 18
     conquistadores:
@@ -158,7 +200,6 @@ escaladas:
     data_abertura: '2011-07-17'
 - via_esportiva:
     nome: Enferrujados
-    id_no_mapa: '17'
     dificuldade: BR_4
     extensao: 15
     conquistadores:
@@ -168,7 +209,6 @@ escaladas:
     data_abertura: '2007-06-17'
 - via_esportiva:
     nome: Rastro de Cobra
-    id_no_mapa: '18'
     dificuldade: BR_5SUP
     extensao: 18
     conquistadores:
@@ -177,14 +217,14 @@ escaladas:
     data_abertura: '2011-07-17'
 - via_esportiva:
     nome: Entrando no Ferro
-    id_no_mapa: '19'
     dificuldade: BR_5SUP
     extensao: 25
     conquistadores:
     - Tonico Magalhães
     - Luciano Bender
     data_abertura: '2011-06-22'
----
+---
+
 
 ![Rodrigo Magalhães guiando a “Couro de Lobisomem”](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
 

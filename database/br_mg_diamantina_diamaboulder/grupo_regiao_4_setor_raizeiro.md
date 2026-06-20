@@ -1,4 +1,4 @@
----
+---
 nome: Raizeiro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_raizeiro_p0_i0.webp
@@ -61,27 +61,36 @@ mapas:
       y: 468
       comprimento: 25
       largura: 25
+  referencias:
+  - escalada: Parteira
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Curandeira
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Raizeiro
+    ids:
+    - '3'
+    - 3_fim
+  - escalada: Garrafada
+    ids:
+    - '4'
+    - 4_fim
 escaladas:
 - boulder:
     nome: Parteira
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V3_BARRA_V4
 - boulder:
     nome: Curandeira
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V6_BARRA_V7
 - boulder:
     nome: Raizeiro
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V4
 - boulder:
     nome: Garrafada
-    id_no_mapa: '4'
-    id_no_mapa_fim: 4_fim
     dificuldade: V3
----
+---
 # Bloco: Raizeiro
 ## Região 4

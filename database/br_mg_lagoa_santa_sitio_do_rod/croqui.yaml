@@ -78,5 +78,5 @@ botoes:
   destino:
     secao_textual:
       caminho: contra_capa.md
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true

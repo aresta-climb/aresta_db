@@ -1,4 +1,4 @@
----
+---
 nome: Setor Parede dos Conflitos
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_dos_conflitos_p0_i0.webp
@@ -131,84 +131,109 @@ mapas:
       y: 370
       comprimento: 30
       largura: 25
+  referencias:
+  - escalada: Ubuntu
+    ids:
+    - '01'
+  - escalada: Plexo Solar
+    ids:
+    - '02'
+  - escalada: Du neném
+    ids:
+    - '03'
+  - escalada: Hora Mágica
+    ids:
+    - '04'
+  - escalada: Mestres do Sistema
+    ids:
+    - '05'
+  - escalada: Parede dos Conflitos
+    ids:
+    - '06'
+  - escalada: Tio Toninho*
+    ids:
+    - '07'
+  - escalada: Guerra dos Côcos
+    ids:
+    - '8'
+  - escalada: Guerrilha do Araguaia
+    ids:
+    - '9'
+  - escalada: Canudos
+    ids:
+    - '10'
+  - escalada: Paizeps
+    ids:
+    - '11'
+  - escalada: Antônio Conselheiro
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: Ubuntu
-    id_no_mapa: '01'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Plexo Solar
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Du neném
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Hora Mágica
-    id_no_mapa: '04'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mestres do Sistema
-    id_no_mapa: '05'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Parede dos Conflitos
-    id_no_mapa: '06'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tio Toninho*
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Guerra dos Côcos
-    id_no_mapa: 08
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Guerrilha do Araguaia
-    id_no_mapa: 09
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Canudos
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Paizeps
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Antônio Conselheiro
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
----
+---
 # Setor Parede dos Conflitos
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

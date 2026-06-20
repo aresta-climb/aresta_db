@@ -1,4 +1,4 @@
----
+---
 nome: Outros Blocos
 mapas:
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p0_i0.webp
@@ -17,6 +17,31 @@ mapas:
       x: 430
       y: 1090
       raio: 28
+  referencias:
+  - escalada: Farol
+    ids:
+    - '50'
+  - escalada: Mirante
+    ids:
+    - '51'
+  - escalada: Queda do Gigante
+    ids:
+    - '52'
+  - escalada: Não me toque
+    ids:
+    - '53'
+  - escalada: Anemia
+    ids:
+    - '54'
+  - escalada: Biotônico
+    ids:
+    - '55'
+  - escalada: Diagnóstico
+    ids:
+    - '56'
+  - escalada: Vertigem
+    ids:
+    - '57'
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p1_i0.webp
   largura_mapa: 861
   altura_mapa: 1441
@@ -70,50 +95,37 @@ mapas:
 escaladas:
 - boulder:
     nome: Farol
-    id_no_mapa: '50'
     dificuldade: V3
-    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes 
-      para fazer a virada por agarradas boas na proa.
+    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer a virada por agarradas boas na proa.
 - boulder:
     nome: Mirante
-    id_no_mapa: '51'
     dificuldade: V4
-    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia 
-      para a direita, com a virada pela lateral do bloco.
+    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a direita, com a virada pela lateral do bloco.
 - boulder:
     nome: Queda do Gigante
-    id_no_mapa: '52'
     dificuldade: V8
-    descricao: Começa nas agarras baixas na direita do bloco, indo para a 
-      lateral do bloco por baixo até as cracas que possibilitam a virada pelo 
-      highball.
+    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco por baixo até as cracas que possibilitam a virada pelo highball.
 - boulder:
     nome: Não me toque
-    id_no_mapa: '53'
     dificuldade: V5
-    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral
-      pelo feixo de cristais até a virada pelas cracas da direita.
+    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo feixo de cristais até a virada pelas cracas da direita.
 - boulder:
     nome: Anemia
-    id_no_mapa: '54'
     dificuldade: V7
     descricao: Boulder clássico.
 - boulder:
     nome: Biotônico
-    id_no_mapa: '55'
     dificuldade: V8
     descricao: Boulder clássico.
 - boulder:
     nome: Diagnóstico
-    id_no_mapa: '56'
     dificuldade: V3
     descricao: Boulder clássico.
 - boulder:
     nome: Vertigem
-    id_no_mapa: '57'
     dificuldade: V5
     descricao: Boulder clássico.
----
+---
 
 # Outros Blocos
 

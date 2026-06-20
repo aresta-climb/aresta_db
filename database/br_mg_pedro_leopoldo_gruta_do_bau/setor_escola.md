@@ -1,4 +1,4 @@
----
+---
 nome: Setor Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_escola_p0_i6.webp
@@ -68,10 +68,22 @@ mapas:
       y: 638
       comprimento: 169
       largura: 21
+  referencias:
+  - escalada: Credo, que Delícia
+    ids:
+    - '01'
+  - escalada: Trem Bão é Coisa Boa
+    ids:
+    - '02'
+  - escalada: A Vida é um Desafio
+    ids:
+    - '03'
+  - escalada: Essa Molezinha vai Abacar
+    ids:
+    - '04'
 escaladas:
 - via_esportiva:
     nome: Credo, que Delícia
-    id_no_mapa: '01'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -79,7 +91,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Trem Bão é Coisa Boa
-    id_no_mapa: '02'
     dificuldade: BR_3SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -87,7 +98,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: A Vida é um Desafio
-    id_no_mapa: '03'
     dificuldade: BR_4SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -95,13 +105,12 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Essa Molezinha vai Abacar
-    id_no_mapa: '04'
     dificuldade: BR_3
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     conquistadores:
     - GT Baú 2021
----
+---
 # Setor Escola
 
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.

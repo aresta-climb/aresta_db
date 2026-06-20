@@ -92,7 +92,6 @@ picos:
             escaladas:
             - boulder:
                 nome: Aleijadinho
-                id_no_mapa: '1'
                 dificuldade: V5
                 destaque: true
             mapas:
@@ -106,34 +105,30 @@ picos:
                   x: 419
                   y: 589
                   raio: 11
+              referencias:
+              - escalada: Aleijadinho
+                ids:
+                - '1'
             descricao: '# Bloco Aleijadinho'
         - conteudo:
             nome: Capitão Jack
             escaladas:
             - boulder:
                 nome: Amnesia
-                id_no_mapa: 1_b
-                id_no_mapa_fim: x_b
                 destaque: true
                 dificuldade: V3
             - boulder:
                 nome: Capitão Jack
-                id_no_mapa: '2'
-                id_no_mapa_fim: y
                 destaque: true
                 dificuldade: V6
                 descricao: Virada exposta, atenção na segurança!
             - boulder:
                 nome: Purple Rase
-                id_no_mapa: '3'
-                id_no_mapa_fim: x_b
                 dificuldade: V5
                 descricao: Começa em uma fenda bem a esquerda, faz a travessia e vira
                   no Amnésia
             - boulder:
                 nome: Sunshine
-                id_no_mapa: '1'
-                id_no_mapa_fim: x
                 dificuldade: V6
                 descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
             mapas:
@@ -153,6 +148,23 @@ picos:
                   x: 12
                   y: 12
                   raio: 9
+              referencias:
+              - escalada: Amnesia
+                ids:
+                - 1_b
+                - x_b
+              - escalada: Capitão Jack
+                ids:
+                - '2'
+                - y
+              - escalada: Purple Rase
+                ids:
+                - '3'
+                - x_b
+              - escalada: Sunshine
+                ids:
+                - '1'
+                - x
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
               largura_mapa: 847
               altura_mapa: 814
@@ -193,26 +205,18 @@ picos:
             escaladas:
             - boulder:
                 nome: Jahngada
-                id_no_mapa: '1'
-                id_no_mapa_fim: x
                 dificuldade: V9
                 destaque: true
                 descricao: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
             - boulder:
                 nome: Jahngada SDS
-                id_no_mapa: '2'
-                id_no_mapa_fim: x
                 dificuldade: V10
                 destaque: true
             - boulder:
                 nome: Guaicuí
-                id_no_mapa: '3'
-                id_no_mapa_fim: y
                 dificuldade: V5
             - boulder:
                 nome: Camundongo
-                id_no_mapa: '4'
-                id_no_mapa_fim: z
                 dificuldade: V7
             mapas:
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p0.webp
@@ -249,6 +253,23 @@ picos:
                   x: 97
                   y: 164
                   raio: 10
+              referencias:
+              - escalada: Jahngada
+                ids:
+                - '1'
+                - x
+              - escalada: Jahngada SDS
+                ids:
+                - '2'
+                - x
+              - escalada: Guaicuí
+                ids:
+                - '3'
+                - y
+              - escalada: Camundongo
+                ids:
+                - '4'
+                - z
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
               largura_mapa: 445
               altura_mapa: 399
@@ -271,36 +292,24 @@ picos:
             escaladas:
             - boulder:
                 nome: Planetário
-                id_no_mapa: '1'
-                id_no_mapa_fim: x
                 destaque: true
                 dificuldade: V11
             - boulder:
                 nome: Náufrago
-                id_no_mapa: '2'
-                id_no_mapa_fim: y
                 destaque: true
                 dificuldade: V7
             - boulder:
                 nome: Golfinho
-                id_no_mapa: '3'
-                id_no_mapa_fim: z
                 dificuldade: V4
             - boulder:
                 nome: Clarete
-                id_no_mapa: '4'
-                id_no_mapa_fim: w
                 dificuldade: V3
             - boulder:
                 nome: Odisséia na Babilônia
-                id_no_mapa: 1_b
-                id_no_mapa_fim: x_b
                 dificuldade: V6
                 destaque: true
             - boulder:
                 nome: Canais da Babilônia
-                id_no_mapa: 1_b
-                id_no_mapa_fim: y_b
                 dificuldade: V5
             mapas:
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p0.webp
@@ -319,6 +328,31 @@ picos:
                   x: 445
                   y: 31
                   raio: 9
+              referencias:
+              - escalada: Planetário
+                ids:
+                - '1'
+                - x
+              - escalada: Náufrago
+                ids:
+                - '2'
+                - y
+              - escalada: Golfinho
+                ids:
+                - '3'
+                - z
+              - escalada: Clarete
+                ids:
+                - '4'
+                - w
+              - escalada: Odisséia na Babilônia
+                ids:
+                - 1_b
+                - x_b
+              - escalada: Canais da Babilônia
+                ids:
+                - 1_b
+                - y_b
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
               largura_mapa: 829
               altura_mapa: 486
@@ -387,31 +421,23 @@ picos:
             escaladas:
             - boulder:
                 nome: Fomiagem
-                id_no_mapa: '2'
-                id_no_mapa_fim: W
                 dificuldade: V4
             - boulder:
                 nome: Projeto
-                id_no_mapa: '3'
-                id_no_mapa_fim: Z
                 destaque: true
             - boulder:
                 nome: Free Solo
-                id_no_mapa: '1'
                 destaque: true
                 dificuldade: V5
             - boulder:
                 nome: Tartaruga
-                id_no_mapa: 2_b
                 dificuldade: V3
                 descricao: Apenas desafio de virar o bloco
             - boulder:
                 nome: Mobilete
-                id_no_mapa: 3_b
                 dificuldade: V3
             - boulder:
                 nome: Walkmachine
-                id_no_mapa: '4'
                 dificuldade: V6
             mapas:
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p0.webp
@@ -442,6 +468,27 @@ picos:
                   x: 772
                   y: 9
                   raio: 10
+              referencias:
+              - escalada: Fomiagem
+                ids:
+                - '2'
+                - W
+              - escalada: Projeto
+                ids:
+                - '3'
+                - Z
+              - escalada: Free Solo
+                ids:
+                - '1'
+              - escalada: Tartaruga
+                ids:
+                - 2_b
+              - escalada: Mobilete
+                ids:
+                - 3_b
+              - escalada: Walkmachine
+                ids:
+                - '4'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
               largura_mapa: 839
               altura_mapa: 460
@@ -476,23 +523,18 @@ picos:
             escaladas:
             - boulder:
                 nome: Carrapato
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Carrapicho
-                id_no_mapa: '2'
                 dificuldade: V6
             - boulder:
                 nome: Oratório
-                id_no_mapa: '3'
                 dificuldade: V7
             - boulder:
                 nome: Pistol
-                id_no_mapa: '4'
                 dificuldade: V2
             - boulder:
                 nome: Dart Vader
-                id_no_mapa: '5'
                 dificuldade: V4
             mapas:
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p0.webp
@@ -511,6 +553,22 @@ picos:
                   x: 160
                   y: 545
                   raio: 9
+              referencias:
+              - escalada: Carrapato
+                ids:
+                - '1'
+              - escalada: Carrapicho
+                ids:
+                - '2'
+              - escalada: Oratório
+                ids:
+                - '3'
+              - escalada: Pistol
+                ids:
+                - '4'
+              - escalada: Dart Vader
+                ids:
+                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
               largura_mapa: 399
               altura_mapa: 309
@@ -539,24 +597,19 @@ picos:
             escaladas:
             - boulder:
                 nome: Sucrilhos
-                id_no_mapa: '1'
                 dificuldade: V5
                 destaque: true
             - boulder:
                 nome: Faxineiro do Universo
-                id_no_mapa: '2'
                 dificuldade: V5
             - boulder:
                 nome: Arestinha Vibration
-                id_no_mapa: '3'
                 dificuldade: V1
             - boulder:
                 nome: Sujeirinha
-                id_no_mapa: '4'
                 dificuldade: V3
             - boulder:
                 nome: Projeto Sunset
-                id_no_mapa: '5'
                 dificuldade: V3
                 destaque: true
             mapas:
@@ -582,6 +635,22 @@ picos:
                   x: 658
                   y: 294
                   raio: 9
+              referencias:
+              - escalada: Sucrilhos
+                ids:
+                - '1'
+              - escalada: Faxineiro do Universo
+                ids:
+                - '2'
+              - escalada: Arestinha Vibration
+                ids:
+                - '3'
+              - escalada: Sujeirinha
+                ids:
+                - '4'
+              - escalada: Projeto Sunset
+                ids:
+                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
               largura_mapa: 488
               altura_mapa: 648
@@ -608,27 +677,22 @@ picos:
             escaladas:
             - boulder:
                 nome: Fissura
-                id_no_mapa: '1'
                 dificuldade: V8
                 destaque: true
             - boulder:
                 nome: Pure
-                id_no_mapa: '2'
                 dificuldade: V6
                 destaque: true
             - boulder:
                 nome: Lpita
-                id_no_mapa: '3'
                 dificuldade: V7
                 destaque: true
             - boulder:
                 nome: Nave
-                id_no_mapa: '4'
                 dificuldade: V3
                 destaque: true
             - boulder:
                 nome: Camaroa
-                id_no_mapa: '5'
                 dificuldade: V10
                 destaque: true
             mapas:
@@ -660,6 +724,22 @@ picos:
                   x: 682
                   y: 361
                   raio: 8
+              referencias:
+              - escalada: Fissura
+                ids:
+                - '1'
+              - escalada: Pure
+                ids:
+                - '2'
+              - escalada: Lpita
+                ids:
+                - '3'
+              - escalada: Nave
+                ids:
+                - '4'
+              - escalada: Camaroa
+                ids:
+                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
               largura_mapa: 835
               altura_mapa: 606
@@ -953,7 +1033,7 @@ botoes:
         - **Parque Municipal das Andorinhas**
 
         - **Parque Estadual do Itacolomi**'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

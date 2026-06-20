@@ -165,7 +165,7 @@
             Antes de praticar qualquer atividade, atente-se aos gestores:
             - **Parque Municipal das Andorinhas**
             - **Parque Estadual do Itacolomi**
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -276,7 +276,6 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Aleijadinho
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
             - **destaque**: True
       - **mapas**:
@@ -292,6 +291,11 @@
                 - **x**: 419
                 - **y**: 589
                 - **raio**: 11
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aleijadinho
+              - **ids**:
+                - 1
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
@@ -300,31 +304,23 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Amnesia
-            - **id_no_mapa**: 1_b
-            - **id_no_mapa_fim**: x_b
             - **destaque**: True
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **descricao**: Virada exposta, atenção na segurança!
             - **nome**: Capitão Jack
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: y
             - **destaque**: True
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **descricao**: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
             - **nome**: Purple Rase
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: x_b
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **descricao**: Começa perto do chão de areia bem a direita e vira no Amnésia
             - **nome**: Sunshine
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: x
             - **dificuldade**: V6
       - **mapas**:
         - **[0]**:
@@ -346,6 +342,27 @@
                 - **x**: 12
                 - **y**: 12
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Amnesia
+              - **ids**:
+                - 1_b
+                - x_b
+            - **[1]**:
+              - **escalada**: Capitão Jack
+              - **ids**:
+                - 2
+                - y
+            - **[2]**:
+              - **escalada**: Purple Rase
+              - **ids**:
+                - 3
+                - x_b
+            - **[3]**:
+              - **escalada**: Sunshine
+              - **ids**:
+                - 1
+                - x
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_capitao_jack_p1.webp)
           - **largura_mapa**: 847
@@ -395,28 +412,20 @@
           - **boulder**:
             - **descricao**: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
             - **nome**: Jahngada
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: x
             - **dificuldade**: V9
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Jahngada SDS
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: x
             - **dificuldade**: V10
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Guaicuí
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: y
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **nome**: Camundongo
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: z
             - **dificuldade**: V7
       - **mapas**:
         - **[0]**:
@@ -459,6 +468,27 @@
                 - **x**: 97
                 - **y**: 164
                 - **raio**: 10
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jahngada
+              - **ids**:
+                - 1
+                - x
+            - **[1]**:
+              - **escalada**: Jahngada SDS
+              - **ids**:
+                - 2
+                - x
+            - **[2]**:
+              - **escalada**: Guaicuí
+              - **ids**:
+                - 3
+                - y
+            - **[3]**:
+              - **escalada**: Camundongo
+              - **ids**:
+                - 4
+                - z
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_jahngada_p1.webp)
           - **largura_mapa**: 445
@@ -486,41 +516,29 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Planetário
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: x
             - **destaque**: True
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **nome**: Náufrago
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: y
             - **destaque**: True
             - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
             - **nome**: Golfinho
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: z
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Clarete
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: w
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Odisséia na Babilônia
-            - **id_no_mapa**: 1_b
-            - **id_no_mapa_fim**: x_b
             - **dificuldade**: V6
             - **destaque**: True
         - **[5]**:
           - **boulder**:
             - **nome**: Canais da Babilônia
-            - **id_no_mapa**: 1_b
-            - **id_no_mapa_fim**: y_b
             - **dificuldade**: V5
       - **mapas**:
         - **[0]**:
@@ -542,6 +560,37 @@
                 - **x**: 445
                 - **y**: 31
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Planetário
+              - **ids**:
+                - 1
+                - x
+            - **[1]**:
+              - **escalada**: Náufrago
+              - **ids**:
+                - 2
+                - y
+            - **[2]**:
+              - **escalada**: Golfinho
+              - **ids**:
+                - 3
+                - z
+            - **[3]**:
+              - **escalada**: Clarete
+              - **ids**:
+                - 4
+                - w
+            - **[4]**:
+              - **escalada**: Odisséia na Babilônia
+              - **ids**:
+                - 1_b
+                - x_b
+            - **[5]**:
+              - **escalada**: Canais da Babilônia
+              - **ids**:
+                - 1_b
+                - y_b
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p2.webp)
           - **largura_mapa**: 829
@@ -623,36 +672,28 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Fomiagem
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: W
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Projeto
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: Z
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Free Solo
-            - **id_no_mapa**: 1
             - **destaque**: True
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **descricao**: Apenas desafio de virar o bloco
             - **nome**: Tartaruga
-            - **id_no_mapa**: 2_b
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Mobilete
-            - **id_no_mapa**: 3_b
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **nome**: Walkmachine
-            - **id_no_mapa**: 4
             - **dificuldade**: V6
       - **mapas**:
         - **[0]**:
@@ -688,6 +729,33 @@
                 - **x**: 772
                 - **y**: 9
                 - **raio**: 10
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fomiagem
+              - **ids**:
+                - 2
+                - W
+            - **[1]**:
+              - **escalada**: Projeto
+              - **ids**:
+                - 3
+                - Z
+            - **[2]**:
+              - **escalada**: Free Solo
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Tartaruga
+              - **ids**:
+                - 2_b
+            - **[4]**:
+              - **escalada**: Mobilete
+              - **ids**:
+                - 3_b
+            - **[5]**:
+              - **escalada**: Walkmachine
+              - **ids**:
+                - 4
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_free_solo_p1.webp)
           - **largura_mapa**: 839
@@ -729,27 +797,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Carrapato
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Carrapicho
-            - **id_no_mapa**: 2
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Oratório
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Pistol
-            - **id_no_mapa**: 4
             - **dificuldade**: V2
         - **[4]**:
           - **boulder**:
             - **nome**: Dart Vader
-            - **id_no_mapa**: 5
             - **dificuldade**: V4
       - **mapas**:
         - **[0]**:
@@ -771,6 +834,27 @@
                 - **x**: 160
                 - **y**: 545
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Carrapato
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Carrapicho
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Oratório
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Pistol
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Dart Vader
+              - **ids**:
+                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_carrapicho_p1.webp)
           - **largura_mapa**: 399
@@ -805,28 +889,23 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Sucrilhos
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Faxineiro do Universo
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Arestinha Vibration
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: Sujeirinha
-            - **id_no_mapa**: 4
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Projeto Sunset
-            - **id_no_mapa**: 5
             - **dificuldade**: V3
             - **destaque**: True
       - **mapas**:
@@ -856,6 +935,27 @@
                 - **x**: 658
                 - **y**: 294
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sucrilhos
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Faxineiro do Universo
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Arestinha Vibration
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Sujeirinha
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Projeto Sunset
+              - **ids**:
+                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p1.webp)
           - **largura_mapa**: 488
@@ -888,31 +988,26 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Fissura
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
             - **destaque**: True
         - **[1]**:
           - **boulder**:
             - **nome**: Pure
-            - **id_no_mapa**: 2
             - **dificuldade**: V6
             - **destaque**: True
         - **[2]**:
           - **boulder**:
             - **nome**: Lpita
-            - **id_no_mapa**: 3
             - **dificuldade**: V7
             - **destaque**: True
         - **[3]**:
           - **boulder**:
             - **nome**: Nave
-            - **id_no_mapa**: 4
             - **dificuldade**: V3
             - **destaque**: True
         - **[4]**:
           - **boulder**:
             - **nome**: Camaroa
-            - **id_no_mapa**: 5
             - **dificuldade**: V10
             - **destaque**: True
       - **mapas**:
@@ -949,6 +1044,27 @@
                 - **x**: 682
                 - **y**: 361
                 - **raio**: 8
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fissura
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pure
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Lpita
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Nave
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Camaroa
+              - **ids**:
+                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_camaroa_p1.webp)
           - **largura_mapa**: 835

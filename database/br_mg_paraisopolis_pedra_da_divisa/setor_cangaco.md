@@ -1,4 +1,4 @@
----
+---
 nome: Setor Cangaço
 mapas:
 - caminho_imagem_mapa: imagens/setor_cangaco_p1_i0.webp
@@ -127,24 +127,61 @@ mapas:
       y: 661
       comprimento: 110
       largura: 30
+  referencias:
+  - escalada: Fenômeno
+    ids:
+    - 01_bot
+  - escalada: Maradona
+    ids:
+    - 02_bot
+  - escalada: Primogênito
+    ids:
+    - 03_bot
+  - escalada: Mil e um nomes de bebês
+    ids:
+    - 04_top
+  - escalada: Diadorim
+    ids:
+    - 05_top
+  - escalada: Sem reservas, por favor
+    ids:
+    - 06_bot
+  - escalada: Antônio Conselheiro
+    ids:
+    - 07_bot
+  - escalada: Lampião
+    ids:
+    - 08_bot
+  - escalada: Maria Bonita
+    ids:
+    - 09_bot
+  - escalada: Corisco
+    ids:
+    - 10_bot
+  - escalada: Volta Seca
+    ids:
+    - 11_top
+  - escalada: Ameaça
+    ids:
+    - 12_top
+  - escalada: Zé Sereno
+    ids:
+    - 13_top
 escaladas:
 - via_esportiva:
     nome: Fenômeno
-    id_no_mapa: '01_bot'
     dificuldade: BR_7B
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_esportiva:
     nome: Maradona
-    id_no_mapa: '02_bot'
     dificuldade: BR_7C
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_esportiva:
     nome: Primogênito
-    id_no_mapa: '03_bot'
     dificuldade: BR_7A
     conquistadores:
     - Eliseu Frechou
@@ -152,7 +189,6 @@ escaladas:
     data_abertura: 2021-03
 - via_movel:
     nome: Mil e um nomes de bebês
-    id_no_mapa: '04_top'
     dificuldade: BR_6
     protecoes_moveis: friends
     conquistadores:
@@ -160,14 +196,12 @@ escaladas:
     - Eliseu Frechou
 - via_esportiva:
     nome: Diadorim
-    id_no_mapa: '05_top'
     dificuldade: BR_6SUP
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_movel:
     nome: Sem reservas, por favor
-    id_no_mapa: '06_bot'
     dificuldade: BR_7B
     protecoes_moveis: friends
     conquistadores:
@@ -175,7 +209,6 @@ escaladas:
     - Eliseu Frechou
 - via_movel:
     nome: Antônio Conselheiro
-    id_no_mapa: '07_bot'
     dificuldade: BR_7B
     protecoes_moveis: nuts opcional
     conquistadores:
@@ -183,14 +216,12 @@ escaladas:
     - Eliseu Frechou
 - via_esportiva:
     nome: Lampião
-    id_no_mapa: '08_bot'
     dificuldade: BR_7B
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_movel:
     nome: Maria Bonita
-    id_no_mapa: '09_bot'
     dificuldade: BR_7A
     protecoes_moveis: friends e nuts
     conquistadores:
@@ -198,14 +229,12 @@ escaladas:
     - Eliseu Frechou
 - via_esportiva:
     nome: Corisco
-    id_no_mapa: '10_bot'
     dificuldade: BR_6SUP
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_movel:
     nome: Volta Seca
-    id_no_mapa: '11_top'
     dificuldade: BR_5
     protecoes_moveis: friends
     conquistadores:
@@ -215,20 +244,18 @@ escaladas:
     data_abertura: 2018-04
 - via_esportiva:
     nome: Ameaça
-    id_no_mapa: '12_top'
     dificuldade: BR_7A
     conquistadores:
     - Ana Fujita
     - Eliseu Frechou
 - via_esportiva:
     nome: Zé Sereno
-    id_no_mapa: '13_top'
     dificuldade: BR_7B
     conquistadores:
     - Eliseu Frechou
     - Leonard Moreira
     data_abertura: 2021-03
----
+---
 
 ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp)
 

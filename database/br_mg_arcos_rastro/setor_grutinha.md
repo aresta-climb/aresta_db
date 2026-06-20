@@ -1,4 +1,4 @@
----
+---
 nome: Setor Grutinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_grutinha_p0_i0.webp
@@ -89,24 +89,49 @@ mapas:
       y: 596
       comprimento: 21
       largura: 16
+  referencias:
+  - escalada: Tal Pai Tal Filho
+    ids:
+    - '01'
+  - escalada: Mutantes
+    ids:
+    - '02'
+  - escalada: Lá Revolucion
+    ids:
+    - '03'
+  - escalada: Hidrovibes
+    ids:
+    - '04'
+  - escalada: Impermeável
+    ids:
+    - '05'
+  - escalada: Amandla
+    ids:
+    - '06'
+  - escalada: Quem Ama Planta
+    ids:
+    - '07'
+  - escalada: Respeite os Mais Velhos
+    ids:
+    - '8'
+  - escalada: Quem Ama Implanta
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: Tal Pai Tal Filho
-    id_no_mapa: '01'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     data_abertura: '2017'
 - via_esportiva:
     nome: Mutantes
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
     data_abertura: '2017'
 - via_esportiva:
     nome: Lá Revolucion
-    id_no_mapa: '03'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 5
@@ -114,7 +139,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Hidrovibes
-    id_no_mapa: '04'
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -122,7 +146,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Impermeável
-    id_no_mapa: '05'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -130,7 +153,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Amandla
-    id_no_mapa: '06'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
@@ -138,7 +160,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Quem Ama Planta
-    id_no_mapa: '07'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -146,7 +167,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Respeite os Mais Velhos
-    id_no_mapa: 08
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 4
@@ -154,13 +174,12 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Quem Ama Implanta
-    id_no_mapa: 09
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2017'
----
+---
 # Setor Grutinha
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

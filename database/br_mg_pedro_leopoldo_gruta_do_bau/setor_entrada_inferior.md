@@ -1,4 +1,4 @@
----
+---
 nome: Setor Entrada Inferior
 mapas:
 - caminho_imagem_mapa: imagens/setor_entrada_inferior_p0_i6.webp
@@ -355,10 +355,127 @@ mapas:
       y: 1216
       comprimento: 156
       largura: 34
+  referencias:
+  - escalada: Zero Um
+    ids:
+    - '01'
+  - escalada: Caixão e Vela Preta
+    ids:
+    - '02'
+  - escalada: É Brincadeira
+    ids:
+    - '03'
+  - escalada: Vaca Louca
+    ids:
+    - '04'
+  - escalada: Tarda mas não falha
+    ids:
+    - '05'
+  - escalada: Aresta Aperta Um
+    ids:
+    - '06'
+  - escalada: Túnel do Tempo
+    ids:
+    - '07'
+  - escalada: Caretas por Acaso
+    ids:
+    - '08'
+  - escalada: Pop Rock
+    ids:
+    - '09'
+  - escalada: Juliana
+    ids:
+    - '10'
+  - escalada: A Despedida
+    ids:
+    - '11'
+  - escalada: Rapanui
+    ids:
+    - '12'
+  - escalada: Escorregador de Macacos
+    ids:
+    - '13'
+  - escalada: Dalai Lama
+    ids:
+    - '14'
+  - escalada: Céu em Chamas
+    ids:
+    - '15'
+  - escalada: Legolas (Variante Céu em Chamas)
+    ids:
+    - '15'
+  - escalada: Mithrandir
+    ids:
+    - '16'
+  - escalada: Cobiça
+    ids:
+    - '17'
+  - escalada: Cobiça (Variante da Saída a direita)
+    ids:
+    - 17a
+  - escalada: Arte e Ofício – 2ª_Intenção
+    ids:
+    - '18'
+  - escalada: Pontes de Jah
+    ids:
+    - '19'
+  - escalada: Dijjins
+    ids:
+    - '20'
+  - escalada: Aresta
+    ids:
+    - '21'
+  - escalada: Verde do Violinista
+    ids:
+    - '22'
+  - escalada: Narcisista
+    ids:
+    - '23'
+  - escalada: The Wall (SadMan)
+    ids:
+    - '24'
+  - escalada: Eterno Regresso
+    ids:
+    - '25'
+  - escalada: Pro Dia Nascer Feliz
+    ids:
+    - '26'
+  - escalada: Abajur de Protheus
+    ids:
+    - '27'
+  - escalada: Perpétuos
+    ids:
+    - '28'
+  - escalada: O Sonhar
+    ids:
+    - '29'
+  - escalada: Calíope
+    ids:
+    - '30'
+  - escalada: Morpheus
+    ids:
+    - '31'
+  - escalada: Beirute
+    ids:
+    - '32'
+  - escalada: Desejo
+    ids:
+    - '33'
+  - escalada: Coríntio (DESATIVADA)
+    ids:
+    - '34'
+  - escalada: Triplo X
+    ids:
+    - '35'
+  - escalada: Durangos
+    ids:
+    - '36'
+  - escalada: Velha Guarda
+    ids:
+    - '37'
 escaladas:
 - via_esportiva:
     nome: Zero Um
-    id_no_mapa: '01'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -366,7 +483,6 @@ escaladas:
     - GT Baú 2020/21
 - via_esportiva:
     nome: Caixão e Vela Preta
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -376,7 +492,6 @@ escaladas:
     - Novais
 - via_esportiva:
     nome: É Brincadeira
-    id_no_mapa: '03'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -384,7 +499,6 @@ escaladas:
     - Eustáquio e Alunos
 - via_esportiva:
     nome: Vaca Louca
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -392,7 +506,6 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Tarda mas não falha
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -400,7 +513,6 @@ escaladas:
     - Joviney Medeiros
 - via_movel:
     nome: Aresta Aperta Um
-    id_no_mapa: '06'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
@@ -408,7 +520,6 @@ escaladas:
     - Emerson
 - via_esportiva:
     nome: Túnel do Tempo
-    id_no_mapa: '07'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -417,7 +528,6 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Caretas por Acaso
-    id_no_mapa: '08'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -427,7 +537,6 @@ escaladas:
     - Tinoco
 - via_esportiva:
     nome: Pop Rock
-    id_no_mapa: '09'
     dificuldade: BR_7C_BARRA_8A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -436,7 +545,6 @@ escaladas:
     - Marcela Romanelli
 - via_esportiva:
     nome: Juliana
-    id_no_mapa: '10'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -445,7 +553,6 @@ escaladas:
     - Half (Eduardo)
 - via_esportiva:
     nome: A Despedida
-    id_no_mapa: '11'
     dificuldade: BR_9C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -455,7 +562,6 @@ escaladas:
     - Cerquerinha
 - via_esportiva:
     nome: Rapanui
-    id_no_mapa: '12'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -465,7 +571,6 @@ escaladas:
     - Negão
 - via_esportiva:
     nome: Escorregador de Macacos
-    id_no_mapa: '13'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -473,7 +578,6 @@ escaladas:
     - Aloysio
 - via_esportiva:
     nome: Dalai Lama
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -482,7 +586,6 @@ escaladas:
     - Negão
 - via_esportiva:
     nome: Céu em Chamas
-    id_no_mapa: '15'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -491,7 +594,6 @@ escaladas:
     - Anderson Barbosa
 - via_esportiva:
     nome: Legolas (Variante Céu em Chamas)
-    id_no_mapa: '15'
     dificuldade: INDEFINIDO
     descricao: Inacabada
     conquistadores:
@@ -499,14 +601,12 @@ escaladas:
     - Felipe Belisário
 - via_esportiva:
     nome: Mithrandir
-    id_no_mapa: '16'
     dificuldade: PROJETO
     conquistadores:
     - Sandro Almeida
     - Felipe Belisário
 - via_esportiva:
     nome: Cobiça
-    id_no_mapa: '17'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
@@ -517,7 +617,6 @@ escaladas:
     - Klaus
 - via_esportiva:
     nome: Cobiça (Variante da Saída a direita)
-    id_no_mapa: 17a
     dificuldade: BR_9C_BARRA_10A
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
@@ -528,7 +627,6 @@ escaladas:
     - Klaus
 - via_esportiva:
     nome: Arte e Ofício – 2ª_Intenção
-    id_no_mapa: '18'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -538,7 +636,6 @@ escaladas:
     - André “Dedé”
 - via_movel:
     nome: Pontes de Jah
-    id_no_mapa: '19'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
@@ -546,14 +643,12 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: Dijjins
-    id_no_mapa: '20'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto e Izabel Diniz
 - via_movel:
     nome: Aresta
-    id_no_mapa: '21'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -563,7 +658,6 @@ escaladas:
     - Gustavo Piancastelli
 - via_esportiva:
     nome: Verde do Violinista
-    id_no_mapa: '22'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -572,7 +666,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Narcisista
-    id_no_mapa: '23'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -581,7 +674,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: The Wall (SadMan)
-    id_no_mapa: '24'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
@@ -593,7 +685,6 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: Eterno Regresso
-    id_no_mapa: '25'
     dificuldade: INDEFINIDO
     protecoes_moveis: Móvel
     conquistadores:
@@ -601,7 +692,6 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: Pro Dia Nascer Feliz
-    id_no_mapa: '26'
     dificuldade: BR_4SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -609,14 +699,12 @@ escaladas:
     - Daniel
 - via_movel:
     nome: Abajur de Protheus
-    id_no_mapa: '27'
     dificuldade: BR_5SUP
     protecoes_moveis: Móvel
     conquistadores:
     - Marcelo Bocão
 - via_esportiva:
     nome: Perpétuos
-    id_no_mapa: '28'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -625,7 +713,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: O Sonhar
-    id_no_mapa: '29'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -634,7 +721,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Calíope
-    id_no_mapa: '30'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -643,7 +729,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Morpheus
-    id_no_mapa: '31'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -652,14 +737,12 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: Beirute
-    id_no_mapa: '32'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
 - via_esportiva:
     nome: Desejo
-    id_no_mapa: '33'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -668,7 +751,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Coríntio (DESATIVADA)
-    id_no_mapa: '34'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -677,14 +759,12 @@ escaladas:
     - Marco Durães
 - via_movel:
     nome: Triplo X
-    id_no_mapa: '35'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
 - via_esportiva:
     nome: Durangos
-    id_no_mapa: '36'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -693,14 +773,13 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Velha Guarda
-    id_no_mapa: '37'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     conquistadores:
     - Christian Costa
     - Marcus Rufino
----
+---
 # Setor Entrada Inferior
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.

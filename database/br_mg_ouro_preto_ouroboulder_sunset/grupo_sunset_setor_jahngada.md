@@ -1,28 +1,20 @@
----
+---
 nome: Jahngada
 escaladas:
 - boulder:
     nome: Jahngada
-    id_no_mapa: '1'
-    id_no_mapa_fim: x
     dificuldade: V9
     destaque: true
     descricao: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
 - boulder:
     nome: Jahngada SDS
-    id_no_mapa: '2'
-    id_no_mapa_fim: x
     dificuldade: V10
     destaque: true
 - boulder:
     nome: Guaicuí
-    id_no_mapa: '3'
-    id_no_mapa_fim: y
     dificuldade: V5
 - boulder:
     nome: Camundongo
-    id_no_mapa: '4'
-    id_no_mapa_fim: z
     dificuldade: V7
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p0.webp
@@ -59,6 +51,23 @@ mapas:
       x: 97
       y: 164
       raio: 10
+  referencias:
+  - escalada: Jahngada
+    ids:
+    - '1'
+    - x
+  - escalada: Jahngada SDS
+    ids:
+    - '2'
+    - x
+  - escalada: Guaicuí
+    ids:
+    - '3'
+    - y
+  - escalada: Camundongo
+    ids:
+    - '4'
+    - z
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
   largura_mapa: 445
   altura_mapa: 399
@@ -75,6 +84,6 @@ mapas:
       x: 214
       y: 111
       raio: 9
----
+---
 
 # Bloco Jahngada

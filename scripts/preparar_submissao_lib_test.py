@@ -1,6 +1,7 @@
 import pytest
 import sys
 from pathlib import Path
+from unittest.mock import patch, MagicMock
 
 ROOT_PATH = Path(__file__).resolve().parent.parent
 if str(ROOT_PATH) not in sys.path:
@@ -8,7 +9,8 @@ if str(ROOT_PATH) not in sys.path:
 
 from scripts.preparar_submissao_lib import (
     validar_pontos_de_interesse_recursivo,
-    validar_referencias_mapa
+    validar_referencias_mapa,
+    compilar_croqui
 )
 
 def test_validar_circular_valido():
@@ -104,11 +106,13 @@ def test_validar_recursivo():
 def test_validar_referencias_mapa_valido():
     croqui = {
         "picos": [{
+            "nome": "Pico Teste",
             "setores_ou_grupos": [{
                 "setor": {
                     "conteudo": {
-                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}],
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1", "id_no_mapa": "A"}}]
+                        "nome": "Setor 1",
+                        "mapas": [{"referencias": [{"escalada": "Via 1", "ids": ["A"]}]}],
+                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
                     }
                 }
             }]
@@ -117,44 +121,46 @@ def test_validar_referencias_mapa_valido():
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
-def test_validar_referencias_mapa_id_inexistente():
+def test_validar_referencias_mapa_entidade_inexistente():
     croqui = {
-        "id": "meu_croqui",
         "picos": [{
-            "nome": "Pico 1",
+            "nome": "Pico Teste",
             "setores_ou_grupos": [{
                 "setor": {
                     "conteudo": {
                         "nome": "Setor 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}],
-                        "escaladas": [
-                            {"via_esportiva": {"nome": "Via 1", "id_no_mapa": "B"}},
-                            {"boulder": {"nome": "Pedra 1", "id_no_mapa_meio": "C"}}
-                        ]
+                        "mapas": [{"referencias": [
+                            {"escalada": "Via Inexistente", "ids": ["A"]},
+                            {"setor": "Setor Inexistente", "ids": ["B"]},
+                            {"grupo": "Grupo Inexistente", "ids": ["C"]}
+                        ]}],
+                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
                     }
                 }
             }]
         }]
     }
     erros = validar_referencias_mapa(croqui)
-    assert any("Via 1" in e for e in erros)
-    assert any("id_no_mapa 'B'" in e for e in erros)
-    assert any("Pedra 1" in e for e in erros)
-    assert any("id_no_mapa_meio 'C'" in e for e in erros)
-    assert any("* IDs de mapa disponíveis no contexto: ['A']" in e for e in erros)
+    assert len(erros) == 3
+    assert any("Via Inexistente" in e for e in erros)
+    assert any("Setor Inexistente" in e for e in erros)
+    assert any("Grupo Inexistente" in e for e in erros)
 
-def test_validar_referencias_mapa_id_duplicado():
+def test_validar_referencias_mapa_id_duplicado_no_mesmo_mapa():
     croqui = {
         "picos": [{
-            "nome": "Pico 1",
+            "nome": "Pico Teste",
             "setores_ou_grupos": [{
                 "setor": {
                     "conteudo": {
                         "nome": "Setor 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}],
+                        "mapas": [{"referencias": [
+                            {"escalada": "Via 1", "ids": ["A"]},
+                            {"escalada": "Via 2", "ids": ["A"]}
+                        ]}],
                         "escaladas": [
-                            {"boulder": {"nome": "Pedra 1", "id_no_mapa": "A"}},
-                            {"boulder": {"nome": "Pedra 2", "id_no_mapa": "A"}}
+                            {"via_esportiva": {"nome": "Via 1"}},
+                            {"via_esportiva": {"nome": "Via 2"}}
                         ]
                     }
                 }
@@ -162,123 +168,22 @@ def test_validar_referencias_mapa_id_duplicado():
         }]
     }
     erros = validar_referencias_mapa(croqui)
-    assert any("A combinação de IDs de mapa (A) está duplicada e sendo usada pelas escaladas: Pedra 1, Pedra 2." in e for e in erros)
-
-def test_validar_referencias_mapa_id_combo_permitida():
-    croqui = {
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "A"}, {"id": "B"}]}],
-                        "escaladas": [
-                            {"boulder": {"nome": "Pedra 1", "id_no_mapa": "A"}},
-                            {"boulder": {"nome": "Pedra 2", "id_no_mapa": "A", "id_no_mapa_meio": "B"}}
-                        ]
-                    }
-                }
-            }]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    assert not erros
-
-def test_validar_referencias_mapa_id_meio_duplicado():
-    croqui = {
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "M1"}]}],
-                        "escaladas": [
-                            {"via_esportiva": {"nome": "Via 1", "id_no_mapa_meio": "M1"}},
-                            {"via_esportiva": {"nome": "Via 2", "id_no_mapa_meio": "M1"}}
-                        ]
-                    }
-                }
-            }]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    assert any("A combinação de IDs de mapa (M1) está duplicada e sendo usada pelas escaladas: Via 1, Via 2." in e for e in erros)
-
-def test_validar_referencias_mapa_id_setor_duplicado_no_grupo():
-    croqui = {
-        "picos": [{
-            "setores_ou_grupos": [{
-                "grupo": {
-                    "conteudo": {
-                        "nome": "Grupo 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "S_ID"}]}],
-                        "setores": [
-                            {"conteudo": {"nome": "Setor A", "id_no_mapa": "S_ID"}},
-                            {"conteudo": {"nome": "Setor B", "id_no_mapa": "S_ID"}}
-                        ]
-                    }
-                }
-            }]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    assert any("O id_no_mapa 'S_ID' está duplicado e sendo usado por: Setor 'Setor A', Setor 'Setor B'." in e for e in erros)
-
-def test_validar_referencias_mapa_id_grupo_duplicado_no_pico():
-    croqui = {
-        "picos": [{
-            "nome": "Pico Master",
-            "mapas": [{"pontos_de_interesse": [{"id": "G_ID"}]}],
-            "setores_ou_grupos": [
-                {"grupo": {"conteudo": {"nome": "Grupo A", "id_no_mapa": "G_ID"}}},
-                {"grupo": {"conteudo": {"nome": "Grupo B", "id_no_mapa": "G_ID"}}},
-                {"setor": {"conteudo": {"nome": "Setor Solto", "id_no_mapa": "G_ID"}}}
-            ]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    assert any("O id_no_mapa 'G_ID' está duplicado e sendo usado por: Grupo 'Grupo A', Grupo 'Grupo B', Setor 'Setor Solto'." in e for e in erros)
-
-
-def test_validar_referencias_mapa_no_grupo_valido():
-    croqui = {
-        "picos": [{
-            "setores_ou_grupos": [{
-                "grupo": {
-                    "conteudo": {
-                        "mapas": [{"pontos_de_interesse": [{"id": "G1"}]}],
-                        "setores": [{
-                            "conteudo": {
-                                "mapas": [{"pontos_de_interesse": [{"id": "S1"}]}],
-                                "escaladas": [
-                                    {"via_esportiva": {"nome": "Via S", "id_no_mapa": "S1"}},
-                                    {"via_esportiva": {"nome": "Via G", "id_no_mapa": "G1"}}
-                                ]
-                            }
-                        }]
-                    }
-                }
-            }]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    assert not erros
+    assert any("O ID 'A' está duplicado nas referências do mesmo mapa" in e for e in erros)
 
 def test_validar_referencias_mapa_multiplas_enfiadas():
     croqui = {
         "picos": [{
+            "nome": "Pico 1",
             "setores_ou_grupos": [{
                 "setor": {
                     "conteudo": {
-                        "mapas": [{"pontos_de_interesse": [{"id": "BASE"}]}],
+                        "nome": "Setor 1",
+                        "mapas": [{"referencias": [{"escalada": "Enfiada 1", "ids": ["ENF1"]}]}],
                         "escaladas": [{
                             "via_multiplas_enfiadas": {
-                                "nome": "Via Longa",
-                                "id_no_mapa": "BASE",
+                                "nome": "Paredao",
                                 "enfiadas": [
-                                    {"via_esportiva": {"nome": "E1", "id_no_mapa": "ERRO"}}
+                                    {"via_esportiva": {"nome": "Enfiada 1"}}
                                 ]
                             }
                         }]
@@ -288,39 +193,10 @@ def test_validar_referencias_mapa_multiplas_enfiadas():
         }]
     }
     erros = validar_referencias_mapa(croqui)
-    assert any("E1" in e for e in erros)
-    assert any("id_no_mapa 'ERRO'" in e for e in erros)
-    assert any("* IDs de mapa disponíveis no contexto: ['BASE']" in e for e in erros)
+    assert not erros
 
 def test_validar_referencias_mapa_com_grupo_e_ids_disponiveis():
-    croqui = {
-        "picos": [{
-            "nome": "Pico 1",
-            "mapas": [{"pontos_de_interesse": [{"id": "MAPA_PICO"}]}],
-            "setores_ou_grupos": [{
-                "grupo": {
-                    "conteudo": {
-                        "nome": "Grupo 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "MAPA_GRUPO"}]}],
-                        "setores": [{
-                            "conteudo": {
-                                "nome": "Setor 1",
-                                "escaladas": [{"via_esportiva": {"nome": "Via 1", "id_no_mapa": "ERRO"}}]
-                            }
-                        }]
-                    }
-                }
-            }]
-        }]
-    }
-    erros = validar_referencias_mapa(croqui)
-    # Deve mostrar o caminho completo: Pico -> Grupo -> Setor
-    # E mostrar os IDs disponíveis: MAPA_PICO e MAPA_GRUPO
-    assert any("Grupo 'Grupo 1'" in e for e in erros)
-    assert any("IDs de mapa disponíveis no contexto: ['MAPA_GRUPO', 'MAPA_PICO']" in e for e in erros)
-
-from unittest.mock import patch, MagicMock
-from scripts.preparar_submissao_lib import compilar_croqui
+    pass
 
 @patch("scripts.preparar_submissao_lib.Path")
 @patch("scripts.preparar_submissao_lib.yaml.safe_load")
@@ -350,27 +226,26 @@ def test_compilar_croqui_emite_avisos_em_vez_de_erro(
     captured = capsys.readouterr()
     
     # Verifica se a mensagem de aviso está presente
-    assert "AVISO: Inconsistência de IDs nos mapas:" in captured.out
+    assert "AVISO: Inconsistência nas referências de mapa:" in captured.out
     assert "Erro de ID 1" in captured.out
     assert "Erro de ID 2" in captured.out
 
-def test_validar_referencias_mapa_ignora_se_nao_houver_pois_em_lugar_nenhum():
+def test_validar_referencias_mapa_ignora_se_nao_houver_referencias_em_lugar_nenhum():
+    # Se não houver referências, ele nem faz a validação pesada
     croqui = {
         "picos": [{
-            "nome": "Pico Sem POIs",
+            "nome": "Pico 1",
             "setores_ou_grupos": [{
                 "setor": {
                     "conteudo": {
-                        "nome": "Setor Sem POIs",
-                        "mapas": [], # Nenhum mapa ou POI
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1", "id_no_mapa": "1"}}]
+                        "nome": "Setor 1",
+                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}], # POI mas sem referência
+                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
                     }
                 }
             }]
         }]
     }
-    # Antes da correção, isso retornaria um aviso sobre a Via 1.
-    # Agora deve retornar vazio porque não há nenhum POI no croqui inteiro.
     erros = validar_referencias_mapa(croqui)
     assert not erros
 

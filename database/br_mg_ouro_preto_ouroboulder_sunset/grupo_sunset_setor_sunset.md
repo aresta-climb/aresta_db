@@ -1,26 +1,21 @@
----
+---
 nome: Sunset
 escaladas:
 - boulder:
     nome: Sucrilhos
-    id_no_mapa: '1'
     dificuldade: V5
     destaque: true
 - boulder:
     nome: Faxineiro do Universo
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Arestinha Vibration
-    id_no_mapa: '3'
     dificuldade: V1
 - boulder:
     nome: Sujeirinha
-    id_no_mapa: '4'
     dificuldade: V3
 - boulder:
     nome: Projeto Sunset
-    id_no_mapa: '5'
     dificuldade: V3
     destaque: true
 mapas:
@@ -46,6 +41,22 @@ mapas:
       x: 658
       y: 294
       raio: 9
+  referencias:
+  - escalada: Sucrilhos
+    ids:
+    - '1'
+  - escalada: Faxineiro do Universo
+    ids:
+    - '2'
+  - escalada: Arestinha Vibration
+    ids:
+    - '3'
+  - escalada: Sujeirinha
+    ids:
+    - '4'
+  - escalada: Projeto Sunset
+    ids:
+    - '5'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
   largura_mapa: 488
   altura_mapa: 648
@@ -66,6 +77,6 @@ mapas:
       x: 246
       y: 386
       raio: 9
----
+---
 
 # Bloco Sunset

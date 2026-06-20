@@ -60,7 +60,7 @@
             - **Data:** 06/2022
             - **Autor:** Gabriel Franco Ferreira
             - **Local:** ALTO MONTE ALVÃO
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -167,11 +167,55 @@
           - **y**: 512
           - **comprimento**: 41
           - **largura**: 40
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Beijo Grego
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: A surpresa do Cesar
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: O sítio dos deuses
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Todos caminhos levam a Roma
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Love Actually
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Mama Gás
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Java Lee
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Java Porco
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Absolut com limão
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Ribit
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Xanax
+        - **ids**:
+          - 11
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Beijo Grego
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7C
       - **extensao**: 20
       - **quantidade_protecoes_intermediarias**: 5
@@ -181,7 +225,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: A surpresa do Cesar
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
       - **extensao**: 18
       - **quantidade_protecoes_intermediarias**: 3
@@ -191,7 +234,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: O sítio dos deuses
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **extensao**: 18
       - **quantidade_protecoes_intermediarias**: 3
@@ -202,7 +244,6 @@
     - **via_movel**:
       - **descricao**: Parada fixa
       - **nome**: Todos caminhos levam a Roma
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5SUP
       - **extensao**: 18
       - **quantidade_protecoes_parada**: 2
@@ -211,7 +252,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Love Actually
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_5SUP
       - **extensao**: 18
       - **quantidade_protecoes_intermediarias**: 4
@@ -221,7 +261,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Mama Gás
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **extensao**: 15
       - **quantidade_protecoes_intermediarias**: 4
@@ -231,7 +270,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Java Lee
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -241,7 +279,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Java Porco
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_7A
       - **extensao**: 12
       - **quantidade_protecoes_intermediarias**: 3
@@ -251,7 +288,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Absolut com limão
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7B
       - **extensao**: 15
       - **quantidade_protecoes_intermediarias**: 4
@@ -262,7 +298,6 @@
     - **via_esportiva**:
       - **descricao**: Inacabada
       - **nome**: Ribit
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
       - **extensao**: 15
       - **quantidade_protecoes_intermediarias**: 4
@@ -272,7 +307,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Xanax
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7C
       - **extensao**: 20
       - **quantidade_protecoes_intermediarias**: 6
@@ -400,6 +434,59 @@
           - **y**: 558
           - **comprimento**: 32
           - **largura**: 47
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cuidado Ketely
+        - **ids**:
+          - 1am
+      - **[1]**:
+        - **escalada**: You will survive
+        - **ids**:
+          - 2am
+      - **[2]**:
+        - **escalada**: Cara ou Coroa
+        - **ids**:
+          - 3am
+      - **[3]**:
+        - **escalada**: French CanCan
+        - **ids**:
+          - 4am
+      - **[4]**:
+        - **escalada**: On the road again
+        - **ids**:
+          - 5am
+      - **[5]**:
+        - **escalada**: Incrível mas verdadeiro
+        - **ids**:
+          - 6am
+      - **[6]**:
+        - **escalada**: Bouder com leite
+        - **ids**:
+          - 1az
+      - **[7]**:
+        - **escalada**: Chipie chipie
+        - **ids**:
+          - 2az
+      - **[8]**:
+        - **escalada**: Bambi
+        - **ids**:
+          - 3az
+      - **[9]**:
+        - **escalada**: Ana Thor
+        - **ids**:
+          - 4az
+      - **[10]**:
+        - **escalada**: Au bout des doigts
+        - **ids**:
+          - 5az
+      - **[11]**:
+        - **escalada**: Boom Boom
+        - **ids**:
+          - 6az
+      - **[12]**:
+        - **escalada**: Petit Pichou
+        - **ids**:
+          - 7az
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -408,7 +495,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Cuidado Ketely
-            - **id_no_mapa**: 1am
             - **dificuldade**: BR_6
             - **extensao**: 24
             - **quantidade_protecoes_intermediarias**: 8
@@ -418,7 +504,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: You will survive
-            - **id_no_mapa**: 2am
             - **dificuldade**: BR_7A
             - **extensao**: 20
             - **quantidade_protecoes_intermediarias**: 6
@@ -428,7 +513,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Cara ou Coroa
-            - **id_no_mapa**: 3am
             - **dificuldade**: BR_6
             - **extensao**: 22
             - **quantidade_protecoes_intermediarias**: 6
@@ -438,7 +522,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: French CanCan
-            - **id_no_mapa**: 4am
             - **dificuldade**: BR_6SUP
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 5
@@ -448,7 +531,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: On the road again
-            - **id_no_mapa**: 5am
             - **dificuldade**: BR_6SUP
             - **extensao**: 18
             - **quantidade_protecoes_intermediarias**: 5
@@ -458,7 +540,6 @@
         - **[5]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Incrível mas verdadeiro
-            - **id_no_mapa**: 6am
             - **dificuldade_media**: BR_6
             - **dificuldade_maxima**: BR_6
             - **quantidade_costuras_intermediarias**: 12
@@ -487,7 +568,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Bouder com leite
-            - **id_no_mapa**: 1az
             - **dificuldade**: BR_5
             - **extensao**: 25
             - **quantidade_protecoes_intermediarias**: 4
@@ -495,7 +575,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Chipie chipie
-            - **id_no_mapa**: 2az
             - **dificuldade**: BR_4SUP
             - **extensao**: 23
             - **quantidade_protecoes_intermediarias**: 6
@@ -503,7 +582,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Bambi
-            - **id_no_mapa**: 3az
             - **dificuldade**: BR_4
             - **extensao**: 20
             - **quantidade_protecoes_intermediarias**: 4
@@ -511,7 +589,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Ana Thor
-            - **id_no_mapa**: 4az
             - **dificuldade**: BR_7C
             - **extensao**: 15
             - **quantidade_protecoes_intermediarias**: 6
@@ -520,7 +597,6 @@
           - **via_esportiva**:
             - **descricao**: Base no platô superior
             - **nome**: Au bout des doigts
-            - **id_no_mapa**: 5az
             - **dificuldade**: BR_7B
             - **extensao**: 22
             - **quantidade_protecoes_intermediarias**: 6
@@ -531,7 +607,6 @@
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Boom Boom
-            - **id_no_mapa**: 6az
             - **dificuldade**: BR_6SUP
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 8
@@ -539,7 +614,6 @@
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Petit Pichou
-            - **id_no_mapa**: 7az
             - **dificuldade**: BR_6SUP
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 8
@@ -753,6 +827,103 @@
           - **y**: 438
           - **comprimento**: 50
           - **largura**: 51
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Capitã Minhoca
+        - **ids**:
+          - 1ros
+      - **[1]**:
+        - **escalada**: He Man
+        - **ids**:
+          - 2ros
+      - **[2]**:
+        - **escalada**: Esqueleto
+        - **ids**:
+          - 3ros
+      - **[3]**:
+        - **escalada**: Allahu Akbar
+        - **ids**:
+          - 4ros
+      - **[4]**:
+        - **escalada**: Saída à Francesa
+        - **ids**:
+          - 5ros
+      - **[5]**:
+        - **escalada**: Paris em Chamas
+        - **ids**:
+          - 6ros
+      - **[6]**:
+        - **escalada**: Urubu tá com raiva do boi
+        - **ids**:
+          - 1az
+      - **[7]**:
+        - **escalada**: Maria Teresa
+        - **ids**:
+          - 2az
+      - **[8]**:
+        - **escalada**: Uma gota de milagre
+        - **ids**:
+          - 3az
+      - **[9]**:
+        - **escalada**: Quem não chora não mama
+        - **ids**:
+          - 4az
+      - **[10]**:
+        - **escalada**: Chapolin
+        - **ids**:
+          - 5az
+      - **[11]**:
+        - **escalada**: Desvio na pista
+        - **ids**:
+          - 6az
+      - **[12]**:
+        - **escalada**: Vento da Patagônia
+        - **ids**:
+          - 2rox
+      - **[13]**:
+        - **escalada**: Mr Bean
+        - **ids**:
+          - 3rox
+      - **[14]**:
+        - **escalada**: Lagarto de aniversário
+        - **ids**:
+          - 4rox
+      - **[15]**:
+        - **escalada**: Cavuca tatu
+        - **ids**:
+          - 5rox
+      - **[16]**:
+        - **escalada**: Tirolês
+        - **ids**:
+          - 7rox
+      - **[17]**:
+        - **escalada**: 10 c
+        - **ids**:
+          - 8rox
+      - **[18]**:
+        - **escalada**: Sabor Baunilha
+        - **ids**:
+          - 9rox
+      - **[19]**:
+        - **escalada**: Café Ole
+        - **ids**:
+          - 11rox
+      - **[20]**:
+        - **escalada**: Tio Tonton
+        - **ids**:
+          - 12rox
+      - **[21]**:
+        - **escalada**: Essa via não é minha
+        - **ids**:
+          - 1rox
+      - **[22]**:
+        - **escalada**: Zé colmeia e Dona Flor
+        - **ids**:
+          - 6rox
+      - **[23]**:
+        - **escalada**: O charme da Trad
+        - **ids**:
+          - 10rox
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -761,7 +932,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Capitã Minhoca
-            - **id_no_mapa**: 1ros
             - **dificuldade**: BR_5SUP
             - **extensao**: 22
             - **quantidade_protecoes_intermediarias**: 5
@@ -771,7 +941,6 @@
         - **[1]**:
           - **via_multiplas_enfiadas**:
             - **nome**: He Man
-            - **id_no_mapa**: 2ros
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7B
             - **quantidade_costuras_intermediarias**: 8
@@ -806,7 +975,6 @@
         - **[2]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Esqueleto
-            - **id_no_mapa**: 3ros
             - **dificuldade_media**: BR_6
             - **dificuldade_maxima**: BR_6
             - **quantidade_costuras_intermediarias**: 8
@@ -842,7 +1010,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Allahu Akbar
-            - **id_no_mapa**: 4ros
             - **dificuldade**: BR_7A
             - **extensao**: 22
             - **quantidade_protecoes_intermediarias**: 6
@@ -852,7 +1019,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Saída à Francesa
-            - **id_no_mapa**: 5ros
             - **dificuldade**: BR_8B
             - **extensao**: 24
             - **quantidade_protecoes_intermediarias**: 8
@@ -864,7 +1030,6 @@
           - **via_esportiva**:
             - **descricao**: 10?
             - **nome**: Paris em Chamas
-            - **id_no_mapa**: 6ros
             - **dificuldade**: BR_10A
             - **extensao**: 24
             - **quantidade_protecoes_intermediarias**: 8
@@ -879,7 +1044,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Urubu tá com raiva do boi
-            - **id_no_mapa**: 1az
             - **dificuldade**: BR_5SUP
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 7
@@ -889,7 +1053,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Maria Teresa
-            - **id_no_mapa**: 2az
             - **dificuldade**: BR_6
             - **extensao**: 26
             - **quantidade_protecoes_intermediarias**: 5
@@ -899,7 +1062,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Uma gota de milagre
-            - **id_no_mapa**: 3az
             - **dificuldade**: BR_7A
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 8
@@ -909,7 +1071,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Quem não chora não mama
-            - **id_no_mapa**: 4az
             - **dificuldade**: BR_7B
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 9
@@ -919,7 +1080,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Chapolin
-            - **id_no_mapa**: 5az
             - **dificuldade**: BR_7A
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 9
@@ -929,7 +1089,6 @@
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Desvio na pista
-            - **id_no_mapa**: 6az
             - **dificuldade**: BR_7B
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 9
@@ -943,7 +1102,6 @@
         - **[0]**:
           - **via_movel**:
             - **nome**: Essa via não é minha
-            - **id_no_mapa**: 1rox
             - **dificuldade**: BR_4SUP
             - **extensao**: 70
             - **conquistadores**:
@@ -951,7 +1109,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Vento da Patagônia
-            - **id_no_mapa**: 2rox
             - **dificuldade**: BR_5
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 6
@@ -961,7 +1118,6 @@
         - **[2]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Mr Bean
-            - **id_no_mapa**: 3rox
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7A
             - **quantidade_costuras_intermediarias**: 10
@@ -993,7 +1149,6 @@
           - **via_esportiva**:
             - **descricao**: Variante Mr Bean
             - **nome**: Lagarto de aniversário
-            - **id_no_mapa**: 4rox
             - **dificuldade**: BR_6
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 10
@@ -1003,7 +1158,6 @@
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Cavuca tatu
-            - **id_no_mapa**: 5rox
             - **dificuldade**: BR_7A
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 10
@@ -1014,7 +1168,6 @@
           - **via_movel**:
             - **descricao**: Parada fixa
             - **nome**: Zé colmeia e Dona Flor
-            - **id_no_mapa**: 6rox
             - **dificuldade**: BR_4SUP
             - **extensao**: 30
             - **conquistadores**:
@@ -1023,7 +1176,6 @@
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Tirolês
-            - **id_no_mapa**: 7rox
             - **dificuldade**: BR_5
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 6
@@ -1031,7 +1183,6 @@
         - **[7]**:
           - **via_esportiva**:
             - **nome**: 10 c
-            - **id_no_mapa**: 8rox
             - **dificuldade**: BR_6
             - **extensao**: 30
             - **quantidade_protecoes_intermediarias**: 8
@@ -1042,7 +1193,6 @@
         - **[8]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Sabor Baunilha
-            - **id_no_mapa**: 9rox
             - **dificuldade_media**: BR_7B
             - **dificuldade_maxima**: BR_7B
             - **quantidade_costuras_intermediarias**: 10
@@ -1067,7 +1217,6 @@
           - **via_movel**:
             - **descricao**: Parada fixa
             - **nome**: O charme da Trad
-            - **id_no_mapa**: 10rox
             - **dificuldade**: BR_6
             - **extensao**: 60
             - **conquistadores**:
@@ -1076,7 +1225,6 @@
         - **[10]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Café Ole
-            - **id_no_mapa**: 11rox
             - **dificuldade_media**: BR_5
             - **dificuldade_maxima**: BR_5SUP
             - **quantidade_costuras_intermediarias**: 8
@@ -1100,7 +1248,6 @@
         - **[11]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Tio Tonton
-            - **id_no_mapa**: 12rox
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7B
             - **quantidade_costuras_intermediarias**: 10
@@ -1193,6 +1340,35 @@
           - **y**: 1468
           - **comprimento**: 26
           - **largura**: 42
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: La Speza
+        - **ids**:
+          - 1az
+      - **[1]**:
+        - **escalada**: Gekke Greda
+        - **ids**:
+          - 1ve
+      - **[2]**:
+        - **escalada**: O Breizh
+        - **ids**:
+          - 2ve
+      - **[3]**:
+        - **escalada**: Dedo no C* e Gritaria
+        - **ids**:
+          - 3ve
+      - **[4]**:
+        - **escalada**: Tea Time
+        - **ids**:
+          - 4ve
+      - **[5]**:
+        - **escalada**: Mimi Zokko
+        - **ids**:
+          - 1ro
+      - **[6]**:
+        - **escalada**: Mariposa
+        - **ids**:
+          - 2ro
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1201,7 +1377,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: La Speza
-            - **id_no_mapa**: 1az
             - **dificuldade**: BR_6
             - **extensao**: 25
             - **quantidade_protecoes_intermediarias**: 8
@@ -1216,7 +1391,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Gekke Greda
-            - **id_no_mapa**: 1ve
             - **dificuldade**: BR_7B
             - **extensao**: 12
             - **quantidade_protecoes_intermediarias**: 4
@@ -1227,7 +1401,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: O Breizh
-            - **id_no_mapa**: 2ve
             - **dificuldade**: BR_7A
             - **extensao**: 12
             - **quantidade_protecoes_intermediarias**: 4
@@ -1238,7 +1411,6 @@
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Dedo no C* e Gritaria
-            - **id_no_mapa**: 3ve
             - **dificuldade**: BR_8A
             - **extensao**: 12
             - **quantidade_protecoes_intermediarias**: 5
@@ -1249,7 +1421,6 @@
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Tea Time
-            - **id_no_mapa**: 4ve
             - **dificuldade**: BR_6
             - **extensao**: 12
             - **quantidade_protecoes_intermediarias**: 4
@@ -1264,7 +1435,6 @@
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Mimi Zokko
-            - **id_no_mapa**: 1ro
             - **dificuldade**: BR_5SUP
             - **extensao**: 25
             - **quantidade_protecoes_intermediarias**: 8
@@ -1274,7 +1444,6 @@
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Mariposa
-            - **id_no_mapa**: 2ro
             - **dificuldade**: BR_6
             - **extensao**: 25
             - **quantidade_protecoes_intermediarias**: 8

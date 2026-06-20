@@ -1,4 +1,4 @@
----
+---
 nome: Canil
 mapas:
 - caminho_imagem_mapa: imagens/setor_canil_p0.webp
@@ -26,44 +26,55 @@ mapas:
       y: 548
       comprimento: 24
       largura: 24
+  referencias:
+  - escalada: Sucrilhos no Prato
+    ids:
+    - '01'
+  - escalada: Titan
+    ids:
+    - '02'
+  - escalada: Lobão
+    ids:
+    - '03'
+  - escalada: Tião Macalé
+    ids:
+    - '04'
+  - escalada: Zac
+    ids:
+    - '05'
+  - escalada: Loboulder
+    ids:
+    - '06'
+  - escalada: Savana
+    ids:
+    - '07'
 escaladas:
 - boulder:
     nome: Sucrilhos no Prato
-    id_no_mapa: '01'
     dificuldade: V7
-    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em
-      reglete lateral.
+    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em reglete lateral.
 - boulder:
     nome: Titan
-    id_no_mapa: '02'
     dificuldade: V4
-    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente
-      investido.
+    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente investido.
 - boulder:
     nome: Lobão
-    id_no_mapa: '03'
     dificuldade: V7
-    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando
-      no Loboulder.
+    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando no Loboulder.
 - boulder:
     nome: Tião Macalé
-    id_no_mapa: '04'
     dificuldade: V5
     descricao: Saída do Sucrilhos no Prato e virando no Titan.
 - boulder:
     nome: Zac
-    id_no_mapa: '05'
     dificuldade: V6
 - boulder:
     nome: Loboulder
-    id_no_mapa: '06'
     dificuldade: V2
     descricao: Sai agachado com as mãos juntas em agarrão.
 - boulder:
     nome: Savana
-    id_no_mapa: '07'
     dificuldade: V6
-    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
-      no Prato.
----
+    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos no Prato.
+---
 # Setor Canil

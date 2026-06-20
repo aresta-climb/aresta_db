@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp
@@ -124,6 +124,97 @@ mapas:
       y: 52
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Curta e Grossa
+    ids:
+    - '1'
+  - escalada: Trabalhosa
+    ids:
+    - '2'
+  - escalada: Revolução dos Insetos
+    ids:
+    - '3'
+  - escalada: Frango com Quiabo
+    ids:
+    - '4'
+  - escalada: É Proibido Furar
+    ids:
+    - '5'
+  - escalada: Bafin de Leite
+    ids:
+    - '6'
+  - escalada: '?'
+    ids:
+    - '7'
+  - escalada: Sujismunda
+    ids:
+    - '8'
+  - escalada: Samurai
+    ids:
+    - '9'
+  - escalada: Ninja
+    ids:
+    - '10'
+  - escalada: Fly Monkeys
+    ids:
+    - '11'
+  - escalada: Lado A Lado B
+    ids:
+    - '12'
+  - escalada: Meu Nome Não é Lero
+    ids:
+    - '13'
+  - escalada: Nosso Mestre
+    ids:
+    - '14'
+  - escalada: Segunda Já Tá í
+    ids:
+    - '15'
+  - escalada: Brincadeira de Criança
+    ids:
+    - '16'
+  - escalada: Peripécias do Climb
+    ids:
+    - '17'
+  - escalada: Lelê Café
+    ids:
+    - '17'
+  - escalada: Tiu Marreteiro
+    ids:
+    - '18'
+  - escalada: Animáquina
+    ids:
+    - '19'
+  - escalada: Moça do Sapo
+    ids:
+    - '20'
+  - escalada: Over Tênis
+    ids:
+    - '21'
+  - escalada: Fita No Calcário
+    ids:
+    - '22'
+  - escalada: Só de 70
+    ids:
+    - '23'
+  - escalada: Black Dog
+    ids:
+    - '24'
+  - escalada: Variante Mum-hhazinha
+    ids:
+    - '25'
+  - escalada: Pedras e Espinhos
+    ids:
+    - '26'
+  - escalada: Pé de Oreia
+    ids:
+    - '27'
+  - escalada: Perdidos
+    ids:
+    - '28'
+  - escalada: Velhos Novatos
+    ids:
+    - '29'
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p1_i0.webp
   largura_mapa: 729
   altura_mapa: 1311
@@ -238,153 +329,123 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Curta e Grossa
-    id_no_mapa: '1'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Trabalhosa
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Revolução dos Insetos
-    id_no_mapa: '3'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Frango com Quiabo
-    id_no_mapa: '4'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: É Proibido Furar
-    id_no_mapa: '5'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Bafin de Leite
-    id_no_mapa: '6'
     descricao: Inacabada.
 - via_esportiva:
     nome: '?'
-    id_no_mapa: '7'
     descricao: Inacabada.
 - via_esportiva:
     nome: Sujismunda
-    id_no_mapa: '8'
     descricao: Inacabada.
 - via_esportiva:
     nome: Samurai
-    id_no_mapa: '9'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 13
 - via_esportiva:
     nome: Ninja
-    id_no_mapa: '10'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 16
 - via_esportiva:
     nome: Fly Monkeys
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
 - via_esportiva:
     nome: Lado A Lado B
-    id_no_mapa: '12'
     dificuldade: BR_7A_BARRA_7B
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Meu Nome Não é Lero
-    id_no_mapa: '13'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Nosso Mestre
-    id_no_mapa: '14'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Segunda Já Tá í
-    id_no_mapa: '15'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Brincadeira de Criança
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Peripécias do Climb
-    id_no_mapa: '17'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
 - via_esportiva:
     nome: Lelê Café
-    id_no_mapa: '17'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     descricao: Número 17 no segundo mapa do setor.
 - via_esportiva:
     nome: Tiu Marreteiro
-    id_no_mapa: '18'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 9
 - via_esportiva:
     nome: Animáquina
-    id_no_mapa: '19'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
 - via_esportiva:
     nome: Moça do Sapo
-    id_no_mapa: '20'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
 - via_movel:
     nome: Over Tênis
-    id_no_mapa: '21'
     dificuldade: BR_6
     protecoes_moveis: Móvel / Top Duplo.
 - via_movel:
     nome: Fita No Calcário
-    id_no_mapa: '22'
     dificuldade: BR_6
     protecoes_moveis: Móvel, Top da "Só de 70".
 - via_esportiva:
     nome: Só de 70
-    id_no_mapa: '23'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 13
 - via_esportiva:
     nome: Black Dog
-    id_no_mapa: '24'
     dificuldade: BR_6SUP
     descricao: Mista / 4 Fixas + Top Duplo.
 - via_esportiva:
     nome: Variante Mum-hhazinha
-    id_no_mapa: '25'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
 - via_esportiva:
     nome: Pedras e Espinhos
-    id_no_mapa: '26'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
 - via_esportiva:
     nome: Pé de Oreia
-    id_no_mapa: '27'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Perdidos
-    id_no_mapa: '28'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Velhos Novatos
-    id_no_mapa: '29'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 5
----
+---
 # Setor Vale das Sombras
 
 Setor com maior concentração de vias, predominância de vias mais altas e verticais

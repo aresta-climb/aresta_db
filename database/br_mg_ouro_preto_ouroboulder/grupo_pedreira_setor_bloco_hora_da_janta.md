@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Hora da Janta'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
@@ -77,42 +77,61 @@ mapas:
       x: 710
       y: 538
       raio: 13
+  referencias:
+  - escalada: Aranha
+    ids:
+    - '1'
+  - escalada: Desafio do Superman
+    ids:
+    - 2A
+  - escalada: Hora da Janta
+    ids:
+    - 2B
+  - escalada: Larica
+    ids:
+    - 2C▲
+  - escalada: Sobremesa
+    ids:
+    - 2C★
+  - escalada: Voo do Superman
+    ids:
+    - 3C
+  - escalada: Conha Conha
+    ids:
+    - 4D
+  - escalada: Maconhaque
+    ids:
+    - 4E
+  - escalada: Tapa na Pantera
+    ids:
+    - '5'
 escaladas:
 - boulder:
     nome: Aranha
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Desafio do Superman
-    id_no_mapa: 2A
     dificuldade: V3
 - boulder:
     nome: Hora da Janta
-    id_no_mapa: 2B
     dificuldade: V3
 - boulder:
     nome: Larica
-    id_no_mapa: 2C▲
     dificuldade: V3
 - boulder:
     nome: Sobremesa
-    id_no_mapa: 2C★
     dificuldade: V6
 - boulder:
     nome: Voo do Superman
-    id_no_mapa: 3C
     dificuldade: INDEFINIDO
 - boulder:
     nome: Conha Conha
-    id_no_mapa: 4D
     dificuldade: V5
 - boulder:
     nome: Maconhaque
-    id_no_mapa: 4E
     dificuldade: V5
 - boulder:
     nome: Tapa na Pantera
-    id_no_mapa: '5'
     dificuldade: V1
----
+---
 

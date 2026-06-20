@@ -1,4 +1,4 @@
----
+---
 nome: ”Positivo” Central
 mapas:
 - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
@@ -138,78 +138,115 @@ mapas:
       y: 921
       comprimento: 700
       largura: 30
+  referencias:
+  - escalada: Ayrton Senna
+    ids:
+    - '01'
+  - escalada: Fernão Dias
+    ids:
+    - '02'
+  - escalada: Via Dutra
+    ids:
+    - '03'
+  - escalada: Rua Teresa
+    ids:
+    - '04'
+  - escalada: Chico
+    ids:
+    - '05'
+  - escalada: Juca Birita
+    ids:
+    - '06'
+  - escalada: Jeca Tatu
+    ids:
+    - '07'
+  - escalada: Kira
+    ids:
+    - '08'
+  - escalada: JucaTatuKira
+    ids:
+    - '09'
+  - escalada: Free Willy
+    ids:
+    - '10'
+  - escalada: Homer Simpson
+    ids:
+    - '11'
+  - escalada: Velho do Saco
+    ids:
+    - '12'
+  - escalada: Incontinência
+    ids:
+    - '13'
+  - escalada: Vovó Mafalda
+    ids:
+    - '14'
+  - escalada: Chaminé Só para Tiozinhos
+    ids:
+    - '15'
+  - escalada: TriJeferson
+    ids:
+    - '16'
+  - escalada: Dunga
+    ids:
+    - '17'
+  - escalada: Sub-Zero
+    ids:
+    - '18'
 escaladas:
 - via_esportiva:
     nome: Ayrton Senna
-    id_no_mapa: '01'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Fernão Dias
-    id_no_mapa: '02'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Via Dutra
-    id_no_mapa: '03'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Rua Teresa
-    id_no_mapa: '04'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Chico
-    id_no_mapa: '05'
     dificuldade: BR_8B_BARRA_8C
 - via_esportiva:
     nome: Juca Birita
-    id_no_mapa: '06'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Jeca Tatu
-    id_no_mapa: '07'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Kira
-    id_no_mapa: '08'
     dificuldade: BR_9A
 - via_esportiva:
     nome: JucaTatuKira
-    id_no_mapa: '09'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Free Willy
-    id_no_mapa: '10'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Homer Simpson
-    id_no_mapa: '11'
     dificuldade: BR_6
 - via_esportiva:
     nome: Velho do Saco
-    id_no_mapa: '12'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Incontinência
-    id_no_mapa: '13'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Vovó Mafalda
-    id_no_mapa: '14'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Chaminé Só para Tiozinhos
-    id_no_mapa: '15'
     dificuldade: BR_7A
 - via_esportiva:
     nome: TriJeferson
-    id_no_mapa: '16'
     dificuldade: BR_9B
 - via_esportiva:
     nome: Dunga
-    id_no_mapa: '17'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Sub-Zero
-    id_no_mapa: '18'
     dificuldade: BR_8C
----
+---
 

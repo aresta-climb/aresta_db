@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Entretidos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
@@ -17,6 +17,40 @@ mapas:
       x: 1173
       y: 782
       raio: 13
+  referencias:
+  - escalada: Ianque
+    ids:
+    - '1'
+  - escalada: Apache
+    ids:
+    - '2'
+  - escalada: Garoto Andrada
+    ids:
+    - '1'
+  - escalada: Embalados pelo Vovô
+    ids:
+    - '2'
+  - escalada: Pressão no Vovô
+    ids:
+    - '3'
+  - escalada: Pressão dos Barbosa
+    ids:
+    - '4'
+  - escalada: Helicoidal
+    ids:
+    - '1'
+  - escalada: Em Busca do Equilíbrio
+    ids:
+    - '2'
+  - escalada: Em Busca do Equilíbrio sds
+    ids:
+    - '3'
+  - escalada: Brígida
+    ids:
+    - '1'
+  - escalada: Carranca
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -86,48 +120,37 @@ mapas:
 escaladas:
 - boulder:
     nome: Ianque
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Apache
-    id_no_mapa: '2'
     dificuldade: V2
 - boulder:
     nome: Garoto Andrada
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: Embalados pelo Vovô
-    id_no_mapa: '2'
     dificuldade: V7
 - boulder:
     nome: Pressão no Vovô
-    id_no_mapa: '3'
     dificuldade: V9
 - boulder:
     nome: Pressão dos Barbosa
-    id_no_mapa: '4'
     dificuldade: V6_BARRA_V7
 - boulder:
     nome: Helicoidal
-    id_no_mapa: '1'
     dificuldade: V6
 - boulder:
     nome: Em Busca do Equilíbrio
-    id_no_mapa: '2'
     dificuldade: V7
 - boulder:
     nome: Em Busca do Equilíbrio sds
-    id_no_mapa: '3'
     dificuldade: V10
     descricao: (sai nas agarras do Pressão no Vovô)
 - boulder:
     nome: Brígida
-    id_no_mapa: '1'
     dificuldade: V6
 - boulder:
     nome: Carranca
-    id_no_mapa: '2'
     dificuldade: V3
----
+---
 

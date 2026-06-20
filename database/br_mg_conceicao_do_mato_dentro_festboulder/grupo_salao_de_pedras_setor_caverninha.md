@@ -1,6 +1,5 @@
----
+---
 nome: Caverninha
-id_no_mapa: '3'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp
   largura_mapa: 758
@@ -41,6 +40,52 @@ mapas:
       y: 250
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Terceira Camada
+    ids:
+    - '1'
+  - escalada: Caverninha
+    ids:
+    - '2'
+  - escalada: Cavernoso
+    ids:
+    - '3'
+  - escalada: Natural
+    ids:
+    - '4'
+  - escalada: Natural SDS
+    ids:
+    - '5'
+  - escalada: Simba
+    ids:
+    - '1'
+  - escalada: Dragão
+    ids:
+    - '2'
+  - escalada: Abaulados
+    ids:
+    - '3'
+  - escalada: Simba
+    ids:
+    - '4'
+  - escalada: Capitão Caverna
+    ids:
+    - '5'
+  - escalada: Confuso
+    ids:
+    - '6'
+  - escalada: Combinação Perfeita
+    ids:
+    - '1'
+  - escalada: Trinca Ferro
+    ids:
+    - '2'
+  - escalada: Trinca Carangueijo
+    ids:
+    - '3'
+  - escalada: Natural
+    ids:
+    - '4'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp
   largura_mapa: 758
   altura_mapa: 568
@@ -122,65 +167,51 @@ mapas:
 escaladas:
 - boulder:
     nome: Terceira Camada
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Caverninha
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Cavernoso
-    id_no_mapa: '3'
     dificuldade: V7
 - boulder:
     nome: Natural
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: Natural SDS
-    id_no_mapa: '5'
     dificuldade: V8
 - boulder:
     nome: Simba
-    id_no_mapa: '1'
     dificuldade: V8
 - boulder:
     nome: Dragão
-    id_no_mapa: '2'
     dificuldade: V7
 - boulder:
     nome: Abaulados
-    id_no_mapa: '3'
     dificuldade: V3
 - boulder:
     nome: Simba
-    id_no_mapa: '4'
     dificuldade: V8
 - boulder:
     nome: Capitão Caverna
-    id_no_mapa: '5'
     dificuldade: V6
 - boulder:
     nome: Confuso
-    id_no_mapa: '6'
     dificuldade: V6
 - boulder:
     nome: Combinação Perfeita
-    id_no_mapa: '1'
     dificuldade: V12
 - boulder:
     nome: Trinca Ferro
-    id_no_mapa: '2'
     dificuldade: V11
 - boulder:
     nome: Trinca Carangueijo
-    id_no_mapa: '3'
     dificuldade: V8
 - boulder:
     nome: Natural
-    id_no_mapa: '4'
     dificuldade: V6
----
+---
+
 # Setor Caverninha
 
 O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.

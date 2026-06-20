@@ -1,25 +1,20 @@
----
+---
 nome: Carrapicho
 escaladas:
 - boulder:
     nome: Carrapato
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Carrapicho
-    id_no_mapa: '2'
     dificuldade: V6
 - boulder:
     nome: Oratório
-    id_no_mapa: '3'
     dificuldade: V7
 - boulder:
     nome: Pistol
-    id_no_mapa: '4'
     dificuldade: V2
 - boulder:
     nome: Dart Vader
-    id_no_mapa: '5'
     dificuldade: V4
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p0.webp
@@ -38,6 +33,22 @@ mapas:
       x: 160
       y: 545
       raio: 9
+  referencias:
+  - escalada: Carrapato
+    ids:
+    - '1'
+  - escalada: Carrapicho
+    ids:
+    - '2'
+  - escalada: Oratório
+    ids:
+    - '3'
+  - escalada: Pistol
+    ids:
+    - '4'
+  - escalada: Dart Vader
+    ids:
+    - '5'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
   largura_mapa: 399
   altura_mapa: 309
@@ -60,6 +71,6 @@ mapas:
       x: 54
       y: 194
       raio: 9
----
+---
 
 # Bloco Carrapicho

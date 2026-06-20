@@ -30,7 +30,7 @@
             - **Asfalto:** Linha azul
             - **Terra:** Linha vermelha contínua
             - **Trilha:** Linha pontilhada vermelha
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: setor_vieiras
@@ -45,6 +45,63 @@
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vieiras_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Brinquedim
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Daime Vida
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Possuidos
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Sangue Venoso
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Sinestesia
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Cartesiana
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Neandertal
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Alucinógena
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Vaca Loca
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: São Miguel
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Um real
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Faxineira
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Me Deixa Queto
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Ratazana
+        - **ids**:
+          - 14
     - **largura_mapa**: 2048
     - **altura_mapa**: 1489
   - **[1]**:
@@ -56,71 +113,57 @@
     - **via_movel**:
       - **descricao**: Via mista.
       - **nome**: Brinquedim
-      - **id_no_mapa**: 1
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Daime Vida
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Possuidos
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8A
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Sangue Venoso
-      - **id_no_mapa**: 4
       - **dificuldade**: PROJETO
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Sinestesia
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_8B
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Cartesiana
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7C
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Neandertal
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_6SUP_BARRA_7A
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Alucinógena
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_9A
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Vaca Loca
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_9B
   - **[9]**:
     - **via_esportiva**:
       - **nome**: São Miguel
-      - **id_no_mapa**: 10
       - **dificuldade**: PROJETO
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Um real
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7B
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Faxineira
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Me Deixa Queto
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6SUP_BARRA_7A
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ratazana
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
 
 

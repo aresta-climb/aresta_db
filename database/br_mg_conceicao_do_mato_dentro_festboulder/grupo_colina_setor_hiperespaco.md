@@ -1,6 +1,5 @@
----
+---
 nome: Hiperespaço
-id_no_mapa: '4'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_hiperespaco_p0.webp
   largura_mapa: 757
@@ -48,32 +47,46 @@ mapas:
       y: 455
       comprimento: 12
       largura: 30
+  referencias:
+  - escalada: Solstício
+    ids:
+    - '1'
+  - escalada: Equinócio
+    ids:
+    - '2'
+  - escalada: Eclipse
+    ids:
+    - '3'
+  - escalada: Antares
+    ids:
+    - '4'
+  - escalada: Don Carlitos
+    ids:
+    - '5'
+  - escalada: Jardins Suspensos
+    ids:
+    - '6'
 escaladas:
 - boulder:
     nome: Solstício
-    id_no_mapa: '1'
     dificuldade: V8
 - boulder:
     nome: Equinócio
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Eclipse
-    id_no_mapa: '3'
     dificuldade: V7
 - boulder:
     nome: Antares
-    id_no_mapa: '4'
     dificuldade: V9
 - boulder:
     nome: Don Carlitos
-    id_no_mapa: '5'
     dificuldade: V4
 - boulder:
     nome: Jardins Suspensos
-    id_no_mapa: '6'
     dificuldade: V5
----
+---
+
 # Setor Hiperespaço
 
 O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.

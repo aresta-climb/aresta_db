@@ -1,6 +1,5 @@
----
+---
 nome: Equinócio
-id_no_mapa: '10'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_equinocio_p0.webp
   largura_mapa: 756
@@ -27,20 +26,28 @@ mapas:
       y: 515
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Campo Minado
+    ids:
+    - '1'
+  - escalada: Kalil
+    ids:
+    - '2'
+  - escalada: Costela de Adão
+    ids:
+    - '3'
 escaladas:
 - boulder:
     nome: Campo Minado
-    id_no_mapa: '1'
     dificuldade: V6
 - boulder:
     nome: Kalil
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Costela de Adão
-    id_no_mapa: '3'
     dificuldade: V2
----
+---
+
 # Setor Equinócio
 
 O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.

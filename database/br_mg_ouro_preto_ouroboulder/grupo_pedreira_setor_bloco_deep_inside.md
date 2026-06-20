@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Deep Inside'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
@@ -53,6 +53,55 @@ mapas:
       x: 1335
       y: 780
       raio: 13
+  referencias:
+  - escalada: Buda
+    ids:
+    - 1A
+  - escalada: Arestides
+    ids:
+    - 1B
+  - escalada: Arestides ext
+    ids:
+    - 1C/1D▲
+  - escalada: Nataraja
+    ids:
+    - 2B▲/2A▲
+  - escalada: Sidarta
+    ids:
+    - 2B★
+  - escalada: Sidarta sds
+    ids:
+    - 3B★
+  - escalada: Deep Inside ext
+    ids:
+    - 4A▲
+  - escalada: Deep Inside
+    ids:
+    - 4B★
+  - escalada: Canindé
+    ids:
+    - 4C
+  - escalada: Canindé de Cima
+    ids:
+    - 5C
+  - escalada: Cara de Boi
+    ids:
+    - 6B
+  - escalada: Cara de Vaca
+    ids:
+    - 6C
+  - escalada: Invertides
+    ids:
+    - 7A▲
+  - escalada: Promoção
+    ids:
+    - 7D/2B
+  - escalada: Promocinha
+    ids:
+    - 1A
+  - escalada: Bolinho de Chuva
+    ids:
+    - 3C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -178,67 +227,51 @@ mapas:
 escaladas:
 - boulder:
     nome: Buda
-    id_no_mapa: 1A
     dificuldade: V3
 - boulder:
     nome: Arestides
-    id_no_mapa: 1B
     dificuldade: V5
 - boulder:
     nome: Arestides ext
-    id_no_mapa: 1C/1D▲
     dificuldade: V7
 - boulder:
     nome: Nataraja
-    id_no_mapa: 2B▲/2A▲
     dificuldade: V6
 - boulder:
     nome: Sidarta
-    id_no_mapa: 2B★
     dificuldade: V5
 - boulder:
     nome: Sidarta sds
-    id_no_mapa: 3B★
     dificuldade: V9
 - boulder:
     nome: Deep Inside ext
-    id_no_mapa: 4A▲
     dificuldade: V11
 - boulder:
     nome: Deep Inside
-    id_no_mapa: 4B★
     dificuldade: V10
 - boulder:
     nome: Canindé
-    id_no_mapa: 4C
     dificuldade: V10
 - boulder:
     nome: Canindé de Cima
-    id_no_mapa: 5C
     dificuldade: V9
 - boulder:
     nome: Cara de Boi
-    id_no_mapa: 6B
     dificuldade: V2
 - boulder:
     nome: Cara de Vaca
-    id_no_mapa: 6C
     dificuldade: V1
 - boulder:
     nome: Invertides
-    id_no_mapa: 7A▲
     dificuldade: V8
 - boulder:
     nome: Promoção
-    id_no_mapa: 7D/2B
     dificuldade: V4
 - boulder:
     nome: Promocinha
-    id_no_mapa: 1A
     dificuldade: V7
 - boulder:
     nome: Bolinho de Chuva
-    id_no_mapa: 3C
     dificuldade: VB
----
+---
 

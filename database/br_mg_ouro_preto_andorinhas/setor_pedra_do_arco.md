@@ -1,4 +1,4 @@
----
+---
 nome: Pedra do Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_do_arco_p0.webp
@@ -68,10 +68,37 @@ mapas:
       y: 741
       comprimento: 33
       largura: 42
+  referencias:
+  - escalada: Aresta do Apicultor
+    ids:
+    - '1'
+  - escalada: Se Segura Malandro
+    ids:
+    - '2'
+  - escalada: Filosofia Lusitana
+    ids:
+    - '3'
+  - escalada: Titanomaquia
+    ids:
+    - '4'
+  - escalada: Sika Loca
+    ids:
+    - '5'
+  - escalada: Caba Não Mundão
+    ids:
+    - '6'
+  - escalada: Marreta Porreta
+    ids:
+    - '7'
+  - escalada: Cabron da Peste
+    ids:
+    - '8'
+  - escalada: Paralaxologística
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: Aresta do Apicultor
-    id_no_mapa: '1'
     dificuldade: BR_9B
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -81,7 +108,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Se Segura Malandro
-    id_no_mapa: '2'
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -91,7 +117,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Filosofia Lusitana
-    id_no_mapa: '3'
     dificuldade: BR_8B
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -101,7 +126,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Titanomaquia
-    id_no_mapa: '4'
     dificuldade: BR_9A
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -111,7 +135,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Sika Loca
-    id_no_mapa: '5'
     dificuldade: INDEFINIDO
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -122,7 +145,6 @@ escaladas:
     - Fred Moreira
 - via_esportiva:
     nome: Caba Não Mundão
-    id_no_mapa: '6'
     dificuldade: INDEFINIDO
     extensao: 17
     quantidade_protecoes_intermediarias: 7
@@ -132,7 +154,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_movel:
     nome: Marreta Porreta
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
     extensao: 12
     protecoes_moveis: Móvel
@@ -142,7 +163,6 @@ escaladas:
     - Felipe Dias
 - via_esportiva:
     nome: Cabron da Peste
-    id_no_mapa: '8'
     dificuldade: INDEFINIDO
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -152,7 +172,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Paralaxologística
-    id_no_mapa: '9'
     dificuldade: BR_8B
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -160,7 +179,7 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
----
+---
 # Setor Pedra do Arco
 
 Setor com vias de 12m até 17m.

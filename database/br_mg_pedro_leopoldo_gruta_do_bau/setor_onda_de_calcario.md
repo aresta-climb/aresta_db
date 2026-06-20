@@ -1,4 +1,4 @@
----
+---
 nome: Setor Onda de Calcário
 mapas:
 - caminho_imagem_mapa: imagens/setor_onda_de_calcario_p0_i6.webp
@@ -131,10 +131,58 @@ mapas:
       y: 1176
       comprimento: 226
       largura: 64
+  referencias:
+  - escalada: Marreta Kamikaze
+    ids:
+    - '01'
+  - escalada: Entidade da Natureza
+    ids:
+    - '02'
+  - escalada: Mundo Verde
+    ids:
+    - '03'
+  - escalada: Uma Nova Esperança
+    ids:
+    - '04'
+  - escalada: Urtigão
+    ids:
+    - '05'
+  - escalada: Eternamente Jovem
+    ids:
+    - '06'
+  - escalada: Highlander
+    ids:
+    - '07'
+  - escalada: Rayovac
+    ids:
+    - '8'
+  - escalada: O Corpo Ainda é Pouco
+    ids:
+    - '9'
+  - escalada: Belos e Malditos
+    ids:
+    - '10'
+  - escalada: Green Wood
+    ids:
+    - '11'
+  - escalada: Puro Malte
+    ids:
+    - '12'
+  - escalada: Ação Mutantes
+    ids:
+    - '13'
+  - escalada: Sagrada Família
+    ids:
+    - '14'
+  - escalada: O Poder e o Saber
+    ids:
+    - '15'
+  - escalada: Zig Marley
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: Marreta Kamikaze
-    id_no_mapa: '01'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -142,7 +190,6 @@ escaladas:
     - Alexandre “Caverna”
 - via_esportiva:
     nome: Entidade da Natureza
-    id_no_mapa: '02'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -150,7 +197,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Mundo Verde
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -158,7 +204,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Uma Nova Esperança
-    id_no_mapa: '04'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -167,7 +212,6 @@ escaladas:
     - Marcella Romanelli
 - via_esportiva:
     nome: Urtigão
-    id_no_mapa: '05'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 1
@@ -176,7 +220,6 @@ escaladas:
     - Emerson “Lampião”
 - via_esportiva:
     nome: Eternamente Jovem
-    id_no_mapa: '06'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -187,7 +230,6 @@ escaladas:
     - Andrezão
 - via_esportiva:
     nome: Highlander
-    id_no_mapa: '07'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -198,7 +240,6 @@ escaladas:
     - Belisário
 - via_esportiva:
     nome: Rayovac
-    id_no_mapa: 08
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -207,7 +248,6 @@ escaladas:
     - Ricardo
 - via_esportiva:
     nome: O Corpo Ainda é Pouco
-    id_no_mapa: 09
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -216,7 +256,6 @@ escaladas:
     - Ingo
 - via_esportiva:
     nome: Belos e Malditos
-    id_no_mapa: '10'
     dificuldade: BR_10B
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
@@ -227,7 +266,6 @@ escaladas:
     - Sandro Almeida
 - via_esportiva:
     nome: Green Wood
-    id_no_mapa: '11'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -237,7 +275,6 @@ escaladas:
     - Bernardo Barcelos
 - via_esportiva:
     nome: Puro Malte
-    id_no_mapa: '12'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
@@ -246,7 +283,6 @@ escaladas:
     - Marcella Romanelli
 - via_esportiva:
     nome: Ação Mutantes
-    id_no_mapa: '13'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -256,7 +292,6 @@ escaladas:
     - Felipe Belisário
 - via_esportiva:
     nome: Sagrada Família
-    id_no_mapa: '14'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -267,7 +302,6 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: O Poder e o Saber
-    id_no_mapa: '15'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -276,7 +310,6 @@ escaladas:
     - Marcus Rufino
 - via_esportiva:
     nome: Zig Marley
-    id_no_mapa: '16'
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -284,7 +317,7 @@ escaladas:
     - Iule Ornelas
     - Igor Andrade
     - Samuel Lucas
----
+---
 # Setor Onda de Calcário
 
 **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.

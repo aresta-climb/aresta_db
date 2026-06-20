@@ -1,4 +1,4 @@
----
+---
 nome: Setor Primórdios
 mapas:
 - caminho_imagem_mapa: imagens/setor_primordios_p0_i0.webp
@@ -89,68 +89,93 @@ mapas:
       y: 152
       comprimento: 35
       largura: 40
+  referencias:
+  - escalada: No Pulso
+    ids:
+    - '1'
+  - escalada: Cascavel
+    ids:
+    - '2'
+  - escalada: Marimbondos
+    ids:
+    - '3'
+  - escalada: Cobra Coral
+    ids:
+    - '4'
+  - escalada: Cactos
+    ids:
+    - '5'
+  - escalada: De Voltas Às Origens
+    ids:
+    - '6'
+  - escalada: Velha Guarda
+    ids:
+    - '7'
+  - escalada: Chaminé Retinida
+    ids:
+    - '8'
+  - escalada: Tempos Modernos
+    ids:
+    - '9'
+  - escalada: Buraco Louco
+    ids:
+    - '10'
+  - escalada: Estufando o Bigode
+    ids:
+    - '11'
+  - escalada: Não Deu Bigode
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: No Pulso
-    id_no_mapa: '1'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Cascavel
-    id_no_mapa: '2'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Marimbondos
-    id_no_mapa: '3'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 4
 - via_esportiva:
     nome: Cobra Coral
-    id_no_mapa: '4'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Cactos
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: De Voltas Às Origens
-    id_no_mapa: '6'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Velha Guarda
-    id_no_mapa: '7'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Chaminé Retinida
-    id_no_mapa: '8'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Tempos Modernos
-    id_no_mapa: '9'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Buraco Louco
-    id_no_mapa: '10'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
 - via_esportiva:
     nome: Estufando o Bigode
-    id_no_mapa: '11'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Não Deu Bigode
-    id_no_mapa: '12'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
----
+---
 # Setor Primórdios
 
 Setor onde tudo começou na década de 90, parede com grande concentração

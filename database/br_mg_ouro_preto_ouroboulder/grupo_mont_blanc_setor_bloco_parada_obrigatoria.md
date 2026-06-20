@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Parada Obrigatória'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp
@@ -35,6 +35,28 @@ mapas:
       x: 1012
       y: 834
       raio: 13
+  referencias:
+  - escalada: Parada Obrigatória
+    ids:
+    - 1A
+  - escalada: Rio Doce
+    ids:
+    - 1B
+  - escalada: Rio das Velhas
+    ids:
+    - 1C
+  - escalada: Igarapé
+    ids:
+    - 2C
+  - escalada: Frasco
+    ids:
+    - '1'
+  - escalada: Frisco
+    ids:
+    - '2'
+  - escalada: Fulano
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -60,31 +82,24 @@ mapas:
 escaladas:
 - boulder:
     nome: Parada Obrigatória
-    id_no_mapa: 1A
     dificuldade: V3
 - boulder:
     nome: Rio Doce
-    id_no_mapa: 1B
     dificuldade: V4
 - boulder:
     nome: Rio das Velhas
-    id_no_mapa: 1C
     dificuldade: V8
 - boulder:
     nome: Igarapé
-    id_no_mapa: 2C
     dificuldade: V7
 - boulder:
     nome: Frasco
-    id_no_mapa: '1'
     dificuldade: V2
 - boulder:
     nome: Frisco
-    id_no_mapa: '2'
     dificuldade: V2
 - boulder:
     nome: Fulano
-    id_no_mapa: '3'
     dificuldade: V1
----
+---
 

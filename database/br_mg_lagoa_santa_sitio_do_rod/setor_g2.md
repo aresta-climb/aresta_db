@@ -1,4 +1,4 @@
----
+---
 nome: G2
 mapas:
 - caminho_imagem_mapa: imagens/pagina_17.webp
@@ -152,10 +152,73 @@ mapas:
       y: 28
       comprimento: 24
       largura: 25
+  referencias:
+  - escalada: Pé da Gameleira
+    ids:
+    - '1'
+  - escalada: Sangue bão
+    ids:
+    - '2'
+  - escalada: Sedativa
+    ids:
+    - '3'
+  - escalada: Pressão da abelha (variante)
+    ids:
+    - '4'
+  - escalada: Prezinho
+    ids:
+    - '5'
+  - escalada: Super canaleta
+    ids:
+    - '6'
+  - escalada: Cactos talidomida
+    ids:
+    - '7'
+  - escalada: Logo sai
+    ids:
+    - '8'
+  - escalada: Cariocas
+    ids:
+    - '9'
+  - escalada: Tapa na aranha
+    ids:
+    - '10'
+  - escalada: Titãs atônitos
+    ids:
+    - '11'
+  - escalada: Enganaram o cabo
+    ids:
+    - '12'
+  - escalada: Urtigas
+    ids:
+    - '13'
+  - escalada: Atretas do climb (mapa do Brasil)
+    ids:
+    - '14'
+  - escalada: Ossos do orifício
+    ids:
+    - '15'
+  - escalada: Baião de dois
+    ids:
+    - '16'
+  - escalada: Entre linhas
+    ids:
+    - '17'
+  - escalada: SOS mandacaru
+    ids:
+    - '18'
+  - escalada: Socorro vem de baixo
+    ids:
+    - '19'
+  - escalada: Mato queimado
+    ids:
+    - '20'
+  - escalada: De Mariah
+    ids:
+    - '21'
 escaladas:
 - via_esportiva:
     nome: Pé da Gameleira
-    id_no_mapa: '1'
     dificuldade: BR_6
     conquistadores:
     - Thiago "Vá"
@@ -165,7 +228,6 @@ escaladas:
     descricao: Atenção no Platô
 - via_esportiva:
     nome: Sangue bão
-    id_no_mapa: '2'
     dificuldade: BR_8B
     conquistadores:
     - Fabio Munis
@@ -173,7 +235,6 @@ escaladas:
     descricao: Interessante Via, com uma movimentação muito incomum.
 - via_esportiva:
     nome: Sedativa
-    id_no_mapa: '3'
     dificuldade: BR_7B
     conquistadores:
     - Eduardo Viana
@@ -181,7 +242,6 @@ escaladas:
     descricao: Clássica, bem frequentada.
 - via_esportiva:
     nome: Pressão da abelha (variante)
-    id_no_mapa: '4'
     dificuldade: BR_7A
     conquistadores:
     - Thiago "Vá"
@@ -191,7 +251,6 @@ escaladas:
     descricao: Divide a primeira chapa com a Sedativa
 - via_movel:
     nome: Prezinho
-    id_no_mapa: '5'
     dificuldade: BR_4
     conquistadores:
     - Grots
@@ -199,16 +258,13 @@ escaladas:
     descricao: Fenda em diagonal, peças medias, rapel na árvore.
 - via_movel:
     nome: Super canaleta
-    id_no_mapa: '6'
     dificuldade: BR_5
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas
-      e medias, top duplo no final da canaleta.
+    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas e medias, top duplo no final da canaleta.
 - via_esportiva:
     nome: Cactos talidomida
-    id_no_mapa: '7'
     dificuldade: BR_4
     conquistadores:
     - Alexandre "Caverna"
@@ -217,19 +273,16 @@ escaladas:
     descricao: Muito frequentada, boa para iniciantes e crianças.
 - via_esportiva:
     nome: Logo sai
-    id_no_mapa: '8'
     dificuldade: BR_5
     descricao: Via curta de boa movimentação.
 - via_esportiva:
     nome: Cariocas
-    id_no_mapa: '9'
     dificuldade: BR_6
     conquistadores:
     - Escaladores Gaúchos
     descricao: Pode ser escalada tanto pela direita ou esquerda das proteções.
 - via_esportiva:
     nome: Tapa na aranha
-    id_no_mapa: '10'
     dificuldade: BR_7A
     conquistadores:
     - Anderson Barbosa
@@ -239,7 +292,6 @@ escaladas:
     descricao: Clássica, bem frequentada. Extensão por Felipe Belisario.
 - via_esportiva:
     nome: Titãs atônitos
-    id_no_mapa: '11'
     dificuldade: BR_8A
     conquistadores:
     - Gustavo Piancastelli
@@ -247,7 +299,6 @@ escaladas:
     descricao: Meio exposta.
 - via_esportiva:
     nome: Enganaram o cabo
-    id_no_mapa: '12'
     dificuldade: BR_5
     conquistadores:
     - Márcio Macena
@@ -255,7 +306,6 @@ escaladas:
     descricao: Boa opção.
 - via_esportiva:
     nome: Urtigas
-    id_no_mapa: '13'
     dificuldade: BR_5SUP
     conquistadores:
     - Eustáquio Macedo
@@ -264,7 +314,6 @@ escaladas:
     descricao: Clássica, de boa movimentação.
 - via_esportiva:
     nome: Atretas do climb (mapa do Brasil)
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     conquistadores:
     - Eustáquio Macedo
@@ -272,13 +321,10 @@ escaladas:
     descricao: Muito frequentada, com ótima movimentação.
 - via_movel:
     nome: Ossos do orifício
-    id_no_mapa: '15'
     dificuldade: BR_5
-    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e
-      médias. Termina no top da "mapa". Ótima opção!
+    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. Termina no top da "mapa". Ótima opção!
 - via_esportiva:
     nome: Baião de dois
-    id_no_mapa: '16'
     dificuldade: BR_5
     conquistadores:
     - Chico
@@ -286,16 +332,13 @@ escaladas:
     descricao: Muito frequentada, com ótima movimentação, boa para iniciante.
 - via_movel:
     nome: Entre linhas
-    id_no_mapa: '17'
     dificuldade: BR_5
     conquistadores:
     - Gustavo Vianna
     - Marcus "Rufino"
-    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção
-      para iniciantes em móvel.
+    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para iniciantes em móvel.
 - via_esportiva:
     nome: SOS mandacaru
-    id_no_mapa: '18'
     dificuldade: BR_5
     conquistadores:
     - Chico
@@ -303,7 +346,6 @@ escaladas:
     descricao: Muito frequentada, com ótima movimentação, boa para iniciante.
 - via_esportiva:
     nome: Socorro vem de baixo
-    id_no_mapa: '19'
     dificuldade: BR_5
     conquistadores:
     - Thiago "Vá"
@@ -311,7 +353,6 @@ escaladas:
     descricao: Boa opção para iniciantes
 - via_esportiva:
     nome: Mato queimado
-    id_no_mapa: '20'
     dificuldade: BR_6SUP
     conquistadores:
     - Alexandre Queiroz
@@ -319,13 +360,12 @@ escaladas:
     descricao: Via curta
 - via_esportiva:
     nome: De Mariah
-    id_no_mapa: '21'
     dificuldade: BR_5
     conquistadores:
     - Thiago "Vá"
     - Thiago "Tato"
     descricao: Via de equilibrio
----
+---
 # Setor G2
 
 ![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp)

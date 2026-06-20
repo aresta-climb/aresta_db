@@ -1,4 +1,4 @@
----
+---
 nome: Mãos de Sebo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_maos_de_sebo_p0.webp
@@ -40,27 +40,38 @@ mapas:
       y: 535
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: Mãos de Tesoura
+    ids:
+    - '2'
+  - escalada: Fei Long
+    ids:
+    - '3'
+  - escalada: Mãos de Sebo
+    ids:
+    - '4'
+  - escalada: Mãozinha
+    ids:
+    - '5'
 escaladas:
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '1'
 - boulder:
     nome: Mãos de Tesoura
-    id_no_mapa: '2'
     dificuldade: V4
 - boulder:
     nome: Fei Long
-    id_no_mapa: '3'
     dificuldade: V8
 - boulder:
     nome: Mãos de Sebo
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: Mãozinha
-    id_no_mapa: '5'
     dificuldade: V2
----
+---
 # Setor Mãos de Sebo
 
 O setor Mãos de Sebo possui um bloco com linhas que exigem técnica e controle de agarras.

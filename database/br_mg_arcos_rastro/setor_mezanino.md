@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p0_i0.webp
@@ -110,10 +110,31 @@ mapas:
       y: 422
       comprimento: 16
       largura: 14
+  referencias:
+  - escalada: Passeio das Patacas
+    ids:
+    - '01'
+  - escalada: A Mais Bonita
+    ids:
+    - '02'
+  - escalada: Gritos da Revolução
+    ids:
+    - '03'
+  - escalada: Ataque das Formigas Gigantes
+    ids:
+    - '04'
+  - escalada: Na Caralha da Noite
+    ids:
+    - '05'
+  - escalada: Universo em Desencanto
+    ids:
+    - '06'
+  - escalada: Legionários
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Passeio das Patacas
-    id_no_mapa: '01'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 8
@@ -121,40 +142,34 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: A Mais Bonita
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Gritos da Revolução
-    id_no_mapa: '03'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Ataque das Formigas Gigantes
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Na Caralha da Noite
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Universo em Desencanto
-    id_no_mapa: '06'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Legionários
-    id_no_mapa: '07'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
 # Setor Mezanino
 
 Este setor possui sombra a partir das 13h (variando de acordo com a estação). O acesso pode ser feito pelo "Portal", "Túnel" ou "Escada de acesso" que leva ao Jardim Suspenso.

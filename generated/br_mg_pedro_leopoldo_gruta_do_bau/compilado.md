@@ -248,7 +248,7 @@
             | ![Vista Aérea](imagens/mapas_gerais_p1.webp) |
             | :--: |
             | *Vista Aérea* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -669,11 +669,167 @@
           - **y**: 1216
           - **comprimento**: 156
           - **largura**: 34
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Zero Um
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Caixão e Vela Preta
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: É Brincadeira
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Vaca Louca
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Tarda mas não falha
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Aresta Aperta Um
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Túnel do Tempo
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Caretas por Acaso
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Pop Rock
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Juliana
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: A Despedida
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Rapanui
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Escorregador de Macacos
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Dalai Lama
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Céu em Chamas
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Legolas (Variante Céu em Chamas)
+        - **ids**:
+          - 15
+      - **[16]**:
+        - **escalada**: Mithrandir
+        - **ids**:
+          - 16
+      - **[17]**:
+        - **escalada**: Cobiça
+        - **ids**:
+          - 17
+      - **[18]**:
+        - **escalada**: Cobiça (Variante da Saída a direita)
+        - **ids**:
+          - 17a
+      - **[19]**:
+        - **escalada**: Arte e Ofício – 2ª_Intenção
+        - **ids**:
+          - 18
+      - **[20]**:
+        - **escalada**: Pontes de Jah
+        - **ids**:
+          - 19
+      - **[21]**:
+        - **escalada**: Dijjins
+        - **ids**:
+          - 20
+      - **[22]**:
+        - **escalada**: Aresta
+        - **ids**:
+          - 21
+      - **[23]**:
+        - **escalada**: Verde do Violinista
+        - **ids**:
+          - 22
+      - **[24]**:
+        - **escalada**: Narcisista
+        - **ids**:
+          - 23
+      - **[25]**:
+        - **escalada**: The Wall (SadMan)
+        - **ids**:
+          - 24
+      - **[26]**:
+        - **escalada**: Eterno Regresso
+        - **ids**:
+          - 25
+      - **[27]**:
+        - **escalada**: Pro Dia Nascer Feliz
+        - **ids**:
+          - 26
+      - **[28]**:
+        - **escalada**: Abajur de Protheus
+        - **ids**:
+          - 27
+      - **[29]**:
+        - **escalada**: Perpétuos
+        - **ids**:
+          - 28
+      - **[30]**:
+        - **escalada**: O Sonhar
+        - **ids**:
+          - 29
+      - **[31]**:
+        - **escalada**: Calíope
+        - **ids**:
+          - 30
+      - **[32]**:
+        - **escalada**: Morpheus
+        - **ids**:
+          - 31
+      - **[33]**:
+        - **escalada**: Beirute
+        - **ids**:
+          - 32
+      - **[34]**:
+        - **escalada**: Desejo
+        - **ids**:
+          - 33
+      - **[35]**:
+        - **escalada**: Coríntio (DESATIVADA)
+        - **ids**:
+          - 34
+      - **[36]**:
+        - **escalada**: Triplo X
+        - **ids**:
+          - 35
+      - **[37]**:
+        - **escalada**: Durangos
+        - **ids**:
+          - 36
+      - **[38]**:
+        - **escalada**: Velha Guarda
+        - **ids**:
+          - 37
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Zero Um
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -682,7 +838,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Caixão e Vela Preta
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -693,7 +848,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: É Brincadeira
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -702,7 +856,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Vaca Louca
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -711,7 +864,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Tarda mas não falha
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -720,7 +872,6 @@
   - **[5]**:
     - **via_movel**:
       - **nome**: Aresta Aperta Um
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -729,7 +880,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Túnel do Tempo
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -739,7 +889,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Caretas por Acaso
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -750,7 +899,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Pop Rock
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7C_BARRA_8A
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -760,7 +908,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Juliana
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -770,7 +917,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: A Despedida
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_9C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -781,7 +927,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Rapanui
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -792,7 +937,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Escorregador de Macacos
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -801,7 +945,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Dalai Lama
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -811,7 +954,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Céu em Chamas
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -822,7 +964,6 @@
     - **via_esportiva**:
       - **descricao**: Inacabada
       - **nome**: Legolas (Variante Céu em Chamas)
-      - **id_no_mapa**: 15
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Sandro Almeida
@@ -830,7 +971,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Mithrandir
-      - **id_no_mapa**: 16
       - **dificuldade**: PROJETO
       - **conquistadores**:
         - Sandro Almeida
@@ -838,7 +978,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Cobiça
-      - **id_no_mapa**: 17
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
@@ -850,7 +989,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Cobiça (Variante da Saída a direita)
-      - **id_no_mapa**: 17a
       - **dificuldade**: BR_9C_BARRA_10A
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -862,7 +1000,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Arte e Ofício – 2ª_Intenção
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -873,7 +1010,6 @@
   - **[20]**:
     - **via_movel**:
       - **nome**: Pontes de Jah
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -882,7 +1018,6 @@
   - **[21]**:
     - **via_movel**:
       - **nome**: Dijjins
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -890,7 +1025,6 @@
   - **[22]**:
     - **via_movel**:
       - **nome**: Aresta
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -901,7 +1035,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Verde do Violinista
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -911,7 +1044,6 @@
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Narcisista
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -921,7 +1053,6 @@
   - **[25]**:
     - **via_esportiva**:
       - **nome**: The Wall (SadMan)
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -934,7 +1065,6 @@
   - **[26]**:
     - **via_movel**:
       - **nome**: Eterno Regresso
-      - **id_no_mapa**: 25
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -943,7 +1073,6 @@
   - **[27]**:
     - **via_movel**:
       - **nome**: Pro Dia Nascer Feliz
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_4SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -952,7 +1081,6 @@
   - **[28]**:
     - **via_movel**:
       - **nome**: Abajur de Protheus
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -960,7 +1088,6 @@
   - **[29]**:
     - **via_esportiva**:
       - **nome**: Perpétuos
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -970,7 +1097,6 @@
   - **[30]**:
     - **via_esportiva**:
       - **nome**: O Sonhar
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -980,7 +1106,6 @@
   - **[31]**:
     - **via_esportiva**:
       - **nome**: Calíope
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -990,7 +1115,6 @@
   - **[32]**:
     - **via_esportiva**:
       - **nome**: Morpheus
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1000,7 +1124,6 @@
   - **[33]**:
     - **via_movel**:
       - **nome**: Beirute
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1008,7 +1131,6 @@
   - **[34]**:
     - **via_esportiva**:
       - **nome**: Desejo
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1018,7 +1140,6 @@
   - **[35]**:
     - **via_esportiva**:
       - **nome**: Coríntio (DESATIVADA)
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -1028,7 +1149,6 @@
   - **[36]**:
     - **via_movel**:
       - **nome**: Triplo X
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1036,7 +1156,6 @@
   - **[37]**:
     - **via_esportiva**:
       - **nome**: Durangos
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -1046,7 +1165,6 @@
   - **[38]**:
     - **via_esportiva**:
       - **nome**: Velha Guarda
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -1430,11 +1548,175 @@
           - **y**: 1135
           - **comprimento**: 80
           - **largura**: 70
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: A Fenda da Discórdia
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Brenfisema (Sai na 5ª proteção da via 25)
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Tamburello
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Onda de Calcário
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Ets de Fidalgo
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Conquista Fatal
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Tico Tico Space
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: O Basilisco de Slytherin
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Disparada
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Judy
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Psicoacústica
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Via sem informação
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Quarto dos Sonhos
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Ameaça Fantasma
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Dança das Aranhas
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: First Blues
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Saci de Corda
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Olho que Tudo Vê
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Preguiça Mental
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Sete Além
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Babylon Tower
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Aresta de Sangue
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Caverna do Dragão
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Dona Ló
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Yesterday
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Crônicas da Dy
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Coisa Linda
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Um Lugar para ser Feliz
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Diedro de Thanos
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: Eternidade em um Segundo
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: Urubu Cargueiro
+        - **ids**:
+          - 31
+      - **[31]**:
+        - **escalada**: Lucineide não deu
+        - **ids**:
+          - 32
+      - **[32]**:
+        - **escalada**: Anos de Dor
+        - **ids**:
+          - 33
+      - **[33]**:
+        - **escalada**: Sem Consenso (Antiga variante)
+        - **ids**:
+          - 34
+      - **[34]**:
+        - **escalada**: Falta de Consenso
+        - **ids**:
+          - 35
+      - **[35]**:
+        - **escalada**: Dona da Beleza
+        - **ids**:
+          - 36
+      - **[36]**:
+        - **escalada**: Vem Tranquilo
+        - **ids**:
+          - 37
+      - **[37]**:
+        - **escalada**: O Princípio da Incerteza
+        - **ids**:
+          - 38
+      - **[38]**:
+        - **escalada**: Retorno do Pitu
+        - **ids**:
+          - 39
+      - **[39]**:
+        - **escalada**: Mar Revolto
+        - **ids**:
+          - 40
+      - **[40]**:
+        - **escalada**: Zé Carlos, Domador de Cavalos
+        - **ids**:
+          - 41
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: A Fenda da Discórdia
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7B
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1442,7 +1724,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Brenfisema (Sai na 5ª proteção da via 25)
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1452,7 +1733,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Tamburello
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -1462,7 +1742,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Onda de Calcário
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
@@ -1472,7 +1751,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Ets de Fidalgo
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1483,7 +1761,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Conquista Fatal
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -1493,7 +1770,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Tico Tico Space
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -1503,7 +1779,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: O Basilisco de Slytherin
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1513,7 +1788,6 @@
   - **[8]**:
     - **via_movel**:
       - **nome**: Disparada
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_4
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1522,7 +1796,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Judy
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1531,7 +1804,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Psicoacústica
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1540,7 +1812,6 @@
   - **[11]**:
     - **via_movel**:
       - **nome**: Via sem informação
-      - **id_no_mapa**: 12
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1548,7 +1819,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Quarto dos Sonhos
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1557,7 +1827,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ameaça Fantasma
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1568,7 +1837,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Dança das Aranhas
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1578,7 +1846,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: First Blues
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1588,7 +1855,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Saci de Corda
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1598,7 +1864,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Olho que Tudo Vê
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1608,7 +1873,6 @@
   - **[18]**:
     - **via_movel**:
       - **nome**: Preguiça Mental
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_5
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1617,7 +1881,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Sete Além
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1626,7 +1889,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Babylon Tower
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1635,7 +1897,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Aresta de Sangue
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1644,7 +1905,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Caverna do Dragão
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -1653,7 +1913,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Dona Ló
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1662,7 +1921,6 @@
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Yesterday
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1671,7 +1929,6 @@
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Crônicas da Dy
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1680,7 +1937,6 @@
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Coisa Linda
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1689,7 +1945,6 @@
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Um Lugar para ser Feliz
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1699,7 +1954,6 @@
   - **[28]**:
     - **via_esportiva**:
       - **nome**: Diedro de Thanos
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1708,7 +1962,6 @@
   - **[29]**:
     - **via_esportiva**:
       - **nome**: Eternidade em um Segundo
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -1718,7 +1971,6 @@
   - **[30]**:
     - **via_esportiva**:
       - **nome**: Urubu Cargueiro
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -1727,7 +1979,6 @@
   - **[31]**:
     - **via_esportiva**:
       - **nome**: Lucineide não deu
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1738,7 +1989,6 @@
   - **[32]**:
     - **via_esportiva**:
       - **nome**: Anos de Dor
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -1749,7 +1999,6 @@
   - **[33]**:
     - **via_esportiva**:
       - **nome**: Sem Consenso (Antiga variante)
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1761,7 +2010,6 @@
   - **[34]**:
     - **via_esportiva**:
       - **nome**: Falta de Consenso
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -1773,7 +2021,6 @@
   - **[35]**:
     - **via_esportiva**:
       - **nome**: Dona da Beleza
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1783,7 +2030,6 @@
   - **[36]**:
     - **via_esportiva**:
       - **nome**: Vem Tranquilo
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -1793,7 +2039,6 @@
   - **[37]**:
     - **via_movel**:
       - **nome**: O Princípio da Incerteza
-      - **id_no_mapa**: 38
       - **dificuldade**: BR_5
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -1803,7 +2048,6 @@
   - **[38]**:
     - **via_esportiva**:
       - **nome**: Retorno do Pitu
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -1813,7 +2057,6 @@
   - **[39]**:
     - **via_esportiva**:
       - **nome**: Mar Revolto
-      - **id_no_mapa**: 40
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
@@ -1822,7 +2065,6 @@
   - **[40]**:
     - **via_esportiva**:
       - **nome**: Zé Carlos, Domador de Cavalos
-      - **id_no_mapa**: 41
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2223,11 +2465,191 @@
           - **y**: 1152
           - **comprimento**: 155
           - **largura**: 129
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Criatura Hediondas
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Wyatt Earp
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Jimi Killer Miller
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Jesse James
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Tempo de Espera
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Variante Tempo de Espera
+        - **ids**:
+          - 05
+      - **[6]**:
+        - **escalada**: La Casa de Papel
+        - **ids**:
+          - 06
+      - **[7]**:
+        - **escalada**: Cariocando
+        - **ids**:
+          - 07
+      - **[8]**:
+        - **escalada**: Neverland
+        - **ids**:
+          - 08
+      - **[9]**:
+        - **escalada**: Mestre Splinter
+        - **ids**:
+          - 09
+      - **[10]**:
+        - **escalada**: Enigma da Esfinge
+        - **ids**:
+          - 10
+      - **[11]**:
+        - **escalada**: Taj Mahal
+        - **ids**:
+          - 11
+      - **[12]**:
+        - **escalada**: The Boys
+        - **ids**:
+          - 12
+      - **[13]**:
+        - **escalada**: Ainda é Tempo
+        - **ids**:
+          - 13
+      - **[14]**:
+        - **escalada**: A Espera de um Milagre
+        - **ids**:
+          - 14
+      - **[15]**:
+        - **escalada**: Gangue Voadora
+        - **ids**:
+          - 15
+      - **[16]**:
+        - **escalada**: Benjamin Horigok
+        - **ids**:
+          - 16
+      - **[17]**:
+        - **escalada**: Edward Teacher
+        - **ids**:
+          - 17
+      - **[18]**:
+        - **escalada**: Blacksun Bellany
+        - **ids**:
+          - 18
+      - **[19]**:
+        - **escalada**: Charles Vane
+        - **ids**:
+          - 19
+      - **[20]**:
+        - **escalada**: Calcário nos Olhos
+        - **ids**:
+          - 20
+      - **[21]**:
+        - **escalada**: Cundum
+        - **ids**:
+          - 21
+      - **[22]**:
+        - **escalada**: Arte e Ofício na Lua
+        - **ids**:
+          - 22
+      - **[23]**:
+        - **escalada**: Dê do Baú
+        - **ids**:
+          - 23
+      - **[24]**:
+        - **escalada**: Variante West and Girls
+        - **ids**:
+          - 24
+      - **[25]**:
+        - **escalada**: West and Girls (Hipertrofia)
+        - **ids**:
+          - 25
+      - **[26]**:
+        - **escalada**: Port Royal
+        - **ids**:
+          - 26
+      - **[27]**:
+        - **escalada**: Comendador do Carste
+        - **ids**:
+          - 27
+      - **[28]**:
+        - **escalada**: Faraó
+        - **ids**:
+          - 28
+      - **[29]**:
+        - **escalada**: Marreta Voadora
+        - **ids**:
+          - 29
+      - **[30]**:
+        - **escalada**: El Capeton
+        - **ids**:
+          - 30
+      - **[31]**:
+        - **escalada**: Modo Fantasma
+        - **ids**:
+          - 31
+      - **[32]**:
+        - **escalada**: Doc Holiday
+        - **ids**:
+          - 32
+      - **[33]**:
+        - **escalada**: Calamity Jane
+        - **ids**:
+          - 33
+      - **[34]**:
+        - **escalada**: Moriarty
+        - **ids**:
+          - 34
+      - **[35]**:
+        - **escalada**: West World
+        - **ids**:
+          - 35
+      - **[36]**:
+        - **escalada**: Vórtex
+        - **ids**:
+          - 36
+      - **[37]**:
+        - **escalada**: Ida Chi não Sei
+        - **ids**:
+          - 37
+      - **[38]**:
+        - **escalada**: Amarelo
+        - **ids**:
+          - 38
+      - **[39]**:
+        - **escalada**: Narnia
+        - **ids**:
+          - 39
+      - **[40]**:
+        - **escalada**: Seu Truta na Coluna do Meio
+        - **ids**:
+          - 40
+      - **[41]**:
+        - **escalada**: John Wesley Hardin
+        - **ids**:
+          - 41
+      - **[42]**:
+        - **escalada**: Woody
+        - **ids**:
+          - 42
+      - **[43]**:
+        - **escalada**: Coisa de Menino
+        - **ids**:
+          - 43
+      - **[44]**:
+        - **escalada**: Amor Verdadeiro
+        - **ids**:
+          - 44
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Criatura Hediondas
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2238,7 +2660,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Wyatt Earp
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2248,7 +2669,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Jimi Killer Miller
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2258,7 +2678,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Jesse James
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2268,7 +2687,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Tempo de Espera
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2279,12 +2697,10 @@
     - **via_esportiva**:
       - **descricao**: Fixa (Inacabada – Grampos à Esq.)
       - **nome**: Variante Tempo de Espera
-      - **id_no_mapa**: 05
       - **dificuldade**: INDEFINIDO
   - **[6]**:
     - **via_esportiva**:
       - **nome**: La Casa de Papel
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8B_BARRA_8C
       - **conquistadores**:
         - Roberto Lincoln
@@ -2292,7 +2708,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Cariocando
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2302,7 +2717,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Neverland
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2312,7 +2726,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Mestre Splinter
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2322,7 +2735,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Enigma da Esfinge
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2331,7 +2743,6 @@
   - **[11]**:
     - **via_movel**:
       - **nome**: Taj Mahal
-      - **id_no_mapa**: 11
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2340,7 +2751,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: The Boys
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2350,7 +2760,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ainda é Tempo
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2360,7 +2769,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: A Espera de um Milagre
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2370,7 +2778,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Gangue Voadora
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -2380,7 +2787,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Benjamin Horigok
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2391,7 +2797,6 @@
     - **via_esportiva**:
       - **descricao**: Mesmo Top da via 16
       - **nome**: Edward Teacher
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2401,7 +2806,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Blacksun Bellany
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2411,7 +2815,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Charles Vane
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2421,7 +2824,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Calcário nos Olhos
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2432,7 +2834,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Cundum
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2442,7 +2843,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Arte e Ofício na Lua
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_8B
       - **dificuldade_artificial**: A1
       - **quantidade_protecoes_intermediarias**: 6
@@ -2453,7 +2853,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Dê do Baú
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2463,7 +2862,6 @@
   - **[24]**:
     - **via_movel**:
       - **nome**: Variante West and Girls
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2471,7 +2869,6 @@
   - **[25]**:
     - **via_esportiva**:
       - **nome**: West and Girls (Hipertrofia)
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2484,7 +2881,6 @@
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Port Royal
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -2494,7 +2890,6 @@
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Comendador do Carste
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2504,7 +2899,6 @@
   - **[28]**:
     - **via_esportiva**:
       - **nome**: Faraó
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2515,7 +2909,6 @@
   - **[29]**:
     - **via_esportiva**:
       - **nome**: Marreta Voadora
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2525,7 +2918,6 @@
   - **[30]**:
     - **via_esportiva**:
       - **nome**: El Capeton
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2536,7 +2928,6 @@
   - **[31]**:
     - **via_esportiva**:
       - **nome**: Modo Fantasma
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2547,7 +2938,6 @@
   - **[32]**:
     - **via_esportiva**:
       - **nome**: Doc Holiday
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -2557,7 +2947,6 @@
   - **[33]**:
     - **via_esportiva**:
       - **nome**: Calamity Jane
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2567,7 +2956,6 @@
   - **[34]**:
     - **via_esportiva**:
       - **nome**: Moriarty
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2577,7 +2965,6 @@
   - **[35]**:
     - **via_esportiva**:
       - **nome**: West World
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2587,7 +2974,6 @@
   - **[36]**:
     - **via_movel**:
       - **nome**: Vórtex
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2596,7 +2982,6 @@
   - **[37]**:
     - **via_esportiva**:
       - **nome**: Ida Chi não Sei
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2606,7 +2991,6 @@
   - **[38]**:
     - **via_esportiva**:
       - **nome**: Amarelo
-      - **id_no_mapa**: 38
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2616,7 +3000,6 @@
   - **[39]**:
     - **via_esportiva**:
       - **nome**: Narnia
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2626,7 +3009,6 @@
   - **[40]**:
     - **via_movel**:
       - **nome**: Seu Truta na Coluna do Meio
-      - **id_no_mapa**: 40
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2635,7 +3017,6 @@
   - **[41]**:
     - **via_esportiva**:
       - **nome**: John Wesley Hardin
-      - **id_no_mapa**: 41
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Roberto Lincoln
@@ -2643,7 +3024,6 @@
   - **[42]**:
     - **via_esportiva**:
       - **nome**: Woody
-      - **id_no_mapa**: 42
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -2654,7 +3034,6 @@
     - **via_esportiva**:
       - **descricao**: Fixa
       - **nome**: Coisa de Menino
-      - **id_no_mapa**: 43
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
@@ -2664,7 +3043,6 @@
   - **[44]**:
     - **via_esportiva**:
       - **nome**: Amor Verdadeiro
-      - **id_no_mapa**: 44
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2877,11 +3255,75 @@
           - **y**: 1108
           - **comprimento**: 65
           - **largura**: 45
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Era de Aquários (Interditada)
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Terra Devastada
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Canabizados por Água
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Cólico Espinhos
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Passeio no Parque
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Cobaia
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Despedida de Solteiro
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Primeira Batida
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Menino de Toca
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Via sem informação
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Rins de Aço
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Macacos me mordam
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Novinha em Folha
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Oposição em Árvore
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Maggie
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Chuva Orgânica
+        - **ids**:
+          - 16
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Era de Aquários (Interditada)
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -2891,7 +3333,6 @@
   - **[1]**:
     - **via_movel**:
       - **nome**: Terra Devastada
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2900,7 +3341,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Canabizados por Água
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -2911,7 +3351,6 @@
   - **[3]**:
     - **via_movel**:
       - **nome**: Cólico Espinhos
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -2920,7 +3359,6 @@
   - **[4]**:
     - **via_movel**:
       - **nome**: Passeio no Parque
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_4SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -2931,7 +3369,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Cobaia
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -2940,7 +3377,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Despedida de Solteiro
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2950,7 +3386,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Primeira Batida
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -2962,7 +3397,6 @@
     - **via_esportiva**:
       - **descricao**: Inacabada
       - **nome**: Menino de Toca
-      - **id_no_mapa**: 09
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Joviney
@@ -2972,12 +3406,10 @@
     - **via_esportiva**:
       - **descricao**: Fixa
       - **nome**: Via sem informação
-      - **id_no_mapa**: 10
       - **dificuldade**: INDEFINIDO
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Rins de Aço
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -2988,7 +3420,6 @@
   - **[11]**:
     - **via_movel**:
       - **nome**: Macacos me mordam
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Mista
       - **conquistadores**:
@@ -2997,7 +3428,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Novinha em Folha
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -3006,7 +3436,6 @@
   - **[13]**:
     - **via_movel**:
       - **nome**: Oposição em Árvore
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3014,7 +3443,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Maggie
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -3023,7 +3451,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Chuva Orgânica
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -3124,11 +3551,35 @@
           - **y**: 1303
           - **comprimento**: 167
           - **largura**: 88
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cemitério das Caranguejeiras - Direita
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Água Suja - Esquerda
+        - **ids**:
+          - 01
+      - **[2]**:
+        - **escalada**: O Babão
+        - **ids**:
+          - 02
+      - **[3]**:
+        - **escalada**: Kactos Kid
+        - **ids**:
+          - 03
+      - **[4]**:
+        - **escalada**: Demônios da Mente
+        - **ids**:
+          - 04
+      - **[5]**:
+        - **escalada**: Rolha de Algodão
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Cemitério das Caranguejeiras - Direita
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -3139,7 +3590,6 @@
     - **via_esportiva**:
       - **descricao**: Mesmo Top da Via 1
       - **nome**: Água Suja - Esquerda
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -3150,7 +3600,6 @@
   - **[2]**:
     - **via_movel**:
       - **nome**: O Babão
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3160,14 +3609,12 @@
     - **via_esportiva**:
       - **descricao**: Top Rope
       - **nome**: Kactos Kid
-      - **id_no_mapa**: 03
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Roberto
   - **[4]**:
     - **via_movel**:
       - **nome**: Demônios da Mente
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3176,7 +3623,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Rolha de Algodão
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3467,11 +3913,123 @@
           - **y**: 1301
           - **comprimento**: 27
           - **largura**: 16
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Barbie Face última
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Jogue que eu pego
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Pegue que eu jogo
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Sucuri que me abraça
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Desesperado da Perereca
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Início, Meio e Fim
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Menor Abandonado
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Contagem Regressiva
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Woodstock
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Gruda mas não Garra
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: 2ª Dose
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: 1ª Dose
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Maracutaia
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Muvuca
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Candymam
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Agarras de Mateus
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Dose Dupla
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Consciência Limpa
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Análise de Consciência
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Sentinela
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Vaca Profana
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Santuário das Aranhas
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Professor Piló
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: O último Tango
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Sentinela Dois
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Wilson Fisk
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Cobra Kai
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Paisagistas
+        - **ids**:
+          - 28
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Barbie Face última
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -3480,7 +4038,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Jogue que eu pego
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -3494,28 +4051,24 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Pegue que eu jogo
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Sucuri que me abraça
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Desesperado da Perereca
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
   - **[5]**:
     - **via_movel**:
       - **nome**: Início, Meio e Fim
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_4
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3524,7 +4077,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Menor Abandonado
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -3534,7 +4086,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Contagem Regressiva
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3544,7 +4095,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Woodstock
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3553,7 +4103,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Gruda mas não Garra
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3563,7 +4112,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: 2ª Dose
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -3572,7 +4120,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: 1ª Dose
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3581,7 +4128,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Maracutaia
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -3591,7 +4137,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Muvuca
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -3601,7 +4146,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Candymam
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -3611,7 +4155,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Agarras de Mateus
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -3621,7 +4164,6 @@
   - **[16]**:
     - **via_multiplas_enfiadas**:
       - **nome**: Dose Dupla
-      - **id_no_mapa**: 17
       - **enfiadas**:
         - **[0]**:
           - **via_esportiva**:
@@ -3642,7 +4184,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Consciência Limpa
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_6SUP_BARRA_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -3652,7 +4193,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Análise de Consciência
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -3664,7 +4204,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Sentinela
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -3674,7 +4213,6 @@
   - **[20]**:
     - **via_movel**:
       - **nome**: Vaca Profana
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3685,7 +4223,6 @@
   - **[21]**:
     - **via_movel**:
       - **nome**: Santuário das Aranhas
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3695,7 +4232,6 @@
     - **via_movel**:
       - **descricao**: Saída a partir do platô em cima das vias 21 e 22
       - **nome**: Professor Piló
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3703,7 +4239,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: O último Tango
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -3712,7 +4247,6 @@
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Sentinela Dois
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -3722,7 +4256,6 @@
   - **[25]**:
     - **via_movel**:
       - **nome**: Wilson Fisk
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_7A
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -3731,7 +4264,6 @@
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Cobra Kai
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -3742,7 +4274,6 @@
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Paisagistas
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7A_BARRA_7B
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4098,11 +4629,159 @@
           - **y**: 1260
           - **comprimento**: 31
           - **largura**: 19
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Quase Nove
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: A Revolta da Bunda
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: O Faxineiro
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Esquadrilha da Fumaça
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Ronco do V8
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Lagrimas de Calcário
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Tá Chovendo Carrapato
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Tá Esperando o quê?
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Quem Sabe ano que Vem
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Eau Rouge
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Sem informação
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Via inacabada
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Cachinhos Dourados
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Manto e Adaga
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: R770
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Sem informação
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Jornada nas Estrelas
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Super Canaleta
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Laboratório
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Dark Side of the Moon
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Mega Sena
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: La Torância
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Comunidade Flebótomo
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Sem informação
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Duplo Sentido
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Fantástico
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Show da Vida
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Madame Surtô
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Lupin
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: Wall Ride
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: Dr. Lund
+        - **ids**:
+          - 31
+      - **[31]**:
+        - **escalada**: Kero Mais
+        - **ids**:
+          - 32
+      - **[32]**:
+        - **escalada**: Bruxa de Blair
+        - **ids**:
+          - 33
+      - **[33]**:
+        - **escalada**: Mentirinha
+        - **ids**:
+          - 34
+      - **[34]**:
+        - **escalada**: Zé Arigó
+        - **ids**:
+          - 35
+      - **[35]**:
+        - **escalada**: Visionário
+        - **ids**:
+          - 36
+      - **[36]**:
+        - **escalada**: Skywalker
+        - **ids**:
+          - 37
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Quase Nove
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -4112,7 +4791,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: A Revolta da Bunda
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -4122,7 +4800,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: O Faxineiro
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -4132,7 +4809,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Esquadrilha da Fumaça
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -4142,7 +4818,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Ronco do V8
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4153,7 +4828,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Lagrimas de Calcário
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4164,7 +4838,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Tá Chovendo Carrapato
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4174,7 +4847,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tá Esperando o quê?
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -4183,7 +4855,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Quem Sabe ano que Vem
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -4194,7 +4865,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Eau Rouge
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4204,18 +4874,15 @@
     - **via_esportiva**:
       - **descricao**: Fixa
       - **nome**: Sem informação
-      - **id_no_mapa**: 11
       - **dificuldade**: INDEFINIDO
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Via inacabada
-      - **id_no_mapa**: 12
       - **dificuldade**: INDEFINIDO
   - **[12]**:
     - **via_esportiva**:
       - **descricao**: Lance difícil só na saída. Depois fica fácil.
       - **nome**: Cachinhos Dourados
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -4225,7 +4892,6 @@
   - **[13]**:
     - **via_movel**:
       - **nome**: Manto e Adaga
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -4233,7 +4899,6 @@
   - **[14]**:
     - **via_movel**:
       - **nome**: R770
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -4241,14 +4906,12 @@
   - **[15]**:
     - **via_movel**:
       - **nome**: Sem informação
-      - **id_no_mapa**: 16
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Mista
   - **[16]**:
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Jornada nas Estrelas
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
@@ -4258,7 +4921,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Super Canaleta
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 16
       - **quantidade_protecoes_parada**: 2
@@ -4268,7 +4930,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Laboratório
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4278,7 +4939,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Dark Side of the Moon
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4288,7 +4948,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Mega Sena
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -4298,7 +4957,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: La Torância
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -4308,7 +4966,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Comunidade Flebótomo
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -4318,13 +4975,11 @@
     - **via_movel**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Sem informação
-      - **id_no_mapa**: 24
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Mista
   - **[24]**:
     - **via_multiplas_enfiadas**:
       - **nome**: Duplo Sentido
-      - **id_no_mapa**: 25
       - **enfiadas**:
         - **[0]**:
           - **via_esportiva**:
@@ -4345,7 +5000,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Fantástico
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -4356,7 +5010,6 @@
     - **via_movel**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Show da Vida
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_7B
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -4365,7 +5018,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Madame Surtô
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4375,7 +5027,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Lupin
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4385,7 +5036,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Wall Ride
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -4395,7 +5045,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Dr. Lund
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -4405,7 +5054,6 @@
     - **via_esportiva**:
       - **descricao**: Via longa – Usar corda de 60 mts
       - **nome**: Kero Mais
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -4414,7 +5062,6 @@
   - **[32]**:
     - **via_esportiva**:
       - **nome**: Bruxa de Blair
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4424,7 +5071,6 @@
   - **[33]**:
     - **via_esportiva**:
       - **nome**: Mentirinha
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -4434,7 +5080,6 @@
   - **[34]**:
     - **via_esportiva**:
       - **nome**: Zé Arigó
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -4444,7 +5089,6 @@
   - **[35]**:
     - **via_esportiva**:
       - **nome**: Visionário
-      - **id_no_mapa**: 36
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -4454,7 +5098,6 @@
   - **[36]**:
     - **via_esportiva**:
       - **nome**: Skywalker
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -4552,11 +5195,27 @@
           - **y**: 638
           - **comprimento**: 169
           - **largura**: 21
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Credo, que Delícia
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Trem Bão é Coisa Boa
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: A Vida é um Desafio
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Essa Molezinha vai Abacar
+        - **ids**:
+          - 04
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Credo, que Delícia
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4565,7 +5224,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Trem Bão é Coisa Boa
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_3SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4574,7 +5232,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: A Vida é um Desafio
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_4SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4583,7 +5240,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Essa Molezinha vai Abacar
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_3
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4824,11 +5480,103 @@
           - **y**: 940
           - **comprimento**: 86
           - **largura**: 46
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Osteoporose
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Pressão Baixa
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Pressão Alta
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Menopausa
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Andropausa
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Toque Retal
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Papa Nicolau
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Tira o Andador e Vai
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Rupestre
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Losartana
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Captopril
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Plenitude
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Diabetes
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Glifage
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Insulina
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: AVC
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Fusca Azul
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: The Equalizer
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Casa da Fumaça
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Sombra pro Morto
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: As Fúrias
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Os Despertos
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: As Bondosas
+        - **ids**:
+          - 23
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Osteoporose
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -4838,7 +5586,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Pressão Baixa
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4848,7 +5595,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Pressão Alta
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4858,7 +5604,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Menopausa
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4868,7 +5613,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Andropausa
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4878,7 +5622,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Toque Retal
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4888,7 +5631,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Papa Nicolau
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4898,7 +5640,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tira o Andador e Vai
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4908,7 +5649,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Rupestre
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4918,7 +5658,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Losartana
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4928,7 +5667,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Captopril
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4938,7 +5676,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Plenitude
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4948,7 +5685,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Diabetes
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4958,7 +5694,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Glifage
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4968,7 +5703,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Insulina
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4978,7 +5712,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: AVC
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -4988,7 +5721,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Fusca Azul
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -4999,7 +5731,6 @@
   - **[17]**:
     - **via_movel**:
       - **nome**: The Equalizer
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5008,7 +5739,6 @@
   - **[18]**:
     - **via_movel**:
       - **nome**: Casa da Fumaça
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_5
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5017,7 +5747,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Sombra pro Morto
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5026,7 +5755,6 @@
   - **[20]**:
     - **via_movel**:
       - **nome**: As Fúrias
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5035,7 +5763,6 @@
   - **[21]**:
     - **via_movel**:
       - **nome**: Os Despertos
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5044,7 +5771,6 @@
   - **[22]**:
     - **via_movel**:
       - **nome**: As Bondosas
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5345,11 +6071,135 @@
           - **y**: 1166
           - **comprimento**: 171
           - **largura**: 59
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Primogênito
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Tá de Corpo Mole
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Dente de Tubarão
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Besteirinha
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: O Jogo que Jogamos
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Boca Mordida
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Tetris
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Fenda Gerações
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Encontros Temporais
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Golpe de Mestre
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Voo de Ícaro
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Y da Questão
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Seu Perdão
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: A Linda
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Drama
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Escolha de Sophia
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Pra Você
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Titanic
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Por Baixo dos Panos
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Lobo Solitário
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Currículo Atualizado
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Pra Morrer Menos
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Conhecendo o Criador
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Vida Após a Morte
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: De Frente com o Renegado
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Contra Mão
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Sete Trabalhos de Hércules
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Inhônho não Deixa
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Excesso de Confiança
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: A Última Sinfonia de Bethoven
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: Vai no Molhado Mesmo (Rapel do bico de pedra)
+        - **ids**:
+          - 31
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Primogênito
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5358,7 +6208,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Tá de Corpo Mole
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5367,7 +6216,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Dente de Tubarão
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5376,7 +6224,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Besteirinha
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5385,7 +6232,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: O Jogo que Jogamos
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5394,7 +6240,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Boca Mordida
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5403,7 +6248,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Tetris
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5412,7 +6256,6 @@
   - **[7]**:
     - **via_movel**:
       - **nome**: Fenda Gerações
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5420,7 +6263,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Encontros Temporais
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5429,7 +6271,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Golpe de Mestre
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5438,7 +6279,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Voo de Ícaro
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5447,7 +6287,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Y da Questão
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_8B_BARRA_8C
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5456,7 +6295,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Seu Perdão
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5465,7 +6303,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: A Linda
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5474,7 +6311,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Drama
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5483,7 +6319,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Escolha de Sophia
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5492,7 +6327,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Pra Você
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5501,7 +6335,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Titanic
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5510,7 +6343,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Por Baixo dos Panos
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5519,7 +6351,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Lobo Solitário
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5528,7 +6359,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Currículo Atualizado
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5537,7 +6367,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Pra Morrer Menos
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5546,7 +6375,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Conhecendo o Criador
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5555,7 +6383,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Vida Após a Morte
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5564,7 +6391,6 @@
   - **[24]**:
     - **via_esportiva**:
       - **nome**: De Frente com o Renegado
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -5573,7 +6399,6 @@
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Contra Mão
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -5582,7 +6407,6 @@
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Sete Trabalhos de Hércules
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -5592,7 +6416,6 @@
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Inhônho não Deixa
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -5601,7 +6424,6 @@
   - **[28]**:
     - **via_movel**:
       - **nome**: Excesso de Confiança
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_4
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5609,7 +6431,6 @@
   - **[29]**:
     - **via_movel**:
       - **nome**: A Última Sinfonia de Bethoven
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5618,7 +6439,6 @@
   - **[30]**:
     - **via_movel**:
       - **nome**: Vai no Molhado Mesmo (Rapel do bico de pedra)
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_3
       - **protecoes_moveis**: Móvel
       - **conquistadores**:
@@ -5779,11 +6599,67 @@
           - **y**: 1192
           - **comprimento**: 166
           - **largura**: 31
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Armagedon
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: No dia em que a Terra Parou
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Vermeio de Raiva
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Linha Vermelha
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Pestinha
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Os Babás
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Lanterninha
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Navio Fantasma
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Pata Afiada
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: 1ª Fila
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Saída de Emergência
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Roteirista
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Acenderam a Luz
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Bilheteria
+        - **ids**:
+          - 14
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Armagedon
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: Mista
       - **conquistadores**:
@@ -5794,7 +6670,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: No dia em que a Terra Parou
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5806,7 +6681,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Vermeio de Raiva
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -5819,7 +6693,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Linha Vermelha
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5831,7 +6704,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Pestinha
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -5843,7 +6715,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Os Babás
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5854,7 +6725,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Lanterninha
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5863,7 +6733,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Navio Fantasma
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5873,7 +6742,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Pata Afiada
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5883,7 +6751,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: 1ª Fila
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -5893,7 +6760,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Saída de Emergência
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5903,7 +6769,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Roteirista
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5913,7 +6778,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Acenderam a Luz
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -5923,7 +6787,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Bilheteria
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
@@ -6093,11 +6956,75 @@
           - **y**: 1176
           - **comprimento**: 226
           - **largura**: 64
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Marreta Kamikaze
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Entidade da Natureza
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Mundo Verde
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Uma Nova Esperança
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Urtigão
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Eternamente Jovem
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Highlander
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Rayovac
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: O Corpo Ainda é Pouco
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Belos e Malditos
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Green Wood
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Puro Malte
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Ação Mutantes
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Sagrada Família
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: O Poder e o Saber
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Zig Marley
+        - **ids**:
+          - 16
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Marreta Kamikaze
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -6106,7 +7033,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Entidade da Natureza
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6115,7 +7041,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Mundo Verde
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6124,7 +7049,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Uma Nova Esperança
-      - **id_no_mapa**: 04
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6134,7 +7058,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Urtigão
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 1
@@ -6144,7 +7067,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Eternamente Jovem
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6156,7 +7078,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Highlander
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6168,7 +7089,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Rayovac
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_8C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6178,7 +7098,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: O Corpo Ainda é Pouco
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_9B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6188,7 +7107,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Belos e Malditos
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_10B
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -6200,7 +7118,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Green Wood
-      - **id_no_mapa**: 11
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -6211,7 +7128,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Puro Malte
-      - **id_no_mapa**: 12
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 13
       - **quantidade_protecoes_parada**: 2
@@ -6221,7 +7137,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Ação Mutantes
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6232,7 +7147,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Sagrada Família
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6244,7 +7158,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: O Poder e o Saber
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6254,7 +7167,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Zig Marley
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6599,11 +7511,167 @@
           - **y**: 1313
           - **comprimento**: 229
           - **largura**: 46
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Quebrando o Pau
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Prima do Rio
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Psiu, Calate
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Mis cosas, cuido yo
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Fugindo da Jiboia
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Fugindo da Onça
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: No Pescoço do Jacaré
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Retorno de Borges
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: 3º Pecado Capital
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Orifícios do Ofício
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Cercando o Perímetro
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Trabaiá não qué
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Na Surdina
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Gente Boa
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Aqui Jaz
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Toca da Jararaca
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Mais que Infinito
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Fissurados
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Olho de Hórus
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Melhor Idade
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Torre de Babel
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Era Venenosa
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Arcanjo Gabriel
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: La Bella Luna
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Amigo da Onça
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Baú da Felicidade
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Cavalo de Tróia
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Testosterona
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Mazelados
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: A Fúria de Dandara
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: Climb Terapia
+        - **ids**:
+          - 31
+      - **[31]**:
+        - **escalada**: Atitude
+        - **ids**:
+          - 32
+      - **[32]**:
+        - **escalada**: Zona de Perigo
+        - **ids**:
+          - 33
+      - **[33]**:
+        - **escalada**: A Montanha dos 7 Abutres
+        - **ids**:
+          - 34
+      - **[34]**:
+        - **escalada**: Caixa de Pandora
+        - **ids**:
+          - 35
+      - **[35]**:
+        - **escalada**: Vivendo o Sonho
+        - **ids**:
+          - 36
+      - **[36]**:
+        - **escalada**: A Torre deu Pane
+        - **ids**:
+          - 37
+      - **[37]**:
+        - **escalada**: Sessentenário
+        - **ids**:
+          - 38
+      - **[38]**:
+        - **escalada**: Supimpa
+        - **ids**:
+          - 39
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Quebrando o Pau
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6613,7 +7681,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Prima do Rio
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6623,7 +7690,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Psiu, Calate
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6633,7 +7699,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Mis cosas, cuido yo
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6643,7 +7708,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Fugindo da Jiboia
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6653,7 +7717,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Fugindo da Onça
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6664,7 +7727,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: No Pescoço do Jacaré
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6674,7 +7736,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Retorno de Borges
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6684,7 +7745,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: 3º Pecado Capital
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6694,7 +7754,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Orifícios do Ofício
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -6704,7 +7763,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Cercando o Perímetro
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6714,7 +7772,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Trabaiá não qué
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6724,7 +7781,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Na Surdina
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6734,7 +7790,6 @@
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Gente Boa
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6744,7 +7799,6 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Aqui Jaz
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6754,7 +7808,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Toca da Jararaca
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -6764,7 +7817,6 @@
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Mais que Infinito
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -6775,7 +7827,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Fissurados
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6785,7 +7836,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Olho de Hórus
-      - **id_no_mapa**: 19
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 14
       - **quantidade_protecoes_parada**: 2
@@ -6795,7 +7845,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Melhor Idade
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6806,7 +7855,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Torre de Babel
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6817,7 +7865,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Era Venenosa
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6827,7 +7874,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Arcanjo Gabriel
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -6837,7 +7883,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: La Bella Luna
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -6847,7 +7892,6 @@
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Amigo da Onça
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6858,7 +7902,6 @@
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Baú da Felicidade
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -6868,7 +7911,6 @@
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Cavalo de Tróia
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6878,7 +7920,6 @@
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Testosterona
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_8A_BARRA_8B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6889,7 +7930,6 @@
   - **[28]**:
     - **via_esportiva**:
       - **nome**: Mazelados
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6900,7 +7940,6 @@
   - **[29]**:
     - **via_esportiva**:
       - **nome**: A Fúria de Dandara
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6910,7 +7949,6 @@
   - **[30]**:
     - **via_esportiva**:
       - **nome**: Climb Terapia
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6921,7 +7959,6 @@
   - **[31]**:
     - **via_esportiva**:
       - **nome**: Atitude
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6932,7 +7969,6 @@
   - **[32]**:
     - **via_esportiva**:
       - **nome**: Zona de Perigo
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -6942,7 +7978,6 @@
   - **[33]**:
     - **via_esportiva**:
       - **nome**: A Montanha dos 7 Abutres
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -6952,7 +7987,6 @@
   - **[34]**:
     - **via_esportiva**:
       - **nome**: Caixa de Pandora
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6962,7 +7996,6 @@
   - **[35]**:
     - **via_esportiva**:
       - **nome**: Vivendo o Sonho
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6972,7 +8005,6 @@
   - **[36]**:
     - **via_esportiva**:
       - **nome**: A Torre deu Pane
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -6983,7 +8015,6 @@
   - **[37]**:
     - **via_esportiva**:
       - **nome**: Sessentenário
-      - **id_no_mapa**: 38
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -6994,7 +8025,6 @@
   - **[38]**:
     - **via_esportiva**:
       - **nome**: Supimpa
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2

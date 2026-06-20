@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mapa 2
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_2_p0_i0.webp
@@ -40,20 +40,25 @@ mapas:
       y: 204
       comprimento: 57
       largura: 29
+  referencias:
+  - escalada: Ajoelhou tem que Rezar
+    ids:
+    - '07'
+  - escalada: O Exibicionista
+    ids:
+    - '08'
 escaladas:
 - via_movel:
     nome: Ajoelhou tem que Rezar
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     conquistadores:
     - Antonio Carlos Magalhães
 - via_esportiva:
     nome: O Exibicionista
-    id_no_mapa: '08'
     dificuldade: BR_5
     conquistadores:
     - Daniel Fernandes "Salim"
----
+---
 # Setor Mapa 2
 
 Localizado próximo à entrada da gruta. 

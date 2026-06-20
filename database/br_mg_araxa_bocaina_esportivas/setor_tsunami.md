@@ -1,4 +1,4 @@
----
+---
 nome: Tsunami
 mapas:
 - caminho_imagem_mapa: imagens/setor_tsunami_p1.webp
@@ -61,6 +61,79 @@ mapas:
       y: 978
       comprimento: 45
       largura: 35
+  referencias:
+  - escalada: ET de Varginha
+    ids:
+    - '01'
+  - escalada: Jardim das Arestas
+    ids:
+    - '02'
+  - escalada: Sunshine
+    ids:
+    - '03'
+  - escalada: Sexta-feira 13
+    ids:
+    - '04'
+  - escalada: Vida Louca
+    ids:
+    - '05'
+  - escalada: Miranda Mirandinha
+    ids:
+    - '06'
+  - escalada: Foi sem Querer
+    ids:
+    - '07'
+  - escalada: Cabeleira
+    ids:
+    - '8'
+  - escalada: Muchas Gracias
+    ids:
+    - '9'
+  - escalada: Muy Hermosa
+    ids:
+    - '10'
+  - escalada: Medicina Chilena
+    ids:
+    - '11'
+  - escalada: As Aparências Enganam
+    ids:
+    - '12'
+  - escalada: Raios e Trovões
+    ids:
+    - '13'
+  - escalada: Quem vê Cara não vê Graduação
+    ids:
+    - '14'
+  - escalada: Sete Chaves
+    ids:
+    - '15'
+  - escalada: Buena Onda
+    ids:
+    - '16'
+  - escalada: Marola
+    ids:
+    - '17'
+  - escalada: Filha de Todos
+    ids:
+    - '18'
+  - escalada: Neblina Baixa
+    ids:
+    - '19'
+  - escalada: Círculo de Fogo
+    ids:
+    - '20'
+  - escalada: Fissura de Cristal
+    ids:
+    - '21'
+  - escalada: Mandruva Assassino
+    ids:
+    - '22'
+  - escalada: Namoro Antigo
+    ids:
+    - '23'
+  - escalada: Chora Nenêm
+    ids:
+    - '24'
 - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -184,7 +257,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: ET de Varginha
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -194,7 +266,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Jardim das Arestas
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -205,7 +276,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Sunshine
-    id_no_mapa: '03'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -216,7 +286,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Sexta-feira 13
-    id_no_mapa: '04'
     dificuldade: BR_7C
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -227,7 +296,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Vida Louca
-    id_no_mapa: '05'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -238,7 +306,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Miranda Mirandinha
-    id_no_mapa: '06'
     dificuldade: BR_7C
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -249,7 +316,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Foi sem Querer
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -260,7 +326,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Cabeleira
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 4
@@ -271,7 +336,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Muchas Gracias
-    id_no_mapa: 09
     dificuldade: BR_8A
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -281,7 +345,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Muy Hermosa
-    id_no_mapa: '10'
     dificuldade: BR_8B
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -291,7 +354,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Medicina Chilena
-    id_no_mapa: '11'
     dificuldade: BR_9B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -301,7 +363,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: As Aparências Enganam
-    id_no_mapa: '12'
     dificuldade: BR_10B
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -311,7 +372,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Raios e Trovões
-    id_no_mapa: '13'
     dificuldade: BR_8C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -321,7 +381,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Quem vê Cara não vê Graduação
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 8
@@ -331,7 +390,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Sete Chaves
-    id_no_mapa: '15'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 8
@@ -341,7 +399,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Buena Onda
-    id_no_mapa: '16'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -352,7 +409,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Marola
-    id_no_mapa: '17'
     dificuldade: PROJETO
     extensao: 25
     quantidade_protecoes_intermediarias: 10
@@ -363,7 +419,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Filha de Todos
-    id_no_mapa: '18'
     dificuldade: BR_10A
     extensao: 30
     quantidade_protecoes_intermediarias: 13
@@ -374,7 +429,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Neblina Baixa
-    id_no_mapa: '19'
     dificuldade: BR_8B
     extensao: 30
     quantidade_protecoes_intermediarias: 12
@@ -385,7 +439,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Círculo de Fogo
-    id_no_mapa: '20'
     dificuldade: BR_10A
     extensao: 30
     quantidade_protecoes_intermediarias: 15
@@ -395,7 +448,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Fissura de Cristal
-    id_no_mapa: '21'
     dificuldade: BR_8A
     extensao: 25
     quantidade_protecoes_intermediarias: 10
@@ -405,7 +457,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Mandruva Assassino
-    id_no_mapa: '22'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 5
@@ -416,7 +467,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Namoro Antigo
-    id_no_mapa: '23'
     dificuldade: BR_9C
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -427,7 +477,6 @@ escaladas:
     data_abertura: '2007'
 - via_esportiva:
     nome: Chora Nenêm
-    id_no_mapa: '24'
     dificuldade: BR_7C
     extensao: 15
     conquistadores:
@@ -436,7 +485,7 @@ escaladas:
     - Diego
     - Lucas Ramos
     data_abertura: '2006'
----
+---
 # Setor Tsunami
 
 ![Setor Tsunami](imagens/setor_tsunami_p0_i0.webp)

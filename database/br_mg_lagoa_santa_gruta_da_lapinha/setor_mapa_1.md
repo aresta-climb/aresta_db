@@ -1,4 +1,4 @@
----
+---
 nome: Castelinho
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_1_p0_i0.webp
@@ -47,46 +47,59 @@ mapas:
       y: 166
       comprimento: 10
       largura: 9
+  referencias:
+  - escalada: Sai que é vaca
+    ids:
+    - '01'
+  - escalada: Favo de Mel
+    ids:
+    - '02'
+  - escalada: Retorno do Marco
+    ids:
+    - '03'
+  - escalada: Tomara que não chova
+    ids:
+    - '04'
+  - escalada: Castelinho
+    ids:
+    - '05'
+  - escalada: Projeto
+    ids:
+    - '06'
 escaladas:
 - via_movel:
     nome: Sai que é vaca
-    id_no_mapa: '01'
     dificuldade: BR_6
     conquistadores:
     - Márcio Soares Macena
     - Wilson Novaes
 - via_movel:
     nome: Favo de Mel
-    id_no_mapa: '02'
     dificuldade: BR_6
     conquistadores:
     - Márcio Soares Macena
     - Wilson Novaes
 - via_movel:
     nome: Retorno do Marco
-    id_no_mapa: '03'
     dificuldade: BR_3
     conquistadores:
     - Antonio C. Magalhães
     - Marco Antônio Canelas
 - via_esportiva:
     nome: Tomara que não chova
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     conquistadores:
     - Christian A. N. Costa
     - Leo Guimarães "Léo Dandão"
 - via_esportiva:
     nome: Castelinho
-    id_no_mapa: '05'
     dificuldade: BR_6
     conquistadores:
     - Marcelo Henrique Grijó Utsch
     - Cristiano Loureiro
 - via_esportiva:
     nome: Projeto
-    id_no_mapa: '06'
----
+---
 # Setor Castelinho
 
 Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.

@@ -1,4 +1,4 @@
----
+---
 nome: Navio Pirata
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p0_i0.webp
@@ -47,6 +47,43 @@ mapas:
       y: 342
       comprimento: 25
       largura: 25
+  referencias:
+  - escalada: Navio Pirata
+    ids:
+    - 1 (P0)
+    - 1 (P0)_fim
+  - escalada: Invasão do Navio Pirata
+    ids:
+    - 2 (P0)
+    - 2 (P0)_fim
+  - escalada: Capitão Gancho
+    ids:
+    - 3 (P0)
+    - 3 (P0)_fim
+  - escalada: Serra a Vista
+    ids:
+    - 1 (P1)
+    - 1 (P1)_fim
+  - escalada: Tapa Olho
+    ids:
+    - 2 (P1)
+    - 2 (P1)_fim
+  - escalada: A Estibordo
+    ids:
+    - 3 (P1)
+    - 3 (P1)_fim
+  - escalada: Proa
+    ids:
+    - 4 (P1)
+    - 4 (P1)_fim
+  - escalada: Papagaio de Pirata
+    ids:
+    - 1 (P2)
+    - 1 (P2)_fim
+  - escalada: Desce a Serra
+    ids:
+    - 2 (P2)
+    - 2 (P2)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 1080
@@ -142,50 +179,32 @@ mapas:
 escaladas:
 - boulder:
     nome: Navio Pirata
-    id_no_mapa: 1 (P0)
-    id_no_mapa_fim: 1 (P0)_fim
     dificuldade: V0_BARRA_V1
 - boulder:
     nome: Invasão do Navio Pirata
-    id_no_mapa: 2 (P0)
-    id_no_mapa_fim: 2 (P0)_fim
     dificuldade: V1_BARRA_V2
 - boulder:
     nome: Capitão Gancho
-    id_no_mapa: 3 (P0)
-    id_no_mapa_fim: 3 (P0)_fim
     dificuldade: V2
 - boulder:
     nome: Serra a Vista
-    id_no_mapa: 1 (P1)
-    id_no_mapa_fim: 1 (P1)_fim
     dificuldade: V1_BARRA_V2
 - boulder:
     nome: Tapa Olho
-    id_no_mapa: 2 (P1)
-    id_no_mapa_fim: 2 (P1)_fim
     dificuldade: V2_BARRA_V3
 - boulder:
     nome: A Estibordo
-    id_no_mapa: 3 (P1)
-    id_no_mapa_fim: 3 (P1)_fim
     dificuldade: V3_BARRA_V4
 - boulder:
     nome: Proa
-    id_no_mapa: 4 (P1)
-    id_no_mapa_fim: 4 (P1)_fim
     dificuldade: V1
 - boulder:
     nome: Papagaio de Pirata
-    id_no_mapa: 1 (P2)
-    id_no_mapa_fim: 1 (P2)_fim
     dificuldade: V2
 - boulder:
     nome: Desce a Serra
-    id_no_mapa: 2 (P2)
-    id_no_mapa_fim: 2 (P2)_fim
     dificuldade: V3
----
+---
 # Bloco: Navio Pirata
 ## Região 4
 

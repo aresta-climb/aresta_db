@@ -1,4 +1,4 @@
----
+---
 nome: Bloco do Rock Bocaina
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_do_rock_bocaina_p0.webp
@@ -26,23 +26,28 @@ mapas:
       y: 684
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Açaí Bocaina
+    ids:
+    - '01'
+  - escalada: Rock Bocaina
+    ids:
+    - '02'
+  - escalada: Dedão de Aquiles
+    ids:
+    - '03'
 escaladas:
 - boulder:
     nome: Açaí Bocaina
-    id_no_mapa: '01'
     dificuldade: V5
-    descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue a aresta
-      por cima virando no centro do bloco.
+    descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue a aresta por cima virando no centro do bloco.
 - boulder:
     nome: Rock Bocaina
-    id_no_mapa: '02'
     dificuldade: V8
-    descricao: Saida do acai bocaina, e segue travessia para direita por baixo dominando
-      no final .
+    descricao: Saida do acai bocaina, e segue travessia para direita por baixo dominando no final .
 - boulder:
     nome: Dedão de Aquiles
-    id_no_mapa: '03'
     dificuldade: V3
     descricao: Saída da aresta a direita do bloco e vai arestando até o topo.
----
+---
 # Setor Bloco do Rock Bocaina

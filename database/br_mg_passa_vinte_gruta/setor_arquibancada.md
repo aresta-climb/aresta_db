@@ -1,4 +1,4 @@
----
+---
 nome: Arquibancada
 mapas:
 - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
@@ -250,121 +250,176 @@ mapas:
       y: 107
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Fela
+    ids:
+    - 01_base
+  - escalada: Ext. P1 Fela
+    ids:
+    - '02'
+    - '02'
+  - escalada: Ext. P2 Fela
+    ids:
+    - '03'
+    - '03'
+  - escalada: Arco do Triumfo
+    ids:
+    - 04_base
+  - escalada: Remédio Amargo
+    ids:
+    - 05_base
+  - escalada: Shoryuken
+    ids:
+    - 06_base
+  - escalada: Jab
+    ids:
+    - 07_base
+  - escalada: Soco Inglês
+    ids:
+    - 08_base
+  - escalada: Ext. Soco Inglês P1
+    ids:
+    - '09'
+    - '09'
+  - escalada: Ex. Soco Inglês P2 (Projeto)
+    ids:
+    - '10'
+    - '10'
+  - escalada: Tapa na Cara
+    ids:
+    - '11'
+  - escalada: Tapa na Sombra
+    ids:
+    - '12'
+  - escalada: Ext. Tapa na Sombra P2
+    ids:
+    - '13'
+    - '13'
+  - escalada: A Outra Face
+    ids:
+    - '14'
+  - escalada: Mary Lou
+    ids:
+    - '15'
+  - escalada: Superman
+    ids:
+    - '16'
+  - escalada: Oia u Trem
+    ids:
+    - '17'
+  - escalada: Mistério da Meia Noite
+    ids:
+    - '18'
+  - escalada: Entre a Sombra e a Escuridão P1
+    ids:
+    - 19_base
+  - escalada: Entre a Sombra e a Escuridão P2
+    ids:
+    - '20'
+    - '20'
+  - escalada: Calabouço
+    ids:
+    - 21_base
+  - escalada: Thanos (Projeto)
+    ids:
+    - '22'
+  - escalada: Ext. Arco do Triumfo (Projeto)
+    ids:
+    - '23'
+    - '23'
+  - escalada: Sombrinha
+    ids:
+    - '24'
+  - escalada: Projeto
+    ids:
+    - '25'
+  - escalada: Alcatraz
+    ids:
+    - '26'
+  - escalada: Face Oculta (Projeto)
+    ids:
+    - '27'
 escaladas:
 - via_esportiva:
     nome: Fela
-    id_no_mapa: '01_base'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Ext. P1 Fela
-    id_no_mapa: '02'
-    id_no_mapa_fim: '02'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Ext. P2 Fela
-    id_no_mapa: '03'
-    id_no_mapa_fim: '03'
     dificuldade: BR_10B_BARRA_10C
 - via_esportiva:
     nome: Arco do Triumfo
-    id_no_mapa: '04_base'
     dificuldade: BR_9B
 - via_esportiva:
     nome: Remédio Amargo
-    id_no_mapa: '05_base'
     dificuldade: BR_8B
 - via_esportiva:
     nome: Shoryuken
-    id_no_mapa: '06_base'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Jab
-    id_no_mapa: '07_base'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Soco Inglês
-    id_no_mapa: '08_base'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Ext. Soco Inglês P1
-    id_no_mapa: '09'
-    id_no_mapa_fim: '09'
     dificuldade: BR_10B
 - via_esportiva:
     nome: Ex. Soco Inglês P2 (Projeto)
-    id_no_mapa: '10'
-    id_no_mapa_fim: '10'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Tapa na Cara
-    id_no_mapa: '11'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Tapa na Sombra
-    id_no_mapa: '12'
     dificuldade: BR_9A
 - via_esportiva:
     nome: Ext. Tapa na Sombra P2
-    id_no_mapa: '13'
-    id_no_mapa_fim: '13'
     dificuldade: BR_10A
 - via_esportiva:
     nome: A Outra Face
-    id_no_mapa: '14'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Mary Lou
-    id_no_mapa: '15'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Superman
-    id_no_mapa: '16'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Oia u Trem
-    id_no_mapa: '17'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Mistério da Meia Noite
-    id_no_mapa: '18'
     dificuldade: BR_9A_BARRA_9B
 - via_esportiva:
     nome: Entre a Sombra e a Escuridão P1
-    id_no_mapa: '19_base'
     dificuldade: BR_9C
 - via_esportiva:
     nome: Entre a Sombra e a Escuridão P2
-    id_no_mapa: '20'
-    id_no_mapa_fim: '20'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Calabouço
-    id_no_mapa: '21_base'
     dificuldade: BR_9B
 - via_esportiva:
     nome: Thanos (Projeto)
-    id_no_mapa: '22'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Ext. Arco do Triumfo (Projeto)
-    id_no_mapa: '23'
-    id_no_mapa_fim: '23'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Sombrinha
-    id_no_mapa: '24'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Projeto
-    id_no_mapa: '25'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Alcatraz
-    id_no_mapa: '26'
     dificuldade: BR_10A
 - via_esportiva:
     nome: Face Oculta (Projeto)
-    id_no_mapa: '27'
     dificuldade: PROJETO
----
+---
 

@@ -1,9 +1,8 @@
----
+---
 nome: Aleijadinho
 escaladas:
 - boulder:
     nome: Aleijadinho
-    id_no_mapa: '1'
     dificuldade: V5
     destaque: true
 mapas:
@@ -17,6 +16,10 @@ mapas:
       x: 419
       y: 589
       raio: 11
----
+  referencias:
+  - escalada: Aleijadinho
+    ids:
+    - '1'
+---
 
 # Bloco Aleijadinho

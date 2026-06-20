@@ -1,4 +1,4 @@
----
+---
 nome: Setor Intermediário
 mapas:
 - caminho_imagem_mapa: imagens/setor_intermediario_p0_i0.webp
@@ -96,60 +96,77 @@ mapas:
       y: 190
       comprimento: 22
       largura: 16
+  referencias:
+  - escalada: Tufo Não
+    ids:
+    - '01'
+  - escalada: Ciúmes e Ranger de Dentes
+    ids:
+    - '02'
+  - escalada: Peixe com Palmito
+    ids:
+    - '03'
+  - escalada: Cuca Maluca
+    ids:
+    - '04'
+  - escalada: Jacareca ex-Marley
+    ids:
+    - '05'
+  - escalada: Tu Fantástica
+    ids:
+    - '06'
+  - escalada: Bigodagem
+    ids:
+    - '07'
+  - escalada: Delicinha
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Tufo Não
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Ciúmes e Ranger de Dentes
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     data_abertura: '2018-12-06'
 - via_esportiva:
     nome: Peixe com Palmito
-    id_no_mapa: '03'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cuca Maluca
-    id_no_mapa: '04'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Jacareca ex-Marley
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tu Fantástica
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Bigodagem
-    id_no_mapa: '07'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Delicinha
-    id_no_mapa: 08
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
----
+---
 # Setor Intermediário
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

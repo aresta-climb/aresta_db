@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gruta - Mapa 3
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_3_p0_i0.webp
@@ -187,163 +187,219 @@ mapas:
       y: 203
       comprimento: 14
       largura: 12
+  referencias:
+  - escalada: Lua Cheia
+    ids:
+    - '09'
+  - escalada: Jornada nas Estrelas
+    ids:
+    - '10'
+  - escalada: Egotrip
+    ids:
+    - '11'
+  - escalada: Boicote de comunicação
+    ids:
+    - '12'
+  - escalada: Vicio
+    ids:
+    - '13'
+  - escalada: Conspiração Sanguessuga
+    ids:
+    - '14'
+  - escalada: Gota D’água
+    ids:
+    - '15'
+  - escalada: Sai de Baixo
+    ids:
+    - '16'
+  - escalada: Pipeline
+    ids:
+    - '17'
+  - escalada: Jurubeba
+    ids:
+    - '18'
+  - escalada: Perigo Mora ao Lado
+    ids:
+    - '19'
+  - escalada: Pretexto da Traição
+    ids:
+    - '20'
+  - escalada: Sorriso do Lagarto
+    ids:
+    - '21'
+  - escalada: Orgasmatrom
+    ids:
+    - '22'
+  - escalada: Escaramuça
+    ids:
+    - '23'
+  - escalada: Túnel do Tempo
+    ids:
+    - '24'
+  - escalada: Dédalos
+    ids:
+    - '25'
+  - escalada: Bouquet de Rosas
+    ids:
+    - '26'
+  - escalada: Fogo no Rabo
+    ids:
+    - '27'
+  - escalada: Bobeou Sobrou
+    ids:
+    - '28'
+  - escalada: Los Cubanos
+    ids:
+    - '29'
+  - escalada: Folião
+    ids:
+    - '30'
+  - escalada: Escalador sem mãe
+    ids:
+    - '45'
+  - escalada: Projeto inacabado
+    ids:
+    - '46'
+  - escalada: Sobrevibrenf´s
+    ids:
+    - '47'
+  - escalada: Sobreviventes
+    ids:
+    - '48'
 escaladas:
 - via_movel:
     nome: Lua Cheia
-    id_no_mapa: '09'
     dificuldade: BR_5
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
 - via_esportiva:
     nome: Jornada nas Estrelas
-    id_no_mapa: '10'
     dificuldade: BR_7A
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
 - via_esportiva:
     nome: Egotrip
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
 - via_esportiva:
     nome: Boicote de comunicação
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
     - Fao
 - via_esportiva:
     nome: Vicio
-    id_no_mapa: '13'
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
 - via_esportiva:
     nome: Conspiração Sanguessuga
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
     - Alexandre
 - via_movel:
     nome: Gota D’água
-    id_no_mapa: '15'
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
 - via_movel:
     nome: Sai de Baixo
-    id_no_mapa: '16'
     dificuldade: BR_5
     conquistadores:
     - Antonio Carlos Magalhães
     - Danilo Abreu
 - via_esportiva:
     nome: Pipeline
-    id_no_mapa: '17'
     dificuldade: BR_6SUP
     conquistadores:
     - Gabriel Fillizola
     - Sílvio Om
 - via_esportiva:
     nome: Jurubeba
-    id_no_mapa: '18'
     dificuldade: BR_8B
     conquistadores:
     - Wagner Morin Gomes
     - Wilson Novaes
 - via_esportiva:
     nome: Perigo Mora ao Lado
-    id_no_mapa: '19'
     dificuldade: BR_8A
     conquistadores:
     - Márcio Soares Macena
     - Mozart
 - via_esportiva:
     nome: Pretexto da Traição
-    id_no_mapa: '20'
     dificuldade: BR_6SUP
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
 - via_esportiva:
     nome: Sorriso do Lagarto
-    id_no_mapa: '21'
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
 - via_esportiva:
     nome: Orgasmatrom
-    id_no_mapa: '22'
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
 - via_movel:
     nome: Escaramuça
-    id_no_mapa: '23'
     dificuldade: BR_3
     conquistadores:
     - Antonio Carlos Magalhães
 - via_movel:
     nome: Túnel do Tempo
-    id_no_mapa: '24'
     dificuldade: BR_5
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_movel:
     nome: Dédalos
-    id_no_mapa: '25'
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_movel:
     nome: Bouquet de Rosas
-    id_no_mapa: '26'
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio C. Magalhães
     - Danilo Abreu
 - via_esportiva:
     nome: Fogo no Rabo
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Bobeou Sobrou
-    id_no_mapa: '28'
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Los Cubanos
-    id_no_mapa: '29'
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_movel:
     nome: Folião
-    id_no_mapa: '30'
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_esportiva:
     nome: Escalador sem mãe
-    id_no_mapa: '45'
     dificuldade: BR_8A
     conquistadores:
     - Jovinei M. Medeiros
@@ -351,22 +407,19 @@ escaladas:
     - Sérgio B. da Silva.
 - via_esportiva:
     nome: Projeto inacabado
-    id_no_mapa: '46'
 - via_esportiva:
     nome: Sobrevibrenf´s
-    id_no_mapa: '47'
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
 - via_esportiva:
     nome: Sobreviventes
-    id_no_mapa: '48'
     dificuldade: BR_6
     conquistadores:
     - Anderson (Neném)
     - Douglas
     - Bombom
----
+---
 # Setor Gruta - Mapa 3
 
 Parte interna e externa da gruta com vias esportivas e móveis.

@@ -1,6 +1,5 @@
----
+---
 nome: Bomba Atômica
-id_no_mapa: '6'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p0.webp
   largura_mapa: 754
@@ -69,6 +68,64 @@ mapas:
       y: 280
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Viajante
+    ids:
+    - '1'
+  - escalada: Viajante SDS
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '5'
+  - escalada: Champagne
+    ids:
+    - '6'
+  - escalada: Bonitinho
+    ids:
+    - '7'
+  - escalada: Caravana
+    ids:
+    - '8'
+  - escalada: (sem nome)
+    ids:
+    - '9'
+  - escalada: Bomba Atômica
+    ids:
+    - '1'
+  - escalada: No Claro
+    ids:
+    - '1'
+  - escalada: No Escuro
+    ids:
+    - '2'
+  - escalada: Falafofancho
+    ids:
+    - '3'
+  - escalada: No Claro SDS
+    ids:
+    - '4'
+  - escalada: No Escuro SDS
+    ids:
+    - '5'
+  - escalada: Falafofancho SDS
+    ids:
+    - '6'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p1.webp
   largura_mapa: 755
   altura_mapa: 528
@@ -154,81 +211,63 @@ mapas:
 escaladas:
 - boulder:
     nome: Viajante
-    id_no_mapa: '1'
     dificuldade: V7
 - boulder:
     nome: Viajante SDS
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '3'
     dificuldade: V9
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '4'
     dificuldade: V7
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '5'
     dificuldade: V5
 - boulder:
     nome: Champagne
-    id_no_mapa: '6'
     dificuldade: V8
 - boulder:
     nome: Bonitinho
-    id_no_mapa: '7'
     dificuldade: V1
 - boulder:
     nome: Caravana
-    id_no_mapa: '8'
     dificuldade: V7
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '9'
     dificuldade: V1
 - boulder:
     nome: Bomba Atômica
-    id_no_mapa: '1'
     dificuldade: V11
 - boulder:
     nome: No Claro
-    id_no_mapa: '1'
     dificuldade: V7
 - boulder:
     nome: No Escuro
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Falafofancho
-    id_no_mapa: '3'
     dificuldade: V4
 - boulder:
     nome: No Claro SDS
-    id_no_mapa: '4'
     dificuldade: V9
 - boulder:
     nome: No Escuro SDS
-    id_no_mapa: '5'
     dificuldade: V7
 - boulder:
     nome: Falafofancho SDS
-    id_no_mapa: '6'
     dificuldade: V6
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '1'
     dificuldade: V3
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '2'
     dificuldade: V3
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '3'
     dificuldade: V1
----
+---
+
 # Setor Bomba Atômica
 
 O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.

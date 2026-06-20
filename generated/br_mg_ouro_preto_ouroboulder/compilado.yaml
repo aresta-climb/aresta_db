@@ -268,6 +268,31 @@ picos:
                   x: 862
                   y: 634
                   raio: 13
+              referencias:
+              - escalada: Travessia ext
+                ids:
+                - 1C/1E
+              - escalada: Travessia
+                ids:
+                - 2C/2E
+              - escalada: Enjambrado
+                ids:
+                - 3A/3C
+              - escalada: Face Vertical
+                ids:
+                - 4B/4D
+              - escalada: Será
+                ids:
+                - 5C/5E
+              - escalada: Bem-vindo ao Climb
+                ids:
+                - '6'
+              - escalada: Monodedo
+                ids:
+                - 2A
+              - escalada: Movimentos Eróticos
+                ids:
+                - 2B
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -335,35 +360,27 @@ picos:
             escaladas:
             - boulder:
                 nome: Travessia ext
-                id_no_mapa: 1C/1E
                 dificuldade: V2
             - boulder:
                 nome: Travessia
-                id_no_mapa: 2C/2E
                 dificuldade: V1
             - boulder:
                 nome: Enjambrado
-                id_no_mapa: 3A/3C
                 dificuldade: V3
             - boulder:
                 nome: Face Vertical
-                id_no_mapa: 4B/4D
                 dificuldade: V1
             - boulder:
                 nome: Será
-                id_no_mapa: 5C/5E
                 dificuldade: V1
             - boulder:
                 nome: Bem-vindo ao Climb
-                id_no_mapa: '6'
                 dificuldade: V0
             - boulder:
                 nome: Monodedo
-                id_no_mapa: 2A
                 dificuldade: V1
             - boulder:
                 nome: Movimentos Eróticos
-                id_no_mapa: 2B
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -397,18 +414,25 @@ picos:
                   x: 1065
                   y: 795
                   raio: 13
+              referencias:
+              - escalada: De Jah
+                ids:
+                - 1A
+              - escalada: Jah
+                ids:
+                - 1B
+              - escalada: Invertido
+                ids:
+                - 2B
             escaladas:
             - boulder:
                 nome: De Jah
-                id_no_mapa: 1A
                 dificuldade: V0_BARRA_V1
             - boulder:
                 nome: Jah
-                id_no_mapa: 1B
                 dificuldade: V1
             - boulder:
                 nome: Invertido
-                id_no_mapa: 2B
                 dificuldade: V2
             descricao: ''
         - conteudo:
@@ -454,22 +478,31 @@ picos:
                   x: 1078
                   y: 832
                   raio: 13
+              referencias:
+              - escalada: Sauna Seca
+                ids:
+                - 1A
+              - escalada: Sauna Úmida
+                ids:
+                - 2B
+              - escalada: Sauna Mista
+                ids:
+                - 3A
+              - escalada: Sauna a Vapor
+                ids:
+                - 3C
             escaladas:
             - boulder:
                 nome: Sauna Seca
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Sauna Úmida
-                id_no_mapa: 2B
                 dificuldade: V4
             - boulder:
                 nome: Sauna Mista
-                id_no_mapa: 3A
                 dificuldade: V5
             - boulder:
                 nome: Sauna a Vapor
-                id_no_mapa: 3C
                 dificuldade: V6
                 descricao: (não usa a face direita da linha)
             descricao: ''
@@ -498,6 +531,31 @@ picos:
                   x: 1238
                   y: 1030
                   raio: 13
+              referencias:
+              - escalada: Porra Nenhuma
+                ids:
+                - 1A
+              - escalada: Ringue
+                ids:
+                - 1B
+              - escalada: Arco Magmático
+                ids:
+                - 1A
+              - escalada: Du Mussula
+                ids:
+                - 1B
+              - escalada: No Montê
+                ids:
+                - 2C
+              - escalada: Bola 7
+                ids:
+                - 1A
+              - escalada: Morcegão
+                ids:
+                - 2A
+              - escalada: João de Barro
+                ids:
+                - 2B
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -545,37 +603,29 @@ picos:
             escaladas:
             - boulder:
                 nome: Porra Nenhuma
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Ringue
-                id_no_mapa: 1B
                 dificuldade: V3
             - boulder:
                 nome: Arco Magmático
-                id_no_mapa: 1A
                 dificuldade: V8
                 descricao: (saída pelo Morcegão)
             - boulder:
                 nome: Du Mussula
-                id_no_mapa: 1B
                 dificuldade: V10
                 descricao: (saída pelo Bola 7)
             - boulder:
                 nome: No Montê
-                id_no_mapa: 2C
                 dificuldade: V6
             - boulder:
                 nome: Bola 7
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Morcegão
-                id_no_mapa: 2A
                 dificuldade: V5
             - boulder:
                 nome: João de Barro
-                id_no_mapa: 2B
                 dificuldade: V4
             descricao: ''
         - conteudo:
@@ -615,6 +665,37 @@ picos:
                   x: 1053
                   y: 876
                   raio: 13
+              referencias:
+              - escalada: Mata-Mata
+                ids:
+                - 1A
+              - escalada: Mata-Mata ext
+                ids:
+                - 2A▲
+              - escalada: '001'
+                ids:
+                - 2A★
+              - escalada: Sem as Mãos
+                ids:
+                - '1'
+              - escalada: Ética
+                ids:
+                - '2'
+              - escalada: Risada
+                ids:
+                - '3'
+              - escalada: Batentes
+                ids:
+                - '1'
+              - escalada: Regletes
+                ids:
+                - '2'
+              - escalada: Cocal é Gueto
+                ids:
+                - '1'
+              - escalada: '002'
+                ids:
+                - '2'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
               largura_mapa: 1576
               altura_mapa: 1182
@@ -672,43 +753,33 @@ picos:
             escaladas:
             - boulder:
                 nome: Mata-Mata
-                id_no_mapa: 1A
                 dificuldade: V2
             - boulder:
                 nome: Mata-Mata ext
-                id_no_mapa: 2A▲
                 dificuldade: V3
             - boulder:
                 nome: '001'
-                id_no_mapa: 2A★
                 dificuldade: V3
             - boulder:
                 nome: Sem as Mãos
-                id_no_mapa: '1'
                 dificuldade: V0
             - boulder:
                 nome: Ética
-                id_no_mapa: '2'
                 dificuldade: V0
             - boulder:
                 nome: Risada
-                id_no_mapa: '3'
                 dificuldade: V0
             - boulder:
                 nome: Batentes
-                id_no_mapa: '1'
                 dificuldade: V1
             - boulder:
                 nome: Regletes
-                id_no_mapa: '2'
                 dificuldade: V2
             - boulder:
                 nome: Cocal é Gueto
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: '002'
-                id_no_mapa: '2'
                 dificuldade: V2
             descricao: ''
         - conteudo:
@@ -742,6 +813,28 @@ picos:
                   x: 993
                   y: 730
                   raio: 13
+              referencias:
+              - escalada: Albino
+                ids:
+                - 1A
+              - escalada: Encardido
+                ids:
+                - 1B
+              - escalada: Bob
+                ids:
+                - '2'
+              - escalada: Reto
+                ids:
+                - 1A
+              - escalada: Dor nas Costas
+                ids:
+                - 1B
+              - escalada: Albino
+                ids:
+                - 2C
+              - escalada: Encardido
+                ids:
+                - 2D
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -785,31 +878,24 @@ picos:
             escaladas:
             - boulder:
                 nome: Albino
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Encardido
-                id_no_mapa: 1B
                 dificuldade: V4
             - boulder:
                 nome: Bob
-                id_no_mapa: '2'
                 dificuldade: V1
             - boulder:
                 nome: Reto
-                id_no_mapa: 1A
                 dificuldade: V2
             - boulder:
                 nome: Dor nas Costas
-                id_no_mapa: 1B
                 dificuldade: V3
             - boulder:
                 nome: Albino
-                id_no_mapa: 2C
                 dificuldade: V4
             - boulder:
                 nome: Encardido
-                id_no_mapa: 2D
                 dificuldade: V4
             descricao: ''
         - conteudo:
@@ -855,30 +941,43 @@ picos:
                   x: 738
                   y: 380
                   raio: 13
+              referencias:
+              - escalada: Flying Horse
+                ids:
+                - 1A▲
+              - escalada: Pingado
+                ids:
+                - 1A★
+              - escalada: Expresso
+                ids:
+                - 1B
+              - escalada: Macchiato
+                ids:
+                - 2A▲
+              - escalada: Red Bull
+                ids:
+                - 2A★
+              - escalada: Mad Dog
+                ids:
+                - 2B
             escaladas:
             - boulder:
                 nome: Flying Horse
-                id_no_mapa: 1A▲
                 dificuldade: V2
             - boulder:
                 nome: Pingado
-                id_no_mapa: 1A★
                 dificuldade: V3
             - boulder:
                 nome: Expresso
-                id_no_mapa: 1B
                 dificuldade: V7
             - boulder:
                 nome: Macchiato
-                id_no_mapa: 2A▲
                 dificuldade: V6
             - boulder:
                 nome: Red Bull
-                id_no_mapa: 2A★
                 dificuldade: V6
             - boulder:
                 nome: Mad Dog
-                id_no_mapa: 2B
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -936,6 +1035,85 @@ picos:
                   x: 1464
                   y: 152
                   raio: 13
+              referencias:
+              - escalada: Last Samurai
+                ids:
+                - '1'
+              - escalada: Samurai
+                ids:
+                - '2'
+              - escalada: Doce de Leite
+                ids:
+                - 3B/2B
+              - escalada: Panamá
+                ids:
+                - 4A/1A
+              - escalada: Doce de Leite sds
+                ids:
+                - 4B/1B
+              - escalada: Rocambole
+                ids:
+                - 5B/3B
+              - escalada: Falha Humana
+                ids:
+                - 6B/4B
+              - escalada: Teiú
+                ids:
+                - 1C
+              - escalada: Rabo de Lagartixa
+                ids:
+                - 4C
+              - escalada: Camaleão
+                ids:
+                - 5B
+              - escalada: Lagartixa
+                ids:
+                - 5C
+              - escalada: Rabo de Camaleão
+                ids:
+                - 6B
+              - escalada: Lagartixa sem Rabo
+                ids:
+                - 6C
+              - escalada: Guerreiro
+                ids:
+                - 1A
+              - escalada: Major
+                ids:
+                - 2A
+              - escalada: Geoterapia
+                ids:
+                - 2D
+              - escalada: Nativo
+                ids:
+                - 3B
+              - escalada: Protesto
+                ids:
+                - 4A
+              - escalada: Cadena Imaginária
+                ids:
+                - 4D
+              - escalada: Golpe Militar
+                ids:
+                - 5A
+              - escalada: Aurora Explosion
+                ids:
+                - 5B
+              - escalada: Escravos da Pedra
+                ids:
+                - 5D
+              - escalada: Ditadvor
+                ids:
+                - 6A
+              - escalada: Lobo Mau
+                ids:
+                - 6D
+              - escalada: Coronel
+                ids:
+                - 7A
+              - escalada: Chapeuzinho Vermelho
+                ids:
+                - 7C
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1067,107 +1245,81 @@ picos:
             escaladas:
             - boulder:
                 nome: Last Samurai
-                id_no_mapa: '1'
                 dificuldade: V14
             - boulder:
                 nome: Samurai
-                id_no_mapa: '2'
                 dificuldade: V12
             - boulder:
                 nome: Doce de Leite
-                id_no_mapa: 3B/2B
                 dificuldade: V3
             - boulder:
                 nome: Panamá
-                id_no_mapa: 4A/1A
                 dificuldade: V10
             - boulder:
                 nome: Doce de Leite sds
-                id_no_mapa: 4B/1B
                 dificuldade: V5
             - boulder:
                 nome: Rocambole
-                id_no_mapa: 5B/3B
                 dificuldade: V5
             - boulder:
                 nome: Falha Humana
-                id_no_mapa: 6B/4B
                 dificuldade: V4
             - boulder:
                 nome: Teiú
-                id_no_mapa: 1C
                 dificuldade: V11
             - boulder:
                 nome: Rabo de Lagartixa
-                id_no_mapa: 4C
                 dificuldade: V10
             - boulder:
                 nome: Camaleão
-                id_no_mapa: 5B
                 dificuldade: V8
             - boulder:
                 nome: Lagartixa
-                id_no_mapa: 5C
                 dificuldade: V7
             - boulder:
                 nome: Rabo de Camaleão
-                id_no_mapa: 6B
                 dificuldade: V9
             - boulder:
                 nome: Lagartixa sem Rabo
-                id_no_mapa: 6C
                 dificuldade: V9
             - boulder:
                 nome: Guerreiro
-                id_no_mapa: 1A
                 dificuldade: V8_BARRA_V9
             - boulder:
                 nome: Major
-                id_no_mapa: 2A
                 dificuldade: V11
             - boulder:
                 nome: Geoterapia
-                id_no_mapa: 2D
                 dificuldade: V9
             - boulder:
                 nome: Nativo
-                id_no_mapa: 3B
                 dificuldade: V12
             - boulder:
                 nome: Protesto
-                id_no_mapa: 4A
                 dificuldade: V10
             - boulder:
                 nome: Cadena Imaginária
-                id_no_mapa: 4D
                 dificuldade: V8
             - boulder:
                 nome: Golpe Militar
-                id_no_mapa: 5A
                 dificuldade: V13
             - boulder:
                 nome: Aurora Explosion
-                id_no_mapa: 5B
                 dificuldade: V13
             - boulder:
                 nome: Escravos da Pedra
-                id_no_mapa: 5D
                 dificuldade: V9
             - boulder:
                 nome: Ditadvor
-                id_no_mapa: 6A
                 dificuldade: V12
             - boulder:
                 nome: Lobo Mau
-                id_no_mapa: 6D
                 dificuldade: V5
             - boulder:
                 nome: Coronel
-                id_no_mapa: 7A
                 dificuldade: V12
             - boulder:
                 nome: Chapeuzinho Vermelho
-                id_no_mapa: 7C
                 dificuldade: V13
             descricao: ''
         - conteudo:
@@ -1189,6 +1341,40 @@ picos:
                   x: 1173
                   y: 782
                   raio: 13
+              referencias:
+              - escalada: Ianque
+                ids:
+                - '1'
+              - escalada: Apache
+                ids:
+                - '2'
+              - escalada: Garoto Andrada
+                ids:
+                - '1'
+              - escalada: Embalados pelo Vovô
+                ids:
+                - '2'
+              - escalada: Pressão no Vovô
+                ids:
+                - '3'
+              - escalada: Pressão dos Barbosa
+                ids:
+                - '4'
+              - escalada: Helicoidal
+                ids:
+                - '1'
+              - escalada: Em Busca do Equilíbrio
+                ids:
+                - '2'
+              - escalada: Em Busca do Equilíbrio sds
+                ids:
+                - '3'
+              - escalada: Brígida
+                ids:
+                - '1'
+              - escalada: Carranca
+                ids:
+                - '2'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1258,48 +1444,37 @@ picos:
             escaladas:
             - boulder:
                 nome: Ianque
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Apache
-                id_no_mapa: '2'
                 dificuldade: V2
             - boulder:
                 nome: Garoto Andrada
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: Embalados pelo Vovô
-                id_no_mapa: '2'
                 dificuldade: V7
             - boulder:
                 nome: Pressão no Vovô
-                id_no_mapa: '3'
                 dificuldade: V9
             - boulder:
                 nome: Pressão dos Barbosa
-                id_no_mapa: '4'
                 dificuldade: V6_BARRA_V7
             - boulder:
                 nome: Helicoidal
-                id_no_mapa: '1'
                 dificuldade: V6
             - boulder:
                 nome: Em Busca do Equilíbrio
-                id_no_mapa: '2'
                 dificuldade: V7
             - boulder:
                 nome: Em Busca do Equilíbrio sds
-                id_no_mapa: '3'
                 dificuldade: V10
                 descricao: (sai nas agarras do Pressão no Vovô)
             - boulder:
                 nome: Brígida
-                id_no_mapa: '1'
                 dificuldade: V6
             - boulder:
                 nome: Carranca
-                id_no_mapa: '2'
                 dificuldade: V3
             descricao: ''
         - conteudo:
@@ -1321,14 +1496,19 @@ picos:
                   x: 782
                   y: 818
                   raio: 13
+              referencias:
+              - escalada: Fiat Lux
+                ids:
+                - '1'
+              - escalada: Frita Crux
+                ids:
+                - '2'
             escaladas:
             - boulder:
                 nome: Fiat Lux
-                id_no_mapa: '1'
                 dificuldade: V11
             - boulder:
                 nome: Frita Crux
-                id_no_mapa: '2'
                 dificuldade: V4
                 descricao: (vira pela aresta atrás do bloco)
             descricao: ''
@@ -1381,6 +1561,31 @@ picos:
                   x: 996
                   y: 660
                   raio: 13
+              referencias:
+              - escalada: Buena Onda
+                ids:
+                - 1A
+              - escalada: Teto de Vidro
+                ids:
+                - 1B▲/1A
+              - escalada: Gringo de Vidro
+                ids:
+                - 1B★
+              - escalada: Teto Quebrado
+                ids:
+                - 2B/2A
+              - escalada: Gringo
+                ids:
+                - 3A
+              - escalada: Manobra
+                ids:
+                - 3A
+              - escalada: Casquinha
+                ids:
+                - 4A
+              - escalada: Wafer
+                ids:
+                - 4B
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1430,36 +1635,28 @@ picos:
             escaladas:
             - boulder:
                 nome: Buena Onda
-                id_no_mapa: 1A
                 dificuldade: V11
             - boulder:
                 nome: Teto de Vidro
-                id_no_mapa: 1B▲/1A
                 dificuldade: V9
             - boulder:
                 nome: Gringo de Vidro
-                id_no_mapa: 1B★
                 dificuldade: V7
             - boulder:
                 nome: Teto Quebrado
-                id_no_mapa: 2B/2A
                 dificuldade: V4
             - boulder:
                 nome: Gringo
-                id_no_mapa: 3A
                 dificuldade: V10
             - boulder:
                 nome: Manobra
-                id_no_mapa: 3A
                 dificuldade: V5
                 descricao: (dinâmico para a agarra indicada)
             - boulder:
                 nome: Casquinha
-                id_no_mapa: 4A
                 dificuldade: V2
             - boulder:
                 nome: Wafer
-                id_no_mapa: 4B
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -1487,6 +1684,31 @@ picos:
                   x: 484
                   y: 320
                   raio: 13
+              referencias:
+              - escalada: NBA
+                ids:
+                - '1'
+              - escalada: Pedra Única
+                ids:
+                - '2'
+              - escalada: Tô na Esquiva
+                ids:
+                - 1A
+              - escalada: Tô Legal
+                ids:
+                - 1B
+              - escalada: Tô Calmo
+                ids:
+                - 2C
+              - escalada: Tô de Boa
+                ids:
+                - 2D
+              - escalada: Jaguatirica
+                ids:
+                - 2E
+              - escalada: Tô Suave
+                ids:
+                - '3'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1542,36 +1764,28 @@ picos:
             escaladas:
             - boulder:
                 nome: NBA
-                id_no_mapa: '1'
                 dificuldade: V6
                 descricao: (dinâmico de 2 regletes para a borda)
             - boulder:
                 nome: Pedra Única
-                id_no_mapa: '2'
                 dificuldade: V4
             - boulder:
                 nome: Tô na Esquiva
-                id_no_mapa: 1A
                 dificuldade: V6
             - boulder:
                 nome: Tô Legal
-                id_no_mapa: 1B
                 dificuldade: V3
             - boulder:
                 nome: Tô Calmo
-                id_no_mapa: 2C
                 dificuldade: V5
             - boulder:
                 nome: Tô de Boa
-                id_no_mapa: 2D
                 dificuldade: V5
             - boulder:
                 nome: Jaguatirica
-                id_no_mapa: 2E
                 dificuldade: V6
             - boulder:
                 nome: Tô Suave
-                id_no_mapa: '3'
                 dificuldade: V4_BARRA_V5
             descricao: ''
         - conteudo:
@@ -1629,6 +1843,34 @@ picos:
                   x: 1308
                   y: 758
                   raio: 13
+              referencias:
+              - escalada: Flap
+                ids:
+                - '1'
+              - escalada: Alfândega
+                ids:
+                - '2'
+              - escalada: México
+                ids:
+                - '3'
+              - escalada: Passaporte
+                ids:
+                - '4'
+              - escalada: Dinamite
+                ids:
+                - 5A
+              - escalada: Pedra Queimada
+                ids:
+                - 5B
+              - escalada: Dinamite sds
+                ids:
+                - 6A
+              - escalada: Pedra Queimada sds
+                ids:
+                - 6B
+              - escalada: Identidade
+                ids:
+                - '1'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1642,40 +1884,31 @@ picos:
             escaladas:
             - boulder:
                 nome: Flap
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Alfândega
-                id_no_mapa: '2'
                 dificuldade: V9
             - boulder:
                 nome: México
-                id_no_mapa: '3'
                 dificuldade: V9
                 descricao: (começa em duas agarras invertidas no teto)
             - boulder:
                 nome: Passaporte
-                id_no_mapa: '4'
                 dificuldade: V6
             - boulder:
                 nome: Dinamite
-                id_no_mapa: 5A
                 dificuldade: V2
             - boulder:
                 nome: Pedra Queimada
-                id_no_mapa: 5B
                 dificuldade: V8
             - boulder:
                 nome: Dinamite sds
-                id_no_mapa: 6A
                 dificuldade: V5_BARRA_V6
             - boulder:
                 nome: Pedra Queimada sds
-                id_no_mapa: 6B
                 dificuldade: V9
             - boulder:
                 nome: Identidade
-                id_no_mapa: '1'
                 dificuldade: V0
             descricao: ''
         - conteudo:
@@ -1757,42 +1990,61 @@ picos:
                   x: 710
                   y: 538
                   raio: 13
+              referencias:
+              - escalada: Aranha
+                ids:
+                - '1'
+              - escalada: Desafio do Superman
+                ids:
+                - 2A
+              - escalada: Hora da Janta
+                ids:
+                - 2B
+              - escalada: Larica
+                ids:
+                - 2C▲
+              - escalada: Sobremesa
+                ids:
+                - 2C★
+              - escalada: Voo do Superman
+                ids:
+                - 3C
+              - escalada: Conha Conha
+                ids:
+                - 4D
+              - escalada: Maconhaque
+                ids:
+                - 4E
+              - escalada: Tapa na Pantera
+                ids:
+                - '5'
             escaladas:
             - boulder:
                 nome: Aranha
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Desafio do Superman
-                id_no_mapa: 2A
                 dificuldade: V3
             - boulder:
                 nome: Hora da Janta
-                id_no_mapa: 2B
                 dificuldade: V3
             - boulder:
                 nome: Larica
-                id_no_mapa: 2C▲
                 dificuldade: V3
             - boulder:
                 nome: Sobremesa
-                id_no_mapa: 2C★
                 dificuldade: V6
             - boulder:
                 nome: Voo do Superman
-                id_no_mapa: 3C
                 dificuldade: INDEFINIDO
             - boulder:
                 nome: Conha Conha
-                id_no_mapa: 4D
                 dificuldade: V5
             - boulder:
                 nome: Maconhaque
-                id_no_mapa: 4E
                 dificuldade: V5
             - boulder:
                 nome: Tapa na Pantera
-                id_no_mapa: '5'
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -1814,6 +2066,13 @@ picos:
                   x: 1032
                   y: 998
                   raio: 13
+              referencias:
+              - escalada: Mezanino
+                ids:
+                - '1'
+              - escalada: Mesa
+                ids:
+                - 2/1
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
               largura_mapa: 1576
               altura_mapa: 1182
@@ -1827,11 +2086,9 @@ picos:
             escaladas:
             - boulder:
                 nome: Mezanino
-                id_no_mapa: '1'
                 dificuldade: V7
             - boulder:
                 nome: Mesa
-                id_no_mapa: 2/1
                 dificuldade: V5
             descricao: ''
         - conteudo:
@@ -1859,6 +2116,19 @@ picos:
                   x: 966
                   y: 956
                   raio: 13
+              referencias:
+              - escalada: Trident
+                ids:
+                - '1'
+              - escalada: Big-Big
+                ids:
+                - '2'
+              - escalada: Babaloo
+                ids:
+                - 3/1A
+              - escalada: Chicletes
+                ids:
+                - 1B
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -1884,19 +2154,15 @@ picos:
             escaladas:
             - boulder:
                 nome: Trident
-                id_no_mapa: '1'
                 dificuldade: V10
             - boulder:
                 nome: Big-Big
-                id_no_mapa: '2'
                 dificuldade: V9
             - boulder:
                 nome: Babaloo
-                id_no_mapa: 3/1A
                 dificuldade: V7
             - boulder:
                 nome: Chicletes
-                id_no_mapa: 1B
                 dificuldade: V11
             descricao: ''
         - conteudo:
@@ -1942,6 +2208,43 @@ picos:
                   x: 322
                   y: 552
                   raio: 13
+              referencias:
+              - escalada: Areia nos Olhos
+                ids:
+                - 1A
+              - escalada: Areia nos Olhos ext
+                ids:
+                - 2A
+              - escalada: Fala Você
+                ids:
+                - 3B
+              - escalada: De Olho na Vida
+                ids:
+                - 3C
+              - escalada: Fala Vida
+                ids:
+                - 1A
+              - escalada: Vida Curta
+                ids:
+                - 1B
+              - escalada: Sem Vida
+                ids:
+                - 1C
+              - escalada: Arenito
+                ids:
+                - 2C
+              - escalada: Vida Longa
+                ids:
+                - 3A
+              - escalada: Longevidade
+                ids:
+                - 3C
+              - escalada: Guerreiro Jedi
+                ids:
+                - 3D
+              - escalada: Jedi
+                ids:
+                - 4D
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
               largura_mapa: 1576
               altura_mapa: 1182
@@ -1997,51 +2300,39 @@ picos:
             escaladas:
             - boulder:
                 nome: Areia nos Olhos
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Areia nos Olhos ext
-                id_no_mapa: 2A
                 dificuldade: V6
             - boulder:
                 nome: Fala Você
-                id_no_mapa: 3B
                 dificuldade: V11
             - boulder:
                 nome: De Olho na Vida
-                id_no_mapa: 3C
                 dificuldade: V5
             - boulder:
                 nome: Fala Vida
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Vida Curta
-                id_no_mapa: 1B
                 dificuldade: V2
             - boulder:
                 nome: Sem Vida
-                id_no_mapa: 1C
                 dificuldade: V3
             - boulder:
                 nome: Arenito
-                id_no_mapa: 2C
                 dificuldade: V5
             - boulder:
                 nome: Vida Longa
-                id_no_mapa: 3A
                 dificuldade: V8
             - boulder:
                 nome: Longevidade
-                id_no_mapa: 3C
                 dificuldade: V7
             - boulder:
                 nome: Guerreiro Jedi
-                id_no_mapa: 3D
                 dificuldade: V11
             - boulder:
                 nome: Jedi
-                id_no_mapa: 4D
                 dificuldade: V10
             descricao: ''
         - conteudo:
@@ -2075,18 +2366,25 @@ picos:
                   x: 571
                   y: 934
                   raio: 13
+              referencias:
+              - escalada: Braúna
+                ids:
+                - 1A
+              - escalada: Sonar
+                ids:
+                - 1B
+              - escalada: Periscópio
+                ids:
+                - 1C
             escaladas:
             - boulder:
                 nome: Braúna
-                id_no_mapa: 1A
                 dificuldade: V7
             - boulder:
                 nome: Sonar
-                id_no_mapa: 1B
                 dificuldade: V4
             - boulder:
                 nome: Periscópio
-                id_no_mapa: 1C
                 dificuldade: V5
             descricao: ''
         - conteudo:
@@ -2102,6 +2400,28 @@ picos:
                   x: 818
                   y: 802
                   raio: 13
+              referencias:
+              - escalada: Tatuagens do Ofício
+                ids:
+                - '1'
+              - escalada: Rastaman
+                ids:
+                - 1A
+              - escalada: Meia Parede
+                ids:
+                - 1B
+              - escalada: Slab
+                ids:
+                - 1A
+              - escalada: Aresta do Lenine
+                ids:
+                - 1B
+              - escalada: Jardim de Orquídeas
+                ids:
+                - '1'
+              - escalada: Jardim Suspenso
+                ids:
+                - '2'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -2165,31 +2485,24 @@ picos:
             escaladas:
             - boulder:
                 nome: Tatuagens do Ofício
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Rastaman
-                id_no_mapa: 1A
                 dificuldade: V6
             - boulder:
                 nome: Meia Parede
-                id_no_mapa: 1B
                 dificuldade: V4
             - boulder:
                 nome: Slab
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Aresta do Lenine
-                id_no_mapa: 1B
                 dificuldade: V5
             - boulder:
                 nome: Jardim de Orquídeas
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Jardim Suspenso
-                id_no_mapa: '2'
                 dificuldade: V6
             descricao: ''
         - conteudo:
@@ -2289,6 +2602,82 @@ picos:
                   x: 1448
                   y: 685
                   raio: 13
+              referencias:
+              - escalada: Monte Mor
+                ids:
+                - 1A
+              - escalada: Irmãos Coragem
+                ids:
+                - 1B
+              - escalada: Irmãos na Vibe
+                ids:
+                - 2B
+              - escalada: Ora-Por-Todos
+                ids:
+                - 4C/1A★
+              - escalada: Orai-Por-Noix
+                ids:
+                - 5C/1A▲
+              - escalada: Ora-Pra-Jah
+                ids:
+                - 5D/1B
+              - escalada: Ouroboulder
+                ids:
+                - 5E/1C
+              - escalada: Ora-Pro-Nóbis
+                ids:
+                - 6D/2B
+              - escalada: Ora-Pros-Crash
+                ids:
+                - 6E/2C
+              - escalada: Oratório
+                ids:
+                - 7E/5C
+              - escalada: Quebra Galho
+                ids:
+                - 8E/3C
+              - escalada: Libertadores
+                ids:
+                - 9F/2D
+              - escalada: Eu Acredito
+                ids:
+                - 10F/4D
+              - escalada: Umbriacone
+                ids:
+                - '1'
+              - escalada: Mortal Kombat
+                ids:
+                - 2▲ / 1▲
+              - escalada: Sub-Zero
+                ids:
+                - 2★ / 1★
+              - escalada: Raiden
+                ids:
+                - 3▲ / 2▲
+              - escalada: Carcomendo
+                ids:
+                - 3★ / 2★
+              - escalada: '003'
+                ids:
+                - '1'
+              - escalada: Novos Baianos
+                ids:
+                - 1A★
+              - escalada: De Inverno
+                ids:
+                - 1B★
+              - escalada: De Verão
+                ids:
+                - 1C★
+              - escalada: Maverick
+                ids:
+                - 1B▲
+              - escalada: Vem Verão
+                ids:
+                - 2B
+              - escalada: Passível
+                ids:
+                - 1A
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -2526,103 +2915,78 @@ picos:
             escaladas:
             - boulder:
                 nome: Monte Mor
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Irmãos Coragem
-                id_no_mapa: 1B
                 dificuldade: V8
             - boulder:
                 nome: Irmãos na Vibe
-                id_no_mapa: 2B
                 dificuldade: V8
             - boulder:
                 nome: Ora-Por-Todos
-                id_no_mapa: 4C/1A★
                 dificuldade: V3
             - boulder:
                 nome: Orai-Por-Noix
-                id_no_mapa: 5C/1A▲
                 dificuldade: V5
             - boulder:
                 nome: Ora-Pra-Jah
-                id_no_mapa: 5D/1B
                 dificuldade: V9
             - boulder:
                 nome: Ouroboulder
-                id_no_mapa: 5E/1C
                 dificuldade: V11
             - boulder:
                 nome: Ora-Pro-Nóbis
-                id_no_mapa: 6D/2B
                 dificuldade: V7
             - boulder:
                 nome: Ora-Pros-Crash
-                id_no_mapa: 6E/2C
                 dificuldade: V10
             - boulder:
                 nome: Oratório
-                id_no_mapa: 7E/5C
                 dificuldade: V10
             - boulder:
                 nome: Quebra Galho
-                id_no_mapa: 8E/3C
                 dificuldade: V6
             - boulder:
                 nome: Libertadores
-                id_no_mapa: 9F/2D
                 dificuldade: V14
             - boulder:
                 nome: Eu Acredito
-                id_no_mapa: 10F/4D
                 dificuldade: V11
             - boulder:
                 nome: Umbriacone
-                id_no_mapa: '1'
                 dificuldade: V8
             - boulder:
                 nome: Mortal Kombat
-                id_no_mapa: 2▲ / 1▲
                 dificuldade: V8
             - boulder:
                 nome: Sub-Zero
-                id_no_mapa: 2★ / 1★
                 dificuldade: V6
             - boulder:
                 nome: Raiden
-                id_no_mapa: 3▲ / 2▲
                 dificuldade: V4
             - boulder:
                 nome: Carcomendo
-                id_no_mapa: 3★ / 2★
                 dificuldade: V7
             - boulder:
                 nome: '003'
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Novos Baianos
-                id_no_mapa: 1A★
                 dificuldade: V11
             - boulder:
                 nome: De Inverno
-                id_no_mapa: 1B★
                 dificuldade: V10
             - boulder:
                 nome: De Verão
-                id_no_mapa: 1C★
                 dificuldade: V10
             - boulder:
                 nome: Maverick
-                id_no_mapa: 1B▲
                 dificuldade: V9
             - boulder:
                 nome: Vem Verão
-                id_no_mapa: 2B
                 dificuldade: V9
             - boulder:
                 nome: Passível
-                id_no_mapa: 1A
                 dificuldade: V2
             descricao: ''
         - conteudo:
@@ -2638,6 +3002,22 @@ picos:
                   x: 828
                   y: 850
                   raio: 13
+              referencias:
+              - escalada: Abaulados
+                ids:
+                - '1'
+              - escalada: '004'
+                ids:
+                - '1'
+              - escalada: Jardim Secreto
+                ids:
+                - 1A
+              - escalada: Papo Reto
+                ids:
+                - 1B
+              - escalada: Papo Reto sds
+                ids:
+                - 2B
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -2679,23 +3059,18 @@ picos:
             escaladas:
             - boulder:
                 nome: Abaulados
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: '004'
-                id_no_mapa: '1'
                 dificuldade: V4
             - boulder:
                 nome: Jardim Secreto
-                id_no_mapa: 1A
                 dificuldade: V11
             - boulder:
                 nome: Papo Reto
-                id_no_mapa: 1B
                 dificuldade: V11
             - boulder:
                 nome: Papo Reto sds
-                id_no_mapa: 2B
                 dificuldade: V12
             descricao: ''
         - conteudo:
@@ -2753,6 +3128,55 @@ picos:
                   x: 1335
                   y: 780
                   raio: 13
+              referencias:
+              - escalada: Buda
+                ids:
+                - 1A
+              - escalada: Arestides
+                ids:
+                - 1B
+              - escalada: Arestides ext
+                ids:
+                - 1C/1D▲
+              - escalada: Nataraja
+                ids:
+                - 2B▲/2A▲
+              - escalada: Sidarta
+                ids:
+                - 2B★
+              - escalada: Sidarta sds
+                ids:
+                - 3B★
+              - escalada: Deep Inside ext
+                ids:
+                - 4A▲
+              - escalada: Deep Inside
+                ids:
+                - 4B★
+              - escalada: Canindé
+                ids:
+                - 4C
+              - escalada: Canindé de Cima
+                ids:
+                - 5C
+              - escalada: Cara de Boi
+                ids:
+                - 6B
+              - escalada: Cara de Vaca
+                ids:
+                - 6C
+              - escalada: Invertides
+                ids:
+                - 7A▲
+              - escalada: Promoção
+                ids:
+                - 7D/2B
+              - escalada: Promocinha
+                ids:
+                - 1A
+              - escalada: Bolinho de Chuva
+                ids:
+                - 3C
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -2878,67 +3302,51 @@ picos:
             escaladas:
             - boulder:
                 nome: Buda
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Arestides
-                id_no_mapa: 1B
                 dificuldade: V5
             - boulder:
                 nome: Arestides ext
-                id_no_mapa: 1C/1D▲
                 dificuldade: V7
             - boulder:
                 nome: Nataraja
-                id_no_mapa: 2B▲/2A▲
                 dificuldade: V6
             - boulder:
                 nome: Sidarta
-                id_no_mapa: 2B★
                 dificuldade: V5
             - boulder:
                 nome: Sidarta sds
-                id_no_mapa: 3B★
                 dificuldade: V9
             - boulder:
                 nome: Deep Inside ext
-                id_no_mapa: 4A▲
                 dificuldade: V11
             - boulder:
                 nome: Deep Inside
-                id_no_mapa: 4B★
                 dificuldade: V10
             - boulder:
                 nome: Canindé
-                id_no_mapa: 4C
                 dificuldade: V10
             - boulder:
                 nome: Canindé de Cima
-                id_no_mapa: 5C
                 dificuldade: V9
             - boulder:
                 nome: Cara de Boi
-                id_no_mapa: 6B
                 dificuldade: V2
             - boulder:
                 nome: Cara de Vaca
-                id_no_mapa: 6C
                 dificuldade: V1
             - boulder:
                 nome: Invertides
-                id_no_mapa: 7A▲
                 dificuldade: V8
             - boulder:
                 nome: Promoção
-                id_no_mapa: 7D/2B
                 dificuldade: V4
             - boulder:
                 nome: Promocinha
-                id_no_mapa: 1A
                 dificuldade: V7
             - boulder:
                 nome: Bolinho de Chuva
-                id_no_mapa: 3C
                 dificuldade: VB
             descricao: ''
         - conteudo:
@@ -2990,6 +3398,46 @@ picos:
                   x: 1988
                   y: 994
                   raio: 13
+              referencias:
+              - escalada: Talhadeira
+                ids:
+                - 1/1B
+              - escalada: Complexo
+                ids:
+                - 2A
+              - escalada: Ajoelhou, Tem que Rezar
+                ids:
+                - 2B
+              - escalada: Descomplicado
+                ids:
+                - 3B
+              - escalada: Sofá
+                ids:
+                - 1A
+              - escalada: Porosíssimo
+                ids:
+                - '1'
+              - escalada: Poroso
+                ids:
+                - '2'
+              - escalada: Não Poroso
+                ids:
+                - '3'
+              - escalada: Triangular
+                ids:
+                - '4'
+              - escalada: Boulder de Raiz
+                ids:
+                - '1'
+              - escalada: Travessia Ouro Preto-Bocaina
+                ids:
+                - '2'
+              - escalada: Perereca
+                ids:
+                - '3'
+              - escalada: Respira
+                ids:
+                - '1'
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -3089,55 +3537,42 @@ picos:
             escaladas:
             - boulder:
                 nome: Talhadeira
-                id_no_mapa: 1/1B
                 dificuldade: V4
             - boulder:
                 nome: Complexo
-                id_no_mapa: 2A
                 dificuldade: V5
             - boulder:
                 nome: Ajoelhou, Tem que Rezar
-                id_no_mapa: 2B
                 dificuldade: V5
             - boulder:
                 nome: Descomplicado
-                id_no_mapa: 3B
                 dificuldade: V3
             - boulder:
                 nome: Sofá
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Porosíssimo
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: Poroso
-                id_no_mapa: '2'
                 dificuldade: V2
             - boulder:
                 nome: Não Poroso
-                id_no_mapa: '3'
                 dificuldade: V3
             - boulder:
                 nome: Triangular
-                id_no_mapa: '4'
                 dificuldade: V5
             - boulder:
                 nome: Boulder de Raiz
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Travessia Ouro Preto-Bocaina
-                id_no_mapa: '2'
                 dificuldade: V4
             - boulder:
                 nome: Perereca
-                id_no_mapa: '3'
                 dificuldade: V4
             - boulder:
                 nome: Respira
-                id_no_mapa: '1'
                 dificuldade: V6
             descricao: ''
         - conteudo:
@@ -3189,26 +3624,37 @@ picos:
                   y: 24
                   comprimento: 28
                   largura: 28
+              referencias:
+              - escalada: Aderência
+                ids:
+                - 1A
+              - escalada: Dreher
+                ids:
+                - 2A
+              - escalada: Yoga
+                ids:
+                - 3A
+              - escalada: Conhaque
+                ids:
+                - 3B
+              - escalada: Conhaque Presidente
+                ids:
+                - '4'
             escaladas:
             - boulder:
                 nome: Aderência
-                id_no_mapa: 1A
                 dificuldade: VB
             - boulder:
                 nome: Dreher
-                id_no_mapa: 2A
                 dificuldade: V3
             - boulder:
                 nome: Yoga
-                id_no_mapa: 3A
                 dificuldade: V4
             - boulder:
                 nome: Conhaque
-                id_no_mapa: 3B
                 dificuldade: V4_BARRA_V5
             - boulder:
                 nome: Conhaque Presidente
-                id_no_mapa: '4'
                 dificuldade: V6
             descricao: ''
         - conteudo:
@@ -3254,26 +3700,37 @@ picos:
                   x: 1410
                   y: 206
                   raio: 13
+              referencias:
+              - escalada: Neutron
+                ids:
+                - 1B
+              - escalada: Elétron
+                ids:
+                - 2B
+              - escalada: Via Láctea
+                ids:
+                - 3A
+              - escalada: Neutron
+                ids:
+                - 3B
+              - escalada: Positron
+                ids:
+                - 3C
             escaladas:
             - boulder:
                 nome: Neutron
-                id_no_mapa: 1B
                 dificuldade: V3_BARRA_V4
             - boulder:
                 nome: Elétron
-                id_no_mapa: 2B
                 dificuldade: V3
             - boulder:
                 nome: Via Láctea
-                id_no_mapa: 3A
                 dificuldade: V6
             - boulder:
                 nome: Neutron
-                id_no_mapa: 3B
                 dificuldade: V4
             - boulder:
                 nome: Positron
-                id_no_mapa: 3C
                 dificuldade: V3
             descricao: ''
         descricao: ''
@@ -3408,6 +3865,52 @@ picos:
                   x: 1190
                   y: 780
                   raio: 13
+              referencias:
+              - escalada: Pico da Neblina ext
+                ids:
+                - 1A
+              - escalada: Inquilinismo Frenético ext
+                ids:
+                - 1C
+              - escalada: Pico da Neblina
+                ids:
+                - 2A
+              - escalada: Inquilinismo Frenético
+                ids:
+                - 2C
+              - escalada: Bife do Mário
+                ids:
+                - 3B
+              - escalada: Painel
+                ids:
+                - 4C
+              - escalada: Mont Blanc
+                ids:
+                - 5C
+              - escalada: Mont Blanc do Oeste
+                ids:
+                - 6C
+              - escalada: Deja Ir
+                ids:
+                - '7'
+              - escalada: Colibri
+                ids:
+                - '1'
+              - escalada: '005'
+                ids:
+                - '1'
+              - escalada: Raízes do Brasil
+                ids:
+                - 1A
+              - escalada: Raízes do Cerrado
+                ids:
+                - 2A
+              - escalada: Tec Bond
+                ids:
+                - 3B
+              - escalada: Super Bonder
+                ids:
+                - 4B
             - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -3465,63 +3968,48 @@ picos:
             escaladas:
             - boulder:
                 nome: Pico da Neblina ext
-                id_no_mapa: 1A
                 dificuldade: V8
             - boulder:
                 nome: Inquilinismo Frenético ext
-                id_no_mapa: 1C
                 dificuldade: V11
             - boulder:
                 nome: Pico da Neblina
-                id_no_mapa: 2A
                 dificuldade: V7
             - boulder:
                 nome: Inquilinismo Frenético
-                id_no_mapa: 2C
                 dificuldade: V10
             - boulder:
                 nome: Bife do Mário
-                id_no_mapa: 3B
                 dificuldade: V9
             - boulder:
                 nome: Painel
-                id_no_mapa: 4C
                 dificuldade: V7
             - boulder:
                 nome: Mont Blanc
-                id_no_mapa: 5C
                 dificuldade: V10
             - boulder:
                 nome: Mont Blanc do Oeste
-                id_no_mapa: 6C
                 dificuldade: V11
             - boulder:
                 nome: Deja Ir
-                id_no_mapa: '7'
                 dificuldade: V12
             - boulder:
                 nome: Colibri
-                id_no_mapa: '1'
                 dificuldade: V10
             - boulder:
                 nome: '005'
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Raízes do Brasil
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Raízes do Cerrado
-                id_no_mapa: 2A
                 dificuldade: V3
             - boulder:
                 nome: Tec Bond
-                id_no_mapa: 3B
                 dificuldade: V5
             - boulder:
                 nome: Super Bonder
-                id_no_mapa: 4B
                 dificuldade: V6
             descricao: ''
         - conteudo:
@@ -3561,6 +4049,28 @@ picos:
                   x: 1012
                   y: 834
                   raio: 13
+              referencias:
+              - escalada: Parada Obrigatória
+                ids:
+                - 1A
+              - escalada: Rio Doce
+                ids:
+                - 1B
+              - escalada: Rio das Velhas
+                ids:
+                - 1C
+              - escalada: Igarapé
+                ids:
+                - 2C
+              - escalada: Frasco
+                ids:
+                - '1'
+              - escalada: Frisco
+                ids:
+                - '2'
+              - escalada: Fulano
+                ids:
+                - '3'
             - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -3586,31 +4096,24 @@ picos:
             escaladas:
             - boulder:
                 nome: Parada Obrigatória
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Rio Doce
-                id_no_mapa: 1B
                 dificuldade: V4
             - boulder:
                 nome: Rio das Velhas
-                id_no_mapa: 1C
                 dificuldade: V8
             - boulder:
                 nome: Igarapé
-                id_no_mapa: 2C
                 dificuldade: V7
             - boulder:
                 nome: Frasco
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Frisco
-                id_no_mapa: '2'
                 dificuldade: V2
             - boulder:
                 nome: Fulano
-                id_no_mapa: '3'
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -3668,34 +4171,49 @@ picos:
                   x: 1520
                   y: 375
                   raio: 13
+              referencias:
+              - escalada: Dolinha
+                ids:
+                - 1B
+              - escalada: '006'
+                ids:
+                - 2A
+              - escalada: '007'
+                ids:
+                - 3A
+              - escalada: Salão dos Ossos
+                ids:
+                - 3B
+              - escalada: Osso
+                ids:
+                - 4B
+              - escalada: Osso Duro de Roer
+                ids:
+                - 5B
+              - escalada: Tutano
+                ids:
+                - 5C
             escaladas:
             - boulder:
                 nome: Dolinha
-                id_no_mapa: 1B
                 dificuldade: V8
             - boulder:
                 nome: '006'
-                id_no_mapa: 2A
                 dificuldade: V1
             - boulder:
                 nome: '007'
-                id_no_mapa: 3A
                 dificuldade: V3
             - boulder:
                 nome: Salão dos Ossos
-                id_no_mapa: 3B
                 dificuldade: V5
             - boulder:
                 nome: Osso
-                id_no_mapa: 4B
                 dificuldade: V7
             - boulder:
                 nome: Osso Duro de Roer
-                id_no_mapa: 5B
                 dificuldade: V10
             - boulder:
                 nome: Tutano
-                id_no_mapa: 5C
                 dificuldade: V10
             descricao: ''
         - conteudo:
@@ -3723,6 +4241,22 @@ picos:
                   x: 1074
                   y: 960
                   raio: 13
+              referencias:
+              - escalada: Toe de Ouro
+                ids:
+                - 1A
+              - escalada: Toebogã
+                ids:
+                - 1B
+              - escalada: Tobocrash
+                ids:
+                - 2B
+              - escalada: Jardim de Inverno
+                ids:
+                - '1'
+              - escalada: O Pequeno
+                ids:
+                - '2'
             - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -3742,23 +4276,18 @@ picos:
             escaladas:
             - boulder:
                 nome: Toe de Ouro
-                id_no_mapa: 1A
                 dificuldade: V9
             - boulder:
                 nome: Toebogã
-                id_no_mapa: 1B
                 dificuldade: V9
             - boulder:
                 nome: Tobocrash
-                id_no_mapa: 2B
                 dificuldade: V4
             - boulder:
                 nome: Jardim de Inverno
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: O Pequeno
-                id_no_mapa: '2'
                 dificuldade: V8
             descricao: ''
         - conteudo:
@@ -3792,14 +4321,19 @@ picos:
                   x: 995
                   y: 965
                   raio: 13
+              referencias:
+              - escalada: Cabocla da Mata
+                ids:
+                - 1A
+              - escalada: Caboclo das Sete Encruzilhadas
+                ids:
+                - 2B
             escaladas:
             - boulder:
                 nome: Cabocla da Mata
-                id_no_mapa: 1A
                 dificuldade: V4
             - boulder:
                 nome: Caboclo das Sete Encruzilhadas
-                id_no_mapa: 2B
                 dificuldade: V5
             descricao: ''
         - conteudo:
@@ -3833,18 +4367,25 @@ picos:
                   x: 355
                   y: 105
                   raio: 13
+              referencias:
+              - escalada: Transição
+                ids:
+                - 1A
+              - escalada: Silêncio da Mutuca
+                ids:
+                - 1B
+              - escalada: Íngreme
+                ids:
+                - '2'
             escaladas:
             - boulder:
                 nome: Transição
-                id_no_mapa: 1A
                 dificuldade: V5
             - boulder:
                 nome: Silêncio da Mutuca
-                id_no_mapa: 1B
                 dificuldade: V3
             - boulder:
                 nome: Íngreme
-                id_no_mapa: '2'
                 dificuldade: V3
             descricao: ''
         - conteudo:
@@ -3878,18 +4419,25 @@ picos:
                   x: 866
                   y: 204
                   raio: 13
+              referencias:
+              - escalada: Heavy Metal
+                ids:
+                - '1'
+              - escalada: Rock n Roll
+                ids:
+                - 2A
+              - escalada: Hard Core
+                ids:
+                - 2B
             escaladas:
             - boulder:
                 nome: Heavy Metal
-                id_no_mapa: '1'
                 dificuldade: V2
             - boulder:
                 nome: Rock n Roll
-                id_no_mapa: 2A
                 dificuldade: V1_BARRA_V2
             - boulder:
                 nome: Hard Core
-                id_no_mapa: 2B
                 dificuldade: V6_BARRA_V7
             descricao: ''
         descricao: ''
@@ -3987,22 +4535,31 @@ picos:
                   x: 1374
                   y: 852
                   raio: 13
+              referencias:
+              - escalada: Possível
+                ids:
+                - 1A
+              - escalada: Bonsai
+                ids:
+                - 1B
+              - escalada: Bonsai do Cerrado
+                ids:
+                - 1C
+              - escalada: Mancada
+                ids:
+                - 2C
             escaladas:
             - boulder:
                 nome: Possível
-                id_no_mapa: 1A
                 dificuldade: V3
             - boulder:
                 nome: Bonsai
-                id_no_mapa: 1B
                 dificuldade: V5
             - boulder:
                 nome: Bonsai do Cerrado
-                id_no_mapa: 1C
                 dificuldade: V3
             - boulder:
                 nome: Mancada
-                id_no_mapa: 2C
                 dificuldade: V3
             descricao: ''
         - conteudo:
@@ -4018,6 +4575,40 @@ picos:
                   x: 1380
                   y: 805
                   raio: 13
+              referencias:
+              - escalada: Beija-Flor
+                ids:
+                - '1'
+              - escalada: Tarântula
+                ids:
+                - '1'
+              - escalada: Porém
+                ids:
+                - 1A
+              - escalada: Xaxado
+                ids:
+                - 1B
+              - escalada: Rouba Monte
+                ids:
+                - 2B/4B
+              - escalada: Crocância do Além
+                ids:
+                - 3A
+              - escalada: Lodo
+                ids:
+                - '1'
+              - escalada: Crocância
+                ids:
+                - 2A
+              - escalada: Crocância Rouba Monte
+                ids:
+                - 2B
+              - escalada: Crocância sds
+                ids:
+                - 3A
+              - escalada: Crocância Rouba Monte sds
+                ids:
+                - 3B
             - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -4105,47 +4696,36 @@ picos:
             escaladas:
             - boulder:
                 nome: Beija-Flor
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Tarântula
-                id_no_mapa: '1'
                 dificuldade: V7
             - boulder:
                 nome: Porém
-                id_no_mapa: 1A
                 dificuldade: V1
             - boulder:
                 nome: Xaxado
-                id_no_mapa: 1B
                 dificuldade: V5
             - boulder:
                 nome: Rouba Monte
-                id_no_mapa: 2B/4B
                 dificuldade: V4
             - boulder:
                 nome: Crocância do Além
-                id_no_mapa: 3A
                 dificuldade: V11
             - boulder:
                 nome: Lodo
-                id_no_mapa: '1'
                 dificuldade: V8
             - boulder:
                 nome: Crocância
-                id_no_mapa: 2A
                 dificuldade: V9
             - boulder:
                 nome: Crocância Rouba Monte
-                id_no_mapa: 2B
                 dificuldade: V10
             - boulder:
                 nome: Crocância sds
-                id_no_mapa: 3A
                 dificuldade: V10
             - boulder:
                 nome: Crocância Rouba Monte sds
-                id_no_mapa: 3B
                 dificuldade: V11
             descricao: ''
         - conteudo:
@@ -4161,6 +4741,40 @@ picos:
                   x: 954
                   y: 1036
                   raio: 13
+              referencias:
+              - escalada: Prodígio
+                ids:
+                - '1'
+              - escalada: Briga de Galo
+                ids:
+                - '1'
+              - escalada: Oráculo
+                ids:
+                - '2'
+              - escalada: 008
+                ids:
+                - '3'
+              - escalada: Afrodisíaco
+                ids:
+                - '1'
+              - escalada: Lava Pés
+                ids:
+                - 2A
+              - escalada: Mantra
+                ids:
+                - 2B
+              - escalada: Samadhi
+                ids:
+                - 2C
+              - escalada: Tantra
+                ids:
+                - 3C
+              - escalada: Psicótico
+                ids:
+                - '1'
+              - escalada: Popeye
+                ids:
+                - '2'
             - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -4230,47 +4844,36 @@ picos:
             escaladas:
             - boulder:
                 nome: Prodígio
-                id_no_mapa: '1'
                 dificuldade: V5
             - boulder:
                 nome: Briga de Galo
-                id_no_mapa: '1'
                 dificuldade: V6
             - boulder:
                 nome: Oráculo
-                id_no_mapa: '2'
                 dificuldade: V9
             - boulder:
                 nome: 008
-                id_no_mapa: '3'
                 dificuldade: V5
             - boulder:
                 nome: Afrodisíaco
-                id_no_mapa: '1'
                 dificuldade: V9
             - boulder:
                 nome: Lava Pés
-                id_no_mapa: 2A
                 dificuldade: V7
             - boulder:
                 nome: Mantra
-                id_no_mapa: 2B
                 dificuldade: V8
             - boulder:
                 nome: Samadhi
-                id_no_mapa: 2C
                 dificuldade: V10
             - boulder:
                 nome: Tantra
-                id_no_mapa: 3C
                 dificuldade: V7
             - boulder:
                 nome: Psicótico
-                id_no_mapa: '1'
                 dificuldade: V3
             - boulder:
                 nome: Popeye
-                id_no_mapa: '2'
                 dificuldade: V2
             descricao: ''
         - conteudo:
@@ -4286,10 +4889,13 @@ picos:
                   x: 810
                   y: 955
                   raio: 13
+              referencias:
+              - escalada: Dali Goiabada
+                ids:
+                - '1'
             escaladas:
             - boulder:
                 nome: Dali Goiabada
-                id_no_mapa: '1'
                 dificuldade: V9
             descricao: ''
         - conteudo:
@@ -4323,22 +4929,31 @@ picos:
                   x: 955
                   y: 146
                   raio: 13
+              referencias:
+              - escalada: Seg da Árvore
+                ids:
+                - 1A
+              - escalada: Seg-Samambaia
+                ids:
+                - 1B
+              - escalada: Seg dos Inferno
+                ids:
+                - 1C
+              - escalada: Toca Toca
+                ids:
+                - 1D
             escaladas:
             - boulder:
                 nome: Seg da Árvore
-                id_no_mapa: 1A
                 dificuldade: V2
             - boulder:
                 nome: Seg-Samambaia
-                id_no_mapa: 1B
                 dificuldade: V4
             - boulder:
                 nome: Seg dos Inferno
-                id_no_mapa: 1C
                 dificuldade: V6
             - boulder:
                 nome: Toca Toca
-                id_no_mapa: 1D
                 dificuldade: V4
             descricao: ''
         - conteudo:
@@ -4378,22 +4993,31 @@ picos:
                   x: 1128
                   y: 255
                   raio: 13
+              referencias:
+              - escalada: Billy The Kid
+                ids:
+                - 1A
+              - escalada: Durango Kid
+                ids:
+                - 1B
+              - escalada: Pedra
+                ids:
+                - 1C
+              - escalada: Semiárido
+                ids:
+                - '2'
             escaladas:
             - boulder:
                 nome: Billy The Kid
-                id_no_mapa: 1A
                 dificuldade: V1
             - boulder:
                 nome: Durango Kid
-                id_no_mapa: 1B
                 dificuldade: V3
             - boulder:
                 nome: Pedra
-                id_no_mapa: 1C
                 dificuldade: V7
             - boulder:
                 nome: Semiárido
-                id_no_mapa: '2'
                 dificuldade: V5
             descricao: ''
         descricao: ''
@@ -4835,7 +5459,7 @@ botoes:
         *   **Instagram:** @ouroboulder
 
         *   **Email:** sime.ouroboulder@gmail.com'
-ultima_migracao: 1
+ultima_migracao: 2
 arquivos_externos:
 - caminho: imagens/apoio_p0.webp
   checksum_sha256: 6d8f9f08b705a7df00cf14760c6902cbc8e9c5bc6d5547886757e6daec8d7e0b

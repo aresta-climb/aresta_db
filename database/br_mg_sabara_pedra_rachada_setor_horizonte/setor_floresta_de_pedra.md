@@ -1,4 +1,4 @@
----
+---
 nome: Floresta de pedra
 mapas:
 - caminho_imagem_mapa: imagens/setor_floresta_de_pedra_p0_i0.webp
@@ -35,36 +35,42 @@ mapas:
       x: 1078
       y: 477
       raio: 28
+  referencias:
+  - escalada: Cambeva
+    ids:
+    - '1'
+  - escalada: Vellozia
+    ids:
+    - '2'
+  - escalada: Flor do Cerrado
+    ids:
+    - '3'
+  - escalada: Sempre-viva
+    ids:
+    - '4'
+  - escalada: Calliandra
+    ids:
+    - '5'
 escaladas:
 - boulder:
     nome: Cambeva
-    id_no_mapa: '1'
     dificuldade: V0
-    descricao: Inicia sentado com a mão direita em um batente escorrido e a 
-      esquerda em uma fenda vertical e escala para a esquerda.
+    descricao: Inicia sentado com a mão direita em um batente escorrido e a esquerda em uma fenda vertical e escala para a esquerda.
 - boulder:
     nome: Vellozia
-    id_no_mapa: '2'
     dificuldade: V0
     descricao: Começa como o “Cambeva”, mas vira à direita do teto.
 - boulder:
     nome: Flor do Cerrado
-    id_no_mapa: '3'
     dificuldade: V2
-    descricao: Começa sentado com as duas mãos em um batente clássico e escala 
-      reto. Uma virada zela...
+    descricao: Começa sentado com as duas mãos em um batente clássico e escala reto. Uma virada zela...
 - boulder:
     nome: Sempre-viva
-    id_no_mapa: '4'
     dificuldade: V3
-    descricao: Extensão do “Calliandra”. Começa com a mão direita em um reglete 
-      abaixo do batente inicial do “Flor do Cerrado” e com a esquerda em um 
-      reglete texturado.
+    descricao: Extensão do “Calliandra”. Começa com a mão direita em um reglete abaixo do batente inicial do “Flor do Cerrado” e com a esquerda em um reglete texturado.
 - boulder:
     nome: Calliandra
-    id_no_mapa: '5'
     dificuldade: V3
-    descricao: Começa com as duas mãos em um reglete e escala reto por regletes 
-      clássicos até o topo.
----
+    descricao: Começa com as duas mãos em um reglete e escala reto por regletes clássicos até o topo.
+---
 

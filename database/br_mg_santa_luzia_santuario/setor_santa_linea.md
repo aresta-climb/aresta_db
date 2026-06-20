@@ -1,4 +1,4 @@
----
+---
 nome: Setor Santa Línea
 mapas:
 - caminho_imagem_mapa: imagens/setor_santa_linea_p1.webp
@@ -110,10 +110,55 @@ mapas:
       y: 1844
       comprimento: 48
       largura: 38
+  referencias:
+  - escalada: MEU AMIGO CHARLIE BROWN
+    ids:
+    - '01'
+  - escalada: PAI NOSSO
+    ids:
+    - '02'
+  - escalada: NEM TUDO É PERFEITO
+    ids:
+    - '03'
+  - escalada: DIAS DE LUTA DIAS DE GLÓRIA
+    ids:
+    - '04'
+  - escalada: MADE IN BRAZIL
+    ids:
+    - '05'
+  - escalada: SANTA KLAUSS
+    ids:
+    - '06'
+  - escalada: ÓPANGARE
+    ids:
+    - '07'
+  - escalada: BERBARIDADE MÁXIMA
+    ids:
+    - '08'
+  - escalada: SANTA INQUISIÇÃO
+    ids:
+    - '09'
+  - escalada: TIRANOS DE PLANTÃO
+    ids:
+    - '10'
+  - escalada: SANTO GRAU
+    ids:
+    - '11'
+  - escalada: SANTA LINEA
+    ids:
+    - '12'
+  - escalada: SÓ OS LOUCOS SABEM
+    ids:
+    - '13'
+  - escalada: CHÁ NA CARTOLINA
+    ids:
+    - '14'
+  - escalada: AVE MARIA
+    ids:
+    - '15'
 escaladas:
 - via_multiplas_enfiadas:
     nome: MEU AMIGO CHARLIE BROWN
-    id_no_mapa: '01'
     dificuldade_maxima: BR_10A
     enfiadas:
     - via_esportiva:
@@ -127,7 +172,6 @@ escaladas:
         dificuldade: BR_10A
 - via_multiplas_enfiadas:
     nome: PAI NOSSO
-    id_no_mapa: '02'
     dificuldade_maxima: BR_9B
     enfiadas:
     - via_esportiva:
@@ -141,7 +185,6 @@ escaladas:
         dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: NEM TUDO É PERFEITO
-    id_no_mapa: '03'
     dificuldade_maxima: BR_9B
     enfiadas:
     - via_esportiva:
@@ -152,7 +195,6 @@ escaladas:
         dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: DIAS DE LUTA DIAS DE GLÓRIA
-    id_no_mapa: '04'
     dificuldade_maxima: BR_10A
     enfiadas:
     - via_esportiva:
@@ -163,7 +205,6 @@ escaladas:
         dificuldade: BR_10A
 - via_multiplas_enfiadas:
     nome: MADE IN BRAZIL
-    id_no_mapa: '05'
     dificuldade_maxima: BR_10B
     enfiadas:
     - via_esportiva:
@@ -177,7 +218,6 @@ escaladas:
         dificuldade: BR_10B
 - via_multiplas_enfiadas:
     nome: SANTA KLAUSS
-    id_no_mapa: '06'
     dificuldade_maxima: BR_10C
     enfiadas:
     - via_esportiva:
@@ -191,19 +231,15 @@ escaladas:
         dificuldade: BR_10C
 - via_esportiva:
     nome: ÓPANGARE
-    id_no_mapa: '07'
     dificuldade: BR_9A
 - via_esportiva:
     nome: BERBARIDADE MÁXIMA
-    id_no_mapa: '08'
     dificuldade: BR_8A
 - via_esportiva:
     nome: SANTA INQUISIÇÃO
-    id_no_mapa: '09'
     dificuldade: BR_10C
 - via_multiplas_enfiadas:
     nome: TIRANOS DE PLANTÃO
-    id_no_mapa: '10'
     dificuldade_maxima: BR_9C
     enfiadas:
     - via_esportiva:
@@ -223,7 +259,6 @@ escaladas:
         dificuldade: BR_9C
 - via_multiplas_enfiadas:
     nome: SANTO GRAU
-    id_no_mapa: '11'
     dificuldade_maxima: PROJETO
     enfiadas:
     - via_esportiva:
@@ -234,7 +269,6 @@ escaladas:
         dificuldade: PROJETO
 - via_multiplas_enfiadas:
     nome: SANTA LINEA
-    id_no_mapa: '12'
     dificuldade_maxima: PROJETO
     enfiadas:
     - via_esportiva:
@@ -248,7 +282,6 @@ escaladas:
         dificuldade: PROJETO
 - via_multiplas_enfiadas:
     nome: SÓ OS LOUCOS SABEM
-    id_no_mapa: '13'
     dificuldade_maxima: BR_9A
     enfiadas:
     - via_esportiva:
@@ -259,7 +292,6 @@ escaladas:
         dificuldade: BR_9A
 - via_multiplas_enfiadas:
     nome: CHÁ NA CARTOLINA
-    id_no_mapa: '14'
     dificuldade_maxima: BR_9B
     enfiadas:
     - via_esportiva:
@@ -273,7 +305,6 @@ escaladas:
         dificuldade: BR_9B
 - via_multiplas_enfiadas:
     nome: AVE MARIA
-    id_no_mapa: '15'
     dificuldade_maxima: BR_9C
     enfiadas:
     - via_esportiva:
@@ -285,7 +316,7 @@ escaladas:
     - via_esportiva:
         nome: P3
         dificuldade: BR_9C
----
+---
 # Setor Santa Línea
 
 ![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp)

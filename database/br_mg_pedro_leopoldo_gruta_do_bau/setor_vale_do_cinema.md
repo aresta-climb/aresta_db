@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale do Cinema
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_do_cinema_p0_i6.webp
@@ -124,10 +124,52 @@ mapas:
       y: 1192
       comprimento: 166
       largura: 31
+  referencias:
+  - escalada: Armagedon
+    ids:
+    - '01'
+  - escalada: No dia em que a Terra Parou
+    ids:
+    - '02'
+  - escalada: Vermeio de Raiva
+    ids:
+    - '03'
+  - escalada: Linha Vermelha
+    ids:
+    - '04'
+  - escalada: Pestinha
+    ids:
+    - '05'
+  - escalada: Os Babás
+    ids:
+    - '06'
+  - escalada: Lanterninha
+    ids:
+    - '07'
+  - escalada: Navio Fantasma
+    ids:
+    - '8'
+  - escalada: Pata Afiada
+    ids:
+    - '9'
+  - escalada: 1ª Fila
+    ids:
+    - '10'
+  - escalada: Saída de Emergência
+    ids:
+    - '11'
+  - escalada: Roteirista
+    ids:
+    - '12'
+  - escalada: Acenderam a Luz
+    ids:
+    - '13'
+  - escalada: Bilheteria
+    ids:
+    - '14'
 escaladas:
 - via_movel:
     nome: Armagedon
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     protecoes_moveis: Mista
     conquistadores:
@@ -137,7 +179,6 @@ escaladas:
     - Joviney
 - via_esportiva:
     nome: No dia em que a Terra Parou
-    id_no_mapa: '02'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -148,7 +189,6 @@ escaladas:
     - Joviney
 - via_esportiva:
     nome: Vermeio de Raiva
-    id_no_mapa: '03'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -160,7 +200,6 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: Linha Vermelha
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -171,7 +210,6 @@ escaladas:
     - Joviney
 - via_esportiva:
     nome: Pestinha
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -182,7 +220,6 @@ escaladas:
     - Joviney
 - via_esportiva:
     nome: Os Babás
-    id_no_mapa: '06'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -192,7 +229,6 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: Lanterninha
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -200,7 +236,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Navio Fantasma
-    id_no_mapa: 08
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -209,7 +244,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Pata Afiada
-    id_no_mapa: 09
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -218,7 +252,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: 1ª Fila
-    id_no_mapa: '10'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -227,7 +260,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Saída de Emergência
-    id_no_mapa: '11'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -236,7 +268,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Roteirista
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -245,7 +276,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Acenderam a Luz
-    id_no_mapa: '13'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -254,14 +284,13 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Bilheteria
-    id_no_mapa: '14'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     conquistadores:
     - Marco Durães
     - Roberto Lincoln
----
+---
 # Setor Vale do Cinema
 
 **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.

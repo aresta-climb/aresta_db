@@ -1,8 +1,7 @@
----
+---
 nome: Conjunto Pôr do sol - Bloco B
 mapas:
-- caminho_imagem_mapa: 
-    imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp
+- caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp
   largura_mapa: 900
   altura_mapa: 1051
   pontos_de_interesse:
@@ -25,8 +24,29 @@ mapas:
       y: 45
       comprimento: 218
       largura: 66
-- caminho_imagem_mapa: 
-    imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp
+  referencias:
+  - escalada: Essa moça
+    ids:
+    - '12'
+  - escalada: Goodsensation
+    ids:
+    - '13'
+  - escalada: Ponto alto
+    ids:
+    - '14'
+  - escalada: Ponto alto sds
+    ids:
+    - '14'
+  - escalada: Estrelado
+    ids:
+    - '15'
+  - escalada: Estrelado sds
+    ids:
+    - '15'
+  - escalada: Gostosinho
+    ids:
+    - '16'
+- caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp
   largura_mapa: 720
   altura_mapa: 1058
   pontos_de_interesse:
@@ -58,44 +78,32 @@ mapas:
 escaladas:
 - boulder:
     nome: Essa moça
-    id_no_mapa: '12'
     dificuldade: V0
-    descricao: Saída na agarra grande, fazendo a travessia pra virar na face 
-      esquerda do bloco.
+    descricao: Saída na agarra grande, fazendo a travessia pra virar na face esquerda do bloco.
 - boulder:
     nome: Goodsensation
-    id_no_mapa: '13'
     dificuldade: V1
     descricao: Saída na agarra grande, com a virada reta.
 - boulder:
     nome: Ponto alto
-    id_no_mapa: '14'
     dificuldade: V3
-    descricao: Saída de uma pinça grande de direita e outra pinça menor de 
-      esquerda.
+    descricao: Saída de uma pinça grande de direita e outra pinça menor de esquerda.
 - boulder:
     nome: Ponto alto sds
-    id_no_mapa: '14'
     dificuldade: V4
-    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico 
-      de direita.
+    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico de direita.
 - boulder:
     nome: Estrelado
-    id_no_mapa: '15'
     dificuldade: V1
-    descricao: Saída em uma pinça de mão esquerda e mão direita em um 
-      batente/reglete.
+    descricao: Saída em uma pinça de mão esquerda e mão direita em um batente/reglete.
 - boulder:
     nome: Estrelado sds
-    id_no_mapa: '15'
     dificuldade: V2
     descricao: Sai em um reglete lateral de esquerda e um bico de direita.
 - boulder:
     nome: Gostosinho
-    id_no_mapa: '16'
     dificuldade: V0
-    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na 
-      parte mais baixa.
----
+    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais baixa.
+---
 
 # Bloco B

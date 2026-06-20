@@ -1,6 +1,5 @@
----
+---
 nome: Escorpião
-id_no_mapa: '5'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp
   largura_mapa: 761
@@ -41,6 +40,28 @@ mapas:
       y: 280
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Super Foot Hook
+    ids:
+    - '1'
+  - escalada: Foot Hook
+    ids:
+    - '2'
+  - escalada: Escorpião
+    ids:
+    - '3'
+  - escalada: Yakisoba
+    ids:
+    - '4'
+  - escalada: Uaikisoba
+    ids:
+    - '5'
+  - escalada: Insaciável
+    ids:
+    - '1'
+  - escalada: Sicronismo
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp
   largura_mapa: 757
   altura_mapa: 370
@@ -62,33 +83,27 @@ mapas:
 escaladas:
 - boulder:
     nome: Super Foot Hook
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Foot Hook
-    id_no_mapa: '2'
     dificuldade: V3
 - boulder:
     nome: Escorpião
-    id_no_mapa: '3'
     dificuldade: V8
 - boulder:
     nome: Yakisoba
-    id_no_mapa: '4'
     dificuldade: V7
 - boulder:
     nome: Uaikisoba
-    id_no_mapa: '5'
     dificuldade: V7
 - boulder:
     nome: Insaciável
-    id_no_mapa: '1'
     dificuldade: V10
 - boulder:
     nome: Sicronismo
-    id_no_mapa: '2'
     dificuldade: V8
----
+---
+
 # Setor Escorpião
 
 O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.

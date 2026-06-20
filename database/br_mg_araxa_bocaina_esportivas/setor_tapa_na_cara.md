@@ -1,4 +1,4 @@
----
+---
 nome: Tapa na Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_tapa_na_cara_p1.webp
@@ -33,10 +33,22 @@ mapas:
       y: 1120
       comprimento: 44
       largura: 32
+  referencias:
+  - escalada: Marcha lenta
+    ids:
+    - '01'
+  - escalada: Bundalelê
+    ids:
+    - '02'
+  - escalada: Tapa na Cara
+    ids:
+    - '03'
+  - escalada: Cotonete Molhado
+    ids:
+    - '04'
 escaladas:
 - via_esportiva:
     nome: Marcha lenta
-    id_no_mapa: '01'
     dificuldade: BR_6
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -47,7 +59,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Bundalelê
-    id_no_mapa: '02'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 4
@@ -59,7 +70,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Tapa na Cara
-    id_no_mapa: '03'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -70,7 +80,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Cotonete Molhado
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 3
@@ -80,7 +89,7 @@ escaladas:
     - Daiex
     - Paulo
     data_abertura: '2013'
----
+---
 # Setor Tapa na Cara
 
 ![Setor Tapa na Cara](imagens/setor_tapa_na_cara_p0_i0.webp)

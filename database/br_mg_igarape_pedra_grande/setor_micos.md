@@ -1,4 +1,4 @@
----
+---
 nome: Setor Micos
 mapas:
 - caminho_imagem_mapa: imagens/setor_micos_p0.webp
@@ -19,6 +19,28 @@ mapas:
       y: 754
       comprimento: 31
       largura: 37
+  referencias:
+  - escalada: Eu Também Vou
+    ids:
+    - '01'
+  - escalada: Lambe Lambe
+    ids:
+    - '02'
+  - escalada: TNT
+    ids:
+    - '03'
+  - escalada: For My Brother
+    ids:
+    - '04'
+  - escalada: Diamante Negro
+    ids:
+    - '05'
+  - escalada: Chapa Quente
+    ids:
+    - '06'
+  - escalada: (via inacabada)
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_micos_p1.webp
   largura_mapa: 1101
   altura_mapa: 1234
@@ -114,7 +136,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Eu Também Vou
-    id_no_mapa: '01'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -125,7 +146,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Lambe Lambe
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -136,7 +156,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: TNT
-    id_no_mapa: '03'
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -147,7 +166,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: For My Brother
-    id_no_mapa: '04'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -158,7 +176,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Diamante Negro
-    id_no_mapa: '05'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -171,7 +188,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Chapa Quente
-    id_no_mapa: '06'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -184,7 +200,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '07'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 0
     quantidade_protecoes_parada: 2
@@ -193,7 +208,7 @@ escaladas:
     - Berbari
     - Chinha
     data_abertura: '2011'
----
+---
 # Setor Micos
 
 Sombra até 11h e após 15h.

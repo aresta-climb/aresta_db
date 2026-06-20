@@ -1,4 +1,4 @@
----
+---
 nome: Sessão da Tarde
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p0_i0.webp
@@ -159,6 +159,75 @@ mapas:
       y: 310
       comprimento: 27
       largura: 25
+  referencias:
+  - escalada: Super Cine
+    ids:
+    - 1 (P1)
+    - 1 (P1)_fim
+  - escalada: Espetacular
+    ids:
+    - 2 (P1) / 5 (P2)
+    - 2 (P1) / 5 (P2)_fim
+  - escalada: Extra
+    ids:
+    - 3 (P1)
+    - 3 (P1)_fim
+  - escalada: Manchete
+    ids:
+    - 4 (P1)
+    - 4 (P1)_fim
+  - escalada: Esporte Espetacular
+    ids:
+    - 5 (P1) / 4 (P2)
+    - 5 (P1) / 4 (P2)_fim
+  - escalada: Fantástico Mundo dos Diamantes
+    ids:
+    - 6 (P1)
+    - 6 (P1)_fim
+  - escalada: Globo Curral
+    ids:
+    - 7 (P1) / 3 (P2)
+    - 7 (P1) / 3 (P2)_fim
+  - escalada: Manual
+    ids:
+    - 8 (P1) / 1 (P2)
+    - 8 (P1) / 1 (P2)_fim
+  - escalada: Altas Horas
+    ids:
+    - 9 (P1) / 2 (P2)
+    - 9 (P1) / 2 (P2)_fim
+  - escalada: Super Sinistro
+    ids:
+    - 10 (P1)
+    - 10 (P1)_fim
+  - escalada: Fantástico
+    ids:
+    - 11 (P1)
+    - 11 (P1)_fim
+  - escalada: Sessão da Tarde
+    ids:
+    - 6 (P2)
+    - 6 (P2)_fim
+  - escalada: Vale a Pena Ver de Novo
+    ids:
+    - 7 (P2)
+    - 7 (P2)_fim
+  - escalada: Vale a Pena Vir de Baixo
+    ids:
+    - 8 (P2)
+    - 8 (P2)_fim
+  - escalada: Chá da Tarde
+    ids:
+    - 9 (P2)
+    - 9 (P2)_fim
+  - escalada: Analógico
+    ids:
+    - 10 (P2)
+    - 10 (P2)_fim
+  - escalada: Digital
+    ids:
+    - 11 (P2)
+    - 11 (P2)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 964
@@ -320,103 +389,63 @@ mapas:
 escaladas:
 - boulder:
     nome: Super Cine
-    id_no_mapa: 1 (P1)
-    id_no_mapa_fim: 1 (P1)_fim
     dificuldade: V7
 - boulder:
     nome: Espetacular
-    id_no_mapa: 2 (P1) / 5 (P2)
-    id_no_mapa_fim: 2 (P1) / 5 (P2)_fim
     dificuldade: V8_BARRA_V9
 - boulder:
     nome: Extra
-    id_no_mapa: 3 (P1)
-    id_no_mapa_fim: 3 (P1)_fim
     dificuldade: V10
 - boulder:
     nome: Manchete
-    id_no_mapa: 4 (P1)
-    id_no_mapa_fim: 4 (P1)_fim
     dificuldade: V9
 - boulder:
     nome: Esporte Espetacular
-    id_no_mapa: 5 (P1) / 4 (P2)
-    id_no_mapa_fim: 5 (P1) / 4 (P2)_fim
     dificuldade: V10_BARRA_V11
 - boulder:
     nome: Fantástico Mundo dos Diamantes
-    id_no_mapa: 6 (P1)
-    id_no_mapa_fim: 6 (P1)_fim
     dificuldade: V11
 - boulder:
     nome: Globo Curral
-    id_no_mapa: 7 (P1) / 3 (P2)
-    id_no_mapa_fim: 7 (P1) / 3 (P2)_fim
     dificuldade: V5
-    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão
-      direita (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
+    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
 - boulder:
     nome: Manual
-    id_no_mapa: 8 (P1) / 1 (P2)
-    id_no_mapa_fim: 8 (P1) / 1 (P2)_fim
     dificuldade: V8
 - boulder:
     nome: Altas Horas
-    id_no_mapa: 9 (P1) / 2 (P2)
-    id_no_mapa_fim: 9 (P1) / 2 (P2)_fim
     dificuldade: V3
 - boulder:
     nome: Super Sinistro
-    id_no_mapa: 10 (P1)
-    id_no_mapa_fim: 10 (P1)_fim
     dificuldade: V8_BARRA_V9
 - boulder:
     nome: Fantástico
-    id_no_mapa: 11 (P1)
-    id_no_mapa_fim: 11 (P1)_fim
     dificuldade: V10
 - boulder:
     nome: Sessão da Tarde
-    id_no_mapa: 6 (P2)
-    id_no_mapa_fim: 6 (P2)_fim
     dificuldade: V5
-    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em
-      outro batente mais à direita, seguindo em linha reta pelo sistema de agarras
-      logo acima.
+    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em outro batente mais à direita, seguindo em linha reta pelo sistema de agarras logo acima.
 - boulder:
     nome: Vale a Pena Ver de Novo
-    id_no_mapa: 7 (P2)
-    id_no_mapa_fim: 7 (P2)_fim
     dificuldade: V4_BARRA_V5
-    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita
-      após dominar a pinça. A parte final do boulder segue para a direita por "cracas"
-      na face positiva, cuidado com agarras frágeis.
+    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita após dominar a pinça. A parte final do boulder segue para a direita por "cracas" na face positiva, cuidado com agarras frágeis.
 - boulder:
     nome: Vale a Pena Vir de Baixo
-    id_no_mapa: 8 (P2)
-    id_no_mapa_fim: 8 (P2)_fim
     dificuldade: V6_BARRA_V7
     descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá da Tarde.
 - boulder:
     nome: Chá da Tarde
-    id_no_mapa: 9 (P2)
-    id_no_mapa_fim: 9 (P2)_fim
     dificuldade: V7
-    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda
-      e um reglete raso de mão direita.
+    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita.
 - boulder:
     nome: Analógico
-    id_no_mapa: 10 (P2)
-    id_no_mapa_fim: 10 (P2)_fim
     dificuldade: V8_BARRA_V9
     descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá da Tarde.
 - boulder:
     nome: Digital
-    id_no_mapa: 11 (P2)
-    id_no_mapa_fim: 11 (P2)_fim
     dificuldade: V9_BARRA_V10
     descricao: Extensão do Analógico.
----
+---
 # Bloco: Sessão da Tarde
 ## Região 3
 

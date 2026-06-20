@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Mocó
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_moco_p0.webp
@@ -90,53 +90,72 @@ mapas:
       y: 390
       comprimento: 102
       largura: 25
+  referencias:
+  - escalada: Vezúvio
+    ids:
+    - '01'
+  - escalada: Meia Pegada
+    ids:
+    - '02'
+  - escalada: Rasta Man
+    ids:
+    - '03'
+  - escalada: Malandragem da um Tempo
+    ids:
+    - '04'
+  - escalada: Complexo Bipolar
+    ids:
+    - '05'
+  - escalada: Aresta que me Resta
+    ids:
+    - '06'
+  - escalada: Barbarvore
+    ids:
+    - '07'
+  - escalada: Suposta Exposição
+    ids:
+    - '08'
+  - escalada: Bicho Morto
+    ids:
+    - '09'
 escaladas:
 - via_esportiva:
     nome: Vezúvio
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     descricao: Via em cima do platô.
 - via_esportiva:
     nome: Meia Pegada
-    id_no_mapa: '02'
     dificuldade: BR_7A
     descricao: Primeira via da parede.
 - via_esportiva:
     nome: Rasta Man
-    id_no_mapa: '03'
     dificuldade: BR_7A
     descricao: Via antes da árvore.
 - via_esportiva:
     nome: Malandragem da um Tempo
-    id_no_mapa: '04'
     dificuldade: BR_7B_BARRA_7C
     descricao: Via depois da árvore.
 - via_esportiva:
     nome: Complexo Bipolar
-    id_no_mapa: '05'
     dificuldade: BR_7C_BARRA_8A
     descricao: Via antes da aresta.
 - via_esportiva:
     nome: Aresta que me Resta
-    id_no_mapa: '06'
     dificuldade: BR_7A
     descricao: Via na aresta.
 - via_esportiva:
     nome: Barbarvore
-    id_no_mapa: '07'
     dificuldade: BR_6
     descricao: Primeira via na parede de trás.
 - via_esportiva:
     nome: Suposta Exposição
-    id_no_mapa: '08'
     dificuldade: BR_6
     descricao: Via depois da árvore.
 - via_esportiva:
     nome: Bicho Morto
-    id_no_mapa: '09'
     dificuldade: BR_6SUP
     descricao: Última via da parede.
----
+---
 Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
 
 ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp)

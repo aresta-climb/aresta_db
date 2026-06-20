@@ -1,4 +1,4 @@
----
+---
 nome: Piseiro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_piseiro_p0_i0.webp
@@ -47,22 +47,29 @@ mapas:
       y: 274
       comprimento: 26
       largura: 25
+  referencias:
+  - escalada: Maozeiro
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Piseiro
+    ids:
+    - '2'
+    - 2_fim
+  - escalada: Expresso 22
+    ids:
+    - '3'
+    - 3_fim
 escaladas:
 - boulder:
     nome: Maozeiro
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V7
 - boulder:
     nome: Piseiro
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V4
 - boulder:
     nome: Expresso 22
-    id_no_mapa: '3'
-    id_no_mapa_fim: 3_fim
     dificuldade: V0
----
+---
 # Bloco: Piseiro
 ## Região 4

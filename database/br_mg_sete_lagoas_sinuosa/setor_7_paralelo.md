@@ -1,4 +1,4 @@
----
+---
 nome: Setor 7 Paralelo
 mapas:
 - caminho_imagem_mapa: imagens/setor_7_paralelo_p0_i0.webp
@@ -140,102 +140,135 @@ mapas:
       comprimento: 195
       largura: 28
       angulo_graus_x100: 4342
+  referencias:
+  - escalada: Eu Sei Meu Ofício
+    ids:
+    - '1'
+  - escalada: Formação de Ataque
+    ids:
+    - '2'
+  - escalada: Guia Mirim
+    ids:
+    - '3'
+  - escalada: Mão de Obra
+    ids:
+    - '4'
+  - escalada: Coice de Mula
+    ids:
+    - '5'
+  - escalada: Bebê à Bordo
+    ids:
+    - '6'
+  - escalada: Micuins Me Mordam
+    ids:
+    - '7'
+  - escalada: Classe Social
+    ids:
+    - '8'
+  - escalada: Fobia Social
+    ids:
+    - '9'
+  - escalada: Vaca Berrante
+    ids:
+    - '10'
+  - escalada: Até Mas Amigos
+    ids:
+    - '11'
+  - escalada: Inconfidentes
+    ids:
+    - '12'
+  - escalada: Brenfestival
+    ids:
+    - '13'
+  - escalada: Sociedade dos Insetos
+    ids:
+    - '14'
+  - escalada: Dilemas do Futuro
+    ids:
+    - '15'
+  - escalada: Plano Paralelo
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: Eu Sei Meu Ofício
-    id_no_mapa: '1'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     extensao: 25
 - via_esportiva:
     nome: Formação de Ataque
-    id_no_mapa: '2'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     extensao: 25
 - via_esportiva:
     nome: Guia Mirim
-    id_no_mapa: '3'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     extensao: 25
 - via_esportiva:
     nome: Mão de Obra
-    id_no_mapa: '4'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     extensao: 20
 - via_esportiva:
     nome: Coice de Mula
-    id_no_mapa: '5'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     extensao: 20
 - via_esportiva:
     nome: Bebê à Bordo
-    id_no_mapa: '6'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     extensao: 20
 - via_movel:
     nome: Micuins Me Mordam
-    id_no_mapa: '7'
     dificuldade: BR_8A
     protecoes_moveis: Equipo móvel. 1 chapa + 2 top.
     extensao: 20
 - via_esportiva:
     nome: Classe Social
-    id_no_mapa: '8'
     dificuldade: BR_8C_BARRA_9A
     quantidade_protecoes_intermediarias: 10
     extensao: 20
 - via_esportiva:
     nome: Fobia Social
-    id_no_mapa: '9'
     quantidade_protecoes_intermediarias: 6
     descricao: Projeto (Sem F/A).
 - via_esportiva:
     nome: Vaca Berrante
-    id_no_mapa: '10'
     quantidade_protecoes_intermediarias: 6
     descricao: Projeto (Sem F/A).
 - via_esportiva:
     nome: Até Mas Amigos
-    id_no_mapa: '11'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     extensao: 15
 - via_esportiva:
     nome: Inconfidentes
-    id_no_mapa: '12'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     extensao: 15
 - via_esportiva:
     nome: Brenfestival
-    id_no_mapa: '13'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     extensao: 15
 - via_esportiva:
     nome: Sociedade dos Insetos
-    id_no_mapa: '14'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     extensao: 15
 - via_esportiva:
     nome: Dilemas do Futuro
-    id_no_mapa: '15'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     extensao: 15
 - via_esportiva:
     nome: Plano Paralelo
-    id_no_mapa: '16'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     extensao: 15
----
+---
 # Setor 7 Paralelo
 
 Setor com grande concentração de vias, predomínio de vias de sétimo grau,

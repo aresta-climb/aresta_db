@@ -1,4 +1,4 @@
----
+---
 nome: Setor Barceloneta
 mapas:
 - caminho_imagem_mapa: imagens/setor_barceloneta_p0_i0.webp
@@ -104,52 +104,69 @@ mapas:
       y: 919
       comprimento: 43
       largura: 22
+  referencias:
+  - escalada: Dois Dedos pra Cima
+    ids:
+    - '1'
+  - escalada: Bela, Recatada e do Climb
+    ids:
+    - '2'
+  - escalada: Manteiga de Sucuri
+    ids:
+    - '3'
+  - escalada: Nova Era
+    ids:
+    - '4'
+  - escalada: Novo Mundo
+    ids:
+    - '5'
+  - escalada: Chora Chorrera
+    ids:
+    - '6'
+  - escalada: Inocência de Um Purista
+    ids:
+    - '7'
+  - escalada: Maldita Dependência
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Dois Dedos pra Cima
-    id_no_mapa: '1'
     data_abertura: '2016'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Bela, Recatada e do Climb
-    id_no_mapa: '2'
     dificuldade: BR_7C
     data_abertura: 15/05/2016
 - via_esportiva:
     nome: Manteiga de Sucuri
-    id_no_mapa: '3'
     dificuldade: BR_8A
     data_abertura: 15/05/2016
 - via_esportiva:
     nome: Nova Era
-    id_no_mapa: '4'
     destaque: true
     dificuldade: INDEFINIDO
     data_abertura: '2016'
 - via_esportiva:
     nome: Novo Mundo
-    id_no_mapa: '5'
     destaque: true
     dificuldade: BR_7C
     data_abertura: '2016'
 - via_esportiva:
     nome: Chora Chorrera
-    id_no_mapa: '6'
     dificuldade: BR_7B
     data_abertura: '2016'
 - via_esportiva:
     nome: Inocência de Um Purista
-    id_no_mapa: '7'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2016'
 - via_esportiva:
     nome: Maldita Dependência
-    id_no_mapa: '8'
     dificuldade: BR_7A
     data_abertura: '2016'
----
+---
 # Setor Barceloneta
 
 Sombra das 7h as 12h (varia de acordo com a estação).

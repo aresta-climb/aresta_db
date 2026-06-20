@@ -1,6 +1,5 @@
----
+---
 nome: Show Time
-id_no_mapa: '3'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p0.webp
   largura_mapa: 755
@@ -34,6 +33,37 @@ mapas:
       y: 440
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: ET Teimoso
+    ids:
+    - '1'
+  - escalada: Show Time
+    ids:
+    - '2'
+  - escalada: Zela Time
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: Meia Lua
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: Zela Time
+    ids:
+    - '5'
+  - escalada: Show Time
+    ids:
+    - '6'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p1.webp
   largura_mapa: 753
   altura_mapa: 528
@@ -83,45 +113,36 @@ mapas:
 escaladas:
 - boulder:
     nome: ET Teimoso
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: Show Time
-    id_no_mapa: '2'
     dificuldade: V5
 - boulder:
     nome: Zela Time
-    id_no_mapa: '3'
     dificuldade: V1
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '1'
     dificuldade: V0
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '2'
     dificuldade: V2
 - boulder:
     nome: Meia Lua
-    id_no_mapa: '3'
     dificuldade: V3
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '4'
     dificuldade: V5
 - boulder:
     nome: Zela Time
-    id_no_mapa: '5'
     dificuldade: V1
 - boulder:
     nome: Show Time
-    id_no_mapa: '6'
     dificuldade: V5
----
+---
+
 # Setor Show Time
 
 O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.

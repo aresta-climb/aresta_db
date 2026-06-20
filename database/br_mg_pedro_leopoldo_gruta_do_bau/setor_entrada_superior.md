@@ -1,4 +1,4 @@
----
+---
 nome: Setor Entrada Superior
 mapas:
 - caminho_imagem_mapa: imagens/setor_entrada_superior_p0_i6.webp
@@ -320,17 +320,139 @@ mapas:
       y: 1135
       comprimento: 80
       largura: 70
+  referencias:
+  - escalada: A Fenda da Discórdia
+    ids:
+    - '01'
+  - escalada: Brenfisema (Sai na 5ª proteção da via 25)
+    ids:
+    - '02'
+  - escalada: Tamburello
+    ids:
+    - '03'
+  - escalada: Onda de Calcário
+    ids:
+    - '04'
+  - escalada: Ets de Fidalgo
+    ids:
+    - '05'
+  - escalada: Conquista Fatal
+    ids:
+    - '06'
+  - escalada: Tico Tico Space
+    ids:
+    - '07'
+  - escalada: O Basilisco de Slytherin
+    ids:
+    - '8'
+  - escalada: Disparada
+    ids:
+    - '9'
+  - escalada: Judy
+    ids:
+    - '10'
+  - escalada: Psicoacústica
+    ids:
+    - '11'
+  - escalada: Via sem informação
+    ids:
+    - '12'
+  - escalada: Quarto dos Sonhos
+    ids:
+    - '13'
+  - escalada: Ameaça Fantasma
+    ids:
+    - '14'
+  - escalada: Dança das Aranhas
+    ids:
+    - '15'
+  - escalada: First Blues
+    ids:
+    - '16'
+  - escalada: Saci de Corda
+    ids:
+    - '17'
+  - escalada: Olho que Tudo Vê
+    ids:
+    - '18'
+  - escalada: Preguiça Mental
+    ids:
+    - '19'
+  - escalada: Sete Além
+    ids:
+    - '20'
+  - escalada: Babylon Tower
+    ids:
+    - '21'
+  - escalada: Aresta de Sangue
+    ids:
+    - '22'
+  - escalada: Caverna do Dragão
+    ids:
+    - '23'
+  - escalada: Dona Ló
+    ids:
+    - '24'
+  - escalada: Yesterday
+    ids:
+    - '25'
+  - escalada: Crônicas da Dy
+    ids:
+    - '26'
+  - escalada: Coisa Linda
+    ids:
+    - '27'
+  - escalada: Um Lugar para ser Feliz
+    ids:
+    - '28'
+  - escalada: Diedro de Thanos
+    ids:
+    - '29'
+  - escalada: Eternidade em um Segundo
+    ids:
+    - '30'
+  - escalada: Urubu Cargueiro
+    ids:
+    - '31'
+  - escalada: Lucineide não deu
+    ids:
+    - '32'
+  - escalada: Anos de Dor
+    ids:
+    - '33'
+  - escalada: Sem Consenso (Antiga variante)
+    ids:
+    - '34'
+  - escalada: Falta de Consenso
+    ids:
+    - '35'
+  - escalada: Dona da Beleza
+    ids:
+    - '36'
+  - escalada: Vem Tranquilo
+    ids:
+    - '37'
+  - escalada: O Princípio da Incerteza
+    ids:
+    - '38'
+  - escalada: Retorno do Pitu
+    ids:
+    - '39'
+  - escalada: Mar Revolto
+    ids:
+    - '40'
+  - escalada: Zé Carlos, Domador de Cavalos
+    ids:
+    - '41'
 escaladas:
 - via_movel:
     nome: A Fenda da Discórdia
-    id_no_mapa: '01'
     dificuldade: BR_7B
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto e Rômulo
 - via_esportiva:
     nome: Brenfisema (Sai na 5ª proteção da via 25)
-    id_no_mapa: '02'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -339,7 +461,6 @@ escaladas:
     - Half
 - via_esportiva:
     nome: Tamburello
-    id_no_mapa: '03'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -348,7 +469,6 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Onda de Calcário
-    id_no_mapa: '04'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
@@ -357,7 +477,6 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Ets de Fidalgo
-    id_no_mapa: '05'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -367,7 +486,6 @@ escaladas:
     - Eduardo “Barão”
 - via_esportiva:
     nome: Conquista Fatal
-    id_no_mapa: '06'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -376,7 +494,6 @@ escaladas:
     - Marquinho
 - via_esportiva:
     nome: Tico Tico Space
-    id_no_mapa: '07'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -385,7 +502,6 @@ escaladas:
     - Mirian Morato
 - via_esportiva:
     nome: O Basilisco de Slytherin
-    id_no_mapa: 08
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -394,7 +510,6 @@ escaladas:
     - Hans Thomassen
 - via_movel:
     nome: Disparada
-    id_no_mapa: 09
     dificuldade: BR_4
     protecoes_moveis: Móvel
     conquistadores:
@@ -402,7 +517,6 @@ escaladas:
     - Fábio Cota
 - via_esportiva:
     nome: Judy
-    id_no_mapa: '10'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -410,7 +524,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Psicoacústica
-    id_no_mapa: '11'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -418,14 +531,12 @@ escaladas:
     - Evandro “Kpeta”
 - via_movel:
     nome: Via sem informação
-    id_no_mapa: '12'
     dificuldade: INDEFINIDO
     protecoes_moveis: Móvel
     conquistadores:
     - ??
 - via_esportiva:
     nome: Quarto dos Sonhos
-    id_no_mapa: '13'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -433,7 +544,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Ameaça Fantasma
-    id_no_mapa: '14'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -443,7 +553,6 @@ escaladas:
     - Negão
 - via_esportiva:
     nome: Dança das Aranhas
-    id_no_mapa: '15'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -452,7 +561,6 @@ escaladas:
     - Hans Thomassen
 - via_esportiva:
     nome: First Blues
-    id_no_mapa: '16'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -461,7 +569,6 @@ escaladas:
     - Hans Thomassen
 - via_esportiva:
     nome: Saci de Corda
-    id_no_mapa: '17'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -470,7 +577,6 @@ escaladas:
     - Hans Thomassen
 - via_esportiva:
     nome: Olho que Tudo Vê
-    id_no_mapa: '18'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -479,7 +585,6 @@ escaladas:
     - Hans Thomassen
 - via_movel:
     nome: Preguiça Mental
-    id_no_mapa: '19'
     dificuldade: BR_5
     protecoes_moveis: Móvel
     conquistadores:
@@ -487,7 +592,6 @@ escaladas:
     - Fábio Cota
 - via_esportiva:
     nome: Sete Além
-    id_no_mapa: '20'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -495,7 +599,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Babylon Tower
-    id_no_mapa: '21'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -503,7 +606,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Aresta de Sangue
-    id_no_mapa: '22'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -511,7 +613,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Caverna do Dragão
-    id_no_mapa: '23'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -519,7 +620,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Dona Ló
-    id_no_mapa: '24'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -527,7 +627,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Yesterday
-    id_no_mapa: '25'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -535,7 +634,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Crônicas da Dy
-    id_no_mapa: '26'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -543,7 +641,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Coisa Linda
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -551,7 +648,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Um Lugar para ser Feliz
-    id_no_mapa: '28'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -560,7 +656,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Diedro de Thanos
-    id_no_mapa: '29'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -568,7 +663,6 @@ escaladas:
     - Marco Durães
 - via_esportiva:
     nome: Eternidade em um Segundo
-    id_no_mapa: '30'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -577,7 +671,6 @@ escaladas:
     - Negão
 - via_esportiva:
     nome: Urubu Cargueiro
-    id_no_mapa: '31'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -585,7 +678,6 @@ escaladas:
     - Fabinho
 - via_esportiva:
     nome: Lucineide não deu
-    id_no_mapa: '32'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -595,7 +687,6 @@ escaladas:
     - Andreia
 - via_esportiva:
     nome: Anos de Dor
-    id_no_mapa: '33'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -605,7 +696,6 @@ escaladas:
     - Douglas
 - via_esportiva:
     nome: Sem Consenso (Antiga variante)
-    id_no_mapa: '34'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -616,7 +706,6 @@ escaladas:
     - DJ
 - via_esportiva:
     nome: Falta de Consenso
-    id_no_mapa: '35'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -627,7 +716,6 @@ escaladas:
     - DJ
 - via_esportiva:
     nome: Dona da Beleza
-    id_no_mapa: '36'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -636,7 +724,6 @@ escaladas:
     - GT Baú 2021
 - via_esportiva:
     nome: Vem Tranquilo
-    id_no_mapa: '37'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -645,7 +732,6 @@ escaladas:
     - GT Baú 2021
 - via_movel:
     nome: O Princípio da Incerteza
-    id_no_mapa: '38'
     dificuldade: BR_5
     protecoes_moveis: Móvel
     conquistadores:
@@ -654,7 +740,6 @@ escaladas:
     - Roberto
 - via_esportiva:
     nome: Retorno do Pitu
-    id_no_mapa: '39'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -663,7 +748,6 @@ escaladas:
     - Tinoco
 - via_esportiva:
     nome: Mar Revolto
-    id_no_mapa: '40'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -671,13 +755,12 @@ escaladas:
     - Half
 - via_esportiva:
     nome: Zé Carlos, Domador de Cavalos
-    id_no_mapa: '41'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     conquistadores:
     - Roberto Lincoln
----
+---
 # Setor Entrada Superior
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.

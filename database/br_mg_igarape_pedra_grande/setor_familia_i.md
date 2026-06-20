@@ -1,4 +1,4 @@
----
+---
 nome: Setor Família I
 mapas:
 - caminho_imagem_mapa: imagens/setor_familia_i_p0.webp
@@ -138,6 +138,64 @@ mapas:
       y: 626
       comprimento: 37
       largura: 37
+  referencias:
+  - escalada: Florestinha
+    ids:
+    - '01'
+  - escalada: Ação Total
+    ids:
+    - '02'
+  - escalada: Escravos da Pedra
+    ids:
+    - '03'
+  - escalada: Esquerdinha Caviar
+    ids:
+    - '04'
+  - escalada: Mônica
+    ids:
+    - '05'
+  - escalada: Queijo Suíço
+    ids:
+    - '06'
+  - escalada: Aranha Gato
+    ids:
+    - '07'
+  - escalada: Chapas Onorixicas
+    ids:
+    - '8'
+  - escalada: Tora Flex
+    ids:
+    - '9'
+  - escalada: Totalflex
+    ids:
+    - '10'
+  - escalada: Haja Broca
+    ids:
+    - '11'
+  - escalada: Juliana
+    ids:
+    - '12'
+  - escalada: Lisebra
+    ids:
+    - '13'
+  - escalada: Croque Monsieur
+    ids:
+    - '14'
+  - escalada: Playground
+    ids:
+    - '15'
+  - escalada: Depressão Pós Reforma
+    ids:
+    - '16'
+  - escalada: Chuvasca
+    ids:
+    - '17'
+  - escalada: Pau Oco
+    ids:
+    - '18'
+  - escalada: Franzinha
+    ids:
+    - '19'
 - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
   largura_mapa: 2048
   altura_mapa: 1154
@@ -278,7 +336,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Florestinha
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     conquistadores:
     - Berbari
@@ -286,7 +343,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Ação Total
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -298,7 +354,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Escravos da Pedra
-    id_no_mapa: '03'
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -310,7 +365,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Esquerdinha Caviar
-    id_no_mapa: '04'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -322,7 +376,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Mônica
-    id_no_mapa: '05'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -333,7 +386,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Queijo Suíço
-    id_no_mapa: '06'
     dificuldade: BR_7A_BARRA_7B
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -345,7 +397,6 @@ escaladas:
     descricao: 'CUIDADO: Colmeia de abelha na base da via!'
 - via_esportiva:
     nome: Aranha Gato
-    id_no_mapa: '07'
     dificuldade: BR_6_BARRA_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -357,7 +408,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Chapas Onorixicas
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -368,7 +418,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Tora Flex
-    id_no_mapa: 09
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -380,7 +429,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Totalflex
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -392,7 +440,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Haja Broca
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -403,7 +450,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Juliana
-    id_no_mapa: '12'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -414,7 +460,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Lisebra
-    id_no_mapa: '13'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
@@ -425,7 +470,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Croque Monsieur
-    id_no_mapa: '14'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -436,7 +480,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: Playground
-    id_no_mapa: '15'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -446,7 +489,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Depressão Pós Reforma
-    id_no_mapa: '16'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -456,7 +498,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Chuvasca
-    id_no_mapa: '17'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -466,7 +507,6 @@ escaladas:
     data_abertura: '2013'
 - via_esportiva:
     nome: Pau Oco
-    id_no_mapa: '18'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -478,7 +518,6 @@ escaladas:
     descricao: Termina no mesmo tope que a via Franzinha.
 - via_esportiva:
     nome: Franzinha
-    id_no_mapa: '19'
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
@@ -488,7 +527,7 @@ escaladas:
     - Fran
     data_abertura: '2013'
     descricao: Termina no mesmo tope que a via Pau Oco.
----
+---
 # Setor Família I
 
 O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).

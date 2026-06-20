@@ -1,4 +1,4 @@
----
+---
 nome: Essência
 mapas:
 - caminho_imagem_mapa: imagens/setor_essencia_p0.webp
@@ -54,6 +54,34 @@ mapas:
       y: 630
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Agricultor
+    ids:
+    - '01'
+  - escalada: Garimpeiro
+    ids:
+    - '02'
+  - escalada: A Regra é Clara
+    ids:
+    - '03'
+  - escalada: Essência
+    ids:
+    - '04'
+  - escalada: Indecência
+    ids:
+    - '05'
+  - escalada: Regra do Jogo
+    ids:
+    - '06'
+  - escalada: Carta de Euforia
+    ids:
+    - '07'
+  - escalada: Escravos de Chó
+    ids:
+    - '08'
+  - escalada: Jardim de Infância
+    ids:
+    - '09'
 - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
   largura_mapa: 1094
   altura_mapa: 782
@@ -68,39 +96,30 @@ mapas:
 escaladas:
 - boulder:
     nome: Agricultor
-    id_no_mapa: '01'
     dificuldade: V2
 - boulder:
     nome: Garimpeiro
-    id_no_mapa: '02'
     dificuldade: V4
 - boulder:
     nome: A Regra é Clara
-    id_no_mapa: '03'
     dificuldade: V5
 - boulder:
     nome: Essência
-    id_no_mapa: '04'
     dificuldade: V4
 - boulder:
     nome: Indecência
-    id_no_mapa: '05'
     dificuldade: V3
 - boulder:
     nome: Regra do Jogo
-    id_no_mapa: '06'
     dificuldade: V1
 - boulder:
     nome: Carta de Euforia
-    id_no_mapa: '07'
     dificuldade: V5
 - boulder:
     nome: Escravos de Chó
-    id_no_mapa: '08'
     dificuldade: V5
 - boulder:
     nome: Jardim de Infância
-    id_no_mapa: '09'
     dificuldade: V0
----
+---
 # Setor Essência

@@ -579,11 +579,15 @@ def test_passo_d_gerar_manifesto_serving(tmp_path):
 
     deploy_module.passo_d_gerar_manifesto_serving(indice)
     
-    manifest_file = deploy_module.GENERATED_DIR / "arquivos_serving.binarypb"
+    manifest_file = deploy_module.GENERATED_DIR / "arquivos_serving.yaml"
     assert manifest_file.exists()
     
+    import yaml
+    from google.protobuf import json_format
+    
+    manifest_dict = yaml.safe_load(manifest_file.read_text(encoding="utf-8"))
     manifest = serving_pb2.ArquivosServing()
-    manifest.ParseFromString(manifest_file.read_bytes())
+    json_format.ParseDict(manifest_dict, manifest, ignore_unknown_fields=True)
     
     paths = [a.caminho_relativo for a in manifest.arquivos]
     assert "indice.binarypb" in paths

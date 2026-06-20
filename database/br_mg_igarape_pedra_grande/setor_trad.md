@@ -1,4 +1,4 @@
----
+---
 nome: Setor Trad
 mapas:
 - caminho_imagem_mapa: imagens/setor_trad_p0.webp
@@ -271,38 +271,145 @@ mapas:
       y: 1212
       comprimento: 30
       largura: 27
+  referencias:
+  - escalada: Aresta Daniel
+    ids:
+    - '01'
+  - escalada: Barriga Verde
+    ids:
+    - '02'
+  - escalada: ???
+    ids:
+    - a
+  - escalada: ???
+    ids:
+    - b
+  - escalada: Tosco Climb
+    ids:
+    - '03'
+  - escalada: Curió Não Se Cria
+    ids:
+    - '04'
+  - escalada: A Quina
+    ids:
+    - '05'
+  - escalada: sem nome
+    ids:
+    - c
+  - escalada: Igarapé Cascão
+    ids:
+    - '06'
+  - escalada: Outra saída da Igarapé Cascão
+    ids:
+    - d
+  - escalada: Pachamama
+    ids:
+    - '07'
+  - escalada: sem nome
+    ids:
+    - e
+  - escalada: Absoluta Inconsequência
+    ids:
+    - '08'
+  - escalada: Inconsequência Moderada
+    ids:
+    - '09'
+  - escalada: Mentiras Sinceras
+    ids:
+    - '10'
+  - escalada: sem nome
+    ids:
+    - f
+  - escalada: sem nome
+    ids:
+    - g
+  - escalada: sem nome
+    ids:
+    - '11'
+  - escalada: Bituca
+    ids:
+    - '12'
+  - escalada: ???
+    ids:
+    - h
+  - escalada: ???
+    ids:
+    - i
+  - escalada: Último Dente
+    ids:
+    - '13'
+  - escalada: sem nome
+    ids:
+    - '14'
+  - escalada: Inanição
+    ids:
+    - '15'
+  - escalada: Lembranças da Vovó
+    ids:
+    - '16'
+  - escalada: sem nome
+    ids:
+    - j
+  - escalada: sem nome
+    ids:
+    - k
+  - escalada: ???
+    ids:
+    - L
+  - escalada: ???
+    ids:
+    - m
+  - escalada: Netflix
+    ids:
+    - '17'
+  - escalada: ???
+    ids:
+    - n
+  - escalada: Que Nem Mendigo
+    ids:
+    - '18'
+  - escalada: Wally Caolho
+    ids:
+    - '19'
+  - escalada: Me Leve ao Cume
+    ids:
+    - '20'
+  - escalada: sem nome
+    ids:
+    - '21'
+  - escalada: Vale Tudo
+    ids:
+    - '22'
+  - escalada: sem nome
+    ids:
+    - '23'
+  - escalada: Mulher do Fim do Mundo
+    ids:
+    - '24'
 escaladas:
 - via_movel:
     nome: Aresta Daniel
-    id_no_mapa: '01'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Barriga Verde
-    id_no_mapa: '02'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: a
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: b
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Tosco Climb
-    id_no_mapa: '03'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Curió Não Se Cria
-    id_no_mapa: '04'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: A Quina
-    id_no_mapa: '05'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: c
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Formigão Iannotta
@@ -312,131 +419,101 @@ escaladas:
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Igarapé Cascão
-    id_no_mapa: '06'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Outra saída da Igarapé Cascão
-    id_no_mapa: d
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Pachamama
-    id_no_mapa: '07'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: e
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Absoluta Inconsequência
-    id_no_mapa: '08'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Inconsequência Moderada
-    id_no_mapa: '09'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Mentiras Sinceras
-    id_no_mapa: '10'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: f
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: g
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: '11'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Bituca
-    id_no_mapa: '12'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: h
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: i
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Último Dente
-    id_no_mapa: '13'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: '14'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Inanição
-    id_no_mapa: '15'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Lembranças da Vovó
-    id_no_mapa: '16'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: j
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: k
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Palestra Botânica
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: L
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: m
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Netflix
-    id_no_mapa: '17'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: ???
-    id_no_mapa: n
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Que Nem Mendigo
-    id_no_mapa: '18'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Wally Caolho
-    id_no_mapa: '19'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Me Leve ao Cume
-    id_no_mapa: '20'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: '21'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Vale Tudo
-    id_no_mapa: '22'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: sem nome
-    id_no_mapa: '23'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Mulher do Fim do Mundo
-    id_no_mapa: '24'
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Marimbondos Me Mordam
     dificuldade: INDEFINIDO
----
+---
 # Setor Trad
 
 Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.

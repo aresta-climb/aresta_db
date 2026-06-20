@@ -1,4 +1,4 @@
----
+---
 nome: Setor 4 Picos
 mapas:
 - caminho_imagem_mapa: imagens/setor_4_picos_p0_i0.webp
@@ -48,27 +48,36 @@ mapas:
       y: 552
       comprimento: 204
       largura: 22
+  referencias:
+  - escalada: Pais e Filhas
+    ids:
+    - '1'
+  - escalada: Morcegos Sinuosos
+    ids:
+    - '2'
+  - escalada: Sintoniza Lá
+    ids:
+    - '3'
+  - escalada: ???
+    ids:
+    - '4'
 escaladas:
 - via_esportiva:
     nome: Pais e Filhas
-    id_no_mapa: '1'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Morcegos Sinuosos
-    id_no_mapa: '2'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Sintoniza Lá
-    id_no_mapa: '3'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: ???
-    id_no_mapa: '4'
     dificuldade: PROJETO
----
+---
 # Setor 4 Picos
 
 ![4 Picos](imagens/setor_4_picos_p0_i1.webp)

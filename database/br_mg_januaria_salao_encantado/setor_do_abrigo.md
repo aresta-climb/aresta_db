@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Abrigo
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_abrigo_p0_i0.webp
@@ -54,33 +54,44 @@ mapas:
       y: 102
       comprimento: 130
       largura: 53
+  referencias:
+  - escalada: Gamon
+    ids:
+    - '01'
+  - escalada: Estrela no Coco
+    ids:
+    - '02'
+  - escalada: Fendinha
+    ids:
+    - '03'
+  - escalada: Guariba
+    ids:
+    - '04'
+  - escalada: Tardia
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Gamon
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     descricao: Primeira via da parede.
 - via_esportiva:
     nome: Estrela no Coco
-    id_no_mapa: '02'
     dificuldade: BR_7B
     descricao: Via atrás de um bloco de pedra.
 - via_esportiva:
     nome: Fendinha
-    id_no_mapa: '03'
     dificuldade: BR_7A
     descricao: Via a direita da estrela no coco.
 - via_esportiva:
     nome: Guariba
-    id_no_mapa: '04'
     dificuldade: BR_6
     descricao: Via a direita do bloco de pedra.
 - via_esportiva:
     nome: Tardia
-    id_no_mapa: '05'
     dificuldade: BR_7A
     descricao: Ultima via da parede.
----
+---
 O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
 
 ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp)

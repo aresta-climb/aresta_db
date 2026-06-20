@@ -1,4 +1,4 @@
----
+---
 nome: Savassinha (Mapa 9)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
@@ -152,17 +152,55 @@ mapas:
       y: 81
       comprimento: 155
       largura: 32
+  referencias:
+  - escalada: Corvo Gigante
+    ids:
+    - '110'
+  - escalada: Gralha Pigmeia
+    ids:
+    - '111'
+  - escalada: Anjo de Pedra
+    ids:
+    - '112'
+  - escalada: Um Porco que Sobe
+    ids:
+    - '113'
+  - escalada: Um Corpo que Cai
+    ids:
+    - '114'
+  - escalada: Realidade da Coisa
+    ids:
+    - '115'
+  - escalada: Realidade Sobreposta
+    ids:
+    - '116'
+  - escalada: Talhadeira Passa
+    ids:
+    - '117'
+  - escalada: Cova dos Leões
+    ids:
+    - '118'
+  - escalada: Mentalidade Suburbana
+    ids:
+    - '119'
+  - escalada: Rato Assassino
+    ids:
+    - '120'
+  - escalada: Masturbações de Calígula
+    ids:
+    - '123'
+  - escalada: Primeiro General
+    ids:
+    - '124'
 escaladas:
 - via_esportiva:
     nome: Corvo Gigante
-    id_no_mapa: '110'
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
 - via_esportiva:
     nome: Gralha Pigmeia
-    id_no_mapa: '111'
     dificuldade: BR_6
     conquistadores:
     - W. Novaes
@@ -171,21 +209,18 @@ escaladas:
     - Léo Hoffmann
 - via_esportiva:
     nome: Anjo de Pedra
-    id_no_mapa: '112'
     dificuldade: BR_5SUP
     conquistadores:
     - Rodrigo Tinoco França
     - Vinícius
 - via_esportiva:
     nome: Um Porco que Sobe
-    id_no_mapa: '113'
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Hoffmann
     - Henriquinho
 - via_esportiva:
     nome: Um Corpo que Cai
-    id_no_mapa: '114'
     dificuldade: BR_6
     conquistadores:
     - Emerson A. Azeredo
@@ -193,7 +228,6 @@ escaladas:
     - Júlio C. Cardoso
 - via_esportiva:
     nome: Realidade da Coisa
-    id_no_mapa: '115'
     dificuldade: BR_9B
     conquistadores:
     - Fabinho de Petrópolis
@@ -201,28 +235,24 @@ escaladas:
     - Xacundum
 - via_esportiva:
     nome: Realidade Sobreposta
-    id_no_mapa: '116'
     dificuldade: BR_8C
     conquistadores:
     - Fabiano da Silva Fernandes
     - Fabinho de Teresópolis
 - via_esportiva:
     nome: Talhadeira Passa
-    id_no_mapa: '117'
     dificuldade: BR_8B
     conquistadores:
     - Felipe
     - Abobrinha
 - via_esportiva:
     nome: Cova dos Leões
-    id_no_mapa: '118'
     dificuldade: BR_7A
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
 - via_esportiva:
     nome: Mentalidade Suburbana
-    id_no_mapa: '119'
     dificuldade: BR_7A
     conquistadores:
     - Ricardo J. Leal
@@ -230,26 +260,23 @@ escaladas:
     - Fábio L. Farias "Fabinho"
 - via_esportiva:
     nome: Rato Assassino
-    id_no_mapa: '120'
     dificuldade: BR_8A
     conquistadores:
     - Fabinho de Petrópolis
     - Alexandre Xacundum
 - via_esportiva:
     nome: Masturbações de Calígula
-    id_no_mapa: '123'
     dificuldade: BR_7A
     conquistadores:
     - Márcio Soares Macenas
     - Wilson Novaes
 - via_movel:
     nome: Primeiro General
-    id_no_mapa: '124'
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
     descricao: Vía de proteção mista
----
+---
 # Setor Savassinha (Mapa 9)
 
 Setor com vias de alto nível técnico e físico.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_onca_p0_i0.webp
@@ -124,6 +124,85 @@ mapas:
       y: 696
       comprimento: 19
       largura: 17
+  referencias:
+  - escalada: Esticãozinho e Chororô
+    ids:
+    - '01'
+  - escalada: Pequetita Aymê
+    ids:
+    - '02'
+  - escalada: Abstinência Alcoólica
+    ids:
+    - '03'
+  - escalada: Jack Daniel's
+    ids:
+    - '04'
+  - escalada: Suor de Cachaça
+    ids:
+    - '05'
+  - escalada: Feliz Natal
+    ids:
+    - '06'
+  - escalada: Tiro Certeiro
+    ids:
+    - '07'
+  - escalada: Estica e Clipa
+    ids:
+    - '8'
+  - escalada: Pai Bravo
+    ids:
+    - '9'
+  - escalada: Buraco é Mais Em Baixo
+    ids:
+    - '10'
+  - escalada: Doze Proteções e Três Irmãos
+    ids:
+    - '11'
+  - escalada: Jardim da Babilônia
+    ids:
+    - '12'
+  - escalada: Incrível Teto
+    ids:
+    - '13'
+  - escalada: Incrível Céu de Arcos
+    ids:
+    - '14'
+  - escalada: Besta Quadrada
+    ids:
+    - '15'
+  - escalada: Aperta ou Voa
+    ids:
+    - '16'
+  - escalada: Antifascistas
+    ids:
+    - '17'
+  - escalada: Macaco Não Tem Culpa
+    ids:
+    - '18'
+  - escalada: Mãe Gaia
+    ids:
+    - '19'
+  - escalada: Enrola e Morde
+    ids:
+    - '20'
+  - escalada: Liberdade de Expressão
+    ids:
+    - '21'
+  - escalada: Centenária
+    ids:
+    - '22'
+  - escalada: Kalimera
+    ids:
+    - '23'
+  - escalada: Sálvia
+    ids:
+    - '24'
+  - escalada: Fuga das Galinhas
+    ids:
+    - '25'
+  - escalada: Carne d Homi ñ dá Coxinha
+    ids:
+    - '26'
 - caminho_imagem_mapa: imagens/setor_onca_p1_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
@@ -278,175 +357,149 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Esticãozinho e Chororô
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2015'
 - via_esportiva:
     nome: Pequetita Aymê
-    id_no_mapa: '02'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Abstinência Alcoólica
-    id_no_mapa: '03'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Jack Daniel's
-    id_no_mapa: '04'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Suor de Cachaça
-    id_no_mapa: '05'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Feliz Natal
-    id_no_mapa: '06'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tiro Certeiro
-    id_no_mapa: '07'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Estica e Clipa
-    id_no_mapa: 08
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pai Bravo
-    id_no_mapa: 09
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Buraco é Mais Em Baixo
-    id_no_mapa: '10'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Doze Proteções e Três Irmãos
-    id_no_mapa: '11'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Jardim da Babilônia
-    id_no_mapa: '12'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Incrível Teto
-    id_no_mapa: '13'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Incrível Céu de Arcos
-    id_no_mapa: '14'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Besta Quadrada
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Aperta ou Voa
-    id_no_mapa: '16'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Antifascistas
-    id_no_mapa: '17'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Macaco Não Tem Culpa
-    id_no_mapa: '18'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mãe Gaia
-    id_no_mapa: '19'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Enrola e Morde
-    id_no_mapa: '20'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Liberdade de Expressão
-    id_no_mapa: '21'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Centenária
-    id_no_mapa: '22'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Kalimera
-    id_no_mapa: '23'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Sálvia
-    id_no_mapa: '24'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Fuga das Galinhas
-    id_no_mapa: '25'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Carne d Homi ñ dá Coxinha
-    id_no_mapa: '26'
     dificuldade: BR_8B
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
 # Setor Onça
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

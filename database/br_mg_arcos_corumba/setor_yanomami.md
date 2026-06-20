@@ -1,4 +1,4 @@
----
+---
 nome: Setor Yanomami
 mapas:
 - caminho_imagem_mapa: imagens/setor_yanomami_p0_i0.webp
@@ -152,144 +152,187 @@ mapas:
       y: 936
       comprimento: 32
       largura: 27
+  referencias:
+  - escalada: Saidera
+    ids:
+    - '1'
+  - escalada: Impaciência Tem Limite
+    ids:
+    - '2'
+  - escalada: Gongolô
+    ids:
+    - '3'
+  - escalada: Seg Sativa
+    ids:
+    - '4'
+  - escalada: Gaiapiá
+    ids:
+    - '5'
+  - escalada: Telefone Sem Fio
+    ids:
+    - '6'
+  - escalada: Trabalhador Solo
+    ids:
+    - '7'
+  - escalada: Quem avisa amigo é
+    ids:
+    - '8'
+  - escalada: Inimigo do Fim
+    ids:
+    - '9'
+  - escalada: Hipotenusa (variante)
+    ids:
+    - '10'
+  - escalada: Força Yanomami (principal)
+    ids:
+    - '11'
+  - escalada: Pluriverso Paralelo
+    ids:
+    - '12'
+  - escalada: Tiro ao Alvo
+    ids:
+    - '13'
+  - escalada: Visita Ilustre
+    ids:
+    - '14'
+  - escalada: Hand Pan (variante)
+    ids:
+    - '15'
+  - escalada: Labirinto (variante)
+    ids:
+    - '16'
+  - escalada: Charada (variante)
+    ids:
+    - '17'
+  - escalada: Vingador (variante)
+    ids:
+    - '18'
+  - escalada: Trilogia (principal)
+    ids:
+    - '19'
+  - escalada: Paga pra Ver
+    ids:
+    - '20'
+  - escalada: Divida Ativa
+    ids:
+    - '21'
 escaladas:
 - via_esportiva:
     nome: Saidera
-    id_no_mapa: '1'
     dificuldade: BR_5
     data_abertura: '2022-12-01'
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Impaciência Tem Limite
-    id_no_mapa: '2'
     destaque: true
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Gongolô
-    id_no_mapa: '3'
     destaque: true
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Seg Sativa
-    id_no_mapa: '4'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Gaiapiá
-    id_no_mapa: '5'
     destaque: true
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Telefone Sem Fio
-    id_no_mapa: '6'
     destaque: true
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Trabalhador Solo
-    id_no_mapa: '7'
     destaque: true
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Quem avisa amigo é
-    id_no_mapa: '8'
     destaque: true
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Inimigo do Fim
-    id_no_mapa: '9'
     dificuldade: BR_6SUP_BARRA_7A
     destaque: true
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Hipotenusa (variante)
-    id_no_mapa: '10'
     dificuldade: BR_6SUP_BARRA_7A
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Força Yanomami (principal)
-    id_no_mapa: '11'
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pluriverso Paralelo
-    id_no_mapa: '12'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Tiro ao Alvo
-    id_no_mapa: '13'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Visita Ilustre
-    id_no_mapa: '14'
     destaque: true
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 18
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Hand Pan (variante)
-    id_no_mapa: '15'
     destaque: true
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 17
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Labirinto (variante)
-    id_no_mapa: '16'
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 15
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Charada (variante)
-    id_no_mapa: '17'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Vingador (variante)
-    id_no_mapa: '18'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Trilogia (principal)
-    id_no_mapa: '19'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Paga pra Ver
-    id_no_mapa: '20'
     dificuldade: BR_8C_BARRA_9A
     destaque: true
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Divida Ativa
-    id_no_mapa: '21'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
----
+---
 # Setor Yanomami
 
 Sombra até as 14h30 (varia de acordo com a estação).

@@ -1,4 +1,4 @@
----
+---
 nome: Pirados de Rocha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
@@ -54,10 +54,31 @@ mapas:
       y: 797
       comprimento: 27
       largura: 24
+  referencias:
+  - escalada: Uphill
+    ids:
+    - '01'
+  - escalada: Dilma Roussef
+    ids:
+    - '02'
+  - escalada: Renan Calheiros
+    ids:
+    - '03'
+  - escalada: Sérgio Moro
+    ids:
+    - '04'
+  - escalada: Pirados de Rocha
+    ids:
+    - '05'
+  - escalada: Qualidade de Vida
+    ids:
+    - '06'
+  - escalada: Lava Jato
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Uphill
-    id_no_mapa: '01'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 13
@@ -69,7 +90,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Dilma Roussef
-    id_no_mapa: '02'
     dificuldade: BR_8A
     extensao: 12
     quantidade_protecoes_intermediarias: 6
@@ -81,7 +101,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Renan Calheiros
-    id_no_mapa: '03'
     dificuldade: PROJETO
     extensao: 12
     quantidade_protecoes_intermediarias: 6
@@ -92,7 +111,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Sérgio Moro
-    id_no_mapa: '04'
     dificuldade: PROJETO
     extensao: 12
     quantidade_protecoes_intermediarias: 7
@@ -103,7 +121,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Pirados de Rocha
-    id_no_mapa: '05'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -114,7 +131,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Qualidade de Vida
-    id_no_mapa: '06'
     dificuldade: INDEFINIDO
     extensao: 20
     quantidade_protecoes_intermediarias: 10
@@ -126,14 +142,13 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Lava Jato
-    id_no_mapa: '07'
     dificuldade: INDEFINIDO
     conquistadores:
     - Rafael
     - Diego
     - Vitu
     data_abertura: '2017'
----
+---
 # Setor Pirados de Rocha
 
 ![Setor Pirados de Rocha](imagens/setor_pirados_de_rocha_p0_i0.webp)

@@ -12,5 +12,5 @@ picos:
       caminho: setor_de_cima.md
   - setor:
       caminho: setor_de_baixo.md
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true

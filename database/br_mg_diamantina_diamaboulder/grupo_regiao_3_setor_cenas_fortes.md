@@ -1,4 +1,4 @@
----
+---
 nome: Cenas Fortes
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_cenas_fortes_p0_i0.webp
@@ -33,17 +33,22 @@ mapas:
       y: 216
       comprimento: 21
       largura: 25
+  referencias:
+  - escalada: Cenas Fortes
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Tela Quente
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Cenas Fortes
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V5
 - boulder:
     nome: Tela Quente
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V3
----
+---
 # Bloco: Cenas Fortes
 ## Região 3

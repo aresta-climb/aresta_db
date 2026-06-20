@@ -242,7 +242,7 @@
             
             *   **Instagram:** @ouroboulder
             *   **Email:** sime.ouroboulder@gmail.com
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: grupo_pedreira
@@ -545,6 +545,39 @@
                 - **x**: 862
                 - **y**: 634
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Travessia ext
+              - **ids**:
+                - 1C/1E
+            - **[1]**:
+              - **escalada**: Travessia
+              - **ids**:
+                - 2C/2E
+            - **[2]**:
+              - **escalada**: Enjambrado
+              - **ids**:
+                - 3A/3C
+            - **[3]**:
+              - **escalada**: Face Vertical
+              - **ids**:
+                - 4B/4D
+            - **[4]**:
+              - **escalada**: Será
+              - **ids**:
+                - 5C/5E
+            - **[5]**:
+              - **escalada**: Bem-vindo ao Climb
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Monodedo
+              - **ids**:
+                - 2A
+            - **[7]**:
+              - **escalada**: Movimentos Eróticos
+              - **ids**:
+                - 2B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
           - **largura_mapa**: 1575
@@ -624,42 +657,34 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Travessia ext
-            - **id_no_mapa**: 1C/1E
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Travessia
-            - **id_no_mapa**: 2C/2E
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **nome**: Enjambrado
-            - **id_no_mapa**: 3A/3C
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Face Vertical
-            - **id_no_mapa**: 4B/4D
             - **dificuldade**: V1
         - **[4]**:
           - **boulder**:
             - **nome**: Será
-            - **id_no_mapa**: 5C/5E
             - **dificuldade**: V1
         - **[5]**:
           - **boulder**:
             - **nome**: Bem-vindo ao Climb
-            - **id_no_mapa**: 6
             - **dificuldade**: V0
         - **[6]**:
           - **boulder**:
             - **nome**: Monodedo
-            - **id_no_mapa**: 2A
             - **dificuldade**: V1
         - **[7]**:
           - **boulder**:
             - **nome**: Movimentos Eróticos
-            - **id_no_mapa**: 2B
             - **dificuldade**: V1
   - **[1]**:
     - **conteudo**:
@@ -699,21 +724,31 @@
                 - **x**: 1065
                 - **y**: 795
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: De Jah
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Jah
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Invertido
+              - **ids**:
+                - 2B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: De Jah
-            - **id_no_mapa**: 1A
             - **dificuldade**: V0_BARRA_V1
         - **[1]**:
           - **boulder**:
             - **nome**: Jah
-            - **id_no_mapa**: 1B
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **nome**: Invertido
-            - **id_no_mapa**: 2B
             - **dificuldade**: V2
   - **[2]**:
     - **conteudo**:
@@ -767,27 +802,40 @@
                 - **x**: 1078
                 - **y**: 832
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sauna Seca
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Sauna Úmida
+              - **ids**:
+                - 2B
+            - **[2]**:
+              - **escalada**: Sauna Mista
+              - **ids**:
+                - 3A
+            - **[3]**:
+              - **escalada**: Sauna a Vapor
+              - **ids**:
+                - 3C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Sauna Seca
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Sauna Úmida
-            - **id_no_mapa**: 2B
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Sauna Mista
-            - **id_no_mapa**: 3A
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **descricao**: (não usa a face direita da linha)
             - **nome**: Sauna a Vapor
-            - **id_no_mapa**: 3C
             - **dificuldade**: V6
   - **[3]**:
     - **conteudo**:
@@ -820,6 +868,39 @@
                 - **x**: 1238
                 - **y**: 1030
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porra Nenhuma
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Ringue
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Arco Magmático
+              - **ids**:
+                - 1A
+            - **[3]**:
+              - **escalada**: Du Mussula
+              - **ids**:
+                - 1B
+            - **[4]**:
+              - **escalada**: No Montê
+              - **ids**:
+                - 2C
+            - **[5]**:
+              - **escalada**: Bola 7
+              - **ids**:
+                - 1A
+            - **[6]**:
+              - **escalada**: Morcegão
+              - **ids**:
+                - 2A
+            - **[7]**:
+              - **escalada**: João de Barro
+              - **ids**:
+                - 2B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
           - **largura_mapa**: 1575
@@ -876,44 +957,36 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Porra Nenhuma
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Ringue
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **descricao**: (saída pelo Morcegão)
             - **nome**: Arco Magmático
-            - **id_no_mapa**: 1A
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **descricao**: (saída pelo Bola 7)
             - **nome**: Du Mussula
-            - **id_no_mapa**: 1B
             - **dificuldade**: V10
         - **[4]**:
           - **boulder**:
             - **nome**: No Montê
-            - **id_no_mapa**: 2C
             - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
             - **nome**: Bola 7
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[6]**:
           - **boulder**:
             - **nome**: Morcegão
-            - **id_no_mapa**: 2A
             - **dificuldade**: V5
         - **[7]**:
           - **boulder**:
             - **nome**: João de Barro
-            - **id_no_mapa**: 2B
             - **dificuldade**: V4
   - **[4]**:
     - **conteudo**:
@@ -960,6 +1033,47 @@
                 - **x**: 1053
                 - **y**: 876
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mata-Mata
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Mata-Mata ext
+              - **ids**:
+                - 2A▲
+            - **[2]**:
+              - **escalada**: 001
+              - **ids**:
+                - 2A★
+            - **[3]**:
+              - **escalada**: Sem as Mãos
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Ética
+              - **ids**:
+                - 2
+            - **[5]**:
+              - **escalada**: Risada
+              - **ids**:
+                - 3
+            - **[6]**:
+              - **escalada**: Batentes
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Regletes
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: Cocal é Gueto
+              - **ids**:
+                - 1
+            - **[9]**:
+              - **escalada**: 002
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
           - **largura_mapa**: 1576
@@ -1028,52 +1142,42 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Mata-Mata
-            - **id_no_mapa**: 1A
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Mata-Mata ext
-            - **id_no_mapa**: 2A▲
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: 001
-            - **id_no_mapa**: 2A★
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Sem as Mãos
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
         - **[4]**:
           - **boulder**:
             - **nome**: Ética
-            - **id_no_mapa**: 2
             - **dificuldade**: V0
         - **[5]**:
           - **boulder**:
             - **nome**: Risada
-            - **id_no_mapa**: 3
             - **dificuldade**: V0
         - **[6]**:
           - **boulder**:
             - **nome**: Batentes
-            - **id_no_mapa**: 1
             - **dificuldade**: V1
         - **[7]**:
           - **boulder**:
             - **nome**: Regletes
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[8]**:
           - **boulder**:
             - **nome**: Cocal é Gueto
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[9]**:
           - **boulder**:
             - **nome**: 002
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
   - **[5]**:
     - **conteudo**:
@@ -1113,6 +1217,35 @@
                 - **x**: 993
                 - **y**: 730
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Bob
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: Reto
+              - **ids**:
+                - 1A
+            - **[4]**:
+              - **escalada**: Dor nas Costas
+              - **ids**:
+                - 1B
+            - **[5]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 2C
+            - **[6]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 2D
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
           - **largura_mapa**: 1575
@@ -1164,37 +1297,30 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Albino
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Encardido
-            - **id_no_mapa**: 1B
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Bob
-            - **id_no_mapa**: 2
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: Reto
-            - **id_no_mapa**: 1A
             - **dificuldade**: V2
         - **[4]**:
           - **boulder**:
             - **nome**: Dor nas Costas
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **nome**: Albino
-            - **id_no_mapa**: 2C
             - **dificuldade**: V4
         - **[6]**:
           - **boulder**:
             - **nome**: Encardido
-            - **id_no_mapa**: 2D
             - **dificuldade**: V4
   - **[6]**:
     - **conteudo**:
@@ -1248,36 +1374,55 @@
                 - **x**: 738
                 - **y**: 380
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Flying Horse
+              - **ids**:
+                - 1A▲
+            - **[1]**:
+              - **escalada**: Pingado
+              - **ids**:
+                - 1A★
+            - **[2]**:
+              - **escalada**: Expresso
+              - **ids**:
+                - 1B
+            - **[3]**:
+              - **escalada**: Macchiato
+              - **ids**:
+                - 2A▲
+            - **[4]**:
+              - **escalada**: Red Bull
+              - **ids**:
+                - 2A★
+            - **[5]**:
+              - **escalada**: Mad Dog
+              - **ids**:
+                - 2B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Flying Horse
-            - **id_no_mapa**: 1A▲
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Pingado
-            - **id_no_mapa**: 1A★
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Expresso
-            - **id_no_mapa**: 1B
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Macchiato
-            - **id_no_mapa**: 2A▲
             - **dificuldade**: V6
         - **[4]**:
           - **boulder**:
             - **nome**: Red Bull
-            - **id_no_mapa**: 2A★
             - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
             - **nome**: Mad Dog
-            - **id_no_mapa**: 2B
             - **dificuldade**: V1
   - **[7]**:
     - **conteudo**:
@@ -1345,6 +1490,111 @@
                 - **x**: 1464
                 - **y**: 152
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Last Samurai
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Samurai
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Doce de Leite
+              - **ids**:
+                - 3B/2B
+            - **[3]**:
+              - **escalada**: Panamá
+              - **ids**:
+                - 4A/1A
+            - **[4]**:
+              - **escalada**: Doce de Leite sds
+              - **ids**:
+                - 4B/1B
+            - **[5]**:
+              - **escalada**: Rocambole
+              - **ids**:
+                - 5B/3B
+            - **[6]**:
+              - **escalada**: Falha Humana
+              - **ids**:
+                - 6B/4B
+            - **[7]**:
+              - **escalada**: Teiú
+              - **ids**:
+                - 1C
+            - **[8]**:
+              - **escalada**: Rabo de Lagartixa
+              - **ids**:
+                - 4C
+            - **[9]**:
+              - **escalada**: Camaleão
+              - **ids**:
+                - 5B
+            - **[10]**:
+              - **escalada**: Lagartixa
+              - **ids**:
+                - 5C
+            - **[11]**:
+              - **escalada**: Rabo de Camaleão
+              - **ids**:
+                - 6B
+            - **[12]**:
+              - **escalada**: Lagartixa sem Rabo
+              - **ids**:
+                - 6C
+            - **[13]**:
+              - **escalada**: Guerreiro
+              - **ids**:
+                - 1A
+            - **[14]**:
+              - **escalada**: Major
+              - **ids**:
+                - 2A
+            - **[15]**:
+              - **escalada**: Geoterapia
+              - **ids**:
+                - 2D
+            - **[16]**:
+              - **escalada**: Nativo
+              - **ids**:
+                - 3B
+            - **[17]**:
+              - **escalada**: Protesto
+              - **ids**:
+                - 4A
+            - **[18]**:
+              - **escalada**: Cadena Imaginária
+              - **ids**:
+                - 4D
+            - **[19]**:
+              - **escalada**: Golpe Militar
+              - **ids**:
+                - 5A
+            - **[20]**:
+              - **escalada**: Aurora Explosion
+              - **ids**:
+                - 5B
+            - **[21]**:
+              - **escalada**: Escravos da Pedra
+              - **ids**:
+                - 5D
+            - **[22]**:
+              - **escalada**: Ditadvor
+              - **ids**:
+                - 6A
+            - **[23]**:
+              - **escalada**: Lobo Mau
+              - **ids**:
+                - 6D
+            - **[24]**:
+              - **escalada**: Coronel
+              - **ids**:
+                - 7A
+            - **[25]**:
+              - **escalada**: Chapeuzinho Vermelho
+              - **ids**:
+                - 7C
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
           - **largura_mapa**: 1575
@@ -1499,132 +1749,106 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Last Samurai
-            - **id_no_mapa**: 1
             - **dificuldade**: V14
         - **[1]**:
           - **boulder**:
             - **nome**: Samurai
-            - **id_no_mapa**: 2
             - **dificuldade**: V12
         - **[2]**:
           - **boulder**:
             - **nome**: Doce de Leite
-            - **id_no_mapa**: 3B/2B
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Panamá
-            - **id_no_mapa**: 4A/1A
             - **dificuldade**: V10
         - **[4]**:
           - **boulder**:
             - **nome**: Doce de Leite sds
-            - **id_no_mapa**: 4B/1B
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Rocambole
-            - **id_no_mapa**: 5B/3B
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Falha Humana
-            - **id_no_mapa**: 6B/4B
             - **dificuldade**: V4
         - **[7]**:
           - **boulder**:
             - **nome**: Teiú
-            - **id_no_mapa**: 1C
             - **dificuldade**: V11
         - **[8]**:
           - **boulder**:
             - **nome**: Rabo de Lagartixa
-            - **id_no_mapa**: 4C
             - **dificuldade**: V10
         - **[9]**:
           - **boulder**:
             - **nome**: Camaleão
-            - **id_no_mapa**: 5B
             - **dificuldade**: V8
         - **[10]**:
           - **boulder**:
             - **nome**: Lagartixa
-            - **id_no_mapa**: 5C
             - **dificuldade**: V7
         - **[11]**:
           - **boulder**:
             - **nome**: Rabo de Camaleão
-            - **id_no_mapa**: 6B
             - **dificuldade**: V9
         - **[12]**:
           - **boulder**:
             - **nome**: Lagartixa sem Rabo
-            - **id_no_mapa**: 6C
             - **dificuldade**: V9
         - **[13]**:
           - **boulder**:
             - **nome**: Guerreiro
-            - **id_no_mapa**: 1A
             - **dificuldade**: V8_BARRA_V9
         - **[14]**:
           - **boulder**:
             - **nome**: Major
-            - **id_no_mapa**: 2A
             - **dificuldade**: V11
         - **[15]**:
           - **boulder**:
             - **nome**: Geoterapia
-            - **id_no_mapa**: 2D
             - **dificuldade**: V9
         - **[16]**:
           - **boulder**:
             - **nome**: Nativo
-            - **id_no_mapa**: 3B
             - **dificuldade**: V12
         - **[17]**:
           - **boulder**:
             - **nome**: Protesto
-            - **id_no_mapa**: 4A
             - **dificuldade**: V10
         - **[18]**:
           - **boulder**:
             - **nome**: Cadena Imaginária
-            - **id_no_mapa**: 4D
             - **dificuldade**: V8
         - **[19]**:
           - **boulder**:
             - **nome**: Golpe Militar
-            - **id_no_mapa**: 5A
             - **dificuldade**: V13
         - **[20]**:
           - **boulder**:
             - **nome**: Aurora Explosion
-            - **id_no_mapa**: 5B
             - **dificuldade**: V13
         - **[21]**:
           - **boulder**:
             - **nome**: Escravos da Pedra
-            - **id_no_mapa**: 5D
             - **dificuldade**: V9
         - **[22]**:
           - **boulder**:
             - **nome**: Ditadvor
-            - **id_no_mapa**: 6A
             - **dificuldade**: V12
         - **[23]**:
           - **boulder**:
             - **nome**: Lobo Mau
-            - **id_no_mapa**: 6D
             - **dificuldade**: V5
         - **[24]**:
           - **boulder**:
             - **nome**: Coronel
-            - **id_no_mapa**: 7A
             - **dificuldade**: V12
         - **[25]**:
           - **boulder**:
             - **nome**: Chapeuzinho Vermelho
-            - **id_no_mapa**: 7C
             - **dificuldade**: V13
   - **[8]**:
     - **conteudo**:
@@ -1650,6 +1874,51 @@
                 - **x**: 1173
                 - **y**: 782
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ianque
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Apache
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Garoto Andrada
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Embalados pelo Vovô
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Pressão no Vovô
+              - **ids**:
+                - 3
+            - **[5]**:
+              - **escalada**: Pressão dos Barbosa
+              - **ids**:
+                - 4
+            - **[6]**:
+              - **escalada**: Helicoidal
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Em Busca do Equilíbrio
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: Em Busca do Equilíbrio sds
+              - **ids**:
+                - 3
+            - **[9]**:
+              - **escalada**: Brígida
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: Carranca
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
           - **largura_mapa**: 1575
@@ -1732,58 +2001,47 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Ianque
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Apache
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[2]**:
           - **boulder**:
             - **nome**: Garoto Andrada
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Embalados pelo Vovô
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: Pressão no Vovô
-            - **id_no_mapa**: 3
             - **dificuldade**: V9
         - **[5]**:
           - **boulder**:
             - **nome**: Pressão dos Barbosa
-            - **id_no_mapa**: 4
             - **dificuldade**: V6_BARRA_V7
         - **[6]**:
           - **boulder**:
             - **nome**: Helicoidal
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
         - **[7]**:
           - **boulder**:
             - **nome**: Em Busca do Equilíbrio
-            - **id_no_mapa**: 2
             - **dificuldade**: V7
         - **[8]**:
           - **boulder**:
             - **descricao**: (sai nas agarras do Pressão no Vovô)
             - **nome**: Em Busca do Equilíbrio sds
-            - **id_no_mapa**: 3
             - **dificuldade**: V10
         - **[9]**:
           - **boulder**:
             - **nome**: Brígida
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
         - **[10]**:
           - **boulder**:
             - **nome**: Carranca
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
   - **[9]**:
     - **conteudo**:
@@ -1809,17 +2067,24 @@
                 - **x**: 782
                 - **y**: 818
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fiat Lux
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Frita Crux
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Fiat Lux
-            - **id_no_mapa**: 1
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **descricao**: (vira pela aresta atrás do bloco)
             - **nome**: Frita Crux
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
   - **[10]**:
     - **conteudo**:
@@ -1880,6 +2145,39 @@
                 - **x**: 996
                 - **y**: 660
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buena Onda
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Teto de Vidro
+              - **ids**:
+                - 1B▲/1A
+            - **[2]**:
+              - **escalada**: Gringo de Vidro
+              - **ids**:
+                - 1B★
+            - **[3]**:
+              - **escalada**: Teto Quebrado
+              - **ids**:
+                - 2B/2A
+            - **[4]**:
+              - **escalada**: Gringo
+              - **ids**:
+                - 3A
+            - **[5]**:
+              - **escalada**: Manobra
+              - **ids**:
+                - 3A
+            - **[6]**:
+              - **escalada**: Casquinha
+              - **ids**:
+                - 4A
+            - **[7]**:
+              - **escalada**: Wafer
+              - **ids**:
+                - 4B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
           - **largura_mapa**: 1575
@@ -1938,43 +2236,35 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Buena Onda
-            - **id_no_mapa**: 1A
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **nome**: Teto de Vidro
-            - **id_no_mapa**: 1B▲/1A
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: Gringo de Vidro
-            - **id_no_mapa**: 1B★
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Teto Quebrado
-            - **id_no_mapa**: 2B/2A
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **nome**: Gringo
-            - **id_no_mapa**: 3A
             - **dificuldade**: V10
         - **[5]**:
           - **boulder**:
             - **descricao**: (dinâmico para a agarra indicada)
             - **nome**: Manobra
-            - **id_no_mapa**: 3A
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Casquinha
-            - **id_no_mapa**: 4A
             - **dificuldade**: V2
         - **[7]**:
           - **boulder**:
             - **nome**: Wafer
-            - **id_no_mapa**: 4B
             - **dificuldade**: V1
   - **[11]**:
     - **conteudo**:
@@ -2007,6 +2297,39 @@
                 - **x**: 484
                 - **y**: 320
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: NBA
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pedra Única
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tô na Esquiva
+              - **ids**:
+                - 1A
+            - **[3]**:
+              - **escalada**: Tô Legal
+              - **ids**:
+                - 1B
+            - **[4]**:
+              - **escalada**: Tô Calmo
+              - **ids**:
+                - 2C
+            - **[5]**:
+              - **escalada**: Tô de Boa
+              - **ids**:
+                - 2D
+            - **[6]**:
+              - **escalada**: Jaguatirica
+              - **ids**:
+                - 2E
+            - **[7]**:
+              - **escalada**: Tô Suave
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
           - **largura_mapa**: 1575
@@ -2073,42 +2396,34 @@
           - **boulder**:
             - **descricao**: (dinâmico de 2 regletes para a borda)
             - **nome**: NBA
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
         - **[1]**:
           - **boulder**:
             - **nome**: Pedra Única
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Tô na Esquiva
-            - **id_no_mapa**: 1A
             - **dificuldade**: V6
         - **[3]**:
           - **boulder**:
             - **nome**: Tô Legal
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Tô Calmo
-            - **id_no_mapa**: 2C
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Tô de Boa
-            - **id_no_mapa**: 2D
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Jaguatirica
-            - **id_no_mapa**: 2E
             - **dificuldade**: V6
         - **[7]**:
           - **boulder**:
             - **nome**: Tô Suave
-            - **id_no_mapa**: 3
             - **dificuldade**: V4_BARRA_V5
   - **[12]**:
     - **conteudo**:
@@ -2176,6 +2491,43 @@
                 - **x**: 1308
                 - **y**: 758
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Flap
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Alfândega
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: México
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Passaporte
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Dinamite
+              - **ids**:
+                - 5A
+            - **[5]**:
+              - **escalada**: Pedra Queimada
+              - **ids**:
+                - 5B
+            - **[6]**:
+              - **escalada**: Dinamite sds
+              - **ids**:
+                - 6A
+            - **[7]**:
+              - **escalada**: Pedra Queimada sds
+              - **ids**:
+                - 6B
+            - **[8]**:
+              - **escalada**: Identidade
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
           - **largura_mapa**: 1575
@@ -2192,48 +2544,39 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Flap
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Alfândega
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **descricao**: (começa em duas agarras invertidas no teto)
             - **nome**: México
-            - **id_no_mapa**: 3
             - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
             - **nome**: Passaporte
-            - **id_no_mapa**: 4
             - **dificuldade**: V6
         - **[4]**:
           - **boulder**:
             - **nome**: Dinamite
-            - **id_no_mapa**: 5A
             - **dificuldade**: V2
         - **[5]**:
           - **boulder**:
             - **nome**: Pedra Queimada
-            - **id_no_mapa**: 5B
             - **dificuldade**: V8
         - **[6]**:
           - **boulder**:
             - **nome**: Dinamite sds
-            - **id_no_mapa**: 6A
             - **dificuldade**: V5_BARRA_V6
         - **[7]**:
           - **boulder**:
             - **nome**: Pedra Queimada sds
-            - **id_no_mapa**: 6B
             - **dificuldade**: V9
         - **[8]**:
           - **boulder**:
             - **nome**: Identidade
-            - **id_no_mapa**: 1
             - **dificuldade**: V0
   - **[13]**:
     - **conteudo**:
@@ -2329,51 +2672,79 @@
                 - **x**: 710
                 - **y**: 538
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aranha
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Desafio do Superman
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: Hora da Janta
+              - **ids**:
+                - 2B
+            - **[3]**:
+              - **escalada**: Larica
+              - **ids**:
+                - 2C▲
+            - **[4]**:
+              - **escalada**: Sobremesa
+              - **ids**:
+                - 2C★
+            - **[5]**:
+              - **escalada**: Voo do Superman
+              - **ids**:
+                - 3C
+            - **[6]**:
+              - **escalada**: Conha Conha
+              - **ids**:
+                - 4D
+            - **[7]**:
+              - **escalada**: Maconhaque
+              - **ids**:
+                - 4E
+            - **[8]**:
+              - **escalada**: Tapa na Pantera
+              - **ids**:
+                - 5
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Aranha
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Desafio do Superman
-            - **id_no_mapa**: 2A
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Hora da Janta
-            - **id_no_mapa**: 2B
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Larica
-            - **id_no_mapa**: 2C▲
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Sobremesa
-            - **id_no_mapa**: 2C★
             - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
             - **nome**: Voo do Superman
-            - **id_no_mapa**: 3C
             - **dificuldade**: INDEFINIDO
         - **[6]**:
           - **boulder**:
             - **nome**: Conha Conha
-            - **id_no_mapa**: 4D
             - **dificuldade**: V5
         - **[7]**:
           - **boulder**:
             - **nome**: Maconhaque
-            - **id_no_mapa**: 4E
             - **dificuldade**: V5
         - **[8]**:
           - **boulder**:
             - **nome**: Tapa na Pantera
-            - **id_no_mapa**: 5
             - **dificuldade**: V1
   - **[14]**:
     - **conteudo**:
@@ -2399,6 +2770,15 @@
                 - **x**: 1032
                 - **y**: 998
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mezanino
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mesa
+              - **ids**:
+                - 2/1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
           - **largura_mapa**: 1576
@@ -2415,12 +2795,10 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Mezanino
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Mesa
-            - **id_no_mapa**: 2/1
             - **dificuldade**: V5
   - **[15]**:
     - **conteudo**:
@@ -2453,6 +2831,23 @@
                 - **x**: 966
                 - **y**: 956
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Trident
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Big-Big
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Babaloo
+              - **ids**:
+                - 3/1A
+            - **[3]**:
+              - **escalada**: Chicletes
+              - **ids**:
+                - 1B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
           - **largura_mapa**: 1575
@@ -2483,22 +2878,18 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Trident
-            - **id_no_mapa**: 1
             - **dificuldade**: V10
         - **[1]**:
           - **boulder**:
             - **nome**: Big-Big
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: Babaloo
-            - **id_no_mapa**: 3/1A
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Chicletes
-            - **id_no_mapa**: 1B
             - **dificuldade**: V11
   - **[16]**:
     - **conteudo**:
@@ -2552,6 +2943,55 @@
                 - **x**: 322
                 - **y**: 552
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Areia nos Olhos
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Areia nos Olhos ext
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: Fala Você
+              - **ids**:
+                - 3B
+            - **[3]**:
+              - **escalada**: De Olho na Vida
+              - **ids**:
+                - 3C
+            - **[4]**:
+              - **escalada**: Fala Vida
+              - **ids**:
+                - 1A
+            - **[5]**:
+              - **escalada**: Vida Curta
+              - **ids**:
+                - 1B
+            - **[6]**:
+              - **escalada**: Sem Vida
+              - **ids**:
+                - 1C
+            - **[7]**:
+              - **escalada**: Arenito
+              - **ids**:
+                - 2C
+            - **[8]**:
+              - **escalada**: Vida Longa
+              - **ids**:
+                - 3A
+            - **[9]**:
+              - **escalada**: Longevidade
+              - **ids**:
+                - 3C
+            - **[10]**:
+              - **escalada**: Guerreiro Jedi
+              - **ids**:
+                - 3D
+            - **[11]**:
+              - **escalada**: Jedi
+              - **ids**:
+                - 4D
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
           - **largura_mapa**: 1576
@@ -2617,62 +3057,50 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Areia nos Olhos
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Areia nos Olhos ext
-            - **id_no_mapa**: 2A
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Fala Você
-            - **id_no_mapa**: 3B
             - **dificuldade**: V11
         - **[3]**:
           - **boulder**:
             - **nome**: De Olho na Vida
-            - **id_no_mapa**: 3C
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Fala Vida
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **nome**: Vida Curta
-            - **id_no_mapa**: 1B
             - **dificuldade**: V2
         - **[6]**:
           - **boulder**:
             - **nome**: Sem Vida
-            - **id_no_mapa**: 1C
             - **dificuldade**: V3
         - **[7]**:
           - **boulder**:
             - **nome**: Arenito
-            - **id_no_mapa**: 2C
             - **dificuldade**: V5
         - **[8]**:
           - **boulder**:
             - **nome**: Vida Longa
-            - **id_no_mapa**: 3A
             - **dificuldade**: V8
         - **[9]**:
           - **boulder**:
             - **nome**: Longevidade
-            - **id_no_mapa**: 3C
             - **dificuldade**: V7
         - **[10]**:
           - **boulder**:
             - **nome**: Guerreiro Jedi
-            - **id_no_mapa**: 3D
             - **dificuldade**: V11
         - **[11]**:
           - **boulder**:
             - **nome**: Jedi
-            - **id_no_mapa**: 4D
             - **dificuldade**: V10
   - **[17]**:
     - **conteudo**:
@@ -2712,21 +3140,31 @@
                 - **x**: 571
                 - **y**: 934
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Braúna
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Sonar
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Periscópio
+              - **ids**:
+                - 1C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Braúna
-            - **id_no_mapa**: 1A
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Sonar
-            - **id_no_mapa**: 1B
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Periscópio
-            - **id_no_mapa**: 1C
             - **dificuldade**: V5
   - **[18]**:
     - **conteudo**:
@@ -2745,6 +3183,35 @@
                 - **x**: 818
                 - **y**: 802
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tatuagens do Ofício
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Rastaman
+              - **ids**:
+                - 1A
+            - **[2]**:
+              - **escalada**: Meia Parede
+              - **ids**:
+                - 1B
+            - **[3]**:
+              - **escalada**: Slab
+              - **ids**:
+                - 1A
+            - **[4]**:
+              - **escalada**: Aresta do Lenine
+              - **ids**:
+                - 1B
+            - **[5]**:
+              - **escalada**: Jardim de Orquídeas
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Jardim Suspenso
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
           - **largura_mapa**: 1575
@@ -2820,37 +3287,30 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Tatuagens do Ofício
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Rastaman
-            - **id_no_mapa**: 1A
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Meia Parede
-            - **id_no_mapa**: 1B
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Slab
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **nome**: Aresta do Lenine
-            - **id_no_mapa**: 1B
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Jardim de Orquídeas
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[6]**:
           - **boulder**:
             - **nome**: Jardim Suspenso
-            - **id_no_mapa**: 2
             - **dificuldade**: V6
   - **[19]**:
     - **conteudo**:
@@ -2967,6 +3427,107 @@
                 - **x**: 1448
                 - **y**: 685
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monte Mor
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Irmãos Coragem
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Irmãos na Vibe
+              - **ids**:
+                - 2B
+            - **[3]**:
+              - **escalada**: Ora-Por-Todos
+              - **ids**:
+                - 4C/1A★
+            - **[4]**:
+              - **escalada**: Orai-Por-Noix
+              - **ids**:
+                - 5C/1A▲
+            - **[5]**:
+              - **escalada**: Ora-Pra-Jah
+              - **ids**:
+                - 5D/1B
+            - **[6]**:
+              - **escalada**: Ouroboulder
+              - **ids**:
+                - 5E/1C
+            - **[7]**:
+              - **escalada**: Ora-Pro-Nóbis
+              - **ids**:
+                - 6D/2B
+            - **[8]**:
+              - **escalada**: Ora-Pros-Crash
+              - **ids**:
+                - 6E/2C
+            - **[9]**:
+              - **escalada**: Oratório
+              - **ids**:
+                - 7E/5C
+            - **[10]**:
+              - **escalada**: Quebra Galho
+              - **ids**:
+                - 8E/3C
+            - **[11]**:
+              - **escalada**: Libertadores
+              - **ids**:
+                - 9F/2D
+            - **[12]**:
+              - **escalada**: Eu Acredito
+              - **ids**:
+                - 10F/4D
+            - **[13]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[14]**:
+              - **escalada**: Mortal Kombat
+              - **ids**:
+                - 2▲ / 1▲
+            - **[15]**:
+              - **escalada**: Sub-Zero
+              - **ids**:
+                - 2★ / 1★
+            - **[16]**:
+              - **escalada**: Raiden
+              - **ids**:
+                - 3▲ / 2▲
+            - **[17]**:
+              - **escalada**: Carcomendo
+              - **ids**:
+                - 3★ / 2★
+            - **[18]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
+            - **[19]**:
+              - **escalada**: Novos Baianos
+              - **ids**:
+                - 1A★
+            - **[20]**:
+              - **escalada**: De Inverno
+              - **ids**:
+                - 1B★
+            - **[21]**:
+              - **escalada**: De Verão
+              - **ids**:
+                - 1C★
+            - **[22]**:
+              - **escalada**: Maverick
+              - **ids**:
+                - 1B▲
+            - **[23]**:
+              - **escalada**: Vem Verão
+              - **ids**:
+                - 2B
+            - **[24]**:
+              - **escalada**: Passível
+              - **ids**:
+                - 1A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
           - **largura_mapa**: 1575
@@ -3246,127 +3807,102 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Monte Mor
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: Irmãos Coragem
-            - **id_no_mapa**: 1B
             - **dificuldade**: V8
         - **[2]**:
           - **boulder**:
             - **nome**: Irmãos na Vibe
-            - **id_no_mapa**: 2B
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Ora-Por-Todos
-            - **id_no_mapa**: 4C/1A★
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Orai-Por-Noix
-            - **id_no_mapa**: 5C/1A▲
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Ora-Pra-Jah
-            - **id_no_mapa**: 5D/1B
             - **dificuldade**: V9
         - **[6]**:
           - **boulder**:
             - **nome**: Ouroboulder
-            - **id_no_mapa**: 5E/1C
             - **dificuldade**: V11
         - **[7]**:
           - **boulder**:
             - **nome**: Ora-Pro-Nóbis
-            - **id_no_mapa**: 6D/2B
             - **dificuldade**: V7
         - **[8]**:
           - **boulder**:
             - **nome**: Ora-Pros-Crash
-            - **id_no_mapa**: 6E/2C
             - **dificuldade**: V10
         - **[9]**:
           - **boulder**:
             - **nome**: Oratório
-            - **id_no_mapa**: 7E/5C
             - **dificuldade**: V10
         - **[10]**:
           - **boulder**:
             - **nome**: Quebra Galho
-            - **id_no_mapa**: 8E/3C
             - **dificuldade**: V6
         - **[11]**:
           - **boulder**:
             - **nome**: Libertadores
-            - **id_no_mapa**: 9F/2D
             - **dificuldade**: V14
         - **[12]**:
           - **boulder**:
             - **nome**: Eu Acredito
-            - **id_no_mapa**: 10F/4D
             - **dificuldade**: V11
         - **[13]**:
           - **boulder**:
             - **nome**: Umbriacone
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[14]**:
           - **boulder**:
             - **nome**: Mortal Kombat
-            - **id_no_mapa**: 2▲ / 1▲
             - **dificuldade**: V8
         - **[15]**:
           - **boulder**:
             - **nome**: Sub-Zero
-            - **id_no_mapa**: 2★ / 1★
             - **dificuldade**: V6
         - **[16]**:
           - **boulder**:
             - **nome**: Raiden
-            - **id_no_mapa**: 3▲ / 2▲
             - **dificuldade**: V4
         - **[17]**:
           - **boulder**:
             - **nome**: Carcomendo
-            - **id_no_mapa**: 3★ / 2★
             - **dificuldade**: V7
         - **[18]**:
           - **boulder**:
             - **nome**: 003
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[19]**:
           - **boulder**:
             - **nome**: Novos Baianos
-            - **id_no_mapa**: 1A★
             - **dificuldade**: V11
         - **[20]**:
           - **boulder**:
             - **nome**: De Inverno
-            - **id_no_mapa**: 1B★
             - **dificuldade**: V10
         - **[21]**:
           - **boulder**:
             - **nome**: De Verão
-            - **id_no_mapa**: 1C★
             - **dificuldade**: V10
         - **[22]**:
           - **boulder**:
             - **nome**: Maverick
-            - **id_no_mapa**: 1B▲
             - **dificuldade**: V9
         - **[23]**:
           - **boulder**:
             - **nome**: Vem Verão
-            - **id_no_mapa**: 2B
             - **dificuldade**: V9
         - **[24]**:
           - **boulder**:
             - **nome**: Passível
-            - **id_no_mapa**: 1A
             - **dificuldade**: V2
   - **[20]**:
     - **conteudo**:
@@ -3385,6 +3921,27 @@
                 - **x**: 828
                 - **y**: 850
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 004
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Jardim Secreto
+              - **ids**:
+                - 1A
+            - **[3]**:
+              - **escalada**: Papo Reto
+              - **ids**:
+                - 1B
+            - **[4]**:
+              - **escalada**: Papo Reto sds
+              - **ids**:
+                - 2B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
           - **largura_mapa**: 1575
@@ -3434,27 +3991,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Abaulados
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: 004
-            - **id_no_mapa**: 1
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Jardim Secreto
-            - **id_no_mapa**: 1A
             - **dificuldade**: V11
         - **[3]**:
           - **boulder**:
             - **nome**: Papo Reto
-            - **id_no_mapa**: 1B
             - **dificuldade**: V11
         - **[4]**:
           - **boulder**:
             - **nome**: Papo Reto sds
-            - **id_no_mapa**: 2B
             - **dificuldade**: V12
   - **[21]**:
     - **conteudo**:
@@ -3522,6 +4074,71 @@
                 - **x**: 1335
                 - **y**: 780
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buda
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Arestides
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Arestides ext
+              - **ids**:
+                - 1C/1D▲
+            - **[3]**:
+              - **escalada**: Nataraja
+              - **ids**:
+                - 2B▲/2A▲
+            - **[4]**:
+              - **escalada**: Sidarta
+              - **ids**:
+                - 2B★
+            - **[5]**:
+              - **escalada**: Sidarta sds
+              - **ids**:
+                - 3B★
+            - **[6]**:
+              - **escalada**: Deep Inside ext
+              - **ids**:
+                - 4A▲
+            - **[7]**:
+              - **escalada**: Deep Inside
+              - **ids**:
+                - 4B★
+            - **[8]**:
+              - **escalada**: Canindé
+              - **ids**:
+                - 4C
+            - **[9]**:
+              - **escalada**: Canindé de Cima
+              - **ids**:
+                - 5C
+            - **[10]**:
+              - **escalada**: Cara de Boi
+              - **ids**:
+                - 6B
+            - **[11]**:
+              - **escalada**: Cara de Vaca
+              - **ids**:
+                - 6C
+            - **[12]**:
+              - **escalada**: Invertides
+              - **ids**:
+                - 7A▲
+            - **[13]**:
+              - **escalada**: Promoção
+              - **ids**:
+                - 7D/2B
+            - **[14]**:
+              - **escalada**: Promocinha
+              - **ids**:
+                - 1A
+            - **[15]**:
+              - **escalada**: Bolinho de Chuva
+              - **ids**:
+                - 3C
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
           - **largura_mapa**: 1575
@@ -3669,82 +4286,66 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Buda
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: Arestides
-            - **id_no_mapa**: 1B
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Arestides ext
-            - **id_no_mapa**: 1C/1D▲
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Nataraja
-            - **id_no_mapa**: 2B▲/2A▲
             - **dificuldade**: V6
         - **[4]**:
           - **boulder**:
             - **nome**: Sidarta
-            - **id_no_mapa**: 2B★
             - **dificuldade**: V5
         - **[5]**:
           - **boulder**:
             - **nome**: Sidarta sds
-            - **id_no_mapa**: 3B★
             - **dificuldade**: V9
         - **[6]**:
           - **boulder**:
             - **nome**: Deep Inside ext
-            - **id_no_mapa**: 4A▲
             - **dificuldade**: V11
         - **[7]**:
           - **boulder**:
             - **nome**: Deep Inside
-            - **id_no_mapa**: 4B★
             - **dificuldade**: V10
         - **[8]**:
           - **boulder**:
             - **nome**: Canindé
-            - **id_no_mapa**: 4C
             - **dificuldade**: V10
         - **[9]**:
           - **boulder**:
             - **nome**: Canindé de Cima
-            - **id_no_mapa**: 5C
             - **dificuldade**: V9
         - **[10]**:
           - **boulder**:
             - **nome**: Cara de Boi
-            - **id_no_mapa**: 6B
             - **dificuldade**: V2
         - **[11]**:
           - **boulder**:
             - **nome**: Cara de Vaca
-            - **id_no_mapa**: 6C
             - **dificuldade**: V1
         - **[12]**:
           - **boulder**:
             - **nome**: Invertides
-            - **id_no_mapa**: 7A▲
             - **dificuldade**: V8
         - **[13]**:
           - **boulder**:
             - **nome**: Promoção
-            - **id_no_mapa**: 7D/2B
             - **dificuldade**: V4
         - **[14]**:
           - **boulder**:
             - **nome**: Promocinha
-            - **id_no_mapa**: 1A
             - **dificuldade**: V7
         - **[15]**:
           - **boulder**:
             - **nome**: Bolinho de Chuva
-            - **id_no_mapa**: 3C
             - **dificuldade**: VB
   - **[22]**:
     - **conteudo**:
@@ -3805,6 +4406,59 @@
                 - **x**: 1988
                 - **y**: 994
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Talhadeira
+              - **ids**:
+                - 1/1B
+            - **[1]**:
+              - **escalada**: Complexo
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: Ajoelhou, Tem que Rezar
+              - **ids**:
+                - 2B
+            - **[3]**:
+              - **escalada**: Descomplicado
+              - **ids**:
+                - 3B
+            - **[4]**:
+              - **escalada**: Sofá
+              - **ids**:
+                - 1A
+            - **[5]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Poroso
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Não Poroso
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Triangular
+              - **ids**:
+                - 4
+            - **[9]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: Travessia Ouro Preto-Bocaina
+              - **ids**:
+                - 2
+            - **[11]**:
+              - **escalada**: Perereca
+              - **ids**:
+                - 3
+            - **[12]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
           - **largura_mapa**: 1575
@@ -3921,67 +4575,54 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Talhadeira
-            - **id_no_mapa**: 1/1B
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Complexo
-            - **id_no_mapa**: 2A
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Ajoelhou, Tem que Rezar
-            - **id_no_mapa**: 2B
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **nome**: Descomplicado
-            - **id_no_mapa**: 3B
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: Sofá
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[5]**:
           - **boulder**:
             - **nome**: Porosíssimo
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[6]**:
           - **boulder**:
             - **nome**: Poroso
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[7]**:
           - **boulder**:
             - **nome**: Não Poroso
-            - **id_no_mapa**: 3
             - **dificuldade**: V3
         - **[8]**:
           - **boulder**:
             - **nome**: Triangular
-            - **id_no_mapa**: 4
             - **dificuldade**: V5
         - **[9]**:
           - **boulder**:
             - **nome**: Boulder de Raiz
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[10]**:
           - **boulder**:
             - **nome**: Travessia Ouro Preto-Bocaina
-            - **id_no_mapa**: 2
             - **dificuldade**: V4
         - **[11]**:
           - **boulder**:
             - **nome**: Perereca
-            - **id_no_mapa**: 3
             - **dificuldade**: V4
         - **[12]**:
           - **boulder**:
             - **nome**: Respira
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
   - **[23]**:
     - **conteudo**:
@@ -4041,31 +4682,47 @@
                 - **y**: 24
                 - **comprimento**: 28
                 - **largura**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aderência
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Dreher
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: Yoga
+              - **ids**:
+                - 3A
+            - **[3]**:
+              - **escalada**: Conhaque
+              - **ids**:
+                - 3B
+            - **[4]**:
+              - **escalada**: Conhaque Presidente
+              - **ids**:
+                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Aderência
-            - **id_no_mapa**: 1A
             - **dificuldade**: VB
         - **[1]**:
           - **boulder**:
             - **nome**: Dreher
-            - **id_no_mapa**: 2A
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Yoga
-            - **id_no_mapa**: 3A
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Conhaque
-            - **id_no_mapa**: 3B
             - **dificuldade**: V4_BARRA_V5
         - **[4]**:
           - **boulder**:
             - **nome**: Conhaque Presidente
-            - **id_no_mapa**: 4
             - **dificuldade**: V6
   - **[24]**:
     - **conteudo**:
@@ -4119,31 +4776,47 @@
                 - **x**: 1410
                 - **y**: 206
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Neutron
+              - **ids**:
+                - 1B
+            - **[1]**:
+              - **escalada**: Elétron
+              - **ids**:
+                - 2B
+            - **[2]**:
+              - **escalada**: Via Láctea
+              - **ids**:
+                - 3A
+            - **[3]**:
+              - **escalada**: Neutron
+              - **ids**:
+                - 3B
+            - **[4]**:
+              - **escalada**: Positron
+              - **ids**:
+                - 3C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Neutron
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3_BARRA_V4
         - **[1]**:
           - **boulder**:
             - **nome**: Elétron
-            - **id_no_mapa**: 2B
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Via Láctea
-            - **id_no_mapa**: 3A
             - **dificuldade**: V6
         - **[3]**:
           - **boulder**:
             - **nome**: Neutron
-            - **id_no_mapa**: 3B
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **nome**: Positron
-            - **id_no_mapa**: 3C
             - **dificuldade**: V3
 
 
@@ -4302,6 +4975,67 @@
                 - **x**: 1190
                 - **y**: 780
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pico da Neblina ext
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Inquilinismo Frenético ext
+              - **ids**:
+                - 1C
+            - **[2]**:
+              - **escalada**: Pico da Neblina
+              - **ids**:
+                - 2A
+            - **[3]**:
+              - **escalada**: Inquilinismo Frenético
+              - **ids**:
+                - 2C
+            - **[4]**:
+              - **escalada**: Bife do Mário
+              - **ids**:
+                - 3B
+            - **[5]**:
+              - **escalada**: Painel
+              - **ids**:
+                - 4C
+            - **[6]**:
+              - **escalada**: Mont Blanc
+              - **ids**:
+                - 5C
+            - **[7]**:
+              - **escalada**: Mont Blanc do Oeste
+              - **ids**:
+                - 6C
+            - **[8]**:
+              - **escalada**: Deja Ir
+              - **ids**:
+                - 7
+            - **[9]**:
+              - **escalada**: Colibri
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: 005
+              - **ids**:
+                - 1
+            - **[11]**:
+              - **escalada**: Raízes do Brasil
+              - **ids**:
+                - 1A
+            - **[12]**:
+              - **escalada**: Raízes do Cerrado
+              - **ids**:
+                - 2A
+            - **[13]**:
+              - **escalada**: Tec Bond
+              - **ids**:
+                - 3B
+            - **[14]**:
+              - **escalada**: Super Bonder
+              - **ids**:
+                - 4B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
           - **largura_mapa**: 1575
@@ -4370,77 +5104,62 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Pico da Neblina ext
-            - **id_no_mapa**: 1A
             - **dificuldade**: V8
         - **[1]**:
           - **boulder**:
             - **nome**: Inquilinismo Frenético ext
-            - **id_no_mapa**: 1C
             - **dificuldade**: V11
         - **[2]**:
           - **boulder**:
             - **nome**: Pico da Neblina
-            - **id_no_mapa**: 2A
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Inquilinismo Frenético
-            - **id_no_mapa**: 2C
             - **dificuldade**: V10
         - **[4]**:
           - **boulder**:
             - **nome**: Bife do Mário
-            - **id_no_mapa**: 3B
             - **dificuldade**: V9
         - **[5]**:
           - **boulder**:
             - **nome**: Painel
-            - **id_no_mapa**: 4C
             - **dificuldade**: V7
         - **[6]**:
           - **boulder**:
             - **nome**: Mont Blanc
-            - **id_no_mapa**: 5C
             - **dificuldade**: V10
         - **[7]**:
           - **boulder**:
             - **nome**: Mont Blanc do Oeste
-            - **id_no_mapa**: 6C
             - **dificuldade**: V11
         - **[8]**:
           - **boulder**:
             - **nome**: Deja Ir
-            - **id_no_mapa**: 7
             - **dificuldade**: V12
         - **[9]**:
           - **boulder**:
             - **nome**: Colibri
-            - **id_no_mapa**: 1
             - **dificuldade**: V10
         - **[10]**:
           - **boulder**:
             - **nome**: 005
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[11]**:
           - **boulder**:
             - **nome**: Raízes do Brasil
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[12]**:
           - **boulder**:
             - **nome**: Raízes do Cerrado
-            - **id_no_mapa**: 2A
             - **dificuldade**: V3
         - **[13]**:
           - **boulder**:
             - **nome**: Tec Bond
-            - **id_no_mapa**: 3B
             - **dificuldade**: V5
         - **[14]**:
           - **boulder**:
             - **nome**: Super Bonder
-            - **id_no_mapa**: 4B
             - **dificuldade**: V6
   - **[1]**:
     - **conteudo**:
@@ -4487,6 +5206,35 @@
                 - **x**: 1012
                 - **y**: 834
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Parada Obrigatória
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Rio Doce
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Rio das Velhas
+              - **ids**:
+                - 1C
+            - **[3]**:
+              - **escalada**: Igarapé
+              - **ids**:
+                - 2C
+            - **[4]**:
+              - **escalada**: Frasco
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Frisco
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Fulano
+              - **ids**:
+                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
           - **largura_mapa**: 1575
@@ -4517,37 +5265,30 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Parada Obrigatória
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: Rio Doce
-            - **id_no_mapa**: 1B
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Rio das Velhas
-            - **id_no_mapa**: 1C
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Igarapé
-            - **id_no_mapa**: 2C
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **nome**: Frasco
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[5]**:
           - **boulder**:
             - **nome**: Frisco
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
         - **[6]**:
           - **boulder**:
             - **nome**: Fulano
-            - **id_no_mapa**: 3
             - **dificuldade**: V1
   - **[2]**:
     - **conteudo**:
@@ -4615,41 +5356,63 @@
                 - **x**: 1520
                 - **y**: 375
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Dolinha
+              - **ids**:
+                - 1B
+            - **[1]**:
+              - **escalada**: 006
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: 007
+              - **ids**:
+                - 3A
+            - **[3]**:
+              - **escalada**: Salão dos Ossos
+              - **ids**:
+                - 3B
+            - **[4]**:
+              - **escalada**: Osso
+              - **ids**:
+                - 4B
+            - **[5]**:
+              - **escalada**: Osso Duro de Roer
+              - **ids**:
+                - 5B
+            - **[6]**:
+              - **escalada**: Tutano
+              - **ids**:
+                - 5C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Dolinha
-            - **id_no_mapa**: 1B
             - **dificuldade**: V8
         - **[1]**:
           - **boulder**:
             - **nome**: 006
-            - **id_no_mapa**: 2A
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **nome**: 007
-            - **id_no_mapa**: 3A
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Salão dos Ossos
-            - **id_no_mapa**: 3B
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Osso
-            - **id_no_mapa**: 4B
             - **dificuldade**: V7
         - **[5]**:
           - **boulder**:
             - **nome**: Osso Duro de Roer
-            - **id_no_mapa**: 5B
             - **dificuldade**: V10
         - **[6]**:
           - **boulder**:
             - **nome**: Tutano
-            - **id_no_mapa**: 5C
             - **dificuldade**: V10
   - **[3]**:
     - **conteudo**:
@@ -4682,6 +5445,27 @@
                 - **x**: 1074
                 - **y**: 960
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Toe de Ouro
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Toebogã
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Tobocrash
+              - **ids**:
+                - 2B
+            - **[3]**:
+              - **escalada**: Jardim de Inverno
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: O Pequeno
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
           - **largura_mapa**: 1575
@@ -4705,27 +5489,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Toe de Ouro
-            - **id_no_mapa**: 1A
             - **dificuldade**: V9
         - **[1]**:
           - **boulder**:
             - **nome**: Toebogã
-            - **id_no_mapa**: 1B
             - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
             - **nome**: Tobocrash
-            - **id_no_mapa**: 2B
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Jardim de Inverno
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[4]**:
           - **boulder**:
             - **nome**: O Pequeno
-            - **id_no_mapa**: 2
             - **dificuldade**: V8
   - **[4]**:
     - **conteudo**:
@@ -4765,16 +5544,23 @@
                 - **x**: 995
                 - **y**: 965
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cabocla da Mata
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Caboclo das Sete Encruzilhadas
+              - **ids**:
+                - 2B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Cabocla da Mata
-            - **id_no_mapa**: 1A
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Caboclo das Sete Encruzilhadas
-            - **id_no_mapa**: 2B
             - **dificuldade**: V5
   - **[5]**:
     - **conteudo**:
@@ -4814,21 +5600,31 @@
                 - **x**: 355
                 - **y**: 105
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Transição
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Silêncio da Mutuca
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Íngreme
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Transição
-            - **id_no_mapa**: 1A
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Silêncio da Mutuca
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Íngreme
-            - **id_no_mapa**: 2
             - **dificuldade**: V3
   - **[6]**:
     - **conteudo**:
@@ -4868,21 +5664,31 @@
                 - **x**: 866
                 - **y**: 204
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Heavy Metal
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Rock n Roll
+              - **ids**:
+                - 2A
+            - **[2]**:
+              - **escalada**: Hard Core
+              - **ids**:
+                - 2B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Heavy Metal
-            - **id_no_mapa**: 1
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Rock n Roll
-            - **id_no_mapa**: 2A
             - **dificuldade**: V1_BARRA_V2
         - **[2]**:
           - **boulder**:
             - **nome**: Hard Core
-            - **id_no_mapa**: 2B
             - **dificuldade**: V6_BARRA_V7
 
 
@@ -4998,26 +5804,39 @@
                 - **x**: 1374
                 - **y**: 852
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Possível
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Bonsai
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Bonsai do Cerrado
+              - **ids**:
+                - 1C
+            - **[3]**:
+              - **escalada**: Mancada
+              - **ids**:
+                - 2C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Possível
-            - **id_no_mapa**: 1A
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **nome**: Bonsai
-            - **id_no_mapa**: 1B
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Bonsai do Cerrado
-            - **id_no_mapa**: 1C
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Mancada
-            - **id_no_mapa**: 2C
             - **dificuldade**: V3
   - **[1]**:
     - **conteudo**:
@@ -5036,6 +5855,51 @@
                 - **x**: 1380
                 - **y**: 805
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Beija-Flor
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Tarântula
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Porém
+              - **ids**:
+                - 1A
+            - **[3]**:
+              - **escalada**: Xaxado
+              - **ids**:
+                - 1B
+            - **[4]**:
+              - **escalada**: Rouba Monte
+              - **ids**:
+                - 2B/4B
+            - **[5]**:
+              - **escalada**: Crocância do Além
+              - **ids**:
+                - 3A
+            - **[6]**:
+              - **escalada**: Lodo
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Crocância
+              - **ids**:
+                - 2A
+            - **[8]**:
+              - **escalada**: Crocância Rouba Monte
+              - **ids**:
+                - 2B
+            - **[9]**:
+              - **escalada**: Crocância sds
+              - **ids**:
+                - 3A
+            - **[10]**:
+              - **escalada**: Crocância Rouba Monte sds
+              - **ids**:
+                - 3B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
           - **largura_mapa**: 1575
@@ -5139,57 +6003,46 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Beija-Flor
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Tarântula
-            - **id_no_mapa**: 1
             - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
             - **nome**: Porém
-            - **id_no_mapa**: 1A
             - **dificuldade**: V1
         - **[3]**:
           - **boulder**:
             - **nome**: Xaxado
-            - **id_no_mapa**: 1B
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Rouba Monte
-            - **id_no_mapa**: 2B/4B
             - **dificuldade**: V4
         - **[5]**:
           - **boulder**:
             - **nome**: Crocância do Além
-            - **id_no_mapa**: 3A
             - **dificuldade**: V11
         - **[6]**:
           - **boulder**:
             - **nome**: Lodo
-            - **id_no_mapa**: 1
             - **dificuldade**: V8
         - **[7]**:
           - **boulder**:
             - **nome**: Crocância
-            - **id_no_mapa**: 2A
             - **dificuldade**: V9
         - **[8]**:
           - **boulder**:
             - **nome**: Crocância Rouba Monte
-            - **id_no_mapa**: 2B
             - **dificuldade**: V10
         - **[9]**:
           - **boulder**:
             - **nome**: Crocância sds
-            - **id_no_mapa**: 3A
             - **dificuldade**: V10
         - **[10]**:
           - **boulder**:
             - **nome**: Crocância Rouba Monte sds
-            - **id_no_mapa**: 3B
             - **dificuldade**: V11
   - **[2]**:
     - **conteudo**:
@@ -5208,6 +6061,51 @@
                 - **x**: 954
                 - **y**: 1036
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Prodígio
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Briga de Galo
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Oráculo
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: 008
+              - **ids**:
+                - 3
+            - **[4]**:
+              - **escalada**: Afrodisíaco
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Lava Pés
+              - **ids**:
+                - 2A
+            - **[6]**:
+              - **escalada**: Mantra
+              - **ids**:
+                - 2B
+            - **[7]**:
+              - **escalada**: Samadhi
+              - **ids**:
+                - 2C
+            - **[8]**:
+              - **escalada**: Tantra
+              - **ids**:
+                - 3C
+            - **[9]**:
+              - **escalada**: Psicótico
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: Popeye
+              - **ids**:
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
           - **largura_mapa**: 1575
@@ -5290,57 +6188,46 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Prodígio
-            - **id_no_mapa**: 1
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Briga de Galo
-            - **id_no_mapa**: 1
             - **dificuldade**: V6
         - **[2]**:
           - **boulder**:
             - **nome**: Oráculo
-            - **id_no_mapa**: 2
             - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
             - **nome**: 008
-            - **id_no_mapa**: 3
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
             - **nome**: Afrodisíaco
-            - **id_no_mapa**: 1
             - **dificuldade**: V9
         - **[5]**:
           - **boulder**:
             - **nome**: Lava Pés
-            - **id_no_mapa**: 2A
             - **dificuldade**: V7
         - **[6]**:
           - **boulder**:
             - **nome**: Mantra
-            - **id_no_mapa**: 2B
             - **dificuldade**: V8
         - **[7]**:
           - **boulder**:
             - **nome**: Samadhi
-            - **id_no_mapa**: 2C
             - **dificuldade**: V10
         - **[8]**:
           - **boulder**:
             - **nome**: Tantra
-            - **id_no_mapa**: 3C
             - **dificuldade**: V7
         - **[9]**:
           - **boulder**:
             - **nome**: Psicótico
-            - **id_no_mapa**: 1
             - **dificuldade**: V3
         - **[10]**:
           - **boulder**:
             - **nome**: Popeye
-            - **id_no_mapa**: 2
             - **dificuldade**: V2
   - **[3]**:
     - **conteudo**:
@@ -5359,11 +6246,15 @@
                 - **x**: 810
                 - **y**: 955
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Dali Goiabada
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Dali Goiabada
-            - **id_no_mapa**: 1
             - **dificuldade**: V9
   - **[4]**:
     - **conteudo**:
@@ -5403,26 +6294,39 @@
                 - **x**: 955
                 - **y**: 146
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Seg da Árvore
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Seg-Samambaia
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Seg dos Inferno
+              - **ids**:
+                - 1C
+            - **[3]**:
+              - **escalada**: Toca Toca
+              - **ids**:
+                - 1D
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Seg da Árvore
-            - **id_no_mapa**: 1A
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Seg-Samambaia
-            - **id_no_mapa**: 1B
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Seg dos Inferno
-            - **id_no_mapa**: 1C
             - **dificuldade**: V6
         - **[3]**:
           - **boulder**:
             - **nome**: Toca Toca
-            - **id_no_mapa**: 1D
             - **dificuldade**: V4
   - **[5]**:
     - **conteudo**:
@@ -5469,26 +6373,39 @@
                 - **x**: 1128
                 - **y**: 255
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Billy The Kid
+              - **ids**:
+                - 1A
+            - **[1]**:
+              - **escalada**: Durango Kid
+              - **ids**:
+                - 1B
+            - **[2]**:
+              - **escalada**: Pedra
+              - **ids**:
+                - 1C
+            - **[3]**:
+              - **escalada**: Semiárido
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Billy The Kid
-            - **id_no_mapa**: 1A
             - **dificuldade**: V1
         - **[1]**:
           - **boulder**:
             - **nome**: Durango Kid
-            - **id_no_mapa**: 1B
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Pedra
-            - **id_no_mapa**: 1C
             - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
             - **nome**: Semiárido
-            - **id_no_mapa**: 2
             - **dificuldade**: V5
 
 

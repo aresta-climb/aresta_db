@@ -150,7 +150,7 @@
             | ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp) |
             | :--: |
             | *Foto de escalada na contracapa* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -318,11 +318,63 @@
           - **y**: 661
           - **comprimento**: 110
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Fenômeno
+        - **ids**:
+          - 01_bot
+      - **[1]**:
+        - **escalada**: Maradona
+        - **ids**:
+          - 02_bot
+      - **[2]**:
+        - **escalada**: Primogênito
+        - **ids**:
+          - 03_bot
+      - **[3]**:
+        - **escalada**: Mil e um nomes de bebês
+        - **ids**:
+          - 04_top
+      - **[4]**:
+        - **escalada**: Diadorim
+        - **ids**:
+          - 05_top
+      - **[5]**:
+        - **escalada**: Sem reservas, por favor
+        - **ids**:
+          - 06_bot
+      - **[6]**:
+        - **escalada**: Antônio Conselheiro
+        - **ids**:
+          - 07_bot
+      - **[7]**:
+        - **escalada**: Lampião
+        - **ids**:
+          - 08_bot
+      - **[8]**:
+        - **escalada**: Maria Bonita
+        - **ids**:
+          - 09_bot
+      - **[9]**:
+        - **escalada**: Corisco
+        - **ids**:
+          - 10_bot
+      - **[10]**:
+        - **escalada**: Volta Seca
+        - **ids**:
+          - 11_top
+      - **[11]**:
+        - **escalada**: Ameaça
+        - **ids**:
+          - 12_top
+      - **[12]**:
+        - **escalada**: Zé Sereno
+        - **ids**:
+          - 13_top
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Fenômeno
-      - **id_no_mapa**: 01_bot
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -330,7 +382,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Maradona
-      - **id_no_mapa**: 02_bot
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Ana Fujita
@@ -338,7 +389,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Primogênito
-      - **id_no_mapa**: 03_bot
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eliseu Frechou
@@ -347,7 +397,6 @@
   - **[3]**:
     - **via_movel**:
       - **nome**: Mil e um nomes de bebês
-      - **id_no_mapa**: 04_top
       - **dificuldade**: BR_6
       - **protecoes_moveis**: friends
       - **conquistadores**:
@@ -356,7 +405,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Diadorim
-      - **id_no_mapa**: 05_top
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Ana Fujita
@@ -364,7 +412,6 @@
   - **[5]**:
     - **via_movel**:
       - **nome**: Sem reservas, por favor
-      - **id_no_mapa**: 06_bot
       - **dificuldade**: BR_7B
       - **protecoes_moveis**: friends
       - **conquistadores**:
@@ -373,7 +420,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Antônio Conselheiro
-      - **id_no_mapa**: 07_bot
       - **dificuldade**: BR_7B
       - **protecoes_moveis**: nuts opcional
       - **conquistadores**:
@@ -382,7 +428,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Lampião
-      - **id_no_mapa**: 08_bot
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -390,7 +435,6 @@
   - **[8]**:
     - **via_movel**:
       - **nome**: Maria Bonita
-      - **id_no_mapa**: 09_bot
       - **dificuldade**: BR_7A
       - **protecoes_moveis**: friends e nuts
       - **conquistadores**:
@@ -399,7 +443,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Corisco
-      - **id_no_mapa**: 10_bot
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Ana Fujita
@@ -407,7 +450,6 @@
   - **[10]**:
     - **via_movel**:
       - **nome**: Volta Seca
-      - **id_no_mapa**: 11_top
       - **dificuldade**: BR_5
       - **protecoes_moveis**: friends
       - **conquistadores**:
@@ -418,7 +460,6 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Ameaça
-      - **id_no_mapa**: 12_top
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ana Fujita
@@ -426,7 +467,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Zé Sereno
-      - **id_no_mapa**: 13_top
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Eliseu Frechou
@@ -535,11 +575,43 @@
           - **y**: 766
           - **comprimento**: 114
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Boa noite Cinderela
+        - **ids**:
+          - 14
+      - **[1]**:
+        - **escalada**: Quem dorme com criança...
+        - **ids**:
+          - 15
+      - **[2]**:
+        - **escalada**: Quem planta vento...
+        - **ids**:
+          - 16
+      - **[3]**:
+        - **escalada**: A vida é dura...
+        - **ids**:
+          - 17
+      - **[4]**:
+        - **escalada**: Mais vale um na mão...
+        - **ids**:
+          - 18
+      - **[5]**:
+        - **escalada**: Por fora bela viola...
+        - **ids**:
+          - 19_bot
+      - **[6]**:
+        - **escalada**: Em terra de rei...
+        - **ids**:
+          - 20
+      - **[7]**:
+        - **escalada**: Red
+        - **ids**:
+          - 21
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Boa noite Cinderela
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Ana Fujita
@@ -548,7 +620,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Quem dorme com criança...
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -557,7 +628,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Quem planta vento...
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Ana Fujita
@@ -566,7 +636,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: A vida é dura...
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -575,7 +644,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Mais vale um na mão...
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ana Fujita
@@ -584,7 +652,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Por fora bela viola...
-      - **id_no_mapa**: 19_bot
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Ana Fujita
@@ -593,7 +660,6 @@
   - **[6]**:
     - **via_movel**:
       - **nome**: Em terra de rei...
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: friends grandes
       - **conquistadores**:
@@ -603,7 +669,6 @@
   - **[7]**:
     - **via_movel**:
       - **nome**: Red
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_4SUP
       - **protecoes_moveis**: nuts e friends
       - **conquistadores**:
@@ -751,11 +816,67 @@
           - **y**: 713
           - **comprimento**: 223
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Em terra de rei...
+        - **ids**:
+          - 20
+      - **[1]**:
+        - **escalada**: Red
+        - **ids**:
+          - 21
+      - **[2]**:
+        - **escalada**: Quadrupel
+        - **ids**:
+          - 22
+      - **[3]**:
+        - **escalada**: Pilsen
+        - **ids**:
+          - 23
+      - **[4]**:
+        - **escalada**: Black
+        - **ids**:
+          - 24
+      - **[5]**:
+        - **escalada**: Pale
+        - **ids**:
+          - 25
+      - **[6]**:
+        - **escalada**: Witbier
+        - **ids**:
+          - 26
+      - **[7]**:
+        - **escalada**: Blonde
+        - **ids**:
+          - 27
+      - **[8]**:
+        - **escalada**: Dubbel
+        - **ids**:
+          - 28
+      - **[9]**:
+        - **escalada**: Primeiro gole
+        - **ids**:
+          - 29
+      - **[10]**:
+        - **escalada**: Saidera
+        - **ids**:
+          - 30
+      - **[11]**:
+        - **escalada**: Porter
+        - **ids**:
+          - 31
+      - **[12]**:
+        - **escalada**: Bavariante
+        - **ids**:
+          - 32
+      - **[13]**:
+        - **escalada**: Old Ale
+        - **ids**:
+          - 33
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Em terra de rei...
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: friends grandes
       - **conquistadores**:
@@ -765,7 +886,6 @@
   - **[1]**:
     - **via_movel**:
       - **nome**: Red
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_4SUP
       - **protecoes_moveis**: nuts e friends
       - **conquistadores**:
@@ -775,7 +895,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Quadrupel
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Eliseu Frechou
@@ -784,7 +903,6 @@
   - **[3]**:
     - **via_movel**:
       - **nome**: Pilsen
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_5
       - **protecoes_moveis**: friends
       - **conquistadores**:
@@ -794,7 +912,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Black
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Ana Fujita
@@ -803,7 +920,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Pale
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ana Fujita
@@ -812,7 +928,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Witbier
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -821,7 +936,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Blonde
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ana Fujita
@@ -830,7 +944,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Dubbel
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Ana Fujita
@@ -839,7 +952,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Primeiro gole
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Charlie Alves
@@ -847,7 +959,6 @@
   - **[10]**:
     - **via_movel**:
       - **nome**: Saidera
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_6
       - **protecoes_moveis**: nuts e friends
       - **conquistadores**:
@@ -857,7 +968,6 @@
   - **[11]**:
     - **via_movel**:
       - **nome**: Porter
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7A
       - **protecoes_moveis**: friends
       - **conquistadores**:
@@ -866,7 +976,6 @@
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Bavariante
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Charlie Alves
@@ -874,7 +983,6 @@
   - **[13]**:
     - **via_movel**:
       - **nome**: Old Ale
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_7A
       - **protecoes_moveis**: nuts e friends
       - **conquistadores**:
@@ -948,11 +1056,23 @@
           - **y**: 702
           - **comprimento**: 110
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: C'est la vie
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Eu prefiro uma cerveja
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Hospício jamais
+        - **ids**:
+          - 03
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: C'est la vie
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Antonio Calvo
@@ -963,7 +1083,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Eu prefiro uma cerveja
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Antonio Calvo
@@ -974,7 +1093,6 @@
   - **[2]**:
     - **via_movel**:
       - **nome**: Hospício jamais
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_6SUP
       - **protecoes_moveis**: friends médios e grandes
       - **conquistadores**:
@@ -1049,11 +1167,31 @@
           - **comprimento**: 31
           - **largura**: 144
           - **angulo_graus_x100**: 735
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ócios do hospício
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Psicanálise
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Clínica de recuperação
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Eletrochoque
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Camisa de força
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Ócios do hospício
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Antonio Calvo
@@ -1064,7 +1202,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Psicanálise
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Antonio Calvo
@@ -1075,7 +1212,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Clínica de recuperação
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Antonio Calvo
@@ -1086,7 +1222,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Eletrochoque
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Antonio Calvo
@@ -1097,7 +1232,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Camisa de força
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Antonio Calvo

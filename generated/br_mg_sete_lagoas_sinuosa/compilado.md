@@ -199,7 +199,7 @@
             - Instagram: [@sinuosaclimb](https://instagram.com/sinuosaclimb)
             
             **EDIÇÃO:** 2019-1
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -295,11 +295,27 @@
           - **y**: 537
           - **comprimento**: 34
           - **largura**: 260
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Milicianos
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Inimigos do Estado
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Libera a Moça
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Moça de 100 Anos
+        - **ids**:
+          - 4
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Milicianos
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **extensao**: 15
@@ -307,21 +323,18 @@
     - **via_esportiva**:
       - **descricao**: A primeira via do setor.
       - **nome**: Inimigos do Estado
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Libera a Moça
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Moça de 100 Anos
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
@@ -407,29 +420,42 @@
           - **comprimento**: 43
           - **largura**: 250
           - **angulo_graus_x100**: 666
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Caipora
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Tap-Flap
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Rá-Tim-Bum
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Corda de Violão
+        - **ids**:
+          - 4
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Caipora
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
   - **[1]**:
     - **via_movel**:
       - **descricao**: Via em móvel.
       - **nome**: Tap-Flap
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_4
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Rá-Tim-Bum
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Corda de Violão
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
 
@@ -634,60 +660,117 @@
           - **comprimento**: 195
           - **largura**: 28
           - **angulo_graus_x100**: 4342
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Eu Sei Meu Ofício
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Formação de Ataque
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Guia Mirim
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Mão de Obra
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Coice de Mula
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Bebê à Bordo
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Micuins Me Mordam
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Classe Social
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Fobia Social
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Vaca Berrante
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Até Mas Amigos
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Inconfidentes
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Brenfestival
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Sociedade dos Insetos
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Dilemas do Futuro
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Plano Paralelo
+        - **ids**:
+          - 16
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Eu Sei Meu Ofício
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 25
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Formação de Ataque
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **extensao**: 25
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Guia Mirim
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
       - **extensao**: 25
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Mão de Obra
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 20
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Coice de Mula
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 20
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Bebê à Bordo
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **extensao**: 20
   - **[6]**:
     - **via_movel**:
       - **nome**: Micuins Me Mordam
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_8A
       - **protecoes_moveis**: Equipo móvel. 1 chapa + 2 top.
       - **extensao**: 20
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Classe Social
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_8C_BARRA_9A
       - **quantidade_protecoes_intermediarias**: 10
       - **extensao**: 20
@@ -695,53 +778,45 @@
     - **via_esportiva**:
       - **descricao**: Projeto (Sem F/A).
       - **nome**: Fobia Social
-      - **id_no_mapa**: 9
       - **quantidade_protecoes_intermediarias**: 6
   - **[9]**:
     - **via_esportiva**:
       - **descricao**: Projeto (Sem F/A).
       - **nome**: Vaca Berrante
-      - **id_no_mapa**: 10
       - **quantidade_protecoes_intermediarias**: 6
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Até Mas Amigos
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Inconfidentes
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Brenfestival
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 9
       - **extensao**: 15
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Sociedade dos Insetos
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 8
       - **extensao**: 15
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Dilemas do Futuro
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **extensao**: 15
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Plano Paralelo
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **extensao**: 15
@@ -850,53 +925,78 @@
           - **y**: 446
           - **comprimento**: 35
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Brenfoterapia
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Na Hora Certa
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Nós Contra o Resto
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Divisa dos Reinos
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Rei Mal
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Soldado Real
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Nosso Rei
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Vitamina M
+        - **ids**:
+          - 8
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **nome**: Brenfoterapia
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5SUP
       - **protecoes_moveis**: Móvel. Rapel da chapa com cordelete.
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Na Hora Certa
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 4
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Nós Contra o Resto
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Divisa dos Reinos
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Rei Mal
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Soldado Real
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Nosso Rei
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[7]**:
     - **via_movel**:
       - **nome**: Vitamina M
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5
       - **protecoes_moveis**: Móvel. Rapel da chapa com cordelete.
 
@@ -1032,59 +1132,87 @@
           - **y**: 450
           - **comprimento**: 193
           - **largura**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mary Jane
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Nhen-hen-hen
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Oleoduto
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Território Demarcado
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Abaeta
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Sinuosa
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Sabbath Blood Sabbath/Carrapatos
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Secos e Molhados
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Araticum
+        - **ids**:
+          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Mary Jane
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Nhen-hen-hen
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Oleoduto
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 5
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Território Demarcado
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
   - **[4]**:
     - **via_esportiva**:
       - **descricao**: Projeto.
       - **nome**: Abaeta
-      - **id_no_mapa**: 5
   - **[5]**:
     - **via_esportiva**:
       - **descricao**: Projeto (Sem F/A).
       - **nome**: Sinuosa
-      - **id_no_mapa**: 6
       - **quantidade_protecoes_intermediarias**: 20
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Sabbath Blood Sabbath/Carrapatos
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 16
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Secos e Molhados
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
   - **[8]**:
     - **via_esportiva**:
       - **descricao**: Projeto (Sem F/A).
       - **nome**: Araticum
-      - **id_no_mapa**: 9
       - **quantidade_protecoes_intermediarias**: 14
 
 
@@ -1169,29 +1297,42 @@
           - **y**: 566
           - **comprimento**: 265
           - **largura**: 24
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sou Fria
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Revivência
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Mordida de Égua
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Girassol
+        - **ids**:
+          - 4
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Sou Fria
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 7
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Revivência
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Mordida de Égua
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Girassol
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
 
@@ -1370,6 +1511,127 @@
           - **y**: 52
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Curta e Grossa
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Trabalhosa
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Revolução dos Insetos
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Frango com Quiabo
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: É Proibido Furar
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Bafin de Leite
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: ?
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Sujismunda
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Samurai
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Ninja
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Fly Monkeys
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Lado A Lado B
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Meu Nome Não é Lero
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Nosso Mestre
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Segunda Já Tá í
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Brincadeira de Criança
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Peripécias do Climb
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Lelê Café
+        - **ids**:
+          - 17
+      - **[18]**:
+        - **escalada**: Tiu Marreteiro
+        - **ids**:
+          - 18
+      - **[19]**:
+        - **escalada**: Animáquina
+        - **ids**:
+          - 19
+      - **[20]**:
+        - **escalada**: Moça do Sapo
+        - **ids**:
+          - 20
+      - **[21]**:
+        - **escalada**: Over Tênis
+        - **ids**:
+          - 21
+      - **[22]**:
+        - **escalada**: Fita No Calcário
+        - **ids**:
+          - 22
+      - **[23]**:
+        - **escalada**: Só de 70
+        - **ids**:
+          - 23
+      - **[24]**:
+        - **escalada**: Black Dog
+        - **ids**:
+          - 24
+      - **[25]**:
+        - **escalada**: Variante Mum-hhazinha
+        - **ids**:
+          - 25
+      - **[26]**:
+        - **escalada**: Pedras e Espinhos
+        - **ids**:
+          - 26
+      - **[27]**:
+        - **escalada**: Pé de Oreia
+        - **ids**:
+          - 27
+      - **[28]**:
+        - **escalada**: Perdidos
+        - **ids**:
+          - 28
+      - **[29]**:
+        - **escalada**: Velhos Novatos
+        - **ids**:
+          - 29
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_das_sombras_p1_i0.webp)
     - **largura_mapa**: 729
@@ -1501,179 +1763,149 @@
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Curta e Grossa
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Trabalhosa
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 7
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Revolução dos Insetos
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Frango com Quiabo
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[4]**:
     - **via_esportiva**:
       - **nome**: É Proibido Furar
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 7
   - **[5]**:
     - **via_esportiva**:
       - **descricao**: Inacabada.
       - **nome**: Bafin de Leite
-      - **id_no_mapa**: 6
   - **[6]**:
     - **via_esportiva**:
       - **descricao**: Inacabada.
       - **nome**: ?
-      - **id_no_mapa**: 7
   - **[7]**:
     - **via_esportiva**:
       - **descricao**: Inacabada.
       - **nome**: Sujismunda
-      - **id_no_mapa**: 8
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Samurai
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 13
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Ninja
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 16
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Fly Monkeys
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Lado A Lado B
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7A_BARRA_7B
       - **quantidade_protecoes_intermediarias**: 7
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Meu Nome Não é Lero
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Nosso Mestre
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 6
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Segunda Já Tá í
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Brincadeira de Criança
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Peripécias do Climb
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
   - **[17]**:
     - **via_esportiva**:
       - **descricao**: Número 17 no segundo mapa do setor.
       - **nome**: Lelê Café
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Tiu Marreteiro
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 9
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Animáquina
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Moça do Sapo
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 10
   - **[21]**:
     - **via_movel**:
       - **nome**: Over Tênis
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel / Top Duplo.
   - **[22]**:
     - **via_movel**:
       - **nome**: Fita No Calcário
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_6
       - **protecoes_moveis**: Móvel, Top da "Só de 70".
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Só de 70
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 13
   - **[24]**:
     - **via_esportiva**:
       - **descricao**: Mista / 4 Fixas + Top Duplo.
       - **nome**: Black Dog
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_6SUP
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Variante Mum-hhazinha
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 10
   - **[26]**:
     - **via_esportiva**:
       - **nome**: Pedras e Espinhos
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
   - **[27]**:
     - **via_esportiva**:
       - **nome**: Pé de Oreia
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[28]**:
     - **via_esportiva**:
       - **nome**: Perdidos
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[29]**:
     - **via_esportiva**:
       - **nome**: Velhos Novatos
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 5
 
@@ -1770,53 +2002,78 @@
           - **y**: 1255
           - **comprimento**: 215
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ressucita Makita
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Saporra
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Tudo Pra Trás
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Lamurias de Um Ex Casado
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Nunca Se Engane
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Chuva na Careca
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Cuei Teimoso
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Escalada Eclética
+        - **ids**:
+          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Ressucita Makita
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Saporra
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Tudo Pra Trás
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Lamurias de Um Ex Casado
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 6
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Nunca Se Engane
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Chuva na Careca
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Cuei Teimoso
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Escalada Eclética
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
 
@@ -1903,47 +2160,69 @@
           - **comprimento**: 33
           - **largura**: 218
           - **angulo_graus_x100**: 3568
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Hugossauro
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: A Busca
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Gancho na Orelha
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Tios Metralha
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Sociedade Alternativa
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Travessia de Pedestre
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: De Menor
+        - **ids**:
+          - 7
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Hugossauro
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[1]**:
     - **via_esportiva**:
       - **nome**: A Busca
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Gancho na Orelha
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 6
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Tios Metralha
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Sociedade Alternativa
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 5
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Travessia de Pedestre
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 6
   - **[6]**:
     - **via_esportiva**:
       - **nome**: De Menor
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 4
 
@@ -2006,23 +2285,33 @@
           - **y**: 184
           - **comprimento**: 33
           - **largura**: 266
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cobra Caoia
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Lembranças de Mariazinha
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Anfitriões do Dia
+        - **ids**:
+          - 3
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Cobra Caoia
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Lembranças de Mariazinha
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Anfitriões do Dia
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
 
@@ -2165,77 +2454,114 @@
           - **y**: 152
           - **comprimento**: 35
           - **largura**: 40
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: No Pulso
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Cascavel
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Marimbondos
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Cobra Coral
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Cactos
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: De Voltas Às Origens
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Velha Guarda
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Chaminé Retinida
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Tempos Modernos
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Buraco Louco
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Estufando o Bigode
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Não Deu Bigode
+        - **ids**:
+          - 12
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: No Pulso
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Cascavel
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 5
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Marimbondos
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 4
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Cobra Coral
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Cactos
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
   - **[5]**:
     - **via_esportiva**:
       - **nome**: De Voltas Às Origens
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 8
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Velha Guarda
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Chaminé Retinida
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Tempos Modernos
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Buraco Louco
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Estufando o Bigode
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Não Deu Bigode
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
 
@@ -2306,29 +2632,42 @@
           - **y**: 552
           - **comprimento**: 204
           - **largura**: 22
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pais e Filhas
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Morcegos Sinuosos
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Sintoniza Lá
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: ???
+        - **ids**:
+          - 4
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Pais e Filhas
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 7
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Morcegos Sinuosos
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Sintoniza Lá
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
   - **[3]**:
     - **via_esportiva**:
       - **nome**: ???
-      - **id_no_mapa**: 4
       - **dificuldade**: PROJETO
 
 
@@ -2427,39 +2766,55 @@
                 - **y**: 665
                 - **comprimento**: 250
                 - **largura**: 50
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Facão Traiçoeiro
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Negatios
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Face Oculta
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Lado Sombrio
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Tio Ativo
+              - **ids**:
+                - 5
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Facão Traiçoeiro
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 2
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Negatios
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Face Oculta
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_7A
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Lado Sombrio
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_7C
             - **quantidade_protecoes_intermediarias**: 7
             - **quantidade_protecoes_parada**: 2
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Tio Ativo
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 1
@@ -2592,88 +2947,125 @@
                 - **comprimento**: 200
                 - **largura**: 30
                 - **angulo_graus_x100**: -1211
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Interação Nativa
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Trabalhador Brasileiro
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Quebrando O Silêncio
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Laranja Mecânica
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Jardineiro
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Escovação
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Ataque em Massa
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Zelador
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Faxina Russa
+              - **ids**:
+                - 9
+            - **[9]**:
+              - **escalada**: Mandela
+              - **ids**:
+                - 10
+            - **[10]**:
+              - **escalada**: Patriotas Hipócritas
+              - **ids**:
+                - 11
+            - **[11]**:
+              - **escalada**: Dr. Máquina
+              - **ids**:
+                - 12
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
             - **nome**: Interação Nativa
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_5SUP
             - **quantidade_protecoes_intermediarias**: 8
             - **quantidade_protecoes_parada**: 1
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Trabalhador Brasileiro
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_7A
             - **quantidade_protecoes_intermediarias**: 8
             - **quantidade_protecoes_parada**: 1
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Quebrando O Silêncio
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_8B
             - **quantidade_protecoes_intermediarias**: 9
             - **quantidade_protecoes_parada**: 2
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Laranja Mecânica
-            - **id_no_mapa**: 4
             - **dificuldade**: PROJETO
             - **quantidade_protecoes_intermediarias**: 10
             - **quantidade_protecoes_parada**: 2
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Jardineiro
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_5
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 1
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Escovação
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_5
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 1
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Ataque em Massa
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 1
         - **[7]**:
           - **via_esportiva**:
             - **nome**: Zelador
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_7A
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[8]**:
           - **via_esportiva**:
             - **nome**: Faxina Russa
-            - **id_no_mapa**: 9
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 1
         - **[9]**:
           - **via_esportiva**:
             - **nome**: Mandela
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 1
         - **[10]**:
           - **via_esportiva**:
             - **nome**: Patriotas Hipócritas
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_7B
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Dr. Máquina
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 1
@@ -2829,109 +3221,155 @@
                 - **comprimento**: 196
                 - **largura**: 31
                 - **angulo_graus_x100**: -1091
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: A Cara do Tia
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pedra no Caminho
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Hora Marcada
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Funcionário do Mês
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Mancha Preta
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Recepção Venenosa
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Achados e Perdidos
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Pelotão de Elite
+              - **ids**:
+                - 8
+            - **[8]**:
+              - **escalada**: Dono do Pico
+              - **ids**:
+                - 10
+            - **[9]**:
+              - **escalada**: Tio Certeiro
+              - **ids**:
+                - 11
+            - **[10]**:
+              - **escalada**: Tios Goró
+              - **ids**:
+                - 12
+            - **[11]**:
+              - **escalada**: Tioradentes
+              - **ids**:
+                - 13
+            - **[12]**:
+              - **escalada**: Tios D'Jah
+              - **ids**:
+                - 14
+            - **[13]**:
+              - **escalada**: Velho Tio
+              - **ids**:
+                - 15
+            - **[14]**:
+              - **escalada**: Tio Tonhas
+              - **ids**:
+                - 16
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
             - **nome**: A Cara do Tia
-            - **id_no_mapa**: 1
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[1]**:
           - **via_esportiva**:
             - **nome**: Pedra no Caminho
-            - **id_no_mapa**: 2
             - **dificuldade**: BR_7A
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 2
         - **[2]**:
           - **via_esportiva**:
             - **nome**: Hora Marcada
-            - **id_no_mapa**: 3
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 1
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Funcionário do Mês
-            - **id_no_mapa**: 4
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[4]**:
           - **via_esportiva**:
             - **nome**: Mancha Preta
-            - **id_no_mapa**: 5
             - **dificuldade**: BR_7B
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[5]**:
           - **via_esportiva**:
             - **nome**: Recepção Venenosa
-            - **id_no_mapa**: 6
             - **dificuldade**: BR_7A
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[6]**:
           - **via_esportiva**:
             - **nome**: Achados e Perdidos
-            - **id_no_mapa**: 7
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[7]**:
           - **via_esportiva**:
             - **nome**: Pelotão de Elite
-            - **id_no_mapa**: 8
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
         - **[8]**:
           - **via_esportiva**:
             - **nome**: Dono do Pico
-            - **id_no_mapa**: 10
             - **dificuldade**: BR_7C
             - **quantidade_protecoes_intermediarias**: 8
             - **quantidade_protecoes_parada**: 2
         - **[9]**:
           - **via_esportiva**:
             - **nome**: Tio Certeiro
-            - **id_no_mapa**: 11
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
         - **[10]**:
           - **via_esportiva**:
             - **nome**: Tios Goró
-            - **id_no_mapa**: 12
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
         - **[11]**:
           - **via_esportiva**:
             - **nome**: Tioradentes
-            - **id_no_mapa**: 13
             - **dificuldade**: BR_6
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
         - **[12]**:
           - **via_esportiva**:
             - **nome**: Tios D'Jah
-            - **id_no_mapa**: 14
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[13]**:
           - **via_esportiva**:
             - **nome**: Velho Tio
-            - **id_no_mapa**: 15
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
         - **[14]**:
           - **via_esportiva**:
             - **nome**: Tio Tonhas
-            - **id_no_mapa**: 16
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 1

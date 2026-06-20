@@ -1,4 +1,4 @@
----
+---
 nome: Parede Principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_principal_p0_i0.webp
@@ -148,53 +148,78 @@ mapas:
       comprimento: 36
       largura: 199
       angulo_graus_x100: 1655
+  referencias:
+  - escalada: Pescador de Planta
+    ids:
+    - '01'
+  - escalada: Maria Doida
+    ids:
+    - '02'
+  - escalada: Chuva de Bromélias
+    ids:
+    - '03'
+  - escalada: Visitante Oculto
+    ids:
+    - '04'
+  - escalada: Bestial Devastation
+    ids:
+    - '05'
+  - escalada: Velho Chico
+    ids:
+    - '06'
+  - escalada: Dom Quixote
+    ids:
+    - '07'
+  - escalada: Cordadinha
+    ids:
+    - '08'
+  - escalada: Calazar Certo
+    ids:
+    - '09'
+  - escalada: Cabeça de Rato
+    ids:
+    - '10'
+  - escalada: Pelas Mãos do Senhor
+    ids:
+    - '11'
+  - escalada: Uma Lágrima que Cai
+    ids:
+    - '12'
 escaladas:
 - via_esportiva:
     nome: Pescador de Planta
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Maria Doida
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Chuva de Bromélias
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Visitante Oculto
-    id_no_mapa: '04'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Bestial Devastation
-    id_no_mapa: '05'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Velho Chico
-    id_no_mapa: '06'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Dom Quixote
-    id_no_mapa: '07'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Cordadinha
-    id_no_mapa: '08'
     dificuldade: BR_6SUP_BARRA_7A
 - via_esportiva:
     nome: Calazar Certo
-    id_no_mapa: '09'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Cabeça de Rato
-    id_no_mapa: '10'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Pelas Mãos do Senhor
-    id_no_mapa: '11'
     dificuldade: PROJETO
 - via_esportiva:
     nome: Uma Lágrima que Cai
-    id_no_mapa: '12'
     dificuldade: PROJETO
----
+---

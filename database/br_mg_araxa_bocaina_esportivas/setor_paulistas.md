@@ -1,4 +1,4 @@
----
+---
 nome: Paulistas
 mapas:
 - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
@@ -40,6 +40,55 @@ mapas:
       y: 902
       comprimento: 33
       largura: 31
+  referencias:
+  - escalada: Física Quântica
+    ids:
+    - '01'
+  - escalada: Chamasamiga
+    ids:
+    - '02'
+  - escalada: Acupuntura
+    ids:
+    - '03'
+  - escalada: Capitão Bocaina
+    ids:
+    - '04'
+  - escalada: Miragem
+    ids:
+    - '05'
+  - escalada: Cortina de Fumaça
+    ids:
+    - '06'
+  - escalada: Sem Nome (Via 07)
+    ids:
+    - '07'
+  - escalada: Pubianos
+    ids:
+    - '8'
+  - escalada: Bocaina Roots
+    ids:
+    - '9'
+  - escalada: Decadentes
+    ids:
+    - '10'
+  - escalada: Pelos de Aldebaran
+    ids:
+    - '11'
+  - escalada: Ejaculação Precoce
+    ids:
+    - '12'
+  - escalada: Via do Laurêncio
+    ids:
+    - '13'
+  - escalada: International love
+    ids:
+    - '14'
+  - escalada: Cinquenteira
+    ids:
+    - '15'
+  - escalada: Boa idéia
+    ids:
+    - '16'
 - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -128,7 +177,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Física Quântica
-    id_no_mapa: '01'
     dificuldade: BR_7A
     extensao: 20
     conquistadores:
@@ -137,7 +185,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Chamasamiga
-    id_no_mapa: '02'
     dificuldade: INDEFINIDO
     extensao: 12
     conquistadores:
@@ -146,7 +193,6 @@ escaladas:
     data_abertura: '2016'
 - via_esportiva:
     nome: Acupuntura
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     extensao: 25
     quantidade_protecoes_intermediarias: 8
@@ -156,7 +202,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Capitão Bocaina
-    id_no_mapa: '04'
     dificuldade: BR_8A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -167,7 +212,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Miragem
-    id_no_mapa: '05'
     dificuldade: BR_9B
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -178,7 +222,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Cortina de Fumaça
-    id_no_mapa: '06'
     dificuldade: BR_9C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -189,7 +232,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Sem Nome (Via 07)
-    id_no_mapa: '07'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 5
@@ -200,7 +242,6 @@ escaladas:
     data_abertura: '2015'
 - via_esportiva:
     nome: Pubianos
-    id_no_mapa: 08
     dificuldade: BR_8A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -211,7 +252,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Bocaina Roots
-    id_no_mapa: 09
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 8
@@ -222,7 +262,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Decadentes
-    id_no_mapa: '10'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 7
@@ -233,7 +272,6 @@ escaladas:
     data_abertura: 2008/14
 - via_esportiva:
     nome: Pelos de Aldebaran
-    id_no_mapa: '11'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 8
@@ -244,7 +282,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Ejaculação Precoce
-    id_no_mapa: '12'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 8
@@ -255,7 +292,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Via do Laurêncio
-    id_no_mapa: '13'
     dificuldade: BR_6SUP
     extensao: 8
     conquistadores:
@@ -264,7 +300,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: International love
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 7
@@ -275,7 +310,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Cinquenteira
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 6
@@ -286,7 +320,6 @@ escaladas:
     data_abertura: '2014'
 - via_esportiva:
     nome: Boa idéia
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     extensao: 8
     quantidade_protecoes_intermediarias: 5
@@ -295,7 +328,7 @@ escaladas:
     - Deigo Leonardo
     - Daiex de Almeida
     data_abertura: '2014'
----
+---
 # Setor Paulistas
 
 ![Setor Paulistas](imagens/setor_paulistas_p0_i0.webp)

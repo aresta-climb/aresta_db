@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pasto
 mapas:
 - caminho_imagem_mapa: imagens/setor_pasto_p0_i8.webp
@@ -68,10 +68,28 @@ mapas:
       y: 1303
       comprimento: 167
       largura: 88
+  referencias:
+  - escalada: Cemitério das Caranguejeiras - Direita
+    ids:
+    - '01'
+  - escalada: Água Suja - Esquerda
+    ids:
+    - '01'
+  - escalada: O Babão
+    ids:
+    - '02'
+  - escalada: Kactos Kid
+    ids:
+    - '03'
+  - escalada: Demônios da Mente
+    ids:
+    - '04'
+  - escalada: Rolha de Algodão
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Cemitério das Caranguejeiras - Direita
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -80,7 +98,6 @@ escaladas:
     - Joviney
 - via_esportiva:
     nome: Água Suja - Esquerda
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -91,7 +108,6 @@ escaladas:
     - Roberto Lincoln
 - via_movel:
     nome: O Babão
-    id_no_mapa: '02'
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
@@ -99,14 +115,12 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Kactos Kid
-    id_no_mapa: '03'
     dificuldade: INDEFINIDO
     descricao: Top Rope
     conquistadores:
     - Roberto
 - via_movel:
     nome: Demônios da Mente
-    id_no_mapa: '04'
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
@@ -114,7 +128,6 @@ escaladas:
     - Rômulo
 - via_esportiva:
     nome: Rolha de Algodão
-    id_no_mapa: '05'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -122,7 +135,7 @@ escaladas:
     - Fabinho
     - Half
     - Tinoco
----
+---
 # Setor Pasto
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.

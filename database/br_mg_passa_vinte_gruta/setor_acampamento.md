@@ -1,4 +1,4 @@
----
+---
 nome: Acampamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_acampamento_p0.webp
@@ -173,66 +173,97 @@ mapas:
       y: 795
       comprimento: 250
       largura: 40
+  referencias:
+  - escalada: Faraó
+    ids:
+    - 01_base
+  - escalada: Esfinge
+    ids:
+    - 02_base
+  - escalada: Camel
+    ids:
+    - 03_base
+  - escalada: Bulimia
+    ids:
+    - 04_base
+  - escalada: Venetica
+    ids:
+    - 05_base
+  - escalada: Resigente
+    ids:
+    - 06_base
+  - escalada: Bammalves
+    ids:
+    - 07_base
+  - escalada: Tomahawk
+    ids:
+    - '08'
+  - escalada: Souza Paiol
+    ids:
+    - '09'
+  - escalada: Marlboro
+    ids:
+    - '10'
+  - escalada: Hollywood
+    ids:
+    - '11'
+  - escalada: Derby Azul
+    ids:
+    - '12'
+  - escalada: Adelaide
+    ids:
+    - '13'
+  - escalada: Bulica
+    ids:
+    - '14'
+  - escalada: Stinger
+    ids:
+    - '15'
 escaladas:
 - via_esportiva:
     nome: Faraó
-    id_no_mapa: '01_base'
     dificuldade: BR_6
 - via_esportiva:
     nome: Esfinge
-    id_no_mapa: '02_base'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Camel
-    id_no_mapa: '03_base'
     dificuldade: BR_7C
 - via_esportiva:
     nome: Bulimia
-    id_no_mapa: '04_base'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Venetica
-    id_no_mapa: '05_base'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Resigente
-    id_no_mapa: '06_base'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Bammalves
-    id_no_mapa: '07_base'
     dificuldade: BR_8A
 - via_esportiva:
     nome: Tomahawk
-    id_no_mapa: '08'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Souza Paiol
-    id_no_mapa: '09'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Marlboro
-    id_no_mapa: '10'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Hollywood
-    id_no_mapa: '11'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Derby Azul
-    id_no_mapa: '12'
     dificuldade: BR_5
 - via_esportiva:
     nome: Adelaide
-    id_no_mapa: '13'
     dificuldade: BR_8C
 - via_esportiva:
     nome: Bulica
-    id_no_mapa: '14'
     dificuldade: BR_7B_BARRA_7C
 - via_esportiva:
     nome: Stinger
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
----
+---
 

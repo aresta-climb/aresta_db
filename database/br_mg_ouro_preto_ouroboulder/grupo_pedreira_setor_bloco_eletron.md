@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Elétron'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_eletron_p0.webp
@@ -41,26 +41,37 @@ mapas:
       x: 1410
       y: 206
       raio: 13
+  referencias:
+  - escalada: Neutron
+    ids:
+    - 1B
+  - escalada: Elétron
+    ids:
+    - 2B
+  - escalada: Via Láctea
+    ids:
+    - 3A
+  - escalada: Neutron
+    ids:
+    - 3B
+  - escalada: Positron
+    ids:
+    - 3C
 escaladas:
 - boulder:
     nome: Neutron
-    id_no_mapa: 1B
     dificuldade: V3_BARRA_V4
 - boulder:
     nome: Elétron
-    id_no_mapa: 2B
     dificuldade: V3
 - boulder:
     nome: Via Láctea
-    id_no_mapa: 3A
     dificuldade: V6
 - boulder:
     nome: Neutron
-    id_no_mapa: 3B
     dificuldade: V4
 - boulder:
     nome: Positron
-    id_no_mapa: 3C
     dificuldade: V3
----
+---
 

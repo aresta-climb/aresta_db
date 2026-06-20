@@ -131,30 +131,73 @@ picos:
               y: 1948
               comprimento: 65
               largura: 54
+          referencias:
+          - escalada: POLLY SHELBY
+            ids:
+            - '01'
+          - escalada: BLACK DOG
+            ids:
+            - '02'
+          - escalada: INCONSCIENTE COLETIVO
+            ids:
+            - '03'
+          - escalada: DISCÍPULOS DE BIBIU
+            ids:
+            - '04'
+          - escalada: EL NINHO
+            ids:
+            - '05'
+          - escalada: O PECADOR
+            ids:
+            - '06'
+          - escalada: PROMESSA É DÍVIDA
+            ids:
+            - '07'
+          - escalada: RINS DE PEDRA
+            ids:
+            - 08
+          - escalada: PAGADOR DE PROMESSA
+            ids:
+            - 09
+          - escalada: BIBI CORAGEM
+            ids:
+            - '10'
+          - escalada: DE MALANDRO A GRANFINO
+            ids:
+            - '11'
+          - escalada: CLUBE DA LUTA
+            ids:
+            - '12'
+          - escalada: ROLO COMPRESSOR
+            ids:
+            - '13'
+          - escalada: O ESPECIALISTA
+            ids:
+            - '14'
+          - escalada: O GUARDA COSTA
+            ids:
+            - '15'
+          - escalada: MARIA MADALENA
+            ids:
+            - '16'
         escaladas:
         - via_esportiva:
             nome: POLLY SHELBY
-            id_no_mapa: '01'
             dificuldade: BR_9C
         - via_esportiva:
             nome: BLACK DOG
-            id_no_mapa: '02'
             dificuldade: BR_9C
         - via_esportiva:
             nome: INCONSCIENTE COLETIVO
-            id_no_mapa: '03'
             dificuldade: BR_9B
         - via_esportiva:
             nome: DISCÍPULOS DE BIBIU
-            id_no_mapa: '04'
             dificuldade: BR_9A
         - via_esportiva:
             nome: EL NINHO
-            id_no_mapa: '05'
             dificuldade: BR_7C
         - via_multiplas_enfiadas:
             nome: O PECADOR
-            id_no_mapa: '06'
             dificuldade_maxima: BR_8B
             enfiadas:
             - via_esportiva:
@@ -165,7 +208,6 @@ picos:
                 dificuldade: BR_8B
         - via_multiplas_enfiadas:
             nome: PROMESSA É DÍVIDA
-            id_no_mapa: '07'
             dificuldade_maxima: BR_8A
             enfiadas:
             - via_esportiva:
@@ -176,7 +218,6 @@ picos:
                 dificuldade: BR_8A
         - via_multiplas_enfiadas:
             nome: RINS DE PEDRA
-            id_no_mapa: 08
             dificuldade_maxima: BR_8B
             enfiadas:
             - via_esportiva:
@@ -187,7 +228,6 @@ picos:
                 dificuldade: BR_8B
         - via_multiplas_enfiadas:
             nome: PAGADOR DE PROMESSA
-            id_no_mapa: 09
             dificuldade_maxima: BR_8B
             enfiadas:
             - via_esportiva:
@@ -198,23 +238,18 @@ picos:
                 dificuldade: BR_8B
         - via_esportiva:
             nome: BIBI CORAGEM
-            id_no_mapa: '10'
             dificuldade: BR_7C
         - via_esportiva:
             nome: DE MALANDRO A GRANFINO
-            id_no_mapa: '11'
             dificuldade: BR_10A
         - via_esportiva:
             nome: CLUBE DA LUTA
-            id_no_mapa: '12'
             dificuldade: BR_9B
         - via_esportiva:
             nome: ROLO COMPRESSOR
-            id_no_mapa: '13'
             dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: O ESPECIALISTA
-            id_no_mapa: '14'
             dificuldade_maxima: BR_9C
             enfiadas:
             - via_esportiva:
@@ -228,11 +263,9 @@ picos:
                 dificuldade: PROJETO
         - via_esportiva:
             nome: O GUARDA COSTA
-            id_no_mapa: '15'
             dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: MARIA MADALENA
-            id_no_mapa: '16'
             dificuldade_maxima: PROJETO
             enfiadas:
             - via_esportiva:
@@ -363,10 +396,55 @@ picos:
               y: 1844
               comprimento: 48
               largura: 38
+          referencias:
+          - escalada: MEU AMIGO CHARLIE BROWN
+            ids:
+            - '01'
+          - escalada: PAI NOSSO
+            ids:
+            - '02'
+          - escalada: NEM TUDO É PERFEITO
+            ids:
+            - '03'
+          - escalada: DIAS DE LUTA DIAS DE GLÓRIA
+            ids:
+            - '04'
+          - escalada: MADE IN BRAZIL
+            ids:
+            - '05'
+          - escalada: SANTA KLAUSS
+            ids:
+            - '06'
+          - escalada: ÓPANGARE
+            ids:
+            - '07'
+          - escalada: BERBARIDADE MÁXIMA
+            ids:
+            - 08
+          - escalada: SANTA INQUISIÇÃO
+            ids:
+            - 09
+          - escalada: TIRANOS DE PLANTÃO
+            ids:
+            - '10'
+          - escalada: SANTO GRAU
+            ids:
+            - '11'
+          - escalada: SANTA LINEA
+            ids:
+            - '12'
+          - escalada: SÓ OS LOUCOS SABEM
+            ids:
+            - '13'
+          - escalada: CHÁ NA CARTOLINA
+            ids:
+            - '14'
+          - escalada: AVE MARIA
+            ids:
+            - '15'
         escaladas:
         - via_multiplas_enfiadas:
             nome: MEU AMIGO CHARLIE BROWN
-            id_no_mapa: '01'
             dificuldade_maxima: BR_10A
             enfiadas:
             - via_esportiva:
@@ -380,7 +458,6 @@ picos:
                 dificuldade: BR_10A
         - via_multiplas_enfiadas:
             nome: PAI NOSSO
-            id_no_mapa: '02'
             dificuldade_maxima: BR_9B
             enfiadas:
             - via_esportiva:
@@ -394,7 +471,6 @@ picos:
                 dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: NEM TUDO É PERFEITO
-            id_no_mapa: '03'
             dificuldade_maxima: BR_9B
             enfiadas:
             - via_esportiva:
@@ -405,7 +481,6 @@ picos:
                 dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: DIAS DE LUTA DIAS DE GLÓRIA
-            id_no_mapa: '04'
             dificuldade_maxima: BR_10A
             enfiadas:
             - via_esportiva:
@@ -416,7 +491,6 @@ picos:
                 dificuldade: BR_10A
         - via_multiplas_enfiadas:
             nome: MADE IN BRAZIL
-            id_no_mapa: '05'
             dificuldade_maxima: BR_10B
             enfiadas:
             - via_esportiva:
@@ -430,7 +504,6 @@ picos:
                 dificuldade: BR_10B
         - via_multiplas_enfiadas:
             nome: SANTA KLAUSS
-            id_no_mapa: '06'
             dificuldade_maxima: BR_10C
             enfiadas:
             - via_esportiva:
@@ -444,19 +517,15 @@ picos:
                 dificuldade: BR_10C
         - via_esportiva:
             nome: ÓPANGARE
-            id_no_mapa: '07'
             dificuldade: BR_9A
         - via_esportiva:
             nome: BERBARIDADE MÁXIMA
-            id_no_mapa: 08
             dificuldade: BR_8A
         - via_esportiva:
             nome: SANTA INQUISIÇÃO
-            id_no_mapa: 09
             dificuldade: BR_10C
         - via_multiplas_enfiadas:
             nome: TIRANOS DE PLANTÃO
-            id_no_mapa: '10'
             dificuldade_maxima: BR_9C
             enfiadas:
             - via_esportiva:
@@ -476,7 +545,6 @@ picos:
                 dificuldade: BR_9C
         - via_multiplas_enfiadas:
             nome: SANTO GRAU
-            id_no_mapa: '11'
             dificuldade_maxima: PROJETO
             enfiadas:
             - via_esportiva:
@@ -487,7 +555,6 @@ picos:
                 dificuldade: PROJETO
         - via_multiplas_enfiadas:
             nome: SANTA LINEA
-            id_no_mapa: '12'
             dificuldade_maxima: PROJETO
             enfiadas:
             - via_esportiva:
@@ -501,7 +568,6 @@ picos:
                 dificuldade: PROJETO
         - via_multiplas_enfiadas:
             nome: SÓ OS LOUCOS SABEM
-            id_no_mapa: '13'
             dificuldade_maxima: BR_9A
             enfiadas:
             - via_esportiva:
@@ -512,7 +578,6 @@ picos:
                 dificuldade: BR_9A
         - via_multiplas_enfiadas:
             nome: CHÁ NA CARTOLINA
-            id_no_mapa: '14'
             dificuldade_maxima: BR_9B
             enfiadas:
             - via_esportiva:
@@ -526,7 +591,6 @@ picos:
                 dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: AVE MARIA
-            id_no_mapa: '15'
             dificuldade_maxima: BR_9C
             enfiadas:
             - via_esportiva:
@@ -698,10 +762,55 @@ picos:
               y: 1885
               comprimento: 42
               largura: 34
+          referencias:
+          - escalada: O PODER DO ROCAMBOLE
+            ids:
+            - '01'
+          - escalada: TETO DE VIDRO
+            ids:
+            - '02'
+          - escalada: PECADO CAPITAL
+            ids:
+            - '03'
+          - escalada: GÊNESIS
+            ids:
+            - '04'
+          - escalada: VIA INACABADA 1
+            ids:
+            - '05'
+          - escalada: RIBEIRÃO DA MATA
+            ids:
+            - '06'
+          - escalada: SEU JOÃOZITO
+            ids:
+            - '07'
+          - escalada: BUFFALO BILL
+            ids:
+            - 08
+          - escalada: HANIBALL
+            ids:
+            - 09
+          - escalada: DEMOCRACIA
+            ids:
+            - '10'
+          - escalada: DIA DE REIS
+            ids:
+            - '11'
+          - escalada: JOANA D'ARC
+            ids:
+            - '12'
+          - escalada: ARTE SACRA
+            ids:
+            - '13'
+          - escalada: SANTA FÉ
+            ids:
+            - '14'
+          - escalada: VIA INACABADA 2
+            ids:
+            - '15'
         escaladas:
         - via_multiplas_enfiadas:
             nome: O PODER DO ROCAMBOLE
-            id_no_mapa: '01'
             dificuldade_maxima: BR_10A
             enfiadas:
             - via_esportiva:
@@ -715,30 +824,23 @@ picos:
                 dificuldade: PROJETO
         - via_esportiva:
             nome: TETO DE VIDRO
-            id_no_mapa: '02'
             dificuldade: BR_9A
         - via_esportiva:
             nome: PECADO CAPITAL
-            id_no_mapa: '03'
             dificuldade: BR_8C
         - via_esportiva:
             nome: GÊNESIS
-            id_no_mapa: '04'
             dificuldade: BR_8B
         - via_esportiva:
             nome: VIA INACABADA 1
-            id_no_mapa: '05'
         - via_esportiva:
             nome: RIBEIRÃO DA MATA
-            id_no_mapa: '06'
             dificuldade: BR_7B
         - via_esportiva:
             nome: SEU JOÃOZITO
-            id_no_mapa: '07'
             dificuldade: BR_6SUP
         - via_multiplas_enfiadas:
             nome: BUFFALO BILL
-            id_no_mapa: 08
             dificuldade_maxima: BR_9A
             enfiadas:
             - via_esportiva:
@@ -752,7 +854,6 @@ picos:
                 dificuldade: PROJETO
         - via_multiplas_enfiadas:
             nome: HANIBALL
-            id_no_mapa: 09
             dificuldade_maxima: BR_9B
             enfiadas:
             - via_esportiva:
@@ -763,7 +864,6 @@ picos:
                 dificuldade: BR_9B
         - via_multiplas_enfiadas:
             nome: DEMOCRACIA
-            id_no_mapa: '10'
             dificuldade_maxima: BR_9C
             enfiadas:
             - via_esportiva:
@@ -780,7 +880,6 @@ picos:
                 dificuldade: BR_9C
         - via_multiplas_enfiadas:
             nome: DIA DE REIS
-            id_no_mapa: '11'
             dificuldade_maxima: BR_8B
             enfiadas:
             - via_esportiva:
@@ -791,7 +890,6 @@ picos:
                 dificuldade: BR_8B
         - via_multiplas_enfiadas:
             nome: JOANA D'ARC
-            id_no_mapa: '12'
             dificuldade_maxima: BR_8C
             enfiadas:
             - via_esportiva:
@@ -802,11 +900,9 @@ picos:
                 dificuldade: BR_8C
         - via_esportiva:
             nome: ARTE SACRA
-            id_no_mapa: '13'
             dificuldade: BR_8A
         - via_multiplas_enfiadas:
             nome: SANTA FÉ
-            id_no_mapa: '14'
             dificuldade_maxima: BR_8B
             enfiadas:
             - via_esportiva:
@@ -817,7 +913,6 @@ picos:
                 dificuldade: BR_8B
         - via_esportiva:
             nome: VIA INACABADA 2
-            id_no_mapa: '15'
         descricao: '# Setor Democracia
 
 
@@ -1018,7 +1113,7 @@ botoes:
         | :--: |
 
         | *Mapa geral dos setores do Santuário* |'
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

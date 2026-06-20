@@ -1,4 +1,4 @@
----
+---
 nome: Bloco dos Canelas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_dos_canelas_p0.webp
@@ -19,16 +19,21 @@ mapas:
       y: 415
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Canelas as Ar
+    ids:
+    - '1'
+  - escalada: Canelas ao Vento
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Canelas as Ar
-    id_no_mapa: '1'
     dificuldade: V4
 - boulder:
     nome: Canelas ao Vento
-    id_no_mapa: '2'
     dificuldade: V7
----
+---
 # Setor Bloco dos Canelas
 
 O setor Bloco dos Canelas possui um bloco com linhas interessantes em um ambiente agradável.

@@ -1,4 +1,4 @@
----
+---
 nome: Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_branca_p0.webp
@@ -117,10 +117,70 @@ mapas:
       y: 376
       comprimento: 53
       largura: 48
+  referencias:
+  - escalada: Vaca Virgem
+    ids:
+    - '1'
+  - escalada: Route 162
+    ids:
+    - '2'
+  - escalada: Dia de Protesto
+    ids:
+    - '3'
+  - escalada: Atestado de Cadena
+    ids:
+    - '4'
+  - escalada: Janela do Universo
+    ids:
+    - '5'
+  - escalada: Musgonoszói
+    ids:
+    - '6'
+  - escalada: Fala meu Justo
+    ids:
+    - '7'
+  - escalada: Regletes Ocultos
+    ids:
+    - '8'
+  - escalada: Batata com Sal
+    ids:
+    - '9'
+  - escalada: Argentina
+    ids:
+    - '10'
+  - escalada: Alemanha
+    ids:
+    - '11'
+  - escalada: Melodrama
+    ids:
+    - '12'
+  - escalada: Sapiência
+    ids:
+    - '13'
+  - escalada: Lagartixa de Pedra
+    ids:
+    - '14'
+  - escalada: Meu Amigo Friend
+    ids:
+    - '15'
+  - escalada: Meu Amigo Broca
+    ids:
+    - '16'
+  - escalada: Babilon Go Up
+    ids:
+    - '17'
+  - escalada: Sem Dúvida Nem Piedade
+    ids:
+    - '18'
+  - escalada: Chanasclý
+    ids:
+    - '19'
+  - escalada: Segredo da Cadena
+    ids:
+    - '20'
 escaladas:
 - via_esportiva:
     nome: Vaca Virgem
-    id_no_mapa: '1'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -130,7 +190,6 @@ escaladas:
     - Ângela Poleto
 - via_movel:
     nome: Route 162
-    id_no_mapa: '2'
     dificuldade: BR_5
     extensao: 10
     protecoes_moveis: Móvel
@@ -140,7 +199,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Dia de Protesto
-    id_no_mapa: '3'
     dificuldade: BR_6
     extensao: 9
     quantidade_protecoes_intermediarias: 2
@@ -149,7 +207,6 @@ escaladas:
     - Fábio de Melo
 - via_esportiva:
     nome: Atestado de Cadena
-    id_no_mapa: '4'
     dificuldade: BR_7C
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -159,7 +216,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Janela do Universo
-    id_no_mapa: '5'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -169,7 +225,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Musgonoszói
-    id_no_mapa: '6'
     dificuldade: BR_6
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -179,7 +234,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Fala meu Justo
-    id_no_mapa: '7'
     dificuldade: BR_7B
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -189,7 +243,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Regletes Ocultos
-    id_no_mapa: '8'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -199,7 +252,6 @@ escaladas:
     - Marcelo Henriques
 - via_movel:
     nome: Batata com Sal
-    id_no_mapa: '9'
     dificuldade: BR_5
     extensao: 10
     protecoes_moveis: Móvel
@@ -209,7 +261,6 @@ escaladas:
     - Natália Simone
 - via_esportiva:
     nome: Argentina
-    id_no_mapa: '10'
     dificuldade: BR_5
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -219,7 +270,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Alemanha
-    id_no_mapa: '11'
     dificuldade: BR_7A
     extensao: 10
     quantidade_protecoes_intermediarias: 2
@@ -229,7 +279,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Melodrama
-    id_no_mapa: '12'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -240,7 +289,6 @@ escaladas:
     - Pablo Brito
 - via_movel:
     nome: Sapiência
-    id_no_mapa: '13'
     dificuldade: BR_7B
     extensao: 12
     protecoes_moveis: Móvel
@@ -249,7 +297,6 @@ escaladas:
     - Fábio de Melo
 - via_esportiva:
     nome: Lagartixa de Pedra
-    id_no_mapa: '14'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 3
@@ -259,7 +306,6 @@ escaladas:
     - Marcelo Henriques
 - via_movel:
     nome: Meu Amigo Friend
-    id_no_mapa: '15'
     dificuldade: BR_6
     extensao: 10
     protecoes_moveis: Móvel
@@ -269,7 +315,6 @@ escaladas:
     - Marcelo Henriques
 - via_esportiva:
     nome: Meu Amigo Broca
-    id_no_mapa: '16'
     dificuldade: BR_6
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -279,7 +324,6 @@ escaladas:
     - Rodrigo 'Mussula'
 - via_esportiva:
     nome: Babilon Go Up
-    id_no_mapa: '17'
     dificuldade: BR_8C
     extensao: 10
     quantidade_protecoes_intermediarias: 3
@@ -290,7 +334,6 @@ escaladas:
     - L. 'Minicraque'
 - via_esportiva:
     nome: Sem Dúvida Nem Piedade
-    id_no_mapa: '18'
     dificuldade: BR_8B
     extensao: 12
     quantidade_protecoes_intermediarias: 5
@@ -301,7 +344,6 @@ escaladas:
     - Mussula
 - via_movel:
     nome: Chanasclý
-    id_no_mapa: '19'
     dificuldade: BR_5
     extensao: 12
     protecoes_moveis: Móvel
@@ -310,7 +352,6 @@ escaladas:
     - Leonardo 'Thunder'
 - via_esportiva:
     nome: Segredo da Cadena
-    id_no_mapa: '20'
     dificuldade: BR_7A
     extensao: 12
     quantidade_protecoes_intermediarias: 4
@@ -318,7 +359,7 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Marcelo Henriques
----
+---
 # Setor Pedra Branca
 
 Setor com vias de 9m até 12m.

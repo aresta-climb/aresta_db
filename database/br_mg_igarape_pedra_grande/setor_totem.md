@@ -1,4 +1,4 @@
----
+---
 nome: Setor Totem
 mapas:
 - caminho_imagem_mapa: imagens/setor_totem_p0.webp
@@ -33,6 +33,19 @@ mapas:
       y: 970
       comprimento: 34
       largura: 41
+  referencias:
+  - escalada: Takeyeasy
+    ids:
+    - '01'
+  - escalada: Pâncepis
+    ids:
+    - '02'
+  - escalada: Totem
+    ids:
+    - '03'
+  - escalada: '69'
+    ids:
+    - '04'
 - caminho_imagem_mapa: imagens/setor_totem_p1.webp
   largura_mapa: 1114
   altura_mapa: 917
@@ -68,7 +81,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Takeyeasy
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -81,7 +93,6 @@ escaladas:
     data_abertura: '2005'
 - via_esportiva:
     nome: Pâncepis
-    id_no_mapa: '02'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -94,7 +105,6 @@ escaladas:
     data_abertura: '2005'
 - via_esportiva:
     nome: Totem
-    id_no_mapa: '03'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -108,7 +118,6 @@ escaladas:
     data_abertura: '2005'
 - via_esportiva:
     nome: '69'
-    id_no_mapa: '04'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -120,7 +129,7 @@ escaladas:
     - Alex
     - Ruy
     data_abertura: '2005'
----
+---
 # Setor Totem
 
 Sombra até 10h e após 16h.

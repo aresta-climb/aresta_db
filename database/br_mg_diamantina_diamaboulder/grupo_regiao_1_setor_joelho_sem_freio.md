@@ -1,4 +1,4 @@
----
+---
 nome: Joelho Sem Freio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp
@@ -33,20 +33,24 @@ mapas:
       y: 166
       comprimento: 22
       largura: 23
+  referencias:
+  - escalada: Desenfreado
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Joelho Sem Freio
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Desenfreado
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V6
     descricao: Saída com as mãos juntas no batente escorrido.
 - boulder:
     nome: Joelho Sem Freio
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: V3
-    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em
-      abaulado invertido no teto.
----
+    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em abaulado invertido no teto.
+---
 # Bloco: Joelho Sem Freio
 ## Região 1

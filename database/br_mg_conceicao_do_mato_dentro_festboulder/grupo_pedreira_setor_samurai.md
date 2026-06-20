@@ -1,6 +1,5 @@
----
+---
 nome: Samurai
-id_no_mapa: '5'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p0.webp
   largura_mapa: 754
@@ -34,6 +33,22 @@ mapas:
       y: 290
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Purgatório
+    ids:
+    - '1'
+  - escalada: Samurai
+    ids:
+    - '2'
+  - escalada: Ômega 3
+    ids:
+    - '3'
+  - escalada: Purgatório do Samurai
+    ids:
+    - '4'
+  - escalada: Ouro Branco
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p1.webp
   largura_mapa: 436
   altura_mapa: 568
@@ -48,25 +63,21 @@ mapas:
 escaladas:
 - boulder:
     nome: Purgatório
-    id_no_mapa: '1'
     dificuldade: V7
 - boulder:
     nome: Samurai
-    id_no_mapa: '2'
     dificuldade: V9
 - boulder:
     nome: Ômega 3
-    id_no_mapa: '3'
     dificuldade: V11
 - boulder:
     nome: Purgatório do Samurai
-    id_no_mapa: '4'
     dificuldade: V12
 - boulder:
     nome: Ouro Branco
-    id_no_mapa: '1'
     dificuldade: V7
----
+---
+
 # Setor Samurai
 
 O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.

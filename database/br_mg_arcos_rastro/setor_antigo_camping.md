@@ -1,4 +1,4 @@
----
+---
 nome: Setor Antigo Camping
 mapas:
 - caminho_imagem_mapa: imagens/setor_antigo_camping_p0_i0.webp
@@ -173,134 +173,173 @@ mapas:
       y: 1102
       comprimento: 38
       largura: 14
+  referencias:
+  - escalada: Lucy Não
+    ids:
+    - '01'
+  - escalada: Amigos do Rastro
+    ids:
+    - '02'
+  - escalada: Rebelde Sem Calça
+    ids:
+    - '03'
+  - escalada: Pedra do Gênese
+    ids:
+    - '04'
+  - escalada: Sociedade Alternativa
+    ids:
+    - '05'
+  - escalada: Caixote*
+    ids:
+    - '06'
+  - escalada: Sai Clipado
+    ids:
+    - '07'
+  - escalada: Xuxa Preta de Pains
+    ids:
+    - '8'
+  - escalada: Brenfa Móvel
+    ids:
+    - '9'
+  - escalada: Mistério do Cachorro Zezinho
+    ids:
+    - '10'
+  - escalada: Muro das Lamentações
+    ids:
+    - '11'
+  - escalada: Jogo de Cintura
+    ids:
+    - '12'
+  - escalada: Capitão Barbárie
+    ids:
+    - '13'
+  - escalada: Faixa de Gaza
+    ids:
+    - '14'
+  - escalada: Pele Vermelha
+    ids:
+    - '15'
+  - escalada: Café da Manhã
+    ids:
+    - '16'
+  - escalada: Velório da Galinha
+    ids:
+    - '17'
+  - escalada: Parceragem
+    ids:
+    - '18'
+  - escalada: Lenços Umedecidos
+    ids:
+    - '19'
 escaladas:
 - via_esportiva:
     nome: Lucy Não
-    id_no_mapa: '01'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Amigos do Rastro
-    id_no_mapa: '02'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Rebelde Sem Calça
-    id_no_mapa: '03'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pedra do Gênese
-    id_no_mapa: '04'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Sociedade Alternativa
-    id_no_mapa: '05'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Caixote*
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Sai Clipado
-    id_no_mapa: '07'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Xuxa Preta de Pains
-    id_no_mapa: 08
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Brenfa Móvel
-    id_no_mapa: 09
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Mistério do Cachorro Zezinho
-    id_no_mapa: '10'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Muro das Lamentações
-    id_no_mapa: '11'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Jogo de Cintura
-    id_no_mapa: '12'
     dificuldade: BR_9B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Capitão Barbárie
-    id_no_mapa: '13'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Faixa de Gaza
-    id_no_mapa: '14'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pele Vermelha
-    id_no_mapa: '15'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Café da Manhã
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Velório da Galinha
-    id_no_mapa: '17'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Parceragem
-    id_no_mapa: '18'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Lenços Umedecidos
-    id_no_mapa: '19'
     dificuldade: BR_8B
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
 # Setor Antigo Camping
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

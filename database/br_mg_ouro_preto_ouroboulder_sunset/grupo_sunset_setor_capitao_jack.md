@@ -1,29 +1,21 @@
----
+---
 nome: Capitão Jack
 escaladas:
 - boulder:
     nome: Amnesia
-    id_no_mapa: 1_b
-    id_no_mapa_fim: x_b
     destaque: true
     dificuldade: V3
 - boulder:
     nome: Capitão Jack
-    id_no_mapa: '2'
-    id_no_mapa_fim: y
     destaque: true
     dificuldade: V6
     descricao: Virada exposta, atenção na segurança!
 - boulder:
     nome: Purple Rase
-    id_no_mapa: '3'
-    id_no_mapa_fim: x_b
     dificuldade: V5
     descricao: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
 - boulder:
     nome: Sunshine
-    id_no_mapa: '1'
-    id_no_mapa_fim: x
     dificuldade: V6
     descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
 mapas:
@@ -43,6 +35,23 @@ mapas:
       x: 12
       y: 12
       raio: 9
+  referencias:
+  - escalada: Amnesia
+    ids:
+    - 1_b
+    - x_b
+  - escalada: Capitão Jack
+    ids:
+    - '2'
+    - y
+  - escalada: Purple Rase
+    ids:
+    - '3'
+    - x_b
+  - escalada: Sunshine
+    ids:
+    - '1'
+    - x
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
   largura_mapa: 845
   altura_mapa: 805
@@ -77,6 +86,6 @@ mapas:
       x: 562
       y: 15
       raio: 9
----
+---
 
 # Bloco Capitão Jack

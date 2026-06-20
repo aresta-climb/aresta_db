@@ -1,6 +1,5 @@
----
+---
 nome: Jah
-id_no_mapa: '14'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p0.webp
   largura_mapa: 757
@@ -62,6 +61,37 @@ mapas:
       y: 540
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Lágrimas de Jah
+    ids:
+    - '1'
+  - escalada: Em Busca de Jah
+    ids:
+    - '2'
+  - escalada: Jah Rastafari
+    ids:
+    - '3'
+  - escalada: Ordem e Progresso
+    ids:
+    - '4'
+  - escalada: Ordem e Progresso SDS
+    ids:
+    - '5'
+  - escalada: JahJah
+    ids:
+    - '6'
+  - escalada: Verdinho
+    ids:
+    - '7'
+  - escalada: Skunk
+    ids:
+    - '8'
+  - escalada: Mescladinho
+    ids:
+    - '9'
+  - escalada: (sem nome)
+    ids:
+    - '10'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p1.webp
   largura_mapa: 757
   altura_mapa: 541
@@ -83,45 +113,36 @@ mapas:
 escaladas:
 - boulder:
     nome: Lágrimas de Jah
-    id_no_mapa: '1'
     dificuldade: V8
 - boulder:
     nome: Em Busca de Jah
-    id_no_mapa: '2'
     dificuldade: V7
 - boulder:
     nome: Jah Rastafari
-    id_no_mapa: '3'
     dificuldade: V9
 - boulder:
     nome: Ordem e Progresso
-    id_no_mapa: '4'
     dificuldade: V7
 - boulder:
     nome: Ordem e Progresso SDS
-    id_no_mapa: '5'
     dificuldade: V8
 - boulder:
     nome: JahJah
-    id_no_mapa: '6'
     dificuldade: V5
 - boulder:
     nome: Verdinho
-    id_no_mapa: '7'
     dificuldade: V9
 - boulder:
     nome: Skunk
-    id_no_mapa: '8'
     dificuldade: V8
 - boulder:
     nome: Mescladinho
-    id_no_mapa: '9'
     dificuldade: V7
 - boulder:
     nome: (sem nome)
-    id_no_mapa: '10'
     dificuldade: V3
----
+---
+
 # Setor Jah
 
 O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.

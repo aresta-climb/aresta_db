@@ -360,7 +360,7 @@
             | ![Contra capa](imagens/contra_capa_p0.webp) |
             | :--: |
             | *Contra capa* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -514,12 +514,68 @@
           - **y**: 720
           - **comprimento**: 62
           - **largura**: 34
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mão de martelo
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Calibre 44
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Antro dos mosquitos
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Poder do silêncio
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Não contavam com minha astucia
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Terra do nunca
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Voz apocalíptica
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Vivendo no crux da larica
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Capitão caverna
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Sai do chão
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Os pica pedra
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: O resgate dos barbarás no meio do corredor polonês
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: ?
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: ?
+        - **ids**:
+          - 14
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
       - **descricao**: Friends médios e tricam #5. Crux depois do platô. 1 grampo no topo.
       - **nome**: Mão de martelo
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
@@ -529,7 +585,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção, **atenção** com o platô.
       - **nome**: Calibre 44
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Grots
@@ -538,7 +593,6 @@
     - **via_esportiva**:
       - **descricao**: Via curta, porem de muita movimentação.
       - **nome**: Antro dos mosquitos
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Ivo Ferreira
@@ -547,7 +601,6 @@
     - **via_esportiva**:
       - **descricao**: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por perto!**
       - **nome**: Poder do silêncio
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Grots
@@ -556,7 +609,6 @@
     - **via_esportiva**:
       - **descricao**: Curta, porem atraente. **Atenção se tem abelhas por perto!**
       - **nome**: Não contavam com minha astucia
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Grots
@@ -566,7 +618,6 @@
     - **via_esportiva**:
       - **descricao**: Ótima via, muito boa movimentação. **Atenção se tem abelhas por perto!**
       - **nome**: Terra do nunca
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Grots
@@ -575,7 +626,6 @@
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: Voz apocalíptica
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Leonardo Hoffman
@@ -584,7 +634,6 @@
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: Vivendo no crux da larica
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Gabriel
@@ -593,7 +642,6 @@
     - **via_movel**:
       - **descricao**: Ótima via, Peças pequenas e médias, camalot 4, top duplo P.
       - **nome**: Capitão caverna
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
@@ -603,7 +651,6 @@
     - **via_esportiva**:
       - **descricao**: Via curtinha de boa escalada, podendo fazer a saida de boulder.
       - **nome**: Sai do chão
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Ágata
@@ -612,7 +659,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção.
       - **nome**: Os pica pedra
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Ágata
@@ -621,7 +667,6 @@
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: O resgate dos barbarás no meio do corredor polonês
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Grots
@@ -630,13 +675,11 @@
     - **via_esportiva**:
       - **descricao**: **Atenção se tem abelhas por perto!**
       - **nome**: ?
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_9B
   - **[13]**:
     - **via_esportiva**:
       - **descricao**: Via inacabada. Cuidado abelhas!
       - **nome**: ?
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6
 
 
@@ -829,12 +872,96 @@
           - **y**: 28
           - **comprimento**: 24
           - **largura**: 25
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pé da Gameleira
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Sangue bão
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Sedativa
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Pressão da abelha (variante)
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Prezinho
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Super canaleta
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Cactos talidomida
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Logo sai
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Cariocas
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Tapa na aranha
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Titãs atônitos
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Enganaram o cabo
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Urtigas
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Atretas do climb (mapa do Brasil)
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Ossos do orifício
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Baião de dois
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Entre linhas
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: SOS mandacaru
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Socorro vem de baixo
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Mato queimado
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: De Mariah
+        - **ids**:
+          - 21
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Atenção no Platô
       - **nome**: Pé da Gameleira
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Thiago "Vá"
@@ -845,7 +972,6 @@
     - **via_esportiva**:
       - **descricao**: Interessante Via, com uma movimentação muito incomum.
       - **nome**: Sangue bão
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Fabio Munis
@@ -854,7 +980,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, bem frequentada.
       - **nome**: Sedativa
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Eduardo Viana
@@ -863,7 +988,6 @@
     - **via_esportiva**:
       - **descricao**: Divide a primeira chapa com a Sedativa
       - **nome**: Pressão da abelha (variante)
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Thiago "Vá"
@@ -874,7 +998,6 @@
     - **via_movel**:
       - **descricao**: Fenda em diagonal, peças medias, rapel na árvore.
       - **nome**: Prezinho
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Grots
@@ -883,7 +1006,6 @@
     - **via_movel**:
       - **descricao**: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas e medias, top duplo no final da canaleta.
       - **nome**: Super canaleta
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Grots
@@ -892,7 +1014,6 @@
     - **via_esportiva**:
       - **descricao**: Muito frequentada, boa para iniciantes e crianças.
       - **nome**: Cactos talidomida
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Alexandre "Caverna"
@@ -902,13 +1023,11 @@
     - **via_esportiva**:
       - **descricao**: Via curta de boa movimentação.
       - **nome**: Logo sai
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5
   - **[8]**:
     - **via_esportiva**:
       - **descricao**: Pode ser escalada tanto pela direita ou esquerda das proteções.
       - **nome**: Cariocas
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Escaladores Gaúchos
@@ -916,7 +1035,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, bem frequentada. Extensão por Felipe Belisario.
       - **nome**: Tapa na aranha
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Anderson Barbosa
@@ -927,7 +1045,6 @@
     - **via_esportiva**:
       - **descricao**: Meio exposta.
       - **nome**: Titãs atônitos
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -936,7 +1053,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção.
       - **nome**: Enganaram o cabo
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Márcio Macena
@@ -945,7 +1061,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, de boa movimentação.
       - **nome**: Urtigas
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Eustáquio Macedo
@@ -955,7 +1070,6 @@
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação.
       - **nome**: Atretas do climb (mapa do Brasil)
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Eustáquio Macedo
@@ -964,13 +1078,11 @@
     - **via_movel**:
       - **descricao**: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. Termina no top da "mapa". Ótima opção!
       - **nome**: Ossos do orifício
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_5
   - **[15]**:
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação, boa para iniciante.
       - **nome**: Baião de dois
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Chico
@@ -979,7 +1091,6 @@
     - **via_movel**:
       - **descricao**: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para iniciantes em móvel.
       - **nome**: Entre linhas
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Gustavo Vianna
@@ -988,7 +1099,6 @@
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação, boa para iniciante.
       - **nome**: SOS mandacaru
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Chico
@@ -997,7 +1107,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção para iniciantes
       - **nome**: Socorro vem de baixo
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Thiago "Vá"
@@ -1006,7 +1115,6 @@
     - **via_esportiva**:
       - **descricao**: Via curta
       - **nome**: Mato queimado
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Alexandre Queiroz
@@ -1015,7 +1123,6 @@
     - **via_esportiva**:
       - **descricao**: Via de equilibrio
       - **nome**: De Mariah
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Thiago "Vá"
@@ -1425,12 +1532,212 @@
           - **y**: 992
           - **comprimento**: 85
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Quem manda aqui sou Eu "Eterosapiens"
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Poder paralelos
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Pra você
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: 100 limites
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Mentira não faz
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Elvira a rainha das trevas
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Pescoço de peixe
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Lá fora chove, aqui dentro só pinga
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Climb in the rain
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Invasão de privacidade
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: El paseo
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Dinamicuzão
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Catapulta
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Rodilar
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Dinamicuzão em Rodlá
+        - **ids**:
+          - V
+      - **[15]**:
+        - **escalada**: Dinamicuzão em catapulta
+        - **ids**:
+          - V
+      - **[16]**:
+        - **escalada**: Dinamicuzão em El paseo
+        - **ids**:
+          - V
+      - **[17]**:
+        - **escalada**: El paseo em Dinamicuzão
+        - **ids**:
+          - V
+      - **[18]**:
+        - **escalada**: Fósseis do velho mundo
+        - **ids**:
+          - 15
+      - **[19]**:
+        - **escalada**: Querendo velho mundo
+        - **ids**:
+          - 16
+      - **[20]**:
+        - **escalada**: Sem querer querendo
+        - **ids**:
+          - 17
+      - **[21]**:
+        - **escalada**: Segunda sem lei
+        - **ids**:
+          - 18
+      - **[22]**:
+        - **escalada**: Quinta desordeira
+        - **ids**:
+          - 19
+      - **[23]**:
+        - **escalada**: Decapitados
+        - **ids**:
+          - 20
+      - **[24]**:
+        - **escalada**: Já tá lá
+        - **ids**:
+          - 21
+      - **[25]**:
+        - **escalada**: Tente outra vez
+        - **ids**:
+          - 22
+      - **[26]**:
+        - **escalada**: A troca
+        - **ids**:
+          - 23
+      - **[27]**:
+        - **escalada**: No mato com os cachorros
+        - **ids**:
+          - 24
+      - **[28]**:
+        - **escalada**: Secuzinho
+        - **ids**:
+          - 25
+      - **[29]**:
+        - **escalada**: Sublime obsessão
+        - **ids**:
+          - 26
+      - **[30]**:
+        - **escalada**: Não guenta senta
+        - **ids**:
+          - 27
+      - **[31]**:
+        - **escalada**: Despertar da curriola
+        - **ids**:
+          - 28
+      - **[32]**:
+        - **escalada**: Variante
+        - **ids**:
+          - 29
+      - **[33]**:
+        - **escalada**: Um dia depois de amanhã
+        - **ids**:
+          - 30
+      - **[34]**:
+        - **escalada**: Prakaramba
+        - **ids**:
+          - 31
+      - **[35]**:
+        - **escalada**: Estilo junkie
+        - **ids**:
+          - 32
+      - **[36]**:
+        - **escalada**: Escalão Hilário
+        - **ids**:
+          - 33
+      - **[37]**:
+        - **escalada**: Missão impossível
+        - **ids**:
+          - 34
+      - **[38]**:
+        - **escalada**: Bode negro
+        - **ids**:
+          - 35
+      - **[39]**:
+        - **escalada**: V da via
+        - **ids**:
+          - 36
+      - **[40]**:
+        - **escalada**: Até que enfim
+        - **ids**:
+          - 37
+      - **[41]**:
+        - **escalada**: Noiados do maguina
+        - **ids**:
+          - 38
+      - **[42]**:
+        - **escalada**: Da Cuca Lelé (variante)
+        - **ids**:
+          - 39
+      - **[43]**:
+        - **escalada**: Deus dos quatro anos
+        - **ids**:
+          - 40
+      - **[44]**:
+        - **escalada**: Gaibous in the laibous
+        - **ids**:
+          - 41
+      - **[45]**:
+        - **escalada**: Power katronca
+        - **ids**:
+          - 42
+      - **[46]**:
+        - **escalada**: Muito punk
+        - **ids**:
+          - 43
+      - **[47]**:
+        - **escalada**: Demolição
+        - **ids**:
+          - 44
+      - **[48]**:
+        - **escalada**: Big Wall do Salim
+        - **ids**:
+          - 45
+      - **[49]**:
+        - **escalada**: Patati Patata
+        - **ids**:
+          - 46
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **descricao**: Uma das mais duras
       - **nome**: Quem manda aqui sou Eu "Eterosapiens"
-      - **id_no_mapa**: 1
       - **dificuldade**: BR_10B
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -1441,7 +1748,6 @@
     - **via_esportiva**:
       - **descricao**: Em uma linha magnifica que corta a parte mais negativa da parede é a mais bonita e também a mais difícil do Sítio.
       - **nome**: Poder paralelos
-      - **id_no_mapa**: 2
       - **dificuldade**: BR_10C
       - **conquistadores**:
         - Felipe Belisário
@@ -1450,7 +1756,6 @@
     - **via_esportiva**:
       - **descricao**: Via curta porem de muita movimentação com um boulder na saída.
       - **nome**: Pra você
-      - **id_no_mapa**: 3
       - **dificuldade**: BR_8C
       - **conquistadores**:
         - Luiz Munrhá
@@ -1459,7 +1764,6 @@
     - **via_esportiva**:
       - **descricao**: Via curta porem de muita movimentação.
       - **nome**: 100 limites
-      - **id_no_mapa**: 4
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Igor
@@ -1468,7 +1772,6 @@
     - **via_esportiva**:
       - **descricao**: Chaminé no teto. Via bem diferente e necessário que um segundo escale limpando as costuras.
       - **nome**: Mentira não faz
-      - **id_no_mapa**: 5
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Marius Bagnati
@@ -1477,7 +1780,6 @@
     - **via_esportiva**:
       - **descricao**: Via curtinha, quase um boulder.
       - **nome**: Elvira a rainha das trevas
-      - **id_no_mapa**: 6
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Emerson Corradi
@@ -1486,7 +1788,6 @@
     - **via_esportiva**:
       - **descricao**: Via curtinha que mistura força e técnica de encaixe.
       - **nome**: Pescoço de peixe
-      - **id_no_mapa**: 7
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Wilson Novaes
@@ -1495,7 +1796,6 @@
     - **via_esportiva**:
       - **descricao**: Atenção com as abelhas
       - **nome**: Lá fora chove, aqui dentro só pinga
-      - **id_no_mapa**: 8
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Thiago "Vá"
@@ -1506,7 +1806,6 @@
     - **via_esportiva**:
       - **descricao**: Até o mosquetão.
       - **nome**: Climb in the rain
-      - **id_no_mapa**: 9
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -1514,7 +1813,6 @@
     - **via_esportiva**:
       - **descricao**: Boulder na saída.
       - **nome**: Invasão de privacidade
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_8C
       - **conquistadores**:
         - Felipe Belisario
@@ -1524,7 +1822,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica !!! dos sétimos o mais bonito...
       - **nome**: El paseo
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - André Viana
@@ -1533,13 +1830,11 @@
     - **via_esportiva**:
       - **descricao**: Clássica, muito técnica e equilíbrio, linda via.
       - **nome**: Dinamicuzão
-      - **id_no_mapa**: 12
       - **dificuldade**: BR_8B
   - **[12]**:
     - **via_esportiva**:
       - **descricao**: Via muito incrível, com um super Bote e um boulder no teto final.
       - **nome**: Catapulta
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_9C
       - **conquistadores**:
         - Alexandre "Fei"
@@ -1549,7 +1844,6 @@
     - **via_esportiva**:
       - **descricao**: Linda via, saída pela Catapulta, vai pra direita e depois pra cima.
       - **nome**: Rodilar
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Alexandre "Fei"
@@ -1559,7 +1853,6 @@
     - **via_esportiva**:
       - **descricao**: Variante muito bacana, para desmontar e preciso desescalar até uma parada abaixo ou o segundo subir limpando.
       - **nome**: Dinamicuzão em Rodlá
-      - **id_no_mapa**: V
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Felipe Belisario
@@ -1568,7 +1861,6 @@
     - **via_esportiva**:
       - **descricao**: A Partir da quarta proteção, entra da Catapulta.
       - **nome**: Dinamicuzão em catapulta
-      - **id_no_mapa**: V
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Felipe Belisario
@@ -1577,7 +1869,6 @@
     - **via_esportiva**:
       - **descricao**: A partir da quarta proteção, entra na El paseo.
       - **nome**: Dinamicuzão em El paseo
-      - **id_no_mapa**: V
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Felipe Belisario
@@ -1586,7 +1877,6 @@
     - **via_esportiva**:
       - **descricao**: A partir da quarta proteção, entra na Dinamicuzão.
       - **nome**: El paseo em Dinamicuzão
-      - **id_no_mapa**: V
       - **dificuldade**: BR_8A
       - **conquistadores**:
         - Felipe Belisario
@@ -1595,7 +1885,6 @@
     - **via_movel**:
       - **descricao**: Linda via em fenda. Um jogo completo de friends Ótima opção!
       - **nome**: Fósseis do velho mundo
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Andre Coutinho
@@ -1604,7 +1893,6 @@
     - **via_esportiva**:
       - **descricao**: Boa via, com passadas de equilíbrio e muita movimentação.
       - **nome**: Querendo velho mundo
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Aloizio Carvalho
@@ -1612,7 +1900,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, bem completa com um boulder na saida, lances técnicos e de equilíbrio.
       - **nome**: Sem querer querendo
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Juan Kemper
@@ -1621,7 +1908,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Segunda sem lei
-      - **id_no_mapa**: 18
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Thiago "Vá"
@@ -1630,7 +1916,6 @@
     - **via_movel**:
       - **descricao**: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux muito bacana.
       - **nome**: Quinta desordeira
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Andre Coutinho
@@ -1640,7 +1925,6 @@
     - **via_esportiva**:
       - **descricao**: Boa via, saída boulderistica com um crux depois meio esticado.
       - **nome**: Decapitados
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_8C
       - **conquistadores**:
         - Aloizio Carvalho
@@ -1650,7 +1934,6 @@
     - **via_esportiva**:
       - **descricao**: Boa pedida, via curta levemente negativa com boas agarrras.
       - **nome**: Já tá lá
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Anderson Barbosa
@@ -1659,7 +1942,6 @@
     - **via_esportiva**:
       - **descricao**: Muito frequentada.
       - **nome**: Tente outra vez
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Edgardo Abreu
@@ -1669,7 +1951,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, de ótima movimentação.
       - **nome**: A troca
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Vinicios Barbosa
@@ -1677,13 +1958,11 @@
     - **via_esportiva**:
       - **descricao**: Via bem legal, escorregadia...
       - **nome**: No mato com os cachorros
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_6SUP
   - **[28]**:
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Secuzinho
-      - **id_no_mapa**: 25
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Rod
@@ -1692,7 +1971,6 @@
     - **via_esportiva**:
       - **descricao**: Via bem boulderistica curta e grossa.
       - **nome**: Sublime obsessão
-      - **id_no_mapa**: 26
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Marcelo Braga
@@ -1700,7 +1978,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção!
       - **nome**: Não guenta senta
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Aloísio Carvalho
@@ -1708,7 +1985,6 @@
     - **via_esportiva**:
       - **descricao**: Bem frequentada. Boa para iniciantes!
       - **nome**: Despertar da curriola
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Leonardo Hoffman
@@ -1717,13 +1993,11 @@
     - **via_movel**:
       - **descricao**: Peças médias. Top na Despertar da curriola.
       - **nome**: Variante
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6
   - **[33]**:
     - **via_movel**:
       - **descricao**: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top em árvore no cume. Melhor o segundo subir de top limpando.
       - **nome**: Um dia depois de amanhã
-      - **id_no_mapa**: 30
       - **dificuldade**: BR_4
       - **conquistadores**:
         - "Marcelinho" Terra Zoni
@@ -1732,7 +2006,6 @@
     - **via_esportiva**:
       - **descricao**: Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na parede do lado o grau cai para 6sup.
       - **nome**: Prakaramba
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Grots
@@ -1741,7 +2014,6 @@
     - **via_movel**:
       - **descricao**: Via interessante, porem pouco frequentada, atenção top desconfortável.
       - **nome**: Estilo junkie
-      - **id_no_mapa**: 32
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Gustavo Piancastelli
@@ -1750,7 +2022,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção para iniciantes
       - **nome**: Escalão Hilário
-      - **id_no_mapa**: 33
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Chico
@@ -1758,7 +2029,6 @@
     - **via_esportiva**:
       - **descricao**: Crux com uma agarra que machuca!
       - **nome**: Missão impossível
-      - **id_no_mapa**: 34
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Alexandre Fonseca
@@ -1766,7 +2036,6 @@
     - **via_esportiva**:
       - **descricao**: Bem frequentada, curtinha, negativa de boas agarrras.
       - **nome**: Bode negro
-      - **id_no_mapa**: 35
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Leonardo Hoffman
@@ -1775,7 +2044,6 @@
     - **via_esportiva**:
       - **descricao**: Tem duas opções de escalada, subir até terceira proteção em chaminé (5sup), ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco inseguro perto da saída.
       - **nome**: V da via
-      - **id_no_mapa**: 36
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Ágata
@@ -1786,7 +2054,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Até que enfim
-      - **id_no_mapa**: 37
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Thiago "Vá"
@@ -1796,7 +2063,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Noiados do maguina
-      - **id_no_mapa**: 38
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Thiago "Vá"
@@ -1806,7 +2072,6 @@
     - **via_esportiva**:
       - **descricao**: Começa na 3º proteção da "Noiados do Maguina"
       - **nome**: Da Cuca Lelé (variante)
-      - **id_no_mapa**: 39
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Arthur Garcia
@@ -1814,7 +2079,6 @@
     - **via_esportiva**:
       - **descricao**: Boa opção, fica meio escondida, a saída a direita da Gaibous.
       - **nome**: Deus dos quatro anos
-      - **id_no_mapa**: 40
       - **dificuldade**: BR_7A
       - **conquistadores**:
         - Vinicius Barbosa
@@ -1822,7 +2086,6 @@
     - **via_esportiva**:
       - **descricao**: Clássica, negativa com boas agarrras.
       - **nome**: Gaibous in the laibous
-      - **id_no_mapa**: 41
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Escaladores gauchos
@@ -1830,7 +2093,6 @@
     - **via_esportiva**:
       - **descricao**: Boulderistica!
       - **nome**: Power katronca
-      - **id_no_mapa**: 42
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Marius Bagnati
@@ -1838,7 +2100,6 @@
     - **via_esportiva**:
       - **descricao**: Curta e grossa!
       - **nome**: Muito punk
-      - **id_no_mapa**: 43
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Gilberto
@@ -1847,7 +2108,6 @@
     - **via_esportiva**:
       - **descricao**: Fica pouco escondida mas é muito boa opção.
       - **nome**: Demolição
-      - **id_no_mapa**: 44
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Diogo
@@ -1857,7 +2117,6 @@
     - **via_esportiva**:
       - **descricao**: Via de curso.
       - **nome**: Big Wall do Salim
-      - **id_no_mapa**: 45
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Daniel "Salim"
@@ -1865,7 +2124,6 @@
     - **via_esportiva**:
       - **descricao**: Boa para iniciantes
       - **nome**: Patati Patata
-      - **id_no_mapa**: 46
       - **dificuldade**: BR_4
       - **conquistadores**:
         - Thiago "Vá"

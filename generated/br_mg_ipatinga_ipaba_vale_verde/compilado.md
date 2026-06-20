@@ -160,7 +160,7 @@
             | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
             | :--: |
             | *Mapa de Acesso* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 - **publicar_croqui**: True
 
 
@@ -411,11 +411,107 @@
           - **y**: 1314
           - **comprimento**: 38
           - **largura**: 43
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Jardineiro
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Somelier Canábico
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Jovens Dinâmicos
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Anunnaki
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Peyote Sativo
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Fake News
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Bruxa
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Fundão
+        - **ids**:
+          - 08
+      - **[8]**:
+        - **escalada**: Caminho da Luz
+        - **ids**:
+          - 09
+      - **[9]**:
+        - **escalada**: Eu quero é ver o oco
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Mister Amaral
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Loki
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Thor
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: A Flor da Vida
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: Vale do Verde
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Ragnarok
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Filho de Odin
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Vahala
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: Pedra no Saco
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Endorfina
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Isaurinha
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Presentim
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: Antes tarde do que nunca
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Ho Ho Ho
+        - **ids**:
+          - 24
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: Jardineiro
-      - **id_no_mapa**: 01
       - **dificuldade**: BR_8A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -424,7 +520,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Somelier Canábico
-      - **id_no_mapa**: 02
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -433,7 +528,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Jovens Dinâmicos
-      - **id_no_mapa**: 03
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -442,7 +536,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Anunnaki
-      - **id_no_mapa**: 04
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -451,7 +544,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Peyote Sativo
-      - **id_no_mapa**: 05
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -460,7 +552,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Fake News
-      - **id_no_mapa**: 06
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -469,7 +560,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Bruxa
-      - **id_no_mapa**: 07
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -478,7 +568,6 @@
     - **via_esportiva**:
       - **descricao**: Extensão Projeto (6+2).
       - **nome**: Fundão
-      - **id_no_mapa**: 08
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -486,7 +575,6 @@
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Caminho da Luz
-      - **id_no_mapa**: 09
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -495,7 +583,6 @@
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Eu quero é ver o oco
-      - **id_no_mapa**: 10
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -504,7 +591,6 @@
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Mister Amaral
-      - **id_no_mapa**: 11
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -513,14 +599,12 @@
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Loki
-      - **id_no_mapa**: 12
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Thor
-      - **id_no_mapa**: 13
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -529,7 +613,6 @@
     - **via_esportiva**:
       - **descricao**: Possui Extensão Projeto (7+2).
       - **nome**: A Flor da Vida
-      - **id_no_mapa**: 14
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -539,7 +622,6 @@
     - **via_esportiva**:
       - **descricao**: Possui Extensão 8c (10+2).
       - **nome**: Vale do Verde
-      - **id_no_mapa**: 15
       - **dificuldade**: BR_7C
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
@@ -548,7 +630,6 @@
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Ragnarok
-      - **id_no_mapa**: 16
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -558,7 +639,6 @@
     - **via_esportiva**:
       - **descricao**: Possui Extensão Proj. (5+2).
       - **nome**: Filho de Odin
-      - **id_no_mapa**: 17
       - **dificuldade**: BR_8B
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
@@ -567,7 +647,6 @@
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Vahala
-      - **id_no_mapa**: 18
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
@@ -575,7 +654,6 @@
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Pedra no Saco
-      - **id_no_mapa**: 19
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -583,7 +661,6 @@
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Endorfina
-      - **id_no_mapa**: 20
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -592,7 +669,6 @@
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Isaurinha
-      - **id_no_mapa**: 21
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -601,7 +677,6 @@
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Presentim
-      - **id_no_mapa**: 22
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -609,7 +684,6 @@
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Antes tarde do que nunca
-      - **id_no_mapa**: 23
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -617,7 +691,6 @@
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Ho Ho Ho
-      - **id_no_mapa**: 24
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
@@ -711,11 +784,43 @@
           - **y**: 362
           - **comprimento**: 31
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: CrossFit
+        - **ids**:
+          - 27
+      - **[1]**:
+        - **escalada**: Bromeliacea
+        - **ids**:
+          - 28
+      - **[2]**:
+        - **escalada**: Amnésia
+        - **ids**:
+          - 29
+      - **[3]**:
+        - **escalada**: A espera de Yam
+        - **ids**:
+          - 30
+      - **[4]**:
+        - **escalada**: Caixa Alta
+        - **ids**:
+          - 31
+      - **[5]**:
+        - **escalada**: Sexta - Feira 13
+        - **ids**:
+          - 32
+      - **[6]**:
+        - **escalada**: Hora do Pesadelo
+        - **ids**:
+          - 33
+      - **[7]**:
+        - **escalada**: O silêncio dos Inoscentes
+        - **ids**:
+          - 34
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
       - **nome**: CrossFit
-      - **id_no_mapa**: 27
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
@@ -723,7 +828,6 @@
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bromeliacea
-      - **id_no_mapa**: 28
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -731,7 +835,6 @@
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Amnésia
-      - **id_no_mapa**: 29
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -739,7 +842,6 @@
   - **[3]**:
     - **via_esportiva**:
       - **nome**: A espera de Yam
-      - **id_no_mapa**: 30
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
@@ -747,7 +849,6 @@
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Caixa Alta
-      - **id_no_mapa**: 31
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -755,7 +856,6 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Sexta - Feira 13
-      - **id_no_mapa**: 32
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -763,7 +863,6 @@
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Hora do Pesadelo
-      - **id_no_mapa**: 33
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
@@ -771,7 +870,6 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: O silêncio dos Inoscentes
-      - **id_no_mapa**: 34
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2

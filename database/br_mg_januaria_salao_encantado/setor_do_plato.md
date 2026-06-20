@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Platô
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_plato_p0.webp
@@ -48,35 +48,44 @@ mapas:
       comprimento: 46
       largura: 242
       angulo_graus_x100: -5526
+  referencias:
+  - escalada: Pescador de Planta
+    ids:
+    - '01'
+  - escalada: Maria Doida
+    ids:
+    - '02'
+  - escalada: Chuva de Bromélias
+    ids:
+    - '03'
+  - escalada: Visitante Oculto
+    ids:
+    - '04'
+  - escalada: Bestial Devastation
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Pescador de Planta
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     descricao: Via na aresta esquerda do platô.
 - via_esportiva:
     nome: Maria Doida
-    id_no_mapa: '02'
     dificuldade: BR_6SUP
     descricao: Primeira via da parede.
 - via_esportiva:
     nome: Chuva de Bromélias
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     descricao: Via técnica. Recomendada para quem quer escalar 6º grau.
 - via_esportiva:
     nome: Visitante Oculto
-    id_no_mapa: '04'
     dificuldade: BR_8A
-    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem
-      quer escalar 8º grau.
+    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem quer escalar 8º grau.
 - via_esportiva:
     nome: Bestial Devastation
-    id_no_mapa: '05'
     dificuldade: BR_7A
-    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que
-      descer até o platô mais baixo.
----
+    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer até o platô mais baixo.
+---
 Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
 
 ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp)

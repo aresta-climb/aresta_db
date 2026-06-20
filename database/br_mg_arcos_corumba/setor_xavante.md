@@ -1,4 +1,4 @@
----
+---
 nome: Setor Xavante
 mapas:
 - caminho_imagem_mapa: imagens/setor_xavante_p0_i0.webp
@@ -33,6 +33,25 @@ mapas:
       y: 1110
       comprimento: 29
       largura: 30
+  referencias:
+  - escalada: Curumim
+    ids:
+    - '1'
+  - escalada: Terra à Vista
+    ids:
+    - '2'
+  - escalada: (projeto)
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: Especiaria
+    ids:
+    - '5'
+  - escalada: Tupi Or Not Tupi
+    ids:
+    - '6'
 - caminho_imagem_mapa: imagens/setor_xavante_p0_i1.webp
   largura_mapa: 841
   altura_mapa: 1129
@@ -54,7 +73,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Curumim
-    id_no_mapa: '1'
     dificuldade: BR_6SUP
     destaque: true
     data_abertura: '2022-07-25'
@@ -62,7 +80,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Terra à Vista
-    id_no_mapa: '2'
     destaque: true
     dificuldade: BR_7B
     data_abertura: '2022-07-25'
@@ -70,18 +87,15 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: (projeto)
-    id_no_mapa: '3'
     dificuldade: PROJETO
 - via_esportiva:
     nome: (sem nome)
-    id_no_mapa: '4'
     dificuldade: PROJETO
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Especiaria
-    id_no_mapa: '5'
     dificuldade: PROJETO
     destaque: true
     data_abertura: '2022-07-25'
@@ -89,13 +103,12 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tupi Or Not Tupi
-    id_no_mapa: '6'
     dificuldade: BR_7A
     destaque: true
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
----
+---
 # Setor Xavante
 
 Sombra o dia todo (varia de acordo com a estação).

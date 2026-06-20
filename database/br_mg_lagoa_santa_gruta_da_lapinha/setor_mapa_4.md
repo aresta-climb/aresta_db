@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gruta - Mapa 4 (Sala de Aula)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_4_p0_i0.webp
@@ -194,127 +194,184 @@ mapas:
       y: 172
       comprimento: 109
       largura: 21
+  referencias:
+  - escalada: Fogo no Rabo
+    ids:
+    - '27'
+  - escalada: Bobeou Sobrou
+    ids:
+    - '28'
+  - escalada: Los Cubanos
+    ids:
+    - '29'
+  - escalada: Folião
+    ids:
+    - '30'
+  - escalada: Luzes
+    ids:
+    - '31'
+  - escalada: Via sem informação
+    ids:
+    - '32'
+  - escalada: Êta Sô
+    ids:
+    - '33'
+  - escalada: Via do Tetinho
+    ids:
+    - '34'
+  - escalada: Ataque das Bolinhas
+    ids:
+    - '35'
+  - escalada: Via do curso
+    ids:
+    - '36'
+  - escalada: Viajandão Gramando na Chuva
+    ids:
+    - '37'
+  - escalada: Martelo Voador
+    ids:
+    - '38'
+  - escalada: Coquetel de Maracujá
+    ids:
+    - '39'
+  - escalada: Ravenloft
+    ids:
+    - '40'
+  - escalada: Muro das Lamentações
+    ids:
+    - '41'
+  - escalada: Equilíbrio Distante
+    ids:
+    - '42'
+  - escalada: Careta do Calango
+    ids:
+    - '43'
+  - escalada: Pierrô e Colombina
+    ids:
+    - '44'
+  - escalada: Escalador sem mãe
+    ids:
+    - '45'
+  - escalada: Projeto inacabado
+    ids:
+    - '46'
+  - escalada: Sobrevibrenf´s
+    ids:
+    - '47'
+  - escalada: Sobreviventes
+    ids:
+    - '48'
+  - escalada: Scarface
+    ids:
+    - '49'
+  - escalada: Posições Exóticas
+    ids:
+    - '50'
+  - escalada: Garotos não Choram
+    ids:
+    - '51'
 escaladas:
 - via_esportiva:
     nome: Fogo no Rabo
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Bobeou Sobrou
-    id_no_mapa: '28'
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Los Cubanos
-    id_no_mapa: '29'
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_movel:
     nome: Folião
-    id_no_mapa: '30'
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_movel:
     nome: Luzes
-    id_no_mapa: '31'
     dificuldade: BR_4
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_esportiva:
     nome: Via sem informação
-    id_no_mapa: '32'
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
 - via_movel:
     nome: Êta Sô
-    id_no_mapa: '33'
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_esportiva:
     nome: Via do Tetinho
-    id_no_mapa: '34'
     dificuldade: BR_5SUP
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
 - via_esportiva:
     nome: Ataque das Bolinhas
-    id_no_mapa: '35'
     dificuldade: BR_4
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Via do curso
-    id_no_mapa: '36'
     dificuldade: BR_3
 - via_esportiva:
     nome: Viajandão Gramando na Chuva
-    id_no_mapa: '37'
     dificuldade: BR_3
     conquistadores:
     - Eustáquio M. Melo Júnior e alunos
 - via_esportiva:
     nome: Martelo Voador
-    id_no_mapa: '38'
     dificuldade: BR_4
     conquistadores:
     - Ramaya Vallias
     - Sérgio Soares
 - via_esportiva:
     nome: Coquetel de Maracujá
-    id_no_mapa: '39'
     dificuldade: BR_4
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Ravenloft
-    id_no_mapa: '40'
     dificuldade: BR_6
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
 - via_esportiva:
     nome: Muro das Lamentações
-    id_no_mapa: '41'
     dificuldade: BR_7B
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Equilíbrio Distante
-    id_no_mapa: '42'
     dificuldade: BR_8A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
 - via_esportiva:
     nome: Careta do Calango
-    id_no_mapa: '43'
     dificuldade: BR_9A
     conquistadores:
     - Cristiano Loureiro "Negão"
 - via_movel:
     nome: Pierrô e Colombina
-    id_no_mapa: '44'
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
 - via_esportiva:
     nome: Escalador sem mãe
-    id_no_mapa: '45'
     dificuldade: BR_8A
     conquistadores:
     - Jovinei M. Medeiros
@@ -322,16 +379,13 @@ escaladas:
     - Sérgio B. da Silva.
 - via_esportiva:
     nome: Projeto inacabado
-    id_no_mapa: '46'
 - via_esportiva:
     nome: Sobrevibrenf´s
-    id_no_mapa: '47'
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
 - via_esportiva:
     nome: Sobreviventes
-    id_no_mapa: '48'
     dificuldade: BR_6
     conquistadores:
     - Anderson (Neném)
@@ -339,25 +393,22 @@ escaladas:
     - Bombom
 - via_esportiva:
     nome: Scarface
-    id_no_mapa: '49'
     dificuldade: BR_7A
     conquistadores:
     - Gustavo Piancastelli
     - Ronie
 - via_esportiva:
     nome: Posições Exóticas
-    id_no_mapa: '50'
     dificuldade: BR_7B
     conquistadores:
     - Ivo Ferreira Marcelino
 - via_esportiva:
     nome: Garotos não Choram
-    id_no_mapa: '51'
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Emerson Alves Azeredo
----
+---
 # Setor Gruta - Mapa 4 (Sala de Aula)
 
 Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.

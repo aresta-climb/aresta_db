@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
@@ -35,22 +35,31 @@ mapas:
       x: 1128
       y: 255
       raio: 13
+  referencias:
+  - escalada: Billy The Kid
+    ids:
+    - 1A
+  - escalada: Durango Kid
+    ids:
+    - 1B
+  - escalada: Pedra
+    ids:
+    - 1C
+  - escalada: Semiárido
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Billy The Kid
-    id_no_mapa: 1A
     dificuldade: V1
 - boulder:
     nome: Durango Kid
-    id_no_mapa: 1B
     dificuldade: V3
 - boulder:
     nome: Pedra
-    id_no_mapa: 1C
     dificuldade: V7
 - boulder:
     nome: Semiárido
-    id_no_mapa: '2'
     dificuldade: V5
----
+---
 

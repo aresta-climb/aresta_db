@@ -1,4 +1,4 @@
----
+---
 nome: Setor Quintal
 mapas:
 - caminho_imagem_mapa: imagens/setor_quintal_p0_i0.webp
@@ -71,10 +71,43 @@ mapas:
       x: 1546
       y: 756
       raio: 22
+  referencias:
+  - escalada: Sonho de Infância
+    ids:
+    - '01'
+  - escalada: Presente Grego
+    ids:
+    - '02'
+  - escalada: Tatu do Céu
+    ids:
+    - '03'
+  - escalada: Base de apoio
+    ids:
+    - '04'
+  - escalada: De Pai pra Filho
+    ids:
+    - '05'
+  - escalada: Pior dia da minha vida
+    ids:
+    - '06'
+  - escalada: Cortina de Fumaça
+    ids:
+    - '07'
+  - escalada: Faxineiro Fiel
+    ids:
+    - '08'
+  - escalada: Arrependimento
+    ids:
+    - '09'
+  - escalada: Aperta Bola
+    ids:
+    - '10'
+  - escalada: Surpresa
+    ids:
+    - '11'
 escaladas:
 - via_esportiva:
     nome: Sonho de Infância
-    id_no_mapa: '01'
     conquistadores:
     - Arthur
     - Matheus
@@ -85,7 +118,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Presente Grego
-    id_no_mapa: '02'
     conquistadores:
     - Arthur
     - Matheus
@@ -96,7 +128,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tatu do Céu
-    id_no_mapa: '03'
     conquistadores:
     - Arthur
     - Fernanda
@@ -106,7 +137,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Base de apoio
-    id_no_mapa: '04'
     conquistadores:
     - Matheus
     - Arthur
@@ -114,7 +144,6 @@ escaladas:
     dificuldade: PROJETO
 - via_esportiva:
     nome: De Pai pra Filho
-    id_no_mapa: '05'
     conquistadores:
     - Matheus
     - Vinicius
@@ -123,7 +152,6 @@ escaladas:
     dificuldade: BR_7B
 - via_esportiva:
     nome: Pior dia da minha vida
-    id_no_mapa: '06'
     conquistadores:
     - Arthur
     - Homero
@@ -136,7 +164,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cortina de Fumaça
-    id_no_mapa: '07'
     conquistadores:
     - Arthur
     - Homero
@@ -148,7 +175,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Faxineiro Fiel
-    id_no_mapa: '08'
     conquistadores:
     - Arthur
     - Zequiel
@@ -158,7 +184,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Arrependimento
-    id_no_mapa: '09'
     conquistadores:
     - Matheus
     - Zequiel
@@ -168,7 +193,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Aperta Bola
-    id_no_mapa: '10'
     conquistadores:
     - Matheus
     - Zequiel
@@ -178,7 +202,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Surpresa
-    id_no_mapa: '11'
     conquistadores:
     - Matheus
     - Zequiel
@@ -186,7 +209,7 @@ escaladas:
     dificuldade: BR_5SUP_BARRA_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
 
 # Setor Quintal
 

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gameleira
 mapas:
 - caminho_imagem_mapa: imagens/setor_gameleira_p0_i0.webp
@@ -47,28 +47,37 @@ mapas:
       y: 566
       comprimento: 265
       largura: 24
+  referencias:
+  - escalada: Sou Fria
+    ids:
+    - '1'
+  - escalada: Revivência
+    ids:
+    - '2'
+  - escalada: Mordida de Égua
+    ids:
+    - '3'
+  - escalada: Girassol
+    ids:
+    - '4'
 escaladas:
 - via_esportiva:
     nome: Sou Fria
-    id_no_mapa: '1'
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Revivência
-    id_no_mapa: '2'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Mordida de Égua
-    id_no_mapa: '3'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
 - via_esportiva:
     nome: Girassol
-    id_no_mapa: '4'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
----
+---
 # Setor Gameleira
 
 Conta com poucas vias e mesmo assim abriga um dos maiores desafios do pico

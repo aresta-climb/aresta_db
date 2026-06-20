@@ -48,5 +48,5 @@ botoes:
   destino:
     secao_textual:
       caminho: mapas_gerais.md
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true

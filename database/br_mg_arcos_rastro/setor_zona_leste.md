@@ -1,4 +1,4 @@
----
+---
 nome: Setor Zona Leste
 mapas:
 - caminho_imagem_mapa: imagens/setor_zona_leste_p0_i0.webp
@@ -61,17 +61,34 @@ mapas:
       y: 942
       comprimento: 24
       largura: 21
+  referencias:
+  - escalada: Machado de Xangô
+    ids:
+    - '01'
+  - escalada: Babylon Burn
+    ids:
+    - '02'
+  - escalada: Eterno Aprendiz
+    ids:
+    - '03'
+  - escalada: Último Pacto
+    ids:
+    - '04'
+  - escalada: Resistência Cultural
+    ids:
+    - '05'
+  - escalada: Respeito é pra quem tem
+    ids:
+    - '06'
 escaladas:
 - via_esportiva:
     nome: Machado de Xangô
-    id_no_mapa: '01'
     data_abertura: '2020'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Babylon Burn
-    id_no_mapa: '02'
     destaque: true
     data_abertura: '2020'
     dificuldade: BR_7C
@@ -79,7 +96,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Eterno Aprendiz
-    id_no_mapa: '03'
     destaque: true
     data_abertura: '2020'
     dificuldade: BR_6
@@ -87,7 +103,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Último Pacto
-    id_no_mapa: '04'
     destaque: true
     data_abertura: '2020'
     dificuldade: BR_7C
@@ -95,7 +110,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Resistência Cultural
-    id_no_mapa: '05'
     data_abertura: '2020'
     destaque: true
     dificuldade: BR_7C
@@ -103,13 +117,12 @@ escaladas:
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Respeito é pra quem tem
-    id_no_mapa: '06'
     data_abertura: '2020'
     destaque: true
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
----
+---
 # Setor Zona Leste
 
 Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).

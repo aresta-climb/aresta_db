@@ -1,4 +1,4 @@
----
+---
 nome: Setor Igarameca
 mapas:
 - caminho_imagem_mapa: imagens/setor_igarameca_p0.webp
@@ -152,6 +152,70 @@ mapas:
       y: 1171
       comprimento: 22
       largura: 22
+  referencias:
+  - escalada: Beatrix
+    ids:
+    - '01'
+  - escalada: Na Boca da Gruta Tem Dente
+    ids:
+    - '02'
+  - escalada: Sunday Bloody Sunday
+    ids:
+    - '03'
+  - escalada: People Let's Stop The War
+    ids:
+    - '04'
+  - escalada: Apolo 13
+    ids:
+    - '05'
+  - escalada: Liga Extraordinária
+    ids:
+    - '06'
+  - escalada: Poneis Malditos
+    ids:
+    - '07'
+  - escalada: I Like This
+    ids:
+    - '8'
+  - escalada: Igarameca
+    ids:
+    - '9'
+  - escalada: U.F.O
+    ids:
+    - '10'
+  - escalada: 127 Horas
+    ids:
+    - '11'
+  - escalada: Lero Lero é Mato
+    ids:
+    - '12'
+  - escalada: Renegados de Igarapé
+    ids:
+    - '13'
+  - escalada: Coisa Linda
+    ids:
+    - '14'
+  - escalada: Doce Veneno
+    ids:
+    - '15'
+  - escalada: Alguém Tem Que Ceder
+    ids:
+    - '16'
+  - escalada: Napa
+    ids:
+    - '17'
+  - escalada: Alpes Suínos*
+    ids:
+    - '18'
+  - escalada: Viagem ao Centro da Terra
+    ids:
+    - '19'
+  - escalada: Rolitos
+    ids:
+    - '20'
+  - escalada: Balança Mas Não Cai
+    ids:
+    - '21'
 - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
   largura_mapa: 2048
   altura_mapa: 1232
@@ -331,7 +395,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Beatrix
-    id_no_mapa: '01'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -342,7 +405,6 @@ escaladas:
     data_abertura: '2023'
 - via_esportiva:
     nome: Na Boca da Gruta Tem Dente
-    id_no_mapa: '02'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -354,7 +416,6 @@ escaladas:
     data_abertura: '2004'
 - via_esportiva:
     nome: Sunday Bloody Sunday
-    id_no_mapa: '03'
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -366,7 +427,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: People Let's Stop The War
-    id_no_mapa: '04'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -378,7 +438,6 @@ escaladas:
     data_abertura: '2006'
 - via_esportiva:
     nome: Apolo 13
-    id_no_mapa: '05'
     dificuldade: BR_10B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -391,7 +450,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Liga Extraordinária
-    id_no_mapa: '06'
     dificuldade: BR_9C
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -403,7 +461,6 @@ escaladas:
     data_abertura: '2012'
 - via_esportiva:
     nome: Poneis Malditos
-    id_no_mapa: '07'
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -415,7 +472,6 @@ escaladas:
     data_abertura: '2011'
 - via_esportiva:
     nome: I Like This
-    id_no_mapa: 08
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 13
     quantidade_protecoes_parada: 2
@@ -428,7 +484,6 @@ escaladas:
     descricao: Variante da Boneis Malditos.
 - via_multiplas_enfiadas:
     nome: Igarameca
-    id_no_mapa: 09
     dificuldade_media: BR_7B
     dificuldade_maxima: BR_9A
     numero_enfiadas: 2
@@ -451,7 +506,6 @@ escaladas:
         quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: U.F.O
-    id_no_mapa: '10'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -464,7 +518,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: 127 Horas
-    id_no_mapa: '11'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -476,7 +529,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Lero Lero é Mato
-    id_no_mapa: '12'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -488,7 +540,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Renegados de Igarapé
-    id_no_mapa: '13'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -501,7 +552,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Coisa Linda
-    id_no_mapa: '14'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -512,7 +562,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Doce Veneno
-    id_no_mapa: '15'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -524,7 +573,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Alguém Tem Que Ceder
-    id_no_mapa: '16'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -536,7 +584,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Napa
-    id_no_mapa: '17'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -547,7 +594,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Alpes Suínos*
-    id_no_mapa: '18'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 16
     quantidade_protecoes_parada: 2
@@ -558,7 +604,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Viagem ao Centro da Terra
-    id_no_mapa: '19'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
@@ -569,7 +614,6 @@ escaladas:
     data_abertura: '2022'
 - via_esportiva:
     nome: Rolitos
-    id_no_mapa: '20'
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 1
     quantidade_protecoes_parada: 0
@@ -578,7 +622,6 @@ escaladas:
     descricao: Via inacabada.
 - via_esportiva:
     nome: Balança Mas Não Cai
-    id_no_mapa: '21'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -587,7 +630,7 @@ escaladas:
     - Bunitinho
     - Marcão
     data_abertura: '2022'
----
+---
 # Setor Igarameca
 
 Sombra após 12h (varia de acordo com a estação).

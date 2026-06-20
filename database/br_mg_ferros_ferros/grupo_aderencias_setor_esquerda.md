@@ -1,13 +1,70 @@
----
+---
 nome: Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
+  referencias:
+  - escalada: Cordada 171
+    ids:
+    - '1'
+  - escalada: Inês é Morta
+    ids:
+    - '2'
+  - escalada: Sempre Viva
+    ids:
+    - '3'
+  - escalada: Zé Marta
+    ids:
+    - '5'
+  - escalada: Bolinha
+    ids:
+    - '6'
+  - escalada: Testa de Ferro
+    ids:
+    - '7'
+  - escalada: Ferro na Boneca
+    ids:
+    - '8'
+  - escalada: Maria Diz Graça
+    ids:
+    - '9'
+  - escalada: Zé Mangueira
+    ids:
+    - '10'
+  - escalada: Sherlock Holmes
+    ids:
+    - '11'
+  - escalada: Professor Moriarty
+    ids:
+    - '12'
+  - escalada: Que Qui Ocê Foi Fazê Nu Mato?
+    ids:
+    - '13'
+  - escalada: O Psicopata de Ferros
+    ids:
+    - '14'
+  - escalada: Frio na Barriga
+    ids:
+    - '16'
+  - escalada: Pescoço de Minhoca
+    ids:
+    - '17'
+  - escalada: Grampos de Ferros
+    ids:
+    - '18'
+  - escalada: Prateado
+    ids:
+    - '19'
+  - escalada: Fissurim
+    ids:
+    - '4'
+  - escalada: Vr. Caçadora de Micuim
+    ids:
+    - '15'
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p2_i0.webp
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p3_i0.webp
 escaladas:
 - via_multiplas_enfiadas:
     nome: Cordada 171
-    id_no_mapa: '1'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4SUP
     exposicao: E1
@@ -17,15 +74,9 @@ escaladas:
     - Celso Ferreira Gomes
     - Glesse Gripp
     data_abertura: '2015-02-17'
-    descricao: Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro
-      que pode ter sua proteção melhorada com friends médios e pequenos (opcionais).
-      Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro
-      grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido
-      na altura do quinto grampo. O nome da via está relacionado com a soma das idades
-      dos autores!
+    descricao: Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro que pode ter sua proteção melhorada com friends médios e pequenos (opcionais). Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido na altura do quinto grampo. O nome da via está relacionado com a soma das idades dos autores!
 - via_multiplas_enfiadas:
     nome: Inês é Morta
-    id_no_mapa: '2'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4
     comprimento_total: 100
@@ -34,12 +85,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2011-10-29'
-    descricao: 'Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé
-      Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo
-      após o lance inicial protegido por um grampo. ESTILO: MISTA'
+    descricao: 'Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo após o lance inicial protegido por um grampo. ESTILO: MISTA'
 - via_esportiva:
     nome: Sempre Viva
-    id_no_mapa: '3'
     dificuldade: BR_3
     extensao: 35
     conquistadores:
@@ -50,20 +98,15 @@ escaladas:
     descricao: Via curta que se junta com a “Inês é Morta” em sua metade inferior.
 - via_movel:
     nome: Fissurim
-    id_no_mapa: '4'
     dificuldade: BR_5
     extensao: 20
     conquistadores:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2009-06-13'
-    descricao: 'Via mista, iniciando com um lance de agarras (crux) protegido por
-      grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo
-      e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda
-      única pela via “Zé Marta”. ESTILO: MOVEL'
+    descricao: 'Via mista, iniciando com um lance de agarras (crux) protegido por grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda única pela via “Zé Marta”. ESTILO: MOVEL'
 - via_multiplas_enfiadas:
     nome: Zé Marta
-    id_no_mapa: '5'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4
     comprimento_total: 90
@@ -71,12 +114,9 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2009-05-30'
-    descricao: Via interessante que se inicia em um veio de cristal. Possui uma extensão
-      surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos.
-      Homenageia o sogro do Tonico Magalhães que foi o supervisor da fazenda.
+    descricao: Via interessante que se inicia em um veio de cristal. Possui uma extensão surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos. Homenageia o sogro do Tonico Magalhães que foi o supervisor da fazenda.
 - via_esportiva:
     nome: Bolinha
-    id_no_mapa: '6'
     dificuldade: BR_6
     extensao: 30
     conquistadores:
@@ -87,42 +127,33 @@ escaladas:
     descricao: Inicia em um lance atlético (crux) e continua em aderência até o final.
 - via_esportiva:
     nome: Testa de Ferro
-    id_no_mapa: '7'
     dificuldade: BR_4
     extensao: 25
     conquistadores:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2007-04-07'
-    descricao: Toda equipada com grampos, termina numa parada dupla da via Maria Diz
-      Graça.
+    descricao: Toda equipada com grampos, termina numa parada dupla da via Maria Diz Graça.
 - via_esportiva:
     nome: Ferro na Boneca
-    id_no_mapa: '8'
     dificuldade: BR_7A
     extensao: 20
     conquistadores:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2008-10-05'
-    descricao: Via esportiva em aderência complexa, apesar de curta, com proteções
-      generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz
-      Graça.
+    descricao: Via esportiva em aderência complexa, apesar de curta, com proteções generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz Graça.
 - via_esportiva:
     nome: Maria Diz Graça
-    id_no_mapa: '9'
     dificuldade: BR_5
     extensao: 45
     conquistadores:
     - Tonico Magalhães
     - Gustavo “Xaxá” Carrozzino
     data_abertura: '2006-07-15'
-    descricao: Uma das vias mais antigas do polo. Possui belíssimos lances de aderência
-      e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha
-      da fazenda, filha do famoso Juca Realino.
+    descricao: Uma das vias mais antigas do polo. Possui belíssimos lances de aderência e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
 - via_esportiva:
     nome: Zé Mangueira
-    id_no_mapa: '10'
     dificuldade: BR_5SUP
     extensao: 60
     conquistadores:
@@ -130,12 +161,9 @@ escaladas:
     - Gustavo “Xaxá” Carrozzino
     - Júlio César Cardoso
     data_abertura: '2008-10-07'
-    descricao: O crux é o terceiro e exigente lance de aderência. Com boa proteção
-      fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada
-      do Vale do Roncador.
+    descricao: O crux é o terceiro e exigente lance de aderência. Com boa proteção fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada do Vale do Roncador.
 - via_esportiva:
     nome: Sherlock Holmes
-    id_no_mapa: '11'
     dificuldade: BR_5SUP
     extensao: 20
     conquistadores:
@@ -145,7 +173,6 @@ escaladas:
     descricao: Pequena via, porém complexa, com boas passadas em aderência e boa grampeação.
 - via_esportiva:
     nome: Professor Moriarty
-    id_no_mapa: '12'
     dificuldade: BR_3SUP
     exposicao: E1
     extensao: 30
@@ -153,11 +180,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-04-07'
-    descricao: Via curta with bons lances de agarras e aderência, contando com 6 grampos.
-      Ideal para top-rope.
+    descricao: Via curta with bons lances de agarras e aderência, contando com 6 grampos. Ideal para top-rope.
 - via_multiplas_enfiadas:
     nome: Que Qui Ocê Foi Fazê Nu Mato?
-    id_no_mapa: '13'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_5
     exposicao: E2
@@ -166,13 +191,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-20'
-    descricao: Interessante via que segue, quase em sua totalidade, a visível faixa
-      branca que corta toda a extensão vertical da parede neste setor. O crux fica
-      nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde
-      inclinação e passa por lances bastante divertidos, em aderência e cristaleiras.
+    descricao: Interessante via que segue, quase em sua totalidade, a visível faixa branca que corta toda a extensão vertical da parede neste setor. O crux fica nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde inclinação e passa por lances bastante divertidos, em aderência e cristaleiras.
 - via_multiplas_enfiadas:
     nome: O Psicopata de Ferros
-    id_no_mapa: '14'
     dificuldade_media: BR_4
     dificuldade_maxima: BR_6
     exposicao: E2
@@ -182,15 +203,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-20'
-    descricao: 'Boa via que possui seu crux logo nos primeiros 15 metros, em aderência
-      e pequenos cristais. É necessário fazer proteção móvel com friend médio, em
-      um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal
-      para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na
-      Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m.
-      ESTILO: MISTA'
+    descricao: 'Boa via que possui seu crux logo nos primeiros 15 metros, em aderência e pequenos cristais. É necessário fazer proteção móvel com friend médio, em um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m. ESTILO: MISTA'
 - via_movel:
     nome: Vr. Caçadora de Micuim
-    id_no_mapa: '15'
     dificuldade: BR_3
     exposicao: E1
     extensao: 35
@@ -198,13 +213,9 @@ escaladas:
     - Claudney Neves
     - Carla Paiva
     data_abertura: '2014-10-01'
-    descricao: 'Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo
-      um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros.
-      Boa via para quem está começando a guiar em móvel, pois além de relativamente
-      curta, possui graduação baixa e com boas opções de proteção. ESTILO: MOVEL'
+    descricao: 'Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros. Boa via para quem está começando a guiar em móvel, pois além de relativamente curta, possui graduação baixa e com boas opções de proteção. ESTILO: MOVEL'
 - via_multiplas_enfiadas:
     nome: Frio na Barriga
-    id_no_mapa: '16'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_3SUP
     comprimento_total: 100
@@ -214,12 +225,9 @@ escaladas:
     - Celso Ferreira Gomes
     - Vicente Alvarenga
     data_abertura: '2009-04-21'
-    descricao: Via que segue uma linha natural, sempre com boa proteção e paradas
-      duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros,
-      sendo posteriormente complementada.
+    descricao: Via que segue uma linha natural, sempre com boa proteção e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros, sendo posteriormente complementada.
 - via_multiplas_enfiadas:
     nome: Pescoço de Minhoca
-    id_no_mapa: '17'
     dificuldade_media: BR_4
     dificuldade_maxima: BR_4
     comprimento_total: 140
@@ -227,11 +235,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2011-07-20'
-    descricao: Via relativamente longa e constante, que conta com 25 grampos de ½.
-      Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m.
+    descricao: Via relativamente longa e constante, que conta com 25 grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m.
 - via_multiplas_enfiadas:
     nome: Grampos de Ferros
-    id_no_mapa: '18'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4SUP
     comprimento_total: 110
@@ -240,12 +246,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-09-10'
-    descricao: 'Via altamente recomendada para quem gosta de aderência em graduação
-      não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas.
-      Possui um diedro inicial (crux) em móvel. ESTILO: MISTA'
+    descricao: 'Via altamente recomendada para quem gosta de aderência em graduação não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel. ESTILO: MISTA'
 - via_multiplas_enfiadas:
     nome: Prateado
-    id_no_mapa: '19'
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4
     comprimento_total: 130
@@ -254,9 +257,9 @@ escaladas:
     - Tonico Magalhães
     - Glesse Gripp
     data_abertura: '2011-09-18'
-    descricao: Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia
-      o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda.
----
+    descricao: Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda.
+---
+
 
 ![Pedro Bugim na conquista da “O Psicopata de Ferros”](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp)
 

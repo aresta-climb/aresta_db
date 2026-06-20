@@ -31,6 +31,6 @@ botoes:
   destino:
     secao_textual:
       caminho: responsabilidade_e_orientacoes.md
-ultima_migracao: 1
+ultima_migracao: 2
 publicar_croqui: true
 revisado_bounding_circle: true

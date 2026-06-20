@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Baixo
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_baixo_p1.webp
@@ -68,45 +68,64 @@ mapas:
       y: 573
       comprimento: 17
       largura: 20
+  referencias:
+  - escalada: Extremo Norte
+    ids:
+    - '1'
+  - escalada: Rapa do Tacho
+    ids:
+    - '2'
+  - escalada: Lindona 'Tindoida'
+    ids:
+    - '3'
+  - escalada: Pandora
+    ids:
+    - '4'
+  - escalada: A Espera de um Milagre
+    ids:
+    - '5'
+  - escalada: Insanidade Mental
+    ids:
+    - '6'
+  - escalada: Sem Bússola
+    ids:
+    - '7'
+  - escalada: Casal 20
+    ids:
+    - '8'
+  - escalada: Maldita Obsessão
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: Extremo Norte
-    id_no_mapa: '1'
     dificuldade: BR_5
 - via_esportiva:
     nome: Rapa do Tacho
-    id_no_mapa: '2'
     dificuldade: BR_6
 - via_esportiva:
     nome: Lindona 'Tindoida'
-    id_no_mapa: '3'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Pandora
-    id_no_mapa: '4'
     dificuldade: BR_8A
 - via_esportiva:
     nome: A Espera de um Milagre
-    id_no_mapa: '5'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Insanidade Mental
-    id_no_mapa: '6'
     dificuldade: BR_9A
     dificuldade_artificial: A0
 - via_esportiva:
     nome: Sem Bússola
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Casal 20
-    id_no_mapa: '8'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Maldita Obsessão
-    id_no_mapa: '9'
     dificuldade: BR_7B
----
+---
 # Setor de Baixo
 
 O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Panelinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_panelinha_p0_i0.webp
@@ -41,28 +41,37 @@ mapas:
       comprimento: 43
       largura: 250
       angulo_graus_x100: 666
+  referencias:
+  - escalada: Caipora
+    ids:
+    - '1'
+  - escalada: Tap-Flap
+    ids:
+    - '2'
+  - escalada: Rá-Tim-Bum
+    ids:
+    - '3'
+  - escalada: Corda de Violão
+    ids:
+    - '4'
 escaladas:
 - via_esportiva:
     nome: Caipora
-    id_no_mapa: '1'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
 - via_movel:
     nome: Tap-Flap
-    id_no_mapa: '2'
     dificuldade: BR_4
     descricao: Via em móvel.
 - via_esportiva:
     nome: Rá-Tim-Bum
-    id_no_mapa: '3'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
 - via_esportiva:
     nome: Corda de Violão
-    id_no_mapa: '4'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
----
+---
 # Setor Panelinha
 
 O "Panelinha" é composto por paredes escuras em formas circulares que lembram

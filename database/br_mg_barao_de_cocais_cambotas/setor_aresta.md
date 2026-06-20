@@ -1,42 +1,63 @@
----
+---
 nome: Aresta
 mapas:
 - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
+  referencias:
+  - escalada: Macadame
+    ids:
+    - '3'
+  - escalada: Limite da ousadia
+    ids:
+    - '4'
+  - escalada: Diedro urso branco (var.)
+    ids:
+    - 4'
+  - escalada: Só para loucos
+    ids:
+    - '5'
+  - escalada: Canino quebrado
+    ids:
+    - '6'
+  - escalada: Vinicius?
+    ids:
+    - '7'
+  - escalada: Aresta eletrizante
+    ids:
+    - '8'
+  - escalada: Aresta que me resta
+    ids:
+    - '9'
+  - escalada: Aresta que me eletriza (var.)
+    ids:
+    - 9'
 escaladas:
 - via_esportiva:
     nome: Macadame
-    id_no_mapa: '3'
     dificuldade: BR_8B
     extensao: 30
     conquistadores:
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Bela via em agarras, bastante negativa. Tem um interessante bote no
-      inicio que pode ser previamente protegido pela chaminé. Equipada com chapeletas.
+    descricao: Bela via em agarras, bastante negativa. Tem um interessante bote no inicio que pode ser previamente protegido pela chaminé. Equipada com chapeletas.
 - via_movel:
     nome: Limite da ousadia
-    id_no_mapa: '4'
     dificuldade: BR_9A
     extensao: 30
     conquistadores:
     - Gustavo Piancastelli
     - Gustavo Vianna
-    descricao: Interessante via em fenda. O crux é protegido com P's. Peças variadas
-      médias e grandes.
+    descricao: Interessante via em fenda. O crux é protegido com P's. Peças variadas médias e grandes.
 - via_movel:
     nome: Diedro urso branco (var.)
-    id_no_mapa: 4'
     dificuldade: INDEFINIDO
     extensao: 13
     conquistadores:
     - Gustavo Piancastelli
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends
-      pequenos e médios. Nuts grandes.
+    descricao: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends pequenos e médios. Nuts grandes.
 - via_multiplas_enfiadas:
     nome: Só para loucos
-    id_no_mapa: '5'
     dificuldade_maxima: BR_8B
     numero_enfiadas: 2
     tipo_via_multiplas_enfiadas: TODA_FIXA
@@ -44,32 +65,26 @@ escaladas:
     - Breno Araújo
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas
-      paradas possuem mosquetões de aço pra desequipagem. Usar costuras longas.
+    descricao: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas paradas possuem mosquetões de aço pra desequipagem. Usar costuras longas.
     comprimento_total: 55
 - via_esportiva:
     nome: Canino quebrado
-    id_no_mapa: '6'
     dificuldade: BR_7B
     extensao: 25
     conquistadores:
     - Juan Kempen
     - Vinicius
-    descricao: Bonita via com um teto no meio. A parte superior, após o teto molha
-      em determinadas épocas do ano.
+    descricao: Bonita via com um teto no meio. A parte superior, após o teto molha em determinadas épocas do ano.
 - via_esportiva:
     nome: Vinicius?
-    id_no_mapa: '7'
     dificuldade: BR_6SUP
     extensao: 20
     conquistadores:
     - Juan Kempen
     - Vinicius
-    descricao: Bela via, muito estética. Compartilha a primeira proteção com a 'canino
-      quebrado'. Segue em diagonal pra esquerda. Top na proteção do teto.
+    descricao: Bela via, muito estética. Compartilha a primeira proteção com a 'canino quebrado'. Segue em diagonal pra esquerda. Top na proteção do teto.
 - via_multiplas_enfiadas:
     nome: Aresta eletrizante
-    id_no_mapa: '8'
     dificuldade_maxima: BR_7C
     exposicao: E3
     tipo_via_multiplas_enfiadas: MISTA
@@ -80,15 +95,10 @@ escaladas:
     - Pablo Almeida
     - André Braga
     - Rodrigo (PR)
-    descricao: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do
-      estado. Exigente no inicio e exposta no final. Segue a aresta principal da parede
-      num visual incrível. Exige boa leitura especialmente próximo ao cume. Indispensável
-      um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais
-      P's de 1/2 pol. Excentric grande, um jogo de friends e nuts na primeira enfiada.
+    descricao: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do estado. Exigente no inicio e exposta no final. Segue a aresta principal da parede num visual incrível. Exige boa leitura especialmente próximo ao cume. Indispensável um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais P's de 1/2 pol. Excentric grande, um jogo de friends e nuts na primeira enfiada.
     comprimento_total: 200
 - via_esportiva:
     nome: Aresta que me resta
-    id_no_mapa: '9'
     dificuldade: BR_7B
     extensao: 40
     conquistadores:
@@ -96,7 +106,6 @@ escaladas:
     descricao: Boa via, bastante técnica em micro agarras.
 - via_movel:
     nome: Aresta que me eletriza (var.)
-    id_no_mapa: 9'
     dificuldade: BR_7C
     dificuldade_artificial: A1_MAIS
     extensao: 10
@@ -104,7 +113,7 @@ escaladas:
     - Gustavo Vianna
     - Gustavo Piancastelli
     descricao: Fenda em diagonal que une as duas vias anteriores. Peças médias.
----
+---
 # Setor Aresta
 
 O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.

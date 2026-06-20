@@ -1,4 +1,4 @@
----
+---
 nome: Bloco do Kbeca
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_bloco_do_kbeca_p0_i0.webp
@@ -33,17 +33,22 @@ mapas:
       y: 236
       comprimento: 25
       largura: 25
+  referencias:
+  - escalada: Boulder do Kbeca
+    ids:
+    - '1'
+    - 1_fim
+  - escalada: Projeto
+    ids:
+    - '2'
+    - 2_fim
 escaladas:
 - boulder:
     nome: Boulder do Kbeca
-    id_no_mapa: '1'
-    id_no_mapa_fim: 1_fim
     dificuldade: V7
 - boulder:
     nome: Projeto
-    id_no_mapa: '2'
-    id_no_mapa_fim: 2_fim
     dificuldade: INDEFINIDO
----
+---
 # Bloco: Bloco do Kbeca
 ## Região 1

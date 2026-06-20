@@ -1,4 +1,4 @@
----
+---
 nome: Setor Toca dos Gatos
 mapas:
 - caminho_imagem_mapa: imagens/setor_toca_dos_gatos_p0_i0.webp
@@ -89,23 +89,45 @@ mapas:
       y: 436
       comprimento: 22
       largura: 17
+  referencias:
+  - escalada: Eakthecat
+    ids:
+    - '01'
+  - escalada: Burocracia Gelatinosa
+    ids:
+    - '02'
+  - escalada: Planta Mãe
+    ids:
+    - '03'
+  - escalada: Funcionário Público
+    ids:
+    - '04'
+  - escalada: Repartição Pública
+    ids:
+    - '05'
+  - escalada: Kevelin, Amigo do Steven
+    ids:
+    - '06'
+  - escalada: Fila de Espera
+    ids:
+    - '07'
+  - escalada: Nem C/ Chuva a Gente Para
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Eakthecat
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Burocracia Gelatinosa
-    id_no_mapa: '02'
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: 2019-11
 - via_esportiva:
     nome: Planta Mãe
-    id_no_mapa: '03'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 7
@@ -113,7 +135,6 @@ escaladas:
     data_abertura: 2019-11
 - via_esportiva:
     nome: Funcionário Público
-    id_no_mapa: '04'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 7
@@ -121,7 +142,6 @@ escaladas:
     data_abertura: 2019-11
 - via_esportiva:
     nome: Repartição Pública
-    id_no_mapa: '05'
     dificuldade: BR_7B_BARRA_7C
     destaque: true
     quantidade_protecoes_intermediarias: 9
@@ -129,7 +149,6 @@ escaladas:
     data_abertura: 2019-11
 - via_esportiva:
     nome: Kevelin, Amigo do Steven
-    id_no_mapa: '06'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 6
@@ -137,18 +156,16 @@ escaladas:
     data_abertura: 2019-11
 - via_esportiva:
     nome: Fila de Espera
-    id_no_mapa: '07'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     data_abertura: 2019-11
 - via_esportiva:
     nome: Nem C/ Chuva a Gente Para
-    id_no_mapa: 08
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
 # Setor Toca dos Gatos
 
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".

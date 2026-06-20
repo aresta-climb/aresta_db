@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_da_onca_p0_i6.webp
@@ -285,10 +285,127 @@ mapas:
       y: 1313
       comprimento: 229
       largura: 46
+  referencias:
+  - escalada: Quebrando o Pau
+    ids:
+    - '01'
+  - escalada: Prima do Rio
+    ids:
+    - '02'
+  - escalada: Psiu, Calate
+    ids:
+    - '03'
+  - escalada: Mis cosas, cuido yo
+    ids:
+    - '04'
+  - escalada: Fugindo da Jiboia
+    ids:
+    - '05'
+  - escalada: Fugindo da Onça
+    ids:
+    - '06'
+  - escalada: No Pescoço do Jacaré
+    ids:
+    - '07'
+  - escalada: Retorno de Borges
+    ids:
+    - '8'
+  - escalada: 3º Pecado Capital
+    ids:
+    - '9'
+  - escalada: Orifícios do Ofício
+    ids:
+    - '10'
+  - escalada: Cercando o Perímetro
+    ids:
+    - '11'
+  - escalada: Trabaiá não qué
+    ids:
+    - '12'
+  - escalada: Na Surdina
+    ids:
+    - '13'
+  - escalada: Gente Boa
+    ids:
+    - '14'
+  - escalada: Aqui Jaz
+    ids:
+    - '15'
+  - escalada: Toca da Jararaca
+    ids:
+    - '16'
+  - escalada: Mais que Infinito
+    ids:
+    - '17'
+  - escalada: Fissurados
+    ids:
+    - '18'
+  - escalada: Olho de Hórus
+    ids:
+    - '19'
+  - escalada: Melhor Idade
+    ids:
+    - '20'
+  - escalada: Torre de Babel
+    ids:
+    - '21'
+  - escalada: Era Venenosa
+    ids:
+    - '22'
+  - escalada: Arcanjo Gabriel
+    ids:
+    - '23'
+  - escalada: La Bella Luna
+    ids:
+    - '24'
+  - escalada: Amigo da Onça
+    ids:
+    - '25'
+  - escalada: Baú da Felicidade
+    ids:
+    - '26'
+  - escalada: Cavalo de Tróia
+    ids:
+    - '27'
+  - escalada: Testosterona
+    ids:
+    - '28'
+  - escalada: Mazelados
+    ids:
+    - '29'
+  - escalada: A Fúria de Dandara
+    ids:
+    - '30'
+  - escalada: Climb Terapia
+    ids:
+    - '31'
+  - escalada: Atitude
+    ids:
+    - '32'
+  - escalada: Zona de Perigo
+    ids:
+    - '33'
+  - escalada: A Montanha dos 7 Abutres
+    ids:
+    - '34'
+  - escalada: Caixa de Pandora
+    ids:
+    - '35'
+  - escalada: Vivendo o Sonho
+    ids:
+    - '36'
+  - escalada: A Torre deu Pane
+    ids:
+    - '37'
+  - escalada: Sessentenário
+    ids:
+    - '38'
+  - escalada: Supimpa
+    ids:
+    - '39'
 escaladas:
 - via_esportiva:
     nome: Quebrando o Pau
-    id_no_mapa: '01'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -297,7 +414,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: Prima do Rio
-    id_no_mapa: '02'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -306,7 +422,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: Psiu, Calate
-    id_no_mapa: '03'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -315,7 +430,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: Mis cosas, cuido yo
-    id_no_mapa: '04'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -324,7 +438,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: Fugindo da Jiboia
-    id_no_mapa: '05'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -333,7 +446,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: Fugindo da Onça
-    id_no_mapa: '06'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -343,7 +455,6 @@ escaladas:
     - Jana
 - via_esportiva:
     nome: No Pescoço do Jacaré
-    id_no_mapa: '07'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -352,7 +463,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Retorno de Borges
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -361,7 +471,6 @@ escaladas:
     - Lu
 - via_esportiva:
     nome: 3º Pecado Capital
-    id_no_mapa: 09
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -370,7 +479,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Orifícios do Ofício
-    id_no_mapa: '10'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
@@ -379,7 +487,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Cercando o Perímetro
-    id_no_mapa: '11'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -388,7 +495,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Trabaiá não qué
-    id_no_mapa: '12'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -397,7 +503,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Na Surdina
-    id_no_mapa: '13'
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -406,7 +511,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Gente Boa
-    id_no_mapa: '14'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -415,7 +519,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Aqui Jaz
-    id_no_mapa: '15'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -424,7 +527,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Toca da Jararaca
-    id_no_mapa: '16'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -433,7 +535,6 @@ escaladas:
     - Otto
 - via_esportiva:
     nome: Mais que Infinito
-    id_no_mapa: '17'
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -443,7 +544,6 @@ escaladas:
     - Joviney Miguel
 - via_esportiva:
     nome: Fissurados
-    id_no_mapa: '18'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -452,7 +552,6 @@ escaladas:
     - Renato Utsch
 - via_esportiva:
     nome: Olho de Hórus
-    id_no_mapa: '19'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 14
     quantidade_protecoes_parada: 2
@@ -461,7 +560,6 @@ escaladas:
     - Iule Ornelas
 - via_esportiva:
     nome: Melhor Idade
-    id_no_mapa: '20'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -471,7 +569,6 @@ escaladas:
     - Wilson Professor
 - via_esportiva:
     nome: Torre de Babel
-    id_no_mapa: '21'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -481,7 +578,6 @@ escaladas:
     - Marcus Rufino
 - via_esportiva:
     nome: Era Venenosa
-    id_no_mapa: '22'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -490,7 +586,6 @@ escaladas:
     - Thaina Leão
 - via_esportiva:
     nome: Arcanjo Gabriel
-    id_no_mapa: '23'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -499,7 +594,6 @@ escaladas:
     - Iule Ornelas
 - via_esportiva:
     nome: La Bella Luna
-    id_no_mapa: '24'
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
@@ -508,7 +602,6 @@ escaladas:
     - Iule Ornelas
 - via_esportiva:
     nome: Amigo da Onça
-    id_no_mapa: '25'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -518,7 +611,6 @@ escaladas:
     - Sidnei Cunha
 - via_esportiva:
     nome: Baú da Felicidade
-    id_no_mapa: '26'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -527,7 +619,6 @@ escaladas:
     - Willian Cruz
 - via_esportiva:
     nome: Cavalo de Tróia
-    id_no_mapa: '27'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -536,7 +627,6 @@ escaladas:
     - Marcus Rufino
 - via_esportiva:
     nome: Testosterona
-    id_no_mapa: '28'
     dificuldade: BR_8A_BARRA_8B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -546,7 +636,6 @@ escaladas:
     - Sidão
 - via_esportiva:
     nome: Mazelados
-    id_no_mapa: '29'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -556,7 +645,6 @@ escaladas:
     - Sidão
 - via_esportiva:
     nome: A Fúria de Dandara
-    id_no_mapa: '30'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -565,7 +653,6 @@ escaladas:
     - Willian Cruz
 - via_esportiva:
     nome: Climb Terapia
-    id_no_mapa: '31'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -575,7 +662,6 @@ escaladas:
     - Sidão
 - via_esportiva:
     nome: Atitude
-    id_no_mapa: '32'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -585,7 +671,6 @@ escaladas:
     - Sidão
 - via_esportiva:
     nome: Zona de Perigo
-    id_no_mapa: '33'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
@@ -594,7 +679,6 @@ escaladas:
     - Willian Cruz
 - via_esportiva:
     nome: A Montanha dos 7 Abutres
-    id_no_mapa: '34'
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
@@ -603,7 +687,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Caixa de Pandora
-    id_no_mapa: '35'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -612,7 +695,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Vivendo o Sonho
-    id_no_mapa: '36'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -621,7 +703,6 @@ escaladas:
     - Renato Utsch
 - via_esportiva:
     nome: A Torre deu Pane
-    id_no_mapa: '37'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
@@ -631,7 +712,6 @@ escaladas:
     - Roberto Lincoln
 - via_esportiva:
     nome: Sessentenário
-    id_no_mapa: '38'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -641,14 +721,13 @@ escaladas:
     - Márcio Vasconcelos
 - via_esportiva:
     nome: Supimpa
-    id_no_mapa: '39'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     conquistadores:
     - Marcelo Novais
     - Átila Cunha
----
+---
 # Setor Vale da Onça
 
 **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.

@@ -1,4 +1,4 @@
----
+---
 nome: Segundo Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p1.webp
@@ -54,6 +54,40 @@ mapas:
       y: 843
       comprimento: 24
       largura: 20
+  referencias:
+  - escalada: Torrecitas
+    ids:
+    - '01'
+  - escalada: Mula Preta
+    ids:
+    - '02'
+  - escalada: Homem de Ferro
+    ids:
+    - '03'
+  - escalada: Paraíba Francês
+    ids:
+    - '04'
+  - escalada: Quaresmeira
+    ids:
+    - '05'
+  - escalada: 007 em... O Ataque das Andorinhas
+    ids:
+    - '06'
+  - escalada: Jogo Limpo
+    ids:
+    - '07'
+  - escalada: James Bond
+    ids:
+    - '8'
+  - escalada: Apolo o Doutrinador
+    ids:
+    - '9'
+  - escalada: Rock Balboa
+    ids:
+    - '10'
+  - escalada: Xodó da Bocaina
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -89,7 +123,6 @@ mapas:
 escaladas:
 - via_esportiva:
     nome: Torrecitas
-    id_no_mapa: '01'
     dificuldade: PROJETO
     extensao: 30
     quantidade_protecoes_intermediarias: 8
@@ -100,7 +133,6 @@ escaladas:
     descricao: Inacabada.
 - via_esportiva:
     nome: Mula Preta
-    id_no_mapa: '02'
     dificuldade: BR_7C
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -111,7 +143,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Homem de Ferro
-    id_no_mapa: '03'
     dificuldade: BR_8A
     extensao: 17
     quantidade_protecoes_intermediarias: 6
@@ -122,7 +153,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Paraíba Francês
-    id_no_mapa: '04'
     dificuldade: BR_6
     extensao: 25
     conquistadores:
@@ -131,7 +161,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: Quaresmeira
-    id_no_mapa: '05'
     dificuldade: BR_7A
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -141,7 +170,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: 007 em... O Ataque das Andorinhas
-    id_no_mapa: '06'
     dificuldade: BR_7B
     extensao: 20
     quantidade_protecoes_intermediarias: 10
@@ -152,7 +180,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Jogo Limpo
-    id_no_mapa: '07'
     dificuldade: PROJETO
     extensao: 20
     quantidade_protecoes_intermediarias: 10
@@ -163,7 +190,6 @@ escaladas:
     data_abertura: '2017'
 - via_esportiva:
     nome: James Bond
-    id_no_mapa: 08
     dificuldade: BR_8A
     extensao: 23
     quantidade_protecoes_intermediarias: 11
@@ -174,7 +200,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Apolo o Doutrinador
-    id_no_mapa: 09
     dificuldade: BR_7B
     extensao: 15
     quantidade_protecoes_intermediarias: 6
@@ -185,7 +210,6 @@ escaladas:
     data_abertura: '2009'
 - via_esportiva:
     nome: Rock Balboa
-    id_no_mapa: '10'
     dificuldade: BR_9B
     extensao: 20
     quantidade_protecoes_intermediarias: 9
@@ -196,7 +220,6 @@ escaladas:
     data_abertura: '2008'
 - via_esportiva:
     nome: Xodó da Bocaina
-    id_no_mapa: '11'
     dificuldade: BR_7A
     extensao: 20
     quantidade_protecoes_intermediarias: 7
@@ -204,7 +227,7 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
----
+---
 # Setor Segundo Andar
 
 ![Setor Segundo Andar](imagens/setor_segundo_andar_p0_i0.webp)

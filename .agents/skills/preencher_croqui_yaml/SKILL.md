@@ -46,7 +46,7 @@ Após gerar o `croqui.yaml`, você deve validar ativamente o projeto inteiro:
      forma autônoma. Leia as mensagens, identifique o problema (pode ser sintaxe
      errada no `croqui.yaml` ou marcação/identação YAML errada dentro de um dos
      arquivos `.md` previamente gerados), use a tool de editar o arquivo
-     problemático corrigindo-o, e execute `deploy_generated.py` novamente.
+     problemático corrigindo-o, e execute `deploy_generated.py` novamente. Por exemplo, erros do tipo `unknown field 'id_no_mapa'` indicam que agentes geraram a estrutura antiga e você deve mover esses ids para o objeto de `mapas` e suas referências.
    - Repita esse processo quantas vezes for necessário, até o script rodar com
      sucesso absoluto (**ZERO erros e ZERO warnings**).
 

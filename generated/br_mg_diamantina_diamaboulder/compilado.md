@@ -41,7 +41,7 @@
             | ![Mapa das Regiões - Setor Cerrado Groove](imagens/mapas_gerais_p1_i0.webp) |
             | :--: |
             | *Mapa das Regiões - Setor Cerrado Groove* |
-- **ultima_migracao**: 1
+- **ultima_migracao**: 2
 
 
 ## Parte: grupo_regiao_1
@@ -82,13 +82,17 @@
                 - **y**: 112
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Diamante de Sangue
+              - **ids**:
+                - 1
+                - 1_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **descricao**: Saída nos pockets mais baixos da face negativa, seguindo por regletes e pockets até finalizar no positivo de abaulados.
             - **nome**: Diamante de Sangue
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V6_BARRA_V7
             - **tipo_parede**: NEGATIVO
   - **[1]**:
@@ -153,6 +157,32 @@
                 - **y**: 277
                 - **comprimento**: 28
                 - **largura**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Menos Porco Mais Aranha
+              - **ids**:
+                - 01
+                - 01_fim
+            - **[1]**:
+              - **escalada**: Javaporco
+              - **ids**:
+                - 02
+                - 02_fim
+            - **[2]**:
+              - **escalada**: Chiqueirinho
+              - **ids**:
+                - 03
+                - 03_fim
+            - **[3]**:
+              - **escalada**: Pocilga
+              - **ids**:
+                - 01
+                - 01_fim
+            - **[4]**:
+              - **escalada**: Porco Aranha
+              - **ids**:
+                - 02
+                - 02_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -226,32 +256,22 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Menos Porco Mais Aranha
-            - **id_no_mapa**: 01
-            - **id_no_mapa_fim**: 01_fim
             - **dificuldade**: V4_BARRA_V5
         - **[1]**:
           - **boulder**:
             - **nome**: Javaporco
-            - **id_no_mapa**: 02
-            - **id_no_mapa_fim**: 02_fim
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Chiqueirinho
-            - **id_no_mapa**: 03
-            - **id_no_mapa_fim**: 03_fim
             - **dificuldade**: V2_BARRA_V3
         - **[3]**:
           - **boulder**:
             - **nome**: Pocilga
-            - **id_no_mapa**: 01
-            - **id_no_mapa_fim**: 01_fim
             - **dificuldade**: V2
         - **[4]**:
           - **boulder**:
             - **nome**: Porco Aranha
-            - **id_no_mapa**: 02
-            - **id_no_mapa_fim**: 02_fim
             - **dificuldade**: V2
   - **[2]**:
     - **conteudo**:
@@ -297,18 +317,25 @@
                 - **y**: 236
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Boulder do Kbeca
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Projeto
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Boulder do Kbeca
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Projeto
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: INDEFINIDO
   - **[3]**:
     - **conteudo**:
@@ -338,12 +365,16 @@
                 - **y**: 175
                 - **comprimento**: 27
                 - **largura**: 32
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Flor do Cerrado
+              - **ids**:
+                - 1
+                - 1_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Flor do Cerrado
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V5
   - **[4]**:
     - **conteudo**:
@@ -389,20 +420,27 @@
                 - **y**: 166
                 - **comprimento**: 22
                 - **largura**: 23
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Desenfreado
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Joelho Sem Freio
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **descricao**: Saída com as mãos juntas no batente escorrido.
             - **nome**: Desenfreado
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V6
         - **[1]**:
           - **boulder**:
             - **descricao**: Saída com a mão direita na aresta em meia altura e a mão esquerda em abaulado invertido no teto.
             - **nome**: Joelho Sem Freio
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V3
 - **mapas**:
   - **[0]**:
@@ -562,53 +600,75 @@
                 - **y**: 605
                 - **comprimento**: 22
                 - **largura**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Consciência
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Groove
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Caldeirão
+              - **ids**:
+                - 3
+                - 3_fim
+            - **[3]**:
+              - **escalada**: Panela do Diabo
+              - **ids**:
+                - 5
+                - 5_fim
+            - **[4]**:
+              - **escalada**: Consciência para ter Coragem
+              - **ids**:
+                - 6
+                - 6_fim
+            - **[5]**:
+              - **escalada**: Caldeirão do Groove
+              - **ids**:
+                - 7
+                - 7_fim
+            - **[6]**:
+              - **escalada**: Coragem
+              - **ids**:
+                - 8
+                - 8_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **descricao**: Saída baixa em dois regletes pequenos logo à direita do balcão arredondado, seguindo em travessia para a direita até dominar como o panelaço.
             - **nome**: Consciência
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **descricao**: Mesma saída do consciência, dominando na face positiva logo acima do balcão.
             - **nome**: Groove
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **descricao**: Saída nos agarrões da borda de fora do bloco e segue pelo teto até finalizar como o panelaço (sem a utilização do "jorge"/bloco de sustentação).
             - **nome**: Caldeirão
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V6
         - **[3]**:
           - **boulder**:
             - **nome**: Panela do Diabo
-            - **id_no_mapa**: 5
-            - **id_no_mapa_fim**: 5_fim
             - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
             - **descricao**: Saída similar ao consciência, seguindo em travessia até ligar no boulder coragem.
             - **nome**: Consciência para ter Coragem
-            - **id_no_mapa**: 6
-            - **id_no_mapa_fim**: 6_fim
             - **dificuldade**: V7
         - **[5]**:
           - **boulder**:
             - **nome**: Caldeirão do Groove
-            - **id_no_mapa**: 7
-            - **id_no_mapa_fim**: 7_fim
             - **dificuldade**: V7
         - **[6]**:
           - **boulder**:
             - **descricao**: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso do caldeirão, finalizando por agarrões na face vertical do bloco.
             - **nome**: Coragem
-            - **id_no_mapa**: 8
-            - **id_no_mapa_fim**: 8_fim
             - **dificuldade**: V5
   - **[1]**:
     - **conteudo**:
@@ -686,30 +746,43 @@
                 - **y**: 80
                 - **comprimento**: 18
                 - **largura**: 23
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Colher de Pedra
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Colher de Pau
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Chaira de Pedra
+              - **ids**:
+                - 3
+                - 3_fim
+            - **[3]**:
+              - **escalada**: Faca de Pedra
+              - **ids**:
+                - 4
+                - 4_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Colher de Pedra
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Colher de Pau
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Chaira de Pedra
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V8
         - **[3]**:
           - **boulder**:
             - **nome**: Faca de Pedra
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: 4_fim
             - **dificuldade**: V7
   - **[2]**:
     - **conteudo**:
@@ -739,12 +812,16 @@
                 - **y**: 194
                 - **comprimento**: 29
                 - **largura**: 33
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Serra do Groove
+              - **ids**:
+                - 1
+                - 1_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Serra do Groove
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V3
   - **[3]**:
     - **conteudo**:
@@ -808,6 +885,47 @@
                 - **y**: 274
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monobloco
+              - **ids**:
+                - 1 (P0)
+                - 1 (P0)_fim
+            - **[1]**:
+              - **escalada**: Canela Queimada
+              - **ids**:
+                - 2 (P0)
+                - 2 (P0)_fim
+            - **[2]**:
+              - **escalada**: Canela de Ema
+              - **ids**:
+                - 3 (P0)
+                - 3 (P0)_fim
+            - **[3]**:
+              - **escalada**: Primavera nos Dentes
+              - **ids**:
+                - 1 (P1)
+                - 1 (P1)_fim
+            - **[4]**:
+              - **escalada**: Suave Coisa Nenhuma
+              - **ids**:
+                - 2 (P1)
+                - 2 (P1)_fim
+            - **[5]**:
+              - **escalada**: Primavera Latina
+              - **ids**:
+                - 3 (P1)
+                - 3 (P1)_fim
+            - **[6]**:
+              - **escalada**: Sangue Latino
+              - **ids**:
+                - 4 (P1/P2)
+                - 4 (P1/P2)_fim
+            - **[7]**:
+              - **escalada**: Joelho de Porco
+              - **ids**:
+                - 5 (P1/P2)
+                - 5 (P1/P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -919,57 +1037,41 @@
           - **boulder**:
             - **descricao**: Saída com as mãos e pés no bloco menor que sustenta o bloco principal, finalizando logo acima.
             - **nome**: Monobloco
-            - **id_no_mapa**: 1 (P0)
-            - **id_no_mapa_fim**: 1 (P0)_fim
             - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
             - **descricao**: Saída em batentes bem marcados e segue para a esquerda (sem utilizar os pés no bloco de sustentação).
             - **nome**: Canela Queimada
-            - **id_no_mapa**: 2 (P0)
-            - **id_no_mapa_fim**: 2 (P0)_fim
             - **dificuldade**: V2
         - **[2]**:
           - **boulder**:
             - **descricao**: Mesma saída do canela queimada mas segue a linha de agarras da direita.
             - **nome**: Canela de Ema
-            - **id_no_mapa**: 3 (P0)
-            - **id_no_mapa_fim**: 3 (P0)_fim
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **descricao**: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco de sustentação como apoio de pés), seguindo pelos pequenos regletes escorridos e pockets.
             - **nome**: Primavera nos Dentes
-            - **id_no_mapa**: 1 (P1)
-            - **id_no_mapa_fim**: 1 (P1)_fim
             - **dificuldade**: V7
         - **[4]**:
           - **boulder**:
             - **descricao**: Saída com a mão esquerda na agarra protuberante e mão direita no batente abaulado, seguido de dinâmico no pocket estreito, finalizando como o primavera nos dentes (utiliza-se livremente o(s) pé(s) no bloco de sustentação).
             - **nome**: Suave Coisa Nenhuma
-            - **id_no_mapa**: 2 (P1)
-            - **id_no_mapa_fim**: 2 (P1)_fim
             - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
             - **descricao**: Saída nas agarras da quina do bloco (logo à direita da saída do joelho de porco) e segue em travessia para a esquerda até finalizar como o primavera nos dentes.
             - **nome**: Primavera Latina
-            - **id_no_mapa**: 3 (P1)
-            - **id_no_mapa_fim**: 3 (P1)_fim
             - **dificuldade**: V10_BARRA_V11
         - **[6]**:
           - **boulder**:
             - **descricao**: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita por abaulados e invertidas até finalizar como o joelho de porco.
             - **nome**: Sangue Latino
-            - **id_no_mapa**: 4 (P1/P2)
-            - **id_no_mapa_fim**: 4 (P1/P2)_fim
             - **dificuldade**: V9
         - **[7]**:
           - **boulder**:
             - **descricao**: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por movimentos espremidos rumo à face externa do bloco.
             - **nome**: Joelho de Porco
-            - **id_no_mapa**: 5 (P1/P2)
-            - **id_no_mapa_fim**: 5 (P1/P2)_fim
             - **dificuldade**: V3
   - **[4]**:
     - **conteudo**:
@@ -1015,18 +1117,25 @@
                 - **y**: 14
                 - **comprimento**: 28
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fina Flor
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Flor da Montanha
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Fina Flor
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Flor da Montanha
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V6
   - **[5]**:
     - **conteudo**:
@@ -1088,24 +1197,34 @@
                 - **y**: 314
                 - **comprimento**: 29
                 - **largura**: 35
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Velho Chico
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Minduim
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Frango D'Água
+              - **ids**:
+                - 3
+                - 3_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Velho Chico
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Minduim
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
             - **nome**: Frango D'Água
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V3
 - **mapas**:
   - **[0]**:
@@ -1168,18 +1287,25 @@
                 - **y**: 216
                 - **comprimento**: 21
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cenas Fortes
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Tela Quente
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Cenas Fortes
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V5
         - **[1]**:
           - **boulder**:
             - **nome**: Tela Quente
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V3
   - **[1]**:
     - **conteudo**:
@@ -1371,6 +1497,92 @@
                 - **y**: 310
                 - **comprimento**: 27
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Super Cine
+              - **ids**:
+                - 1 (P1)
+                - 1 (P1)_fim
+            - **[1]**:
+              - **escalada**: Espetacular
+              - **ids**:
+                - 2 (P1) / 5 (P2)
+                - 2 (P1) / 5 (P2)_fim
+            - **[2]**:
+              - **escalada**: Extra
+              - **ids**:
+                - 3 (P1)
+                - 3 (P1)_fim
+            - **[3]**:
+              - **escalada**: Manchete
+              - **ids**:
+                - 4 (P1)
+                - 4 (P1)_fim
+            - **[4]**:
+              - **escalada**: Esporte Espetacular
+              - **ids**:
+                - 5 (P1) / 4 (P2)
+                - 5 (P1) / 4 (P2)_fim
+            - **[5]**:
+              - **escalada**: Fantástico Mundo dos Diamantes
+              - **ids**:
+                - 6 (P1)
+                - 6 (P1)_fim
+            - **[6]**:
+              - **escalada**: Globo Curral
+              - **ids**:
+                - 7 (P1) / 3 (P2)
+                - 7 (P1) / 3 (P2)_fim
+            - **[7]**:
+              - **escalada**: Manual
+              - **ids**:
+                - 8 (P1) / 1 (P2)
+                - 8 (P1) / 1 (P2)_fim
+            - **[8]**:
+              - **escalada**: Altas Horas
+              - **ids**:
+                - 9 (P1) / 2 (P2)
+                - 9 (P1) / 2 (P2)_fim
+            - **[9]**:
+              - **escalada**: Super Sinistro
+              - **ids**:
+                - 10 (P1)
+                - 10 (P1)_fim
+            - **[10]**:
+              - **escalada**: Fantástico
+              - **ids**:
+                - 11 (P1)
+                - 11 (P1)_fim
+            - **[11]**:
+              - **escalada**: Sessão da Tarde
+              - **ids**:
+                - 6 (P2)
+                - 6 (P2)_fim
+            - **[12]**:
+              - **escalada**: Vale a Pena Ver de Novo
+              - **ids**:
+                - 7 (P2)
+                - 7 (P2)_fim
+            - **[13]**:
+              - **escalada**: Vale a Pena Vir de Baixo
+              - **ids**:
+                - 8 (P2)
+                - 8 (P2)_fim
+            - **[14]**:
+              - **escalada**: Chá da Tarde
+              - **ids**:
+                - 9 (P2)
+                - 9 (P2)_fim
+            - **[15]**:
+              - **escalada**: Analógico
+              - **ids**:
+                - 10 (P2)
+                - 10 (P2)_fim
+            - **[16]**:
+              - **escalada**: Digital
+              - **ids**:
+                - 11 (P2)
+                - 11 (P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -1556,111 +1768,77 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Super Cine
-            - **id_no_mapa**: 1 (P1)
-            - **id_no_mapa_fim**: 1 (P1)_fim
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Espetacular
-            - **id_no_mapa**: 2 (P1) / 5 (P2)
-            - **id_no_mapa_fim**: 2 (P1) / 5 (P2)_fim
             - **dificuldade**: V8_BARRA_V9
         - **[2]**:
           - **boulder**:
             - **nome**: Extra
-            - **id_no_mapa**: 3 (P1)
-            - **id_no_mapa_fim**: 3 (P1)_fim
             - **dificuldade**: V10
         - **[3]**:
           - **boulder**:
             - **nome**: Manchete
-            - **id_no_mapa**: 4 (P1)
-            - **id_no_mapa_fim**: 4 (P1)_fim
             - **dificuldade**: V9
         - **[4]**:
           - **boulder**:
             - **nome**: Esporte Espetacular
-            - **id_no_mapa**: 5 (P1) / 4 (P2)
-            - **id_no_mapa_fim**: 5 (P1) / 4 (P2)_fim
             - **dificuldade**: V10_BARRA_V11
         - **[5]**:
           - **boulder**:
             - **nome**: Fantástico Mundo dos Diamantes
-            - **id_no_mapa**: 6 (P1)
-            - **id_no_mapa_fim**: 6 (P1)_fim
             - **dificuldade**: V11
         - **[6]**:
           - **boulder**:
             - **descricao**: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
             - **nome**: Globo Curral
-            - **id_no_mapa**: 7 (P1) / 3 (P2)
-            - **id_no_mapa_fim**: 7 (P1) / 3 (P2)_fim
             - **dificuldade**: V5
         - **[7]**:
           - **boulder**:
             - **nome**: Manual
-            - **id_no_mapa**: 8 (P1) / 1 (P2)
-            - **id_no_mapa_fim**: 8 (P1) / 1 (P2)_fim
             - **dificuldade**: V8
         - **[8]**:
           - **boulder**:
             - **nome**: Altas Horas
-            - **id_no_mapa**: 9 (P1) / 2 (P2)
-            - **id_no_mapa_fim**: 9 (P1) / 2 (P2)_fim
             - **dificuldade**: V3
         - **[9]**:
           - **boulder**:
             - **nome**: Super Sinistro
-            - **id_no_mapa**: 10 (P1)
-            - **id_no_mapa_fim**: 10 (P1)_fim
             - **dificuldade**: V8_BARRA_V9
         - **[10]**:
           - **boulder**:
             - **nome**: Fantástico
-            - **id_no_mapa**: 11 (P1)
-            - **id_no_mapa_fim**: 11 (P1)_fim
             - **dificuldade**: V10
         - **[11]**:
           - **boulder**:
             - **descricao**: Mão esquerda no batente central dessa face do bloco e mão direita em outro batente mais à direita, seguindo em linha reta pelo sistema de agarras logo acima.
             - **nome**: Sessão da Tarde
-            - **id_no_mapa**: 6 (P2)
-            - **id_no_mapa_fim**: 6 (P2)_fim
             - **dificuldade**: V5
         - **[12]**:
           - **boulder**:
             - **descricao**: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita após dominar a pinça. A parte final do boulder segue para a direita por "cracas" na face positiva, cuidado com agarras frágeis.
             - **nome**: Vale a Pena Ver de Novo
-            - **id_no_mapa**: 7 (P2)
-            - **id_no_mapa_fim**: 7 (P2)_fim
             - **dificuldade**: V4_BARRA_V5
         - **[13]**:
           - **boulder**:
             - **descricao**: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá da Tarde.
             - **nome**: Vale a Pena Vir de Baixo
-            - **id_no_mapa**: 8 (P2)
-            - **id_no_mapa_fim**: 8 (P2)_fim
             - **dificuldade**: V6_BARRA_V7
         - **[14]**:
           - **boulder**:
             - **descricao**: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita.
             - **nome**: Chá da Tarde
-            - **id_no_mapa**: 9 (P2)
-            - **id_no_mapa_fim**: 9 (P2)_fim
             - **dificuldade**: V7
         - **[15]**:
           - **boulder**:
             - **descricao**: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá da Tarde.
             - **nome**: Analógico
-            - **id_no_mapa**: 10 (P2)
-            - **id_no_mapa_fim**: 10 (P2)_fim
             - **dificuldade**: V8_BARRA_V9
         - **[16]**:
           - **boulder**:
             - **descricao**: Extensão do Analógico.
             - **nome**: Digital
-            - **id_no_mapa**: 11 (P2)
-            - **id_no_mapa_fim**: 11 (P2)_fim
             - **dificuldade**: V9_BARRA_V10
   - **[2]**:
     - **conteudo**:
@@ -1706,18 +1884,25 @@
                 - **y**: 368
                 - **comprimento**: 27
                 - **largura**: 27
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Calça Nova
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Que Raio de Reglete
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Calça Nova
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Que Raio de Reglete
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V3
   - **[3]**:
     - **conteudo**:
@@ -1763,20 +1948,27 @@
                 - **y**: 224
                 - **comprimento**: 27
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Iceberg
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Frigobar
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **descricao**: Saída baixa na extrema direita do bloco e segue por movimentos exigentes de compressão (morfo).
             - **nome**: Iceberg
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
             - **descricao**: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita no abaulado alto mais à direita.
             - **nome**: Frigobar
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V5
   - **[4]**:
     - **conteudo**:
@@ -1822,18 +2014,25 @@
                 - **y**: 30
                 - **comprimento**: 32
                 - **largura**: 31
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Silicato
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Silicose
+              - **ids**:
+                - 2
+                - 2_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Silicato
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
             - **nome**: Silicose
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V7
 - **mapas**:
   - **[0]**:
@@ -1914,6 +2113,52 @@
                 - **y**: 342
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Navio Pirata
+              - **ids**:
+                - 1 (P0)
+                - 1 (P0)_fim
+            - **[1]**:
+              - **escalada**: Invasão do Navio Pirata
+              - **ids**:
+                - 2 (P0)
+                - 2 (P0)_fim
+            - **[2]**:
+              - **escalada**: Capitão Gancho
+              - **ids**:
+                - 3 (P0)
+                - 3 (P0)_fim
+            - **[3]**:
+              - **escalada**: Serra a Vista
+              - **ids**:
+                - 1 (P1)
+                - 1 (P1)_fim
+            - **[4]**:
+              - **escalada**: Tapa Olho
+              - **ids**:
+                - 2 (P1)
+                - 2 (P1)_fim
+            - **[5]**:
+              - **escalada**: A Estibordo
+              - **ids**:
+                - 3 (P1)
+                - 3 (P1)_fim
+            - **[6]**:
+              - **escalada**: Proa
+              - **ids**:
+                - 4 (P1)
+                - 4 (P1)_fim
+            - **[7]**:
+              - **escalada**: Papagaio de Pirata
+              - **ids**:
+                - 1 (P2)
+                - 1 (P2)_fim
+            - **[8]**:
+              - **escalada**: Desce a Serra
+              - **ids**:
+                - 2 (P2)
+                - 2 (P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -2024,56 +2269,38 @@
         - **[0]**:
           - **boulder**:
             - **nome**: Navio Pirata
-            - **id_no_mapa**: 1 (P0)
-            - **id_no_mapa_fim**: 1 (P0)_fim
             - **dificuldade**: V0_BARRA_V1
         - **[1]**:
           - **boulder**:
             - **nome**: Invasão do Navio Pirata
-            - **id_no_mapa**: 2 (P0)
-            - **id_no_mapa_fim**: 2 (P0)_fim
             - **dificuldade**: V1_BARRA_V2
         - **[2]**:
           - **boulder**:
             - **nome**: Capitão Gancho
-            - **id_no_mapa**: 3 (P0)
-            - **id_no_mapa_fim**: 3 (P0)_fim
             - **dificuldade**: V2
         - **[3]**:
           - **boulder**:
             - **nome**: Serra a Vista
-            - **id_no_mapa**: 1 (P1)
-            - **id_no_mapa_fim**: 1 (P1)_fim
             - **dificuldade**: V1_BARRA_V2
         - **[4]**:
           - **boulder**:
             - **nome**: Tapa Olho
-            - **id_no_mapa**: 2 (P1)
-            - **id_no_mapa_fim**: 2 (P1)_fim
             - **dificuldade**: V2_BARRA_V3
         - **[5]**:
           - **boulder**:
             - **nome**: A Estibordo
-            - **id_no_mapa**: 3 (P1)
-            - **id_no_mapa_fim**: 3 (P1)_fim
             - **dificuldade**: V3_BARRA_V4
         - **[6]**:
           - **boulder**:
             - **nome**: Proa
-            - **id_no_mapa**: 4 (P1)
-            - **id_no_mapa_fim**: 4 (P1)_fim
             - **dificuldade**: V1
         - **[7]**:
           - **boulder**:
             - **nome**: Papagaio de Pirata
-            - **id_no_mapa**: 1 (P2)
-            - **id_no_mapa_fim**: 1 (P2)_fim
             - **dificuldade**: V2
         - **[8]**:
           - **boulder**:
             - **nome**: Desce a Serra
-            - **id_no_mapa**: 2 (P2)
-            - **id_no_mapa_fim**: 2 (P2)_fim
             - **dificuldade**: V3
   - **[1]**:
     - **conteudo**:
@@ -2135,24 +2362,34 @@
                 - **y**: 218
                 - **comprimento**: 23
                 - **largura**: 23
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pfizer
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Barriga Branca
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Rosa
+              - **ids**:
+                - 3
+                - 3_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Pfizer
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Barriga Branca
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
             - **nome**: Rosa
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V0
   - **[2]**:
     - **conteudo**:
@@ -2246,36 +2483,52 @@
                 - **y**: 186
                 - **comprimento**: 23
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pedra na Canela
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Sobe a Serra
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Pedra na Canela Ext
+              - **ids**:
+                - 3
+                - 3_fim
+            - **[3]**:
+              - **escalada**: Sobe a Serra Ext
+              - **ids**:
+                - 4
+                - 4_fim
+            - **[4]**:
+              - **escalada**: Ofurô
+              - **ids**:
+                - 5
+                - 5_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Pedra na Canela
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V4
         - **[1]**:
           - **boulder**:
             - **nome**: Sobe a Serra
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
             - **nome**: Pedra na Canela Ext
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V5
         - **[3]**:
           - **boulder**:
             - **nome**: Sobe a Serra Ext
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: 4_fim
             - **dificuldade**: V5_BARRA_V6
         - **[4]**:
           - **boulder**:
             - **nome**: Ofurô
-            - **id_no_mapa**: 5
-            - **id_no_mapa_fim**: 5_fim
             - **dificuldade**: V7_BARRA_V8
   - **[3]**:
     - **conteudo**:
@@ -2337,24 +2590,34 @@
                 - **y**: 274
                 - **comprimento**: 26
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Maozeiro
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Piseiro
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Expresso 22
+              - **ids**:
+                - 3
+                - 3_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Maozeiro
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V7
         - **[1]**:
           - **boulder**:
             - **nome**: Piseiro
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Expresso 22
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V0
   - **[4]**:
     - **conteudo**:
@@ -2432,30 +2695,43 @@
                 - **y**: 468
                 - **comprimento**: 25
                 - **largura**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Parteira
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Curandeira
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Raizeiro
+              - **ids**:
+                - 3
+                - 3_fim
+            - **[3]**:
+              - **escalada**: Garrafada
+              - **ids**:
+                - 4
+                - 4_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Parteira
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V3_BARRA_V4
         - **[1]**:
           - **boulder**:
             - **nome**: Curandeira
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V6_BARRA_V7
         - **[2]**:
           - **boulder**:
             - **nome**: Raizeiro
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V4
         - **[3]**:
           - **boulder**:
             - **nome**: Garrafada
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: 4_fim
             - **dificuldade**: V3
   - **[5]**:
     - **conteudo**:
@@ -2533,30 +2809,43 @@
                 - **y**: 116
                 - **comprimento**: 28
                 - **largura**: 33
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tijuco Preto
+              - **ids**:
+                - 1
+                - 1_fim
+            - **[1]**:
+              - **escalada**: Pé na Lapeira
+              - **ids**:
+                - 2
+                - 2_fim
+            - **[2]**:
+              - **escalada**: Sol a Fora
+              - **ids**:
+                - 3
+                - 3_fim
+            - **[3]**:
+              - **escalada**: Toque no Curralinho
+              - **ids**:
+                - 4
+                - 4_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
             - **nome**: Tijuco Preto
-            - **id_no_mapa**: 1
-            - **id_no_mapa_fim**: 1_fim
             - **dificuldade**: V6
         - **[1]**:
           - **boulder**:
             - **nome**: Pé na Lapeira
-            - **id_no_mapa**: 2
-            - **id_no_mapa_fim**: 2_fim
             - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
             - **nome**: Sol a Fora
-            - **id_no_mapa**: 3
-            - **id_no_mapa_fim**: 3_fim
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
             - **nome**: Toque no Curralinho
-            - **id_no_mapa**: 4
-            - **id_no_mapa_fim**: 4_fim
             - **dificuldade**: V3
 - **mapas**:
   - **[0]**:

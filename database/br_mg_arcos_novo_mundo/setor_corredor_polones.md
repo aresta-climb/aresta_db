@@ -1,4 +1,4 @@
----
+---
 nome: Setor Corredor Polonês
 mapas:
 - caminho_imagem_mapa: imagens/setor_corredor_polones_p0_i0.webp
@@ -82,38 +82,49 @@ mapas:
       y: 920
       comprimento: 43
       largura: 22
+  referencias:
+  - escalada: Questa Aresta
+    ids:
+    - '1'
+  - escalada: Bonitinha Mais Ordinária
+    ids:
+    - '2'
+  - escalada: Aperta Que Fica
+    ids:
+    - '3'
+  - escalada: Tem Gente que Tenta o Cão
+    ids:
+    - '4'
+  - escalada: Rolling Stones
+    ids:
+    - '5'
 escaladas:
 - via_esportiva:
     nome: Questa Aresta
-    id_no_mapa: '1'
     dificuldade: BR_7A
     destaque: true
     data_abertura: '2018'
 - via_esportiva:
     nome: Bonitinha Mais Ordinária
-    id_no_mapa: '2'
     dificuldade: INDEFINIDO
     data_abertura: '2018'
 - via_esportiva:
     nome: Aperta Que Fica
-    id_no_mapa: '3'
     dificuldade: INDEFINIDO
     data_abertura: '2018'
 - via_esportiva:
     nome: Tem Gente que Tenta o Cão
-    id_no_mapa: '4'
     dificuldade: INDEFINIDO
     destaque: true
     data_abertura: '2018'
 - via_esportiva:
     nome: Rolling Stones
-    id_no_mapa: '5'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2018'
----
+---
 # Setor Corredor Polonês
 
 Sombra o dia todo (varia de acordo com a estação).

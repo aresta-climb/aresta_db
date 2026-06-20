@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Sertão
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_sertao_p0_i0.webp
@@ -77,43 +77,58 @@ mapas:
       comprimento: 117
       largura: 33
       angulo_graus_x100: -4464
+  referencias:
+  - escalada: Sol da Manhã
+    ids:
+    - '01'
+  - escalada: Filha do Sol
+    ids:
+    - '02'
+  - escalada: Nuvens de Agosto
+    ids:
+    - '03'
+  - escalada: A Laka
+    ids:
+    - '04'
+  - escalada: Dazão e o pé de Feijão
+    ids:
+    - '05'
+  - escalada: Explosão de Sabores
+    ids:
+    - '06'
+  - escalada: Insolação
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Sol da Manhã
-    id_no_mapa: '01'
     dificuldade: PROJETO
     descricao: Primeira via do setor. Começa na aresta.
 - via_esportiva:
     nome: Filha do Sol
-    id_no_mapa: '02'
     dificuldade: PROJETO
     descricao: Via completa e longa. Um pouco de Resistência e técnica
 - via_esportiva:
     nome: Nuvens de Agosto
-    id_no_mapa: '03'
     dificuldade: BR_7A_BARRA_7B
     descricao: Primeira via de grampos acima da filha do sol.
 - via_esportiva:
     nome: A Laka
-    id_no_mapa: '04'
     dificuldade: BR_7B_BARRA_7C
     descricao: Via com grampos a direita da nuvens de agosto
 - via_esportiva:
     nome: Dazão e o pé de Feijão
-    id_no_mapa: '05'
     dificuldade: BR_7A
     descricao: Via com grampos. O ideal é sair com a primeira costura clipada.
 - via_esportiva:
     nome: Explosão de Sabores
-    id_no_mapa: '06'
     dificuldade: BR_7B
     descricao: Penúltima via da parede.
 - via_esportiva:
     nome: Insolação
-    id_no_mapa: '07'
     dificuldade: BR_7A
     descricao: Via oposições em fendas. Protegida com chapeletas.
----
+---
 Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
 
 ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp)

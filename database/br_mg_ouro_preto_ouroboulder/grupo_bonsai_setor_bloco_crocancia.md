@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Crocância'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp
@@ -11,6 +11,40 @@ mapas:
       x: 1380
       y: 805
       raio: 13
+  referencias:
+  - escalada: Beija-Flor
+    ids:
+    - '1'
+  - escalada: Tarântula
+    ids:
+    - '1'
+  - escalada: Porém
+    ids:
+    - 1A
+  - escalada: Xaxado
+    ids:
+    - 1B
+  - escalada: Rouba Monte
+    ids:
+    - 2B/4B
+  - escalada: Crocância do Além
+    ids:
+    - 3A
+  - escalada: Lodo
+    ids:
+    - '1'
+  - escalada: Crocância
+    ids:
+    - 2A
+  - escalada: Crocância Rouba Monte
+    ids:
+    - 2B
+  - escalada: Crocância sds
+    ids:
+    - 3A
+  - escalada: Crocância Rouba Monte sds
+    ids:
+    - 3B
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -98,47 +132,36 @@ mapas:
 escaladas:
 - boulder:
     nome: Beija-Flor
-    id_no_mapa: '1'
     dificuldade: V5
 - boulder:
     nome: Tarântula
-    id_no_mapa: '1'
     dificuldade: V7
 - boulder:
     nome: Porém
-    id_no_mapa: 1A
     dificuldade: V1
 - boulder:
     nome: Xaxado
-    id_no_mapa: 1B
     dificuldade: V5
 - boulder:
     nome: Rouba Monte
-    id_no_mapa: 2B/4B
     dificuldade: V4
 - boulder:
     nome: Crocância do Além
-    id_no_mapa: 3A
     dificuldade: V11
 - boulder:
     nome: Lodo
-    id_no_mapa: '1'
     dificuldade: V8
 - boulder:
     nome: Crocância
-    id_no_mapa: 2A
     dificuldade: V9
 - boulder:
     nome: Crocância Rouba Monte
-    id_no_mapa: 2B
     dificuldade: V10
 - boulder:
     nome: Crocância sds
-    id_no_mapa: 3A
     dificuldade: V10
 - boulder:
     nome: Crocância Rouba Monte sds
-    id_no_mapa: 3B
     dificuldade: V11
----
+---
 

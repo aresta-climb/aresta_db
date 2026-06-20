@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: João de Barro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp
@@ -23,6 +23,31 @@ mapas:
       x: 1238
       y: 1030
       raio: 13
+  referencias:
+  - escalada: Porra Nenhuma
+    ids:
+    - 1A
+  - escalada: Ringue
+    ids:
+    - 1B
+  - escalada: Arco Magmático
+    ids:
+    - 1A
+  - escalada: Du Mussula
+    ids:
+    - 1B
+  - escalada: No Montê
+    ids:
+    - 2C
+  - escalada: Bola 7
+    ids:
+    - 1A
+  - escalada: Morcegão
+    ids:
+    - 2A
+  - escalada: João de Barro
+    ids:
+    - 2B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -70,37 +95,29 @@ mapas:
 escaladas:
 - boulder:
     nome: Porra Nenhuma
-    id_no_mapa: 1A
     dificuldade: V4
 - boulder:
     nome: Ringue
-    id_no_mapa: 1B
     dificuldade: V3
 - boulder:
     nome: Arco Magmático
-    id_no_mapa: 1A
     dificuldade: V8
     descricao: (saída pelo Morcegão)
 - boulder:
     nome: Du Mussula
-    id_no_mapa: 1B
     dificuldade: V10
     descricao: (saída pelo Bola 7)
 - boulder:
     nome: No Montê
-    id_no_mapa: 2C
     dificuldade: V6
 - boulder:
     nome: Bola 7
-    id_no_mapa: 1A
     dificuldade: V4
 - boulder:
     nome: Morcegão
-    id_no_mapa: 2A
     dificuldade: V5
 - boulder:
     nome: João de Barro
-    id_no_mapa: 2B
     dificuldade: V4
----
+---
 

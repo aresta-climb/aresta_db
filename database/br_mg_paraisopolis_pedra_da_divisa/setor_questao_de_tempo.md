@@ -1,4 +1,4 @@
----
+---
 nome: Setor Questão de Tempo
 mapas:
 - caminho_imagem_mapa: imagens/setor_questao_de_tempo_p0_i0.webp
@@ -44,10 +44,19 @@ mapas:
       y: 702
       comprimento: 110
       largura: 30
+  referencias:
+  - escalada: C'est la vie
+    ids:
+    - '01'
+  - escalada: Eu prefiro uma cerveja
+    ids:
+    - '02'
+  - escalada: Hospício jamais
+    ids:
+    - '03'
 escaladas:
 - via_esportiva:
     nome: C'est la vie
-    id_no_mapa: '01'
     dificuldade: BR_6SUP
     conquistadores:
     - Antonio Calvo
@@ -57,7 +66,6 @@ escaladas:
     data_abertura: '2020'
 - via_esportiva:
     nome: Eu prefiro uma cerveja
-    id_no_mapa: '02'
     dificuldade: BR_5SUP
     conquistadores:
     - Antonio Calvo
@@ -67,7 +75,6 @@ escaladas:
     data_abertura: '2020'
 - via_movel:
     nome: Hospício jamais
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
     protecoes_moveis: friends médios e grandes
     conquistadores:
@@ -76,7 +83,7 @@ escaladas:
     - Alexandre "Jesus" Loureiro
     - Samuel Moreira
     data_abertura: '2020'
----
+---
 
 ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 

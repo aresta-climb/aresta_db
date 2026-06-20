@@ -2,6 +2,8 @@
 
 No modelo atual de `croqui.proto`, as entidades (`ViaEsportiva`, `Boulder`, `Setor`, etc.) contêm informações de apresentação visual nos campos `id_no_mapa`, `id_no_mapa_meio` e `id_no_mapa_fim`. Isso gera um acoplamento reverso onde a entidade precisa conhecer detalhes de sua renderização no mapa, causando problemas quando uma entidade aparece em múltiplos mapas, além de limitar as rotas a uma abstração rígida de 3 pontos. Com o aumento da complexidade dos croquis, surge a necessidade de permitir que o `Mapa` detenha a responsabilidade de "o que" ele está desenhando.
 
+Além disso, o fluxo automatizado de extração via agentes (workflow `processar_croqui_completo`) precisa ser atualizado, visto que o parser atual instrui a IA a injetar esses IDs diretamente nas escaladas.
+
 ## Objetivos / Não-Objetivos
 
 **Objetivos:**
@@ -9,6 +11,7 @@ No modelo atual de `croqui.proto`, as entidades (`ViaEsportiva`, `Boulder`, `Set
 - Permitir uma quantidade ilimitada de pontos (POIs) para descrever a geometria de uma rota.
 - Possibilitar "cross-linking" entre mapas, permitindo que mapas referenciem entidades de outros Setores ou Grupos.
 - Suportar ajustes finos opcionais de visualização por referência (foco da câmera, nível de zoom).
+- Adaptar o ecossistema de sub-agentes (skills `@converter_parte_croqui_para_markdown` e `@preencher_croqui_yaml`) para atuarem sob a nova premissa na Fase 2 do orquestrador.
 - Garantir que todas as alterações sejam guiadas por testes (TDD) e alcancem 100% de cobertura de testes unitários (unit test coverage).
 
 **Não-Objetivos:**
@@ -21,12 +24,15 @@ No modelo atual de `croqui.proto`, as entidades (`ViaEsportiva`, `Boulder`, `Set
 3. **Migração em Python via TDD:** Um script em Python em `aresta_db/migracoes` fará uso do `ruamel.yaml` para iterar sobre todos os YAMLs locais, encontrar IDs antigos nas entidades e criar os blocos de `referencias` nos mapas pai, mantendo todos os comentários originais do arquivo.
     - **Imperativo TDD:** A lógica de migração e parseamento DEVE ser desenhada via testes (`_test.py`) ANTES da implementação.
     - **100% Coverage:** O código de migração precisará ser testado em 100% das suas linhas para evitar qualquer perda ou corrupção de dados dos croquis.
-4. **Política de Migração:** Toda migração deve ser documentada explicitamente em português, então adicionaremos informações sobre isso no repositório. O código será escrito seguindo o princípio de "Library-First", onde a lógica de negócio do parser é independente do script CLI de aplicação em lote.
+4. **Atualização do Pipeline de IA:** As skills em `.agents/skills` (`converter_parte_croqui_para_markdown` e `preencher_croqui_yaml`) receberão uma nova regra de extração, onde, na Fase 2 de conversão (agentes `ConversorMarkdown` e `CompiladorCroqui`), os pontos e conexões detectados já serão estruturados no formato de `referencias` nos mapas do Setor (ou Grupo), limpando as definições na própria escalada.
+5. **Política de Migração:** Toda migração deve ser documentada explicitamente em português, então adicionaremos informações sobre isso no repositório. O código será escrito seguindo o princípio de "Library-First".
 
 ## Riscos / Trade-offs
 
 - **Risco:** Quebra de compatibilidade em toda a base de dados.
   **Mitigação:** O ciclo Red-Green-Refactor garante que o script funciona isoladamente. O script de migração também deve ser rigorosamente executado no pipeline CI local antes do commit, validando que o `aresta_api` compila sem erros.
+- **Risco:** Agentes preenchendo o YAML incorretamente no modo autônomo.
+  **Mitigação:** Os sub-agentes receberão logs de erro descritivos (auto-heal) graças à forte tipagem do novo Protobuf, o que os orientará a corrigir o arquivo rapidamente.
 - **Risco:** Perda de comentários do YAML.
   **Mitigação:** Utilizaremos a biblioteca `ruamel.yaml` em "RoundTrip mode". Teremos um teste unitário específico que valida se a inserção preserva blocos de comentários pré-existentes.
 - **Risco:** Renomeação de escaladas quebrando referências no mapa.

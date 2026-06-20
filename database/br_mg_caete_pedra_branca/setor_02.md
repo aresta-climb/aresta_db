@@ -1,4 +1,4 @@
----
+---
 nome: Croqui 02 da Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/pagina_2_imagem_0.webp
@@ -96,61 +96,88 @@ mapas:
       y: 464
       comprimento: 28
       largura: 20
+  referencias:
+  - escalada: Festival dos Lagartos
+    ids:
+    - '01'
+  - escalada: Melhor Impossível
+    ids:
+    - '02'
+  - escalada: Lombra Etílica
+    ids:
+    - '03'
+  - escalada: Paredão SLU
+    ids:
+    - '04'
+  - escalada: Libertas
+    ids:
+    - '05'
+  - escalada: Micos
+    ids:
+    - '06'
+  - escalada: Via da Perereca
+    ids:
+    - '07'
+  - escalada: Barbarela
+    ids:
+    - '8'
+  - escalada: Ciganos Molhados
+    ids:
+    - '9'
+  - escalada: Abominável Morcego Amestrado
+    ids:
+    - '10'
+  - escalada: Os Quatro Macacos
+    ids:
+    - '11'
+  - escalada: Produção Independente
+    ids:
+    - '12'
+  - escalada: Parede Preta
+    ids:
+    - '13'
 escaladas:
 - via_esportiva:
     nome: Festival dos Lagartos
-    id_no_mapa: '01'
     dificuldade: BR_3SUP
 - via_esportiva:
     nome: Melhor Impossível
-    id_no_mapa: '02'
     dificuldade: BR_4
 - via_esportiva:
     nome: Lombra Etílica
-    id_no_mapa: '03'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Paredão SLU
-    id_no_mapa: '04'
     dificuldade: BR_5
 - via_esportiva:
     nome: Libertas
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Micos
-    id_no_mapa: '06'
     dificuldade: BR_5
 - via_esportiva:
     nome: Via da Perereca
-    id_no_mapa: '07'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Barbarela
-    id_no_mapa: 08
     dificuldade: BR_7A
 - via_esportiva:
     nome: Ciganos Molhados
-    id_no_mapa: 09
     dificuldade: BR_5
 - via_esportiva:
     nome: Abominável Morcego Amestrado
-    id_no_mapa: '10'
     dificuldade: BR_7B
 - via_esportiva:
     nome: Os Quatro Macacos
-    id_no_mapa: '11'
     dificuldade: BR_7A
 - via_esportiva:
     nome: Produção Independente
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
 - via_esportiva:
     nome: Parede Preta
-    id_no_mapa: '13'
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
----
+---
 # Croqui 02 da Pedra Branca
 
 O resto da grampeação da via Parede Preta esta no croqui 01 da Pedra Branca.

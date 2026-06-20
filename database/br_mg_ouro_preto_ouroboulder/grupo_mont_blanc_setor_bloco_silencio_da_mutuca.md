@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Silêncio da Mutuca'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp
@@ -29,18 +29,25 @@ mapas:
       x: 355
       y: 105
       raio: 13
+  referencias:
+  - escalada: Transição
+    ids:
+    - 1A
+  - escalada: Silêncio da Mutuca
+    ids:
+    - 1B
+  - escalada: Íngreme
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Transição
-    id_no_mapa: 1A
     dificuldade: V5
 - boulder:
     nome: Silêncio da Mutuca
-    id_no_mapa: 1B
     dificuldade: V3
 - boulder:
     nome: Íngreme
-    id_no_mapa: '2'
     dificuldade: V3
----
+---
 

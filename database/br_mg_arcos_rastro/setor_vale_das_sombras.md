@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp
@@ -236,195 +236,254 @@ mapas:
       y: 526
       comprimento: 22
       largura: 17
+  referencias:
+  - escalada: (via inacabada)
+    ids:
+    - '01'
+  - escalada: Mutirão
+    ids:
+    - '02'
+  - escalada: Orgulho do Papai
+    ids:
+    - '03'
+  - escalada: Bom Filho a Casa Torna
+    ids:
+    - '04'
+  - escalada: Pelos Poderes de Stive
+    ids:
+    - '05'
+  - escalada: Tocoloko
+    ids:
+    - '06'
+  - escalada: Entranhas de Arcos
+    ids:
+    - '07'
+  - escalada: Uso Capial
+    ids:
+    - '8'
+  - escalada: Clara Morena
+    ids:
+    - '9'
+  - escalada: Se Liga
+    ids:
+    - '10'
+  - escalada: Maluco da Kombi
+    ids:
+    - '11'
+  - escalada: Diário de Um Pistoleiro
+    ids:
+    - '12'
+  - escalada: Dia da Independência
+    ids:
+    - '13'
+  - escalada: Essa Linha é Nossa
+    ids:
+    - '14'
+  - escalada: Essa Linha é Minha
+    ids:
+    - '15'
+  - escalada: Essa Linha é de Todos
+    ids:
+    - '16'
+  - escalada: Livrai Me de Todos Males
+    ids:
+    - '17'
+  - escalada: Garrão Bom Bom
+    ids:
+    - '18'
+  - escalada: Conexão Mané
+    ids:
+    - '19'
+  - escalada: Os Reis do Mambo
+    ids:
+    - '20'
+  - escalada: Estrombelete
+    ids:
+    - '21'
+  - escalada: Sansara
+    ids:
+    - '22'
+  - escalada: Ho' Oponupono
+    ids:
+    - '23'
+  - escalada: Nu Com a Mão no Bolso
+    ids:
+    - '24'
+  - escalada: Planta Rara
+    ids:
+    - '25'
+  - escalada: Boca Maldita
+    ids:
+    - '26'
+  - escalada: Aula Prática
+    ids:
+    - '27'
+  - escalada: Cine Privê
+    ids:
+    - '28'
+  - escalada: A Estréia
+    ids:
+    - '29'
 escaladas:
 - via_esportiva:
     nome: (via inacabada)
-    id_no_mapa: '01'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 3
     data_abertura: '2023'
 - via_esportiva:
     nome: Mutirão
-    id_no_mapa: '02'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Orgulho do Papai
-    id_no_mapa: '03'
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Bom Filho a Casa Torna
-    id_no_mapa: '04'
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Pelos Poderes de Stive
-    id_no_mapa: '05'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Tocoloko
-    id_no_mapa: '06'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Entranhas de Arcos
-    id_no_mapa: '07'
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Uso Capial
-    id_no_mapa: 08
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Clara Morena
-    id_no_mapa: 09
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Se Liga
-    id_no_mapa: '10'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Maluco da Kombi
-    id_no_mapa: '11'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Diário de Um Pistoleiro
-    id_no_mapa: '12'
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Dia da Independência
-    id_no_mapa: '13'
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Essa Linha é Nossa
-    id_no_mapa: '14'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Essa Linha é Minha
-    id_no_mapa: '15'
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Essa Linha é de Todos
-    id_no_mapa: '16'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Livrai Me de Todos Males
-    id_no_mapa: '17'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Garrão Bom Bom
-    id_no_mapa: '18'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Conexão Mané
-    id_no_mapa: '19'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Os Reis do Mambo
-    id_no_mapa: '20'
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Estrombelete
-    id_no_mapa: '21'
     dificuldade: BR_5
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Sansara
-    id_no_mapa: '22'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Ho' Oponupono
-    id_no_mapa: '23'
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Nu Com a Mão no Bolso
-    id_no_mapa: '24'
     dificuldade: BR_7A_BARRA_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Planta Rara
-    id_no_mapa: '25'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     data_abertura: 2022-09
 - via_esportiva:
     nome: Boca Maldita
-    id_no_mapa: '26'
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Aula Prática
-    id_no_mapa: '27'
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Cine Privê
-    id_no_mapa: '28'
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: A Estréia
-    id_no_mapa: '29'
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
----
+---
 # Setor Vale das Sombras
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).
