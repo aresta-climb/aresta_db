@@ -1,19 +1,19 @@
 import os
-import sys
 import boto3
 import requests
 import subprocess
-import glob
+import yaml
 from pathlib import Path
 from botocore.exceptions import ClientError
-from typing import Dict
 from concurrent.futures import ThreadPoolExecutor
 
-# Ajusta o sys.path para importar o protobuf gerado da raiz do projeto
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-from aresta_api.proto.generated import serving_pb2
-
 def get_db_version() -> str:
+    # Garante que a pasta migracoes esteja presente localmente (útil em git blobless clone)
+    try:
+        subprocess.run(["git", "checkout", "HEAD", "--", "migracoes/"], check=True, capture_output=True)
+    except subprocess.CalledProcessError:
+        pass
+        
     base_dir = Path(__file__).resolve().parent.parent / "migracoes"
     max_num = 0
     if base_dir.exists():
@@ -41,7 +41,7 @@ class CloudflarePurger:
         payload = {
             "files": [
                 f"https://cdn.aresta.app/{db_version}/indice.binarypb",
-                f"https://cdn.aresta.app/{db_version}/arquivos_serving.binarypb"
+                f"https://cdn.aresta.app/{db_version}/arquivos_serving.yaml"
             ]
         }
         
@@ -64,32 +64,28 @@ class Deployer:
             
         self.purger = CloudflarePurger()
 
-    def _get_remote_manifest(self) -> serving_pb2.ArquivosServing:
-        key = f"{self.db_version}/arquivos_serving.binarypb"
+    def _get_remote_manifest(self) -> dict:
+        key = f"{self.db_version}/arquivos_serving.yaml"
         try:
             resp = self.s3.get_object(Bucket=self.bucket, Key=key)
-            data = resp['Body'].read()
-            m = serving_pb2.ArquivosServing()
-            m.ParseFromString(data)
-            return m
+            data = resp['Body'].read().decode("utf-8")
+            return yaml.safe_load(data)
         except ClientError as e:
             if e.response['Error']['Code'] == 'NoSuchKey':
                 return None
             raise e
 
-    def _get_local_manifest(self) -> serving_pb2.ArquivosServing:
-        path = self.generated_dir / "arquivos_serving.binarypb"
+    def _get_local_manifest(self) -> dict:
+        path = self.generated_dir / "arquivos_serving.yaml"
         # Em blobless clone, precisamos forçar o download primeiro
         try:
-            subprocess.run(["git", "checkout", "HEAD", "--", "generated/arquivos_serving.binarypb"], check=True, capture_output=True)
+            subprocess.run(["git", "checkout", "HEAD", "--", "generated/arquivos_serving.yaml"], check=True, capture_output=True)
         except subprocess.CalledProcessError:
             pass
 
         if not path.exists():
             raise FileNotFoundError(f"Manifesto local não encontrado: {path}")
-        m = serving_pb2.ArquivosServing()
-        m.ParseFromString(path.read_bytes())
-        return m
+        return yaml.safe_load(path.read_text(encoding="utf-8"))
 
     def _upload_file(self, rel_path: str):
         local_path = self.generated_dir / rel_path
@@ -130,18 +126,18 @@ class Deployer:
 
         if not remote_manifest:
             print("=== FALLBACK FULL DEPLOY ===")
-            print(f"Manifesto remoto {self.db_version}/arquivos_serving.binarypb não encontrado.")
+            print(f"Manifesto remoto {self.db_version}/arquivos_serving.yaml não encontrado.")
             print("Executando: git checkout HEAD -- generated/")
             subprocess.run(["git", "checkout", "HEAD", "--", "generated/"], check=True)
             
-            paths = [a.caminho_relativo for a in local_manifest.arquivos]
-            paths.append("arquivos_serving.binarypb")
+            paths = [a["caminho_relativo"] for a in local_manifest["arquivos"]]
+            paths.append("arquivos_serving.yaml")
             print(f"Enviando {len(paths)} arquivos para R2 em paralelo...")
             self._upload_files_parallel(paths)
         else:
             print("=== DELTA DEPLOY ===")
-            remote_map = {a.caminho_relativo: a.checksum_sha256 for a in remote_manifest.arquivos}
-            local_map = {a.caminho_relativo: a.checksum_sha256 for a in local_manifest.arquivos}
+            remote_map = {a["caminho_relativo"]: a["checksum_sha256"] for a in remote_manifest["arquivos"]}
+            local_map = {a["caminho_relativo"]: a["checksum_sha256"] for a in local_manifest["arquivos"]}
             
             added = []
             modified = []
@@ -163,8 +159,8 @@ class Deployer:
                 return
 
             # Inclui o manifesto em to_upload
-            if "arquivos_serving.binarypb" not in to_upload:
-                to_upload.append("arquivos_serving.binarypb")
+            if "arquivos_serving.yaml" not in to_upload:
+                to_upload.append("arquivos_serving.yaml")
 
             print(f"Adicionados: {len(added)}")
             print(f"Modificados: {len(modified)}")

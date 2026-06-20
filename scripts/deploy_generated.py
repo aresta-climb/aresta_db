@@ -663,24 +663,26 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
         raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
 
 def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
-    """Passo D: Gera arquivos_serving.binarypb usando checksums já calculados."""
-    from aresta_api.proto.generated import serving_pb2
+    """
+    Passo D: Gera um manifesto YAML (arquivos_serving.yaml) com a lista completa de todos os
+    arquivos a serem cacheados pelo CDN e servidos, junto com seus checksums.
+    """
+    import yaml
+    from google.protobuf.json_format import MessageToDict
     from aresta_api.proto.generated import croqui_pb2
-    print("\n=== Passo D: Gerando arquivos_serving.binarypb ===")
-    manifesto = serving_pb2.ArquivosServing()
+    from aresta_api.proto.generated import serving_pb2
+    print("\n=== Passo D: Gerando arquivos_serving.yaml ===")
     
-    arquivos_hash = 0
+    manifesto = serving_pb2.ArquivosServing()
     adicionados = set()
     
     def add_file(rel_path: str, checksum: str):
-        nonlocal arquivos_hash
         if rel_path in adicionados:
             return
         arquivo = manifesto.arquivos.add()
         arquivo.caminho_relativo = rel_path
         arquivo.checksum_sha256 = checksum
         adicionados.add(rel_path)
-        arquivos_hash += 1
 
     # 1. Adiciona os arquivos do Índice
     for croqui in indice.croquis:
@@ -709,11 +711,12 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
         if p.exists():
             add_file(global_file, calcular_sha256(p))
             
-    manifest_bytes = manifesto.SerializeToString()
-    with open(GENERATED_DIR / "arquivos_serving.binarypb", "wb") as f:
-        f.write(manifest_bytes)
-        
-    print(f"  Manifesto gerado com sucesso contendo {arquivos_hash} arquivos.")
+    dados = MessageToDict(manifesto, preserving_proto_field_name=True)
+    manifest_yaml = yaml.dump(dados, sort_keys=False, allow_unicode=True)
+    with open(GENERATED_DIR / "arquivos_serving.yaml", "w", encoding="utf-8") as f:
+        f.write(manifest_yaml)
+    
+    print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
 
 
 def atualizar_saude_croquis():
