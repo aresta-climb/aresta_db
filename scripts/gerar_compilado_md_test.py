@@ -10,7 +10,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from scripts.gerar_compilado_md import gerar_compilado_md
 from scripts.gerar_compilado_md import gerar_compilado_md
 
-def test_gerar_compilado_md(tmp_path):
+def test_gerar_compilado_md(tmp_path, capsys):
     croqui_dir = tmp_path / "pico_test"
     croqui_dir.mkdir()
     
@@ -120,3 +120,7 @@ def test_gerar_compilado_md(tmp_path):
     # Check missing fallback external files
     assert "## Arquivos Externos" in content
     assert "![caminho](imagens/foo.webp)" in content
+
+    # Assegura que nao imprime log verboso
+    captured = capsys.readouterr()
+    assert 'gerado com sucesso!' not in captured.out

@@ -93,17 +93,19 @@ class TestRootBuild(unittest.TestCase):
             args, _ = mock_run.call_args
             self.assertNotIn("tests", args[0])
 
+    @patch('root_build.run_health_check')
     @patch('root_build.run_coverage')
     @patch('root_build.generate_protos')
     @patch('root_build.run_tests')
     @patch('root_build.run_deploy')
-    def test_main_commands(self, mock_deploy, mock_tests, mock_protos, mock_coverage):
+    def test_main_commands(self, mock_deploy, mock_tests, mock_protos, mock_coverage, mock_health):
         # Comando: protos
         with patch('sys.argv', ['build.py', 'protos']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_not_called()
         mock_coverage.assert_not_called()
+        mock_health.assert_not_called()
         
         # Comando: test com force
         mock_protos.reset_mock()
@@ -117,35 +119,51 @@ class TestRootBuild(unittest.TestCase):
         mock_tests.reset_mock()
         mock_deploy.reset_mock()
         mock_coverage.reset_mock()
+        mock_health.reset_mock()
         with patch('sys.argv', ['build.py', 'tudo']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_called_once()
         mock_deploy.assert_called_once()
         mock_coverage.assert_not_called()
+        mock_health.assert_not_called() # deploy already does health check
         
         # Comando padrão: agora deve ser 'tudo'
         mock_protos.reset_mock()
         mock_tests.reset_mock()
         mock_deploy.reset_mock()
         mock_coverage.reset_mock()
+        mock_health.reset_mock()
         with patch('sys.argv', ['build.py']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_called_once()
         mock_deploy.assert_called_once()
         mock_coverage.assert_not_called()
+        mock_health.assert_not_called()
         
         # Comando: coverage
         mock_protos.reset_mock()
         mock_tests.reset_mock()
         mock_deploy.reset_mock()
         mock_coverage.reset_mock()
+        mock_health.reset_mock()
         with patch('sys.argv', ['build.py', 'coverage']):
             root_build.main()
         mock_protos.assert_called_with(force=False)
         mock_tests.assert_not_called()
         mock_coverage.assert_called_once()
+        mock_health.assert_not_called()
+        
+        # Comando: saude
+        mock_protos.reset_mock()
+        mock_tests.reset_mock()
+        mock_deploy.reset_mock()
+        mock_coverage.reset_mock()
+        mock_health.reset_mock()
+        with patch('sys.argv', ['build.py', 'saude']):
+            root_build.main()
+        mock_health.assert_called_once()
 
     @patch('root_build.generate_protos')
     @patch('root_build.run_tests')

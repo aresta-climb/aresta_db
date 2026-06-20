@@ -144,14 +144,12 @@ def main():
     elif args.cmd == "deploy":
         generate_protos(force=args.force)
         run_deploy()
-        run_health_check()
     elif args.cmd == "saude":
         run_health_check()
     elif args.cmd == "tudo":
         generate_protos(force=args.force)
         run_tests(testmon=args.testmon, parallel=args.parallel)
         run_deploy()
-        run_health_check()
 
 
 if __name__ == "__main__":

@@ -333,7 +333,7 @@ def preparar_generated(limpar: bool = True) -> None:
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True) -> tuple[list[tuple[str, dict, Path]], list[str]]:
+def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, verbose: bool = False) -> tuple[list[tuple[str, dict, Path]], list[str]]:
     """
     Passo A: Corrige cada croqui e compila para .binarypb (e .yaml/.md se gerar_arquivos_de_debug=True).
     """
@@ -395,7 +395,8 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
             if gerar_arquivos_de_debug:
                 dest_md = dest_dir / "compilado.md"
                 gerar_compilado_md(croqui_dir, dest_yaml, dest_md)
-                print(f"  [compilado.md] gerado com sucesso!")
+                if verbose:
+                    print(f"  [compilado.md] gerado com sucesso!")
         except Exception as e:
             msg = f"Erro ao compilar {croqui_id}: {e}"
             print(f"  {msg}")
@@ -610,7 +611,7 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
     preparar_generated(limpar=(target_path is None))
 
     # 5. Compilar os selecionados
-    compilados_novos, erros = passo_a_compilar_croquis(a_compilar, force_thumbnails=force_thumbnails, gerar_arquivos_de_debug=gerar_arquivos_de_debug)
+    compilados_novos, erros = passo_a_compilar_croquis(a_compilar, force_thumbnails=force_thumbnails, gerar_arquivos_de_debug=gerar_arquivos_de_debug, verbose=verbose)
 
     if erros:
         print("\n" + "!" * 60)

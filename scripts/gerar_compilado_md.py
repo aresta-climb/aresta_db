@@ -195,7 +195,7 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
         
     with open(output_md_path, "w", encoding="utf-8") as f:
          f.write("\n".join(md_lines) + "\n")
-    print(f"[{output_md_path.name}] gerado com sucesso!")
+    # We remove the print statement from here so that the caller can decide to print it or not.
 
 if __name__ == "__main__":
     import argparse
