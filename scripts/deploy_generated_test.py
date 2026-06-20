@@ -20,6 +20,7 @@ from scripts.deploy_generated import (
     passo_a_compilar_croquis,
     passo_b_calcular_checksums,
     passo_c_gerar_indice,
+    passo_d_gerar_manifesto_serving,
     processar_thumbnail,
 )
 
@@ -478,6 +479,7 @@ def test_carregar_um_croqui(tmp_path):
     assert carregar_um_croqui(tmp_path / "vazia") is None
 
 
+@patch("scripts.deploy_generated.passo_d_gerar_manifesto_serving")
 @patch("scripts.deploy_generated.encontrar_croquis")
 @patch("scripts.deploy_generated.passo_a_compilar_croquis")
 @patch("scripts.deploy_generated.passo_b_calcular_checksums")
@@ -486,7 +488,7 @@ def test_carregar_um_croqui(tmp_path):
 @patch("scripts.deploy_generated.preparar_generated")
 @patch("scripts.deploy_generated.ROOT_DIR")
 def test_deploy_resilience_to_failures(
-    mock_root, mock_preparar, mock_anteriores, mock_passo_c, mock_passo_b, mock_passo_a, mock_encontrar, tmp_path
+    mock_root, mock_preparar, mock_anteriores, mock_passo_c, mock_passo_b, mock_passo_a, mock_encontrar, mock_passo_d, tmp_path
 ):
     """Garante que o índice seja gerado mesmo se alguns croquis falharem na compilação."""
     # Setup
@@ -511,6 +513,7 @@ def test_deploy_resilience_to_failures(
     
     mock_anteriores.return_value = {}
     mock_passo_b.return_value = {"p1": "hash1"}
+    mock_passo_c.return_value = "indice_mock"
 
     from scripts.deploy_generated import deploy
     
@@ -522,6 +525,7 @@ def test_deploy_resilience_to_failures(
     
     # O Passo C DEVE ter sido chamado mesmo com o erro no pico2
     mock_passo_c.assert_called_once()
+    assert mock_passo_d.called
     compilados_finais = mock_passo_c.call_args[0][0]
     assert len(compilados_finais) == 1
     assert compilados_finais[0][0] == "p1"
@@ -554,3 +558,40 @@ def test_validacao_extensoes_vazadas(tmp_path):
     
     with pytest.raises(ValueError, match="Extensão de Shadow State .*vazada"):
         validar_sem_extensoes_vazadas(pico_md_sujo)
+
+def test_passo_d_gerar_manifesto_serving(tmp_path):
+    from aresta_api.proto.generated import serving_pb2
+    from aresta_api.proto.generated import indice_pb2
+    deploy_module.GENERATED_DIR = tmp_path / "generated"
+    deploy_module.GENERATED_DIR.mkdir()
+
+    # Cria alguns arquivos dummy
+    (deploy_module.GENERATED_DIR / "indice.binarypb").write_bytes(b"123")
+    croqui_dir = deploy_module.GENERATED_DIR / "pico1"
+    croqui_dir.mkdir()
+    from aresta_api.proto.generated import croqui_pb2
+    (croqui_dir / "compilado.binarypb").write_bytes(croqui_pb2.Croqui().SerializeToString())
+    
+    indice = indice_pb2.Indice()
+    rc = indice.croquis.add()
+    rc.id = "pico1"
+    rc.checksum_sha256_croqui = "hash_c"
+
+    deploy_module.passo_d_gerar_manifesto_serving(indice)
+    
+    manifest_file = deploy_module.GENERATED_DIR / "arquivos_serving.binarypb"
+    assert manifest_file.exists()
+    
+    manifest = serving_pb2.ArquivosServing()
+    manifest.ParseFromString(manifest_file.read_bytes())
+    
+    paths = [a.caminho_relativo for a in manifest.arquivos]
+    assert "indice.binarypb" in paths
+    assert "pico1/compilado.binarypb" in paths
+    
+    # Valida checksums reais
+    for a in manifest.arquivos:
+        if a.caminho_relativo == "indice.binarypb":
+            assert a.checksum_sha256 == calcular_sha256(deploy_module.GENERATED_DIR / "indice.binarypb")
+        elif a.caminho_relativo == "pico1/compilado.binarypb":
+            assert a.checksum_sha256 == "hash_c"

@@ -430,7 +430,7 @@ def passo_c_gerar_indice(
     dados_anteriores: dict[str, indice_pb2.ResumoCroqui] = None,
     preservados: list[indice_pb2.ResumoCroqui] = None,
     is_producao: bool = True,
-) -> None:
+) -> indice_pb2.Indice:
     """
     Passo C: Gera generated/indice.binarypb (e indice.yaml para debug).
     O indice.binarypb é escrito por último para garantir deploy atômico.
@@ -542,6 +542,8 @@ def passo_c_gerar_indice(
     total_dirs = len([d for d in GENERATED_DIR.iterdir() if d.is_dir()])
     print(f"\nDeploy concluido em: {GENERATED_DIR}")
     print(f"  {total_dirs} pastas de croqui + indice.binarypb + indice.yaml")
+    
+    return indice
 
 
 def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True) -> None:
@@ -645,7 +647,7 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
             raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_path}")
 
     checksums = passo_b_calcular_checksums(compilados_finais_para_checksum)
-    passo_c_gerar_indice(
+    indice = passo_c_gerar_indice(
         compilados_finais_para_checksum, 
         checksums, 
         dados_anteriores, 
@@ -653,10 +655,65 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
         is_producao=is_producao
     )
 
+    passo_d_gerar_manifesto_serving(indice)
+
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
     if erros:
         print(f"Total erros: {len(erros)}")
         raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
+
+def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
+    """Passo D: Gera arquivos_serving.binarypb usando checksums já calculados."""
+    from aresta_api.proto.generated import serving_pb2
+    from aresta_api.proto.generated import croqui_pb2
+    print("\n=== Passo D: Gerando arquivos_serving.binarypb ===")
+    manifesto = serving_pb2.ArquivosServing()
+    
+    arquivos_hash = 0
+    adicionados = set()
+    
+    def add_file(rel_path: str, checksum: str):
+        nonlocal arquivos_hash
+        if rel_path in adicionados:
+            return
+        arquivo = manifesto.arquivos.add()
+        arquivo.caminho_relativo = rel_path
+        arquivo.checksum_sha256 = checksum
+        adicionados.add(rel_path)
+        arquivos_hash += 1
+
+    # 1. Adiciona os arquivos do Índice
+    for croqui in indice.croquis:
+        base = croqui.id
+        add_file(f"{base}/compilado.binarypb", croqui.checksum_sha256_croqui)
+        if croqui.checksum_sha256_thumbnail:
+            add_file(f"{base}/imagens/thumbnail.webp", croqui.checksum_sha256_thumbnail)
+            
+        # 2. Lê o compilado para pegar arquivos_externos
+        compilado_path = GENERATED_DIR / base / "compilado.binarypb"
+        if compilado_path.exists():
+            c = croqui_pb2.Croqui()
+            c.ParseFromString(compilado_path.read_bytes())
+            for ext in c.arquivos_externos:
+                add_file(f"{base}/{ext.caminho}", ext.checksum_sha256)
+                
+        # 3. Calcula para os arquivos de debug gerados, se existirem
+        for debug_file in ["compilado.yaml", "compilado.md"]:
+            p = GENERATED_DIR / base / debug_file
+            if p.exists():
+                add_file(f"{base}/{debug_file}", calcular_sha256(p))
+
+    # 4. Calcula para os arquivos globais
+    for global_file in ["indice.binarypb", "indice.yaml"]:
+        p = GENERATED_DIR / global_file
+        if p.exists():
+            add_file(global_file, calcular_sha256(p))
+            
+    manifest_bytes = manifesto.SerializeToString()
+    with open(GENERATED_DIR / "arquivos_serving.binarypb", "wb") as f:
+        f.write(manifest_bytes)
+        
+    print(f"  Manifesto gerado com sucesso contendo {arquivos_hash} arquivos.")
 
 
 def atualizar_saude_croquis():
