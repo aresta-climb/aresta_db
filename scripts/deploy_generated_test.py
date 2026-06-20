@@ -517,8 +517,8 @@ def test_deploy_resilience_to_failures(
 
     from scripts.deploy_generated import deploy
     
-    # O deploy deve lançar RuntimeError devido ao erro no pico2, mas apenas ao final
-    with pytest.raises(RuntimeError):
+    # O deploy deve lançar SystemExit devido ao erro no pico2, mas apenas ao final
+    with pytest.raises(SystemExit):
         deploy(tmp_path / "generated")
     
     # Verifica que os arquivos da compilação bem-sucedida (pico1) estão lá
@@ -599,3 +599,25 @@ def test_passo_d_gerar_manifesto_serving(tmp_path):
             assert a.checksum_sha256 == calcular_sha256(deploy_module.GENERATED_DIR / "indice.binarypb")
         elif a.caminho_relativo == "pico1/compilado.binarypb":
             assert a.checksum_sha256 == "hash_c"
+
+
+def test_verbose_flag_passo_b(capsys):
+    from scripts.deploy_generated import passo_b_calcular_checksums
+    import tempfile
+    import os
+    
+    with tempfile.TemporaryDirectory() as d:
+        pb_path = Path(d) / 'test.pb'
+        pb_path.write_bytes(b'test')
+        compilados = [('pico_test', {}, pb_path)]
+        
+        # verbose=False
+        passo_b_calcular_checksums(compilados, verbose=False)
+        captured = capsys.readouterr()
+        assert 'Passo B' not in captured.out
+        
+        # verbose=True
+        passo_b_calcular_checksums(compilados, verbose=True)
+        captured = capsys.readouterr()
+        assert 'Passo B' in captured.out
+        assert 'pico_test' in captured.out

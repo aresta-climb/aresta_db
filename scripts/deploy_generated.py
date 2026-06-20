@@ -412,15 +412,18 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
 
 
 def passo_b_calcular_checksums(
-    compilados: list[tuple[str, dict, Path]]
+    compilados: list[tuple[str, dict, Path]],
+    verbose: bool = False
 ) -> dict[str, str]:
     """Passo B: SHA-256 de cada compilado.binarypb em generated/<id>/."""
-    print("\n=== Passo B: Calculando checksums SHA-256 ===")
+    if verbose:
+        print("\n=== Passo B: Calculando checksums SHA-256 ===")
     checksums = {}
     for croqui_id, _, pb_path in compilados:
         checksum = calcular_sha256(pb_path)
         checksums[croqui_id] = checksum
-        print(f"  {croqui_id}: {checksum[:16]}...")
+        if verbose:
+            print(f"  {croqui_id}: {checksum[:16]}...")
     return checksums
 
 
@@ -430,12 +433,14 @@ def passo_c_gerar_indice(
     dados_anteriores: dict[str, indice_pb2.ResumoCroqui] = None,
     preservados: list[indice_pb2.ResumoCroqui] = None,
     is_producao: bool = True,
+    verbose: bool = False,
 ) -> indice_pb2.Indice:
     """
     Passo C: Gera generated/indice.binarypb (e indice.yaml para debug).
     O indice.binarypb é escrito por último para garantir deploy atômico.
     """
-    print("\n=== Passo C: Gerando indice.binarypb + indice.yaml ===")
+    if verbose:
+        print("\n=== Passo C: Gerando indice.binarypb + indice.yaml ===")
     agora = datetime.datetime.now(datetime.timezone.utc)
     dados_anteriores = dados_anteriores or {}
     preservados = preservados or []
@@ -462,14 +467,16 @@ def passo_c_gerar_indice(
         if old_checksum == new_checksum and old_timestamp:
             resumo.timestamp_update.CopyFrom(old_timestamp)
             ts_str = resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ')
-            print(f"  {croqui_id}: checksum inalterado, mantendo timestamp_update={ts_str}")
+            if verbose:
+                print(f"  {croqui_id}: checksum inalterado, mantendo timestamp_update={ts_str}")
         else:
             resumo.timestamp_update.FromDatetime(agora)
             ts_str = resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ')
-            if old_checksum:
-                print(f"  {croqui_id}: checksum mudou ({old_checksum[:8]}... -> {new_checksum[:8]}...), timestamp_update={ts_str}")
-            else:
-                print(f"  {croqui_id}: novo croqui, timestamp_update={ts_str}")
+            if verbose:
+                if old_checksum:
+                    print(f"  {croqui_id}: checksum mudou ({old_checksum[:8]}... -> {new_checksum[:8]}...), timestamp_update={ts_str}")
+                else:
+                    print(f"  {croqui_id}: novo croqui, timestamp_update={ts_str}")
 
         resumo.id             = croqui_id
         resumo.nome           = croqui_data.get("nome", croqui_id)
@@ -490,7 +497,8 @@ def passo_c_gerar_indice(
             thumb_checksum = calcular_sha256(thumb_path)
             resumo.checksum_sha256_thumbnail = thumb_checksum
 
-        print(f"  Adicionado/Atualizado: {croqui_id}")
+        if verbose:
+            print(f"  Adicionado/Atualizado: {croqui_id}")
 
     # Depois adicionamos os preservados
     for resumo_preservado in preservados:
@@ -500,7 +508,8 @@ def passo_c_gerar_indice(
             
         resumo = indice.croquis.add()
         resumo.CopyFrom(resumo_preservado)
-        print(f"  Preservado: {resumo.id} (de deploy anterior)")
+        if verbose:
+            print(f"  Preservado: {resumo.id} (de deploy anterior)")
 
     # Ordenar croquis no índice por ID para consistência
     indice.croquis.sort(key=lambda x: x.id)
@@ -531,7 +540,8 @@ def passo_c_gerar_indice(
             yaml_content,
             f, allow_unicode=True, sort_keys=False,
         )
-    print(f"  indice.yaml escrito ({indice_yaml_path})")
+    if verbose:
+        print(f"  indice.yaml escrito ({indice_yaml_path})")
 
     # indice.binarypb — sempre o último (deploy atômico)
     indice_bytes = indice.SerializeToString()
@@ -546,7 +556,7 @@ def passo_c_gerar_indice(
     return indice
 
 
-def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True) -> None:
+def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
 
@@ -646,23 +656,26 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
         else:
             raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_path}")
 
-    checksums = passo_b_calcular_checksums(compilados_finais_para_checksum)
+    checksums = passo_b_calcular_checksums(compilados_finais_para_checksum, verbose=verbose)
     indice = passo_c_gerar_indice(
         compilados_finais_para_checksum, 
         checksums, 
         dados_anteriores, 
         preservados=preservados_metadados,
-        is_producao=is_producao
+        is_producao=is_producao,
+        verbose=verbose
     )
 
-    passo_d_gerar_manifesto_serving(indice)
+    passo_d_gerar_manifesto_serving(indice, verbose=verbose)
 
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
     if erros:
         print(f"Total erros: {len(erros)}")
-        raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
+        import sys
+        print(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
+        sys.exit(1)
 
-def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
+def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = False) -> None:
     """
     Passo D: Gera um manifesto YAML (arquivos_serving.yaml) com a lista completa de todos os
     arquivos a serem cacheados pelo CDN e servidos, junto com seus checksums.
@@ -671,7 +684,9 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
     from google.protobuf.json_format import MessageToDict
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated import serving_pb2
-    print("\n=== Passo D: Gerando arquivos_serving.yaml ===")
+    
+    if verbose:
+        print("\n=== Passo D: Gerando arquivos_serving.yaml ===")
     
     manifesto = serving_pb2.ArquivosServing()
     adicionados = set()
@@ -716,7 +731,8 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice) -> None:
     with open(GENERATED_DIR / "arquivos_serving.yaml", "w", encoding="utf-8") as f:
         f.write(manifest_yaml)
     
-    print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
+    if verbose:
+        print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
 
 
 def atualizar_saude_croquis():
@@ -768,6 +784,11 @@ def create_parser():
         default=True,
         help="Gera arquivos auxiliares .yaml e .md para debug (padrao: True).",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Habilita logs detalhados dos passos B, C e D.",
+    )
     return parser
 
 if __name__ == "__main__":
@@ -788,7 +809,8 @@ if __name__ == "__main__":
             target_path=args.croqui_caminho, 
             force_thumbnails=args.force_thumbnails,
             gerar_arquivos_de_debug=args.arquivos_de_debug,
-            is_producao=args.producao
+            is_producao=args.producao,
+            verbose=args.verbose
         )
     except RuntimeError as e:
         print(f"\\nDeploy interrompido: {e}")
