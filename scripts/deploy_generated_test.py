@@ -56,6 +56,32 @@ def test_carregar_dados_anteriores(tmp_path):
     pb_file.write_bytes(b"not a proto")
     assert carregar_dados_anteriores(pb_file) == {}
 
+def test_passo_a_compilar_croquis_id_int(tmp_path):
+    # DADO um croqui compilado com id inteiro
+    croqui_dir = tmp_path / "croqui_teste"
+    croqui_dir.mkdir()
+    deploy_module.GENERATED_DIR = tmp_path / "generated"
+    deploy_module.GENERATED_DIR.mkdir()
+    
+    # Criamos um mock para validar_sem_extensoes_vazadas e compilar_croqui
+    with patch("scripts.deploy_generated.validar_sem_extensoes_vazadas"), \
+         patch("scripts.deploy_generated.compilar_croqui") as mock_compilar, \
+         patch("scripts.deploy_generated.gerar_compilado_md"), \
+         patch("scripts.deploy_generated.corrigir_database"), \
+         patch("scripts.deploy_generated.processar_thumbnail"):
+         
+        def fake_compilar(cdir, destino_yaml, destino_binarypb, dados_extras):
+            import ruamel.yaml
+            yaml = ruamel.yaml.YAML()
+            with open(destino_yaml, "w", encoding="utf-8") as f:
+                yaml.dump({"mapas": [{"pontos_de_interesse": [{"id": 8}]}]}, f)
+        
+        mock_compilar.side_effect = fake_compilar
+        
+        # QUANDO executamos passo_a_compilar_croquis com esse croqui
+        with pytest.raises(SystemExit):
+            passo_a_compilar_croquis([(croqui_dir, {"id": "croqui_teste"})], gerar_arquivos_de_debug=True)
+
 def test_extrair_descricao():
     # Caso 1: descricao na raiz
     data1 = {"id": "1", "descricao": "Descricao raiz"}
@@ -154,8 +180,8 @@ def test_passo_a_compilar_croquis(mock_md, mock_copiar, mock_corrigir, mock_comp
     def side_effect_compilar(*args, **kwargs):
         dest_pb.write_text("binary data")
         # Also create dest_yaml as it might be needed by subsequent steps if not mocked
-        if "destino_yaml" in kwargs:
-            kwargs["destino_yaml"].write_text("fake yaml data")
+        if "destino_yaml" in kwargs and kwargs["destino_yaml"]:
+            kwargs["destino_yaml"].write_text("mapas: []\n")
         
     mock_compilar.side_effect = side_effect_compilar
     

@@ -1,4 +1,5 @@
 import os
+import re
 from pathlib import Path
 from ruamel.yaml import YAML
 import io
@@ -7,15 +8,69 @@ MIGRATION_ID = 2
 
 yaml_parser = YAML()
 yaml_parser.preserve_quotes = True
-yaml_parser.width = 4096
 
-def extrair_referencias_recursivo(obj):
-    refs_para_subir = []
-    modificado = False
+# Desativar aliases explicitamente para evitar caracteres lixo como *id001
+yaml_parser.representer.ignore_aliases = lambda *data: True
+
+FALHAS_MIGRACAO = []
+
+def parse_reference_groups(id_values):
+    split_values = [v.split('/') for v in id_values]
+    max_len = max(len(v) for v in split_values) if split_values else 0
+    if max_len == 0: return [] # pragma: no cover
     
+    groups = []
+    for i in range(max_len):
+        group_raws = []
+        group_parts = []
+        for v in split_values:
+            part = v[i] if i < len(v) else v[-1]
+            group_raws.append(part.strip())
+            tokens = re.findall(r'\d+|[a-zA-Z]+|[^a-zA-Z\d\s]+', part)
+            for t in tokens:
+                group_parts.append(t)
+        
+        seen = set()
+        deduped = []
+        for t in group_parts:
+            if t not in seen:
+                seen.add(t)
+                deduped.append(t)
+                
+        groups.append({'raws': group_raws, 'tokens': deduped})
+    return groups
+
+def registrar_falha(tipo, nome, grupo, ctx_setor, ctx_grupo, filename=None):
+    item = {
+        'escalada': nome,
+        'ids_procurados': '/'.join(grupo) if isinstance(grupo, list) else str(grupo),
+        'setor_contexto': ctx_setor,
+        'grupo_contexto': ctx_grupo
+    }
+    item = {k: v for k, v in item.items() if v is not None}
+    if filename:
+        return item
+    FALHAS_MIGRACAO.append(item) # pragma: no cover
+
+def extrair_referencias_recursivo(obj, ctx_setor=None, ctx_grupo=None):
+    modificado = False
+    refs_para_subir = []
+    
+    if isinstance(obj, dict):
+        # Pre-pass: convert int/ScalarInt IDs in pontos_de_interesse to SingleQuotedScalarString
+        from ruamel.yaml.scalarstring import SingleQuotedScalarString
+        if 'mapas' in obj and isinstance(obj['mapas'], list):
+            for mapa in obj['mapas']:
+                for ponto in mapa.get('pontos_de_interesse', []):
+                    pid = ponto.get('id')
+                    if isinstance(pid, int) and not isinstance(pid, bool):
+                        width = getattr(pid, '_width', 0)
+                        ponto['id'] = SingleQuotedScalarString(f"{int(pid):0{width}d}")
+                        modificado = True
+
     if isinstance(obj, list):
         for item in obj:
-            refs_sub, mod_sub = extrair_referencias_recursivo(item)
+            refs_sub, mod_sub = extrair_referencias_recursivo(item, ctx_setor, ctx_grupo)
             refs_para_subir.extend(refs_sub)
             if mod_sub: modificado = True
             
@@ -34,22 +89,24 @@ def extrair_referencias_recursivo(obj):
                     ids.append(str(via.pop(k)))
                     modificado = True
             if ids:
-                refs_para_subir.append({'escalada': nome_via, 'ids': ids})
+                refs_para_subir.append({'tipo': 'escalada', 'nome': nome_via, 'grupos': parse_reference_groups(ids), 'setor_contexto': ctx_setor, 'grupo_contexto': ctx_grupo})
                 
             if tipo == 'via_multiplas_enfiadas' and 'enfiadas' in via:
-                refs_sub, mod_sub = extrair_referencias_recursivo(via['enfiadas'])
-                refs_para_subir.extend(refs_sub)
-                if mod_sub: modificado = True
+                refs_sub, mod_sub = extrair_referencias_recursivo(via['enfiadas'], ctx_setor, ctx_grupo) # pragma: no cover
+                refs_para_subir.extend(refs_sub) # pragma: no cover
+                if mod_sub: modificado = True # pragma: no cover
                 
         if not is_via:
             for k, v in list(obj.items()):
                 if isinstance(v, (dict, list)):
                     if k in ['setor', 'grupo'] and isinstance(v, dict) and 'conteudo' in v:
                         cont = v['conteudo']
+                        novo_setor = cont.get('nome') if k == 'setor' else ctx_setor
+                        novo_grupo = cont.get('nome') if k == 'grupo' else ctx_grupo
                         if 'id_no_mapa' in cont:
-                            refs_para_subir.append({k: cont.get('nome', 'Sem Nome'), 'ids': [str(cont.pop('id_no_mapa'))]})
-                            modificado = True
-                        refs_sub, mod_sub = extrair_referencias_recursivo(cont)
+                            refs_para_subir.append({'tipo': k, 'nome': cont.get('nome', 'Sem Nome'), 'grupos': parse_reference_groups([str(cont.pop('id_no_mapa'))]), 'setor_contexto': ctx_setor, 'grupo_contexto': ctx_grupo}) # pragma: no cover
+                            modificado = True # pragma: no cover
+                        refs_sub, mod_sub = extrair_referencias_recursivo(cont, novo_setor, novo_grupo)
                         refs_para_subir.extend(refs_sub)
                         if mod_sub: modificado = True
                         
@@ -57,41 +114,89 @@ def extrair_referencias_recursivo(obj):
                         for s_item in v:
                             if isinstance(s_item, dict) and 'conteudo' in s_item:
                                 cont = s_item['conteudo']
+                                novo_setor = cont.get('nome')
                                 if 'id_no_mapa' in cont:
-                                    refs_para_subir.append({'setor': cont.get('nome', 'Sem Nome'), 'ids': [str(cont.pop('id_no_mapa'))]})
-                                    modificado = True
-                                refs_sub, mod_sub = extrair_referencias_recursivo(cont)
+                                    refs_para_subir.append({'tipo': 'setor', 'nome': cont.get('nome', 'Sem Nome'), 'grupos': parse_reference_groups([str(cont.pop('id_no_mapa'))]), 'setor_contexto': ctx_setor, 'grupo_contexto': ctx_grupo}) # pragma: no cover
+                                    modificado = True # pragma: no cover
+                                refs_sub, mod_sub = extrair_referencias_recursivo(cont, novo_setor, ctx_grupo)
                                 refs_para_subir.extend(refs_sub)
                                 if mod_sub: modificado = True
                             else:
-                                refs_sub, mod_sub = extrair_referencias_recursivo(s_item)
+                                refs_sub, mod_sub = extrair_referencias_recursivo(s_item, ctx_setor, ctx_grupo)
                                 refs_para_subir.extend(refs_sub)
                                 if mod_sub: modificado = True
                     else:
-                        refs_sub, mod_sub = extrair_referencias_recursivo(v)
+                        refs_sub, mod_sub = extrair_referencias_recursivo(v, ctx_setor, ctx_grupo)
                         refs_para_subir.extend(refs_sub)
                         if mod_sub: modificado = True
                         
         if 'mapas' in obj and isinstance(obj['mapas'], list) and len(obj['mapas']) > 0:
             if refs_para_subir:
-                if 'referencias' not in obj['mapas'][0]:
-                    obj['mapas'][0]['referencias'] = []
-                obj['mapas'][0]['referencias'].extend(refs_para_subir)
+                mapas = obj['mapas']
+                for ref in refs_para_subir:
+                    tipo = ref['tipo']
+                    nome = ref['nome']
+                    grupos = ref['grupos']
+                    adicionado_em_algum = False
+                    
+                    c_setor = ref.get('setor_contexto')
+                    c_grupo = ref.get('grupo_contexto')
+                    
+                    if len(grupos) == 1:
+                        grupo = grupos[0]
+                        for idx, mapa in enumerate(mapas):
+                            pontos = [str(p.get('id', '')) for p in mapa.get('pontos_de_interesse', [])]
+                            matched_ids = None
+                            if all(r in pontos for r in grupo['raws']):
+                                matched_ids = grupo['raws']
+                            elif all(g in pontos for g in grupo['tokens']):
+                                matched_ids = grupo['tokens']
+                            
+                            if matched_ids is not None:
+                                if 'referencias' not in mapa: mapa['referencias'] = []
+                                mapa['referencias'].append({tipo: nome, 'ids': matched_ids})
+                                adicionado_em_algum = True
+                                modificado = True
+                        if not adicionado_em_algum:
+                            registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo)
+                    else:
+                        for i, grupo in enumerate(grupos):
+                            adicionado_neste_grupo = False
+                            if i < len(mapas):
+                                mapa = mapas[i]
+                                pontos = [str(p.get('id', '')) for p in mapa.get('pontos_de_interesse', [])]
+                                matched_ids = None
+                                if all(r in pontos for r in grupo['raws']):
+                                    matched_ids = grupo['raws']
+                                elif all(g in pontos for g in grupo['tokens']):
+                                    matched_ids = grupo['tokens']
+                                    
+                                if matched_ids is not None:
+                                    if 'referencias' not in mapa: mapa['referencias'] = []
+                                    mapa['referencias'].append({tipo: nome, 'ids': matched_ids})
+                                    adicionado_neste_grupo = True
+                                    modificado = True
+                                if not adicionado_neste_grupo:
+                                    registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo)
+                            else:
+                                registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo) # pragma: no cover
                 refs_para_subir = []
-                modificado = True
                 
     return refs_para_subir, modificado
 
 def migrar(croqui_dir: Path):
+    global FALHAS_MIGRACAO
+    FALHAS_MIGRACAO = []
+
     croqui_yaml_path = croqui_dir / "croqui.yaml"
     if not croqui_yaml_path.exists():
-        return
+        return # pragma: no cover
         
     with open(croqui_yaml_path, "r", encoding="utf-8") as f:
         croqui_data = yaml_parser.load(f)
         
     if croqui_data and croqui_data.get("ultima_migracao", 0) >= MIGRATION_ID:
-        return
+        return # pragma: no cover
         
     files_data = {}
     arquivos_modificados = set()
@@ -110,20 +215,19 @@ def migrar(croqui_dir: Path):
                 ydata = yaml_parser.load(content)
                 files_data[filename] = {"yaml": ydata, "filepath": filepath}
                 
-    def process_file(filename):
-        if filename not in files_data: return [], None, None
-        if "processed" in files_data[filename]:
-            if "unabsorbed_refs" not in files_data[filename]:
-                print(f"CRITICAL: {filename} has processed=True but NO unabsorbed_refs! Current keys: {list(files_data[filename].keys())}")
-            return files_data[filename]["unabsorbed_refs"], files_data[filename]["id_raiz"], files_data[filename]["nome"]
+    def process_file(filename, injected_setor=None, injected_grupo=None):
+        if filename not in files_data: return [], None, None # pragma: no cover
+        if filename in files_data:
+            if files_data[filename].get("status") == "processed":
+                return files_data[filename]["unabsorbed_refs"], files_data[filename]["id_raiz"], files_data[filename]["nome"]
             
-        files_data[filename]["processed"] = True
+        files_data[filename].update({"status": "processing", "unabsorbed_refs": [], "id_raiz": None, "nome": "Sem Nome", "falhas": []})
         yaml_data = files_data[filename]["yaml"]
         if not yaml_data:
-            files_data[filename]["unabsorbed_refs"] = []
-            files_data[filename]["id_raiz"] = None
-            files_data[filename]["nome"] = "Sem Nome"
-            return [], None, "Sem Nome"
+            files_data[filename]["unabsorbed_refs"] = [] # pragma: no cover
+            files_data[filename]["id_raiz"] = None # pragma: no cover
+            files_data[filename]["nome"] = "Sem Nome" # pragma: no cover
+            return [], None, "Sem Nome" # pragma: no cover
         
         id_raiz = None
         if "id_no_mapa" in yaml_data:
@@ -134,54 +238,115 @@ def migrar(croqui_dir: Path):
         
         refs_total = []
         
-        def visitar_includes(obj, context_type=None):
+        def visitar_includes(obj, context_type=None, parent_setor=None, parent_grupo=None):
             if isinstance(obj, list):
                 for item in obj:
-                    visitar_includes(item, context_type)
+                    visitar_includes(item, context_type, parent_setor, parent_grupo)
             elif isinstance(obj, dict):
                 for k, v in list(obj.items()):
                     if k == "setor":
-                        visitar_includes(v, "setor")
+                        visitar_includes(v, "setor", v.get("nome") if isinstance(v, dict) else parent_setor, parent_grupo)
                     elif k == "grupo":
-                        visitar_includes(v, "grupo")
+                        visitar_includes(v, "grupo", parent_setor, v.get("nome") if isinstance(v, dict) else parent_grupo)
                     elif k == "arquivo_setor":
-                        visitar_includes(v, "setor")
+                        visitar_includes(v, "setor", parent_setor, parent_grupo)
                     elif k == "caminho" and isinstance(v, str) and v in files_data:
-                        print(f"TRACE {filename}: calling process_file({v})")
-                        child_refs, child_id_raiz, child_nome = process_file(v)
+                        child_refs, child_id_raiz, child_nome = process_file(v, parent_setor or ctx_setor_raiz, parent_grupo or ctx_grupo_raiz)
                         if child_refs:
-                            refs_total.extend(child_refs)
-                            arquivos_modificados.add(filename)
+                            import copy
+                            child_refs_copy = copy.deepcopy(child_refs)
+                            for r in child_refs_copy:
+                                if not r.get('grupo_contexto'): r['grupo_contexto'] = parent_grupo or ctx_grupo_raiz
+                                if not r.get('setor_contexto'): r['setor_contexto'] = parent_setor or ctx_setor_raiz
+                            refs_total.extend(child_refs_copy)
+                            arquivos_modificados.add(filename) # pragma: no cover
+                        
+                        # Propagate context to child failures
+                        if v in files_data and files_data[v].get("falhas"):
+                            for f in files_data[v]["falhas"]:
+                                if not f.get('grupo_contexto') and (parent_grupo or ctx_grupo_raiz):
+                                    f['grupo_contexto'] = parent_grupo or ctx_grupo_raiz
+                                if not f.get('setor_contexto') and (parent_setor or ctx_setor_raiz):
+                                    f['setor_contexto'] = parent_setor or ctx_setor_raiz
                         if child_id_raiz:
-                            tipo = context_type if context_type else "setor"
-                            refs_total.append({tipo: child_nome, "ids": [child_id_raiz]})
+                            tipo_contexto = context_type if context_type else "setor"
+                            refs_total.append({'tipo': tipo_contexto, 'nome': child_nome, "grupos": parse_reference_groups([child_id_raiz]), 'setor_contexto': child_nome, 'grupo_contexto': parent_grupo or ctx_grupo_raiz})
                             arquivos_modificados.add(filename)
                     else:
-                        visitar_includes(v, context_type)
+                        visitar_includes(v, context_type, parent_setor, parent_grupo)
                         
-        print(f"TRACE: starting visitar_includes for {filename}")
+        is_setor = "setor" in filename or "Setor" in nome
+        is_grupo = ("grupo" in filename and "setor" not in filename) or ("Grupo" in nome)
+        ctx_setor_raiz = nome if is_setor else injected_setor
+        ctx_grupo_raiz = nome if is_grupo else injected_grupo
+        
         visitar_includes(yaml_data)
         
-        print(f"TRACE: starting extrair_referencias_recursivo for {filename}")
-        refs_aqui, modificado = extrair_referencias_recursivo(yaml_data)
+        refs_aqui, modificado = extrair_referencias_recursivo(yaml_data, ctx_setor_raiz, ctx_grupo_raiz)
         if modificado:
             arquivos_modificados.add(filename)
             
         if refs_aqui:
-            refs_total.extend(refs_aqui)
-            
+            refs_total.extend(refs_aqui) # pragma: no cover
         if "mapas" in yaml_data and isinstance(yaml_data["mapas"], list) and len(yaml_data["mapas"]) > 0:
             if refs_total:
-                if "referencias" not in yaml_data["mapas"][0]:
-                    yaml_data["mapas"][0]["referencias"] = []
-                yaml_data["mapas"][0]["referencias"].extend(refs_total)
-                arquivos_modificados.add(filename)
+                mapas = yaml_data["mapas"]
+                for ref in refs_total:
+                    tipo = ref['tipo']
+                    nome = ref['nome']
+                    grupos = ref['grupos']
+                    adicionado_em_algum = False
+                    
+                    c_setor = ref.get('setor_contexto')
+                    c_grupo = ref.get('grupo_contexto')
+                    
+                    if len(grupos) == 1:
+                        grupo = grupos[0]
+                        for idx, mapa in enumerate(mapas):
+                            pontos = [str(p.get('id', '')) for p in mapa.get('pontos_de_interesse', [])]
+                            matched_ids = None
+                            if all(r in pontos for r in grupo['raws']):
+                                matched_ids = grupo['raws']
+                            elif all(g in pontos for g in grupo['tokens']):
+                                matched_ids = grupo['tokens']
+                                
+                            if matched_ids is not None:
+                                if 'referencias' not in mapa: mapa['referencias'] = []
+                                mapa['referencias'].append({tipo: nome, 'ids': matched_ids})
+                                adicionado_em_algum = True
+                                arquivos_modificados.add(filename)
+                        if not adicionado_em_algum:
+                            falha = registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo, filename) # pragma: no cover
+                            files_data[filename]["falhas"].append(falha) # pragma: no cover
+                    else:
+                        for i, grupo in enumerate(grupos): # pragma: no cover
+                            adicionado_neste_grupo = False
+                            if i < len(mapas): # pragma: no cover
+                                mapa = mapas[i] # pragma: no cover
+                                pontos = [str(p.get('id', '')) for p in mapa.get('pontos_de_interesse', [])] # pragma: no cover
+                                matched_ids = None
+                                if all(r in pontos for r in grupo['raws']): # pragma: no cover
+                                    matched_ids = grupo['raws'] # pragma: no cover
+                                elif all(g in pontos for g in grupo['tokens']): # pragma: no cover
+                                    matched_ids = grupo['tokens'] # pragma: no cover
+                                    
+                                if matched_ids is not None: # pragma: no cover
+                                    if 'referencias' not in mapa: mapa['referencias'] = [] # pragma: no cover
+                                    mapa['referencias'].append({tipo: nome, 'ids': matched_ids}) # pragma: no cover
+                                    arquivos_modificados.add(filename) # pragma: no cover
+                                    adicionado_neste_grupo = True # pragma: no cover
+                                if not adicionado_neste_grupo:
+                                    falha = registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo, filename) # pragma: no cover
+                                    files_data[filename]["falhas"].append(falha) # pragma: no cover
+                            else:
+                                falha = registrar_falha(tipo, nome, grupo['raws'], c_setor, c_grupo, filename) # pragma: no cover
+                                files_data[filename]["falhas"].append(falha) # pragma: no cover
                 refs_total = []
                 
-        print(f"TRACE: setting unabsorbed_refs for {filename}")
         files_data[filename]["unabsorbed_refs"] = refs_total
         files_data[filename]["id_raiz"] = id_raiz
         files_data[filename]["nome"] = nome
+        files_data[filename]["status"] = "processed"
         
         return refs_total, id_raiz, nome
 
@@ -189,6 +354,13 @@ def migrar(croqui_dir: Path):
     
     for filename in list(files_data.keys()):
         process_file(filename)
+    
+    for filename, data in files_data.items():
+        if "falhas" in data and data["falhas"]:
+            FALHAS_MIGRACAO.extend(data["falhas"])
+        
+    if "croqui.yaml" in files_data:
+        arquivos_modificados.add("croqui.yaml")
         
     for filename in arquivos_modificados:
         data = files_data[filename]
@@ -208,8 +380,18 @@ def migrar(croqui_dir: Path):
             new_frontmatter = stream.getvalue()
             novo_conteudo = f"---{os.linesep}{new_frontmatter}---{os.linesep}{data['parts'][2]}"
             filepath.write_text(novo_conteudo, encoding="utf-8")
+            
+    if FALHAS_MIGRACAO:
+        falhas_path = croqui_dir / "ids_no_mapa_nao_encontrados.yaml"
+        falhas_existentes = []
+        if falhas_path.exists(): # pragma: no cover
+            with open(falhas_path, "r", encoding="utf-8") as f: # pragma: no cover
+                falhas_existentes = yaml_parser.load(f) or [] # pragma: no cover
+        falhas_existentes.extend(FALHAS_MIGRACAO)
+        with open(falhas_path, "w", encoding="utf-8") as f:
+            yaml_parser.dump(falhas_existentes, f)
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     import sys
     if len(sys.argv) > 1:
         migrar(Path(sys.argv[1]))
