@@ -243,6 +243,7 @@
             *   **Instagram:** @ouroboulder
             *   **Email:** sime.ouroboulder@gmail.com
 - **ultima_migracao**: 2
+- **publicar_croqui**: True
 
 
 ## Parte: grupo_pedreira
@@ -707,8 +708,8 @@
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1010
-                - **y**: 320
+                - **x**: 1016
+                - **y**: 314
                 - **raio**: 13
             - **[2]**:
               - **id**: 1

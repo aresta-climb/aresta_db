@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Meia-Parede'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp
@@ -115,5 +115,6 @@ escaladas:
 - boulder:
     nome: Jardim Suspenso
     dificuldade: V6
----
+---
+
 

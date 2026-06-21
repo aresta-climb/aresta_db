@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Fiat Lux'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
@@ -32,5 +32,6 @@ escaladas:
     nome: Frita Crux
     dificuldade: V4
     descricao: (vira pela aresta atrás do bloco)
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Tô de Boa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
@@ -126,5 +126,6 @@ escaladas:
 - boulder:
     nome: Tô Suave
     dificuldade: V4_BARRA_V5
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Teto de Vidro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
@@ -144,5 +144,6 @@ escaladas:
 - boulder:
     nome: Wafer
     dificuldade: V1
----
+---
+
 

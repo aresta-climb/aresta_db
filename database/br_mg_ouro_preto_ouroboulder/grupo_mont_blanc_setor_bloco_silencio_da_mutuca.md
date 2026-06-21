@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Silêncio da Mutuca'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp
@@ -49,5 +49,6 @@ escaladas:
 - boulder:
     nome: Íngreme
     dificuldade: V3
----
+---
+
 

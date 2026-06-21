@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Sonar'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
@@ -49,5 +49,6 @@ escaladas:
 - boulder:
     nome: Periscópio
     dificuldade: V5
----
+---
+
 

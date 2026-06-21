@@ -10,6 +10,8 @@ Tarefas ainda a fazer na database.
 ## Inspeções
 - Inspecionar se tem que converter quadrados para círculos
 - Inspecionar se tem como extrair desenhos dos mapas para refazer a parte das extrações de imagens/mapas com maior qualidade.
+- Adicionar linter (warning) caso `indice_mapa_padrao` estiver apontando para um mapa inválido ou para um mapa que não contenha a escalada referenciada.
+- Adicionar linter (warning) caso o croqui contenha POIs órfãos (sem referência apontando para eles).
 
 ## MIGRAÇÃO DO ESQUEMA DE MAPAS
 - Script para validar que os pontos de interesse todos encontram uma escalada para referenciar

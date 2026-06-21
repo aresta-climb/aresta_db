@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Red Bull'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
@@ -79,5 +79,6 @@ escaladas:
 - boulder:
     nome: Mad Dog
     dificuldade: V1
----
+---
+
 

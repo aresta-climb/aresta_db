@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Elétron'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_eletron_p0.webp
@@ -73,5 +73,6 @@ escaladas:
 - boulder:
     nome: Positron
     dificuldade: V3
----
+---
+
 

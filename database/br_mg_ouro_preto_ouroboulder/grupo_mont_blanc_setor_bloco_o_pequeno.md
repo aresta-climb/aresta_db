@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: O Pequeno'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp
@@ -71,5 +71,6 @@ escaladas:
 - boulder:
     nome: O Pequeno
     dificuldade: V8
----
+---
+
 

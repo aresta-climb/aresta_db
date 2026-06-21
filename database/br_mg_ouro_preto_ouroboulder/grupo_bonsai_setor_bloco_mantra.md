@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
@@ -145,5 +145,6 @@ escaladas:
 - boulder:
     nome: Popeye
     dificuldade: V2
----
+---
+
 

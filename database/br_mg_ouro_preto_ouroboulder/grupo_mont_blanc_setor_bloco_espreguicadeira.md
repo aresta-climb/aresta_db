@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Espreguiçadeira'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp
@@ -49,5 +49,6 @@ escaladas:
 - boulder:
     nome: Hard Core
     dificuldade: V6_BARRA_V7
----
+---
+
 

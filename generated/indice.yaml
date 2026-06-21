@@ -119,6 +119,16 @@ croquis:
   checksum_sha256_croqui: 7b3e04a64ac36aa432952b71978dba8284a21c9dc2a5104ae5bbbe16de2b6d3a
   checksum_sha256_thumbnail: f6fd316f2dd6ae610fac6ee9137a0b4c2ab388860175d167b03b7bae36efbac0
   timestamp_update: '2026-06-20T02:32:01Z'
+- id: br_mg_ouro_preto_ouroboulder
+  nome: Ouroboulder
+  descricao: ''
+  caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
+  checksum_sha256_croqui: f2c17555ed38446d1cd4ce2a9eb414db74a3e9bc38c9c4f482c2fa957c60df47
+  checksum_sha256_thumbnail: bbf28b6a3d2e987124c6389e4d47ead46ddb50ee2baffece1c6e1184b368ca76
+  timestamp_update: '2026-06-21T14:56:49Z'
+  localizacao:
+    latitude: -203677334
+    longitude: -435075136
 - id: br_mg_ouro_preto_ouroboulder_sunset
   nome: OuroBoulder Sunset
   descricao: ''

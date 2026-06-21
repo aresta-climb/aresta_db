@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Parada Obrigatória'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp
@@ -101,5 +101,6 @@ escaladas:
 - boulder:
     nome: Fulano
     dificuldade: V1
----
+---
+
 

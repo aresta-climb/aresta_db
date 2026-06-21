@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Complexo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
@@ -223,5 +223,6 @@ escaladas:
 - boulder:
     nome: Respira
     dificuldade: V6
----
+---
+
 

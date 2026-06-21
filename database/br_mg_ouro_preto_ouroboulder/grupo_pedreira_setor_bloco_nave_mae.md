@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Nave-Mãe'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
@@ -481,5 +481,6 @@ escaladas:
 - boulder:
     nome: Passível
     dificuldade: V2
----
+---
+
 

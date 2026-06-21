@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
@@ -61,5 +61,6 @@ escaladas:
 - boulder:
     nome: Semiárido
     dificuldade: V5
----
+---
+
 

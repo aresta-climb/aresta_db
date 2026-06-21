@@ -399,8 +399,8 @@ picos:
               - id: B
                 label: B
                 circular:
-                  x: 1010
-                  y: 320
+                  x: 1016
+                  y: 314
                   raio: 13
               - id: '1'
                 label: '1'
@@ -5460,6 +5460,7 @@ botoes:
 
         *   **Email:** sime.ouroboulder@gmail.com'
 ultima_migracao: 2
+publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/apoio_p0.webp
   checksum_sha256: 6d8f9f08b705a7df00cf14760c6902cbc8e9c5bc6d5547886757e6daec8d7e0b

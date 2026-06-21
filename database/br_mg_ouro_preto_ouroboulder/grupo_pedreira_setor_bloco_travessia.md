@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Travessia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
@@ -173,5 +173,6 @@ escaladas:
 - boulder:
     nome: Movimentos Eróticos
     dificuldade: V1
----
+---
+
 

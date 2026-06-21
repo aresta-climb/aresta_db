@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Abaulados'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp
@@ -81,5 +81,6 @@ escaladas:
 - boulder:
     nome: Papo Reto sds
     dificuldade: V12
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Sauna'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
@@ -68,5 +68,6 @@ escaladas:
     nome: Sauna a Vapor
     dificuldade: V6
     descricao: (não usa a face direita da linha)
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Bonsai'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp
@@ -61,5 +61,6 @@ escaladas:
 - boulder:
     nome: Mancada
     dificuldade: V3
----
+---
+
 

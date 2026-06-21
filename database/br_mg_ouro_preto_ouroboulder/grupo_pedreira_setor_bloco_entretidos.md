@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Entretidos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
@@ -152,5 +152,6 @@ escaladas:
 - boulder:
     nome: Carranca
     dificuldade: V3
----
+---
+
 

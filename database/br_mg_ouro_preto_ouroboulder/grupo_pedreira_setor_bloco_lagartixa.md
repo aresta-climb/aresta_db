@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
@@ -339,5 +339,6 @@ escaladas:
 - boulder:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
----
+---
+
 

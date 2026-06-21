@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Conhaque'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp
@@ -79,5 +79,6 @@ escaladas:
 - boulder:
     nome: Conhaque Presidente
     dificuldade: V6
----
+---
+
 
