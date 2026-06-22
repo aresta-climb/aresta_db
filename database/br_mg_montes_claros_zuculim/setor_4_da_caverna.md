@@ -2,28 +2,6 @@
 nome: Setor 4 - Setor da Caverna
 mapas:
 - caminho_imagem_mapa: imagens/setor_4_da_caverna_p0_i0.webp
-  referencias:
-  - escalada: Pérola Negra
-    ids:
-    - '1'
-  - escalada: Calabouço
-    ids:
-    - '2'
-  - escalada: Iluminado
-    ids:
-    - '3'
-  - escalada: Zuzu Dreams
-    ids:
-    - '4'
-  - escalada: Zuzutime
-    ids:
-    - '5'
-  - escalada: Zuzulin
-    ids:
-    - '6'
-  - escalada: Epinefrina 05
-    ids:
-    - '7'
 escaladas:
 - via_esportiva:
     nome: Pérola Negra

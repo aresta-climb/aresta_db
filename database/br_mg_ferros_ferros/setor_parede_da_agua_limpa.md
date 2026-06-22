@@ -2,10 +2,6 @@
 nome: Parede da Água Limpa
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
-  referencias:
-  - escalada: Pr. Dama de Ferros
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
 escaladas:
 - via_multiplas_enfiadas:
@@ -27,7 +23,15 @@ escaladas:
     - Celso Ferreira Gomes
     - Tonico Magalhães
     data_abertura: '2015-09-06'
-    descricao: Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada. Corta toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
+    descricao: Atualmente, a única via da parede, e maior via da região de Ferros, 
+      contando com 405 metros de parede. Foi conquistada em três investidas com 
+      participantes distintos, demorando cerca de quatro anos para ser finalizada. Corta 
+      toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito 
+      complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção
+      predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta 
+      última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros.
+      Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 
+      60.
 ---
 
 ![Vivianne Sawczuk na conquista da “Dama de Ferros”](imagens/setor_parede_da_agua_limpa_p0_i1.webp)

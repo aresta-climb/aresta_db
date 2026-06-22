@@ -48,15 +48,9 @@ mapas:
   - escalada: Faxineiro do Universo
     ids:
     - '2'
-  - escalada: Arestinha Vibration
-    ids:
-    - '3'
   - escalada: Sujeirinha
     ids:
     - '4'
-  - escalada: Projeto Sunset
-    ids:
-    - '5'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
   largura_mapa: 488
   altura_mapa: 648
@@ -67,6 +61,10 @@ mapas:
       x: 195
       y: 554
       raio: 9
+  referencias:
+  - escalada: Arestinha Vibration
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
   largura_mapa: 338
   altura_mapa: 456
@@ -77,6 +75,10 @@ mapas:
       x: 246
       y: 386
       raio: 9
+  referencias:
+  - escalada: Projeto Sunset
+    ids:
+    - '5'
 ---
 
 # Bloco Sunset

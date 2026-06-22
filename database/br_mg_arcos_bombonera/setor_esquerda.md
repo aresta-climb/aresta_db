@@ -97,6 +97,10 @@ mapas:
       y: 886
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Água Bolhas
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/setor_esquerda_p1_i1.webp
   largura_mapa: 914
   altura_mapa: 1156
@@ -115,6 +119,13 @@ mapas:
       y: 1130
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Concretino
+    ids:
+    - '2'
+  - escalada: Gado impresso (com abelha)
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/setor_esquerda_p2_i0.webp
   largura_mapa: 916
   altura_mapa: 1151
@@ -154,6 +165,22 @@ mapas:
       y: 1105
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: (via inacabada)
+    ids:
+    - '4'
+  - escalada: Jaratataca
+    ids:
+    - '5'
+  - escalada: (sem nome)
+    ids:
+    - '6'
+  - escalada: (via inacabada)
+    ids:
+    - '7'
+  - escalada: Teoria dos jogos
+    ids:
+    - '8'
 escaladas:
 - via_esportiva:
     nome: Água Bolhas

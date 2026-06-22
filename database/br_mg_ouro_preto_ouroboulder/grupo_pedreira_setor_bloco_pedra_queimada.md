@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra Queimada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
@@ -68,16 +68,20 @@ mapas:
     - '4'
   - escalada: Dinamite
     ids:
-    - 5A
+    - '5'
+    - A
   - escalada: Pedra Queimada
     ids:
-    - 5B
+    - '5'
+    - B
   - escalada: Dinamite sds
     ids:
-    - 6A
+    - '6'
+    - A
   - escalada: Pedra Queimada sds
     ids:
-    - 6B
+    - '6'
+    - B
   - escalada: Identidade
     ids:
     - '1'
@@ -91,6 +95,13 @@ mapas:
       x: 630
       y: 730
       raio: 13
+  referencias:
+  - escalada: Flap
+    ids:
+    - '1'
+  - escalada: Identidade
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: Flap
@@ -120,6 +131,5 @@ escaladas:
 - boulder:
     nome: Identidade
     dificuldade: V0
----
-
+---
 

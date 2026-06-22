@@ -54,14 +54,14 @@ mapas:
       y: 663
       comprimento: 26
       largura: 30
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 805
       y: 661
       comprimento: 30
       largura: 28
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 962
@@ -90,12 +90,6 @@ mapas:
   - escalada: Vainafé
     ids:
     - '07'
-  - escalada: People crazy
-    ids:
-    - '8'
-  - escalada: Aresta Daniel
-    ids:
-    - '9'
 - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
   largura_mapa: 1109
   altura_mapa: 1413
@@ -128,6 +122,19 @@ mapas:
       y: 866
       comprimento: 33
       largura: 41
+  referencias:
+  - escalada: Conflito sensual
+    ids:
+    - '01'
+  - escalada: Duracell
+    ids:
+    - '02'
+  - escalada: Djavú
+    ids:
+    - '03'
+  - escalada: Muita coisa envolvida
+    ids:
+    - '04'
 - caminho_imagem_mapa: imagens/setor_pracinha_p3.webp
   largura_mapa: 1109
   altura_mapa: 1391
@@ -160,20 +167,30 @@ mapas:
       y: 914
       comprimento: 25
       largura: 33
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 481
       y: 1036
       comprimento: 26
       largura: 35
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 1006
       y: 1164
       comprimento: 25
       largura: 31
+  referencias:
+  - escalada: Netfrix
+    ids:
+    - '05'
+  - escalada: Pouca prática
+    ids:
+    - '06'
+  - escalada: Vainafé
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Conflito sensual

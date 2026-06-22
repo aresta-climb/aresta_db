@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Abaulados'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp
@@ -18,15 +18,6 @@ mapas:
   - escalada: '004'
     ids:
     - '1'
-  - escalada: Jardim Secreto
-    ids:
-    - 1A
-  - escalada: Papo Reto
-    ids:
-    - 1B
-  - escalada: Papo Reto sds
-    ids:
-    - 2B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -37,6 +28,13 @@ mapas:
       x: 570
       y: 822
       raio: 13
+  referencias:
+  - escalada: Abaulados
+    ids:
+    - '1'
+  - escalada: '004'
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -65,6 +63,25 @@ mapas:
       x: 720
       y: 983
       raio: 13
+  referencias:
+  - escalada: Abaulados
+    ids:
+    - '1'
+  - escalada: '004'
+    ids:
+    - '1'
+  - escalada: Jardim Secreto
+    ids:
+    - '1'
+    - A
+  - escalada: Papo Reto
+    ids:
+    - '1'
+    - B
+  - escalada: Papo Reto sds
+    ids:
+    - '2'
+    - B
 escaladas:
 - boulder:
     nome: Abaulados
@@ -81,6 +98,5 @@ escaladas:
 - boulder:
     nome: Papo Reto sds
     dificuldade: V12
----
-
+---
 

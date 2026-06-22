@@ -54,14 +54,14 @@ mapas:
       y: 866
       comprimento: 28
       largura: 38
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 898
       y: 964
       comprimento: 26
       largura: 35
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 930

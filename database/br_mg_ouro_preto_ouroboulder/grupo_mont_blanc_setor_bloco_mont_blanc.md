@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mont Blanc'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp
@@ -68,28 +68,36 @@ mapas:
   referencias:
   - escalada: Pico da Neblina ext
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Inquilinismo Frenético ext
     ids:
-    - 1C
+    - '1'
+    - C
   - escalada: Pico da Neblina
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Inquilinismo Frenético
     ids:
-    - 2C
+    - '2'
+    - C
   - escalada: Bife do Mário
     ids:
-    - 3B
+    - '3'
+    - B
   - escalada: Painel
     ids:
-    - 4C
+    - '4'
+    - C
   - escalada: Mont Blanc
     ids:
-    - 5C
+    - '5'
+    - C
   - escalada: Mont Blanc do Oeste
     ids:
-    - 6C
+    - '6'
+    - C
   - escalada: Deja Ir
     ids:
     - '7'
@@ -101,16 +109,20 @@ mapas:
     - '1'
   - escalada: Raízes do Brasil
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Raízes do Cerrado
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Tec Bond
     ids:
-    - 3B
+    - '3'
+    - B
   - escalada: Super Bonder
     ids:
-    - 4B
+    - '4'
+    - B
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -121,6 +133,13 @@ mapas:
       x: 475
       y: 804
       raio: 13
+  referencias:
+  - escalada: Colibri
+    ids:
+    - '1'
+  - escalada: '005'
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -131,6 +150,13 @@ mapas:
       x: 415
       y: 955
       raio: 13
+  referencias:
+  - escalada: Colibri
+    ids:
+    - '1'
+  - escalada: '005'
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -165,6 +191,33 @@ mapas:
       x: 1362
       y: 120
       raio: 13
+  referencias:
+  - escalada: Pico da Neblina ext
+    ids:
+    - '1'
+    - A
+  - escalada: Pico da Neblina
+    ids:
+    - '2'
+    - A
+  - escalada: Colibri
+    ids:
+    - '1'
+  - escalada: '005'
+    ids:
+    - '1'
+  - escalada: Raízes do Brasil
+    ids:
+    - '1'
+    - A
+  - escalada: Raízes do Cerrado
+    ids:
+    - '2'
+    - A
+  - escalada: Super Bonder
+    ids:
+    - '4'
+    - B
 escaladas:
 - boulder:
     nome: Pico da Neblina ext
@@ -211,6 +264,5 @@ escaladas:
 - boulder:
     nome: Super Bonder
     dificuldade: V6
----
-
+---
 

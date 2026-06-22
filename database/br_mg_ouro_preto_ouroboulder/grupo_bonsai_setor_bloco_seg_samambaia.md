@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Seg-Samambaia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp
@@ -55,6 +55,5 @@ escaladas:
 - boulder:
     nome: Toca Toca
     dificuldade: V4
----
-
+---
 

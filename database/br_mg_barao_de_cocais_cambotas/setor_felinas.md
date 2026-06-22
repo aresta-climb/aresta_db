@@ -2,28 +2,6 @@
 nome: Felinas
 mapas:
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
-  referencias:
-  - escalada: Pó branco
-    ids:
-    - '7'
-  - escalada: Gata borralheira
-    ids:
-    - '6'
-  - escalada: Marvada onça
-    ids:
-    - '5'
-  - escalada: Tigresa
-    ids:
-    - '4'
-  - escalada: Pantera
-    ids:
-    - '3'
-  - escalada: Suçuarana
-    ids:
-    - '2'
-  - escalada: Davi e Golias
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i28.webp
 escaladas:
 - via_multiplas_enfiadas:
@@ -33,7 +11,8 @@ escaladas:
     duracao: D2
     mapas:
     - caminho_imagem_mapa: imagens/setor_felinas_p0_i8.webp
-    equipamento_recomendado: Costuras diversas incluindo longas, 1 jogo de Camalot do .3 ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar 2 cordas de 60m.
+    equipamento_recomendado: Costuras diversas incluindo longas, 1 jogo de Camalot do .3 
+      ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar 2 cordas de 60m.
     descricao: Via técnica e exigente.
 - via_esportiva:
     nome: Pó branco
@@ -52,14 +31,16 @@ escaladas:
     - Toninho
     - Aloysio Carvalho
     - Gustavo Pianc
-    descricao: Via interessante com belas passadas em canaleta. Bastante técnica, molha bastante no verão, tornando impraticável a escalada nos meses mais úmidos.
+    descricao: Via interessante com belas passadas em canaleta. Bastante técnica, molha 
+      bastante no verão, tornando impraticável a escalada nos meses mais úmidos.
 - via_esportiva:
     nome: Marvada onça
     dificuldade: BR_7C
     extensao: 30
     conquistadores:
     - Gustavo Pianc.
-    descricao: Via técnica com um pequeno teto no meio. Uma das mais frequentadas da parede.
+    descricao: Via técnica com um pequeno teto no meio. Uma das mais frequentadas da 
+      parede.
 - via_esportiva:
     nome: Tigresa
     dificuldade: BR_8A_BARRA_8B
@@ -68,7 +49,8 @@ escaladas:
     - Gustavo Pianc
     - Aloysio Carvalho
     - Fábio Pavesi
-    descricao: Mistura técnica e resistência em bela passadas. Possui dois tetos. A primeira proteção após o segundo teto deve ser trocada.
+    descricao: Mistura técnica e resistência em bela passadas. Possui dois tetos. A 
+      primeira proteção após o segundo teto deve ser trocada.
 - via_esportiva:
     nome: Pantera
     dificuldade: BR_8B
@@ -93,7 +75,9 @@ escaladas:
     conquistadores:
     - Chander Christian
     - Eustáquio Macedo
-    descricao: Bem fácil no inicio, tem um crux no meio protegido com P's e depois um presente com belas sequencias em fenda frontal pouco vistas em MG. Termina em um grampo. Peças pequenas e médias.
+    descricao: Bem fácil no inicio, tem um crux no meio protegido com P's e depois um 
+      presente com belas sequencias em fenda frontal pouco vistas em MG. Termina em um 
+      grampo. Peças pequenas e médias.
 - via_esportiva:
     nome: O resgate do amigo
     dificuldade: BR_6SUP
@@ -101,7 +85,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Carlos Diniz
-    descricao: Top feito no final da 'davi e golias'. A via começa à direita do poço d'água.
+    descricao: Top feito no final da 'davi e golias'. A via começa à direita do poço 
+      d'água.
 ---
 
 # Setor Felinas

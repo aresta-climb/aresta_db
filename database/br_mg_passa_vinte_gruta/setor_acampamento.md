@@ -110,14 +110,14 @@ mapas:
       y: 550
       comprimento: 30
       largura: 30
-  - id: 08
+  - id: '08'
     label: '8'
     box:
       x: 405
       y: 395
       comprimento: 30
       largura: 30
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 255

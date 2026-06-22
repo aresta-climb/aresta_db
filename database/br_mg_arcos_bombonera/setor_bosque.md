@@ -114,6 +114,13 @@ mapas:
       y: 1126
       comprimento: 28
       largura: 30
+  referencias:
+  - escalada: La Cucaracha
+    ids:
+    - '1'
+  - escalada: (via inacabada) Bem Vindo ao Bosque
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/setor_bosque_p1_i1.webp
   largura_mapa: 916
   altura_mapa: 1155
@@ -139,6 +146,16 @@ mapas:
       y: 1090
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: (via inacabada)
+    ids:
+    - '3'
+  - escalada: Malandro é Malandro
+    ids:
+    - '4'
+  - escalada: Mané é Mané
+    ids:
+    - '5'
 - caminho_imagem_mapa: imagens/setor_bosque_p2_i0.webp
   largura_mapa: 910
   altura_mapa: 1154
@@ -171,6 +188,19 @@ mapas:
       y: 1118
       comprimento: 35
       largura: 35
+  referencias:
+  - escalada: Segunda Divisão
+    ids:
+    - '6'
+  - escalada: Diedrinho
+    ids:
+    - '7'
+  - escalada: Dona Leci
+    ids:
+    - '8'
+  - escalada: Caminito
+    ids:
+    - '9'
 escaladas:
 - via_esportiva:
     nome: La Cucaracha

@@ -130,6 +130,43 @@ mapas:
       y: 340
       comprimento: 12
       largura: 30
+  referencias:
+  - escalada: Tré Bien
+    ids:
+    - '1'
+  - escalada: Muvuca
+    ids:
+    - '2'
+  - escalada: Ninja de Verde
+    ids:
+    - '3'
+  - escalada: Ninja de Amarelo
+    ids:
+    - '4'
+  - escalada: Ninja de Rosa
+    ids:
+    - '5'
+  - escalada: Casé
+    ids:
+    - '6'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '5'
+  - escalada: Das Meninas
+    ids:
+    - '6'
 escaladas:
 - boulder:
     nome: Tré Bien
@@ -168,7 +205,6 @@ escaladas:
     nome: Das Meninas
     dificuldade: V3
 ---
-
 # Setor Campo Escola
 
 O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.

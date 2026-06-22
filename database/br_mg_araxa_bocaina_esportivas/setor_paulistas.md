@@ -56,39 +56,6 @@ mapas:
   - escalada: Miragem
     ids:
     - '05'
-  - escalada: Cortina de Fumaça
-    ids:
-    - '06'
-  - escalada: Sem Nome (Via 07)
-    ids:
-    - '07'
-  - escalada: Pubianos
-    ids:
-    - '8'
-  - escalada: Bocaina Roots
-    ids:
-    - '9'
-  - escalada: Decadentes
-    ids:
-    - '10'
-  - escalada: Pelos de Aldebaran
-    ids:
-    - '11'
-  - escalada: Ejaculação Precoce
-    ids:
-    - '12'
-  - escalada: Via do Laurêncio
-    ids:
-    - '13'
-  - escalada: International love
-    ids:
-    - '14'
-  - escalada: Cinquenteira
-    ids:
-    - '15'
-  - escalada: Boa idéia
-    ids:
-    - '16'
 - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -107,14 +74,14 @@ mapas:
       y: 828
       comprimento: 38
       largura: 32
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 498
       y: 943
       comprimento: 43
       largura: 32
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 558
@@ -135,6 +102,19 @@ mapas:
       y: 1148
       comprimento: 36
       largura: 29
+  referencias:
+  - escalada: Cortina de Fumaça
+    ids:
+    - '06'
+  - escalada: Sem Nome (Via 07)
+    ids:
+    - '07'
+  - escalada: Decadentes
+    ids:
+    - '10'
+  - escalada: Pelos de Aldebaran
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -174,6 +154,22 @@ mapas:
       y: 790
       comprimento: 38
       largura: 31
+  referencias:
+  - escalada: Ejaculação Precoce
+    ids:
+    - '12'
+  - escalada: Via do Laurêncio
+    ids:
+    - '13'
+  - escalada: International love
+    ids:
+    - '14'
+  - escalada: Cinquenteira
+    ids:
+    - '15'
+  - escalada: Boa idéia
+    ids:
+    - '16'
 escaladas:
 - via_esportiva:
     nome: Física Quântica

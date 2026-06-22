@@ -80,11 +80,13 @@ escaladas:
 - via_esportiva:
     nome: Visitante Oculto
     dificuldade: BR_8A
-    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem quer escalar 8º grau.
+    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem quer 
+      escalar 8º grau.
 - via_esportiva:
     nome: Bestial Devastation
     dificuldade: BR_7A
-    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer até o platô mais baixo.
+    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer
+      até o platô mais baixo.
 ---
 Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
 

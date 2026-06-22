@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Complexo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
@@ -50,19 +50,23 @@ mapas:
   referencias:
   - escalada: Talhadeira
     ids:
-    - 1/1B
+    - '1'
   - escalada: Complexo
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Ajoelhou, Tem que Rezar
     ids:
-    - 2B
+    - '2'
+    - B
   - escalada: Descomplicado
     ids:
-    - 3B
+    - '3'
+    - B
   - escalada: Sofá
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Porosíssimo
     ids:
     - '1'
@@ -72,9 +76,6 @@ mapas:
   - escalada: Não Poroso
     ids:
     - '3'
-  - escalada: Triangular
-    ids:
-    - '4'
   - escalada: Boulder de Raiz
     ids:
     - '1'
@@ -109,6 +110,24 @@ mapas:
       x: 978
       y: 980
       raio: 13
+  referencias:
+  - escalada: Talhadeira
+    ids:
+    - '1'
+    - B
+  - escalada: Sofá
+    ids:
+    - '1'
+    - A
+  - escalada: Porosíssimo
+    ids:
+    - '1'
+  - escalada: Boulder de Raiz
+    ids:
+    - '1'
+  - escalada: Respira
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -141,6 +160,31 @@ mapas:
       y: 822
       comprimento: 28
       largura: 28
+  referencias:
+  - escalada: Porosíssimo
+    ids:
+    - '1'
+  - escalada: Poroso
+    ids:
+    - '2'
+  - escalada: Não Poroso
+    ids:
+    - '3'
+  - escalada: Triangular
+    ids:
+    - '4'
+  - escalada: Boulder de Raiz
+    ids:
+    - '1'
+  - escalada: Travessia Ouro Preto-Bocaina
+    ids:
+    - '2'
+  - escalada: Perereca
+    ids:
+    - '3'
+  - escalada: Respira
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -173,6 +217,31 @@ mapas:
       y: 1004
       comprimento: 28
       largura: 28
+  referencias:
+  - escalada: Porosíssimo
+    ids:
+    - '1'
+  - escalada: Poroso
+    ids:
+    - '2'
+  - escalada: Não Poroso
+    ids:
+    - '3'
+  - escalada: Triangular
+    ids:
+    - '4'
+  - escalada: Boulder de Raiz
+    ids:
+    - '1'
+  - escalada: Travessia Ouro Preto-Bocaina
+    ids:
+    - '2'
+  - escalada: Perereca
+    ids:
+    - '3'
+  - escalada: Respira
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -183,6 +252,16 @@ mapas:
       x: 416
       y: 956
       raio: 13
+  referencias:
+  - escalada: Porosíssimo
+    ids:
+    - '1'
+  - escalada: Boulder de Raiz
+    ids:
+    - '1'
+  - escalada: Respira
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: Talhadeira
@@ -223,6 +302,5 @@ escaladas:
 - boulder:
     nome: Respira
     dificuldade: V6
----
-
+---
 

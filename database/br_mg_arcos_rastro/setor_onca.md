@@ -89,14 +89,14 @@ mapas:
       y: 887
       comprimento: 14
       largura: 14
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 457
       y: 772
       comprimento: 14
       largura: 14
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 467
@@ -146,12 +146,6 @@ mapas:
   - escalada: Tiro Certeiro
     ids:
     - '07'
-  - escalada: Estica e Clipa
-    ids:
-    - '8'
-  - escalada: Pai Bravo
-    ids:
-    - '9'
   - escalada: Buraco é Mais Em Baixo
     ids:
     - '10'
@@ -161,48 +155,6 @@ mapas:
   - escalada: Jardim da Babilônia
     ids:
     - '12'
-  - escalada: Incrível Teto
-    ids:
-    - '13'
-  - escalada: Incrível Céu de Arcos
-    ids:
-    - '14'
-  - escalada: Besta Quadrada
-    ids:
-    - '15'
-  - escalada: Aperta ou Voa
-    ids:
-    - '16'
-  - escalada: Antifascistas
-    ids:
-    - '17'
-  - escalada: Macaco Não Tem Culpa
-    ids:
-    - '18'
-  - escalada: Mãe Gaia
-    ids:
-    - '19'
-  - escalada: Enrola e Morde
-    ids:
-    - '20'
-  - escalada: Liberdade de Expressão
-    ids:
-    - '21'
-  - escalada: Centenária
-    ids:
-    - '22'
-  - escalada: Kalimera
-    ids:
-    - '23'
-  - escalada: Sálvia
-    ids:
-    - '24'
-  - escalada: Fuga das Galinhas
-    ids:
-    - '25'
-  - escalada: Carne d Homi ñ dá Coxinha
-    ids:
-    - '26'
 - caminho_imagem_mapa: imagens/setor_onca_p1_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
@@ -354,6 +306,49 @@ mapas:
       y: 182
       comprimento: 12
       largura: 12
+  referencias:
+  - escalada: Incrível Teto
+    ids:
+    - '13'
+  - escalada: Incrível Céu de Arcos
+    ids:
+    - '14'
+  - escalada: Besta Quadrada
+    ids:
+    - '15'
+  - escalada: Aperta ou Voa
+    ids:
+    - '16'
+  - escalada: Antifascistas
+    ids:
+    - '17'
+  - escalada: Macaco Não Tem Culpa
+    ids:
+    - '18'
+  - escalada: Mãe Gaia
+    ids:
+    - '19'
+  - escalada: Enrola e Morde
+    ids:
+    - '20'
+  - escalada: Liberdade de Expressão
+    ids:
+    - '21'
+  - escalada: Centenária
+    ids:
+    - '22'
+  - escalada: Kalimera
+    ids:
+    - '23'
+  - escalada: Sálvia
+    ids:
+    - '24'
+  - escalada: Fuga das Galinhas
+    ids:
+    - '25'
+  - escalada: Carne d Homi ñ dá Coxinha
+    ids:
+    - '26'
 escaladas:
 - via_esportiva:
     nome: Esticãozinho e Chororô

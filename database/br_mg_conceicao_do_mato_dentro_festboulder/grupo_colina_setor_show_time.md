@@ -58,12 +58,6 @@ mapas:
   - escalada: (sem nome)
     ids:
     - '4'
-  - escalada: Zela Time
-    ids:
-    - '5'
-  - escalada: Show Time
-    ids:
-    - '6'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p1.webp
   largura_mapa: 753
   altura_mapa: 528
@@ -110,6 +104,37 @@ mapas:
       y: 515
       comprimento: 35
       largura: 30
+  referencias:
+  - escalada: ET Teimoso
+    ids:
+    - '1'
+  - escalada: Show Time
+    ids:
+    - '2'
+  - escalada: Zela Time
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: Meia Lua
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: Zela Time
+    ids:
+    - '5'
+  - escalada: Show Time
+    ids:
+    - '6'
 escaladas:
 - boulder:
     nome: ET Teimoso
@@ -142,7 +167,6 @@ escaladas:
     nome: Show Time
     dificuldade: V5
 ---
-
 # Setor Show Time
 
 O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.

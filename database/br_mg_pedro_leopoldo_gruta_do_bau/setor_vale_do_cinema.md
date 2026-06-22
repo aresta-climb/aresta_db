@@ -26,14 +26,14 @@ mapas:
       y: 414
       comprimento: 37
       largura: 36
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 132
       y: 450
       comprimento: 39
       largura: 35
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 262
@@ -146,12 +146,6 @@ mapas:
   - escalada: Lanterninha
     ids:
     - '07'
-  - escalada: Navio Fantasma
-    ids:
-    - '8'
-  - escalada: Pata Afiada
-    ids:
-    - '9'
   - escalada: 1ª Fila
     ids:
     - '10'

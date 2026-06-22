@@ -78,6 +78,19 @@ mapas:
       y: 786
       comprimento: 27
       largura: 38
+  referencias:
+  - escalada: Takeyeasy
+    ids:
+    - '01'
+  - escalada: Pâncepis
+    ids:
+    - '02'
+  - escalada: Totem
+    ids:
+    - '03'
+  - escalada: '69'
+    ids:
+    - '04'
 escaladas:
 - via_esportiva:
     nome: Takeyeasy

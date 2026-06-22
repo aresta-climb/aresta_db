@@ -46,15 +46,6 @@ mapas:
   - escalada: Marreteiro
     ids:
     - '04'
-  - escalada: Guerreiro da Bocaina
-    ids:
-    - '05'
-  - escalada: High Line
-    ids:
-    - '06'
-  - escalada: Colchão de Mola
-    ids:
-    - '07'
 - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
   largura_mapa: 1084
   altura_mapa: 881
@@ -80,11 +71,22 @@ mapas:
       y: 512
       comprimento: 21
       largura: 21
+  referencias:
+  - escalada: Guerreiro da Bocaina
+    ids:
+    - '05'
+  - escalada: High Line
+    ids:
+    - '06'
+  - escalada: Colchão de Mola
+    ids:
+    - '07'
 escaladas:
 - boulder:
     nome: Strike
     dificuldade: V7_BARRA_V8
-    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena seguindo para abaulado virando reto.
+    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena 
+      seguindo para abaulado virando reto.
 - boulder:
     nome: Chove e Não Molha
     dificuldade: V3
@@ -96,11 +98,13 @@ escaladas:
 - boulder:
     nome: Marreteiro
     dificuldade: V5
-    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em reglete de meia falange com calcanhar na mão direita e segue a linha reta.
+    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em 
+      reglete de meia falange com calcanhar na mão direita e segue a linha reta.
 - boulder:
     nome: Guerreiro da Bocaina
     dificuldade: V6
-    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado da mão e direita em reglete no teto.
+    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado 
+      da mão e direita em reglete no teto.
 - boulder:
     nome: High Line
     dificuldade: V5

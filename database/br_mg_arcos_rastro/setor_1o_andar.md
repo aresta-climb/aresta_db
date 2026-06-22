@@ -138,14 +138,14 @@ mapas:
       y: 490
       comprimento: 20
       largura: 15
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 520
       y: 480
       comprimento: 20
       largura: 15
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 500
@@ -188,12 +188,6 @@ mapas:
   - escalada: Cada Macaco no Seu Galho
     ids:
     - '07'
-  - escalada: Curte o Planeta que Você Vive
-    ids:
-    - '8'
-  - escalada: Subaco da Zen
-    ids:
-    - '9'
   - escalada: Chuva de Espinho
     ids:
     - '10'

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
@@ -18,33 +18,12 @@ mapas:
   - escalada: Briga de Galo
     ids:
     - '1'
-  - escalada: Oráculo
-    ids:
-    - '2'
-  - escalada: 008
-    ids:
-    - '3'
   - escalada: Afrodisíaco
     ids:
     - '1'
-  - escalada: Lava Pés
-    ids:
-    - 2A
-  - escalada: Mantra
-    ids:
-    - 2B
-  - escalada: Samadhi
-    ids:
-    - 2C
-  - escalada: Tantra
-    ids:
-    - 3C
   - escalada: Psicótico
     ids:
     - '1'
-  - escalada: Popeye
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -55,6 +34,19 @@ mapas:
       x: 716
       y: 1012
       raio: 13
+  referencias:
+  - escalada: Prodígio
+    ids:
+    - '1'
+  - escalada: Briga de Galo
+    ids:
+    - '1'
+  - escalada: Afrodisíaco
+    ids:
+    - '1'
+  - escalada: Psicótico
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -95,6 +87,44 @@ mapas:
       x: 614
       y: 794
       raio: 13
+  referencias:
+  - escalada: Prodígio
+    ids:
+    - '1'
+  - escalada: Briga de Galo
+    ids:
+    - '1'
+  - escalada: Oráculo
+    ids:
+    - '2'
+  - escalada: 008
+    ids:
+    - '3'
+  - escalada: Afrodisíaco
+    ids:
+    - '1'
+  - escalada: Lava Pés
+    ids:
+    - '2'
+    - A
+  - escalada: Mantra
+    ids:
+    - '2'
+    - B
+  - escalada: Samadhi
+    ids:
+    - '2'
+    - C
+  - escalada: Tantra
+    ids:
+    - '3'
+    - C
+  - escalada: Psicótico
+    ids:
+    - '1'
+  - escalada: Popeye
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -111,6 +141,25 @@ mapas:
       x: 956
       y: 816
       raio: 13
+  referencias:
+  - escalada: Prodígio
+    ids:
+    - '1'
+  - escalada: Briga de Galo
+    ids:
+    - '1'
+  - escalada: Oráculo
+    ids:
+    - '2'
+  - escalada: Afrodisíaco
+    ids:
+    - '1'
+  - escalada: Psicótico
+    ids:
+    - '1'
+  - escalada: Popeye
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Prodígio
@@ -145,6 +194,5 @@ escaladas:
 - boulder:
     nome: Popeye
     dificuldade: V2
----
-
+---
 

@@ -1,0 +1,54 @@
+- escalada: Arthropoda
+  ids_procurados: '1'
+  setor_contexto: Headwall
+- escalada: Atratus Death
+  ids_procurados: '2'
+  setor_contexto: Headwall
+- escalada: Fenda do Café
+  ids_procurados: '3'
+  setor_contexto: Headwall
+- escalada: Taj Mahola
+  ids_procurados: '4'
+  setor_contexto: Headwall
+- escalada: Apertadinha
+  ids_procurados: '5'
+  setor_contexto: Headwall
+- escalada: Cão Castrado
+  ids_procurados: '1'
+  setor_contexto: Roca Master
+- escalada: The Nois
+  ids_procurados: '2'
+  setor_contexto: Roca Master
+- escalada: Alicate
+  ids_procurados: '3'
+  setor_contexto: Roca Master
+- escalada: Bebezão
+  ids_procurados: '4'
+  setor_contexto: Roca Master
+- escalada: A mão que balança o B
+  ids_procurados: '5'
+  setor_contexto: Roca Master
+- escalada: Darth Helmet
+  ids_procurados: '6'
+  setor_contexto: Roca Master
+- escalada: Tico Skywalker
+  ids_procurados: '7'
+  setor_contexto: Roca Master
+- escalada: Dízimo
+  ids_procurados: '1'
+  setor_contexto: Ecumênico
+- escalada: Cura G
+  ids_procurados: '2'
+  setor_contexto: Ecumênico
+- escalada: Show da Fé
+  ids_procurados: '3'
+  setor_contexto: Ecumênico
+- escalada: Ministério do Climb
+  ids_procurados: '4'
+  setor_contexto: Ecumênico
+- escalada: Pequenas Igrejas Grandes Negócios
+  ids_procurados: '5'
+  setor_contexto: Ecumênico
+- escalada: Meninos de Gesso
+  ids_procurados: '6'
+  setor_contexto: Ecumênico

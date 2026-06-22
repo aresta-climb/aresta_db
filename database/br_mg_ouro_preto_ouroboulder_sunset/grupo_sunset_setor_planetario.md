@@ -44,26 +44,6 @@ mapas:
     ids:
     - '1'
     - x
-  - escalada: Náufrago
-    ids:
-    - '2'
-    - y
-  - escalada: Golfinho
-    ids:
-    - '3'
-    - z
-  - escalada: Clarete
-    ids:
-    - '4'
-    - w
-  - escalada: Odisséia na Babilônia
-    ids:
-    - 1_b
-    - x_b
-  - escalada: Canais da Babilônia
-    ids:
-    - 1_b
-    - y_b
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
   largura_mapa: 829
   altura_mapa: 486
@@ -104,6 +84,19 @@ mapas:
       x: 614
       y: 42
       raio: 10
+  referencias:
+  - escalada: Náufrago
+    ids:
+    - '2'
+    - y
+  - escalada: Golfinho
+    ids:
+    - '3'
+    - z
+  - escalada: Clarete
+    ids:
+    - '4'
+    - w
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
   largura_mapa: 850
   altura_mapa: 522
@@ -126,6 +119,15 @@ mapas:
       x: 585
       y: 6
       raio: 8
+  referencias:
+  - escalada: Odisséia na Babilônia
+    ids:
+    - 1_b
+    - x_b
+  - escalada: Canais da Babilônia
+    ids:
+    - 1_b
+    - y_b
 ---
 
 # Bloco Planetário

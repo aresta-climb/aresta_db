@@ -1,0 +1,138 @@
+- escalada: Namoro
+  ids_procurados: '1'
+  setor_contexto: Bloco Casamento
+- escalada: Amizade
+  ids_procurados: '2'
+  setor_contexto: Bloco Casamento
+- escalada: Primeiro beijo
+  ids_procurados: '3'
+  setor_contexto: Bloco Casamento
+- escalada: Nó de gravata
+  ids_procurados: '4'
+  setor_contexto: Bloco Casamento
+- escalada: Lapela
+  ids_procurados: '5'
+  setor_contexto: Bloco Casamento
+- escalada: Bodas de ouro
+  ids_procurados: '6'
+  setor_contexto: Bloco Casamento
+- escalada: Dois corações
+  ids_procurados: '7'
+  setor_contexto: Bloco Casamento
+- escalada: Coração de pedra
+  ids_procurados: '8'
+  setor_contexto: Bloco Casamento
+- escalada: Coração de pedra ext
+  ids_procurados: '9'
+  setor_contexto: Bloco Casamento
+- escalada: Despedida de solteiro
+  ids_procurados: '10'
+  setor_contexto: Bloco Casamento
+- escalada: Casamento
+  ids_procurados: '11'
+  setor_contexto: Bloco Casamento
+- escalada: Dia dos namorados
+  ids_procurados: '12'
+  setor_contexto: Bloco Casamento
+- escalada: Ponte de safena
+  ids_procurados: '1'
+  setor_contexto: Bloco da Pressão
+- escalada: Pressão baixa
+  ids_procurados: '2'
+  setor_contexto: Bloco da Pressão
+- escalada: Hipertensão
+  ids_procurados: '3'
+  setor_contexto: Bloco da Pressão
+- escalada: Pulsar
+  ids_procurados: '4'
+  setor_contexto: Bloco da Pressão
+- escalada: 13\9
+  ids_procurados: '5'
+  setor_contexto: Bloco da Pressão
+- escalada: 12\8
+  ids_procurados: '6'
+  setor_contexto: Bloco da Pressão
+- escalada: Pressão alta
+  ids_procurados: '7'
+  setor_contexto: Bloco da Pressão
+- escalada: Giovana
+  ids_procurados: '1'
+  setor_contexto: Bloco Gaveta
+- escalada: Gavetinha
+  ids_procurados: '2'
+  setor_contexto: Bloco Gaveta
+- escalada: Gaveta
+  ids_procurados: '3'
+  setor_contexto: Bloco Gaveta
+- escalada: Gavetão
+  ids_procurados: '4'
+  setor_contexto: Bloco Gaveta
+- escalada: Da gaveta ao Tumulto
+  ids_procurados: '5'
+  setor_contexto: Bloco Gaveta
+- escalada: Vezerin
+  ids_procurados: '1'
+  setor_contexto: Bloco Ditinho
+- escalada: Ditinho
+  ids_procurados: '2'
+  setor_contexto: Bloco Ditinho
+- escalada: 11 de Maio
+  ids_procurados: '3'
+  setor_contexto: Bloco Ditinho
+- escalada: Balbúrdia
+  ids_procurados: '4'
+  setor_contexto: Bloco Ditinho
+- escalada: Da gaveta ao tumulto
+  ids_procurados: '5'
+  setor_contexto: Bloco Ditinho
+- escalada: Mais forte que o três
+  ids_procurados: '6'
+  setor_contexto: Bloco Ditinho
+- escalada: 11 de Maio Direct
+  ids_procurados: '7'
+  setor_contexto: Bloco Ditinho
+- escalada: Modular
+  ids_procurados: '1'
+  setor_contexto: Bloco Angular
+- escalada: Seta
+  ids_procurados: '2'
+  setor_contexto: Bloco Angular
+- escalada: Piramidal
+  ids_procurados: '3'
+  setor_contexto: Bloco Angular
+- escalada: Diagonal
+  ids_procurados: '4'
+  setor_contexto: Bloco Angular
+- escalada: Perpendicular
+  ids_procurados: '5'
+  setor_contexto: Bloco Angular
+- escalada: Angular
+  ids_procurados: '6'
+  setor_contexto: Bloco Angular
+- escalada: Singular
+  ids_procurados: '7'
+  setor_contexto: Bloco Angular
+- escalada: Estrangular
+  ids_procurados: '8'
+  setor_contexto: Bloco Angular
+- escalada: Raiz lateral
+  ids_procurados: '1'
+  setor_contexto: Bloco High
+- escalada: High Perrengue
+  ids_procurados: '2'
+  setor_contexto: Bloco High
+- escalada: Mundunga
+  ids_procurados: '3'
+  setor_contexto: Bloco High
+- escalada: ???
+  ids_procurados: '4'
+  setor_contexto: Bloco High
+- escalada: HighBolinha
+  ids_procurados: '5'
+  setor_contexto: Bloco High
+- escalada: Pegando passagem
+  ids_procurados: '1'
+  setor_contexto: Bloco Sala de Estar
+- escalada: Chá das cinco
+  ids_procurados: '2'
+  setor_contexto: Bloco Sala de Estar

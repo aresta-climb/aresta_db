@@ -5,7 +5,7 @@ mapas:
   largura_mapa: 438
   altura_mapa: 323
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 240

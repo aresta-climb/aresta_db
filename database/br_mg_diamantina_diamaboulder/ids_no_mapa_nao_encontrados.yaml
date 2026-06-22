@@ -1,0 +1,56 @@
+- escalada: Sangue Latino
+  ids_procurados: 4 (P1/4 (P1
+  setor_contexto: Primavera nos Dentes
+  grupo_contexto: Região 2
+- escalada: Sangue Latino
+  ids_procurados: P2)/P2)_fim
+  setor_contexto: Primavera nos Dentes
+  grupo_contexto: Região 2
+- escalada: Joelho de Porco
+  ids_procurados: 5 (P1/5 (P1
+  setor_contexto: Primavera nos Dentes
+  grupo_contexto: Região 2
+- escalada: Joelho de Porco
+  ids_procurados: P2)/P2)_fim
+  setor_contexto: Primavera nos Dentes
+  grupo_contexto: Região 2
+- escalada: Espetacular
+  ids_procurados: 2 (P1)/2 (P1)
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Espetacular
+  ids_procurados: 5 (P2)/5 (P2)_fim
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Esporte Espetacular
+  ids_procurados: 5 (P1)/5 (P1)
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Esporte Espetacular
+  ids_procurados: 4 (P2)/4 (P2)_fim
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Globo Curral
+  ids_procurados: 7 (P1)/7 (P1)
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Globo Curral
+  ids_procurados: 3 (P2)/3 (P2)_fim
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Manual
+  ids_procurados: 8 (P1)/8 (P1)
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Manual
+  ids_procurados: 1 (P2)/1 (P2)_fim
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Altas Horas
+  ids_procurados: 9 (P1)/9 (P1)
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3
+- escalada: Altas Horas
+  ids_procurados: 2 (P2)/2 (P2)_fim
+  setor_contexto: Sessão da Tarde
+  grupo_contexto: Região 3

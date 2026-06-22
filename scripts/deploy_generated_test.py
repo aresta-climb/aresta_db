@@ -56,7 +56,7 @@ def test_carregar_dados_anteriores(tmp_path):
     pb_file.write_bytes(b"not a proto")
     assert carregar_dados_anteriores(pb_file) == {}
 
-def test_passo_a_compilar_croquis_id_int(tmp_path):
+def test_passo_a_compilar_croquis_id_int(tmp_path, capsys):
     # DADO um croqui compilado com id inteiro
     croqui_dir = tmp_path / "croqui_teste"
     croqui_dir.mkdir()
@@ -79,8 +79,11 @@ def test_passo_a_compilar_croquis_id_int(tmp_path):
         mock_compilar.side_effect = fake_compilar
         
         # QUANDO executamos passo_a_compilar_croquis com esse croqui
-        with pytest.raises(SystemExit):
-            passo_a_compilar_croquis([(croqui_dir, {"id": "croqui_teste"})], gerar_arquivos_de_debug=True)
+        passo_a_compilar_croquis([(croqui_dir, {"id": "croqui_teste"})], gerar_arquivos_de_debug=True)
+
+        # ENTÃO deve emitir um warning e continuar
+        captured = capsys.readouterr()
+        assert "foi parseado como INTEIRO" in captured.out
 
 def test_extrair_descricao():
     # Caso 1: descricao na raiz

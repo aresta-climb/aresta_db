@@ -54,14 +54,14 @@ mapas:
       y: 432
       comprimento: 22
       largura: 18
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 491
       y: 390
       comprimento: 24
       largura: 17
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 534
@@ -202,12 +202,6 @@ mapas:
   - escalada: Socorro
     ids:
     - '07'
-  - escalada: Iara
-    ids:
-    - '8'
-  - escalada: Come Hamburguer
-    ids:
-    - '9'
   - escalada: (via inacabada)
     ids:
     - '10'

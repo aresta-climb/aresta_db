@@ -2,49 +2,6 @@
 nome: Setor Vias Esportivas
 mapas:
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
-  referencias:
-  - escalada: Diedro da Rabada
-    ids:
-    - '1'
-  - escalada: Mestre Sala
-    ids:
-    - '2'
-  - escalada: Porta-Bandeira
-    ids:
-    - '3'
-  - escalada: Gangorra
-    ids:
-    - '4'
-  - escalada: Jabá com Jerimum
-    ids:
-    - '5'
-  - escalada: Bruxa Albano
-    ids:
-    - '6'
-  - escalada: Vomitão em Ferros
-    ids:
-    - '7'
-  - escalada: Iron Slow
-    ids:
-    - '8'
-  - escalada: Bicho de Pé
-    ids:
-    - '9'
-  - escalada: Os Três Mosqueteiros
-    ids:
-    - '10'
-  - escalada: Nó de Porco
-    ids:
-    - '11'
-  - escalada: Ícaro
-    ids:
-    - '12'
-  - escalada: Champinha
-    ids:
-    - '13'
-  - escalada: Falcatrua
-    ids:
-    - '14'
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
 escaladas:
 - via_esportiva:
@@ -83,7 +40,8 @@ escaladas:
     - Juliano Magalhães
     - Valdinei Lima
     data_abertura: '2008-02-05'
-    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
+    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no 
+      meio da Via Iron Slow. Possui um grampo ainda não evitado.
 - via_esportiva:
     nome: Jabá com Jerimum
     dificuldade: BR_6
@@ -103,7 +61,8 @@ escaladas:
     - Glesse Gripp
     - Celso Ferreira Gomes
     data_abertura: '2010-10-02'
-    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
+    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do 
+      fechamento da Lapinha em 2002.
 - via_esportiva:
     nome: Vomitão em Ferros
     dificuldade: BR_8A
@@ -169,7 +128,8 @@ escaladas:
     - Tonico Magalhães
     - Valdinei Lima
     data_abertura: '2008-02-06'
-    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
+    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via 
+      “Falcatrua”.
 - via_esportiva:
     nome: Falcatrua
     dificuldade: BR_7A

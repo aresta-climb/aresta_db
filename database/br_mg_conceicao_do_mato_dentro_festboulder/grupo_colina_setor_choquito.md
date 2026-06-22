@@ -80,6 +80,19 @@ mapas:
       y: 525
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Paradise
+    ids:
+    - '1'
+  - escalada: Quebra Costela
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Paradise
@@ -102,7 +115,6 @@ escaladas:
     nome: (sem nome)
     dificuldade: V3
 ---
-
 # Setor Choquito
 
 O setor Choquito possui blocos com linhas variadas.

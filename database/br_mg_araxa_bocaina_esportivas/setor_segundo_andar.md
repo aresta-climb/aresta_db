@@ -76,30 +76,18 @@ mapas:
   - escalada: Jogo Limpo
     ids:
     - '07'
-  - escalada: James Bond
-    ids:
-    - '8'
-  - escalada: Apolo o Doutrinador
-    ids:
-    - '9'
-  - escalada: Rock Balboa
-    ids:
-    - '10'
-  - escalada: Xodó da Bocaina
-    ids:
-    - '11'
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 488
       y: 822
       comprimento: 29
       largura: 23
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 438
@@ -120,6 +108,13 @@ mapas:
       y: 760
       comprimento: 25
       largura: 23
+  referencias:
+  - escalada: Rock Balboa
+    ids:
+    - '10'
+  - escalada: Xodó da Bocaina
+    ids:
+    - '11'
 escaladas:
 - via_esportiva:
     nome: Torrecitas

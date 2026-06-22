@@ -2,16 +2,6 @@
 nome: Polegar
 mapas:
 - caminho_imagem_mapa: imagens/setor_polegar_p1.webp
-  referencias:
-  - escalada: Quadrado mágico
-    ids:
-    - '36'
-  - escalada: Projeto?
-    ids:
-    - '37'
-  - escalada: Projeto?
-    ids:
-    - '38'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Quadrado mágico
@@ -20,7 +10,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     - Gustavo Piancastelli
-    descricao: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel. Peças variadas, especialmente médias.
+    descricao: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel. 
+      Peças variadas, especialmente médias.
     comprimento_total: 100
 - via_esportiva:
     nome: Projeto?

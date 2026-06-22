@@ -1,0 +1,36 @@
+- escalada: Teto Preto
+  ids_procurados: '8'
+  setor_contexto: Setor Estacionamento
+- escalada: 101 Dalmatas
+  ids_procurados: '9'
+  setor_contexto: Setor Estacionamento
+- escalada: Chapas Onorixicas
+  ids_procurados: '8'
+  setor_contexto: Setor Família I
+- escalada: Tora Flex
+  ids_procurados: '9'
+  setor_contexto: Setor Família I
+- escalada: Sumchine
+  ids_procurados: '8'
+  setor_contexto: Setor Família II
+- escalada: Cater Pillar
+  ids_procurados: '9'
+  setor_contexto: Setor Família II
+- escalada: I Like This
+  ids_procurados: '8'
+  setor_contexto: Setor Igarameca
+- escalada: Igarameca
+  ids_procurados: '9'
+  setor_contexto: Setor Igarameca
+- escalada: People crazy
+  ids_procurados: '8'
+  setor_contexto: Setor Pracinha
+- escalada: Aresta Daniel
+  ids_procurados: '9'
+  setor_contexto: Setor Pracinha
+- escalada: Lilith
+  ids_procurados: '8'
+  setor_contexto: Setor dos Tetos
+- escalada: Deu Brasil
+  ids_procurados: '9'
+  setor_contexto: Setor dos Tetos

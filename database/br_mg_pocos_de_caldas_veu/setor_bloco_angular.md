@@ -2,31 +2,6 @@
 nome: Bloco Angular
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_angular_p0_i0.webp
-  referencias:
-  - escalada: Modular
-    ids:
-    - '1'
-  - escalada: Seta
-    ids:
-    - '2'
-  - escalada: Piramidal
-    ids:
-    - '3'
-  - escalada: Diagonal
-    ids:
-    - '4'
-  - escalada: Perpendicular
-    ids:
-    - '5'
-  - escalada: Angular
-    ids:
-    - '6'
-  - escalada: Singular
-    ids:
-    - '7'
-  - escalada: Estrangular
-    ids:
-    - '8'
 escaladas:
 - boulder:
     nome: Modular

@@ -86,12 +86,6 @@ mapas:
   - escalada: Skunk
     ids:
     - '8'
-  - escalada: Mescladinho
-    ids:
-    - '9'
-  - escalada: (sem nome)
-    ids:
-    - '10'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p1.webp
   largura_mapa: 757
   altura_mapa: 541
@@ -110,6 +104,13 @@ mapas:
       y: 530
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Mescladinho
+    ids:
+    - '9'
+  - escalada: (sem nome)
+    ids:
+    - '10'
 escaladas:
 - boulder:
     nome: Lágrimas de Jah
@@ -142,7 +143,6 @@ escaladas:
     nome: (sem nome)
     dificuldade: V3
 ---
-
 # Setor Jah
 
 O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.

@@ -54,7 +54,7 @@ mapas:
       y: 994
       comprimento: 38
       largura: 29
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 674
@@ -83,62 +83,11 @@ mapas:
   - escalada: Foi sem Querer
     ids:
     - '07'
-  - escalada: Cabeleira
-    ids:
-    - '8'
-  - escalada: Muchas Gracias
-    ids:
-    - '9'
-  - escalada: Muy Hermosa
-    ids:
-    - '10'
-  - escalada: Medicina Chilena
-    ids:
-    - '11'
-  - escalada: As Aparências Enganam
-    ids:
-    - '12'
-  - escalada: Raios e Trovões
-    ids:
-    - '13'
-  - escalada: Quem vê Cara não vê Graduação
-    ids:
-    - '14'
-  - escalada: Sete Chaves
-    ids:
-    - '15'
-  - escalada: Buena Onda
-    ids:
-    - '16'
-  - escalada: Marola
-    ids:
-    - '17'
-  - escalada: Filha de Todos
-    ids:
-    - '18'
-  - escalada: Neblina Baixa
-    ids:
-    - '19'
-  - escalada: Círculo de Fogo
-    ids:
-    - '20'
-  - escalada: Fissura de Cristal
-    ids:
-    - '21'
-  - escalada: Mandruva Assassino
-    ids:
-    - '22'
-  - escalada: Namoro Antigo
-    ids:
-    - '23'
-  - escalada: Chora Nenêm
-    ids:
-    - '24'
 - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 96
@@ -194,6 +143,28 @@ mapas:
       y: 1026
       comprimento: 43
       largura: 33
+  referencias:
+  - escalada: Muy Hermosa
+    ids:
+    - '10'
+  - escalada: Medicina Chilena
+    ids:
+    - '11'
+  - escalada: As Aparências Enganam
+    ids:
+    - '12'
+  - escalada: Raios e Trovões
+    ids:
+    - '13'
+  - escalada: Quem vê Cara não vê Graduação
+    ids:
+    - '14'
+  - escalada: Sete Chaves
+    ids:
+    - '15'
+  - escalada: Buena Onda
+    ids:
+    - '16'
 - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -254,6 +225,31 @@ mapas:
       y: 1122
       comprimento: 37
       largura: 29
+  referencias:
+  - escalada: Marola
+    ids:
+    - '17'
+  - escalada: Filha de Todos
+    ids:
+    - '18'
+  - escalada: Neblina Baixa
+    ids:
+    - '19'
+  - escalada: Círculo de Fogo
+    ids:
+    - '20'
+  - escalada: Fissura de Cristal
+    ids:
+    - '21'
+  - escalada: Mandruva Assassino
+    ids:
+    - '22'
+  - escalada: Namoro Antigo
+    ids:
+    - '23'
+  - escalada: Chora Nenêm
+    ids:
+    - '24'
 escaladas:
 - via_esportiva:
     nome: ET de Varginha

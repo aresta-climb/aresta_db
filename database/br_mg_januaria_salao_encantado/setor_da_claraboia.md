@@ -37,11 +37,13 @@ escaladas:
 - via_esportiva:
     nome: Calazar Certo
     dificuldade: BR_7B
-    descricao: Via mais clássica do salão encantado. Via longa em chorreiras e agarrões. Recomendada para todos.
+    descricao: Via mais clássica do salão encantado. Via longa em chorreiras e agarrões. 
+      Recomendada para todos.
 - via_esportiva:
     nome: Cabeça de Rato
     dificuldade: BR_7A
-    descricao: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau positivo para chegar ao grampo.
+    descricao: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau positivo para 
+      chegar ao grampo.
 ---
 ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
 

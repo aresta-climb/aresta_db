@@ -2,10 +2,6 @@
 nome: Parede das Aderências – Face Central
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p1_i0.webp
-  referencias:
-  - escalada: O Psicopata de Ferros
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
 escaladas:
 - via_movel:

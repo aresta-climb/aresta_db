@@ -61,14 +61,14 @@ mapas:
       y: 541
       comprimento: 23
       largura: 20
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 31
       y: 620
       comprimento: 24
       largura: 17
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 166
@@ -188,12 +188,6 @@ mapas:
   - escalada: Despedida de Solteiro
     ids:
     - '07'
-  - escalada: Primeira Batida
-    ids:
-    - '8'
-  - escalada: Menino de Toca
-    ids:
-    - '9'
   - escalada: Via sem informação
     ids:
     - '10'

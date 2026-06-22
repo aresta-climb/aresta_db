@@ -128,6 +128,27 @@ mapas:
       y: 314
       comprimento: 24
       largura: 24
+  referencias:
+  - escalada: Menos Porco Mais Aranha
+    ids:
+    - '01'
+    - 01_fim
+  - escalada: Javaporco
+    ids:
+    - '02'
+    - 02_fim
+  - escalada: Chiqueirinho
+    ids:
+    - '03'
+    - 03_fim
+  - escalada: Pocilga
+    ids:
+    - '01'
+    - 01_fim
+  - escalada: Porco Aranha
+    ids:
+    - '02'
+    - 02_fim
 escaladas:
 - boulder:
     nome: Menos Porco Mais Aranha

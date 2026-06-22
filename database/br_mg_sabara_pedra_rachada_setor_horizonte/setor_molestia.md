@@ -15,12 +15,6 @@ mapas:
   - escalada: Moléstia
     ids:
     - '46'
-  - escalada: Jabuticaba
-    ids:
-    - '48'
-  - escalada: Caqui
-    ids:
-    - '49'
 - caminho_imagem_mapa: imagens/setor_molestia_p1_i0.webp
   largura_mapa: 1126
   altura_mapa: 1464
@@ -37,6 +31,13 @@ mapas:
       x: 975
       y: 834
       raio: 28
+  referencias:
+  - escalada: Jabuticaba
+    ids:
+    - '48'
+  - escalada: Caqui
+    ids:
+    - '49'
 escaladas:
 - boulder:
     nome: Moléstia
@@ -45,11 +46,13 @@ escaladas:
 - boulder:
     nome: Jabuticaba
     dificuldade: V5
-    descricao: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para um reglete clássico, com uma viara em um positivo.
+    descricao: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para um 
+      reglete clássico, com uma viara em um positivo.
 - boulder:
     nome: Caqui
     dificuldade: V4
-    descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com uma virada técnica.
+    descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com 
+      uma virada técnica.
 ---
 
 # Moléstia

@@ -2,10 +2,6 @@
 nome: Torres
 mapas:
 - caminho_imagem_mapa: imagens/setor_torres_p2.webp
-  referencias:
-  - escalada: Projeto?
-    ids:
-    - '39'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Pinta de Baiano
@@ -31,7 +27,8 @@ escaladas:
     conquistadores:
     - Edgardo Abreu
     - Luis Monteiro
-    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
+    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas 
+      com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
 ---
 # Setor Torres
 

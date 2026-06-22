@@ -1,0 +1,81 @@
+- escalada: Escada de Macaco
+  ids_procurados: '1'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Chuva de Medo
+  ids_procurados: '2'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Usuário de Crock
+  ids_procurados: '3'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Detenção sem Muro
+  ids_procurados: '4'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Chave Reserva
+  ids_procurados: '5'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Mamba Negra
+  ids_procurados: '6'
+  setor_contexto: Setor 1 - ZUCULIN
+- escalada: Aureura Boreal
+  ids_procurados: '1'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Zuculin
+  ids_procurados: '2'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Morador Verde
+  ids_procurados: '3'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Prisão de Bolt
+  ids_procurados: '4'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Nova Era
+  ids_procurados: '5'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Dinastia Ming
+  ids_procurados: '6'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Aprendiz de Conquisteiro
+  ids_procurados: '7'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Totem
+  ids_procurados: '8'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Tempestade de Calcário
+  ids_procurados: '9'
+  setor_contexto: Setor 2 - Setor do Buraco
+- escalada: Tempestade de Calcário
+  ids_procurados: '1'
+  setor_contexto: Setor 3 - ZUCULIN
+- escalada: Lombra
+  ids_procurados: '2'
+  setor_contexto: Setor 3 - ZUCULIN
+- escalada: Água Fresca
+  ids_procurados: '3'
+  setor_contexto: Setor 3 - ZUCULIN
+- escalada: Navegantes da Ilusão
+  ids_procurados: '4'
+  setor_contexto: Setor 3 - ZUCULIN
+- escalada: Pérola Negra
+  ids_procurados: '5'
+  setor_contexto: Setor 3 - ZUCULIN
+- escalada: Pérola Negra
+  ids_procurados: '1'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Calabouço
+  ids_procurados: '2'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Iluminado
+  ids_procurados: '3'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Zuzu Dreams
+  ids_procurados: '4'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Zuzutime
+  ids_procurados: '5'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Zuzulin
+  ids_procurados: '6'
+  setor_contexto: Setor 4 - Setor da Caverna
+- escalada: Epinefrina 05
+  ids_procurados: '7'
+  setor_contexto: Setor 4 - Setor da Caverna

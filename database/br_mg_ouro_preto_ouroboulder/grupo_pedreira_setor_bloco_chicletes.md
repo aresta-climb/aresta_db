@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Chicletes'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp
@@ -30,12 +30,6 @@ mapas:
   - escalada: Big-Big
     ids:
     - '2'
-  - escalada: Babaloo
-    ids:
-    - 3/1A
-  - escalada: Chicletes
-    ids:
-    - 1B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -58,6 +52,18 @@ mapas:
       x: 603
       y: 1000
       raio: 13
+  referencias:
+  - escalada: Trident
+    ids:
+    - '1'
+  - escalada: Babaloo
+    ids:
+    - '1'
+    - A
+  - escalada: Chicletes
+    ids:
+    - '1'
+    - B
 escaladas:
 - boulder:
     nome: Trident
@@ -71,6 +77,5 @@ escaladas:
 - boulder:
     nome: Chicletes
     dificuldade: V11
----
-
+---
 

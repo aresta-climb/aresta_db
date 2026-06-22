@@ -68,7 +68,7 @@ mapas:
       y: 395
       comprimento: 33
       largura: 20
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 398
@@ -89,7 +89,7 @@ mapas:
       y: 450
       comprimento: 33
       largura: 19
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 380
@@ -314,12 +314,6 @@ mapas:
   - escalada: Tá Chovendo Carrapato
     ids:
     - '07'
-  - escalada: Tá Esperando o quê?
-    ids:
-    - '8'
-  - escalada: Quem Sabe ano que Vem
-    ids:
-    - '9'
   - escalada: Eau Rouge
     ids:
     - '10'

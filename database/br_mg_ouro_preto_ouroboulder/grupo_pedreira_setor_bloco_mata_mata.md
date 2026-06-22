@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
@@ -38,22 +38,24 @@ mapas:
   referencias:
   - escalada: Mata-Mata
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Mata-Mata ext
     ids:
-    - 2A▲
+    - '2'
+    - A
+    - ▲
   - escalada: '001'
     ids:
-    - 2A★
+    - '2'
+    - A
+    - ★
   - escalada: Sem as Mãos
     ids:
     - '1'
   - escalada: Ética
     ids:
     - '2'
-  - escalada: Risada
-    ids:
-    - '3'
   - escalada: Batentes
     ids:
     - '1'
@@ -88,6 +90,28 @@ mapas:
       x: 1243
       y: 938
       raio: 13
+  referencias:
+  - escalada: Sem as Mãos
+    ids:
+    - '1'
+  - escalada: Ética
+    ids:
+    - '2'
+  - escalada: Risada
+    ids:
+    - '3'
+  - escalada: Batentes
+    ids:
+    - '1'
+  - escalada: Regletes
+    ids:
+    - '2'
+  - escalada: Cocal é Gueto
+    ids:
+    - '1'
+  - escalada: '002'
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -104,6 +128,25 @@ mapas:
       x: 1404
       y: 691
       raio: 13
+  referencias:
+  - escalada: Sem as Mãos
+    ids:
+    - '1'
+  - escalada: Ética
+    ids:
+    - '2'
+  - escalada: Batentes
+    ids:
+    - '1'
+  - escalada: Regletes
+    ids:
+    - '2'
+  - escalada: Cocal é Gueto
+    ids:
+    - '1'
+  - escalada: '002'
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -120,6 +163,25 @@ mapas:
       x: 962
       y: 890
       raio: 13
+  referencias:
+  - escalada: Sem as Mãos
+    ids:
+    - '1'
+  - escalada: Ética
+    ids:
+    - '2'
+  - escalada: Batentes
+    ids:
+    - '1'
+  - escalada: Regletes
+    ids:
+    - '2'
+  - escalada: Cocal é Gueto
+    ids:
+    - '1'
+  - escalada: '002'
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Mata-Mata
@@ -151,6 +213,5 @@ escaladas:
 - boulder:
     nome: '002'
     dificuldade: V2
----
-
+---
 

@@ -24,24 +24,6 @@ mapas:
   - escalada: Jenga
     ids:
     - '22'
-  - escalada: Cara a Cara
-    ids:
-    - '23'
-  - escalada: Resta um
-    ids:
-    - '24'
-  - escalada: Pega Palito
-    ids:
-    - '25'
-  - escalada: Aresta da Sombra
-    ids:
-    - '26'
-  - escalada: Penumbra
-    ids:
-    - '27'
-  - escalada: Aresta do sol
-    ids:
-    - '28'
 - caminho_imagem_mapa: imagens/setor_brinquedos_p1_i0.webp
   largura_mapa: 1126
   altura_mapa: 1360
@@ -64,6 +46,16 @@ mapas:
       x: 449
       y: 972
       raio: 25
+  referencias:
+  - escalada: Cara a Cara
+    ids:
+    - '23'
+  - escalada: Resta um
+    ids:
+    - '24'
+  - escalada: Pega Palito
+    ids:
+    - '25'
 - caminho_imagem_mapa: imagens/setor_brinquedos_p2_i0.webp
   largura_mapa: 1126
   altura_mapa: 1282
@@ -80,6 +72,13 @@ mapas:
       x: 544
       y: 858
       raio: 27
+  referencias:
+  - escalada: Aresta da Sombra
+    ids:
+    - '26'
+  - escalada: Penumbra
+    ids:
+    - '27'
 - caminho_imagem_mapa: imagens/setor_brinquedos_p3_i0.webp
   largura_mapa: 1126
   altura_mapa: 1343
@@ -90,31 +89,41 @@ mapas:
       x: 680
       y: 858
       raio: 26
+  referencias:
+  - escalada: Aresta do sol
+    ids:
+    - '28'
 escaladas:
 - boulder:
     nome: Cubo Mágico
     dificuldade: V4
-    descricao: Sai com a esquerda em uma agarra grande invertida e a direita em um gaston, escalando pela face do bloco.
+    descricao: Sai com a esquerda em uma agarra grande invertida e a direita em um gaston,
+      escalando pela face do bloco.
 - boulder:
     nome: Jenga
     dificuldade: V2
-    descricao: Saída com as mãos juntas em um laca / agarrão do lado direito, seguindo pela aresta.
+    descricao: Saída com as mãos juntas em um laca / agarrão do lado direito, seguindo 
+      pela aresta.
 - boulder:
     nome: Cara a Cara
     dificuldade: V0
-    descricao: Começa com as mãos juntas no agarrão mais a esquerda, escalando pela parte mais baixa.
+    descricao: Começa com as mãos juntas no agarrão mais a esquerda, escalando pela parte 
+      mais baixa.
 - boulder:
     nome: Resta um
     dificuldade: V0
-    descricao: Saída no agarrão a direita da barriga, indo pra direita e fazendo a virada no meio do bloco.
+    descricao: Saída no agarrão a direita da barriga, indo pra direita e fazendo a virada 
+      no meio do bloco.
 - boulder:
     nome: Pega Palito
     dificuldade: V2
-    descricao: Boulder ao lado da árvore, saindo com a mão direita em uma invertida e a esquerda em um reglete pequeno, escalando reto pela face alta do bloco.
+    descricao: Boulder ao lado da árvore, saindo com a mão direita em uma invertida e a 
+      esquerda em um reglete pequeno, escalando reto pela face alta do bloco.
 - boulder:
     nome: Aresta da Sombra
     dificuldade: V0
-    descricao: Começa com a direita em um reglete e a esquerda em uma pequena agarra, com um move técnico de saída e escalada por agarras grandes.
+    descricao: Começa com a direita em um reglete e a esquerda em uma pequena agarra, com 
+      um move técnico de saída e escalada por agarras grandes.
 - boulder:
     nome: Penumbra
     dificuldade: V0
@@ -122,7 +131,8 @@ escaladas:
 - boulder:
     nome: Aresta do sol
     dificuldade: V4
-    descricao: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no agarrão na parte baixa.
+    descricao: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no agarrão
+      na parte baixa.
 ---
 
 # Brinquedos

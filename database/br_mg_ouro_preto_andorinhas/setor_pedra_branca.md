@@ -166,18 +166,6 @@ mapas:
   - escalada: Meu Amigo Broca
     ids:
     - '16'
-  - escalada: Babilon Go Up
-    ids:
-    - '17'
-  - escalada: Sem Dúvida Nem Piedade
-    ids:
-    - '18'
-  - escalada: Chanasclý
-    ids:
-    - '19'
-  - escalada: Segredo da Cadena
-    ids:
-    - '20'
 escaladas:
 - via_esportiva:
     nome: Vaca Virgem

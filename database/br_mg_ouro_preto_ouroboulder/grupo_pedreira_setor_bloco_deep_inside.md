@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Deep Inside'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
@@ -56,52 +56,24 @@ mapas:
   referencias:
   - escalada: Buda
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Arestides
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Arestides ext
     ids:
-    - 1C/1D▲
-  - escalada: Nataraja
-    ids:
-    - 2B▲/2A▲
-  - escalada: Sidarta
-    ids:
-    - 2B★
-  - escalada: Sidarta sds
-    ids:
-    - 3B★
-  - escalada: Deep Inside ext
-    ids:
-    - 4A▲
-  - escalada: Deep Inside
-    ids:
-    - 4B★
-  - escalada: Canindé
-    ids:
-    - 4C
-  - escalada: Canindé de Cima
-    ids:
-    - 5C
-  - escalada: Cara de Boi
-    ids:
-    - 6B
-  - escalada: Cara de Vaca
-    ids:
-    - 6C
-  - escalada: Invertides
-    ids:
-    - 7A▲
-  - escalada: Promoção
-    ids:
-    - 7D/2B
+    - '1'
+    - C
   - escalada: Promocinha
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Bolinho de Chuva
     ids:
-    - 3C
+    - '3'
+    - C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -184,6 +156,43 @@ mapas:
       x: 1200
       y: 680
       raio: 13
+  referencias:
+  - escalada: Buda
+    ids:
+    - '1'
+    - A
+  - escalada: Arestides
+    ids:
+    - '1'
+    - B
+  - escalada: Canindé
+    ids:
+    - '4'
+    - C
+  - escalada: Canindé de Cima
+    ids:
+    - '5'
+    - C
+  - escalada: Cara de Boi
+    ids:
+    - '6'
+    - B
+  - escalada: Cara de Vaca
+    ids:
+    - '6'
+    - C
+  - escalada: Promoção
+    ids:
+    - '2'
+    - B
+  - escalada: Promocinha
+    ids:
+    - '1'
+    - A
+  - escalada: Bolinho de Chuva
+    ids:
+    - '3'
+    - C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -224,6 +233,23 @@ mapas:
       x: 854
       y: 95
       raio: 13
+  referencias:
+  - escalada: Buda
+    ids:
+    - '1'
+    - A
+  - escalada: Arestides
+    ids:
+    - '1'
+    - B
+  - escalada: Promocinha
+    ids:
+    - '1'
+    - A
+  - escalada: Bolinho de Chuva
+    ids:
+    - '3'
+    - C
 escaladas:
 - boulder:
     nome: Buda
@@ -273,6 +299,5 @@ escaladas:
 - boulder:
     nome: Bolinho de Chuva
     dificuldade: VB
----
-
+---
 

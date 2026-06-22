@@ -384,18 +384,6 @@ mapas:
   - escalada: Rodilar
     ids:
     - '14'
-  - escalada: Dinamicuzão em Rodlá
-    ids:
-    - V
-  - escalada: Dinamicuzão em catapulta
-    ids:
-    - V
-  - escalada: Dinamicuzão em El paseo
-    ids:
-    - V
-  - escalada: El paseo em Dinamicuzão
-    ids:
-    - V
   - escalada: Fósseis do velho mundo
     ids:
     - '15'
@@ -508,7 +496,8 @@ escaladas:
     conquistadores:
     - Felipe Belisário
     - Marcela Romanelli
-    descricao: Em uma linha magnifica que corta a parte mais negativa da parede é a mais bonita e também a mais difícil do Sítio.
+    descricao: Em uma linha magnifica que corta a parte mais negativa da parede é a mais 
+      bonita e também a mais difícil do Sítio.
 - via_esportiva:
     nome: Pra você
     dificuldade: BR_8C
@@ -529,7 +518,8 @@ escaladas:
     conquistadores:
     - Marius Bagnati
     - escaladores do Sul
-    descricao: Chaminé no teto. Via bem diferente e necessário que um segundo escale limpando as costuras.
+    descricao: Chaminé no teto. Via bem diferente e necessário que um segundo escale 
+      limpando as costuras.
 - via_esportiva:
     nome: Elvira a rainha das trevas
     dificuldade: BR_7C
@@ -600,7 +590,8 @@ escaladas:
     conquistadores:
     - Felipe Belisario
     - Marcus "Rufino"
-    descricao: Variante muito bacana, para desmontar e preciso desescalar até uma parada abaixo ou o segundo subir limpando.
+    descricao: Variante muito bacana, para desmontar e preciso desescalar até uma parada 
+      abaixo ou o segundo subir limpando.
 - via_esportiva:
     nome: Dinamicuzão em catapulta
     dificuldade: BR_9A
@@ -642,7 +633,8 @@ escaladas:
     - Juan Kemper
     - Pedro Assis
     - Yan Ouriques
-    descricao: Clássica, bem completa com um boulder na saida, lances técnicos e de equilíbrio.
+    descricao: Clássica, bem completa com um boulder na saida, lances técnicos e de 
+      equilíbrio.
 - via_esportiva:
     nome: Segunda sem lei
     dificuldade: BR_7C
@@ -656,7 +648,8 @@ escaladas:
     - Andre Coutinho
     - Vinicius de Assis
     - Daniel Mariano
-    descricao: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux muito bacana.
+    descricao: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux muito 
+      bacana.
 - via_esportiva:
     nome: Decapitados
     dificuldade: BR_8C
@@ -726,14 +719,16 @@ escaladas:
     conquistadores:
     - '"Marcelinho" Terra Zoni'
     - Marcus "Rufino"
-    descricao: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top em árvore no cume. Melhor o segundo subir de top limpando.
+    descricao: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top em 
+      árvore no cume. Melhor o segundo subir de top limpando.
 - via_esportiva:
     nome: Prakaramba
     dificuldade: BR_7B
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: 'Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na parede do lado o grau cai para 6sup.'
+    descricao: 'Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na parede do
+      lado o grau cai para 6sup.'
 - via_movel:
     nome: Estilo junkie
     dificuldade: BR_7A
@@ -768,7 +763,9 @@ escaladas:
     - Gilberto
     - Geraldo "Araxá"
     - Marcus "Rufino"
-    descricao: Tem duas opções de escalada, subir até terceira proteção em chaminé (5sup), ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco inseguro perto da saída.
+    descricao: Tem duas opções de escalada, subir até terceira proteção em chaminé (5sup),
+      ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco inseguro 
+      perto da saída.
 - via_esportiva:
     nome: Até que enfim
     dificuldade: BR_7A

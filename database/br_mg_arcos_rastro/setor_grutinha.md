@@ -75,14 +75,14 @@ mapas:
       y: 572
       comprimento: 20
       largura: 15
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 630
       y: 584
       comprimento: 25
       largura: 19
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 672
@@ -111,12 +111,6 @@ mapas:
   - escalada: Quem Ama Planta
     ids:
     - '07'
-  - escalada: Respeite os Mais Velhos
-    ids:
-    - '8'
-  - escalada: Quem Ama Implanta
-    ids:
-    - '9'
 escaladas:
 - via_esportiva:
     nome: Tal Pai Tal Filho

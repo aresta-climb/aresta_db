@@ -68,14 +68,14 @@ mapas:
       y: 597
       comprimento: 28
       largura: 26
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 442
       y: 637
       comprimento: 25
       largura: 22
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 475
@@ -118,12 +118,6 @@ mapas:
   - escalada: Usa Quatro e Sobra Um
     ids:
     - '07'
-  - escalada: Conexão 3G
-    ids:
-    - '8'
-  - escalada: Demorô+Saiu
-    ids:
-    - '9'
 escaladas:
 - via_esportiva:
     nome: Panqueca de Salada

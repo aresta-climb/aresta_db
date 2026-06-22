@@ -56,12 +56,6 @@ mapas:
   - escalada: Pressão Enrustida
     ids:
     - '05'
-  - escalada: Não Contava com Minha Astúcia
-    ids:
-    - '06'
-  - escalada: Rapé
-    ids:
-    - '07'
 escaladas:
 - boulder:
     nome: Café com Leite
@@ -73,7 +67,8 @@ escaladas:
 - boulder:
     nome: Maltodextrina SDS
     dificuldade: V2
-    descricao: Saída sentado com as mãos em regletes abaixo do agarrão do Maltodextrina, e virando reto.
+    descricao: Saída sentado com as mãos em regletes abaixo do agarrão do Maltodextrina, e
+      virando reto.
 - boulder:
     nome: Pinga Preta
     dificuldade: V3
@@ -85,10 +80,12 @@ escaladas:
 - boulder:
     nome: Não Contava com Minha Astúcia
     dificuldade: V1
-    descricao: Saída agachado com as duas mãos juntas em agarrão em bloco pequeno passando para Pressão inrrustida no bloco da esquerda.
+    descricao: Saída agachado com as duas mãos juntas em agarrão em bloco pequeno passando
+      para Pressão inrrustida no bloco da esquerda.
 - boulder:
     nome: Rapé
     dificuldade: V3
-    descricao: Saída do Não Contava com minha astúcia fazendo travessia para esquerda virando no Maltodextrina.
+    descricao: Saída do Não Contava com minha astúcia fazendo travessia para esquerda 
+      virando no Maltodextrina.
 ---
 # Setor Pressão Enrustida

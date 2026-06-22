@@ -54,14 +54,14 @@ mapas:
       y: 1224
       comprimento: 23
       largura: 27
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 1112
       y: 1264
       comprimento: 24
       largura: 29
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 1140
@@ -146,12 +146,6 @@ mapas:
   - escalada: Ponto de Equilíbrio
     ids:
     - '07'
-  - escalada: Lilith
-    ids:
-    - '8'
-  - escalada: Deu Brasil
-    ids:
-    - '9'
   - escalada: Deu Nois
     ids:
     - '10'

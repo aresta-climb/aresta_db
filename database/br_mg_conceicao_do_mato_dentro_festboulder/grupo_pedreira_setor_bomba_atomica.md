@@ -137,6 +137,19 @@ mapas:
       y: 485
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Viajante
+    ids:
+    - '1'
+  - escalada: Bomba Atômica
+    ids:
+    - '1'
+  - escalada: No Claro
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p2.webp
   largura_mapa: 755
   altura_mapa: 527
@@ -183,6 +196,55 @@ mapas:
       y: 400
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Viajante
+    ids:
+    - '1'
+  - escalada: Viajante SDS
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '4'
+  - escalada: (sem nome)
+    ids:
+    - '5'
+  - escalada: Champagne
+    ids:
+    - '6'
+  - escalada: Bomba Atômica
+    ids:
+    - '1'
+  - escalada: No Claro
+    ids:
+    - '1'
+  - escalada: No Escuro
+    ids:
+    - '2'
+  - escalada: Falafofancho
+    ids:
+    - '3'
+  - escalada: No Claro SDS
+    ids:
+    - '4'
+  - escalada: No Escuro SDS
+    ids:
+    - '5'
+  - escalada: Falafofancho SDS
+    ids:
+    - '6'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p3.webp
   largura_mapa: 753
   altura_mapa: 529
@@ -208,6 +270,37 @@ mapas:
       y: 460
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Viajante
+    ids:
+    - '1'
+  - escalada: Viajante SDS
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
+  - escalada: Bomba Atômica
+    ids:
+    - '1'
+  - escalada: No Claro
+    ids:
+    - '1'
+  - escalada: No Escuro
+    ids:
+    - '2'
+  - escalada: Falafofancho
+    ids:
+    - '3'
+  - escalada: (sem nome)
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
 escaladas:
 - boulder:
     nome: Viajante
@@ -267,7 +360,6 @@ escaladas:
     nome: (sem nome)
     dificuldade: V1
 ---
-
 # Setor Bomba Atômica
 
 O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.

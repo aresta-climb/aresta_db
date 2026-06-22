@@ -64,10 +64,6 @@ mapas:
     ids:
     - '3'
     - y
-  - escalada: Camundongo
-    ids:
-    - '4'
-    - z
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
   largura_mapa: 445
   altura_mapa: 399
@@ -84,6 +80,11 @@ mapas:
       x: 214
       y: 111
       raio: 9
+  referencias:
+  - escalada: Camundongo
+    ids:
+    - '4'
+    - z
 ---
 
 # Bloco Jahngada

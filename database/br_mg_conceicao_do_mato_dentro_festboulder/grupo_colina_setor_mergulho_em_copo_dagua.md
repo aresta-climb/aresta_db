@@ -21,7 +21,6 @@ escaladas:
     nome: Mergulho em Copo d'Água
     dificuldade: V4
 ---
-
 # Setor Mergulho em Copo d'Água
 
 O setor Mergulho em Copo d'Água possui um bloco isolado com uma linha clássica.

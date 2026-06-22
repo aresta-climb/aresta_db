@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Jah'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_jah_p0.webp
@@ -14,8 +14,8 @@ mapas:
   - id: B
     label: B
     circular:
-      x: 1016
-      y: 314
+      x: 1010
+      y: 320
       raio: 13
   - id: '1'
     label: '1'
@@ -32,13 +32,16 @@ mapas:
   referencias:
   - escalada: De Jah
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Jah
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Invertido
     ids:
-    - 2B
+    - '2'
+    - B
 escaladas:
 - boulder:
     nome: De Jah
@@ -49,6 +52,5 @@ escaladas:
 - boulder:
     nome: Invertido
     dificuldade: V2
----
-
+---
 

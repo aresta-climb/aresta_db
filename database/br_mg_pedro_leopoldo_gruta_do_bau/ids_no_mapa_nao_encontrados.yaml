@@ -1,0 +1,54 @@
+- escalada: O Basilisco de Slytherin
+  ids_procurados: '8'
+  setor_contexto: Setor Entrada Superior
+- escalada: Disparada
+  ids_procurados: '9'
+  setor_contexto: Setor Entrada Superior
+- escalada: Primeira Batida
+  ids_procurados: '8'
+  setor_contexto: Setor Fechadura
+- escalada: Menino de Toca
+  ids_procurados: '9'
+  setor_contexto: Setor Fechadura
+- escalada: Contagem Regressiva
+  ids_procurados: '8'
+  setor_contexto: Setor Sentinela e Vale do Joga
+- escalada: Woodstock
+  ids_procurados: '9'
+  setor_contexto: Setor Sentinela e Vale do Joga
+- escalada: Tá Esperando o quê?
+  ids_procurados: '8'
+  setor_contexto: Setor Vale dos Espinhos
+- escalada: Quem Sabe ano que Vem
+  ids_procurados: '9'
+  setor_contexto: Setor Vale dos Espinhos
+- escalada: Tira o Andador e Vai
+  ids_procurados: '8'
+  setor_contexto: Setor Geriatria
+- escalada: Rupestre
+  ids_procurados: '9'
+  setor_contexto: Setor Geriatria
+- escalada: Fenda Gerações
+  ids_procurados: '8'
+  setor_contexto: Setor Mr. Bean
+- escalada: Encontros Temporais
+  ids_procurados: '9'
+  setor_contexto: Setor Mr. Bean
+- escalada: Navio Fantasma
+  ids_procurados: '8'
+  setor_contexto: Setor Vale do Cinema
+- escalada: Pata Afiada
+  ids_procurados: '9'
+  setor_contexto: Setor Vale do Cinema
+- escalada: Rayovac
+  ids_procurados: '8'
+  setor_contexto: Setor Onda de Calcário
+- escalada: O Corpo Ainda é Pouco
+  ids_procurados: '9'
+  setor_contexto: Setor Onda de Calcário
+- escalada: Retorno de Borges
+  ids_procurados: '8'
+  setor_contexto: Setor Vale da Onça
+- escalada: 3º Pecado Capital
+  ids_procurados: '9'
+  setor_contexto: Setor Vale da Onça

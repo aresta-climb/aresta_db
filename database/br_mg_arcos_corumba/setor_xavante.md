@@ -46,12 +46,6 @@ mapas:
   - escalada: (sem nome)
     ids:
     - '4'
-  - escalada: Especiaria
-    ids:
-    - '5'
-  - escalada: Tupi Or Not Tupi
-    ids:
-    - '6'
 - caminho_imagem_mapa: imagens/setor_xavante_p0_i1.webp
   largura_mapa: 841
   altura_mapa: 1129
@@ -70,6 +64,13 @@ mapas:
       y: 1085
       comprimento: 32
       largura: 30
+  referencias:
+  - escalada: Especiaria
+    ids:
+    - '5'
+  - escalada: Tupi Or Not Tupi
+    ids:
+    - '6'
 escaladas:
 - via_esportiva:
     nome: Curumim

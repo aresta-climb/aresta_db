@@ -76,23 +76,21 @@ mapas:
   - escalada: Carta de Euforia
     ids:
     - '07'
-  - escalada: Escravos de Chó
-    ids:
-    - '08'
-  - escalada: Jardim de Infância
-    ids:
-    - '09'
 - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
   largura_mapa: 1094
   altura_mapa: 782
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 376
       y: 428
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Jardim de Infância
+    ids:
+    - '09'
 escaladas:
 - boulder:
     nome: Agricultor

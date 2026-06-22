@@ -75,14 +75,14 @@ mapas:
       y: 790
       comprimento: 29
       largura: 19
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 467
       y: 772
       comprimento: 28
       largura: 21
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 457
@@ -195,12 +195,6 @@ mapas:
   - escalada: Sai Clipado
     ids:
     - '07'
-  - escalada: Xuxa Preta de Pains
-    ids:
-    - '8'
-  - escalada: Brenfa Móvel
-    ids:
-    - '9'
   - escalada: Mistério do Cachorro Zezinho
     ids:
     - '10'

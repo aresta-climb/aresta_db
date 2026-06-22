@@ -46,11 +46,13 @@ escaladas:
 - boulder:
     nome: Iceberg
     dificuldade: V11
-    descricao: Saída baixa na extrema direita do bloco e segue por movimentos exigentes de compressão (morfo).
+    descricao: Saída baixa na extrema direita do bloco e segue por movimentos exigentes de
+      compressão (morfo).
 - boulder:
     nome: Frigobar
     dificuldade: V5
-    descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita no abaulado alto mais à direita.
+    descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita no 
+      abaulado alto mais à direita.
 ---
 # Bloco: Iceberg
 ## Região 3

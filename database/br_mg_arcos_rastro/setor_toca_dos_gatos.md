@@ -82,7 +82,7 @@ mapas:
       y: 652
       comprimento: 21
       largura: 17
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 140
@@ -111,9 +111,6 @@ mapas:
   - escalada: Fila de Espera
     ids:
     - '07'
-  - escalada: Nem C/ Chuva a Gente Para
-    ids:
-    - '8'
 escaladas:
 - via_esportiva:
     nome: Eakthecat

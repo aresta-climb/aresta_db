@@ -47,7 +47,6 @@ escaladas:
     nome: Costela de Adão
     dificuldade: V2
 ---
-
 # Setor Equinócio
 
 O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.

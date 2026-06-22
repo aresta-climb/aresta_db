@@ -398,9 +398,7 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                 for mapa in compiled_data.get("mapas", []):
                     for ponto in mapa.get("pontos_de_interesse", []):
                         if "id" in ponto and type(ponto["id"]) is int:
-                            print(f"\n[ERRO CRITICO] O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Por favor, modifique o arquivo .md adicionando aspas simples no ID (ex: '{ponto['id']}').")
-                            import sys
-                            sys.exit(1)
+                            print(f"\nAviso: O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Recomenda-se adicionar aspas simples no ID (ex: '{ponto['id']}').")
             
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug:

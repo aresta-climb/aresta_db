@@ -47,7 +47,6 @@ escaladas:
     nome: (sem nome)
     dificuldade: V0
 ---
-
 # Setor Domínio Digital
 
 O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.

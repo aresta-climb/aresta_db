@@ -47,7 +47,6 @@ escaladas:
     nome: Dreads de Goiás
     dificuldade: V7
 ---
-
 # Setor Troféu
 
 O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.

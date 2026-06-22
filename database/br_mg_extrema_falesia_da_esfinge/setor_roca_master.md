@@ -2,28 +2,6 @@
 nome: Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
-  referencias:
-  - escalada: Cão Castrado
-    ids:
-    - '1'
-  - escalada: The Nois
-    ids:
-    - '2'
-  - escalada: Alicate
-    ids:
-    - '3'
-  - escalada: Bebezão
-    ids:
-    - '4'
-  - escalada: A mão que balança o B
-    ids:
-    - '5'
-  - escalada: Darth Helmet
-    ids:
-    - '6'
-  - escalada: Tico Skywalker
-    ids:
-    - '7'
 escaladas:
 - via_esportiva:
     nome: Cão Castrado

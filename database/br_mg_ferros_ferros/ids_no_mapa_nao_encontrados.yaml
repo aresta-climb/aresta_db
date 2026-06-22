@@ -1,0 +1,556 @@
+- escalada: Pé na Chapa
+  ids_procurados: '1'
+  setor_contexto: Subsetor Cachoeira
+- escalada: Desenferrujando
+  ids_procurados: '2'
+  setor_contexto: Subsetor Cachoeira
+- escalada: Ferrugem
+  ids_procurados: '3'
+  setor_contexto: Subsetor Cachoeira
+- escalada: A Ferro Quente
+  ids_procurados: '4'
+  setor_contexto: Subsetor Cachoeira
+- escalada: Solamente
+  ids_procurados: '1'
+  setor_contexto: Extrema Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Nesse Mato Tem Cachorro
+  ids_procurados: '2'
+  setor_contexto: Extrema Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Vr. Cachorro Louco
+  ids_procurados: '3'
+  setor_contexto: Extrema Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Libera Liberou
+  ids_procurados: '4'
+  setor_contexto: Extrema Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Dez Mil e Uma Noites
+  ids_procurados: '5'
+  setor_contexto: Extrema Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Cordada 171
+  ids_procurados: '1'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Inês é Morta
+  ids_procurados: '2'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Sempre Viva
+  ids_procurados: '3'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Fissurim
+  ids_procurados: '4'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Zé Marta
+  ids_procurados: '5'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Bolinha
+  ids_procurados: '6'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Testa de Ferro
+  ids_procurados: '7'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Ferro na Boneca
+  ids_procurados: '8'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Maria Diz Graça
+  ids_procurados: '9'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Zé Mangueira
+  ids_procurados: '10'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Sherlock Holmes
+  ids_procurados: '11'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Professor Moriarty
+  ids_procurados: '12'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Que Qui Ocê Foi Fazê Nu Mato?
+  ids_procurados: '13'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: O Psicopata de Ferros
+  ids_procurados: '14'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Vr. Caçadora de Micuim
+  ids_procurados: '15'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Frio na Barriga
+  ids_procurados: '16'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Pescoço de Minhoca
+  ids_procurados: '17'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Grampos de Ferros
+  ids_procurados: '18'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: Prateado
+  ids_procurados: '19'
+  setor_contexto: Esquerda
+  grupo_contexto: Parede das Aderências
+- escalada: O Psicopata de Ferros
+  ids_procurados: '1'
+  setor_contexto: Parede das Aderências – Face Central
+  grupo_contexto: Parede das Aderências
+- escalada: Solamente
+  ids_procurados: '1'
+  setor_contexto: Parede das Aderências – Setor de Cima
+  grupo_contexto: Parede das Aderências
+- escalada: Ferro na Boneca
+  ids_procurados: '1'
+  setor_contexto: Parede das Aderências – Extrema Direita
+  grupo_contexto: Parede das Aderências
+- escalada: A Medalha de Lúcia
+  ids_procurados: '1'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Águas de Março
+  ids_procurados: '2'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Vou Dançar o Xaxaxá
+  ids_procurados: '3'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Casas da Banha
+  ids_procurados: '4'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ferradura
+  ids_procurados: '5'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ferrolho
+  ids_procurados: '6'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Cambal a Quatro
+  ids_procurados: '7'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: El Bigodón
+  ids_procurados: '8'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Testa de Aço
+  ids_procurados: '9'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Me Ferrei
+  ids_procurados: '10'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Amor Profano
+  ids_procurados: '11'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Deu Tilt
+  ids_procurados: '12'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ferroada
+  ids_procurados: '13'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Scarface
+  ids_procurados: '14'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Se Meu Fusca Falasse
+  ids_procurados: '15'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Couro de Lobisomem
+  ids_procurados: '16'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Enferrujados
+  ids_procurados: '17'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Rastro de Cobra
+  ids_procurados: '18'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Entrando no Ferro
+  ids_procurados: '19'
+  setor_contexto: Parede Principal – Setor Clássicas Curtas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Macambúzio
+  ids_procurados: '1'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pente Frio
+  ids_procurados: '2'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: El Barrigón
+  ids_procurados: '3'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Lobos do Caraça
+  ids_procurados: '4'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: O Tempo e o Vento
+  ids_procurados: '5'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: O Burro e o Capacete
+  ids_procurados: '6'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Tá Bão
+  ids_procurados: '7'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Amor meu Grande amor
+  ids_procurados: '8'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Rapidinha no Escurinho
+  ids_procurados: '9'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pelanca
+  ids_procurados: '10'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Flor da Pele
+  ids_procurados: '11'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Alma Nova
+  ids_procurados: '12'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pele Vermelha
+  ids_procurados: '13'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pelinha
+  ids_procurados: '14'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Cutícula
+  ids_procurados: '15'
+  setor_contexto: Parede Principal – Direita
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ferro no Judas
+  ids_procurados: '1'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Marcado a Ferro
+  ids_procurados: '2'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Rolam as Pedras
+  ids_procurados: '3'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Tromba D’Água
+  ids_procurados: '4'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ferro Velho
+  ids_procurados: '5'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pum Medonho
+  ids_procurados: '6'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pr. Chapado
+  ids_procurados: '7'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Dona Flor e Suas Duas Marretas
+  ids_procurados: '8'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pé de Pano
+  ids_procurados: '9'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: CDF
+  ids_procurados: '10'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+  ids_procurados: '11'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Hilda Furacão
+  ids_procurados: '12'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Iron Men
+  ids_procurados: '13'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Cordão do Bola Preta
+  ids_procurados: '14'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Rainha da Base
+  ids_procurados: '15'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: A Ferro e Fogo
+  ids_procurados: '16'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Chuva Ácida
+  ids_procurados: '17'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: A Decadência da Bufa
+  ids_procurados: '18'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Tatu do Jeca
+  ids_procurados: '19'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Jeca Tatu
+  ids_procurados: '20'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Valeu Papito
+  ids_procurados: '21'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Macambúzio
+  ids_procurados: '23'
+  setor_contexto: Parede Principal – Setor Central
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Um Momento no Tempo
+  ids_procurados: '1'
+  setor_contexto: Parede Principal – Setor de Cima
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Noite de São João
+  ids_procurados: '2'
+  setor_contexto: Parede Principal – Setor de Cima
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Quarto 304
+  ids_procurados: '1'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: O Nome da Rosa
+  ids_procurados: '2'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: O Retorno de Jedi
+  ids_procurados: '3'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Ih, Ferrou!
+  ids_procurados: '4'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Jardim do Éden
+  ids_procurados: '5'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: A Dois Passos do Paraíso
+  ids_procurados: '6'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Conquista do Paraíso
+  ids_procurados: '7'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Purgatório
+  ids_procurados: '8'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Arco de Ferros
+  ids_procurados: '9'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Conrado Ferro
+  ids_procurados: '10'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Quem com Ferro Fere
+  ids_procurados: '11'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Tanto Bate Até Que Fura
+  ids_procurados: '12'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Trem de Ferro
+  ids_procurados: '13'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Up Ester
+  ids_procurados: '14'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Até Que a Vida Nos Separe
+  ids_procurados: '15'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Vr. Pilhado
+  ids_procurados: '16'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Pr. CEM
+  ids_procurados: '17'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Vr. SEM
+  ids_procurados: '18'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Engatilhados
+  ids_procurados: '19'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Trio Elétrico
+  ids_procurados: '20'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Eu Não Sou de Ferro
+  ids_procurados: '21'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Rio de Mão Dupla
+  ids_procurados: '22'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Grand Finale
+  ids_procurados: '23'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: À Francesa
+  ids_procurados: '24'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Atalho dos Duendes
+  ids_procurados: '25'
+  setor_contexto: Parede Principal – Setor Clássicas Longas
+  grupo_contexto: Parede Principal (Paredes de Aço)
+- escalada: Diedro da Rabada
+  ids_procurados: '1'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Mestre Sala
+  ids_procurados: '2'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Porta-Bandeira
+  ids_procurados: '3'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Gangorra
+  ids_procurados: '4'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Jabá com Jerimum
+  ids_procurados: '5'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Bruxa Albano
+  ids_procurados: '6'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Vomitão em Ferros
+  ids_procurados: '7'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Iron Slow
+  ids_procurados: '8'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Bicho de Pé
+  ids_procurados: '9'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Os Três Mosqueteiros
+  ids_procurados: '10'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Nó de Porco
+  ids_procurados: '11'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Ícaro
+  ids_procurados: '12'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Champinha
+  ids_procurados: '13'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Falcatrua
+  ids_procurados: '14'
+  setor_contexto: Setor Vias Esportivas
+- escalada: Caipora
+  ids_procurados: '1'
+  setor_contexto: Parede dos Solos
+- escalada: Iaci
+  ids_procurados: '2'
+  setor_contexto: Parede dos Solos
+- escalada: Boitatá
+  ids_procurados: '3'
+  setor_contexto: Parede dos Solos
+- escalada: Maracujá
+  ids_procurados: '4'
+  setor_contexto: Parede dos Solos
+- escalada: Fissura Lapada na Rachada
+  ids_procurados: '1'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Fissura Sopa de Pedra
+  ids_procurados: '2'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Até o Osso
+  ids_procurados: '3'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Diedro Caboclo D’Água
+  ids_procurados: '4'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Balangandã
+  ids_procurados: '5'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Pé de Chinelo
+  ids_procurados: '6'
+  setor_contexto: Pedra do Neri – Face das Esportivas
+  grupo_contexto: Pedra do Neri
+- escalada: Queima de Arquivo
+  ids_procurados: '1'
+  setor_contexto: Pedra do Neri – Face das Aderências
+  grupo_contexto: Pedra do Neri
+- escalada: Aquidaban
+  ids_procurados: '2'
+  setor_contexto: Pedra do Neri – Face das Aderências
+  grupo_contexto: Pedra do Neri
+- escalada: Tempestade
+  ids_procurados: '3'
+  setor_contexto: Pedra do Neri – Face das Aderências
+  grupo_contexto: Pedra do Neri
+- escalada: Chuva de Verão
+  ids_procurados: '4'
+  setor_contexto: Pedra do Neri – Face das Aderências
+  grupo_contexto: Pedra do Neri
+- escalada: Brumas de Inverno
+  ids_procurados: '5'
+  setor_contexto: Pedra do Neri – Face das Aderências
+  grupo_contexto: Pedra do Neri
+- escalada: Pr. Dama de Ferros
+  ids_procurados: '1'
+  setor_contexto: Parede da Água Limpa
+- escalada: Pr. Pellé 70
+  ids_procurados: '1'
+  setor_contexto: Parede da CENIBRA

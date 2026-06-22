@@ -21,7 +21,6 @@ escaladas:
     nome: Aresta do Cabeça
     dificuldade: V6
 ---
-
 # Setor Aresta do Cabeça
 
 O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.

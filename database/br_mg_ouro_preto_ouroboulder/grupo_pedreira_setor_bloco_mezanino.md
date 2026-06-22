@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mezanino'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp
@@ -23,7 +23,7 @@ mapas:
     - '1'
   - escalada: Mesa
     ids:
-    - 2/1
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -34,6 +34,13 @@ mapas:
       x: 660
       y: 950
       raio: 13
+  referencias:
+  - escalada: Mezanino
+    ids:
+    - '1'
+  - escalada: Mesa
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: Mezanino
@@ -41,6 +48,5 @@ escaladas:
 - boulder:
     nome: Mesa
     dificuldade: V5
----
-
+---
 

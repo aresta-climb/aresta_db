@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Bob'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
@@ -32,25 +32,23 @@ mapas:
   referencias:
   - escalada: Albino
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Encardido
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Bob
     ids:
     - '2'
   - escalada: Reto
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Dor nas Costas
     ids:
-    - 1B
-  - escalada: Albino
-    ids:
-    - 2C
-  - escalada: Encardido
-    ids:
-    - 2D
+    - '1'
+    - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -91,6 +89,34 @@ mapas:
       x: 1062
       y: 770
       raio: 13
+  referencias:
+  - escalada: Albino
+    ids:
+    - '1'
+    - A
+  - escalada: Encardido
+    ids:
+    - '1'
+    - B
+  - escalada: Bob
+    ids:
+    - '2'
+  - escalada: Reto
+    ids:
+    - '1'
+    - A
+  - escalada: Dor nas Costas
+    ids:
+    - '1'
+    - B
+  - escalada: Albino
+    ids:
+    - '2'
+    - C
+  - escalada: Encardido
+    ids:
+    - '2'
+    - D
 escaladas:
 - boulder:
     nome: Albino
@@ -113,6 +139,5 @@ escaladas:
 - boulder:
     nome: Encardido
     dificuldade: V4
----
-
+---
 

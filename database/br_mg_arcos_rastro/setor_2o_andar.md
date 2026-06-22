@@ -82,14 +82,14 @@ mapas:
       y: 167
       comprimento: 20
       largura: 16
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 636
       y: 94
       comprimento: 22
       largura: 17
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 660
@@ -251,12 +251,6 @@ mapas:
   - escalada: Bicuda
     ids:
     - '07'
-  - escalada: Gardneria Angustata
-    ids:
-    - '8'
-  - escalada: Vai e Volta e Vai
-    ids:
-    - '9'
   - escalada: Daqui Não Saio
     ids:
     - '10'

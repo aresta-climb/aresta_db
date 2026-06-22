@@ -262,7 +262,8 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas e medias, top duplo no final da canaleta.
+    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas 
+      e medias, top duplo no final da canaleta.
 - via_esportiva:
     nome: Cactos talidomida
     dificuldade: BR_4
@@ -322,7 +323,8 @@ escaladas:
 - via_movel:
     nome: Ossos do orifício
     dificuldade: BR_5
-    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. Termina no top da "mapa". Ótima opção!
+    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. 
+      Termina no top da "mapa". Ótima opção!
 - via_esportiva:
     nome: Baião de dois
     dificuldade: BR_5
@@ -336,7 +338,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Marcus "Rufino"
-    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para iniciantes em móvel.
+    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para 
+      iniciantes em móvel.
 - via_esportiva:
     nome: SOS mandacaru
     dificuldade: BR_5

@@ -37,12 +37,6 @@ mapas:
   - escalada: Jamaica Abaixo de Zero
     ids:
     - '01'
-  - escalada: Jamaica
-    ids:
-    - '02'
-  - escalada: Kuaiti
-    ids:
-    - '03'
   - escalada: Taiti
     ids:
     - '04'
@@ -56,7 +50,8 @@ escaladas:
 - boulder:
     nome: Jamaica Abaixo de Zero
     dificuldade: V7
-    descricao: Saída sentado com a mão esquerda em reglete e direita em batente pequeno, seguindo reto virando no Taiti.
+    descricao: Saída sentado com a mão esquerda em reglete e direita em batente pequeno, 
+      seguindo reto virando no Taiti.
 - boulder:
     nome: Jamaica
     dificuldade: V6
@@ -68,14 +63,17 @@ escaladas:
 - boulder:
     nome: Taiti
     dificuldade: V7
-    descricao: Saída sentado com as mãos juntas em batente grande seguindo para batentes lisos e virando a esquerda no bloco.
+    descricao: Saída sentado com as mãos juntas em batente grande seguindo para batentes 
+      lisos e virando a esquerda no bloco.
 - boulder:
     nome: Haiti
     dificuldade: V7
-    descricao: Mesma saída do Taíti seguindo a esquerda até batentes escorrido e virando reto.
+    descricao: Mesma saída do Taíti seguindo a esquerda até batentes escorrido e virando 
+      reto.
 - boulder:
     nome: Nem Lá, Nem Cá
     dificuldade: V5
-    descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais e virando reto.
+    descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais e virando 
+      reto.
 ---
 # Setor Haiti

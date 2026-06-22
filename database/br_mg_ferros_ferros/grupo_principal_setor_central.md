@@ -2,73 +2,6 @@
 nome: Parede Principal – Setor Central
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
-  referencias:
-  - escalada: Ferro no Judas
-    ids:
-    - '1'
-  - escalada: Marcado a Ferro
-    ids:
-    - '2'
-  - escalada: Rolam as Pedras
-    ids:
-    - '3'
-  - escalada: Pum Medonho
-    ids:
-    - '6'
-  - escalada: Pr. Chapado
-    ids:
-    - '7'
-  - escalada: Dona Flor e Suas Duas Marretas
-    ids:
-    - '8'
-  - escalada: Pé de Pano
-    ids:
-    - '9'
-  - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
-    ids:
-    - '11'
-  - escalada: Hilda Furacão
-    ids:
-    - '12'
-  - escalada: Iron Men
-    ids:
-    - '13'
-  - escalada: Rainha da Base
-    ids:
-    - '15'
-  - escalada: A Ferro e Fogo
-    ids:
-    - '16'
-  - escalada: Chuva Ácida
-    ids:
-    - '17'
-  - escalada: A Decadência da Bufa
-    ids:
-    - '18'
-  - escalada: Tatu do Jeca
-    ids:
-    - '19'
-  - escalada: Jeca Tatu
-    ids:
-    - '20'
-  - escalada: Valeu Papito
-    ids:
-    - '21'
-  - escalada: Macambúzio
-    ids:
-    - '23'
-  - escalada: Tromba D’Água
-    ids:
-    - '4'
-  - escalada: Ferro Velho
-    ids:
-    - '5'
-  - escalada: CDF
-    ids:
-    - '10'
-  - escalada: Cordão do Bola Preta
-    ids:
-    - '14'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
 escaladas:
 - via_esportiva:
@@ -172,6 +105,5 @@ escaladas:
     dificuldade: BR_3SUP
     extensao: 80
 ---
-
 
 ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp)

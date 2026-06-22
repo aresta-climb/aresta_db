@@ -80,6 +80,19 @@ mapas:
       y: 255
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Super Foot Hook
+    ids:
+    - '1'
+  - escalada: Foot Hook
+    ids:
+    - '2'
+  - escalada: Insaciável
+    ids:
+    - '1'
+  - escalada: Sicronismo
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Super Foot Hook
@@ -103,7 +116,6 @@ escaladas:
     nome: Sicronismo
     dificuldade: V8
 ---
-
 # Setor Escorpião
 
 O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.

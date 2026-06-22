@@ -54,14 +54,14 @@ mapas:
       y: 428
       comprimento: 27
       largura: 33
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 650
       y: 770
       comprimento: 27
       largura: 29
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 706
@@ -174,12 +174,6 @@ mapas:
   - escalada: Poneis Malditos
     ids:
     - '07'
-  - escalada: I Like This
-    ids:
-    - '8'
-  - escalada: Igarameca
-    ids:
-    - '9'
   - escalada: U.F.O
     ids:
     - '10'
@@ -269,14 +263,14 @@ mapas:
       y: 646
       comprimento: 30
       largura: 37
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 488
       y: 680
       comprimento: 21
       largura: 27
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 458
@@ -360,6 +354,61 @@ mapas:
       y: 1274
       comprimento: 35
       largura: 32
+  referencias:
+  - escalada: Beatrix
+    ids:
+    - '01'
+  - escalada: Na Boca da Gruta Tem Dente
+    ids:
+    - '02'
+  - escalada: Sunday Bloody Sunday
+    ids:
+    - '03'
+  - escalada: People Let's Stop The War
+    ids:
+    - '04'
+  - escalada: Apolo 13
+    ids:
+    - '05'
+  - escalada: Liga Extraordinária
+    ids:
+    - '06'
+  - escalada: Poneis Malditos
+    ids:
+    - '07'
+  - escalada: U.F.O
+    ids:
+    - '10'
+  - escalada: 127 Horas
+    ids:
+    - '11'
+  - escalada: Lero Lero é Mato
+    ids:
+    - '12'
+  - escalada: Renegados de Igarapé
+    ids:
+    - '13'
+  - escalada: Coisa Linda
+    ids:
+    - '14'
+  - escalada: Doce Veneno
+    ids:
+    - '15'
+  - escalada: Alguém Tem Que Ceder
+    ids:
+    - '16'
+  - escalada: Napa
+    ids:
+    - '17'
+  - escalada: Alpes Suínos*
+    ids:
+    - '18'
+  - escalada: Viagem ao Centro da Terra
+    ids:
+    - '19'
+  - escalada: Rolitos
+    ids:
+    - '20'
 - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
   largura_mapa: 2048
   altura_mapa: 1232
@@ -392,6 +441,19 @@ mapas:
       y: 508
       comprimento: 22
       largura: 23
+  referencias:
+  - escalada: Beatrix
+    ids:
+    - '01'
+  - escalada: Na Boca da Gruta Tem Dente
+    ids:
+    - '02'
+  - escalada: Sunday Bloody Sunday
+    ids:
+    - '03'
+  - escalada: People Let's Stop The War
+    ids:
+    - '04'
 escaladas:
 - via_esportiva:
     nome: Beatrix

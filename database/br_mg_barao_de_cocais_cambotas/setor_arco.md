@@ -2,25 +2,6 @@
 nome: Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_arco_p2.webp
-  referencias:
-  - escalada: Onde os fracos não tem vez
-    ids:
-    - '10'
-  - escalada: Horizonte dos eventos
-    ids:
-    - '11'
-  - escalada: Arco da Santa vitamina
-    ids:
-    - '12'
-  - escalada: Malateus?
-    ids:
-    - '13'
-  - escalada: Clandestino
-    ids:
-    - '14'
-  - escalada: Totalmente demais
-    ids:
-    - '15'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Onde os fracos não tem vez
@@ -30,7 +11,8 @@ escaladas:
     conquistadores:
     - André Coutinho
     - Breno Araújo
-    descricao: Via muito exigente que corta a parede principal na sua parte mais negativa. Começa na 'aresta que me resta' e termina na 'aresta eletrizante'.
+    descricao: Via muito exigente que corta a parede principal na sua parte mais negativa.
+      Começa na 'aresta que me resta' e termina na 'aresta eletrizante'.
     comprimento_total: 130
 - via_multiplas_enfiadas:
     nome: Horizonte dos eventos
@@ -40,7 +22,8 @@ escaladas:
     conquistadores:
     - Daniel Mariano
     - Mateus Carneiro
-    descricao: Primeira via da parede. Segue linha natural de fendas e chaminés até a base do arco. Peças médias e grandes, inclusive cam's 3,5 e 4 ou similares.
+    descricao: Primeira via da parede. Segue linha natural de fendas e chaminés até a base
+      do arco. Peças médias e grandes, inclusive cam's 3,5 e 4 ou similares.
     comprimento_total: 100
 - via_movel:
     nome: Arco da Santa vitamina
@@ -55,7 +38,8 @@ escaladas:
     dificuldade: INDEFINIDO
     conquistadores:
     - Matheus (SP)
-    descricao: Via inacabada que atravessa a parede principal passando por um belo arco. Linha muito estética e que deve se tornar uma das mais bonitas escaladas do lugar.
+    descricao: Via inacabada que atravessa a parede principal passando por um belo arco. 
+      Linha muito estética e que deve se tornar uma das mais bonitas escaladas do lugar.
 - via_multiplas_enfiadas:
     nome: Clandestino
     dificuldade_maxima: BR_7A
@@ -65,7 +49,10 @@ escaladas:
     - André Coutinho
     - Breno Araújo
     - Gustavo Vianna
-    descricao: Boa opção de via longa para um fim de tarde. Para fazer a quarta enfiada deixar corda fixa em P3. Usar fitas longas, especialmente na 3ª e 4ª enfiadas. 4ª enfiada exige bastante atenção. Rapel de P3 até P1 com corda de 60m. Com corda de 50m deve-se fixar entre P3 e P2 ou fracionar o rapel até P1.
+    descricao: Boa opção de via longa para um fim de tarde. Para fazer a quarta enfiada 
+      deixar corda fixa em P3. Usar fitas longas, especialmente na 3ª e 4ª enfiadas. 4ª 
+      enfiada exige bastante atenção. Rapel de P3 até P1 com corda de 60m. Com corda de 
+      50m deve-se fixar entre P3 e P2 ou fracionar o rapel até P1.
     comprimento_total: 160
 - via_multiplas_enfiadas:
     nome: Totalmente demais

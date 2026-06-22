@@ -164,10 +164,6 @@ mapas:
     ids:
     - 1 (P1)
     - 1 (P1)_fim
-  - escalada: Espetacular
-    ids:
-    - 2 (P1) / 5 (P2)
-    - 2 (P1) / 5 (P2)_fim
   - escalada: Extra
     ids:
     - 3 (P1)
@@ -176,26 +172,10 @@ mapas:
     ids:
     - 4 (P1)
     - 4 (P1)_fim
-  - escalada: Esporte Espetacular
-    ids:
-    - 5 (P1) / 4 (P2)
-    - 5 (P1) / 4 (P2)_fim
   - escalada: Fantástico Mundo dos Diamantes
     ids:
     - 6 (P1)
     - 6 (P1)_fim
-  - escalada: Globo Curral
-    ids:
-    - 7 (P1) / 3 (P2)
-    - 7 (P1) / 3 (P2)_fim
-  - escalada: Manual
-    ids:
-    - 8 (P1) / 1 (P2)
-    - 8 (P1) / 1 (P2)_fim
-  - escalada: Altas Horas
-    ids:
-    - 9 (P1) / 2 (P2)
-    - 9 (P1) / 2 (P2)_fim
   - escalada: Super Sinistro
     ids:
     - 10 (P1)
@@ -204,30 +184,6 @@ mapas:
     ids:
     - 11 (P1)
     - 11 (P1)_fim
-  - escalada: Sessão da Tarde
-    ids:
-    - 6 (P2)
-    - 6 (P2)_fim
-  - escalada: Vale a Pena Ver de Novo
-    ids:
-    - 7 (P2)
-    - 7 (P2)_fim
-  - escalada: Vale a Pena Vir de Baixo
-    ids:
-    - 8 (P2)
-    - 8 (P2)_fim
-  - escalada: Chá da Tarde
-    ids:
-    - 9 (P2)
-    - 9 (P2)_fim
-  - escalada: Analógico
-    ids:
-    - 10 (P2)
-    - 10 (P2)_fim
-  - escalada: Digital
-    ids:
-    - 11 (P2)
-    - 11 (P2)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 964
@@ -386,6 +342,31 @@ mapas:
       y: 125
       comprimento: 23
       largura: 22
+  referencias:
+  - escalada: Sessão da Tarde
+    ids:
+    - 6 (P2)
+    - 6 (P2)_fim
+  - escalada: Vale a Pena Ver de Novo
+    ids:
+    - 7 (P2)
+    - 7 (P2)_fim
+  - escalada: Vale a Pena Vir de Baixo
+    ids:
+    - 8 (P2)
+    - 8 (P2)_fim
+  - escalada: Chá da Tarde
+    ids:
+    - 9 (P2)
+    - 9 (P2)_fim
+  - escalada: Analógico
+    ids:
+    - 10 (P2)
+    - 10 (P2)_fim
+  - escalada: Digital
+    ids:
+    - 11 (P2)
+    - 11 (P2)_fim
 escaladas:
 - boulder:
     nome: Super Cine
@@ -408,7 +389,8 @@ escaladas:
 - boulder:
     nome: Globo Curral
     dificuldade: V5
-    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
+    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita
+      (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
 - boulder:
     nome: Manual
     dificuldade: V8
@@ -424,11 +406,14 @@ escaladas:
 - boulder:
     nome: Sessão da Tarde
     dificuldade: V5
-    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em outro batente mais à direita, seguindo em linha reta pelo sistema de agarras logo acima.
+    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em outro 
+      batente mais à direita, seguindo em linha reta pelo sistema de agarras logo acima.
 - boulder:
     nome: Vale a Pena Ver de Novo
     dificuldade: V4_BARRA_V5
-    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita após dominar a pinça. A parte final do boulder segue para a direita por "cracas" na face positiva, cuidado com agarras frágeis.
+    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita após 
+      dominar a pinça. A parte final do boulder segue para a direita por "cracas" na face 
+      positiva, cuidado com agarras frágeis.
 - boulder:
     nome: Vale a Pena Vir de Baixo
     dificuldade: V6_BARRA_V7
@@ -436,7 +421,8 @@ escaladas:
 - boulder:
     nome: Chá da Tarde
     dificuldade: V7
-    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita.
+    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda e 
+      um reglete raso de mão direita.
 - boulder:
     nome: Analógico
     dificuldade: V8_BARRA_V9

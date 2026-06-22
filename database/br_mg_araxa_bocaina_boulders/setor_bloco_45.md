@@ -54,7 +54,7 @@ mapas:
       y: 554
       comprimento: 20
       largura: 20
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 803
@@ -114,56 +114,11 @@ mapas:
   - escalada: Espírito San
     ids:
     - '08'
-  - escalada: Tiro ao Alvo
-    ids:
-    - '09'
-  - escalada: Tiro ao Alvo SDS
-    ids:
-    - '10'
-  - escalada: Mão na Massa
-    ids:
-    - '11'
-  - escalada: Mão na Massa SDS
-    ids:
-    - '12'
-  - escalada: Bicho de Pé
-    ids:
-    - '13'
-  - escalada: Bicho de Pé SDS
-    ids:
-    - '14'
-  - escalada: Curto e Gross
-    ids:
-    - '15'
-  - escalada: Carvoeiro
-    ids:
-    - '16'
-  - escalada: Kadron
-    ids:
-    - '17'
-  - escalada: Saída pela Culatra
-    ids:
-    - '18'
-  - escalada: Siri sem Casca
-    ids:
-    - '19'
-  - escalada: Siri Queijo
-    ids:
-    - '20'
-  - escalada: Problema Legal
-    ids:
-    - '21'
-  - escalada: Pecado de Chó
-    ids:
-    - '22'
-  - escalada: Ayuaska
-    ids:
-    - '23'
 - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
   largura_mapa: 1091
   altura_mapa: 813
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 660
@@ -219,11 +174,36 @@ mapas:
       y: 430
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Tiro ao Alvo
+    ids:
+    - '09'
+  - escalada: Tiro ao Alvo SDS
+    ids:
+    - '10'
+  - escalada: Mão na Massa
+    ids:
+    - '11'
+  - escalada: Mão na Massa SDS
+    ids:
+    - '12'
+  - escalada: Bicho de Pé
+    ids:
+    - '13'
+  - escalada: Bicho de Pé SDS
+    ids:
+    - '14'
+  - escalada: Curto e Gross
+    ids:
+    - '15'
+  - escalada: Carvoeiro
+    ids:
+    - '16'
 - caminho_imagem_mapa: imagens/setor_bloco_45_p2.webp
   largura_mapa: 1087
   altura_mapa: 812
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 656
@@ -293,15 +273,48 @@ mapas:
       y: 402
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Tiro ao Alvo
+    ids:
+    - '09'
+  - escalada: Tiro ao Alvo SDS
+    ids:
+    - '10'
+  - escalada: Mão na Massa
+    ids:
+    - '11'
+  - escalada: Mão na Massa SDS
+    ids:
+    - '12'
+  - escalada: Bicho de Pé
+    ids:
+    - '13'
+  - escalada: Bicho de Pé SDS
+    ids:
+    - '14'
+  - escalada: Curto e Gross
+    ids:
+    - '15'
+  - escalada: Carvoeiro
+    ids:
+    - '16'
+  - escalada: Kadron
+    ids:
+    - '17'
+  - escalada: Saída pela Culatra
+    ids:
+    - '18'
 escaladas:
 - boulder:
     nome: Esquina do Gueto
     dificuldade: V2
-    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando por ela.
+    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando por 
+      ela.
 - boulder:
     nome: Bem-Vindo
     dificuldade: V4
-    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco, segue reto.
+    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco, segue 
+      reto.
 - boulder:
     nome: Siri Cascudo
     dificuldade: V6
@@ -309,15 +322,18 @@ escaladas:
 - boulder:
     nome: Índios
     dificuldade: V5
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, 
+      virando no tiro ao alvo.
 - boulder:
     nome: Índios SDS
     dificuldade: V9
-    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo na mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
+    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo na 
+      mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
 - boulder:
     nome: Família Bocaina
     dificuldade: V10
-    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na mesma agarra, saindo para uma agarra de ombro de esquerda.
+    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na mesma 
+      agarra, saindo para uma agarra de ombro de esquerda.
 - boulder:
     nome: Sananga
     dificuldade: V9
@@ -325,15 +341,18 @@ escaladas:
 - boulder:
     nome: Espírito San
     dificuldade: V8_BARRA_V9
-    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em mono dedo.
+    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em mono 
+      dedo.
 - boulder:
     nome: Tiro ao Alvo
     dificuldade: V8
-    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda em reglete ruim.
+    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda em 
+      reglete ruim.
 - boulder:
     nome: Tiro ao Alvo SDS
     dificuldade: V10
-    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete liso com o pÉ esquerdo alto.
+    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete liso
+      com o pÉ esquerdo alto.
 - boulder:
     nome: Mão na Massa
     dificuldade: V7
@@ -345,7 +364,8 @@ escaladas:
 - boulder:
     nome: Bicho de Pé
     dificuldade: V5
-    descricao: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira no carvoeiro.
+    descricao: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira no 
+      carvoeiro.
 - boulder:
     nome: Bicho de Pé SDS
     dificuldade: V6
@@ -357,7 +377,8 @@ escaladas:
 - boulder:
     nome: Carvoeiro
     dificuldade: V1
-    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal pra esquerda em agarroes.
+    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal pra 
+      esquerda em agarroes.
 - boulder:
     nome: Kadron
     dificuldade: V3
@@ -373,11 +394,13 @@ escaladas:
 - boulder:
     nome: Siri Queijo
     dificuldade: V7
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, 
+      virando no tiro ao alvo.
 - boulder:
     nome: Problema Legal
     dificuldade: V7
-    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão baixo com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
+    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão baixo 
+      com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
 - boulder:
     nome: Pecado de Chó
     dificuldade: V10_BARRA_V11

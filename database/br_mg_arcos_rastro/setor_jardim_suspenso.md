@@ -75,14 +75,14 @@ mapas:
       y: 434
       comprimento: 27
       largura: 23
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 562
       y: 463
       comprimento: 26
       largura: 20
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 633
@@ -111,12 +111,6 @@ mapas:
   - escalada: Cai Mais Não, Zé
     ids:
     - '07'
-  - escalada: Corte Profundo
-    ids:
-    - '8'
-  - escalada: Avenida Paulista
-    ids:
-    - '9'
 escaladas:
 - via_esportiva:
     nome: (via inacabada)

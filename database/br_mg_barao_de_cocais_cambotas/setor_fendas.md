@@ -2,22 +2,6 @@
 nome: Fendas
 mapas:
 - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
-  referencias:
-  - escalada: Noites equatoriais
-    ids:
-    - '16'
-  - escalada: Vomitão no reglete
-    ids:
-    - '18'
-  - escalada: Soul rebel
-    ids:
-    - '20'
-  - escalada: Positive vibration
-    ids:
-    - '21'
-  - escalada: Princesa Kel
-    ids:
-    - '22'
 escaladas:
 - via_multiplas_enfiadas:
     nome: Noites equatoriais
@@ -52,7 +36,8 @@ escaladas:
     extensao: 40
     conquistadores:
     - Gustavo Piancastelli
-    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção com abelhas próximo da via, à esquerda.'
+    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção
+      com abelhas próximo da via, à esquerda.'
 - via_multiplas_enfiadas:
     nome: Princesa Kel
     dificuldade_maxima: INDEFINIDO
@@ -60,7 +45,8 @@ escaladas:
     conquistadores:
     - Gustavo Piancastelli
     - Leonardo Tangari
-    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da parede principal. Grampos somente nas paradas.
+    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da 
+      parede principal. Grampos somente nas paradas.
     comprimento_total: 120
 ---
 

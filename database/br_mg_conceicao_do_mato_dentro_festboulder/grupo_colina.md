@@ -1,4 +1,4 @@
----
+---
 nome: Colina
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_p0.webp
@@ -40,13 +40,29 @@ mapas:
       y: 442
       comprimento: 34
       largura: 35
+  referencias:
+  - setor: Choquito
+    ids:
+    - '1'
+  - setor: Godzilla
+    ids:
+    - '2'
+  - setor: Show Time
+    ids:
+    - '3'
+  - setor: Hiperespaço
+    ids:
+    - '4'
+  - setor: Mergulho em Copo d'Água
+    ids:
+    - '5'
 setores:
 - caminho: grupo_colina_setor_choquito.md
 - caminho: grupo_colina_setor_godzilla.md
 - caminho: grupo_colina_setor_show_time.md
 - caminho: grupo_colina_setor_hiperespaco.md
 - caminho: grupo_colina_setor_mergulho_em_copo_dagua.md
----
+---
 # Grupo Colina
 
 A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.

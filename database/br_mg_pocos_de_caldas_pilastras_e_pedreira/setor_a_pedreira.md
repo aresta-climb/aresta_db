@@ -2,22 +2,6 @@
 nome: A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
-  referencias:
-  - escalada: Coisa do capeta
-    ids:
-    - '1'
-  - escalada: Sabão crácrá
-    ids:
-    - '2'
-  - escalada: Europa
-    ids:
-    - '3'
-  - escalada: Fica à vontade
-    ids:
-    - '4'
-  - escalada: Pe pra fora
-    ids:
-    - '5'
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp
 escaladas:
 - via_esportiva:

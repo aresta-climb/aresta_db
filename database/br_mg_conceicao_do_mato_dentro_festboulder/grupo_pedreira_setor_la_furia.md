@@ -111,17 +111,6 @@ mapas:
     ids:
     - '8'
     - '8'
-  - escalada: Maldito La Furia
-    ids:
-    - '9'
-    - '9'
-  - escalada: (sem nome)
-    ids:
-    - '10'
-    - '10'
-  - escalada: Travessia da Fúria
-    ids:
-    - '10'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p1.webp
   largura_mapa: 759
   altura_mapa: 571
@@ -175,6 +164,49 @@ mapas:
       y: 145
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: La Furia
+    ids:
+    - '1'
+  - escalada: La Discordia
+    ids:
+    - '2'
+  - escalada: La Paloma
+    ids:
+    - '3'
+  - escalada: La Discrepância
+    ids:
+    - '4'
+  - escalada: La Fuerza
+    ids:
+    - '5'
+  - escalada: La Sinceridad
+    ids:
+    - '6'
+  - escalada: Rei da Cápsula
+    ids:
+    - '7'
+  - escalada: Bem Vindo
+    ids:
+    - '1'
+  - escalada: Bem Vindo a Conceição
+    ids:
+    - '2'
+  - escalada: Bem Vindo aos Clássicos
+    ids:
+    - '3'
+  - escalada: Né Possível
+    ids:
+    - '4'
+  - escalada: Malditos
+    ids:
+    - '5'
+  - escalada: Guardião
+    ids:
+    - '6'
+  - escalada: Deixa Rolar
+    ids:
+    - '7'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p2.webp
   largura_mapa: 760
   altura_mapa: 551
@@ -200,6 +232,25 @@ mapas:
       y: 545
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Choffer
+    ids:
+    - '8'
+  - escalada: La Resistência
+    ids:
+    - '8'
+    - '8'
+  - escalada: Maldito La Furia
+    ids:
+    - '9'
+    - '9'
+  - escalada: (sem nome)
+    ids:
+    - '10'
+    - '10'
+  - escalada: Travessia da Fúria
+    ids:
+    - '10'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p3.webp
   largura_mapa: 761
   altura_mapa: 548
@@ -211,6 +262,14 @@ mapas:
       y: 435
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: (sem nome)
+    ids:
+    - '10'
+    - '10'
+  - escalada: Travessia da Fúria
+    ids:
+    - '10'
 escaladas:
 - boulder:
     nome: La Furia
@@ -269,7 +328,6 @@ escaladas:
     nome: Travessia da Fúria
     dificuldade: V5
 ---
-
 # Setor La Fúria
 
 O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.

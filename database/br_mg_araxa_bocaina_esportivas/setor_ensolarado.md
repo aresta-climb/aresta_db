@@ -76,60 +76,18 @@ mapas:
   - escalada: Sucuri
     ids:
     - '07'
-  - escalada: Mundo Mágico dos Abacates
-    ids:
-    - '8'
-  - escalada: Ariba Cabron
-    ids:
-    - '9'
-  - escalada: Família Martins
-    ids:
-    - '10'
-  - escalada: Zuzuquinha Mimada
-    ids:
-    - '11'
-  - escalada: De volta as Origens
-    ids:
-    - '12'
-  - escalada: Autista do Bando
-    ids:
-    - '13'
-  - escalada: Último Suspiro
-    ids:
-    - '14'
-  - escalada: Barba Negra
-    ids:
-    - '15'
-  - escalada: Capitão Gancho
-    ids:
-    - '16'
-  - escalada: Peter Pan do Cerrado
-    ids:
-    - '17'
-  - escalada: Indio Rastafari
-    ids:
-    - '18'
-  - escalada: Todo Cuidado e Pouco
-    ids:
-    - '19'
-  - escalada: Raul com Certeza
-    ids:
-    - '20'
-  - escalada: Raimundo Nonato
-    ids:
-    - '21'
 - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 170
       y: 794
       comprimento: 44
       largura: 33
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 244
@@ -171,6 +129,22 @@ mapas:
       y: 928
       comprimento: 41
       largura: 28
+  referencias:
+  - escalada: Família Martins
+    ids:
+    - '10'
+  - escalada: Zuzuquinha Mimada
+    ids:
+    - '11'
+  - escalada: De volta as Origens
+    ids:
+    - '12'
+  - escalada: Autista do Bando
+    ids:
+    - '13'
+  - escalada: Último Suspiro
+    ids:
+    - '14'
 - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
   largura_mapa: 1280
   altura_mapa: 1280
@@ -224,6 +198,28 @@ mapas:
       y: 1126
       comprimento: 32
       largura: 26
+  referencias:
+  - escalada: Barba Negra
+    ids:
+    - '15'
+  - escalada: Capitão Gancho
+    ids:
+    - '16'
+  - escalada: Peter Pan do Cerrado
+    ids:
+    - '17'
+  - escalada: Indio Rastafari
+    ids:
+    - '18'
+  - escalada: Todo Cuidado e Pouco
+    ids:
+    - '19'
+  - escalada: Raul com Certeza
+    ids:
+    - '20'
+  - escalada: Raimundo Nonato
+    ids:
+    - '21'
 - caminho_imagem_mapa: imagens/setor_ensolarado_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -249,6 +245,16 @@ mapas:
       y: 1022
       comprimento: 34
       largura: 30
+  referencias:
+  - escalada: Todo Cuidado e Pouco
+    ids:
+    - '19'
+  - escalada: Raul com Certeza
+    ids:
+    - '20'
+  - escalada: Raimundo Nonato
+    ids:
+    - '21'
 escaladas:
 - via_esportiva:
     nome: Índios

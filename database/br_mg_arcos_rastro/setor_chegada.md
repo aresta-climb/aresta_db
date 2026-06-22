@@ -96,14 +96,14 @@ mapas:
       y: 380
       comprimento: 17
       largura: 14
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 462
       y: 346
       comprimento: 20
       largura: 17
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 552
@@ -139,12 +139,6 @@ mapas:
   - escalada: Entre o medo e a loucura
     ids:
     - '07'
-  - escalada: Linha de Frente
-    ids:
-    - '8'
-  - escalada: Helow (variante)
-    ids:
-    - '9'
   - escalada: Good Bye
     ids:
     - '10'

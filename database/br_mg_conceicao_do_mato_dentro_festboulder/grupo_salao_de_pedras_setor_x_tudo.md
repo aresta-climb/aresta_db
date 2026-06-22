@@ -43,6 +43,16 @@ mapas:
       y: 405
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: X-Tudo
+    ids:
+    - '1'
+  - escalada: Nossa Senhora de Conceição
+    ids:
+    - '1'
+  - escalada: Kansas
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp
   largura_mapa: 759
   altura_mapa: 424
@@ -54,6 +64,16 @@ mapas:
       y: 410
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: X-Tudo
+    ids:
+    - '1'
+  - escalada: Nossa Senhora de Conceição
+    ids:
+    - '1'
+  - escalada: Kansas
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: X-Tudo
@@ -68,7 +88,6 @@ escaladas:
     nome: Kansas
     dificuldade: V3
 ---
-
 # Setor X-Tudo
 
 O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.

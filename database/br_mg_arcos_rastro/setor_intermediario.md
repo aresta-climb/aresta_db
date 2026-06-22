@@ -89,7 +89,7 @@ mapas:
       y: 225
       comprimento: 22
       largura: 16
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 82
@@ -118,9 +118,6 @@ mapas:
   - escalada: Bigodagem
     ids:
     - '07'
-  - escalada: Delicinha
-    ids:
-    - '8'
 escaladas:
 - via_esportiva:
     nome: Tufo Não

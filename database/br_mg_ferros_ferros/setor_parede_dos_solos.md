@@ -2,19 +2,6 @@
 nome: Parede dos Solos
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp
-  referencias:
-  - escalada: Caipora
-    ids:
-    - '1'
-  - escalada: Iaci
-    ids:
-    - '2'
-  - escalada: Boitatá
-    ids:
-    - '3'
-  - escalada: Maracujá
-    ids:
-    - '4'
 escaladas:
 - via_esportiva:
     nome: Caipora

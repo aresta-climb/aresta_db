@@ -61,7 +61,7 @@ mapas:
       y: 398
       comprimento: 101
       largura: 65
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 737
@@ -75,7 +75,7 @@ mapas:
       y: 448
       comprimento: 35
       largura: 24
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 700
@@ -258,12 +258,6 @@ mapas:
   - escalada: Menor Abandonado
     ids:
     - '07'
-  - escalada: Contagem Regressiva
-    ids:
-    - '8'
-  - escalada: Woodstock
-    ids:
-    - '9'
   - escalada: Gruda mas não Garra
     ids:
     - '10'

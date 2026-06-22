@@ -59,18 +59,6 @@ mapas:
     ids:
     - '3'
     - Z
-  - escalada: Free Solo
-    ids:
-    - '1'
-  - escalada: Tartaruga
-    ids:
-    - 2_b
-  - escalada: Mobilete
-    ids:
-    - 3_b
-  - escalada: Walkmachine
-    ids:
-    - '4'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
   largura_mapa: 839
   altura_mapa: 460
@@ -99,6 +87,19 @@ mapas:
       x: 743
       y: 356
       raio: 9
+  referencias:
+  - escalada: Free Solo
+    ids:
+    - '1'
+  - escalada: Tartaruga
+    ids:
+    - 2_b
+  - escalada: Mobilete
+    ids:
+    - 3_b
+  - escalada: Walkmachine
+    ids:
+    - '4'
 ---
 
 # Bloco Free Solo

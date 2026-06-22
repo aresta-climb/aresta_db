@@ -66,39 +66,9 @@ mapas:
   - escalada: Efeito Colateral
     ids:
     - '06'
-  - escalada: Só pra Variar
-    ids:
-    - '07'
-  - escalada: Rock Supimpa
-    ids:
-    - '08'
-  - escalada: Você Decide
-    ids:
-    - '09'
-  - escalada: Grande Hotel
-    ids:
-    - '10'
-  - escalada: Cura Trimura
-    ids:
-    - '11'
-  - escalada: Próprio Veneno
-    ids:
-    - '12'
-  - escalada: Própria Loucura
-    ids:
-    - '13'
-  - escalada: Honney Money
-    ids:
-    - '14'
   - escalada: Efeito Variado
     ids:
     - '06'
-  - escalada: Só paracolateral
-    ids:
-    - '07'
-  - escalada: Trimura do Hotel
-    ids:
-    - '11'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -138,6 +108,28 @@ mapas:
       y: 1036
       comprimento: 31
       largura: 29
+  referencias:
+  - escalada: Efeito Cascata
+    ids:
+    - '05'
+  - escalada: Efeito Colateral
+    ids:
+    - '06'
+  - escalada: Só pra Variar
+    ids:
+    - '07'
+  - escalada: Rock Supimpa
+    ids:
+    - '08'
+  - escalada: Você Decide
+    ids:
+    - '09'
+  - escalada: Efeito Variado
+    ids:
+    - '06'
+  - escalada: Só paracolateral
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -177,6 +169,25 @@ mapas:
       y: 980
       comprimento: 38
       largura: 29
+  referencias:
+  - escalada: Grande Hotel
+    ids:
+    - '10'
+  - escalada: Cura Trimura
+    ids:
+    - '11'
+  - escalada: Próprio Veneno
+    ids:
+    - '12'
+  - escalada: Própria Loucura
+    ids:
+    - '13'
+  - escalada: Honney Money
+    ids:
+    - '14'
+  - escalada: Trimura do Hotel
+    ids:
+    - '11'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -216,6 +227,22 @@ mapas:
       y: 928
       comprimento: 40
       largura: 30
+  referencias:
+  - escalada: Pêro no Mucho
+    ids:
+    - '01'
+  - escalada: Meia Hora
+    ids:
+    - '02'
+  - escalada: Falta de Educação
+    ids:
+    - '03'
+  - escalada: De Mão Beijada
+    ids:
+    - '04'
+  - escalada: Efeito Cascata
+    ids:
+    - '05'
 escaladas:
 - via_esportiva:
     nome: Pêro no Mucho

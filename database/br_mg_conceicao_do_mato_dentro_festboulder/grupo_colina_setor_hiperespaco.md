@@ -86,7 +86,6 @@ escaladas:
     nome: Jardins Suspensos
     dificuldade: V5
 ---
-
 # Setor Hiperespaço
 
 O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.

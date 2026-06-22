@@ -264,7 +264,7 @@ mapas:
       y: 901
       comprimento: 28
       largura: 28
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 152
@@ -278,7 +278,7 @@ mapas:
       y: 908
       comprimento: 26
       largura: 23
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 121
@@ -342,12 +342,6 @@ mapas:
   - escalada: Tico Tico Space
     ids:
     - '07'
-  - escalada: O Basilisco de Slytherin
-    ids:
-    - '8'
-  - escalada: Disparada
-    ids:
-    - '9'
   - escalada: Judy
     ids:
     - '10'

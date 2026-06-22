@@ -60,7 +60,6 @@ escaladas:
     nome: Bobsled
     dificuldade: V7
 ---
-
 # Setor Bobsled
 
 O setor Bobsled possui um bloco com linhas atléticas e passagens de força.

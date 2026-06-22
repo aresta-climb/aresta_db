@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Bonsai'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp
@@ -38,16 +38,20 @@ mapas:
   referencias:
   - escalada: Possível
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Bonsai
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Bonsai do Cerrado
     ids:
-    - 1C
+    - '1'
+    - C
   - escalada: Mancada
     ids:
-    - 2C
+    - '2'
+    - C
 escaladas:
 - boulder:
     nome: Possível
@@ -61,6 +65,5 @@ escaladas:
 - boulder:
     nome: Mancada
     dificuldade: V3
----
-
+---
 

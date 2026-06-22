@@ -31,12 +31,6 @@ mapas:
   - escalada: Pedra de toque
     ids:
     - '18'
-  - escalada: Hematita
-    ids:
-    - '19'
-  - escalada: Especularica
-    ids:
-    - '20'
 escaladas:
 - boulder:
     nome: Hematoma
@@ -45,15 +39,18 @@ escaladas:
 - boulder:
     nome: Pedra de toque
     dificuldade: V1
-    descricao: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita na agarra ao lado.
+    descricao: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita na 
+      agarra ao lado.
 - boulder:
     nome: Hematita
     dificuldade: V3
-    descricao: Escalada pela aresta do bloco. Mão direita em um micro reglete e a esquerda em um pocket na lateral.
+    descricao: Escalada pela aresta do bloco. Mão direita em um micro reglete e a esquerda
+      em um pocket na lateral.
 - boulder:
     nome: Especularica
     dificuldade: V5
-    descricao: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda até a virada pelo final da aresta.
+    descricao: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda 
+      até a virada pelo final da aresta.
 ---
 
 # Bloco C

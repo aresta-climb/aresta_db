@@ -82,14 +82,14 @@ mapas:
       y: 510
       comprimento: 33
       largura: 26
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 356
       y: 602
       comprimento: 33
       largura: 25
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 398
@@ -153,12 +153,6 @@ mapas:
   - escalada: Highlander
     ids:
     - '07'
-  - escalada: Rayovac
-    ids:
-    - '8'
-  - escalada: O Corpo Ainda é Pouco
-    ids:
-    - '9'
   - escalada: Belos e Malditos
     ids:
     - '10'

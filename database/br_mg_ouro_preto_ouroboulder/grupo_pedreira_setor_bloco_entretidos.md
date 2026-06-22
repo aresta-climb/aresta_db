@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Entretidos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
@@ -16,6 +16,59 @@ mapas:
     circular:
       x: 1173
       y: 782
+      raio: 13
+  referencias:
+  - escalada: Ianque
+    ids:
+    - '1'
+  - escalada: Apache
+    ids:
+    - '2'
+  - escalada: Garoto Andrada
+    ids:
+    - '1'
+  - escalada: Embalados pelo Vovô
+    ids:
+    - '2'
+  - escalada: Helicoidal
+    ids:
+    - '1'
+  - escalada: Em Busca do Equilíbrio
+    ids:
+    - '2'
+  - escalada: Brígida
+    ids:
+    - '1'
+  - escalada: Carranca
+    ids:
+    - '2'
+- caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
+  largura_mapa: 1575
+  altura_mapa: 1182
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circular:
+      x: 1100
+      y: 608
+      raio: 13
+  - id: '2'
+    label: '2'
+    circular:
+      x: 470
+      y: 703
+      raio: 13
+  - id: '3'
+    label: '3'
+    circular:
+      x: 154
+      y: 722
+      raio: 13
+  - id: '4'
+    label: '4'
+    circular:
+      x: 710
+      y: 723
       raio: 13
   referencias:
   - escalada: Ianque
@@ -51,34 +104,6 @@ mapas:
   - escalada: Carranca
     ids:
     - '2'
-- caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
-    circular:
-      x: 1100
-      y: 608
-      raio: 13
-  - id: '2'
-    label: '2'
-    circular:
-      x: 470
-      y: 703
-      raio: 13
-  - id: '3'
-    label: '3'
-    circular:
-      x: 154
-      y: 722
-      raio: 13
-  - id: '4'
-    label: '4'
-    circular:
-      x: 710
-      y: 723
-      raio: 13
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -101,6 +126,37 @@ mapas:
       x: 510
       y: 940
       raio: 13
+  referencias:
+  - escalada: Ianque
+    ids:
+    - '1'
+  - escalada: Apache
+    ids:
+    - '2'
+  - escalada: Garoto Andrada
+    ids:
+    - '1'
+  - escalada: Embalados pelo Vovô
+    ids:
+    - '2'
+  - escalada: Pressão no Vovô
+    ids:
+    - '3'
+  - escalada: Helicoidal
+    ids:
+    - '1'
+  - escalada: Em Busca do Equilíbrio
+    ids:
+    - '2'
+  - escalada: Em Busca do Equilíbrio sds
+    ids:
+    - '3'
+  - escalada: Brígida
+    ids:
+    - '1'
+  - escalada: Carranca
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -117,6 +173,31 @@ mapas:
       x: 766
       y: 886
       raio: 13
+  referencias:
+  - escalada: Ianque
+    ids:
+    - '1'
+  - escalada: Apache
+    ids:
+    - '2'
+  - escalada: Garoto Andrada
+    ids:
+    - '1'
+  - escalada: Embalados pelo Vovô
+    ids:
+    - '2'
+  - escalada: Helicoidal
+    ids:
+    - '1'
+  - escalada: Em Busca do Equilíbrio
+    ids:
+    - '2'
+  - escalada: Brígida
+    ids:
+    - '1'
+  - escalada: Carranca
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Ianque
@@ -152,6 +233,5 @@ escaladas:
 - boulder:
     nome: Carranca
     dificuldade: V3
----
-
+---
 

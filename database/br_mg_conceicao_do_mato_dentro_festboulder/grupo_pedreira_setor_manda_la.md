@@ -34,7 +34,6 @@ escaladas:
     nome: Manda Lá
     dificuldade: V8
 ---
-
 # Setor Manda Lá
 
 O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.

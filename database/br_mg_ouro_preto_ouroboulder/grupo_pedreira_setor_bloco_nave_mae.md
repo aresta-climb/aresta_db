@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Nave-Mãe'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
@@ -98,79 +98,70 @@ mapas:
   referencias:
   - escalada: Monte Mor
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Irmãos Coragem
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Irmãos na Vibe
     ids:
-    - 2B
+    - '2'
+    - B
   - escalada: Ora-Por-Todos
     ids:
-    - 4C/1A★
+    - '4'
+    - C
   - escalada: Orai-Por-Noix
     ids:
-    - 5C/1A▲
+    - '5'
+    - C
   - escalada: Ora-Pra-Jah
     ids:
-    - 5D/1B
+    - '5'
+    - D
   - escalada: Ouroboulder
     ids:
-    - 5E/1C
+    - '5'
+    - E
   - escalada: Ora-Pro-Nóbis
     ids:
-    - 6D/2B
+    - '6'
+    - D
   - escalada: Ora-Pros-Crash
     ids:
-    - 6E/2C
+    - '6'
+    - E
   - escalada: Oratório
     ids:
-    - 7E/5C
+    - '7'
+    - E
   - escalada: Quebra Galho
     ids:
-    - 8E/3C
+    - '8'
+    - E
   - escalada: Libertadores
     ids:
-    - 9F/2D
+    - '9'
+    - F
   - escalada: Eu Acredito
     ids:
-    - 10F/4D
+    - '10'
+    - F
   - escalada: Umbriacone
     ids:
     - '1'
-  - escalada: Mortal Kombat
-    ids:
-    - 2▲ / 1▲
-  - escalada: Sub-Zero
-    ids:
-    - 2★ / 1★
-  - escalada: Raiden
-    ids:
-    - 3▲ / 2▲
-  - escalada: Carcomendo
-    ids:
-    - 3★ / 2★
   - escalada: '003'
     ids:
     - '1'
-  - escalada: Novos Baianos
-    ids:
-    - 1A★
-  - escalada: De Inverno
-    ids:
-    - 1B★
-  - escalada: De Verão
-    ids:
-    - 1C★
-  - escalada: Maverick
-    ids:
-    - 1B▲
   - escalada: Vem Verão
     ids:
-    - 2B
+    - '2'
+    - B
   - escalada: Passível
     ids:
-    - 1A
+    - '1'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -241,6 +232,111 @@ mapas:
       x: 812
       y: 670
       raio: 13
+  referencias:
+  - escalada: Monte Mor
+    ids:
+    - '1'
+    - A
+  - escalada: Irmãos Coragem
+    ids:
+    - '1'
+    - B
+  - escalada: Irmãos na Vibe
+    ids:
+    - '2'
+    - B
+  - escalada: Ora-Por-Todos
+    ids:
+    - '1'
+    - A
+    - ★
+  - escalada: Orai-Por-Noix
+    ids:
+    - '1'
+    - A
+    - ▲
+  - escalada: Ora-Pra-Jah
+    ids:
+    - '1'
+    - B
+  - escalada: Ouroboulder
+    ids:
+    - '1'
+    - C
+  - escalada: Ora-Pro-Nóbis
+    ids:
+    - '2'
+    - B
+  - escalada: Ora-Pros-Crash
+    ids:
+    - '2'
+    - C
+  - escalada: Oratório
+    ids:
+    - '5'
+    - C
+  - escalada: Quebra Galho
+    ids:
+    - '3'
+    - C
+  - escalada: Libertadores
+    ids:
+    - '2'
+    - D
+  - escalada: Eu Acredito
+    ids:
+    - '4'
+    - D
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: Mortal Kombat
+    ids:
+    - '1'
+    - ▲
+  - escalada: Sub-Zero
+    ids:
+    - '1'
+    - ★
+  - escalada: Raiden
+    ids:
+    - '2'
+    - ▲
+  - escalada: Carcomendo
+    ids:
+    - '2'
+    - ★
+  - escalada: '003'
+    ids:
+    - '1'
+  - escalada: Novos Baianos
+    ids:
+    - '1'
+    - A
+    - ★
+  - escalada: De Inverno
+    ids:
+    - '1'
+    - B
+    - ★
+  - escalada: De Verão
+    ids:
+    - '1'
+    - C
+    - ★
+  - escalada: Maverick
+    ids:
+    - '1'
+    - B
+    - ▲
+  - escalada: Vem Verão
+    ids:
+    - '2'
+    - B
+  - escalada: Passível
+    ids:
+    - '1'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -287,6 +383,13 @@ mapas:
       x: 1034
       y: 783
       raio: 13
+  referencias:
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: '003'
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -327,6 +430,13 @@ mapas:
       x: 895
       y: 828
       raio: 13
+  referencias:
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: '003'
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -343,6 +453,21 @@ mapas:
       x: 230
       y: 460
       raio: 13
+  referencias:
+  - escalada: Monte Mor
+    ids:
+    - '1'
+    - A
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: '003'
+    ids:
+    - '1'
+  - escalada: Passível
+    ids:
+    - '1'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -389,6 +514,33 @@ mapas:
       x: 1070
       y: 950
       raio: 13
+  referencias:
+  - escalada: Monte Mor
+    ids:
+    - '1'
+    - A
+  - escalada: Irmãos Coragem
+    ids:
+    - '1'
+    - B
+  - escalada: Irmãos na Vibe
+    ids:
+    - '2'
+    - B
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: '003'
+    ids:
+    - '1'
+  - escalada: Vem Verão
+    ids:
+    - '2'
+    - B
+  - escalada: Passível
+    ids:
+    - '1'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -405,6 +557,21 @@ mapas:
       x: 1096
       y: 764
       raio: 13
+  referencias:
+  - escalada: Monte Mor
+    ids:
+    - '1'
+    - A
+  - escalada: Umbriacone
+    ids:
+    - '1'
+  - escalada: '003'
+    ids:
+    - '1'
+  - escalada: Passível
+    ids:
+    - '1'
+    - A
 escaladas:
 - boulder:
     nome: Monte Mor
@@ -481,6 +648,5 @@ escaladas:
 - boulder:
     nome: Passível
     dificuldade: V2
----
-
+---
 

@@ -2,52 +2,6 @@
 nome: Parede Principal – Direita
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp
-  referencias:
-  - escalada: Macambúzio
-    ids:
-    - '1'
-  - escalada: Pente Frio
-    ids:
-    - '2'
-  - escalada: El Barrigón
-    ids:
-    - '3'
-  - escalada: Lobos do Caraça
-    ids:
-    - '4'
-  - escalada: O Tempo e o Vento
-    ids:
-    - '5'
-  - escalada: O Burro e o Capacete
-    ids:
-    - '6'
-  - escalada: Tá Bão
-    ids:
-    - '7'
-  - escalada: Pelanca
-    ids:
-    - '10'
-  - escalada: Flor da Pele
-    ids:
-    - '11'
-  - escalada: Alma Nova
-    ids:
-    - '12'
-  - escalada: Pele Vermelha
-    ids:
-    - '13'
-  - escalada: Pelinha
-    ids:
-    - '14'
-  - escalada: Cutícula
-    ids:
-    - '15'
-  - escalada: Amor meu Grande amor
-    ids:
-    - '8'
-  - escalada: Rapidinha no Escurinho
-    ids:
-    - '9'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p2_i0.webp
 escaladas:
 - via_esportiva:
@@ -145,6 +99,5 @@ escaladas:
     exposicao: E3
     extensao: 18
 ---
-
 
 ![Larissa Lopez na “Flor da Pele”](imagens/grupo_principal_setor_direita_p7_i0.webp)

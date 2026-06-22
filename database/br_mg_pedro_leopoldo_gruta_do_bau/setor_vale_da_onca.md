@@ -201,7 +201,7 @@ mapas:
       y: 894
       comprimento: 37
       largura: 24
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 558
@@ -215,7 +215,7 @@ mapas:
       y: 965
       comprimento: 41
       largura: 24
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 594
@@ -307,12 +307,6 @@ mapas:
   - escalada: No Pescoço do Jacaré
     ids:
     - '07'
-  - escalada: Retorno de Borges
-    ids:
-    - '8'
-  - escalada: 3º Pecado Capital
-    ids:
-    - '9'
   - escalada: Orifícios do Ofício
     ids:
     - '10'

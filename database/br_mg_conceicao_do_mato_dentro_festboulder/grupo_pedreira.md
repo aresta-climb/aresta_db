@@ -1,4 +1,4 @@
----
+---
 nome: Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_p0.webp
@@ -110,6 +110,52 @@ mapas:
       y: 312
       comprimento: 25
       largura: 25
+  referencias:
+  - setor: Preguiça
+    ids:
+    - '1'
+  - setor: Manda Lá
+    ids:
+    - '2'
+  - setor: Trabalhador
+    ids:
+    - '3'
+  - setor: Sanfoneiro Maluco
+    ids:
+    - '4'
+  - setor: Samurai
+    ids:
+    - '5'
+  - setor: Bomba Atômica
+    ids:
+    - '6'
+  - setor: Jubileu
+    ids:
+    - '7'
+  - setor: Conceição
+    ids:
+    - '8'
+  - setor: Bobsled
+    ids:
+    - '9'
+  - setor: Aresta do Cabeça
+    ids:
+    - '11'
+  - setor: Equinócio
+    ids:
+    - '10'
+  - setor: Witness
+    ids:
+    - '12'
+  - setor: La Fúria
+    ids:
+    - '13'
+  - setor: Jah
+    ids:
+    - '14'
+  - setor: Pole Dance
+    ids:
+    - '15'
 setores:
 - caminho: grupo_pedreira_setor_preguica.md
 - caminho: grupo_pedreira_setor_manda_la.md
@@ -129,7 +175,7 @@ setores:
 - caminho: grupo_pedreira_setor_rock_and_roll.md
 - caminho: grupo_pedreira_setor_bloco_dos_canelas.md
 - caminho: grupo_pedreira_setor_maos_de_sebo.md
----
+---
 # Grupo Pedreira
 
 A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.

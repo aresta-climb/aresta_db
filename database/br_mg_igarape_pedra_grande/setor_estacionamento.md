@@ -40,7 +40,7 @@ mapas:
       y: 705
       comprimento: 24
       largura: 32
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 905
@@ -61,7 +61,7 @@ mapas:
       y: 807
       comprimento: 38
       largura: 44
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 1042
@@ -160,12 +160,6 @@ mapas:
   - escalada: Route Setter
     ids:
     - '07'
-  - escalada: Teto Preto
-    ids:
-    - '8'
-  - escalada: 101 Dalmatas
-    ids:
-    - '9'
   - escalada: Fúria de Titãs
     ids:
     - '10'
@@ -270,14 +264,14 @@ mapas:
       y: 558
       comprimento: 41
       largura: 37
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 616
       y: 611
       comprimento: 36
       largura: 42
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 607
@@ -333,6 +327,58 @@ mapas:
       y: 1076
       comprimento: 33
       largura: 39
+  referencias:
+  - escalada: Bacon com Linguiça
+    ids:
+    - '01'
+  - escalada: Quatchú
+    ids:
+    - '02'
+  - escalada: Xoquito
+    ids:
+    - '03'
+  - escalada: Slow Motion
+    ids:
+    - '04'
+  - escalada: Berbaridade Máxima
+    ids:
+    - '05'
+  - escalada: Cirque du Soleil
+    ids:
+    - '06'
+  - escalada: Route Setter
+    ids:
+    - '07'
+  - escalada: Fúria de Titãs
+    ids:
+    - '10'
+  - escalada: Prima Donna
+    ids:
+    - '11'
+  - escalada: Dama de Ferro
+    ids:
+    - '12'
+  - escalada: Primeira de Todas
+    ids:
+    - '13'
+  - escalada: Brinco de Odalisca
+    ids:
+    - '14'
+  - escalada: 10%
+    ids:
+    - '15'
+  - escalada: Quebra Tudo
+    ids:
+    - '16'
+  - escalada: Acorrentado
+    ids:
+    - '17'
+  - escalada: Fidefenda
+    ids:
+    - '18'
+  - escalada: Cochyna Blue
+    ids:
+    - '19'
 escaladas:
 - via_esportiva:
     nome: Bacon com Linguiça

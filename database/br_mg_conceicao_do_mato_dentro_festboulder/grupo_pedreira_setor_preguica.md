@@ -111,7 +111,6 @@ escaladas:
     nome: Carlos Drummond
     dificuldade: V7
 ---
-
 # Setor Preguiça
 
 O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.

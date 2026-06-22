@@ -158,6 +158,52 @@ mapas:
       y: 495
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Fuck Beach
+    ids:
+    - '1'
+  - escalada: Incrível Fuck Beach
+    ids:
+    - '2'
+  - escalada: Incrível Pole Dance
+    ids:
+    - '3'
+  - escalada: Incrível
+    ids:
+    - '4'
+  - escalada: Pole Dance
+    ids:
+    - '5'
+  - escalada: Repense
+    ids:
+    - '1'
+  - escalada: Vamo Nessa
+    ids:
+    - '2'
+  - escalada: Vem que Tem
+    ids:
+    - '3'
+  - escalada: Pense Bem
+    ids:
+    - '4'
+  - escalada: Conclusão
+    ids:
+    - '5'
+  - escalada: Siga-me os Bons
+    ids:
+    - '1'
+  - escalada: Siga-me os Bons SDS
+    ids:
+    - '2'
+  - escalada: Conceicion
+    ids:
+    - '3'
+  - escalada: Tô Concê
+    ids:
+    - '4'
+  - escalada: Rocktrip
+    ids:
+    - '5'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p2.webp
   largura_mapa: 756
   altura_mapa: 534
@@ -204,6 +250,58 @@ mapas:
       y: 505
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Fuck Beach
+    ids:
+    - '1'
+  - escalada: Incrível Fuck Beach
+    ids:
+    - '2'
+  - escalada: Incrível Pole Dance
+    ids:
+    - '3'
+  - escalada: Incrível
+    ids:
+    - '4'
+  - escalada: Pole Dance
+    ids:
+    - '5'
+  - escalada: Pole Dance SDS
+    ids:
+    - '6'
+  - escalada: Repense
+    ids:
+    - '1'
+  - escalada: Vamo Nessa
+    ids:
+    - '2'
+  - escalada: Vem que Tem
+    ids:
+    - '3'
+  - escalada: Pense Bem
+    ids:
+    - '4'
+  - escalada: Conclusão
+    ids:
+    - '5'
+  - escalada: Siga-me os Bons
+    ids:
+    - '1'
+  - escalada: Siga-me os Bons SDS
+    ids:
+    - '2'
+  - escalada: Conceicion
+    ids:
+    - '3'
+  - escalada: Tô Concê
+    ids:
+    - '4'
+  - escalada: Rocktrip
+    ids:
+    - '5'
+  - escalada: Rocklands
+    ids:
+    - '6'
 escaladas:
 - boulder:
     nome: Fuck Beach
@@ -263,7 +361,6 @@ escaladas:
     nome: Rocklands
     dificuldade: V4
 ---
-
 # Setor Pole Dance
 
 O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.

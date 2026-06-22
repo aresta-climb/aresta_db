@@ -2,25 +2,6 @@
 nome: Ecumênico
 mapas:
 - caminho_imagem_mapa: imagens/setor_ecumenico_p0_i0.webp
-  referencias:
-  - escalada: Dízimo
-    ids:
-    - '1'
-  - escalada: Cura G
-    ids:
-    - '2'
-  - escalada: Show da Fé
-    ids:
-    - '3'
-  - escalada: Ministério do Climb
-    ids:
-    - '4'
-  - escalada: Pequenas Igrejas Grandes Negócios
-    ids:
-    - '5'
-  - escalada: Meninos de Gesso
-    ids:
-    - '6'
 escaladas:
 - via_esportiva:
     nome: Dízimo
@@ -69,7 +50,8 @@ escaladas:
     - Jorge Lima
     - André Morales
     - Felipe Pimenta
-    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de algumas costuras longas.'
+    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de
+      algumas costuras longas.'
 - via_esportiva:
     nome: Meninos de Gesso
     dificuldade: BR_6SUP

@@ -8,9 +8,9 @@ caminho_thumbnail: imagens/capa_p0.webp
 status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
 picos:
 - nome: Gruta de Passa Vinte
-  descricao: A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da
-    escalada esportiva em Novembro de 2008. Atualmente, o setor possui aproximadamente
-    150 vias, com graduações que vão do IV a 11c.
+  descricao: A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da 
+    escalada esportiva em Novembro de 2008. Atualmente, o setor possui aproximadamente 150
+    vias, com graduações que vão do IV a 11c.
   estado: Minas Gerais
   localizacao:
     latitude: -221929720

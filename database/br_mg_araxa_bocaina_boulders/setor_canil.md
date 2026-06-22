@@ -33,34 +33,25 @@ mapas:
   - escalada: Titan
     ids:
     - '02'
-  - escalada: Lobão
-    ids:
-    - '03'
-  - escalada: Tião Macalé
-    ids:
-    - '04'
-  - escalada: Zac
-    ids:
-    - '05'
   - escalada: Loboulder
     ids:
     - '06'
-  - escalada: Savana
-    ids:
-    - '07'
 escaladas:
 - boulder:
     nome: Sucrilhos no Prato
     dificuldade: V7
-    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em reglete lateral.
+    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em 
+      reglete lateral.
 - boulder:
     nome: Titan
     dificuldade: V4
-    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente investido.
+    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente 
+      investido.
 - boulder:
     nome: Lobão
     dificuldade: V7
-    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando no Loboulder.
+    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando no 
+      Loboulder.
 - boulder:
     nome: Tião Macalé
     dificuldade: V5
@@ -75,6 +66,7 @@ escaladas:
 - boulder:
     nome: Savana
     dificuldade: V6
-    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos no Prato.
+    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos no 
+      Prato.
 ---
 # Setor Canil

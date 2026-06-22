@@ -2,31 +2,6 @@
 nome: Setor da Frente
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_frente_p0_i0.webp
-  referencias:
-  - escalada: Via Yughes
-    ids:
-    - '9'
-  - escalada: Proteção Viva
-    ids:
-    - '10'
-  - escalada: Ganja Real
-    ids:
-    - '11'
-  - escalada: Barão Abençoado
-    ids:
-    - '12'
-  - escalada: 6 de Dezembro
-    ids:
-    - '13'
-  - escalada: Lado Grone
-    ids:
-    - '14'
-  - escalada: Aparição
-    ids:
-    - '15'
-  - escalada: Cascavel
-    ids:
-    - '16'
 escaladas:
 - via_esportiva:
     nome: Via Yughes

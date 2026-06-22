@@ -2,13 +2,6 @@
 nome: Parede Principal – Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
-  referencias:
-  - escalada: Um Momento no Tempo
-    ids:
-    - '1'
-  - escalada: Noite de São João
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp
 escaladas:
 - via_esportiva:

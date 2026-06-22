@@ -2,64 +2,6 @@
 nome: Parede Principal – Setor Clássicas Curtas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
-  referencias:
-  - escalada: A Medalha de Lúcia
-    ids:
-    - '1'
-  - escalada: Águas de Março
-    ids:
-    - '2'
-  - escalada: Vou Dançar o Xaxaxá
-    ids:
-    - '3'
-  - escalada: Casas da Banha
-    ids:
-    - '4'
-  - escalada: Ferradura
-    ids:
-    - '5'
-  - escalada: Ferrolho
-    ids:
-    - '6'
-  - escalada: Cambal a Quatro
-    ids:
-    - '7'
-  - escalada: El Bigodón
-    ids:
-    - '8'
-  - escalada: Deu Tilt
-    ids:
-    - '12'
-  - escalada: Ferroada
-    ids:
-    - '13'
-  - escalada: Scarface
-    ids:
-    - '14'
-  - escalada: Se Meu Fusca Falasse
-    ids:
-    - '15'
-  - escalada: Couro de Lobisomem
-    ids:
-    - '16'
-  - escalada: Enferrujados
-    ids:
-    - '17'
-  - escalada: Rastro de Cobra
-    ids:
-    - '18'
-  - escalada: Entrando no Ferro
-    ids:
-    - '19'
-  - escalada: Testa de Aço
-    ids:
-    - '9'
-  - escalada: Me Ferrei
-    ids:
-    - '10'
-  - escalada: Amor Profano
-    ids:
-    - '11'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp
 escaladas:
@@ -224,7 +166,6 @@ escaladas:
     - Luciano Bender
     data_abertura: '2011-06-22'
 ---
-
 
 ![Rodrigo Magalhães guiando a “Couro de Lobisomem”](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
 

@@ -40,15 +40,6 @@ mapas:
   - escalada: Carrapicho
     ids:
     - '2'
-  - escalada: Oratório
-    ids:
-    - '3'
-  - escalada: Pistol
-    ids:
-    - '4'
-  - escalada: Dart Vader
-    ids:
-    - '5'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
   largura_mapa: 399
   altura_mapa: 309
@@ -71,6 +62,16 @@ mapas:
       x: 54
       y: 194
       raio: 9
+  referencias:
+  - escalada: Oratório
+    ids:
+    - '3'
+  - escalada: Pistol
+    ids:
+    - '4'
+  - escalada: Dart Vader
+    ids:
+    - '5'
 ---
 
 # Bloco Carrapicho

@@ -96,14 +96,14 @@ mapas:
       y: 563
       comprimento: 13
       largura: 16
-  - id: 08
+  - id: '08'
     label: '8'
     box:
       x: 276
       y: 530
       comprimento: 17
       largura: 21
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 279
@@ -153,12 +153,6 @@ mapas:
   - escalada: Tio Toninho*
     ids:
     - '07'
-  - escalada: Guerra dos Côcos
-    ids:
-    - '8'
-  - escalada: Guerrilha do Araguaia
-    ids:
-    - '9'
   - escalada: Canudos
     ids:
     - '10'

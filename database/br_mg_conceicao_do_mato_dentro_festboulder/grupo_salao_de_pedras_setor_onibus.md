@@ -170,6 +170,37 @@ mapas:
       y: 440
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Pirulito
+    ids:
+    - '1'
+  - escalada: Trocador
+    ids:
+    - '2'
+  - escalada: Roleta
+    ids:
+    - '3'
+  - escalada: Zebra
+    ids:
+    - '4'
+  - escalada: Linguinha
+    ids:
+    - '5'
+  - escalada: Primeiro Esquenta
+    ids:
+    - '1'
+  - escalada: Mimetismo
+    ids:
+    - '2'
+  - escalada: Aborda
+    ids:
+    - '3'
+  - escalada: Easy Line
+    ids:
+    - '4'
+  - escalada: Saidex
+    ids:
+    - '5'
 escaladas:
 - boulder:
     nome: Pirulito
@@ -220,7 +251,6 @@ escaladas:
     nome: Saidex
     dificuldade: V1
 ---
-
 # Setor Ônibus
 
 O setor Ônibus possui dois blocos principais com diversas linhas de boulder.

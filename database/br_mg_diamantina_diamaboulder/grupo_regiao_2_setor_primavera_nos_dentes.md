@@ -60,26 +60,6 @@ mapas:
     ids:
     - 3 (P0)
     - 3 (P0)_fim
-  - escalada: Primavera nos Dentes
-    ids:
-    - 1 (P1)
-    - 1 (P1)_fim
-  - escalada: Suave Coisa Nenhuma
-    ids:
-    - 2 (P1)
-    - 2 (P1)_fim
-  - escalada: Primavera Latina
-    ids:
-    - 3 (P1)
-    - 3 (P1)_fim
-  - escalada: Sangue Latino
-    ids:
-    - 4 (P1/P2)
-    - 4 (P1/P2)_fim
-  - escalada: Joelho de Porco
-    ids:
-    - 5 (P1/P2)
-    - 5 (P1/P2)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 941
@@ -140,6 +120,19 @@ mapas:
       y: 568
       comprimento: 21
       largura: 24
+  referencias:
+  - escalada: Primavera nos Dentes
+    ids:
+    - 1 (P1)
+    - 1 (P1)_fim
+  - escalada: Suave Coisa Nenhuma
+    ids:
+    - 2 (P1)
+    - 2 (P1)_fim
+  - escalada: Primavera Latina
+    ids:
+    - 3 (P1)
+    - 3 (P1)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p2_i0.webp
   largura_mapa: 1240
   altura_mapa: 1030
@@ -176,11 +169,13 @@ escaladas:
 - boulder:
     nome: Monobloco
     dificuldade: V3
-    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal, finalizando logo acima.
+    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal, 
+      finalizando logo acima.
 - boulder:
     nome: Canela Queimada
     dificuldade: V2
-    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar os pés no bloco de sustentação).
+    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar os pés
+      no bloco de sustentação).
 - boulder:
     nome: Canela de Ema
     dificuldade: V3
@@ -188,23 +183,31 @@ escaladas:
 - boulder:
     nome: Primavera nos Dentes
     dificuldade: V7
-    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco de sustentação como apoio de pés), seguindo pelos pequenos regletes escorridos e pockets.
+    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco de 
+      sustentação como apoio de pés), seguindo pelos pequenos regletes escorridos e 
+      pockets.
 - boulder:
     nome: Suave Coisa Nenhuma
     dificuldade: V6
-    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente abaulado, seguido de dinâmico no pocket estreito, finalizando como o primavera nos dentes (utiliza-se livremente o(s) pé(s) no bloco de sustentação).
+    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente 
+      abaulado, seguido de dinâmico no pocket estreito, finalizando como o primavera nos 
+      dentes (utiliza-se livremente o(s) pé(s) no bloco de sustentação).
 - boulder:
     nome: Primavera Latina
     dificuldade: V10_BARRA_V11
-    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho de porco) e segue em travessia para a esquerda até finalizar como o primavera nos dentes.
+    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho de 
+      porco) e segue em travessia para a esquerda até finalizar como o primavera nos 
+      dentes.
 - boulder:
     nome: Sangue Latino
     dificuldade: V9
-    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita por abaulados e invertidas até finalizar como o joelho de porco.
+    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita 
+      por abaulados e invertidas até finalizar como o joelho de porco.
 - boulder:
     nome: Joelho de Porco
     dificuldade: V3
-    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por movimentos espremidos rumo à face externa do bloco.
+    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por
+      movimentos espremidos rumo à face externa do bloco.
 ---
 # Bloco: Primavera nos Dentes
 ## Região 2

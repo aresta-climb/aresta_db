@@ -36,81 +36,6 @@ mapas:
   - escalada: Revolta dos Vinagres
     ids:
     - '03'
-  - escalada: De Pai para Filho
-    ids:
-    - '04'
-  - escalada: Amor de Mãe
-    ids:
-    - '05'
-  - escalada: Pagador de Promessa
-    ids:
-    - '06'
-  - escalada: Grande Família
-    ids:
-    - '07'
-  - escalada: Sangue do meu Sangue
-    ids:
-    - '8'
-  - escalada: Cocalcinhas
-    ids:
-    - '9'
-  - escalada: Guerreiro da Bocaina
-    ids:
-    - '10'
-  - escalada: Samurai Rastafari
-    ids:
-    - '11'
-  - escalada: Ceder Writhe
-    ids:
-    - '12'
-  - escalada: Sai pra Lá Sr. Doutor
-    ids:
-    - '13'
-  - escalada: Maniaco Sexual
-    ids:
-    - '14'
-  - escalada: Paraiboult
-    ids:
-    - '15'
-  - escalada: Mulheres ao Poder
-    ids:
-    - '16'
-  - escalada: Invasão Bacteriana
-    ids:
-    - '17'
-  - escalada: Yes We Can
-    ids:
-    - '18'
-  - escalada: Galo Doido
-    ids:
-    - '19'
-  - escalada: Baby Roots
-    ids:
-    - '20'
-  - escalada: Canelinha de Ouro
-    ids:
-    - '21'
-  - escalada: Rei Leão
-    ids:
-    - '22'
-  - escalada: Maluco Beleza
-    ids:
-    - '23'
-  - escalada: Peter Park
-    ids:
-    - '24'
-  - escalada: Super Poderosa
-    ids:
-    - '25'
-  - escalada: Cinco Vira, Dez Acaba
-    ids:
-    - '26'
-  - escalada: Dunas
-    ids:
-    - '27'
-  - escalada: Poeira Cósmica
-    ids:
-    - '28'
 - caminho_imagem_mapa: imagens/setor_garganta_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -122,6 +47,10 @@ mapas:
       y: 1224
       comprimento: 46
       largura: 32
+  referencias:
+  - escalada: De Pai para Filho
+    ids:
+    - '04'
 - caminho_imagem_mapa: imagens/setor_garganta_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -133,6 +62,10 @@ mapas:
       y: 1248
       comprimento: 44
       largura: 33
+  referencias:
+  - escalada: Amor de Mãe
+    ids:
+    - '05'
 - caminho_imagem_mapa: imagens/setor_garganta_p4.webp
   largura_mapa: 1280
   altura_mapa: 960
@@ -151,18 +84,25 @@ mapas:
       y: 958
       comprimento: 44
       largura: 37
+  referencias:
+  - escalada: Pagador de Promessa
+    ids:
+    - '06'
+  - escalada: Grande Família
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_garganta_p5.webp
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 928
       y: 1134
       comprimento: 50
       largura: 37
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 642
@@ -201,6 +141,19 @@ mapas:
       y: 1250
       comprimento: 42
       largura: 33
+  referencias:
+  - escalada: Guerreiro da Bocaina
+    ids:
+    - '10'
+  - escalada: Samurai Rastafari
+    ids:
+    - '11'
+  - escalada: Ceder Writhe
+    ids:
+    - '12'
+  - escalada: Sai pra Lá Sr. Doutor
+    ids:
+    - '13'
 - caminho_imagem_mapa: imagens/setor_garganta_p7.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -254,6 +207,28 @@ mapas:
       y: 315
       comprimento: 37
       largura: 30
+  referencias:
+  - escalada: Guerreiro da Bocaina
+    ids:
+    - '10'
+  - escalada: Samurai Rastafari
+    ids:
+    - '11'
+  - escalada: Ceder Writhe
+    ids:
+    - '12'
+  - escalada: Sai pra Lá Sr. Doutor
+    ids:
+    - '13'
+  - escalada: Maniaco Sexual
+    ids:
+    - '14'
+  - escalada: Paraiboult
+    ids:
+    - '15'
+  - escalada: Mulheres ao Poder
+    ids:
+    - '16'
 - caminho_imagem_mapa: imagens/setor_garganta_p8.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -307,6 +282,28 @@ mapas:
       y: 294
       comprimento: 35
       largura: 29
+  referencias:
+  - escalada: Invasão Bacteriana
+    ids:
+    - '17'
+  - escalada: Yes We Can
+    ids:
+    - '18'
+  - escalada: Galo Doido
+    ids:
+    - '19'
+  - escalada: Baby Roots
+    ids:
+    - '20'
+  - escalada: Canelinha de Ouro
+    ids:
+    - '21'
+  - escalada: Rei Leão
+    ids:
+    - '22'
+  - escalada: Maluco Beleza
+    ids:
+    - '23'
 - caminho_imagem_mapa: imagens/setor_garganta_p9.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -346,6 +343,22 @@ mapas:
       y: 206
       comprimento: 35
       largura: 25
+  referencias:
+  - escalada: Peter Park
+    ids:
+    - '24'
+  - escalada: Super Poderosa
+    ids:
+    - '25'
+  - escalada: Cinco Vira, Dez Acaba
+    ids:
+    - '26'
+  - escalada: Dunas
+    ids:
+    - '27'
+  - escalada: Poeira Cósmica
+    ids:
+    - '28'
 escaladas:
 - via_esportiva:
     nome: Love's in the Air

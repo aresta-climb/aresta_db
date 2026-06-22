@@ -47,13 +47,13 @@ mapas:
       x: 620
       y: 712
       raio: 18
-  - id: 08
+  - id: '08'
     label: '8'
     circular:
       x: 524
       y: 743
       raio: 18
-  - id: 09
+  - id: '09'
     label: '9'
     circular:
       x: 1643

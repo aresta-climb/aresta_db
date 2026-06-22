@@ -56,48 +56,6 @@ mapas:
   - escalada: Lendárias 11 Vacas
     ids:
     - '05'
-  - escalada: Chapeleta Voadora
-    ids:
-    - '06'
-  - escalada: Pau Podre
-    ids:
-    - '07'
-  - escalada: Bonsai Cearense
-    ids:
-    - '8'
-  - escalada: Macaco Velho
-    ids:
-    - '9'
-  - escalada: Sargento Pincel
-    ids:
-    - '10'
-  - escalada: Proparoxítona
-    ids:
-    - '11'
-  - escalada: Volte Sempre
-    ids:
-    - '12'
-  - escalada: Espírito de Equipe
-    ids:
-    - '13'
-  - escalada: Bem-vindo
-    ids:
-    - '14'
-  - escalada: Ganja no País das Maravilhas
-    ids:
-    - '15'
-  - escalada: Ritual Satânico
-    ids:
-    - '16'
-  - escalada: Sweet Home Alabama
-    ids:
-    - '17'
-  - escalada: Show de Calouros
-    ids:
-    - '18'
-  - escalada: Permissão Concebida
-    ids:
-    - '19'
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p2.webp
   largura_mapa: 1280
   altura_mapa: 1280
@@ -116,32 +74,39 @@ mapas:
       y: 1102
       comprimento: 47
       largura: 37
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 861
       y: 1210
       comprimento: 50
       largura: 37
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 923
       y: 1234
       comprimento: 48
       largura: 37
+  referencias:
+  - escalada: Chapeleta Voadora
+    ids:
+    - '06'
+  - escalada: Pau Podre
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 184
       y: 974
       comprimento: 53
       largura: 38
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 246
@@ -176,6 +141,19 @@ mapas:
       y: 1244
       comprimento: 43
       largura: 33
+  referencias:
+  - escalada: Sargento Pincel
+    ids:
+    - '10'
+  - escalada: Proparoxítona
+    ids:
+    - '11'
+  - escalada: Volte Sempre
+    ids:
+    - '12'
+  - escalada: Espírito de Equipe
+    ids:
+    - '13'
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
   largura_mapa: 1280
   altura_mapa: 1280
@@ -222,6 +200,25 @@ mapas:
       y: 1238
       comprimento: 32
       largura: 31
+  referencias:
+  - escalada: Bem-vindo
+    ids:
+    - '14'
+  - escalada: Ganja no País das Maravilhas
+    ids:
+    - '15'
+  - escalada: Ritual Satânico
+    ids:
+    - '16'
+  - escalada: Sweet Home Alabama
+    ids:
+    - '17'
+  - escalada: Show de Calouros
+    ids:
+    - '18'
+  - escalada: Permissão Concebida
+    ids:
+    - '19'
 escaladas:
 - via_esportiva:
     nome: Carapuça

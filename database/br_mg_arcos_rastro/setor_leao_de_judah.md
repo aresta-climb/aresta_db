@@ -89,14 +89,14 @@ mapas:
       y: 827
       comprimento: 16
       largura: 14
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 344
       y: 824
       comprimento: 13
       largura: 13
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 336
@@ -216,12 +216,6 @@ mapas:
   - escalada: Leão de Judah
     ids:
     - '07'
-  - escalada: Efeito Moral
-    ids:
-    - '8'
-  - escalada: Risco de Discórdia
-    ids:
-    - '9'
   - escalada: Duelo de Titãs
     ids:
     - '10'

@@ -77,6 +77,10 @@ mapas:
       y: 928
       comprimento: 48
       largura: 37
+  referencias:
+  - escalada: Barriga Verde
+    ids:
+    - '06'
 escaladas:
 - via_esportiva:
     nome: Jaratataca

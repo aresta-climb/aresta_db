@@ -50,6 +50,13 @@ mapas:
       y: 525
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Mandarim
+    ids:
+    - '1'
+  - escalada: Picasso
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: Mandarim
@@ -64,7 +71,6 @@ escaladas:
     nome: Picasso
     dificuldade: V5
 ---
-
 # Setor Witness
 
 O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.

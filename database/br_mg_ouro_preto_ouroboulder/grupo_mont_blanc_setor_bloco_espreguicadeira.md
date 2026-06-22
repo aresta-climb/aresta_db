@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Espreguiçadeira'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp
@@ -35,10 +35,12 @@ mapas:
     - '1'
   - escalada: Rock n Roll
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Hard Core
     ids:
-    - 2B
+    - '2'
+    - B
 escaladas:
 - boulder:
     nome: Heavy Metal
@@ -49,6 +51,5 @@ escaladas:
 - boulder:
     nome: Hard Core
     dificuldade: V6_BARRA_V7
----
-
+---
 

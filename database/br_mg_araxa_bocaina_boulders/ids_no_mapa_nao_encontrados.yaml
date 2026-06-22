@@ -1,0 +1,45 @@
+- escalada: Não Contava com Minha Astúcia
+  ids_procurados: '06'
+  setor_contexto: Pressão Enrustida
+- escalada: Rapé
+  ids_procurados: '07'
+  setor_contexto: Pressão Enrustida
+- escalada: Lobão
+  ids_procurados: '03'
+  setor_contexto: Canil
+- escalada: Tião Macalé
+  ids_procurados: '04'
+  setor_contexto: Canil
+- escalada: Zac
+  ids_procurados: '05'
+  setor_contexto: Canil
+- escalada: Savana
+  ids_procurados: '07'
+  setor_contexto: Canil
+- escalada: La Qualitê
+  ids_procurados: '14'
+  setor_contexto: Bloco do Cabelin
+- escalada: Jamaica
+  ids_procurados: '02'
+  setor_contexto: Haiti
+- escalada: Kuaiti
+  ids_procurados: '03'
+  setor_contexto: Haiti
+- escalada: Siri sem Casca
+  ids_procurados: '19'
+  setor_contexto: Bloco 45º
+- escalada: Siri Queijo
+  ids_procurados: '20'
+  setor_contexto: Bloco 45º
+- escalada: Problema Legal
+  ids_procurados: '21'
+  setor_contexto: Bloco 45º
+- escalada: Pecado de Chó
+  ids_procurados: '22'
+  setor_contexto: Bloco 45º
+- escalada: Ayuaska
+  ids_procurados: '23'
+  setor_contexto: Bloco 45º
+- escalada: Escravos de Chó
+  ids_procurados: '08'
+  setor_contexto: Essência

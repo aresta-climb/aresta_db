@@ -56,51 +56,6 @@ mapas:
   - escalada: Suindara
     ids:
     - '05'
-  - escalada: São Jorge
-    ids:
-    - '06'
-  - escalada: Ramadan
-    ids:
-    - '07'
-  - escalada: Sabotagem
-    ids:
-    - '08'
-  - escalada: Universo Paralelo
-    ids:
-    - '09'
-  - escalada: Egocentrismo
-    ids:
-    - '10'
-  - escalada: Farinha do Mesmo Saco
-    ids:
-    - '11'
-  - escalada: Bafo de Onça
-    ids:
-    - '12'
-  - escalada: 12 anos
-    ids:
-    - '13'
-  - escalada: Mais Água no Feijão
-    ids:
-    - '14'
-  - escalada: Puberdade
-    ids:
-    - '15'
-  - escalada: Eldorado
-    ids:
-    - '16'
-  - escalada: Mais uma Prova de Amor
-    ids:
-    - '17'
-  - escalada: Sabotagem do Universo
-    ids:
-    - '08'
-  - escalada: Universo Sabotada
-    ids:
-    - '09'
-  - escalada: Ego Paralelo
-    ids:
-    - '10'
 - caminho_imagem_mapa: imagens/setor_mezanino_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -119,6 +74,13 @@ mapas:
       y: 1022
       comprimento: 28
       largura: 33
+  referencias:
+  - escalada: São Jorge
+    ids:
+    - '06'
+  - escalada: Ramadan
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_mezanino_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -158,6 +120,31 @@ mapas:
       y: 1098
       comprimento: 31
       largura: 27
+  referencias:
+  - escalada: Sabotagem
+    ids:
+    - '08'
+  - escalada: Universo Paralelo
+    ids:
+    - '09'
+  - escalada: Egocentrismo
+    ids:
+    - '10'
+  - escalada: Farinha do Mesmo Saco
+    ids:
+    - '11'
+  - escalada: Bafo de Onça
+    ids:
+    - '12'
+  - escalada: Sabotagem do Universo
+    ids:
+    - '08'
+  - escalada: Universo Sabotada
+    ids:
+    - '09'
+  - escalada: Ego Paralelo
+    ids:
+    - '10'
 - caminho_imagem_mapa: imagens/setor_mezanino_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -197,6 +184,22 @@ mapas:
       y: 1226
       comprimento: 31
       largura: 27
+  referencias:
+  - escalada: 12 anos
+    ids:
+    - '13'
+  - escalada: Mais Água no Feijão
+    ids:
+    - '14'
+  - escalada: Puberdade
+    ids:
+    - '15'
+  - escalada: Eldorado
+    ids:
+    - '16'
+  - escalada: Mais uma Prova de Amor
+    ids:
+    - '17'
 - caminho_imagem_mapa: imagens/setor_mezanino_p5.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -222,6 +225,16 @@ mapas:
       y: 1050
       comprimento: 39
       largura: 30
+  referencias:
+  - escalada: Alberto Roberto
+    ids:
+    - '01'
+  - escalada: Chico Anísio
+    ids:
+    - '02'
+  - escalada: Onjacktallbeck
+    ids:
+    - '03'
 escaladas:
 - via_esportiva:
     nome: Alberto Roberto

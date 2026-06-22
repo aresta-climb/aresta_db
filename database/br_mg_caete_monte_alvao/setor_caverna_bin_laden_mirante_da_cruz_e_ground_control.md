@@ -1,7 +1,8 @@
 ---
 nome: Caverna, Mirante e Ground Control
 mapas:
-- caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
+- caminho_imagem_mapa: 
+    imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
   largura_mapa: 2048
   altura_mapa: 1721
   pontos_de_interesse:
@@ -210,6 +211,9 @@ mapas:
   - escalada: Desvio na pista
     ids:
     - 6az
+  - escalada: Essa via não é minha
+    ids:
+    - 1rox
   - escalada: Vento da Patagônia
     ids:
     - 2rox
@@ -222,6 +226,9 @@ mapas:
   - escalada: Cavuca tatu
     ids:
     - 5rox
+  - escalada: Zé colmeia e Dona Flor
+    ids:
+    - 6rox
   - escalada: Tirolês
     ids:
     - 7rox
@@ -231,21 +238,15 @@ mapas:
   - escalada: Sabor Baunilha
     ids:
     - 9rox
+  - escalada: O charme da Trad
+    ids:
+    - 10rox
   - escalada: Café Ole
     ids:
     - 11rox
   - escalada: Tio Tonton
     ids:
     - 12rox
-  - escalada: Essa via não é minha
-    ids:
-    - 1rox
-  - escalada: Zé colmeia e Dona Flor
-    ids:
-    - 6rox
-  - escalada: O charme da Trad
-    ids:
-    - 10rox
 setores:
 - conteudo:
     nome: Caverna do Bin Laden
@@ -546,7 +547,6 @@ setores:
             dificuldade: BR_6
             descricao: crux 7b
 ---
-
 # Caverna, Mirante e Ground Control
 
 Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.

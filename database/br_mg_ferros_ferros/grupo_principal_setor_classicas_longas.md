@@ -2,82 +2,6 @@
 nome: Parede Principal – Setor Clássicas Longas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
-  referencias:
-  - escalada: Quarto 304
-    ids:
-    - '1'
-  - escalada: O Nome da Rosa
-    ids:
-    - '2'
-  - escalada: O Retorno de Jedi
-    ids:
-    - '3'
-  - escalada: Jardim do Éden
-    ids:
-    - '5'
-  - escalada: A Dois Passos do Paraíso
-    ids:
-    - '6'
-  - escalada: Conquista do Paraíso
-    ids:
-    - '7'
-  - escalada: Purgatório
-    ids:
-    - '8'
-  - escalada: Conrado Ferro
-    ids:
-    - '10'
-  - escalada: Quem com Ferro Fere
-    ids:
-    - '11'
-  - escalada: Tanto Bate Até Que Fura
-    ids:
-    - '12'
-  - escalada: Trem de Ferro
-    ids:
-    - '13'
-  - escalada: Up Ester
-    ids:
-    - '14'
-  - escalada: Até Que a Vida Nos Separe
-    ids:
-    - '15'
-  - escalada: Pr. CEM
-    ids:
-    - '17'
-  - escalada: Vr. SEM
-    ids:
-    - '18'
-  - escalada: Engatilhados
-    ids:
-    - '19'
-  - escalada: Trio Elétrico
-    ids:
-    - '20'
-  - escalada: Eu Não Sou de Ferro
-    ids:
-    - '21'
-  - escalada: Grand Finale
-    ids:
-    - '23'
-  - escalada: À Francesa
-    ids:
-    - '24'
-  - escalada: Ih, Ferrou!
-    ids:
-    - '4'
-  - escalada: Arco de Ferros
-    ids:
-    - '9'
-  - escalada: Vr. Pilhado
-    ids:
-    - '16'
-  - escalada: Rio de Mão Dupla
-    ids:
-    - '22'
-  - escalada: Atalho dos Duendes
-    ids:
-    - '25'
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
 escaladas:
 - via_esportiva:
@@ -200,6 +124,5 @@ escaladas:
     dificuldade: BR_3
     extensao: 70
 ---
-
 
 ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)

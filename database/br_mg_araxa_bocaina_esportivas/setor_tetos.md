@@ -54,7 +54,7 @@ mapas:
       y: 782
       comprimento: 44
       largura: 34
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 958
@@ -83,113 +83,11 @@ mapas:
   - escalada: Resta Um
     ids:
     - '07'
-  - escalada: Medo de quê Aresta
-    ids:
-    - '8'
-  - escalada: Pressão Psicológica
-    ids:
-    - '9'
-  - escalada: Zumbi da Bocaina
-    ids:
-    - '10'
-  - escalada: Curta e Grossa
-    ids:
-    - '11'
-  - escalada: Menos Curta e Mais Grossa
-    ids:
-    - '12'
-  - escalada: El Corazon
-    ids:
-    - '13'
-  - escalada: Sombra e Água Fresca
-    ids:
-    - '14'
-  - escalada: Vitamina C
-    ids:
-    - '15'
-  - escalada: Mão de Vaca
-    ids:
-    - '16'
-  - escalada: Natural Climb
-    ids:
-    - '17'
-  - escalada: Chape
-    ids:
-    - '18'
-  - escalada: Comando Delta
-    ids:
-    - '19'
-  - escalada: Rachando os Bico
-    ids:
-    - '20'
-  - escalada: Mato Seco
-    ids:
-    - '21'
-  - escalada: De um jeito ou de Outro
-    ids:
-    - '22'
-  - escalada: Arapuá
-    ids:
-    - '23'
-  - escalada: Carcará Uru
-    ids:
-    - '24'
-  - escalada: Rapadura
-    ids:
-    - '25'
-  - escalada: Zé Bunitim
-    ids:
-    - '26'
-  - escalada: Vai ser Fei
-    ids:
-    - '27'
-  - escalada: Estrela Solitária
-    ids:
-    - '28'
-  - escalada: Vergateza
-    ids:
-    - '29'
-  - escalada: Chico Curandeiro
-    ids:
-    - '30'
-  - escalada: Reforma Trabalhista
-    ids:
-    - '31'
-  - escalada: Arborigenas
-    ids:
-    - '32'
-  - escalada: Faz sua Parte
-    ids:
-    - '33'
-  - escalada: Delirando
-    ids:
-    - '34'
-  - escalada: Saraiva
-    ids:
-    - '35'
-  - escalada: Rolando Lero
-    ids:
-    - '36'
-  - escalada: Jardinagem
-    ids:
-    - '37'
-  - escalada: Soldados do Sol
-    ids:
-    - '38'
-  - escalada: Metamorfose Ambulante
-    ids:
-    - '39'
-  - escalada: Baby Rasta
-    ids:
-    - '40'
-  - escalada: Cara ou Crachá
-    ids:
-    - '41'
 - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 126
@@ -245,6 +143,28 @@ mapas:
       y: 1072
       comprimento: 43
       largura: 33
+  referencias:
+  - escalada: Zumbi da Bocaina
+    ids:
+    - '10'
+  - escalada: Curta e Grossa
+    ids:
+    - '11'
+  - escalada: Menos Curta e Mais Grossa
+    ids:
+    - '12'
+  - escalada: El Corazon
+    ids:
+    - '13'
+  - escalada: Sombra e Água Fresca
+    ids:
+    - '14'
+  - escalada: Vitamina C
+    ids:
+    - '15'
+  - escalada: Mão de Vaca
+    ids:
+    - '16'
 - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -277,6 +197,19 @@ mapas:
       y: 1086
       comprimento: 39
       largura: 34
+  referencias:
+  - escalada: Natural Climb
+    ids:
+    - '17'
+  - escalada: Chape
+    ids:
+    - '18'
+  - escalada: Comando Delta
+    ids:
+    - '19'
+  - escalada: Rachando os Bico
+    ids:
+    - '20'
 - caminho_imagem_mapa: imagens/setor_tetos_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -337,6 +270,31 @@ mapas:
       y: 1126
       comprimento: 45
       largura: 33
+  referencias:
+  - escalada: Mato Seco
+    ids:
+    - '21'
+  - escalada: De um jeito ou de Outro
+    ids:
+    - '22'
+  - escalada: Arapuá
+    ids:
+    - '23'
+  - escalada: Carcará Uru
+    ids:
+    - '24'
+  - escalada: Rapadura
+    ids:
+    - '25'
+  - escalada: Zé Bunitim
+    ids:
+    - '26'
+  - escalada: Vai ser Fei
+    ids:
+    - '27'
+  - escalada: Estrela Solitária
+    ids:
+    - '28'
 - caminho_imagem_mapa: imagens/setor_tetos_p5.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -397,6 +355,31 @@ mapas:
       y: 1162
       comprimento: 36
       largura: 29
+  referencias:
+  - escalada: Vergateza
+    ids:
+    - '29'
+  - escalada: Chico Curandeiro
+    ids:
+    - '30'
+  - escalada: Reforma Trabalhista
+    ids:
+    - '31'
+  - escalada: Arborigenas
+    ids:
+    - '32'
+  - escalada: Faz sua Parte
+    ids:
+    - '33'
+  - escalada: Delirando
+    ids:
+    - '34'
+  - escalada: Saraiva
+    ids:
+    - '35'
+  - escalada: Rolando Lero
+    ids:
+    - '36'
 - caminho_imagem_mapa: imagens/setor_tetos_p6.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -436,6 +419,22 @@ mapas:
       y: 1185
       comprimento: 36
       largura: 26
+  referencias:
+  - escalada: Jardinagem
+    ids:
+    - '37'
+  - escalada: Soldados do Sol
+    ids:
+    - '38'
+  - escalada: Metamorfose Ambulante
+    ids:
+    - '39'
+  - escalada: Baby Rasta
+    ids:
+    - '40'
+  - escalada: Cara ou Crachá
+    ids:
+    - '41'
 escaladas:
 - via_esportiva:
     nome: Permissão Concebida

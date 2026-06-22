@@ -50,7 +50,8 @@ escaladas:
 - boulder:
     nome: Joelho Sem Freio
     dificuldade: V3
-    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em abaulado invertido no teto.
+    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em 
+      abaulado invertido no teto.
 ---
 # Bloco: Joelho Sem Freio
 ## Região 1

@@ -36,18 +36,6 @@ mapas:
       y: 12
       raio: 9
   referencias:
-  - escalada: Amnesia
-    ids:
-    - 1_b
-    - x_b
-  - escalada: Capitão Jack
-    ids:
-    - '2'
-    - y
-  - escalada: Purple Rase
-    ids:
-    - '3'
-    - x_b
   - escalada: Sunshine
     ids:
     - '1'
@@ -86,6 +74,19 @@ mapas:
       x: 562
       y: 15
       raio: 9
+  referencias:
+  - escalada: Amnesia
+    ids:
+    - 1_b
+    - x_b
+  - escalada: Capitão Jack
+    ids:
+    - '2'
+    - y
+  - escalada: Purple Rase
+    ids:
+    - '3'
+    - x_b
 ---
 
 # Bloco Capitão Jack

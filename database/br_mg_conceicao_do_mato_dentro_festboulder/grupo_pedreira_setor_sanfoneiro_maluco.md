@@ -56,6 +56,16 @@ mapas:
       y: 430
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Sanfoneiro Maluco
+    ids:
+    - '1'
+  - escalada: Webb da Paraíba
+    ids:
+    - '1'
+  - escalada: Efeito Dominó
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp
   largura_mapa: 756
   altura_mapa: 536
@@ -74,6 +84,22 @@ mapas:
       y: 495
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Sanfoneiro Maluco
+    ids:
+    - '1'
+  - escalada: Inacreditável
+    ids:
+    - '2'
+  - escalada: Webb da Paraíba
+    ids:
+    - '1'
+  - escalada: Efeito Dominó
+    ids:
+    - '1'
+  - escalada: Zuzuzela
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: Sanfoneiro Maluco
@@ -94,7 +120,6 @@ escaladas:
     nome: Zuzuzela
     dificuldade: V6
 ---
-
 # Setor Sanfoneiro Maluco
 
 O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.

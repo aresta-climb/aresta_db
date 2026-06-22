@@ -103,7 +103,7 @@ mapas:
       y: 815
       comprimento: 30
       largura: 30
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 920
@@ -291,10 +291,6 @@ mapas:
   - escalada: Tapa na Sombra
     ids:
     - '12'
-  - escalada: Ext. Tapa na Sombra P2
-    ids:
-    - '13'
-    - '13'
   - escalada: A Outra Face
     ids:
     - '14'

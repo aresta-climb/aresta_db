@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
@@ -62,76 +62,60 @@ mapas:
     - '2'
   - escalada: Doce de Leite
     ids:
-    - 3B/2B
+    - '3'
+    - B
   - escalada: Panamá
     ids:
-    - 4A/1A
+    - '4'
+    - A
   - escalada: Doce de Leite sds
     ids:
-    - 4B/1B
+    - '4'
+    - B
   - escalada: Rocambole
     ids:
-    - 5B/3B
+    - '5'
+    - B
   - escalada: Falha Humana
     ids:
-    - 6B/4B
-  - escalada: Teiú
-    ids:
-    - 1C
-  - escalada: Rabo de Lagartixa
-    ids:
-    - 4C
+    - '6'
+    - B
   - escalada: Camaleão
     ids:
-    - 5B
-  - escalada: Lagartixa
-    ids:
-    - 5C
+    - '5'
+    - B
   - escalada: Rabo de Camaleão
     ids:
-    - 6B
-  - escalada: Lagartixa sem Rabo
-    ids:
-    - 6C
+    - '6'
+    - B
   - escalada: Guerreiro
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Major
     ids:
-    - 2A
-  - escalada: Geoterapia
-    ids:
-    - 2D
+    - '2'
+    - A
   - escalada: Nativo
     ids:
-    - 3B
+    - '3'
+    - B
   - escalada: Protesto
     ids:
-    - 4A
-  - escalada: Cadena Imaginária
-    ids:
-    - 4D
+    - '4'
+    - A
   - escalada: Golpe Militar
     ids:
-    - 5A
+    - '5'
+    - A
   - escalada: Aurora Explosion
     ids:
-    - 5B
-  - escalada: Escravos da Pedra
-    ids:
-    - 5D
+    - '5'
+    - B
   - escalada: Ditadvor
     ids:
-    - 6A
-  - escalada: Lobo Mau
-    ids:
-    - 6D
-  - escalada: Coronel
-    ids:
-    - 7A
-  - escalada: Chapeuzinho Vermelho
-    ids:
-    - 7C
+    - '6'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -190,6 +174,85 @@ mapas:
       x: 966
       y: 870
       raio: 13
+  referencias:
+  - escalada: Last Samurai
+    ids:
+    - '1'
+  - escalada: Samurai
+    ids:
+    - '2'
+  - escalada: Doce de Leite
+    ids:
+    - '2'
+    - B
+  - escalada: Panamá
+    ids:
+    - '1'
+    - A
+  - escalada: Doce de Leite sds
+    ids:
+    - '1'
+    - B
+  - escalada: Rocambole
+    ids:
+    - '3'
+    - B
+  - escalada: Falha Humana
+    ids:
+    - '4'
+    - B
+  - escalada: Teiú
+    ids:
+    - '1'
+    - C
+  - escalada: Rabo de Lagartixa
+    ids:
+    - '4'
+    - C
+  - escalada: Camaleão
+    ids:
+    - '5'
+    - B
+  - escalada: Lagartixa
+    ids:
+    - '5'
+    - C
+  - escalada: Rabo de Camaleão
+    ids:
+    - '6'
+    - B
+  - escalada: Lagartixa sem Rabo
+    ids:
+    - '6'
+    - C
+  - escalada: Guerreiro
+    ids:
+    - '1'
+    - A
+  - escalada: Major
+    ids:
+    - '2'
+    - A
+  - escalada: Nativo
+    ids:
+    - '3'
+    - B
+  - escalada: Protesto
+    ids:
+    - '4'
+    - A
+  - escalada: Golpe Militar
+    ids:
+    - '5'
+    - A
+  - escalada: Aurora Explosion
+    ids:
+    - '5'
+    - B
+  - escalada: Ditadvor
+    ids:
+    - '6'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -260,6 +323,89 @@ mapas:
       x: 1172
       y: 835
       raio: 13
+  referencias:
+  - escalada: Last Samurai
+    ids:
+    - '1'
+  - escalada: Samurai
+    ids:
+    - '2'
+  - escalada: Teiú
+    ids:
+    - '1'
+    - C
+  - escalada: Rabo de Lagartixa
+    ids:
+    - '4'
+    - C
+  - escalada: Camaleão
+    ids:
+    - '5'
+    - B
+  - escalada: Lagartixa
+    ids:
+    - '5'
+    - C
+  - escalada: Rabo de Camaleão
+    ids:
+    - '6'
+    - B
+  - escalada: Lagartixa sem Rabo
+    ids:
+    - '6'
+    - C
+  - escalada: Guerreiro
+    ids:
+    - '1'
+    - A
+  - escalada: Major
+    ids:
+    - '2'
+    - A
+  - escalada: Geoterapia
+    ids:
+    - '2'
+    - D
+  - escalada: Nativo
+    ids:
+    - '3'
+    - B
+  - escalada: Protesto
+    ids:
+    - '4'
+    - A
+  - escalada: Cadena Imaginária
+    ids:
+    - '4'
+    - D
+  - escalada: Golpe Militar
+    ids:
+    - '5'
+    - A
+  - escalada: Aurora Explosion
+    ids:
+    - '5'
+    - B
+  - escalada: Escravos da Pedra
+    ids:
+    - '5'
+    - D
+  - escalada: Ditadvor
+    ids:
+    - '6'
+    - A
+  - escalada: Lobo Mau
+    ids:
+    - '6'
+    - D
+  - escalada: Coronel
+    ids:
+    - '7'
+    - A
+  - escalada: Chapeuzinho Vermelho
+    ids:
+    - '7'
+    - C
 escaladas:
 - boulder:
     nome: Last Samurai
@@ -339,6 +485,5 @@ escaladas:
 - boulder:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
----
-
+---
 

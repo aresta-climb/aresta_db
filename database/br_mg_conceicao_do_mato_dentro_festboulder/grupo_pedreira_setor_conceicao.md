@@ -32,9 +32,6 @@ mapas:
   - escalada: No Dab
     ids:
     - '2'
-  - escalada: (sem nome)
-    ids:
-    - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_conceicao_p1.webp
   largura_mapa: 759
   altura_mapa: 550
@@ -60,6 +57,22 @@ mapas:
       y: 535
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Conceição do Mato Dentro
+    ids:
+    - '1'
+  - escalada: (sem nome)
+    ids:
+    - '2'
+  - escalada: Tobogã
+    ids:
+    - '1'
+  - escalada: No Dab
+    ids:
+    - '2'
+  - escalada: (sem nome)
+    ids:
+    - '3'
 escaladas:
 - boulder:
     nome: Conceição do Mato Dentro
@@ -77,7 +90,6 @@ escaladas:
     nome: (sem nome)
     dificuldade: V2
 ---
-
 # Setor Conceição
 
 O setor Conceição apresenta blocos com agarras boas e linhas de técnica.

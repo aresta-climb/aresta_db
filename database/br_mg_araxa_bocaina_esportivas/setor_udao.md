@@ -66,27 +66,6 @@ mapas:
   - escalada: Jovem Ganso
     ids:
     - '06'
-  - escalada: Filho de Vó
-    ids:
-    - '07'
-  - escalada: Loucura Alheia
-    ids:
-    - '8'
-  - escalada: Mistério de Ramadã
-    ids:
-    - '9'
-  - escalada: Chuva de Verão
-    ids:
-    - '10'
-  - escalada: Pole Dance
-    ids:
-    - '11'
-  - escalada: Brusqueta do Cerrado
-    ids:
-    - '12'
-  - escalada: Rota Aérea
-    ids:
-    - '13'
 - caminho_imagem_mapa: imagens/setor_udao_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -98,14 +77,14 @@ mapas:
       y: 808
       comprimento: 31
       largura: 25
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 745
       y: 784
       comprimento: 32
       largura: 26
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 787
@@ -140,6 +119,22 @@ mapas:
       y: 715
       comprimento: 42
       largura: 32
+  referencias:
+  - escalada: Filho de Vó
+    ids:
+    - '07'
+  - escalada: Chuva de Verão
+    ids:
+    - '10'
+  - escalada: Pole Dance
+    ids:
+    - '11'
+  - escalada: Brusqueta do Cerrado
+    ids:
+    - '12'
+  - escalada: Rota Aérea
+    ids:
+    - '13'
 escaladas:
 - via_esportiva:
     nome: Pulando a cerca

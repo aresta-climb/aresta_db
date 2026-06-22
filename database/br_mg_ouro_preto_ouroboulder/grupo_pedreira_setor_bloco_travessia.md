@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Travessia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
@@ -62,28 +62,35 @@ mapas:
   referencias:
   - escalada: Travessia ext
     ids:
-    - 1C/1E
+    - '1'
+    - C
   - escalada: Travessia
     ids:
-    - 2C/2E
+    - '2'
+    - C
   - escalada: Enjambrado
     ids:
-    - 3A/3C
+    - '3'
+    - A
   - escalada: Face Vertical
     ids:
-    - 4B/4D
+    - '4'
+    - B
   - escalada: Será
     ids:
-    - 5C/5E
+    - '5'
+    - C
   - escalada: Bem-vindo ao Climb
     ids:
     - '6'
   - escalada: Monodedo
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Movimentos Eróticos
     ids:
-    - 2B
+    - '2'
+    - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -148,6 +155,35 @@ mapas:
       x: 1491
       y: 750
       raio: 13
+  referencias:
+  - escalada: Travessia ext
+    ids:
+    - '1'
+    - E
+  - escalada: Travessia
+    ids:
+    - '2'
+    - E
+  - escalada: Enjambrado
+    ids:
+    - '3'
+    - C
+  - escalada: Face Vertical
+    ids:
+    - '4'
+    - D
+  - escalada: Será
+    ids:
+    - '5'
+    - E
+  - escalada: Monodedo
+    ids:
+    - '2'
+    - A
+  - escalada: Movimentos Eróticos
+    ids:
+    - '2'
+    - B
 escaladas:
 - boulder:
     nome: Travessia ext
@@ -173,6 +209,5 @@ escaladas:
 - boulder:
     nome: Movimentos Eróticos
     dificuldade: V1
----
-
+---
 

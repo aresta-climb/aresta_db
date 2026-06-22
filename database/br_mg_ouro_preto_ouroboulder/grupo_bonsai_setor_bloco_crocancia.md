@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Crocância'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp
@@ -18,33 +18,9 @@ mapas:
   - escalada: Tarântula
     ids:
     - '1'
-  - escalada: Porém
-    ids:
-    - 1A
-  - escalada: Xaxado
-    ids:
-    - 1B
-  - escalada: Rouba Monte
-    ids:
-    - 2B/4B
-  - escalada: Crocância do Além
-    ids:
-    - 3A
   - escalada: Lodo
     ids:
     - '1'
-  - escalada: Crocância
-    ids:
-    - 2A
-  - escalada: Crocância Rouba Monte
-    ids:
-    - 2B
-  - escalada: Crocância sds
-    ids:
-    - 3A
-  - escalada: Crocância Rouba Monte sds
-    ids:
-    - 3B
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -55,6 +31,16 @@ mapas:
       x: 1230
       y: 745
       raio: 13
+  referencias:
+  - escalada: Beija-Flor
+    ids:
+    - '1'
+  - escalada: Tarântula
+    ids:
+    - '1'
+  - escalada: Lodo
+    ids:
+    - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -89,6 +75,44 @@ mapas:
       x: 114
       y: 758
       raio: 13
+  referencias:
+  - escalada: Beija-Flor
+    ids:
+    - '1'
+  - escalada: Tarântula
+    ids:
+    - '1'
+  - escalada: Porém
+    ids:
+    - '1'
+    - A
+  - escalada: Xaxado
+    ids:
+    - '1'
+    - B
+  - escalada: Crocância do Além
+    ids:
+    - '3'
+    - A
+  - escalada: Lodo
+    ids:
+    - '1'
+  - escalada: Crocância
+    ids:
+    - '2'
+    - A
+  - escalada: Crocância Rouba Monte
+    ids:
+    - '2'
+    - B
+  - escalada: Crocância sds
+    ids:
+    - '3'
+    - A
+  - escalada: Crocância Rouba Monte sds
+    ids:
+    - '3'
+    - B
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -129,6 +153,44 @@ mapas:
       x: 1348
       y: 115
       raio: 13
+  referencias:
+  - escalada: Beija-Flor
+    ids:
+    - '1'
+  - escalada: Tarântula
+    ids:
+    - '1'
+  - escalada: Porém
+    ids:
+    - '1'
+    - A
+  - escalada: Xaxado
+    ids:
+    - '1'
+    - B
+  - escalada: Crocância do Além
+    ids:
+    - '3'
+    - A
+  - escalada: Lodo
+    ids:
+    - '1'
+  - escalada: Crocância
+    ids:
+    - '2'
+    - A
+  - escalada: Crocância Rouba Monte
+    ids:
+    - '2'
+    - B
+  - escalada: Crocância sds
+    ids:
+    - '3'
+    - A
+  - escalada: Crocância Rouba Monte sds
+    ids:
+    - '3'
+    - B
 escaladas:
 - boulder:
     nome: Beija-Flor
@@ -163,6 +225,5 @@ escaladas:
 - boulder:
     nome: Crocância Rouba Monte sds
     dificuldade: V11
----
-
+---
 

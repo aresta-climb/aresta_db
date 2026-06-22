@@ -32,9 +32,6 @@ mapas:
   - escalada: Trabalho Árduo
     ids:
     - '2'
-  - escalada: Estamos Trabalhando
-    ids:
-    - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p1.webp
   largura_mapa: 761
   altura_mapa: 570
@@ -60,6 +57,22 @@ mapas:
       y: 340
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Hueco Fontaine
+    ids:
+    - '1'
+  - escalada: Pitt Bull
+    ids:
+    - '2'
+  - escalada: Trabalhador Brasileiro
+    ids:
+    - '1'
+  - escalada: Trabalho Árduo
+    ids:
+    - '2'
+  - escalada: Estamos Trabalhando
+    ids:
+    - '3'
 escaladas:
 - boulder:
     nome: Hueco Fontaine
@@ -77,7 +90,6 @@ escaladas:
     nome: Estamos Trabalhando
     dificuldade: V8
 ---
-
 # Setor Trabalhador
 
 O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.

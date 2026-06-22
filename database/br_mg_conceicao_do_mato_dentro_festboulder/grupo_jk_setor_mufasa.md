@@ -34,7 +34,6 @@ escaladas:
     nome: Mufasa
     dificuldade: V10
 ---
-
 # Setor Mufasa
 
 O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.

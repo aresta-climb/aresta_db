@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Teto de Vidro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
@@ -50,28 +50,30 @@ mapas:
   referencias:
   - escalada: Buena Onda
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Teto de Vidro
     ids:
-    - 1B▲/1A
+    - '1'
+    - B
+    - ▲
   - escalada: Gringo de Vidro
     ids:
-    - 1B★
+    - '1'
+    - B
+    - ★
   - escalada: Teto Quebrado
     ids:
-    - 2B/2A
+    - '2'
+    - B
   - escalada: Gringo
     ids:
-    - 3A
+    - '3'
+    - A
   - escalada: Manobra
     ids:
-    - 3A
-  - escalada: Casquinha
-    ids:
-    - 4A
-  - escalada: Wafer
-    ids:
-    - 4B
+    - '3'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -118,6 +120,35 @@ mapas:
       x: 740
       y: 650
       raio: 13
+  referencias:
+  - escalada: Buena Onda
+    ids:
+    - '1'
+    - A
+  - escalada: Teto de Vidro
+    ids:
+    - '1'
+    - A
+  - escalada: Teto Quebrado
+    ids:
+    - '2'
+    - A
+  - escalada: Gringo
+    ids:
+    - '3'
+    - A
+  - escalada: Manobra
+    ids:
+    - '3'
+    - A
+  - escalada: Casquinha
+    ids:
+    - '4'
+    - A
+  - escalada: Wafer
+    ids:
+    - '4'
+    - B
 escaladas:
 - boulder:
     nome: Buena Onda
@@ -144,6 +175,5 @@ escaladas:
 - boulder:
     nome: Wafer
     dificuldade: V1
----
-
+---
 

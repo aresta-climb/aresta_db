@@ -2,25 +2,6 @@
 nome: O Vale
 mapas:
 - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
-  referencias:
-  - escalada: Macumba
-    ids:
-    - '1'
-  - escalada: Macumbinha
-    ids:
-    - '2'
-  - escalada: Garage Inc.
-    ids:
-    - '3'
-  - escalada: Perereca suicida
-    ids:
-    - '4'
-  - escalada: Via do Silas
-    ids:
-    - '5'
-  - escalada: Inacabada
-    ids:
-    - '6'
 - caminho_imagem_mapa: imagens/setor_o_vale_p1_i1.webp
 - caminho_imagem_mapa: imagens/setor_o_vale_p2_i1.webp
 escaladas:

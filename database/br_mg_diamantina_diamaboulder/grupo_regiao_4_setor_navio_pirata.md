@@ -60,30 +60,6 @@ mapas:
     ids:
     - 3 (P0)
     - 3 (P0)_fim
-  - escalada: Serra a Vista
-    ids:
-    - 1 (P1)
-    - 1 (P1)_fim
-  - escalada: Tapa Olho
-    ids:
-    - 2 (P1)
-    - 2 (P1)_fim
-  - escalada: A Estibordo
-    ids:
-    - 3 (P1)
-    - 3 (P1)_fim
-  - escalada: Proa
-    ids:
-    - 4 (P1)
-    - 4 (P1)_fim
-  - escalada: Papagaio de Pirata
-    ids:
-    - 1 (P2)
-    - 1 (P2)_fim
-  - escalada: Desce a Serra
-    ids:
-    - 2 (P2)
-    - 2 (P2)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 1080
@@ -144,6 +120,23 @@ mapas:
       y: 266
       comprimento: 21
       largura: 27
+  referencias:
+  - escalada: Serra a Vista
+    ids:
+    - 1 (P1)
+    - 1 (P1)_fim
+  - escalada: Tapa Olho
+    ids:
+    - 2 (P1)
+    - 2 (P1)_fim
+  - escalada: A Estibordo
+    ids:
+    - 3 (P1)
+    - 3 (P1)_fim
+  - escalada: Proa
+    ids:
+    - 4 (P1)
+    - 4 (P1)_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p2_i0.webp
   largura_mapa: 1240
   altura_mapa: 1155
@@ -176,6 +169,15 @@ mapas:
       y: 608
       comprimento: 31
       largura: 33
+  referencias:
+  - escalada: Papagaio de Pirata
+    ids:
+    - 1 (P2)
+    - 1 (P2)_fim
+  - escalada: Desce a Serra
+    ids:
+    - 2 (P2)
+    - 2 (P2)_fim
 escaladas:
 - boulder:
     nome: Navio Pirata

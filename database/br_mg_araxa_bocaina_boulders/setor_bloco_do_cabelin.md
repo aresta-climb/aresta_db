@@ -16,45 +16,6 @@ mapas:
   - escalada: Sexto Sentido
     ids:
     - '01'
-  - escalada: Dread Lock
-    ids:
-    - '02'
-  - escalada: Cabeludo
-    ids:
-    - '03'
-  - escalada: Jacinto Barriguinha
-    ids:
-    - '04'
-  - escalada: Compressor
-    ids:
-    - '05'
-  - escalada: Cabelinho
-    ids:
-    - '06'
-  - escalada: Mágico de Oz
-    ids:
-    - '07'
-  - escalada: Mágico de Oz SDS
-    ids:
-    - '08'
-  - escalada: Mr. Gordura
-    ids:
-    - '09'
-  - escalada: País das Maravilhas
-    ids:
-    - '10'
-  - escalada: Capim Louco
-    ids:
-    - '11'
-  - escalada: Capim Gordura
-    ids:
-    - '12'
-  - escalada: Roleta Russa
-    ids:
-    - '13'
-  - escalada: La Qualitê
-    ids:
-    - '14'
 - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p1.webp
   largura_mapa: 1092
   altura_mapa: 878
@@ -101,6 +62,25 @@ mapas:
       y: 688
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Sexto Sentido
+    ids:
+    - '01'
+  - escalada: Dread Lock
+    ids:
+    - '02'
+  - escalada: Cabeludo
+    ids:
+    - '03'
+  - escalada: Jacinto Barriguinha
+    ids:
+    - '04'
+  - escalada: Compressor
+    ids:
+    - '05'
+  - escalada: Cabelinho
+    ids:
+    - '06'
 - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p2.webp
   largura_mapa: 1094
   altura_mapa: 893
@@ -112,14 +92,14 @@ mapas:
       y: 698
       comprimento: 20
       largura: 20
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 296
       y: 612
       comprimento: 20
       largura: 20
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 330
@@ -154,19 +134,44 @@ mapas:
       y: 707
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Mágico de Oz
+    ids:
+    - '07'
+  - escalada: Mágico de Oz SDS
+    ids:
+    - '08'
+  - escalada: Mr. Gordura
+    ids:
+    - '09'
+  - escalada: País das Maravilhas
+    ids:
+    - '10'
+  - escalada: Capim Louco
+    ids:
+    - '11'
+  - escalada: Capim Gordura
+    ids:
+    - '12'
+  - escalada: Roleta Russa
+    ids:
+    - '13'
 escaladas:
 - boulder:
     nome: Sexto Sentido
     dificuldade: V4
-    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco e segue pela fenda diagonal para direita e vira na proa.
+    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco e segue
+      pela fenda diagonal para direita e vira na proa.
 - boulder:
     nome: Dread Lock
     dificuldade: V7
-    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra no cabeludo.
+    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra no 
+      cabeludo.
 - boulder:
     nome: Cabeludo
     dificuldade: V7
-    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro movimento para cima da pedra e sai pra direita e vira no cabelinho.
+    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro 
+      movimento para cima da pedra e sai pra direita e vira no cabelinho.
 - boulder:
     nome: Jacinto Barriguinha
     dificuldade: V2
@@ -178,23 +183,28 @@ escaladas:
 - boulder:
     nome: Cabelinho
     dificuldade: V5
-    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno, virando a direita do bloco.
+    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno, 
+      virando a direita do bloco.
 - boulder:
     nome: Mágico de Oz
     dificuldade: V7
-    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho, e mão direita em pequeno reglete abaulado.
+    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho, e 
+      mão direita em pequeno reglete abaulado.
 - boulder:
     nome: Mágico de Oz SDS
     dificuldade: V8
-    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em pinça investida.
+    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em pinça 
+      investida.
 - boulder:
     nome: Mr. Gordura
     dificuldade: V9
-    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando no Capim Gordura.
+    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando no Capim
+      Gordura.
 - boulder:
     nome: País das Maravilhas
     dificuldade: V10
-    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz da árvore e virando no Mágico de Oz.
+    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz da 
+      árvore e virando no Mágico de Oz.
 - boulder:
     nome: Capim Louco
     dificuldade: V3
@@ -209,6 +219,7 @@ escaladas:
 - boulder:
     nome: La Qualitê
     dificuldade: V10
-    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na altura no quadril, virando reto e seguindo até o final do bloco.
+    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na 
+      altura no quadril, virando reto e seguindo até o final do bloco.
 ---
 # Setor Bloco do Cabelin

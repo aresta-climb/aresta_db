@@ -82,14 +82,14 @@ mapas:
       y: 322
       comprimento: 14
       largura: 14
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 255
       y: 307
       comprimento: 14
       largura: 14
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 257
@@ -139,12 +139,6 @@ mapas:
   - escalada: Miolo
     ids:
     - '07'
-  - escalada: Curupira
-    ids:
-    - '8'
-  - escalada: Só Beleza
-    ids:
-    - '9'
   - escalada: Di Menor*
     ids:
     - '10'

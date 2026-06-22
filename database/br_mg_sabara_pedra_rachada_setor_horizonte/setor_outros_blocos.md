@@ -24,24 +24,6 @@ mapas:
   - escalada: Mirante
     ids:
     - '51'
-  - escalada: Queda do Gigante
-    ids:
-    - '52'
-  - escalada: Não me toque
-    ids:
-    - '53'
-  - escalada: Anemia
-    ids:
-    - '54'
-  - escalada: Biotônico
-    ids:
-    - '55'
-  - escalada: Diagnóstico
-    ids:
-    - '56'
-  - escalada: Vertigem
-    ids:
-    - '57'
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p1_i0.webp
   largura_mapa: 861
   altura_mapa: 1441
@@ -58,6 +40,13 @@ mapas:
       x: 229
       y: 813
       raio: 27
+  referencias:
+  - escalada: Queda do Gigante
+    ids:
+    - '52'
+  - escalada: Não me toque
+    ids:
+    - '53'
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p2_i0.webp
   pontos_de_interesse: []
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p3_i0.webp
@@ -76,6 +65,13 @@ mapas:
       x: 277
       y: 567
       raio: 15
+  referencias:
+  - escalada: Anemia
+    ids:
+    - '54'
+  - escalada: Biotônico
+    ids:
+    - '55'
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p4_i0.webp
   largura_mapa: 677
   altura_mapa: 916
@@ -92,23 +88,34 @@ mapas:
       x: 450
       y: 606
       raio: 18
+  referencias:
+  - escalada: Diagnóstico
+    ids:
+    - '56'
+  - escalada: Vertigem
+    ids:
+    - '57'
 escaladas:
 - boulder:
     nome: Farol
     dificuldade: V3
-    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer a virada por agarradas boas na proa.
+    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer 
+      a virada por agarradas boas na proa.
 - boulder:
     nome: Mirante
     dificuldade: V4
-    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a direita, com a virada pela lateral do bloco.
+    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a 
+      direita, com a virada pela lateral do bloco.
 - boulder:
     nome: Queda do Gigante
     dificuldade: V8
-    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco por baixo até as cracas que possibilitam a virada pelo highball.
+    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco
+      por baixo até as cracas que possibilitam a virada pelo highball.
 - boulder:
     nome: Não me toque
     dificuldade: V5
-    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo feixo de cristais até a virada pelas cracas da direita.
+    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo 
+      feixo de cristais até a virada pelas cracas da direita.
 - boulder:
     nome: Anemia
     dificuldade: V7

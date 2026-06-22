@@ -26,21 +26,6 @@ mapas:
   - escalada: Lambe Lambe
     ids:
     - '02'
-  - escalada: TNT
-    ids:
-    - '03'
-  - escalada: For My Brother
-    ids:
-    - '04'
-  - escalada: Diamante Negro
-    ids:
-    - '05'
-  - escalada: Chapa Quente
-    ids:
-    - '06'
-  - escalada: (via inacabada)
-    ids:
-    - '07'
 - caminho_imagem_mapa: imagens/setor_micos_p1.webp
   largura_mapa: 1101
   altura_mapa: 1234
@@ -94,6 +79,28 @@ mapas:
       y: 1015
       comprimento: 29
       largura: 32
+  referencias:
+  - escalada: Eu Também Vou
+    ids:
+    - '01'
+  - escalada: Lambe Lambe
+    ids:
+    - '02'
+  - escalada: TNT
+    ids:
+    - '03'
+  - escalada: For My Brother
+    ids:
+    - '04'
+  - escalada: Diamante Negro
+    ids:
+    - '05'
+  - escalada: Chapa Quente
+    ids:
+    - '06'
+  - escalada: (via inacabada)
+    ids:
+    - '07'
 - caminho_imagem_mapa: imagens/setor_micos_p2.webp
   largura_mapa: 1119
   altura_mapa: 840
@@ -133,6 +140,22 @@ mapas:
       y: 811
       comprimento: 40
       largura: 42
+  referencias:
+  - escalada: TNT
+    ids:
+    - '03'
+  - escalada: For My Brother
+    ids:
+    - '04'
+  - escalada: Diamante Negro
+    ids:
+    - '05'
+  - escalada: Chapa Quente
+    ids:
+    - '06'
+  - escalada: (via inacabada)
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Eu Também Vou

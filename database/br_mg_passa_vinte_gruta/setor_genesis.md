@@ -68,7 +68,7 @@ mapas:
       y: 695
       comprimento: 30
       largura: 30
-  - id: 09
+  - id: '09'
     label: '9'
     box:
       x: 810

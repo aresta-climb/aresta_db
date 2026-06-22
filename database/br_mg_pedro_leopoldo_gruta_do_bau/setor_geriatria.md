@@ -89,7 +89,7 @@ mapas:
       y: 416
       comprimento: 32
       largura: 27
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 647
@@ -117,7 +117,7 @@ mapas:
       y: 485
       comprimento: 38
       largura: 28
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 617
@@ -216,12 +216,6 @@ mapas:
   - escalada: Papa Nicolau
     ids:
     - '07'
-  - escalada: Tira o Andador e Vai
-    ids:
-    - '8'
-  - escalada: Rupestre
-    ids:
-    - '9'
   - escalada: Losartana
     ids:
     - '10'

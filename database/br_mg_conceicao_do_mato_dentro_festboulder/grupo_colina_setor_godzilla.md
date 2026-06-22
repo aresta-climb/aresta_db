@@ -76,6 +76,31 @@ mapas:
       y: 440
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: King Kong
+    ids:
+    - '1'
+  - escalada: Gorilaz
+    ids:
+    - '2'
+  - escalada: Chimpanzé
+    ids:
+    - '3'
+  - escalada: Macaco Prego
+    ids:
+    - '1'
+  - escalada: Rolamento
+    ids:
+    - '2'
+  - escalada: Godzilla
+    ids:
+    - '3'
+  - escalada: Enxada
+    ids:
+    - '1'
+  - escalada: Obra de Arte
+    ids:
+    - '2'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p2.webp
   largura_mapa: 755
   altura_mapa: 531
@@ -94,6 +119,25 @@ mapas:
       y: 480
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: King Kong
+    ids:
+    - '1'
+  - escalada: Gorilaz
+    ids:
+    - '2'
+  - escalada: Macaco Prego
+    ids:
+    - '1'
+  - escalada: Rolamento
+    ids:
+    - '2'
+  - escalada: Enxada
+    ids:
+    - '1'
+  - escalada: Obra de Arte
+    ids:
+    - '2'
 escaladas:
 - boulder:
     nome: King Kong
@@ -120,7 +164,6 @@ escaladas:
     nome: Obra de Arte
     dificuldade: V9
 ---
-
 # Setor Godzilla
 
 O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.

@@ -54,14 +54,14 @@ mapas:
       y: 548
       comprimento: 21
       largura: 31
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 546
       y: 645
       comprimento: 22
       largura: 28
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 828
@@ -160,12 +160,6 @@ mapas:
   - escalada: Aranha Gato
     ids:
     - '07'
-  - escalada: Chapas Onorixicas
-    ids:
-    - '8'
-  - escalada: Tora Flex
-    ids:
-    - '9'
   - escalada: Totalflex
     ids:
     - '10'
@@ -277,7 +271,7 @@ mapas:
       y: 1148
       comprimento: 37
       largura: 28
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 811
@@ -312,7 +306,7 @@ mapas:
       y: 1290
       comprimento: 32
       largura: 26
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 628
@@ -333,6 +327,58 @@ mapas:
       y: 1311
       comprimento: 31
       largura: 30
+  referencias:
+  - escalada: Florestinha
+    ids:
+    - '01'
+  - escalada: Ação Total
+    ids:
+    - '02'
+  - escalada: Escravos da Pedra
+    ids:
+    - '03'
+  - escalada: Esquerdinha Caviar
+    ids:
+    - '04'
+  - escalada: Mônica
+    ids:
+    - '05'
+  - escalada: Queijo Suíço
+    ids:
+    - '06'
+  - escalada: Aranha Gato
+    ids:
+    - '07'
+  - escalada: Totalflex
+    ids:
+    - '10'
+  - escalada: Haja Broca
+    ids:
+    - '11'
+  - escalada: Juliana
+    ids:
+    - '12'
+  - escalada: Lisebra
+    ids:
+    - '13'
+  - escalada: Croque Monsieur
+    ids:
+    - '14'
+  - escalada: Playground
+    ids:
+    - '15'
+  - escalada: Depressão Pós Reforma
+    ids:
+    - '16'
+  - escalada: Chuvasca
+    ids:
+    - '17'
+  - escalada: Pau Oco
+    ids:
+    - '18'
+  - escalada: Franzinha
+    ids:
+    - '19'
 escaladas:
 - via_esportiva:
     nome: Florestinha

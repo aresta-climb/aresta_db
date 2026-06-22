@@ -7,7 +7,9 @@ import io
 MIGRATION_ID = 2
 
 yaml_parser = YAML()
+yaml_parser.default_flow_style = False
 yaml_parser.preserve_quotes = True
+yaml_parser.width = 90
 
 # Desativar aliases explicitamente para evitar caracteres lixo como *id001
 yaml_parser.representer.ignore_aliases = lambda *data: True
@@ -354,11 +356,12 @@ def migrar(croqui_dir: Path):
     
     for filename in list(files_data.keys()):
         process_file(filename)
-    
-    for filename, data in files_data.items():
+        
+    for filename in list(files_data.keys()):
+        data = files_data[filename]
         if "falhas" in data and data["falhas"]:
             FALHAS_MIGRACAO.extend(data["falhas"])
-        
+            
     if "croqui.yaml" in files_data:
         arquivos_modificados.add("croqui.yaml")
         

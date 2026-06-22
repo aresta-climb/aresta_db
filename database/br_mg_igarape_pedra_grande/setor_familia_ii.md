@@ -54,7 +54,7 @@ mapas:
       y: 606
       comprimento: 34
       largura: 39
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 902
@@ -75,7 +75,7 @@ mapas:
       y: 878
       comprimento: 42
       largura: 34
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 1166
@@ -104,12 +104,6 @@ mapas:
   - escalada: Marimbondes me Mordam
     ids:
     - '07'
-  - escalada: Sumchine
-    ids:
-    - '8'
-  - escalada: Cater Pillar
-    ids:
-    - '9'
   - escalada: Pula Um
     ids:
     - '10'
@@ -169,7 +163,7 @@ mapas:
       y: 1118
       comprimento: 30
       largura: 39
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 414
@@ -190,13 +184,41 @@ mapas:
       y: 1187
       comprimento: 31
       largura: 30
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 488
       y: 1223
       comprimento: 27
       largura: 28
+  referencias:
+  - escalada: Filhos da Revolução
+    ids:
+    - '01'
+  - escalada: Pedra Vermelha
+    ids:
+    - '02'
+  - escalada: Projeto
+    ids:
+    - '03'
+  - escalada: Projeto
+    ids:
+    - '04'
+  - escalada: (via inacabada)
+    ids:
+    - '05'
+  - escalada: Trinca Ferro
+    ids:
+    - '06'
+  - escalada: Marimbondes me Mordam
+    ids:
+    - '07'
+  - escalada: Pula Um
+    ids:
+    - '10'
+  - escalada: Cerro Azul
+    ids:
+    - '11'
 escaladas:
 - via_esportiva:
     nome: Filhos da Revolução

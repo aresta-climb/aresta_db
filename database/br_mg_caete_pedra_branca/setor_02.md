@@ -54,14 +54,14 @@ mapas:
       y: 464
       comprimento: 21
       largura: 21
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 470
       y: 464
       comprimento: 24
       largura: 21
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 516
@@ -118,12 +118,6 @@ mapas:
   - escalada: Via da Perereca
     ids:
     - '07'
-  - escalada: Barbarela
-    ids:
-    - '8'
-  - escalada: Ciganos Molhados
-    ids:
-    - '9'
   - escalada: Abominável Morcego Amestrado
     ids:
     - '10'

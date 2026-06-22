@@ -1,0 +1,84 @@
+- escalada: Linha de Frente
+  ids_procurados: '8'
+  setor_contexto: Setor Chegada
+- escalada: Helow (variante)
+  ids_procurados: '9'
+  setor_contexto: Setor Chegada
+- escalada: Estica e Clipa
+  ids_procurados: '8'
+  setor_contexto: Setor Onça
+- escalada: Pai Bravo
+  ids_procurados: '9'
+  setor_contexto: Setor Onça
+- escalada: Nem C/ Chuva a Gente Para
+  ids_procurados: '8'
+  setor_contexto: Setor Toca dos Gatos
+- escalada: Delicinha
+  ids_procurados: '8'
+  setor_contexto: Setor Intermediário
+- escalada: Uso Capial
+  ids_procurados: '8'
+  setor_contexto: Setor Vale das Sombras
+- escalada: Clara Morena
+  ids_procurados: '9'
+  setor_contexto: Setor Vale das Sombras
+- escalada: Guerra dos Côcos
+  ids_procurados: '8'
+  setor_contexto: Setor Parede dos Conflitos
+- escalada: Guerrilha do Araguaia
+  ids_procurados: '9'
+  setor_contexto: Setor Parede dos Conflitos
+- escalada: Efeito Moral
+  ids_procurados: '8'
+  setor_contexto: Setor Leão de Judah
+- escalada: Risco de Discórdia
+  ids_procurados: '9'
+  setor_contexto: Setor Leão de Judah
+- escalada: Xuxa Preta de Pains
+  ids_procurados: '8'
+  setor_contexto: Setor Antigo Camping
+- escalada: Brenfa Móvel
+  ids_procurados: '9'
+  setor_contexto: Setor Antigo Camping
+- escalada: Conexão 3G
+  ids_procurados: '8'
+  setor_contexto: Setor Beco do Tiú
+- escalada: Demorô+Saiu
+  ids_procurados: '9'
+  setor_contexto: Setor Beco do Tiú
+- escalada: Curupira
+  ids_procurados: '8'
+  setor_contexto: Setor Savassinha
+- escalada: Só Beleza
+  ids_procurados: '9'
+  setor_contexto: Setor Savassinha
+- escalada: Respeite os Mais Velhos
+  ids_procurados: '8'
+  setor_contexto: Setor Grutinha
+- escalada: Quem Ama Implanta
+  ids_procurados: '9'
+  setor_contexto: Setor Grutinha
+- escalada: Curte o Planeta que Você Vive
+  ids_procurados: '8'
+  setor_contexto: 1º Andar
+- escalada: Subaco da Zen
+  ids_procurados: '9'
+  setor_contexto: 1º Andar
+- escalada: Gardneria Angustata
+  ids_procurados: '8'
+  setor_contexto: 2º Andar
+- escalada: Vai e Volta e Vai
+  ids_procurados: '9'
+  setor_contexto: 2º Andar
+- escalada: Corte Profundo
+  ids_procurados: '8'
+  setor_contexto: Jardim Suspenso
+- escalada: Avenida Paulista
+  ids_procurados: '9'
+  setor_contexto: Jardim Suspenso
+- escalada: Iara
+  ids_procurados: '8'
+  setor_contexto: 3º Andar
+- escalada: Come Hamburguer
+  ids_procurados: '9'
+  setor_contexto: 3º Andar

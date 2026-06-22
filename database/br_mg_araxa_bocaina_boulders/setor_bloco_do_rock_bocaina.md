@@ -40,11 +40,13 @@ escaladas:
 - boulder:
     nome: Açaí Bocaina
     dificuldade: V5
-    descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue a aresta por cima virando no centro do bloco.
+    descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue a aresta 
+      por cima virando no centro do bloco.
 - boulder:
     nome: Rock Bocaina
     dificuldade: V8
-    descricao: Saida do acai bocaina, e segue travessia para direita por baixo dominando no final .
+    descricao: Saida do acai bocaina, e segue travessia para direita por baixo dominando 
+      no final .
 - boulder:
     nome: Dedão de Aquiles
     dificuldade: V3

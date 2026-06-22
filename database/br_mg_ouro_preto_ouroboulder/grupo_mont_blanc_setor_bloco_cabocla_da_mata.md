@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Cabocla da Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp
@@ -32,10 +32,12 @@ mapas:
   referencias:
   - escalada: Cabocla da Mata
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Caboclo das Sete Encruzilhadas
     ids:
-    - 2B
+    - '2'
+    - B
 escaladas:
 - boulder:
     nome: Cabocla da Mata
@@ -43,6 +45,5 @@ escaladas:
 - boulder:
     nome: Caboclo das Sete Encruzilhadas
     dificuldade: V5
----
-
+---
 

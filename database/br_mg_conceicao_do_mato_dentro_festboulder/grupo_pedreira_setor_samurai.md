@@ -60,6 +60,13 @@ mapas:
       y: 510
       comprimento: 30
       largura: 30
+  referencias:
+  - escalada: Purgatório
+    ids:
+    - '1'
+  - escalada: Ouro Branco
+    ids:
+    - '1'
 escaladas:
 - boulder:
     nome: Purgatório
@@ -77,7 +84,6 @@ escaladas:
     nome: Ouro Branco
     dificuldade: V7
 ---
-
 # Setor Samurai
 
 O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.

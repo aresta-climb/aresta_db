@@ -1,0 +1,81 @@
+- escalada: Macumba
+  ids_procurados: '1'
+  setor_contexto: O Vale
+- escalada: Macumbinha
+  ids_procurados: '2'
+  setor_contexto: O Vale
+- escalada: Garage Inc.
+  ids_procurados: '3'
+  setor_contexto: O Vale
+- escalada: Perereca suicida
+  ids_procurados: '4'
+  setor_contexto: O Vale
+- escalada: Via do Silas
+  ids_procurados: '5'
+  setor_contexto: O Vale
+- escalada: Inacabada
+  ids_procurados: '6'
+  setor_contexto: O Vale
+- escalada: Pela raiz
+  ids_procurados: '1'
+  setor_contexto: As Pilastras
+- escalada: Buraco de cobra
+  ids_procurados: '2'
+  setor_contexto: As Pilastras
+- escalada: Normal
+  ids_procurados: '3'
+  setor_contexto: As Pilastras
+- escalada: Bromélia
+  ids_procurados: '4'
+  setor_contexto: As Pilastras
+- escalada: Pur musgo
+  ids_procurados: '5'
+  setor_contexto: As Pilastras
+- escalada: Vai cabeça
+  ids_procurados: '6'
+  setor_contexto: As Pilastras
+- escalada: Silas and Tubarrão
+  ids_procurados: '7'
+  setor_contexto: As Pilastras
+- escalada: Projeto 8
+  ids_procurados: '8'
+  setor_contexto: As Pilastras
+- escalada: Projeto 9
+  ids_procurados: '9'
+  setor_contexto: As Pilastras
+- escalada: Projeto 10
+  ids_procurados: '10'
+  setor_contexto: As Pilastras
+- escalada: Madame satã
+  ids_procurados: '11'
+  setor_contexto: As Pilastras
+- escalada: Dançando com a Chuva
+  ids_procurados: '12'
+  setor_contexto: As Pilastras
+- escalada: Gambá xereta
+  ids_procurados: '13'
+  setor_contexto: As Pilastras
+- escalada: Top Rope
+  ids_procurados: '14'
+  setor_contexto: As Pilastras
+- escalada: Facinha
+  ids_procurados: '15'
+  setor_contexto: As Pilastras
+- escalada: Stuart Little
+  ids_procurados: '16'
+  setor_contexto: As Pilastras
+- escalada: Coisa do capeta
+  ids_procurados: '1'
+  setor_contexto: A Pedreira
+- escalada: Sabão crácrá
+  ids_procurados: '2'
+  setor_contexto: A Pedreira
+- escalada: Europa
+  ids_procurados: '3'
+  setor_contexto: A Pedreira
+- escalada: Fica à vontade
+  ids_procurados: '4'
+  setor_contexto: A Pedreira
+- escalada: Pe pra fora
+  ids_procurados: '5'
+  setor_contexto: A Pedreira

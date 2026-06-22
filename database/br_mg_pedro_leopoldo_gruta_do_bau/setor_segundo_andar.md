@@ -215,7 +215,7 @@ mapas:
       y: 616
       comprimento: 28
       largura: 22
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 283
@@ -229,7 +229,7 @@ mapas:
       y: 658
       comprimento: 31
       largura: 25
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 362

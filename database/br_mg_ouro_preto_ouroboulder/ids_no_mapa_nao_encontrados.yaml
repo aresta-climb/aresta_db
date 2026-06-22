@@ -1,0 +1,84 @@
+- escalada: No Montê
+  ids_procurados: 2C
+  setor_contexto: 'Bloco: João de Barro'
+  grupo_contexto: Pedreira
+- escalada: Larica
+  ids_procurados: 2C▲
+  setor_contexto: 'Bloco: Hora da Janta'
+  grupo_contexto: Pedreira
+- escalada: Sobremesa
+  ids_procurados: 2C★
+  setor_contexto: 'Bloco: Hora da Janta'
+  grupo_contexto: Pedreira
+- escalada: Babaloo
+  ids_procurados: '3'
+  setor_contexto: 'Bloco: Chicletes'
+  grupo_contexto: Pedreira
+- escalada: Mortal Kombat
+  ids_procurados: 2▲
+  setor_contexto: 'Bloco: Nave-Mãe'
+  grupo_contexto: Pedreira
+- escalada: Sub-Zero
+  ids_procurados: 2★
+  setor_contexto: 'Bloco: Nave-Mãe'
+  grupo_contexto: Pedreira
+- escalada: Raiden
+  ids_procurados: 3▲
+  setor_contexto: 'Bloco: Nave-Mãe'
+  grupo_contexto: Pedreira
+- escalada: Carcomendo
+  ids_procurados: 3★
+  setor_contexto: 'Bloco: Nave-Mãe'
+  grupo_contexto: Pedreira
+- escalada: Arestides ext
+  ids_procurados: 1D▲
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Nataraja
+  ids_procurados: 2B▲
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Nataraja
+  ids_procurados: 2A▲
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Sidarta
+  ids_procurados: 2B★
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Sidarta sds
+  ids_procurados: 3B★
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Deep Inside ext
+  ids_procurados: 4A▲
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Deep Inside
+  ids_procurados: 4B★
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Invertides
+  ids_procurados: 7A▲
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Promoção
+  ids_procurados: 7D
+  setor_contexto: 'Bloco: Deep Inside'
+  grupo_contexto: Pedreira
+- escalada: Toebogã
+  ids_procurados: 1B
+  setor_contexto: 'Bloco: O Pequeno'
+  grupo_contexto: Mont Blanc
+- escalada: Tobocrash
+  ids_procurados: 2B
+  setor_contexto: 'Bloco: O Pequeno'
+  grupo_contexto: Mont Blanc
+- escalada: Rouba Monte
+  ids_procurados: 2B
+  setor_contexto: 'Bloco: Crocância'
+  grupo_contexto: Bonsai
+- escalada: Rouba Monte
+  ids_procurados: 4B
+  setor_contexto: 'Bloco: Crocância'
+  grupo_contexto: Bonsai

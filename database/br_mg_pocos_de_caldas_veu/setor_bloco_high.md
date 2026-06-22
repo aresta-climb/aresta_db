@@ -2,22 +2,6 @@
 nome: Bloco High
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_high_p0_i0.webp
-  referencias:
-  - escalada: Raiz lateral
-    ids:
-    - '1'
-  - escalada: High Perrengue
-    ids:
-    - '2'
-  - escalada: Mundunga
-    ids:
-    - '3'
-  - escalada: ???
-    ids:
-    - '4'
-  - escalada: HighBolinha
-    ids:
-    - '5'
 escaladas:
 - boulder:
     nome: Raiz lateral

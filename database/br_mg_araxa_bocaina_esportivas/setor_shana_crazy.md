@@ -16,30 +16,6 @@ mapas:
   - escalada: Caroço de Manga
     ids:
     - '01'
-  - escalada: Caminho das pedras
-    ids:
-    - '02'
-  - escalada: Caminho das águas
-    ids:
-    - '03'
-  - escalada: Shana Crazy
-    ids:
-    - '04'
-  - escalada: Na racha
-    ids:
-    - '05'
-  - escalada: Lei Rounet
-    ids:
-    - '06'
-  - escalada: Maria da Penha
-    ids:
-    - '07'
-  - escalada: Para-raio de Maluco
-    ids:
-    - '8'
-  - escalada: Sandálias da Humildade
-    ids:
-    - '9'
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -72,6 +48,19 @@ mapas:
       y: 1169
       comprimento: 43
       largura: 36
+  referencias:
+  - escalada: Caminho das pedras
+    ids:
+    - '02'
+  - escalada: Caminho das águas
+    ids:
+    - '03'
+  - escalada: Shana Crazy
+    ids:
+    - '04'
+  - escalada: Na racha
+    ids:
+    - '05'
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
@@ -90,20 +79,27 @@ mapas:
       y: 1231
       comprimento: 37
       largura: 30
-  - id: 08
+  - id: '08'
     label: 08
     box:
       x: 833
       y: 1187
       comprimento: 40
       largura: 28
-  - id: 09
+  - id: '09'
     label: 09
     box:
       x: 992
       y: 1179
       comprimento: 42
       largura: 32
+  referencias:
+  - escalada: Lei Rounet
+    ids:
+    - '06'
+  - escalada: Maria da Penha
+    ids:
+    - '07'
 escaladas:
 - via_esportiva:
     nome: Caroço de Manga

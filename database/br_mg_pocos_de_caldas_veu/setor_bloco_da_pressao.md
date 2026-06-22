@@ -2,28 +2,6 @@
 nome: Bloco da Pressão
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_da_pressao_p0_i0.webp
-  referencias:
-  - escalada: Ponte de safena
-    ids:
-    - '1'
-  - escalada: Pressão baixa
-    ids:
-    - '2'
-  - escalada: Hipertensão
-    ids:
-    - '3'
-  - escalada: Pulsar
-    ids:
-    - '4'
-  - escalada: 13\9
-    ids:
-    - '5'
-  - escalada: 12\8
-    ids:
-    - '6'
-  - escalada: Pressão alta
-    ids:
-    - '7'
 escaladas:
 - boulder:
     nome: Ponte de safena

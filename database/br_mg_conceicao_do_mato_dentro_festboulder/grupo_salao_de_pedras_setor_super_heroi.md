@@ -60,7 +60,6 @@ escaladas:
     nome: Heroína
     dificuldade: V3
 ---
-
 # Setor Super Herói
 
 O setor Super Herói possui linhas clássicas em um bloco bem característico.

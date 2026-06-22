@@ -2,22 +2,6 @@
 nome: Pedra do Neri – Face das Aderências
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp
-  referencias:
-  - escalada: Queima de Arquivo
-    ids:
-    - '1'
-  - escalada: Aquidaban
-    ids:
-    - '2'
-  - escalada: Tempestade
-    ids:
-    - '3'
-  - escalada: Chuva de Verão
-    ids:
-    - '4'
-  - escalada: Brumas de Inverno
-    ids:
-    - '5'
 - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp
 escaladas:
 - via_esportiva:

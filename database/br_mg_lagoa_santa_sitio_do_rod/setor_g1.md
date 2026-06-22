@@ -189,7 +189,8 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por perto!**
+    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por 
+      perto!**
 - via_esportiva:
     nome: Não contavam com minha astucia
     dificuldade: BR_7B

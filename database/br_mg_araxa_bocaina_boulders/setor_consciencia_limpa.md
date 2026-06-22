@@ -26,15 +26,6 @@ mapas:
   - escalada: Sabiá
     ids:
     - '02'
-  - escalada: Consciência Limpa
-    ids:
-    - '03'
-  - escalada: Consciência
-    ids:
-    - '04'
-  - escalada: Mulheres Poderosas
-    ids:
-    - '05'
 - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p1.webp
   largura_mapa: 1099
   altura_mapa: 895
@@ -60,6 +51,16 @@ mapas:
       y: 687
       comprimento: 20
       largura: 20
+  referencias:
+  - escalada: Consciência Limpa
+    ids:
+    - '03'
+  - escalada: Consciência
+    ids:
+    - '04'
+  - escalada: Mulheres Poderosas
+    ids:
+    - '05'
 escaladas:
 - boulder:
     nome: Canarim
@@ -68,15 +69,18 @@ escaladas:
 - boulder:
     nome: Sabiá
     dificuldade: V1
-    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda da planta.
+    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda 
+      da planta.
 - boulder:
     nome: Consciência Limpa
     dificuldade: V2
-    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda proximo as pedras .
+    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda proximo 
+      as pedras .
 - boulder:
     nome: Consciência
     dificuldade: V1
-    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela aresta.
+    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela 
+      aresta.
 - boulder:
     nome: Mulheres Poderosas
     dificuldade: V2

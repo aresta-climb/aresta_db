@@ -9,7 +9,8 @@ escaladas:
     - Tonico Magalhães
     - Vicente Alvarenga
     data_abertura: '2013-07-19'
-    descricao: Via localizada na última parede do Vale do Roncador, após a parede das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
+    descricao: Via localizada na última parede do Vale do Roncador, após a parede das 
+      Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
 - via_movel:
     nome: Fissura Cachoeira Quente
     dificuldade: BR_6

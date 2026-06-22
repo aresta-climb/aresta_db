@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Longevidade'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp
@@ -44,40 +44,44 @@ mapas:
   referencias:
   - escalada: Areia nos Olhos
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Areia nos Olhos ext
     ids:
-    - 2A
+    - '2'
+    - A
   - escalada: Fala Você
     ids:
-    - 3B
+    - '3'
+    - B
   - escalada: De Olho na Vida
     ids:
-    - 3C
+    - '3'
+    - C
   - escalada: Fala Vida
     ids:
-    - 1A
+    - '1'
+    - A
   - escalada: Vida Curta
     ids:
-    - 1B
+    - '1'
+    - B
   - escalada: Sem Vida
     ids:
-    - 1C
+    - '1'
+    - C
   - escalada: Arenito
     ids:
-    - 2C
+    - '2'
+    - C
   - escalada: Vida Longa
     ids:
-    - 3A
+    - '3'
+    - A
   - escalada: Longevidade
     ids:
-    - 3C
-  - escalada: Guerreiro Jedi
-    ids:
-    - 3D
-  - escalada: Jedi
-    ids:
-    - 4D
+    - '3'
+    - C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -130,6 +134,55 @@ mapas:
       x: 1378
       y: 835
       raio: 13
+  referencias:
+  - escalada: Areia nos Olhos
+    ids:
+    - '1'
+    - A
+  - escalada: Areia nos Olhos ext
+    ids:
+    - '2'
+    - A
+  - escalada: Fala Você
+    ids:
+    - '3'
+    - B
+  - escalada: De Olho na Vida
+    ids:
+    - '3'
+    - C
+  - escalada: Fala Vida
+    ids:
+    - '1'
+    - A
+  - escalada: Vida Curta
+    ids:
+    - '1'
+    - B
+  - escalada: Sem Vida
+    ids:
+    - '1'
+    - C
+  - escalada: Arenito
+    ids:
+    - '2'
+    - C
+  - escalada: Vida Longa
+    ids:
+    - '3'
+    - A
+  - escalada: Longevidade
+    ids:
+    - '3'
+    - C
+  - escalada: Guerreiro Jedi
+    ids:
+    - '3'
+    - D
+  - escalada: Jedi
+    ids:
+    - '4'
+    - D
 escaladas:
 - boulder:
     nome: Areia nos Olhos
@@ -167,6 +220,5 @@ escaladas:
 - boulder:
     nome: Jedi
     dificuldade: V10
----
-
+---
 

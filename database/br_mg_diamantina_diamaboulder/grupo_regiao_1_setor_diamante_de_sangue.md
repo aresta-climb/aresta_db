@@ -29,7 +29,8 @@ escaladas:
     nome: Diamante de Sangue
     dificuldade: V6_BARRA_V7
     tipo_parede: NEGATIVO
-    descricao: Saída nos pockets mais baixos da face negativa, seguindo por regletes e pockets até finalizar no positivo de abaulados.
+    descricao: Saída nos pockets mais baixos da face negativa, seguindo por regletes e 
+      pockets até finalizar no positivo de abaulados.
 ---
 # Bloco: Diamante de Sangue
 ## Região 1

@@ -63,9 +63,6 @@ mapas:
   - escalada: Nave
     ids:
     - '4'
-  - escalada: Camaroa
-    ids:
-    - '5'
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
   largura_mapa: 835
   altura_mapa: 606
@@ -76,6 +73,10 @@ mapas:
       x: 462
       y: 480
       raio: 10
+  referencias:
+  - escalada: Camaroa
+    ids:
+    - '5'
 ---
 
 # Bloco Camaroa

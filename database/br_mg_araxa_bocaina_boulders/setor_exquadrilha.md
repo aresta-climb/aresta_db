@@ -60,19 +60,23 @@ escaladas:
 - boulder:
     nome: Fumaça Sagrada
     dificuldade: V7
-    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente grande e segue pelo Exquadrilha da Fumaça.
+    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente grande e
+      segue pelo Exquadrilha da Fumaça.
 - boulder:
     nome: Exquadrilha da Fumaça
     dificuldade: V5
-    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para direita em agarrão virando na lateral no bloco.
+    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para 
+      direita em agarrão virando na lateral no bloco.
 - boulder:
     nome: Quadrilha da Fumaça
     dificuldade: V4
-    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando a direita do bloco.
+    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando a 
+      direita do bloco.
 - boulder:
     nome: Planet Hemp
     dificuldade: V5
-    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando reto proa.
+    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando reto 
+      proa.
 - boulder:
     nome: Cypress Hill
     dificuldade: V6
