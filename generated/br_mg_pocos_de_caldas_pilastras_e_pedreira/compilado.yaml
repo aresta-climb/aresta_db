@@ -9,25 +9,6 @@ picos:
         nome: O Vale
         mapas:
         - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
-          referencias:
-          - escalada: Macumba
-            ids:
-            - '1'
-          - escalada: Macumbinha
-            ids:
-            - '2'
-          - escalada: Garage Inc.
-            ids:
-            - '3'
-          - escalada: Perereca suicida
-            ids:
-            - '4'
-          - escalada: Via do Silas
-            ids:
-            - '5'
-          - escalada: Inacabada
-            ids:
-            - '6'
           largura_mapa: 1032
           altura_mapa: 581
         - caminho_imagem_mapa: imagens/setor_o_vale_p1_i1.webp
@@ -63,55 +44,6 @@ picos:
         nome: As Pilastras
         mapas:
         - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
-          referencias:
-          - escalada: Pela raiz
-            ids:
-            - '1'
-          - escalada: Buraco de cobra
-            ids:
-            - '2'
-          - escalada: Normal
-            ids:
-            - '3'
-          - escalada: Bromélia
-            ids:
-            - '4'
-          - escalada: Pur musgo
-            ids:
-            - '5'
-          - escalada: Vai cabeça
-            ids:
-            - '6'
-          - escalada: Silas and Tubarrão
-            ids:
-            - '7'
-          - escalada: Projeto 8
-            ids:
-            - '8'
-          - escalada: Projeto 9
-            ids:
-            - '9'
-          - escalada: Projeto 10
-            ids:
-            - '10'
-          - escalada: Madame satã
-            ids:
-            - '11'
-          - escalada: Dançando com a Chuva
-            ids:
-            - '12'
-          - escalada: Gambá xereta
-            ids:
-            - '13'
-          - escalada: Top Rope
-            ids:
-            - '14'
-          - escalada: Facinha
-            ids:
-            - '15'
-          - escalada: Stuart Little
-            ids:
-            - '16'
           largura_mapa: 1032
           altura_mapa: 581
         escaladas:
@@ -179,22 +111,6 @@ picos:
         nome: A Pedreira
         mapas:
         - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
-          referencias:
-          - escalada: Coisa do capeta
-            ids:
-            - '1'
-          - escalada: Sabão crácrá
-            ids:
-            - '2'
-          - escalada: Europa
-            ids:
-            - '3'
-          - escalada: Fica à vontade
-            ids:
-            - '4'
-          - escalada: Pe pra fora
-            ids:
-            - '5'
           largura_mapa: 910
           altura_mapa: 388
         - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp

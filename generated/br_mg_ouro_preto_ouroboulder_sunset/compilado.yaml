@@ -149,18 +149,6 @@ picos:
                   y: 12
                   raio: 9
               referencias:
-              - escalada: Amnesia
-                ids:
-                - 1_b
-                - x_b
-              - escalada: Capitão Jack
-                ids:
-                - '2'
-                - y
-              - escalada: Purple Rase
-                ids:
-                - '3'
-                - x_b
               - escalada: Sunshine
                 ids:
                 - '1'
@@ -199,6 +187,19 @@ picos:
                   x: 562
                   y: 15
                   raio: 9
+              referencias:
+              - escalada: Amnesia
+                ids:
+                - 1_b
+                - x_b
+              - escalada: Capitão Jack
+                ids:
+                - '2'
+                - y
+              - escalada: Purple Rase
+                ids:
+                - '3'
+                - x_b
             descricao: '# Bloco Capitão Jack'
         - conteudo:
             nome: Jahngada
@@ -266,10 +267,6 @@ picos:
                 ids:
                 - '3'
                 - y
-              - escalada: Camundongo
-                ids:
-                - '4'
-                - z
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
               largura_mapa: 445
               altura_mapa: 399
@@ -286,6 +283,11 @@ picos:
                   x: 214
                   y: 111
                   raio: 9
+              referencias:
+              - escalada: Camundongo
+                ids:
+                - '4'
+                - z
             descricao: '# Bloco Jahngada'
         - conteudo:
             nome: Planetário
@@ -333,26 +335,6 @@ picos:
                 ids:
                 - '1'
                 - x
-              - escalada: Náufrago
-                ids:
-                - '2'
-                - y
-              - escalada: Golfinho
-                ids:
-                - '3'
-                - z
-              - escalada: Clarete
-                ids:
-                - '4'
-                - w
-              - escalada: Odisséia na Babilônia
-                ids:
-                - 1_b
-                - x_b
-              - escalada: Canais da Babilônia
-                ids:
-                - 1_b
-                - y_b
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
               largura_mapa: 829
               altura_mapa: 486
@@ -393,6 +375,19 @@ picos:
                   x: 614
                   y: 42
                   raio: 10
+              referencias:
+              - escalada: Náufrago
+                ids:
+                - '2'
+                - y
+              - escalada: Golfinho
+                ids:
+                - '3'
+                - z
+              - escalada: Clarete
+                ids:
+                - '4'
+                - w
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
               largura_mapa: 850
               altura_mapa: 522
@@ -415,6 +410,15 @@ picos:
                   x: 585
                   y: 6
                   raio: 8
+              referencias:
+              - escalada: Odisséia na Babilônia
+                ids:
+                - 1_b
+                - x_b
+              - escalada: Canais da Babilônia
+                ids:
+                - 1_b
+                - y_b
             descricao: '# Bloco Planetário'
         - conteudo:
             nome: Free Solo
@@ -477,18 +481,6 @@ picos:
                 ids:
                 - '3'
                 - Z
-              - escalada: Free Solo
-                ids:
-                - '1'
-              - escalada: Tartaruga
-                ids:
-                - 2_b
-              - escalada: Mobilete
-                ids:
-                - 3_b
-              - escalada: Walkmachine
-                ids:
-                - '4'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
               largura_mapa: 839
               altura_mapa: 460
@@ -517,6 +509,19 @@ picos:
                   x: 743
                   y: 356
                   raio: 9
+              referencias:
+              - escalada: Free Solo
+                ids:
+                - '1'
+              - escalada: Tartaruga
+                ids:
+                - 2_b
+              - escalada: Mobilete
+                ids:
+                - 3_b
+              - escalada: Walkmachine
+                ids:
+                - '4'
             descricao: '# Bloco Free Solo'
         - conteudo:
             nome: Carrapicho
@@ -560,15 +565,6 @@ picos:
               - escalada: Carrapicho
                 ids:
                 - '2'
-              - escalada: Oratório
-                ids:
-                - '3'
-              - escalada: Pistol
-                ids:
-                - '4'
-              - escalada: Dart Vader
-                ids:
-                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
               largura_mapa: 399
               altura_mapa: 309
@@ -591,6 +587,16 @@ picos:
                   x: 54
                   y: 194
                   raio: 9
+              referencias:
+              - escalada: Oratório
+                ids:
+                - '3'
+              - escalada: Pistol
+                ids:
+                - '4'
+              - escalada: Dart Vader
+                ids:
+                - '5'
             descricao: '# Bloco Carrapicho'
         - conteudo:
             nome: Sunset
@@ -642,15 +648,9 @@ picos:
               - escalada: Faxineiro do Universo
                 ids:
                 - '2'
-              - escalada: Arestinha Vibration
-                ids:
-                - '3'
               - escalada: Sujeirinha
                 ids:
                 - '4'
-              - escalada: Projeto Sunset
-                ids:
-                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
               largura_mapa: 488
               altura_mapa: 648
@@ -661,6 +661,10 @@ picos:
                   x: 195
                   y: 554
                   raio: 9
+              referencias:
+              - escalada: Arestinha Vibration
+                ids:
+                - '3'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
               largura_mapa: 338
               altura_mapa: 456
@@ -671,6 +675,10 @@ picos:
                   x: 246
                   y: 386
                   raio: 9
+              referencias:
+              - escalada: Projeto Sunset
+                ids:
+                - '5'
             descricao: '# Bloco Sunset'
         - conteudo:
             nome: Camaroa
@@ -737,9 +745,6 @@ picos:
               - escalada: Nave
                 ids:
                 - '4'
-              - escalada: Camaroa
-                ids:
-                - '5'
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
               largura_mapa: 835
               altura_mapa: 606
@@ -750,6 +755,10 @@ picos:
                   x: 462
                   y: 480
                   raio: 10
+              referencias:
+              - escalada: Camaroa
+                ids:
+                - '5'
             descricao: '# Bloco Camaroa'
         descricao: '# Grupo Sunset
 

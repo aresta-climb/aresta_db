@@ -1150,12 +1150,6 @@ picos:
           - escalada: Tico Tico Space
             ids:
             - '07'
-          - escalada: O Basilisco de Slytherin
-            ids:
-            - '8'
-          - escalada: Disparada
-            ids:
-            - '9'
           - escalada: Judy
             ids:
             - '10'
@@ -2606,12 +2600,6 @@ picos:
           - escalada: Despedida de Solteiro
             ids:
             - '07'
-          - escalada: Primeira Batida
-            ids:
-            - '8'
-          - escalada: Menino de Toca
-            ids:
-            - '9'
           - escalada: Via sem informação
             ids:
             - '10'
@@ -3184,12 +3172,6 @@ picos:
           - escalada: Menor Abandonado
             ids:
             - '07'
-          - escalada: Contagem Regressiva
-            ids:
-            - '8'
-          - escalada: Woodstock
-            ids:
-            - '9'
           - escalada: Gruda mas não Garra
             ids:
             - '10'
@@ -3800,12 +3782,6 @@ picos:
           - escalada: Tá Chovendo Carrapato
             ids:
             - '07'
-          - escalada: Tá Esperando o quê?
-            ids:
-            - '8'
-          - escalada: Quem Sabe ano que Vem
-            ids:
-            - '9'
           - escalada: Eau Rouge
             ids:
             - '10'
@@ -4530,12 +4506,6 @@ picos:
           - escalada: Papa Nicolau
             ids:
             - '07'
-          - escalada: Tira o Andador e Vai
-            ids:
-            - '8'
-          - escalada: Rupestre
-            ids:
-            - '9'
           - escalada: Losartana
             ids:
             - '10'
@@ -5035,12 +5005,6 @@ picos:
           - escalada: Tetris
             ids:
             - '07'
-          - escalada: Fenda Gerações
-            ids:
-            - '8'
-          - escalada: Encontros Temporais
-            ids:
-            - '9'
           - escalada: Golpe de Mestre
             ids:
             - '10'
@@ -5493,12 +5457,6 @@ picos:
           - escalada: Lanterninha
             ids:
             - '07'
-          - escalada: Navio Fantasma
-            ids:
-            - '8'
-          - escalada: Pata Afiada
-            ids:
-            - '9'
           - escalada: 1ª Fila
             ids:
             - '10'
@@ -5803,12 +5761,6 @@ picos:
           - escalada: Highlander
             ids:
             - '07'
-          - escalada: Rayovac
-            ids:
-            - '8'
-          - escalada: O Corpo Ainda é Pouco
-            ids:
-            - '9'
           - escalada: Belos e Malditos
             ids:
             - '10'
@@ -6286,12 +6238,6 @@ picos:
           - escalada: No Pescoço do Jacaré
             ids:
             - '07'
-          - escalada: Retorno de Borges
-            ids:
-            - '8'
-          - escalada: 3º Pecado Capital
-            ids:
-            - '9'
           - escalada: Orifícios do Ofício
             ids:
             - '10'

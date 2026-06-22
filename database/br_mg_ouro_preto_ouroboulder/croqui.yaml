@@ -67,3 +67,4 @@ botoes:
     secao_textual:
       caminho: contatos.md
 ultima_migracao: 2
+publicar_croqui: true

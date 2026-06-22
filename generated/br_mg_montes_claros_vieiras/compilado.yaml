@@ -10,49 +10,6 @@ picos:
         nome: Vieiras
         mapas:
         - caminho_imagem_mapa: imagens/setor_vieiras_p0_i0.webp
-          referencias:
-          - escalada: Brinquedim
-            ids:
-            - '1'
-          - escalada: Daime Vida
-            ids:
-            - '2'
-          - escalada: Possuidos
-            ids:
-            - '3'
-          - escalada: Sangue Venoso
-            ids:
-            - '4'
-          - escalada: Sinestesia
-            ids:
-            - '5'
-          - escalada: Cartesiana
-            ids:
-            - '6'
-          - escalada: Neandertal
-            ids:
-            - '7'
-          - escalada: Alucinógena
-            ids:
-            - '8'
-          - escalada: Vaca Loca
-            ids:
-            - '9'
-          - escalada: São Miguel
-            ids:
-            - '10'
-          - escalada: Um real
-            ids:
-            - '11'
-          - escalada: Faxineira
-            ids:
-            - '12'
-          - escalada: Me Deixa Queto
-            ids:
-            - '13'
-          - escalada: Ratazana
-            ids:
-            - '14'
           largura_mapa: 2048
           altura_mapa: 1489
         - caminho_imagem_mapa: imagens/setor_vieiras_p1_i0.webp

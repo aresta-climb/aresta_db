@@ -550,23 +550,28 @@
             - **[0]**:
               - **escalada**: Travessia ext
               - **ids**:
-                - 1C/1E
+                - 1
+                - C
             - **[1]**:
               - **escalada**: Travessia
               - **ids**:
-                - 2C/2E
+                - 2
+                - C
             - **[2]**:
               - **escalada**: Enjambrado
               - **ids**:
-                - 3A/3C
+                - 3
+                - A
             - **[3]**:
               - **escalada**: Face Vertical
               - **ids**:
-                - 4B/4D
+                - 4
+                - B
             - **[4]**:
               - **escalada**: Será
               - **ids**:
-                - 5C/5E
+                - 5
+                - C
             - **[5]**:
               - **escalada**: Bem-vindo ao Climb
               - **ids**:
@@ -574,11 +579,13 @@
             - **[6]**:
               - **escalada**: Monodedo
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[7]**:
               - **escalada**: Movimentos Eróticos
               - **ids**:
-                - 2B
+                - 2
+                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
           - **largura_mapa**: 1575
@@ -654,6 +661,42 @@
                 - **x**: 1491
                 - **y**: 750
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Travessia ext
+              - **ids**:
+                - 1
+                - E
+            - **[1]**:
+              - **escalada**: Travessia
+              - **ids**:
+                - 2
+                - E
+            - **[2]**:
+              - **escalada**: Enjambrado
+              - **ids**:
+                - 3
+                - C
+            - **[3]**:
+              - **escalada**: Face Vertical
+              - **ids**:
+                - 4
+                - D
+            - **[4]**:
+              - **escalada**: Será
+              - **ids**:
+                - 5
+                - E
+            - **[5]**:
+              - **escalada**: Monodedo
+              - **ids**:
+                - 2
+                - A
+            - **[6]**:
+              - **escalada**: Movimentos Eróticos
+              - **ids**:
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -708,8 +751,8 @@
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1016
-                - **y**: 314
+                - **x**: 1010
+                - **y**: 320
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
@@ -729,15 +772,18 @@
             - **[0]**:
               - **escalada**: De Jah
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Jah
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Invertido
               - **ids**:
-                - 2B
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -807,19 +853,23 @@
             - **[0]**:
               - **escalada**: Sauna Seca
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Sauna Úmida
               - **ids**:
-                - 2B
+                - 2
+                - B
             - **[2]**:
               - **escalada**: Sauna Mista
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[3]**:
               - **escalada**: Sauna a Vapor
               - **ids**:
-                - 3C
+                - 3
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -873,35 +923,28 @@
             - **[0]**:
               - **escalada**: Porra Nenhuma
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Ringue
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Arco Magmático
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[3]**:
               - **escalada**: Du Mussula
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[4]**:
-              - **escalada**: No Montê
-              - **ids**:
-                - 2C
-            - **[5]**:
               - **escalada**: Bola 7
               - **ids**:
-                - 1A
-            - **[6]**:
-              - **escalada**: Morcegão
-              - **ids**:
-                - 2A
-            - **[7]**:
-              - **escalada**: João de Barro
-              - **ids**:
-                - 2B
+                - 1
+                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
           - **largura_mapa**: 1575
@@ -954,6 +997,42 @@
                 - **x**: 1358
                 - **y**: 104
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porra Nenhuma
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Ringue
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Arco Magmático
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Du Mussula
+              - **ids**:
+                - 1
+                - B
+            - **[4]**:
+              - **escalada**: Bola 7
+              - **ids**:
+                - 1
+                - A
+            - **[5]**:
+              - **escalada**: Morcegão
+              - **ids**:
+                - 2
+                - A
+            - **[6]**:
+              - **escalada**: João de Barro
+              - **ids**:
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1038,15 +1117,20 @@
             - **[0]**:
               - **escalada**: Mata-Mata
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Mata-Mata ext
               - **ids**:
-                - 2A▲
+                - 2
+                - A
+                - ▲
             - **[2]**:
               - **escalada**: 001
               - **ids**:
-                - 2A★
+                - 2
+                - A
+                - ★
             - **[3]**:
               - **escalada**: Sem as Mãos
               - **ids**:
@@ -1056,22 +1140,18 @@
               - **ids**:
                 - 2
             - **[5]**:
-              - **escalada**: Risada
-              - **ids**:
-                - 3
-            - **[6]**:
               - **escalada**: Batentes
               - **ids**:
                 - 1
-            - **[7]**:
+            - **[6]**:
               - **escalada**: Regletes
               - **ids**:
                 - 2
-            - **[8]**:
+            - **[7]**:
               - **escalada**: Cocal é Gueto
               - **ids**:
                 - 1
-            - **[9]**:
+            - **[8]**:
               - **escalada**: 002
               - **ids**:
                 - 2
@@ -1101,6 +1181,35 @@
                 - **x**: 1243
                 - **y**: 938
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sem as Mãos
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ética
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Risada
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Batentes
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Regletes
+              - **ids**:
+                - 2
+            - **[5]**:
+              - **escalada**: Cocal é Gueto
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: 002
+              - **ids**:
+                - 2
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
           - **largura_mapa**: 1575
@@ -1120,6 +1229,31 @@
                 - **x**: 1404
                 - **y**: 691
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sem as Mãos
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ética
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Batentes
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Regletes
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Cocal é Gueto
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: 002
+              - **ids**:
+                - 2
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
           - **largura_mapa**: 1576
@@ -1139,6 +1273,31 @@
                 - **x**: 962
                 - **y**: 890
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sem as Mãos
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ética
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Batentes
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Regletes
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Cocal é Gueto
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: 002
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1222,11 +1381,13 @@
             - **[0]**:
               - **escalada**: Albino
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Encardido
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Bob
               - **ids**:
@@ -1234,19 +1395,13 @@
             - **[3]**:
               - **escalada**: Reto
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[4]**:
               - **escalada**: Dor nas Costas
               - **ids**:
-                - 1B
-            - **[5]**:
-              - **escalada**: Albino
-              - **ids**:
-                - 2C
-            - **[6]**:
-              - **escalada**: Encardido
-              - **ids**:
-                - 2D
+                - 1
+                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
           - **largura_mapa**: 1575
@@ -1294,6 +1449,41 @@
                 - **x**: 1062
                 - **y**: 770
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Bob
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: Reto
+              - **ids**:
+                - 1
+                - A
+            - **[4]**:
+              - **escalada**: Dor nas Costas
+              - **ids**:
+                - 1
+                - B
+            - **[5]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 2
+                - C
+            - **[6]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 2
+                - D
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1379,27 +1569,37 @@
             - **[0]**:
               - **escalada**: Flying Horse
               - **ids**:
-                - 1A▲
+                - 1
+                - A
+                - ▲
             - **[1]**:
               - **escalada**: Pingado
               - **ids**:
-                - 1A★
+                - 1
+                - A
+                - ★
             - **[2]**:
               - **escalada**: Expresso
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[3]**:
               - **escalada**: Macchiato
               - **ids**:
-                - 2A▲
+                - 2
+                - A
+                - ▲
             - **[4]**:
               - **escalada**: Red Bull
               - **ids**:
-                - 2A★
+                - 2
+                - A
+                - ★
             - **[5]**:
               - **escalada**: Mad Dog
               - **ids**:
-                - 2B
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1503,99 +1703,73 @@
             - **[2]**:
               - **escalada**: Doce de Leite
               - **ids**:
-                - 3B/2B
+                - 3
+                - B
             - **[3]**:
               - **escalada**: Panamá
               - **ids**:
-                - 4A/1A
+                - 4
+                - A
             - **[4]**:
               - **escalada**: Doce de Leite sds
               - **ids**:
-                - 4B/1B
+                - 4
+                - B
             - **[5]**:
               - **escalada**: Rocambole
               - **ids**:
-                - 5B/3B
+                - 5
+                - B
             - **[6]**:
               - **escalada**: Falha Humana
               - **ids**:
-                - 6B/4B
+                - 6
+                - B
             - **[7]**:
-              - **escalada**: Teiú
-              - **ids**:
-                - 1C
-            - **[8]**:
-              - **escalada**: Rabo de Lagartixa
-              - **ids**:
-                - 4C
-            - **[9]**:
               - **escalada**: Camaleão
               - **ids**:
-                - 5B
-            - **[10]**:
-              - **escalada**: Lagartixa
-              - **ids**:
-                - 5C
-            - **[11]**:
+                - 5
+                - B
+            - **[8]**:
               - **escalada**: Rabo de Camaleão
               - **ids**:
-                - 6B
-            - **[12]**:
-              - **escalada**: Lagartixa sem Rabo
-              - **ids**:
-                - 6C
-            - **[13]**:
+                - 6
+                - B
+            - **[9]**:
               - **escalada**: Guerreiro
               - **ids**:
-                - 1A
-            - **[14]**:
+                - 1
+                - A
+            - **[10]**:
               - **escalada**: Major
               - **ids**:
-                - 2A
-            - **[15]**:
-              - **escalada**: Geoterapia
-              - **ids**:
-                - 2D
-            - **[16]**:
+                - 2
+                - A
+            - **[11]**:
               - **escalada**: Nativo
               - **ids**:
-                - 3B
-            - **[17]**:
+                - 3
+                - B
+            - **[12]**:
               - **escalada**: Protesto
               - **ids**:
-                - 4A
-            - **[18]**:
-              - **escalada**: Cadena Imaginária
-              - **ids**:
-                - 4D
-            - **[19]**:
+                - 4
+                - A
+            - **[13]**:
               - **escalada**: Golpe Militar
               - **ids**:
-                - 5A
-            - **[20]**:
+                - 5
+                - A
+            - **[14]**:
               - **escalada**: Aurora Explosion
               - **ids**:
-                - 5B
-            - **[21]**:
-              - **escalada**: Escravos da Pedra
-              - **ids**:
-                - 5D
-            - **[22]**:
+                - 5
+                - B
+            - **[15]**:
               - **escalada**: Ditadvor
               - **ids**:
-                - 6A
-            - **[23]**:
-              - **escalada**: Lobo Mau
-              - **ids**:
-                - 6D
-            - **[24]**:
-              - **escalada**: Coronel
-              - **ids**:
-                - 7A
-            - **[25]**:
-              - **escalada**: Chapeuzinho Vermelho
-              - **ids**:
-                - 7C
+                - 6
+                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
           - **largura_mapa**: 1575
@@ -1664,6 +1838,105 @@
                 - **x**: 966
                 - **y**: 870
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Last Samurai
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Samurai
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Doce de Leite
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Panamá
+              - **ids**:
+                - 1
+                - A
+            - **[4]**:
+              - **escalada**: Doce de Leite sds
+              - **ids**:
+                - 1
+                - B
+            - **[5]**:
+              - **escalada**: Rocambole
+              - **ids**:
+                - 3
+                - B
+            - **[6]**:
+              - **escalada**: Falha Humana
+              - **ids**:
+                - 4
+                - B
+            - **[7]**:
+              - **escalada**: Teiú
+              - **ids**:
+                - 1
+                - C
+            - **[8]**:
+              - **escalada**: Rabo de Lagartixa
+              - **ids**:
+                - 4
+                - C
+            - **[9]**:
+              - **escalada**: Camaleão
+              - **ids**:
+                - 5
+                - B
+            - **[10]**:
+              - **escalada**: Lagartixa
+              - **ids**:
+                - 5
+                - C
+            - **[11]**:
+              - **escalada**: Rabo de Camaleão
+              - **ids**:
+                - 6
+                - B
+            - **[12]**:
+              - **escalada**: Lagartixa sem Rabo
+              - **ids**:
+                - 6
+                - C
+            - **[13]**:
+              - **escalada**: Guerreiro
+              - **ids**:
+                - 1
+                - A
+            - **[14]**:
+              - **escalada**: Major
+              - **ids**:
+                - 2
+                - A
+            - **[15]**:
+              - **escalada**: Nativo
+              - **ids**:
+                - 3
+                - B
+            - **[16]**:
+              - **escalada**: Protesto
+              - **ids**:
+                - 4
+                - A
+            - **[17]**:
+              - **escalada**: Golpe Militar
+              - **ids**:
+                - 5
+                - A
+            - **[18]**:
+              - **escalada**: Aurora Explosion
+              - **ids**:
+                - 5
+                - B
+            - **[19]**:
+              - **escalada**: Ditadvor
+              - **ids**:
+                - 6
+                - A
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
           - **largura_mapa**: 1576
@@ -1746,6 +2019,110 @@
                 - **x**: 1172
                 - **y**: 835
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Last Samurai
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Samurai
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Teiú
+              - **ids**:
+                - 1
+                - C
+            - **[3]**:
+              - **escalada**: Rabo de Lagartixa
+              - **ids**:
+                - 4
+                - C
+            - **[4]**:
+              - **escalada**: Camaleão
+              - **ids**:
+                - 5
+                - B
+            - **[5]**:
+              - **escalada**: Lagartixa
+              - **ids**:
+                - 5
+                - C
+            - **[6]**:
+              - **escalada**: Rabo de Camaleão
+              - **ids**:
+                - 6
+                - B
+            - **[7]**:
+              - **escalada**: Lagartixa sem Rabo
+              - **ids**:
+                - 6
+                - C
+            - **[8]**:
+              - **escalada**: Guerreiro
+              - **ids**:
+                - 1
+                - A
+            - **[9]**:
+              - **escalada**: Major
+              - **ids**:
+                - 2
+                - A
+            - **[10]**:
+              - **escalada**: Geoterapia
+              - **ids**:
+                - 2
+                - D
+            - **[11]**:
+              - **escalada**: Nativo
+              - **ids**:
+                - 3
+                - B
+            - **[12]**:
+              - **escalada**: Protesto
+              - **ids**:
+                - 4
+                - A
+            - **[13]**:
+              - **escalada**: Cadena Imaginária
+              - **ids**:
+                - 4
+                - D
+            - **[14]**:
+              - **escalada**: Golpe Militar
+              - **ids**:
+                - 5
+                - A
+            - **[15]**:
+              - **escalada**: Aurora Explosion
+              - **ids**:
+                - 5
+                - B
+            - **[16]**:
+              - **escalada**: Escravos da Pedra
+              - **ids**:
+                - 5
+                - D
+            - **[17]**:
+              - **escalada**: Ditadvor
+              - **ids**:
+                - 6
+                - A
+            - **[18]**:
+              - **escalada**: Lobo Mau
+              - **ids**:
+                - 6
+                - D
+            - **[19]**:
+              - **escalada**: Coronel
+              - **ids**:
+                - 7
+                - A
+            - **[20]**:
+              - **escalada**: Chapeuzinho Vermelho
+              - **ids**:
+                - 7
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1893,30 +2270,18 @@
               - **ids**:
                 - 2
             - **[4]**:
-              - **escalada**: Pressão no Vovô
-              - **ids**:
-                - 3
-            - **[5]**:
-              - **escalada**: Pressão dos Barbosa
-              - **ids**:
-                - 4
-            - **[6]**:
               - **escalada**: Helicoidal
               - **ids**:
                 - 1
-            - **[7]**:
+            - **[5]**:
               - **escalada**: Em Busca do Equilíbrio
               - **ids**:
                 - 2
-            - **[8]**:
-              - **escalada**: Em Busca do Equilíbrio sds
-              - **ids**:
-                - 3
-            - **[9]**:
+            - **[6]**:
               - **escalada**: Brígida
               - **ids**:
                 - 1
-            - **[10]**:
+            - **[7]**:
               - **escalada**: Carranca
               - **ids**:
                 - 2
@@ -1953,6 +2318,51 @@
                 - **x**: 710
                 - **y**: 723
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ianque
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Apache
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Garoto Andrada
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Embalados pelo Vovô
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Pressão no Vovô
+              - **ids**:
+                - 3
+            - **[5]**:
+              - **escalada**: Pressão dos Barbosa
+              - **ids**:
+                - 4
+            - **[6]**:
+              - **escalada**: Helicoidal
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Em Busca do Equilíbrio
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: Em Busca do Equilíbrio sds
+              - **ids**:
+                - 3
+            - **[9]**:
+              - **escalada**: Brígida
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: Carranca
+              - **ids**:
+                - 2
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
           - **largura_mapa**: 1575
@@ -1979,6 +2389,47 @@
                 - **x**: 510
                 - **y**: 940
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ianque
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Apache
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Garoto Andrada
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Embalados pelo Vovô
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Pressão no Vovô
+              - **ids**:
+                - 3
+            - **[5]**:
+              - **escalada**: Helicoidal
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Em Busca do Equilíbrio
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Em Busca do Equilíbrio sds
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Brígida
+              - **ids**:
+                - 1
+            - **[9]**:
+              - **escalada**: Carranca
+              - **ids**:
+                - 2
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
           - **largura_mapa**: 1576
@@ -1998,6 +2449,39 @@
                 - **x**: 766
                 - **y**: 886
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ianque
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Apache
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Garoto Andrada
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Embalados pelo Vovô
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Helicoidal
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Em Busca do Equilíbrio
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Brígida
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Carranca
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2150,35 +2634,35 @@
             - **[0]**:
               - **escalada**: Buena Onda
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Teto de Vidro
               - **ids**:
-                - 1B▲/1A
+                - 1
+                - B
+                - ▲
             - **[2]**:
               - **escalada**: Gringo de Vidro
               - **ids**:
-                - 1B★
+                - 1
+                - B
+                - ★
             - **[3]**:
               - **escalada**: Teto Quebrado
               - **ids**:
-                - 2B/2A
+                - 2
+                - B
             - **[4]**:
               - **escalada**: Gringo
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[5]**:
               - **escalada**: Manobra
               - **ids**:
-                - 3A
-            - **[6]**:
-              - **escalada**: Casquinha
-              - **ids**:
-                - 4A
-            - **[7]**:
-              - **escalada**: Wafer
-              - **ids**:
-                - 4B
+                - 3
+                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
           - **largura_mapa**: 1575
@@ -2233,6 +2717,42 @@
                 - **x**: 740
                 - **y**: 650
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buena Onda
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Teto de Vidro
+              - **ids**:
+                - 1
+                - A
+            - **[2]**:
+              - **escalada**: Teto Quebrado
+              - **ids**:
+                - 2
+                - A
+            - **[3]**:
+              - **escalada**: Gringo
+              - **ids**:
+                - 3
+                - A
+            - **[4]**:
+              - **escalada**: Manobra
+              - **ids**:
+                - 3
+                - A
+            - **[5]**:
+              - **escalada**: Casquinha
+              - **ids**:
+                - 4
+                - A
+            - **[6]**:
+              - **escalada**: Wafer
+              - **ids**:
+                - 4
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2307,30 +2827,6 @@
               - **escalada**: Pedra Única
               - **ids**:
                 - 2
-            - **[2]**:
-              - **escalada**: Tô na Esquiva
-              - **ids**:
-                - 1A
-            - **[3]**:
-              - **escalada**: Tô Legal
-              - **ids**:
-                - 1B
-            - **[4]**:
-              - **escalada**: Tô Calmo
-              - **ids**:
-                - 2C
-            - **[5]**:
-              - **escalada**: Tô de Boa
-              - **ids**:
-                - 2D
-            - **[6]**:
-              - **escalada**: Jaguatirica
-              - **ids**:
-                - 2E
-            - **[7]**:
-              - **escalada**: Tô Suave
-              - **ids**:
-                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
           - **largura_mapa**: 1575
@@ -2392,6 +2888,44 @@
                 - **x**: 1210
                 - **y**: 705
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: NBA
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pedra Única
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tô na Esquiva
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Tô Legal
+              - **ids**:
+                - 1
+                - B
+            - **[4]**:
+              - **escalada**: Tô Calmo
+              - **ids**:
+                - 2
+                - C
+            - **[5]**:
+              - **escalada**: Tô de Boa
+              - **ids**:
+                - 2
+                - D
+            - **[6]**:
+              - **escalada**: Jaguatirica
+              - **ids**:
+                - 2
+                - E
+            - **[7]**:
+              - **escalada**: Tô Suave
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2512,19 +3046,23 @@
             - **[4]**:
               - **escalada**: Dinamite
               - **ids**:
-                - 5A
+                - 5
+                - A
             - **[5]**:
               - **escalada**: Pedra Queimada
               - **ids**:
-                - 5B
+                - 5
+                - B
             - **[6]**:
               - **escalada**: Dinamite sds
               - **ids**:
-                - 6A
+                - 6
+                - A
             - **[7]**:
               - **escalada**: Pedra Queimada sds
               - **ids**:
-                - 6B
+                - 6
+                - B
             - **[8]**:
               - **escalada**: Identidade
               - **ids**:
@@ -2541,6 +3079,15 @@
                 - **x**: 630
                 - **y**: 730
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Flap
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Identidade
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2681,32 +3228,29 @@
             - **[1]**:
               - **escalada**: Desafio do Superman
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: Hora da Janta
               - **ids**:
-                - 2B
+                - 2
+                - B
             - **[3]**:
-              - **escalada**: Larica
-              - **ids**:
-                - 2C▲
-            - **[4]**:
-              - **escalada**: Sobremesa
-              - **ids**:
-                - 2C★
-            - **[5]**:
               - **escalada**: Voo do Superman
               - **ids**:
-                - 3C
-            - **[6]**:
+                - 3
+                - C
+            - **[4]**:
               - **escalada**: Conha Conha
               - **ids**:
-                - 4D
-            - **[7]**:
+                - 4
+                - D
+            - **[5]**:
               - **escalada**: Maconhaque
               - **ids**:
-                - 4E
-            - **[8]**:
+                - 4
+                - E
+            - **[6]**:
               - **escalada**: Tapa na Pantera
               - **ids**:
                 - 5
@@ -2779,7 +3323,7 @@
             - **[1]**:
               - **escalada**: Mesa
               - **ids**:
-                - 2/1
+                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
           - **largura_mapa**: 1576
@@ -2792,6 +3336,15 @@
                 - **x**: 660
                 - **y**: 950
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mezanino
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mesa
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2841,14 +3394,6 @@
               - **escalada**: Big-Big
               - **ids**:
                 - 2
-            - **[2]**:
-              - **escalada**: Babaloo
-              - **ids**:
-                - 3/1A
-            - **[3]**:
-              - **escalada**: Chicletes
-              - **ids**:
-                - 1B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
           - **largura_mapa**: 1575
@@ -2875,6 +3420,21 @@
                 - **x**: 603
                 - **y**: 1000
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Trident
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Babaloo
+              - **ids**:
+                - 1
+                - A
+            - **[2]**:
+              - **escalada**: Chicletes
+              - **ids**:
+                - 1
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2948,51 +3508,53 @@
             - **[0]**:
               - **escalada**: Areia nos Olhos
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Areia nos Olhos ext
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: Fala Você
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[3]**:
               - **escalada**: De Olho na Vida
               - **ids**:
-                - 3C
+                - 3
+                - C
             - **[4]**:
               - **escalada**: Fala Vida
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[5]**:
               - **escalada**: Vida Curta
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[6]**:
               - **escalada**: Sem Vida
               - **ids**:
-                - 1C
+                - 1
+                - C
             - **[7]**:
               - **escalada**: Arenito
               - **ids**:
-                - 2C
+                - 2
+                - C
             - **[8]**:
               - **escalada**: Vida Longa
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[9]**:
               - **escalada**: Longevidade
               - **ids**:
-                - 3C
-            - **[10]**:
-              - **escalada**: Guerreiro Jedi
-              - **ids**:
-                - 3D
-            - **[11]**:
-              - **escalada**: Jedi
-              - **ids**:
-                - 4D
+                - 3
+                - C
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
           - **largura_mapa**: 1576
@@ -3054,6 +3616,67 @@
                 - **x**: 1378
                 - **y**: 835
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Areia nos Olhos
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Areia nos Olhos ext
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Fala Você
+              - **ids**:
+                - 3
+                - B
+            - **[3]**:
+              - **escalada**: De Olho na Vida
+              - **ids**:
+                - 3
+                - C
+            - **[4]**:
+              - **escalada**: Fala Vida
+              - **ids**:
+                - 1
+                - A
+            - **[5]**:
+              - **escalada**: Vida Curta
+              - **ids**:
+                - 1
+                - B
+            - **[6]**:
+              - **escalada**: Sem Vida
+              - **ids**:
+                - 1
+                - C
+            - **[7]**:
+              - **escalada**: Arenito
+              - **ids**:
+                - 2
+                - C
+            - **[8]**:
+              - **escalada**: Vida Longa
+              - **ids**:
+                - 3
+                - A
+            - **[9]**:
+              - **escalada**: Longevidade
+              - **ids**:
+                - 3
+                - C
+            - **[10]**:
+              - **escalada**: Guerreiro Jedi
+              - **ids**:
+                - 3
+                - D
+            - **[11]**:
+              - **escalada**: Jedi
+              - **ids**:
+                - 4
+                - D
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3145,15 +3768,18 @@
             - **[0]**:
               - **escalada**: Braúna
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Sonar
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Periscópio
               - **ids**:
-                - 1C
+                - 1
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3190,29 +3816,9 @@
               - **ids**:
                 - 1
             - **[1]**:
-              - **escalada**: Rastaman
-              - **ids**:
-                - 1A
-            - **[2]**:
-              - **escalada**: Meia Parede
-              - **ids**:
-                - 1B
-            - **[3]**:
-              - **escalada**: Slab
-              - **ids**:
-                - 1A
-            - **[4]**:
-              - **escalada**: Aresta do Lenine
-              - **ids**:
-                - 1B
-            - **[5]**:
               - **escalada**: Jardim de Orquídeas
               - **ids**:
                 - 1
-            - **[6]**:
-              - **escalada**: Jardim Suspenso
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
           - **largura_mapa**: 1575
@@ -3239,6 +3845,31 @@
                 - **x**: 1162
                 - **y**: 444
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tatuagens do Ofício
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Rastaman
+              - **ids**:
+                - 1A
+            - **[2]**:
+              - **escalada**: Meia Parede
+              - **ids**:
+                - 1B
+            - **[3]**:
+              - **escalada**: Slab
+              - **ids**:
+                - 1A
+            - **[4]**:
+              - **escalada**: Aresta do Lenine
+              - **ids**:
+                - 1B
+            - **[5]**:
+              - **escalada**: Jardim de Orquídeas
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
           - **largura_mapa**: 1575
@@ -3265,6 +3896,35 @@
                 - **x**: 950
                 - **y**: 105
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tatuagens do Ofício
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Rastaman
+              - **ids**:
+                - 1
+                - A
+            - **[2]**:
+              - **escalada**: Meia Parede
+              - **ids**:
+                - 1
+                - B
+            - **[3]**:
+              - **escalada**: Slab
+              - **ids**:
+                - 1
+                - A
+            - **[4]**:
+              - **escalada**: Aresta do Lenine
+              - **ids**:
+                - 1
+                - B
+            - **[5]**:
+              - **escalada**: Jardim de Orquídeas
+              - **ids**:
+                - 1
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
           - **largura_mapa**: 1575
@@ -3284,6 +3944,19 @@
                 - **x**: 1202
                 - **y**: 798
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tatuagens do Ofício
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Jardim de Orquídeas
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Jardim Suspenso
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3432,103 +4105,86 @@
             - **[0]**:
               - **escalada**: Monte Mor
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Irmãos Coragem
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Irmãos na Vibe
               - **ids**:
-                - 2B
+                - 2
+                - B
             - **[3]**:
               - **escalada**: Ora-Por-Todos
               - **ids**:
-                - 4C/1A★
+                - 4
+                - C
             - **[4]**:
               - **escalada**: Orai-Por-Noix
               - **ids**:
-                - 5C/1A▲
+                - 5
+                - C
             - **[5]**:
               - **escalada**: Ora-Pra-Jah
               - **ids**:
-                - 5D/1B
+                - 5
+                - D
             - **[6]**:
               - **escalada**: Ouroboulder
               - **ids**:
-                - 5E/1C
+                - 5
+                - E
             - **[7]**:
               - **escalada**: Ora-Pro-Nóbis
               - **ids**:
-                - 6D/2B
+                - 6
+                - D
             - **[8]**:
               - **escalada**: Ora-Pros-Crash
               - **ids**:
-                - 6E/2C
+                - 6
+                - E
             - **[9]**:
               - **escalada**: Oratório
               - **ids**:
-                - 7E/5C
+                - 7
+                - E
             - **[10]**:
               - **escalada**: Quebra Galho
               - **ids**:
-                - 8E/3C
+                - 8
+                - E
             - **[11]**:
               - **escalada**: Libertadores
               - **ids**:
-                - 9F/2D
+                - 9
+                - F
             - **[12]**:
               - **escalada**: Eu Acredito
               - **ids**:
-                - 10F/4D
+                - 10
+                - F
             - **[13]**:
               - **escalada**: Umbriacone
               - **ids**:
                 - 1
             - **[14]**:
-              - **escalada**: Mortal Kombat
-              - **ids**:
-                - 2▲ / 1▲
-            - **[15]**:
-              - **escalada**: Sub-Zero
-              - **ids**:
-                - 2★ / 1★
-            - **[16]**:
-              - **escalada**: Raiden
-              - **ids**:
-                - 3▲ / 2▲
-            - **[17]**:
-              - **escalada**: Carcomendo
-              - **ids**:
-                - 3★ / 2★
-            - **[18]**:
               - **escalada**: 003
               - **ids**:
                 - 1
-            - **[19]**:
-              - **escalada**: Novos Baianos
-              - **ids**:
-                - 1A★
-            - **[20]**:
-              - **escalada**: De Inverno
-              - **ids**:
-                - 1B★
-            - **[21]**:
-              - **escalada**: De Verão
-              - **ids**:
-                - 1C★
-            - **[22]**:
-              - **escalada**: Maverick
-              - **ids**:
-                - 1B▲
-            - **[23]**:
+            - **[15]**:
               - **escalada**: Vem Verão
               - **ids**:
-                - 2B
-            - **[24]**:
+                - 2
+                - B
+            - **[16]**:
               - **escalada**: Passível
               - **ids**:
-                - 1A
+                - 1
+                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
           - **largura_mapa**: 1575
@@ -3611,6 +4267,136 @@
                 - **x**: 812
                 - **y**: 670
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monte Mor
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Irmãos Coragem
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Irmãos na Vibe
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Ora-Por-Todos
+              - **ids**:
+                - 1
+                - A
+                - ★
+            - **[4]**:
+              - **escalada**: Orai-Por-Noix
+              - **ids**:
+                - 1
+                - A
+                - ▲
+            - **[5]**:
+              - **escalada**: Ora-Pra-Jah
+              - **ids**:
+                - 1
+                - B
+            - **[6]**:
+              - **escalada**: Ouroboulder
+              - **ids**:
+                - 1
+                - C
+            - **[7]**:
+              - **escalada**: Ora-Pro-Nóbis
+              - **ids**:
+                - 2
+                - B
+            - **[8]**:
+              - **escalada**: Ora-Pros-Crash
+              - **ids**:
+                - 2
+                - C
+            - **[9]**:
+              - **escalada**: Oratório
+              - **ids**:
+                - 5
+                - C
+            - **[10]**:
+              - **escalada**: Quebra Galho
+              - **ids**:
+                - 3
+                - C
+            - **[11]**:
+              - **escalada**: Libertadores
+              - **ids**:
+                - 2
+                - D
+            - **[12]**:
+              - **escalada**: Eu Acredito
+              - **ids**:
+                - 4
+                - D
+            - **[13]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[14]**:
+              - **escalada**: Mortal Kombat
+              - **ids**:
+                - 1
+                - ▲
+            - **[15]**:
+              - **escalada**: Sub-Zero
+              - **ids**:
+                - 1
+                - ★
+            - **[16]**:
+              - **escalada**: Raiden
+              - **ids**:
+                - 2
+                - ▲
+            - **[17]**:
+              - **escalada**: Carcomendo
+              - **ids**:
+                - 2
+                - ★
+            - **[18]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
+            - **[19]**:
+              - **escalada**: Novos Baianos
+              - **ids**:
+                - 1
+                - A
+                - ★
+            - **[20]**:
+              - **escalada**: De Inverno
+              - **ids**:
+                - 1
+                - B
+                - ★
+            - **[21]**:
+              - **escalada**: De Verão
+              - **ids**:
+                - 1
+                - C
+                - ★
+            - **[22]**:
+              - **escalada**: Maverick
+              - **ids**:
+                - 1
+                - B
+                - ▲
+            - **[23]**:
+              - **escalada**: Vem Verão
+              - **ids**:
+                - 2
+                - B
+            - **[24]**:
+              - **escalada**: Passível
+              - **ids**:
+                - 1
+                - A
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
           - **largura_mapa**: 1575
@@ -3665,6 +4451,15 @@
                 - **x**: 1034
                 - **y**: 783
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
           - **largura_mapa**: 1575
@@ -3712,6 +4507,15 @@
                 - **x**: 895
                 - **y**: 828
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
           - **largura_mapa**: 1576
@@ -3731,6 +4535,25 @@
                 - **x**: 230
                 - **y**: 460
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monte Mor
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Passível
+              - **ids**:
+                - 1
+                - A
         - **[5]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
           - **largura_mapa**: 1575
@@ -3785,6 +4608,40 @@
                 - **x**: 1070
                 - **y**: 950
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monte Mor
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Irmãos Coragem
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Irmãos na Vibe
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Vem Verão
+              - **ids**:
+                - 2
+                - B
+            - **[6]**:
+              - **escalada**: Passível
+              - **ids**:
+                - 1
+                - A
         - **[6]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
           - **largura_mapa**: 1575
@@ -3804,6 +4661,25 @@
                 - **x**: 1096
                 - **y**: 764
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Monte Mor
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Umbriacone
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: 003
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Passível
+              - **ids**:
+                - 1
+                - A
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3931,18 +4807,6 @@
               - **escalada**: 004
               - **ids**:
                 - 1
-            - **[2]**:
-              - **escalada**: Jardim Secreto
-              - **ids**:
-                - 1A
-            - **[3]**:
-              - **escalada**: Papo Reto
-              - **ids**:
-                - 1B
-            - **[4]**:
-              - **escalada**: Papo Reto sds
-              - **ids**:
-                - 2B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
           - **largura_mapa**: 1575
@@ -3955,6 +4819,15 @@
                 - **x**: 570
                 - **y**: 822
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 004
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
           - **largura_mapa**: 1575
@@ -3988,6 +4861,30 @@
                 - **x**: 720
                 - **y**: 983
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 004
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Jardim Secreto
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Papo Reto
+              - **ids**:
+                - 1
+                - B
+            - **[4]**:
+              - **escalada**: Papo Reto sds
+              - **ids**:
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4079,67 +4976,28 @@
             - **[0]**:
               - **escalada**: Buda
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Arestides
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Arestides ext
               - **ids**:
-                - 1C/1D▲
+                - 1
+                - C
             - **[3]**:
-              - **escalada**: Nataraja
-              - **ids**:
-                - 2B▲/2A▲
-            - **[4]**:
-              - **escalada**: Sidarta
-              - **ids**:
-                - 2B★
-            - **[5]**:
-              - **escalada**: Sidarta sds
-              - **ids**:
-                - 3B★
-            - **[6]**:
-              - **escalada**: Deep Inside ext
-              - **ids**:
-                - 4A▲
-            - **[7]**:
-              - **escalada**: Deep Inside
-              - **ids**:
-                - 4B★
-            - **[8]**:
-              - **escalada**: Canindé
-              - **ids**:
-                - 4C
-            - **[9]**:
-              - **escalada**: Canindé de Cima
-              - **ids**:
-                - 5C
-            - **[10]**:
-              - **escalada**: Cara de Boi
-              - **ids**:
-                - 6B
-            - **[11]**:
-              - **escalada**: Cara de Vaca
-              - **ids**:
-                - 6C
-            - **[12]**:
-              - **escalada**: Invertides
-              - **ids**:
-                - 7A▲
-            - **[13]**:
-              - **escalada**: Promoção
-              - **ids**:
-                - 7D/2B
-            - **[14]**:
               - **escalada**: Promocinha
               - **ids**:
-                - 1A
-            - **[15]**:
+                - 1
+                - A
+            - **[4]**:
               - **escalada**: Bolinho de Chuva
               - **ids**:
-                - 3C
+                - 3
+                - C
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
           - **largura_mapa**: 1575
@@ -4236,6 +5094,52 @@
                 - **x**: 1200
                 - **y**: 680
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buda
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Arestides
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Canindé
+              - **ids**:
+                - 4
+                - C
+            - **[3]**:
+              - **escalada**: Canindé de Cima
+              - **ids**:
+                - 5
+                - C
+            - **[4]**:
+              - **escalada**: Cara de Boi
+              - **ids**:
+                - 6
+                - B
+            - **[5]**:
+              - **escalada**: Cara de Vaca
+              - **ids**:
+                - 6
+                - C
+            - **[6]**:
+              - **escalada**: Promoção
+              - **ids**:
+                - 2
+                - B
+            - **[7]**:
+              - **escalada**: Promocinha
+              - **ids**:
+                - 1
+                - A
+            - **[8]**:
+              - **escalada**: Bolinho de Chuva
+              - **ids**:
+                - 3
+                - C
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
           - **largura_mapa**: 1575
@@ -4283,6 +5187,27 @@
                 - **x**: 854
                 - **y**: 95
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buda
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Arestides
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Promocinha
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Bolinho de Chuva
+              - **ids**:
+                - 3
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4411,23 +5336,27 @@
             - **[0]**:
               - **escalada**: Talhadeira
               - **ids**:
-                - 1/1B
+                - 1
             - **[1]**:
               - **escalada**: Complexo
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: Ajoelhou, Tem que Rezar
               - **ids**:
-                - 2B
+                - 2
+                - B
             - **[3]**:
               - **escalada**: Descomplicado
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[4]**:
               - **escalada**: Sofá
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[5]**:
               - **escalada**: Porosíssimo
               - **ids**:
@@ -4441,22 +5370,18 @@
               - **ids**:
                 - 3
             - **[8]**:
-              - **escalada**: Triangular
-              - **ids**:
-                - 4
-            - **[9]**:
               - **escalada**: Boulder de Raiz
               - **ids**:
                 - 1
-            - **[10]**:
+            - **[9]**:
               - **escalada**: Travessia Ouro Preto-Bocaina
               - **ids**:
                 - 2
-            - **[11]**:
+            - **[10]**:
               - **escalada**: Perereca
               - **ids**:
                 - 3
-            - **[12]**:
+            - **[11]**:
               - **escalada**: Respira
               - **ids**:
                 - 1
@@ -4486,6 +5411,29 @@
                 - **x**: 978
                 - **y**: 980
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Talhadeira
+              - **ids**:
+                - 1
+                - B
+            - **[1]**:
+              - **escalada**: Sofá
+              - **ids**:
+                - 1
+                - A
+            - **[2]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
           - **largura_mapa**: 1575
@@ -4523,6 +5471,39 @@
                 - **y**: 822
                 - **comprimento**: 28
                 - **largura**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Poroso
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Não Poroso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Triangular
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Travessia Ouro Preto-Bocaina
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Perereca
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
           - **largura_mapa**: 1575
@@ -4560,6 +5541,39 @@
                 - **y**: 1004
                 - **comprimento**: 28
                 - **largura**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Poroso
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Não Poroso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Triangular
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Travessia Ouro Preto-Bocaina
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Perereca
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
           - **largura_mapa**: 1575
@@ -4572,6 +5586,19 @@
                 - **x**: 416
                 - **y**: 956
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4687,19 +5714,23 @@
             - **[0]**:
               - **escalada**: Aderência
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Dreher
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: Yoga
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[3]**:
               - **escalada**: Conhaque
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[4]**:
               - **escalada**: Conhaque Presidente
               - **ids**:
@@ -4781,23 +5812,28 @@
             - **[0]**:
               - **escalada**: Neutron
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[1]**:
               - **escalada**: Elétron
               - **ids**:
-                - 2B
+                - 2
+                - B
             - **[2]**:
               - **escalada**: Via Láctea
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[3]**:
               - **escalada**: Neutron
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[4]**:
               - **escalada**: Positron
               - **ids**:
-                - 3C
+                - 3
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4980,35 +6016,43 @@
             - **[0]**:
               - **escalada**: Pico da Neblina ext
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Inquilinismo Frenético ext
               - **ids**:
-                - 1C
+                - 1
+                - C
             - **[2]**:
               - **escalada**: Pico da Neblina
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[3]**:
               - **escalada**: Inquilinismo Frenético
               - **ids**:
-                - 2C
+                - 2
+                - C
             - **[4]**:
               - **escalada**: Bife do Mário
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[5]**:
               - **escalada**: Painel
               - **ids**:
-                - 4C
+                - 4
+                - C
             - **[6]**:
               - **escalada**: Mont Blanc
               - **ids**:
-                - 5C
+                - 5
+                - C
             - **[7]**:
               - **escalada**: Mont Blanc do Oeste
               - **ids**:
-                - 6C
+                - 6
+                - C
             - **[8]**:
               - **escalada**: Deja Ir
               - **ids**:
@@ -5024,19 +6068,23 @@
             - **[11]**:
               - **escalada**: Raízes do Brasil
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[12]**:
               - **escalada**: Raízes do Cerrado
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[13]**:
               - **escalada**: Tec Bond
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[14]**:
               - **escalada**: Super Bonder
               - **ids**:
-                - 4B
+                - 4
+                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
           - **largura_mapa**: 1575
@@ -5049,6 +6097,15 @@
                 - **x**: 475
                 - **y**: 804
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Colibri
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 005
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp)
           - **largura_mapa**: 1575
@@ -5061,6 +6118,15 @@
                 - **x**: 415
                 - **y**: 955
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Colibri
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 005
+              - **ids**:
+                - 1
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp)
           - **largura_mapa**: 1575
@@ -5101,6 +6167,40 @@
                 - **x**: 1362
                 - **y**: 120
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pico da Neblina ext
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Pico da Neblina
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Colibri
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: 005
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Raízes do Brasil
+              - **ids**:
+                - 1
+                - A
+            - **[5]**:
+              - **escalada**: Raízes do Cerrado
+              - **ids**:
+                - 2
+                - A
+            - **[6]**:
+              - **escalada**: Super Bonder
+              - **ids**:
+                - 4
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5211,19 +6311,23 @@
             - **[0]**:
               - **escalada**: Parada Obrigatória
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Rio Doce
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Rio das Velhas
               - **ids**:
-                - 1C
+                - 1
+                - C
             - **[3]**:
               - **escalada**: Igarapé
               - **ids**:
-                - 2C
+                - 2
+                - C
             - **[4]**:
               - **escalada**: Frasco
               - **ids**:
@@ -5232,10 +6336,6 @@
               - **escalada**: Frisco
               - **ids**:
                 - 2
-            - **[6]**:
-              - **escalada**: Fulano
-              - **ids**:
-                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
           - **largura_mapa**: 1575
@@ -5262,6 +6362,19 @@
                 - **x**: 1036
                 - **y**: 810
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Frasco
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Frisco
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Fulano
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5361,31 +6474,38 @@
             - **[0]**:
               - **escalada**: Dolinha
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[1]**:
               - **escalada**: 006
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: 007
               - **ids**:
-                - 3A
+                - 3
+                - A
             - **[3]**:
               - **escalada**: Salão dos Ossos
               - **ids**:
-                - 3B
+                - 3
+                - B
             - **[4]**:
               - **escalada**: Osso
               - **ids**:
-                - 4B
+                - 4
+                - B
             - **[5]**:
               - **escalada**: Osso Duro de Roer
               - **ids**:
-                - 5B
+                - 5
+                - B
             - **[6]**:
               - **escalada**: Tutano
               - **ids**:
-                - 5C
+                - 5
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5450,20 +6570,13 @@
             - **[0]**:
               - **escalada**: Toe de Ouro
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
-              - **escalada**: Toebogã
-              - **ids**:
-                - 1B
-            - **[2]**:
-              - **escalada**: Tobocrash
-              - **ids**:
-                - 2B
-            - **[3]**:
               - **escalada**: Jardim de Inverno
               - **ids**:
                 - 1
-            - **[4]**:
+            - **[2]**:
               - **escalada**: O Pequeno
               - **ids**:
                 - 2
@@ -5486,6 +6599,15 @@
                 - **x**: 1018
                 - **y**: 918
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jardim de Inverno
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: O Pequeno
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5549,11 +6671,13 @@
             - **[0]**:
               - **escalada**: Cabocla da Mata
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Caboclo das Sete Encruzilhadas
               - **ids**:
-                - 2B
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5605,11 +6729,13 @@
             - **[0]**:
               - **escalada**: Transição
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Silêncio da Mutuca
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Íngreme
               - **ids**:
@@ -5673,11 +6799,13 @@
             - **[1]**:
               - **escalada**: Rock n Roll
               - **ids**:
-                - 2A
+                - 2
+                - A
             - **[2]**:
               - **escalada**: Hard Core
               - **ids**:
-                - 2B
+                - 2
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5809,19 +6937,23 @@
             - **[0]**:
               - **escalada**: Possível
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Bonsai
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Bonsai do Cerrado
               - **ids**:
-                - 1C
+                - 1
+                - C
             - **[3]**:
               - **escalada**: Mancada
               - **ids**:
-                - 2C
+                - 2
+                - C
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5866,41 +6998,9 @@
               - **ids**:
                 - 1
             - **[2]**:
-              - **escalada**: Porém
-              - **ids**:
-                - 1A
-            - **[3]**:
-              - **escalada**: Xaxado
-              - **ids**:
-                - 1B
-            - **[4]**:
-              - **escalada**: Rouba Monte
-              - **ids**:
-                - 2B/4B
-            - **[5]**:
-              - **escalada**: Crocância do Além
-              - **ids**:
-                - 3A
-            - **[6]**:
               - **escalada**: Lodo
               - **ids**:
                 - 1
-            - **[7]**:
-              - **escalada**: Crocância
-              - **ids**:
-                - 2A
-            - **[8]**:
-              - **escalada**: Crocância Rouba Monte
-              - **ids**:
-                - 2B
-            - **[9]**:
-              - **escalada**: Crocância sds
-              - **ids**:
-                - 3A
-            - **[10]**:
-              - **escalada**: Crocância Rouba Monte sds
-              - **ids**:
-                - 3B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
           - **largura_mapa**: 1575
@@ -5913,6 +7013,19 @@
                 - **x**: 1230
                 - **y**: 745
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Beija-Flor
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Tarântula
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Lodo
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp)
           - **largura_mapa**: 1575
@@ -5953,6 +7066,54 @@
                 - **x**: 114
                 - **y**: 758
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Beija-Flor
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Tarântula
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Porém
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Xaxado
+              - **ids**:
+                - 1
+                - B
+            - **[4]**:
+              - **escalada**: Crocância do Além
+              - **ids**:
+                - 3
+                - A
+            - **[5]**:
+              - **escalada**: Lodo
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Crocância
+              - **ids**:
+                - 2
+                - A
+            - **[7]**:
+              - **escalada**: Crocância Rouba Monte
+              - **ids**:
+                - 2
+                - B
+            - **[8]**:
+              - **escalada**: Crocância sds
+              - **ids**:
+                - 3
+                - A
+            - **[9]**:
+              - **escalada**: Crocância Rouba Monte sds
+              - **ids**:
+                - 3
+                - B
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
           - **largura_mapa**: 1575
@@ -6000,6 +7161,54 @@
                 - **x**: 1348
                 - **y**: 115
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Beija-Flor
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Tarântula
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Porém
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Xaxado
+              - **ids**:
+                - 1
+                - B
+            - **[4]**:
+              - **escalada**: Crocância do Além
+              - **ids**:
+                - 3
+                - A
+            - **[5]**:
+              - **escalada**: Lodo
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Crocância
+              - **ids**:
+                - 2
+                - A
+            - **[7]**:
+              - **escalada**: Crocância Rouba Monte
+              - **ids**:
+                - 2
+                - B
+            - **[8]**:
+              - **escalada**: Crocância sds
+              - **ids**:
+                - 3
+                - A
+            - **[9]**:
+              - **escalada**: Crocância Rouba Monte sds
+              - **ids**:
+                - 3
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -6072,41 +7281,13 @@
               - **ids**:
                 - 1
             - **[2]**:
-              - **escalada**: Oráculo
-              - **ids**:
-                - 2
-            - **[3]**:
-              - **escalada**: 008
-              - **ids**:
-                - 3
-            - **[4]**:
               - **escalada**: Afrodisíaco
               - **ids**:
                 - 1
-            - **[5]**:
-              - **escalada**: Lava Pés
-              - **ids**:
-                - 2A
-            - **[6]**:
-              - **escalada**: Mantra
-              - **ids**:
-                - 2B
-            - **[7]**:
-              - **escalada**: Samadhi
-              - **ids**:
-                - 2C
-            - **[8]**:
-              - **escalada**: Tantra
-              - **ids**:
-                - 3C
-            - **[9]**:
+            - **[3]**:
               - **escalada**: Psicótico
               - **ids**:
                 - 1
-            - **[10]**:
-              - **escalada**: Popeye
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
           - **largura_mapa**: 1575
@@ -6119,6 +7300,23 @@
                 - **x**: 716
                 - **y**: 1012
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Prodígio
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Briga de Galo
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Afrodisíaco
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Psicótico
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
           - **largura_mapa**: 1575
@@ -6166,6 +7364,55 @@
                 - **x**: 614
                 - **y**: 794
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Prodígio
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Briga de Galo
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Oráculo
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: 008
+              - **ids**:
+                - 3
+            - **[4]**:
+              - **escalada**: Afrodisíaco
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Lava Pés
+              - **ids**:
+                - 2
+                - A
+            - **[6]**:
+              - **escalada**: Mantra
+              - **ids**:
+                - 2
+                - B
+            - **[7]**:
+              - **escalada**: Samadhi
+              - **ids**:
+                - 2
+                - C
+            - **[8]**:
+              - **escalada**: Tantra
+              - **ids**:
+                - 3
+                - C
+            - **[9]**:
+              - **escalada**: Psicótico
+              - **ids**:
+                - 1
+            - **[10]**:
+              - **escalada**: Popeye
+              - **ids**:
+                - 2
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
           - **largura_mapa**: 1575
@@ -6185,6 +7432,31 @@
                 - **x**: 956
                 - **y**: 816
                 - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Prodígio
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Briga de Galo
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Oráculo
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: Afrodisíaco
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Psicótico
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Popeye
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -6378,15 +7650,18 @@
             - **[0]**:
               - **escalada**: Billy The Kid
               - **ids**:
-                - 1A
+                - 1
+                - A
             - **[1]**:
               - **escalada**: Durango Kid
               - **ids**:
-                - 1B
+                - 1
+                - B
             - **[2]**:
               - **escalada**: Pedra
               - **ids**:
-                - 1C
+                - 1
+                - C
             - **[3]**:
               - **escalada**: Semiárido
               - **ids**:

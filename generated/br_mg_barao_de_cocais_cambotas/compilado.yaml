@@ -17,10 +17,6 @@ picos:
         nome: Chaminé
         mapas:
         - caminho_imagem_mapa: imagens/setor_chamine_p0_i0.webp
-          referencias:
-          - escalada: Bin Laden
-            ids:
-            - '35'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
@@ -39,19 +35,6 @@ picos:
         nome: Caverninha
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
-          referencias:
-          - escalada: Princesa léia
-            ids:
-            - '31'
-          - escalada: Double trouble
-            ids:
-            - '32'
-          - escalada: Supurados
-            ids:
-            - '33'
-          - escalada: O doce e o amargo
-            ids:
-            - '34'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
@@ -113,10 +96,6 @@ picos:
         nome: Torres
         mapas:
         - caminho_imagem_mapa: imagens/setor_torres_p2.webp
-          referencias:
-          - escalada: Projeto?
-            ids:
-            - '39'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
@@ -162,28 +141,6 @@ picos:
         nome: Felinas
         mapas:
         - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
-          referencias:
-          - escalada: Pó branco
-            ids:
-            - '7'
-          - escalada: Gata borralheira
-            ids:
-            - '6'
-          - escalada: Marvada onça
-            ids:
-            - '5'
-          - escalada: Tigresa
-            ids:
-            - '4'
-          - escalada: Pantera
-            ids:
-            - '3'
-          - escalada: Suçuarana
-            ids:
-            - '2'
-          - escalada: Davi e Golias
-            ids:
-            - '1'
           largura_mapa: 487
           altura_mapa: 958
         - caminho_imagem_mapa: imagens/setor_felinas_p0_i28.webp
@@ -284,22 +241,6 @@ picos:
         nome: Fendas
         mapas:
         - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
-          referencias:
-          - escalada: Noites equatoriais
-            ids:
-            - '16'
-          - escalada: Vomitão no reglete
-            ids:
-            - '18'
-          - escalada: Soul rebel
-            ids:
-            - '20'
-          - escalada: Positive vibration
-            ids:
-            - '21'
-          - escalada: Princesa Kel
-            ids:
-            - '22'
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
@@ -355,25 +296,6 @@ picos:
         nome: Arco
         mapas:
         - caminho_imagem_mapa: imagens/setor_arco_p2.webp
-          referencias:
-          - escalada: Onde os fracos não tem vez
-            ids:
-            - '10'
-          - escalada: Horizonte dos eventos
-            ids:
-            - '11'
-          - escalada: Arco da Santa vitamina
-            ids:
-            - '12'
-          - escalada: Malateus?
-            ids:
-            - '13'
-          - escalada: Clandestino
-            ids:
-            - '14'
-          - escalada: Totalmente demais
-            ids:
-            - '15'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
@@ -455,34 +377,6 @@ picos:
         nome: Aresta
         mapas:
         - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
-          referencias:
-          - escalada: Macadame
-            ids:
-            - '3'
-          - escalada: Limite da ousadia
-            ids:
-            - '4'
-          - escalada: Diedro urso branco (var.)
-            ids:
-            - 4'
-          - escalada: Só para loucos
-            ids:
-            - '5'
-          - escalada: Canino quebrado
-            ids:
-            - '6'
-          - escalada: Vinicius?
-            ids:
-            - '7'
-          - escalada: Aresta eletrizante
-            ids:
-            - '8'
-          - escalada: Aresta que me resta
-            ids:
-            - '9'
-          - escalada: Aresta que me eletriza (var.)
-            ids:
-            - 9'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
@@ -599,16 +493,6 @@ picos:
         nome: Polegar
         mapas:
         - caminho_imagem_mapa: imagens/setor_polegar_p1.webp
-          referencias:
-          - escalada: Quadrado mágico
-            ids:
-            - '36'
-          - escalada: Projeto?
-            ids:
-            - '37'
-          - escalada: Projeto?
-            ids:
-            - '38'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
@@ -652,13 +536,6 @@ picos:
         nome: Totem
         mapas:
         - caminho_imagem_mapa: imagens/setor_totem_p1.webp
-          referencias:
-          - escalada: Quebra cabeça
-            ids:
-            - '1'
-          - escalada: Imagem e ação
-            ids:
-            - '2'
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:

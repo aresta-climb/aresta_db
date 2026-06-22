@@ -410,50 +410,42 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Teto Preto
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: 101 Dalmatas
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Fúria de Titãs
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Prima Donna
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Dama de Ferro
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Primeira de Todas
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Brinco de Odalisca
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: 10%
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Quebra Tudo
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Acorrentado
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Fidefenda
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Cochyna Blue
         - **ids**:
           - 19
@@ -614,6 +606,75 @@
           - **y**: 1076
           - **comprimento**: 33
           - **largura**: 39
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Bacon com Linguiça
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Quatchú
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Xoquito
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Slow Motion
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Berbaridade Máxima
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Cirque du Soleil
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Route Setter
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Fúria de Titãs
+        - **ids**:
+          - 10
+      - **[8]**:
+        - **escalada**: Prima Donna
+        - **ids**:
+          - 11
+      - **[9]**:
+        - **escalada**: Dama de Ferro
+        - **ids**:
+          - 12
+      - **[10]**:
+        - **escalada**: Primeira de Todas
+        - **ids**:
+          - 13
+      - **[11]**:
+        - **escalada**: Brinco de Odalisca
+        - **ids**:
+          - 14
+      - **[12]**:
+        - **escalada**: 10%
+        - **ids**:
+          - 15
+      - **[13]**:
+        - **escalada**: Quebra Tudo
+        - **ids**:
+          - 16
+      - **[14]**:
+        - **escalada**: Acorrentado
+        - **ids**:
+          - 17
+      - **[15]**:
+        - **escalada**: Fidefenda
+        - **ids**:
+          - 18
+      - **[16]**:
+        - **escalada**: Cochyna Blue
+        - **ids**:
+          - 19
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1038,50 +1099,42 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Chapas Onorixicas
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Tora Flex
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Totalflex
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Haja Broca
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Juliana
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Lisebra
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Croque Monsieur
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Playground
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Depressão Pós Reforma
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Chuvasca
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Pau Oco
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Franzinha
         - **ids**:
           - 19
@@ -1242,6 +1295,75 @@
           - **y**: 1311
           - **comprimento**: 31
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Florestinha
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Ação Total
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Escravos da Pedra
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Esquerdinha Caviar
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Mônica
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Queijo Suíço
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Aranha Gato
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Totalflex
+        - **ids**:
+          - 10
+      - **[8]**:
+        - **escalada**: Haja Broca
+        - **ids**:
+          - 11
+      - **[9]**:
+        - **escalada**: Juliana
+        - **ids**:
+          - 12
+      - **[10]**:
+        - **escalada**: Lisebra
+        - **ids**:
+          - 13
+      - **[11]**:
+        - **escalada**: Croque Monsieur
+        - **ids**:
+          - 14
+      - **[12]**:
+        - **escalada**: Playground
+        - **ids**:
+          - 15
+      - **[13]**:
+        - **escalada**: Depressão Pós Reforma
+        - **ids**:
+          - 16
+      - **[14]**:
+        - **escalada**: Chuvasca
+        - **ids**:
+          - 17
+      - **[15]**:
+        - **escalada**: Pau Oco
+        - **ids**:
+          - 18
+      - **[16]**:
+        - **escalada**: Franzinha
+        - **ids**:
+          - 19
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1590,18 +1712,10 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Sumchine
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Cater Pillar
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Pula Um
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Cerro Azul
         - **ids**:
           - 11
@@ -1698,6 +1812,43 @@
           - **y**: 1223
           - **comprimento**: 27
           - **largura**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Filhos da Revolução
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Pedra Vermelha
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Projeto
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Trinca Ferro
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Marimbondes me Mordam
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: Pula Um
+        - **ids**:
+          - 10
+      - **[8]**:
+        - **escalada**: Cerro Azul
+        - **ids**:
+          - 11
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1862,26 +2013,6 @@
         - **escalada**: Lambe Lambe
         - **ids**:
           - 02
-      - **[2]**:
-        - **escalada**: TNT
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: For My Brother
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Diamante Negro
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Chapa Quente
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: (via inacabada)
-        - **ids**:
-          - 07
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p1.webp)
     - **largura_mapa**: 1101
@@ -1943,6 +2074,35 @@
           - **y**: 1015
           - **comprimento**: 29
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Eu Também Vou
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Lambe Lambe
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: TNT
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: For My Brother
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Diamante Negro
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Chapa Quente
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p2.webp)
     - **largura_mapa**: 1119
@@ -1988,6 +2148,27 @@
           - **y**: 811
           - **comprimento**: 40
           - **largura**: 42
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: TNT
+        - **ids**:
+          - 03
+      - **[1]**:
+        - **escalada**: For My Brother
+        - **ids**:
+          - 04
+      - **[2]**:
+        - **escalada**: Diamante Negro
+        - **ids**:
+          - 05
+      - **[3]**:
+        - **escalada**: Chapa Quente
+        - **ids**:
+          - 06
+      - **[4]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 07
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2173,6 +2354,23 @@
           - **y**: 786
           - **comprimento**: 27
           - **largura**: 38
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Takeyeasy
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Pâncepis
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Totem
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: 69
+        - **ids**:
+          - 04
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2443,58 +2641,50 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: I Like This
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Igarameca
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: U.F.O
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: 127 Horas
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Lero Lero é Mato
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Renegados de Igarapé
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Coisa Linda
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Doce Veneno
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Alguém Tem Que Ceder
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Napa
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Alpes Suínos*
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Viagem ao Centro da Terra
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Rolitos
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Balança Mas Não Cai
         - **ids**:
           - 21
@@ -2663,6 +2853,79 @@
           - **y**: 1274
           - **comprimento**: 35
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Beatrix
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Na Boca da Gruta Tem Dente
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Sunday Bloody Sunday
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: People Let's Stop The War
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Apolo 13
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Liga Extraordinária
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Poneis Malditos
+        - **ids**:
+          - 07
+      - **[7]**:
+        - **escalada**: U.F.O
+        - **ids**:
+          - 10
+      - **[8]**:
+        - **escalada**: 127 Horas
+        - **ids**:
+          - 11
+      - **[9]**:
+        - **escalada**: Lero Lero é Mato
+        - **ids**:
+          - 12
+      - **[10]**:
+        - **escalada**: Renegados de Igarapé
+        - **ids**:
+          - 13
+      - **[11]**:
+        - **escalada**: Coisa Linda
+        - **ids**:
+          - 14
+      - **[12]**:
+        - **escalada**: Doce Veneno
+        - **ids**:
+          - 15
+      - **[13]**:
+        - **escalada**: Alguém Tem Que Ceder
+        - **ids**:
+          - 16
+      - **[14]**:
+        - **escalada**: Napa
+        - **ids**:
+          - 17
+      - **[15]**:
+        - **escalada**: Alpes Suínos*
+        - **ids**:
+          - 18
+      - **[16]**:
+        - **escalada**: Viagem ao Centro da Terra
+        - **ids**:
+          - 19
+      - **[17]**:
+        - **escalada**: Rolitos
+        - **ids**:
+          - 20
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p2.webp)
     - **largura_mapa**: 938
@@ -2700,6 +2963,23 @@
           - **y**: 508
           - **comprimento**: 22
           - **largura**: 23
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Beatrix
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Na Boca da Gruta Tem Dente
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Sunday Bloody Sunday
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: People Let's Stop The War
+        - **ids**:
+          - 04
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3083,14 +3363,6 @@
         - **escalada**: Vainafé
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: People crazy
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Aresta Daniel
-        - **ids**:
-          - 9
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p2.webp)
     - **largura_mapa**: 1109
@@ -3128,6 +3400,23 @@
           - **y**: 866
           - **comprimento**: 33
           - **largura**: 41
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Conflito sensual
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Duracell
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Djavú
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Muita coisa envolvida
+        - **ids**:
+          - 04
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p3.webp)
     - **largura_mapa**: 1109
@@ -3181,6 +3470,19 @@
           - **y**: 1164
           - **comprimento**: 25
           - **largura**: 31
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Netfrix
+        - **ids**:
+          - 05
+      - **[1]**:
+        - **escalada**: Pouca prática
+        - **ids**:
+          - 06
+      - **[2]**:
+        - **escalada**: Vainafé
+        - **ids**:
+          - 07
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3469,14 +3771,6 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Lilith
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Deu Brasil
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Deu Nois
         - **ids**:
           - 10

@@ -67,12 +67,6 @@ picos:
           - escalada: Pressão Enrustida
             ids:
             - '05'
-          - escalada: Não Contava com Minha Astúcia
-            ids:
-            - '06'
-          - escalada: Rapé
-            ids:
-            - '07'
         escaladas:
         - boulder:
             nome: Café com Leite
@@ -125,36 +119,6 @@ picos:
           - escalada: Mingau
             ids:
             - '01'
-          - escalada: Pretinho Irlandês
-            ids:
-            - '02'
-          - escalada: Ratos e Raízes
-            ids:
-            - '03'
-          - escalada: Tripa Eterna
-            ids:
-            - '04'
-          - escalada: Trip Eterna
-            ids:
-            - '05'
-          - escalada: Mecanismo
-            ids:
-            - '06'
-          - escalada: Pedrada
-            ids:
-            - '07'
-          - escalada: Aedes Egipse
-            ids:
-            - 08
-          - escalada: V9 do Rafinha
-            ids:
-            - 09
-          - escalada: Os Trabalhos Não Param
-            ids:
-            - '10'
-          - escalada: Trabalho em Equipe
-            ids:
-            - '11'
         - caminho_imagem_mapa: imagens/setor_caverninha_p1.webp
           largura_mapa: 1069
           altura_mapa: 868
@@ -201,6 +165,25 @@ picos:
               y: 726
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Pretinho Irlandês
+            ids:
+            - '02'
+          - escalada: Ratos e Raízes
+            ids:
+            - '03'
+          - escalada: Tripa Eterna
+            ids:
+            - '04'
+          - escalada: Trip Eterna
+            ids:
+            - '05'
+          - escalada: Mecanismo
+            ids:
+            - '06'
+          - escalada: Pedrada
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_caverninha_p2.webp
           largura_mapa: 1069
           altura_mapa: 865
@@ -233,6 +216,19 @@ picos:
               y: 696
               comprimento: 22
               largura: 17
+          referencias:
+          - escalada: Aedes Egipse
+            ids:
+            - 08
+          - escalada: V9 do Rafinha
+            ids:
+            - 09
+          - escalada: Os Trabalhos Não Param
+            ids:
+            - '10'
+          - escalada: Trabalho em Equipe
+            ids:
+            - '11'
         escaladas:
         - boulder:
             nome: Mingau
@@ -412,21 +408,9 @@ picos:
           - escalada: Titan
             ids:
             - '02'
-          - escalada: Lobão
-            ids:
-            - '03'
-          - escalada: Tião Macalé
-            ids:
-            - '04'
-          - escalada: Zac
-            ids:
-            - '05'
           - escalada: Loboulder
             ids:
             - '06'
-          - escalada: Savana
-            ids:
-            - '07'
         escaladas:
         - boulder:
             nome: Sucrilhos no Prato
@@ -509,15 +493,6 @@ picos:
           - escalada: Marreteiro
             ids:
             - '04'
-          - escalada: Guerreiro da Bocaina
-            ids:
-            - '05'
-          - escalada: High Line
-            ids:
-            - '06'
-          - escalada: Colchão de Mola
-            ids:
-            - '07'
         - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
           largura_mapa: 1084
           altura_mapa: 881
@@ -543,6 +518,16 @@ picos:
               y: 512
               comprimento: 21
               largura: 21
+          referencias:
+          - escalada: Guerreiro da Bocaina
+            ids:
+            - '05'
+          - escalada: High Line
+            ids:
+            - '06'
+          - escalada: Colchão de Mola
+            ids:
+            - '07'
         escaladas:
         - boulder:
             nome: Strike
@@ -597,45 +582,6 @@ picos:
           - escalada: Sexto Sentido
             ids:
             - '01'
-          - escalada: Dread Lock
-            ids:
-            - '02'
-          - escalada: Cabeludo
-            ids:
-            - '03'
-          - escalada: Jacinto Barriguinha
-            ids:
-            - '04'
-          - escalada: Compressor
-            ids:
-            - '05'
-          - escalada: Cabelinho
-            ids:
-            - '06'
-          - escalada: Mágico de Oz
-            ids:
-            - '07'
-          - escalada: Mágico de Oz SDS
-            ids:
-            - 08
-          - escalada: Mr. Gordura
-            ids:
-            - 09
-          - escalada: País das Maravilhas
-            ids:
-            - '10'
-          - escalada: Capim Louco
-            ids:
-            - '11'
-          - escalada: Capim Gordura
-            ids:
-            - '12'
-          - escalada: Roleta Russa
-            ids:
-            - '13'
-          - escalada: La Qualitê
-            ids:
-            - '14'
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p1.webp
           largura_mapa: 1092
           altura_mapa: 878
@@ -682,6 +628,25 @@ picos:
               y: 688
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Sexto Sentido
+            ids:
+            - '01'
+          - escalada: Dread Lock
+            ids:
+            - '02'
+          - escalada: Cabeludo
+            ids:
+            - '03'
+          - escalada: Jacinto Barriguinha
+            ids:
+            - '04'
+          - escalada: Compressor
+            ids:
+            - '05'
+          - escalada: Cabelinho
+            ids:
+            - '06'
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p2.webp
           largura_mapa: 1094
           altura_mapa: 893
@@ -735,6 +700,28 @@ picos:
               y: 707
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Mágico de Oz
+            ids:
+            - '07'
+          - escalada: Mágico de Oz SDS
+            ids:
+            - 08
+          - escalada: Mr. Gordura
+            ids:
+            - 09
+          - escalada: País das Maravilhas
+            ids:
+            - '10'
+          - escalada: Capim Louco
+            ids:
+            - '11'
+          - escalada: Capim Gordura
+            ids:
+            - '12'
+          - escalada: Roleta Russa
+            ids:
+            - '13'
         escaladas:
         - boulder:
             nome: Sexto Sentido
@@ -832,15 +819,6 @@ picos:
           - escalada: Sabiá
             ids:
             - '02'
-          - escalada: Consciência Limpa
-            ids:
-            - '03'
-          - escalada: Consciência
-            ids:
-            - '04'
-          - escalada: Mulheres Poderosas
-            ids:
-            - '05'
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p1.webp
           largura_mapa: 1099
           altura_mapa: 895
@@ -866,6 +844,16 @@ picos:
               y: 687
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Consciência Limpa
+            ids:
+            - '03'
+          - escalada: Consciência
+            ids:
+            - '04'
+          - escalada: Mulheres Poderosas
+            ids:
+            - '05'
         escaladas:
         - boulder:
             nome: Canarim
@@ -932,12 +920,6 @@ picos:
           - escalada: Jamaica Abaixo de Zero
             ids:
             - '01'
-          - escalada: Jamaica
-            ids:
-            - '02'
-          - escalada: Kuaiti
-            ids:
-            - '03'
           - escalada: Taiti
             ids:
             - '04'
@@ -1221,51 +1203,6 @@ picos:
           - escalada: Espírito San
             ids:
             - 08
-          - escalada: Tiro ao Alvo
-            ids:
-            - 09
-          - escalada: Tiro ao Alvo SDS
-            ids:
-            - '10'
-          - escalada: Mão na Massa
-            ids:
-            - '11'
-          - escalada: Mão na Massa SDS
-            ids:
-            - '12'
-          - escalada: Bicho de Pé
-            ids:
-            - '13'
-          - escalada: Bicho de Pé SDS
-            ids:
-            - '14'
-          - escalada: Curto e Gross
-            ids:
-            - '15'
-          - escalada: Carvoeiro
-            ids:
-            - '16'
-          - escalada: Kadron
-            ids:
-            - '17'
-          - escalada: Saída pela Culatra
-            ids:
-            - '18'
-          - escalada: Siri sem Casca
-            ids:
-            - '19'
-          - escalada: Siri Queijo
-            ids:
-            - '20'
-          - escalada: Problema Legal
-            ids:
-            - '21'
-          - escalada: Pecado de Chó
-            ids:
-            - '22'
-          - escalada: Ayuaska
-            ids:
-            - '23'
         - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
           largura_mapa: 1091
           altura_mapa: 813
@@ -1326,6 +1263,31 @@ picos:
               y: 430
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Tiro ao Alvo
+            ids:
+            - 09
+          - escalada: Tiro ao Alvo SDS
+            ids:
+            - '10'
+          - escalada: Mão na Massa
+            ids:
+            - '11'
+          - escalada: Mão na Massa SDS
+            ids:
+            - '12'
+          - escalada: Bicho de Pé
+            ids:
+            - '13'
+          - escalada: Bicho de Pé SDS
+            ids:
+            - '14'
+          - escalada: Curto e Gross
+            ids:
+            - '15'
+          - escalada: Carvoeiro
+            ids:
+            - '16'
         - caminho_imagem_mapa: imagens/setor_bloco_45_p2.webp
           largura_mapa: 1087
           altura_mapa: 812
@@ -1400,6 +1362,37 @@ picos:
               y: 402
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Tiro ao Alvo
+            ids:
+            - 09
+          - escalada: Tiro ao Alvo SDS
+            ids:
+            - '10'
+          - escalada: Mão na Massa
+            ids:
+            - '11'
+          - escalada: Mão na Massa SDS
+            ids:
+            - '12'
+          - escalada: Bicho de Pé
+            ids:
+            - '13'
+          - escalada: Bicho de Pé SDS
+            ids:
+            - '14'
+          - escalada: Curto e Gross
+            ids:
+            - '15'
+          - escalada: Carvoeiro
+            ids:
+            - '16'
+          - escalada: Kadron
+            ids:
+            - '17'
+          - escalada: Saída pela Culatra
+            ids:
+            - '18'
         escaladas:
         - boulder:
             nome: Esquina do Gueto
@@ -1590,12 +1583,6 @@ picos:
           - escalada: Carta de Euforia
             ids:
             - '07'
-          - escalada: Escravos de Chó
-            ids:
-            - 08
-          - escalada: Jardim de Infância
-            ids:
-            - 09
         - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
           largura_mapa: 1094
           altura_mapa: 782
@@ -1607,6 +1594,10 @@ picos:
               y: 428
               comprimento: 20
               largura: 20
+          referencias:
+          - escalada: Jardim de Infância
+            ids:
+            - 09
         escaladas:
         - boulder:
             nome: Agricultor

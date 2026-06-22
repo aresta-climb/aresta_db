@@ -301,62 +301,6 @@
         - **escalada**: Sucuri
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Mundo Mágico dos Abacates
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Ariba Cabron
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Família Martins
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Zuzuquinha Mimada
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: De volta as Origens
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Autista do Bando
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Último Suspiro
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Barba Negra
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Capitão Gancho
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Peter Pan do Cerrado
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Indio Rastafari
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Todo Cuidado e Pouco
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Raul com Certeza
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Raimundo Nonato
-        - **ids**:
-          - 21
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ensolarado_p2.webp)
     - **largura_mapa**: 1152
@@ -418,6 +362,27 @@
           - **y**: 928
           - **comprimento**: 41
           - **largura**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Família Martins
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Zuzuquinha Mimada
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: De volta as Origens
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Autista do Bando
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Último Suspiro
+        - **ids**:
+          - 14
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ensolarado_p3.webp)
     - **largura_mapa**: 1152
@@ -479,6 +444,35 @@
           - **y**: 1126
           - **comprimento**: 32
           - **largura**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Barba Negra
+        - **ids**:
+          - 15
+      - **[1]**:
+        - **escalada**: Capitão Gancho
+        - **ids**:
+          - 16
+      - **[2]**:
+        - **escalada**: Peter Pan do Cerrado
+        - **ids**:
+          - 17
+      - **[3]**:
+        - **escalada**: Indio Rastafari
+        - **ids**:
+          - 18
+      - **[4]**:
+        - **escalada**: Todo Cuidado e Pouco
+        - **ids**:
+          - 19
+      - **[5]**:
+        - **escalada**: Raul com Certeza
+        - **ids**:
+          - 20
+      - **[6]**:
+        - **escalada**: Raimundo Nonato
+        - **ids**:
+          - 21
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ensolarado_p4.webp)
     - **largura_mapa**: 852
@@ -508,6 +502,19 @@
           - **y**: 1022
           - **comprimento**: 34
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Todo Cuidado e Pouco
+        - **ids**:
+          - 19
+      - **[1]**:
+        - **escalada**: Raul com Certeza
+        - **ids**:
+          - 20
+      - **[2]**:
+        - **escalada**: Raimundo Nonato
+        - **ids**:
+          - 21
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -791,106 +798,6 @@
         - **escalada**: Revolta dos Vinagres
         - **ids**:
           - 03
-      - **[3]**:
-        - **escalada**: De Pai para Filho
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Amor de Mãe
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Pagador de Promessa
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Grande Família
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Sangue do meu Sangue
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Cocalcinhas
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Guerreiro da Bocaina
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Samurai Rastafari
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Ceder Writhe
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Sai pra Lá Sr. Doutor
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Maniaco Sexual
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Paraiboult
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Mulheres ao Poder
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Invasão Bacteriana
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Yes We Can
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Galo Doido
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Baby Roots
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Canelinha de Ouro
-        - **ids**:
-          - 21
-      - **[21]**:
-        - **escalada**: Rei Leão
-        - **ids**:
-          - 22
-      - **[22]**:
-        - **escalada**: Maluco Beleza
-        - **ids**:
-          - 23
-      - **[23]**:
-        - **escalada**: Peter Park
-        - **ids**:
-          - 24
-      - **[24]**:
-        - **escalada**: Super Poderosa
-        - **ids**:
-          - 25
-      - **[25]**:
-        - **escalada**: Cinco Vira, Dez Acaba
-        - **ids**:
-          - 26
-      - **[26]**:
-        - **escalada**: Dunas
-        - **ids**:
-          - 27
-      - **[27]**:
-        - **escalada**: Poeira Cósmica
-        - **ids**:
-          - 28
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p2.webp)
     - **largura_mapa**: 840
@@ -904,6 +811,11 @@
           - **y**: 1224
           - **comprimento**: 46
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: De Pai para Filho
+        - **ids**:
+          - 04
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p3.webp)
     - **largura_mapa**: 843
@@ -917,6 +829,11 @@
           - **y**: 1248
           - **comprimento**: 44
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Amor de Mãe
+        - **ids**:
+          - 05
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p4.webp)
     - **largura_mapa**: 1151
@@ -938,6 +855,15 @@
           - **y**: 958
           - **comprimento**: 44
           - **largura**: 37
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pagador de Promessa
+        - **ids**:
+          - 06
+      - **[1]**:
+        - **escalada**: Grande Família
+        - **ids**:
+          - 07
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p5.webp)
     - **largura_mapa**: 1148
@@ -996,6 +922,23 @@
           - **y**: 1250
           - **comprimento**: 42
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Guerreiro da Bocaina
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Samurai Rastafari
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Ceder Writhe
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Sai pra Lá Sr. Doutor
+        - **ids**:
+          - 13
   - **[6]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p7.webp)
     - **largura_mapa**: 1143
@@ -1057,6 +1000,35 @@
           - **y**: 315
           - **comprimento**: 37
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Guerreiro da Bocaina
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Samurai Rastafari
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Ceder Writhe
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Sai pra Lá Sr. Doutor
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Maniaco Sexual
+        - **ids**:
+          - 14
+      - **[5]**:
+        - **escalada**: Paraiboult
+        - **ids**:
+          - 15
+      - **[6]**:
+        - **escalada**: Mulheres ao Poder
+        - **ids**:
+          - 16
   - **[7]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p8.webp)
     - **largura_mapa**: 1151
@@ -1118,6 +1090,35 @@
           - **y**: 294
           - **comprimento**: 35
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Invasão Bacteriana
+        - **ids**:
+          - 17
+      - **[1]**:
+        - **escalada**: Yes We Can
+        - **ids**:
+          - 18
+      - **[2]**:
+        - **escalada**: Galo Doido
+        - **ids**:
+          - 19
+      - **[3]**:
+        - **escalada**: Baby Roots
+        - **ids**:
+          - 20
+      - **[4]**:
+        - **escalada**: Canelinha de Ouro
+        - **ids**:
+          - 21
+      - **[5]**:
+        - **escalada**: Rei Leão
+        - **ids**:
+          - 22
+      - **[6]**:
+        - **escalada**: Maluco Beleza
+        - **ids**:
+          - 23
   - **[8]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p9.webp)
     - **largura_mapa**: 1152
@@ -1163,6 +1164,27 @@
           - **y**: 206
           - **comprimento**: 35
           - **largura**: 25
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Peter Park
+        - **ids**:
+          - 24
+      - **[1]**:
+        - **escalada**: Super Poderosa
+        - **ids**:
+          - 25
+      - **[2]**:
+        - **escalada**: Cinco Vira, Dez Acaba
+        - **ids**:
+          - 26
+      - **[3]**:
+        - **escalada**: Dunas
+        - **ids**:
+          - 27
+      - **[4]**:
+        - **escalada**: Poeira Cósmica
+        - **ids**:
+          - 28
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1666,49 +1688,9 @@
         - **ids**:
           - 06
       - **[6]**:
-        - **escalada**: Só pra Variar
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Rock Supimpa
-        - **ids**:
-          - 08
-      - **[8]**:
-        - **escalada**: Você Decide
-        - **ids**:
-          - 09
-      - **[9]**:
-        - **escalada**: Grande Hotel
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Cura Trimura
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Próprio Veneno
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Própria Loucura
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Honney Money
-        - **ids**:
-          - 14
-      - **[14]**:
         - **escalada**: Efeito Variado
         - **ids**:
           - 06
-      - **[15]**:
-        - **escalada**: Só paracolateral
-        - **ids**:
-          - 07
-      - **[16]**:
-        - **escalada**: Trimura do Hotel
-        - **ids**:
-          - 11
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p2.webp)
     - **largura_mapa**: 1151
@@ -1754,6 +1736,35 @@
           - **y**: 1036
           - **comprimento**: 31
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Efeito Cascata
+        - **ids**:
+          - 05
+      - **[1]**:
+        - **escalada**: Efeito Colateral
+        - **ids**:
+          - 06
+      - **[2]**:
+        - **escalada**: Só pra Variar
+        - **ids**:
+          - 07
+      - **[3]**:
+        - **escalada**: Rock Supimpa
+        - **ids**:
+          - 08
+      - **[4]**:
+        - **escalada**: Você Decide
+        - **ids**:
+          - 09
+      - **[5]**:
+        - **escalada**: Efeito Variado
+        - **ids**:
+          - 06
+      - **[6]**:
+        - **escalada**: Só paracolateral
+        - **ids**:
+          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p3.webp)
     - **largura_mapa**: 1149
@@ -1799,6 +1810,31 @@
           - **y**: 980
           - **comprimento**: 38
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Grande Hotel
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Cura Trimura
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Próprio Veneno
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Própria Loucura
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Honney Money
+        - **ids**:
+          - 14
+      - **[5]**:
+        - **escalada**: Trimura do Hotel
+        - **ids**:
+          - 11
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p4.webp)
     - **largura_mapa**: 1143
@@ -1844,6 +1880,27 @@
           - **y**: 928
           - **comprimento**: 40
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pêro no Mucho
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Meia Hora
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Falta de Educação
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: De Mão Beijada
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Efeito Cascata
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2100,50 +2157,6 @@
         - **escalada**: Miragem
         - **ids**:
           - 05
-      - **[5]**:
-        - **escalada**: Cortina de Fumaça
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Sem Nome (Via 07)
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Pubianos
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Bocaina Roots
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Decadentes
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Pelos de Aldebaran
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Ejaculação Precoce
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Via do Laurêncio
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: International love
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Cinquenteira
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Boa idéia
-        - **ids**:
-          - 16
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_paulistas_p2.webp)
     - **largura_mapa**: 1152
@@ -2197,6 +2210,23 @@
           - **y**: 1148
           - **comprimento**: 36
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cortina de Fumaça
+        - **ids**:
+          - 06
+      - **[1]**:
+        - **escalada**: Sem Nome (Via 07)
+        - **ids**:
+          - 07
+      - **[2]**:
+        - **escalada**: Decadentes
+        - **ids**:
+          - 10
+      - **[3]**:
+        - **escalada**: Pelos de Aldebaran
+        - **ids**:
+          - 11
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_paulistas_p3.webp)
     - **largura_mapa**: 1152
@@ -2242,6 +2272,27 @@
           - **y**: 790
           - **comprimento**: 38
           - **largura**: 31
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Ejaculação Precoce
+        - **ids**:
+          - 12
+      - **[1]**:
+        - **escalada**: Via do Laurêncio
+        - **ids**:
+          - 13
+      - **[2]**:
+        - **escalada**: International love
+        - **ids**:
+          - 14
+      - **[3]**:
+        - **escalada**: Cinquenteira
+        - **ids**:
+          - 15
+      - **[4]**:
+        - **escalada**: Boa idéia
+        - **ids**:
+          - 16
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2497,66 +2548,6 @@
         - **escalada**: Suindara
         - **ids**:
           - 05
-      - **[5]**:
-        - **escalada**: São Jorge
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Ramadan
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Sabotagem
-        - **ids**:
-          - 08
-      - **[8]**:
-        - **escalada**: Universo Paralelo
-        - **ids**:
-          - 09
-      - **[9]**:
-        - **escalada**: Egocentrismo
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Farinha do Mesmo Saco
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Bafo de Onça
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: 12 anos
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Mais Água no Feijão
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Puberdade
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Eldorado
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Mais uma Prova de Amor
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Sabotagem do Universo
-        - **ids**:
-          - 08
-      - **[18]**:
-        - **escalada**: Universo Sabotada
-        - **ids**:
-          - 09
-      - **[19]**:
-        - **escalada**: Ego Paralelo
-        - **ids**:
-          - 10
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p2.webp)
     - **largura_mapa**: 849
@@ -2578,6 +2569,15 @@
           - **y**: 1022
           - **comprimento**: 28
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: São Jorge
+        - **ids**:
+          - 06
+      - **[1]**:
+        - **escalada**: Ramadan
+        - **ids**:
+          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p3.webp)
     - **largura_mapa**: 852
@@ -2623,6 +2623,39 @@
           - **y**: 1098
           - **comprimento**: 31
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sabotagem
+        - **ids**:
+          - 08
+      - **[1]**:
+        - **escalada**: Universo Paralelo
+        - **ids**:
+          - 09
+      - **[2]**:
+        - **escalada**: Egocentrismo
+        - **ids**:
+          - 10
+      - **[3]**:
+        - **escalada**: Farinha do Mesmo Saco
+        - **ids**:
+          - 11
+      - **[4]**:
+        - **escalada**: Bafo de Onça
+        - **ids**:
+          - 12
+      - **[5]**:
+        - **escalada**: Sabotagem do Universo
+        - **ids**:
+          - 08
+      - **[6]**:
+        - **escalada**: Universo Sabotada
+        - **ids**:
+          - 09
+      - **[7]**:
+        - **escalada**: Ego Paralelo
+        - **ids**:
+          - 10
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p4.webp)
     - **largura_mapa**: 846
@@ -2668,6 +2701,27 @@
           - **y**: 1226
           - **comprimento**: 31
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: 12 anos
+        - **ids**:
+          - 13
+      - **[1]**:
+        - **escalada**: Mais Água no Feijão
+        - **ids**:
+          - 14
+      - **[2]**:
+        - **escalada**: Puberdade
+        - **ids**:
+          - 15
+      - **[3]**:
+        - **escalada**: Eldorado
+        - **ids**:
+          - 16
+      - **[4]**:
+        - **escalada**: Mais uma Prova de Amor
+        - **ids**:
+          - 17
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p5.webp)
     - **largura_mapa**: 854
@@ -2697,6 +2751,19 @@
           - **y**: 1050
           - **comprimento**: 39
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Alberto Roberto
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Chico Anísio
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Onjacktallbeck
+        - **ids**:
+          - 03
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2923,38 +2990,6 @@
         - **escalada**: Caroço de Manga
         - **ids**:
           - 01
-      - **[1]**:
-        - **escalada**: Caminho das pedras
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Caminho das águas
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Shana Crazy
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Na racha
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Lei Rounet
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Maria da Penha
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Para-raio de Maluco
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Sandálias da Humildade
-        - **ids**:
-          - 9
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_shana_crazy_p2.webp)
     - **largura_mapa**: 1142
@@ -2992,6 +3027,23 @@
           - **y**: 1169
           - **comprimento**: 43
           - **largura**: 36
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Caminho das pedras
+        - **ids**:
+          - 02
+      - **[1]**:
+        - **escalada**: Caminho das águas
+        - **ids**:
+          - 03
+      - **[2]**:
+        - **escalada**: Shana Crazy
+        - **ids**:
+          - 04
+      - **[3]**:
+        - **escalada**: Na racha
+        - **ids**:
+          - 05
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_shana_crazy_p3.webp)
     - **largura_mapa**: 1143
@@ -3029,6 +3081,15 @@
           - **y**: 1179
           - **comprimento**: 42
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Lei Rounet
+        - **ids**:
+          - 06
+      - **[1]**:
+        - **escalada**: Maria da Penha
+        - **ids**:
+          - 07
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3238,74 +3299,6 @@
         - **escalada**: Foi sem Querer
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Cabeleira
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Muchas Gracias
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Muy Hermosa
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Medicina Chilena
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: As Aparências Enganam
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Raios e Trovões
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Quem vê Cara não vê Graduação
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Sete Chaves
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Buena Onda
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Marola
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Filha de Todos
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Neblina Baixa
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Círculo de Fogo
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Fissura de Cristal
-        - **ids**:
-          - 21
-      - **[21]**:
-        - **escalada**: Mandruva Assassino
-        - **ids**:
-          - 22
-      - **[22]**:
-        - **escalada**: Namoro Antigo
-        - **ids**:
-          - 23
-      - **[23]**:
-        - **escalada**: Chora Nenêm
-        - **ids**:
-          - 24
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tsunami_p2.webp)
     - **largura_mapa**: 1152
@@ -3375,6 +3368,35 @@
           - **y**: 1026
           - **comprimento**: 43
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Muy Hermosa
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Medicina Chilena
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: As Aparências Enganam
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Raios e Trovões
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Quem vê Cara não vê Graduação
+        - **ids**:
+          - 14
+      - **[5]**:
+        - **escalada**: Sete Chaves
+        - **ids**:
+          - 15
+      - **[6]**:
+        - **escalada**: Buena Onda
+        - **ids**:
+          - 16
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tsunami_p3.webp)
     - **largura_mapa**: 1152
@@ -3444,6 +3466,39 @@
           - **y**: 1122
           - **comprimento**: 37
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Marola
+        - **ids**:
+          - 17
+      - **[1]**:
+        - **escalada**: Filha de Todos
+        - **ids**:
+          - 18
+      - **[2]**:
+        - **escalada**: Neblina Baixa
+        - **ids**:
+          - 19
+      - **[3]**:
+        - **escalada**: Círculo de Fogo
+        - **ids**:
+          - 20
+      - **[4]**:
+        - **escalada**: Fissura de Cristal
+        - **ids**:
+          - 21
+      - **[5]**:
+        - **escalada**: Mandruva Assassino
+        - **ids**:
+          - 22
+      - **[6]**:
+        - **escalada**: Namoro Antigo
+        - **ids**:
+          - 23
+      - **[7]**:
+        - **escalada**: Chora Nenêm
+        - **ids**:
+          - 24
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3796,34 +3851,6 @@
         - **escalada**: Jovem Ganso
         - **ids**:
           - 06
-      - **[6]**:
-        - **escalada**: Filho de Vó
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Loucura Alheia
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Mistério de Ramadã
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Chuva de Verão
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Pole Dance
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Brusqueta do Cerrado
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Rota Aérea
-        - **ids**:
-          - 13
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_udao_p2.webp)
     - **largura_mapa**: 1152
@@ -3885,6 +3912,27 @@
           - **y**: 715
           - **comprimento**: 42
           - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Filho de Vó
+        - **ids**:
+          - 07
+      - **[1]**:
+        - **escalada**: Chuva de Verão
+        - **ids**:
+          - 10
+      - **[2]**:
+        - **escalada**: Pole Dance
+        - **ids**:
+          - 11
+      - **[3]**:
+        - **escalada**: Brusqueta do Cerrado
+        - **ids**:
+          - 12
+      - **[4]**:
+        - **escalada**: Rota Aérea
+        - **ids**:
+          - 13
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4132,6 +4180,11 @@
           - **y**: 928
           - **comprimento**: 48
           - **largura**: 37
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Barriga Verde
+        - **ids**:
+          - 06
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4278,62 +4331,6 @@
         - **escalada**: Lendárias 11 Vacas
         - **ids**:
           - 05
-      - **[5]**:
-        - **escalada**: Chapeleta Voadora
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Pau Podre
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Bonsai Cearense
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Macaco Velho
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Sargento Pincel
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Proparoxítona
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Volte Sempre
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Espírito de Equipe
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Bem-vindo
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Ganja no País das Maravilhas
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Ritual Satânico
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Sweet Home Alabama
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Show de Calouros
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Permissão Concebida
-        - **ids**:
-          - 19
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bem_vindo_p2.webp)
     - **largura_mapa**: 1152
@@ -4371,6 +4368,15 @@
           - **y**: 1234
           - **comprimento**: 48
           - **largura**: 37
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Chapeleta Voadora
+        - **ids**:
+          - 06
+      - **[1]**:
+        - **escalada**: Pau Podre
+        - **ids**:
+          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bem_vindo_p3.webp)
     - **largura_mapa**: 1152
@@ -4424,6 +4430,23 @@
           - **y**: 1244
           - **comprimento**: 43
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sargento Pincel
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Proparoxítona
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Volte Sempre
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: Espírito de Equipe
+        - **ids**:
+          - 13
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bem_vindo_p4.webp)
     - **largura_mapa**: 1152
@@ -4477,6 +4500,31 @@
           - **y**: 1238
           - **comprimento**: 32
           - **largura**: 31
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Bem-vindo
+        - **ids**:
+          - 14
+      - **[1]**:
+        - **escalada**: Ganja no País das Maravilhas
+        - **ids**:
+          - 15
+      - **[2]**:
+        - **escalada**: Ritual Satânico
+        - **ids**:
+          - 16
+      - **[3]**:
+        - **escalada**: Sweet Home Alabama
+        - **ids**:
+          - 17
+      - **[4]**:
+        - **escalada**: Show de Calouros
+        - **ids**:
+          - 18
+      - **[5]**:
+        - **escalada**: Permissão Concebida
+        - **ids**:
+          - 19
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4791,142 +4839,6 @@
         - **escalada**: Resta Um
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Medo de quê Aresta
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Pressão Psicológica
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Zumbi da Bocaina
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Curta e Grossa
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Menos Curta e Mais Grossa
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: El Corazon
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Sombra e Água Fresca
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Vitamina C
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Mão de Vaca
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Natural Climb
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Chape
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Comando Delta
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Rachando os Bico
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Mato Seco
-        - **ids**:
-          - 21
-      - **[21]**:
-        - **escalada**: De um jeito ou de Outro
-        - **ids**:
-          - 22
-      - **[22]**:
-        - **escalada**: Arapuá
-        - **ids**:
-          - 23
-      - **[23]**:
-        - **escalada**: Carcará Uru
-        - **ids**:
-          - 24
-      - **[24]**:
-        - **escalada**: Rapadura
-        - **ids**:
-          - 25
-      - **[25]**:
-        - **escalada**: Zé Bunitim
-        - **ids**:
-          - 26
-      - **[26]**:
-        - **escalada**: Vai ser Fei
-        - **ids**:
-          - 27
-      - **[27]**:
-        - **escalada**: Estrela Solitária
-        - **ids**:
-          - 28
-      - **[28]**:
-        - **escalada**: Vergateza
-        - **ids**:
-          - 29
-      - **[29]**:
-        - **escalada**: Chico Curandeiro
-        - **ids**:
-          - 30
-      - **[30]**:
-        - **escalada**: Reforma Trabalhista
-        - **ids**:
-          - 31
-      - **[31]**:
-        - **escalada**: Arborigenas
-        - **ids**:
-          - 32
-      - **[32]**:
-        - **escalada**: Faz sua Parte
-        - **ids**:
-          - 33
-      - **[33]**:
-        - **escalada**: Delirando
-        - **ids**:
-          - 34
-      - **[34]**:
-        - **escalada**: Saraiva
-        - **ids**:
-          - 35
-      - **[35]**:
-        - **escalada**: Rolando Lero
-        - **ids**:
-          - 36
-      - **[36]**:
-        - **escalada**: Jardinagem
-        - **ids**:
-          - 37
-      - **[37]**:
-        - **escalada**: Soldados do Sol
-        - **ids**:
-          - 38
-      - **[38]**:
-        - **escalada**: Metamorfose Ambulante
-        - **ids**:
-          - 39
-      - **[39]**:
-        - **escalada**: Baby Rasta
-        - **ids**:
-          - 40
-      - **[40]**:
-        - **escalada**: Cara ou Crachá
-        - **ids**:
-          - 41
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p2.webp)
     - **largura_mapa**: 1143
@@ -4996,6 +4908,35 @@
           - **y**: 1072
           - **comprimento**: 43
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Zumbi da Bocaina
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Curta e Grossa
+        - **ids**:
+          - 11
+      - **[2]**:
+        - **escalada**: Menos Curta e Mais Grossa
+        - **ids**:
+          - 12
+      - **[3]**:
+        - **escalada**: El Corazon
+        - **ids**:
+          - 13
+      - **[4]**:
+        - **escalada**: Sombra e Água Fresca
+        - **ids**:
+          - 14
+      - **[5]**:
+        - **escalada**: Vitamina C
+        - **ids**:
+          - 15
+      - **[6]**:
+        - **escalada**: Mão de Vaca
+        - **ids**:
+          - 16
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p3.webp)
     - **largura_mapa**: 1140
@@ -5033,6 +4974,23 @@
           - **y**: 1086
           - **comprimento**: 39
           - **largura**: 34
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Natural Climb
+        - **ids**:
+          - 17
+      - **[1]**:
+        - **escalada**: Chape
+        - **ids**:
+          - 18
+      - **[2]**:
+        - **escalada**: Comando Delta
+        - **ids**:
+          - 19
+      - **[3]**:
+        - **escalada**: Rachando os Bico
+        - **ids**:
+          - 20
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p4.webp)
     - **largura_mapa**: 1146
@@ -5102,6 +5060,39 @@
           - **y**: 1126
           - **comprimento**: 45
           - **largura**: 33
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mato Seco
+        - **ids**:
+          - 21
+      - **[1]**:
+        - **escalada**: De um jeito ou de Outro
+        - **ids**:
+          - 22
+      - **[2]**:
+        - **escalada**: Arapuá
+        - **ids**:
+          - 23
+      - **[3]**:
+        - **escalada**: Carcará Uru
+        - **ids**:
+          - 24
+      - **[4]**:
+        - **escalada**: Rapadura
+        - **ids**:
+          - 25
+      - **[5]**:
+        - **escalada**: Zé Bunitim
+        - **ids**:
+          - 26
+      - **[6]**:
+        - **escalada**: Vai ser Fei
+        - **ids**:
+          - 27
+      - **[7]**:
+        - **escalada**: Estrela Solitária
+        - **ids**:
+          - 28
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p5.webp)
     - **largura_mapa**: 1145
@@ -5171,6 +5162,39 @@
           - **y**: 1162
           - **comprimento**: 36
           - **largura**: 29
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Vergateza
+        - **ids**:
+          - 29
+      - **[1]**:
+        - **escalada**: Chico Curandeiro
+        - **ids**:
+          - 30
+      - **[2]**:
+        - **escalada**: Reforma Trabalhista
+        - **ids**:
+          - 31
+      - **[3]**:
+        - **escalada**: Arborigenas
+        - **ids**:
+          - 32
+      - **[4]**:
+        - **escalada**: Faz sua Parte
+        - **ids**:
+          - 33
+      - **[5]**:
+        - **escalada**: Delirando
+        - **ids**:
+          - 34
+      - **[6]**:
+        - **escalada**: Saraiva
+        - **ids**:
+          - 35
+      - **[7]**:
+        - **escalada**: Rolando Lero
+        - **ids**:
+          - 36
   - **[5]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p6.webp)
     - **largura_mapa**: 1145
@@ -5216,6 +5240,27 @@
           - **y**: 1185
           - **comprimento**: 36
           - **largura**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Jardinagem
+        - **ids**:
+          - 37
+      - **[1]**:
+        - **escalada**: Soldados do Sol
+        - **ids**:
+          - 38
+      - **[2]**:
+        - **escalada**: Metamorfose Ambulante
+        - **ids**:
+          - 39
+      - **[3]**:
+        - **escalada**: Baby Rasta
+        - **ids**:
+          - 40
+      - **[4]**:
+        - **escalada**: Cara ou Crachá
+        - **ids**:
+          - 41
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -5731,22 +5776,6 @@
         - **escalada**: Jogo Limpo
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: James Bond
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Apolo o Doutrinador
-        - **ids**:
-          - 9
-      - **[9]**:
-        - **escalada**: Rock Balboa
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Xodó da Bocaina
-        - **ids**:
-          - 11
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_segundo_andar_p2.webp)
     - **largura_mapa**: 1140
@@ -5784,6 +5813,15 @@
           - **y**: 760
           - **comprimento**: 25
           - **largura**: 23
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Rock Balboa
+        - **ids**:
+          - 10
+      - **[1]**:
+        - **escalada**: Xodó da Bocaina
+        - **ids**:
+          - 11
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

@@ -516,12 +516,6 @@ picos:
           - escalada: Via da Perereca
             ids:
             - '07'
-          - escalada: Barbarela
-            ids:
-            - '8'
-          - escalada: Ciganos Molhados
-            ids:
-            - '9'
           - escalada: Abominável Morcego Amestrado
             ids:
             - '10'

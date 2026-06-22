@@ -1590,146 +1590,130 @@
         - **ids**:
           - 14
       - **[14]**:
-        - **escalada**: Dinamicuzão em Rodlá
-        - **ids**:
-          - V
-      - **[15]**:
-        - **escalada**: Dinamicuzão em catapulta
-        - **ids**:
-          - V
-      - **[16]**:
-        - **escalada**: Dinamicuzão em El paseo
-        - **ids**:
-          - V
-      - **[17]**:
-        - **escalada**: El paseo em Dinamicuzão
-        - **ids**:
-          - V
-      - **[18]**:
         - **escalada**: Fósseis do velho mundo
         - **ids**:
           - 15
-      - **[19]**:
+      - **[15]**:
         - **escalada**: Querendo velho mundo
         - **ids**:
           - 16
-      - **[20]**:
+      - **[16]**:
         - **escalada**: Sem querer querendo
         - **ids**:
           - 17
-      - **[21]**:
+      - **[17]**:
         - **escalada**: Segunda sem lei
         - **ids**:
           - 18
-      - **[22]**:
+      - **[18]**:
         - **escalada**: Quinta desordeira
         - **ids**:
           - 19
-      - **[23]**:
+      - **[19]**:
         - **escalada**: Decapitados
         - **ids**:
           - 20
-      - **[24]**:
+      - **[20]**:
         - **escalada**: Já tá lá
         - **ids**:
           - 21
-      - **[25]**:
+      - **[21]**:
         - **escalada**: Tente outra vez
         - **ids**:
           - 22
-      - **[26]**:
+      - **[22]**:
         - **escalada**: A troca
         - **ids**:
           - 23
-      - **[27]**:
+      - **[23]**:
         - **escalada**: No mato com os cachorros
         - **ids**:
           - 24
-      - **[28]**:
+      - **[24]**:
         - **escalada**: Secuzinho
         - **ids**:
           - 25
-      - **[29]**:
+      - **[25]**:
         - **escalada**: Sublime obsessão
         - **ids**:
           - 26
-      - **[30]**:
+      - **[26]**:
         - **escalada**: Não guenta senta
         - **ids**:
           - 27
-      - **[31]**:
+      - **[27]**:
         - **escalada**: Despertar da curriola
         - **ids**:
           - 28
-      - **[32]**:
+      - **[28]**:
         - **escalada**: Variante
         - **ids**:
           - 29
-      - **[33]**:
+      - **[29]**:
         - **escalada**: Um dia depois de amanhã
         - **ids**:
           - 30
-      - **[34]**:
+      - **[30]**:
         - **escalada**: Prakaramba
         - **ids**:
           - 31
-      - **[35]**:
+      - **[31]**:
         - **escalada**: Estilo junkie
         - **ids**:
           - 32
-      - **[36]**:
+      - **[32]**:
         - **escalada**: Escalão Hilário
         - **ids**:
           - 33
-      - **[37]**:
+      - **[33]**:
         - **escalada**: Missão impossível
         - **ids**:
           - 34
-      - **[38]**:
+      - **[34]**:
         - **escalada**: Bode negro
         - **ids**:
           - 35
-      - **[39]**:
+      - **[35]**:
         - **escalada**: V da via
         - **ids**:
           - 36
-      - **[40]**:
+      - **[36]**:
         - **escalada**: Até que enfim
         - **ids**:
           - 37
-      - **[41]**:
+      - **[37]**:
         - **escalada**: Noiados do maguina
         - **ids**:
           - 38
-      - **[42]**:
+      - **[38]**:
         - **escalada**: Da Cuca Lelé (variante)
         - **ids**:
           - 39
-      - **[43]**:
+      - **[39]**:
         - **escalada**: Deus dos quatro anos
         - **ids**:
           - 40
-      - **[44]**:
+      - **[40]**:
         - **escalada**: Gaibous in the laibous
         - **ids**:
           - 41
-      - **[45]**:
+      - **[41]**:
         - **escalada**: Power katronca
         - **ids**:
           - 42
-      - **[46]**:
+      - **[42]**:
         - **escalada**: Muito punk
         - **ids**:
           - 43
-      - **[47]**:
+      - **[43]**:
         - **escalada**: Demolição
         - **ids**:
           - 44
-      - **[48]**:
+      - **[44]**:
         - **escalada**: Big Wall do Salim
         - **ids**:
           - 45
-      - **[49]**:
+      - **[45]**:
         - **escalada**: Patati Patata
         - **ids**:
           - 46

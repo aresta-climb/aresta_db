@@ -708,14 +708,6 @@
         - **escalada**: (sem nome)
         - **ids**:
           - 4
-      - **[4]**:
-        - **escalada**: Especiaria
-        - **ids**:
-          - 5
-      - **[5]**:
-        - **escalada**: Tupi Or Not Tupi
-        - **ids**:
-          - 6
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_xavante_p0_i1.webp)
     - **largura_mapa**: 841
@@ -737,6 +729,15 @@
           - **y**: 1085
           - **comprimento**: 32
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Especiaria
+        - **ids**:
+          - 5
+      - **[1]**:
+        - **escalada**: Tupi Or Not Tupi
+        - **ids**:
+          - 6
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

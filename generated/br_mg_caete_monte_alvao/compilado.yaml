@@ -440,6 +440,9 @@ picos:
           - escalada: Desvio na pista
             ids:
             - 6az
+          - escalada: Essa via não é minha
+            ids:
+            - 1rox
           - escalada: Vento da Patagônia
             ids:
             - 2rox
@@ -452,6 +455,9 @@ picos:
           - escalada: Cavuca tatu
             ids:
             - 5rox
+          - escalada: Zé colmeia e Dona Flor
+            ids:
+            - 6rox
           - escalada: Tirolês
             ids:
             - 7rox
@@ -461,21 +467,15 @@ picos:
           - escalada: Sabor Baunilha
             ids:
             - 9rox
+          - escalada: O charme da Trad
+            ids:
+            - 10rox
           - escalada: Café Ole
             ids:
             - 11rox
           - escalada: Tio Tonton
             ids:
             - 12rox
-          - escalada: Essa via não é minha
-            ids:
-            - 1rox
-          - escalada: Zé colmeia e Dona Flor
-            ids:
-            - 6rox
-          - escalada: O charme da Trad
-            ids:
-            - 10rox
         setores:
         - conteudo:
             nome: Caverna do Bin Laden

@@ -344,21 +344,6 @@
                 - **raio**: 9
           - **referencias**:
             - **[0]**:
-              - **escalada**: Amnesia
-              - **ids**:
-                - 1_b
-                - x_b
-            - **[1]**:
-              - **escalada**: Capitão Jack
-              - **ids**:
-                - 2
-                - y
-            - **[2]**:
-              - **escalada**: Purple Rase
-              - **ids**:
-                - 3
-                - x_b
-            - **[3]**:
               - **escalada**: Sunshine
               - **ids**:
                 - 1
@@ -403,6 +388,22 @@
                 - **x**: 562
                 - **y**: 15
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Amnesia
+              - **ids**:
+                - 1_b
+                - x_b
+            - **[1]**:
+              - **escalada**: Capitão Jack
+              - **ids**:
+                - 2
+                - y
+            - **[2]**:
+              - **escalada**: Purple Rase
+              - **ids**:
+                - 3
+                - x_b
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco Jahngada
@@ -484,11 +485,6 @@
               - **ids**:
                 - 3
                 - y
-            - **[3]**:
-              - **escalada**: Camundongo
-              - **ids**:
-                - 4
-                - z
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_jahngada_p1.webp)
           - **largura_mapa**: 445
@@ -508,6 +504,12 @@
                 - **x**: 214
                 - **y**: 111
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Camundongo
+              - **ids**:
+                - 4
+                - z
   - **[3]**:
     - **conteudo**:
       - **descricao**: # Bloco Planetário
@@ -566,31 +568,6 @@
               - **ids**:
                 - 1
                 - x
-            - **[1]**:
-              - **escalada**: Náufrago
-              - **ids**:
-                - 2
-                - y
-            - **[2]**:
-              - **escalada**: Golfinho
-              - **ids**:
-                - 3
-                - z
-            - **[3]**:
-              - **escalada**: Clarete
-              - **ids**:
-                - 4
-                - w
-            - **[4]**:
-              - **escalada**: Odisséia na Babilônia
-              - **ids**:
-                - 1_b
-                - x_b
-            - **[5]**:
-              - **escalada**: Canais da Babilônia
-              - **ids**:
-                - 1_b
-                - y_b
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p2.webp)
           - **largura_mapa**: 829
@@ -638,6 +615,22 @@
                 - **x**: 614
                 - **y**: 42
                 - **raio**: 10
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Náufrago
+              - **ids**:
+                - 2
+                - y
+            - **[1]**:
+              - **escalada**: Golfinho
+              - **ids**:
+                - 3
+                - z
+            - **[2]**:
+              - **escalada**: Clarete
+              - **ids**:
+                - 4
+                - w
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p1.webp)
           - **largura_mapa**: 850
@@ -664,6 +657,17 @@
                 - **x**: 585
                 - **y**: 6
                 - **raio**: 8
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Odisséia na Babilônia
+              - **ids**:
+                - 1_b
+                - x_b
+            - **[1]**:
+              - **escalada**: Canais da Babilônia
+              - **ids**:
+                - 1_b
+                - y_b
   - **[4]**:
     - **conteudo**:
       - **descricao**: # Bloco Free Solo
@@ -740,22 +744,6 @@
               - **ids**:
                 - 3
                 - Z
-            - **[2]**:
-              - **escalada**: Free Solo
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Tartaruga
-              - **ids**:
-                - 2_b
-            - **[4]**:
-              - **escalada**: Mobilete
-              - **ids**:
-                - 3_b
-            - **[5]**:
-              - **escalada**: Walkmachine
-              - **ids**:
-                - 4
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_free_solo_p1.webp)
           - **largura_mapa**: 839
@@ -789,6 +777,23 @@
                 - **x**: 743
                 - **y**: 356
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Free Solo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Tartaruga
+              - **ids**:
+                - 2_b
+            - **[2]**:
+              - **escalada**: Mobilete
+              - **ids**:
+                - 3_b
+            - **[3]**:
+              - **escalada**: Walkmachine
+              - **ids**:
+                - 4
   - **[5]**:
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
@@ -843,18 +848,6 @@
               - **escalada**: Carrapicho
               - **ids**:
                 - 2
-            - **[2]**:
-              - **escalada**: Oratório
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Pistol
-              - **ids**:
-                - 4
-            - **[4]**:
-              - **escalada**: Dart Vader
-              - **ids**:
-                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_carrapicho_p1.webp)
           - **largura_mapa**: 399
@@ -881,6 +874,19 @@
                 - **x**: 54
                 - **y**: 194
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Oratório
+              - **ids**:
+                - 3
+            - **[1]**:
+              - **escalada**: Pistol
+              - **ids**:
+                - 4
+            - **[2]**:
+              - **escalada**: Dart Vader
+              - **ids**:
+                - 5
   - **[6]**:
     - **conteudo**:
       - **descricao**: # Bloco Sunset
@@ -945,17 +951,9 @@
               - **ids**:
                 - 2
             - **[2]**:
-              - **escalada**: Arestinha Vibration
-              - **ids**:
-                - 3
-            - **[3]**:
               - **escalada**: Sujeirinha
               - **ids**:
                 - 4
-            - **[4]**:
-              - **escalada**: Projeto Sunset
-              - **ids**:
-                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p1.webp)
           - **largura_mapa**: 488
@@ -968,6 +966,11 @@
                 - **x**: 195
                 - **y**: 554
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Arestinha Vibration
+              - **ids**:
+                - 3
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p2.webp)
           - **largura_mapa**: 338
@@ -980,6 +983,11 @@
                 - **x**: 246
                 - **y**: 386
                 - **raio**: 9
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Projeto Sunset
+              - **ids**:
+                - 5
   - **[7]**:
     - **conteudo**:
       - **descricao**: # Bloco Camaroa
@@ -1061,10 +1069,6 @@
               - **escalada**: Nave
               - **ids**:
                 - 4
-            - **[4]**:
-              - **escalada**: Camaroa
-              - **ids**:
-                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_camaroa_p1.webp)
           - **largura_mapa**: 835
@@ -1077,6 +1081,11 @@
                 - **x**: 462
                 - **y**: 480
                 - **raio**: 10
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Camaroa
+              - **ids**:
+                - 5
 
 
 ## Arquivos Externos

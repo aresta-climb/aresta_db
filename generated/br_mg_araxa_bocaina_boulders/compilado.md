@@ -159,14 +159,6 @@
         - **escalada**: Pressão Enrustida
         - **ids**:
           - 05
-      - **[5]**:
-        - **escalada**: Não Contava com Minha Astúcia
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Rapé
-        - **ids**:
-          - 07
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -229,46 +221,6 @@
         - **escalada**: Mingau
         - **ids**:
           - 01
-      - **[1]**:
-        - **escalada**: Pretinho Irlandês
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Ratos e Raízes
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Tripa Eterna
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Trip Eterna
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Mecanismo
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Pedrada
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Aedes Egipse
-        - **ids**:
-          - 08
-      - **[8]**:
-        - **escalada**: V9 do Rafinha
-        - **ids**:
-          - 09
-      - **[9]**:
-        - **escalada**: Os Trabalhos Não Param
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Trabalho em Equipe
-        - **ids**:
-          - 11
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p1.webp)
     - **largura_mapa**: 1069
@@ -322,6 +274,31 @@
           - **y**: 726
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pretinho Irlandês
+        - **ids**:
+          - 02
+      - **[1]**:
+        - **escalada**: Ratos e Raízes
+        - **ids**:
+          - 03
+      - **[2]**:
+        - **escalada**: Tripa Eterna
+        - **ids**:
+          - 04
+      - **[3]**:
+        - **escalada**: Trip Eterna
+        - **ids**:
+          - 05
+      - **[4]**:
+        - **escalada**: Mecanismo
+        - **ids**:
+          - 06
+      - **[5]**:
+        - **escalada**: Pedrada
+        - **ids**:
+          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p2.webp)
     - **largura_mapa**: 1069
@@ -359,6 +336,23 @@
           - **y**: 696
           - **comprimento**: 22
           - **largura**: 17
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aedes Egipse
+        - **ids**:
+          - 08
+      - **[1]**:
+        - **escalada**: V9 do Rafinha
+        - **ids**:
+          - 09
+      - **[2]**:
+        - **escalada**: Os Trabalhos Não Param
+        - **ids**:
+          - 10
+      - **[3]**:
+        - **escalada**: Trabalho em Equipe
+        - **ids**:
+          - 11
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -564,25 +558,9 @@
         - **ids**:
           - 02
       - **[2]**:
-        - **escalada**: Lobão
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Tião Macalé
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Zac
-        - **ids**:
-          - 05
-      - **[5]**:
         - **escalada**: Loboulder
         - **ids**:
           - 06
-      - **[6]**:
-        - **escalada**: Savana
-        - **ids**:
-          - 07
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -681,18 +659,6 @@
         - **escalada**: Marreteiro
         - **ids**:
           - 04
-      - **[4]**:
-        - **escalada**: Guerreiro da Bocaina
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: High Line
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Colchão de Mola
-        - **ids**:
-          - 07
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_guerreiro_p1.webp)
     - **largura_mapa**: 1084
@@ -722,6 +688,19 @@
           - **y**: 512
           - **comprimento**: 21
           - **largura**: 21
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Guerreiro da Bocaina
+        - **ids**:
+          - 05
+      - **[1]**:
+        - **escalada**: High Line
+        - **ids**:
+          - 06
+      - **[2]**:
+        - **escalada**: Colchão de Mola
+        - **ids**:
+          - 07
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -785,58 +764,6 @@
         - **escalada**: Sexto Sentido
         - **ids**:
           - 01
-      - **[1]**:
-        - **escalada**: Dread Lock
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Cabeludo
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Jacinto Barriguinha
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Compressor
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Cabelinho
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Mágico de Oz
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Mágico de Oz SDS
-        - **ids**:
-          - 08
-      - **[8]**:
-        - **escalada**: Mr. Gordura
-        - **ids**:
-          - 09
-      - **[9]**:
-        - **escalada**: País das Maravilhas
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Capim Louco
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Capim Gordura
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Roleta Russa
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: La Qualitê
-        - **ids**:
-          - 14
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_cabelin_p1.webp)
     - **largura_mapa**: 1092
@@ -890,6 +817,31 @@
           - **y**: 688
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Sexto Sentido
+        - **ids**:
+          - 01
+      - **[1]**:
+        - **escalada**: Dread Lock
+        - **ids**:
+          - 02
+      - **[2]**:
+        - **escalada**: Cabeludo
+        - **ids**:
+          - 03
+      - **[3]**:
+        - **escalada**: Jacinto Barriguinha
+        - **ids**:
+          - 04
+      - **[4]**:
+        - **escalada**: Compressor
+        - **ids**:
+          - 05
+      - **[5]**:
+        - **escalada**: Cabelinho
+        - **ids**:
+          - 06
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_do_cabelin_p2.webp)
     - **largura_mapa**: 1094
@@ -951,6 +903,35 @@
           - **y**: 707
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mágico de Oz
+        - **ids**:
+          - 07
+      - **[1]**:
+        - **escalada**: Mágico de Oz SDS
+        - **ids**:
+          - 08
+      - **[2]**:
+        - **escalada**: Mr. Gordura
+        - **ids**:
+          - 09
+      - **[3]**:
+        - **escalada**: País das Maravilhas
+        - **ids**:
+          - 10
+      - **[4]**:
+        - **escalada**: Capim Louco
+        - **ids**:
+          - 11
+      - **[5]**:
+        - **escalada**: Capim Gordura
+        - **ids**:
+          - 12
+      - **[6]**:
+        - **escalada**: Roleta Russa
+        - **ids**:
+          - 13
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1060,18 +1041,6 @@
         - **escalada**: Sabiá
         - **ids**:
           - 02
-      - **[2]**:
-        - **escalada**: Consciência Limpa
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Consciência
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Mulheres Poderosas
-        - **ids**:
-          - 05
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_consciencia_limpa_p1.webp)
     - **largura_mapa**: 1099
@@ -1101,6 +1070,19 @@
           - **y**: 687
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Consciência Limpa
+        - **ids**:
+          - 03
+      - **[1]**:
+        - **escalada**: Consciência
+        - **ids**:
+          - 04
+      - **[2]**:
+        - **escalada**: Mulheres Poderosas
+        - **ids**:
+          - 05
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1179,22 +1161,14 @@
         - **ids**:
           - 01
       - **[1]**:
-        - **escalada**: Jamaica
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Kuaiti
-        - **ids**:
-          - 03
-      - **[3]**:
         - **escalada**: Taiti
         - **ids**:
           - 04
-      - **[4]**:
+      - **[2]**:
         - **escalada**: Haiti
         - **ids**:
           - 05
-      - **[5]**:
+      - **[3]**:
         - **escalada**: Nem Lá, Nem Cá
         - **ids**:
           - 06
@@ -1523,66 +1497,6 @@
         - **escalada**: Espírito San
         - **ids**:
           - 08
-      - **[8]**:
-        - **escalada**: Tiro ao Alvo
-        - **ids**:
-          - 09
-      - **[9]**:
-        - **escalada**: Tiro ao Alvo SDS
-        - **ids**:
-          - 10
-      - **[10]**:
-        - **escalada**: Mão na Massa
-        - **ids**:
-          - 11
-      - **[11]**:
-        - **escalada**: Mão na Massa SDS
-        - **ids**:
-          - 12
-      - **[12]**:
-        - **escalada**: Bicho de Pé
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Bicho de Pé SDS
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Curto e Gross
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Carvoeiro
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Kadron
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Saída pela Culatra
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Siri sem Casca
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Siri Queijo
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Problema Legal
-        - **ids**:
-          - 21
-      - **[21]**:
-        - **escalada**: Pecado de Chó
-        - **ids**:
-          - 22
-      - **[22]**:
-        - **escalada**: Ayuaska
-        - **ids**:
-          - 23
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_45_p1.webp)
     - **largura_mapa**: 1091
@@ -1652,6 +1566,39 @@
           - **y**: 430
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Tiro ao Alvo
+        - **ids**:
+          - 09
+      - **[1]**:
+        - **escalada**: Tiro ao Alvo SDS
+        - **ids**:
+          - 10
+      - **[2]**:
+        - **escalada**: Mão na Massa
+        - **ids**:
+          - 11
+      - **[3]**:
+        - **escalada**: Mão na Massa SDS
+        - **ids**:
+          - 12
+      - **[4]**:
+        - **escalada**: Bicho de Pé
+        - **ids**:
+          - 13
+      - **[5]**:
+        - **escalada**: Bicho de Pé SDS
+        - **ids**:
+          - 14
+      - **[6]**:
+        - **escalada**: Curto e Gross
+        - **ids**:
+          - 15
+      - **[7]**:
+        - **escalada**: Carvoeiro
+        - **ids**:
+          - 16
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_45_p2.webp)
     - **largura_mapa**: 1087
@@ -1737,6 +1684,47 @@
           - **y**: 402
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Tiro ao Alvo
+        - **ids**:
+          - 09
+      - **[1]**:
+        - **escalada**: Tiro ao Alvo SDS
+        - **ids**:
+          - 10
+      - **[2]**:
+        - **escalada**: Mão na Massa
+        - **ids**:
+          - 11
+      - **[3]**:
+        - **escalada**: Mão na Massa SDS
+        - **ids**:
+          - 12
+      - **[4]**:
+        - **escalada**: Bicho de Pé
+        - **ids**:
+          - 13
+      - **[5]**:
+        - **escalada**: Bicho de Pé SDS
+        - **ids**:
+          - 14
+      - **[6]**:
+        - **escalada**: Curto e Gross
+        - **ids**:
+          - 15
+      - **[7]**:
+        - **escalada**: Carvoeiro
+        - **ids**:
+          - 16
+      - **[8]**:
+        - **escalada**: Kadron
+        - **ids**:
+          - 17
+      - **[9]**:
+        - **escalada**: Saída pela Culatra
+        - **ids**:
+          - 18
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1952,14 +1940,6 @@
         - **escalada**: Carta de Euforia
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Escravos de Chó
-        - **ids**:
-          - 08
-      - **[8]**:
-        - **escalada**: Jardim de Infância
-        - **ids**:
-          - 09
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_essencia_p1.webp)
     - **largura_mapa**: 1094
@@ -1973,6 +1953,11 @@
           - **y**: 428
           - **comprimento**: 20
           - **largura**: 20
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Jardim de Infância
+        - **ids**:
+          - 09
 - **escaladas**:
   - **[0]**:
     - **boulder**:

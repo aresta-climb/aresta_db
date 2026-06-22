@@ -175,12 +175,6 @@ picos:
           - escalada: Route Setter
             ids:
             - '07'
-          - escalada: Teto Preto
-            ids:
-            - '8'
-          - escalada: 101 Dalmatas
-            ids:
-            - '9'
           - escalada: Fúria de Titãs
             ids:
             - '10'
@@ -348,6 +342,58 @@ picos:
               y: 1076
               comprimento: 33
               largura: 39
+          referencias:
+          - escalada: Bacon com Linguiça
+            ids:
+            - '01'
+          - escalada: Quatchú
+            ids:
+            - '02'
+          - escalada: Xoquito
+            ids:
+            - '03'
+          - escalada: Slow Motion
+            ids:
+            - '04'
+          - escalada: Berbaridade Máxima
+            ids:
+            - '05'
+          - escalada: Cirque du Soleil
+            ids:
+            - '06'
+          - escalada: Route Setter
+            ids:
+            - '07'
+          - escalada: Fúria de Titãs
+            ids:
+            - '10'
+          - escalada: Prima Donna
+            ids:
+            - '11'
+          - escalada: Dama de Ferro
+            ids:
+            - '12'
+          - escalada: Primeira de Todas
+            ids:
+            - '13'
+          - escalada: Brinco de Odalisca
+            ids:
+            - '14'
+          - escalada: 10%
+            ids:
+            - '15'
+          - escalada: Quebra Tudo
+            ids:
+            - '16'
+          - escalada: Acorrentado
+            ids:
+            - '17'
+          - escalada: Fidefenda
+            ids:
+            - '18'
+          - escalada: Cochyna Blue
+            ids:
+            - '19'
         escaladas:
         - via_esportiva:
             nome: Bacon com Linguiça
@@ -724,12 +770,6 @@ picos:
           - escalada: Aranha Gato
             ids:
             - '07'
-          - escalada: Chapas Onorixicas
-            ids:
-            - '8'
-          - escalada: Tora Flex
-            ids:
-            - '9'
           - escalada: Totalflex
             ids:
             - '10'
@@ -897,6 +937,58 @@ picos:
               y: 1311
               comprimento: 31
               largura: 30
+          referencias:
+          - escalada: Florestinha
+            ids:
+            - '01'
+          - escalada: Ação Total
+            ids:
+            - '02'
+          - escalada: Escravos da Pedra
+            ids:
+            - '03'
+          - escalada: Esquerdinha Caviar
+            ids:
+            - '04'
+          - escalada: Mônica
+            ids:
+            - '05'
+          - escalada: Queijo Suíço
+            ids:
+            - '06'
+          - escalada: Aranha Gato
+            ids:
+            - '07'
+          - escalada: Totalflex
+            ids:
+            - '10'
+          - escalada: Haja Broca
+            ids:
+            - '11'
+          - escalada: Juliana
+            ids:
+            - '12'
+          - escalada: Lisebra
+            ids:
+            - '13'
+          - escalada: Croque Monsieur
+            ids:
+            - '14'
+          - escalada: Playground
+            ids:
+            - '15'
+          - escalada: Depressão Pós Reforma
+            ids:
+            - '16'
+          - escalada: Chuvasca
+            ids:
+            - '17'
+          - escalada: Pau Oco
+            ids:
+            - '18'
+          - escalada: Franzinha
+            ids:
+            - '19'
         escaladas:
         - via_esportiva:
             nome: Florestinha
@@ -1203,12 +1295,6 @@ picos:
           - escalada: Marimbondes me Mordam
             ids:
             - '07'
-          - escalada: Sumchine
-            ids:
-            - '8'
-          - escalada: Cater Pillar
-            ids:
-            - '9'
           - escalada: Pula Um
             ids:
             - '10'
@@ -1296,6 +1382,34 @@ picos:
               y: 1223
               comprimento: 27
               largura: 28
+          referencias:
+          - escalada: Filhos da Revolução
+            ids:
+            - '01'
+          - escalada: Pedra Vermelha
+            ids:
+            - '02'
+          - escalada: Projeto
+            ids:
+            - '03'
+          - escalada: Projeto
+            ids:
+            - '04'
+          - escalada: (via inacabada)
+            ids:
+            - '05'
+          - escalada: Trinca Ferro
+            ids:
+            - '06'
+          - escalada: Marimbondes me Mordam
+            ids:
+            - '07'
+          - escalada: Pula Um
+            ids:
+            - '10'
+          - escalada: Cerro Azul
+            ids:
+            - '11'
         escaladas:
         - via_esportiva:
             nome: Filhos da Revolução
@@ -1437,21 +1551,6 @@ picos:
           - escalada: Lambe Lambe
             ids:
             - '02'
-          - escalada: TNT
-            ids:
-            - '03'
-          - escalada: For My Brother
-            ids:
-            - '04'
-          - escalada: Diamante Negro
-            ids:
-            - '05'
-          - escalada: Chapa Quente
-            ids:
-            - '06'
-          - escalada: (via inacabada)
-            ids:
-            - '07'
         - caminho_imagem_mapa: imagens/setor_micos_p1.webp
           largura_mapa: 1101
           altura_mapa: 1234
@@ -1505,6 +1604,28 @@ picos:
               y: 1015
               comprimento: 29
               largura: 32
+          referencias:
+          - escalada: Eu Também Vou
+            ids:
+            - '01'
+          - escalada: Lambe Lambe
+            ids:
+            - '02'
+          - escalada: TNT
+            ids:
+            - '03'
+          - escalada: For My Brother
+            ids:
+            - '04'
+          - escalada: Diamante Negro
+            ids:
+            - '05'
+          - escalada: Chapa Quente
+            ids:
+            - '06'
+          - escalada: (via inacabada)
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_micos_p2.webp
           largura_mapa: 1119
           altura_mapa: 840
@@ -1544,6 +1665,22 @@ picos:
               y: 811
               comprimento: 40
               largura: 42
+          referencias:
+          - escalada: TNT
+            ids:
+            - '03'
+          - escalada: For My Brother
+            ids:
+            - '04'
+          - escalada: Diamante Negro
+            ids:
+            - '05'
+          - escalada: Chapa Quente
+            ids:
+            - '06'
+          - escalada: (via inacabada)
+            ids:
+            - '07'
         escaladas:
         - via_esportiva:
             nome: Eu Também Vou
@@ -1712,6 +1849,19 @@ picos:
               y: 786
               comprimento: 27
               largura: 38
+          referencias:
+          - escalada: Takeyeasy
+            ids:
+            - '01'
+          - escalada: Pâncepis
+            ids:
+            - '02'
+          - escalada: Totem
+            ids:
+            - '03'
+          - escalada: '69'
+            ids:
+            - '04'
         escaladas:
         - via_esportiva:
             nome: Takeyeasy
@@ -1944,12 +2094,6 @@ picos:
           - escalada: Poneis Malditos
             ids:
             - '07'
-          - escalada: I Like This
-            ids:
-            - '8'
-          - escalada: Igarameca
-            ids:
-            - '9'
           - escalada: U.F.O
             ids:
             - '10'
@@ -2130,6 +2274,61 @@ picos:
               y: 1274
               comprimento: 35
               largura: 32
+          referencias:
+          - escalada: Beatrix
+            ids:
+            - '01'
+          - escalada: Na Boca da Gruta Tem Dente
+            ids:
+            - '02'
+          - escalada: Sunday Bloody Sunday
+            ids:
+            - '03'
+          - escalada: People Let's Stop The War
+            ids:
+            - '04'
+          - escalada: Apolo 13
+            ids:
+            - '05'
+          - escalada: Liga Extraordinária
+            ids:
+            - '06'
+          - escalada: Poneis Malditos
+            ids:
+            - '07'
+          - escalada: U.F.O
+            ids:
+            - '10'
+          - escalada: 127 Horas
+            ids:
+            - '11'
+          - escalada: Lero Lero é Mato
+            ids:
+            - '12'
+          - escalada: Renegados de Igarapé
+            ids:
+            - '13'
+          - escalada: Coisa Linda
+            ids:
+            - '14'
+          - escalada: Doce Veneno
+            ids:
+            - '15'
+          - escalada: Alguém Tem Que Ceder
+            ids:
+            - '16'
+          - escalada: Napa
+            ids:
+            - '17'
+          - escalada: Alpes Suínos*
+            ids:
+            - '18'
+          - escalada: Viagem ao Centro da Terra
+            ids:
+            - '19'
+          - escalada: Rolitos
+            ids:
+            - '20'
         - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
           largura_mapa: 938
           altura_mapa: 530
@@ -2162,6 +2361,19 @@ picos:
               y: 508
               comprimento: 22
               largura: 23
+          referencias:
+          - escalada: Beatrix
+            ids:
+            - '01'
+          - escalada: Na Boca da Gruta Tem Dente
+            ids:
+            - '02'
+          - escalada: Sunday Bloody Sunday
+            ids:
+            - '03'
+          - escalada: People Let's Stop The War
+            ids:
+            - '04'
         escaladas:
         - via_esportiva:
             nome: Beatrix
@@ -2497,12 +2709,6 @@ picos:
           - escalada: Vainafé
             ids:
             - '07'
-          - escalada: People crazy
-            ids:
-            - '8'
-          - escalada: Aresta Daniel
-            ids:
-            - '9'
         - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
           largura_mapa: 1109
           altura_mapa: 1413
@@ -2535,6 +2741,19 @@ picos:
               y: 866
               comprimento: 33
               largura: 41
+          referencias:
+          - escalada: Conflito sensual
+            ids:
+            - '01'
+          - escalada: Duracell
+            ids:
+            - '02'
+          - escalada: Djavú
+            ids:
+            - '03'
+          - escalada: Muita coisa envolvida
+            ids:
+            - '04'
         - caminho_imagem_mapa: imagens/setor_pracinha_p3.webp
           largura_mapa: 1109
           altura_mapa: 1391
@@ -2581,6 +2800,16 @@ picos:
               y: 1164
               comprimento: 25
               largura: 31
+          referencias:
+          - escalada: Netfrix
+            ids:
+            - '05'
+          - escalada: Pouca prática
+            ids:
+            - '06'
+          - escalada: Vainafé
+            ids:
+            - '07'
         escaladas:
         - via_esportiva:
             nome: Conflito sensual
@@ -2833,12 +3062,6 @@ picos:
           - escalada: Ponto de Equilíbrio
             ids:
             - '07'
-          - escalada: Lilith
-            ids:
-            - '8'
-          - escalada: Deu Brasil
-            ids:
-            - '9'
           - escalada: Deu Nois
             ids:
             - '10'

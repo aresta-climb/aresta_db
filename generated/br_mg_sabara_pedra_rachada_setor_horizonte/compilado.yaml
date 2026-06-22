@@ -170,15 +170,6 @@ picos:
               - escalada: Fenda comunista
                 ids:
                 - '8'
-              - escalada: Pôr-do-sol
-                ids:
-                - '9'
-              - escalada: Bipa aérea
-                ids:
-                - '10'
-              - escalada: Base aérea
-                ids:
-                - '11'
             - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p1_i0.webp
               largura_mapa: 900
               altura_mapa: 915
@@ -208,6 +199,16 @@ picos:
                   y: 400
                   comprimento: 80
                   largura: 80
+              referencias:
+              - escalada: Pôr-do-sol
+                ids:
+                - '9'
+              - escalada: Bipa aérea
+                ids:
+                - '10'
+              - escalada: Base aérea
+                ids:
+                - '11'
             escaladas:
             - boulder:
                 nome: Sem querer
@@ -280,21 +281,6 @@ picos:
               - escalada: Goodsensation
                 ids:
                 - '13'
-              - escalada: Ponto alto
-                ids:
-                - '14'
-              - escalada: Ponto alto sds
-                ids:
-                - '14'
-              - escalada: Estrelado
-                ids:
-                - '15'
-              - escalada: Estrelado sds
-                ids:
-                - '15'
-              - escalada: Gostosinho
-                ids:
-                - '16'
             - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp
               largura_mapa: 720
               altura_mapa: 1058
@@ -324,6 +310,22 @@ picos:
                   x: 390
                   y: 676
                   raio: 40
+              referencias:
+              - escalada: Ponto alto
+                ids:
+                - '14'
+              - escalada: Ponto alto sds
+                ids:
+                - '14'
+              - escalada: Estrelado
+                ids:
+                - '15'
+              - escalada: Estrelado sds
+                ids:
+                - '15'
+              - escalada: Gostosinho
+                ids:
+                - '16'
             escaladas:
             - boulder:
                 nome: Essa moça
@@ -392,12 +394,6 @@ picos:
               - escalada: Pedra de toque
                 ids:
                 - '18'
-              - escalada: Hematita
-                ids:
-                - '19'
-              - escalada: Especularica
-                ids:
-                - '20'
             escaladas:
             - boulder:
                 nome: Hematoma
@@ -448,24 +444,6 @@ picos:
           - escalada: Jenga
             ids:
             - '22'
-          - escalada: Cara a Cara
-            ids:
-            - '23'
-          - escalada: Resta um
-            ids:
-            - '24'
-          - escalada: Pega Palito
-            ids:
-            - '25'
-          - escalada: Aresta da Sombra
-            ids:
-            - '26'
-          - escalada: Penumbra
-            ids:
-            - '27'
-          - escalada: Aresta do sol
-            ids:
-            - '28'
         - caminho_imagem_mapa: imagens/setor_brinquedos_p1_i0.webp
           largura_mapa: 1126
           altura_mapa: 1360
@@ -488,6 +466,16 @@ picos:
               x: 449
               y: 972
               raio: 25
+          referencias:
+          - escalada: Cara a Cara
+            ids:
+            - '23'
+          - escalada: Resta um
+            ids:
+            - '24'
+          - escalada: Pega Palito
+            ids:
+            - '25'
         - caminho_imagem_mapa: imagens/setor_brinquedos_p2_i0.webp
           largura_mapa: 1126
           altura_mapa: 1282
@@ -504,6 +492,13 @@ picos:
               x: 544
               y: 858
               raio: 27
+          referencias:
+          - escalada: Aresta da Sombra
+            ids:
+            - '26'
+          - escalada: Penumbra
+            ids:
+            - '27'
         - caminho_imagem_mapa: imagens/setor_brinquedos_p3_i0.webp
           largura_mapa: 1126
           altura_mapa: 1343
@@ -514,6 +509,10 @@ picos:
               x: 680
               y: 858
               raio: 26
+          referencias:
+          - escalada: Aresta do sol
+            ids:
+            - '28'
         escaladas:
         - boulder:
             nome: Cubo Mágico
@@ -608,12 +607,6 @@ picos:
           - escalada: Trinca-Ferro
             ids:
             - '32'
-          - escalada: Beija-Flor
-            ids:
-            - '33'
-          - escalada: Bacurau
-            ids:
-            - '34'
         - caminho_imagem_mapa: imagens/setor_beija_flor_p1_i0.webp
           largura_mapa: 1126
           altura_mapa: 1163
@@ -630,6 +623,13 @@ picos:
               x: 675
               y: 1033
               raio: 23
+          referencias:
+          - escalada: Beija-Flor
+            ids:
+            - '33'
+          - escalada: Bacurau
+            ids:
+            - '34'
         escaladas:
         - boulder:
             nome: Juruva
@@ -713,12 +713,6 @@ picos:
           - escalada: Improviso
             ids:
             - '38'
-          - escalada: Buraqueira
-            ids:
-            - '39'
-          - escalada: Mini Nave
-            ids:
-            - '40'
         - caminho_imagem_mapa: imagens/setor_bacurau_p1_i0.webp
           largura_mapa: 678
           altura_mapa: 1460
@@ -729,6 +723,10 @@ picos:
               x: 374
               y: 883
               raio: 28
+          referencias:
+          - escalada: Buraqueira
+            ids:
+            - '39'
         - caminho_imagem_mapa: imagens/setor_bacurau_p1_i1.webp
           largura_mapa: 712
           altura_mapa: 1459
@@ -739,6 +737,10 @@ picos:
               x: 485
               y: 773
               raio: 28
+          referencias:
+          - escalada: Mini Nave
+            ids:
+            - '40'
         escaladas:
         - boulder:
             nome: Viuvinha
@@ -810,15 +812,6 @@ picos:
           - escalada: Moctezuma
             ids:
             - '43'
-          - escalada: Medeia
-            ids:
-            - '44'
-          - escalada: Maria Bonita
-            ids:
-            - '45'
-          - escalada: Herança de Ferro
-            ids:
-            - '47'
         - caminho_imagem_mapa: imagens/setor_moctezuma_p1_i0.webp
           largura_mapa: 930
           altura_mapa: 1249
@@ -835,6 +828,13 @@ picos:
               x: 651
               y: 858
               raio: 26
+          referencias:
+          - escalada: Medeia
+            ids:
+            - '44'
+          - escalada: Maria Bonita
+            ids:
+            - '45'
         - caminho_imagem_mapa: imagens/setor_moctezuma_p2_i0.webp
           largura_mapa: 1126
           altura_mapa: 1365
@@ -845,6 +845,10 @@ picos:
               x: 585
               y: 1000
               raio: 24
+          referencias:
+          - escalada: Herança de Ferro
+            ids:
+            - '47'
         escaladas:
         - boulder:
             nome: Mansa Musa
@@ -906,12 +910,6 @@ picos:
           - escalada: Moléstia
             ids:
             - '46'
-          - escalada: Jabuticaba
-            ids:
-            - '48'
-          - escalada: Caqui
-            ids:
-            - '49'
         - caminho_imagem_mapa: imagens/setor_molestia_p1_i0.webp
           largura_mapa: 1126
           altura_mapa: 1464
@@ -928,6 +926,13 @@ picos:
               x: 975
               y: 834
               raio: 28
+          referencias:
+          - escalada: Jabuticaba
+            ids:
+            - '48'
+          - escalada: Caqui
+            ids:
+            - '49'
         escaladas:
         - boulder:
             nome: Moléstia
@@ -971,24 +976,6 @@ picos:
           - escalada: Mirante
             ids:
             - '51'
-          - escalada: Queda do Gigante
-            ids:
-            - '52'
-          - escalada: Não me toque
-            ids:
-            - '53'
-          - escalada: Anemia
-            ids:
-            - '54'
-          - escalada: Biotônico
-            ids:
-            - '55'
-          - escalada: Diagnóstico
-            ids:
-            - '56'
-          - escalada: Vertigem
-            ids:
-            - '57'
         - caminho_imagem_mapa: imagens/setor_outros_blocos_p1_i0.webp
           largura_mapa: 861
           altura_mapa: 1441
@@ -1005,6 +992,13 @@ picos:
               x: 229
               y: 813
               raio: 27
+          referencias:
+          - escalada: Queda do Gigante
+            ids:
+            - '52'
+          - escalada: Não me toque
+            ids:
+            - '53'
         - caminho_imagem_mapa: imagens/setor_outros_blocos_p2_i0.webp
           pontos_de_interesse: []
           largura_mapa: 1126
@@ -1025,6 +1019,13 @@ picos:
               x: 277
               y: 567
               raio: 15
+          referencias:
+          - escalada: Anemia
+            ids:
+            - '54'
+          - escalada: Biotônico
+            ids:
+            - '55'
         - caminho_imagem_mapa: imagens/setor_outros_blocos_p4_i0.webp
           largura_mapa: 677
           altura_mapa: 916
@@ -1041,6 +1042,13 @@ picos:
               x: 450
               y: 606
               raio: 18
+          referencias:
+          - escalada: Diagnóstico
+            ids:
+            - '56'
+          - escalada: Vertigem
+            ids:
+            - '57'
         escaladas:
         - boulder:
             nome: Farol

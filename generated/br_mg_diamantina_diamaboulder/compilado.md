@@ -252,6 +252,32 @@
                 - **y**: 314
                 - **comprimento**: 24
                 - **largura**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Menos Porco Mais Aranha
+              - **ids**:
+                - 01
+                - 01_fim
+            - **[1]**:
+              - **escalada**: Javaporco
+              - **ids**:
+                - 02
+                - 02_fim
+            - **[2]**:
+              - **escalada**: Chiqueirinho
+              - **ids**:
+                - 03
+                - 03_fim
+            - **[3]**:
+              - **escalada**: Pocilga
+              - **ids**:
+                - 01
+                - 01_fim
+            - **[4]**:
+              - **escalada**: Porco Aranha
+              - **ids**:
+                - 02
+                - 02_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -901,31 +927,6 @@
               - **ids**:
                 - 3 (P0)
                 - 3 (P0)_fim
-            - **[3]**:
-              - **escalada**: Primavera nos Dentes
-              - **ids**:
-                - 1 (P1)
-                - 1 (P1)_fim
-            - **[4]**:
-              - **escalada**: Suave Coisa Nenhuma
-              - **ids**:
-                - 2 (P1)
-                - 2 (P1)_fim
-            - **[5]**:
-              - **escalada**: Primavera Latina
-              - **ids**:
-                - 3 (P1)
-                - 3 (P1)_fim
-            - **[6]**:
-              - **escalada**: Sangue Latino
-              - **ids**:
-                - 4 (P1/P2)
-                - 4 (P1/P2)_fim
-            - **[7]**:
-              - **escalada**: Joelho de Porco
-              - **ids**:
-                - 5 (P1/P2)
-                - 5 (P1/P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -995,6 +996,22 @@
                 - **y**: 568
                 - **comprimento**: 21
                 - **largura**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Primavera nos Dentes
+              - **ids**:
+                - 1 (P1)
+                - 1 (P1)_fim
+            - **[1]**:
+              - **escalada**: Suave Coisa Nenhuma
+              - **ids**:
+                - 2 (P1)
+                - 2 (P1)_fim
+            - **[2]**:
+              - **escalada**: Primavera Latina
+              - **ids**:
+                - 3 (P1)
+                - 3 (P1)_fim
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_2_setor_primavera_nos_dentes_p2_i0.webp)
           - **largura_mapa**: 1240
@@ -1504,85 +1521,30 @@
                 - 1 (P1)
                 - 1 (P1)_fim
             - **[1]**:
-              - **escalada**: Espetacular
-              - **ids**:
-                - 2 (P1) / 5 (P2)
-                - 2 (P1) / 5 (P2)_fim
-            - **[2]**:
               - **escalada**: Extra
               - **ids**:
                 - 3 (P1)
                 - 3 (P1)_fim
-            - **[3]**:
+            - **[2]**:
               - **escalada**: Manchete
               - **ids**:
                 - 4 (P1)
                 - 4 (P1)_fim
-            - **[4]**:
-              - **escalada**: Esporte Espetacular
-              - **ids**:
-                - 5 (P1) / 4 (P2)
-                - 5 (P1) / 4 (P2)_fim
-            - **[5]**:
+            - **[3]**:
               - **escalada**: Fantástico Mundo dos Diamantes
               - **ids**:
                 - 6 (P1)
                 - 6 (P1)_fim
-            - **[6]**:
-              - **escalada**: Globo Curral
-              - **ids**:
-                - 7 (P1) / 3 (P2)
-                - 7 (P1) / 3 (P2)_fim
-            - **[7]**:
-              - **escalada**: Manual
-              - **ids**:
-                - 8 (P1) / 1 (P2)
-                - 8 (P1) / 1 (P2)_fim
-            - **[8]**:
-              - **escalada**: Altas Horas
-              - **ids**:
-                - 9 (P1) / 2 (P2)
-                - 9 (P1) / 2 (P2)_fim
-            - **[9]**:
+            - **[4]**:
               - **escalada**: Super Sinistro
               - **ids**:
                 - 10 (P1)
                 - 10 (P1)_fim
-            - **[10]**:
+            - **[5]**:
               - **escalada**: Fantástico
               - **ids**:
                 - 11 (P1)
                 - 11 (P1)_fim
-            - **[11]**:
-              - **escalada**: Sessão da Tarde
-              - **ids**:
-                - 6 (P2)
-                - 6 (P2)_fim
-            - **[12]**:
-              - **escalada**: Vale a Pena Ver de Novo
-              - **ids**:
-                - 7 (P2)
-                - 7 (P2)_fim
-            - **[13]**:
-              - **escalada**: Vale a Pena Vir de Baixo
-              - **ids**:
-                - 8 (P2)
-                - 8 (P2)_fim
-            - **[14]**:
-              - **escalada**: Chá da Tarde
-              - **ids**:
-                - 9 (P2)
-                - 9 (P2)_fim
-            - **[15]**:
-              - **escalada**: Analógico
-              - **ids**:
-                - 10 (P2)
-                - 10 (P2)_fim
-            - **[16]**:
-              - **escalada**: Digital
-              - **ids**:
-                - 11 (P2)
-                - 11 (P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -1764,6 +1726,37 @@
                 - **y**: 125
                 - **comprimento**: 23
                 - **largura**: 22
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sessão da Tarde
+              - **ids**:
+                - 6 (P2)
+                - 6 (P2)_fim
+            - **[1]**:
+              - **escalada**: Vale a Pena Ver de Novo
+              - **ids**:
+                - 7 (P2)
+                - 7 (P2)_fim
+            - **[2]**:
+              - **escalada**: Vale a Pena Vir de Baixo
+              - **ids**:
+                - 8 (P2)
+                - 8 (P2)_fim
+            - **[3]**:
+              - **escalada**: Chá da Tarde
+              - **ids**:
+                - 9 (P2)
+                - 9 (P2)_fim
+            - **[4]**:
+              - **escalada**: Analógico
+              - **ids**:
+                - 10 (P2)
+                - 10 (P2)_fim
+            - **[5]**:
+              - **escalada**: Digital
+              - **ids**:
+                - 11 (P2)
+                - 11 (P2)_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2129,36 +2122,6 @@
               - **ids**:
                 - 3 (P0)
                 - 3 (P0)_fim
-            - **[3]**:
-              - **escalada**: Serra a Vista
-              - **ids**:
-                - 1 (P1)
-                - 1 (P1)_fim
-            - **[4]**:
-              - **escalada**: Tapa Olho
-              - **ids**:
-                - 2 (P1)
-                - 2 (P1)_fim
-            - **[5]**:
-              - **escalada**: A Estibordo
-              - **ids**:
-                - 3 (P1)
-                - 3 (P1)_fim
-            - **[6]**:
-              - **escalada**: Proa
-              - **ids**:
-                - 4 (P1)
-                - 4 (P1)_fim
-            - **[7]**:
-              - **escalada**: Papagaio de Pirata
-              - **ids**:
-                - 1 (P2)
-                - 1 (P2)_fim
-            - **[8]**:
-              - **escalada**: Desce a Serra
-              - **ids**:
-                - 2 (P2)
-                - 2 (P2)_fim
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp)
           - **largura_mapa**: 1240
@@ -2228,6 +2191,27 @@
                 - **y**: 266
                 - **comprimento**: 21
                 - **largura**: 27
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Serra a Vista
+              - **ids**:
+                - 1 (P1)
+                - 1 (P1)_fim
+            - **[1]**:
+              - **escalada**: Tapa Olho
+              - **ids**:
+                - 2 (P1)
+                - 2 (P1)_fim
+            - **[2]**:
+              - **escalada**: A Estibordo
+              - **ids**:
+                - 3 (P1)
+                - 3 (P1)_fim
+            - **[3]**:
+              - **escalada**: Proa
+              - **ids**:
+                - 4 (P1)
+                - 4 (P1)_fim
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_regiao_4_setor_navio_pirata_p2_i0.webp)
           - **largura_mapa**: 1240
@@ -2265,6 +2249,17 @@
                 - **y**: 608
                 - **comprimento**: 31
                 - **largura**: 33
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Papagaio de Pirata
+              - **ids**:
+                - 1 (P2)
+                - 1 (P2)_fim
+            - **[1]**:
+              - **escalada**: Desce a Serra
+              - **ids**:
+                - 2 (P2)
+                - 2 (P2)_fim
       - **escaladas**:
         - **[0]**:
           - **boulder**:

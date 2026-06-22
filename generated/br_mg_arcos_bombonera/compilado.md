@@ -215,6 +215,11 @@
           - **y**: 886
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Água Bolhas
+        - **ids**:
+          - 1
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p1_i1.webp)
     - **largura_mapa**: 914
@@ -236,6 +241,15 @@
           - **y**: 1130
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Concretino
+        - **ids**:
+          - 2
+      - **[1]**:
+        - **escalada**: Gado impresso (com abelha)
+        - **ids**:
+          - 3
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_esquerda_p2_i0.webp)
     - **largura_mapa**: 916
@@ -281,6 +295,27 @@
           - **y**: 1105
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 4
+      - **[1]**:
+        - **escalada**: Jaratataca
+        - **ids**:
+          - 5
+      - **[2]**:
+        - **escalada**: (sem nome)
+        - **ids**:
+          - 6
+      - **[3]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 7
+      - **[4]**:
+        - **escalada**: Teoria dos jogos
+        - **ids**:
+          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -727,6 +762,15 @@
           - **y**: 1126
           - **comprimento**: 28
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: La Cucaracha
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: (via inacabada) Bem Vindo ao Bosque
+        - **ids**:
+          - 2
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p1_i1.webp)
     - **largura_mapa**: 916
@@ -756,6 +800,19 @@
           - **y**: 1090
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: (via inacabada)
+        - **ids**:
+          - 3
+      - **[1]**:
+        - **escalada**: Malandro é Malandro
+        - **ids**:
+          - 4
+      - **[2]**:
+        - **escalada**: Mané é Mané
+        - **ids**:
+          - 5
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p2_i0.webp)
     - **largura_mapa**: 910
@@ -793,6 +850,23 @@
           - **y**: 1118
           - **comprimento**: 35
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Segunda Divisão
+        - **ids**:
+          - 6
+      - **[1]**:
+        - **escalada**: Diedrinho
+        - **ids**:
+          - 7
+      - **[2]**:
+        - **escalada**: Dona Leci
+        - **ids**:
+          - 8
+      - **[3]**:
+        - **escalada**: Caminito
+        - **ids**:
+          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

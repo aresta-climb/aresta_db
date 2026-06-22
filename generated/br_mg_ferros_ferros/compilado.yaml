@@ -16,19 +16,6 @@ picos:
         nome: Subsetor Cachoeira
         mapas:
         - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp
-          referencias:
-          - escalada: Pé na Chapa
-            ids:
-            - '1'
-          - escalada: Desenferrujando
-            ids:
-            - '2'
-          - escalada: Ferrugem
-            ids:
-            - '3'
-          - escalada: A Ferro Quente
-            ids:
-            - '4'
           largura_mapa: 992
           altura_mapa: 624
         - caminho_imagem_mapa: imagens/setor_cachoeira_p1_i1.webp
@@ -116,22 +103,6 @@ picos:
             nome: Extrema Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
-              referencias:
-              - escalada: Solamente
-                ids:
-                - '1'
-              - escalada: Nesse Mato Tem Cachorro
-                ids:
-                - '2'
-              - escalada: Vr. Cachorro Louco
-                ids:
-                - '3'
-              - escalada: Libera Liberou
-                ids:
-                - '4'
-              - escalada: Dez Mil e Uma Noites
-                ids:
-                - '5'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp
             escaladas:
             - via_multiplas_enfiadas:
@@ -245,64 +216,6 @@ picos:
             nome: Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
-              referencias:
-              - escalada: Cordada 171
-                ids:
-                - '1'
-              - escalada: Inês é Morta
-                ids:
-                - '2'
-              - escalada: Sempre Viva
-                ids:
-                - '3'
-              - escalada: Zé Marta
-                ids:
-                - '5'
-              - escalada: Bolinha
-                ids:
-                - '6'
-              - escalada: Testa de Ferro
-                ids:
-                - '7'
-              - escalada: Ferro na Boneca
-                ids:
-                - '8'
-              - escalada: Maria Diz Graça
-                ids:
-                - '9'
-              - escalada: Zé Mangueira
-                ids:
-                - '10'
-              - escalada: Sherlock Holmes
-                ids:
-                - '11'
-              - escalada: Professor Moriarty
-                ids:
-                - '12'
-              - escalada: Que Qui Ocê Foi Fazê Nu Mato?
-                ids:
-                - '13'
-              - escalada: O Psicopata de Ferros
-                ids:
-                - '14'
-              - escalada: Frio na Barriga
-                ids:
-                - '16'
-              - escalada: Pescoço de Minhoca
-                ids:
-                - '17'
-              - escalada: Grampos de Ferros
-                ids:
-                - '18'
-              - escalada: Prateado
-                ids:
-                - '19'
-              - escalada: Fissurim
-                ids:
-                - '4'
-              - escalada: Vr. Caçadora de Micuim
-                ids:
-                - '15'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p2_i0.webp
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p3_i0.webp
             escaladas:
@@ -593,10 +506,6 @@ picos:
             nome: Parede das Aderências – Face Central
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p1_i0.webp
-              referencias:
-              - escalada: O Psicopata de Ferros
-                ids:
-                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
             escaladas:
             - via_movel:
@@ -614,10 +523,6 @@ picos:
             nome: Parede das Aderências – Setor de Cima
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p0_i1.webp
-              referencias:
-              - escalada: Solamente
-                ids:
-                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
             escaladas:
             - via_esportiva:
@@ -633,10 +538,6 @@ picos:
             nome: Parede das Aderências – Extrema Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
-              referencias:
-              - escalada: Ferro na Boneca
-                ids:
-                - '1'
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
             escaladas:
             - via_esportiva:
@@ -696,64 +597,6 @@ picos:
             nome: Parede Principal – Setor Clássicas Curtas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
-              referencias:
-              - escalada: A Medalha de Lúcia
-                ids:
-                - '1'
-              - escalada: Águas de Março
-                ids:
-                - '2'
-              - escalada: Vou Dançar o Xaxaxá
-                ids:
-                - '3'
-              - escalada: Casas da Banha
-                ids:
-                - '4'
-              - escalada: Ferradura
-                ids:
-                - '5'
-              - escalada: Ferrolho
-                ids:
-                - '6'
-              - escalada: Cambal a Quatro
-                ids:
-                - '7'
-              - escalada: El Bigodón
-                ids:
-                - '8'
-              - escalada: Deu Tilt
-                ids:
-                - '12'
-              - escalada: Ferroada
-                ids:
-                - '13'
-              - escalada: Scarface
-                ids:
-                - '14'
-              - escalada: Se Meu Fusca Falasse
-                ids:
-                - '15'
-              - escalada: Couro de Lobisomem
-                ids:
-                - '16'
-              - escalada: Enferrujados
-                ids:
-                - '17'
-              - escalada: Rastro de Cobra
-                ids:
-                - '18'
-              - escalada: Entrando no Ferro
-                ids:
-                - '19'
-              - escalada: Testa de Aço
-                ids:
-                - '9'
-              - escalada: Me Ferrei
-                ids:
-                - '10'
-              - escalada: Amor Profano
-                ids:
-                - '11'
               largura_mapa: 1024
               altura_mapa: 602
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
@@ -938,52 +781,6 @@ picos:
             nome: Parede Principal – Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp
-              referencias:
-              - escalada: Macambúzio
-                ids:
-                - '1'
-              - escalada: Pente Frio
-                ids:
-                - '2'
-              - escalada: El Barrigón
-                ids:
-                - '3'
-              - escalada: Lobos do Caraça
-                ids:
-                - '4'
-              - escalada: O Tempo e o Vento
-                ids:
-                - '5'
-              - escalada: O Burro e o Capacete
-                ids:
-                - '6'
-              - escalada: Tá Bão
-                ids:
-                - '7'
-              - escalada: Pelanca
-                ids:
-                - '10'
-              - escalada: Flor da Pele
-                ids:
-                - '11'
-              - escalada: Alma Nova
-                ids:
-                - '12'
-              - escalada: Pele Vermelha
-                ids:
-                - '13'
-              - escalada: Pelinha
-                ids:
-                - '14'
-              - escalada: Cutícula
-                ids:
-                - '15'
-              - escalada: Amor meu Grande amor
-                ids:
-                - '8'
-              - escalada: Rapidinha no Escurinho
-                ids:
-                - '9'
               largura_mapa: 1024
               altura_mapa: 615
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p2_i0.webp
@@ -1094,73 +891,6 @@ picos:
             nome: Parede Principal – Setor Central
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
-              referencias:
-              - escalada: Ferro no Judas
-                ids:
-                - '1'
-              - escalada: Marcado a Ferro
-                ids:
-                - '2'
-              - escalada: Rolam as Pedras
-                ids:
-                - '3'
-              - escalada: Pum Medonho
-                ids:
-                - '6'
-              - escalada: Pr. Chapado
-                ids:
-                - '7'
-              - escalada: Dona Flor e Suas Duas Marretas
-                ids:
-                - '8'
-              - escalada: Pé de Pano
-                ids:
-                - '9'
-              - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
-                ids:
-                - '11'
-              - escalada: Hilda Furacão
-                ids:
-                - '12'
-              - escalada: Iron Men
-                ids:
-                - '13'
-              - escalada: Rainha da Base
-                ids:
-                - '15'
-              - escalada: A Ferro e Fogo
-                ids:
-                - '16'
-              - escalada: Chuva Ácida
-                ids:
-                - '17'
-              - escalada: A Decadência da Bufa
-                ids:
-                - '18'
-              - escalada: Tatu do Jeca
-                ids:
-                - '19'
-              - escalada: Jeca Tatu
-                ids:
-                - '20'
-              - escalada: Valeu Papito
-                ids:
-                - '21'
-              - escalada: Macambúzio
-                ids:
-                - '23'
-              - escalada: Tromba D’Água
-                ids:
-                - '4'
-              - escalada: Ferro Velho
-                ids:
-                - '5'
-              - escalada: CDF
-                ids:
-                - '10'
-              - escalada: Cordão do Bola Preta
-                ids:
-                - '14'
               largura_mapa: 2048
               altura_mapa: 1268
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
@@ -1277,13 +1007,6 @@ picos:
             nome: Parede Principal – Setor de Cima
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
-              referencias:
-              - escalada: Um Momento no Tempo
-                ids:
-                - '1'
-              - escalada: Noite de São João
-                ids:
-                - '2'
               largura_mapa: 2048
               altura_mapa: 1268
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp
@@ -1310,82 +1033,6 @@ picos:
             nome: Parede Principal – Setor Clássicas Longas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
-              referencias:
-              - escalada: Quarto 304
-                ids:
-                - '1'
-              - escalada: O Nome da Rosa
-                ids:
-                - '2'
-              - escalada: O Retorno de Jedi
-                ids:
-                - '3'
-              - escalada: Jardim do Éden
-                ids:
-                - '5'
-              - escalada: A Dois Passos do Paraíso
-                ids:
-                - '6'
-              - escalada: Conquista do Paraíso
-                ids:
-                - '7'
-              - escalada: Purgatório
-                ids:
-                - '8'
-              - escalada: Conrado Ferro
-                ids:
-                - '10'
-              - escalada: Quem com Ferro Fere
-                ids:
-                - '11'
-              - escalada: Tanto Bate Até Que Fura
-                ids:
-                - '12'
-              - escalada: Trem de Ferro
-                ids:
-                - '13'
-              - escalada: Up Ester
-                ids:
-                - '14'
-              - escalada: Até Que a Vida Nos Separe
-                ids:
-                - '15'
-              - escalada: Pr. CEM
-                ids:
-                - '17'
-              - escalada: Vr. SEM
-                ids:
-                - '18'
-              - escalada: Engatilhados
-                ids:
-                - '19'
-              - escalada: Trio Elétrico
-                ids:
-                - '20'
-              - escalada: Eu Não Sou de Ferro
-                ids:
-                - '21'
-              - escalada: Grand Finale
-                ids:
-                - '23'
-              - escalada: À Francesa
-                ids:
-                - '24'
-              - escalada: Ih, Ferrou!
-                ids:
-                - '4'
-              - escalada: Arco de Ferros
-                ids:
-                - '9'
-              - escalada: Vr. Pilhado
-                ids:
-                - '16'
-              - escalada: Rio de Mão Dupla
-                ids:
-                - '22'
-              - escalada: Atalho dos Duendes
-                ids:
-                - '25'
               largura_mapa: 1024
               altura_mapa: 649
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
@@ -1534,49 +1181,6 @@ picos:
         nome: Setor Vias Esportivas
         mapas:
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
-          referencias:
-          - escalada: Diedro da Rabada
-            ids:
-            - '1'
-          - escalada: Mestre Sala
-            ids:
-            - '2'
-          - escalada: Porta-Bandeira
-            ids:
-            - '3'
-          - escalada: Gangorra
-            ids:
-            - '4'
-          - escalada: Jabá com Jerimum
-            ids:
-            - '5'
-          - escalada: Bruxa Albano
-            ids:
-            - '6'
-          - escalada: Vomitão em Ferros
-            ids:
-            - '7'
-          - escalada: Iron Slow
-            ids:
-            - '8'
-          - escalada: Bicho de Pé
-            ids:
-            - '9'
-          - escalada: Os Três Mosqueteiros
-            ids:
-            - '10'
-          - escalada: Nó de Porco
-            ids:
-            - '11'
-          - escalada: Ícaro
-            ids:
-            - '12'
-          - escalada: Champinha
-            ids:
-            - '13'
-          - escalada: Falcatrua
-            ids:
-            - '14'
           largura_mapa: 765
           altura_mapa: 567
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
@@ -1755,19 +1359,6 @@ picos:
         nome: Parede dos Solos
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp
-          referencias:
-          - escalada: Caipora
-            ids:
-            - '1'
-          - escalada: Iaci
-            ids:
-            - '2'
-          - escalada: Boitatá
-            ids:
-            - '3'
-          - escalada: Maracujá
-            ids:
-            - '4'
           largura_mapa: 659
           altura_mapa: 418
         escaladas:
@@ -1828,25 +1419,6 @@ picos:
             nome: Pedra do Neri – Face das Esportivas
             mapas:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp
-              referencias:
-              - escalada: Até o Osso
-                ids:
-                - '3'
-              - escalada: Balangandã
-                ids:
-                - '5'
-              - escalada: Pé de Chinelo
-                ids:
-                - '6'
-              - escalada: Fissura Lapada na Rachada
-                ids:
-                - '1'
-              - escalada: Fissura Sopa de Pedra
-                ids:
-                - '2'
-              - escalada: Diedro Caboclo D’Água
-                ids:
-                - '4'
               largura_mapa: 640
               altura_mapa: 346
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp
@@ -1882,22 +1454,6 @@ picos:
             nome: Pedra do Neri – Face das Aderências
             mapas:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp
-              referencias:
-              - escalada: Queima de Arquivo
-                ids:
-                - '1'
-              - escalada: Aquidaban
-                ids:
-                - '2'
-              - escalada: Tempestade
-                ids:
-                - '3'
-              - escalada: Chuva de Verão
-                ids:
-                - '4'
-              - escalada: Brumas de Inverno
-                ids:
-                - '5'
               largura_mapa: 850
               altura_mapa: 510
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp
@@ -1940,10 +1496,6 @@ picos:
         nome: Parede da Água Limpa
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
-          referencias:
-          - escalada: Pr. Dama de Ferros
-            ids:
-            - '1'
           largura_mapa: 2048
           altura_mapa: 1268
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
@@ -2003,10 +1555,6 @@ picos:
         nome: Parede da CENIBRA
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_cenibra_p0_i1.webp
-          referencias:
-          - escalada: Pr. Pellé 70
-            ids:
-            - '1'
           largura_mapa: 960
           altura_mapa: 720
         escaladas:

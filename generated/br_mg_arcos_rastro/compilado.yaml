@@ -279,12 +279,6 @@ picos:
           - escalada: Entre o medo e a loucura
             ids:
             - '07'
-          - escalada: Linha de Frente
-            ids:
-            - '8'
-          - escalada: Helow (variante)
-            ids:
-            - '9'
           - escalada: Good Bye
             ids:
             - '10'
@@ -515,12 +509,6 @@ picos:
           - escalada: Tiro Certeiro
             ids:
             - '07'
-          - escalada: Estica e Clipa
-            ids:
-            - '8'
-          - escalada: Pai Bravo
-            ids:
-            - '9'
           - escalada: Buraco é Mais Em Baixo
             ids:
             - '10'
@@ -530,48 +518,6 @@ picos:
           - escalada: Jardim da Babilônia
             ids:
             - '12'
-          - escalada: Incrível Teto
-            ids:
-            - '13'
-          - escalada: Incrível Céu de Arcos
-            ids:
-            - '14'
-          - escalada: Besta Quadrada
-            ids:
-            - '15'
-          - escalada: Aperta ou Voa
-            ids:
-            - '16'
-          - escalada: Antifascistas
-            ids:
-            - '17'
-          - escalada: Macaco Não Tem Culpa
-            ids:
-            - '18'
-          - escalada: Mãe Gaia
-            ids:
-            - '19'
-          - escalada: Enrola e Morde
-            ids:
-            - '20'
-          - escalada: Liberdade de Expressão
-            ids:
-            - '21'
-          - escalada: Centenária
-            ids:
-            - '22'
-          - escalada: Kalimera
-            ids:
-            - '23'
-          - escalada: Sálvia
-            ids:
-            - '24'
-          - escalada: Fuga das Galinhas
-            ids:
-            - '25'
-          - escalada: Carne d Homi ñ dá Coxinha
-            ids:
-            - '26'
         - caminho_imagem_mapa: imagens/setor_onca_p1_i0.webp
           largura_mapa: 916
           altura_mapa: 1151
@@ -723,6 +669,49 @@ picos:
               y: 182
               comprimento: 12
               largura: 12
+          referencias:
+          - escalada: Incrível Teto
+            ids:
+            - '13'
+          - escalada: Incrível Céu de Arcos
+            ids:
+            - '14'
+          - escalada: Besta Quadrada
+            ids:
+            - '15'
+          - escalada: Aperta ou Voa
+            ids:
+            - '16'
+          - escalada: Antifascistas
+            ids:
+            - '17'
+          - escalada: Macaco Não Tem Culpa
+            ids:
+            - '18'
+          - escalada: Mãe Gaia
+            ids:
+            - '19'
+          - escalada: Enrola e Morde
+            ids:
+            - '20'
+          - escalada: Liberdade de Expressão
+            ids:
+            - '21'
+          - escalada: Centenária
+            ids:
+            - '22'
+          - escalada: Kalimera
+            ids:
+            - '23'
+          - escalada: Sálvia
+            ids:
+            - '24'
+          - escalada: Fuga das Galinhas
+            ids:
+            - '25'
+          - escalada: Carne d Homi ñ dá Coxinha
+            ids:
+            - '26'
         escaladas:
         - via_esportiva:
             nome: Esticãozinho e Chororô
@@ -991,9 +980,6 @@ picos:
           - escalada: Fila de Espera
             ids:
             - '07'
-          - escalada: Nem C/ Chuva a Gente Para
-            ids:
-            - '8'
         escaladas:
         - via_esportiva:
             nome: Eakthecat
@@ -1171,9 +1157,6 @@ picos:
           - escalada: Bigodagem
             ids:
             - '07'
-          - escalada: Delicinha
-            ids:
-            - '8'
         escaladas:
         - via_esportiva:
             nome: Tufo Não
@@ -1484,12 +1467,6 @@ picos:
           - escalada: Entranhas de Arcos
             ids:
             - '07'
-          - escalada: Uso Capial
-            ids:
-            - '8'
-          - escalada: Clara Morena
-            ids:
-            - '9'
           - escalada: Se Liga
             ids:
             - '10'
@@ -1869,12 +1846,6 @@ picos:
           - escalada: Tio Toninho*
             ids:
             - '07'
-          - escalada: Guerra dos Côcos
-            ids:
-            - '8'
-          - escalada: Guerrilha do Araguaia
-            ids:
-            - '9'
           - escalada: Canudos
             ids:
             - '10'
@@ -2172,12 +2143,6 @@ picos:
           - escalada: Leão de Judah
             ids:
             - '07'
-          - escalada: Efeito Moral
-            ids:
-            - '8'
-          - escalada: Risco de Discórdia
-            ids:
-            - '9'
           - escalada: Duelo de Titãs
             ids:
             - '10'
@@ -2542,12 +2507,6 @@ picos:
           - escalada: Sai Clipado
             ids:
             - '07'
-          - escalada: Xuxa Preta de Pains
-            ids:
-            - '8'
-          - escalada: Brenfa Móvel
-            ids:
-            - '9'
           - escalada: Mistério do Cachorro Zezinho
             ids:
             - '10'
@@ -2811,12 +2770,6 @@ picos:
           - escalada: Usa Quatro e Sobra Um
             ids:
             - '07'
-          - escalada: Conexão 3G
-            ids:
-            - '8'
-          - escalada: Demorô+Saiu
-            ids:
-            - '9'
         escaladas:
         - via_esportiva:
             nome: Panqueca de Salada
@@ -3026,12 +2979,6 @@ picos:
           - escalada: Miolo
             ids:
             - '07'
-          - escalada: Curupira
-            ids:
-            - '8'
-          - escalada: Só Beleza
-            ids:
-            - '9'
           - escalada: Di Menor*
             ids:
             - '10'
@@ -3229,12 +3176,6 @@ picos:
           - escalada: Quem Ama Planta
             ids:
             - '07'
-          - escalada: Respeite os Mais Velhos
-            ids:
-            - '8'
-          - escalada: Quem Ama Implanta
-            ids:
-            - '9'
         escaladas:
         - via_esportiva:
             nome: Tal Pai Tal Filho
@@ -3675,12 +3616,6 @@ picos:
           - escalada: Cada Macaco no Seu Galho
             ids:
             - '07'
-          - escalada: Curte o Planeta que Você Vive
-            ids:
-            - '8'
-          - escalada: Subaco da Zen
-            ids:
-            - '9'
           - escalada: Chuva de Espinho
             ids:
             - '10'
@@ -4005,12 +3940,6 @@ picos:
           - escalada: Bicuda
             ids:
             - '07'
-          - escalada: Gardneria Angustata
-            ids:
-            - '8'
-          - escalada: Vai e Volta e Vai
-            ids:
-            - '9'
           - escalada: Daqui Não Saio
             ids:
             - '10'
@@ -4287,12 +4216,6 @@ picos:
           - escalada: Cai Mais Não, Zé
             ids:
             - '07'
-          - escalada: Corte Profundo
-            ids:
-            - '8'
-          - escalada: Avenida Paulista
-            ids:
-            - '9'
         escaladas:
         - via_esportiva:
             nome: (via inacabada)
@@ -4549,12 +4472,6 @@ picos:
           - escalada: Socorro
             ids:
             - '07'
-          - escalada: Iara
-            ids:
-            - '8'
-          - escalada: Come Hamburguer
-            ids:
-            - '9'
           - escalada: (via inacabada)
             ids:
             - '10'

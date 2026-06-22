@@ -1,6 +1,6 @@
 
-#br_mg_ouro_preto_ouroboulder_sunsetOuroBoulder Sunset"OuroBoulder 20202˘#
-SunsetZÓ#Î#Ë#
+#br_mg_ouro_preto_ouroboulder_sunsetOuroBoulder Sunset"OuroBoulder 20202¯#
+SunsetZÌ#Í#Á#
 Sunset¨# Grupo Sunset
 
 O local est√° localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso p√¥r-do-sol!
@@ -32,23 +32,17 @@ Carrapicho
 AleijadinhoXjZ
 .imagens/grupo_sunset_setor_aleijadinho_p0.webpÀ¿"
 112£Õ2
-1"Aleijadinho"Ì
+1"Aleijadinho"ÔÏ
 Capit√£o JackJ# Bloco Capit√£o JackZ
 AmnesiaXZ?=
 Capit√£o Jack2(Virada exposta, aten√ß√£o na seguran√ßa!XZZX
 Purple Rase2GCome√ßa em uma fenda bem a esquerda, faz a travessia e vira no Amn√©siaZPN
-Sunshine2@Come√ßa perto do ch√£o de areia bem a direita e vira no Amn√©siajÆ
+Sunshine2@Come√ßa perto do ch√£o de areia bem a direita e vira no Amn√©siajk
 /imagens/grupo_sunset_setor_capitao_jack_p0.webpÇÿ"
 112˚≥	"
-xx2	2
-1_b
-x_b"Amnesia2
-2
-y"Capit√£o Jack2
-3
-x_b"Purple Rase2
+xx2	2
 1
-x"Sunshinejì
+x"Sunshinej÷
 /imagens/grupo_sunset_setor_capitao_jack_p1.webpœÆ"
 1_b12•¿	"
 222˚ö
@@ -56,13 +50,19 @@ Carrapicho
 332¶ﬁ	"
 yy2Ä
 "
-x_bx2≤	"÷”
+x_bx2≤	2
+1_b
+x_b"Amnesia2
+2
+y"Capit√£o Jack2
+3
+x_b"Purple Rase"÷”
 JahngadaJ# Bloco JahngadaZJH
 Jahngada28Base alta, recomenda-se o uso de pelo menos 6 Crash PadsXZ
 Jahngada SDSXZ
 Guaicu√≠Z
 
-Camundongo	jÿ
+Camundongo	jƒ
 +imagens/grupo_sunset_setor_jahngada_p0.webp«®"
 112Û÷	"
 222Ìû"
@@ -76,35 +76,25 @@ Camundongo	jÿ
 2
 x"Jahngada SDS2
 3
-y"Guaicu√≠2
-4
-z"
-CamundongojV
+y"Guaicu√≠jj
 +imagens/grupo_sunset_setor_jahngada_p1.webpΩè"
 442ıú	"
-zz2÷o	"ß§
+zz2÷o	2
+4
+z"
+Camundongo"ß§
 Planet√°rioJ# Bloco Planet√°rioZ
 Planet√°rioXZ
 	N√°ufrago	XZ
 GolfinhoZ
 ClareteZ
 Odiss√©ia na Babil√¥niaXZ
-Canais da Babil√¥niajÍ
+Canais da Babil√¥niajm
 -imagens/grupo_sunset_setor_planetario_p0.webp¿ò"
 112îà	"
 xx2Ω	2
 1
-x"Planet√°rio2
-2
-y"	N√°ufrago2
-3
-z"Golfinho2
-4
-w"Clarete2#
-1_b
-x_b"Odiss√©ia na Babil√¥nia2 
-1_b
-y_b"Canais da Babil√¥niajû
+x"Planet√°rioj‘
 -imagens/grupo_sunset_setor_planetario_p2.webpΩÊ"
 222⁄∆	"
 332‘ô	"
@@ -112,19 +102,29 @@ CamundongojV
 yy2¯j"
 zz2Ô/	"
 ww2Ê*
-jn
+2
+2
+y"	N√°ufrago2
+3
+z"Golfinho2
+4
+w"Claretejµ
 -imagens/grupo_sunset_setor_planetario_p1.webp“ä"
 1_b12øÛ	"
 y_by2v
 	"
-x_bx2…"êç
+x_bx2…2#
+1_b
+x_b"Odiss√©ia na Babil√¥nia2 
+1_b
+y_b"Canais da Babil√¥nia"êç
 	Free SoloJ# Bloco Free SoloZ
 FomiagemZ
 ProjetoXZ
 	Free SoloXZ0.
 	Tartaruga2Apenas desafio de virar o blocoZ
 MobileteZ
-Walkmachinej‚
+Walkmachinejù
 ,imagens/grupo_sunset_setor_free_solo_p0.webp‚È"
 222üœ	"
 332Ù¿	"
@@ -134,16 +134,16 @@ jn
 2
 W"Fomiagem2
 3
-Z"Projeto2
-1"	Free Solo2
-2_b"	Tartaruga2
-3_b"Mobilete2
-4"WalkmachinejÄ
+Z"Projetoj≈
 ,imagens/grupo_sunset_setor_free_solo_p1.webp«Ã"
 112‚å	"
 3_b32ÑÊ	"
 442∫Ë	"
-2_b22Á‰	"éã
+2_b22Á‰	2
+1"	Free Solo2
+2_b"	Tartaruga2
+3_b"Mobilete2
+4"Walkmachine"éã
 
 CarrapichoJ# Bloco CarrapichoZ
 	CarrapatoZ
@@ -153,42 +153,42 @@ CarrapichoZ
 
 PistolZ
 
-Dart Vaderj®
+Dart Vaderjz
 -imagens/grupo_sunset_setor_carrapicho_p0.webp∏¥"
 112¶˚	"
 222†°	2
 1"	Carrapato2
 2"
-Carrapicho2
-3"	Orat√≥rio2
-4"Pistol2
-5"
-Dart Vaderjj
+Carrapichojò
 -imagens/grupo_sunset_setor_carrapicho_p1.webpèµ"
 332òΩ	"
 442‹›	"
-5526¬	"Ì
+5526¬	2
+3"	Orat√≥rio2
+4"Pistol2
+5"
+Dart Vader"Ì
 SunsetJ# Bloco SunsetZ
 	SucrilhosXZ
 Faxineiro do UniversoZ
 Arestinha VibrationZ
 
 SujeirinhaZ
-Projeto SunsetXj”
+Projeto SunsetXj§
 )imagens/grupo_sunset_setor_sunset_p0.webp¿À"
 112…ô	"
 442ÇÂ	"
 222í¶	2
 1"	Sucrilhos2
-2"Faxineiro do Universo2
-3"Arestinha Vibration2
+2"Faxineiro do Universo2
 4"
-Sujeirinha2
-5"Projeto SunsetjC
+Sujeirinhaj]
 )imagens/grupo_sunset_setor_sunset_p1.webpËà"
-332√™	jC
+332√™	2
+3"Arestinha VibrationjX
 )imagens/grupo_sunset_setor_sunset_p2.webp“»"
-552ˆÇ	"ÎË
+552ˆÇ	2
+5"Projeto Sunset"ÎË
 CamaroaJ# Bloco CamaroaZ
 Fissura
 XZ
@@ -197,7 +197,7 @@ XZ
 Lpita	XZ
 
 NaveXZ
-CamaroaXj∏
+CamaroaXj™
 *imagens/grupo_sunset_setor_camaroa_p0.webp¬Ä"
 112ﬁÍ"
 222Í”	"
@@ -207,11 +207,11 @@ XZ
 2"Pure2
 
 3"Lpita2	
-4"Nave2
-5"CamaroajD
+4"NavejR
 *imagens/grupo_sunset_setor_camaroa_p1.webp√ﬁ"
 552Œ‡
-:X
+2
+5"Camaroa:X
 imagens/capa_p0.webp@b0c19afb64dc5ecdea6682dbd7b31a92fab38ce152066a859052e7c8e24312d4:g
 #imagens/conversao_e_legenda_p0.webp@2278679473a7d653e2906310ccb17ea686c37e4ae976523a8fc1cf17f186559e:`
 imagens/grupo_sunset_p0.webp@200959c53d5214862beb98a84125424647d2d47ecfb37b3bc4fce5e8af5ae190:r

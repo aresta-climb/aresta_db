@@ -1584,54 +1584,6 @@
         - **escalada**: Lelê Café
         - **ids**:
           - 17
-      - **[18]**:
-        - **escalada**: Tiu Marreteiro
-        - **ids**:
-          - 18
-      - **[19]**:
-        - **escalada**: Animáquina
-        - **ids**:
-          - 19
-      - **[20]**:
-        - **escalada**: Moça do Sapo
-        - **ids**:
-          - 20
-      - **[21]**:
-        - **escalada**: Over Tênis
-        - **ids**:
-          - 21
-      - **[22]**:
-        - **escalada**: Fita No Calcário
-        - **ids**:
-          - 22
-      - **[23]**:
-        - **escalada**: Só de 70
-        - **ids**:
-          - 23
-      - **[24]**:
-        - **escalada**: Black Dog
-        - **ids**:
-          - 24
-      - **[25]**:
-        - **escalada**: Variante Mum-hhazinha
-        - **ids**:
-          - 25
-      - **[26]**:
-        - **escalada**: Pedras e Espinhos
-        - **ids**:
-          - 26
-      - **[27]**:
-        - **escalada**: Pé de Oreia
-        - **ids**:
-          - 27
-      - **[28]**:
-        - **escalada**: Perdidos
-        - **ids**:
-          - 28
-      - **[29]**:
-        - **escalada**: Velhos Novatos
-        - **ids**:
-          - 29
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_das_sombras_p1_i0.webp)
     - **largura_mapa**: 729
@@ -1759,6 +1711,63 @@
           - **comprimento**: 45
           - **largura**: 161
           - **angulo_graus_x100**: 1843
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Peripécias do Climb
+        - **ids**:
+          - 17
+      - **[1]**:
+        - **escalada**: Lelê Café
+        - **ids**:
+          - 17
+      - **[2]**:
+        - **escalada**: Tiu Marreteiro
+        - **ids**:
+          - 18
+      - **[3]**:
+        - **escalada**: Animáquina
+        - **ids**:
+          - 19
+      - **[4]**:
+        - **escalada**: Moça do Sapo
+        - **ids**:
+          - 20
+      - **[5]**:
+        - **escalada**: Over Tênis
+        - **ids**:
+          - 21
+      - **[6]**:
+        - **escalada**: Fita No Calcário
+        - **ids**:
+          - 22
+      - **[7]**:
+        - **escalada**: Só de 70
+        - **ids**:
+          - 23
+      - **[8]**:
+        - **escalada**: Black Dog
+        - **ids**:
+          - 24
+      - **[9]**:
+        - **escalada**: Variante Mum-hhazinha
+        - **ids**:
+          - 25
+      - **[10]**:
+        - **escalada**: Pedras e Espinhos
+        - **ids**:
+          - 26
+      - **[11]**:
+        - **escalada**: Pé de Oreia
+        - **ids**:
+          - 27
+      - **[12]**:
+        - **escalada**: Perdidos
+        - **ids**:
+          - 28
+      - **[13]**:
+        - **escalada**: Velhos Novatos
+        - **ids**:
+          - 29
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

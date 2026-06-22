@@ -282,18 +282,6 @@
               - **escalada**: Fenda comunista
               - **ids**:
                 - 8
-            - **[3]**:
-              - **escalada**: Pôr-do-sol
-              - **ids**:
-                - 9
-            - **[4]**:
-              - **escalada**: Bipa aérea
-              - **ids**:
-                - 10
-            - **[5]**:
-              - **escalada**: Base aérea
-              - **ids**:
-                - 11
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p1_i0.webp)
           - **largura_mapa**: 900
@@ -328,6 +316,19 @@
                 - **y**: 400
                 - **comprimento**: 80
                 - **largura**: 80
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pôr-do-sol
+              - **ids**:
+                - 9
+            - **[1]**:
+              - **escalada**: Bipa aérea
+              - **ids**:
+                - 10
+            - **[2]**:
+              - **escalada**: Base aérea
+              - **ids**:
+                - 11
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -400,26 +401,6 @@
               - **escalada**: Goodsensation
               - **ids**:
                 - 13
-            - **[2]**:
-              - **escalada**: Ponto alto
-              - **ids**:
-                - 14
-            - **[3]**:
-              - **escalada**: Ponto alto sds
-              - **ids**:
-                - 14
-            - **[4]**:
-              - **escalada**: Estrelado
-              - **ids**:
-                - 15
-            - **[5]**:
-              - **escalada**: Estrelado sds
-              - **ids**:
-                - 15
-            - **[6]**:
-              - **escalada**: Gostosinho
-              - **ids**:
-                - 16
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp)
           - **largura_mapa**: 720
@@ -454,6 +435,27 @@
                 - **x**: 390
                 - **y**: 676
                 - **raio**: 40
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ponto alto
+              - **ids**:
+                - 14
+            - **[1]**:
+              - **escalada**: Ponto alto sds
+              - **ids**:
+                - 14
+            - **[2]**:
+              - **escalada**: Estrelado
+              - **ids**:
+                - 15
+            - **[3]**:
+              - **escalada**: Estrelado sds
+              - **ids**:
+                - 15
+            - **[4]**:
+              - **escalada**: Gostosinho
+              - **ids**:
+                - 16
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -531,14 +533,6 @@
               - **escalada**: Pedra de toque
               - **ids**:
                 - 18
-            - **[2]**:
-              - **escalada**: Hematita
-              - **ids**:
-                - 19
-            - **[3]**:
-              - **escalada**: Especularica
-              - **ids**:
-                - 20
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -600,30 +594,6 @@
         - **escalada**: Jenga
         - **ids**:
           - 22
-      - **[2]**:
-        - **escalada**: Cara a Cara
-        - **ids**:
-          - 23
-      - **[3]**:
-        - **escalada**: Resta um
-        - **ids**:
-          - 24
-      - **[4]**:
-        - **escalada**: Pega Palito
-        - **ids**:
-          - 25
-      - **[5]**:
-        - **escalada**: Aresta da Sombra
-        - **ids**:
-          - 26
-      - **[6]**:
-        - **escalada**: Penumbra
-        - **ids**:
-          - 27
-      - **[7]**:
-        - **escalada**: Aresta do sol
-        - **ids**:
-          - 28
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -650,6 +620,19 @@
           - **x**: 449
           - **y**: 972
           - **raio**: 25
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Cara a Cara
+        - **ids**:
+          - 23
+      - **[1]**:
+        - **escalada**: Resta um
+        - **ids**:
+          - 24
+      - **[2]**:
+        - **escalada**: Pega Palito
+        - **ids**:
+          - 25
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p2_i0.webp)
     - **largura_mapa**: 1126
@@ -669,6 +652,15 @@
           - **x**: 544
           - **y**: 858
           - **raio**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aresta da Sombra
+        - **ids**:
+          - 26
+      - **[1]**:
+        - **escalada**: Penumbra
+        - **ids**:
+          - 27
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p3_i0.webp)
     - **largura_mapa**: 1126
@@ -681,6 +673,11 @@
           - **x**: 680
           - **y**: 858
           - **raio**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Aresta do sol
+        - **ids**:
+          - 28
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -785,14 +782,6 @@
         - **escalada**: Trinca-Ferro
         - **ids**:
           - 32
-      - **[5]**:
-        - **escalada**: Beija-Flor
-        - **ids**:
-          - 33
-      - **[6]**:
-        - **escalada**: Bacurau
-        - **ids**:
-          - 34
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_beija_flor_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -812,6 +801,15 @@
           - **x**: 675
           - **y**: 1033
           - **raio**: 23
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Beija-Flor
+        - **ids**:
+          - 33
+      - **[1]**:
+        - **escalada**: Bacurau
+        - **ids**:
+          - 34
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -907,14 +905,6 @@
         - **escalada**: Improviso
         - **ids**:
           - 38
-      - **[4]**:
-        - **escalada**: Buraqueira
-        - **ids**:
-          - 39
-      - **[5]**:
-        - **escalada**: Mini Nave
-        - **ids**:
-          - 40
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p1_i0.webp)
     - **largura_mapa**: 678
@@ -927,6 +917,11 @@
           - **x**: 374
           - **y**: 883
           - **raio**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Buraqueira
+        - **ids**:
+          - 39
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p1_i1.webp)
     - **largura_mapa**: 712
@@ -939,6 +934,11 @@
           - **x**: 485
           - **y**: 773
           - **raio**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Mini Nave
+        - **ids**:
+          - 40
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1025,18 +1025,6 @@
         - **escalada**: Moctezuma
         - **ids**:
           - 43
-      - **[4]**:
-        - **escalada**: Medeia
-        - **ids**:
-          - 44
-      - **[5]**:
-        - **escalada**: Maria Bonita
-        - **ids**:
-          - 45
-      - **[6]**:
-        - **escalada**: Herança de Ferro
-        - **ids**:
-          - 47
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p1_i0.webp)
     - **largura_mapa**: 930
@@ -1056,6 +1044,15 @@
           - **x**: 651
           - **y**: 858
           - **raio**: 26
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Medeia
+        - **ids**:
+          - 44
+      - **[1]**:
+        - **escalada**: Maria Bonita
+        - **ids**:
+          - 45
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p2_i0.webp)
     - **largura_mapa**: 1126
@@ -1068,6 +1065,11 @@
           - **x**: 585
           - **y**: 1000
           - **raio**: 24
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Herança de Ferro
+        - **ids**:
+          - 47
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1130,14 +1132,6 @@
         - **escalada**: Moléstia
         - **ids**:
           - 46
-      - **[1]**:
-        - **escalada**: Jabuticaba
-        - **ids**:
-          - 48
-      - **[2]**:
-        - **escalada**: Caqui
-        - **ids**:
-          - 49
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_molestia_p1_i0.webp)
     - **largura_mapa**: 1126
@@ -1157,6 +1151,15 @@
           - **x**: 975
           - **y**: 834
           - **raio**: 28
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Jabuticaba
+        - **ids**:
+          - 48
+      - **[1]**:
+        - **escalada**: Caqui
+        - **ids**:
+          - 49
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1213,30 +1216,6 @@
         - **escalada**: Mirante
         - **ids**:
           - 51
-      - **[2]**:
-        - **escalada**: Queda do Gigante
-        - **ids**:
-          - 52
-      - **[3]**:
-        - **escalada**: Não me toque
-        - **ids**:
-          - 53
-      - **[4]**:
-        - **escalada**: Anemia
-        - **ids**:
-          - 54
-      - **[5]**:
-        - **escalada**: Biotônico
-        - **ids**:
-          - 55
-      - **[6]**:
-        - **escalada**: Diagnóstico
-        - **ids**:
-          - 56
-      - **[7]**:
-        - **escalada**: Vertigem
-        - **ids**:
-          - 57
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p1_i0.webp)
     - **largura_mapa**: 861
@@ -1256,6 +1235,15 @@
           - **x**: 229
           - **y**: 813
           - **raio**: 27
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Queda do Gigante
+        - **ids**:
+          - 52
+      - **[1]**:
+        - **escalada**: Não me toque
+        - **ids**:
+          - 53
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p2_i0.webp)
     - **pontos_de_interesse**: []
@@ -1280,6 +1268,15 @@
           - **x**: 277
           - **y**: 567
           - **raio**: 15
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Anemia
+        - **ids**:
+          - 54
+      - **[1]**:
+        - **escalada**: Biotônico
+        - **ids**:
+          - 55
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p4_i0.webp)
     - **largura_mapa**: 677
@@ -1299,6 +1296,15 @@
           - **x**: 450
           - **y**: 606
           - **raio**: 18
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Diagnóstico
+        - **ids**:
+          - 56
+      - **[1]**:
+        - **escalada**: Vertigem
+        - **ids**:
+          - 57
 - **escaladas**:
   - **[0]**:
     - **boulder**:

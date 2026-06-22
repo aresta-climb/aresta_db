@@ -1066,18 +1066,6 @@ picos:
           - escalada: Rodilar
             ids:
             - '14'
-          - escalada: Dinamicuzão em Rodlá
-            ids:
-            - V
-          - escalada: Dinamicuzão em catapulta
-            ids:
-            - V
-          - escalada: Dinamicuzão em El paseo
-            ids:
-            - V
-          - escalada: El paseo em Dinamicuzão
-            ids:
-            - V
           - escalada: Fósseis do velho mundo
             ids:
             - '15'

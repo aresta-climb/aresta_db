@@ -1282,42 +1282,6 @@ picos:
           - escalada: Lelê Café
             ids:
             - '17'
-          - escalada: Tiu Marreteiro
-            ids:
-            - '18'
-          - escalada: Animáquina
-            ids:
-            - '19'
-          - escalada: Moça do Sapo
-            ids:
-            - '20'
-          - escalada: Over Tênis
-            ids:
-            - '21'
-          - escalada: Fita No Calcário
-            ids:
-            - '22'
-          - escalada: Só de 70
-            ids:
-            - '23'
-          - escalada: Black Dog
-            ids:
-            - '24'
-          - escalada: Variante Mum-hhazinha
-            ids:
-            - '25'
-          - escalada: Pedras e Espinhos
-            ids:
-            - '26'
-          - escalada: Pé de Oreia
-            ids:
-            - '27'
-          - escalada: Perdidos
-            ids:
-            - '28'
-          - escalada: Velhos Novatos
-            ids:
-            - '29'
         - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p1_i0.webp
           largura_mapa: 729
           altura_mapa: 1311
@@ -1429,6 +1393,49 @@ picos:
               comprimento: 45
               largura: 161
               angulo_graus_x100: 1843
+          referencias:
+          - escalada: Peripécias do Climb
+            ids:
+            - '17'
+          - escalada: Lelê Café
+            ids:
+            - '17'
+          - escalada: Tiu Marreteiro
+            ids:
+            - '18'
+          - escalada: Animáquina
+            ids:
+            - '19'
+          - escalada: Moça do Sapo
+            ids:
+            - '20'
+          - escalada: Over Tênis
+            ids:
+            - '21'
+          - escalada: Fita No Calcário
+            ids:
+            - '22'
+          - escalada: Só de 70
+            ids:
+            - '23'
+          - escalada: Black Dog
+            ids:
+            - '24'
+          - escalada: Variante Mum-hhazinha
+            ids:
+            - '25'
+          - escalada: Pedras e Espinhos
+            ids:
+            - '26'
+          - escalada: Pé de Oreia
+            ids:
+            - '27'
+          - escalada: Perdidos
+            ids:
+            - '28'
+          - escalada: Velhos Novatos
+            ids:
+            - '29'
         escaladas:
         - via_esportiva:
             nome: Curta e Grossa

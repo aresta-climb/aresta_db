@@ -13,31 +13,6 @@ picos:
         nome: Setor Saara
         mapas:
         - caminho_imagem_mapa: imagens/setor_saara_p0_i0.webp
-          referencias:
-          - escalada: 48 °C
-            ids:
-            - '1'
-          - escalada: Mutação
-            ids:
-            - '2'
-          - escalada: Abibá Pretá
-            ids:
-            - '3'
-          - escalada: Aiatolá Khomeiniinguem
-            ids:
-            - '4'
-          - escalada: Mulher Feia
-            ids:
-            - '5'
-          - escalada: Terere
-            ids:
-            - '6'
-          - escalada: Vai Quem Quer Sobe Pode
-            ids:
-            - '7'
-          - escalada: Pica Pau
-            ids:
-            - '8'
           largura_mapa: 2048
           altura_mapa: 998
         escaladas:
@@ -71,16 +46,6 @@ picos:
         nome: Setor Fenda
         mapas:
         - caminho_imagem_mapa: imagens/setor_fenda_p0_i0.webp
-          referencias:
-          - escalada: Chuva de Verão
-            ids:
-            - '9'
-          - escalada: Na Crista da Onda
-            ids:
-            - '10'
-          - escalada: Produto da Parceria
-            ids:
-            - '11'
           largura_mapa: 2048
           altura_mapa: 797
         escaladas:
@@ -99,31 +64,6 @@ picos:
         nome: Setor do Buraco
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_buraco_p0_i0.webp
-          referencias:
-          - escalada: Caverna do Dragão
-            ids:
-            - '1'
-          - escalada: Cactus Solitário
-            ids:
-            - '2'
-          - escalada: Rala Coco
-            ids:
-            - '3'
-          - escalada: Sakaia
-            ids:
-            - '4'
-          - escalada: Tiza
-            ids:
-            - '5'
-          - escalada: Esporão
-            ids:
-            - '6'
-          - escalada: Espanha
-            ids:
-            - '7'
-          - escalada: Furadinha
-            ids:
-            - '8'
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:
@@ -157,31 +97,6 @@ picos:
         nome: Setor da Frente
         mapas:
         - caminho_imagem_mapa: imagens/setor_da_frente_p0_i0.webp
-          referencias:
-          - escalada: Via Yughes
-            ids:
-            - '9'
-          - escalada: Proteção Viva
-            ids:
-            - '10'
-          - escalada: Ganja Real
-            ids:
-            - '11'
-          - escalada: Barão Abençoado
-            ids:
-            - '12'
-          - escalada: 6 de Dezembro
-            ids:
-            - '13'
-          - escalada: Lado Grone
-            ids:
-            - '14'
-          - escalada: Aparição
-            ids:
-            - '15'
-          - escalada: Cascavel
-            ids:
-            - '16'
           largura_mapa: 2048
           altura_mapa: 1122
         escaladas:
@@ -216,10 +131,6 @@ picos:
         nome: Setor Passagem
         mapas:
         - caminho_imagem_mapa: imagens/setor_passagem_p0_i0.webp
-          referencias:
-          - escalada: Via Só na Aresta
-            ids:
-            - '1'
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:
@@ -241,25 +152,6 @@ picos:
         nome: Setor Planeta dos Macacos
         mapas:
         - caminho_imagem_mapa: imagens/setor_planeta_dos_macacos_p0_i0.webp
-          referencias:
-          - escalada: Chimpanzé
-            ids:
-            - '1'
-          - escalada: Los Macacos
-            ids:
-            - '2'
-          - escalada: Macaco Loco
-            ids:
-            - '3'
-          - escalada: Macaco Prego
-            ids:
-            - '4'
-          - escalada: Chita
-            ids:
-            - '5'
-          - escalada: Monga
-            ids:
-            - '6'
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:

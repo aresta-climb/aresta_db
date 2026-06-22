@@ -225,48 +225,6 @@ picos:
           - escalada: Sucuri
             ids:
             - '07'
-          - escalada: Mundo Mágico dos Abacates
-            ids:
-            - '8'
-          - escalada: Ariba Cabron
-            ids:
-            - '9'
-          - escalada: Família Martins
-            ids:
-            - '10'
-          - escalada: Zuzuquinha Mimada
-            ids:
-            - '11'
-          - escalada: De volta as Origens
-            ids:
-            - '12'
-          - escalada: Autista do Bando
-            ids:
-            - '13'
-          - escalada: Último Suspiro
-            ids:
-            - '14'
-          - escalada: Barba Negra
-            ids:
-            - '15'
-          - escalada: Capitão Gancho
-            ids:
-            - '16'
-          - escalada: Peter Pan do Cerrado
-            ids:
-            - '17'
-          - escalada: Indio Rastafari
-            ids:
-            - '18'
-          - escalada: Todo Cuidado e Pouco
-            ids:
-            - '19'
-          - escalada: Raul com Certeza
-            ids:
-            - '20'
-          - escalada: Raimundo Nonato
-            ids:
-            - '21'
         - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
           largura_mapa: 1152
           altura_mapa: 1267
@@ -320,6 +278,22 @@ picos:
               y: 928
               comprimento: 41
               largura: 28
+          referencias:
+          - escalada: Família Martins
+            ids:
+            - '10'
+          - escalada: Zuzuquinha Mimada
+            ids:
+            - '11'
+          - escalada: De volta as Origens
+            ids:
+            - '12'
+          - escalada: Autista do Bando
+            ids:
+            - '13'
+          - escalada: Último Suspiro
+            ids:
+            - '14'
         - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
           largura_mapa: 1152
           altura_mapa: 1258
@@ -373,6 +347,28 @@ picos:
               y: 1126
               comprimento: 32
               largura: 26
+          referencias:
+          - escalada: Barba Negra
+            ids:
+            - '15'
+          - escalada: Capitão Gancho
+            ids:
+            - '16'
+          - escalada: Peter Pan do Cerrado
+            ids:
+            - '17'
+          - escalada: Indio Rastafari
+            ids:
+            - '18'
+          - escalada: Todo Cuidado e Pouco
+            ids:
+            - '19'
+          - escalada: Raul com Certeza
+            ids:
+            - '20'
+          - escalada: Raimundo Nonato
+            ids:
+            - '21'
         - caminho_imagem_mapa: imagens/setor_ensolarado_p4.webp
           largura_mapa: 852
           altura_mapa: 1278
@@ -398,6 +394,16 @@ picos:
               y: 1022
               comprimento: 34
               largura: 30
+          referencias:
+          - escalada: Todo Cuidado e Pouco
+            ids:
+            - '19'
+          - escalada: Raul com Certeza
+            ids:
+            - '20'
+          - escalada: Raimundo Nonato
+            ids:
+            - '21'
         escaladas:
         - via_esportiva:
             nome: Índios
@@ -658,81 +664,6 @@ picos:
           - escalada: Revolta dos Vinagres
             ids:
             - '03'
-          - escalada: De Pai para Filho
-            ids:
-            - '04'
-          - escalada: Amor de Mãe
-            ids:
-            - '05'
-          - escalada: Pagador de Promessa
-            ids:
-            - '06'
-          - escalada: Grande Família
-            ids:
-            - '07'
-          - escalada: Sangue do meu Sangue
-            ids:
-            - '8'
-          - escalada: Cocalcinhas
-            ids:
-            - '9'
-          - escalada: Guerreiro da Bocaina
-            ids:
-            - '10'
-          - escalada: Samurai Rastafari
-            ids:
-            - '11'
-          - escalada: Ceder Writhe
-            ids:
-            - '12'
-          - escalada: Sai pra Lá Sr. Doutor
-            ids:
-            - '13'
-          - escalada: Maniaco Sexual
-            ids:
-            - '14'
-          - escalada: Paraiboult
-            ids:
-            - '15'
-          - escalada: Mulheres ao Poder
-            ids:
-            - '16'
-          - escalada: Invasão Bacteriana
-            ids:
-            - '17'
-          - escalada: Yes We Can
-            ids:
-            - '18'
-          - escalada: Galo Doido
-            ids:
-            - '19'
-          - escalada: Baby Roots
-            ids:
-            - '20'
-          - escalada: Canelinha de Ouro
-            ids:
-            - '21'
-          - escalada: Rei Leão
-            ids:
-            - '22'
-          - escalada: Maluco Beleza
-            ids:
-            - '23'
-          - escalada: Peter Park
-            ids:
-            - '24'
-          - escalada: Super Poderosa
-            ids:
-            - '25'
-          - escalada: Cinco Vira, Dez Acaba
-            ids:
-            - '26'
-          - escalada: Dunas
-            ids:
-            - '27'
-          - escalada: Poeira Cósmica
-            ids:
-            - '28'
         - caminho_imagem_mapa: imagens/setor_garganta_p2.webp
           largura_mapa: 840
           altura_mapa: 1269
@@ -744,6 +675,10 @@ picos:
               y: 1224
               comprimento: 46
               largura: 32
+          referencias:
+          - escalada: De Pai para Filho
+            ids:
+            - '04'
         - caminho_imagem_mapa: imagens/setor_garganta_p3.webp
           largura_mapa: 843
           altura_mapa: 1270
@@ -755,6 +690,10 @@ picos:
               y: 1248
               comprimento: 44
               largura: 33
+          referencias:
+          - escalada: Amor de Mãe
+            ids:
+            - '05'
         - caminho_imagem_mapa: imagens/setor_garganta_p4.webp
           largura_mapa: 1151
           altura_mapa: 1264
@@ -773,6 +712,13 @@ picos:
               y: 958
               comprimento: 44
               largura: 37
+          referencias:
+          - escalada: Pagador de Promessa
+            ids:
+            - '06'
+          - escalada: Grande Família
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_garganta_p5.webp
           largura_mapa: 1148
           altura_mapa: 1258
@@ -823,6 +769,19 @@ picos:
               y: 1250
               comprimento: 42
               largura: 33
+          referencias:
+          - escalada: Guerreiro da Bocaina
+            ids:
+            - '10'
+          - escalada: Samurai Rastafari
+            ids:
+            - '11'
+          - escalada: Ceder Writhe
+            ids:
+            - '12'
+          - escalada: Sai pra Lá Sr. Doutor
+            ids:
+            - '13'
         - caminho_imagem_mapa: imagens/setor_garganta_p7.webp
           largura_mapa: 1143
           altura_mapa: 1264
@@ -876,6 +835,28 @@ picos:
               y: 315
               comprimento: 37
               largura: 30
+          referencias:
+          - escalada: Guerreiro da Bocaina
+            ids:
+            - '10'
+          - escalada: Samurai Rastafari
+            ids:
+            - '11'
+          - escalada: Ceder Writhe
+            ids:
+            - '12'
+          - escalada: Sai pra Lá Sr. Doutor
+            ids:
+            - '13'
+          - escalada: Maniaco Sexual
+            ids:
+            - '14'
+          - escalada: Paraiboult
+            ids:
+            - '15'
+          - escalada: Mulheres ao Poder
+            ids:
+            - '16'
         - caminho_imagem_mapa: imagens/setor_garganta_p8.webp
           largura_mapa: 1151
           altura_mapa: 1264
@@ -929,6 +910,28 @@ picos:
               y: 294
               comprimento: 35
               largura: 29
+          referencias:
+          - escalada: Invasão Bacteriana
+            ids:
+            - '17'
+          - escalada: Yes We Can
+            ids:
+            - '18'
+          - escalada: Galo Doido
+            ids:
+            - '19'
+          - escalada: Baby Roots
+            ids:
+            - '20'
+          - escalada: Canelinha de Ouro
+            ids:
+            - '21'
+          - escalada: Rei Leão
+            ids:
+            - '22'
+          - escalada: Maluco Beleza
+            ids:
+            - '23'
         - caminho_imagem_mapa: imagens/setor_garganta_p9.webp
           largura_mapa: 1152
           altura_mapa: 1261
@@ -968,6 +971,22 @@ picos:
               y: 206
               comprimento: 35
               largura: 25
+          referencias:
+          - escalada: Peter Park
+            ids:
+            - '24'
+          - escalada: Super Poderosa
+            ids:
+            - '25'
+          - escalada: Cinco Vira, Dez Acaba
+            ids:
+            - '26'
+          - escalada: Dunas
+            ids:
+            - '27'
+          - escalada: Poeira Cósmica
+            ids:
+            - '28'
         escaladas:
         - via_esportiva:
             nome: Love's in the Air
@@ -1426,39 +1445,9 @@ picos:
           - escalada: Efeito Colateral
             ids:
             - '06'
-          - escalada: Só pra Variar
-            ids:
-            - '07'
-          - escalada: Rock Supimpa
-            ids:
-            - 08
-          - escalada: Você Decide
-            ids:
-            - 09
-          - escalada: Grande Hotel
-            ids:
-            - '10'
-          - escalada: Cura Trimura
-            ids:
-            - '11'
-          - escalada: Próprio Veneno
-            ids:
-            - '12'
-          - escalada: Própria Loucura
-            ids:
-            - '13'
-          - escalada: Honney Money
-            ids:
-            - '14'
           - escalada: Efeito Variado
             ids:
             - '06'
-          - escalada: Só paracolateral
-            ids:
-            - '07'
-          - escalada: Trimura do Hotel
-            ids:
-            - '11'
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
           largura_mapa: 1151
           altura_mapa: 1270
@@ -1498,6 +1487,28 @@ picos:
               y: 1036
               comprimento: 31
               largura: 29
+          referencias:
+          - escalada: Efeito Cascata
+            ids:
+            - '05'
+          - escalada: Efeito Colateral
+            ids:
+            - '06'
+          - escalada: Só pra Variar
+            ids:
+            - '07'
+          - escalada: Rock Supimpa
+            ids:
+            - 08
+          - escalada: Você Decide
+            ids:
+            - 09
+          - escalada: Efeito Variado
+            ids:
+            - '06'
+          - escalada: Só paracolateral
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
           largura_mapa: 1149
           altura_mapa: 1276
@@ -1537,6 +1548,25 @@ picos:
               y: 980
               comprimento: 38
               largura: 29
+          referencias:
+          - escalada: Grande Hotel
+            ids:
+            - '10'
+          - escalada: Cura Trimura
+            ids:
+            - '11'
+          - escalada: Próprio Veneno
+            ids:
+            - '12'
+          - escalada: Própria Loucura
+            ids:
+            - '13'
+          - escalada: Honney Money
+            ids:
+            - '14'
+          - escalada: Trimura do Hotel
+            ids:
+            - '11'
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
           largura_mapa: 1143
           altura_mapa: 1270
@@ -1576,6 +1606,22 @@ picos:
               y: 928
               comprimento: 40
               largura: 30
+          referencias:
+          - escalada: Pêro no Mucho
+            ids:
+            - '01'
+          - escalada: Meia Hora
+            ids:
+            - '02'
+          - escalada: Falta de Educação
+            ids:
+            - '03'
+          - escalada: De Mão Beijada
+            ids:
+            - '04'
+          - escalada: Efeito Cascata
+            ids:
+            - '05'
         escaladas:
         - via_esportiva:
             nome: Pêro no Mucho
@@ -1811,39 +1857,6 @@ picos:
           - escalada: Miragem
             ids:
             - '05'
-          - escalada: Cortina de Fumaça
-            ids:
-            - '06'
-          - escalada: Sem Nome (Via 07)
-            ids:
-            - '07'
-          - escalada: Pubianos
-            ids:
-            - '8'
-          - escalada: Bocaina Roots
-            ids:
-            - '9'
-          - escalada: Decadentes
-            ids:
-            - '10'
-          - escalada: Pelos de Aldebaran
-            ids:
-            - '11'
-          - escalada: Ejaculação Precoce
-            ids:
-            - '12'
-          - escalada: Via do Laurêncio
-            ids:
-            - '13'
-          - escalada: International love
-            ids:
-            - '14'
-          - escalada: Cinquenteira
-            ids:
-            - '15'
-          - escalada: Boa idéia
-            ids:
-            - '16'
         - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
           largura_mapa: 1152
           altura_mapa: 1261
@@ -1890,6 +1903,19 @@ picos:
               y: 1148
               comprimento: 36
               largura: 29
+          referencias:
+          - escalada: Cortina de Fumaça
+            ids:
+            - '06'
+          - escalada: Sem Nome (Via 07)
+            ids:
+            - '07'
+          - escalada: Decadentes
+            ids:
+            - '10'
+          - escalada: Pelos de Aldebaran
+            ids:
+            - '11'
         - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
           largura_mapa: 1152
           altura_mapa: 1267
@@ -1929,6 +1955,22 @@ picos:
               y: 790
               comprimento: 38
               largura: 31
+          referencias:
+          - escalada: Ejaculação Precoce
+            ids:
+            - '12'
+          - escalada: Via do Laurêncio
+            ids:
+            - '13'
+          - escalada: International love
+            ids:
+            - '14'
+          - escalada: Cinquenteira
+            ids:
+            - '15'
+          - escalada: Boa idéia
+            ids:
+            - '16'
         escaladas:
         - via_esportiva:
             nome: Física Quântica
@@ -2162,51 +2204,6 @@ picos:
           - escalada: Suindara
             ids:
             - '05'
-          - escalada: São Jorge
-            ids:
-            - '06'
-          - escalada: Ramadan
-            ids:
-            - '07'
-          - escalada: Sabotagem
-            ids:
-            - 08
-          - escalada: Universo Paralelo
-            ids:
-            - 09
-          - escalada: Egocentrismo
-            ids:
-            - '10'
-          - escalada: Farinha do Mesmo Saco
-            ids:
-            - '11'
-          - escalada: Bafo de Onça
-            ids:
-            - '12'
-          - escalada: 12 anos
-            ids:
-            - '13'
-          - escalada: Mais Água no Feijão
-            ids:
-            - '14'
-          - escalada: Puberdade
-            ids:
-            - '15'
-          - escalada: Eldorado
-            ids:
-            - '16'
-          - escalada: Mais uma Prova de Amor
-            ids:
-            - '17'
-          - escalada: Sabotagem do Universo
-            ids:
-            - 08
-          - escalada: Universo Sabotada
-            ids:
-            - 09
-          - escalada: Ego Paralelo
-            ids:
-            - '10'
         - caminho_imagem_mapa: imagens/setor_mezanino_p2.webp
           largura_mapa: 849
           altura_mapa: 1273
@@ -2225,6 +2222,13 @@ picos:
               y: 1022
               comprimento: 28
               largura: 33
+          referencias:
+          - escalada: São Jorge
+            ids:
+            - '06'
+          - escalada: Ramadan
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_mezanino_p3.webp
           largura_mapa: 852
           altura_mapa: 1275
@@ -2264,6 +2268,31 @@ picos:
               y: 1098
               comprimento: 31
               largura: 27
+          referencias:
+          - escalada: Sabotagem
+            ids:
+            - 08
+          - escalada: Universo Paralelo
+            ids:
+            - 09
+          - escalada: Egocentrismo
+            ids:
+            - '10'
+          - escalada: Farinha do Mesmo Saco
+            ids:
+            - '11'
+          - escalada: Bafo de Onça
+            ids:
+            - '12'
+          - escalada: Sabotagem do Universo
+            ids:
+            - 08
+          - escalada: Universo Sabotada
+            ids:
+            - 09
+          - escalada: Ego Paralelo
+            ids:
+            - '10'
         - caminho_imagem_mapa: imagens/setor_mezanino_p4.webp
           largura_mapa: 846
           altura_mapa: 1275
@@ -2303,6 +2332,22 @@ picos:
               y: 1226
               comprimento: 31
               largura: 27
+          referencias:
+          - escalada: 12 anos
+            ids:
+            - '13'
+          - escalada: Mais Água no Feijão
+            ids:
+            - '14'
+          - escalada: Puberdade
+            ids:
+            - '15'
+          - escalada: Eldorado
+            ids:
+            - '16'
+          - escalada: Mais uma Prova de Amor
+            ids:
+            - '17'
         - caminho_imagem_mapa: imagens/setor_mezanino_p5.webp
           largura_mapa: 854
           altura_mapa: 1275
@@ -2328,6 +2373,16 @@ picos:
               y: 1050
               comprimento: 39
               largura: 30
+          referencias:
+          - escalada: Alberto Roberto
+            ids:
+            - '01'
+          - escalada: Chico Anísio
+            ids:
+            - '02'
+          - escalada: Onjacktallbeck
+            ids:
+            - '03'
         escaladas:
         - via_esportiva:
             nome: Alberto Roberto
@@ -2537,30 +2592,6 @@ picos:
           - escalada: Caroço de Manga
             ids:
             - '01'
-          - escalada: Caminho das pedras
-            ids:
-            - '02'
-          - escalada: Caminho das águas
-            ids:
-            - '03'
-          - escalada: Shana Crazy
-            ids:
-            - '04'
-          - escalada: Na racha
-            ids:
-            - '05'
-          - escalada: Lei Rounet
-            ids:
-            - '06'
-          - escalada: Maria da Penha
-            ids:
-            - '07'
-          - escalada: Para-raio de Maluco
-            ids:
-            - '8'
-          - escalada: Sandálias da Humildade
-            ids:
-            - '9'
         - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
           largura_mapa: 1142
           altura_mapa: 1264
@@ -2593,6 +2624,19 @@ picos:
               y: 1169
               comprimento: 43
               largura: 36
+          referencias:
+          - escalada: Caminho das pedras
+            ids:
+            - '02'
+          - escalada: Caminho das águas
+            ids:
+            - '03'
+          - escalada: Shana Crazy
+            ids:
+            - '04'
+          - escalada: Na racha
+            ids:
+            - '05'
         - caminho_imagem_mapa: imagens/setor_shana_crazy_p3.webp
           largura_mapa: 1143
           altura_mapa: 1272
@@ -2625,6 +2669,13 @@ picos:
               y: 1179
               comprimento: 42
               largura: 32
+          referencias:
+          - escalada: Lei Rounet
+            ids:
+            - '06'
+          - escalada: Maria da Penha
+            ids:
+            - '07'
         escaladas:
         - via_esportiva:
             nome: Caroço de Manga
@@ -2814,57 +2865,6 @@ picos:
           - escalada: Foi sem Querer
             ids:
             - '07'
-          - escalada: Cabeleira
-            ids:
-            - '8'
-          - escalada: Muchas Gracias
-            ids:
-            - '9'
-          - escalada: Muy Hermosa
-            ids:
-            - '10'
-          - escalada: Medicina Chilena
-            ids:
-            - '11'
-          - escalada: As Aparências Enganam
-            ids:
-            - '12'
-          - escalada: Raios e Trovões
-            ids:
-            - '13'
-          - escalada: Quem vê Cara não vê Graduação
-            ids:
-            - '14'
-          - escalada: Sete Chaves
-            ids:
-            - '15'
-          - escalada: Buena Onda
-            ids:
-            - '16'
-          - escalada: Marola
-            ids:
-            - '17'
-          - escalada: Filha de Todos
-            ids:
-            - '18'
-          - escalada: Neblina Baixa
-            ids:
-            - '19'
-          - escalada: Círculo de Fogo
-            ids:
-            - '20'
-          - escalada: Fissura de Cristal
-            ids:
-            - '21'
-          - escalada: Mandruva Assassino
-            ids:
-            - '22'
-          - escalada: Namoro Antigo
-            ids:
-            - '23'
-          - escalada: Chora Nenêm
-            ids:
-            - '24'
         - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
           largura_mapa: 1152
           altura_mapa: 1270
@@ -2925,6 +2925,28 @@ picos:
               y: 1026
               comprimento: 43
               largura: 33
+          referencias:
+          - escalada: Muy Hermosa
+            ids:
+            - '10'
+          - escalada: Medicina Chilena
+            ids:
+            - '11'
+          - escalada: As Aparências Enganam
+            ids:
+            - '12'
+          - escalada: Raios e Trovões
+            ids:
+            - '13'
+          - escalada: Quem vê Cara não vê Graduação
+            ids:
+            - '14'
+          - escalada: Sete Chaves
+            ids:
+            - '15'
+          - escalada: Buena Onda
+            ids:
+            - '16'
         - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
           largura_mapa: 1152
           altura_mapa: 1270
@@ -2985,6 +3007,31 @@ picos:
               y: 1122
               comprimento: 37
               largura: 29
+          referencias:
+          - escalada: Marola
+            ids:
+            - '17'
+          - escalada: Filha de Todos
+            ids:
+            - '18'
+          - escalada: Neblina Baixa
+            ids:
+            - '19'
+          - escalada: Círculo de Fogo
+            ids:
+            - '20'
+          - escalada: Fissura de Cristal
+            ids:
+            - '21'
+          - escalada: Mandruva Assassino
+            ids:
+            - '22'
+          - escalada: Namoro Antigo
+            ids:
+            - '23'
+          - escalada: Chora Nenêm
+            ids:
+            - '24'
         escaladas:
         - via_esportiva:
             nome: ET de Varginha
@@ -3305,27 +3352,6 @@ picos:
           - escalada: Jovem Ganso
             ids:
             - '06'
-          - escalada: Filho de Vó
-            ids:
-            - '07'
-          - escalada: Loucura Alheia
-            ids:
-            - '8'
-          - escalada: Mistério de Ramadã
-            ids:
-            - '9'
-          - escalada: Chuva de Verão
-            ids:
-            - '10'
-          - escalada: Pole Dance
-            ids:
-            - '11'
-          - escalada: Brusqueta do Cerrado
-            ids:
-            - '12'
-          - escalada: Rota Aérea
-            ids:
-            - '13'
         - caminho_imagem_mapa: imagens/setor_udao_p2.webp
           largura_mapa: 1152
           altura_mapa: 1267
@@ -3379,6 +3405,22 @@ picos:
               y: 715
               comprimento: 42
               largura: 32
+          referencias:
+          - escalada: Filho de Vó
+            ids:
+            - '07'
+          - escalada: Chuva de Verão
+            ids:
+            - '10'
+          - escalada: Pole Dance
+            ids:
+            - '11'
+          - escalada: Brusqueta do Cerrado
+            ids:
+            - '12'
+          - escalada: Rota Aérea
+            ids:
+            - '13'
         escaladas:
         - via_esportiva:
             nome: Pulando a cerca
@@ -3603,6 +3645,10 @@ picos:
               y: 928
               comprimento: 48
               largura: 37
+          referencias:
+          - escalada: Barriga Verde
+            ids:
+            - '06'
         escaladas:
         - via_esportiva:
             nome: Jaratataca
@@ -3740,48 +3786,6 @@ picos:
           - escalada: Lendárias 11 Vacas
             ids:
             - '05'
-          - escalada: Chapeleta Voadora
-            ids:
-            - '06'
-          - escalada: Pau Podre
-            ids:
-            - '07'
-          - escalada: Bonsai Cearense
-            ids:
-            - '8'
-          - escalada: Macaco Velho
-            ids:
-            - '9'
-          - escalada: Sargento Pincel
-            ids:
-            - '10'
-          - escalada: Proparoxítona
-            ids:
-            - '11'
-          - escalada: Volte Sempre
-            ids:
-            - '12'
-          - escalada: Espírito de Equipe
-            ids:
-            - '13'
-          - escalada: Bem-vindo
-            ids:
-            - '14'
-          - escalada: Ganja no País das Maravilhas
-            ids:
-            - '15'
-          - escalada: Ritual Satânico
-            ids:
-            - '16'
-          - escalada: Sweet Home Alabama
-            ids:
-            - '17'
-          - escalada: Show de Calouros
-            ids:
-            - '18'
-          - escalada: Permissão Concebida
-            ids:
-            - '19'
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p2.webp
           largura_mapa: 1152
           altura_mapa: 1261
@@ -3814,6 +3818,13 @@ picos:
               y: 1234
               comprimento: 48
               largura: 37
+          referencias:
+          - escalada: Chapeleta Voadora
+            ids:
+            - '06'
+          - escalada: Pau Podre
+            ids:
+            - '07'
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
           largura_mapa: 1152
           altura_mapa: 1267
@@ -3860,6 +3871,19 @@ picos:
               y: 1244
               comprimento: 43
               largura: 33
+          referencias:
+          - escalada: Sargento Pincel
+            ids:
+            - '10'
+          - escalada: Proparoxítona
+            ids:
+            - '11'
+          - escalada: Volte Sempre
+            ids:
+            - '12'
+          - escalada: Espírito de Equipe
+            ids:
+            - '13'
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
           largura_mapa: 1152
           altura_mapa: 1264
@@ -3906,6 +3930,25 @@ picos:
               y: 1238
               comprimento: 32
               largura: 31
+          referencias:
+          - escalada: Bem-vindo
+            ids:
+            - '14'
+          - escalada: Ganja no País das Maravilhas
+            ids:
+            - '15'
+          - escalada: Ritual Satânico
+            ids:
+            - '16'
+          - escalada: Sweet Home Alabama
+            ids:
+            - '17'
+          - escalada: Show de Calouros
+            ids:
+            - '18'
+          - escalada: Permissão Concebida
+            ids:
+            - '19'
         escaladas:
         - via_esportiva:
             nome: Carapuça
@@ -4184,108 +4227,6 @@ picos:
           - escalada: Resta Um
             ids:
             - '07'
-          - escalada: Medo de quê Aresta
-            ids:
-            - '8'
-          - escalada: Pressão Psicológica
-            ids:
-            - '9'
-          - escalada: Zumbi da Bocaina
-            ids:
-            - '10'
-          - escalada: Curta e Grossa
-            ids:
-            - '11'
-          - escalada: Menos Curta e Mais Grossa
-            ids:
-            - '12'
-          - escalada: El Corazon
-            ids:
-            - '13'
-          - escalada: Sombra e Água Fresca
-            ids:
-            - '14'
-          - escalada: Vitamina C
-            ids:
-            - '15'
-          - escalada: Mão de Vaca
-            ids:
-            - '16'
-          - escalada: Natural Climb
-            ids:
-            - '17'
-          - escalada: Chape
-            ids:
-            - '18'
-          - escalada: Comando Delta
-            ids:
-            - '19'
-          - escalada: Rachando os Bico
-            ids:
-            - '20'
-          - escalada: Mato Seco
-            ids:
-            - '21'
-          - escalada: De um jeito ou de Outro
-            ids:
-            - '22'
-          - escalada: Arapuá
-            ids:
-            - '23'
-          - escalada: Carcará Uru
-            ids:
-            - '24'
-          - escalada: Rapadura
-            ids:
-            - '25'
-          - escalada: Zé Bunitim
-            ids:
-            - '26'
-          - escalada: Vai ser Fei
-            ids:
-            - '27'
-          - escalada: Estrela Solitária
-            ids:
-            - '28'
-          - escalada: Vergateza
-            ids:
-            - '29'
-          - escalada: Chico Curandeiro
-            ids:
-            - '30'
-          - escalada: Reforma Trabalhista
-            ids:
-            - '31'
-          - escalada: Arborigenas
-            ids:
-            - '32'
-          - escalada: Faz sua Parte
-            ids:
-            - '33'
-          - escalada: Delirando
-            ids:
-            - '34'
-          - escalada: Saraiva
-            ids:
-            - '35'
-          - escalada: Rolando Lero
-            ids:
-            - '36'
-          - escalada: Jardinagem
-            ids:
-            - '37'
-          - escalada: Soldados do Sol
-            ids:
-            - '38'
-          - escalada: Metamorfose Ambulante
-            ids:
-            - '39'
-          - escalada: Baby Rasta
-            ids:
-            - '40'
-          - escalada: Cara ou Crachá
-            ids:
-            - '41'
         - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
           largura_mapa: 1143
           altura_mapa: 1267
@@ -4346,6 +4287,28 @@ picos:
               y: 1072
               comprimento: 43
               largura: 33
+          referencias:
+          - escalada: Zumbi da Bocaina
+            ids:
+            - '10'
+          - escalada: Curta e Grossa
+            ids:
+            - '11'
+          - escalada: Menos Curta e Mais Grossa
+            ids:
+            - '12'
+          - escalada: El Corazon
+            ids:
+            - '13'
+          - escalada: Sombra e Água Fresca
+            ids:
+            - '14'
+          - escalada: Vitamina C
+            ids:
+            - '15'
+          - escalada: Mão de Vaca
+            ids:
+            - '16'
         - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
           largura_mapa: 1140
           altura_mapa: 1270
@@ -4378,6 +4341,19 @@ picos:
               y: 1086
               comprimento: 39
               largura: 34
+          referencias:
+          - escalada: Natural Climb
+            ids:
+            - '17'
+          - escalada: Chape
+            ids:
+            - '18'
+          - escalada: Comando Delta
+            ids:
+            - '19'
+          - escalada: Rachando os Bico
+            ids:
+            - '20'
         - caminho_imagem_mapa: imagens/setor_tetos_p4.webp
           largura_mapa: 1146
           altura_mapa: 1264
@@ -4438,6 +4414,31 @@ picos:
               y: 1126
               comprimento: 45
               largura: 33
+          referencias:
+          - escalada: Mato Seco
+            ids:
+            - '21'
+          - escalada: De um jeito ou de Outro
+            ids:
+            - '22'
+          - escalada: Arapuá
+            ids:
+            - '23'
+          - escalada: Carcará Uru
+            ids:
+            - '24'
+          - escalada: Rapadura
+            ids:
+            - '25'
+          - escalada: Zé Bunitim
+            ids:
+            - '26'
+          - escalada: Vai ser Fei
+            ids:
+            - '27'
+          - escalada: Estrela Solitária
+            ids:
+            - '28'
         - caminho_imagem_mapa: imagens/setor_tetos_p5.webp
           largura_mapa: 1145
           altura_mapa: 1258
@@ -4498,6 +4499,31 @@ picos:
               y: 1162
               comprimento: 36
               largura: 29
+          referencias:
+          - escalada: Vergateza
+            ids:
+            - '29'
+          - escalada: Chico Curandeiro
+            ids:
+            - '30'
+          - escalada: Reforma Trabalhista
+            ids:
+            - '31'
+          - escalada: Arborigenas
+            ids:
+            - '32'
+          - escalada: Faz sua Parte
+            ids:
+            - '33'
+          - escalada: Delirando
+            ids:
+            - '34'
+          - escalada: Saraiva
+            ids:
+            - '35'
+          - escalada: Rolando Lero
+            ids:
+            - '36'
         - caminho_imagem_mapa: imagens/setor_tetos_p6.webp
           largura_mapa: 1145
           altura_mapa: 1264
@@ -4537,6 +4563,22 @@ picos:
               y: 1185
               comprimento: 36
               largura: 26
+          referencias:
+          - escalada: Jardinagem
+            ids:
+            - '37'
+          - escalada: Soldados do Sol
+            ids:
+            - '38'
+          - escalada: Metamorfose Ambulante
+            ids:
+            - '39'
+          - escalada: Baby Rasta
+            ids:
+            - '40'
+          - escalada: Cara ou Crachá
+            ids:
+            - '41'
         escaladas:
         - via_esportiva:
             nome: Permissão Concebida
@@ -5002,18 +5044,6 @@ picos:
           - escalada: Jogo Limpo
             ids:
             - '07'
-          - escalada: James Bond
-            ids:
-            - '8'
-          - escalada: Apolo o Doutrinador
-            ids:
-            - '9'
-          - escalada: Rock Balboa
-            ids:
-            - '10'
-          - escalada: Xodó da Bocaina
-            ids:
-            - '11'
         - caminho_imagem_mapa: imagens/setor_segundo_andar_p2.webp
           largura_mapa: 1140
           altura_mapa: 1255
@@ -5046,6 +5076,13 @@ picos:
               y: 760
               comprimento: 25
               largura: 23
+          referencias:
+          - escalada: Rock Balboa
+            ids:
+            - '10'
+          - escalada: Xodó da Bocaina
+            ids:
+            - '11'
         escaladas:
         - via_esportiva:
             nome: Torrecitas

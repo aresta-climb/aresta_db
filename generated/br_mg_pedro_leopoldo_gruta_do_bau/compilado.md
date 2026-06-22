@@ -1578,138 +1578,130 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: O Basilisco de Slytherin
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Disparada
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Judy
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Psicoacústica
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Via sem informação
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Quarto dos Sonhos
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Ameaça Fantasma
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Dança das Aranhas
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: First Blues
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Saci de Corda
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Olho que Tudo Vê
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Preguiça Mental
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Sete Além
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Babylon Tower
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Aresta de Sangue
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Caverna do Dragão
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: Dona Ló
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: Yesterday
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Crônicas da Dy
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Coisa Linda
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Um Lugar para ser Feliz
         - **ids**:
           - 28
-      - **[28]**:
+      - **[26]**:
         - **escalada**: Diedro de Thanos
         - **ids**:
           - 29
-      - **[29]**:
+      - **[27]**:
         - **escalada**: Eternidade em um Segundo
         - **ids**:
           - 30
-      - **[30]**:
+      - **[28]**:
         - **escalada**: Urubu Cargueiro
         - **ids**:
           - 31
-      - **[31]**:
+      - **[29]**:
         - **escalada**: Lucineide não deu
         - **ids**:
           - 32
-      - **[32]**:
+      - **[30]**:
         - **escalada**: Anos de Dor
         - **ids**:
           - 33
-      - **[33]**:
+      - **[31]**:
         - **escalada**: Sem Consenso (Antiga variante)
         - **ids**:
           - 34
-      - **[34]**:
+      - **[32]**:
         - **escalada**: Falta de Consenso
         - **ids**:
           - 35
-      - **[35]**:
+      - **[33]**:
         - **escalada**: Dona da Beleza
         - **ids**:
           - 36
-      - **[36]**:
+      - **[34]**:
         - **escalada**: Vem Tranquilo
         - **ids**:
           - 37
-      - **[37]**:
+      - **[35]**:
         - **escalada**: O Princípio da Incerteza
         - **ids**:
           - 38
-      - **[38]**:
+      - **[36]**:
         - **escalada**: Retorno do Pitu
         - **ids**:
           - 39
-      - **[39]**:
+      - **[37]**:
         - **escalada**: Mar Revolto
         - **ids**:
           - 40
-      - **[40]**:
+      - **[38]**:
         - **escalada**: Zé Carlos, Domador de Cavalos
         - **ids**:
           - 41
@@ -3285,38 +3277,30 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Primeira Batida
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Menino de Toca
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Via sem informação
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Rins de Aço
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Macacos me mordam
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Novinha em Folha
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Oposição em Árvore
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Maggie
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Chuva Orgânica
         - **ids**:
           - 16
@@ -3943,86 +3927,78 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Contagem Regressiva
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Woodstock
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Gruda mas não Garra
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: 2ª Dose
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: 1ª Dose
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Maracutaia
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Muvuca
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Candymam
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Agarras de Mateus
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Dose Dupla
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Consciência Limpa
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Análise de Consciência
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Sentinela
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Vaca Profana
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Santuário das Aranhas
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Professor Piló
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: O último Tango
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: Sentinela Dois
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Wilson Fisk
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Cobra Kai
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Paisagistas
         - **ids**:
           - 28
@@ -4659,122 +4635,114 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Tá Esperando o quê?
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Quem Sabe ano que Vem
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Eau Rouge
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Sem informação
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Via inacabada
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Cachinhos Dourados
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Manto e Adaga
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: R770
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Sem informação
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Jornada nas Estrelas
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Super Canaleta
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Laboratório
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Dark Side of the Moon
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Mega Sena
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: La Torância
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Comunidade Flebótomo
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: Sem informação
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: Duplo Sentido
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Fantástico
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Show da Vida
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Madame Surtô
         - **ids**:
           - 28
-      - **[28]**:
+      - **[26]**:
         - **escalada**: Lupin
         - **ids**:
           - 29
-      - **[29]**:
+      - **[27]**:
         - **escalada**: Wall Ride
         - **ids**:
           - 30
-      - **[30]**:
+      - **[28]**:
         - **escalada**: Dr. Lund
         - **ids**:
           - 31
-      - **[31]**:
+      - **[29]**:
         - **escalada**: Kero Mais
         - **ids**:
           - 32
-      - **[32]**:
+      - **[30]**:
         - **escalada**: Bruxa de Blair
         - **ids**:
           - 33
-      - **[33]**:
+      - **[31]**:
         - **escalada**: Mentirinha
         - **ids**:
           - 34
-      - **[34]**:
+      - **[32]**:
         - **escalada**: Zé Arigó
         - **ids**:
           - 35
-      - **[35]**:
+      - **[33]**:
         - **escalada**: Visionário
         - **ids**:
           - 36
-      - **[36]**:
+      - **[34]**:
         - **escalada**: Skywalker
         - **ids**:
           - 37
@@ -5510,66 +5478,58 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Tira o Andador e Vai
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Rupestre
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Losartana
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Captopril
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Plenitude
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Diabetes
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Glifage
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Insulina
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: AVC
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Fusca Azul
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: The Equalizer
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Casa da Fumaça
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Sombra pro Morto
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: As Fúrias
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Os Despertos
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: As Bondosas
         - **ids**:
           - 23
@@ -6101,98 +6061,90 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Fenda Gerações
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Encontros Temporais
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Golpe de Mestre
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Voo de Ícaro
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Y da Questão
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Seu Perdão
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: A Linda
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Drama
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Escolha de Sophia
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Pra Você
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Titanic
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Por Baixo dos Panos
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Lobo Solitário
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Currículo Atualizado
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Pra Morrer Menos
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Conhecendo o Criador
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: Vida Após a Morte
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: De Frente com o Renegado
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Contra Mão
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Sete Trabalhos de Hércules
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Inhônho não Deixa
         - **ids**:
           - 28
-      - **[28]**:
+      - **[26]**:
         - **escalada**: Excesso de Confiança
         - **ids**:
           - 29
-      - **[29]**:
+      - **[27]**:
         - **escalada**: A Última Sinfonia de Bethoven
         - **ids**:
           - 30
-      - **[30]**:
+      - **[28]**:
         - **escalada**: Vai no Molhado Mesmo (Rapel do bico de pedra)
         - **ids**:
           - 31
@@ -6629,30 +6581,22 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Navio Fantasma
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Pata Afiada
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: 1ª Fila
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Saída de Emergência
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Roteirista
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Acenderam a Luz
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Bilheteria
         - **ids**:
           - 14
@@ -6986,38 +6930,30 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Rayovac
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: O Corpo Ainda é Pouco
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Belos e Malditos
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Green Wood
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Puro Malte
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Ação Mutantes
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Sagrada Família
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: O Poder e o Saber
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Zig Marley
         - **ids**:
           - 16
@@ -7541,130 +7477,122 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Retorno de Borges
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: 3º Pecado Capital
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Orifícios do Ofício
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Cercando o Perímetro
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Trabaiá não qué
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Na Surdina
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Gente Boa
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Aqui Jaz
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Toca da Jararaca
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Mais que Infinito
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Fissurados
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Olho de Hórus
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Melhor Idade
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Torre de Babel
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Era Venenosa
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Arcanjo Gabriel
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: La Bella Luna
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: Amigo da Onça
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Baú da Felicidade
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Cavalo de Tróia
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Testosterona
         - **ids**:
           - 28
-      - **[28]**:
+      - **[26]**:
         - **escalada**: Mazelados
         - **ids**:
           - 29
-      - **[29]**:
+      - **[27]**:
         - **escalada**: A Fúria de Dandara
         - **ids**:
           - 30
-      - **[30]**:
+      - **[28]**:
         - **escalada**: Climb Terapia
         - **ids**:
           - 31
-      - **[31]**:
+      - **[29]**:
         - **escalada**: Atitude
         - **ids**:
           - 32
-      - **[32]**:
+      - **[30]**:
         - **escalada**: Zona de Perigo
         - **ids**:
           - 33
-      - **[33]**:
+      - **[31]**:
         - **escalada**: A Montanha dos 7 Abutres
         - **ids**:
           - 34
-      - **[34]**:
+      - **[32]**:
         - **escalada**: Caixa de Pandora
         - **ids**:
           - 35
-      - **[35]**:
+      - **[33]**:
         - **escalada**: Vivendo o Sonho
         - **ids**:
           - 36
-      - **[36]**:
+      - **[34]**:
         - **escalada**: A Torre deu Pane
         - **ids**:
           - 37
-      - **[37]**:
+      - **[35]**:
         - **escalada**: Sessentenário
         - **ids**:
           - 38
-      - **[38]**:
+      - **[36]**:
         - **escalada**: Supimpa
         - **ids**:
           - 39

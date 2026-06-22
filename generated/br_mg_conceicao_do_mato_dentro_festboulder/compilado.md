@@ -175,6 +175,39 @@
           - **y**: 280
           - **comprimento**: 30
           - **largura**: 30
+    - **referencias**:
+      - **[0]**:
+        - **setor**: Ônibus
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **setor**: Super Herói
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **setor**: Caverninha
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **setor**: Campo Escola
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **setor**: Escorpião
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **setor**: Troféu
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **setor**: X-Tudo
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **setor**: Domínio Digital
+        - **ids**:
+          - 8
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -389,6 +422,47 @@
                 - **y**: 440
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Pirulito
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Trocador
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Roleta
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Zebra
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Linguinha
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Primeiro Esquenta
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Mimetismo
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Aborda
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Easy Line
+              - **ids**:
+                - 4
+            - **[9]**:
+              - **escalada**: Saidex
+              - **ids**:
+                - 5
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -632,22 +706,18 @@
               - **ids**:
                 - 5
             - **[10]**:
-              - **escalada**: Confuso
-              - **ids**:
-                - 6
-            - **[11]**:
               - **escalada**: Combinação Perfeita
               - **ids**:
                 - 1
-            - **[12]**:
+            - **[11]**:
               - **escalada**: Trinca Ferro
               - **ids**:
                 - 2
-            - **[13]**:
+            - **[12]**:
               - **escalada**: Trinca Carangueijo
               - **ids**:
                 - 3
-            - **[14]**:
+            - **[13]**:
               - **escalada**: Natural
               - **ids**:
                 - 4
@@ -704,6 +774,67 @@
                 - **y**: 556
                 - **comprimento**: 10
                 - **largura**: 23
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Terceira Camada
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Caverninha
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Cavernoso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Natural SDS
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Dragão
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 4
+            - **[9]**:
+              - **escalada**: Capitão Caverna
+              - **ids**:
+                - 5
+            - **[10]**:
+              - **escalada**: Confuso
+              - **ids**:
+                - 6
+            - **[11]**:
+              - **escalada**: Combinação Perfeita
+              - **ids**:
+                - 1
+            - **[12]**:
+              - **escalada**: Trinca Ferro
+              - **ids**:
+                - 2
+            - **[13]**:
+              - **escalada**: Trinca Carangueijo
+              - **ids**:
+                - 3
+            - **[14]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp)
           - **largura_mapa**: 758
@@ -741,6 +872,55 @@
                 - **y**: 550
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Terceira Camada
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Caverninha
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Cavernoso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Dragão
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Abaulados
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: Simba
+              - **ids**:
+                - 4
+            - **[8]**:
+              - **escalada**: Combinação Perfeita
+              - **ids**:
+                - 1
+            - **[9]**:
+              - **escalada**: Trinca Ferro
+              - **ids**:
+                - 2
+            - **[10]**:
+              - **escalada**: Trinca Carangueijo
+              - **ids**:
+                - 3
+            - **[11]**:
+              - **escalada**: Natural
+              - **ids**:
+                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -967,6 +1147,55 @@
                 - **y**: 340
                 - **comprimento**: 12
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tré Bien
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Muvuca
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Ninja de Verde
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Ninja de Amarelo
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Ninja de Rosa
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Casé
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[9]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[10]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 5
+            - **[11]**:
+              - **escalada**: Das Meninas
+              - **ids**:
+                - 6
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1121,6 +1350,23 @@
                 - **y**: 255
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Super Foot Hook
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Foot Hook
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Insaciável
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Sicronismo
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1276,6 +1522,19 @@
                 - **y**: 405
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: X-Tudo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Nossa Senhora de Conceição
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Kansas
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp)
           - **largura_mapa**: 759
@@ -1289,6 +1548,19 @@
                 - **y**: 410
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: X-Tudo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Nossa Senhora de Conceição
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Kansas
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1428,6 +1700,27 @@
           - **y**: 442
           - **comprimento**: 34
           - **largura**: 35
+    - **referencias**:
+      - **[0]**:
+        - **setor**: Choquito
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **setor**: Godzilla
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **setor**: Show Time
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **setor**: Hiperespaço
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **setor**: Mergulho em Copo d'Água
+        - **ids**:
+          - 5
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1540,6 +1833,23 @@
                 - **y**: 525
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Paradise
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Quebra Costela
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1669,6 +1979,39 @@
                 - **y**: 440
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: King Kong
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Gorilaz
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Chimpanzé
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Macaco Prego
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Rolamento
+              - **ids**:
+                - 2
+            - **[5]**:
+              - **escalada**: Godzilla
+              - **ids**:
+                - 3
+            - **[6]**:
+              - **escalada**: Enxada
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Obra de Arte
+              - **ids**:
+                - 2
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_godzilla_p2.webp)
           - **largura_mapa**: 755
@@ -1690,6 +2033,31 @@
                 - **y**: 480
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: King Kong
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Gorilaz
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Macaco Prego
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Rolamento
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Enxada
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: Obra de Arte
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1803,14 +2171,6 @@
               - **escalada**: (sem nome)
               - **ids**:
                 - 4
-            - **[8]**:
-              - **escalada**: Zela Time
-              - **ids**:
-                - 5
-            - **[9]**:
-              - **escalada**: Show Time
-              - **ids**:
-                - 6
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_colina_setor_show_time_p1.webp)
           - **largura_mapa**: 753
@@ -1864,6 +2224,47 @@
                 - **y**: 515
                 - **comprimento**: 35
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: ET Teimoso
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Show Time
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Zela Time
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Meia Lua
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[8]**:
+              - **escalada**: Zela Time
+              - **ids**:
+                - 5
+            - **[9]**:
+              - **escalada**: Show Time
+              - **ids**:
+                - 6
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2084,6 +2485,11 @@
           - **y**: 112
           - **comprimento**: 25
           - **largura**: 25
+    - **referencias**:
+      - **[0]**:
+        - **setor**: Mufasa
+        - **ids**:
+          - 1
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -2271,6 +2677,67 @@
           - **y**: 312
           - **comprimento**: 25
           - **largura**: 25
+    - **referencias**:
+      - **[0]**:
+        - **setor**: Preguiça
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **setor**: Manda Lá
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **setor**: Trabalhador
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **setor**: Sanfoneiro Maluco
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **setor**: Samurai
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **setor**: Bomba Atômica
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **setor**: Jubileu
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **setor**: Conceição
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **setor**: Bobsled
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **setor**: Aresta do Cabeça
+        - **ids**:
+          - 11
+      - **[10]**:
+        - **setor**: Equinócio
+        - **ids**:
+          - 10
+      - **[11]**:
+        - **setor**: Witness
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **setor**: La Fúria
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **setor**: Jah
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **setor**: Pole Dance
+        - **ids**:
+          - 15
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -2516,10 +2983,6 @@
               - **escalada**: Trabalho Árduo
               - **ids**:
                 - 2
-            - **[4]**:
-              - **escalada**: Estamos Trabalhando
-              - **ids**:
-                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_trabalhador_p1.webp)
           - **largura_mapa**: 761
@@ -2549,6 +3012,27 @@
                 - **y**: 340
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Hueco Fontaine
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Pitt Bull
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Trabalhador Brasileiro
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Trabalho Árduo
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: Estamos Trabalhando
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2647,6 +3131,19 @@
                 - **y**: 430
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sanfoneiro Maluco
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Webb da Paraíba
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: Efeito Dominó
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp)
           - **largura_mapa**: 756
@@ -2668,6 +3165,27 @@
                 - **y**: 495
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sanfoneiro Maluco
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Inacreditável
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Webb da Paraíba
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: Efeito Dominó
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: Zuzuzela
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2774,6 +3292,15 @@
                 - **y**: 510
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Purgatório
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ouro Branco
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2972,6 +3499,23 @@
                 - **y**: 485
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Viajante
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Bomba Atômica
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: No Claro
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p2.webp)
           - **largura_mapa**: 755
@@ -3025,6 +3569,71 @@
                 - **y**: 400
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Viajante
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Viajante SDS
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Champagne
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Bomba Atômica
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: No Claro
+              - **ids**:
+                - 1
+            - **[8]**:
+              - **escalada**: No Escuro
+              - **ids**:
+                - 2
+            - **[9]**:
+              - **escalada**: Falafofancho
+              - **ids**:
+                - 3
+            - **[10]**:
+              - **escalada**: No Claro SDS
+              - **ids**:
+                - 4
+            - **[11]**:
+              - **escalada**: No Escuro SDS
+              - **ids**:
+                - 5
+            - **[12]**:
+              - **escalada**: Falafofancho SDS
+              - **ids**:
+                - 6
+            - **[13]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[14]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[15]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bomba_atomica_p3.webp)
           - **largura_mapa**: 753
@@ -3054,6 +3663,47 @@
                 - **y**: 460
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Viajante
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Viajante SDS
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Bomba Atômica
+              - **ids**:
+                - 1
+            - **[4]**:
+              - **escalada**: No Claro
+              - **ids**:
+                - 1
+            - **[5]**:
+              - **escalada**: No Escuro
+              - **ids**:
+                - 2
+            - **[6]**:
+              - **escalada**: Falafofancho
+              - **ids**:
+                - 3
+            - **[7]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[8]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[9]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3167,10 +3817,6 @@
               - **escalada**: (sem nome)
               - **ids**:
                 - 1
-            - **[3]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p1.webp)
           - **largura_mapa**: 756
@@ -3184,6 +3830,19 @@
                 - **y**: 540
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jubileu
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Eu Te Disse
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jubileu_p2.webp)
           - **largura_mapa**: 755
@@ -3205,6 +3864,23 @@
                 - **y**: 505
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jubileu
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Eu Te Disse
+              - **ids**:
+                - 1
+            - **[2]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3270,10 +3946,6 @@
               - **escalada**: No Dab
               - **ids**:
                 - 2
-            - **[4]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_conceicao_p1.webp)
           - **largura_mapa**: 759
@@ -3303,6 +3975,27 @@
                 - **y**: 535
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Conceição do Mato Dentro
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tobogã
+              - **ids**:
+                - 1
+            - **[3]**:
+              - **escalada**: No Dab
+              - **ids**:
+                - 2
+            - **[4]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 3
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3572,6 +4265,15 @@
                 - **y**: 525
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mandarim
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Picasso
+              - **ids**:
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3734,20 +4436,6 @@
               - **ids**:
                 - 8
                 - 8
-            - **[16]**:
-              - **escalada**: Maldito La Furia
-              - **ids**:
-                - 9
-                - 9
-            - **[17]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 10
-                - 10
-            - **[18]**:
-              - **escalada**: Travessia da Fúria
-              - **ids**:
-                - 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p1.webp)
           - **largura_mapa**: 759
@@ -3809,6 +4497,63 @@
                 - **y**: 145
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: La Furia
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: La Discordia
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: La Paloma
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: La Discrepância
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: La Fuerza
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: La Sinceridad
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Rei da Cápsula
+              - **ids**:
+                - 7
+            - **[7]**:
+              - **escalada**: Bem Vindo
+              - **ids**:
+                - 1
+            - **[8]**:
+              - **escalada**: Bem Vindo a Conceição
+              - **ids**:
+                - 2
+            - **[9]**:
+              - **escalada**: Bem Vindo aos Clássicos
+              - **ids**:
+                - 3
+            - **[10]**:
+              - **escalada**: Né Possível
+              - **ids**:
+                - 4
+            - **[11]**:
+              - **escalada**: Malditos
+              - **ids**:
+                - 5
+            - **[12]**:
+              - **escalada**: Guardião
+              - **ids**:
+                - 6
+            - **[13]**:
+              - **escalada**: Deixa Rolar
+              - **ids**:
+                - 7
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p2.webp)
           - **largura_mapa**: 760
@@ -3838,6 +4583,30 @@
                 - **y**: 545
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Choffer
+              - **ids**:
+                - 8
+            - **[1]**:
+              - **escalada**: La Resistência
+              - **ids**:
+                - 8
+                - 8
+            - **[2]**:
+              - **escalada**: Maldito La Furia
+              - **ids**:
+                - 9
+                - 9
+            - **[3]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 10
+                - 10
+            - **[4]**:
+              - **escalada**: Travessia da Fúria
+              - **ids**:
+                - 10
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_la_furia_p3.webp)
           - **largura_mapa**: 761
@@ -3851,6 +4620,16 @@
                 - **y**: 435
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 10
+                - 10
+            - **[1]**:
+              - **escalada**: Travessia da Fúria
+              - **ids**:
+                - 10
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4039,14 +4818,6 @@
               - **escalada**: Skunk
               - **ids**:
                 - 8
-            - **[8]**:
-              - **escalada**: Mescladinho
-              - **ids**:
-                - 9
-            - **[9]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 10
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_jah_p1.webp)
           - **largura_mapa**: 757
@@ -4068,6 +4839,15 @@
                 - **y**: 530
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mescladinho
+              - **ids**:
+                - 9
+            - **[1]**:
+              - **escalada**: (sem nome)
+              - **ids**:
+                - 10
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -4310,6 +5090,67 @@
                 - **y**: 495
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fuck Beach
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Incrível Fuck Beach
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Incrível Pole Dance
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Incrível
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Pole Dance
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Repense
+              - **ids**:
+                - 1
+            - **[6]**:
+              - **escalada**: Vamo Nessa
+              - **ids**:
+                - 2
+            - **[7]**:
+              - **escalada**: Vem que Tem
+              - **ids**:
+                - 3
+            - **[8]**:
+              - **escalada**: Pense Bem
+              - **ids**:
+                - 4
+            - **[9]**:
+              - **escalada**: Conclusão
+              - **ids**:
+                - 5
+            - **[10]**:
+              - **escalada**: Siga-me os Bons
+              - **ids**:
+                - 1
+            - **[11]**:
+              - **escalada**: Siga-me os Bons SDS
+              - **ids**:
+                - 2
+            - **[12]**:
+              - **escalada**: Conceicion
+              - **ids**:
+                - 3
+            - **[13]**:
+              - **escalada**: Tô Concê
+              - **ids**:
+                - 4
+            - **[14]**:
+              - **escalada**: Rocktrip
+              - **ids**:
+                - 5
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_pole_dance_p2.webp)
           - **largura_mapa**: 756
@@ -4363,6 +5204,75 @@
                 - **y**: 505
                 - **comprimento**: 30
                 - **largura**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fuck Beach
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Incrível Fuck Beach
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Incrível Pole Dance
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Incrível
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Pole Dance
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Pole Dance SDS
+              - **ids**:
+                - 6
+            - **[6]**:
+              - **escalada**: Repense
+              - **ids**:
+                - 1
+            - **[7]**:
+              - **escalada**: Vamo Nessa
+              - **ids**:
+                - 2
+            - **[8]**:
+              - **escalada**: Vem que Tem
+              - **ids**:
+                - 3
+            - **[9]**:
+              - **escalada**: Pense Bem
+              - **ids**:
+                - 4
+            - **[10]**:
+              - **escalada**: Conclusão
+              - **ids**:
+                - 5
+            - **[11]**:
+              - **escalada**: Siga-me os Bons
+              - **ids**:
+                - 1
+            - **[12]**:
+              - **escalada**: Siga-me os Bons SDS
+              - **ids**:
+                - 2
+            - **[13]**:
+              - **escalada**: Conceicion
+              - **ids**:
+                - 3
+            - **[14]**:
+              - **escalada**: Tô Concê
+              - **ids**:
+                - 4
+            - **[15]**:
+              - **escalada**: Rocktrip
+              - **ids**:
+                - 5
+            - **[16]**:
+              - **escalada**: Rocklands
+              - **ids**:
+                - 6
       - **escaladas**:
         - **[0]**:
           - **boulder**:

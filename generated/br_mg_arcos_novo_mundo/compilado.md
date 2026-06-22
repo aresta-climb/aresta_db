@@ -178,10 +178,6 @@
         - **escalada**: Dia da Maldade
         - **ids**:
           - 1
-      - **[1]**:
-        - **escalada**: Dente de Aço
-        - **ids**:
-          - 
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -373,50 +369,46 @@
         - **ids**:
           - 2
       - **[2]**:
-        - **escalada**: via em móvel
-        - **ids**:
-          - 
-      - **[3]**:
         - **escalada**: Odisséia
         - **ids**:
           - 3
-      - **[4]**:
+      - **[3]**:
         - **escalada**: Nesse Ritmo Nosso, Não
         - **ids**:
           - 4
-      - **[5]**:
+      - **[4]**:
         - **escalada**: Danificada
         - **ids**:
           - 5
-      - **[6]**:
+      - **[5]**:
         - **escalada**: Promessa é Dívida
         - **ids**:
           - 6
-      - **[7]**:
+      - **[6]**:
         - **escalada**: Falsas Promessas
         - **ids**:
           - 7
-      - **[8]**:
+      - **[7]**:
         - **escalada**: O Pagador de Promessa
         - **ids**:
           - 8
-      - **[9]**:
+      - **[8]**:
         - **escalada**: Incrível!
         - **ids**:
           - 9
-      - **[10]**:
+      - **[9]**:
         - **escalada**: Espeleopemba
         - **ids**:
           - 10
-      - **[11]**:
+      - **[10]**:
         - **escalada**: sem nome
         - **ids**:
           - 11
-      - **[12]**:
+      - **[11]**:
         - **escalada**: sem nome
         - **ids**:
           - 12
-      - **[13]**:
+      - **[12]**:
         - **escalada**: via inacabada
         - **ids**:
           - 13

@@ -1,5 +1,5 @@
 
-br_mg_arcos_rastroAfloramento Rastro4Croqui do Afloramento Rastro em Arcos, Minas Gerais.2¥Õ
+br_mg_arcos_rastroAfloramento Rastro4Croqui do Afloramento Rastro em Arcos, Minas Gerais.2Ã»
 Afloramento RastroZï
 íè
 Setor Zona LesteJy# Setor Zona Leste
@@ -38,8 +38,9 @@ Este setor oferece vias de 6¬∫ a 7c grau, com sombra o dia todo (variando de aco
 03"Eterno Aprendiz2
 04"√öltimo Pacto2
 05"Resist√™ncia Cultural2
-06"Respeito √© pra quem temZ±
-Æ´
+06"Respeito √© pra quem temZÑ
+Å˛
+
 Setor ChegadaJÃ# Setor Chegada
 
 Este setor √© o primeiro contato com o afloramento. Possui sombra at√© as 12h (variando de acordo com a esta√ß√£o).
@@ -72,7 +73,7 @@ Via mista.Z
 
 Helow (variante)8@êZ
 
-Good Bye8@êj˛
+Good Bye8@êj—
  imagens/setor_chegada_p0_i0.webpêˇ"P
 Setores_Conexao2Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar	B«(I0@"
 CorredorCorredor	dé(>0"5
@@ -111,11 +112,9 @@ Papa Folia2
 04"Tchau (variante)2
 05"Vai Jumarear2
 06"No Pain no Gain2
-07"Entre o medo e a loucura2
-8"Linha de Frente2
-9"Helow (variante)2
-10"Good ByeZï
-íè
+07"Entre o medo e a loucura2
+10"Good ByeZ
+ÌÍ
 Setor On√ßaJ©# Setor On√ßa
 
 Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).
@@ -174,7 +173,7 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).
 
 Fuga das Galinhas8@Z(
 &
-Carne d Homi √± d√° Coxinha8@êjî	
+Carne d Homi √± d√° Coxinha8@êj©
 imagens/setor_onca_p0_i0.webpòÅ	";
 Setor_Vale_das_SombrasSetor Vale das Sombras	˜(N0",
 Toca_dos_GatosToca dos Gatos
@@ -213,26 +212,10 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).
 04"Jack Daniel's2
 05"Suor de Cacha√ßa2
 06"Feliz Natal2
-07"Tiro Certeiro2
-8"Estica e Clipa2
-9"	Pai Bravo2
+07"Tiro Certeiro2
 10"Buraco √© Mais Em Baixo2&
 11" Doze Prote√ß√µes e Tr√™s Irm√£os2
-12"Jardim da Babil√¥nia2
-13"Incr√≠vel Teto2
-14"Incr√≠vel C√©u de Arcos2
-15"Besta Quadrada2
-16"Aperta ou Voa2
-17"Antifascistas2
-18"Macaco N√£o Tem Culpa2
-19"	M√£e Gaia2
-20"Enrola e Morde2
-21"Liberdade de Express√£o2
-22"Centen√°ria2
-23"Kalimera2
-24"S√°lvia2
-25"Fuga das Galinhas2!
-26"Carne d Homi √± d√° Coxinhaj¨
+12"Jardim da Babil√¥niajÚ
 imagens/setor_onca_p1_i0.webpîˇ";
 Setor_Vale_das_SombrasSetor Vale das Sombras	ˆ(O0"*
 IntermediarioIntermedi√°rio	ä\(R0",
@@ -274,8 +257,22 @@ Obs_AbelhaOBS.! Caixa de Abelha Arapu√£
 2525
 å∆(0"
 2626
-ä∂(0ZÏ
-ÈÊ
+ä∂(02
+13"Incr√≠vel Teto2
+14"Incr√≠vel C√©u de Arcos2
+15"Besta Quadrada2
+16"Aperta ou Voa2
+17"Antifascistas2
+18"Macaco N√£o Tem Culpa2
+19"	M√£e Gaia2
+20"Enrola e Morde2
+21"Liberdade de Express√£o2
+22"Centen√°ria2
+23"Kalimera2
+24"S√°lvia2
+25"Fuga das Galinhas2!
+26"Carne d Homi √± d√° CoxinhaZÃ
+…∆
 Setor Toca dos GatosJñ# Setor Toca dos Gatos
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o). O acesso √© feito atrav√©s de um "T√∫nel de acesso".Z
@@ -295,7 +292,7 @@ Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o). O aces
 Fila de Espera8@Z2019-11Z#
 !
 Nem C/ Chuva a Gente Para
-8@jÄ
+8@j‡
 'imagens/setor_toca_dos_gatos_p0_i0.webpö˚":
 Setor_Vale_das_SombrasSetor Vale das Sombras:(g0"7
 Setor_IntermediarioSetor Intermedi√°rio
@@ -326,9 +323,8 @@ Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o). O aces
 04"Funcion√°rio P√∫blico2
 05"Reparti√ß√£o P√∫blica2
 06"Kevelin, Amigo do Steven2
-07"Fila de Espera2
-8"Nem C/ Chuva a Gente ParaZÈ
-Ê„
+07"Fila de EsperaZŸ
+÷”
 Setor Intermedi√°rioJb# Setor Intermedi√°rio
 
 Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
@@ -348,7 +344,7 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
 
 	Bigodagem8@êZ
 
-	Delicinha8@êjÄ
+	Delicinha8@êj
 &imagens/setor_intermediario_p0_i0.webpñÄ	":
 Setor_Vale_das_SombrasSetor Vale das SombrasFP(i0"7
 Setor_Leao_de_JudahSetor Le√£o de Judah
@@ -378,9 +374,8 @@ Setor_OncaSetor On√ßa
 04"Cuca Maluca2
 05"Jacareca ex-Marley2
 06"Tu Fant√°stica2
-07"	Bigodagem2
-8"	DelicinhaZ‡
-›⁄
+07"	BigodagemZº
+π∂
 Setor Vale das SombrasJc# Setor Vale das Sombras
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o).Z
@@ -445,7 +440,7 @@ Uso Capial8@Z
 Cine Priv√™8@Z
 
 
-A Estr√©ia8@êjó
+A Estr√©ia8@êjÛ
 )imagens/setor_vale_das_sombras_p0_i0.webpí‹"6
 Setor_Leao_de_JudahSetor Le√£o de Judah	à)(A0"D
 Setor_Parede_dos_ConflitosSetor Parede dos Conflitos
@@ -511,10 +506,7 @@ A Estr√©ia8@êjó
 04"Bom Filho a Casa Torna2
 05"Pelos Poderes de Stive2
 06"Tocoloko2
-07"Entranhas de Arcos2
-8"
-Uso Capial2
-9"Clara Morena2
+07"Entranhas de Arcos2
 10"Se Liga2
 11"Maluco da Kombi2
 12"Di√°rio de Um Pistoleiro2
@@ -535,11 +527,8 @@ Uso Capial2
 27"Aula Pr√°tica2
 28"Cine Priv√™2
 29"
-A Estr√©iaZó
-
-î
-ë
-
+A Estr√©iaZ„	
+‡	›	
 Setor Parede dos ConflitosJh# Setor Parede dos Conflitos
 
 Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
@@ -568,7 +557,7 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
 
 Paizeps8@Z
 
-Ant√¥nio Conselheiro8@j 
+Ant√¥nio Conselheiro8@jñ
 -imagens/setor_parede_dos_conflitos_p0_i0.webpñˇ"
 GrutasGrutas
 í¿(.0"8
@@ -612,13 +601,11 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
 04"Hora M√°gica2
 05"Mestres do Sistema2
 06"Parede dos Conflitos2
-07"Tio Toninho*2
-8"Guerra dos C√¥cos2
-9"Guerrilha do Araguaia2
+07"Tio Toninho*2
 10"Canudos2
 11"Paizeps2
-12"Ant√¥nio ConselheiroZ
-ÌÍ
+12"Ant√¥nio ConselheiroZ√
+¿Ω
 Setor Le√£o de JudahJb# Setor Le√£o de Judah
 
 Este setor possui sombra at√© as 12h (variando de acordo com a esta√ß√£o).Z*
@@ -672,7 +659,7 @@ Tudo Nosso8@êZ
 Tetinho*8@Z
 
 
-Ce ki Sabe8@êjÌ	
+Ce ki Sabe8@êj¿	
 &imagens/setor_leao_de_judah_p0_i0.webpî˝"7
 Setor_Antigo_CampingSetor Antigo Camping	®4(.0'"
 GrutasGrutas
@@ -732,9 +719,7 @@ Ce ki Sabe8@êjÌ
 04"Homens de Pedra2 
 05"Privil√©gio da Ignor√¢ncia2
 06"Rastro de S√£o Pedro2
-07"Le√£o de Judah2
-8"Efeito Moral2
-9"Risco de Disc√≥rdia2
+07"Le√£o de Judah2
 10"Duelo de Tit√£s2
 11"Don Corleone2
 12"Confus√£o Mental2
@@ -751,8 +736,8 @@ Presepagem2
 Tudo Nosso2
 21"Tetinho*2
 22"
-Ce ki SabeZò
-ïí
+Ce ki SabeZÍ
+Á‰
 Setor Antigo CampingJb# Setor Antigo Camping
 
 Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
@@ -795,7 +780,7 @@ Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
 
 Parceragem8@Z
 
-Len√ßos Umedecidos8@êjﬁ
+Len√ßos Umedecidos8@êj∞
 'imagens/setor_antigo_camping_p0_i0.webpî˚"*
 Setor_GrutinhaSetor Grutinha>.(,0"$
 
@@ -852,9 +837,7 @@ Savassinha
 04"Pedra do G√™nese2
 05"Sociedade Alternativa2
 06"Caixote*2
-07"Sai Clipado2
-8"Xuxa Preta de Pains2
-9"Brenfa M√≥vel2#
+07"Sai Clipado2#
 10"Mist√©rio do Cachorro Zezinho2
 11"Muro das Lamenta√ß√µes2
 12"Jogo de Cintura2
@@ -865,8 +848,8 @@ Savassinha
 17"Vel√≥rio da Galinha2
 18"
 Parceragem2
-19"Len√ßos UmedecidosZ¿
-Ω∫
+19"Len√ßos UmedecidosZõ
+òï
 Setor Beco do Ti√∫J`# Setor Beco do Ti√∫
 
 Este setor possui sombra at√© as 13h (variando de acordo com a esta√ß√£o).Z
@@ -891,7 +874,7 @@ Azul Royal8@Z
 
 Conex√£o 3G8@Z
 
-Demor√¥+Saiu8@êjˆ
+Demor√¥+Saiu8@êj—
 $imagens/setor_beco_do_tiu_p0_i0.webpñÄ	"+
 Setor_GrutinhaSetor Grutinha	‰(+0"$
 
@@ -927,10 +910,8 @@ Savassinha
 05"
 Azul Royal2
 06"Amaralzinha2
-07"Usa Quatro e Sobra Um2
-8"Conex√£o 3G2
-9"Demor√¥+SaiuZı
-ÚÔ
+07"Usa Quatro e Sobra UmZ’
+“œ
 Setor SavassinhaJ^# Setor Savassinha
 
 Este setor possui sombra at√© as 12h (variando de acordo com a esta√ß√£o).Z
@@ -962,7 +943,7 @@ S√≥ Beleza
 
 	Parceiros8@êZ
 
-Frango Com Farofa8@j“
+Frango Com Farofa8@j≤
 #imagens/setor_savassinha_p0_i0.webpíÅ	"+
 Setor_GrutinhaSetor Grutinha	≤2(20"'
 Beco_do_TiuBeco do Ti√∫
@@ -1003,14 +984,11 @@ S√≥ Beleza
 05"Oferenda2
 06"
 Scooby doo2
-07"Miolo2
-8"Curupira2
-9"
-S√≥ Beleza2
+07"Miolo2
 10"	Di Menor*2
 11"	Parceiros2
-12"Frango Com FarofaZ‚
-ﬂ‹
+12"Frango Com FarofaZ¨
+©¶
 Setor GrutinhaJ[# Setor Grutinha
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o).Z!
@@ -1032,7 +1010,7 @@ Hidrovibes8@Z2017êZ
 (
 Respeite os Mais Velhos8@Z2017êZ$
 "
-Quem Ama Implanta8@Z2017êj∫
+Quem Ama Implanta8@Z2017êjÑ
 !imagens/setor_grutinha_p0_i0.webpîˇ"D
 Setor_Antigo_Camping!Setor Antigo Camping (Savassinha)	Ë8(;00"
 GrutaGruta
@@ -1064,9 +1042,7 @@ Hidrovibes8@Z2017êZ
 Hidrovibes2
 05"Imperme√°vel2
 06"Amandla2
-07"Quem Ama Planta2
-8"Respeite os Mais Velhos2
-9"Quem Ama ImplantaZ˙	
+07"Quem Ama PlantaZ˙	
 ˜	Ù	
 Setor MezaninoJà# Setor Mezanino
 
@@ -1123,8 +1099,8 @@ Obs_Abelha#OBS.! Caixa de abelha entre as vias
 04"Ataque das Formigas Gigantes2
 05"Na Caralha da Noite2
 06"Universo em Desencanto2
-07"Legion√°riosZÙ
-ÒÓ
+07"Legion√°riosZª
+∏µ
 	1¬∫ AndarJb# Setor 1¬∫ Andar
 
 Este setor possui sombra a partir das 13h (variando de acordo com a esta√ß√£o).Z
@@ -1151,7 +1127,7 @@ Zac Marley8@êZ"
 
 Chuva de Espinho8@êZ
 
-Minha Crian√ßa8@êjø
+Minha Crian√ßa8@êjÜ
 !imagens/setor_1o_andar_p0_i0.webp⁄˝"9
 Setor_Jardim_SuspensoSetor Jardim Suspenso	‡((m0"
 	Tunel_TopT√∫nel	Ø9(F0"/
@@ -1204,12 +1180,10 @@ Cabo Jos√©2
 05"50cintis2
 06"
 Zac Marley2
-07"Cada Macaco no Seu Galho2#
-8"Curte o Planeta que Voc√™ Vive2
-9"Subaco da Zen2
+07"Cada Macaco no Seu Galho2
 10"Chuva de Espinho2
-11"Minha Crian√ßaZØ
-¨©
+11"Minha Crian√ßaZ˝
+˙˜
 	2¬∫ AndarJ\# Setor 2¬∫ Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o).Z
@@ -1256,7 +1230,7 @@ $
 
 Meu Maior Amigo8@êZ
 
-Iemanj√°8@êjŒ
+Iemanj√°8@êjú
 !imagens/setor_2o_andar_p0_i0.webp–˜"9
 Setor_Jardim_SuspensoSetor Jardim Suspenso	Ÿ$(l0"
 	Tunel_TopT√∫nel	≤6(-0"/
@@ -1320,9 +1294,7 @@ OBS_Abelha#OBS.! Caixa de abelha entre as vias
 04"Caf√© Tabaco Cacha√ßa2
 05"Daqui Ningu√©m Me Tira2
 06"Sombra e √Ågua Fresca2
-07"Bicuda2
-8"Gardneria Angustata2
-9"Vai e Volta e Vai2
+07"Bicuda2
 10"Daqui N√£o Saio2
 11"Cafe√≠na2
 12"Pequena Sereia2
@@ -1334,8 +1306,8 @@ OBS_Abelha#OBS.! Caixa de abelha entre as vias
 18"O Alquimista2
 19"Vozes da √Åfrica2
 20"Meu Maior Amigo2
-21"Iemanj√°Z£
-†ù
+21"Iemanj√°Z˜
+ÙÒ
 Jardim SuspensoJß# Setor Jardim Suspenso
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o). O acesso √© feito por uma "Escada de acesso" vinda do Segundo Andar.Z
@@ -1359,7 +1331,7 @@ Vida Maria/8	@êZ
 
 Corte Profundo8@Z
 
-Avenida Paulista08@j„
+Avenida Paulista08@j∑
 (imagens/setor_jardim_suspenso_p0_i0.webpöÛ"8
 Setor_Terceiro_AndarSetor Terceiro Andar
 Œ¨(80."6
@@ -1393,10 +1365,8 @@ Vida Maria/8	@êZ
 Vida Maria2
 05"Mimimi2
 06"De todos n√≥s2
-07"Cai Mais N√£o, Z√©2
-8"Corte Profundo2
-9"Avenida PaulistaZÁ
-‰·
+07"Cai Mais N√£o, Z√©Z∆
+√¿
 	3¬∫ AndarJ\# Setor 3¬∫ Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a esta√ß√£o).Z
@@ -1455,7 +1425,7 @@ ka-fedal√∫8@Z
 E Volta C√£o Arrependido8@Z
 
 Exame de Pr√≥stata
-8@j™	
+8@jâ	
 !imagens/setor_3o_andar_p0_i0.webpöÒ"
 0101
 ˆ∞(0"
@@ -1513,9 +1483,7 @@ ka-fedal√∫8@Z
 05"
 Helicoidal2
 06"Nem Ladr√£o Aguenta2
-07"Socorro2	
-8"Iara2
-9"Come Hamburguer2
+07"Socorro2
 10"(via inacabada)2
 11"Meio Selvagem2
 12"Gengiva de Peixe2

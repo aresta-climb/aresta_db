@@ -443,14 +443,6 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Linha de Frente
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Helow (variante)
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Good Bye
         - **ids**:
           - 10
@@ -721,81 +713,17 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Estica e Clipa
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Pai Bravo
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Buraco é Mais Em Baixo
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Doze Proteções e Três Irmãos
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Jardim da Babilônia
         - **ids**:
           - 12
-      - **[12]**:
-        - **escalada**: Incrível Teto
-        - **ids**:
-          - 13
-      - **[13]**:
-        - **escalada**: Incrível Céu de Arcos
-        - **ids**:
-          - 14
-      - **[14]**:
-        - **escalada**: Besta Quadrada
-        - **ids**:
-          - 15
-      - **[15]**:
-        - **escalada**: Aperta ou Voa
-        - **ids**:
-          - 16
-      - **[16]**:
-        - **escalada**: Antifascistas
-        - **ids**:
-          - 17
-      - **[17]**:
-        - **escalada**: Macaco Não Tem Culpa
-        - **ids**:
-          - 18
-      - **[18]**:
-        - **escalada**: Mãe Gaia
-        - **ids**:
-          - 19
-      - **[19]**:
-        - **escalada**: Enrola e Morde
-        - **ids**:
-          - 20
-      - **[20]**:
-        - **escalada**: Liberdade de Expressão
-        - **ids**:
-          - 21
-      - **[21]**:
-        - **escalada**: Centenária
-        - **ids**:
-          - 22
-      - **[22]**:
-        - **escalada**: Kalimera
-        - **ids**:
-          - 23
-      - **[23]**:
-        - **escalada**: Sálvia
-        - **ids**:
-          - 24
-      - **[24]**:
-        - **escalada**: Fuga das Galinhas
-        - **ids**:
-          - 25
-      - **[25]**:
-        - **escalada**: Carne d Homi ñ dá Coxinha
-        - **ids**:
-          - 26
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_onca_p1_i0.webp)
     - **largura_mapa**: 916
@@ -969,6 +897,63 @@
           - **y**: 182
           - **comprimento**: 12
           - **largura**: 12
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Incrível Teto
+        - **ids**:
+          - 13
+      - **[1]**:
+        - **escalada**: Incrível Céu de Arcos
+        - **ids**:
+          - 14
+      - **[2]**:
+        - **escalada**: Besta Quadrada
+        - **ids**:
+          - 15
+      - **[3]**:
+        - **escalada**: Aperta ou Voa
+        - **ids**:
+          - 16
+      - **[4]**:
+        - **escalada**: Antifascistas
+        - **ids**:
+          - 17
+      - **[5]**:
+        - **escalada**: Macaco Não Tem Culpa
+        - **ids**:
+          - 18
+      - **[6]**:
+        - **escalada**: Mãe Gaia
+        - **ids**:
+          - 19
+      - **[7]**:
+        - **escalada**: Enrola e Morde
+        - **ids**:
+          - 20
+      - **[8]**:
+        - **escalada**: Liberdade de Expressão
+        - **ids**:
+          - 21
+      - **[9]**:
+        - **escalada**: Centenária
+        - **ids**:
+          - 22
+      - **[10]**:
+        - **escalada**: Kalimera
+        - **ids**:
+          - 23
+      - **[11]**:
+        - **escalada**: Sálvia
+        - **ids**:
+          - 24
+      - **[12]**:
+        - **escalada**: Fuga das Galinhas
+        - **ids**:
+          - 25
+      - **[13]**:
+        - **escalada**: Carne d Homi ñ dá Coxinha
+        - **ids**:
+          - 26
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1282,10 +1267,6 @@
         - **escalada**: Fila de Espera
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Nem C/ Chuva a Gente Para
-        - **ids**:
-          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1495,10 +1476,6 @@
         - **escalada**: Bigodagem
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Delicinha
-        - **ids**:
-          - 8
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1863,90 +1840,82 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Uso Capial
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Clara Morena
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Se Liga
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Maluco da Kombi
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Diário de Um Pistoleiro
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Dia da Independência
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Essa Linha é Nossa
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Essa Linha é Minha
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Essa Linha é de Todos
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Livrai Me de Todos Males
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Garrão Bom Bom
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Conexão Mané
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Os Reis do Mambo
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Estrombelete
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Sansara
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: Ho' Oponupono
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: Nu Com a Mão no Bolso
         - **ids**:
           - 24
-      - **[24]**:
+      - **[22]**:
         - **escalada**: Planta Rara
         - **ids**:
           - 25
-      - **[25]**:
+      - **[23]**:
         - **escalada**: Boca Maldita
         - **ids**:
           - 26
-      - **[26]**:
+      - **[24]**:
         - **escalada**: Aula Prática
         - **ids**:
           - 27
-      - **[27]**:
+      - **[25]**:
         - **escalada**: Cine Privê
         - **ids**:
           - 28
-      - **[28]**:
+      - **[26]**:
         - **escalada**: A Estréia
         - **ids**:
           - 29
@@ -2329,22 +2298,14 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Guerra dos Côcos
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Guerrilha do Araguaia
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Canudos
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Paizeps
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Antônio Conselheiro
         - **ids**:
           - 12
@@ -2688,62 +2649,54 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Efeito Moral
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Risco de Discórdia
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Duelo de Titãs
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Don Corleone
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Confusão Mental
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Extraordinária
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Entre o Sol e a Sombra
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Sacafraga
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Cogumelo de Óreon
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Lei da Selva
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Fanfarrão
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Presepagem
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Tudo Nosso
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Tetinho*
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: Ce ki Sabe
         - **ids**:
           - 22
@@ -3131,50 +3084,42 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Xuxa Preta de Pains
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Brenfa Móvel
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Mistério do Cachorro Zezinho
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Muro das Lamentações
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Jogo de Cintura
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Capitão Barbárie
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Faixa de Gaza
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Pele Vermelha
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Café da Manhã
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Velório da Galinha
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Parceragem
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Lenços Umedecidos
         - **ids**:
           - 19
@@ -3455,14 +3400,6 @@
         - **escalada**: Usa Quatro e Sobra Um
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Conexão 3G
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Demorô+Saiu
-        - **ids**:
-          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3712,22 +3649,14 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Curupira
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Só Beleza
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Di Menor*
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Parceiros
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Frango Com Farofa
         - **ids**:
           - 12
@@ -3955,14 +3884,6 @@
         - **escalada**: Quem Ama Planta
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Respeite os Mais Velhos
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Quem Ama Implanta
-        - **ids**:
-          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4478,18 +4399,10 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Curte o Planeta que Você Vive
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Subaco da Zen
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Chuva de Espinho
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Minha Criança
         - **ids**:
           - 11
@@ -4867,58 +4780,50 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Gardneria Angustata
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Vai e Volta e Vai
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Daqui Não Saio
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Cafeína
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Pequena Sereia
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Engole o Choro
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Stone Fischer
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Frigobar de Pedra
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: Navio
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: Submarino
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: O Alquimista
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Vozes da África
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Meu Maior Amigo
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Iemanjá
         - **ids**:
           - 21
@@ -5207,14 +5112,6 @@
         - **escalada**: Cai Mais Não, Zé
         - **ids**:
           - 07
-      - **[7]**:
-        - **escalada**: Corte Profundo
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Avenida Paulista
-        - **ids**:
-          - 9
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -5517,70 +5414,62 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Iara
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Come Hamburguer
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: (via inacabada)
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Meio Selvagem
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Gengiva de Peixe
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Ego a Flor da Pele
         - **ids**:
           - 13
-      - **[13]**:
+      - **[11]**:
         - **escalada**: Liberte Sua Garota Interior
         - **ids**:
           - 14
-      - **[14]**:
+      - **[12]**:
         - **escalada**: Panela de Pressão
         - **ids**:
           - 15
-      - **[15]**:
+      - **[13]**:
         - **escalada**: ka-fedalú
         - **ids**:
           - 16
-      - **[16]**:
+      - **[14]**:
         - **escalada**: TNC
         - **ids**:
           - 17
-      - **[17]**:
+      - **[15]**:
         - **escalada**: Império Galáctico
         - **ids**:
           - 18
-      - **[18]**:
+      - **[16]**:
         - **escalada**: Estrela da Morte
         - **ids**:
           - 19
-      - **[19]**:
+      - **[17]**:
         - **escalada**: Multiplicai a Resista Amém
         - **ids**:
           - 20
-      - **[20]**:
+      - **[18]**:
         - **escalada**: Cachorrinha Lua
         - **ids**:
           - 21
-      - **[21]**:
+      - **[19]**:
         - **escalada**: A Primeira de Muitas
         - **ids**:
           - 22
-      - **[22]**:
+      - **[20]**:
         - **escalada**: E Volta Cão Arrependido
         - **ids**:
           - 23
-      - **[23]**:
+      - **[21]**:
         - **escalada**: Exame de Próstata
         - **ids**:
           - 24

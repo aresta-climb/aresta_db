@@ -1627,10 +1627,6 @@ picos:
           - escalada: Tapa na Sombra
             ids:
             - '12'
-          - escalada: Ext. Tapa na Sombra P2
-            ids:
-            - '13'
-            - '13'
           - escalada: A Outra Face
             ids:
             - '14'

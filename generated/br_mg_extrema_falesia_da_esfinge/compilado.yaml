@@ -14,22 +14,6 @@ picos:
         nome: Headwall
         mapas:
         - caminho_imagem_mapa: imagens/setor_headwall_p0_i0.webp
-          referencias:
-          - escalada: Arthropoda
-            ids:
-            - '1'
-          - escalada: Atratus Death
-            ids:
-            - '2'
-          - escalada: Fenda do Café
-            ids:
-            - '3'
-          - escalada: Taj Mahola
-            ids:
-            - '4'
-          - escalada: Apertadinha
-            ids:
-            - '5'
           largura_mapa: 367
           altura_mapa: 144
         escaladas:
@@ -136,28 +120,6 @@ picos:
         nome: Roca Master
         mapas:
         - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
-          referencias:
-          - escalada: Cão Castrado
-            ids:
-            - '1'
-          - escalada: The Nois
-            ids:
-            - '2'
-          - escalada: Alicate
-            ids:
-            - '3'
-          - escalada: Bebezão
-            ids:
-            - '4'
-          - escalada: A mão que balança o B
-            ids:
-            - '5'
-          - escalada: Darth Helmet
-            ids:
-            - '6'
-          - escalada: Tico Skywalker
-            ids:
-            - '7'
           largura_mapa: 367
           altura_mapa: 144
         escaladas:
@@ -297,25 +259,6 @@ picos:
         nome: Ecumênico
         mapas:
         - caminho_imagem_mapa: imagens/setor_ecumenico_p0_i0.webp
-          referencias:
-          - escalada: Dízimo
-            ids:
-            - '1'
-          - escalada: Cura G
-            ids:
-            - '2'
-          - escalada: Show da Fé
-            ids:
-            - '3'
-          - escalada: Ministério do Climb
-            ids:
-            - '4'
-          - escalada: Pequenas Igrejas Grandes Negócios
-            ids:
-            - '5'
-          - escalada: Meninos de Gesso
-            ids:
-            - '6'
           largura_mapa: 367
           altura_mapa: 144
         escaladas:

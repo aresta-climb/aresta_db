@@ -2087,65 +2087,60 @@
         - **ids**:
           - 12
       - **[12]**:
-        - **escalada**: Ext. Tapa na Sombra P2
-        - **ids**:
-          - 13
-          - 13
-      - **[13]**:
         - **escalada**: A Outra Face
         - **ids**:
           - 14
-      - **[14]**:
+      - **[13]**:
         - **escalada**: Mary Lou
         - **ids**:
           - 15
-      - **[15]**:
+      - **[14]**:
         - **escalada**: Superman
         - **ids**:
           - 16
-      - **[16]**:
+      - **[15]**:
         - **escalada**: Oia u Trem
         - **ids**:
           - 17
-      - **[17]**:
+      - **[16]**:
         - **escalada**: Mistério da Meia Noite
         - **ids**:
           - 18
-      - **[18]**:
+      - **[17]**:
         - **escalada**: Entre a Sombra e a Escuridão P1
         - **ids**:
           - 19_base
-      - **[19]**:
+      - **[18]**:
         - **escalada**: Entre a Sombra e a Escuridão P2
         - **ids**:
           - 20
           - 20
-      - **[20]**:
+      - **[19]**:
         - **escalada**: Calabouço
         - **ids**:
           - 21_base
-      - **[21]**:
+      - **[20]**:
         - **escalada**: Thanos (Projeto)
         - **ids**:
           - 22
-      - **[22]**:
+      - **[21]**:
         - **escalada**: Ext. Arco do Triumfo (Projeto)
         - **ids**:
           - 23
           - 23
-      - **[23]**:
+      - **[22]**:
         - **escalada**: Sombrinha
         - **ids**:
           - 24
-      - **[24]**:
+      - **[23]**:
         - **escalada**: Projeto
         - **ids**:
           - 25
-      - **[25]**:
+      - **[24]**:
         - **escalada**: Alcatraz
         - **ids**:
           - 26
-      - **[26]**:
+      - **[25]**:
         - **escalada**: Face Oculta (Projeto)
         - **ids**:
           - 27

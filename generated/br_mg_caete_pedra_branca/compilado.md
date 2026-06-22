@@ -657,26 +657,18 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Barbarela
-        - **ids**:
-          - 8
-      - **[8]**:
-        - **escalada**: Ciganos Molhados
-        - **ids**:
-          - 9
-      - **[9]**:
         - **escalada**: Abominável Morcego Amestrado
         - **ids**:
           - 10
-      - **[10]**:
+      - **[8]**:
         - **escalada**: Os Quatro Macacos
         - **ids**:
           - 11
-      - **[11]**:
+      - **[9]**:
         - **escalada**: Produção Independente
         - **ids**:
           - 12
-      - **[12]**:
+      - **[10]**:
         - **escalada**: Parede Preta
         - **ids**:
           - 13
