@@ -60,9 +60,6 @@ mapas:
   - escalada: Dia da Maldade
     ids:
     - '1'
-  - escalada: Dente de Aço
-    ids:
-    - ''
 escaladas:
 - via_esportiva:
     nome: Dia da Maldade

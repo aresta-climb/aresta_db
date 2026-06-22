@@ -90,14 +90,14 @@ mapas:
       comprimento: 14
       largura: 14
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 457
       y: 772
       comprimento: 14
       largura: 14
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 467
       y: 752

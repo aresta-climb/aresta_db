@@ -146,9 +146,6 @@ mapas:
   - escalada: Efeito Dominó
     ids:
     - '2'
-  - escalada: via em móvel
-    ids:
-    - ''
   - escalada: Odisséia
     ids:
     - '3'

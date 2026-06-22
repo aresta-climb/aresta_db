@@ -55,7 +55,7 @@ mapas:
       comprimento: 38
       largura: 29
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 674
       y: 978
@@ -88,7 +88,7 @@ mapas:
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 96
       y: 929

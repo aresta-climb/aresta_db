@@ -380,6 +380,12 @@ escaladas:
   - boulder:
       nome: Boulder Inexistente
       id_no_mapa: "99"
+  - boulder:
+      nome: Boulder Inexistente
+      id_no_mapa: "99"
+  - boulder:
+      nome: Boulder Vazio
+      id_no_mapa: ""
 ---
 """, encoding="utf-8")
 
@@ -395,12 +401,15 @@ escaladas:
     assert nao_enc_path.exists()
     nao_enc = yaml.safe_load(nao_enc_path.read_text(encoding="utf-8"))
     
-    assert len(nao_enc) == 2
+    assert len(nao_enc) == 3
     assert nao_enc[0]["escalada"] == "Via Falha Parcial"
     assert nao_enc[0]["ids_procurados"] == "1/A"
     
     assert nao_enc[1]["escalada"] == "Boulder Inexistente"
     assert nao_enc[1]["ids_procurados"] == "99"
+    
+    assert nao_enc[2]["escalada"] == "Boulder Vazio"
+    assert nao_enc[2]["ids_procurados"] == ""
 
 def test_migrar_edge_cases_cobertura(tmp_path):
     # DADO um yaml com múltiplos edge cases (enfiadas, setores profundos, mapas inline falhando)
@@ -583,13 +592,14 @@ def test_migracao_converte_scalar_int(tmp_path):
     
     setor_path = db_path / "setor.md"
     setor_path.write_text("""---
-nome: Setor
+nome: Setor Int
 mapas:
   - largura_mapa: 1000
     caminho_imagem_mapa: img.webp
     pontos_de_interesse:
       - id: 08
-      - id: 009
+        label: 2
+      - id: 9
 escaladas:
   - via_esportiva:
       nome: Via 8
@@ -602,8 +612,15 @@ escaladas:
 
     # ENTÃO os inteiros são convertidos para SingleQuotedScalarString e mantêm os zeros à esquerda
     texto = setor_path.read_text(encoding="utf-8")
+    import yaml
+    frontmatter = yaml.safe_load(texto.split("---", 2)[1])
+    pts = frontmatter["mapas"][0]["pontos_de_interesse"]
+    assert pts[0]["id"] == "08"
+    assert pts[0]["label"] == "2"
+    assert pts[1]["id"] == "9"
     assert "- id: '08'" in texto
-    assert "- id: '009'" in texto
+    assert "label: '2'" in texto
+    assert "- id: '9'" in texto
 
 def test_parse_reference_groups_raw_match(tmp_path):
     # DADO um ponto de interesse que tem id "04_topo" exato

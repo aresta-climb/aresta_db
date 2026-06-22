@@ -75,14 +75,14 @@ mapas:
       comprimento: 38
       largura: 32
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 498
       y: 943
       comprimento: 43
       largura: 32
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 558
       y: 1080

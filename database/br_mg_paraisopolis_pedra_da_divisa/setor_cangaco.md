@@ -73,13 +73,13 @@ mapas:
       y: 661
       raio: 12
   - id: 08_bot
-    label: 08
+    label: '08'
     circular:
       x: 945
       y: 671
       raio: 12
   - id: 09_bot
-    label: 09
+    label: '09'
     circular:
       x: 1000
       y: 670
@@ -91,7 +91,7 @@ mapas:
       y: 662
       raio: 12
   - id: 09_top
-    label: 09
+    label: '09'
     circular:
       x: 937
       y: 112

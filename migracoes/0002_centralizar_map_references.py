@@ -64,11 +64,12 @@ def extrair_referencias_recursivo(obj, ctx_setor=None, ctx_grupo=None):
         if 'mapas' in obj and isinstance(obj['mapas'], list):
             for mapa in obj['mapas']:
                 for ponto in mapa.get('pontos_de_interesse', []):
-                    pid = ponto.get('id')
-                    if isinstance(pid, int) and not isinstance(pid, bool):
-                        width = getattr(pid, '_width', 0)
-                        ponto['id'] = SingleQuotedScalarString(f"{int(pid):0{width}d}")
-                        modificado = True
+                    for key in ['id', 'label']:
+                        pval = ponto.get(key)
+                        if isinstance(pval, int) and not isinstance(pval, bool):
+                            width = getattr(pval, '_width', 0)
+                            ponto[key] = SingleQuotedScalarString(f"{int(pval):0{width}d}")
+                            modificado = True
 
     if isinstance(obj, list):
         for item in obj:
@@ -149,12 +150,12 @@ def extrair_referencias_recursivo(obj, ctx_setor=None, ctx_grupo=None):
                         for idx, mapa in enumerate(mapas):
                             pontos = [str(p.get('id', '')) for p in mapa.get('pontos_de_interesse', [])]
                             matched_ids = None
-                            if all(r in pontos for r in grupo['raws']):
+                            if len(grupo['raws']) > 0 and all(r in pontos for r in grupo['raws']):
                                 matched_ids = grupo['raws']
-                            elif all(g in pontos for g in grupo['tokens']):
+                            elif len(grupo['tokens']) > 0 and all(g in pontos for g in grupo['tokens']):
                                 matched_ids = grupo['tokens']
                             
-                            if matched_ids is not None:
+                            if matched_ids:
                                 if 'referencias' not in mapa: mapa['referencias'] = []
                                 mapa['referencias'].append({tipo: nome, 'ids': matched_ids})
                                 adicionado_em_algum = True
@@ -385,14 +386,32 @@ def migrar(croqui_dir: Path):
             filepath.write_text(novo_conteudo, encoding="utf-8")
             
     if FALHAS_MIGRACAO:
+        unique_falhas = []
+        seen = set()
+        for f in FALHAS_MIGRACAO:
+            # Create a hashable tuple representation
+            t = tuple(sorted((k, str(v)) for k, v in f.items() if isinstance(v, (str, int, float, bool, list))))
+            if t not in seen:
+                seen.add(t)
+                unique_falhas.append(f)
+        
         falhas_path = croqui_dir / "ids_no_mapa_nao_encontrados.yaml"
         falhas_existentes = []
-        if falhas_path.exists(): # pragma: no cover
-            with open(falhas_path, "r", encoding="utf-8") as f: # pragma: no cover
-                falhas_existentes = yaml_parser.load(f) or [] # pragma: no cover
-        falhas_existentes.extend(FALHAS_MIGRACAO)
+        if falhas_path.exists():
+            with open(falhas_path, "r", encoding="utf-8") as f:
+                falhas_existentes = yaml_parser.load(f) or []
+        
+        # Merge unique_falhas into existing (also ensuring no duplicates in final result)
+        seen_all = set()
+        final_list = []
+        for f in (falhas_existentes + unique_falhas):
+            t = tuple(sorted((k, str(v)) for k, v in f.items() if isinstance(v, (str, int, float, bool, list))))
+            if t not in seen_all:
+                seen_all.add(t)
+                final_list.append(f)
+        
         with open(falhas_path, "w", encoding="utf-8") as f:
-            yaml_parser.dump(falhas_existentes, f)
+            yaml_parser.dump(final_list, f)
 
 if __name__ == "__main__": # pragma: no cover
     import sys

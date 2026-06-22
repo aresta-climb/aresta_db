@@ -75,14 +75,14 @@ mapas:
       comprimento: 47
       largura: 37
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 861
       y: 1210
       comprimento: 50
       largura: 37
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 923
       y: 1234
@@ -100,14 +100,14 @@ mapas:
   altura_mapa: 1280
   pontos_de_interesse:
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 184
       y: 974
       comprimento: 53
       largura: 38
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 246
       y: 988

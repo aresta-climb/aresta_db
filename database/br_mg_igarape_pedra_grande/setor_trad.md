@@ -132,7 +132,7 @@ mapas:
       comprimento: 25
       largura: 33
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 468
       y: 728

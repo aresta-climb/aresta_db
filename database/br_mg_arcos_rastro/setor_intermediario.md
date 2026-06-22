@@ -90,7 +90,7 @@ mapas:
       comprimento: 22
       largura: 16
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 82
       y: 190

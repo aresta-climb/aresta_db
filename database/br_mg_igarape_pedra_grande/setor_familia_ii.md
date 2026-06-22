@@ -55,7 +55,7 @@ mapas:
       comprimento: 34
       largura: 39
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 902
       y: 563
@@ -76,7 +76,7 @@ mapas:
       comprimento: 42
       largura: 34
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 1166
       y: 950
@@ -164,7 +164,7 @@ mapas:
       comprimento: 30
       largura: 39
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 414
       y: 1148
@@ -185,7 +185,7 @@ mapas:
       comprimento: 31
       largura: 30
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 488
       y: 1223

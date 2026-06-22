@@ -96,14 +96,14 @@ mapas:
   altura_mapa: 960
   pontos_de_interesse:
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 928
       y: 1134
       comprimento: 50
       largura: 37
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 642
       y: 1140

@@ -2,6 +2,13 @@
 
 Tarefas ainda a fazer na database.
 
+## Croquis precisando consertar os pontos nos mapas
+
+1. br_mg_conceicao_do_mato_dentro_festboulder: por exemplo no setor colina temos
+   vários boulders com o mesmo nome mas números diferentes. Talvez tenha que
+   re-extrair os números desse croqui. Igual ao problema do ouroboulder.
+2. Muitos croquis precisando renomear de 8 e 9 pra 08 e 09!
+
 ## Editor
 
 - Continuar a partir da migração do editor de mapas, na conversa de aresta_db:

@@ -81,7 +81,7 @@ mapas:
   altura_mapa: 782
   pontos_de_interesse:
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 376
       y: 428

@@ -6,7 +6,7 @@ mapas:
   altura_mapa: 323
   pontos_de_interesse:
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 240
       y: 72

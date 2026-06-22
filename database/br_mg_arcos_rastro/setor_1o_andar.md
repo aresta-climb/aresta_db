@@ -139,14 +139,14 @@ mapas:
       comprimento: 20
       largura: 15
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 520
       y: 480
       comprimento: 20
       largura: 15
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 500
       y: 512

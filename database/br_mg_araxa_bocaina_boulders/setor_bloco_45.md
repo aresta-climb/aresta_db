@@ -55,7 +55,7 @@ mapas:
       comprimento: 20
       largura: 20
   - id: '08'
-    label: 08
+    label: '08'
     box:
       x: 803
       y: 501
@@ -119,7 +119,7 @@ mapas:
   altura_mapa: 813
   pontos_de_interesse:
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 660
       y: 428
@@ -204,7 +204,7 @@ mapas:
   altura_mapa: 812
   pontos_de_interesse:
   - id: '09'
-    label: 09
+    label: '09'
     box:
       x: 656
       y: 430
