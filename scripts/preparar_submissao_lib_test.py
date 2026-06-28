@@ -329,3 +329,46 @@ def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
     assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+
+def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
+    import yaml
+    from scripts.preparar_submissao_lib import compilar_croqui
+    
+    # 1. Cria a estrutura do pico fake
+    pico_path = tmp_path / "br_mg_fake"
+    pico_path.mkdir()
+    
+    # 2. Cria mapas_gerais.md
+    mapas_md = pico_path / "mapas_gerais.md"
+    mapas_md.write_text("---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8")
+    
+    # 3. Cria croqui.yaml
+    croqui_yaml = pico_path / "croqui.yaml"
+    croqui_data_in = {
+        "picos": [
+            {
+                "nome": "Fake",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data_in, f)
+        
+    # 4. Destinos
+    dest_yaml = tmp_path / "compilado.yaml"
+    dest_binarypb = tmp_path / "compilado.binarypb"
+    
+    # 5. Roda compilar_croqui
+    compilar_croqui(pico_path, dest_yaml, dest_binarypb)
+    
+    # 6. Verifica o yaml compilado
+    with open(dest_yaml, "r", encoding="utf-8") as f:
+        compilado = yaml.safe_load(f)
+        
+    pico = compilado["picos"][0]
+    mapas_gerais = pico["mapas_gerais"]
+    assert "mapas" in mapas_gerais["conteudo"]
+    assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"

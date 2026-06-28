@@ -656,7 +656,14 @@ picos:
 
           Sombra das 7h as 12h (varia de acordo com a estação).'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1073
+        altura_mapa: 624
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
+        largura_mapa: 1060
+        altura_mapa: 617
 botoes:
 - texto: Capa
   destino:

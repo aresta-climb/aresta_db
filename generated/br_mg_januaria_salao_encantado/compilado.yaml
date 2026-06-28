@@ -953,7 +953,14 @@ picos:
 
           | *Escalador na via Estrela no Coco* |'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1710
+        altura_mapa: 1357
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 2048
+        altura_mapa: 1258
 botoes:
 - texto: Capa
   destino:

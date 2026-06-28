@@ -626,7 +626,11 @@ picos:
           O setor Jardim da Fantasia é composto pela via de 180 metros que percorre
           uma linha impressionante na parede.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1768
+        altura_mapa: 605
 botoes:
 - texto: Capa
   destino:

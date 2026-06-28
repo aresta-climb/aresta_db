@@ -963,7 +963,11 @@ picos:
         descricao: '**Equipamentos Necessários:** Corda de 60m é obrigatória para
           rapelar. Para as vias esportivas, você vai precisar de 12 costuras.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 627
+        altura_mapa: 683
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Capa

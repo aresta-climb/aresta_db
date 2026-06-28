@@ -4,49 +4,49 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: 66e76f01c12c26daba897e386b61a68d604cb6672ef71147a717df2856cd7960
+  checksum_sha256_croqui: 7971b972c6e7f6a989d8704931d2bcdfecb61e210c558fca651f167124d54b3e
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
     \ de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque,\
     \ distribuídas em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256_croqui: 93e3b480cc895d8f0b9f38dd20e9e1a6d698a0587c129b8cf61b38f0bed73699
+  checksum_sha256_croqui: 8c6424f71f241e5e0fd4ca6e36047120c8bfea7b46a3e60fb41b308b58ecb13d
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_arcos_bombonera
   nome: Arcos - Bombonera
   descricao: Afloramento de calcário situado em Pains, Minas Gerais, com diversos
     setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256_croqui: 857a5f4ad5dda8f09944a65b5a0a3d05961a8cb95e5ac57305cea89e25e79134
+  checksum_sha256_croqui: 7b84669426edeaa047683c95cabd9487544e4cc56f9492675725f37ab1559a0e
   checksum_sha256_thumbnail: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_arcos_corumba
   nome: Arcos - Corumbá
   descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais,
     com diversos setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
-  checksum_sha256_croqui: 19ed726acb7d5b2c425862efaff43c4d5792c1c8cd09555b96a1250e2d428844
+  checksum_sha256_croqui: f715751f54a49f1160e4c9a3b16a3bf356506706a047aa0ebba232c635dc41f4
   checksum_sha256_thumbnail: 9e23a1e5fba3d47bd4b7840fc10b22664b461c5feb72d56bd966277f1a8a53ea
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_arcos_novo_mundo
   nome: Afloramento Novo Mundo
   descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
     que variam do 5º ao 9º grau.
   caminho_relativo: br_mg_arcos_novo_mundo/compilado.binarypb
-  checksum_sha256_croqui: d0c06ba2242e2829a106b32d4415bb0ece245a04296daea5789e62004429294d
+  checksum_sha256_croqui: 4efb303f116a74fdc98b8507526b83a99707a7396b4058da93aa323fd5fd8d5a
   checksum_sha256_thumbnail: 0f598698530f9bbda980757e782ca7c2e0daff379ab69a7740fa765830111fc9
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_arcos_rastro
   nome: Afloramento Rastro
   descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
   caminho_relativo: br_mg_arcos_rastro/compilado.binarypb
-  checksum_sha256_croqui: 47d3c57577026421359127a1f96b833aa2362d743e0f4de7a99a385a9a92f080
+  checksum_sha256_croqui: dfc1967eacdaa28daa7877d7baa86b572d5b9d80df20d5abafd260746c5f6232
   checksum_sha256_thumbnail: cd2a88b34c86579c7cf631e5773abb272835706f5b45e49bb0f1e362bca7ce39
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
   descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
@@ -55,9 +55,9 @@ croquis:
 
     '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
-  checksum_sha256_croqui: 6a00fea21a686957772b915d2382d7f2176c0ad89646f2359f136af76799d696
+  checksum_sha256_croqui: 99caf41efd924647aa455d0f2985d7b6009638b2e4450e6125f1d990d5934cdd
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_caete_pedra_branca
   nome: Pedra Branca
   descricao: ''
@@ -78,54 +78,54 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo
     da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: fa7e3d2e55fd117511a3317d57f11b54ebe9d3d3990fc54353d473bd59c79a80
+  checksum_sha256_croqui: e8937e0ae2442e028585555a3954756b67e6dad565a5cf9e83dd0f4cac0170a5
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
     Gerais, com vias técnicas em regletes.
   caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
-  checksum_sha256_croqui: 5677f00770777d4c5bf639efd7418b66d508d12a17cb1aa1f31e58352a0c1948
+  checksum_sha256_croqui: fcce559569933fa0bb8064a8925a8cb482475f3394116981b0b21d281e2432a0
   checksum_sha256_thumbnail: b7587af0978a2179d8f3b580f41b16cf4878c540439104afa9d5b1688c9607ce
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_januaria_salao_encantado
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
   caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
-  checksum_sha256_croqui: 4aeffc246db04593a7709a0d1acb55dfa9f79f0bda68288c172c80b14485f5da
+  checksum_sha256_croqui: 4750bbf3dedf8d800c0908f64158025caeeb1e5039e86eea060c075d550da971
   checksum_sha256_thumbnail: 7d240fdac4920b32a566c3b13e7e95a4b953405d284d9e9b43930e2f0fa1a71c
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_lagoa_santa_gruta_da_lapinha
   nome: Gruta da Lapinha
   descricao: Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: d317dffe72706e07ecd42ac24c3350d7bbb395abef00c30b869eca7085958aaf
+  checksum_sha256_croqui: 00fa1589c10df7c899c3898dc339512034afefc5532ebe1b01ccd96b4760e4f1
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_lagoa_santa_sitio_do_rod
   nome: Sítio do Rod
   descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
     Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
     com acesso fácil e rápido.
   caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
-  checksum_sha256_croqui: e497b2936cfc9b007852c7301450822a23100dcfa5a72789ea72c98057aa7e36
+  checksum_sha256_croqui: 78da71723f07c977c489d038b135fa51539ef1c1725dcab3d46c05fe0f57413f
   checksum_sha256_thumbnail: 65ab5d85f5fb6a078f77306984a141ff013581a8494997c5f77f783c997d4451
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_ouro_preto_andorinhas
   nome: Parque Natural Municipal das Andorinhas
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.binarypb
-  checksum_sha256_croqui: da831da978d355b6cdf41740d4b7b17a152ad90ab377a2dfb388bec2d7d753d3
+  checksum_sha256_croqui: 5661696e1f7053884af776a7e9aa1e095d11055cb9bcfbf0e9b1983cd0d7ce5d
   checksum_sha256_thumbnail: f6fd316f2dd6ae610fac6ee9137a0b4c2ab388860175d167b03b7bae36efbac0
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_ouro_preto_ouroboulder
   nome: Ouroboulder
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
-  checksum_sha256_croqui: abde28cfb7a6cbd8a916fb2b1dc7071e5b742c592ee2ba2ee7c26a0de3d9b784
+  checksum_sha256_croqui: 0bfba3575032019b5a3430cab178abb887660f08fec550acdd7abc3862572850
   checksum_sha256_thumbnail: bbf28b6a3d2e987124c6389e4d47ead46ddb50ee2baffece1c6e1184b368ca76
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
   localizacao:
     latitude: -203677334
     longitude: -435075136
@@ -133,9 +133,9 @@ croquis:
   nome: OuroBoulder Sunset
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256_croqui: cabc2b1ff4dccaea1d8d0ef7b68f133d28dfbe063bfa9781e02c9a91c8fe9650
+  checksum_sha256_croqui: 71adccbdb597d32ba69be4a07e4d372b86e28c9e851cd4c6857cf29e3c894b7a
   checksum_sha256_thumbnail: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
   descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
@@ -146,18 +146,18 @@ croquis:
 
     '
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: 8cba12ae86eafdc87f275647492c5307d71ed686851b3f67efbc63bec85bf5c9
+  checksum_sha256_croqui: 0cc56fa6c6df96cf9a8270dc86cadeb16d87154397356e76229f44f2e81f75e7
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
     um dos principais picos de escalada em calcário de Minas Gerais, com centenas
     de vias de diversos graus.
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256_croqui: 67b11493f97bce520188f2b9718e406d18dcea34e8c133470d9dd07fbf01a2a3
+  checksum_sha256_croqui: d53d6ca5f46df8806bb3879fa2470b780d47eb58ac9df8560ea0e14a483c1d4e
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
   localizacao:
     latitude: -195480000
     longitude: -439900000
@@ -165,16 +165,16 @@ croquis:
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: a41371a420b122e59ff6f739f6da355bc5fe08d4d8f34d7c6a4297038d3bbe96
+  checksum_sha256_croqui: 590c4111bab0f20879908d436e6e0fc3400b609e51b1c521665817b78981694e
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
   caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
-  checksum_sha256_croqui: 5706b15c1207ffbd7f294ab8e615342f2d21c4788663fb16ec201e9f6b7e5a31
+  checksum_sha256_croqui: d1b1b7ee26f52855f717a24123ae1b1fea6624f7cf18ac821590d9df37c2176a
   checksum_sha256_thumbnail: 83839077a1e4d6e4fd3c794ca5d5c9db433e6e933db95d3cc185f8b24e99c539
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
   localizacao:
     latitude: -199973890
     longitude: -473989720
@@ -182,13 +182,13 @@ croquis:
   nome: Santuário de Santa Luzia
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
-  checksum_sha256_croqui: 02dc9586170a9a7f1f9b2783ed1513a4b759cdcb5ca5deef621bac94271f9ecf
+  checksum_sha256_croqui: ee9f3d8524319ae4c7d31c90bbbd763f1925916184bdab26d97babc2e4d45eef
   checksum_sha256_thumbnail: cd072d8437c4155c6b8fcebbaaaa568e742daa5ed12c64a6c63ccbdfc1b9a951
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''
   caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
-  checksum_sha256_croqui: bfc6b83111c920c1f7cd1f83d956169b954db822e91c0081cc7a77114495ffdd
+  checksum_sha256_croqui: 69354ce022048cc4e3b2a311a8406de37b344ca920ac00686a4d7ca3178fa6c6
   checksum_sha256_thumbnail: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-06-28T15:11:09Z'

@@ -628,7 +628,11 @@ picos:
           O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos
           projetos aguardando a primeira ascensão.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1241
+        altura_mapa: 1648
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO

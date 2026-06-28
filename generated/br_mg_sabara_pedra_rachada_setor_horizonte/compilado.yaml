@@ -1094,7 +1094,11 @@ picos:
           óbvia e alta, porém esse modulo não parece ser sólido e não foi testado
           por meio de rapel até o momento.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1332
+        altura_mapa: 810
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
 revisado_bounding_circle: true

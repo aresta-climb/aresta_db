@@ -923,7 +923,11 @@ picos:
 
           | *Escalador Lucas Rocha na via Buffalo Bill* |'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 2048
+        altura_mapa: 1449
 botoes:
 - texto: Capa
   destino:

@@ -4565,7 +4565,11 @@ picos:
           A Pedreira é o grupo com maior número de setores e linhas, apresentando
           desafios para todos os níveis.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1241
+        altura_mapa: 877
 botoes:
 - texto: Capa
   destino:

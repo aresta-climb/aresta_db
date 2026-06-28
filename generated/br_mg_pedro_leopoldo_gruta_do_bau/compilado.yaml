@@ -6659,7 +6659,14 @@ picos:
           passar pelo portão de metal e seguir as placas em direção ao setor. Cerca
           de 15 minutos de caminhada a partir do setor entrada.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1703
+        altura_mapa: 1162
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
+        largura_mapa: 1700
+        altura_mapa: 1143
 botoes:
 - texto: Capa
   destino:

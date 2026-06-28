@@ -4653,7 +4653,14 @@ picos:
 
           Este setor possui sombra o dia todo (variando de acordo com a estação).'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1769
+        altura_mapa: 1027
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 1747
+        altura_mapa: 1019
 botoes:
 - texto: Capa
   destino:

@@ -2416,7 +2416,14 @@ picos:
           A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata
           e outros blocos.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1228
+        altura_mapa: 867
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 1223
+        altura_mapa: 1251
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Informações

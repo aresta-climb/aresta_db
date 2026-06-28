@@ -3705,7 +3705,14 @@ picos:
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo
           Pedra Grande.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 2048
+        altura_mapa: 1414
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
+        largura_mapa: 2048
+        altura_mapa: 1157
 botoes:
 - texto: Capa
   destino:

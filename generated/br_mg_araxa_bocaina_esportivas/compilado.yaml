@@ -5382,7 +5382,11 @@ picos:
           abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
           ESCALADA.**'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1152
+        altura_mapa: 805
 botoes:
 - texto: Capa
   destino:

@@ -1597,7 +1597,15 @@ picos:
 
           | *Outras Vias* |'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i1.webp
+        largura_mapa: 1559
+        altura_mapa: 1899
+      - caminho_imagem_mapa: imagens/mapas_gerais_p2_i1.webp
+      - caminho_imagem_mapa: imagens/mapas_gerais_p3_i0.webp
+        largura_mapa: 2048
+        altura_mapa: 1379
 botoes:
 - texto: Capa
   destino:

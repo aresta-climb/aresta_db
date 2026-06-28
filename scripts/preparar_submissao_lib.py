@@ -875,6 +875,19 @@ def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path,
         if "setores_ou_grupos" in pico:
             pico["setores_ou_grupos"] = expandir_setores_ou_grupos_recursivo(pico["setores_ou_grupos"], pico_path)
 
+    # 2.5. Expande mapas gerais de cada pico
+    for pico in croqui_data.get("picos", []):
+        if "mapas_gerais" in pico:
+            mg = pico["mapas_gerais"]
+            if isinstance(mg, dict) and "caminho" in mg:
+                md_path = pico_path / mg["caminho"]
+                if md_path.exists():
+                    frontmatter, _ = parse_md_com_frontmatter(md_path)
+                    if frontmatter and "mapas" in frontmatter:
+                        mg["conteudo"] = {"mapas": frontmatter["mapas"]}
+                        del mg["caminho"]
+
+
     # 3. Atualiza dimensões de mapas automaticamente
     atualizar_dimensoes_mapas(croqui_data, pico_path)
 

@@ -773,7 +773,11 @@ picos:
           atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva
           e totens.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 840
+        altura_mapa: 493
 botoes:
 - texto: Capa
   destino:

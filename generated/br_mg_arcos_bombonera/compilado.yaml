@@ -715,7 +715,14 @@ picos:
             data_abertura: '2022'
         descricao: Sombra o dia todo (varia de acordo com a estação).
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 1074
+        altura_mapa: 619
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 1743
+        altura_mapa: 1012
 botoes:
 - texto: Capa
   destino:

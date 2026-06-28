@@ -236,7 +236,14 @@ picos:
 
           | *Setor Quintal* |'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/capa_p0_i1.webp
+        largura_mapa: 1675
+        altura_mapa: 1389
+      - caminho_imagem_mapa: imagens/capa_p0_i2.webp
+        largura_mapa: 1688
+        altura_mapa: 1127
 botoes:
 - texto: Capa
   destino:

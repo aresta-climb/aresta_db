@@ -2883,7 +2883,17 @@ picos:
           O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das
           proximidades do Shopping Sete Lagoas.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1773
+        altura_mapa: 1575
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 1773
+        altura_mapa: 1575
+      - caminho_imagem_mapa: imagens/mapas_gerais_p2_i0.webp
+        largura_mapa: 1773
+        altura_mapa: 1575
 botoes:
 - texto: Capa
   destino:

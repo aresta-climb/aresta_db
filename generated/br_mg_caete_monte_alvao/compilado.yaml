@@ -1193,7 +1193,11 @@ picos:
 
           Estes setores estão localizados na parte sul do Alto Monte Alvão.'
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+        largura_mapa: 2048
+        altura_mapa: 1447
 ultima_migracao: 3
 publicar_croqui: true
 botoes: []

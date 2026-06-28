@@ -123,7 +123,14 @@ picos:
             dificuldade: PROJETO
         descricao: ''
   mapas_gerais:
-    caminho: mapas_gerais.md
+    conteudo:
+      mapas:
+      - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
+        largura_mapa: 1658
+        altura_mapa: 1315
+      - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+        largura_mapa: 1455
+        altura_mapa: 1164
 caminho_thumbnail: imagens/capa_p0.webp
 botoes:
 - texto: Capa
