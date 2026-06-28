@@ -220,3 +220,31 @@ mapas:
             assert dados["pontos_de_interesse"][0]["id"] == "via1"
             assert dados["pontos_de_interesse"][0]["label"] == "Via 1"
 
+def test_preparar_extracao_mapas_gerais(tmp_path):
+    pico_path = tmp_path / "pico_mapas_gerais"
+    pico_path.mkdir()
+    img_dir = pico_path / "imagens" / "mapas_gerais"
+    img_dir.mkdir(parents=True)
+    img_path = img_dir / "geral.webp"
+    Image.new('RGB', (100, 100)).save(img_path)
+    
+    md_file = pico_path / "mapas_gerais.md"
+    md_content = """---
+mapas:
+- caminho_imagem_mapa: imagens/mapas_gerais/geral.webp
+---
+"""
+    md_file.write_text(md_content, encoding="utf-8")
+    
+    with patch("scripts.preparar_extracao_de_mapas.PaddleOCR") as MockOCR:
+        mock_engine = MagicMock()
+        MockOCR.return_value = mock_engine
+        mock_engine.predict.return_value = [MagicMock()] # Resultado vazio para ignorar OCR
+        
+        preparador = PreparadorDeMapas(idioma="pt")
+        preparador.executar(pico_path)
+        
+        target_json = pico_path / "imagens" / "raw_mapas" / "geral.json"
+        assert target_json.exists(), "O script não extraiu os mapas gerais a partir do mapas_gerais.md"
+
+

@@ -86,24 +86,6 @@
             ## Estacionamento
             O espaço para estacionamento é restrito (aprox. 06 carros, dependendo da disposição). Existe uma zona de estacionamento que está sinalizada, à esquerda, onde está localizada a caixinha para a contribuição da taxa de estacionamento. Caso não existam vagas, retornar na estrada e estacionar de modo a não bloquear a passagem.
   - **[4]**:
-    - **texto**: Como Chegar
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Como Chegar
-            
-            **Coordenadas: 22° 37' 29.41" S - 45° 37' 46.52" O**
-            
-            | ![Mapa Geral de Acesso](imagens/mapas_gerais_p0_i6.webp) |
-            | :--: |
-            | *Mapa Geral de Acesso* |
-            
-            | ![Detalhes do Acesso](imagens/mapas_gerais_p0_i7.webp) |
-            | :--: |
-            | *Detalhes do Acesso* |
-            
-            Partindo do acampamento Paiol Grande em direção a Pedra do Zé.
-  - **[5]**:
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
@@ -123,7 +105,7 @@
             deboraabe.projetos@gmail.com
             
             Dê preferência ao arquivo digital. Não imprima.
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: setor_principal

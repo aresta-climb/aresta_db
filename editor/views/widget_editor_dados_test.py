@@ -1677,3 +1677,56 @@ def test_widget_colapsavel_undo_redo_atualiza_titulo(qapp):
     widget.update_title()
     
     assert widget.toggle_button.text() == "▶ Item 0 - Alterado"
+
+def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from aresta_api.proto.generated import croqui_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PyQt6.QtWidgets import QLineEdit
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico A"
+    pico.mapas_gerais.caminho = "mapas_gerais.md"
+    pico.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo].caminho_novo = "mapas_gerais_novo.md"
+    
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    
+    widget = WidgetEditorDados(model, controller)
+    modelo = widget.tree_model
+
+    # Encontra o node
+    croqui_idx = modelo.index(0, 0)
+    
+    exp_picos_idx = None
+    for r in range(modelo.rowCount(croqui_idx)):
+        idx = modelo.index(r, 0, croqui_idx)
+        if modelo.data(idx) == "Picos":
+            exp_picos_idx = idx
+            break
+    assert exp_picos_idx is not None
+    
+    pico_idx = modelo.index(0, 0, exp_picos_idx)
+    
+    # Encontra Mapas Gerais
+    mapas_idx = None
+    for r in range(modelo.rowCount(pico_idx)):
+        idx = modelo.index(r, 0, pico_idx)
+        if modelo.data(idx) == "Mapas gerais":
+            mapas_idx = idx
+            break
+    assert mapas_idx is not None
+    
+    form = widget.form_padrao
+    form.load_node(mapas_idx.internalPointer())
+    
+    # Verifica se a UI renderizou o QLineEdit do nome do arquivo
+    line_edits = form.findChildren(QLineEdit)
+    edit_filename = next((le for le in line_edits if le.property("protobuf_field") == "__filename__"), None)
+    assert edit_filename is not None
+    assert edit_filename.text() == "mapas_gerais_novo.md"

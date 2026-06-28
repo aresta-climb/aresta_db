@@ -97,16 +97,6 @@
             | :--: |
             | *Rocx e Deuter logos* |
   - **[3]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa de Acesso* |
-  - **[4]**:
     - **texto**: Como Chegar e Aproximação
     - **destino**:
       - **secao_textual**:
@@ -142,7 +132,7 @@
             Cuidado com animais selvagens neste setor. Além de uma irara que mora no platô acima do setor Cervejas, lobos-guará e javaporcos não são raros perto do anoitecer, e como qualquer porco selvagem, irá atacar caso se sinta encurralado. Portanto se avistar um deles, dê meia-volta ou suba numa árvore.
             
             No passado já foram avistadas cobras venenosas, mas hoje é bastante raro cruzar com alguma. A Santa Casa de São Bento do Sapucaí possui soro anti-ofídico para tratar eventuais acidentes com animais peçonhentos.
-  - **[5]**:
+  - **[4]**:
     - **texto**: Contracapa
     - **destino**:
       - **secao_textual**:
@@ -150,7 +140,7 @@
             | ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp) |
             | :--: |
             | *Foto de escalada na contracapa* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

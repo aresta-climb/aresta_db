@@ -86,7 +86,7 @@
             | *Estacionamento e início da trilha* |
             
             A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire à esquerda novamente e já encontrara o primeiro setor, o Vale.
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: setor_o_vale

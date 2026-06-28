@@ -681,3 +681,40 @@ def test_tree_view_adapter_on_item_movido(qapp):
     # Verify indices
     assert [c.index_in_repeated for c in picos_node.children if hasattr(c, 'index_in_repeated') and c.index_in_repeated is not None] == [0, 1, 2]
 
+
+def test_protobuf_tree_model_mapas_gerais():
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Teste Mapas"
+    
+    # Preenche o mapas_gerais
+    pico.mapas_gerais.caminho = "mapas_gerais.md"
+    
+    model = ProtobufTreeViewAdapter(croqui)
+    root_index = QModelIndex()
+    
+    croqui_index = model.index(0, 0, root_index)
+    expando_picos = model.index(0, 0, croqui_index)
+    pico_node = model.index(0, 0, expando_picos)
+    
+    # Force population of pico's children
+    model.rowCount(pico_node)
+    
+    # Look for "Mapas Gerais" in pico_node's children
+    mapas_gerais_node = None
+    labels = []
+    for r in range(model.rowCount(pico_node)):
+        idx = model.index(r, 0, pico_node)
+        label = model.data(idx, Qt.ItemDataRole.DisplayRole)
+        labels.append(label)
+        if label == "Mapas gerais":
+            mapas_gerais_node = idx
+            break
+            
+    assert mapas_gerais_node is not None, f"O nó Mapas gerais deve aparecer na árvore do Pico. Encontrados: {labels}"
+    
+    node_ptr = mapas_gerais_node.internalPointer()
+    assert node_ptr.message.DESCRIPTOR.name == "ArquivoMapas"

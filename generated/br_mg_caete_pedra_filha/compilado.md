@@ -8,7 +8,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_de_cima_p0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 - **botoes**: []
 

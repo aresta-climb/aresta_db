@@ -108,34 +108,6 @@
             - **Muito Forte**: V10 e V11 (Vermelho)
             - **Extremo**: Acima de V11 (Preto)
   - **[3]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Como Chegar
-            
-            ### Distâncias
-            - **São Paulo**: 628km
-            - **Rio de Janeiro**: 393km
-            - **Brasília**: 827km
-            - **Vitória**: 444km
-            
-            ### Em Ouro Preto
-            O principal setor de escalada é a Pedreira que se localiza no Morro São Sebastião. O acesso ao morro é através da Rua Henri Gorceix, uma íngreme e longa ladeira que se inicia ao lado esquerdo do antigo casarão da Escola de Minas, localizado na Praça Tiradentes. Ao final da ladeira, chega-se à praça principal do morro São Sebastião.
-            
-            | ![Mapa de Acesso Ouro Preto](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa de Acesso Ouro Preto* |
-            
-            - **Linha Vermelha Contínua**: Acesso aos setores de boulder.
-            - **Linha Vermelha Tracejada**: Trilha.
-            - **Linha Azul**: Acesso aos setores de vias.
-            - **Estrela Amarela (*)**: Praça do Morro São Sebastião.
-            - **Círculo Azul (Nascente)**: Nascente Rio das Velhas.
-            - **Exclamação (!)**: Sinalização do Ouroboulder.
-  - **[4]**:
     - **texto**: Responsabilidade e Orientações
     - **destino**:
       - **secao_textual**:
@@ -165,7 +137,7 @@
             Antes de praticar qualquer atividade, atente-se aos gestores:
             - **Parque Municipal das Andorinhas**
             - **Parque Estadual do Itacolomi**
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 

@@ -1093,6 +1093,8 @@ picos:
           AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem
           óbvia e alta, porém esse modulo não parece ser sólido e não foi testado
           por meio de rapel até o momento.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
 revisado_bounding_circle: true
@@ -1168,38 +1170,7 @@ botoes:
         aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada
         no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta
         estar firme e boa para utilização. Segurança sempre em primeiro lugar!'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '---
-
-        ---
-
-        # MAPAS GERAIS
-
-
-        | ![Mapa Geral](imagens/mapas_gerais_p0_i0.webp) |
-
-        | :--: |
-
-        | *Mapa Geral* |
-
-
-        **Estacionamento setor Horizonte**
-
-        ATENÇÃO: Parar o carro 45º para melhor utilização do espaço e ficar atento
-        para não fechar a estrada que sobe para o setor.
-
-
-        **Estacionamento setores tradicionais**
-
-
-        - Sub-setor Beija Flor
-
-        - Conjunto pôr-do-sol
-
-        - Sub-setor Moctezuma'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/aviso_p0_i0.webp

@@ -952,6 +952,8 @@ picos:
           | :--: |
 
           | *Escalador na via Estrela no Coco* |'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -1019,31 +1021,7 @@ botoes:
 
         **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro
         ou de ônibus para Januária.'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        ## Como chegar ao Salão Encantado – Januária
-
-
-        | ![Como chegar](imagens/mapas_gerais_p0_i0.webp) |
-
-        | :--: |
-
-        | *Como chegar* |
-
-
-        ## Mapa dos Setores
-
-
-        | ![Mapa dos Setores](imagens/mapas_gerais_p1_i0.webp) |
-
-        | :--: |
-
-        | *Mapa dos Setores* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

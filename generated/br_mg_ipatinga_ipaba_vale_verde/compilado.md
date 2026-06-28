@@ -150,17 +150,7 @@
             
             **IPATINGA**
             Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL: (31) 3829-9000
-  - **[6]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa de Acesso* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

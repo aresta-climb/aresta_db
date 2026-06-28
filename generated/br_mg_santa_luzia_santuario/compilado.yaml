@@ -922,6 +922,8 @@ picos:
           | :--: |
 
           | *Escalador Lucas Rocha na via Buffalo Bill* |'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -1091,29 +1093,7 @@ botoes:
         | :--: |
 
         | *Instruções sobre a estrutura do guia* |'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        O Santuário é dividido em três setores principais, conforme indicado no mapa
-        abaixo:
-
-
-        - **Setor Clube da Luta** (Esquerda)
-
-        - **Setor Santa Línea** (Centro)
-
-        - **Setor Democracia** (Direita)
-
-
-        | ![Mapa geral dos setores do Santuário](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa geral dos setores do Santuário* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

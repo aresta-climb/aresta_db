@@ -28,7 +28,14 @@ Para partes que não são setores (i.e. não possuem o prefixo `setor_` ou `grup
 
 Para grupos (começando com o prefixo `grupo_`), siga RIGOROSAMENTE o formato da mensagem `Grupo` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de setores na seção YAML. Esse tipo de arquivo será principalmente um arquivo Markdown com as informações do grupo de setores, podendo opcionalmente conter um mapa para localização de cada sub-setor, e então uma lista de sub-setores que podem ser especificados pelo campo `setores` da mensagem `Grupo`. Preencha a mensagem `Grupo` e coloque o caminho para os arquivos `.md` de cada sub-setor, que devem ficar em arquivos Markdown independentes.
 
-### 1.3. Setores
+### 1.3 Mapas Gerais
+
+Para mapas gerais (nome da parte for `mapas_gerais`), você deve gerar um arquivo `.md` que representa a mensagem `ColecaoDeMapas` do Protobuf. Este arquivo deve conter SOMENTE o YAML frontmatter (sem conteúdo de texto fora dele, ou se houver, será ignorado). Siga RIGOROSAMENTE o formato:
+- Preencha a lista `mapas` no frontmatter.
+- Para cada imagem na pasta `raw_pdf_contents/imagens/mapas_gerais/` que representa um mapa, adicione um item à lista com o campo `caminho_imagem_mapa` apontando para a imagem (ex: `raw_pdf_contents/imagens/mapas_gerais/pX_iY.webp`).
+- Extraia referências visuais de outros setores no mapa, se existirem, preenchendo a lista `referencias`.
+
+### 1.4 Setores
     
 Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato da mensagem `Setor` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de escaladas na seção YAML. Inclua toda a informação disponível sobre cada escalada:
   - Nome da escalada

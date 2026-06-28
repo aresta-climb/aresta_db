@@ -1627,6 +1627,8 @@ picos:
             nome: Jardim de Infância
             dificuldade: V0
         descricao: '# Setor Essência'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -1707,16 +1709,7 @@ botoes:
         | :--: |
 
         | *Graduações de boulders no croqui* |'
-- texto: Índice e Graduação
-  destino:
-    secao_textual:
-      conteudo: "---\n---\n# Índice geral \n\n| ![Índice Geral](imagens/mapas_gerais_p0.webp)\
-        \ |\n| :--: |\n| *Índice Geral* |\n\n## Blocos\n\n| Número | Nome do Bloco\
-        \ |\n| :--- | :--- |\n| 1 | Pressão Enrustida |\n| 2 | Caverninha |\n| 3 |\
-        \ Exquadrilha |\n| 4 | Canil |\n| 5 | Bloco do Guerreiro |\n| 6 | Bloco do\
-        \ Cabelin |\n| 7 | Consciência Limpa |\n| 8 | Haiti |\n| 9 | Achados e Perdidos\
-        \ |\n| 10 | Bloco do Rock Bocaina |\n| 11 | Bloco 45º |\n| 12 | Essência |"
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

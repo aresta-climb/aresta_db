@@ -25,27 +25,7 @@
             **Montes Claros - MG**
             
             AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS
-  - **[1]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            Estes mapas mostram a localização dos principais setores do Setor Tia Tina.
-            
-            ## Localização dos Setores Saara e Fenda
-            
-            | ![Mapa Geral 1](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Mapa Geral 1* |
-            
-            ## Localização dos Setores do Buraco e da Frente
-            
-            | ![Mapa Geral 2](imagens/mapas_gerais_p1_i0.webp) |
-            | :--: |
-            | *Mapa Geral 2* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: setor_saara

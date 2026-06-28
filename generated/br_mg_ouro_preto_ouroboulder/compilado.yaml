@@ -6068,6 +6068,8 @@ picos:
                 dificuldade: V5
             descricao: ''
         descricao: ''
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -6364,31 +6366,6 @@ botoes:
 
 
         **Viva a escalada ouropretana!**'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# MAPAS GERAIS
-
-
-        ## Mapa de Localização - Unidade de Conservação
-
-
-        | ![Mapa de Localização - Unidade de Conservação](imagens/mapas_gerais_p0.webp)
-        |
-
-        | :--: |
-
-        | *Mapa de Localização - Unidade de Conservação* |
-
-
-        ## Mapa de Localização - Setores
-
-
-        | ![Mapa de Localização - Setores](imagens/mapas_gerais_p1.webp) |
-
-        | :--: |
-
-        | *Mapa de Localização - Setores* |'
 - texto: Agradecimentos
   destino:
     secao_textual:
@@ -6506,7 +6483,7 @@ botoes:
         *   **Instagram:** @ouroboulder
 
         *   **Email:** sime.ouroboulder@gmail.com'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/apoio_p0.webp

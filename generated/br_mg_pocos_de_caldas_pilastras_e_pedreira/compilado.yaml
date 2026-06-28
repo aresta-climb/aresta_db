@@ -250,7 +250,7 @@ botoes:
         A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer
         o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire
         à esquerda novamente e já encontrara o primeiro setor, o Vale.'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/capa_p0_i1.webp
   checksum_sha256: 67b4bb58759dbe4c7c6256d6af5d3fe58e3c864fa7240b0a726c9d03eb431bae

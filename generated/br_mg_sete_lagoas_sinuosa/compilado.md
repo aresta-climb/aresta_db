@@ -49,56 +49,6 @@
             - ATENÇÃO À ABELHAS E ANIMAIS PEÇONHENTOS.
             - MENORES DEVEM ESTAR ACOMPANHADOS DE UM RESPONSÁVEL LEGAL.
   - **[2]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Mapa Região de Sete Lagoas/MG
-            
-            | ![Mapa Região](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Mapa Região* |
-            
-            **Rotas de Acesso:**
-            - **Rota Rod - A Sinuosa:** [https://goo.gl/maps/efQkmdZEge82](https://goo.gl/maps/efQkmdZEge82)
-            - **Rota BH - A Sinuosa:** [https://goo.gl/maps/Y3o6rhNRmVu](https://goo.gl/maps/Y3o6rhNRmVu)
-            
-            ---
-            
-            ## Trilha de Acesso
-            
-            | ![Trilha de Acesso](imagens/mapas_gerais_p1_i0.webp) |
-            | :--: |
-            | *Trilha de Acesso* |
-            
-            A trilha inicia no Shopping Sete Lagoas. Segue por uma trilha de bicicleta (1200m) e depois uma trilha de caminhada (700m) após uma bifurcação onde se deve seguir à direita.
-            
-            ---
-            
-            ## Mapa Geral Sinuosa
-            
-            | ![Mapa Geral](imagens/mapas_gerais_p2_i0.webp) |
-            | :--: |
-            | *Mapa Geral* |
-            
-            O mapa mostra a disposição dos setores:
-            - Setor Panelinha
-            - Setor De Esquerda
-            - Boulder Marley
-            - Setor 7 Paralelo
-            - Setor Sentinela
-            - Setor Janelas Pro Abismo (localizado próximo ao Sentinela)
-            - Setor Gameleira
-            - Setor Death Horse
-            - Setor Imigrantes
-            - Setor Vale das Sombras
-            - Setor Vale Zela
-            - Setor 4 Picos
-            - Setor Macaúbas
-            - Setor Primórdios
-  - **[3]**:
     - **texto**: Turismo e Equipamentos
     - **destino**:
       - **secao_textual**:
@@ -143,7 +93,7 @@
             - **Sítio do Rod:** 58 km
             - **Serra do Cipó:** 112 km
             - **Pedra Rachada:** 102 km
-  - **[4]**:
+  - **[3]**:
     - **texto**: Curiosidades
     - **destino**:
       - **secao_textual**:
@@ -157,7 +107,7 @@
             O nome **"Sinuosa"** foi dado por escaladores locais em meados da década de 90 devido à curiosa forma da árvore que fica no Setor Primórdios. As primeiras vias do pico foram conquistadas há mais de 20 anos, mas só em 2013 o pico voltou a ser desenvolvido com abertura de novas vias.
             
             Existe um tipo de **caverna vertical** explorada por espeleólogos com mais de 100 metros de profundidade, com vários salões em seu decorrer, formações impressionantes de "esponjas calcárias", entre outras curiosidades sobre o terreno "karst".
-  - **[5]**:
+  - **[4]**:
     - **texto**: Considerações Finais
     - **destino**:
       - **secao_textual**:
@@ -173,7 +123,7 @@
             Conclui-se ainda que a área apresenta grande potencial para aberturas de novos setores, sendo feita uma estimativa da possibilidade de chegar a **mais de 150 vias**. É importante ressaltar que a presença de escaladores no local contribui de forma positiva, inibindo a presença de caçadores, vândalos e a depredação da fauna, flora e do patrimônio espeleológico.
             
             Além da área mencionada, existem outros locais de destaque no cenário nacional para a prática da escalada na cidade de Sete Lagoas, sendo eles: a **"Área de Escalada Gruta Rei do Mato"**, localizada no Monumento Natural Estadual Gruta Rei do Mato, e a **"Área de Escalada Esportiva Roxane"**, localizada em propriedade particular na zona rural do município. Porém, em ambas a prática da escalada está proibida. Devido a este fato, a possibilidade de novos trabalhos envolvendo a questão ambiental e a prática do esporte se mostra promissora.
-  - **[6]**:
+  - **[5]**:
     - **texto**: Ficha Técnica
     - **destino**:
       - **secao_textual**:
@@ -199,7 +149,7 @@
             - Instagram: [@sinuosaclimb](https://instagram.com/sinuosaclimb)
             
             **EDIÇÃO:** 2019-1
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

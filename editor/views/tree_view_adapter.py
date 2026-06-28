@@ -59,9 +59,10 @@ class ProtobufNode:
                 # ONEOF_CONTEUDO sempre usa o campo 'conteudo' em memoria.
                 conteudo_field = msg.DESCRIPTOR.fields_by_name.get("conteudo")
                 if conteudo_field and conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
-                    val = getattr(msg, "conteudo")
-                    if val is not None and hasattr(val, "DESCRIPTOR"):
-                        return self._resolve_transparency(val)
+                    if msg.HasField("conteudo"):
+                        val = getattr(msg, "conteudo")
+                        if val is not None and hasattr(val, "DESCRIPTOR"):
+                            return self._resolve_transparency(val)
                 # conteudo e string ou nao esta set: retorna o wrapper (ex: ArquivoMarkdown)
         return msg
 

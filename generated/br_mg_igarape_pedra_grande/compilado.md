@@ -153,29 +153,6 @@
             
             [@igarameca](https://www.instagram.com/igarameca)
   - **[6]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            ---
-            ---
-            
-            # Mapas Gerais
-            
-            ## Mapa Geral dos Setores
-            
-            | ![Mapa Geral dos Setores - Vista Aérea](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa Geral dos Setores - Vista Aérea* |
-            
-            ## Complexo Pedra Grande
-            
-            | ![Panorama do Complexo Pedra Grande com Setores](imagens/mapas_gerais_p1.webp) |
-            | :--: |
-            | *Panorama do Complexo Pedra Grande com Setores* |
-            
-            [@igarameca](https://www.instagram.com/igarameca)
-  - **[7]**:
     - **texto**: Patrocinadores
     - **destino**:
       - **secao_textual**:
@@ -209,7 +186,7 @@
             - Igarameca Climb
             
             [@igarameca](https://www.instagram.com/igarameca)
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

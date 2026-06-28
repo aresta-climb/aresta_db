@@ -309,3 +309,23 @@ def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
     assert ignorado.exists(), "Arquivos com extensões ignoradas não devem ser deletados"
     assert not img_orfam.exists(), "Imagem órfã deve ser deletada"
     assert not md_orfao.exists(), "MD órfão deve ser deletado"
+
+def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
+    # Setup de arquivos falsos no tmp_path
+    mapa_geral_md = tmp_path / "mapas_gerais.md"
+    mapa_geral_md.write_text("dummy")
+    
+    # Adiciona mapas_gerais na lista de picos
+    croqui_data = {
+        "picos": [
+            {
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"

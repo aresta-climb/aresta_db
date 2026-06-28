@@ -8,6 +8,8 @@ picos:
   setores_ou_grupos:
   - setor:
       caminho: setor_principal.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -25,12 +27,8 @@ botoes:
   destino:
     secao_textual:
       caminho: estacionamento_e_acesso.md
-- texto: Como Chegar
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Créditos
   destino:
     secao_textual:
       caminho: creditos.md
-ultima_migracao: 2
+ultima_migracao: 3

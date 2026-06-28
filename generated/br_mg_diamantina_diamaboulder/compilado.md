@@ -21,27 +21,7 @@
             | ![Diamaboulder - Cerrado Groove](imagens/capa_p0_i0.webp) |
             | :--: |
             | *Diamaboulder - Cerrado Groove* |
-  - **[1]**:
-    - **texto**: Informações
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Mapa de Setores
-            O setor Cerrado Groove está localizado próximo à Associação e à área de Extração (Curralinho).
-            
-            | ![Mapa de Setores Diamaboulder 2025](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Mapa de Setores Diamaboulder 2025* |
-            
-            ## Mapa das Regiões
-            O setor Cerrado Groove é dividido em 4 regiões principais.
-            
-            | ![Mapa das Regiões - Setor Cerrado Groove](imagens/mapas_gerais_p1_i0.webp) |
-            | :--: |
-            | *Mapa das Regiões - Setor Cerrado Groove* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: grupo_regiao_1

@@ -17,6 +17,8 @@ picos:
       caminho: grupo_mont_blanc.md
   - grupo:
       caminho: grupo_bonsai.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -46,10 +48,6 @@ botoes:
   destino:
     secao_textual:
       caminho: geologia_e_historia.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Agradecimentos
   destino:
     secao_textual:
@@ -66,5 +64,5 @@ botoes:
   destino:
     secao_textual:
       caminho: contatos.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

@@ -849,7 +849,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             
         # Renderiza e exibe o campo do nome do arquivo (caminho_novo) da extensão do Shadow State
         msg_name = node.message.DESCRIPTOR.name
-        if msg_name in ("Setor", "Grupo", "ArquivoMarkdown"):
+        if msg_name in ("Setor", "Grupo", "ArquivoMarkdown", "ArquivoMapas"):
             self._render_filename_field(node.message, msg_name, node)
             
             
@@ -937,6 +937,8 @@ class WidgetFormularioPadrao(QStackedWidget):
                         ext_desc = croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
         elif msg_name == "ArquivoMarkdown":
             ext_desc = croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
+        elif msg_name == "ArquivoMapas":
+            ext_desc = croqui_pb2.ArquivoMapas.ext_metadados_arquivo
             
         if not ext_desc or wrapper_msg == msg and msg_name in ("Setor", "Grupo"):
             # Se não achou a extensão ou o wrapper apropriado, não renderiza o campo (acontece em testes isolados)

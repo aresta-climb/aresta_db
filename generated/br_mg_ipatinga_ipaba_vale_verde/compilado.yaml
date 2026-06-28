@@ -627,6 +627,8 @@ picos:
 
           O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos
           projetos aguardando a primeira ascensão.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
@@ -919,18 +921,7 @@ botoes:
 
         Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL:
         (31) 3829-9000'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa de Acesso* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/betas_p0.webp

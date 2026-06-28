@@ -375,6 +375,8 @@ picos:
           - El Ninõ (projeto)
 
           - Univervia (projeto)'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -624,26 +626,6 @@ botoes:
         | :--: |
 
         | *Trilha de Acesso* |'
-- texto: Mapa de Setores
-  destino:
-    secao_textual:
-      conteudo: '# MAPA DE SETORES
-
-
-        | ![Mapa de Setores](imagens/mapas_gerais_p0_i0.webp) |
-
-        | :--: |
-
-        | *Mapa de Setores* |
-
-
-        1. HEADWALL
-
-        2. ROCA MASTER
-
-        3. ECUMÊNICO
-
-        4. EM BREVE'
 - texto: Próximas Versões
   destino:
     secao_textual:
@@ -670,7 +652,7 @@ botoes:
         - JGariglio
 
         - Prefeitura de Extrema'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 56daa5170fca8f755403b22fe482288fca9d7d317292ec940dec00a16440bf7f

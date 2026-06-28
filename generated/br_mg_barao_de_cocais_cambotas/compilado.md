@@ -28,29 +28,6 @@
             
             **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado
   - **[1]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Visão Geral dos Setores
-            
-            | ![Setores](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Setores* |
-            
-            O complexo de escalada de Cambotas é dividido nos seguintes setores principais:
-            - Torres
-            - Chaminé
-            - Caverninha
-            - Felinas
-            - Fendas
-            - Arco
-            - Polegar
-            - Aresta
-            - Totem
-  - **[2]**:
     - **texto**: Principais Vias I
     - **destino**:
       - **secao_textual**:
@@ -62,7 +39,7 @@
             | ![Setores e Vias Principais](imagens/setor_principais_vias_1_p0.webp) |
             | :--: |
             | *Setores e Vias Principais* |
-  - **[3]**:
+  - **[2]**:
     - **texto**: Principais Vias II
     - **destino**:
       - **secao_textual**:
@@ -74,7 +51,7 @@
             | ![Mapa Geral de Vias](imagens/setor_principais_vias_2_p0.webp) |
             | :--: |
             | *Mapa Geral de Vias* |
-  - **[4]**:
+  - **[3]**:
     - **texto**: Contato
     - **destino**:
       - **secao_textual**:
@@ -93,7 +70,7 @@
             - **E-mail:** comercial@canelaema.com.br
             - **GPS:** 19º53'5290'' 43º32'1188''
             - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: setor_chamine

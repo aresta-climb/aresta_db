@@ -6,31 +6,8 @@
 - **nome**: Montes Claros - Vieiras
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/mapas_gerais_p0_i0.webp)
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **botoes**:
-  - **[0]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            | ![Mapa de acesso para os setores Vieiras e Fazendinha](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Mapa de acesso para os setores Vieiras e Fazendinha* |
-            
-            O mapa acima mostra o acesso para as áreas de escalada Vieiras e Fazendinha a partir de Montes Claros.
-            
-            **Legenda:**
-            - **Zoológico:** Ícone de elefante
-            - **Lixão:** Ícone de lixeira
-            - **Mata Burro:** Ícone de raios vermelhos
-            - **Porteira:** Ícone de portão vermelho
-            - **Estacionamento:** Retângulo amarelo
-            - **Área de Escalada:** Ícone de sinalização amarela
-            - **Asfalto:** Linha azul
-            - **Terra:** Linha vermelha contínua
-            - **Trilha:** Linha pontilhada vermelha
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
+- **botoes**: []
 
 
 ## Parte: setor_vieiras

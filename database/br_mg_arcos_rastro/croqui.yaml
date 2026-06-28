@@ -41,15 +41,13 @@ picos:
       caminho: setor_jardim_suspenso.md
   - setor:
       caminho: setor_3o_andar.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Atenção e Regras
   destino:
     secao_textual:
@@ -58,5 +56,5 @@ botoes:
   destino:
     secao_textual:
       caminho: parcerias_e_contato.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

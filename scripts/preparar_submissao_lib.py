@@ -502,6 +502,18 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict) -> set:
     for pico in croqui_data.get("picos", []):
         if "setores_ou_grupos" in pico:
             coletar_setores_ou_grupos_recursivo(pico["setores_ou_grupos"])
+        if "mapas_gerais" in pico:
+            mg = pico["mapas_gerais"]
+            if isinstance(mg, dict) and "caminho" in mg:
+                md_path = pico_path / mg["caminho"]
+                referencias.add(mg["caminho"])
+                if md_path.exists():
+                    frontmatter, corpo = parse_md_com_frontmatter(md_path)
+                    referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", corpo))
+                    if frontmatter and "mapas" in frontmatter:
+                        for mapa in frontmatter["mapas"]:
+                            if "caminho_imagem_mapa" in mapa:
+                                referencias.add(mapa["caminho_imagem_mapa"])
             
     # Filtra e normaliza: apenas referências que apontam para imagens/ ou .md
     return {ref.replace("\\", "/") for ref in referencias if isinstance(ref, str) and (ref.startswith("imagens/") or ref.endswith(".md"))}

@@ -268,7 +268,7 @@ botoes:
 
 
         **Coordenadas do Setor:** 21°46''31.5"S 46°37''06.5"W (-21.775417, -46.618472)'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 9adfcd73ede193a22b8f7a214bf8c97b9e566e272ff7584140bfa906df135ae5

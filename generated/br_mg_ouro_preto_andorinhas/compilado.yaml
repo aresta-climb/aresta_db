@@ -895,67 +895,11 @@ picos:
 
 
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.'
-botoes:
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais - Parque Natural Municipal das Andorinhas
-
-
-        | ![Mapa 1](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa 1* |
-
-
-        | ![Mapa 2](imagens/mapas_gerais_p1.webp) |
-
-        | :--: |
-
-        | *Mapa 2* |
-
-
-        ## Legenda do Mapa
-
-
-        ### Setores de Escalada
-
-        - Pedra do Arco
-
-        - Campo Escola
-
-        - Tchau Querida
-
-        - Pedra Branca
-
-
-        ### Pontos de Interesse
-
-        - Mirante Pedra do Jacaré
-
-        - Cachoeira das Andorinhas
-
-        - Sede do Parque
-
-
-        ### Trilhas
-
-        - **Trilha Setores de Escalada**: Trilha principal de acesso aos setores.
-
-        - **Trilha das Andorinhas**
-
-        - **Trilha da Folhinha**
-
-        - **Trilha dos Pelados**
-
-        - **Trilha do Véu das Noivas**
-
-        - **Trilha do Vermelhão**
-
-        - **Trilha do Baú**'
-ultima_migracao: 2
+  mapas_gerais:
+    caminho: mapas_gerais.md
+ultima_migracao: 3
 publicar_croqui: true
+botoes: []
 arquivos_externos:
 - caminho: imagens/mapas_gerais_p0.webp
   checksum_sha256: ccfccce8595ca9b12616502a4d2ed721463d08f2448bdcd4c2d2785dd301a445

@@ -12,6 +12,8 @@ picos:
       caminho: setor_3.md
   - setor:
       caminho: setor_4_da_caverna.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0.webp
 botoes:
 - texto: Capa
@@ -22,8 +24,4 @@ botoes:
   destino:
     secao_textual:
       caminho: regras_importantes.md
-- texto: Como chegar e Trilha de Acesso
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3

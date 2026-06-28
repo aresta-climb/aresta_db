@@ -16,14 +16,12 @@ picos:
       caminho: grupo_regiao_3.md
   - grupo:
       caminho: grupo_regiao_4.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Informações
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Informações
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3

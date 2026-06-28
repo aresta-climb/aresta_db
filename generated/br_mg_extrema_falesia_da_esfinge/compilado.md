@@ -149,21 +149,6 @@
             | :--: |
             | *Trilha de Acesso* |
   - **[5]**:
-    - **texto**: Mapa de Setores
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # MAPA DE SETORES
-            
-            | ![Mapa de Setores](imagens/mapas_gerais_p0_i0.webp) |
-            | :--: |
-            | *Mapa de Setores* |
-            
-            1. HEADWALL
-            2. ROCA MASTER
-            3. ECUMÊNICO
-            4. EM BREVE
-  - **[6]**:
     - **texto**: Próximas Versões
     - **destino**:
       - **secao_textual**:
@@ -181,7 +166,7 @@
             - Seralts Soluções em Altura
             - JGariglio
             - Prefeitura de Extrema
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: setor_headwall
