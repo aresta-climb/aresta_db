@@ -31,6 +31,8 @@ picos:
       caminho: setor_genesis.md
   - setor:
       caminho: setor_acampamento.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -48,12 +50,8 @@ botoes:
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Contatos
   destino:
     secao_textual:
       caminho: contatos.md
-ultima_migracao: 2
+ultima_migracao: 3

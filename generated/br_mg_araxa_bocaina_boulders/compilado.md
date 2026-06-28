@@ -53,36 +53,7 @@
             | ![Graduações de boulders no croqui](imagens/introducao_p1.webp) |
             | :--: |
             | *Graduações de boulders no croqui* |
-  - **[3]**:
-    - **texto**: Índice e Graduação
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            ---
-            ---
-            # Índice geral 
-            
-            | ![Índice Geral](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Índice Geral* |
-            
-            ## Blocos
-            
-            | Número | Nome do Bloco |
-            | :--- | :--- |
-            | 1 | Pressão Enrustida |
-            | 2 | Caverninha |
-            | 3 | Exquadrilha |
-            | 4 | Canil |
-            | 5 | Bloco do Guerreiro |
-            | 6 | Bloco do Cabelin |
-            | 7 | Consciência Limpa |
-            | 8 | Haiti |
-            | 9 | Achados e Perdidos |
-            | 10 | Bloco do Rock Bocaina |
-            | 11 | Bloco 45º |
-            | 12 | Essência |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

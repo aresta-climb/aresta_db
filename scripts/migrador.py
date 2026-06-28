@@ -68,12 +68,17 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
             modulo.migrar(caminho_croqui)
             
             # Atualiza o arquivo local no disco com a nova versão
+            import ruamel.yaml
+            ryaml = ruamel.yaml.YAML()
+            ryaml.preserve_quotes = True
+            ryaml.width = 90
+            
             with open(caminho_yaml, "r", encoding="utf-8") as f:
-                dados_croqui = yaml.safe_load(f) or {}
+                dados_croqui = ryaml.load(f) or {}
             dados_croqui["ultima_migracao"] = versao
             
             with open(caminho_yaml, "w", encoding="utf-8") as f:
-                yaml.dump(dados_croqui, f, allow_unicode=True, sort_keys=False)
+                ryaml.dump(dados_croqui, f)
                 
         except Exception as e:
             print(f"Erro ao aplicar migração {caminho_script.name}: {e}")

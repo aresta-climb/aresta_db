@@ -25,6 +25,8 @@ picos:
       caminho: setor_do_moco.md
   - setor:
       caminho: setor_do_abrigo.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -34,9 +36,5 @@ botoes:
   destino:
     secao_textual:
       caminho: infos.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

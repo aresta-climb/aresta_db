@@ -30,7 +30,7 @@
             Danilo Stehling
             
             Atualizado em: 2010
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

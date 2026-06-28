@@ -962,6 +962,8 @@ picos:
             data_abertura: '2020'
         descricao: '**Equipamentos Necessários:** Corda de 60m é obrigatória para
           rapelar. Para as vias esportivas, você vai precisar de 12 costuras.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Capa
@@ -1115,17 +1117,6 @@ botoes:
         | :--: |
 
         | *Rocx e Deuter logos* |'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        | ![Mapa de Acesso](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa de Acesso* |'
 - texto: Como Chegar e Aproximação
   destino:
     secao_textual:
@@ -1200,7 +1191,7 @@ botoes:
         | :--: |
 
         | *Foto de escalada na contracapa* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

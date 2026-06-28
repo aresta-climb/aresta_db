@@ -41,6 +41,8 @@ picos:
       caminho: setor_onda_de_calcario.md
   - setor:
       caminho: setor_vale_da_onca.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -74,9 +76,5 @@ botoes:
   destino:
     secao_textual:
       caminho: manutencao.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

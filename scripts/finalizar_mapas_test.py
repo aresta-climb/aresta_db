@@ -88,3 +88,46 @@ def test_leitura_de_md_sem_frontmatter_yaml(tmp_path):
     frontmatter, corpo = parse_md_com_frontmatter(str(md_file))
     assert frontmatter is None
     assert corpo == "Hello World Sem Frontmatter!"
+
+def test_finalizacao_mapas_gerais(tmp_path):
+    pico_path = tmp_path / "pico_teste"
+    raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
+    raw_mapas_dir.mkdir(parents=True)
+    
+    # Cria o arquivo mapas_gerais.md
+    md_file = pico_path / "mapas_gerais.md"
+    md_content = """---
+mapas:
+- caminho_imagem_mapa: imagens/mapas_gerais/p0.webp
+---
+"""
+    md_file.write_text(md_content, encoding="utf-8")
+    
+    # Cria a imagem falsa
+    img_dir = pico_path / "imagens" / "mapas_gerais"
+    img_dir.mkdir(parents=True, exist_ok=True)
+    img_file = img_dir / "p0.webp"
+    img_file.write_bytes(b"fake_image_data")
+    
+    # Cria o arquivo JSON do mapa
+    json_data = {
+        "arquivo_md": "mapas_gerais.md",
+        "caminho_imagem_mapa": "imagens/mapas_gerais/p0.webp",
+        "dimensoes_imagem": {"largura": 1024, "altura": 768},
+        "pontos_de_interesse": [
+            {"id": "Setor_A", "label": "Setor A", "box": {"x": 100, "y": 100, "comprimento": 50, "largura": 50}}
+        ]
+    }
+    json_file = raw_mapas_dir / "p0.json"
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(json_data, f)
+        
+    finalizar_mapas(str(pico_path))
+    
+    frontmatter, _ = parse_md_com_frontmatter(str(md_file))
+    assert frontmatter["mapas"][0]["largura_mapa"] == 1024
+    assert frontmatter["mapas"][0]["altura_mapa"] == 768
+    
+    poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
+    assert poi1["id"] == "Setor_A"
+    assert poi1["box"]["x"] == 100

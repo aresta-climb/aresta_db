@@ -625,6 +625,8 @@ picos:
 
           O setor Jardim da Fantasia é composto pela via de 180 metros que percorre
           uma linha impressionante na parede.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -651,41 +653,6 @@ botoes:
 
 
         **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        ## Visão Geral dos Setores
-
-
-        | ![Setores](imagens/mapas_gerais_p0_i0.webp) |
-
-        | :--: |
-
-        | *Setores* |
-
-
-        O complexo de escalada de Cambotas é dividido nos seguintes setores principais:
-
-        - Torres
-
-        - Chaminé
-
-        - Caverninha
-
-        - Felinas
-
-        - Fendas
-
-        - Arco
-
-        - Polegar
-
-        - Aresta
-
-        - Totem'
 - texto: Principais Vias I
   destino:
     secao_textual:
@@ -736,7 +703,7 @@ botoes:
 
         - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262),
         KM 2,5, Caeté - MG, CEP 34800-000'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 68e86d58f05be03b3a01fe75063c0eca1a6458b48fe66a1e866b30792c6eca5f

@@ -22,10 +22,7 @@ picos:
       caminho: setor_parede_do_ladrao_e_forno_da_onca.md
   - grupo:
       caminho: setor_curto_e_grosso_malibu_e_terra_do_nunca.md
-botoes:
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+  mapas_gerais:
+    caminho: mapas_gerais.md
+ultima_migracao: 3
 publicar_croqui: true

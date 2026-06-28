@@ -6658,6 +6658,8 @@ picos:
           **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria,
           passar pelo portão de metal e seguir as placas em direção ao setor. Cerca
           de 15 minutos de caminhada a partir do setor entrada.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -7050,31 +7052,7 @@ botoes:
         | :--: |
 
         | *Manutencao na Sentinela 1* |'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        ## Mapa Esquemático dos Setores
-
-
-        | ![Mapa Esquemático dos Setores](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa Esquemático dos Setores* |
-
-
-        ## Vista Aérea
-
-
-        | ![Vista Aérea](imagens/mapas_gerais_p1.webp) |
-
-        | :--: |
-
-        | *Vista Aérea* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/acesso_p0_i10.webp

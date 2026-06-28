@@ -13,6 +13,8 @@ picos:
       caminho: setor_1_andar.md
   - setor:
       caminho: setor_2_andar.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
@@ -41,9 +43,5 @@ botoes:
   destino:
     secao_textual:
       caminho: betas_de_ouro.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

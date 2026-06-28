@@ -25,6 +25,8 @@ picos:
       caminho: grupo_jk.md
   - grupo:
       caminho: grupo_pedreira.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -34,12 +36,8 @@ botoes:
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Rupestre
   destino:
     secao_textual:
       caminho: secao_rupestre.md
-ultima_migracao: 2
+ultima_migracao: 3

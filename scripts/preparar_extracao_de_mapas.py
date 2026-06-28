@@ -49,10 +49,10 @@ class PreparadorDeMapas:
             print(f"Erro: O diretório '{pico_path}' não foi encontrado.")
             return
 
-        # 1. Encontrar todos os arquivos setor_*.md e grupo_*.md
-        md_files = list(pico_path.glob("setor_*.md")) + list(pico_path.glob("grupo_*.md"))
+        # 1. Encontrar todos os arquivos setor_*.md e grupo_*.md, e mapas_gerais.md
+        md_files = list(pico_path.glob("setor_*.md")) + list(pico_path.glob("grupo_*.md")) + list(pico_path.glob("mapas_gerais.md"))
         if not md_files:
-            print(f"Nenhum arquivo 'setor_*.md' ou 'grupo_*.md' encontrado em {pico_path}.")
+            print(f"Nenhum arquivo 'setor_*.md', 'grupo_*.md' ou 'mapas_gerais.md' encontrado em {pico_path}.")
             return
 
         # Pasta de destino para os JSONs

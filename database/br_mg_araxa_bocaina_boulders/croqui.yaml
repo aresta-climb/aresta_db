@@ -32,6 +32,8 @@ picos:
       caminho: setor_bloco_45.md
   - setor:
       caminho: setor_essencia.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -45,9 +47,5 @@ botoes:
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Índice e Graduação
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

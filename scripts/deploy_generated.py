@@ -395,11 +395,19 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                 import yaml
                 with open(dest_yaml, "r", encoding="utf-8") as f:
                     compiled_data = yaml.safe_load(f)
-                for mapa in compiled_data.get("mapas", []):
-                    for ponto in mapa.get("pontos_de_interesse", []):
-                        if "id" in ponto and type(ponto["id"]) is int:
-                            print(f"\nAviso: O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Recomenda-se adicionar aspas simples no ID (ex: '{ponto['id']}').")
-            
+                def _check_integer_ids(obj):
+                    if isinstance(obj, dict):
+                        if "pontos_de_interesse" in obj:
+                            for ponto in obj.get("pontos_de_interesse", []):
+                                if "id" in ponto and type(ponto["id"]) is int:
+                                    print(f"\nAviso: O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Recomenda-se adicionar aspas simples no ID (ex: '{ponto['id']}').")
+                        for v in obj.values():
+                            _check_integer_ids(v)
+                    elif isinstance(obj, list):
+                        for item in obj:
+                            _check_integer_ids(item)
+                            
+                _check_integer_ids(compiled_data)
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug:
                 dest_md = dest_dir / "compilado.md"

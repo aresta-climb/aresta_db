@@ -43,6 +43,8 @@ picos:
       caminho: setor_4_picos.md
   - grupo:
       caminho: grupo_vale_oculto.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -52,10 +54,6 @@ botoes:
   destino:
     secao_textual:
       caminho: regras_e_seguranca.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Turismo e Equipamentos
   destino:
     secao_textual:
@@ -72,5 +70,5 @@ botoes:
   destino:
     secao_textual:
       caminho: ficha_tecnica.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

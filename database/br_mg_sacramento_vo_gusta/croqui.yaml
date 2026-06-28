@@ -17,14 +17,12 @@ picos:
   setores_ou_grupos:
   - setor:
       caminho: setor_quintal.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true

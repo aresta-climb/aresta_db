@@ -62,24 +62,6 @@
             
             Boulder é uma das modalidades da escalada em rocha, praticada sem o uso de equipamentos convencionais, como cordas e mosquetões. O boulder consiste em escalar blocos de pedras, onde os movimentos apresentam dificuldade técnica e exigem força.
   - **[2]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            | ![Mapa Geral dos Setores](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa Geral dos Setores* |
-            
-            O Croqui Fest Boulder 2023 está dividido em quatro grupos principais de setores:
-            - **Salão de Pedras**
-            - **JK**
-            - **Colina**
-            - **Pedreira**
-            
-            [Link para o Google Maps](https://www.google.com/maps/search/?api=1&query=-19.0305,-43.4241) (Nota: Localização aproximada baseada no mapa visual).
-  - **[3]**:
     - **texto**: Rupestre
     - **destino**:
       - **secao_textual**:
@@ -93,7 +75,7 @@
             **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
             
             Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão em blocos próximos, respeitando sempre as áreas de preservação.
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 
 
 ## Parte: grupo_salao_de_pedras

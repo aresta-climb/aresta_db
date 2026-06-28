@@ -22,13 +22,11 @@ picos:
       caminho: setor_arvore_da_vida.md
   - setor:
       caminho: setor_planeta_dos_macacos.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+ultima_migracao: 3

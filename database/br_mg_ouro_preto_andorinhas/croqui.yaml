@@ -16,10 +16,7 @@ picos:
       caminho: setor_tchau_querida.md
   - setor:
       caminho: setor_pedra_branca.md
-botoes:
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
-ultima_migracao: 2
+  mapas_gerais:
+    caminho: mapas_gerais.md
+ultima_migracao: 3
 publicar_croqui: true

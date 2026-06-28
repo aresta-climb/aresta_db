@@ -29,32 +29,6 @@
             
             Desenvolvido por: alexsandro
   - **[1]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Mapa dos Afloramentos da Regional
-            
-            | ![Mapa dos Afloramentos da Regional](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa dos Afloramentos da Regional* |
-            
-            ## Mapa de Setores
-            
-            | ![Mapa de Setores](imagens/mapas_gerais_p1.webp) |
-            | :--: |
-            | *Mapa de Setores* |
-            
-            **RECOMENDAÇÕES:** É imprescindível o **USO DE CAPACETE** (escalador, "segue" e pessoas nas bases das vias) pode haver possíveis pedras soltas; cuidado com abelhas, marimbondos e animais peçonhentos; Utilize cordas de 60 metros ou mais.
-            
-            **COMO CHEGAR:** O afloramento de calcário do **Novo Mundo** fica na estrada dos fazendeiros, logo após a mineradora (que está dos dois lados da estrada), no sentido município de Arcos a Pains - MG.
-            
-            **ATENÇÃO:** aos horários de explosão da mineradora - geralmente de **11h30 e 17h15** (de acordo com as placas).
-            
-            Novo Mundo Climb: <https://maps.app.goo.gl/NH7WxKaFaBwgPk5CA>
-  - **[2]**:
     - **texto**: Observações Importantes
     - **destino**:
       - **secao_textual**:
@@ -78,7 +52,7 @@
             # SEJA CONSCIENTE!
             
             **UTILIZE APENAS AS TRILHAS PRINCIPAIS; As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra; **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...); Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados; Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa; Fogueiras além de provocar queimadas, danificam o local; Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos; Utilize equipamentos de segurança e verifique seu estado de conservação; Cuidado com pedras soltas principalmente em setores e vias novas; Antes de conquistar uma via de escalada entre em contato com o GT.
-  - **[3]**:
+  - **[2]**:
     - **texto**: Parcerias
     - **destino**:
       - **secao_textual**:
@@ -96,7 +70,7 @@
             - **Contato/Informações:** @abrigobase
             - **Atualizações/Sugestões:** abrigobase@gmail.com
             - **Contribuição/Parceria:** Pix 37 99918-3634
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

@@ -122,23 +122,7 @@
             | ![Instruções sobre a estrutura do guia](imagens/como_usar_este_guia_p0.webp) |
             | :--: |
             | *Instruções sobre a estrutura do guia* |
-  - **[5]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            O Santuário é dividido em três setores principais, conforme indicado no mapa abaixo:
-            
-            - **Setor Clube da Luta** (Esquerda)
-            - **Setor Santa Línea** (Centro)
-            - **Setor Democracia** (Direita)
-            
-            | ![Mapa geral dos setores do Santuário](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa geral dos setores do Santuário* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

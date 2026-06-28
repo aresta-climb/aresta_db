@@ -3704,6 +3704,8 @@ picos:
 
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo
           Pedra Grande.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -3965,39 +3967,6 @@ botoes:
 
 
         [@igarameca](https://www.instagram.com/igarameca)'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '---
-
-        ---
-
-
-        # Mapas Gerais
-
-
-        ## Mapa Geral dos Setores
-
-
-        | ![Mapa Geral dos Setores - Vista Aérea](imagens/mapas_gerais_p0.webp) |
-
-        | :--: |
-
-        | *Mapa Geral dos Setores - Vista Aérea* |
-
-
-        ## Complexo Pedra Grande
-
-
-        | ![Panorama do Complexo Pedra Grande com Setores](imagens/mapas_gerais_p1.webp)
-        |
-
-        | :--: |
-
-        | *Panorama do Complexo Pedra Grande com Setores* |
-
-
-        [@igarameca](https://www.instagram.com/igarameca)'
 - texto: Patrocinadores
   destino:
     secao_textual:
@@ -4054,7 +4023,7 @@ botoes:
 
 
         [@igarameca](https://www.instagram.com/igarameca)'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

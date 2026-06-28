@@ -143,24 +143,6 @@
             
             **Viva a escalada ouropretana!**
   - **[7]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # MAPAS GERAIS
-            
-            ## Mapa de Localização - Unidade de Conservação
-            
-            | ![Mapa de Localização - Unidade de Conservação](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa de Localização - Unidade de Conservação* |
-            
-            ## Mapa de Localização - Setores
-            
-            | ![Mapa de Localização - Setores](imagens/mapas_gerais_p1.webp) |
-            | :--: |
-            | *Mapa de Localização - Setores* |
-  - **[8]**:
     - **texto**: Agradecimentos
     - **destino**:
       - **secao_textual**:
@@ -177,7 +159,7 @@
             
             Diretoria da SIME
             Gestão 2024-25
-  - **[9]**:
+  - **[8]**:
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
@@ -209,7 +191,7 @@
             **Mapas:**
             Ana Carla Favero
             Lucas Dorini
-  - **[10]**:
+  - **[9]**:
     - **texto**: Telefones Úteis
     - **destino**:
       - **secao_textual**:
@@ -226,7 +208,7 @@
                 Av. Américo Renê Gianetti, 555 - Saramenha, Ouro Preto - MG
             *   **Hospital Santa Casa Misericórdia - 24 horas**
                 Rua José Moringa, 620 - Bauxita, Ouro Preto - MG
-  - **[11]**:
+  - **[10]**:
     - **texto**: Contatos
     - **destino**:
       - **secao_textual**:
@@ -242,7 +224,7 @@
             
             *   **Instagram:** @ouroboulder
             *   **Email:** sime.ouroboulder@gmail.com
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

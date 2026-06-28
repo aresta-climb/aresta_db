@@ -269,6 +269,8 @@ picos:
           | :--: |
 
           | *Totem* |'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -404,30 +406,6 @@ botoes:
         localizada a caixinha para a contribuição da taxa de estacionamento. Caso
         não existam vagas, retornar na estrada e estacionar de modo a não bloquear
         a passagem.'
-- texto: Como Chegar
-  destino:
-    secao_textual:
-      conteudo: '# Como Chegar
-
-
-        **Coordenadas: 22° 37'' 29.41" S - 45° 37'' 46.52" O**
-
-
-        | ![Mapa Geral de Acesso](imagens/mapas_gerais_p0_i6.webp) |
-
-        | :--: |
-
-        | *Mapa Geral de Acesso* |
-
-
-        | ![Detalhes do Acesso](imagens/mapas_gerais_p0_i7.webp) |
-
-        | :--: |
-
-        | *Detalhes do Acesso* |
-
-
-        Partindo do acampamento Paiol Grande em direção a Pedra do Zé.'
 - texto: Créditos
   destino:
     secao_textual:
@@ -456,7 +434,7 @@ botoes:
 
 
         Dê preferência ao arquivo digital. Não imprima.'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/agradecimentos_p0_i0.webp
   checksum_sha256: 1d36071b6d0ab70dea5445c273558d0b695349fd8bec71ec4ce41e49f399255f

@@ -28,30 +28,6 @@
             
             desenvolvido por alexsandro
   - **[1]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # MAPA DOS AFLORAMENTOS DA REGIONAL
-            
-            | ![Mapa Regional](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa Regional* |
-            
-            # MAPA DOS SETORES
-            
-            | ![Mapa dos Setores](imagens/mapas_gerais_p1_i0.webp) |
-            | :--: |
-            | *Mapa dos Setores* |
-            
-            Lá Bombonera Climb: [Google Maps](https://maps.app.goo.gl/tGRSEPsRVVn2Ru6n9)
-            
-            **RECOMENDAÇÕES:** É imprescindível o **USO DE CAPACETE** (escaladores, "segue" e pessoas nas bases das vias) pode haver possíveis pedras soltas; cuidado com abelhas, marimbondos e animais peçonhentos; Utilize corda de 60 metros ou mais.
-            
-            **COMO CHEGAR:** O afloramento de calcário do **La Bombonera** está localizado as margens da estrada de terra que liga os municípios de Pains e Córrego Fundo - Minas Gerais.
-            
-            **ATENÇÃO:** O afloramento fica em uma propriedade particular, respeite! (entre em contato com os escaladores locais antes de visitar/escalar no local)
-  - **[2]**:
     - **texto**: Atenção e Regras
     - **destino**:
       - **secao_textual**:
@@ -71,7 +47,7 @@
             # SEJA CONSCIENTE!
             
             **UTILIZE APENAS AS TRILHAS PRINCIPAIS; As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra; **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...); Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados; Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa; Fogueiras além de provocar queimadas, danificam o local; Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos; Utilize equipamentos de segurança e verifique seu estado de conservação; Cuidado com pedras soltas principalmente em setores e vias novas; Antes de conquistar uma via de escalada entre em contato com o GT.
-  - **[3]**:
+  - **[2]**:
     - **texto**: Parcerias e Contato
     - **destino**:
       - **secao_textual**:
@@ -89,7 +65,7 @@
             **ATUALIZAÇÕES/SUGESTÕES:** abrigobase@gmail.com
             
             **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

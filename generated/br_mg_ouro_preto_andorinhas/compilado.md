@@ -9,45 +9,9 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_pedra_branca_p0_i0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
-- **botoes**:
-  - **[0]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais - Parque Natural Municipal das Andorinhas
-            
-            | ![Mapa 1](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa 1* |
-            
-            | ![Mapa 2](imagens/mapas_gerais_p1.webp) |
-            | :--: |
-            | *Mapa 2* |
-            
-            ## Legenda do Mapa
-            
-            ### Setores de Escalada
-            - Pedra do Arco
-            - Campo Escola
-            - Tchau Querida
-            - Pedra Branca
-            
-            ### Pontos de Interesse
-            - Mirante Pedra do Jacaré
-            - Cachoeira das Andorinhas
-            - Sede do Parque
-            
-            ### Trilhas
-            - **Trilha Setores de Escalada**: Trilha principal de acesso aos setores.
-            - **Trilha das Andorinhas**
-            - **Trilha da Folhinha**
-            - **Trilha dos Pelados**
-            - **Trilha do Véu das Noivas**
-            - **Trilha do Vermelhão**
-            - **Trilha do Baú**
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **botoes**: []
 
 
 ## Parte: setor_pedra_do_arco

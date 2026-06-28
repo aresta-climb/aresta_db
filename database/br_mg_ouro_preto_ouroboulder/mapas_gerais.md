@@ -1,9 +1,6 @@
-# MAPAS GERAIS
+---
+mapas:
+- caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
+- caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
+---
 
-## Mapa de Localização - Unidade de Conservação
-
-![Mapa de Localização - Unidade de Conservação](imagens/mapas_gerais_p0.webp)
-
-## Mapa de Localização - Setores
-
-![Mapa de Localização - Setores](imagens/mapas_gerais_p1.webp)

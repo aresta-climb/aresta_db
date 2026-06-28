@@ -1530,6 +1530,8 @@ picos:
           * Boulders e travessias nas colunas desse setor.
 
           * Boulder tetinho: V3 a V8.'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -2100,24 +2102,6 @@ botoes:
         | :--: |
 
         | *Como usar guia* |'
-- texto: Mapa dos Setores
-  destino:
-    secao_textual:
-      conteudo: '# Mapa dos setores
-
-
-        O Sítio do Rod possui três setores principais: G1, G2 e G3.
-
-        A caminhada do estacionamento até a base da rocha leva cerca de cinco minutos.
-
-        Existem também vários boulders e travessias espalhados pelos setores.
-
-
-        | ![Mapa dos Setores](imagens/pagina_14.webp) |
-
-        | :--: |
-
-        | *Mapa dos Setores* |'
 - texto: Contra Capa
   destino:
     secao_textual:
@@ -2126,7 +2110,7 @@ botoes:
         | :--: |
 
         | *Contra capa* |'
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/aviso_p0.webp

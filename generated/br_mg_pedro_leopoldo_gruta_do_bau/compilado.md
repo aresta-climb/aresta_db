@@ -230,25 +230,7 @@
             | ![Manutencao na Sentinela 1](imagens/manutencao_p0_i8.webp) |
             | :--: |
             | *Manutencao na Sentinela 1* |
-  - **[8]**:
-    - **texto**: Mapas Gerais
-    - **destino**:
-      - **secao_textual**:
-        - **conteudo**:
-            # Mapas Gerais
-            
-            ## Mapa Esquemático dos Setores
-            
-            | ![Mapa Esquemático dos Setores](imagens/mapas_gerais_p0.webp) |
-            | :--: |
-            | *Mapa Esquemático dos Setores* |
-            
-            ## Vista Aérea
-            
-            | ![Vista Aérea](imagens/mapas_gerais_p1.webp) |
-            | :--: |
-            | *Vista Aérea* |
-- **ultima_migracao**: 2
+- **ultima_migracao**: 3
 - **publicar_croqui**: True
 
 

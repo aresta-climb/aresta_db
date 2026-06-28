@@ -235,6 +235,8 @@ picos:
           | :--: |
 
           | *Setor Quintal* |'
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -262,17 +264,7 @@ botoes:
 
 
         Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: "# Mapas Gerais\n\n## Visão Geral\n\n| ![Visão Geral](imagens/capa_p0_i1.webp)\
-        \ |\n| :--: |\n| *Visão Geral* |\n\n**Rodovia que liga Rifaina a Sacramento/Araxa**\n\
-        **Hidroeletrica Jaguara**\n\n## Acesso\n\n| ![Acesso](imagens/capa_p0_i2.webp)\
-        \ |\n| :--: |\n| *Acesso* |\n\n**Ponte rodoviária sobre o Ribeirão Cana Brava**\n\
-        19°59'50\"S \n47°24'13\"W\n\n**Pinguela**\n\n**Pico dá vó Gusta - Setor Quintal**\n\
-        19°59'50.6\"S \n47°23'56.3\"W \n\n**MG428 Rod. Francisco Rodrigues Duarte,\
-        \ Sacramento - MG, 9Km de Rifaina**"
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

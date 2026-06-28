@@ -29,6 +29,8 @@ picos:
       caminho: setor_parede_da_cenibra.md
   - setor:
       caminho: setor_outras_vias.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -50,12 +52,8 @@ botoes:
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Guia na Web
   destino:
     secao_textual:
       caminho: guia_na_web.md
-ultima_migracao: 2
+ultima_migracao: 3

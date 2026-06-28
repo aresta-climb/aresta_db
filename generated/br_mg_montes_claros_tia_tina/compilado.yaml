@@ -174,6 +174,8 @@ picos:
             nome: Monga
             dificuldade: BR_6SUP_BARRA_7A
         descricao: ''
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -194,34 +196,7 @@ botoes:
 
 
         AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS'
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      conteudo: '# Mapas Gerais
-
-
-        Estes mapas mostram a localização dos principais setores do Setor Tia Tina.
-
-
-        ## Localização dos Setores Saara e Fenda
-
-
-        | ![Mapa Geral 1](imagens/mapas_gerais_p0_i0.webp) |
-
-        | :--: |
-
-        | *Mapa Geral 1* |
-
-
-        ## Localização dos Setores do Buraco e da Frente
-
-
-        | ![Mapa Geral 2](imagens/mapas_gerais_p1_i0.webp) |
-
-        | :--: |
-
-        | *Mapa Geral 2* |'
-ultima_migracao: 2
+ultima_migracao: 3
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: fd9dad9574cb6806a22df45be2404f16a7063c7547f83e299242a64da0dd706d

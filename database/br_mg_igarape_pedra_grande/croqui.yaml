@@ -30,6 +30,8 @@ picos:
       caminho: setor_tetos.md
   - setor:
       caminho: setor_trad.md
+  mapas_gerais:
+    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -55,13 +57,9 @@ botoes:
   destino:
     secao_textual:
       caminho: igarameca_info.md
-- texto: Mapas Gerais
-  destino:
-    secao_textual:
-      caminho: mapas_gerais.md
 - texto: Patrocinadores
   destino:
     secao_textual:
       caminho: patrocinadores.md
-ultima_migracao: 2
+ultima_migracao: 3
 publicar_croqui: true
