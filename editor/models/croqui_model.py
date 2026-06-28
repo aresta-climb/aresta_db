@@ -181,6 +181,22 @@ class CroquiModel(QObject):
                     except Exception as e:
                         print(f"Erro ao carregar grupo externo {arq_grupo.caminho}: {e}")
 
+        def _carregar_arquivo_mapas(arq_mapas):
+            if arq_mapas.WhichOneof("arquivo") == "caminho" and arq_mapas.caminho:
+                nome_relativo = arq_mapas.caminho
+                caminho_arquivo = caminho_db / nome_relativo
+                if caminho_arquivo.exists():
+                    try:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
+                        dados_mapas = _ler_objeto_com_frontmatter(caminho_arquivo, arq_mapas, ArquivoMapas.ext_metadados_arquivo)
+                        if dados_mapas:
+                            json_format.ParseDict(dados_mapas, arq_mapas.conteudo, ignore_unknown_fields=True)
+                            arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_original = nome_relativo
+                            arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_novo = nome_relativo
+                            arq_mapas.ClearField("caminho")
+                    except Exception as e:
+                        print(f"Erro ao carregar mapas externos {arq_mapas.caminho}: {e}")
+
         # 1. Carrega Botões (Markdown)
         for botao in croqui_msg.botoes:
             if botao.HasField("destino") and botao.destino.WhichOneof("destino") == "secao_textual":
@@ -202,6 +218,8 @@ class CroquiModel(QObject):
 
         # 2. Carrega Picos -> Setores e Grupos
         for pico in croqui_msg.picos:
+            if pico.HasField("mapas_gerais"):
+                _carregar_arquivo_mapas(pico.mapas_gerais)
             for sg in pico.setores_ou_grupos:
                 if sg.HasField("setor"):
                     _carregar_arquivo_setor(sg.setor)
@@ -284,9 +302,43 @@ class CroquiModel(QObject):
             if ext:
                 ext.caminho_original = novo_caminho
 
+        def _extrair_arquivo_mapas(arq_mapas, arq_mapas_ref):
+            if not arq_mapas.HasField("conteudo"):
+                return
+            ext = None
+            from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
+            if arq_mapas_ref.HasExtension(ArquivoMapas.ext_metadados_arquivo):
+                ext = arq_mapas_ref.Extensions[ArquivoMapas.ext_metadados_arquivo]
+            original_caminho = ext.caminho_original if ext else None
+            novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
+            
+            if not novo_caminho and original_caminho:
+                novo_caminho = original_caminho
+            if not novo_caminho:
+                novo_caminho = "mapas_gerais.md"
+            
+            if original_caminho and original_caminho != novo_caminho:
+                old_file_path = caminho_db / original_caminho
+                if old_file_path.exists():
+                    try: old_file_path.unlink()
+                    except Exception: pass
+            
+            conteudo_dict = MessageToDict(arq_mapas.conteudo, preserving_proto_field_name=True)
+            json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
+            _salvar_objeto_com_frontmatter(caminho_db / novo_caminho, conteudo_dict, json_original=json_original)
+            arq_mapas.caminho = novo_caminho
+            arq_mapas.ClearField("conteudo")
+            arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
+            if ext:
+                ext.caminho_original = novo_caminho
+
         # Picos e Grupos/Setores
         for idx_pico, pico in enumerate(croqui_msg_copy.picos):
             pico_ref = self.__croqui.picos[idx_pico]
+            
+            if pico.HasField("mapas_gerais") and pico.mapas_gerais.HasField("conteudo"):
+                _extrair_arquivo_mapas(pico.mapas_gerais, pico_ref.mapas_gerais)
+                
             for idx_sg, sg in enumerate(pico.setores_ou_grupos):
                 sg_ref = pico_ref.setores_ou_grupos[idx_sg]
 

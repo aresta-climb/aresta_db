@@ -1043,7 +1043,6 @@ class WidgetFormularioPadrao(QStackedWidget):
                     if formato in (
                         croqui_pb2.MensagemFormatoUi.SEPARADO,
                         croqui_pb2.MensagemFormatoUi.ONEOF,
-                        croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO,
                     ):
                         continue
             
@@ -1288,6 +1287,29 @@ class WidgetFormularioPadrao(QStackedWidget):
         if is_set:
             if field.type == FieldDescriptor.TYPE_MESSAGE:
                 sub_msg = getattr(msg, field.name)
+                
+                # Resolução de transparência inline para campos ONEOF_CONTEUDO
+                options = field.message_type.GetOptions()
+                if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
+                    formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
+                    if formato == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
+                        if sub_msg.HasField("conteudo"):
+                            sub_msg = getattr(sub_msg, "conteudo")
+                        else:
+                            # Tenta forçar o conteúdo caso seja vazio
+                            try:
+                                import google.protobuf.descriptor as gdesc
+                                conteudo_field = sub_msg.DESCRIPTOR.fields_by_name.get("conteudo")
+                                if conteudo_field and conteudo_field.type == gdesc.FieldDescriptor.TYPE_MESSAGE:
+                                    # Ativa o oneof 'conteudo'
+                                    msg_class = ProtobufWidgetFactory._get_message_class(conteudo_field.message_type)
+                                    if msg_class:
+                                        val = msg_class()
+                                        self.inicializar_oneofs(val)
+                                        pass
+                            except Exception:
+                                pass
+                                
                 frame = QFrame()
                 frame.setObjectName("SubMessageFrame")
                 frame.setStyleSheet("""

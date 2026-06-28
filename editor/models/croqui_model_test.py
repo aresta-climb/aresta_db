@@ -977,3 +977,64 @@ def test_croqui_model_preserva_formatacao_corpo_markdown(tmp_path):
     corpo = partes[-1]
     
     assert corpo == "\nMeu corpo markdown"
+
+
+def test_croqui_model_carrega_arquivo_mapas(tmp_path):
+    from aresta_api.proto.generated import croqui_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
+    db_path = tmp_path / "database"
+    db_path.mkdir()
+    
+    caminho_mapas = db_path / "mapas_gerais.md"
+    caminho_mapas.write_text("---\nmapas:\n  - caminho_imagem_mapa: 'mapa1.webp'\n---\n", encoding="utf-8")
+    
+    croqui = Croqui()
+    p = croqui.picos.add()
+    p.mapas_gerais.caminho = "mapas_gerais.md"
+    
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(db_path)
+    
+    assert p.mapas_gerais.HasExtension(croqui_pb2.ArquivoMapas.ext_metadados_arquivo)
+    ext = p.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo]
+    assert ext.caminho_original == "mapas_gerais.md"
+    
+    # Must have populated 'conteudo'
+    assert not p.mapas_gerais.HasField("caminho")
+    assert p.mapas_gerais.HasField("conteudo")
+    assert len(p.mapas_gerais.conteudo.mapas) == 1
+    assert p.mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa == "mapa1.webp"
+
+
+def test_croqui_model_extrai_arquivo_mapas(tmp_path):
+    from aresta_api.proto.generated import croqui_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    import yaml
+
+    db_path = tmp_path / "database"
+    db_path.mkdir()
+
+    croqui = Croqui()
+    p = croqui.picos.add()
+    
+    p.mapas_gerais.conteudo.mapas.add().caminho_imagem_mapa = "mapa_salvo.webp"
+    p.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo].caminho_original = "mapas_gerais.md"
+    p.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo].caminho_novo = "mapas_gerais.md"
+
+    model = CroquiModel(croqui)
+    dict_salvo = model.extrair_arquivos_e_serializar(db_path)
+
+    assert "mapas_gerais" in dict_salvo['picos'][0]
+    assert dict_salvo['picos'][0]['mapas_gerais']['caminho'] == "mapas_gerais.md"
+
+    # The file must have been created
+    caminho_mapas = db_path / "mapas_gerais.md"
+    assert caminho_mapas.exists()
+    
+    with open(caminho_mapas, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f.read().split("---")[1])
+        assert len(dados["mapas"]) == 1
+        assert dados["mapas"][0]["caminho_imagem_mapa"] == "mapa_salvo.webp"
