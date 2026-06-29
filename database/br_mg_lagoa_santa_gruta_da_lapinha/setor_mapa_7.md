@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mapa 7
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_7_p0_i0.webp
@@ -190,7 +190,8 @@ escaladas:
     conquistadores:
     - Antonio Carlos Magalhães
     - Emerson Alves Azeredo
----
+---
+
 # Setor Mapa 7
 
 Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mapa 5
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_5_p0_i0.webp
@@ -177,7 +177,8 @@ escaladas:
     - Emerson A. Azeredo
     - Eustáquio Júnior
     - Fabiano Fernandes
----
+---
+
 # Setor Mapa 5
 
 Vias localizadas próximo à região do "Pasto" e "Mancha amarela".

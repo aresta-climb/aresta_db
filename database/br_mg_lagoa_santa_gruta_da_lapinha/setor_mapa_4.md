@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gruta - Mapa 4 (Sala de Aula)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_4_p0_i0.webp
@@ -408,7 +408,8 @@ escaladas:
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Emerson Alves Azeredo
----
+---
+
 # Setor Gruta - Mapa 4 (Sala de Aula)
 
 Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.

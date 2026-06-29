@@ -1,4 +1,4 @@
----
+---
 nome: Bloco Romano (Mapa 10)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_10_p0_i0.webp
@@ -137,7 +137,8 @@ escaladas:
     - Fabiano
     - Gilberto Torres
     - Emerson Azeredo
----
+---
+
 # Setor Bloco Romano (Mapa 10)
 
 Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.

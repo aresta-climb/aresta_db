@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mapa 2
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_2_p0_i0.webp
@@ -58,7 +58,8 @@ escaladas:
     dificuldade: BR_5
     conquistadores:
     - Daniel Fernandes "Salim"
----
+---
+
 # Setor Mapa 2
 
 Localizado próximo à entrada da gruta. 

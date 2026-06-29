@@ -1,4 +1,4 @@
----
+---
 nome: Savassinha (Mapa 9)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
@@ -276,7 +276,8 @@ escaladas:
     conquistadores:
     - Roberto Lincoln de Freitas
     descricao: Vía de proteção mista
----
+---
+
 # Setor Savassinha (Mapa 9)
 
 Setor com vias de alto nível técnico e físico.

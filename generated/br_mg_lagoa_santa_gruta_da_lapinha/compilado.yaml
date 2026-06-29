@@ -129,8 +129,8 @@ picos:
               y: 102
               comprimento: 10
               largura: 9
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             box:
               x: 177
               y: 114
@@ -163,7 +163,7 @@ picos:
             - '07'
           - escalada: O Exibicionista
             ids:
-            - 08
+            - '08'
         escaladas:
         - via_movel:
             nome: Ajoelhou tem que Rezar
@@ -185,8 +185,8 @@ picos:
           largura_mapa: 438
           altura_mapa: 323
           pontos_de_interesse:
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             box:
               x: 240
               y: 72
@@ -230,8 +230,8 @@ picos:
           - id: '15'
             label: '15'
             box:
-              x: 192
-              y: 62
+              x: 193
+              y: 63
               comprimento: 14
               largura: 12
           - id: '16'
@@ -370,7 +370,7 @@ picos:
           referencias:
           - escalada: Lua Cheia
             ids:
-            - 09
+            - '09'
           - escalada: Jornada nas Estrelas
             ids:
             - '10'

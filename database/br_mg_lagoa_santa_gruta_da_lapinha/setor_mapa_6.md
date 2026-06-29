@@ -1,4 +1,4 @@
----
+---
 nome: Vale Verde (Mapa 6)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
@@ -257,7 +257,8 @@ escaladas:
     dificuldade: BR_8B
     conquistadores:
     - Ricardo Jardim Leal
----
+---
+
 # Setor Vale Verde (Mapa 6)
 
 Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").

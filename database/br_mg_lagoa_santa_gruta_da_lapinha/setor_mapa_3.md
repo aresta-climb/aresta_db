@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gruta - Mapa 3
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_3_p0_i0.webp
@@ -50,8 +50,8 @@ mapas:
   - id: '15'
     label: '15'
     box:
-      x: 192
-      y: 62
+      x: 193
+      y: 63
       comprimento: 14
       largura: 12
   - id: '16'
@@ -419,7 +419,8 @@ escaladas:
     - Anderson (Neném)
     - Douglas
     - Bombom
----
+---
+
 # Setor Gruta - Mapa 3
 
 Parte interna e externa da gruta com vias esportivas e móveis.

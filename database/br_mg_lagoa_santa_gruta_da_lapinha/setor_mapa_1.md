@@ -1,4 +1,4 @@
----
+---
 nome: Castelinho
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_1_p0_i0.webp
@@ -99,7 +99,8 @@ escaladas:
     - Cristiano Loureiro
 - via_esportiva:
     nome: Projeto
----
+---
+
 # Setor Castelinho
 
 Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Túnel de Pedra (Mapa 8)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_8_p0_i0.webp
@@ -401,7 +401,8 @@ escaladas:
     - Wilson Novaes
     - Ivo Ferreira Marcelino
     - Alexandre Magos
----
+---
+
 # Setor Túnel de Pedra (Mapa 8)
 
 Vias localizadas na região do Túnel de Pedra.
