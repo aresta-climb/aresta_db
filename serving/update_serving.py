@@ -41,8 +41,9 @@ class CloudflarePurger:
         }
         payload = {
             "files": [
-                f"https://cdn.aresta.app/{db_version}/indice.binarypb",
-                f"https://cdn.aresta.app/{db_version}/arquivos_serving.yaml"
+                f"https://serving.arestaclimb.com/{db_version}/indice.binarypb",
+                f"https://serving.arestaclimb.com/{db_version}/indice.yaml",
+                f"https://serving.arestaclimb.com/{db_version}/arquivos_serving.yaml"
             ]
         }
         
