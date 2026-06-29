@@ -508,7 +508,7 @@ class JanelaPrincipal(QMainWindow):
                 if match_s:
                     p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
                 else:
-                    match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?mapas\[(\d+)\]', ctx.caminho_local_arvore)
+                    match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
                     if match_mg:
                         p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
                     else:

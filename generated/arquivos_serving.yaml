@@ -532,7 +532,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
   checksum_sha256: 050954e495af6182344d859fe04d504f52f5a6ee47ee86dc10241541fb878c42
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: 8b5faeb23d4d98fda357c43b7f6ad9c464fcdf12ae6408a8fec229450311d786
+  checksum_sha256: 36ccc4adf65d9d2e396c0cabb284acc99aa798a4a70aad4a19e9696047a5dadf
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/thumbnail.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -568,7 +568,7 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 370e1b96d69e8413462fa8360d82d72ab68d73973898ddeaca542666c2bd2b15
+  checksum_sha256: 0108a47b7b97b193dcf92b82d6f38cf7bd935ab8c001851acc0011cb4001e57d
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.md
   checksum_sha256: 777f0b3b2272a36ef9aab781895fe1111c486560511137ff1ff7ed555f479c80
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 14f24e959d37c9500f89715b5caa2abf4a01496c18622dba74de1a4693a595c6
 - caminho_relativo: indice.binarypb
-  checksum_sha256: f1a3897f95aedd66d243b2d166dfb70e605762167f231a0e67d013c06171fac8
+  checksum_sha256: f916ec3ed42a2bf0d21ac08e0c6ffe420b8a3916e4de8a8338120a125850bde6
 - caminho_relativo: indice.yaml
-  checksum_sha256: 43f63d0f3adc60a0376090ebcb7d811e96b42f2065296f00f3f3a435ad74bde7
+  checksum_sha256: 06eca547dcc2e402dac0b71ef1a5e80cfd10065c6ca670a29ebe2e872a6b9788

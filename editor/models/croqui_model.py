@@ -268,6 +268,16 @@ class CroquiModel(QObject):
 
             with open(caminho_arquivo, "w", encoding="utf-8") as f:
                 f.write("---\n")
+                
+                # Garante que strings compostas apenas por dígitos sejam entre aspas 
+                # (evita que parser YAML confunda com números inteiros no futuro, ex: id '09' -> 09)
+                def _str_representer(dumper, data):
+                    style = None
+                    if data.isdigit() or (data.startswith('-') and data[1:].isdigit()):
+                        style = "'"
+                    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
+                yaml.add_representer(str, _str_representer)
+                
                 yaml.dump(dados, f, allow_unicode=True, sort_keys=False)
                 f.write("---\n")
                 if descricao is not None:

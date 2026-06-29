@@ -331,13 +331,14 @@ class WidgetColapsavel(QWidget):
 
 
 class ContainerRepeatedWidget(QWidget):
-    def __init__(self, msg, field, formulario, parent=None):
+    def __init__(self, msg, field, formulario, parent=None, extra_path=None):
         self.model = formulario.model
         self.controller = formulario.controller
         self.formulario = formulario
         super().__init__(parent)
         self.msg = msg
         self.field = field
+        self.extra_path = extra_path
         self.formulario = formulario
         self.repeated_container = getattr(msg, field.name)
 
@@ -478,7 +479,10 @@ class ContainerRepeatedWidget(QWidget):
             item_msg = self.repeated_container[idx]
             
             def lazy_loader(msg, layout):
-                self.formulario._render_message_fields(msg, layout, extra_path=f"expando:{self.field.name}/item:{idx}")
+                new_path = f"expando:{self.field.name}/item:{idx}"
+                if self.extra_path:
+                    new_path = f"{self.extra_path}/{new_path}"
+                self.formulario._render_message_fields(msg, layout, extra_path=new_path)
                 
             prefix = f"Item {idx}"
             if hasattr(self.field, "name"):
@@ -1050,7 +1054,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 continue
                 
             if field.is_repeated:
-                self._render_repeated_field(msg, field, parent_layout)
+                self._render_repeated_field(msg, field, parent_layout, extra_path)
             else:
                 self._render_field_container(msg, field, parent_layout, extra_path)
                 
@@ -1288,6 +1292,8 @@ class WidgetFormularioPadrao(QStackedWidget):
             if field.type == FieldDescriptor.TYPE_MESSAGE:
                 sub_msg = getattr(msg, field.name)
                 
+                new_path = f"{extra_path}/{field.name}" if extra_path else field.name
+                
                 # Resolução de transparência inline para campos ONEOF_CONTEUDO
                 options = field.message_type.GetOptions()
                 if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
@@ -1295,6 +1301,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                     if formato == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
                         if sub_msg.HasField("conteudo"):
                             sub_msg = getattr(sub_msg, "conteudo")
+                            new_path += "/conteudo"
                         else:
                             # Tenta forçar o conteúdo caso seja vazio
                             try:
@@ -1323,7 +1330,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 frame_layout.setContentsMargins(10, 10, 10, 10)
                 frame_layout.setSpacing(6)
                 
-                self._render_message_fields(sub_msg, frame_layout, extra_path)
+                self._render_message_fields(sub_msg, frame_layout, new_path)
                 card_layout.addWidget(frame)
             else:
                 opts = field.GetOptions()
@@ -1357,8 +1364,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             widget.setMaximumWidth(450)
 
 
-    def _render_repeated_field(self, msg, field, parent_layout):
-        container_widget = ContainerRepeatedWidget(msg, field, self)
+    def _render_repeated_field(self, msg, field, parent_layout, extra_path=None):
+        new_path = f"{extra_path}/{field.name}" if extra_path else field.name
+        container_widget = ContainerRepeatedWidget(msg, field, self, extra_path=new_path)
         parent_layout.addWidget(container_widget)
 
     def _setup_primitive_widget(self, widget, msg, field):

@@ -32,3 +32,41 @@ def test_pico_renders_mapas_gerais_inline(qtbot):
             break
             
     assert found_mapas_gerais, "Label 'Mapas gerais' not found inside Pico, so the field is being skipped"
+
+def test_verify_mapas_gerais_path(qtbot):
+    pico = Pico()
+    pico.nome = "Gruta da Lapinha"
+    pico.mapas_gerais.conteudo.mapas.add().caminho_imagem_mapa = "mapa1.webp"
+    
+    class MockController2:
+        def __init__(self):
+            self.last_path = None
+        def set_contexto(self, path):
+            self.last_path = path
+    
+    controller = MockController2()
+    mock_model = MagicMock()
+    widget = WidgetFormularioPadrao(model=mock_model, controller=controller)
+    mock_node = MagicMock()
+    mock_node.message = pico
+    mock_node.field = None
+    
+    # We must patch get_node_path
+    import editor.views.widget_editor_dados
+    editor.views.widget_editor_dados.get_node_path = lambda n: "expando:picos/item:0"
+    
+    widget.load_node(mock_node)
+    
+    from editor.views.widget_editor_dados import WidgetColapsavel
+    for colapsavel in widget.findChildren(WidgetColapsavel):
+        colapsavel.toggle_button.setChecked(True) # forces lazy loading if closed
+    
+    for btn in widget.findChildren(QPushButton):
+        print("BTN:", btn.text())
+        if btn.text() == "Abrir no Editor de Mapas":
+            btn.click()
+            print("PATH EMITTED:", controller.last_path)
+            break
+            
+    assert controller.last_path is not None, "Button was not clicked or path not emitted"
+            

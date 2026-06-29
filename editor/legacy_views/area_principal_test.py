@@ -638,3 +638,27 @@ def test_cancelar_fechamento_nao_deleta_undo_stack(mock_carregar, qtbot):
     # Limpa o estado e fecha a janela corretamente
     janela.historico.limpar()
     janela.close()
+from unittest.mock import patch
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_regex_mapas_gerais(mock_carregar, qtbot):
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import MagicMock
+    
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+    
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+    
+    janela._on_foco_requisitado("page:mapas/expando:picos/item:0/mapas_gerais/conteudo/mapas/expando:mapas/item:0")
+    
+    # It should call: self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
+    # But since it's mapas gerais, p_idx=0, m_idx=0, what about sg_idx and s_idx?
+    # Wait, the code sets sg_idx=-1 and s_idx=-1.
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, -1, 0, -1)
+    
+    janela.close()

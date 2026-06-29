@@ -1038,3 +1038,21 @@ def test_croqui_model_extrai_arquivo_mapas(tmp_path):
         dados = yaml.safe_load(f.read().split("---")[1])
         assert len(dados["mapas"]) == 1
         assert dados["mapas"][0]["caminho_imagem_mapa"] == "mapa_salvo.webp"
+
+def test_salvar_croqui_quotes_string_digits(tmp_path):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add(caminho_imagem_mapa="mapa.webp")
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "09"
+    poi.label = "10"
+    
+    model = CroquiModel(croqui)
+    model.extrair_arquivos_e_serializar(tmp_path)
+    
+    caminho_yaml = tmp_path / "setor_.md"
+    with open(caminho_yaml, "r", encoding="utf-8") as f:
+        conteudo = f.read()
+        assert "id: '09'" in conteudo, "ID composto apenas por digitos deve ter aspas"
+        assert "label: '10'" in conteudo, "Label composto apenas por digitos deve ter aspas"
