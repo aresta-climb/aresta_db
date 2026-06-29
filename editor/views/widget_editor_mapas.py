@@ -800,6 +800,17 @@ class WidgetEditorMapas(QWidget):
         croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
         
         for p_idx, pico in enumerate(croqui_msg.picos):
+            print(f"PICO {p_idx}, has_mapas_gerais: {pico.HasField('mapas_gerais')}")
+            # Mapas Gerais do Pico
+            if pico.HasField('mapas_gerais'):
+                for m_idx, mapa in enumerate(pico.mapas_gerais.conteudo.mapas):
+                    print(f"MAPA GERAL: {mapa.caminho_imagem_mapa}")
+                    if not mapa.caminho_imagem_mapa: continue
+                    nome = Path(mapa.caminho_imagem_mapa).name
+                    item = QListWidgetItem(nome)
+                    item.setData(Qt.ItemDataRole.UserRole, ('mapa_geral', p_idx, -1, m_idx))
+                    self.list_widget.addItem(item)
+                    
             for sg_idx, sg in enumerate(pico.setores_ou_grupos):
                 # Mapas do Setor
                 if getattr(sg, 'setor', None):
@@ -864,7 +875,9 @@ class WidgetEditorMapas(QWidget):
         
         croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
         try:
-            if tipo == 'grupo':
+            if tipo == 'mapa_geral':
+                mapa = croqui_msg.picos[p_idx].mapas_gerais.conteudo.mapas[m_idx]
+            elif tipo == 'grupo':
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.mapas[m_idx]
             elif tipo == 'subsetor':
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.setores[s_idx].conteudo.mapas[m_idx]

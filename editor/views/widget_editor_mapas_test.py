@@ -578,3 +578,40 @@ class TestWidgetEditorMapasLayout(unittest.TestCase):
         
         # E deve ter o size adjust policy configurado para ajustar ao conteudo
         self.assertEqual(widget.list_widget.sizeAdjustPolicy(), QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+
+def test_mapas_gerais_sao_listados_e_carregados(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from aresta_api.proto.generated.croqui_pb2 import Pico, Croqui
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    mapa_geral = pico.mapas_gerais.conteudo.mapas.add()
+    mapa_geral.caminho_imagem_mapa = "mapa_geral_1.jpg"
+    
+    class MockSignal:
+        def connect(self, f): pass
+        
+    mock_model = MagicMock(spec=CroquiModel)
+    mock_model.dado_alterado = MockSignal()
+    mock_model.repeated_adicionado = MockSignal()
+    mock_model.repeated_removido = MockSignal()
+    mock_model.obter_croqui_readonly.return_value = croqui
+    
+    controller = MapasController(mock_model, None)
+    widget = WidgetEditorMapas(mapas_controller=controller)
+    widget.configurar_lista_mapas()
+    
+    # Check if the map is listed in the sidebar
+    items = []
+    for i in range(widget.list_widget.count()):
+        items.append(widget.list_widget.item(i).text())
+    
+    print("ITEMS:", items)
+    assert "mapa_geral_1.jpg" in items
+    
+    # Simulate clicking on it
+    widget.selecionar_mapa_por_indices(0, -1, 0)
+    assert widget.msg_mapa_proxy is not None
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "mapa_geral_1.jpg"

@@ -508,9 +508,13 @@ class JanelaPrincipal(QMainWindow):
                 if match_s:
                     p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
                 else:
-                    match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                    if match:
-                        p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                    match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?mapas\[(\d+)\]', ctx.caminho_local_arvore)
+                    if match_mg:
+                        p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+                    else:
+                        match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                        if match:
+                            p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
                 
                 if p_idx >= 0 and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
                     self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
