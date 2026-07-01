@@ -812,12 +812,13 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
         # Valida os mapas
         for contexto_nome, mapas in mapas_para_validar:
             for idx_mapa, mapa in enumerate(mapas):
-                ids_vistos = set()
                 for ref in mapa.get("referencias", []):
-                    # Validação de duplicação de ID no mesmo mapa
+                    ids_vistos = set()
+                    # Validação de duplicação de ID na mesma referência
                     for ref_id in ref.get("ids", []):
                         if ref_id in ids_vistos:
-                            erros.append(f"O ID '{ref_id}' está duplicado nas referências do mesmo mapa (Mapa {idx_mapa+1} em {contexto_nome}).")
+                            nome_ref = ref.get("escalada") or ref.get("setor") or ref.get("grupo") or "Desconhecida"
+                            erros.append(f"O ID '{ref_id}' está duplicado na referência '{nome_ref}' (Mapa {idx_mapa+1} em {contexto_nome}).")
                         ids_vistos.add(ref_id)
                         
                     # Validação de existência da entidade

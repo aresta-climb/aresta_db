@@ -1,4 +1,4 @@
----
+---
 nome: Camaroa
 escaladas:
 - boulder:
@@ -77,6 +77,7 @@ mapas:
   - escalada: Camaroa
     ids:
     - '5'
----
+---
+
 
 # Bloco Camaroa

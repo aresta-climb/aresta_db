@@ -834,7 +834,7 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.md
   checksum_sha256: ae3a572c526ab62aae992458aa3275240fd69ec8a55d660ea56fdb2db0c29eac
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256: 6663a68002625d93d37c0e5a886c4e570b51bd77bda35e63e1af91f347ea9e84
+  checksum_sha256: 9325cfa76d5c07b782d031e0f3913174b73d94e3c2b6b7196c43b740a76d5e0e
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder_sunset.webp
   checksum_sha256: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/imagens/capa_p0.webp
@@ -882,9 +882,9 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/imagens/mapas_gerais_p0.webp
   checksum_sha256: 76bf730bbb663e5e0907044c468a68cc1d80079a776eeab308e29d1f9a2ac852
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.yaml
-  checksum_sha256: 55a0f97d6fd2131ab3488a1a9f29565baa531945871d57cd4253e95c8a4cda0f
+  checksum_sha256: a884b3d0aa87951fb9648b2bf75918b282bf12d21e907ab1666e244619378f62
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.md
-  checksum_sha256: bde26f2ef68e3fa86a6ff63b1b49f9061c56c376beca3d2fb3610b49b0845d1c
+  checksum_sha256: 9fb3a38932be1b87269022902ae415af4c49d6d68faa0f10150654931ee2d73f
 - caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256: e75aa89c09856ff25a2986c75bc47e5466acc9061acae644721bb00b69b580d5
 - caminho_relativo: thumbnails/br_mg_paraisopolis_pedra_da_divisa.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 14f24e959d37c9500f89715b5caa2abf4a01496c18622dba74de1a4693a595c6
 - caminho_relativo: indice.binarypb
-  checksum_sha256: eb52a3c7c77c3901f69294c2194d53a572e66a55cf4b62c73c78dea589b1de50
+  checksum_sha256: 6e726388fb1058bd4b4da34294a92a3fa12597193804792a4fb002ce7cc6b9d2
 - caminho_relativo: indice.yaml
-  checksum_sha256: ea858775b349dcef35195aa441f0945c0240916d8c76e3ef4bb5a3231d8c1d31
+  checksum_sha256: 9435d30e785101b93fad7a0a9bfbd45e0f681142a76de37f08cf3749c08382b8

@@ -1,8 +1,5 @@
-# editor-mapas Specification
+## MODIFIED Requirements
 
-## Purpose
-Fornecer um editor visual para gerenciar Pontos de Interesse (POI) em mapas de setores e grupos de um croqui, permitindo a marcação precisa de áreas e a sincronização com o banco de dados YAML.
-## Requirements
 ### Requirement: Editor de Pontos de Interesse (POI) em Mapas
 O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (POI) e Referências em mapas de setores e grupos de um croqui, acessível primariamente integrado no painel principal em sua própria aba, respondendo a comandos da QUndoStack global e lendo diretamente do `CroquiModel`. A interface SHALL ser estruturada em três painéis horizontais (Mapas à esquerda, Visualizador ao centro, Referências à direita). O Visualizador ao centro SHALL suportar navegação através do arrasto da visualização (panning) quando o usuário clicar e arrastar no fundo da imagem (fora dos POIs).
 

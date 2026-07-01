@@ -1,4 +1,4 @@
----
+---
 nome: Aleijadinho
 escaladas:
 - boulder:
@@ -20,6 +20,7 @@ mapas:
   - escalada: Aleijadinho
     ids:
     - '1'
----
+---
+
 
 # Bloco Aleijadinho

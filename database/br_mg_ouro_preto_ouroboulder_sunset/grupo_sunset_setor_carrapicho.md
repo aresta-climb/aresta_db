@@ -1,4 +1,4 @@
----
+---
 nome: Carrapicho
 escaladas:
 - boulder:
@@ -72,6 +72,7 @@ mapas:
   - escalada: Dart Vader
     ids:
     - '5'
----
+---
+
 
 # Bloco Carrapicho

@@ -1,4 +1,4 @@
----
+---
 nome: Free Solo
 escaladas:
 - boulder:
@@ -100,6 +100,7 @@ mapas:
   - escalada: Walkmachine
     ids:
     - '4'
----
+---
+
 
 # Bloco Free Solo

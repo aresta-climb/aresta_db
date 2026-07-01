@@ -1,4 +1,4 @@
----
+---
 nome: Planetário
 escaladas:
 - boulder:
@@ -128,6 +128,7 @@ mapas:
     ids:
     - 1_b
     - y_b
----
+---
+
 
 # Bloco Planetário

@@ -1,4 +1,4 @@
----
+---
 nome: Sunset
 escaladas:
 - boulder:
@@ -79,6 +79,7 @@ mapas:
   - escalada: Projeto Sunset
     ids:
     - '5'
----
+---
+
 
 # Bloco Sunset

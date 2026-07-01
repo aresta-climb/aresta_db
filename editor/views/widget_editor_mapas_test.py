@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import MagicMock
 from PyQt6.QtWidgets import QApplication
 from PyQt6.QtCore import Qt, QPointF
-from editor.views.widget_editor_mapas import CenaDesenho, WidgetEditorMapas
+from editor.views.widget_editor_mapas import CenaDesenho, WidgetEditorMapas, VisualizadorMapa
 
 class TestCenaDesenho(unittest.TestCase):
     @classmethod
@@ -1477,3 +1477,175 @@ def test_item_camera_overlay_resize_com_ctrl_from_center(qtbot):
     expected_center_x = 150
     actual_center_x = item.scenePos().x() + item.rect().width() / 2
     assert math.isclose(actual_center_x, expected_center_x)
+
+class TestVisualizadorMapa(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.app = QApplication.instance()
+        if not cls.app:
+            cls.app = QApplication([])
+
+    def setUp(self):
+        self.view = VisualizadorMapa()
+        from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem
+        self.scene = QGraphicsScene(0, 0, 1000, 1000)
+        self.view.setScene(self.scene)
+        self.view.resize(400, 400)
+        self.view.show()
+        # Preencher barras de rolagem
+        self.view.horizontalScrollBar().setRange(0, 600)
+        self.view.verticalScrollBar().setRange(0, 600)
+        self.view.horizontalScrollBar().setValue(300)
+        self.view.verticalScrollBar().setValue(300)
+        
+        self.item = QGraphicsRectItem(100, 100, 50, 50)
+        self.scene.addItem(self.item)
+
+    def test_arrasto_fundo_mapa(self):
+        from PyQt6.QtGui import QMouseEvent
+        from PyQt6.QtCore import QPointF
+        
+        # Clicar no fundo (50, 50)
+        press_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonPress,
+            QPointF(50.0, 50.0),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mousePressEvent(press_event)
+        
+        self.assertTrue(self.view._arrastando_mapa)
+        self.assertEqual(self.view.cursor().shape(), Qt.CursorShape.ClosedHandCursor)
+        
+        # Mover o mouse
+        move_event = QMouseEvent(
+            QMouseEvent.Type.MouseMove,
+            QPointF(20.0, 30.0), # delta de -30 e -20
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mouseMoveEvent(move_event)
+        
+        # O valor original era 300
+        # novo valor = 300 - (-30) = 330
+        self.assertEqual(self.view.horizontalScrollBar().value(), 330)
+        self.assertEqual(self.view.verticalScrollBar().value(), 320)
+        
+        # Soltar mouse
+        release_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonRelease,
+            QPointF(20.0, 30.0),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mouseReleaseEvent(release_event)
+        self.assertFalse(self.view._arrastando_mapa)
+        self.assertEqual(self.view.cursor().shape(), Qt.CursorShape.OpenHandCursor)
+
+    def test_arrasto_sobre_poi_nao_ativa_pan(self):
+        from PyQt6.QtGui import QMouseEvent
+        from PyQt6.QtCore import QPointF
+        
+        # Clicar no item em coordenadas da view.
+        # Item em 100, 100, mas a view está em scroll 300.
+        # Precisamos de um ponto onde o itemAt retorne algo.
+        # Para simplificar, movemos a cena inteira ou testamos diretamente o mock/spy
+        # Vamos mapear a pos.
+        pos_view = self.view.mapFromScene(125, 125)
+        
+        press_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonPress,
+            QPointF(float(pos_view.x()), float(pos_view.y())),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mousePressEvent(press_event)
+        
+        self.assertFalse(self.view._arrastando_mapa)
+
+    def test_arrasto_fundo_mapa_com_imagem(self):
+        from PyQt6.QtGui import QMouseEvent, QPixmap, QImage, QColor
+        from PyQt6.QtWidgets import QGraphicsPixmapItem
+        from PyQt6.QtCore import QPointF
+        
+        # Adicionar imagem ao fundo
+        img = QImage(200, 200, QImage.Format.Format_RGB32)
+        img.fill(QColor("white"))
+        pixmap = QPixmap.fromImage(img)
+        item_img = QGraphicsPixmapItem(pixmap)
+        item_img.setPos(0, 0)
+        self.scene.addItem(item_img)
+        
+        # Clicar na imagem
+        pos_view = self.view.mapFromScene(10, 10)
+        press_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonPress,
+            QPointF(float(pos_view.x()), float(pos_view.y())),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mousePressEvent(press_event)
+        
+        self.assertTrue(self.view._arrastando_mapa)
+        self.assertEqual(self.view.cursor().shape(), Qt.CursorShape.ClosedHandCursor)
+
+    def test_arrasto_fundo_mapa_pequeno(self):
+        from PyQt6.QtGui import QMouseEvent, QPixmap, QImage, QColor
+        from PyQt6.QtWidgets import QGraphicsPixmapItem
+        from PyQt6.QtCore import QPointF
+        
+        # Simula o comportamento do _renderizar_mapa definindo um sceneRect enorme
+        self.view.scene().clear()
+        self.view.scene().setSceneRect(-50000, -50000, 100000, 100000)
+        
+        img = QImage(100, 100, QImage.Format.Format_RGB32)
+        img.fill(QColor("blue"))
+        pixmap = QPixmap.fromImage(img)
+        item_img = QGraphicsPixmapItem(pixmap)
+        item_img.setPos(0, 0)
+        self.view.scene().addItem(item_img)
+        
+        # Como o sceneRect é enorme, os scrollbars devem ter range > 0, 
+        # permitindo o panning mesmo com uma imagem de 100x100.
+        self.assertGreater(self.view.horizontalScrollBar().maximum(), 0)
+        
+        # Simulamos fitInView nos items
+        self.view.fitInView(self.view.scene().itemsBoundingRect(), Qt.AspectRatioMode.KeepAspectRatio)
+        
+        # Mapeamos o clique no centro da imagem (50, 50 em coordenadas da cena)
+        pos_view = self.view.mapFromScene(50, 50)
+        press_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonPress,
+            QPointF(float(pos_view.x()), float(pos_view.y())),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mousePressEvent(press_event)
+        self.assertTrue(self.view._arrastando_mapa)
+        
+        h_scroll_antes = self.view.horizontalScrollBar().value()
+        
+        # Mover
+        move_event = QMouseEvent(
+            QMouseEvent.Type.MouseMove,
+            QPointF(float(pos_view.x() - 20), float(pos_view.y() - 20)),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier
+        )
+        self.view.mouseMoveEvent(move_event)
+        
+        self.assertTrue(self.view._arrastando_mapa)
+        
+        h_scroll_depois = self.view.horizontalScrollBar().value()
+        self.assertGreater(h_scroll_depois, h_scroll_antes)
+
+    def test_resize_anchor(self):
+        from PyQt6.QtWidgets import QGraphicsView
+        self.assertEqual(self.view.resizeAnchor(), QGraphicsView.ViewportAnchor.AnchorViewCenter)

@@ -30,7 +30,7 @@ mapas:
     label: Planetario
     box:
       x: 381
-      y: 160
+      y: 161
       comprimento: 102
       largura: 30
   - id: Free_Solo
@@ -57,8 +57,8 @@ mapas:
   - id: Capitão_Jack
     label: Capitão Jack
     box:
-      x: 242
-      y: 370
+      x: 243
+      y: 372
       comprimento: 78
       largura: 53
   - id: Aleijadinho
@@ -68,13 +68,39 @@ mapas:
       y: 488
       comprimento: 118
       largura: 33
-  - id: Estacionamento
-    label: Estacionamento
-    box:
-      x: 109
-      y: 766
-      comprimento: 160
-      largura: 32
+  referencias:
+  - ids:
+    - Aleijadinho
+    grupo: Sunset
+    setor: Aleijadinho
+  - ids:
+    - Capitão_Jack
+    grupo: Sunset
+    setor: Capitão Jack
+  - ids:
+    - Jahngada
+    grupo: Sunset
+    setor: Jahngada
+  - ids:
+    - Planetario
+    grupo: Sunset
+    setor: Planetário
+  - ids:
+    - Free_Solo
+    grupo: Sunset
+    setor: Free Solo
+  - ids:
+    - Carrapicho
+    grupo: Sunset
+    setor: Carrapicho
+  - ids:
+    - Sunset
+    grupo: Sunset
+    setor: Sunset
+  - ids:
+    - Camaroa
+    grupo: Sunset
+    setor: Camaroa
 setores:
 - caminho: grupo_sunset_setor_aleijadinho.md
 - caminho: grupo_sunset_setor_capitao_jack.md

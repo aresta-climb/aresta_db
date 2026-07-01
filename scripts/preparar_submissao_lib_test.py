@@ -146,7 +146,7 @@ def test_validar_referencias_mapa_entidade_inexistente():
     assert any("Setor Inexistente" in e for e in erros)
     assert any("Grupo Inexistente" in e for e in erros)
 
-def test_validar_referencias_mapa_id_duplicado_no_mesmo_mapa():
+def test_validar_referencias_mapa_id_duplicado_na_mesma_referencia():
     croqui = {
         "picos": [{
             "nome": "Pico Teste",
@@ -155,8 +155,8 @@ def test_validar_referencias_mapa_id_duplicado_no_mesmo_mapa():
                     "conteudo": {
                         "nome": "Setor 1",
                         "mapas": [{"referencias": [
-                            {"escalada": "Via 1", "ids": ["A"]},
-                            {"escalada": "Via 2", "ids": ["A"]}
+                            {"escalada": "Via 1", "ids": ["A", "A"]},
+                            {"escalada": "Via 2", "ids": ["B"]}
                         ]}],
                         "escaladas": [
                             {"via_esportiva": {"nome": "Via 1"}},
@@ -168,7 +168,7 @@ def test_validar_referencias_mapa_id_duplicado_no_mesmo_mapa():
         }]
     }
     erros = validar_referencias_mapa(croqui)
-    assert any("O ID 'A' está duplicado nas referências do mesmo mapa" in e for e in erros)
+    assert any("O ID 'A' está duplicado na referência 'Via 1'" in e for e in erros)
 
 def test_validar_referencias_mapa_multiplas_enfiadas():
     croqui = {

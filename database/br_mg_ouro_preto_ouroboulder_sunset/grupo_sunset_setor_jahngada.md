@@ -1,4 +1,4 @@
----
+---
 nome: Jahngada
 escaladas:
 - boulder:
@@ -85,6 +85,7 @@ mapas:
     ids:
     - '4'
     - z
----
+---
+
 
 # Bloco Jahngada

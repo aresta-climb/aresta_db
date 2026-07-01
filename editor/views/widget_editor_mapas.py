@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QSplitter,
     QListWidget, QListWidgetItem, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem,
-    QGraphicsPathItem, QGraphicsTextItem, QDialog, QFormLayout,
+    QGraphicsPathItem, QGraphicsTextItem, QGraphicsPixmapItem, QDialog, QFormLayout,
     QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox
 )
 from PyQt6.QtCore import Qt, QRectF, QPointF, pyqtSignal
@@ -509,8 +509,18 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
 class VisualizadorMapa(QGraphicsView):
     def __init__(self):
         super().__init__()
-        self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
+        # Desabilita o drag nativo para implementarmos o customizado que não conflita com os POIs
+        self.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
+        self.setResizeAnchor(QGraphicsView.ViewportAnchor.AnchorViewCenter)
+        
+        self._arrastando_mapa = False
+        self._posicao_inicial_mouse = None
+        self._posicao_inicial_scroll = None
+        
+        # Ativa o tracking de mouse para o cursor de mão aberta (hover)
+        self.setMouseTracking(True)
+        self.viewport().setMouseTracking(True)
 
     def wheelEvent(self, evento):
         if evento.angleDelta().y() > 0:
@@ -532,6 +542,60 @@ class VisualizadorMapa(QGraphicsView):
                     return
         super().keyPressEvent(evento)
 
+    def mousePressEvent(self, evento):
+        # Apenas arrasta se não houver item e for botão esquerdo, 
+        # E se não estivermos no modo de desenho/conversão (que usam cross cursor)
+        cursor_atual = self.cursor().shape()
+        item = self.itemAt(evento.pos())
+        
+        if (not item or isinstance(item, QGraphicsPixmapItem)) and evento.button() == Qt.MouseButton.LeftButton and cursor_atual != Qt.CursorShape.CrossCursor:
+            self._arrastando_mapa = True
+            from PyQt6.QtCore import QPoint
+            self._posicao_inicial_mouse = evento.pos()
+            self._posicao_inicial_scroll = QPoint(
+                self.horizontalScrollBar().value(),
+                self.verticalScrollBar().value()
+            )
+            self.setCursor(Qt.CursorShape.ClosedHandCursor)
+            evento.accept()
+            return
+            
+        super().mousePressEvent(evento)
+
+    def mouseMoveEvent(self, evento):
+        cursor_atual = self.cursor().shape()
+        
+        if self._arrastando_mapa:
+            delta = evento.pos() - self._posicao_inicial_mouse
+            self.horizontalScrollBar().setValue(self._posicao_inicial_scroll.x() - delta.x())
+            self.verticalScrollBar().setValue(self._posicao_inicial_scroll.y() - delta.y())
+            evento.accept()
+            return
+            
+        super().mouseMoveEvent(evento)
+        
+        # Atualiza cursor de hover
+        if cursor_atual != Qt.CursorShape.CrossCursor:
+            item = self.itemAt(evento.pos())
+            if not item or isinstance(item, QGraphicsPixmapItem):
+                self.setCursor(Qt.CursorShape.OpenHandCursor)
+            else:
+                self.unsetCursor()
+
+    def mouseReleaseEvent(self, evento):
+        if self._arrastando_mapa and evento.button() == Qt.MouseButton.LeftButton:
+            self._arrastando_mapa = False
+            self.setCursor(Qt.CursorShape.OpenHandCursor)
+            evento.accept()
+            return
+            
+        super().mouseReleaseEvent(evento)
+
+    def leaveEvent(self, evento):
+        cursor_atual = self.cursor().shape()
+        if cursor_atual != Qt.CursorShape.CrossCursor:
+            self.unsetCursor()
+        super().leaveEvent(evento)
 
 class CenaDesenho(QGraphicsScene):
     def __init__(self, widget_editor):
@@ -1026,10 +1090,19 @@ class WidgetEditorMapas(QWidget):
         for i, poi in enumerate(self.msg_mapa_proxy.pontos_de_interesse):
             self._adicionar_item_cena(poi, i, cena)
             
+        # Define um sceneRect enorme para permitir navegação livre (panning) mesmo
+        # se o mapa/cena for menor que o viewport. O QtGraphicsView só habilita
+        # scrollbars se o sceneRect exceder o viewport.
+        cena.setSceneRect(-50000, -50000, 100000, 100000)
         self.visualizador.setScene(cena)
         
         if reset_zoom:
-            self.visualizador.fitInView(cena.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+            # Em vez de cena.sceneRect() (que agora é enorme), ajustamos
+            # o zoom baseado na área ocupada pelos itens (a imagem do mapa e POIs).
+            rect_itens = cena.itemsBoundingRect()
+            if rect_itens.isNull():
+                rect_itens = QRectF(0, 0, 800, 600)
+            self.visualizador.fitInView(rect_itens, Qt.AspectRatioMode.KeepAspectRatio)
         else:
             self.visualizador.setTransform(old_transform)
             self.visualizador.horizontalScrollBar().setValue(old_h_scroll)
@@ -1118,7 +1191,7 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setText("MODO DESENHO - Clique para pontos, feche no primeiro. Dir: desfazer.")
         self.label_modo.setStyleSheet("color: white; background-color: #dc3545; font-weight: bold; padding: 8px; border-radius: 4px;")
         self.label_modo.setVisible(True)
-        self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag)
+        # self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag) # Substituído por controle customizado
         self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
         self.item_desenho_temp = QGraphicsPathItem()
         self.item_desenho_temp.setPen(QPen(QColor(255, 100, 100), 2))
@@ -1186,7 +1259,7 @@ class WidgetEditorMapas(QWidget):
     def cancelar_modo_desenho(self):
         self.modo_desenho = False
         self.label_modo.setVisible(False)
-        self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
+        # self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag) # Substituído por controle customizado
         self.visualizador.unsetCursor()
         if self.item_desenho_temp:
             self.dados_atuais['cena'].removeItem(self.item_desenho_temp)
@@ -1214,14 +1287,14 @@ class WidgetEditorMapas(QWidget):
         self.modo_conversao = True
         self.label_conversao.setVisible(True)
         self.btn_converter.setStyleSheet("background-color: orange; font-weight: bold;")
-        self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag)
+        # self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag) # Substituído por controle customizado
         self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
 
     def parar_modo_conversao(self):
         self.modo_conversao = False
         self.label_conversao.setVisible(False)
         self.btn_converter.setStyleSheet("")
-        self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
+        # self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag) # Substituído por controle customizado
         self.visualizador.unsetCursor()
         self.origem_selecao = None
 

@@ -1,4 +1,4 @@
----
+---
 nome: Capitão Jack
 escaladas:
 - boulder:
@@ -87,6 +87,7 @@ mapas:
     ids:
     - '3'
     - x_b
----
+---
+
 
 # Bloco Capitão Jack

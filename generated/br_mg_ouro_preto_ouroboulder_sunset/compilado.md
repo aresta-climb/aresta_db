@@ -188,7 +188,7 @@
         - **label**: Planetario
         - **box**:
           - **x**: 381
-          - **y**: 160
+          - **y**: 161
           - **comprimento**: 102
           - **largura**: 30
       - **[4]**:
@@ -219,8 +219,8 @@
         - **id**: Capitão_Jack
         - **label**: Capitão Jack
         - **box**:
-          - **x**: 242
-          - **y**: 370
+          - **x**: 243
+          - **y**: 372
           - **comprimento**: 78
           - **largura**: 53
       - **[8]**:
@@ -231,14 +231,47 @@
           - **y**: 488
           - **comprimento**: 118
           - **largura**: 33
-      - **[9]**:
-        - **id**: Estacionamento
-        - **label**: Estacionamento
-        - **box**:
-          - **x**: 109
-          - **y**: 766
-          - **comprimento**: 160
-          - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - Aleijadinho
+        - **grupo**: Sunset
+        - **setor**: Aleijadinho
+      - **[1]**:
+        - **ids**:
+          - Capitão_Jack
+        - **grupo**: Sunset
+        - **setor**: Capitão Jack
+      - **[2]**:
+        - **ids**:
+          - Jahngada
+        - **grupo**: Sunset
+        - **setor**: Jahngada
+      - **[3]**:
+        - **ids**:
+          - Planetario
+        - **grupo**: Sunset
+        - **setor**: Planetário
+      - **[4]**:
+        - **ids**:
+          - Free_Solo
+        - **grupo**: Sunset
+        - **setor**: Free Solo
+      - **[5]**:
+        - **ids**:
+          - Carrapicho
+        - **grupo**: Sunset
+        - **setor**: Carrapicho
+      - **[6]**:
+        - **ids**:
+          - Sunset
+        - **grupo**: Sunset
+        - **setor**: Sunset
+      - **[7]**:
+        - **ids**:
+          - Camaroa
+        - **grupo**: Sunset
+        - **setor**: Camaroa
 - **setores**:
   - **[0]**:
     - **conteudo**:
