@@ -15,22 +15,22 @@ mapas:
   - id: '28'
     label: '28'
     box:
-      x: 89
+      x: 90
       y: 174
       comprimento: 14
-      largura: 12
+      largura: 10
   - id: '29'
     label: '29'
     box:
-      x: 68
+      x: 69
       y: 154
       comprimento: 12
-      largura: 8
+      largura: 10
   - id: '30'
     label: '30'
     box:
       x: 54
-      y: 142
+      y: 144
       comprimento: 11
       largura: 9
   - id: '31'
@@ -43,31 +43,31 @@ mapas:
   - id: '32'
     label: '32'
     box:
-      x: 33
+      x: 35
       y: 79
       comprimento: 14
       largura: 12
   - id: '33'
     label: '33'
     box:
-      x: 38
-      y: 54
-      comprimento: 11
-      largura: 8
+      x: 39
+      y: 55
+      comprimento: 12
+      largura: 10
   - id: '34'
     label: '34'
     box:
       x: 42
       y: 38
-      comprimento: 14
-      largura: 12
+      comprimento: 13
+      largura: 10
   - id: '35'
     label: '35'
     box:
-      x: 61
+      x: 62
       y: 34
-      comprimento: 14
-      largura: 12
+      comprimento: 12
+      largura: 11
   - id: '36'
     label: '36'
     box:
@@ -106,15 +106,15 @@ mapas:
   - id: '41'
     label: '41'
     box:
-      x: 82
-      y: 160
-      comprimento: 10
+      x: 84
+      y: 162
+      comprimento: 11
       largura: 9
   - id: '42'
     label: '42'
     box:
       x: 117
-      y: 175
+      y: 176
       comprimento: 14
       largura: 12
   - id: '43'
@@ -128,7 +128,7 @@ mapas:
     label: '44'
     box:
       x: 149
-      y: 158
+      y: 159
       comprimento: 14
       largura: 12
   - id: '45'
@@ -141,14 +141,14 @@ mapas:
   - id: '46'
     label: '46'
     box:
-      x: 229
-      y: 188
+      x: 230
+      y: 189
       comprimento: 16
       largura: 12
   - id: '47'
     label: '47'
     box:
-      x: 249
+      x: 250
       y: 188
       comprimento: 14
       largura: 13
@@ -156,7 +156,7 @@ mapas:
     label: '48'
     box:
       x: 270
-      y: 182
+      y: 184
       comprimento: 15
       largura: 13
   - id: '49'
@@ -169,8 +169,8 @@ mapas:
   - id: '50'
     label: '50'
     box:
-      x: 338
-      y: 257
+      x: 340
+      y: 259
       comprimento: 15
       largura: 12
   - id: '51'
@@ -180,13 +180,6 @@ mapas:
       y: 270
       comprimento: 16
       largura: 13
-  - id: Sala_de_aula
-    label: Sala de aula
-    box:
-      x: 186
-      y: 46
-      comprimento: 65
-      largura: 40
   - id: Savassinha
     label: Savassinha
     box:
@@ -270,6 +263,9 @@ mapas:
   - escalada: Garotos não Choram
     ids:
     - '51'
+  - ids:
+    - Savassinha
+    setor: Savassinha (Mapa 9)
 escaladas:
 - via_esportiva:
     nome: Fogo no Rabo

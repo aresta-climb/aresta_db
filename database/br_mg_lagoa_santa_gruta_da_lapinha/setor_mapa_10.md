@@ -8,66 +8,52 @@ mapas:
   - id: '125'
     label: '125'
     box:
-      x: 122
-      y: 182
+      x: 123
+      y: 183
       comprimento: 14
       largura: 12
   - id: '126'
     label: '126'
     box:
-      x: 102
+      x: 103
       y: 163
       comprimento: 14
       largura: 12
   - id: '127'
     label: '127'
     box:
-      x: 66
-      y: 166
+      x: 67
+      y: 168
       comprimento: 14
       largura: 12
   - id: '128'
     label: '128'
     box:
-      x: 44
-      y: 152
+      x: 45
+      y: 153
       comprimento: 14
       largura: 12
   - id: '129'
     label: '129'
     box:
-      x: 32
+      x: 33
       y: 137
       comprimento: 14
       largura: 12
   - id: '130'
     label: '130'
     box:
-      x: 49
-      y: 87
+      x: 50
+      y: 88
       comprimento: 14
       largura: 12
   - id: '131'
     label: '131'
     box:
       x: 75
-      y: 59
+      y: 58
       comprimento: 14
       largura: 12
-  - id: Bloco_Romano
-    label: Bloco Romano
-    box:
-      x: 237
-      y: 76
-      comprimento: 172
-      largura: 25
-  - id: Teto
-    label: Teto
-    box:
-      x: 206
-      y: 139
-      comprimento: 36
-      largura: 18
   referencias:
   - escalada: Spartacus
     ids:

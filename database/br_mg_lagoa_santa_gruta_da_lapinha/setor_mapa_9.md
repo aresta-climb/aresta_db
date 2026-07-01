@@ -8,14 +8,14 @@ mapas:
   - id: '105'
     label: '105'
     box:
-      x: 155
+      x: 156
       y: 354
       comprimento: 20
       largura: 11
   - id: '106'
     label: '106'
     box:
-      x: 126
+      x: 128
       y: 338
       comprimento: 19
       largura: 11
@@ -29,7 +29,7 @@ mapas:
   - id: '108'
     label: '108'
     box:
-      x: 41
+      x: 43
       y: 322
       comprimento: 18
       largura: 10
@@ -85,7 +85,7 @@ mapas:
   - id: '116'
     label: '116'
     box:
-      x: 183
+      x: 184
       y: 215
       comprimento: 18
       largura: 12
@@ -99,7 +99,7 @@ mapas:
   - id: '118'
     label: '118'
     box:
-      x: 154
+      x: 156
       y: 248
       comprimento: 19
       largura: 11
@@ -145,13 +145,6 @@ mapas:
       y: 79
       comprimento: 21
       largura: 12
-  - id: Savassinha
-    label: Savassinha
-    box:
-      x: 116
-      y: 81
-      comprimento: 155
-      largura: 32
   referencias:
   - escalada: Corvo Gigante
     ids:
@@ -192,6 +185,26 @@ mapas:
   - escalada: Primeiro General
     ids:
     - '124'
+  - ids:
+    - '105'
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Tentações de Maria Madalena
+  - ids:
+    - '106'
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Sai do chão
+  - ids:
+    - '107'
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Ato Imperdoável
+  - ids:
+    - '108'
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Projeto Rodrigo do Paraná
+  - ids:
+    - '109'
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Pequena Criança
 escaladas:
 - via_esportiva:
     nome: Corvo Gigante

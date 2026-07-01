@@ -15,7 +15,7 @@ mapas:
   - id: '77'
     label: '77'
     box:
-      x: 323
+      x: 324
       y: 297
       comprimento: 14
       largura: 12
@@ -29,15 +29,15 @@ mapas:
   - id: '79'
     label: '79'
     box:
-      x: 258
-      y: 105
+      x: 257
+      y: 104
       comprimento: 14
       largura: 12
   - id: '80'
     label: '80'
     box:
       x: 276
-      y: 132
+      y: 133
       comprimento: 14
       largura: 12
   - id: '81'
@@ -51,21 +51,21 @@ mapas:
     label: '82'
     box:
       x: 417
-      y: 312
+      y: 313
       comprimento: 14
       largura: 12
   - id: '83'
     label: '83'
     box:
-      x: 426
+      x: 427
       y: 328
       comprimento: 14
       largura: 12
   - id: '84'
     label: '84'
     box:
-      x: 446
-      y: 352
+      x: 447
+      y: 354
       comprimento: 12
       largura: 9
   - id: '85'
@@ -82,13 +82,6 @@ mapas:
       y: 350
       comprimento: 12
       largura: 9
-  - id: Monte_Calvario
-    label: Monte Calvário
-    box:
-      x: 422
-      y: 88
-      comprimento: 99
-      largura: 57
   referencias:
   - escalada: Cariocas não dizem Uai
     ids:

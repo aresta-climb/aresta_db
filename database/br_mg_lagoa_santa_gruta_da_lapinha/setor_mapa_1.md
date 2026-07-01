@@ -8,8 +8,8 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 122
-      y: 178
+      x: 123
+      y: 180
       comprimento: 10
       largura: 9
   - id: '02'
@@ -23,7 +23,7 @@ mapas:
     label: '03'
     box:
       x: 193
-      y: 220
+      y: 222
       comprimento: 10
       largura: 9
   - id: '04'
@@ -36,7 +36,7 @@ mapas:
   - id: '05'
     label: '05'
     box:
-      x: 225
+      x: 226
       y: 198
       comprimento: 10
       largura: 9

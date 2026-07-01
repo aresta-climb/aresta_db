@@ -8,7 +8,7 @@ mapas:
   - id: '82'
     label: '82'
     box:
-      x: 10
+      x: 11
       y: 97
       comprimento: 14
       largura: 12
@@ -22,29 +22,29 @@ mapas:
   - id: '84'
     label: '84'
     box:
-      x: 45
-      y: 143
+      x: 46
+      y: 144
       comprimento: 14
       largura: 12
   - id: '85'
     label: '85'
     box:
-      x: 63
+      x: 64
       y: 142
       comprimento: 14
       largura: 12
   - id: '86'
     label: '86'
     box:
-      x: 86
+      x: 87
       y: 140
       comprimento: 14
       largura: 12
   - id: '87'
     label: '87'
     box:
-      x: 126
-      y: 141
+      x: 128
+      y: 142
       comprimento: 14
       largura: 12
   - id: '88'
@@ -57,7 +57,7 @@ mapas:
   - id: '89'
     label: '89'
     box:
-      x: 102
+      x: 103
       y: 154
       comprimento: 14
       largura: 12
@@ -71,28 +71,28 @@ mapas:
   - id: '92'
     label: '92'
     box:
-      x: 181
+      x: 182
       y: 194
       comprimento: 12
       largura: 9
   - id: '93'
     label: '93'
     box:
-      x: 192
-      y: 182
+      x: 194
+      y: 184
       comprimento: 11
       largura: 9
   - id: '94'
     label: '94'
     box:
-      x: 210
+      x: 211
       y: 173
       comprimento: 14
       largura: 12
   - id: '95'
     label: '95'
     box:
-      x: 238
+      x: 239
       y: 159
       comprimento: 14
       largura: 12
@@ -107,21 +107,21 @@ mapas:
     label: '97'
     box:
       x: 207
-      y: 139
+      y: 140
       comprimento: 12
       largura: 8
   - id: '98'
     label: '98'
     box:
-      x: 200
+      x: 202
       y: 158
       comprimento: 11
       largura: 11
   - id: '99'
     label: '99'
     box:
-      x: 180
-      y: 124
+      x: 181
+      y: 126
       comprimento: 14
       largura: 11
   - id: '100'
@@ -142,21 +142,21 @@ mapas:
     label: '102'
     box:
       x: 180
-      y: 86
+      y: 88
       comprimento: 17
       largura: 11
   - id: '103'
     label: '103'
     box:
-      x: 206
-      y: 104
+      x: 207
+      y: 105
       comprimento: 18
       largura: 10
   - id: '104'
     label: '104'
     box:
       x: 230
-      y: 98
+      y: 99
       comprimento: 17
       largura: 10
   - id: '105'
@@ -169,15 +169,15 @@ mapas:
   - id: '106'
     label: '106'
     box:
-      x: 214
-      y: 55
+      x: 216
+      y: 56
       comprimento: 19
       largura: 10
   - id: '107'
     label: '107'
     box:
       x: 168
-      y: 40
+      y: 42
       comprimento: 19
       largura: 9
   - id: '108'
@@ -190,17 +190,10 @@ mapas:
   - id: '109'
     label: '109'
     box:
-      x: 128
-      y: 28
+      x: 130
+      y: 29
       comprimento: 17
       largura: 10
-  - id: Tunel_de_pedra
-    label: Túnel de pedra
-    box:
-      x: 392
-      y: 55
-      comprimento: 128
-      largura: 78
   referencias:
   - escalada: Bigode de Cristo
     ids:
@@ -268,6 +261,26 @@ mapas:
   - escalada: Pequena Criança
     ids:
     - '109'
+  - ids:
+    - '82'
+    setor: Setor Mapa 7
+    escalada: Três dentro, três fora
+  - ids:
+    - '83'
+    setor: Setor Mapa 7
+    escalada: Só para eles
+  - ids:
+    - '84'
+    setor: Setor Mapa 7
+    escalada: Só para elas
+  - ids:
+    - '85'
+    setor: Setor Mapa 7
+    escalada: Prestobarba
+  - ids:
+    - '86'
+    setor: Setor Mapa 7
+    escalada: Bigode Limpo
 escaladas:
 - via_esportiva:
     nome: Bigode de Cristo

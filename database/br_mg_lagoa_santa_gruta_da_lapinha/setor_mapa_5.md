@@ -57,10 +57,10 @@ mapas:
   - id: '59'
     label: '59'
     box:
-      x: 147
+      x: 148
       y: 158
-      comprimento: 14
-      largura: 12
+      comprimento: 13
+      largura: 11
   - id: '60'
     label: '60'
     box:
@@ -68,27 +68,6 @@ mapas:
       y: 141
       comprimento: 14
       largura: 12
-  - id: Pasto
-    label: Pasto
-    box:
-      x: 282
-      y: 159
-      comprimento: 42
-      largura: 18
-  - id: Teto
-    label: Teto
-    box:
-      x: 94
-      y: 188
-      comprimento: 33
-      largura: 17
-  - id: Mancha_amarela
-    label: Mancha amarela
-    box:
-      x: 178
-      y: 226
-      comprimento: 55
-      largura: 31
   referencias:
   - escalada: Ben Moon
     ids:

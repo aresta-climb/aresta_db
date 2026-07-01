@@ -29,36 +29,36 @@ mapas:
   - id: '64'
     label: '64'
     box:
-      x: 239
-      y: 178
+      x: 240
+      y: 179
       comprimento: 10
       largura: 8
   - id: '65'
     label: '65'
     box:
-      x: 223
-      y: 156
+      x: 224
+      y: 157
       comprimento: 10
       largura: 8
   - id: '66'
     label: '66'
     box:
-      x: 223
-      y: 145
+      x: 224
+      y: 146
       comprimento: 10
       largura: 8
   - id: '67'
     label: '67'
     box:
-      x: 236
-      y: 150
+      x: 237
+      y: 152
       comprimento: 10
       largura: 8
   - id: '68'
     label: '68'
     box:
       x: 266
-      y: 122
+      y: 123
       comprimento: 10
       largura: 10
   - id: '69'
@@ -78,8 +78,8 @@ mapas:
   - id: '71'
     label: '71'
     box:
-      x: 278
-      y: 135
+      x: 280
+      y: 136
       comprimento: 11
       largura: 10
   - id: '72'
@@ -99,31 +99,17 @@ mapas:
   - id: '74'
     label: '74'
     box:
-      x: 344
-      y: 217
+      x: 345
+      y: 216
       comprimento: 14
       largura: 12
   - id: '75'
     label: '75'
     box:
       x: 421
-      y: 236
+      y: 238
       comprimento: 14
       largura: 12
-  - id: Vale_Verde
-    label: Vale Verde
-    box:
-      x: 95
-      y: 220
-      comprimento: 130
-      largura: 25
-  - id: Raul_Seixas
-    label: Bloco do Raul Seixas
-    box:
-      x: 340
-      y: 266
-      comprimento: 51
-      largura: 21
   referencias:
   - escalada: Psico Circus
     ids:

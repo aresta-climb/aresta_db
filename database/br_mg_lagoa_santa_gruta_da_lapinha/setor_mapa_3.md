@@ -8,15 +8,15 @@ mapas:
   - id: '09'
     label: '09'
     box:
-      x: 240
-      y: 72
+      x: 241
+      y: 73
       comprimento: 12
       largura: 10
   - id: '10'
     label: '10'
     box:
-      x: 245
-      y: 60
+      x: 246
+      y: 61
       comprimento: 12
       largura: 10
   - id: '11'
@@ -30,22 +30,22 @@ mapas:
     label: '12'
     box:
       x: 238
-      y: 35
+      y: 36
       comprimento: 11
       largura: 10
   - id: '13'
     label: '13'
     box:
       x: 226
-      y: 39
+      y: 40
       comprimento: 11
       largura: 10
   - id: '14'
     label: '14'
     box:
-      x: 212
-      y: 48
-      comprimento: 11
+      x: 213
+      y: 50
+      comprimento: 12
       largura: 11
   - id: '15'
     label: '15'
@@ -57,49 +57,49 @@ mapas:
   - id: '16'
     label: '16'
     box:
-      x: 155
+      x: 154
       y: 99
       comprimento: 14
       largura: 12
   - id: '17'
     label: '17'
     box:
-      x: 70
+      x: 71
       y: 122
       comprimento: 14
       largura: 12
   - id: '18'
     label: '18'
     box:
-      x: 84
-      y: 183
+      x: 85
+      y: 184
       comprimento: 14
       largura: 12
   - id: '19'
     label: '19'
     box:
-      x: 104
-      y: 189
+      x: 105
+      y: 190
       comprimento: 14
       largura: 12
   - id: '20'
     label: '20'
     box:
-      x: 177
-      y: 149
+      x: 178
+      y: 150
       comprimento: 14
       largura: 12
   - id: '21'
     label: '21'
     box:
       x: 205
-      y: 142
+      y: 143
       comprimento: 14
       largura: 12
   - id: '22'
     label: '22'
     box:
-      x: 233
+      x: 234
       y: 135
       comprimento: 14
       largura: 12
@@ -107,27 +107,27 @@ mapas:
     label: '23'
     box:
       x: 247
-      y: 155
+      y: 156
       comprimento: 14
       largura: 12
   - id: '24'
     label: '24'
     box:
-      x: 271
+      x: 272
       y: 147
       comprimento: 14
       largura: 12
   - id: '25'
     label: '25'
     box:
-      x: 306
-      y: 141
+      x: 305
+      y: 142
       comprimento: 14
       largura: 12
   - id: '26'
     label: '26'
     box:
-      x: 305
+      x: 304
       y: 126
       comprimento: 14
       largura: 12
@@ -136,29 +136,29 @@ mapas:
     box:
       x: 357
       y: 74
-      comprimento: 14
-      largura: 12
+      comprimento: 12
+      largura: 10
   - id: '28'
     label: '28'
     box:
       x: 372
-      y: 53
+      y: 52
       comprimento: 14
-      largura: 12
+      largura: 11
   - id: '29'
     label: '29'
     box:
       x: 388
-      y: 29
+      y: 30
       comprimento: 14
-      largura: 12
+      largura: 11
   - id: '30'
     label: '30'
     box:
       x: 399
-      y: 15
+      y: 16
       comprimento: 14
-      largura: 12
+      largura: 11
   - id: '45'
     label: '45'
     box:
@@ -177,13 +177,13 @@ mapas:
     label: '47'
     box:
       x: 362
-      y: 187
+      y: 188
       comprimento: 14
       largura: 12
   - id: '48'
     label: '48'
     box:
-      x: 365
+      x: 366
       y: 203
       comprimento: 14
       largura: 12

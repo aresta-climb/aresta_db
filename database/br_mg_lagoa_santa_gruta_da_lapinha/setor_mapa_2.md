@@ -15,31 +15,10 @@ mapas:
   - id: '08'
     label: '08'
     box:
-      x: 177
-      y: 114
+      x: 178
+      y: 112
       comprimento: 10
       largura: 9
-  - id: Entrada_da_gruta
-    label: Entrada da gruta
-    box:
-      x: 148
-      y: 28
-      comprimento: 89
-      largura: 15
-  - id: Restaurante_Castelinho
-    label: Restaurante Castelinho
-    box:
-      x: 59
-      y: 92
-      comprimento: 80
-      largura: 35
-  - id: Centro_Dr_Lund
-    label: Centro Dr. Lund
-    box:
-      x: 236
-      y: 204
-      comprimento: 57
-      largura: 29
   referencias:
   - escalada: Ajoelhou tem que Rezar
     ids:
