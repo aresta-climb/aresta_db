@@ -107,6 +107,9 @@ class BaseItemPOI:
         if self.callback_mudanca:
             self.callback_mudanca()
 
+    def set_clique_handler(self, handler):
+        self.clique_handler = handler
+
     def tratar_menu_contexto(self, evento, callback_deletar):
         menu = QMenu()
         acao_renomear = menu.addAction("Renomear Ponto de Interesse")
@@ -173,6 +176,10 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
         self.tratar_menu_contexto(evento, self.callback_deletar)
 
     def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
         if evento.modifiers() == Qt.KeyboardModifier.ControlModifier:
             self.redimensionando = True
@@ -291,6 +298,10 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
         self.tratar_menu_contexto(evento, self.callback_deletar)
 
     def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
         if evento.modifiers() == Qt.KeyboardModifier.ControlModifier:
             self.redimensionando = True
@@ -357,6 +368,10 @@ class AlcaVertice(QGraphicsEllipseItem):
         return super().itemChange(mudanca, valor)
 
     def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
         self.item_pai._estado_inicial = copy.deepcopy(self.item_pai.obter_dict_atualizado())
         super().mousePressEvent(evento)
 
@@ -426,6 +441,10 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
         self.marcar_alterado()
 
     def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
         super().mousePressEvent(evento)
 
@@ -523,6 +542,10 @@ class CenaDesenho(QGraphicsScene):
         self.selection_item = None
 
     def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
         if self.widget_editor.drawing_mode:
             pos = evento.scenePos()
             if evento.button() == Qt.MouseButton.LeftButton:
@@ -643,6 +666,11 @@ class WidgetEditorMapas(QWidget):
         layout_principal.setSpacing(0)
 
         self.splitter = QSplitter(Qt.Orientation.Horizontal)
+        self.splitter.setStyleSheet("""
+            QSplitter::handle {
+                background: transparent;
+            }
+        """)
         
         # Painel Esquerdo (Sidebar de Mapas)
         self.widget_esquerdo = QWidget()
@@ -734,11 +762,11 @@ class WidgetEditorMapas(QWidget):
         self.visualizador = VisualizadorMapa()
         self.visualizador.setStyleSheet("background-color: #e9ecef; border: 1px solid #dee2e6; border-radius: 4px;")
         
-        self.label_desenho = QLabel("MODO DESENHO - Clique para pontos, feche no primeiro. Dir: desfazer.")
-        self.label_desenho.setStyleSheet("color: white; background-color: #dc3545; font-weight: bold; padding: 8px; border-radius: 4px;")
-        self.label_desenho.setVisible(False)
-        self.label_desenho.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        layout_direito.addWidget(self.label_desenho)
+        self.label_modo = QLabel("MODO DESENHO - Clique para pontos, feche no primeiro. Dir: desfazer.")
+        self.label_modo.setStyleSheet("color: white; background-color: #dc3545; font-weight: bold; padding: 8px; border-radius: 4px;")
+        self.label_modo.setVisible(False)
+        self.label_modo.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout_direito.addWidget(self.label_modo)
 
         self.label_conversao = QLabel("MODO CONVERSÃO - Selecione uma área no mapa ou CLIQUE NO BOTÃO NOVAMENTE para converter TODAS as boxes.")
         self.label_conversao.setStyleSheet("color: white; background-color: #fd7e14; font-weight: bold; padding: 8px; border-radius: 4px;")
@@ -771,6 +799,17 @@ class WidgetEditorMapas(QWidget):
         self.splitter.setSizes([200, 800])
         
         layout_principal.addWidget(self.splitter)
+        from editor.views.widget_painel_referencias import PainelReferencias
+        self.painel_referencias = PainelReferencias(self.mapas_controller)
+        self.splitter.addWidget(self.painel_referencias)
+        self.painel_referencias.destacar_pois.connect(self.destacar_pois_temporariamente)
+        self.painel_referencias.remover_destaque_pois.connect(self.remover_destaque_pois)
+        self.painel_referencias.iniciar_modo_linkagem.connect(self.iniciar_modo_linkagem)
+        self.painel_referencias.parar_modo_linkagem.connect(self.parar_modo_linkagem)
+        self.painel_referencias.iniciar_modo_camera.connect(self.iniciar_modo_camera)
+        self.painel_referencias.parar_modo_camera.connect(self.parar_modo_camera)
+        self.painel_referencias.salvar_modo_camera.connect(self.salvar_ajuste_camera)
+        self.painel_referencias.remover_ajuste_camera.connect(self.remover_ajuste_camera)
 
     def configurar_lista_mapas(self):
         """Conecta o modelo reativo e preenche a lista."""
@@ -786,6 +825,9 @@ class WidgetEditorMapas(QWidget):
         
     def _atualizar_lista_mapas(self, *args):
         """Reconstrói a lista lendo do CroquiModel."""
+        if len(args) == 2 and args[1] == 'referencias':
+            return
+            
         from PyQt6.QtWidgets import QListWidgetItem
         from PyQt6.QtCore import Qt
         from pathlib import Path
@@ -946,6 +988,7 @@ class WidgetEditorMapas(QWidget):
             model.repeated_adicionado.connect(self._on_repeated_adicionado)
             model.repeated_removido.connect(self._on_repeated_removido)
             
+        self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=True)
         
     def _renderizar_mapa(self, reset_zoom=True):
@@ -965,6 +1008,11 @@ class WidgetEditorMapas(QWidget):
         cena.clear()
         self.itens_poi.clear()
         dados['itens_bb'] = []
+        
+        if hasattr(self, 'modo_linkagem') and self.modo_linkagem:
+            self._aplicar_highlight_linkagem()
+        if hasattr(self, 'modo_camera') and self.modo_camera:
+            self.destacar_pois_temporariamente(self.referencia_camera_ativa)
         
         img_path = None
         if self.mapas_controller:
@@ -1010,6 +1058,7 @@ class WidgetEditorMapas(QWidget):
             item_visual = ItemBoundingAreaLivre(pt_dict, cb_deletar)
             
         if item_visual:
+            item_visual.set_clique_handler(self.tratar_clique_poi_linkagem)
             cena.addItem(item_visual)
             self.itens_poi[index] = item_visual
             self.dados_atuais['itens_bb'].append(item_visual)
@@ -1066,7 +1115,9 @@ class WidgetEditorMapas(QWidget):
         self.modo_desenho = True
         self.pontos_desenho = []
         self.dados_atuais = dados
-        self.label_desenho.setVisible(True)
+        self.label_modo.setText("MODO DESENHO - Clique para pontos, feche no primeiro. Dir: desfazer.")
+        self.label_modo.setStyleSheet("color: white; background-color: #dc3545; font-weight: bold; padding: 8px; border-radius: 4px;")
+        self.label_modo.setVisible(True)
         self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
         self.item_desenho_temp = QGraphicsPathItem()
@@ -1134,7 +1185,7 @@ class WidgetEditorMapas(QWidget):
 
     def cancelar_modo_desenho(self):
         self.modo_desenho = False
-        self.label_desenho.setVisible(False)
+        self.label_modo.setVisible(False)
         self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
         self.visualizador.unsetCursor()
         if self.item_desenho_temp:
@@ -1268,6 +1319,8 @@ class WidgetEditorMapas(QWidget):
             self.label_box.setText("0%")
 
     def _on_repeated_item_alterado(self, msg, campo_nome, index):
+        if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
+            self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
             poi = msg.pontos_de_interesse[index]
             item_existente = self.itens_poi.get(index)
@@ -1289,9 +1342,361 @@ class WidgetEditorMapas(QWidget):
                     self._renderizar_mapa()
 
     def _on_repeated_adicionado(self, msg, campo_nome, index):
+        if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
+            self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
             self._renderizar_mapa()
 
     def _on_repeated_removido(self, msg, campo_nome, index):
+        if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
+            self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
             self._renderizar_mapa()
+
+
+    def destacar_pois_temporariamente(self, referencia):
+        ids_list = list(referencia.ids) if hasattr(referencia, 'ids') else []
+        is_camera = getattr(self, 'modo_camera', False)
+        
+        for idx_poi, gui_item in self.itens_poi.items():
+            poi_dict = gui_item.pt_dict
+            if poi_dict.get('id') in ids_list:
+                from PyQt6.QtGui import QBrush, QColor, QPen
+                gui_item.brush = QBrush(QColor(0, 255, 255, 150))
+                gui_item.setBrush(gui_item.brush)
+                gui_item.setPen(QPen(QColor(0, 255, 255), 2))
+                
+        # Draw static camera if exists
+        if not is_camera and hasattr(referencia, 'ajuste_de_camera') and referencia.HasField('ajuste_de_camera') and referencia.ajuste_de_camera.zoom > 0:
+            if not hasattr(self, 'item_hover_camera_overlay') or not self.item_hover_camera_overlay:
+                self.item_hover_camera_overlay = ItemCameraOverlay()
+                if self.visualizador.scene():
+                    self.visualizador.scene().addItem(self.item_hover_camera_overlay)
+            self.item_hover_camera_overlay.setVisible(True)
+            from PyQt6.QtGui import QPen, QColor
+            from PyQt6.QtCore import Qt
+            self.item_hover_camera_overlay.setPen(QPen(QColor("#6f42c1"), 3, Qt.PenStyle.DashLine))
+            
+            scene_rect = self.visualizador.sceneRect()
+            if scene_rect.isEmpty():
+                scene_rect = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
+            
+            w_scene = scene_rect.width()
+            h_scene = scene_rect.height()
+            
+            zoom = referencia.ajuste_de_camera.zoom
+            pos_h = referencia.ajuste_de_camera.posicao_horizontal / 100.0
+            pos_v = referencia.ajuste_de_camera.posicao_vertical / 100.0
+            
+            w = w_scene / zoom
+            h = w * (16.0 / 9.0)
+            
+            center_x = pos_h * w_scene
+            center_y = pos_v * h_scene
+            
+            x = scene_rect.x() + center_x - w/2
+            y = scene_rect.y() + center_y - h/2
+            
+            self.item_hover_camera_overlay.setRect(0, 0, w, h)
+            self.item_hover_camera_overlay.setPos(x, y)
+        else:
+            if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
+                self.item_hover_camera_overlay.setVisible(False)
+
+    def remover_destaque_pois(self, force=False):
+        for idx_poi, gui_item in self.itens_poi.items():
+            from PyQt6.QtGui import QBrush, QColor, QPen
+            if getattr(gui_item, 'is_hovered', False):
+                gui_item.brush = QBrush(QColor(255, 165, 0, 100)) # Laranja hover
+                gui_item.setBrush(gui_item.brush)
+                gui_item.setPen(QPen(QColor(255, 140, 0), 2))
+            else:
+                gui_item.brush = QBrush(QColor(0, 255, 0, 50)) # Verde padrao
+                gui_item.setBrush(gui_item.brush)
+                gui_item.setPen(QPen(QColor(0, 255, 0), 2))
+            
+        if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
+            if self.visualizador.scene():
+                self.visualizador.scene().removeItem(self.item_hover_camera_overlay)
+            self.item_hover_camera_overlay = None
+            
+        if not force:
+            if getattr(self, 'referencia_camera_ativa', None):
+                self.destacar_pois_temporariamente(self.referencia_camera_ativa)
+            elif getattr(self, 'referencia_linkagem_ativa', None):
+                self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
+
+    def _aplicar_highlight_linkagem(self):
+        self.remover_destaque_pois(force=True)
+        self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
+
+    def iniciar_modo_camera(self, index, referencia):
+        self.referencia_camera_ativa = referencia
+        self.camera_ref_idx = index
+        self.modo_camera = True
+        
+        self.label_modo.setText("MODO CÂMERA - Posicione e redimensione a janela 9:16. Ao final, clique em Salvar Ajuste no painel lateral.")
+        self.label_modo.setStyleSheet("color: white; background-color: #6f42c1; font-weight: bold; padding: 8px; border-radius: 4px;")
+        self.label_modo.setVisible(True)
+        
+        if not hasattr(self, 'item_camera_overlay') or not self.item_camera_overlay:
+            self.item_camera_overlay = ItemCameraOverlay()
+            if self.visualizador.scene():
+                self.visualizador.scene().addItem(self.item_camera_overlay)
+        else:
+            self.item_camera_overlay.setVisible(True)
+
+        self.destacar_pois_temporariamente(referencia)
+        
+        scene_rect = self.visualizador.sceneRect()
+        if scene_rect.isEmpty():
+            scene_rect = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
+            
+        w_scene = scene_rect.width()
+        h_scene = scene_rect.height()
+        
+        if referencia.HasField('ajuste_de_camera') and referencia.ajuste_de_camera.zoom > 0:
+            zoom = referencia.ajuste_de_camera.zoom
+            pos_h = referencia.ajuste_de_camera.posicao_horizontal / 100.0
+            pos_v = referencia.ajuste_de_camera.posicao_vertical / 100.0
+            
+            w = w_scene / zoom
+            h = w * (16.0 / 9.0)
+            
+            center_x = pos_h * w_scene
+            center_y = pos_v * h_scene
+            
+            x = scene_rect.x() + center_x - w/2
+            y = scene_rect.y() + center_y - h/2
+            
+            self.item_camera_overlay.setRect(0, 0, w, h)
+            self.item_camera_overlay.setPos(x, y)
+        else:
+            w = min(w_scene * 0.8, h_scene * 0.8 * (9.0 / 16.0))
+            h = w * (16.0 / 9.0)
+            x = scene_rect.x() + (w_scene - w) / 2
+            y = scene_rect.y() + (h_scene - h) / 2
+            
+        self.item_camera_overlay.setRect(0, 0, w, h)
+        self.item_camera_overlay.setPos(x, y)
+        
+    def parar_modo_camera(self):
+        self.referencia_camera_ativa = None
+        self.modo_camera = False
+        if hasattr(self, 'item_camera_overlay') and self.item_camera_overlay:
+            if self.visualizador.scene():
+                self.visualizador.scene().removeItem(self.item_camera_overlay)
+            self.item_camera_overlay = None
+        self.remover_destaque_pois()
+        self.label_modo.setVisible(False)
+
+    def salvar_ajuste_camera(self):
+        if not hasattr(self, 'referencia_camera_ativa') or not self.referencia_camera_ativa:
+            return
+            
+        ref = self.referencia_camera_ativa
+        idx = -1
+        for i, r in enumerate(self.msg_mapa_proxy.referencias):
+            if r == ref:
+                idx = i
+                break
+        
+        if idx == -1: return
+        
+        if not hasattr(self, 'item_camera_overlay') or not self.item_camera_overlay:
+            return
+            
+        scene_rect = self.visualizador.sceneRect()
+        if scene_rect.isEmpty():
+            scene_rect = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
+            
+        w_scene = scene_rect.width()
+        h_scene = scene_rect.height()
+        
+        r = self.item_camera_overlay.sceneBoundingRect()
+        
+        zoom = w_scene / r.width()
+        center_x = r.center().x() - scene_rect.x()
+        center_y = r.center().y() - scene_rect.y()
+        
+        pos_h = (center_x / w_scene) * 100.0
+        pos_v = (center_y / h_scene) * 100.0
+        
+        from aresta_api.proto.generated import croqui_pb2
+        import copy
+        
+        ref_antiga = copy.deepcopy(self.referencia_camera_ativa)
+        ref_nova = copy.deepcopy(self.referencia_camera_ativa)
+        ref_nova.ajuste_de_camera.posicao_horizontal = int(pos_h)
+        ref_nova.ajuste_de_camera.posicao_vertical = int(pos_v)
+        ref_nova.ajuste_de_camera.zoom = zoom
+        
+        self.mapas_controller.alterar_referencia(
+            self.msg_mapa_proxy,
+            self.camera_ref_idx,
+            ref_antiga,
+            ref_nova
+        )
+        if hasattr(self, 'painel_referencias'):
+            self.painel_referencias.forcar_parada_camera()
+        self.parar_modo_camera()
+
+    def remover_ajuste_camera(self, idx):
+        if idx < 0 or idx >= len(self.msg_mapa_proxy.referencias): return
+        
+        ref = self.msg_mapa_proxy.referencias[idx]
+        import copy
+        ref_antiga = copy.deepcopy(ref)
+        ref_nova = copy.deepcopy(ref)
+        ref_nova.ClearField('ajuste_de_camera')
+        
+        self.mapas_controller.alterar_referencia(
+            self.msg_mapa_proxy,
+            idx,
+            ref_antiga,
+            ref_nova
+        )
+        self.parar_modo_camera()
+
+
+    def iniciar_modo_linkagem(self, idx_ref, ref):
+        from PyQt6.QtCore import Qt
+        self.modo_linkagem = True
+        self.linkagem_ref_idx = idx_ref
+        self.linkagem_ref = ref
+        self.referencia_linkagem_ativa = ref
+        self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
+        self.label_modo.setText("MODO LINKAGEM - Clique nos POIs para linkar ou deslinkar à referência. Selecionados ficam em Ciano.")
+        self.label_modo.setStyleSheet("color: white; background-color: #007bff; font-weight: bold; padding: 8px; border-radius: 4px;")
+        self.label_modo.setVisible(True)
+        self._aplicar_highlight_linkagem()
+
+    def parar_modo_linkagem(self):
+        from PyQt6.QtCore import Qt
+        self.modo_linkagem = False
+        self.linkagem_ref_idx = -1
+        self.linkagem_ref = None
+        self.referencia_linkagem_ativa = None
+        self.visualizador.setCursor(Qt.CursorShape.ArrowCursor)
+        self.remover_destaque_pois()
+        self.label_modo.setVisible(False)
+
+    def tratar_clique_poi_linkagem(self, poi_id):
+        if not hasattr(self, 'modo_linkagem') or not self.modo_linkagem:
+            return False
+            
+        import copy
+        ref_antiga = copy.deepcopy(self.linkagem_ref)
+        ref_nova = copy.deepcopy(self.linkagem_ref)
+        
+        if poi_id in ref_nova.ids:
+            ref_nova.ids.remove(poi_id)
+        else:
+            ref_nova.ids.append(poi_id)
+            
+        self.mapas_controller.alterar_referencia(
+            self.msg_mapa_proxy, self.linkagem_ref_idx, ref_antiga, ref_nova
+        )
+        self.linkagem_ref = ref_nova
+        self.referencia_linkagem_ativa = ref_nova
+        self._aplicar_highlight_linkagem()
+        return True
+class ItemCameraOverlay(QGraphicsRectItem):
+    def __init__(self, rect=None):
+        from PyQt6.QtGui import QPen, QColor, QBrush
+        from PyQt6.QtCore import Qt
+        super().__init__(rect)
+        self.setPen(QPen(QColor(111, 66, 193), 4, Qt.PenStyle.DashLine))
+        self.setBrush(QBrush(Qt.GlobalColor.transparent))
+        
+        # Permitir arrastar
+        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
+        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
+        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
+        
+        self.setAcceptHoverEvents(True)
+        self.setZValue(100)
+    
+    def hoverMoveEvent(self, event):
+        from PyQt6.QtCore import Qt
+        rect = self.rect()
+        if (event.pos() - rect.bottomRight()).manhattanLength() < 40:
+            self.setCursor(Qt.CursorShape.SizeFDiagCursor)
+        else:
+            self.setCursor(Qt.CursorShape.ArrowCursor)
+        super().hoverMoveEvent(event)
+        
+    def mousePressEvent(self, event):
+        from PyQt6.QtCore import Qt
+        rect = self.rect()
+        dist = (event.pos() - rect.bottomRight()).manhattanLength()
+        if dist < 40:
+            self.resizing_corner = True
+            self.setCursor(Qt.CursorShape.SizeFDiagCursor)
+            event.accept()
+        elif event.modifiers() == Qt.KeyboardModifier.ControlModifier:
+            self.resizing_center = True
+            self.rect_inicio = self.rect()
+            self.centro_cena = self.mapToScene(self.rect_inicio.center())
+            delta_inicio = event.scenePos() - self.centro_cena
+            self.dist_inicio_abs = max(1.0, abs(delta_inicio.x()))
+            self.setCursor(Qt.CursorShape.SizeFDiagCursor)
+            event.accept()
+        else:
+            self.resizing_corner = False
+            self.resizing_center = False
+            super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        from PyQt6.QtCore import Qt
+        if getattr(self, 'resizing_center', False):
+            delta = event.scenePos() - self.centro_cena
+            diff_x = abs(delta.x()) - self.dist_inicio_abs
+            
+            novo_w = max(50.0, self.rect_inicio.width() + 2 * diff_x)
+            novo_h = novo_w * (16.0 / 9.0)
+            
+            self.setRect(0, 0, novo_w, novo_h)
+            novo_centro = self.rect().center()
+            self.setTransformOriginPoint(novo_centro)
+            self.setPos(self.centro_cena - novo_centro)
+            event.accept()
+        elif getattr(self, 'resizing_corner', False):
+            new_width = max(50.0, event.pos().x() - self.rect().x())
+            new_height = new_width * (16.0 / 9.0)
+            self.setRect(self.rect().x(), self.rect().y(), new_width, new_height)
+            event.accept()
+        else:
+            super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        from PyQt6.QtCore import Qt
+        if getattr(self, 'resizing_corner', False) or getattr(self, 'resizing_center', False):
+            self.resizing_corner = False
+            self.resizing_center = False
+            self.setCursor(Qt.CursorShape.ArrowCursor)
+            event.accept()
+        else:
+            super().mouseReleaseEvent(event)
+    
+    def paint(self, painter, option, widget=None):
+        from PyQt6.QtGui import QPainter, QBrush, QColor
+        from PyQt6.QtCore import Qt, QRectF
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        
+        rect = self.rect()
+        safe_margin = rect.height() * 0.2
+        
+        top_rect = QRectF(rect.x(), rect.y(), rect.width(), safe_margin)
+        bottom_rect = QRectF(rect.x(), rect.y() + rect.height() - safe_margin, rect.width(), safe_margin)
+        
+        painter.setBrush(QBrush(QColor(111, 66, 193, 50)))
+        painter.setPen(Qt.PenStyle.NoPen)
+        painter.drawRect(top_rect)
+        painter.drawRect(bottom_rect)
+        
+        pen = self.pen()
+        pen.setCosmetic(True) # keeps 4px width even when zooming
+        painter.setPen(pen)
+        painter.setBrush(self.brush())
+        painter.drawRect(rect)

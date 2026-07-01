@@ -53,6 +53,46 @@ class MapasControllerTest(unittest.TestCase):
         self.undo_stack.undo()
         self.assertEqual(self.mapa.pontos_de_interesse[0].label, "")
 
+    def test_adicionar_referencia(self):
+        nova_ref = croqui_pb2.Mapa.Referencia(setor="Setor Teste")
+        nova_ref.ids.extend(["poi1", "poi2"])
+        
+        self.controller.adicionar_referencia(self.msg_mapa_proxy, nova_ref)
+        
+        self.assertEqual(len(self.mapa.referencias), 1)
+        self.assertEqual(self.mapa.referencias[0].setor, "Setor Teste")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1", "poi2"])
+
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.referencias), 0)
+
+    def test_deletar_referencia(self):
+        ref = self.mapa.referencias.add(setor="Setor Teste")
+        self.assertEqual(len(self.mapa.referencias), 1)
+        
+        self.controller.deletar_referencia(self.msg_mapa_proxy, 0)
+        self.assertEqual(len(self.mapa.referencias), 0)
+        
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.referencias), 1)
+
+    def test_alterar_referencia(self):
+        ref_antiga = croqui_pb2.Mapa.Referencia(setor="Setor Antigo")
+        ref_antiga.ids.extend(["poi1"])
+        self.mapa.referencias.append(ref_antiga)
+        
+        ref_nova = croqui_pb2.Mapa.Referencia(setor="Setor Novo")
+        ref_nova.ids.extend(["poi1", "poi2"])
+        
+        self.controller.alterar_referencia(self.msg_mapa_proxy, 0, ref_antiga, ref_nova)
+        self.assertEqual(self.mapa.referencias[0].setor, "Setor Novo")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1", "poi2"])
+        
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.referencias[0].setor, "Setor Antigo")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1"])
+
+
     def test_obter_caminho_imagem_mapa(self):
         self.mapa.caminho_imagem_mapa = "mapa.png"
         # We need a way for the controller to know the base path, maybe it queries it from somewhere?

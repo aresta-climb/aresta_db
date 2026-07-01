@@ -118,6 +118,46 @@ class MapasController:
             context_path=self.contexto_atual_path
         )
         self.undo_stack.push(cmd)
+
+    def adicionar_referencia(self, msg_mapa_proxy, ref_nova):
+        """Adiciona uma referência ao mapa."""
+        index = len(msg_mapa_proxy.referencias)
+        cmd = CmdAdicionarRepeated(
+            model=self.model,
+            msg=msg_mapa_proxy,
+            campo_nome="referencias",
+            index=index,
+            valor=ref_nova,
+            context_path=self.contexto_atual_path
+        )
+        self.undo_stack.push(cmd)
+
+    def deletar_referencia(self, msg_mapa_proxy, index):
+        """Remove uma referência do mapa."""
+        ref_removida = msg_mapa_proxy.referencias[index]
+        cmd = CmdRemoverRepeated(
+            model=self.model,
+            msg=msg_mapa_proxy,
+            campo_nome="referencias",
+            index=index,
+            valor_removido=ref_removida,
+            context_path=self.contexto_atual_path
+        )
+        self.undo_stack.push(cmd)
+
+    def alterar_referencia(self, msg_mapa_proxy, index, ref_antiga, ref_nova):
+        """Altera uma referência."""
+        cmd = CmdAlterarRepeatedItem(
+            model=self.model,
+            msg=msg_mapa_proxy,
+            campo_nome="referencias",
+            index=index,
+            valor_antigo=ref_antiga,
+            valor_novo=ref_nova,
+            context_path=self.contexto_atual_path
+        )
+        self.undo_stack.push(cmd)
+
         
     def obter_caminho_imagem_mapa(self, msg_mapa_proxy):
         """Retorna o caminho absoluto para a imagem do mapa."""

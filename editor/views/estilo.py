@@ -24,7 +24,10 @@ class Icones:
         "imagens": "fa5s.images",
         "mapas": "fa5s.map-marked-alt",
         "historico": "fa5s.history",
-        "ciencia": "fa5s.flask"
+        "ciencia": "fa5s.flask",
+        "lixeira": "fa5s.trash-alt",
+        "check": "fa5s.check",
+        "lapis": "fa5s.pencil-alt"
     }
 
     # Estilo CSS para a barra lateral

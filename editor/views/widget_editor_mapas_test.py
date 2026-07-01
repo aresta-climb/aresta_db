@@ -594,6 +594,201 @@ def test_mapas_gerais_sao_listados_e_carregados(qtbot):
         def connect(self, f): pass
         
     mock_model = MagicMock(spec=CroquiModel)
+    mapa.caminho_imagem_mapa = "mapa.png"
+    
+    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+    mock_controller.model = mock_model
+    widget.mapas_controller = mock_controller
+    
+    # Preenche manualmente a lista e seleciona
+    item = QListWidgetItem("mapa.png")
+    item.setData(Qt.ItemDataRole.UserRole, ('setor', 0, 0, 0))
+    widget.list_widget.addItem(item)
+    widget.list_widget.setCurrentItem(item)
+    
+    # Chama _atualizar_lista_mapas. Isso deve recriar os itens, mas preservar a seleção.
+    widget._atualizar_lista_mapas()
+    
+    assert widget.list_widget.count() == 1
+    current = widget.list_widget.currentItem()
+    assert current is not None
+    assert current.data(Qt.ItemDataRole.UserRole) == ('setor', 0, 0, 0)
+
+
+def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from PyQt6.QtCore import Qt
+    from PyQt6.QtGui import QTransform
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    # Define estado atual
+    msg_mapa = croqui_pb2.Mapa()
+    poi = msg_mapa.pontos_de_interesse.add()
+    poi.id = "p1"
+    
+    widget.dados_atuais = {
+        'cena': CenaDesenho(widget),
+        'itens_bb': []
+    }
+    widget.msg_mapa_proxy = msg_mapa
+    
+    # Configura zoom artificial
+    transform = QTransform().scale(2.0, 2.0)
+    widget.visualizador.setTransform(transform)
+    
+    # Simula chamada interna de update sem resetar zoom
+    widget._renderizar_mapa(reset_zoom=False)
+    
+    assert widget.visualizador.transform().m11() == 2.0
+    assert widget.visualizador.transform().m22() == 2.0
+
+def test_renomear_poi_no_mapa(qtbot, mocker):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, BaseItemPOI
+    from PyQt6.QtWidgets import QDialog, QMenu
+    from PyQt6.QtGui import QAction
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import MagicMock
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mock_controller = MagicMock()
+    widget.mapas_controller = mock_controller
+    
+    mapa_proto = croqui_pb2.Mapa()
+    poi = mapa_proto.pontos_de_interesse.add()
+    poi.id = "poi_antigo"
+    poi.label = "Label Antigo"
+    
+    widget.msg_mapa_proxy = ReadOnlyProxy(mapa_proto)
+    
+    class FakeScene:
+        def __init__(self, editor):
+            self.widget_editor = editor
+
+    class FakeItem(BaseItemPOI):
+        def __init__(self, pt_dict):
+            super().__init__()
+            self.pt_dict = pt_dict
+            self.item_texto = MagicMock()
+            self._scene = FakeScene(widget)
+        def scene(self):
+            return self._scene
+        def setToolTip(self, text):
+            pass
+        def obter_dict_atualizado(self):
+            return self.pt_dict.copy()
+
+    item = FakeItem({'id': 'poi_antigo', 'label': 'Label Antigo'})
+    widget.itens_poi = {0: item}
+    widget.dados_arquivos = {"chave1": {"itens_bb": [item]}}
+    
+    # Mock do dialogo
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_novo", "Label Novo"))
+    
+    # Simulamos o QMenu para retornar a acao de renomear
+    def fake_exec(self, pos):
+        for act in self.actions():
+            if act.text() == "Renomear Ponto de Interesse":
+                return act
+        return None
+        
+    mocker.patch('PyQt6.QtWidgets.QMenu.exec', new=fake_exec)
+    
+    evento = MagicMock()
+    evento.screenPos.return_value = None
+    
+    item.tratar_menu_contexto(evento, None)
+    
+    # Verifica se mover_poi foi chamado com o novo id
+    assert mock_controller.mover_poi.called, "mover_poi deveria ter sido chamado ao renomear o item"
+    args = mock_controller.mover_poi.call_args[0]
+    assert args[1] == 0  # index do poi
+    assert args[3].id == "poi_novo"  # o novo poi gerado deve ter o id atualizado
+
+
+def test_poi_snapping_to_integers():
+    from editor.views.widget_editor_mapas import ItemBoundingBox, ItemBoundingCircular, AlcaVertice, ItemBoundingAreaLivre
+    from PyQt6.QtCore import QPointF
+    from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
+    
+    cena = QGraphicsScene()
+    
+    # Test ItemBoundingBox
+    box_dict = {'box': {'x': 100, 'y': 100, 'comprimento': 50, 'largura': 50}}
+    box = ItemBoundingBox(box_dict, lambda: None)
+    cena.addItem(box)
+    
+    mudanca = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor = QPointF(10.4, 20.6)
+    snapped_valor = box.itemChange(mudanca, novo_valor)
+    
+    assert snapped_valor.x() == 10.0
+    assert snapped_valor.y() == 21.0
+    
+    # Test ItemBoundingCircular
+    circ_dict = {'circular': {'x': 100, 'y': 100, 'raio': 25}}
+    circ = ItemBoundingCircular(circ_dict, lambda: None)
+    cena.addItem(circ)
+    
+    mudanca_circ = QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_circ = QPointF(10.5, 20.4)
+    snapped_valor_circ = circ.itemChange(mudanca_circ, novo_valor_circ)
+    
+    assert snapped_valor_circ.x() == 10.0
+    assert snapped_valor_circ.y() == 20.0
+    
+    # Test Polygon (Area Livre)
+    poly_dict = {'area_livre': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
+    poly = ItemBoundingAreaLivre(poly_dict, lambda x: None, lambda y: None)
+    cena.addItem(poly)
+    
+    mudanca_poly = QGraphicsPolygonItem.GraphicsItemChange.ItemPositionChange
+    snapped_valor_poly = poly.itemChange(mudanca_poly, QPointF(5.9, 6.1))
+    
+    assert snapped_valor_poly.x() == 6.0
+    assert snapped_valor_poly.y() == 6.0
+
+class TestWidgetEditorMapasLayout(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.app = QApplication.instance()
+        if not cls.app:
+            cls.app = QApplication([])
+
+    def test_lista_mapas_cresce_ate_conteudo(self):
+        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
+        from editor.views.widget_editor_mapas import WidgetEditorMapas
+        
+        widget = WidgetEditorMapas()
+        
+        # O list_widget deve ter politica vertical Maximum (para não crescer infinitamente)
+        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Maximum)
+        
+        # E deve ter o size adjust policy configurado para ajustar ao conteudo
+        self.assertEqual(widget.list_widget.sizeAdjustPolicy(), QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+
+def test_mapas_gerais_sao_listados_e_carregados(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from aresta_api.proto.generated.croqui_pb2 import Pico, Croqui
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    mapa_geral = pico.mapas_gerais.conteudo.mapas.add()
+    mapa_geral.caminho_imagem_mapa = "mapa_geral_1.jpg"
+    
+    class MockSignal:
+        def connect(self, f): pass
+        
+    mock_model = MagicMock(spec=CroquiModel)
     mock_model.dado_alterado = MockSignal()
     mock_model.repeated_adicionado = MockSignal()
     mock_model.repeated_removido = MockSignal()
@@ -608,10 +803,677 @@ def test_mapas_gerais_sao_listados_e_carregados(qtbot):
     for i in range(widget.list_widget.count()):
         items.append(widget.list_widget.item(i).text())
     
-    print("ITEMS:", items)
     assert "mapa_geral_1.jpg" in items
     
     # Simulate clicking on it
     widget.selecionar_mapa_por_indices(0, -1, 0)
     assert widget.msg_mapa_proxy is not None
     assert widget.msg_mapa_proxy.caminho_imagem_mapa == "mapa_geral_1.jpg"
+
+def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
+    """[TDD] Garante que ao sair do hover de um card durante modo linkagem, o destaque ciano retorne."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PyQt6.QtGui import QColor
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    # Prepara mock de mapa com 1 POI
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_1"
+    poi.box.x = 10
+    poi.box.y = 10
+    poi.box.comprimento = 20
+    poi.box.largura = 20
+    
+    # Cria a referência e adiciona o poi_1
+    ref = mapa.referencias.add()
+    ref.ids.append("poi_1")
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    # Inicia modo linkagem
+    widget.iniciar_modo_linkagem(0, ref)
+    
+    item_visual = widget.itens_poi[0]
+    
+    # Verifica que ficou ciano (destacado)
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+    
+    # Simula hover_in vindo do painel de referencias (fica ciano)
+    widget.destacar_pois_temporariamente(["poi_1"])
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+    
+    # Simula hover_out (deve voltar para ciano, não para o verde padrão)
+    widget.remover_destaque_pois()
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+
+def test_clique_poi_atualiza_cor_imediato(qtbot):
+    """[TDD] Verifica se clicar num POI no modo linkagem atualiza o highlight imediatamente."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PyQt6.QtGui import QColor
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    # Mock do controller
+    mock_controller = MagicMock()
+    widget.mapas_controller = mock_controller
+    
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_1"
+    poi.box.x = 10
+    poi.box.y = 10
+    poi.box.comprimento = 20
+    poi.box.largura = 20
+    
+    ref = mapa.referencias.add()
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    # Inicia modo linkagem
+    widget.iniciar_modo_linkagem(0, ref)
+    item_visual = widget.itens_poi[0]
+    
+    # Inicialmente não está na ref, então a cor deve ser a padrão (não ciano)
+    assert item_visual.brush.color() != QColor(0, 255, 255, 150)
+    
+    # Simula o clique no POI no modo linkagem
+    widget.tratar_clique_poi_linkagem("poi_1")
+    
+    # Agora deve estar ciano
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+
+def test_clique_poi_chama_handler_com_id_correto(qtbot):
+    """[TDD] Verifica se o clique no POI chama o _clique_handler com o ID extraido do pt_dict."""
+    from editor.views.widget_editor_mapas import ItemBoundingBox
+    from PyQt6.QtCore import Qt, QPointF
+    from unittest.mock import MagicMock
+    
+    pt_dict = {'id': 'poi_123', 'box': {'x': 10, 'y': 10, 'comprimento': 20, 'largura': 20}}
+    item = ItemBoundingBox(pt_dict, lambda x: None)
+    
+    handler = MagicMock(return_value=True)
+    item.set_clique_handler(handler)
+    
+    evento = MagicMock()
+    evento.modifiers.return_value = Qt.KeyboardModifier.NoModifier
+    
+    item.mousePressEvent(evento)
+    
+    handler.assert_called_once_with('poi_123')
+    evento.accept.assert_called_once()
+
+def test_iniciar_modo_camera_nao_crash_e_cria_overlay(qtbot):
+    """[TDD] Verifica se iniciar_modo_camera inicializa ItemCameraOverlay sem erros."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemCameraOverlay
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    # Isso falhava com NameError antes da correção
+    widget.iniciar_modo_camera(0, ref)
+    
+    assert widget.modo_camera is True
+    assert widget.camera_ref_idx == 0
+    assert widget.referencia_camera_ativa == ref
+    assert isinstance(widget.item_camera_overlay, ItemCameraOverlay)
+    
+    # Verifica se parando o modo a overlay é removida
+    widget.parar_modo_camera()
+    assert widget.modo_camera is False
+    assert getattr(widget, 'item_camera_overlay', None) is None
+
+def test_iniciar_modo_camera_destaca_pois_ciano(qtbot):
+    """[TDD] Verifica se ao iniciar o modo câmera os POIs da referência ficam destacados em ciano."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PyQt6.QtGui import QColor
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_cam"
+    poi.box.x = 10
+    poi.box.y = 10
+    poi.box.comprimento = 20
+    poi.box.largura = 20
+    
+    ref = mapa.referencias.add()
+    ref.ids.append("poi_cam")
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    widget.iniciar_modo_camera(0, ref)
+    
+    item_visual = widget.itens_poi[0]
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+
+def test_salvar_ajuste_camera_converte_para_int(qtbot):
+    """[TDD] Verifica se o salvamento do ajuste converte posicao_horizontal e vertical para inteiro."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mock_controller = MagicMock()
+    widget.mapas_controller = mock_controller
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    widget.iniciar_modo_camera(0, ref)
+    widget.salvar_ajuste_camera()
+    
+    mock_controller.alterar_referencia.assert_called_once()
+    ref_salva = mock_controller.alterar_referencia.call_args[0][3]
+    
+    # Verifica se foram passados valores inteiros (no protobuf types)
+    # Se os valores não dessem crash no protobuf gerado, foi validado.
+    assert isinstance(ref_salva.ajuste_de_camera.posicao_horizontal, int)
+    assert isinstance(ref_salva.ajuste_de_camera.posicao_vertical, int)
+    
+    # Verifica se o modo câmera foi finalizado e a overlay removida
+    assert widget.modo_camera is False
+    assert getattr(widget, 'item_camera_overlay', None) is None
+
+def test_remover_destaque_restaura_highlight_camera(qtbot):
+    """[TDD] Garante que ao sair do hover no modo câmera, o destaque ciano retorne aos POIs."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PyQt6.QtGui import QColor
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_1"
+    poi.box.x = 10
+    poi.box.y = 10
+    poi.box.comprimento = 20
+    poi.box.largura = 20
+    
+    ref = mapa.referencias.add()
+    ref.ids.append("poi_1")
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    widget.iniciar_modo_camera(0, ref)
+    item_visual = widget.itens_poi[0]
+    
+    # Simula hover_in para outro elemento (destaca outro ou o mesmo em ciano do hover)
+    widget.destacar_pois_temporariamente(["poi_1"])
+    
+    # Simula hover_out (tem que voltar ao estado Ciano da câmera, e não pro verde nativo)
+    widget.remover_destaque_pois()
+    
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+
+def test_hover_referencia_sem_camera_oculta_overlay_existente(qtbot):
+    """[TDD] Verifica se o destaque da câmera (roxo/magenta) some quando passa o hover em uma ref sem câmera."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    
+    ref_com_cam = mapa.referencias.add()
+    ref_com_cam.ajuste_de_camera.posicao_horizontal = 100
+    ref_com_cam.ajuste_de_camera.posicao_vertical = 100
+    ref_com_cam.ajuste_de_camera.zoom = 1.0
+    
+    ref_sem_cam = mapa.referencias.add()
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    # 1. Hover na referência com câmera -> Desenha overlay
+    widget.destacar_pois_temporariamente(ref_com_cam)
+    assert getattr(widget, 'item_hover_camera_overlay', None) is not None
+    assert widget.item_hover_camera_overlay.isVisible() is True
+    
+    # 2. Hover em uma referência sem câmera (ou a mesma referência após exclusão da câmera)
+    widget.destacar_pois_temporariamente(ref_sem_cam)
+    
+    # O overlay precisa ficar invisível!
+    assert widget.item_hover_camera_overlay.isVisible() is False
+
+
+def test_set_mapa_atual_carrega_referencias(qtbot):
+    """[TDD] Verifica se ao chamar set_mapa_atual as referências do mapa são carregadas no Painel de Referências."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    
+    # Adiciona 2 referências ao mapa
+    mapa.referencias.add()
+    mapa.referencias.add()
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    
+    # Ao setar o mapa, o painel de referências DEVE exibir 2 cards (+ o botão adicionar/spacers)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    # Vamos contar quantos widgets CardReferencia existem no layout
+    from editor.views.widget_painel_referencias import CardReferencia
+    cards_count = 0
+    layout = widget.painel_referencias.layout_cards
+    for i in range(layout.count()):
+        item = layout.itemAt(i)
+        if item.widget() and isinstance(item.widget(), CardReferencia):
+            cards_count += 1
+            
+    assert cards_count == 2, "As referências não foram carregadas no Painel de Referências ao setar o mapa!"
+
+def test_item_camera_overlay_paint_nao_crasha(qtbot):
+    """[TDD] Verifica se o paint do ItemCameraOverlay executa com sucesso sem quebrar por NameError (QPainter)."""
+    from editor.views.widget_editor_mapas import ItemCameraOverlay
+    from PyQt6.QtGui import QPainter, QImage
+    from PyQt6.QtCore import QRectF
+    
+    item = ItemCameraOverlay(QRectF(0, 0, 100, 100))
+    image = QImage(200, 200, QImage.Format.Format_ARGB32)
+    painter = QPainter(image)
+    
+    try:
+        # Chama a função paint do item gráfico
+        item.paint(painter, None, None)
+    except NameError as e:
+        import pytest
+        pytest.fail(f"O método paint quebrou com NameError: {e}")
+    finally:
+        painter.end()
+
+def test_camera_overlay_cor(qtbot):
+    """[TDD] Verifica se a cor da linha da câmera é #6f42c1."""
+    from editor.views.widget_editor_mapas import ItemCameraOverlay
+    from PyQt6.QtCore import QRectF
+    item = ItemCameraOverlay(QRectF(0, 0, 100, 100))
+    assert item.pen().color().name() == '#6f42c1', "A cor do overlay não bate com a cor do botão (#6f42c1)"
+
+def test_salvar_ajuste_camera_parametros(qtbot):
+    """[TDD] Verifica se o salvar ajuste de câmera passa os parâmetros corretos e não crasha."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import Mock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    proxy = ReadOnlyProxy(mapa)
+    widget.msg_mapa_proxy = proxy
+    
+    widget.visualizador = Mock()
+    from PyQt6.QtCore import QRectF
+    widget.visualizador.sceneRect.return_value = QRectF(0, 0, 1000, 1000)
+    widget.visualizador.scene = Mock(return_value=Mock())
+    
+    # Mock do item_camera_overlay
+    widget.item_camera_overlay = Mock()
+    mock_rect = Mock()
+    mock_rect.width.return_value = 500
+    mock_rect.center.return_value.x.return_value = 500
+    mock_rect.center.return_value.y.return_value = 500
+    widget.item_camera_overlay.sceneBoundingRect.return_value = mock_rect
+    
+    widget.referencia_camera_ativa = proxy.referencias[0]
+    widget.camera_ref_idx = 0
+    widget.modo_camera = True
+    
+    controller_mock = Mock()
+    widget.mapas_controller = controller_mock
+    
+    try:
+        widget.salvar_ajuste_camera()
+    except TypeError as e:
+        import pytest
+        pytest.fail(f"Crash de TypeError: {e}")
+        
+    assert controller_mock.alterar_referencia.called, "alterar_referencia não foi chamado"
+    args = controller_mock.alterar_referencia.call_args[0]
+    assert len(args) == 4, f"alterar_referencia foi chamado com {len(args)} argumentos, esperados 4"
+
+def test_label_modo_exibida(qtbot):
+    """[TDD] Verifica se a label_modo existe e é exibida nos modos de câmera e linkagem."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import Mock
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    assert hasattr(widget, 'label_modo'), "label_modo não existe, provavelmente ainda é label_desenho"
+    
+    # Mock inicialização
+    widget.visualizador = Mock()
+    from PyQt6.QtCore import QRectF
+    widget.visualizador.sceneRect.return_value = QRectF(0, 0, 1000, 1000)
+    widget.visualizador.scene = Mock(return_value=Mock())
+    
+    from aresta_api.proto.generated import croqui_pb2
+    ref = croqui_pb2.Mapa.Referencia()
+    
+    # Teste Linkagem
+    widget.iniciar_modo_linkagem(0, ref)
+    assert widget.label_modo.isVisibleTo(widget)
+    assert "MODO LINKAGEM" in widget.label_modo.text()
+    
+    # Teste Camera
+    widget.parar_modo_linkagem()
+    widget.iniciar_modo_camera(0, ref)
+    assert widget.label_modo.isVisibleTo(widget)
+    assert "MODO CÂMERA" in widget.label_modo.text()
+
+def test_linkar_pois_seleciona_pois(qtbot):
+    """[TDD] Verifica se clicar em um POI no modo linkagem adiciona/remove ele da lista e chama o controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import Mock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    ref = croqui_pb2.Mapa.Referencia()
+    ref.ids.append("100") # já tem o 100
+    
+    widget.mapas_controller = Mock()
+    widget.msg_mapa_proxy = Mock()
+    
+    widget.iniciar_modo_linkagem(0, ref)
+    
+    # 1. Clicar num POI que NÃO está na referência (ex: "200") -> DEVE ADICIONAR
+    widget.tratar_clique_poi_linkagem("200")
+    assert widget.mapas_controller.alterar_referencia.called
+    args = widget.mapas_controller.alterar_referencia.call_args[0]
+    ref_nova = args[3]
+    assert "200" in ref_nova.ids
+    assert "100" in ref_nova.ids
+    
+    # 2. Clicar no POI que JÁ ESTÁ na referência (ex: "100") -> DEVE REMOVER
+    widget.mapas_controller.alterar_referencia.reset_mock()
+    # como a ref_nova virou a linkagem_ref localmente:
+    widget.tratar_clique_poi_linkagem("100")
+    assert widget.mapas_controller.alterar_referencia.called
+    args = widget.mapas_controller.alterar_referencia.call_args[0]
+    ref_nova2 = args[3]
+    assert "100" not in ref_nova2.ids
+    assert "200" in ref_nova2.ids
+
+def test_remover_ajuste_camera_limpa_field_e_salva(qtbot):
+    """[TDD] Verifica se remover_ajuste_camera limpa a configuração de câmera e notifica o controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mock_controller = MagicMock()
+    widget.mapas_controller = mock_controller
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 2.0
+    ref.ajuste_de_camera.posicao_horizontal = 50
+    ref.ajuste_de_camera.posicao_vertical = 50
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    widget.remover_ajuste_camera(0)
+    
+    mock_controller.alterar_referencia.assert_called_once()
+    ref_salva = mock_controller.alterar_referencia.call_args[0][3]
+    
+    # Verifica se a câmera sumiu na referência enviada pro banco
+    assert not ref_salva.HasField('ajuste_de_camera')
+
+def test_hover_referencia_desenha_camera_estatica(qtbot):
+    """[TDD] Verifica se o hover desenha a caixa de câmera Magenta no mapa."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.0
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    assert getattr(widget, 'item_hover_camera_overlay', None) is None
+    
+    widget.destacar_pois_temporariamente(ref)
+    
+    assert getattr(widget, 'item_hover_camera_overlay', None) is not None
+    assert widget.item_hover_camera_overlay.scene() == widget.dados_atuais['cena']
+    
+    widget.remover_destaque_pois()
+    assert getattr(widget, 'item_hover_camera_overlay', None) is None
+
+def test_linkagem_signal_conectado_no_editor_mapas(qtbot):
+    """[TDD] Bug 1: Verifica se o sinal de iniciar/parar modo_linkagem do painel_referencias está conectado."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    widget.painel_referencias.iniciar_modo_linkagem.emit(0, "mock_ref")
+    assert getattr(widget, 'modo_linkagem', False) == True
+    assert getattr(widget, 'linkagem_ref', None) == "mock_ref"
+        
+    widget.painel_referencias.parar_modo_linkagem.emit()
+    assert getattr(widget, 'modo_linkagem', True) == False
+
+def test_salvar_ajuste_camera_compensa_posicao_cena(qtbot):
+    """[TDD] Bug 2: Verifica se o centro da câmera salvo e carregado leva em conta scene_rect().x() e y()."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import Mock, patch
+    from PyQt6.QtCore import QRectF
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    widget.visualizador = Mock()
+    from PyQt6.QtCore import QRectF
+    widget.visualizador.sceneRect.return_value = QRectF(-50.0, -100.0, 1000.0, 1000.0)
+    widget.visualizador.scene = Mock(return_value=Mock())
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.posicao_horizontal = 50
+    ref.ajuste_de_camera.posicao_vertical = 50
+    ref.ajuste_de_camera.zoom = 2.0
+    
+    widget.msg_mapa_proxy = mapa
+    widget.mapas_controller = Mock()
+    
+    widget.iniciar_modo_camera(0, ref)
+    assert widget.item_camera_overlay.scenePos().x() == 200.0
+    assert abs(widget.item_camera_overlay.scenePos().y() - (-44.44444444444446)) < 0.1
+    
+    widget.salvar_ajuste_camera()
+    args = widget.mapas_controller.alterar_referencia.call_args[0]
+    ref_nova = args[3]
+    assert ref_nova.ajuste_de_camera.posicao_horizontal == 50
+    assert ref_nova.ajuste_de_camera.posicao_vertical == 50
+
+def test_item_camera_overlay_resize_pela_borda(qtbot):
+    """[TDD] Verifica se arrastar o canto inferior direito redimensiona a câmera."""
+    from editor.views.widget_editor_mapas import ItemCameraOverlay
+    from PyQt6.QtCore import Qt, QPointF
+    import math
+    
+    item = ItemCameraOverlay(None)
+    item.setRect(0, 0, 100, 100 * 16/9)
+    
+    class MockEvent:
+        def __init__(self, pos, modifiers=Qt.KeyboardModifier.NoModifier):
+            self._pos = pos
+            self._modifiers = modifiers
+            self.accepted = False
+        def pos(self): return self._pos
+        def scenePos(self): return self._pos
+        def modifiers(self): return self._modifiers
+        def accept(self): self.accepted = True
+        
+    press_event = MockEvent(QPointF(90, 100 * 16/9 - 10))
+    item.mousePressEvent(press_event)
+    assert item.resizing_corner == True
+    
+    move_event = MockEvent(QPointF(200, 200))
+    item.mouseMoveEvent(move_event)
+    assert item.rect().width() == 200
+    assert math.isclose(item.rect().height(), 200 * 16/9)
+
+def test_carregar_mapa_salva_card_camera_ativo(qtbot):
+    """[TDD] Bug 4: Verifica se carregar_mapa salva card_camera_ativo."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import Mock
+    
+    mapa = croqui_pb2.Mapa()
+    mapa.referencias.add()
+    
+    painel = PainelReferencias(Mock())
+    painel.msg_mapa_proxy = mapa
+    painel.carregar_mapa(mapa)
+    
+    card = painel.layout_cards.itemAt(0).widget()
+    card.btn_camera.setChecked(True)
+    
+    painel.carregar_mapa(mapa)
+    
+    assert painel.card_camera_ativo is not None
+    assert not painel.card_camera_ativo.btn_salvar_camera.isHidden()
+    
+    painel.forcar_parada_camera()
+    assert not painel.card_camera_ativo
+    novo_card = painel.layout_cards.itemAt(0).widget()
+    assert novo_card.btn_salvar_camera.isHidden()
+
+def test_atualizar_lista_mapas_ignora_referencias(qtbot):
+    """[TDD] Verifica se o _atualizar_lista_mapas ignora atualizações no campo 'referencias' para não recarregar o mapa inteiro."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import Mock
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    widget.list_widget.clear = Mock()
+    
+    widget._atualizar_lista_mapas(Mock(), 'referencias')
+    widget.list_widget.clear.assert_not_called()
+    
+    widget._atualizar_lista_mapas(Mock(), 'algum_outro')
+    widget.list_widget.clear.assert_called()
+
+def test_hover_camera_compensa_posicao_cena(qtbot):
+    """[TDD] Verifica se o hover desenha a caixa de câmera levando em conta a posição da cena (x, y)."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PyQt6.QtCore import QRectF
+    from unittest.mock import Mock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    widget.visualizador = Mock()
+    widget.visualizador.sceneRect.return_value = QRectF(-50.0, -100.0, 1000.0, 1000.0)
+    widget.visualizador.scene = Mock(return_value=Mock())
+    
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 2.0
+    ref.ajuste_de_camera.posicao_horizontal = 50
+    ref.ajuste_de_camera.posicao_vertical = 50
+    
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    
+    widget.destacar_pois_temporariamente(proxy_mapa.referencias[0])
+    
+    assert widget.item_hover_camera_overlay.scenePos().x() == 200.0
+    assert abs(widget.item_hover_camera_overlay.scenePos().y() - (-44.44444444444446)) < 0.1
+
+def test_item_camera_overlay_resize_com_ctrl_from_center(qtbot):
+    """[TDD] Verifica se o Ctrl+Drag no ItemCameraOverlay redimensiona a partir do centro sem pular."""
+    from editor.views.widget_editor_mapas import ItemCameraOverlay
+    from PyQt6.QtCore import Qt, QPointF
+    import math
+    
+    item = ItemCameraOverlay(None)
+    item.setRect(0, 0, 100, 100 * 16/9)
+    item.setPos(100, 100) # center is at scene pos (150, 100 + 1600/18)
+    
+    class MockEvent:
+        def __init__(self, pos, modifiers=Qt.KeyboardModifier.ControlModifier):
+            self._pos = pos
+            self._modifiers = modifiers
+            self.accepted = False
+        def pos(self): return self._pos
+        def scenePos(self): return self._pos
+        def modifiers(self): return self._modifiers
+        def accept(self): self.accepted = True
+        
+    # Mouse press at scene center + 10, 10
+    press_event = MockEvent(QPointF(160, 110))
+    item.mousePressEvent(press_event)
+    assert item.resizing_center == True
+    
+    # Mouse move to scene center + 50, 10
+    move_event = MockEvent(QPointF(200, 110))
+    item.mouseMoveEvent(move_event)
+    
+    # Diff X from center is 50. Initial diff was 10.
+    # Total added width = 2 * (50 - 10) = 80.
+    # New width = 100 + 80 = 180.
+    assert item.rect().width() == 180.0
+    assert math.isclose(item.rect().height(), 180 * 16/9)
+    # The scene position must have adjusted so the center remains the same
+    expected_center_x = 150
+    actual_center_x = item.scenePos().x() + item.rect().width() / 2
+    assert math.isclose(actual_center_x, expected_center_x)

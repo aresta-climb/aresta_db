@@ -129,6 +129,8 @@ class PaginaMapas(PaginaBase):
             if caminho_db:
                 mapas_controller.set_caminho_db(caminho_db)
             self.editor.mapas_controller = mapas_controller
+            if hasattr(self.editor, 'painel_referencias'):
+                self.editor.painel_referencias.mapas_controller = mapas_controller
             self.editor.configurar_lista_mapas()
 
 class PaginaHistorico(PaginaBase):

@@ -74,13 +74,6 @@ mapas:
       y: 36
       comprimento: 46
       largura: 15
-  - id: Gruta_Tuneis
-    label: Gruta 'Túneis' (topografia incompleta)
-    box:
-      x: 90
-      y: 100
-      comprimento: 75
-      largura: 42
   - id: Vale_Verde
     label: '''Vale Verde'' (fora de escala)'
     box:
@@ -140,23 +133,26 @@ mapas:
   referencias:
   - setor: Bloco Romano (Mapa 10)
     ids:
-    - Mapa_1
     - Mapa_10
+    - Bloco_Romano
   - setor: Setor Mapa 2
     ids:
     - Mapa_2
+    - entrada_da_gruta
   - setor: Setor Gruta - Mapa 3
     ids:
     - Mapa_3
   - setor: Setor Gruta - Mapa 4 (Sala de Aula)
     ids:
     - Mapa_4
+    - Sala_de_aula
   - setor: Setor Mapa 5
     ids:
     - Mapa_5
   - setor: Vale Verde (Mapa 6)
     ids:
     - Mapa_6
+    - Vale_Verde
   - setor: Setor Mapa 7
     ids:
     - Mapa_7
@@ -169,5 +165,17 @@ mapas:
     - Savassinha
   - setor: Castelinho
     ids:
-    - Restaurante_Castelinho
+    - Mapa_1
+  - ids:
+    - Via_Compromisso_sexual
+    setor: Setor Mapa 5
+    escalada: Compromisso Sexual
+  - ids:
+    - Via_90
+    setor: Setor Túnel de Pedra (Mapa 8)
+    escalada: Ecos do Além
+  - ids:
+    - Base_Rosa_dos_Ventos
+    setor: Setor Mapa 7
+    escalada: Rosa dos Ventos
 ---

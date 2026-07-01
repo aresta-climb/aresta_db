@@ -1,5 +1,5 @@
 
-"br_mg_lagoa_santa_gruta_da_lapinhaGruta da Lapinha9Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.2ˇñ
+"br_mg_lagoa_santa_gruta_da_lapinhaGruta da Lapinha9Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.2äò
 Gruta da LapinhaZ≤
 Ø¨
 
@@ -738,8 +738,11 @@ Eust√°quioRFabianoRGilberto TorresREmerson Azeredoj¶
 128"Pobre C√©sar2
 129"Soprano (inacabada)2
 130"Sodoma e Gomorra2
-131"	Cal√≠gulabè	å	
-â	
+131"	Cal√≠gulabö
+ó
+
+î
+
 imagens/mapas_gerais_p0_i0.webpã∆"
 Mapa_1Mapa 1	?€(80"
 Mapa_2Mapa 2
@@ -755,8 +758,7 @@ Eust√°quioRFabianoRGilberto TorresREmerson Azeredoj¶
 Mapa_8Mapa 8
 ¨î(+0"
 Mapa_9Mapa 9	ºd(,0"
-Mapa_10Mapa 10	∫$(.0"A
-Gruta_Tuneis'Gruta 'T√∫neis' (topografia incompleta)Zd(K0*"6
+Mapa_10Mapa 10	∫$(.0"6
 
 Vale_Verde'Vale Verde' (fora de escala)	πE(L0"@
 Base_Rosa_dos_VentosBase da via 'Rosa dos Ventos'	é>(+0D"#
@@ -771,21 +773,28 @@ Savassinha	„2(F0")
 Via_Compromisso_sexualVia 'Compromisso sexual'
 èñ(R0/"0
 entrada_da_grutaEntrada da gruta
-∂Ë(-02)
-Mapa_1
-Mapa_10Bloco Romano (Mapa 10)2
-Mapa_2Setor Mapa 22
-Mapa_3Setor Gruta - Mapa 32-
-Mapa_4#Setor Gruta - Mapa 4 (Sala de Aula)2
-Mapa_5Setor Mapa 52
-Mapa_6Vale Verde (Mapa 6)2
+∂Ë(-02/
+Mapa_10
+Bloco_RomanoBloco Romano (Mapa 10)2(
+Mapa_2
+entrada_da_grutaSetor Mapa 22
+Mapa_3Setor Gruta - Mapa 32;
+Mapa_4
+Sala_de_aula#Setor Gruta - Mapa 4 (Sala de Aula)2
+Mapa_5Setor Mapa 52)
+Mapa_6
+
+Vale_VerdeVale Verde (Mapa 6)2
 Mapa_7Setor Mapa 72(
 Mapa_8Setor T√∫nel de Pedra (Mapa 8)2)
 Mapa_9
 
-SavassinhaSavassinha (Mapa 9)2$
-Restaurante_Castelinho
-Castelinho:[
+SavassinhaSavassinha (Mapa 9)2
+Mapa_1
+Castelinho2:
+Via_Compromisso_sexualSetor Mapa 5"Compromisso Sexual27
+Via_90Setor T√∫nel de Pedra (Mapa 8)"Ecos do Al√©m25
+Base_Rosa_dos_VentosSetor Mapa 7"Rosa dos Ventos:[
 imagens/capa_p0_i0.webp@62a972fe6e8f30f6e636d276f401029a7d49a419775bfd097ff742e8d0455cf8:_
 imagens/creditos_p0_i0.webp@0a1d32803d7f00a6a15aee8c5c28f279de6509496465cbab6a51589f476ace71:_
 imagens/creditos_p0_i1.webp@a90f59ed83561dae6f8b09b7f0f56ef5661fa9ca42677c45a0d5ae25b074036f:_
