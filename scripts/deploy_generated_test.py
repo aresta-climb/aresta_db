@@ -402,6 +402,9 @@ def test_processar_thumbnail(tmp_path):
     croqui_dir.mkdir()
     dest_dir = tmp_path / "generated" / "pico1"
     dest_dir.mkdir(parents=True)
+    generated_dir = tmp_path / "generated"
+    generated_dir.mkdir(parents=True, exist_ok=True)
+
     
     img_dir = croqui_dir / "imagens"
     img_dir.mkdir()
@@ -416,10 +419,10 @@ def test_processar_thumbnail(tmp_path):
     # Mockando o GENERATED_DIR que é usado para log (relative_to)
     deploy_module.GENERATED_DIR = tmp_path / "generated"
     
-    success = processar_thumbnail(croqui_dir, dest_dir, croqui_data)
+    success = processar_thumbnail(croqui_dir, generated_dir, croqui_data)
     
     assert success
-    thumb_path = dest_dir / "imagens" / "thumbnail.webp"
+    thumb_path = generated_dir / "thumbnails" / "pico1.webp"
     assert thumb_path.exists()
     
     # Verificar dimensões
@@ -439,7 +442,7 @@ def test_processar_thumbnail_missing_file(tmp_path):
     deploy_module.GENERATED_DIR = tmp_path / "generated"
     
     with pytest.raises(FileNotFoundError, match="Thumbnail original não encontrada"):
-        processar_thumbnail(croqui_dir, dest_dir, croqui_data)
+        processar_thumbnail(croqui_dir, deploy_module.GENERATED_DIR, croqui_data)
 
 def test_create_parser_output_dir():
     from scripts.deploy_generated import create_parser, ROOT_DIR

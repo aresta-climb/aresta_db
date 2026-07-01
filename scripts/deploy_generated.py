@@ -115,16 +115,20 @@ def calcular_sha256(caminho: Path) -> str:
     return h.hexdigest()
 
 
-def processar_thumbnail(croqui_dir: Path, dest_dir: Path, croqui_data: dict, force_thumbnails: bool = False) -> bool:
+def processar_thumbnail(croqui_dir: Path, generated_dir: Path, croqui_data: dict, force_thumbnails: bool = False) -> bool:
     """
-    Converte a imagem apontada em caminho_thumbnail para generated/<id>/imagens/thumbnail.webp.
+    Converte a imagem apontada em caminho_thumbnail para generated/thumbnails/<id>.webp.
     """
     caminho_thumb_original = croqui_data.get("caminho_thumbnail")
     if not caminho_thumb_original:
         return False
 
-    DEST_REL = "imagens/thumbnail.webp"
-    dest_path = dest_dir / DEST_REL
+    croqui_id = croqui_data.get("id")
+    if not croqui_id:
+        return False
+        
+    DEST_REL = f"thumbnails/{croqui_id}.webp"
+    dest_path = generated_dir / DEST_REL
     src_path = croqui_dir / caminho_thumb_original
 
     # Se a thumbnail já existe no destino e não estamos forçando, pulamos.
@@ -359,8 +363,8 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
         # --- Fase 1: Correção do Database (Migração de Imagens e Thumbnails) ---
         try:
             corrigir_database(croqui_dir)
-            # Gera a thumbnail diretamente na pasta de destino (generated)
-            processar_thumbnail(croqui_dir, dest_dir, croqui_data, force_thumbnails=force_thumbnails)
+            # Gera a thumbnail na pasta generated/thumbnails/
+            processar_thumbnail(croqui_dir, GENERATED_DIR, croqui_data, force_thumbnails=force_thumbnails)
         except Exception as e:
             import traceback
             traceback.print_exc()
@@ -509,7 +513,7 @@ def passo_c_gerar_indice(
             resumo.localizacao.longitude = loc.get("longitude", 0)
 
         # Thumbnail Checksum
-        thumb_path = GENERATED_DIR / croqui_id / "imagens" / "thumbnail.webp"
+        thumb_path = GENERATED_DIR / "thumbnails" / f"{croqui_id}.webp"
         thumb_checksum = ""
         if thumb_path.exists():
             thumb_checksum = calcular_sha256(thumb_path)
@@ -722,7 +726,7 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
         base = croqui.id
         add_file(f"{base}/compilado.binarypb", croqui.checksum_sha256_croqui)
         if croqui.checksum_sha256_thumbnail:
-            add_file(f"{base}/imagens/thumbnail.webp", croqui.checksum_sha256_thumbnail)
+            add_file(f"thumbnails/{base}.webp", croqui.checksum_sha256_thumbnail)
             
         # 2. Lê o compilado para pegar arquivos_externos
         compilado_path = GENERATED_DIR / base / "compilado.binarypb"
