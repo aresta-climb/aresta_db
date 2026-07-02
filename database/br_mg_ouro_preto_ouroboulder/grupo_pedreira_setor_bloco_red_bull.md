@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Red Bull'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
@@ -8,37 +8,37 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 842
-      y: 108
+      x: 843
+      y: 78
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1136
-      y: 511
+      x: 1137
+      y: 513
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 498
-      y: 925
+      x: 503
+      y: 937
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1037
-      y: 833
+      x: 1038
+      y: 835
       raio: 13
   - id: ▲
     label: ▲
     circular:
-      x: 344
-      y: 443
+      x: 345
+      y: 448
       raio: 13
   - id: ★
     label: ★
     circular:
-      x: 738
+      x: 737
       y: 380
       raio: 13
   referencias:
@@ -89,5 +89,6 @@ escaladas:
 - boulder:
     nome: Mad Dog
     dificuldade: V1
----
+---
+
 

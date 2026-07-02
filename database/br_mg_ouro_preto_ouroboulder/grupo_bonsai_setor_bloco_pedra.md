@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
@@ -9,31 +9,31 @@ mapas:
     label: '1'
     circular:
       x: 410
-      y: 880
+      y: 889
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1140
-      y: 944
+      x: 1141
+      y: 946
       raio: 13
   - id: A
     label: A
     circular:
-      x: 148
-      y: 420
+      x: 149
+      y: 424
       raio: 13
   - id: B
     label: B
     circular:
-      x: 410
-      y: 285
+      x: 411
+      y: 297
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1128
-      y: 255
+      x: 1129
+      y: 251
       raio: 13
   referencias:
   - escalada: Billy The Kid
@@ -64,5 +64,6 @@ escaladas:
 - boulder:
     nome: Semiárido
     dificuldade: V5
----
+---
+
 

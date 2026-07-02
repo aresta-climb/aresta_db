@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Seg-Samambaia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp
@@ -8,40 +8,50 @@ mapas:
   - id: 1A
     label: A
     circular:
-      x: 193
-      y: 458
+      x: 196
+      y: 456
       raio: 13
   - id: 1B
     label: B
     circular:
-      x: 371
-      y: 313
+      x: 367
+      y: 298
       raio: 13
   - id: 1C
     label: C
     circular:
-      x: 766
-      y: 221
+      x: 767
+      y: 213
       raio: 13
   - id: 1D
     label: D
     circular:
-      x: 955
-      y: 146
+      x: 957
+      y: 136
+      raio: 13
+  - id: '1'
+    label: '1'
+    circular:
+      x: 446
+      y: 978
       raio: 13
   referencias:
   - escalada: Seg da Árvore
     ids:
     - 1A
+    - '1'
   - escalada: Seg-Samambaia
     ids:
     - 1B
+    - '1'
   - escalada: Seg dos Inferno
     ids:
     - 1C
+    - '1'
   - escalada: Toca Toca
     ids:
     - 1D
+    - '1'
 escaladas:
 - boulder:
     nome: Seg da Árvore
@@ -55,5 +65,6 @@ escaladas:
 - boulder:
     nome: Toca Toca
     dificuldade: V4
----
+---
+
 

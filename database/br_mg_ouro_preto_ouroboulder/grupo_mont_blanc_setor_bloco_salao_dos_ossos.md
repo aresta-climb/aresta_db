@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Salão dos Ossos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp
@@ -8,50 +8,50 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 368
-      y: 872
+      x: 374
+      y: 790
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 312
-      y: 770
+      x: 331
+      y: 660
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 588
-      y: 847
+      x: 610
+      y: 848
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 688
-      y: 616
+      x: 730
+      y: 726
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 808
-      y: 700
+      x: 838
+      y: 818
       raio: 13
   - id: A
     label: A
     circular:
-      x: 258
+      x: 259
       y: 272
       raio: 13
   - id: B
     label: B
     circular:
-      x: 403
-      y: 131
+      x: 404
+      y: 132
       raio: 13
   - id: C
     label: C
     circular:
       x: 1520
-      y: 375
+      y: 366
       raio: 13
   referencias:
   - escalada: Dolinha
@@ -104,5 +104,6 @@ escaladas:
 - boulder:
     nome: Tutano
     dificuldade: V10
----
+---
+
 

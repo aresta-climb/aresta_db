@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Travessia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
@@ -8,56 +8,56 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 312
-      y: 288
+      x: 488
+      y: 341
       raio: 13
   - id: B
     label: B
     circular:
-      x: 444
-      y: 118
+      x: 692
+      y: 138
       raio: 13
   - id: C
     label: C
     circular:
-      x: 814
-      y: 74
+      x: 1281
+      y: 87
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 38
-      y: 553
+      x: 116
+      y: 659
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 112
-      y: 632
+      x: 179
+      y: 743
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 262
-      y: 706
+      x: 415
+      y: 840
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 452
-      y: 684
+      x: 711
+      y: 812
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 752
-      y: 706
+      x: 1183
+      y: 840
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 862
-      y: 634
+      x: 1361
+      y: 753
       raio: 13
   referencias:
   - escalada: Travessia ext
@@ -83,14 +83,6 @@ mapas:
   - escalada: Bem-vindo ao Climb
     ids:
     - '6'
-  - escalada: Monodedo
-    ids:
-    - '2'
-    - A
-  - escalada: Movimentos Eróticos
-    ids:
-    - '2'
-    - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -98,62 +90,62 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 10
-      y: 345
+      x: 9
+      y: 285
       raio: 13
   - id: B
     label: B
     circular:
       x: 554
-      y: 242
+      y: 241
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1220
-      y: 342
+      x: 1207
+      y: 326
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1390
-      y: 330
+      x: 1397
+      y: 305
       raio: 13
   - id: E
     label: E
     circular:
-      x: 1522
-      y: 430
+      x: 1521
+      y: 431
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 24
-      y: 553
+      x: 41
+      y: 576
       raio: 13
   - id: '2'
     label: '2'
     circular:
       x: 588
-      y: 855
+      y: 858
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1272
-      y: 852
+      x: 1281
+      y: 835
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 1374
-      y: 784
+      x: 1389
+      y: 766
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 1491
-      y: 750
+      x: 1492
+      y: 751
       raio: 13
   referencias:
   - escalada: Travessia ext
@@ -209,5 +201,6 @@ escaladas:
 - boulder:
     nome: Movimentos Eróticos
     dificuldade: V1
----
+---
+
 

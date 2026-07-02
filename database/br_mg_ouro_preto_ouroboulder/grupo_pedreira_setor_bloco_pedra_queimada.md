@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Pedra Queimada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
@@ -8,50 +8,50 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 1508
+      x: 1509
       y: 280
       raio: 13
   - id: B
     label: B
     circular:
       x: 684
-      y: 306
+      y: 308
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 392
-      y: 802
+      x: 390
+      y: 816
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 705
-      y: 855
+      x: 706
+      y: 857
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 513
-      y: 778
+      x: 514
+      y: 780
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 760
-      y: 785
+      x: 766
+      y: 799
       raio: 13
   - id: '5'
     label: '5'
     circular:
       x: 1108
-      y: 603
+      y: 604
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 1308
-      y: 758
+      x: 1313
+      y: 761
       raio: 13
   referencias:
   - escalada: Flap
@@ -82,9 +82,6 @@ mapas:
     ids:
     - '6'
     - B
-  - escalada: Identidade
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -92,13 +89,10 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 630
-      y: 730
+      x: 633
+      y: 731
       raio: 13
   referencias:
-  - escalada: Flap
-    ids:
-    - '1'
   - escalada: Identidade
     ids:
     - '1'
@@ -131,5 +125,6 @@ escaladas:
 - boulder:
     nome: Identidade
     dificuldade: V0
----
+---
+
 

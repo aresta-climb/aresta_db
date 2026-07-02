@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Teto de Vidro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
@@ -8,44 +8,44 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 687
-      y: 310
+      x: 691
+      y: 312
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1095
+      x: 1091
       y: 740
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 452
-      y: 835
+      x: 433
+      y: 840
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1008
-      y: 718
+      x: 1021
+      y: 726
       raio: 13
   - id: '3'
     label: '3'
     circular:
       x: 917
-      y: 711
+      y: 688
       raio: 13
   - id: ▲
     label: ▲
     circular:
-      x: 958
-      y: 726
+      x: 957
+      y: 737
       raio: 13
   - id: ★
     label: ★
     circular:
-      x: 996
-      y: 660
+      x: 995
+      y: 663
       raio: 13
   referencias:
   - escalada: Buena Onda
@@ -70,10 +70,6 @@ mapas:
     ids:
     - '3'
     - A
-  - escalada: Manobra
-    ids:
-    - '3'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -81,50 +77,40 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 999
-      y: 294
+      x: 1001
+      y: 297
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1162
-      y: 422
+      x: 1172
+      y: 401
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 538
-      y: 886
+      x: 532
+      y: 892
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 465
-      y: 742
+      x: 470
+      y: 750
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 848
-      y: 890
+      x: 849
+      y: 892
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 1258
-      y: 970
-      raio: 13
-  - id: Seta
-    label: Seta
-    circular:
-      x: 740
-      y: 650
+      x: 1253
+      y: 984
       raio: 13
   referencias:
-  - escalada: Buena Onda
-    ids:
-    - '1'
-    - A
   - escalada: Teto de Vidro
     ids:
     - '1'
@@ -132,10 +118,6 @@ mapas:
   - escalada: Teto Quebrado
     ids:
     - '2'
-    - A
-  - escalada: Gringo
-    ids:
-    - '3'
     - A
   - escalada: Manobra
     ids:
@@ -175,5 +157,6 @@ escaladas:
 - boulder:
     nome: Wafer
     dificuldade: V1
----
+---
+
 

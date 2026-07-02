@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Parada Obrigatória'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp
@@ -8,26 +8,26 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 156
-      y: 600
+      x: 157
+      y: 602
       raio: 13
   - id: B
     label: B
     circular:
       x: 226
-      y: 497
+      y: 499
       raio: 13
   - id: C
     label: C
     circular:
-      x: 988
-      y: 260
+      x: 986
+      y: 268
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 601
-      y: 907
+      x: 596
+      y: 914
       raio: 13
   - id: '2'
     label: '2'
@@ -52,12 +52,6 @@ mapas:
     ids:
     - '2'
     - C
-  - escalada: Frasco
-    ids:
-    - '1'
-  - escalada: Frisco
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -65,20 +59,20 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 292
-      y: 770
+      x: 306
+      y: 775
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 645
-      y: 780
+      x: 647
+      y: 791
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1036
-      y: 810
+      x: 1038
+      y: 814
       raio: 13
   referencias:
   - escalada: Frasco
@@ -112,5 +106,6 @@ escaladas:
 - boulder:
     nome: Fulano
     dificuldade: V1
----
+---
+
 

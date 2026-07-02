@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Deep Inside'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
@@ -8,50 +8,50 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 242
-      y: 835
+      x: 230
+      y: 849
       raio: 13
   - id: '2'
     label: '2'
     circular:
       x: 1050
-      y: 834
+      y: 835
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1006
-      y: 908
+      x: 1008
+      y: 911
       raio: 13
   - id: A
     label: A
     circular:
-      x: 718
+      x: 719
       y: 284
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1398
+      x: 1399
       y: 238
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1511
-      y: 625
+      x: 1512
+      y: 628
       raio: 13
   - id: triangulo
     label: ▲
     circular:
       x: 1072
-      y: 740
+      y: 736
       raio: 13
   - id: estrela
     label: ★
     circular:
-      x: 1335
-      y: 780
+      x: 1331
+      y: 778
       raio: 13
   referencias:
   - escalada: Buda
@@ -66,14 +66,27 @@ mapas:
     ids:
     - '1'
     - C
-  - escalada: Promocinha
+  - escalada: Nataraja
     ids:
-    - '1'
-    - A
-  - escalada: Bolinho de Chuva
+    - '2'
+    - triangulo
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - escalada: Sidarta
     ids:
+    - '2'
+    - estrela
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - ids:
     - '3'
-    - C
+    - estrela
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+    escalada: Sidarta sds
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -81,86 +94,82 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 246
+      x: 250
       y: 407
       raio: 13
   - id: B
     label: B
     circular:
-      x: 558
-      y: 283
+      x: 565
+      y: 225
       raio: 13
   - id: C
     label: C
     circular:
-      x: 871
-      y: 240
+      x: 874
+      y: 197
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1198
-      y: 345
+      x: 1211
+      y: 307
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 68
-      y: 774
+      x: 67
+      y: 779
       raio: 13
   - id: triangulo
     label: ▲
     circular:
-      x: 324
-      y: 684
+      x: 328
+      y: 692
       raio: 13
   - id: estrela
     label: ★
     circular:
-      x: 525
-      y: 655
+      x: 519
+      y: 657
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 473
-      y: 746
+      x: 474
+      y: 748
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 473
-      y: 795
+      x: 474
+      y: 789
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 656
-      y: 776
+      x: 662
+      y: 778
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 702
-      y: 751
+      x: 701
+      y: 752
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 755
-      y: 588
+      x: 764
+      y: 605
       raio: 13
   - id: '7'
     label: '7'
     circular:
-      x: 1200
-      y: 680
+      x: 1201
+      y: 693
       raio: 13
   referencias:
-  - escalada: Buda
-    ids:
-    - '1'
-    - A
   - escalada: Arestides
     ids:
     - '1'
@@ -183,16 +192,57 @@ mapas:
     - C
   - escalada: Promoção
     ids:
-    - '2'
-    - B
-  - escalada: Promocinha
+    - '7'
+    - D
+  - escalada: Invertides
+    ids:
+    - '7'
+    - A
+    - triangulo
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - escalada: Arestides ext
     ids:
     - '1'
-    - A
-  - escalada: Bolinho de Chuva
+    - triangulo
+    - D
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - escalada: Nataraja
     ids:
+    - '2'
+    - triangulo
+    - A
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - ids:
+    - '2'
+    - estrela
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+    escalada: Sidarta
+  - ids:
     - '3'
-    - C
+    - estrela
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+    escalada: Sidarta sds
+  - ids:
+    - '4'
+    - triangulo
+    - A
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+    escalada: Deep Inside ext
+  - ids:
+    - '4'
+    - estrela
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+    escalada: Deep Inside
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -200,48 +250,40 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 510
-      y: 782
-      raio: 13
+      x: 512
+      y: 776
+      raio: 14
   - id: '2'
     label: '2'
     circular:
-      x: 602
-      y: 788
+      x: 612
+      y: 791
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1220
-      y: 748
+      x: 1215
+      y: 745
       raio: 13
   - id: B
     label: B
     circular:
       x: 555
-      y: 253
+      y: 263
       raio: 13
   - id: A
     label: A
     circular:
-      x: 695
-      y: 161
+      x: 703
+      y: 163
       raio: 13
   - id: C
     label: C
     circular:
-      x: 854
-      y: 95
+      x: 849
+      y: 99
       raio: 13
   referencias:
-  - escalada: Buda
-    ids:
-    - '1'
-    - A
-  - escalada: Arestides
-    ids:
-    - '1'
-    - B
   - escalada: Promocinha
     ids:
     - '1'
@@ -250,6 +292,12 @@ mapas:
     ids:
     - '3'
     - C
+  - escalada: Promoção
+    ids:
+    - '2'
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
 escaladas:
 - boulder:
     nome: Buda
@@ -299,5 +347,6 @@ escaladas:
 - boulder:
     nome: Bolinho de Chuva
     dificuldade: VB
----
+---
+
 

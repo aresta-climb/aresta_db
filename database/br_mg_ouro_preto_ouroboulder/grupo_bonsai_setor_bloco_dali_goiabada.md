@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Dali Goiabada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp
@@ -9,7 +9,7 @@ mapas:
     label: '1'
     circular:
       x: 810
-      y: 955
+      y: 958
       raio: 13
   referencias:
   - escalada: Dali Goiabada
@@ -19,5 +19,6 @@ escaladas:
 - boulder:
     nome: Dali Goiabada
     dificuldade: V9
----
+---
+
 

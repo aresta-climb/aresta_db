@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Tô de Boa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
@@ -8,20 +8,14 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 547
-      y: 721
+      x: 551
+      y: 725
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 903
-      y: 928
-      raio: 13
-  - id: Seta
-    label: Seta
-    circular:
-      x: 484
-      y: 320
+      x: 904
+      y: 939
       raio: 13
   referencias:
   - escalada: NBA
@@ -37,58 +31,52 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 146
-      y: 432
+      x: 147
+      y: 434
       raio: 13
   - id: B
     label: B
     circular:
       x: 346
-      y: 329
+      y: 332
       raio: 13
   - id: C
     label: C
     circular:
-      x: 639
-      y: 295
+      x: 644
+      y: 300
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1008
-      y: 373
+      x: 1006
+      y: 376
       raio: 13
   - id: E
     label: E
     circular:
-      x: 1211
-      y: 446
+      x: 1212
+      y: 448
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 420
-      y: 640
+      x: 597
+      y: 774
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 450
-      y: 635
+      x: 642
+      y: 763
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1210
-      y: 705
+      x: 1335
+      y: 650
       raio: 13
   referencias:
-  - escalada: NBA
-    ids:
-    - '1'
-  - escalada: Pedra Única
-    ids:
-    - '2'
   - escalada: Tô na Esquiva
     ids:
     - '1'
@@ -138,5 +126,6 @@ escaladas:
 - boulder:
     nome: Tô Suave
     dificuldade: V4_BARRA_V5
----
+---
+
 

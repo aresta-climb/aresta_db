@@ -1,27 +1,111 @@
 ---
 mapas:
-- caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
-  pontos_de_interesse:
-  - id: apa_andorinhas
-    label: ÁREA DE PROTEÇÃO AMBIENTAL CACHOEIRA DAS ANDORINHAS
-    box:
-      x: 491
-      y: 476
-      comprimento: 629
-      largura: 27
-      angulo_graus_x100: 18
-  - id: parque_natural_andorinhas
-    label: PARQUE NATURAL MUNICIPAL DAS ANDORINHAS
-    box:
-      x: 1126
-      y: 720
-      comprimento: 478
-      largura: 20
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1536
-  pontos_de_interesse: []
+  pontos_de_interesse:
+  - id: pedreira
+    label: Grupo Pedreira
+    area_livre:
+      coordenadas:
+      - 285
+      - 330
+      - 467
+      - 209
+      - 672
+      - 221
+      - 848
+      - 288
+      - 915
+      - 439
+      - 876
+      - 520
+      - 795
+      - 576
+      - 509
+      - 634
+      - 416
+      - 592
+      - 327
+      - 467
+  - id: mont_blanc
+    label: Mont Blanc
+    area_livre:
+      coordenadas:
+      - 973
+      - 581
+      - 1210
+      - 511
+      - 1273
+      - 610
+      - 1386
+      - 844
+      - 1404
+      - 858
+      - 1482
+      - 892
+      - 1503
+      - 950
+      - 1507
+      - 994
+      - 1494
+      - 1034
+      - 1449
+      - 1065
+      - 1406
+      - 1080
+      - 1270
+      - 1073
+      - 1226
+      - 1032
+      - 1210
+      - 1028
+      - 1146
+      - 987
+      - 1070
+      - 947
+      - 1026
+      - 930
+      - 951
+      - 869
+      - 912
+      - 847
+      - 904
+      - 825
+  - id: bonsai
+    label: Bonsai
+    area_livre:
+      coordenadas:
+      - 1665
+      - 1114
+      - 1718
+      - 1185
+      - 1775
+      - 1311
+      - 1761
+      - 1355
+      - 1693
+      - 1447
+      - 1598
+      - 1391
+      - 1515
+      - 1341
+      - 1455
+      - 1304
+      - 1461
+      - 1253
+      - 1467
+      - 1198
+      - 1461
+      - 1182
+  referencias:
+  - ids:
+    - pedreira
+    grupo: Pedreira
+  - ids:
+    - mont_blanc
+    grupo: Mont Blanc
+  - ids:
+    - bonsai
+    grupo: Bonsai
 ---
-

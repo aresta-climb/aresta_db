@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Conhaque'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp
@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 15
-      y: 965
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 20
+      y: 1023
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 504
-      y: 1022
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 523
+      y: 1035
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 676
-      y: 990
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 693
+      y: 1003
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 1273
-      y: 965
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 1283
+      y: 973
+      raio: 13
   - id: A
     label: A
-    box:
-      x: 370
-      y: 245
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 359
+      y: 184
+      raio: 13
   - id: B
     label: B
-    box:
-      x: 1044
-      y: 24
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 1034
+      y: 26
+      raio: 13
   referencias:
   - escalada: Aderência
     ids:
@@ -83,5 +77,6 @@ escaladas:
 - boulder:
     nome: Conhaque Presidente
     dificuldade: V6
----
+---
+
 

@@ -14,185 +14,305 @@ mapas:
   - id: travessia
     label: Travessia
     box:
-      x: 190
+      x: 240
       y: 450
-      comprimento: 80
-      largura: 14
+      comprimento: 73
+      largura: 16
   - id: jah
     label: Jah
     box:
-      x: 275
+      x: 298
       y: 428
-      comprimento: 35
-      largura: 15
+      comprimento: 29
+      largura: 16
   - id: sauna
     label: Sauna
     box:
-      x: 358
+      x: 395
       y: 466
       comprimento: 48
       largura: 15
   - id: joao_de_barro
     label: João de Barro
     box:
-      x: 358
-      y: 408
-      comprimento: 110
+      x: 427
+      y: 414
+      comprimento: 108
       largura: 19
   - id: mata_mata
     label: Mata Mata
     box:
-      x: 335
-      y: 338
+      x: 378
+      y: 347
       comprimento: 84
       largura: 18
   - id: red_bull
     label: Red Bull
     box:
-      x: 387
-      y: 255
+      x: 420
+      y: 266
       comprimento: 64
       largura: 19
   - id: bob
     label: Bob
     box:
-      x: 338
-      y: 258
+      x: 347
+      y: 276
       comprimento: 30
       largura: 15
   - id: lagartixa
     label: Lagartixa
     box:
-      x: 360
-      y: 512
+      x: 490
+      y: 516
       comprimento: 71
       largura: 17
   - id: entretidos
     label: Entretidos
     box:
-      x: 520
-      y: 395
-      comprimento: 80
-      largura: 17
+      x: 633
+      y: 398
+      comprimento: 76
+      largura: 16
   - id: fiat_lux
     label: Fiat Lux
     box:
-      x: 480
-      y: 362
-      comprimento: 65
-      largura: 14
+      x: 532
+      y: 365
+      comprimento: 61
+      largura: 16
   - id: teto_de_vidro
     label: Teto de Vidro
     box:
-      x: 615
-      y: 554
+      x: 722
+      y: 556
       comprimento: 105
       largura: 18
   - id: to_de_boa
     label: Tô de Boa
     box:
-      x: 605
-      y: 425
+      x: 699
+      y: 426
       comprimento: 78
       largura: 18
   - id: pedra_queimada
     label: Pedra Queimada
     box:
-      x: 770
-      y: 518
-      comprimento: 150
-      largura: 15
+      x: 892
+      y: 519
+      comprimento: 128
+      largura: 20
   - id: hora_da_janta
     label: Hora da Janta
     box:
-      x: 535
+      x: 664
       y: 770
-      comprimento: 100
-      largura: 15
+      comprimento: 107
+      largura: 17
   - id: mezanino
     label: Mezanino
     box:
-      x: 690
+      x: 802
       y: 761
-      comprimento: 75
-      largura: 14
+      comprimento: 79
+      largura: 18
   - id: chicletes
     label: Chicletes
     box:
-      x: 625
-      y: 827
-      comprimento: 75
-      largura: 14
+      x: 719
+      y: 828
+      comprimento: 74
+      largura: 17
   - id: longevidade
     label: Longevidade
     box:
-      x: 395
-      y: 924
+      x: 507
+      y: 925
       comprimento: 92
-      largura: 17
+      largura: 20
   - id: sossega_leao
     label: Sossega Leão
     box:
-      x: 910
-      y: 786
-      comprimento: 105
+      x: 1019
+      y: 790
+      comprimento: 106
       largura: 19
   - id: sonar
     label: Sonar
     box:
-      x: 535
-      y: 850
-      comprimento: 45
-      largura: 16
+      x: 884
+      y: 972
+      comprimento: 46
+      largura: 17
   - id: meia_parede
     label: Meia-Parede
     box:
-      x: 884
-      y: 833
+      x: 933
+      y: 841
       comprimento: 96
       largura: 18
   - id: nave_mae
     label: Nave Mãe
     box:
-      x: 850
-      y: 585
-      comprimento: 85
-      largura: 17
+      x: 974
+      y: 588
+      comprimento: 78
+      largura: 18
   - id: abaulados
     label: Abaulados
     box:
-      x: 1030
-      y: 454
-      comprimento: 83
-      largura: 17
+      x: 1120
+      y: 458
+      comprimento: 81
+      largura: 19
   - id: deep_inside
     label: Deep Inside
     box:
-      x: 1045
-      y: 624
-      comprimento: 99
+      x: 1144
+      y: 628
+      comprimento: 89
       largura: 19
   - id: complexo
     label: Complexo
     box:
-      x: 1105
-      y: 660
-      comprimento: 75
-      largura: 15
+      x: 1194
+      y: 662
+      comprimento: 81
+      largura: 19
   - id: conhaque
     label: Conhaque
     box:
-      x: 1280
-      y: 635
+      x: 1344
+      y: 638
       comprimento: 83
       largura: 18
   - id: eletron
     label: Elétron/Positron
     box:
-      x: 1330
-      y: 710
-      comprimento: 122
-      largura: 18
+      x: 1440
+      y: 714
+      comprimento: 123
+      largura: 21
+  - id: ianque
+    label: Ianque
+    box:
+      x: 564
+      y: 409
+      comprimento: 53
+      largura: 16
+  - id: nat_geo
+    label: Nat Geo
+    box:
+      x: 789
+      y: 244
+      comprimento: 64
+      largura: 21
+  referencias:
+  - ids:
+    - bob
+    grupo: Pedreira
+    setor: 'Bloco: Bob'
+  - ids:
+    - red_bull
+    grupo: Pedreira
+    setor: 'Bloco: Red Bull'
+  - ids:
+    - mata_mata
+    grupo: Pedreira
+    setor: 'Bloco: Mata-Mata'
+  - ids:
+    - travessia
+    grupo: Pedreira
+    setor: 'Bloco: Travessia'
+  - ids:
+    - jah
+    grupo: Pedreira
+    setor: 'Bloco: Jah'
+  - ids:
+    - sauna
+    grupo: Pedreira
+    setor: 'Bloco: Sauna'
+  - ids:
+    - joao_de_barro
+    grupo: Pedreira
+    setor: 'Bloco: João de Barro'
+  - ids:
+    - fiat_lux
+    grupo: Pedreira
+    setor: 'Bloco: Fiat Lux'
+  - ids:
+    - ianque
+    grupo: Pedreira
+    setor: 'Bloco: Entretidos'
+    escalada: Ianque
+  - ids:
+    - entretidos
+    grupo: Pedreira
+    setor: 'Bloco: Entretidos'
+  - ids:
+    - lagartixa
+    grupo: Pedreira
+    setor: 'Bloco: Lagartixa'
+  - ids:
+    - to_de_boa
+    grupo: Pedreira
+    setor: 'Bloco: Tô de Boa'
+  - ids:
+    - teto_de_vidro
+    grupo: Pedreira
+    setor: 'Bloco: Teto de Vidro'
+  - ids:
+    - pedra_queimada
+    grupo: Pedreira
+    setor: 'Bloco: Pedra Queimada'
+  - ids:
+    - nave_mae
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - ids:
+    - abaulados
+    grupo: Pedreira
+    setor: 'Bloco: Abaulados'
+  - ids:
+    - longevidade
+    grupo: Pedreira
+    setor: 'Bloco: Longevidade'
+  - ids:
+    - hora_da_janta
+    grupo: Pedreira
+    setor: 'Bloco: Hora da Janta'
+  - ids:
+    - chicletes
+    grupo: Pedreira
+    setor: 'Bloco: Chicletes'
+  - ids:
+    - mezanino
+    grupo: Pedreira
+    setor: 'Bloco: Mezanino'
+  - ids:
+    - meia_parede
+    grupo: Pedreira
+    setor: 'Bloco: Meia-Parede'
+  - ids:
+    - sonar
+    grupo: Pedreira
+    setor: 'Bloco: Sonar'
+  - ids:
+    - deep_inside
+    grupo: Pedreira
+    setor: 'Bloco: Deep Inside'
+  - ids:
+    - complexo
+    grupo: Pedreira
+    setor: 'Bloco: Complexo'
+  - ids:
+    - conhaque
+    grupo: Pedreira
+    setor: 'Bloco: Conhaque'
+  - ids:
+    - eletron
+    grupo: Pedreira
+    setor: 'Bloco: Elétron'
 setores:
 - caminho: grupo_pedreira_setor_bloco_travessia.md
 - caminho: grupo_pedreira_setor_bloco_jah.md

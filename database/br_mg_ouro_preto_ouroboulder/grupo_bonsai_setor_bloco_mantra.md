@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
@@ -8,20 +8,11 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 954
-      y: 1036
+      x: 957
+      y: 1039
       raio: 13
   referencias:
   - escalada: Prodígio
-    ids:
-    - '1'
-  - escalada: Briga de Galo
-    ids:
-    - '1'
-  - escalada: Afrodisíaco
-    ids:
-    - '1'
-  - escalada: Psicótico
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
@@ -31,22 +22,35 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 716
-      y: 1012
+      x: 707
+      y: 1013
+      raio: 13
+  - id: '2'
+    label: '2'
+    circular:
+      x: 973
+      y: 895
+      raio: 13
+  - id: '3'
+    label: '3'
+    circular:
+      x: 1409
+      y: 1133
       raio: 13
   referencias:
-  - escalada: Prodígio
-    ids:
-    - '1'
   - escalada: Briga de Galo
     ids:
     - '1'
-  - escalada: Afrodisíaco
+  - escalada: Oráculo
     ids:
-    - '1'
-  - escalada: Psicótico
+    - '2'
+    grupo: Bonsai
+    setor: 'Bloco: Mantra'
+  - escalada: '008'
     ids:
-    - '1'
+    - '3'
+    grupo: Bonsai
+    setor: 'Bloco: Mantra'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -54,52 +58,40 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 79
-      y: 398
+      x: 80
+      y: 401
       raio: 13
   - id: B
     label: B
     circular:
-      x: 412
-      y: 344
+      x: 415
+      y: 346
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1068
-      y: 344
+      x: 1071
+      y: 339
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 196
-      y: 839
+      x: 202
+      y: 834
       raio: 13
   - id: '2'
     label: '2'
     circular:
       x: 722
-      y: 939
+      y: 940
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 614
-      y: 794
+      x: 615
+      y: 796
       raio: 13
   referencias:
-  - escalada: Prodígio
-    ids:
-    - '1'
-  - escalada: Briga de Galo
-    ids:
-    - '1'
-  - escalada: Oráculo
-    ids:
-    - '2'
-  - escalada: 008
-    ids:
-    - '3'
   - escalada: Afrodisíaco
     ids:
     - '1'
@@ -119,12 +111,6 @@ mapas:
     ids:
     - '3'
     - C
-  - escalada: Psicótico
-    ids:
-    - '1'
-  - escalada: Popeye
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -133,27 +119,15 @@ mapas:
     label: '1'
     circular:
       x: 394
-      y: 780
+      y: 779
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 956
-      y: 816
+      x: 955
+      y: 817
       raio: 13
   referencias:
-  - escalada: Prodígio
-    ids:
-    - '1'
-  - escalada: Briga de Galo
-    ids:
-    - '1'
-  - escalada: Oráculo
-    ids:
-    - '2'
-  - escalada: Afrodisíaco
-    ids:
-    - '1'
   - escalada: Psicótico
     ids:
     - '1'
@@ -171,7 +145,7 @@ escaladas:
     nome: Oráculo
     dificuldade: V9
 - boulder:
-    nome: 008
+    nome: '008'
     dificuldade: V5
 - boulder:
     nome: Afrodisíaco
@@ -194,5 +168,6 @@ escaladas:
 - boulder:
     nome: Popeye
     dificuldade: V2
----
+---
+
 

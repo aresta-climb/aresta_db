@@ -5,7 +5,7 @@
 - **id**: br_mg_ouro_preto_ouroboulder
 - **nome**: Ouroboulder
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
-- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
     - **texto**: Capa
@@ -61,6 +61,10 @@
       - **secao_textual**:
         - **conteudo**:
             # PARQUE MUNICIPAL DAS ANDORINHAS
+            
+            | ![mapa unidade de conservação](imagens/mapas_gerais_p0.webp) |
+            | :--: |
+            | *mapa unidade de conservação* |
             
             O Parque Municipal Natural das Andorinhas (PNMA), localizado em Ouro Preto, é um refúgio ecológico de grande beleza cênica. Criado em 2005, o parque abrange uma área de mais de 550 hectares, caracterizada por formações rochosas impressionantes e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o Cerrado.
             
@@ -226,6 +230,8 @@
             *   **Email:** sime.ouroboulder@gmail.com
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_manualmente**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: grupo_pedreira
@@ -250,23 +256,23 @@
         - **id**: travessia
         - **label**: Travessia
         - **box**:
-          - **x**: 190
+          - **x**: 240
           - **y**: 450
-          - **comprimento**: 80
-          - **largura**: 14
+          - **comprimento**: 73
+          - **largura**: 16
       - **[1]**:
         - **id**: jah
         - **label**: Jah
         - **box**:
-          - **x**: 275
+          - **x**: 298
           - **y**: 428
-          - **comprimento**: 35
-          - **largura**: 15
+          - **comprimento**: 29
+          - **largura**: 16
       - **[2]**:
         - **id**: sauna
         - **label**: Sauna
         - **box**:
-          - **x**: 358
+          - **x**: 395
           - **y**: 466
           - **comprimento**: 48
           - **largura**: 15
@@ -274,186 +280,334 @@
         - **id**: joao_de_barro
         - **label**: João de Barro
         - **box**:
-          - **x**: 358
-          - **y**: 408
-          - **comprimento**: 110
+          - **x**: 427
+          - **y**: 414
+          - **comprimento**: 108
           - **largura**: 19
       - **[4]**:
         - **id**: mata_mata
         - **label**: Mata Mata
         - **box**:
-          - **x**: 335
-          - **y**: 338
+          - **x**: 378
+          - **y**: 347
           - **comprimento**: 84
           - **largura**: 18
       - **[5]**:
         - **id**: red_bull
         - **label**: Red Bull
         - **box**:
-          - **x**: 387
-          - **y**: 255
+          - **x**: 420
+          - **y**: 266
           - **comprimento**: 64
           - **largura**: 19
       - **[6]**:
         - **id**: bob
         - **label**: Bob
         - **box**:
-          - **x**: 338
-          - **y**: 258
+          - **x**: 347
+          - **y**: 276
           - **comprimento**: 30
           - **largura**: 15
       - **[7]**:
         - **id**: lagartixa
         - **label**: Lagartixa
         - **box**:
-          - **x**: 360
-          - **y**: 512
+          - **x**: 490
+          - **y**: 516
           - **comprimento**: 71
           - **largura**: 17
       - **[8]**:
         - **id**: entretidos
         - **label**: Entretidos
         - **box**:
-          - **x**: 520
-          - **y**: 395
-          - **comprimento**: 80
-          - **largura**: 17
+          - **x**: 633
+          - **y**: 398
+          - **comprimento**: 76
+          - **largura**: 16
       - **[9]**:
         - **id**: fiat_lux
         - **label**: Fiat Lux
         - **box**:
-          - **x**: 480
-          - **y**: 362
-          - **comprimento**: 65
-          - **largura**: 14
+          - **x**: 532
+          - **y**: 365
+          - **comprimento**: 61
+          - **largura**: 16
       - **[10]**:
         - **id**: teto_de_vidro
         - **label**: Teto de Vidro
         - **box**:
-          - **x**: 615
-          - **y**: 554
+          - **x**: 722
+          - **y**: 556
           - **comprimento**: 105
           - **largura**: 18
       - **[11]**:
         - **id**: to_de_boa
         - **label**: Tô de Boa
         - **box**:
-          - **x**: 605
-          - **y**: 425
+          - **x**: 699
+          - **y**: 426
           - **comprimento**: 78
           - **largura**: 18
       - **[12]**:
         - **id**: pedra_queimada
         - **label**: Pedra Queimada
         - **box**:
-          - **x**: 770
-          - **y**: 518
-          - **comprimento**: 150
-          - **largura**: 15
+          - **x**: 892
+          - **y**: 519
+          - **comprimento**: 128
+          - **largura**: 20
       - **[13]**:
         - **id**: hora_da_janta
         - **label**: Hora da Janta
         - **box**:
-          - **x**: 535
+          - **x**: 664
           - **y**: 770
-          - **comprimento**: 100
-          - **largura**: 15
+          - **comprimento**: 107
+          - **largura**: 17
       - **[14]**:
         - **id**: mezanino
         - **label**: Mezanino
         - **box**:
-          - **x**: 690
+          - **x**: 802
           - **y**: 761
-          - **comprimento**: 75
-          - **largura**: 14
+          - **comprimento**: 79
+          - **largura**: 18
       - **[15]**:
         - **id**: chicletes
         - **label**: Chicletes
         - **box**:
-          - **x**: 625
-          - **y**: 827
-          - **comprimento**: 75
-          - **largura**: 14
+          - **x**: 719
+          - **y**: 828
+          - **comprimento**: 74
+          - **largura**: 17
       - **[16]**:
         - **id**: longevidade
         - **label**: Longevidade
         - **box**:
-          - **x**: 395
-          - **y**: 924
+          - **x**: 507
+          - **y**: 925
           - **comprimento**: 92
-          - **largura**: 17
+          - **largura**: 20
       - **[17]**:
         - **id**: sossega_leao
         - **label**: Sossega Leão
         - **box**:
-          - **x**: 910
-          - **y**: 786
-          - **comprimento**: 105
+          - **x**: 1019
+          - **y**: 790
+          - **comprimento**: 106
           - **largura**: 19
       - **[18]**:
         - **id**: sonar
         - **label**: Sonar
         - **box**:
-          - **x**: 535
-          - **y**: 850
-          - **comprimento**: 45
-          - **largura**: 16
+          - **x**: 884
+          - **y**: 972
+          - **comprimento**: 46
+          - **largura**: 17
       - **[19]**:
         - **id**: meia_parede
         - **label**: Meia-Parede
         - **box**:
-          - **x**: 884
-          - **y**: 833
+          - **x**: 933
+          - **y**: 841
           - **comprimento**: 96
           - **largura**: 18
       - **[20]**:
         - **id**: nave_mae
         - **label**: Nave Mãe
         - **box**:
-          - **x**: 850
-          - **y**: 585
-          - **comprimento**: 85
-          - **largura**: 17
+          - **x**: 974
+          - **y**: 588
+          - **comprimento**: 78
+          - **largura**: 18
       - **[21]**:
         - **id**: abaulados
         - **label**: Abaulados
         - **box**:
-          - **x**: 1030
-          - **y**: 454
-          - **comprimento**: 83
-          - **largura**: 17
+          - **x**: 1120
+          - **y**: 458
+          - **comprimento**: 81
+          - **largura**: 19
       - **[22]**:
         - **id**: deep_inside
         - **label**: Deep Inside
         - **box**:
-          - **x**: 1045
-          - **y**: 624
-          - **comprimento**: 99
+          - **x**: 1144
+          - **y**: 628
+          - **comprimento**: 89
           - **largura**: 19
       - **[23]**:
         - **id**: complexo
         - **label**: Complexo
         - **box**:
-          - **x**: 1105
-          - **y**: 660
-          - **comprimento**: 75
-          - **largura**: 15
+          - **x**: 1194
+          - **y**: 662
+          - **comprimento**: 81
+          - **largura**: 19
       - **[24]**:
         - **id**: conhaque
         - **label**: Conhaque
         - **box**:
-          - **x**: 1280
-          - **y**: 635
+          - **x**: 1344
+          - **y**: 638
           - **comprimento**: 83
           - **largura**: 18
       - **[25]**:
         - **id**: eletron
         - **label**: Elétron/Positron
         - **box**:
-          - **x**: 1330
-          - **y**: 710
-          - **comprimento**: 122
-          - **largura**: 18
+          - **x**: 1440
+          - **y**: 714
+          - **comprimento**: 123
+          - **largura**: 21
+      - **[26]**:
+        - **id**: ianque
+        - **label**: Ianque
+        - **box**:
+          - **x**: 564
+          - **y**: 409
+          - **comprimento**: 53
+          - **largura**: 16
+      - **[27]**:
+        - **id**: nat_geo
+        - **label**: Nat Geo
+        - **box**:
+          - **x**: 789
+          - **y**: 244
+          - **comprimento**: 64
+          - **largura**: 21
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - bob
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Bob
+      - **[1]**:
+        - **ids**:
+          - red_bull
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Red Bull
+      - **[2]**:
+        - **ids**:
+          - mata_mata
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Mata-Mata
+      - **[3]**:
+        - **ids**:
+          - travessia
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Travessia
+      - **[4]**:
+        - **ids**:
+          - jah
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Jah
+      - **[5]**:
+        - **ids**:
+          - sauna
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Sauna
+      - **[6]**:
+        - **ids**:
+          - joao_de_barro
+        - **grupo**: Pedreira
+        - **setor**: Bloco: João de Barro
+      - **[7]**:
+        - **ids**:
+          - fiat_lux
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Fiat Lux
+      - **[8]**:
+        - **ids**:
+          - ianque
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Entretidos
+        - **escalada**: Ianque
+      - **[9]**:
+        - **ids**:
+          - entretidos
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Entretidos
+      - **[10]**:
+        - **ids**:
+          - lagartixa
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Lagartixa
+      - **[11]**:
+        - **ids**:
+          - to_de_boa
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Tô de Boa
+      - **[12]**:
+        - **ids**:
+          - teto_de_vidro
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Teto de Vidro
+      - **[13]**:
+        - **ids**:
+          - pedra_queimada
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Pedra Queimada
+      - **[14]**:
+        - **ids**:
+          - nave_mae
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Nave-Mãe
+      - **[15]**:
+        - **ids**:
+          - abaulados
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Abaulados
+      - **[16]**:
+        - **ids**:
+          - longevidade
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Longevidade
+      - **[17]**:
+        - **ids**:
+          - hora_da_janta
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Hora da Janta
+      - **[18]**:
+        - **ids**:
+          - chicletes
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Chicletes
+      - **[19]**:
+        - **ids**:
+          - mezanino
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Mezanino
+      - **[20]**:
+        - **ids**:
+          - meia_parede
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Meia-Parede
+      - **[21]**:
+        - **ids**:
+          - sonar
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Sonar
+      - **[22]**:
+        - **ids**:
+          - deep_inside
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Deep Inside
+      - **[23]**:
+        - **ids**:
+          - complexo
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Complexo
+      - **[24]**:
+        - **ids**:
+          - conhaque
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Conhaque
+      - **[25]**:
+        - **ids**:
+          - eletron
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Elétron
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -469,64 +623,64 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 312
-                - **y**: 288
+                - **x**: 488
+                - **y**: 341
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 444
-                - **y**: 118
+                - **x**: 692
+                - **y**: 138
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 814
-                - **y**: 74
+                - **x**: 1281
+                - **y**: 87
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 38
-                - **y**: 553
+                - **x**: 116
+                - **y**: 659
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 112
-                - **y**: 632
+                - **x**: 179
+                - **y**: 743
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 262
-                - **y**: 706
+                - **x**: 415
+                - **y**: 840
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 452
-                - **y**: 684
+                - **x**: 711
+                - **y**: 812
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 752
-                - **y**: 706
+                - **x**: 1183
+                - **y**: 840
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 862
-                - **y**: 634
+                - **x**: 1361
+                - **y**: 753
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -558,16 +712,6 @@
               - **escalada**: Bem-vindo ao Climb
               - **ids**:
                 - 6
-            - **[6]**:
-              - **escalada**: Monodedo
-              - **ids**:
-                - 2
-                - A
-            - **[7]**:
-              - **escalada**: Movimentos Eróticos
-              - **ids**:
-                - 2
-                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
           - **largura_mapa**: 1575
@@ -577,71 +721,71 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 10
-                - **y**: 345
+                - **x**: 9
+                - **y**: 285
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 554
-                - **y**: 242
+                - **y**: 241
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1220
-                - **y**: 342
+                - **x**: 1207
+                - **y**: 326
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1390
-                - **y**: 330
+                - **x**: 1397
+                - **y**: 305
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
               - **circular**:
-                - **x**: 1522
-                - **y**: 430
+                - **x**: 1521
+                - **y**: 431
                 - **raio**: 13
             - **[5]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 24
-                - **y**: 553
+                - **x**: 41
+                - **y**: 576
                 - **raio**: 13
             - **[6]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 588
-                - **y**: 855
+                - **y**: 858
                 - **raio**: 13
             - **[7]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1272
-                - **y**: 852
+                - **x**: 1281
+                - **y**: 835
                 - **raio**: 13
             - **[8]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 1374
-                - **y**: 784
+                - **x**: 1389
+                - **y**: 766
                 - **raio**: 13
             - **[9]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 1491
-                - **y**: 750
+                - **x**: 1492
+                - **y**: 751
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -726,29 +870,29 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 576
-                - **y**: 335
+                - **x**: 578
+                - **y**: 336
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1010
-                - **y**: 320
+                - **x**: 1013
+                - **y**: 310
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 642
-                - **y**: 755
+                - **x**: 647
+                - **y**: 756
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1065
-                - **y**: 795
+                - **x**: 1070
+                - **y**: 779
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -793,43 +937,43 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 618
-                - **y**: 151
+                - **x**: 615
+                - **y**: 128
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1070
-                - **y**: 227
+                - **x**: 1071
+                - **y**: 228
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1255
-                - **y**: 250
+                - **x**: 1256
+                - **y**: 260
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 872
-                - **y**: 922
+                - **x**: 871
+                - **y**: 918
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 952
-                - **y**: 900
+                - **x**: 954
+                - **y**: 903
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1078
-                - **y**: 832
+                - **x**: 1071
+                - **y**: 841
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -885,21 +1029,21 @@
               - **label**: A
               - **circular**:
                 - **x**: 84
-                - **y**: 253
+                - **y**: 257
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 718
-                - **y**: 258
+                - **y**: 266
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1238
-                - **y**: 1030
+                - **x**: 1226
+                - **y**: 1034
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -912,21 +1056,6 @@
               - **ids**:
                 - 1
                 - B
-            - **[2]**:
-              - **escalada**: Arco Magmático
-              - **ids**:
-                - 1
-                - A
-            - **[3]**:
-              - **escalada**: Du Mussula
-              - **ids**:
-                - 1
-                - B
-            - **[4]**:
-              - **escalada**: Bola 7
-              - **ids**:
-                - 1
-                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
           - **largura_mapa**: 1575
@@ -936,16 +1065,59 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1302
-                - **y**: 922
+                - **x**: 1296
+                - **y**: 923
                 - **raio**: 13
             - **[1]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 376
-                - **y**: 74
+                - **x**: 377
+                - **y**: 81
                 - **raio**: 13
+            - **[2]**:
+              - **id**: 2
+              - **label**: 2
+              - **circular**:
+                - **x**: 541
+                - **y**: 634
+                - **raio**: 13
+            - **[3]**:
+              - **id**: B
+              - **label**: B
+              - **circular**:
+                - **x**: 260
+                - **y**: 663
+                - **raio**: 13
+            - **[4]**:
+              - **id**: A
+              - **label**: A
+              - **circular**:
+                - **x**: 175
+                - **y**: 607
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - 1
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: João de Barro
+              - **escalada**: Arco Magmático
+            - **[1]**:
+              - **ids**:
+                - 1
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: João de Barro
+              - **escalada**: Du Mussula
+            - **[2]**:
+              - **ids**:
+                - 2
+                - C
+              - **grupo**: Pedreira
+              - **setor**: Bloco: João de Barro
+              - **escalada**: No Montê
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
           - **largura_mapa**: 1576
@@ -955,62 +1127,42 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 460
+                - **x**: 462
                 - **y**: 882
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 500
+                - **x**: 503
                 - **y**: 882
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 630
-                - **y**: 124
+                - **x**: 631
+                - **y**: 127
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1358
-                - **y**: 104
+                - **x**: 1354
+                - **y**: 97
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Porra Nenhuma
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Ringue
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Arco Magmático
-              - **ids**:
-                - 1
-                - A
-            - **[3]**:
-              - **escalada**: Du Mussula
-              - **ids**:
-                - 1
-                - B
-            - **[4]**:
               - **escalada**: Bola 7
               - **ids**:
                 - 1
                 - A
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Morcegão
               - **ids**:
                 - 2
                 - A
-            - **[6]**:
+            - **[2]**:
               - **escalada**: João de Barro
               - **ids**:
                 - 2
@@ -1064,36 +1216,36 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 380
-                - **y**: 399
+                - **x**: 368
+                - **y**: 411
                 - **raio**: 13
             - **[1]**:
               - **id**: ★
               - **label**: ★
               - **circular**:
-                - **x**: 690
-                - **y**: 610
+                - **x**: 689
+                - **y**: 613
                 - **raio**: 13
             - **[2]**:
               - **id**: ▲
               - **label**: ▲
               - **circular**:
-                - **x**: 765
+                - **x**: 767
                 - **y**: 803
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 599
-                - **y**: 961
+                - **x**: 600
+                - **y**: 958
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1053
-                - **y**: 876
+                - **x**: 1042
+                - **y**: 863
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -1113,30 +1265,6 @@
                 - 2
                 - A
                 - ★
-            - **[3]**:
-              - **escalada**: Sem as Mãos
-              - **ids**:
-                - 1
-            - **[4]**:
-              - **escalada**: Ética
-              - **ids**:
-                - 2
-            - **[5]**:
-              - **escalada**: Batentes
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: Regletes
-              - **ids**:
-                - 2
-            - **[7]**:
-              - **escalada**: Cocal é Gueto
-              - **ids**:
-                - 1
-            - **[8]**:
-              - **escalada**: 002
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
           - **largura_mapa**: 1576
@@ -1146,22 +1274,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 502
+                - **x**: 501
                 - **y**: 815
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 936
+                - **x**: 937
                 - **y**: 740
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1243
-                - **y**: 938
+                - **x**: 1242
+                - **y**: 927
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -1176,22 +1304,6 @@
               - **escalada**: Risada
               - **ids**:
                 - 3
-            - **[3]**:
-              - **escalada**: Batentes
-              - **ids**:
-                - 1
-            - **[4]**:
-              - **escalada**: Regletes
-              - **ids**:
-                - 2
-            - **[5]**:
-              - **escalada**: Cocal é Gueto
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: 002
-              - **ids**:
-                - 2
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
           - **largura_mapa**: 1575
@@ -1201,39 +1313,23 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1121
-                - **y**: 722
+                - **x**: 1110
+                - **y**: 742
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1404
-                - **y**: 691
+                - **x**: 1386
+                - **y**: 723
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Sem as Mãos
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Ética
-              - **ids**:
-                - 2
-            - **[2]**:
               - **escalada**: Batentes
               - **ids**:
                 - 1
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Regletes
-              - **ids**:
-                - 2
-            - **[4]**:
-              - **escalada**: Cocal é Gueto
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: 002
               - **ids**:
                 - 2
         - **[3]**:
@@ -1245,38 +1341,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 457
-                - **y**: 780
+                - **x**: 442
+                - **y**: 788
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 962
-                - **y**: 890
+                - **x**: 963
+                - **y**: 891
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Sem as Mãos
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Ética
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Batentes
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Regletes
-              - **ids**:
-                - 2
-            - **[4]**:
               - **escalada**: Cocal é Gueto
               - **ids**:
                 - 1
-            - **[5]**:
+            - **[1]**:
               - **escalada**: 002
               - **ids**:
                 - 2
@@ -1335,29 +1415,29 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 398
-                - **y**: 183
+                - **x**: 400
+                - **y**: 191
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 598
-                - **y**: 196
+                - **y**: 198
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 776
-                - **y**: 791
+                - **x**: 777
+                - **y**: 798
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 993
-                - **y**: 730
+                - **x**: 995
+                - **y**: 731
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -1374,16 +1454,6 @@
               - **escalada**: Bob
               - **ids**:
                 - 2
-            - **[3]**:
-              - **escalada**: Reto
-              - **ids**:
-                - 1
-                - A
-            - **[4]**:
-              - **escalada**: Dor nas Costas
-              - **ids**:
-                - 1
-                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
           - **largura_mapa**: 1575
@@ -1393,79 +1463,65 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 600
-                - **y**: 145
+                - **x**: 601
+                - **y**: 146
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 900
-                - **y**: 100
+                - **x**: 902
+                - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1080
-                - **y**: 182
+                - **x**: 1088
+                - **y**: 180
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1246
-                - **y**: 308
+                - **x**: 1231
+                - **y**: 318
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 698
-                - **y**: 1018
+                - **x**: 701
+                - **y**: 1005
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1062
-                - **y**: 770
+                - **x**: 1064
+                - **y**: 776
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Albino
               - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Encardido
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Bob
-              - **ids**:
-                - 2
-            - **[3]**:
-              - **escalada**: Reto
-              - **ids**:
-                - 1
-                - A
-            - **[4]**:
-              - **escalada**: Dor nas Costas
-              - **ids**:
-                - 1
-                - B
-            - **[5]**:
-              - **escalada**: Albino
-              - **ids**:
                 - 2
                 - C
-            - **[6]**:
+            - **[1]**:
               - **escalada**: Encardido
               - **ids**:
                 - 2
                 - D
+            - **[2]**:
+              - **escalada**: Reto
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Dor nas Costas
+              - **ids**:
+                - 1
+                - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1509,42 +1565,42 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 842
-                - **y**: 108
+                - **x**: 843
+                - **y**: 78
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1136
-                - **y**: 511
+                - **x**: 1137
+                - **y**: 513
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 498
-                - **y**: 925
+                - **x**: 503
+                - **y**: 937
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1037
-                - **y**: 833
+                - **x**: 1038
+                - **y**: 835
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲
               - **label**: ▲
               - **circular**:
-                - **x**: 344
-                - **y**: 443
+                - **x**: 345
+                - **y**: 448
                 - **raio**: 13
             - **[5]**:
               - **id**: ★
               - **label**: ★
               - **circular**:
-                - **x**: 738
+                - **x**: 737
                 - **y**: 380
                 - **raio**: 13
           - **referencias**:
@@ -1621,56 +1677,56 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 695
-                - **y**: 902
+                - **x**: 694
+                - **y**: 889
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 698
-                - **y**: 754
+                - **x**: 699
+                - **y**: 755
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
                 - **x**: 892
-                - **y**: 712
+                - **y**: 715
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 914
-                - **y**: 832
+                - **x**: 909
+                - **y**: 827
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 1114
-                - **y**: 798
+                - **x**: 1108
+                - **y**: 789
                 - **raio**: 13
             - **[5]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 1190
-                - **y**: 816
+                - **x**: 1183
+                - **y**: 815
                 - **raio**: 13
             - **[6]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 855
-                - **y**: 308
+                - **x**: 849
+                - **y**: 310
                 - **raio**: 13
             - **[7]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1464
+                - **x**: 1465
                 - **y**: 152
                 - **raio**: 13
           - **referencias**:
@@ -1707,51 +1763,6 @@
               - **ids**:
                 - 6
                 - B
-            - **[7]**:
-              - **escalada**: Camaleão
-              - **ids**:
-                - 5
-                - B
-            - **[8]**:
-              - **escalada**: Rabo de Camaleão
-              - **ids**:
-                - 6
-                - B
-            - **[9]**:
-              - **escalada**: Guerreiro
-              - **ids**:
-                - 1
-                - A
-            - **[10]**:
-              - **escalada**: Major
-              - **ids**:
-                - 2
-                - A
-            - **[11]**:
-              - **escalada**: Nativo
-              - **ids**:
-                - 3
-                - B
-            - **[12]**:
-              - **escalada**: Protesto
-              - **ids**:
-                - 4
-                - A
-            - **[13]**:
-              - **escalada**: Golpe Militar
-              - **ids**:
-                - 5
-                - A
-            - **[14]**:
-              - **escalada**: Aurora Explosion
-              - **ids**:
-                - 5
-                - B
-            - **[15]**:
-              - **escalada**: Ditadvor
-              - **ids**:
-                - 6
-                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
           - **largura_mapa**: 1575
@@ -1761,164 +1772,121 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 28
-                - **y**: 301
+                - **x**: 29
+                - **y**: 316
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 369
-                - **y**: 245
+                - **x**: 579
+                - **y**: 246
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1510
-                - **y**: 380
+                - **x**: 1502
+                - **y**: 399
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 275
-                - **y**: 890
+                - **x**: 281
+                - **y**: 882
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 238
-                - **y**: 768
+                - **x**: 239
+                - **y**: 769
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 529
-                - **y**: 844
+                - **x**: 531
+                - **y**: 846
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 650
-                - **y**: 852
+                - **x**: 653
+                - **y**: 864
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 978
-                - **y**: 718
+                - **x**: 979
+                - **y**: 720
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 966
-                - **y**: 870
+                - **x**: 967
+                - **y**: 873
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Last Samurai
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Samurai
-              - **ids**:
-                - 2
-            - **[2]**:
               - **escalada**: Doce de Leite
               - **ids**:
                 - 2
                 - B
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Panamá
               - **ids**:
                 - 1
                 - A
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Doce de Leite sds
               - **ids**:
                 - 1
                 - B
-            - **[5]**:
+            - **[3]**:
               - **escalada**: Rocambole
               - **ids**:
                 - 3
                 - B
-            - **[6]**:
+            - **[4]**:
               - **escalada**: Falha Humana
               - **ids**:
                 - 4
                 - B
-            - **[7]**:
+            - **[5]**:
               - **escalada**: Teiú
               - **ids**:
                 - 1
                 - C
-            - **[8]**:
+            - **[6]**:
               - **escalada**: Rabo de Lagartixa
               - **ids**:
                 - 4
                 - C
-            - **[9]**:
+            - **[7]**:
               - **escalada**: Camaleão
               - **ids**:
                 - 5
                 - B
-            - **[10]**:
+            - **[8]**:
               - **escalada**: Lagartixa
               - **ids**:
                 - 5
                 - C
-            - **[11]**:
+            - **[9]**:
               - **escalada**: Rabo de Camaleão
               - **ids**:
                 - 6
                 - B
-            - **[12]**:
+            - **[10]**:
               - **escalada**: Lagartixa sem Rabo
               - **ids**:
                 - 6
                 - C
-            - **[13]**:
-              - **escalada**: Guerreiro
-              - **ids**:
-                - 1
-                - A
-            - **[14]**:
-              - **escalada**: Major
-              - **ids**:
-                - 2
-                - A
-            - **[15]**:
-              - **escalada**: Nativo
-              - **ids**:
-                - 3
-                - B
-            - **[16]**:
-              - **escalada**: Protesto
-              - **ids**:
-                - 4
-                - A
-            - **[17]**:
-              - **escalada**: Golpe Militar
-              - **ids**:
-                - 5
-                - A
-            - **[18]**:
-              - **escalada**: Aurora Explosion
-              - **ids**:
-                - 5
-                - B
-            - **[19]**:
-              - **escalada**: Ditadvor
-              - **ids**:
-                - 6
-                - A
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
           - **largura_mapa**: 1576
@@ -1928,179 +1896,141 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 32
-                - **y**: 240
+                - **x**: 33
+                - **y**: 242
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 608
-                - **y**: 198
+                - **y**: 201
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1546
+                - **x**: 1549
                 - **y**: 392
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1400
-                - **y**: 815
+                - **x**: 1405
+                - **y**: 806
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 362
-                - **y**: 765
+                - **x**: 358
+                - **y**: 770
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 394
-                - **y**: 975
+                - **x**: 395
+                - **y**: 977
                 - **raio**: 13
             - **[6]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 770
-                - **y**: 645
+                - **x**: 771
+                - **y**: 647
                 - **raio**: 13
             - **[7]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 789
-                - **y**: 950
+                - **x**: 791
+                - **y**: 954
                 - **raio**: 13
             - **[8]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 844
-                - **y**: 930
+                - **x**: 845
+                - **y**: 932
                 - **raio**: 13
             - **[9]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 975
-                - **y**: 870
+                - **x**: 973
+                - **y**: 883
                 - **raio**: 13
             - **[10]**:
               - **id**: 7
               - **label**: 7
               - **circular**:
-                - **x**: 1172
-                - **y**: 835
+                - **x**: 1176
+                - **y**: 829
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Last Samurai
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Samurai
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Teiú
-              - **ids**:
-                - 1
-                - C
-            - **[3]**:
-              - **escalada**: Rabo de Lagartixa
-              - **ids**:
-                - 4
-                - C
-            - **[4]**:
-              - **escalada**: Camaleão
-              - **ids**:
-                - 5
-                - B
-            - **[5]**:
-              - **escalada**: Lagartixa
-              - **ids**:
-                - 5
-                - C
-            - **[6]**:
-              - **escalada**: Rabo de Camaleão
-              - **ids**:
-                - 6
-                - B
-            - **[7]**:
-              - **escalada**: Lagartixa sem Rabo
-              - **ids**:
-                - 6
-                - C
-            - **[8]**:
               - **escalada**: Guerreiro
               - **ids**:
                 - 1
                 - A
-            - **[9]**:
+            - **[1]**:
               - **escalada**: Major
               - **ids**:
                 - 2
                 - A
-            - **[10]**:
+            - **[2]**:
               - **escalada**: Geoterapia
               - **ids**:
                 - 2
                 - D
-            - **[11]**:
+            - **[3]**:
               - **escalada**: Nativo
               - **ids**:
                 - 3
                 - B
-            - **[12]**:
+            - **[4]**:
               - **escalada**: Protesto
               - **ids**:
                 - 4
                 - A
-            - **[13]**:
+            - **[5]**:
               - **escalada**: Cadena Imaginária
               - **ids**:
                 - 4
                 - D
-            - **[14]**:
+            - **[6]**:
               - **escalada**: Golpe Militar
               - **ids**:
                 - 5
                 - A
-            - **[15]**:
+            - **[7]**:
               - **escalada**: Aurora Explosion
               - **ids**:
                 - 5
                 - B
-            - **[16]**:
+            - **[8]**:
               - **escalada**: Escravos da Pedra
               - **ids**:
                 - 5
                 - D
-            - **[17]**:
+            - **[9]**:
               - **escalada**: Ditadvor
               - **ids**:
                 - 6
                 - A
-            - **[18]**:
+            - **[10]**:
               - **escalada**: Lobo Mau
               - **ids**:
                 - 6
                 - D
-            - **[19]**:
+            - **[11]**:
               - **escalada**: Coronel
               - **ids**:
                 - 7
                 - A
-            - **[20]**:
+            - **[12]**:
               - **escalada**: Chapeuzinho Vermelho
               - **ids**:
                 - 7
@@ -2224,15 +2154,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 708
-                - **y**: 710
+                - **x**: 704
+                - **y**: 715
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1173
-                - **y**: 782
+                - **x**: 1171
+                - **y**: 787
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -2241,30 +2171,6 @@
                 - 1
             - **[1]**:
               - **escalada**: Apache
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Garoto Andrada
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Embalados pelo Vovô
-              - **ids**:
-                - 2
-            - **[4]**:
-              - **escalada**: Helicoidal
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: Em Busca do Equilíbrio
-              - **ids**:
-                - 2
-            - **[6]**:
-              - **escalada**: Brígida
-              - **ids**:
-                - 1
-            - **[7]**:
-              - **escalada**: Carranca
               - **ids**:
                 - 2
         - **[1]**:
@@ -2276,75 +2182,47 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1100
-                - **y**: 608
+                - **x**: 1103
+                - **y**: 598
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 470
-                - **y**: 703
+                - **x**: 471
+                - **y**: 705
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 154
-                - **y**: 722
+                - **x**: 151
+                - **y**: 738
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 710
-                - **y**: 723
+                - **x**: 712
+                - **y**: 725
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Ianque
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Apache
-              - **ids**:
-                - 2
-            - **[2]**:
               - **escalada**: Garoto Andrada
               - **ids**:
                 - 1
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Embalados pelo Vovô
               - **ids**:
                 - 2
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Pressão no Vovô
               - **ids**:
                 - 3
-            - **[5]**:
+            - **[3]**:
               - **escalada**: Pressão dos Barbosa
               - **ids**:
                 - 4
-            - **[6]**:
-              - **escalada**: Helicoidal
-              - **ids**:
-                - 1
-            - **[7]**:
-              - **escalada**: Em Busca do Equilíbrio
-              - **ids**:
-                - 2
-            - **[8]**:
-              - **escalada**: Em Busca do Equilíbrio sds
-              - **ids**:
-                - 3
-            - **[9]**:
-              - **escalada**: Brígida
-              - **ids**:
-                - 1
-            - **[10]**:
-              - **escalada**: Carranca
-              - **ids**:
-                - 2
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
           - **largura_mapa**: 1575
@@ -2354,64 +2232,36 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 198
-                - **y**: 1008
+                - **x**: 190
+                - **y**: 1019
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 876
-                - **y**: 812
+                - **x**: 877
+                - **y**: 814
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 510
-                - **y**: 940
+                - **x**: 514
+                - **y**: 941
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Ianque
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Apache
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Garoto Andrada
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Embalados pelo Vovô
-              - **ids**:
-                - 2
-            - **[4]**:
-              - **escalada**: Pressão no Vovô
-              - **ids**:
-                - 3
-            - **[5]**:
               - **escalada**: Helicoidal
               - **ids**:
                 - 1
-            - **[6]**:
+            - **[1]**:
               - **escalada**: Em Busca do Equilíbrio
               - **ids**:
                 - 2
-            - **[7]**:
+            - **[2]**:
               - **escalada**: Em Busca do Equilíbrio sds
               - **ids**:
                 - 3
-            - **[8]**:
-              - **escalada**: Brígida
-              - **ids**:
-                - 1
-            - **[9]**:
-              - **escalada**: Carranca
-              - **ids**:
-                - 2
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
           - **largura_mapa**: 1576
@@ -2421,46 +2271,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 349
-                - **y**: 942
+                - **x**: 355
+                - **y**: 944
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 766
-                - **y**: 886
+                - **y**: 888
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Ianque
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Apache
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Garoto Andrada
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Embalados pelo Vovô
-              - **ids**:
-                - 2
-            - **[4]**:
-              - **escalada**: Helicoidal
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: Em Busca do Equilíbrio
-              - **ids**:
-                - 2
-            - **[6]**:
               - **escalada**: Brígida
               - **ids**:
                 - 1
-            - **[7]**:
+            - **[1]**:
               - **escalada**: Carranca
               - **ids**:
                 - 2
@@ -2524,15 +2350,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 904
-                - **y**: 818
+                - **x**: 912
+                - **y**: 819
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 782
-                - **y**: 818
+                - **x**: 783
+                - **y**: 819
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -2567,50 +2393,50 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 687
-                - **y**: 310
+                - **x**: 691
+                - **y**: 312
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1095
+                - **x**: 1091
                 - **y**: 740
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 452
-                - **y**: 835
+                - **x**: 433
+                - **y**: 840
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1008
-                - **y**: 718
+                - **x**: 1021
+                - **y**: 726
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
                 - **x**: 917
-                - **y**: 711
+                - **y**: 688
                 - **raio**: 13
             - **[5]**:
               - **id**: ▲
               - **label**: ▲
               - **circular**:
-                - **x**: 958
-                - **y**: 726
+                - **x**: 957
+                - **y**: 737
                 - **raio**: 13
             - **[6]**:
               - **id**: ★
               - **label**: ★
               - **circular**:
-                - **x**: 996
-                - **y**: 660
+                - **x**: 995
+                - **y**: 663
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -2640,11 +2466,6 @@
               - **ids**:
                 - 3
                 - A
-            - **[5]**:
-              - **escalada**: Manobra
-              - **ids**:
-                - 3
-                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
           - **largura_mapa**: 1575
@@ -2654,83 +2475,66 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 999
-                - **y**: 294
+                - **x**: 1001
+                - **y**: 297
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1162
-                - **y**: 422
+                - **x**: 1172
+                - **y**: 401
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 538
-                - **y**: 886
+                - **x**: 532
+                - **y**: 892
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 465
-                - **y**: 742
+                - **x**: 470
+                - **y**: 750
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 848
-                - **y**: 890
+                - **x**: 849
+                - **y**: 892
                 - **raio**: 13
             - **[5]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 1258
-                - **y**: 970
-                - **raio**: 13
-            - **[6]**:
-              - **id**: Seta
-              - **label**: Seta
-              - **circular**:
-                - **x**: 740
-                - **y**: 650
+                - **x**: 1253
+                - **y**: 984
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Buena Onda
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
               - **escalada**: Teto de Vidro
               - **ids**:
                 - 1
                 - A
-            - **[2]**:
+            - **[1]**:
               - **escalada**: Teto Quebrado
               - **ids**:
                 - 2
                 - A
-            - **[3]**:
-              - **escalada**: Gringo
-              - **ids**:
-                - 3
-                - A
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Manobra
               - **ids**:
                 - 3
                 - A
-            - **[5]**:
+            - **[3]**:
               - **escalada**: Casquinha
               - **ids**:
                 - 4
                 - A
-            - **[6]**:
+            - **[4]**:
               - **escalada**: Wafer
               - **ids**:
                 - 4
@@ -2783,22 +2587,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 547
-                - **y**: 721
+                - **x**: 551
+                - **y**: 725
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 903
-                - **y**: 928
-                - **raio**: 13
-            - **[2]**:
-              - **id**: Seta
-              - **label**: Seta
-              - **circular**:
-                - **x**: 484
-                - **y**: 320
+                - **x**: 904
+                - **y**: 939
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -2818,93 +2615,85 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 146
-                - **y**: 432
+                - **x**: 147
+                - **y**: 434
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 346
-                - **y**: 329
+                - **y**: 332
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 639
-                - **y**: 295
+                - **x**: 644
+                - **y**: 300
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1008
-                - **y**: 373
+                - **x**: 1006
+                - **y**: 376
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
               - **circular**:
-                - **x**: 1211
-                - **y**: 446
+                - **x**: 1212
+                - **y**: 448
                 - **raio**: 13
             - **[5]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 420
-                - **y**: 640
+                - **x**: 597
+                - **y**: 774
                 - **raio**: 13
             - **[6]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 450
-                - **y**: 635
+                - **x**: 642
+                - **y**: 763
                 - **raio**: 13
             - **[7]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1210
-                - **y**: 705
+                - **x**: 1335
+                - **y**: 650
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: NBA
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Pedra Única
-              - **ids**:
-                - 2
-            - **[2]**:
               - **escalada**: Tô na Esquiva
               - **ids**:
                 - 1
                 - A
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Tô Legal
               - **ids**:
                 - 1
                 - B
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Tô Calmo
               - **ids**:
                 - 2
                 - C
-            - **[5]**:
+            - **[3]**:
               - **escalada**: Tô de Boa
               - **ids**:
                 - 2
                 - D
-            - **[6]**:
+            - **[4]**:
               - **escalada**: Jaguatirica
               - **ids**:
                 - 2
                 - E
-            - **[7]**:
+            - **[5]**:
               - **escalada**: Tô Suave
               - **ids**:
                 - 3
@@ -2956,7 +2745,7 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 1508
+                - **x**: 1509
                 - **y**: 280
                 - **raio**: 13
             - **[1]**:
@@ -2964,49 +2753,49 @@
               - **label**: B
               - **circular**:
                 - **x**: 684
-                - **y**: 306
+                - **y**: 308
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 392
-                - **y**: 802
+                - **x**: 390
+                - **y**: 816
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 705
-                - **y**: 855
+                - **x**: 706
+                - **y**: 857
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 513
-                - **y**: 778
+                - **x**: 514
+                - **y**: 780
                 - **raio**: 13
             - **[5]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 760
-                - **y**: 785
+                - **x**: 766
+                - **y**: 799
                 - **raio**: 13
             - **[6]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
                 - **x**: 1108
-                - **y**: 603
+                - **y**: 604
                 - **raio**: 13
             - **[7]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 1308
-                - **y**: 758
+                - **x**: 1313
+                - **y**: 761
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3045,10 +2834,6 @@
               - **ids**:
                 - 6
                 - B
-            - **[8]**:
-              - **escalada**: Identidade
-              - **ids**:
-                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
           - **largura_mapa**: 1575
@@ -3058,15 +2843,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 630
-                - **y**: 730
+                - **x**: 633
+                - **y**: 731
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Flap
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Identidade
               - **ids**:
                 - 1
@@ -3122,85 +2903,85 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 420
-                - **y**: 1042
+                - **x**: 410
+                - **y**: 1048
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 507
-                - **y**: 1064
+                - **y**: 1072
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 744
-                - **y**: 732
+                - **x**: 750
+                - **y**: 758
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 1026
-                - **y**: 758
+                - **x**: 1033
+                - **y**: 784
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 1338
-                - **y**: 877
+                - **x**: 1341
+                - **y**: 879
                 - **raio**: 13
             - **[5]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 292
-                - **y**: 440
+                - **x**: 289
+                - **y**: 449
                 - **raio**: 13
             - **[6]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 443
-                - **y**: 276
+                - **y**: 277
                 - **raio**: 13
             - **[7]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 786
-                - **y**: 52
+                - **x**: 789
+                - **y**: 23
                 - **raio**: 13
             - **[8]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 915
-                - **y**: 62
+                - **x**: 911
+                - **y**: 42
                 - **raio**: 13
             - **[9]**:
               - **id**: E
               - **label**: E
               - **circular**:
-                - **x**: 1161
-                - **y**: 136
+                - **x**: 1162
+                - **y**: 138
                 - **raio**: 13
             - **[10]**:
               - **id**: triangulo
               - **label**: ▲
               - **circular**:
-                - **x**: 630
-                - **y**: 390
+                - **x**: 622
+                - **y**: 376
                 - **raio**: 13
             - **[11]**:
               - **id**: estrela
               - **label**: ★
               - **circular**:
-                - **x**: 710
-                - **y**: 538
+                - **x**: 713
+                - **y**: 544
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3236,6 +3017,22 @@
               - **escalada**: Tapa na Pantera
               - **ids**:
                 - 5
+            - **[7]**:
+              - **ids**:
+                - 2
+                - C
+                - triangulo
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Hora da Janta
+              - **escalada**: Larica
+            - **[8]**:
+              - **ids**:
+                - 2
+                - estrela
+                - C
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Hora da Janta
+              - **escalada**: Sobremesa
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -3287,15 +3084,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 360
-                - **y**: 823
+                - **x**: 363
+                - **y**: 824
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1032
-                - **y**: 998
+                - **x**: 1025
+                - **y**: 992
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3315,15 +3112,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 660
-                - **y**: 950
+                - **x**: 659
+                - **y**: 956
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Mezanino
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Mesa
               - **ids**:
                 - 1
@@ -3350,22 +3143,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 565
-                - **y**: 790
+                - **x**: 557
+                - **y**: 783
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 635
-                - **y**: 829
+                - **x**: 625
+                - **y**: 817
                 - **raio**: 13
             - **[2]**:
               - **id**: 3/1A
               - **label**: 3
               - **circular**:
-                - **x**: 966
-                - **y**: 956
+                - **x**: 957
+                - **y**: 947
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3376,6 +3169,12 @@
               - **escalada**: Big-Big
               - **ids**:
                 - 2
+            - **[2]**:
+              - **ids**:
+                - 3/1A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Chicletes
+              - **escalada**: Babaloo
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
           - **largura_mapa**: 1575
@@ -3385,34 +3184,30 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 570
-                - **y**: 198
+                - **x**: 569
+                - **y**: 199
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1566
-                - **y**: 650
+                - **x**: 1562
+                - **y**: 640
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 603
-                - **y**: 1000
+                - **x**: 613
+                - **y**: 1007
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Trident
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Babaloo
               - **ids**:
                 - 1
                 - A
-            - **[2]**:
+            - **[1]**:
               - **escalada**: Chicletes
               - **ids**:
                 - 1
@@ -3448,43 +3243,43 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 172
-                - **y**: 647
+                - **x**: 160
+                - **y**: 753
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 17
-                - **y**: 724
+                - **y**: 867
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1100
-                - **y**: 815
+                - **x**: 1108
+                - **y**: 809
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 1436
-                - **y**: 298
+                - **x**: 1445
+                - **y**: 300
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 622
-                - **y**: 372
+                - **x**: 621
+                - **y**: 373
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 322
-                - **y**: 552
+                - **x**: 319
+                - **y**: 624
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3507,36 +3302,6 @@
               - **ids**:
                 - 3
                 - C
-            - **[4]**:
-              - **escalada**: Fala Vida
-              - **ids**:
-                - 1
-                - A
-            - **[5]**:
-              - **escalada**: Vida Curta
-              - **ids**:
-                - 1
-                - B
-            - **[6]**:
-              - **escalada**: Sem Vida
-              - **ids**:
-                - 1
-                - C
-            - **[7]**:
-              - **escalada**: Arenito
-              - **ids**:
-                - 2
-                - C
-            - **[8]**:
-              - **escalada**: Vida Longa
-              - **ids**:
-                - 3
-                - A
-            - **[9]**:
-              - **escalada**: Longevidade
-              - **ids**:
-                - 3
-                - C
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
           - **largura_mapa**: 1576
@@ -3546,8 +3311,8 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 61
-                - **y**: 288
+                - **x**: 55
+                - **y**: 282
                 - **raio**: 13
             - **[1]**:
               - **id**: B
@@ -3561,100 +3326,80 @@
               - **label**: C
               - **circular**:
                 - **x**: 855
-                - **y**: 284
+                - **y**: 282
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1568
-                - **y**: 758
+                - **x**: 1563
+                - **y**: 768
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 538
-                - **y**: 720
+                - **x**: 529
+                - **y**: 728
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1038
-                - **y**: 835
+                - **x**: 1046
+                - **y**: 840
                 - **raio**: 13
             - **[6]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1224
-                - **y**: 930
+                - **x**: 1231
+                - **y**: 929
                 - **raio**: 13
             - **[7]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 1378
-                - **y**: 835
+                - **x**: 1381
+                - **y**: 847
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Areia nos Olhos
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Areia nos Olhos ext
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Fala Você
-              - **ids**:
-                - 3
-                - B
-            - **[3]**:
-              - **escalada**: De Olho na Vida
-              - **ids**:
-                - 3
-                - C
-            - **[4]**:
               - **escalada**: Fala Vida
               - **ids**:
                 - 1
                 - A
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Vida Curta
               - **ids**:
                 - 1
                 - B
-            - **[6]**:
+            - **[2]**:
               - **escalada**: Sem Vida
               - **ids**:
                 - 1
                 - C
-            - **[7]**:
+            - **[3]**:
               - **escalada**: Arenito
               - **ids**:
                 - 2
                 - C
-            - **[8]**:
+            - **[4]**:
               - **escalada**: Vida Longa
               - **ids**:
                 - 3
                 - A
-            - **[9]**:
+            - **[5]**:
               - **escalada**: Longevidade
               - **ids**:
                 - 3
                 - C
-            - **[10]**:
+            - **[6]**:
               - **escalada**: Guerreiro Jedi
               - **ids**:
                 - 3
                 - D
-            - **[11]**:
+            - **[7]**:
               - **escalada**: Jedi
               - **ids**:
                 - 4
@@ -3722,29 +3467,29 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 642
-                - **y**: 233
+                - **x**: 641
+                - **y**: 243
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 938
-                - **y**: 358
+                - **x**: 949
+                - **y**: 345
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1455
-                - **y**: 708
+                - **x**: 1461
+                - **y**: 667
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 571
-                - **y**: 934
+                - **x**: 552
+                - **y**: 940
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -3789,16 +3534,12 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 818
-                - **y**: 802
+                - **x**: 819
+                - **y**: 807
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Tatuagens do Ofício
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Jardim de Orquídeas
               - **ids**:
                 - 1
         - **[1]**:
@@ -3810,47 +3551,33 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 835
-                - **y**: 915
+                - **x**: 832
+                - **y**: 969
                 - **raio**: 13
             - **[1]**:
               - **id**: 1A
               - **label**: A
               - **circular**:
-                - **x**: 186
-                - **y**: 444
+                - **x**: 188
+                - **y**: 447
                 - **raio**: 13
             - **[2]**:
               - **id**: 1B
               - **label**: B
               - **circular**:
                 - **x**: 1162
-                - **y**: 444
+                - **y**: 447
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Tatuagens do Ofício
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Rastaman
               - **ids**:
                 - 1A
-            - **[2]**:
+                - 1
+            - **[1]**:
               - **escalada**: Meia Parede
               - **ids**:
                 - 1B
-            - **[3]**:
-              - **escalada**: Slab
-              - **ids**:
-                - 1A
-            - **[4]**:
-              - **escalada**: Aresta do Lenine
-              - **ids**:
-                - 1B
-            - **[5]**:
-              - **escalada**: Jardim de Orquídeas
-              - **ids**:
                 - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
@@ -3861,52 +3588,36 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 306
-                - **y**: 1052
+                - **x**: 312
+                - **y**: 1059
                 - **raio**: 13
             - **[1]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 688
-                - **y**: 232
+                - **x**: 696
+                - **y**: 237
                 - **raio**: 13
             - **[2]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 950
-                - **y**: 105
+                - **x**: 949
+                - **y**: 112
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Tatuagens do Ofício
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Rastaman
-              - **ids**:
-                - 1
-                - A
-            - **[2]**:
-              - **escalada**: Meia Parede
-              - **ids**:
-                - 1
-                - B
-            - **[3]**:
-              - **escalada**: Slab
-              - **ids**:
-                - 1
-                - A
-            - **[4]**:
               - **escalada**: Aresta do Lenine
               - **ids**:
                 - 1
                 - B
-            - **[5]**:
-              - **escalada**: Jardim de Orquídeas
+            - **[1]**:
+              - **escalada**: Slab
               - **ids**:
                 - 1
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Meia-Parede
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
           - **largura_mapa**: 1575
@@ -3916,26 +3627,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1042
-                - **y**: 836
+                - **x**: 1050
+                - **y**: 928
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1202
-                - **y**: 798
+                - **x**: 1206
+                - **y**: 884
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Tatuagens do Ofício
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Jardim de Orquídeas
               - **ids**:
                 - 1
-            - **[2]**:
+            - **[1]**:
               - **escalada**: Jardim Suspenso
               - **ids**:
                 - 2
@@ -3982,106 +3689,106 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 415
-                - **y**: 475
+                - **x**: 426
+                - **y**: 457
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 580
-                - **y**: 505
+                - **x**: 601
+                - **y**: 491
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 902
-                - **y**: 455
+                - **x**: 911
+                - **y**: 439
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1375
-                - **y**: 425
+                - **x**: 1376
+                - **y**: 404
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
               - **circular**:
-                - **x**: 1518
-                - **y**: 445
+                - **x**: 1521
+                - **y**: 425
                 - **raio**: 13
             - **[5]**:
               - **id**: F
               - **label**: F
               - **circular**:
-                - **x**: 1460
-                - **y**: 715
+                - **x**: 1462
+                - **y**: 649
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 235
-                - **y**: 730
+                - **x**: 236
+                - **y**: 742
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 715
-                - **y**: 815
+                - **x**: 723
+                - **y**: 793
                 - **raio**: 13
             - **[8]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 870
-                - **y**: 805
+                - **x**: 873
+                - **y**: 787
                 - **raio**: 13
             - **[9]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 905
-                - **y**: 805
+                - **x**: 900
+                - **y**: 787
                 - **raio**: 13
             - **[10]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 1062
-                - **y**: 845
+                - **x**: 1067
+                - **y**: 805
                 - **raio**: 13
             - **[11]**:
               - **id**: 9
               - **label**: 9
               - **circular**:
-                - **x**: 1078
-                - **y**: 860
+                - **x**: 1081
+                - **y**: 829
                 - **raio**: 13
             - **[12]**:
               - **id**: 7
               - **label**: 7
               - **circular**:
-                - **x**: 1295
-                - **y**: 745
+                - **x**: 1303
+                - **y**: 705
                 - **raio**: 13
             - **[13]**:
               - **id**: 10
               - **label**: 10
               - **circular**:
                 - **x**: 1342
-                - **y**: 760
-                - **raio**: 13
+                - **y**: 710
+                - **raio**: 16
             - **[14]**:
               - **id**: 8
               - **label**: 8
               - **circular**:
-                - **x**: 1448
-                - **y**: 685
+                - **x**: 1450
+                - **y**: 611
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -4149,24 +3856,6 @@
               - **ids**:
                 - 10
                 - F
-            - **[13]**:
-              - **escalada**: Umbriacone
-              - **ids**:
-                - 1
-            - **[14]**:
-              - **escalada**: 003
-              - **ids**:
-                - 1
-            - **[15]**:
-              - **escalada**: Vem Verão
-              - **ids**:
-                - 2
-                - B
-            - **[16]**:
-              - **escalada**: Passível
-              - **ids**:
-                - 1
-                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
           - **largura_mapa**: 1575
@@ -4176,209 +3865,132 @@
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 151
-                - **y**: 388
+                - **x**: 157
+                - **y**: 372
                 - **raio**: 13
             - **[1]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 80
-                - **y**: 509
+                - **x**: 86
+                - **y**: 583
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 580
-                - **y**: 122
+                - **x**: 582
+                - **y**: 118
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1262
-                - **y**: 304
+                - **x**: 1268
+                - **y**: 328
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲
               - **label**: ▲
               - **circular**:
-                - **x**: 299
-                - **y**: 637
+                - **x**: 301
+                - **y**: 730
                 - **raio**: 13
             - **[5]**:
               - **id**: ★
               - **label**: ★
               - **circular**:
-                - **x**: 280
-                - **y**: 708
+                - **x**: 284
+                - **y**: 820
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 373
-                - **y**: 808
+                - **x**: 383
+                - **y**: 938
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 718
-                - **y**: 817
+                - **x**: 724
+                - **y**: 951
                 - **raio**: 13
             - **[8]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 624
-                - **y**: 451
+                - **x**: 629
+                - **y**: 514
                 - **raio**: 13
             - **[9]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 975
-                - **y**: 621
+                - **x**: 982
+                - **y**: 713
                 - **raio**: 13
             - **[10]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 812
-                - **y**: 670
+                - **x**: 816
+                - **y**: 769
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Monte Mor
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Irmãos Coragem
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Irmãos na Vibe
-              - **ids**:
-                - 2
-                - B
-            - **[3]**:
               - **escalada**: Ora-Por-Todos
               - **ids**:
                 - 1
                 - A
                 - ★
-            - **[4]**:
+            - **[1]**:
               - **escalada**: Orai-Por-Noix
               - **ids**:
                 - 1
                 - A
                 - ▲
-            - **[5]**:
+            - **[2]**:
               - **escalada**: Ora-Pra-Jah
               - **ids**:
                 - 1
                 - B
-            - **[6]**:
+            - **[3]**:
               - **escalada**: Ouroboulder
               - **ids**:
                 - 1
                 - C
-            - **[7]**:
+            - **[4]**:
               - **escalada**: Ora-Pro-Nóbis
               - **ids**:
                 - 2
                 - B
-            - **[8]**:
+            - **[5]**:
               - **escalada**: Ora-Pros-Crash
               - **ids**:
                 - 2
                 - C
-            - **[9]**:
+            - **[6]**:
               - **escalada**: Oratório
               - **ids**:
                 - 5
                 - C
-            - **[10]**:
+            - **[7]**:
               - **escalada**: Quebra Galho
               - **ids**:
                 - 3
                 - C
-            - **[11]**:
+            - **[8]**:
               - **escalada**: Libertadores
               - **ids**:
                 - 2
                 - D
-            - **[12]**:
+            - **[9]**:
               - **escalada**: Eu Acredito
               - **ids**:
                 - 4
                 - D
-            - **[13]**:
-              - **escalada**: Umbriacone
-              - **ids**:
-                - 1
-            - **[14]**:
-              - **escalada**: Mortal Kombat
-              - **ids**:
-                - 1
-                - ▲
-            - **[15]**:
-              - **escalada**: Sub-Zero
-              - **ids**:
-                - 1
-                - ★
-            - **[16]**:
-              - **escalada**: Raiden
-              - **ids**:
-                - 2
-                - ▲
-            - **[17]**:
-              - **escalada**: Carcomendo
-              - **ids**:
-                - 2
-                - ★
-            - **[18]**:
-              - **escalada**: 003
-              - **ids**:
-                - 1
-            - **[19]**:
-              - **escalada**: Novos Baianos
-              - **ids**:
-                - 1
-                - A
-                - ★
-            - **[20]**:
-              - **escalada**: De Inverno
-              - **ids**:
-                - 1
-                - B
-                - ★
-            - **[21]**:
-              - **escalada**: De Verão
-              - **ids**:
-                - 1
-                - C
-                - ★
-            - **[22]**:
-              - **escalada**: Maverick
-              - **ids**:
-                - 1
-                - B
-                - ▲
-            - **[23]**:
-              - **escalada**: Vem Verão
-              - **ids**:
-                - 2
-                - B
-            - **[24]**:
-              - **escalada**: Passível
-              - **ids**:
-                - 1
-                - A
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
           - **largura_mapa**: 1575
@@ -4388,50 +4000,50 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 156
-                - **y**: 693
+                - **x**: 155
+                - **y**: 695
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 808
-                - **y**: 822
+                - **x**: 811
+                - **y**: 817
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
                 - **x**: 837
-                - **y**: 822
+                - **y**: 823
                 - **raio**: 13
             - **[3]**:
               - **id**: ▲_esquerda
               - **label**: ▲
               - **circular**:
-                - **x**: 783
-                - **y**: 705
+                - **x**: 781
+                - **y**: 715
                 - **raio**: 13
             - **[4]**:
               - **id**: ★_esquerda
               - **label**: ★
               - **circular**:
-                - **x**: 848
-                - **y**: 725
+                - **x**: 844
+                - **y**: 731
                 - **raio**: 13
             - **[5]**:
               - **id**: ▲_direita
               - **label**: ▲
               - **circular**:
-                - **x**: 967
-                - **y**: 697
+                - **x**: 970
+                - **y**: 708
                 - **raio**: 13
             - **[6]**:
               - **id**: ★_direita
               - **label**: ★
               - **circular**:
-                - **x**: 1034
-                - **y**: 783
+                - **x**: 1032
+                - **y**: 775
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -4439,9 +4051,33 @@
               - **ids**:
                 - 1
             - **[1]**:
-              - **escalada**: 003
+              - **escalada**: Mortal Kombat
               - **ids**:
-                - 1
+                - 2
+                - ▲_esquerda
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+            - **[2]**:
+              - **ids**:
+                - 2
+                - ★_esquerda
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+              - **escalada**: Sub-Zero
+            - **[3]**:
+              - **ids**:
+                - 3
+                - ▲_direita
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+              - **escalada**: Raiden
+            - **[4]**:
+              - **ids**:
+                - 3
+                - ★_direita
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+              - **escalada**: Carcomendo
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
           - **largura_mapa**: 1575
@@ -4452,52 +4088,72 @@
               - **label**: 1
               - **circular**:
                 - **x**: 343
-                - **y**: 1048
+                - **y**: 1051
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 416
-                - **y**: 1050
+                - **x**: 417
+                - **y**: 1051
                 - **raio**: 13
             - **[2]**:
               - **id**: ▲_esquerda
               - **label**: ▲
               - **circular**:
                 - **x**: 230
-                - **y**: 730
+                - **y**: 733
                 - **raio**: 13
             - **[3]**:
               - **id**: ★_esquerda
               - **label**: ★
               - **circular**:
-                - **x**: 370
-                - **y**: 613
+                - **x**: 371
+                - **y**: 611
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲_direita
               - **label**: ▲
               - **circular**:
-                - **x**: 577
-                - **y**: 680
+                - **x**: 576
+                - **y**: 684
                 - **raio**: 13
             - **[5]**:
               - **id**: ★_direita
               - **label**: ★
               - **circular**:
-                - **x**: 895
-                - **y**: 828
+                - **x**: 897
+                - **y**: 829
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Umbriacone
+              - **escalada**: Mortal Kombat
               - **ids**:
                 - 1
+                - ▲_esquerda
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
             - **[1]**:
-              - **escalada**: 003
+              - **escalada**: Sub-Zero
               - **ids**:
                 - 1
+                - ★_esquerda
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+            - **[2]**:
+              - **ids**:
+                - 2
+                - ▲_direita
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+              - **escalada**: Raiden
+            - **[3]**:
+              - **ids**:
+                - 2
+                - ★_direita
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
+              - **escalada**: Carcomendo
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
           - **largura_mapa**: 1576
@@ -4507,35 +4163,21 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 74
-                - **y**: 318
+                - **x**: 76
+                - **y**: 321
                 - **raio**: 13
             - **[1]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 230
-                - **y**: 460
+                - **x**: 231
+                - **y**: 469
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Monte Mor
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Umbriacone
-              - **ids**:
-                - 1
-            - **[2]**:
               - **escalada**: 003
               - **ids**:
                 - 1
-            - **[3]**:
-              - **escalada**: Passível
-              - **ids**:
-                - 1
-                - A
         - **[5]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
           - **largura_mapa**: 1575
@@ -4545,85 +4187,91 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 340
-                - **y**: 524
+                - **x**: 344
+                - **y**: 504
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 856
-                - **y**: 400
+                - **y**: 376
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 900
-                - **y**: 706
+                - **x**: 901
+                - **y**: 693
                 - **raio**: 13
             - **[3]**:
               - **id**: triangulo
               - **label**: ▲
               - **circular**:
                 - **x**: 1100
-                - **y**: 785
+                - **y**: 791
                 - **raio**: 13
             - **[4]**:
               - **id**: estrela
               - **label**: ★
               - **circular**:
-                - **x**: 955
-                - **y**: 878
+                - **x**: 957
+                - **y**: 876
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 732
-                - **y**: 848
+                - **x**: 734
+                - **y**: 871
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1070
-                - **y**: 950
+                - **x**: 1071
+                - **y**: 943
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Monte Mor
+              - **escalada**: Novos Baianos
               - **ids**:
-                - 1
                 - A
+                - 1
+                - estrela
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
             - **[1]**:
-              - **escalada**: Irmãos Coragem
+              - **escalada**: De Inverno
               - **ids**:
                 - 1
                 - B
+                - estrela
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
             - **[2]**:
-              - **escalada**: Irmãos na Vibe
+              - **escalada**: De Verão
               - **ids**:
-                - 2
-                - B
+                - 1
+                - estrela
+                - C
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
             - **[3]**:
-              - **escalada**: Umbriacone
+              - **escalada**: Maverick
               - **ids**:
                 - 1
+                - triangulo
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
             - **[4]**:
-              - **escalada**: 003
-              - **ids**:
-                - 1
-            - **[5]**:
               - **escalada**: Vem Verão
               - **ids**:
                 - 2
                 - B
-            - **[6]**:
-              - **escalada**: Passível
-              - **ids**:
-                - 1
-                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Nave-Mãe
         - **[6]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
           - **largura_mapa**: 1575
@@ -4633,8 +4281,8 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 1000
-                - **y**: 222
+                - **x**: 1005
+                - **y**: 227
                 - **raio**: 13
             - **[1]**:
               - **id**: 1
@@ -4645,19 +4293,6 @@
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Monte Mor
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Umbriacone
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: 003
-              - **ids**:
-                - 1
-            - **[3]**:
               - **escalada**: Passível
               - **ids**:
                 - 1
@@ -4778,15 +4413,11 @@
               - **label**: 1
               - **circular**:
                 - **x**: 828
-                - **y**: 850
+                - **y**: 851
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Abaulados
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: 004
               - **ids**:
                 - 1
         - **[1]**:
@@ -4798,15 +4429,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 570
-                - **y**: 822
+                - **x**: 574
+                - **y**: 824
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Abaulados
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: 004
               - **ids**:
                 - 1
@@ -4819,50 +4446,42 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 202
+                - **x**: 203
                 - **y**: 333
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 948
-                - **y**: 107
+                - **x**: 949
+                - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 816
-                - **y**: 780
+                - **x**: 824
+                - **y**: 788
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 720
-                - **y**: 983
+                - **x**: 722
+                - **y**: 985
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Abaulados
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: 004
-              - **ids**:
-                - 1
-            - **[2]**:
               - **escalada**: Jardim Secreto
               - **ids**:
                 - 1
                 - A
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Papo Reto
               - **ids**:
                 - 1
                 - B
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Papo Reto sds
               - **ids**:
                 - 2
@@ -4902,57 +4521,57 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 242
-                - **y**: 835
+                - **x**: 230
+                - **y**: 849
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 1050
-                - **y**: 834
+                - **y**: 835
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1006
-                - **y**: 908
+                - **x**: 1008
+                - **y**: 911
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 718
+                - **x**: 719
                 - **y**: 284
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1398
+                - **x**: 1399
                 - **y**: 238
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1511
-                - **y**: 625
+                - **x**: 1512
+                - **y**: 628
                 - **raio**: 13
             - **[6]**:
               - **id**: triangulo
               - **label**: ▲
               - **circular**:
                 - **x**: 1072
-                - **y**: 740
+                - **y**: 736
                 - **raio**: 13
             - **[7]**:
               - **id**: estrela
               - **label**: ★
               - **circular**:
-                - **x**: 1335
-                - **y**: 780
+                - **x**: 1331
+                - **y**: 778
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -4971,15 +4590,29 @@
                 - 1
                 - C
             - **[3]**:
-              - **escalada**: Promocinha
+              - **escalada**: Nataraja
               - **ids**:
-                - 1
-                - A
+                - 2
+                - triangulo
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
             - **[4]**:
-              - **escalada**: Bolinho de Chuva
+              - **escalada**: Sidarta
+              - **ids**:
+                - 2
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[5]**:
               - **ids**:
                 - 3
-                - C
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta sds
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
           - **largura_mapa**: 1575
@@ -4989,139 +4622,180 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 246
+                - **x**: 250
                 - **y**: 407
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 558
-                - **y**: 283
+                - **x**: 565
+                - **y**: 225
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 871
-                - **y**: 240
+                - **x**: 874
+                - **y**: 197
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circular**:
-                - **x**: 1198
-                - **y**: 345
+                - **x**: 1211
+                - **y**: 307
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 68
-                - **y**: 774
+                - **x**: 67
+                - **y**: 779
                 - **raio**: 13
             - **[5]**:
               - **id**: triangulo
               - **label**: ▲
               - **circular**:
-                - **x**: 324
-                - **y**: 684
+                - **x**: 328
+                - **y**: 692
                 - **raio**: 13
             - **[6]**:
               - **id**: estrela
               - **label**: ★
               - **circular**:
-                - **x**: 525
-                - **y**: 655
+                - **x**: 519
+                - **y**: 657
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 473
-                - **y**: 746
+                - **x**: 474
+                - **y**: 748
                 - **raio**: 13
             - **[8]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 473
-                - **y**: 795
+                - **x**: 474
+                - **y**: 789
                 - **raio**: 13
             - **[9]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 656
-                - **y**: 776
+                - **x**: 662
+                - **y**: 778
                 - **raio**: 13
             - **[10]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 702
-                - **y**: 751
+                - **x**: 701
+                - **y**: 752
                 - **raio**: 13
             - **[11]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 755
-                - **y**: 588
+                - **x**: 764
+                - **y**: 605
                 - **raio**: 13
             - **[12]**:
               - **id**: 7
               - **label**: 7
               - **circular**:
-                - **x**: 1200
-                - **y**: 680
+                - **x**: 1201
+                - **y**: 693
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Buda
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
               - **escalada**: Arestides
               - **ids**:
                 - 1
                 - B
-            - **[2]**:
+            - **[1]**:
               - **escalada**: Canindé
               - **ids**:
                 - 4
                 - C
-            - **[3]**:
+            - **[2]**:
               - **escalada**: Canindé de Cima
               - **ids**:
                 - 5
                 - C
-            - **[4]**:
+            - **[3]**:
               - **escalada**: Cara de Boi
               - **ids**:
                 - 6
                 - B
-            - **[5]**:
+            - **[4]**:
               - **escalada**: Cara de Vaca
               - **ids**:
                 - 6
                 - C
-            - **[6]**:
+            - **[5]**:
               - **escalada**: Promoção
               - **ids**:
-                - 2
-                - B
+                - 7
+                - D
+            - **[6]**:
+              - **escalada**: Invertides
+              - **ids**:
+                - 7
+                - A
+                - triangulo
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
             - **[7]**:
-              - **escalada**: Promocinha
+              - **escalada**: Arestides ext
               - **ids**:
                 - 1
-                - A
+                - triangulo
+                - D
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
             - **[8]**:
-              - **escalada**: Bolinho de Chuva
+              - **escalada**: Nataraja
+              - **ids**:
+                - 2
+                - triangulo
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[9]**:
+              - **ids**:
+                - 2
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta
+            - **[10]**:
               - **ids**:
                 - 3
-                - C
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta sds
+            - **[11]**:
+              - **ids**:
+                - 4
+                - triangulo
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Deep Inside ext
+            - **[12]**:
+              - **ids**:
+                - 4
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Deep Inside
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
           - **largura_mapa**: 1575
@@ -5131,65 +4805,62 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 510
-                - **y**: 782
-                - **raio**: 13
+                - **x**: 512
+                - **y**: 776
+                - **raio**: 14
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 602
-                - **y**: 788
+                - **x**: 612
+                - **y**: 791
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1220
-                - **y**: 748
+                - **x**: 1215
+                - **y**: 745
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 555
-                - **y**: 253
+                - **y**: 263
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 695
-                - **y**: 161
+                - **x**: 703
+                - **y**: 163
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 854
-                - **y**: 95
+                - **x**: 849
+                - **y**: 99
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Buda
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Arestides
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
               - **escalada**: Promocinha
               - **ids**:
                 - 1
                 - A
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Bolinho de Chuva
               - **ids**:
                 - 3
                 - C
+            - **[2]**:
+              - **escalada**: Promoção
+              - **ids**:
+                - 2
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5269,51 +4940,37 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 112
+                - **x**: 114
                 - **y**: 1352
-                - **raio**: 13
+                - **raio**: 16
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 516
-                - **y**: 1310
-                - **raio**: 13
+                - **x**: 517
+                - **y**: 1312
+                - **raio**: 16
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1188
-                - **y**: 1364
-                - **raio**: 13
+                - **x**: 1189
+                - **y**: 1366
+                - **raio**: 16
             - **[3]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 1032
-                - **y**: 28
-                - **raio**: 13
+                - **x**: 1036
+                - **y**: 38
+                - **raio**: 16
             - **[4]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 1548
-                - **y**: 150
-                - **raio**: 13
-            - **[5]**:
-              - **id**: p
-              - **label**: p
-              - **circular**:
-                - **x**: 1732
-                - **y**: 1056
-                - **raio**: 13
-            - **[6]**:
-              - **id**: 5
-              - **label**: 5
-              - **circular**:
-                - **x**: 1988
-                - **y**: 994
-                - **raio**: 13
+                - **y**: 152
+                - **raio**: 17
           - **referencias**:
             - **[0]**:
               - **escalada**: Talhadeira
@@ -5334,39 +4991,6 @@
               - **ids**:
                 - 3
                 - B
-            - **[4]**:
-              - **escalada**: Sofá
-              - **ids**:
-                - 1
-                - A
-            - **[5]**:
-              - **escalada**: Porosíssimo
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: Poroso
-              - **ids**:
-                - 2
-            - **[7]**:
-              - **escalada**: Não Poroso
-              - **ids**:
-                - 3
-            - **[8]**:
-              - **escalada**: Boulder de Raiz
-              - **ids**:
-                - 1
-            - **[9]**:
-              - **escalada**: Travessia Ouro Preto-Bocaina
-              - **ids**:
-                - 2
-            - **[10]**:
-              - **escalada**: Perereca
-              - **ids**:
-                - 3
-            - **[11]**:
-              - **escalada**: Respira
-              - **ids**:
-                - 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
           - **largura_mapa**: 1575
@@ -5376,22 +5000,22 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 662
-                - **y**: 215
+                - **x**: 655
+                - **y**: 233
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 886
-                - **y**: 108
+                - **x**: 887
+                - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 978
-                - **y**: 980
+                - **x**: 965
+                - **y**: 931
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -5404,18 +5028,6 @@
               - **ids**:
                 - 1
                 - A
-            - **[2]**:
-              - **escalada**: Porosíssimo
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Boulder de Raiz
-              - **ids**:
-                - 1
-            - **[4]**:
-              - **escalada**: Respira
-              - **ids**:
-                - 1
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
           - **largura_mapa**: 1575
@@ -5424,35 +5036,31 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 488
-                - **y**: 860
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 491
+                - **y**: 868
+                - **raio**: 14
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 686
-                - **y**: 855
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 703
+                - **y**: 878
+                - **raio**: 14
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 966
-                - **y**: 839
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 967
+                - **y**: 867
+                - **raio**: 14
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 1052
-                - **y**: 822
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1053
+                - **y**: 846
+                - **raio**: 14
           - **referencias**:
             - **[0]**:
               - **escalada**: Porosíssimo
@@ -5470,22 +5078,6 @@
               - **escalada**: Triangular
               - **ids**:
                 - 4
-            - **[4]**:
-              - **escalada**: Boulder de Raiz
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: Travessia Ouro Preto-Bocaina
-              - **ids**:
-                - 2
-            - **[6]**:
-              - **escalada**: Perereca
-              - **ids**:
-                - 3
-            - **[7]**:
-              - **escalada**: Respira
-              - **ids**:
-                - 1
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
           - **largura_mapa**: 1575
@@ -5494,68 +5086,37 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 416
-                - **y**: 727
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 426
+                - **y**: 736
+                - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 1424
-                - **y**: 948
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1442
+                - **y**: 934
+                - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 1195
-                - **y**: 805
-                - **comprimento**: 28
-                - **largura**: 28
-            - **[3]**:
-              - **id**: 4
-              - **label**: 4
-              - **box**:
-                - **x**: 694
-                - **y**: 1004
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1208
+                - **y**: 809
+                - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Porosíssimo
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Poroso
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Não Poroso
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Triangular
-              - **ids**:
-                - 4
-            - **[4]**:
               - **escalada**: Boulder de Raiz
               - **ids**:
                 - 1
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Travessia Ouro Preto-Bocaina
               - **ids**:
                 - 2
-            - **[6]**:
+            - **[2]**:
               - **escalada**: Perereca
               - **ids**:
                 - 3
-            - **[7]**:
-              - **escalada**: Respira
-              - **ids**:
-                - 1
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
           - **largura_mapa**: 1575
@@ -5565,19 +5126,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 416
+                - **x**: 412
                 - **y**: 956
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Porosíssimo
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Boulder de Raiz
-              - **ids**:
-                - 1
-            - **[2]**:
               - **escalada**: Respira
               - **ids**:
                 - 1
@@ -5647,51 +5200,45 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 15
-                - **y**: 965
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 20
+                - **y**: 1023
+                - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 504
-                - **y**: 1022
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 523
+                - **y**: 1035
+                - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 676
-                - **y**: 990
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 693
+                - **y**: 1003
+                - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 1273
-                - **y**: 965
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1283
+                - **y**: 973
+                - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
-              - **box**:
-                - **x**: 370
-                - **y**: 245
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 359
+                - **y**: 184
+                - **raio**: 13
             - **[5]**:
               - **id**: B
               - **label**: B
-              - **box**:
-                - **x**: 1044
-                - **y**: 24
-                - **comprimento**: 28
-                - **largura**: 28
+              - **circular**:
+                - **x**: 1034
+                - **y**: 26
+                - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Aderência
@@ -5752,43 +5299,43 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 24
-                - **y**: 568
+                - **x**: 30
+                - **y**: 572
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1108
+                - **x**: 1107
                 - **y**: 868
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1530
-                - **y**: 852
+                - **x**: 1520
+                - **y**: 845
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 26
-                - **y**: 107
+                - **x**: 52
+                - **y**: 90
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 940
-                - **y**: 210
+                - **x**: 939
+                - **y**: 173
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
               - **circular**:
                 - **x**: 1410
-                - **y**: 206
+                - **y**: 166
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -5861,58 +5408,103 @@
         - **id**: mont_blanc
         - **label**: Mont Blanc
         - **box**:
-          - **x**: 535
-          - **y**: 231
+          - **x**: 610
+          - **y**: 239
           - **comprimento**: 128
           - **largura**: 24
       - **[1]**:
         - **id**: o_pequeno
         - **label**: O Pequeno
         - **box**:
-          - **x**: 525
-          - **y**: 474
+          - **x**: 591
+          - **y**: 480
           - **comprimento**: 120
           - **largura**: 25
       - **[2]**:
         - **id**: salao_dos_ossos
         - **label**: Salão dos Ossos
         - **box**:
-          - **x**: 518
-          - **y**: 511
-          - **comprimento**: 175
-          - **largura**: 25
+          - **x**: 616
+          - **y**: 518
+          - **comprimento**: 183
+          - **largura**: 23
       - **[3]**:
         - **id**: parada_obrigatoria
         - **label**: Parada Obrigatória
         - **box**:
-          - **x**: 445
-          - **y**: 648
-          - **comprimento**: 190
-          - **largura**: 23
+          - **x**: 557
+          - **y**: 654
+          - **comprimento**: 206
+          - **largura**: 24
       - **[4]**:
         - **id**: cabocla_da_mata
         - **label**: Caboclo da Mata
         - **box**:
-          - **x**: 365
-          - **y**: 713
-          - **comprimento**: 175
-          - **largura**: 24
+          - **x**: 465
+          - **y**: 718
+          - **comprimento**: 188
+          - **largura**: 23
       - **[5]**:
         - **id**: silencio_da_mutuca
         - **label**: Silêncio da Mutuca
         - **box**:
-          - **x**: 888
-          - **y**: 830
-          - **comprimento**: 206
+          - **x**: 1004
+          - **y**: 837
+          - **comprimento**: 211
           - **largura**: 24
       - **[6]**:
         - **id**: espreguicadeira
         - **label**: Espreguiçadeira
         - **box**:
-          - **x**: 1165
-          - **y**: 978
+          - **x**: 1261
+          - **y**: 988
           - **comprimento**: 176
           - **largura**: 25
+      - **[7]**:
+        - **id**: espreguicadeira_2
+        - **label**: Espreguiçadeira
+        - **box**:
+          - **x**: 1166
+          - **y**: 1022
+          - **comprimento**: 169
+          - **largura**: 28
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - mont_blanc
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Mont Blanc
+      - **[1]**:
+        - **ids**:
+          - o_pequeno
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: O Pequeno
+      - **[2]**:
+        - **ids**:
+          - salao_dos_ossos
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Salão dos Ossos
+      - **[3]**:
+        - **ids**:
+          - parada_obrigatoria
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Parada Obrigatória
+      - **[4]**:
+        - **ids**:
+          - cabocla_da_mata
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Cabocla da Mata
+      - **[5]**:
+        - **ids**:
+          - silencio_da_mutuca
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Silêncio da Mutuca
+      - **[6]**:
+        - **ids**:
+          - espreguicadeira
+          - espreguicadeira_2
+        - **grupo**: Mont Blanc
+        - **setor**: Bloco: Espreguiçadeira
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -5928,71 +5520,71 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 476
-                - **y**: 438
+                - **x**: 477
+                - **y**: 441
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 954
-                - **y**: 398
+                - **x**: 953
+                - **y**: 400
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1086
-                - **y**: 428
+                - **x**: 1087
+                - **y**: 426
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 194
-                - **y**: 927
+                - **x**: 203
+                - **y**: 924
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 583
-                - **y**: 941
+                - **x**: 591
+                - **y**: 930
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 805
-                - **y**: 858
+                - **x**: 804
+                - **y**: 854
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 935
-                - **y**: 810
+                - **x**: 939
+                - **y**: 818
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 984
-                - **y**: 946
+                - **x**: 981
+                - **y**: 930
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
               - **circular**:
-                - **x**: 1220
-                - **y**: 1001
+                - **x**: 1213
+                - **y**: 980
                 - **raio**: 13
             - **[9]**:
               - **id**: 7
               - **label**: 7
               - **circular**:
-                - **x**: 1190
-                - **y**: 780
+                - **x**: 1183
+                - **y**: 788
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6039,34 +5631,6 @@
               - **escalada**: Deja Ir
               - **ids**:
                 - 7
-            - **[9]**:
-              - **escalada**: Colibri
-              - **ids**:
-                - 1
-            - **[10]**:
-              - **escalada**: 005
-              - **ids**:
-                - 1
-            - **[11]**:
-              - **escalada**: Raízes do Brasil
-              - **ids**:
-                - 1
-                - A
-            - **[12]**:
-              - **escalada**: Raízes do Cerrado
-              - **ids**:
-                - 2
-                - A
-            - **[13]**:
-              - **escalada**: Tec Bond
-              - **ids**:
-                - 3
-                - B
-            - **[14]**:
-              - **escalada**: Super Bonder
-              - **ids**:
-                - 4
-                - B
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
           - **largura_mapa**: 1575
@@ -6076,16 +5640,12 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 475
-                - **y**: 804
+                - **x**: 481
+                - **y**: 795
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Colibri
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: 005
               - **ids**:
                 - 1
         - **[2]**:
@@ -6097,15 +5657,11 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 415
-                - **y**: 955
+                - **x**: 414
+                - **y**: 954
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Colibri
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: 005
               - **ids**:
                 - 1
@@ -6118,71 +5674,59 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 148
-                - **y**: 960
+                - **x**: 142
+                - **y**: 968
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 520
-                - **y**: 960
+                - **x**: 511
+                - **y**: 955
                 - **raio**: 13
             - **[2]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 912
-                - **y**: 945
+                - **x**: 907
+                - **y**: 948
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 497
-                - **y**: 227
+                - **x**: 494
+                - **y**: 229
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1362
-                - **y**: 120
+                - **x**: 1367
+                - **y**: 124
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Pico da Neblina ext
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Pico da Neblina
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Colibri
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: 005
-              - **ids**:
-                - 1
-            - **[4]**:
               - **escalada**: Raízes do Brasil
               - **ids**:
                 - 1
                 - A
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Raízes do Cerrado
               - **ids**:
                 - 2
                 - A
-            - **[6]**:
+            - **[2]**:
               - **escalada**: Super Bonder
               - **ids**:
                 - 4
                 - B
+            - **[3]**:
+              - **escalada**: Tec Bond
+              - **ids**:
+                - B
+              - **grupo**: Mont Blanc
+              - **setor**: Bloco: Mont Blanc
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -6258,29 +5802,29 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 156
-                - **y**: 600
+                - **x**: 157
+                - **y**: 602
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
                 - **x**: 226
-                - **y**: 497
+                - **y**: 499
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 988
-                - **y**: 260
+                - **x**: 986
+                - **y**: 268
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 601
-                - **y**: 907
+                - **x**: 596
+                - **y**: 914
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
@@ -6310,14 +5854,6 @@
               - **ids**:
                 - 2
                 - C
-            - **[4]**:
-              - **escalada**: Frasco
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: Frisco
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
           - **largura_mapa**: 1575
@@ -6327,22 +5863,22 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 292
-                - **y**: 770
+                - **x**: 306
+                - **y**: 775
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 645
-                - **y**: 780
+                - **x**: 647
+                - **y**: 791
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1036
-                - **y**: 810
+                - **x**: 1038
+                - **y**: 814
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6400,57 +5936,57 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 368
-                - **y**: 872
+                - **x**: 374
+                - **y**: 790
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 312
-                - **y**: 770
+                - **x**: 331
+                - **y**: 660
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 588
-                - **y**: 847
+                - **x**: 610
+                - **y**: 848
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 688
-                - **y**: 616
+                - **x**: 730
+                - **y**: 726
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **circular**:
-                - **x**: 808
-                - **y**: 700
+                - **x**: 838
+                - **y**: 818
                 - **raio**: 13
             - **[5]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 258
+                - **x**: 259
                 - **y**: 272
                 - **raio**: 13
             - **[6]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 403
-                - **y**: 131
+                - **x**: 404
+                - **y**: 132
                 - **raio**: 13
             - **[7]**:
               - **id**: C
               - **label**: C
               - **circular**:
                 - **x**: 1520
-                - **y**: 375
+                - **y**: 366
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6531,22 +6067,29 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 711
-                - **y**: 64
+                - **x**: 712
+                - **y**: 66
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 456
-                - **y**: 713
+                - **x**: 458
+                - **y**: 715
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1074
-                - **y**: 960
+                - **x**: 1050
+                - **y**: 980
+                - **raio**: 13
+            - **[3]**:
+              - **id**: B
+              - **label**: B
+              - **circular**:
+                - **x**: 298
+                - **y**: 78
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6555,13 +6098,19 @@
                 - 1
                 - A
             - **[1]**:
-              - **escalada**: Jardim de Inverno
+              - **escalada**: Toebogã
               - **ids**:
                 - 1
+                - B
+              - **grupo**: Mont Blanc
+              - **setor**: Bloco: O Pequeno
             - **[2]**:
-              - **escalada**: O Pequeno
+              - **escalada**: Tobocrash
               - **ids**:
                 - 2
+                - B
+              - **grupo**: Mont Blanc
+              - **setor**: Bloco: O Pequeno
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
           - **largura_mapa**: 1575
@@ -6571,15 +6120,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 528
-                - **y**: 1020
+                - **x**: 523
+                - **y**: 1026
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1018
-                - **y**: 918
+                - **x**: 1021
+                - **y**: 923
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6625,8 +6174,8 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 388
-                - **y**: 572
+                - **x**: 389
+                - **y**: 574
                 - **raio**: 13
             - **[1]**:
               - **id**: B
@@ -6639,15 +6188,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1158
-                - **y**: 980
+                - **x**: 1154
+                - **y**: 966
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 995
-                - **y**: 965
+                - **x**: 984
+                - **y**: 954
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6683,15 +6232,15 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 696
-                - **y**: 1112
+                - **x**: 694
+                - **y**: 1109
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 818
-                - **y**: 1104
+                - **x**: 814
+                - **y**: 1099
                 - **raio**: 13
             - **[2]**:
               - **id**: A
@@ -6704,8 +6253,8 @@
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 355
-                - **y**: 105
+                - **x**: 359
+                - **y**: 103
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6750,28 +6299,28 @@
               - **label**: 1
               - **circular**:
                 - **x**: 508
-                - **y**: 760
+                - **y**: 779
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 1037
-                - **y**: 885
+                - **y**: 887
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
               - **circular**:
                 - **x**: 378
-                - **y**: 390
+                - **y**: 395
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 866
-                - **y**: 204
+                - **x**: 863
+                - **y**: 179
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6825,50 +6374,81 @@
         - **id**: bonsai
         - **label**: Bonsai
         - **box**:
-          - **x**: 375
-          - **y**: 384
-          - **comprimento**: 80
+          - **x**: 422
+          - **y**: 393
+          - **comprimento**: 74
           - **largura**: 26
       - **[1]**:
         - **id**: crocancia
         - **label**: Crocância
         - **box**:
-          - **x**: 496
-          - **y**: 370
-          - **comprimento**: 114
+          - **x**: 557
+          - **y**: 378
+          - **comprimento**: 108
           - **largura**: 24
       - **[2]**:
         - **id**: mantra
         - **label**: Mantra
         - **box**:
-          - **x**: 718
-          - **y**: 372
-          - **comprimento**: 78
-          - **largura**: 30
+          - **x**: 764
+          - **y**: 383
+          - **comprimento**: 76
+          - **largura**: 24
       - **[3]**:
         - **id**: dali_goiabada
         - **label**: Dali Goiabada
         - **box**:
-          - **x**: 820
-          - **y**: 378
-          - **comprimento**: 160
-          - **largura**: 28
+          - **x**: 906
+          - **y**: 387
+          - **comprimento**: 144
+          - **largura**: 24
       - **[4]**:
         - **id**: pedra
         - **label**: Pedra
         - **box**:
-          - **x**: 1295
-          - **y**: 658
-          - **comprimento**: 72
-          - **largura**: 27
+          - **x**: 1334
+          - **y**: 664
+          - **comprimento**: 66
+          - **largura**: 25
       - **[5]**:
         - **id**: seg_samambaia
         - **label**: Seg-Samambaia
         - **box**:
-          - **x**: 1060
-          - **y**: 1054
+          - **x**: 1148
+          - **y**: 1062
           - **comprimento**: 175
           - **largura**: 27
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - bonsai
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Bonsai
+      - **[1]**:
+        - **ids**:
+          - crocancia
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Crocância
+      - **[2]**:
+        - **ids**:
+          - mantra
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Mantra
+      - **[3]**:
+        - **ids**:
+          - dali_goiabada
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Dali Goiabada
+      - **[4]**:
+        - **ids**:
+          - seg_samambaia
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Seg-Samambaia
+      - **[5]**:
+        - **ids**:
+          - pedra
+        - **grupo**: Bonsai
+        - **setor**: Bloco: Pedra
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -6884,36 +6464,36 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 247
-                - **y**: 514
+                - **x**: 249
+                - **y**: 517
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 498
-                - **y**: 412
+                - **x**: 499
+                - **y**: 414
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1396
-                - **y**: 314
+                - **x**: 1395
+                - **y**: 315
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 460
-                - **y**: 930
+                - **x**: 456
+                - **y**: 943
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1374
-                - **y**: 852
+                - **x**: 1393
+                - **y**: 846
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -6967,20 +6547,12 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1380
-                - **y**: 805
+                - **x**: 1383
+                - **y**: 806
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Beija-Flor
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Tarântula
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Lodo
               - **ids**:
                 - 1
         - **[1]**:
@@ -6992,20 +6564,12 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1230
-                - **y**: 745
+                - **x**: 1232
+                - **y**: 750
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Beija-Flor
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Tarântula
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Lodo
               - **ids**:
                 - 1
         - **[2]**:
@@ -7017,21 +6581,21 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 1570
-                - **y**: 440
+                - **x**: 1561
+                - **y**: 433
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 646
+                - **x**: 647
                 - **y**: 366
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 1292
+                - **x**: 1293
                 - **y**: 558
                 - **raio**: 13
             - **[3]**:
@@ -7039,63 +6603,38 @@
               - **label**: 2
               - **circular**:
                 - **x**: 436
-                - **y**: 710
+                - **y**: 720
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
                 - **x**: 114
-                - **y**: 758
+                - **y**: 757
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Beija-Flor
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Tarântula
-              - **ids**:
-                - 1
-            - **[2]**:
               - **escalada**: Porém
               - **ids**:
                 - 1
                 - A
-            - **[3]**:
+            - **[1]**:
               - **escalada**: Xaxado
               - **ids**:
                 - 1
                 - B
-            - **[4]**:
+            - **[2]**:
               - **escalada**: Crocância do Além
               - **ids**:
                 - 3
                 - A
-            - **[5]**:
-              - **escalada**: Lodo
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: Crocância
-              - **ids**:
-                - 2
-                - A
-            - **[7]**:
-              - **escalada**: Crocância Rouba Monte
+            - **[3]**:
+              - **escalada**: Rouba Monte
               - **ids**:
                 - 2
                 - B
-            - **[8]**:
-              - **escalada**: Crocância sds
-              - **ids**:
-                - 3
-                - A
-            - **[9]**:
-              - **escalada**: Crocância Rouba Monte sds
-              - **ids**:
-                - 3
-                - B
+              - **grupo**: Bonsai
+              - **setor**: Bloco: Crocância
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
           - **largura_mapa**: 1575
@@ -7105,92 +6644,76 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 537
-                - **y**: 678
+                - **x**: 538
+                - **y**: 705
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 980
-                - **y**: 780
+                - **y**: 781
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 1104
-                - **y**: 852
+                - **x**: 1105
+                - **y**: 855
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circular**:
-                - **x**: 1416
-                - **y**: 696
+                - **x**: 1417
+                - **y**: 699
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 800
-                - **y**: 182
+                - **x**: 799
+                - **y**: 177
                 - **raio**: 13
             - **[5]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 1348
-                - **y**: 115
+                - **x**: 1346
+                - **y**: 123
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Beija-Flor
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Tarântula
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Porém
-              - **ids**:
-                - 1
-                - A
-            - **[3]**:
-              - **escalada**: Xaxado
-              - **ids**:
-                - 1
-                - B
-            - **[4]**:
-              - **escalada**: Crocância do Além
-              - **ids**:
-                - 3
-                - A
-            - **[5]**:
               - **escalada**: Lodo
               - **ids**:
                 - 1
-            - **[6]**:
+            - **[1]**:
               - **escalada**: Crocância
               - **ids**:
                 - 2
                 - A
-            - **[7]**:
+            - **[2]**:
               - **escalada**: Crocância Rouba Monte
               - **ids**:
                 - 2
                 - B
-            - **[8]**:
+            - **[3]**:
               - **escalada**: Crocância sds
               - **ids**:
                 - 3
                 - A
-            - **[9]**:
+            - **[4]**:
               - **escalada**: Crocância Rouba Monte sds
               - **ids**:
                 - 3
                 - B
+            - **[5]**:
+              - **escalada**: Rouba Monte
+              - **ids**:
+                - 4
+                - B
+              - **grupo**: Bonsai
+              - **setor**: Bloco: Crocância
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -7250,24 +6773,12 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 954
-                - **y**: 1036
+                - **x**: 957
+                - **y**: 1039
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Prodígio
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Briga de Galo
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Afrodisíaco
-              - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Psicótico
               - **ids**:
                 - 1
         - **[1]**:
@@ -7279,26 +6790,40 @@
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 716
-                - **y**: 1012
+                - **x**: 707
+                - **y**: 1013
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circular**:
+                - **x**: 973
+                - **y**: 895
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circular**:
+                - **x**: 1409
+                - **y**: 1133
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Prodígio
-              - **ids**:
-                - 1
-            - **[1]**:
               - **escalada**: Briga de Galo
               - **ids**:
                 - 1
+            - **[1]**:
+              - **escalada**: Oráculo
+              - **ids**:
+                - 2
+              - **grupo**: Bonsai
+              - **setor**: Bloco: Mantra
             - **[2]**:
-              - **escalada**: Afrodisíaco
+              - **escalada**: 008
               - **ids**:
-                - 1
-            - **[3]**:
-              - **escalada**: Psicótico
-              - **ids**:
-                - 1
+                - 3
+              - **grupo**: Bonsai
+              - **setor**: Bloco: Mantra
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
           - **largura_mapa**: 1575
@@ -7308,93 +6833,69 @@
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 79
-                - **y**: 398
+                - **x**: 80
+                - **y**: 401
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 412
-                - **y**: 344
+                - **x**: 415
+                - **y**: 346
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1068
-                - **y**: 344
+                - **x**: 1071
+                - **y**: 339
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circular**:
-                - **x**: 196
-                - **y**: 839
+                - **x**: 202
+                - **y**: 834
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
                 - **x**: 722
-                - **y**: 939
+                - **y**: 940
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
               - **circular**:
-                - **x**: 614
-                - **y**: 794
+                - **x**: 615
+                - **y**: 796
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Prodígio
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Briga de Galo
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Oráculo
-              - **ids**:
-                - 2
-            - **[3]**:
-              - **escalada**: 008
-              - **ids**:
-                - 3
-            - **[4]**:
               - **escalada**: Afrodisíaco
               - **ids**:
                 - 1
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Lava Pés
               - **ids**:
                 - 2
                 - A
-            - **[6]**:
+            - **[2]**:
               - **escalada**: Mantra
               - **ids**:
                 - 2
                 - B
-            - **[7]**:
+            - **[3]**:
               - **escalada**: Samadhi
               - **ids**:
                 - 2
                 - C
-            - **[8]**:
+            - **[4]**:
               - **escalada**: Tantra
               - **ids**:
                 - 3
                 - C
-            - **[9]**:
-              - **escalada**: Psicótico
-              - **ids**:
-                - 1
-            - **[10]**:
-              - **escalada**: Popeye
-              - **ids**:
-                - 2
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
           - **largura_mapa**: 1575
@@ -7405,37 +6906,21 @@
               - **label**: 1
               - **circular**:
                 - **x**: 394
-                - **y**: 780
+                - **y**: 779
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 956
-                - **y**: 816
+                - **x**: 955
+                - **y**: 817
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Prodígio
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Briga de Galo
-              - **ids**:
-                - 1
-            - **[2]**:
-              - **escalada**: Oráculo
-              - **ids**:
-                - 2
-            - **[3]**:
-              - **escalada**: Afrodisíaco
-              - **ids**:
-                - 1
-            - **[4]**:
               - **escalada**: Psicótico
               - **ids**:
                 - 1
-            - **[5]**:
+            - **[1]**:
               - **escalada**: Popeye
               - **ids**:
                 - 2
@@ -7499,7 +6984,7 @@
               - **label**: 1
               - **circular**:
                 - **x**: 810
-                - **y**: 955
+                - **y**: 958
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -7525,47 +7010,58 @@
               - **id**: 1A
               - **label**: A
               - **circular**:
-                - **x**: 193
-                - **y**: 458
+                - **x**: 196
+                - **y**: 456
                 - **raio**: 13
             - **[1]**:
               - **id**: 1B
               - **label**: B
               - **circular**:
-                - **x**: 371
-                - **y**: 313
+                - **x**: 367
+                - **y**: 298
                 - **raio**: 13
             - **[2]**:
               - **id**: 1C
               - **label**: C
               - **circular**:
-                - **x**: 766
-                - **y**: 221
+                - **x**: 767
+                - **y**: 213
                 - **raio**: 13
             - **[3]**:
               - **id**: 1D
               - **label**: D
               - **circular**:
-                - **x**: 955
-                - **y**: 146
+                - **x**: 957
+                - **y**: 136
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 1
+              - **label**: 1
+              - **circular**:
+                - **x**: 446
+                - **y**: 978
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Seg da Árvore
               - **ids**:
                 - 1A
+                - 1
             - **[1]**:
               - **escalada**: Seg-Samambaia
               - **ids**:
                 - 1B
+                - 1
             - **[2]**:
               - **escalada**: Seg dos Inferno
               - **ids**:
                 - 1C
+                - 1
             - **[3]**:
               - **escalada**: Toca Toca
               - **ids**:
                 - 1D
+                - 1
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -7598,35 +7094,35 @@
               - **label**: 1
               - **circular**:
                 - **x**: 410
-                - **y**: 880
+                - **y**: 889
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circular**:
-                - **x**: 1140
-                - **y**: 944
+                - **x**: 1141
+                - **y**: 946
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
               - **circular**:
-                - **x**: 148
-                - **y**: 420
+                - **x**: 149
+                - **y**: 424
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
               - **circular**:
-                - **x**: 410
-                - **y**: 285
+                - **x**: 411
+                - **y**: 297
                 - **raio**: 13
             - **[4]**:
               - **id**: C
               - **label**: C
               - **circular**:
-                - **x**: 1128
-                - **y**: 255
+                - **x**: 1129
+                - **y**: 251
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -7705,7 +7201,7 @@
     - **checksum_sha256**: 74744bf4e4fa27814f9d069f9ff17e19fa31c7e0ae654b5a0ecf8315fc440aff
   - **[11]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
-    - **checksum_sha256**: 60c0045342a4cf564cbc7b33ddb54882eb14b5379b6e5facc0018021f5629612
+    - **checksum_sha256**: f1635b5711c7fe973bd40f5f13d6ecd42a690f94e292a9f69e00d3e83b4136c9
   - **[12]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
     - **checksum_sha256**: 69571d1243dfd403c6742df12fb848a93bbe2dd2cfedfd6843f5e9d0dfaaacbb
@@ -7717,7 +7213,7 @@
     - **checksum_sha256**: f8a68900a5c9c847e1bccb2475e3047580e5a7adaeca0f5f734ac70bcf977770
   - **[15]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp)
-    - **checksum_sha256**: 75b85fe531878deb11c9b859d72d69e0cdb74cd74ec65121bea827b9fa35b53d
+    - **checksum_sha256**: 11ec8c6f7740ec18ef3c78264049b3f8f8afd9d57f8e5b1e0edc9e8b1c783765
   - **[16]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_p1.webp)
     - **checksum_sha256**: 51ce83771d303cc419f49e28b6138dacbff49aa630d59900999ff44239d47cdb
@@ -7792,7 +7288,7 @@
     - **checksum_sha256**: 81ef4426af8acdf37777a53e4267ba9e0bb5edd44d34f5a5b2a4a754045d773e
   - **[40]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
-    - **checksum_sha256**: c4dc8d7dbe494b493a3764525d5078e78ac0101984ef06c4ffab40fd964c5626
+    - **checksum_sha256**: 5458c3865ffcdda7c1c9686abd9ef982a0bf5b071ebd0f588255c56380e5757b
   - **[41]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
     - **checksum_sha256**: 995a76d40832456d0fae88cbc818d2d246d53ec51d91e2d1a83c0be924d1a554
@@ -7828,7 +7324,7 @@
     - **checksum_sha256**: 14cfdadbf0348a664799c417599689ba92e0a774a51bba5dc030f93d751f6041
   - **[52]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
-    - **checksum_sha256**: 544332240512a2a12859fde458ff8c77f74f529da25432cc30fd026cafd60747
+    - **checksum_sha256**: 665fb7db27c0bd562c6aea76d5d8a0b2e9776a1484a90e17cc0b71441fd85400
   - **[53]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_jah_p0.webp)
     - **checksum_sha256**: 05067fb4a4b2a855646baf19644cfdb1dfdde0a80dd418072f5736457c7dfb5c
@@ -7837,7 +7333,7 @@
     - **checksum_sha256**: 93c64e3da13482b6d44545cad93b199943e8d2ab26e55802da40b8ec2a795f7d
   - **[55]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
-    - **checksum_sha256**: 8411d610eb20373f67e810cc9ee98b59da8b3f1b232d9c62c09362c2e9209192
+    - **checksum_sha256**: 34c6010e8f57bebdf057351f56052911992acd31bfce1fb1161f224cf797ec89
   - **[56]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
     - **checksum_sha256**: efc980db901ff96ed2153105875522107543da66620ebbac1269ccace4b582a9

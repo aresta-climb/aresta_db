@@ -1,15 +1,14 @@
 id: br_mg_ouro_preto_ouroboulder
 nome: Ouroboulder
 caminho_thumbnail: imagens/capa_p0.webp
-status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Ouroboulder (PNMA)
   estado: MG
   localizacao:
     latitude: -203677334
     longitude: -435075136
-  url_google_maps: 
-    https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
+  url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
   setores_ou_grupos:
   - grupo:
       caminho: grupo_pedreira.md
@@ -66,3 +65,5 @@ botoes:
       caminho: contatos.md
 ultima_migracao: 3
 publicar_croqui: true
+revisado_manualmente: true
+revisado_bounding_circle: true

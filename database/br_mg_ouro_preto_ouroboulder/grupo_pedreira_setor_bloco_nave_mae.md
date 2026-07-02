@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Nave-Mãe'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
@@ -8,92 +8,92 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 415
-      y: 475
+      x: 426
+      y: 457
       raio: 13
   - id: B
     label: B
     circular:
-      x: 580
-      y: 505
+      x: 601
+      y: 491
       raio: 13
   - id: C
     label: C
     circular:
-      x: 902
-      y: 455
+      x: 911
+      y: 439
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1375
-      y: 425
+      x: 1376
+      y: 404
       raio: 13
   - id: E
     label: E
     circular:
-      x: 1518
-      y: 445
+      x: 1521
+      y: 425
       raio: 13
   - id: F
     label: F
     circular:
-      x: 1460
-      y: 715
+      x: 1462
+      y: 649
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 235
-      y: 730
+      x: 236
+      y: 742
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 715
-      y: 815
+      x: 723
+      y: 793
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 870
-      y: 805
+      x: 873
+      y: 787
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 905
-      y: 805
+      x: 900
+      y: 787
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 1062
-      y: 845
+      x: 1067
+      y: 805
       raio: 13
   - id: '9'
     label: '9'
     circular:
-      x: 1078
-      y: 860
+      x: 1081
+      y: 829
       raio: 13
   - id: '7'
     label: '7'
     circular:
-      x: 1295
-      y: 745
+      x: 1303
+      y: 705
       raio: 13
   - id: '10'
     label: '10'
     circular:
       x: 1342
-      y: 760
-      raio: 13
+      y: 710
+      raio: 16
   - id: '8'
     label: '8'
     circular:
-      x: 1448
-      y: 685
+      x: 1450
+      y: 611
       raio: 13
   referencias:
   - escalada: Monte Mor
@@ -148,20 +148,6 @@ mapas:
     ids:
     - '10'
     - F
-  - escalada: Umbriacone
-    ids:
-    - '1'
-  - escalada: '003'
-    ids:
-    - '1'
-  - escalada: Vem Verão
-    ids:
-    - '2'
-    - B
-  - escalada: Passível
-    ids:
-    - '1'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -169,82 +155,70 @@ mapas:
   - id: B
     label: B
     circular:
-      x: 151
-      y: 388
+      x: 157
+      y: 372
       raio: 13
   - id: A
     label: A
     circular:
-      x: 80
-      y: 509
+      x: 86
+      y: 583
       raio: 13
   - id: C
     label: C
     circular:
-      x: 580
-      y: 122
+      x: 582
+      y: 118
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1262
-      y: 304
+      x: 1268
+      y: 328
       raio: 13
   - id: ▲
     label: ▲
     circular:
-      x: 299
-      y: 637
+      x: 301
+      y: 730
       raio: 13
   - id: ★
     label: ★
     circular:
-      x: 280
-      y: 708
+      x: 284
+      y: 820
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 373
-      y: 808
+      x: 383
+      y: 938
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 718
-      y: 817
+      x: 724
+      y: 951
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 624
-      y: 451
+      x: 629
+      y: 514
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 975
-      y: 621
+      x: 982
+      y: 713
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 812
-      y: 670
+      x: 816
+      y: 769
       raio: 13
   referencias:
-  - escalada: Monte Mor
-    ids:
-    - '1'
-    - A
-  - escalada: Irmãos Coragem
-    ids:
-    - '1'
-    - B
-  - escalada: Irmãos na Vibe
-    ids:
-    - '2'
-    - B
   - escalada: Ora-Por-Todos
     ids:
     - '1'
@@ -287,56 +261,6 @@ mapas:
     ids:
     - '4'
     - D
-  - escalada: Umbriacone
-    ids:
-    - '1'
-  - escalada: Mortal Kombat
-    ids:
-    - '1'
-    - ▲
-  - escalada: Sub-Zero
-    ids:
-    - '1'
-    - ★
-  - escalada: Raiden
-    ids:
-    - '2'
-    - ▲
-  - escalada: Carcomendo
-    ids:
-    - '2'
-    - ★
-  - escalada: '003'
-    ids:
-    - '1'
-  - escalada: Novos Baianos
-    ids:
-    - '1'
-    - A
-    - ★
-  - escalada: De Inverno
-    ids:
-    - '1'
-    - B
-    - ★
-  - escalada: De Verão
-    ids:
-    - '1'
-    - C
-    - ★
-  - escalada: Maverick
-    ids:
-    - '1'
-    - B
-    - ▲
-  - escalada: Vem Verão
-    ids:
-    - '2'
-    - B
-  - escalada: Passível
-    ids:
-    - '1'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -344,52 +268,73 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 156
-      y: 693
+      x: 155
+      y: 695
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 808
-      y: 822
+      x: 811
+      y: 817
       raio: 13
   - id: '3'
     label: '3'
     circular:
       x: 837
-      y: 822
+      y: 823
       raio: 13
   - id: ▲_esquerda
     label: ▲
     circular:
-      x: 783
-      y: 705
+      x: 781
+      y: 715
       raio: 13
   - id: ★_esquerda
     label: ★
     circular:
-      x: 848
-      y: 725
+      x: 844
+      y: 731
       raio: 13
   - id: ▲_direita
     label: ▲
     circular:
-      x: 967
-      y: 697
+      x: 970
+      y: 708
       raio: 13
   - id: ★_direita
     label: ★
     circular:
-      x: 1034
-      y: 783
+      x: 1032
+      y: 775
       raio: 13
   referencias:
   - escalada: Umbriacone
     ids:
     - '1'
-  - escalada: '003'
+  - escalada: Mortal Kombat
     ids:
-    - '1'
+    - '2'
+    - ▲_esquerda
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - ids:
+    - '2'
+    - ★_esquerda
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+    escalada: Sub-Zero
+  - ids:
+    - '3'
+    - ▲_direita
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+    escalada: Raiden
+  - ids:
+    - '3'
+    - ★_direita
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+    escalada: Carcomendo
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -398,45 +343,63 @@ mapas:
     label: '1'
     circular:
       x: 343
-      y: 1048
+      y: 1051
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 416
-      y: 1050
+      x: 417
+      y: 1051
       raio: 13
   - id: ▲_esquerda
     label: ▲
     circular:
       x: 230
-      y: 730
+      y: 733
       raio: 13
   - id: ★_esquerda
     label: ★
     circular:
-      x: 370
-      y: 613
+      x: 371
+      y: 611
       raio: 13
   - id: ▲_direita
     label: ▲
     circular:
-      x: 577
-      y: 680
+      x: 576
+      y: 684
       raio: 13
   - id: ★_direita
     label: ★
     circular:
-      x: 895
-      y: 828
+      x: 897
+      y: 829
       raio: 13
   referencias:
-  - escalada: Umbriacone
+  - escalada: Mortal Kombat
     ids:
     - '1'
-  - escalada: '003'
+    - ▲_esquerda
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - escalada: Sub-Zero
     ids:
     - '1'
+    - ★_esquerda
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - ids:
+    - '2'
+    - ▲_direita
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+    escalada: Raiden
+  - ids:
+    - '2'
+    - ★_direita
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+    escalada: Carcomendo
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -444,30 +407,19 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 74
-      y: 318
+      x: 76
+      y: 321
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 230
-      y: 460
+      x: 231
+      y: 469
       raio: 13
   referencias:
-  - escalada: Monte Mor
-    ids:
-    - '1'
-    - A
-  - escalada: Umbriacone
-    ids:
-    - '1'
   - escalada: '003'
     ids:
     - '1'
-  - escalada: Passível
-    ids:
-    - '1'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -475,72 +427,80 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 340
-      y: 524
+      x: 344
+      y: 504
       raio: 13
   - id: B
     label: B
     circular:
       x: 856
-      y: 400
+      y: 376
       raio: 13
   - id: C
     label: C
     circular:
-      x: 900
-      y: 706
+      x: 901
+      y: 693
       raio: 13
   - id: triangulo
     label: ▲
     circular:
       x: 1100
-      y: 785
+      y: 791
       raio: 13
   - id: estrela
     label: ★
     circular:
-      x: 955
-      y: 878
+      x: 957
+      y: 876
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 732
-      y: 848
+      x: 734
+      y: 871
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 1070
-      y: 950
+      x: 1071
+      y: 943
       raio: 13
   referencias:
-  - escalada: Monte Mor
+  - escalada: Novos Baianos
     ids:
-    - '1'
     - A
-  - escalada: Irmãos Coragem
+    - '1'
+    - estrela
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - escalada: De Inverno
     ids:
     - '1'
     - B
-  - escalada: Irmãos na Vibe
+    - estrela
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - escalada: De Verão
     ids:
-    - '2'
+    - '1'
+    - estrela
+    - C
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
+  - escalada: Maverick
+    ids:
+    - '1'
+    - triangulo
     - B
-  - escalada: Umbriacone
-    ids:
-    - '1'
-  - escalada: '003'
-    ids:
-    - '1'
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
   - escalada: Vem Verão
     ids:
     - '2'
     - B
-  - escalada: Passível
-    ids:
-    - '1'
-    - A
+    grupo: Pedreira
+    setor: 'Bloco: Nave-Mãe'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -548,8 +508,8 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 1000
-      y: 222
+      x: 1005
+      y: 227
       raio: 13
   - id: '1'
     label: '1'
@@ -558,16 +518,6 @@ mapas:
       y: 764
       raio: 13
   referencias:
-  - escalada: Monte Mor
-    ids:
-    - '1'
-    - A
-  - escalada: Umbriacone
-    ids:
-    - '1'
-  - escalada: '003'
-    ids:
-    - '1'
   - escalada: Passível
     ids:
     - '1'
@@ -648,5 +598,6 @@ escaladas:
 - boulder:
     nome: Passível
     dificuldade: V2
----
+---
+
 

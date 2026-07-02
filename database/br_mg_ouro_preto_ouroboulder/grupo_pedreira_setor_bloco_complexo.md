@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Complexo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
@@ -8,45 +8,33 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 112
+      x: 114
       y: 1352
-      raio: 13
+      raio: 16
   - id: '2'
     label: '2'
     circular:
-      x: 516
-      y: 1310
-      raio: 13
+      x: 517
+      y: 1312
+      raio: 16
   - id: '3'
     label: '3'
     circular:
-      x: 1188
-      y: 1364
-      raio: 13
+      x: 1189
+      y: 1366
+      raio: 16
   - id: A
     label: A
     circular:
-      x: 1032
-      y: 28
-      raio: 13
+      x: 1036
+      y: 38
+      raio: 16
   - id: B
     label: B
     circular:
       x: 1548
-      y: 150
-      raio: 13
-  - id: p
-    label: p
-    circular:
-      x: 1732
-      y: 1056
-      raio: 13
-  - id: '5'
-    label: '5'
-    circular:
-      x: 1988
-      y: 994
-      raio: 13
+      y: 152
+      raio: 17
   referencias:
   - escalada: Talhadeira
     ids:
@@ -63,31 +51,6 @@ mapas:
     ids:
     - '3'
     - B
-  - escalada: Sofá
-    ids:
-    - '1'
-    - A
-  - escalada: Porosíssimo
-    ids:
-    - '1'
-  - escalada: Poroso
-    ids:
-    - '2'
-  - escalada: Não Poroso
-    ids:
-    - '3'
-  - escalada: Boulder de Raiz
-    ids:
-    - '1'
-  - escalada: Travessia Ouro Preto-Bocaina
-    ids:
-    - '2'
-  - escalada: Perereca
-    ids:
-    - '3'
-  - escalada: Respira
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -95,20 +58,20 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 662
-      y: 215
+      x: 655
+      y: 233
       raio: 13
   - id: B
     label: B
     circular:
-      x: 886
-      y: 108
+      x: 887
+      y: 109
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 978
-      y: 980
+      x: 965
+      y: 931
       raio: 13
   referencias:
   - escalada: Talhadeira
@@ -119,47 +82,34 @@ mapas:
     ids:
     - '1'
     - A
-  - escalada: Porosíssimo
-    ids:
-    - '1'
-  - escalada: Boulder de Raiz
-    ids:
-    - '1'
-  - escalada: Respira
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 488
-      y: 860
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 491
+      y: 868
+      raio: 14
   - id: '2'
     label: '2'
-    box:
-      x: 686
-      y: 855
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 703
+      y: 878
+      raio: 14
   - id: '3'
     label: '3'
-    box:
-      x: 966
-      y: 839
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 967
+      y: 867
+      raio: 14
   - id: '4'
     label: '4'
-    box:
-      x: 1052
-      y: 822
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 1053
+      y: 846
+      raio: 14
   referencias:
   - escalada: Porosíssimo
     ids:
@@ -173,63 +123,29 @@ mapas:
   - escalada: Triangular
     ids:
     - '4'
-  - escalada: Boulder de Raiz
-    ids:
-    - '1'
-  - escalada: Travessia Ouro Preto-Bocaina
-    ids:
-    - '2'
-  - escalada: Perereca
-    ids:
-    - '3'
-  - escalada: Respira
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 416
-      y: 727
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 426
+      y: 736
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 1424
-      y: 948
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 1442
+      y: 934
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 1195
-      y: 805
-      comprimento: 28
-      largura: 28
-  - id: '4'
-    label: '4'
-    box:
-      x: 694
-      y: 1004
-      comprimento: 28
-      largura: 28
+    circular:
+      x: 1208
+      y: 809
+      raio: 13
   referencias:
-  - escalada: Porosíssimo
-    ids:
-    - '1'
-  - escalada: Poroso
-    ids:
-    - '2'
-  - escalada: Não Poroso
-    ids:
-    - '3'
-  - escalada: Triangular
-    ids:
-    - '4'
   - escalada: Boulder de Raiz
     ids:
     - '1'
@@ -239,9 +155,6 @@ mapas:
   - escalada: Perereca
     ids:
     - '3'
-  - escalada: Respira
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -249,16 +162,10 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 416
+      x: 412
       y: 956
       raio: 13
   referencias:
-  - escalada: Porosíssimo
-    ids:
-    - '1'
-  - escalada: Boulder de Raiz
-    ids:
-    - '1'
   - escalada: Respira
     ids:
     - '1'
@@ -302,5 +209,6 @@ escaladas:
 - boulder:
     nome: Respira
     dificuldade: V6
----
+---
+
 

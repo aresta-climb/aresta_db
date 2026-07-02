@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Bob'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
@@ -8,26 +8,26 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 398
-      y: 183
+      x: 400
+      y: 191
       raio: 13
   - id: B
     label: B
     circular:
       x: 598
-      y: 196
+      y: 198
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 776
-      y: 791
+      x: 777
+      y: 798
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 993
-      y: 730
+      x: 995
+      y: 731
       raio: 13
   referencias:
   - escalada: Albino
@@ -41,14 +41,6 @@ mapas:
   - escalada: Bob
     ids:
     - '2'
-  - escalada: Reto
-    ids:
-    - '1'
-    - A
-  - escalada: Dor nas Costas
-    ids:
-    - '1'
-    - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -56,59 +48,40 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 600
-      y: 145
+      x: 601
+      y: 146
       raio: 13
   - id: B
     label: B
     circular:
-      x: 900
-      y: 100
+      x: 902
+      y: 109
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1080
-      y: 182
+      x: 1088
+      y: 180
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1246
-      y: 308
+      x: 1231
+      y: 318
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 698
-      y: 1018
+      x: 701
+      y: 1005
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1062
-      y: 770
+      x: 1064
+      y: 776
       raio: 13
   referencias:
-  - escalada: Albino
-    ids:
-    - '1'
-    - A
-  - escalada: Encardido
-    ids:
-    - '1'
-    - B
-  - escalada: Bob
-    ids:
-    - '2'
-  - escalada: Reto
-    ids:
-    - '1'
-    - A
-  - escalada: Dor nas Costas
-    ids:
-    - '1'
-    - B
   - escalada: Albino
     ids:
     - '2'
@@ -117,6 +90,14 @@ mapas:
     ids:
     - '2'
     - D
+  - escalada: Reto
+    ids:
+    - '1'
+    - A
+  - escalada: Dor nas Costas
+    ids:
+    - '1'
+    - B
 escaladas:
 - boulder:
     nome: Albino
@@ -139,5 +120,6 @@ escaladas:
 - boulder:
     nome: Encardido
     dificuldade: V4
----
+---
+
 

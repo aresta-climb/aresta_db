@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
@@ -8,32 +8,32 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 380
-      y: 399
+      x: 368
+      y: 411
       raio: 13
   - id: ★
     label: ★
     circular:
-      x: 690
-      y: 610
+      x: 689
+      y: 613
       raio: 13
   - id: ▲
     label: ▲
     circular:
-      x: 765
+      x: 767
       y: 803
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 599
-      y: 961
+      x: 600
+      y: 958
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1053
-      y: 876
+      x: 1042
+      y: 863
       raio: 13
   referencias:
   - escalada: Mata-Mata
@@ -50,24 +50,6 @@ mapas:
     - '2'
     - A
     - ★
-  - escalada: Sem as Mãos
-    ids:
-    - '1'
-  - escalada: Ética
-    ids:
-    - '2'
-  - escalada: Batentes
-    ids:
-    - '1'
-  - escalada: Regletes
-    ids:
-    - '2'
-  - escalada: Cocal é Gueto
-    ids:
-    - '1'
-  - escalada: '002'
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -75,20 +57,20 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 502
+      x: 501
       y: 815
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 936
+      x: 937
       y: 740
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1243
-      y: 938
+      x: 1242
+      y: 927
       raio: 13
   referencias:
   - escalada: Sem as Mãos
@@ -100,18 +82,6 @@ mapas:
   - escalada: Risada
     ids:
     - '3'
-  - escalada: Batentes
-    ids:
-    - '1'
-  - escalada: Regletes
-    ids:
-    - '2'
-  - escalada: Cocal é Gueto
-    ids:
-    - '1'
-  - escalada: '002'
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -119,32 +89,20 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 1121
-      y: 722
+      x: 1110
+      y: 742
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1404
-      y: 691
+      x: 1386
+      y: 723
       raio: 13
   referencias:
-  - escalada: Sem as Mãos
-    ids:
-    - '1'
-  - escalada: Ética
-    ids:
-    - '2'
   - escalada: Batentes
     ids:
     - '1'
   - escalada: Regletes
-    ids:
-    - '2'
-  - escalada: Cocal é Gueto
-    ids:
-    - '1'
-  - escalada: '002'
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
@@ -154,28 +112,16 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 457
-      y: 780
+      x: 442
+      y: 788
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 962
-      y: 890
+      x: 963
+      y: 891
       raio: 13
   referencias:
-  - escalada: Sem as Mãos
-    ids:
-    - '1'
-  - escalada: Ética
-    ids:
-    - '2'
-  - escalada: Batentes
-    ids:
-    - '1'
-  - escalada: Regletes
-    ids:
-    - '2'
   - escalada: Cocal é Gueto
     ids:
     - '1'
@@ -213,5 +159,6 @@ escaladas:
 - boulder:
     nome: '002'
     dificuldade: V2
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Sonar'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
@@ -8,26 +8,26 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 642
-      y: 233
+      x: 641
+      y: 243
       raio: 13
   - id: B
     label: B
     circular:
-      x: 938
-      y: 358
+      x: 949
+      y: 345
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1455
-      y: 708
+      x: 1461
+      y: 667
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 571
-      y: 934
+      x: 552
+      y: 940
       raio: 13
   referencias:
   - escalada: Braúna
@@ -52,5 +52,6 @@ escaladas:
 - boulder:
     nome: Periscópio
     dificuldade: V5
----
+---
+
 

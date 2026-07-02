@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
@@ -8,49 +8,49 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 695
-      y: 902
+      x: 694
+      y: 889
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 698
-      y: 754
+      x: 699
+      y: 755
       raio: 13
   - id: '3'
     label: '3'
     circular:
       x: 892
-      y: 712
+      y: 715
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 914
-      y: 832
+      x: 909
+      y: 827
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 1114
-      y: 798
+      x: 1108
+      y: 789
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 1190
-      y: 816
+      x: 1183
+      y: 815
       raio: 13
   - id: A
     label: A
     circular:
-      x: 855
-      y: 308
+      x: 849
+      y: 310
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1464
+      x: 1465
       y: 152
       raio: 13
   referencias:
@@ -80,42 +80,6 @@ mapas:
     ids:
     - '6'
     - B
-  - escalada: Camaleão
-    ids:
-    - '5'
-    - B
-  - escalada: Rabo de Camaleão
-    ids:
-    - '6'
-    - B
-  - escalada: Guerreiro
-    ids:
-    - '1'
-    - A
-  - escalada: Major
-    ids:
-    - '2'
-    - A
-  - escalada: Nativo
-    ids:
-    - '3'
-    - B
-  - escalada: Protesto
-    ids:
-    - '4'
-    - A
-  - escalada: Golpe Militar
-    ids:
-    - '5'
-    - A
-  - escalada: Aurora Explosion
-    ids:
-    - '5'
-    - B
-  - escalada: Ditadvor
-    ids:
-    - '6'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -123,64 +87,58 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 28
-      y: 301
+      x: 29
+      y: 316
       raio: 13
   - id: B
     label: B
     circular:
-      x: 369
-      y: 245
+      x: 579
+      y: 246
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1510
-      y: 380
+      x: 1502
+      y: 399
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 275
-      y: 890
+      x: 281
+      y: 882
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 238
-      y: 768
+      x: 239
+      y: 769
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 529
-      y: 844
+      x: 531
+      y: 846
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 650
-      y: 852
+      x: 653
+      y: 864
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 978
-      y: 718
+      x: 979
+      y: 720
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 966
-      y: 870
+      x: 967
+      y: 873
       raio: 13
   referencias:
-  - escalada: Last Samurai
-    ids:
-    - '1'
-  - escalada: Samurai
-    ids:
-    - '2'
   - escalada: Doce de Leite
     ids:
     - '2'
@@ -225,34 +183,6 @@ mapas:
     ids:
     - '6'
     - C
-  - escalada: Guerreiro
-    ids:
-    - '1'
-    - A
-  - escalada: Major
-    ids:
-    - '2'
-    - A
-  - escalada: Nativo
-    ids:
-    - '3'
-    - B
-  - escalada: Protesto
-    ids:
-    - '4'
-    - A
-  - escalada: Golpe Militar
-    ids:
-    - '5'
-    - A
-  - escalada: Aurora Explosion
-    ids:
-    - '5'
-    - B
-  - escalada: Ditadvor
-    ids:
-    - '6'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -260,100 +190,70 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 32
-      y: 240
+      x: 33
+      y: 242
       raio: 13
   - id: B
     label: B
     circular:
       x: 608
-      y: 198
+      y: 201
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1546
+      x: 1549
       y: 392
       raio: 13
   - id: D
     label: D
     circular:
-      x: 1400
-      y: 815
+      x: 1405
+      y: 806
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 362
-      y: 765
+      x: 358
+      y: 770
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 394
-      y: 975
+      x: 395
+      y: 977
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 770
-      y: 645
+      x: 771
+      y: 647
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 789
-      y: 950
+      x: 791
+      y: 954
       raio: 13
   - id: '5'
     label: '5'
     circular:
-      x: 844
-      y: 930
+      x: 845
+      y: 932
       raio: 13
   - id: '6'
     label: '6'
     circular:
-      x: 975
-      y: 870
+      x: 973
+      y: 883
       raio: 13
   - id: '7'
     label: '7'
     circular:
-      x: 1172
-      y: 835
+      x: 1176
+      y: 829
       raio: 13
   referencias:
-  - escalada: Last Samurai
-    ids:
-    - '1'
-  - escalada: Samurai
-    ids:
-    - '2'
-  - escalada: Teiú
-    ids:
-    - '1'
-    - C
-  - escalada: Rabo de Lagartixa
-    ids:
-    - '4'
-    - C
-  - escalada: Camaleão
-    ids:
-    - '5'
-    - B
-  - escalada: Lagartixa
-    ids:
-    - '5'
-    - C
-  - escalada: Rabo de Camaleão
-    ids:
-    - '6'
-    - B
-  - escalada: Lagartixa sem Rabo
-    ids:
-    - '6'
-    - C
   - escalada: Guerreiro
     ids:
     - '1'
@@ -485,5 +385,6 @@ escaladas:
 - boulder:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
----
+---
+
 

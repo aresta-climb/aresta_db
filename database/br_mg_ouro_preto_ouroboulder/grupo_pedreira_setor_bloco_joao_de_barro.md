@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: João de Barro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp
@@ -9,19 +9,19 @@ mapas:
     label: A
     circular:
       x: 84
-      y: 253
+      y: 257
       raio: 13
   - id: B
     label: B
     circular:
       x: 718
-      y: 258
+      y: 266
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 1238
-      y: 1030
+      x: 1226
+      y: 1034
       raio: 13
   referencias:
   - escalada: Porra Nenhuma
@@ -32,18 +32,6 @@ mapas:
     ids:
     - '1'
     - B
-  - escalada: Arco Magmático
-    ids:
-    - '1'
-    - A
-  - escalada: Du Mussula
-    ids:
-    - '1'
-    - B
-  - escalada: Bola 7
-    ids:
-    - '1'
-    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -51,15 +39,52 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 1302
-      y: 922
+      x: 1296
+      y: 923
       raio: 13
   - id: C
     label: C
     circular:
-      x: 376
-      y: 74
+      x: 377
+      y: 81
       raio: 13
+  - id: '2'
+    label: '2'
+    circular:
+      x: 541
+      y: 634
+      raio: 13
+  - id: B
+    label: B
+    circular:
+      x: 260
+      y: 663
+      raio: 13
+  - id: A
+    label: A
+    circular:
+      x: 175
+      y: 607
+      raio: 14
+  referencias:
+  - ids:
+    - '1'
+    - A
+    grupo: Pedreira
+    setor: 'Bloco: João de Barro'
+    escalada: Arco Magmático
+  - ids:
+    - '1'
+    - B
+    grupo: Pedreira
+    setor: 'Bloco: João de Barro'
+    escalada: Du Mussula
+  - ids:
+    - '2'
+    - C
+    grupo: Pedreira
+    setor: 'Bloco: João de Barro'
+    escalada: No Montê
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -67,44 +92,28 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 460
+      x: 462
       y: 882
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 500
+      x: 503
       y: 882
       raio: 13
   - id: A
     label: A
     circular:
-      x: 630
-      y: 124
+      x: 631
+      y: 127
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1358
-      y: 104
+      x: 1354
+      y: 97
       raio: 13
   referencias:
-  - escalada: Porra Nenhuma
-    ids:
-    - '1'
-    - A
-  - escalada: Ringue
-    ids:
-    - '1'
-    - B
-  - escalada: Arco Magmático
-    ids:
-    - '1'
-    - A
-  - escalada: Du Mussula
-    ids:
-    - '1'
-    - B
   - escalada: Bola 7
     ids:
     - '1'
@@ -144,5 +153,6 @@ escaladas:
 - boulder:
     nome: João de Barro
     dificuldade: V4
----
+---
+
 

@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Bonsai'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp
@@ -8,32 +8,32 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 247
-      y: 514
+      x: 249
+      y: 517
       raio: 13
   - id: B
     label: B
     circular:
-      x: 498
-      y: 412
+      x: 499
+      y: 414
       raio: 13
   - id: C
     label: C
     circular:
-      x: 1396
-      y: 314
+      x: 1395
+      y: 315
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 460
-      y: 930
+      x: 456
+      y: 943
       raio: 13
   - id: '2'
     label: '2'
     circular:
-      x: 1374
-      y: 852
+      x: 1393
+      y: 846
       raio: 13
   referencias:
   - escalada: Possível
@@ -65,5 +65,6 @@ escaladas:
 - boulder:
     nome: Mancada
     dificuldade: V3
----
+---
+
 

@@ -14,52 +14,89 @@ mapas:
   - id: mont_blanc
     label: Mont Blanc
     box:
-      x: 535
-      y: 231
+      x: 610
+      y: 239
       comprimento: 128
       largura: 24
   - id: o_pequeno
     label: O Pequeno
     box:
-      x: 525
-      y: 474
+      x: 591
+      y: 480
       comprimento: 120
       largura: 25
   - id: salao_dos_ossos
     label: Salão dos Ossos
     box:
-      x: 518
-      y: 511
-      comprimento: 175
-      largura: 25
+      x: 616
+      y: 518
+      comprimento: 183
+      largura: 23
   - id: parada_obrigatoria
     label: Parada Obrigatória
     box:
-      x: 445
-      y: 648
-      comprimento: 190
-      largura: 23
+      x: 557
+      y: 654
+      comprimento: 206
+      largura: 24
   - id: cabocla_da_mata
     label: Caboclo da Mata
     box:
-      x: 365
-      y: 713
-      comprimento: 175
-      largura: 24
+      x: 465
+      y: 718
+      comprimento: 188
+      largura: 23
   - id: silencio_da_mutuca
     label: Silêncio da Mutuca
     box:
-      x: 888
-      y: 830
-      comprimento: 206
+      x: 1004
+      y: 837
+      comprimento: 211
       largura: 24
   - id: espreguicadeira
     label: Espreguiçadeira
     box:
-      x: 1165
-      y: 978
+      x: 1261
+      y: 988
       comprimento: 176
       largura: 25
+  - id: espreguicadeira_2
+    label: Espreguiçadeira
+    box:
+      x: 1166
+      y: 1022
+      comprimento: 169
+      largura: 28
+  referencias:
+  - ids:
+    - mont_blanc
+    grupo: Mont Blanc
+    setor: 'Bloco: Mont Blanc'
+  - ids:
+    - o_pequeno
+    grupo: Mont Blanc
+    setor: 'Bloco: O Pequeno'
+  - ids:
+    - salao_dos_ossos
+    grupo: Mont Blanc
+    setor: 'Bloco: Salão dos Ossos'
+  - ids:
+    - parada_obrigatoria
+    grupo: Mont Blanc
+    setor: 'Bloco: Parada Obrigatória'
+  - ids:
+    - cabocla_da_mata
+    grupo: Mont Blanc
+    setor: 'Bloco: Cabocla da Mata'
+  - ids:
+    - silencio_da_mutuca
+    grupo: Mont Blanc
+    setor: 'Bloco: Silêncio da Mutuca'
+  - ids:
+    - espreguicadeira
+    - espreguicadeira_2
+    grupo: Mont Blanc
+    setor: 'Bloco: Espreguiçadeira'
 setores:
 - caminho: grupo_mont_blanc_setor_bloco_mont_blanc.md
 - caminho: grupo_mont_blanc_setor_bloco_parada_obrigatoria.md

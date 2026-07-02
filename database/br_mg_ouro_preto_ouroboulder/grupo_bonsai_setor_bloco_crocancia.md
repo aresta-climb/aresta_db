@@ -1,4 +1,4 @@
----
+---
 nome: 'Bloco: Crocância'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp
@@ -8,17 +8,11 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 1380
-      y: 805
+      x: 1383
+      y: 806
       raio: 13
   referencias:
   - escalada: Beija-Flor
-    ids:
-    - '1'
-  - escalada: Tarântula
-    ids:
-    - '1'
-  - escalada: Lodo
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp
@@ -28,17 +22,11 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 1230
-      y: 745
+      x: 1232
+      y: 750
       raio: 13
   referencias:
-  - escalada: Beija-Flor
-    ids:
-    - '1'
   - escalada: Tarântula
-    ids:
-    - '1'
-  - escalada: Lodo
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp
@@ -48,40 +36,34 @@ mapas:
   - id: A
     label: A
     circular:
-      x: 1570
-      y: 440
+      x: 1561
+      y: 433
       raio: 13
   - id: B
     label: B
     circular:
-      x: 646
+      x: 647
       y: 366
       raio: 13
   - id: '1'
     label: '1'
     circular:
-      x: 1292
+      x: 1293
       y: 558
       raio: 13
   - id: '2'
     label: '2'
     circular:
       x: 436
-      y: 710
+      y: 720
       raio: 13
   - id: '3'
     label: '3'
     circular:
       x: 114
-      y: 758
+      y: 757
       raio: 13
   referencias:
-  - escalada: Beija-Flor
-    ids:
-    - '1'
-  - escalada: Tarântula
-    ids:
-    - '1'
   - escalada: Porém
     ids:
     - '1'
@@ -94,25 +76,12 @@ mapas:
     ids:
     - '3'
     - A
-  - escalada: Lodo
-    ids:
-    - '1'
-  - escalada: Crocância
-    ids:
-    - '2'
-    - A
-  - escalada: Crocância Rouba Monte
+  - escalada: Rouba Monte
     ids:
     - '2'
     - B
-  - escalada: Crocância sds
-    ids:
-    - '3'
-    - A
-  - escalada: Crocância Rouba Monte sds
-    ids:
-    - '3'
-    - B
+    grupo: Bonsai
+    setor: 'Bloco: Crocância'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp
   largura_mapa: 1575
   altura_mapa: 1182
@@ -120,58 +89,40 @@ mapas:
   - id: '1'
     label: '1'
     circular:
-      x: 537
-      y: 678
+      x: 538
+      y: 705
       raio: 13
   - id: '2'
     label: '2'
     circular:
       x: 980
-      y: 780
+      y: 781
       raio: 13
   - id: '3'
     label: '3'
     circular:
-      x: 1104
-      y: 852
+      x: 1105
+      y: 855
       raio: 13
   - id: '4'
     label: '4'
     circular:
-      x: 1416
-      y: 696
+      x: 1417
+      y: 699
       raio: 13
   - id: A
     label: A
     circular:
-      x: 800
-      y: 182
+      x: 799
+      y: 177
       raio: 13
   - id: B
     label: B
     circular:
-      x: 1348
-      y: 115
+      x: 1346
+      y: 123
       raio: 13
   referencias:
-  - escalada: Beija-Flor
-    ids:
-    - '1'
-  - escalada: Tarântula
-    ids:
-    - '1'
-  - escalada: Porém
-    ids:
-    - '1'
-    - A
-  - escalada: Xaxado
-    ids:
-    - '1'
-    - B
-  - escalada: Crocância do Além
-    ids:
-    - '3'
-    - A
   - escalada: Lodo
     ids:
     - '1'
@@ -191,6 +142,12 @@ mapas:
     ids:
     - '3'
     - B
+  - escalada: Rouba Monte
+    ids:
+    - '4'
+    - B
+    grupo: Bonsai
+    setor: 'Bloco: Crocância'
 escaladas:
 - boulder:
     nome: Beija-Flor
@@ -225,5 +182,6 @@ escaladas:
 - boulder:
     nome: Crocância Rouba Monte sds
     dificuldade: V11
----
+---
+
 
