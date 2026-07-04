@@ -1,4 +1,4 @@
----
+---
 nome: Conjunto Pôr do sol - Bloco A
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p0_i0.webp
@@ -83,35 +83,36 @@ escaladas:
 - boulder:
     nome: Sem querer
     dificuldade: V1
-    descricao: Começa sentado com as duas mãos na agarra óbvia na base da proa, e escala 
-      reto
+    descricao: Começa sentado com as duas mãos na agarra óbvia na base da proa, e
+      escala reto
 - boulder:
     nome: Horizonte
     dificuldade: V4
-    descricao: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda 
+    descricao: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda
       horizontal, até a saída do “Pôr-do-sol”.
 - boulder:
     nome: Fenda comunista
     dificuldade: V4
-    descricao: Começa como o “Sem querer” e escala toda a fenda lateral, virando no “Base 
-      aérea”
+    descricao: Começa como o “Sem querer” e escala toda a fenda lateral, virando no
+      “Base aérea”
 - boulder:
     nome: Pôr-do-sol
     dificuldade: V3
-    descricao: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em 
-      formato de “L” e escala levemente para a esquerda, utilizando pequenos regletes na 
-      rocha.
+    descricao: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em
+      formato de “L” e escala levemente para a esquerda, utilizando pequenos regletes
+      na rocha.
 - boulder:
     nome: Bipa aérea
     dificuldade: V3
-    descricao: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato de “L”
-      e toca pra direita.
+    descricao: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato
+      de “L” e toca pra direita.
 - boulder:
     nome: Base aérea
     dificuldade: V2
-    descricao: Boulder de movimentação específica. As duas mão começam juntas em uma 
+    descricao: Boulder de movimentação específica. As duas mão começam juntas em uma
       agarra invertida muito boa na fenda horizontal e escala reto.
----
+---
+
 
 # Bloco A
 

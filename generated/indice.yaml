@@ -146,9 +146,9 @@ croquis:
 
     '
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: e75aa89c09856ff25a2986c75bc47e5466acc9061acae644721bb00b69b580d5
+  checksum_sha256_croqui: bfa4b5e5a6a242ee071933b9587904005503569af9e149ba4665e58181774704
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-06-28T22:35:47Z'
+  timestamp_update: '2026-07-04T22:17:42Z'
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
@@ -165,16 +165,16 @@ croquis:
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: 8291d6a606726fdb8589c8980b12d31d7198830207f3ac6d1ed136da525c7da6
+  checksum_sha256_croqui: 65a7a1163f52c059818a2d3cb1999ce2604713fe1790176ec41496e2936cc2e8
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-06-28T22:35:47Z'
+  timestamp_update: '2026-07-04T22:16:32Z'
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
   caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
-  checksum_sha256_croqui: 0854e5eff8b44e561b024fc2bdd5a31b2c5f7549092408b4d90c977092ad1baf
+  checksum_sha256_croqui: b8369c587ef8ab8f3b961cfaed7ddc6af2f2655a6b6bac96e5a85f4a39add58c
   checksum_sha256_thumbnail: 83839077a1e4d6e4fd3c794ca5d5c9db433e6e933db95d3cc185f8b24e99c539
-  timestamp_update: '2026-06-28T22:35:47Z'
+  timestamp_update: '2026-07-04T22:16:48Z'
   localizacao:
     latitude: -199973890
     longitude: -473989720

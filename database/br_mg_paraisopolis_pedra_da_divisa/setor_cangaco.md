@@ -1,4 +1,4 @@
----
+---
 nome: Setor Cangaço
 mapas:
 - caminho_imagem_mapa: imagens/setor_cangaco_p1_i0.webp
@@ -255,7 +255,8 @@ escaladas:
     - Eliseu Frechou
     - Leonard Moreira
     data_abertura: 2021-03
----
+---
+
 
 ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp)
 

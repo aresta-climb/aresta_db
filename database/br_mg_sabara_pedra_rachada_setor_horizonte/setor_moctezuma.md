@@ -1,4 +1,4 @@
----
+---
 nome: Moctezuma
 mapas:
 - caminho_imagem_mapa: imagens/setor_moctezuma_p0_i0.webp
@@ -77,8 +77,8 @@ escaladas:
 - boulder:
     nome: Mansa Musa
     dificuldade: V11
-    descricao: Começa baixo na laca mais à esquerda do bloco, com movimentos fortes até a 
-      virada na à esquerda da fenda.
+    descricao: Começa baixo na laca mais à esquerda do bloco, com movimentos fortes
+      até a virada na à esquerda da fenda.
 - boulder:
     nome: Musamansa
     dificuldade: V4
@@ -86,19 +86,19 @@ escaladas:
 - boulder:
     nome: Martelo de Pedra
     dificuldade: V3
-    descricao: Saída com a mão direita na agarrão alto e a esquerda na agarra do lado, 
+    descricao: Saída com a mão direita na agarrão alto e a esquerda na agarra do lado,
       indo para esquerda com a virada pelo slab.
 - boulder:
     nome: Moctezuma
     dificuldade: V6
-    descricao: Saída de um reglete de esquerda e de outro reglete um pouco mais alto de 
-      direita, indo reto com a virada em um slab técnico.
+    descricao: Saída de um reglete de esquerda e de outro reglete um pouco mais alto
+      de direita, indo reto com a virada em um slab técnico.
 - boulder:
     nome: Medeia
     dificuldade: V7
-    descricao: Saída com a mão esquerda no reglete lateral e a direita na craca baixa na 
-      aresta do bloco, indo reto até dois regletes, com um move forte para um agarrão na 
-      virada.
+    descricao: Saída com a mão esquerda no reglete lateral e a direita na craca baixa
+      na aresta do bloco, indo reto até dois regletes, com um move forte para um agarrão
+      na virada.
 - boulder:
     nome: Maria Bonita
     dificuldade: V2
@@ -106,9 +106,10 @@ escaladas:
 - boulder:
     nome: Herança de Ferro
     dificuldade: V6
-    descricao: Saída com a mão esquerda na laca lateral e a mão direita no batente baixo, 
-      indo para a direita até um movimento forte em um batente liso.
----
+    descricao: Saída com a mão esquerda na laca lateral e a mão direita no batente
+      baixo, indo para a direita até um movimento forte em um batente liso.
+---
+
 
 # Moctezuma
 

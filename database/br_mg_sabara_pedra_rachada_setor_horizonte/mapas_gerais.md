@@ -45,6 +45,3 @@ mapas:
     ids:
     - Sub-setor_Moctezuma
 ---
-
-
-

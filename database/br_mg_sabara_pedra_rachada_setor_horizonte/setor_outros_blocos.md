@@ -1,4 +1,4 @@
----
+---
 nome: Outros Blocos
 mapas:
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p0_i0.webp
@@ -48,7 +48,6 @@ mapas:
     ids:
     - '53'
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p2_i0.webp
-  pontos_de_interesse: []
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p3_i0.webp
   largura_mapa: 720
   altura_mapa: 798
@@ -99,22 +98,22 @@ escaladas:
 - boulder:
     nome: Farol
     dificuldade: V3
-    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer 
-      a virada por agarradas boas na proa.
+    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para
+      fazer a virada por agarradas boas na proa.
 - boulder:
     nome: Mirante
     dificuldade: V4
-    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a 
-      direita, com a virada pela lateral do bloco.
+    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para
+      a direita, com a virada pela lateral do bloco.
 - boulder:
     nome: Queda do Gigante
     dificuldade: V8
-    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco
-      por baixo até as cracas que possibilitam a virada pelo highball.
+    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral
+      do bloco por baixo até as cracas que possibilitam a virada pelo highball.
 - boulder:
     nome: Não me toque
     dificuldade: V5
-    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo 
+    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo
       feixo de cristais até a virada pelas cracas da direita.
 - boulder:
     nome: Anemia
@@ -132,7 +131,8 @@ escaladas:
     nome: Vertigem
     dificuldade: V5
     descricao: Boulder clássico.
----
+---
+
 
 # Outros Blocos
 

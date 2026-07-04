@@ -1,5 +1,4 @@
 ---
-titulo: Mapas Gerais - Pedra da Divisa face MG
 mapas:
 - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
   largura_mapa: 627
@@ -124,4 +123,3 @@ mapas:
       comprimento: 82
       largura: 24
 ---
-

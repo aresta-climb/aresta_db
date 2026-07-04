@@ -6,7 +6,7 @@
 - **nome**: Sabará - Pedra Rachada - Setor Horizonte
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i1.webp)
 - **revisado_manualmente**: True
-- **revisado_bounding_circle**: True
+- **revisado_bounding_circle**: False
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
@@ -1225,7 +1225,6 @@
           - 53
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p2_i0.webp)
-    - **pontos_de_interesse**: []
     - **largura_mapa**: 1126
     - **altura_mapa**: 1628
   - **[3]**:

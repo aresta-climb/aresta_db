@@ -9,7 +9,7 @@
   - Autores do Croqui Original
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **revisado_manualmente**: True
-- **revisado_bounding_circle**: True
+- **revisado_bounding_circle**: False
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:

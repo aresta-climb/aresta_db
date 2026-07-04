@@ -1,4 +1,4 @@
----
+---
 nome: Setor Ditados
 mapas:
 - caminho_imagem_mapa: imagens/setor_ditados_p0_i0.webp
@@ -157,7 +157,8 @@ escaladas:
     - Ana Fujita
     - Eliseu Frechou
     data_abertura: '2018'
----
+---
+
 
 ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp)
 

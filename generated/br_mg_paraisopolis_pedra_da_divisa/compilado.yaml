@@ -8,7 +8,7 @@ descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópoli
 
   '
 revisado_manualmente: true
-revisado_bounding_circle: true
+revisado_bounding_circle: false
 status_desenho_extraivel: NAO_TEM_DESENHO
 creditos:
 - Ana Fujita
@@ -92,13 +92,13 @@ picos:
               y: 661
               raio: 12
           - id: 08_bot
-            label: 08
+            label: '08'
             circular:
               x: 945
               y: 671
               raio: 12
           - id: 09_bot
-            label: 09
+            label: '09'
             circular:
               x: 1000
               y: 670
@@ -110,7 +110,7 @@ picos:
               y: 662
               raio: 12
           - id: 09_top
-            label: 09
+            label: '09'
             circular:
               x: 937
               y: 112

@@ -1,4 +1,4 @@
----
+---
 nome: Moléstia
 mapas:
 - caminho_imagem_mapa: imagens/setor_molestia_p0_i0.webp
@@ -46,13 +46,14 @@ escaladas:
 - boulder:
     nome: Jabuticaba
     dificuldade: V5
-    descricao: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para um 
-      reglete clássico, com uma viara em um positivo.
+    descricao: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para
+      um reglete clássico, com uma viara em um positivo.
 - boulder:
     nome: Caqui
     dificuldade: V4
-    descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com 
-      uma virada técnica.
----
+    descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado
+      com uma virada técnica.
+---
+
 
 # Moléstia

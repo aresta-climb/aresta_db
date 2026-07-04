@@ -5,7 +5,7 @@ creditos:
 - Autores do Croqui Original
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: true
-revisado_bounding_circle: true
+revisado_bounding_circle: false
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Pico da Vó Gusta

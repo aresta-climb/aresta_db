@@ -5,7 +5,7 @@ creditos:
 - Autores do Croqui Original
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: true
-revisado_bounding_circle: true
+revisado_bounding_circle: false
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Pico da Vó Gusta
@@ -65,13 +65,13 @@ picos:
               x: 620
               y: 712
               raio: 18
-          - id: 08
+          - id: '08'
             label: '8'
             circular:
               x: 524
               y: 743
               raio: 18
-          - id: 09
+          - id: '09'
             label: '9'
             circular:
               x: 1643
@@ -113,10 +113,10 @@ picos:
             - '07'
           - escalada: Faxineiro Fiel
             ids:
-            - 08
+            - '08'
           - escalada: Arrependimento
             ids:
-            - 09
+            - '09'
           - escalada: Aperta Bola
             ids:
             - '10'

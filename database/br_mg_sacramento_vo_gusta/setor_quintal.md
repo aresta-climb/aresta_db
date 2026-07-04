@@ -1,4 +1,4 @@
----
+---
 nome: Setor Quintal
 mapas:
 - caminho_imagem_mapa: imagens/setor_quintal_p0_i0.webp
@@ -209,7 +209,8 @@ escaladas:
     dificuldade: BR_5SUP_BARRA_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
+
 
 # Setor Quintal
 

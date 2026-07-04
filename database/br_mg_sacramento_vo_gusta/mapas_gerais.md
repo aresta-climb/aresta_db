@@ -1,5 +1,4 @@
 ---
-titulo: Mapas Gerais
 mapas:
 - caminho_imagem_mapa: imagens/capa_p0_i1.webp
   largura_mapa: 1675
@@ -126,6 +125,3 @@ mapas:
     ids:
     - Setor_Quintal
 ---
-
-
-

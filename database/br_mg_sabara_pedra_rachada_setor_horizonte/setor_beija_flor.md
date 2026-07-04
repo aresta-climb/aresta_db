@@ -1,4 +1,4 @@
----
+---
 nome: Beija Flor
 mapas:
 - caminho_imagem_mapa: imagens/setor_beija_flor_p0_i0.webp
@@ -72,8 +72,8 @@ escaladas:
 - boulder:
     nome: Juruva
     dificuldade: V4
-    descricao: Começa com as mãos juntas em uma agarra lateral e segue para a esquerda do 
-      bloco com a virada pela barriga na lateral.
+    descricao: Começa com as mãos juntas em uma agarra lateral e segue para a esquerda
+      do bloco com a virada pela barriga na lateral.
 - boulder:
     nome: Bem-te-vi
     dificuldade: V6
@@ -81,29 +81,30 @@ escaladas:
 - boulder:
     nome: Sabiá
     dificuldade: V2
-    descricao: Boulder com movimentação incrível! Saída com as mãos juntas em uma agarra 
-      lateral a esquerda, indo reto pelo meio do bloco.
+    descricao: Boulder com movimentação incrível! Saída com as mãos juntas em uma
+      agarra lateral a esquerda, indo reto pelo meio do bloco.
 - boulder:
     nome: Carcará
     dificuldade: V6
-    descricao: Saída com a direita em um reglete baixo e a esquerda e uma pinça no teto, 
-      indo pra face mais negativa com uma movimentação incrível!
+    descricao: Saída com a direita em um reglete baixo e a esquerda e uma pinça no
+      teto, indo pra face mais negativa com uma movimentação incrível!
 - boulder:
     nome: Trinca-Ferro
     dificuldade: V7
-    descricao: Saída do módulo mais baixo no bloco até a saída do Carcará, finalizando na 
-      face negativa. Clássico!
+    descricao: Saída do módulo mais baixo no bloco até a saída do Carcará, finalizando
+      na face negativa. Clássico!
 - boulder:
     nome: Beija-Flor
     dificuldade: V7
-    descricao: Clássico! Saída com a direita em um reglete baixo e a esquerda e uma pinça 
-      no teto, indo pra face à direita com um move forte pra uma agarra perfeita na 
-      lateral esquerda.
+    descricao: Clássico! Saída com a direita em um reglete baixo e a esquerda e uma
+      pinça no teto, indo pra face à direita com um move forte pra uma agarra perfeita
+      na lateral esquerda.
 - boulder:
     nome: Bacurau
     dificuldade: V8
-    descricao: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo do 
-      bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
----
+    descricao: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo
+      do bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
+---
+
 
 # Beija Flor

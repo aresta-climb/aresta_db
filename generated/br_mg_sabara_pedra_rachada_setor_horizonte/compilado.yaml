@@ -1000,7 +1000,6 @@ picos:
             ids:
             - '53'
         - caminho_imagem_mapa: imagens/setor_outros_blocos_p2_i0.webp
-          pontos_de_interesse: []
           largura_mapa: 1126
           altura_mapa: 1628
         - caminho_imagem_mapa: imagens/setor_outros_blocos_p3_i0.webp
@@ -1142,7 +1141,7 @@ picos:
           - Sub-setor_Moctezuma
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
-revisado_bounding_circle: true
+revisado_bounding_circle: false
 status_desenho_extraivel: DESENHO_EXTRAIDO
 botoes:
 - texto: Capa

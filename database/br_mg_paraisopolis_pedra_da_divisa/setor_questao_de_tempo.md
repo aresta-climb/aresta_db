@@ -1,4 +1,4 @@
----
+---
 nome: Setor Questão de Tempo
 mapas:
 - caminho_imagem_mapa: imagens/setor_questao_de_tempo_p0_i0.webp
@@ -83,7 +83,8 @@ escaladas:
     - Alexandre "Jesus" Loureiro
     - Samuel Moreira
     data_abertura: '2020'
----
+---
+
 
 ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 

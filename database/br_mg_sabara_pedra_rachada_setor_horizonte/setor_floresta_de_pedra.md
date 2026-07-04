@@ -1,4 +1,4 @@
----
+---
 nome: Floresta de pedra
 mapas:
 - caminho_imagem_mapa: imagens/setor_floresta_de_pedra_p0_i0.webp
@@ -55,8 +55,8 @@ escaladas:
 - boulder:
     nome: Cambeva
     dificuldade: V0
-    descricao: Inicia sentado com a mão direita em um batente escorrido e a esquerda em 
-      uma fenda vertical e escala para a esquerda.
+    descricao: Inicia sentado com a mão direita em um batente escorrido e a esquerda
+      em uma fenda vertical e escala para a esquerda.
 - boulder:
     nome: Vellozia
     dificuldade: V0
@@ -64,17 +64,18 @@ escaladas:
 - boulder:
     nome: Flor do Cerrado
     dificuldade: V2
-    descricao: Começa sentado com as duas mãos em um batente clássico e escala reto. Uma 
-      virada zela...
+    descricao: Começa sentado com as duas mãos em um batente clássico e escala reto.
+      Uma virada zela...
 - boulder:
     nome: Sempre-viva
     dificuldade: V3
-    descricao: Extensão do “Calliandra”. Começa com a mão direita em um reglete abaixo do 
-      batente inicial do “Flor do Cerrado” e com a esquerda em um reglete texturado.
+    descricao: Extensão do “Calliandra”. Começa com a mão direita em um reglete abaixo
+      do batente inicial do “Flor do Cerrado” e com a esquerda em um reglete texturado.
 - boulder:
     nome: Calliandra
     dificuldade: V3
-    descricao: Começa com as duas mãos em um reglete e escala reto por regletes clássicos 
+    descricao: Começa com as duas mãos em um reglete e escala reto por regletes clássicos
       até o topo.
----
+---
+
 

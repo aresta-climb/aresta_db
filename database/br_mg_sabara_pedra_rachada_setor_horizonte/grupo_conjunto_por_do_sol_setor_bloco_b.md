@@ -1,4 +1,4 @@
----
+---
 nome: Conjunto Pôr do sol - Bloco B
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp
@@ -80,8 +80,8 @@ escaladas:
 - boulder:
     nome: Essa moça
     dificuldade: V0
-    descricao: Saída na agarra grande, fazendo a travessia pra virar na face esquerda do 
-      bloco.
+    descricao: Saída na agarra grande, fazendo a travessia pra virar na face esquerda
+      do bloco.
 - boulder:
     nome: Goodsensation
     dificuldade: V1
@@ -93,7 +93,8 @@ escaladas:
 - boulder:
     nome: Ponto alto sds
     dificuldade: V4
-    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico de direita.
+    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico de
+      direita.
 - boulder:
     nome: Estrelado
     dificuldade: V1
@@ -105,8 +106,9 @@ escaladas:
 - boulder:
     nome: Gostosinho
     dificuldade: V0
-    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais
-      baixa.
----
+    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte
+      mais baixa.
+---
+
 
 # Bloco B

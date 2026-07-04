@@ -1,4 +1,4 @@
----
+---
 nome: Bacurau
 mapas:
 - caminho_imagem_mapa: imagens/setor_bacurau_p0_i0.webp
@@ -74,33 +74,34 @@ escaladas:
 - boulder:
     nome: Viuvinha
     dificuldade: V1
-    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas, indo 
-      reto até a virada.
+    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas,
+      indo reto até a virada.
 - boulder:
     nome: Eu sou Jaó
     dificuldade: V1
-    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia 
+    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia
       por agarras boas até a virada na parte mais alta à direita.
 - boulder:
     nome: Ritual
     dificuldade: V3
-    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de saída, 
+    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de saída,
       fazendo a travessia para a virada na parte esquerda.
 - boulder:
     nome: Improviso
     dificuldade: V3
-    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a virada na 
-      parte mais alta.
+    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a virada
+      na parte mais alta.
 - boulder:
     nome: Buraqueira
     dificuldade: V1
-    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo reto 
-      para a virada em agarras boas.
+    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo
+      reto para a virada em agarras boas.
 - boulder:
     nome: Mini Nave
     dificuldade: V1
-    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar 
-      os blocos de baixo, tocando por toda a aresta.
----
+    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem
+      usar os blocos de baixo, tocando por toda a aresta.
+---
+
 
 # Bacurau
