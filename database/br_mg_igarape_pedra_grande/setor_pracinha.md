@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
@@ -7,67 +7,58 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 761
-      y: 780
-      comprimento: 26
-      largura: 25
+      y: 782
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 732
-      y: 754
-      comprimento: 25
-      largura: 23
+      y: 757
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 696
-      y: 744
-      comprimento: 26
-      largura: 28
+    circular:
+      x: 697
+      y: 746
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 666
-      y: 714
-      comprimento: 26
-      largura: 29
+    circular:
+      x: 668
+      y: 717
+      raio: 17
   - id: '05'
     label: '05'
-    box:
-      x: 698
-      y: 638
-      comprimento: 27
-      largura: 25
+    circular:
+      x: 697
+      y: 641
+      raio: 17
   - id: '06'
     label: '06'
-    box:
-      x: 732
-      y: 647
-      comprimento: 27
-      largura: 30
+    circular:
+      x: 734
+      y: 649
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 767
+    circular:
+      x: 768
       y: 663
-      comprimento: 26
-      largura: 30
+      raio: 17
   - id: '08'
     label: '08'
-    box:
+    circular:
       x: 805
-      y: 661
-      comprimento: 30
-      largura: 28
+      y: 663
+      raio: 17
   - id: '09'
     label: '09'
-    box:
+    circular:
       x: 962
-      y: 525
-      comprimento: 29
-      largura: 30
+      y: 526
+      raio: 17
   referencias:
   - escalada: Conflito sensual
     ids:
@@ -90,38 +81,42 @@ mapas:
   - escalada: Vainafé
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Setor Pracinha
+    escalada: People crazy
+  - ids:
+    - '09'
+    setor: Setor Trad
+    escalada: Aresta Daniel
 - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
   largura_mapa: 1109
   altura_mapa: 1413
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 349
-      y: 854
-      comprimento: 36
-      largura: 40
+      y: 855
+      raio: 17
   - id: '02'
     label: '02'
-    box:
-      x: 605
-      y: 873
-      comprimento: 36
-      largura: 36
+    circular:
+      x: 606
+      y: 876
+      raio: 17
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 646
-      y: 866
-      comprimento: 29
-      largura: 33
+      y: 870
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 724
-      y: 866
-      comprimento: 33
-      largura: 41
+    circular:
+      x: 725
+      y: 867
+      raio: 17
   referencias:
   - escalada: Conflito sensual
     ids:
@@ -141,46 +136,40 @@ mapas:
   pontos_de_interesse:
   - id: P1
     label: P1
-    box:
+    circular:
       x: 764
-      y: 152
-      comprimento: 35
-      largura: 38
+      y: 151
+      raio: 18
   - id: '05'
     label: '05'
-    box:
-      x: 200
-      y: 662
-      comprimento: 29
-      largura: 33
+    circular:
+      x: 199
+      y: 665
+      raio: 17
   - id: '06'
     label: '06'
-    box:
-      x: 284
-      y: 728
-      comprimento: 28
-      largura: 31
+    circular:
+      x: 285
+      y: 731
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 408
-      y: 914
-      comprimento: 25
-      largura: 33
+    circular:
+      x: 409
+      y: 915
+      raio: 17
   - id: '08'
     label: '08'
-    box:
+    circular:
       x: 481
-      y: 1036
-      comprimento: 26
-      largura: 35
+      y: 1037
+      raio: 17
   - id: '09'
     label: '09'
-    box:
-      x: 1006
+    circular:
+      x: 1007
       y: 1164
-      comprimento: 25
-      largura: 31
+      raio: 17
   referencias:
   - escalada: Netfrix
     ids:
@@ -191,6 +180,14 @@ mapas:
   - escalada: Vainafé
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Setor Pracinha
+    escalada: People crazy
+  - ids:
+    - '09'
+    setor: Setor Trad
+    escalada: Aresta Daniel
 escaladas:
 - via_esportiva:
     nome: Conflito sensual
@@ -273,17 +270,8 @@ escaladas:
     - Berbari
     - Toninho
     data_abertura: '2022'
-- via_multiplas_enfiadas:
-    nome: Aresta Daniel
-    dificuldade_media: BR_6SUP
-    numero_enfiadas: 2
-    comprimento_total: 60
-    conquistadores:
-    - Gilberto
-    - Ágata
-    data_abertura: '2005'
-    descricao: Via clássica longa que percorre a aresta.
----
+---
+
 # Setor Pracinha
 
 ![Setor pracinha](imagens/setor_pracinha_p1.webp)

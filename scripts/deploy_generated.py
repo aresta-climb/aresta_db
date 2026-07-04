@@ -285,6 +285,33 @@ def extrair_descricao(croqui_data: dict) -> str:
     return ""
 
 
+def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict) -> None:
+    """Procura escaladas com o mesmo nome no mesmo croqui e emite um aviso."""
+    nomes_vistos = set()
+    duplicados = set()
+
+    def _buscar_escaladas(obj):
+        if isinstance(obj, dict):
+            if "escaladas" in obj and isinstance(obj["escaladas"], list):
+                for escalada in obj["escaladas"]:
+                    if isinstance(escalada, dict) and "nome" in escalada:
+                        nome = escalada["nome"]
+                        if nome in nomes_vistos:
+                            duplicados.add(nome)
+                        else:
+                            nomes_vistos.add(nome)
+            for v in obj.values():
+                _buscar_escaladas(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                _buscar_escaladas(item)
+
+    _buscar_escaladas(compiled_data)
+
+    for nome in sorted(duplicados):
+        print(f"\nAviso: A escalada '{nome}' aparece mais de uma vez no croqui '{croqui_id}'. Nomes duplicados podem causar confusão.")
+
+
 # ---------------------------------------------------------------------------
 # Imagens: symlink ou cópia
 # ---------------------------------------------------------------------------
@@ -412,6 +439,8 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                             _check_integer_ids(item)
                             
                 _check_integer_ids(compiled_data)
+                verificar_nomes_duplicados_de_escalada(croqui_id, compiled_data)
+                
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug:
                 dest_md = dest_dir / "compilado.md"

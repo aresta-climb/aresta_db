@@ -1,4 +1,4 @@
----
+---
 nome: Setor Igarameca
 mapas:
 - caminho_imagem_mapa: imagens/setor_igarameca_p0.webp
@@ -7,151 +7,130 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 317
-      y: 1002
-      comprimento: 22
-      largura: 27
+      y: 1001
+      raio: 15
   - id: '02'
     label: '02'
-    box:
-      x: 340
-      y: 955
-      comprimento: 30
-      largura: 34
+    circular:
+      x: 341
+      y: 956
+      raio: 15
   - id: '03'
     label: '03'
-    box:
-      x: 330
+    circular:
+      x: 329
       y: 656
-      comprimento: 26
-      largura: 25
+      raio: 15
   - id: '04'
     label: '04'
-    box:
-      x: 325
+    circular:
+      x: 327
       y: 622
-      comprimento: 26
-      largura: 25
+      raio: 15
   - id: '05'
     label: '05'
-    box:
-      x: 520
-      y: 697
-      comprimento: 21
-      largura: 28
+    circular:
+      x: 521
+      y: 699
+      raio: 15
   - id: '06'
     label: '06'
-    box:
-      x: 611
-      y: 709
-      comprimento: 14
-      largura: 20
+    circular:
+      x: 612
+      y: 711
+      raio: 15
   - id: '07'
     label: '07'
-    box:
-      x: 644
+    circular:
+      x: 643
       y: 428
-      comprimento: 27
-      largura: 33
+      raio: 15
   - id: '08'
     label: '08'
-    box:
-      x: 650
-      y: 770
-      comprimento: 27
-      largura: 29
+    circular:
+      x: 649
+      y: 772
+      raio: 15
   - id: '09'
     label: '09'
-    box:
-      x: 706
-      y: 814
-      comprimento: 27
-      largura: 27
+    circular:
+      x: 707
+      y: 815
+      raio: 15
   - id: '10'
     label: '10'
-    box:
-      x: 796
-      y: 896
-      comprimento: 35
-      largura: 30
+    circular:
+      x: 797
+      y: 897
+      raio: 15
   - id: '11'
     label: '11'
-    box:
-      x: 876
+    circular:
+      x: 878
       y: 941
-      comprimento: 29
-      largura: 28
+      raio: 15
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 940
       y: 968
-      comprimento: 35
-      largura: 30
+      raio: 15
   - id: '13'
     label: '13'
-    box:
-      x: 1064
+    circular:
+      x: 1065
       y: 1002
-      comprimento: 31
-      largura: 27
+      raio: 15
   - id: '14'
     label: '14'
-    box:
-      x: 1118
-      y: 1014
-      comprimento: 29
-      largura: 22
+    circular:
+      x: 1120
+      y: 1015
+      raio: 15
   - id: '15'
     label: '15'
-    box:
+    circular:
       x: 1186
-      y: 1083
-      comprimento: 33
-      largura: 30
+      y: 1084
+      raio: 15
   - id: '16'
     label: '16'
-    box:
-      x: 1238
-      y: 1102
-      comprimento: 39
-      largura: 34
+    circular:
+      x: 1239
+      y: 1103
+      raio: 15
   - id: '17'
     label: '17'
-    box:
-      x: 1274
-      y: 1161
-      comprimento: 33
-      largura: 34
+    circular:
+      x: 1277
+      y: 1162
+      raio: 16
   - id: '18'
     label: '18'
-    box:
-      x: 1342
-      y: 1214
-      comprimento: 29
-      largura: 29
+    circular:
+      x: 1345
+      y: 1216
+      raio: 15
   - id: '19'
     label: '19'
-    box:
-      x: 1394
+    circular:
+      x: 1395
       y: 1218
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: '20'
     label: '20'
-    box:
-      x: 1412
-      y: 1191
-      comprimento: 24
-      largura: 24
+    circular:
+      x: 1413
+      y: 1193
+      raio: 15
   - id: '21'
     label: '21'
-    box:
+    circular:
       x: 1438
-      y: 1171
-      comprimento: 22
-      largura: 22
+      y: 1173
+      raio: 15
   referencias:
   - escalada: Beatrix
     ids:
@@ -210,150 +189,138 @@ mapas:
   - escalada: Balança Mas Não Cai
     ids:
     - '21'
+  - ids:
+    - '08'
+    setor: Setor Igarameca
+    escalada: I Like This
+  - ids:
+    - '09'
+    setor: Setor Igarameca
+    escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
   largura_mapa: 2048
   altura_mapa: 1232
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 212
+    circular:
+      x: 215
       y: 534
-      comprimento: 34
-      largura: 29
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 328
-      y: 518
-      comprimento: 25
-      largura: 33
+      y: 520
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 395
-      y: 508
-      comprimento: 24
-      largura: 27
+    circular:
+      x: 396
+      y: 509
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 434
-      y: 503
-      comprimento: 24
-      largura: 26
+    circular:
+      x: 433
+      y: 502
+      raio: 17
   - id: '05'
     label: '05'
-    box:
+    circular:
       x: 450
-      y: 574
-      comprimento: 22
-      largura: 27
+      y: 572
+      raio: 17
   - id: '06'
     label: '06'
-    box:
-      x: 478
+    circular:
+      x: 477
       y: 626
-      comprimento: 21
-      largura: 26
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 530
-      y: 646
-      comprimento: 30
-      largura: 37
+    circular:
+      x: 529
+      y: 648
+      raio: 17
   - id: '08'
     label: '08'
-    box:
-      x: 488
+    circular:
+      x: 486
       y: 680
-      comprimento: 21
-      largura: 27
+      raio: 17
   - id: '09'
     label: '09'
-    box:
-      x: 458
-      y: 741
-      comprimento: 22
-      largura: 26
+    circular:
+      x: 460
+      y: 744
+      raio: 17
   - id: '10'
     label: '10'
-    box:
-      x: 435
-      y: 782
-      comprimento: 32
-      largura: 28
+    circular:
+      x: 436
+      y: 784
+      raio: 17
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 412
-      y: 822
-      comprimento: 31
-      largura: 27
+      y: 823
+      raio: 17
   - id: '12'
     label: '12'
-    box:
-      x: 398
+    circular:
+      x: 397
       y: 887
-      comprimento: 35
-      largura: 30
+      raio: 17
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 402
       y: 938
-      comprimento: 27
-      largura: 26
+      raio: 17
   - id: '14'
     label: '14'
-    box:
-      x: 392
-      y: 976
-      comprimento: 25
-      largura: 23
+    circular:
+      x: 393
+      y: 975
+      raio: 17
   - id: '15'
     label: '15'
-    box:
-      x: 380
-      y: 1034
-      comprimento: 29
-      largura: 25
+    circular:
+      x: 381
+      y: 1037
+      raio: 17
   - id: '16'
     label: '16'
-    box:
-      x: 362
-      y: 1073
-      comprimento: 25
-      largura: 22
+    circular:
+      x: 363
+      y: 1074
+      raio: 17
   - id: '17'
     label: '17'
-    box:
-      x: 334
-      y: 1105
-      comprimento: 27
-      largura: 24
+    circular:
+      x: 337
+      y: 1104
+      raio: 17
   - id: '18'
     label: '18'
-    box:
-      x: 292
+    circular:
+      x: 296
       y: 1142
-      comprimento: 35
-      largura: 32
+      raio: 17
   - id: '19'
     label: '19'
-    box:
-      x: 316
+    circular:
+      x: 319
       y: 1216
-      comprimento: 35
-      largura: 29
+      raio: 17
   - id: '20'
     label: '20'
-    box:
-      x: 368
+    circular:
+      x: 367
       y: 1274
-      comprimento: 35
-      largura: 32
+      raio: 18
   referencias:
   - escalada: Beatrix
     ids:
@@ -409,38 +376,42 @@ mapas:
   - escalada: Rolitos
     ids:
     - '20'
+  - ids:
+    - '08'
+    setor: Setor Igarameca
+    escalada: I Like This
+  - ids:
+    - '09'
+    setor: Setor Igarameca
+    escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
   largura_mapa: 2048
   altura_mapa: 1232
   pontos_de_interesse:
   - id: '04'
     label: '04'
-    box:
-      x: 516
+    circular:
+      x: 515
       y: 326
-      comprimento: 23
-      largura: 27
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 482
-      y: 368
-      comprimento: 21
-      largura: 27
+    circular:
+      x: 484
+      y: 369
+      raio: 17
   - id: '02'
     label: '02'
-    box:
-      x: 386
+    circular:
+      x: 389
       y: 490
-      comprimento: 24
-      largura: 31
+      raio: 17
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 218
       y: 508
-      comprimento: 22
-      largura: 23
+      raio: 17
   referencias:
   - escalada: Beatrix
     ids:
@@ -692,7 +663,8 @@ escaladas:
     - Bunitinho
     - Marcão
     data_abertura: '2022'
----
+---
+
 # Setor Igarameca
 
 Sombra após 12h (varia de acordo com a estação).

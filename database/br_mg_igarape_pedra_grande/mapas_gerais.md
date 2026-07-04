@@ -4,111 +4,41 @@ mapas:
   largura_mapa: 2048
   altura_mapa: 1414
   pontos_de_interesse:
-  - id: Democracia
-    label: Setor Democracia
-    box:
-      x: 923
-      y: 246
-      comprimento: 184
-      largura: 70
   - id: Familia_I
     label: Setor Familia I
     box:
-      x: 1387
-      y: 250
-      comprimento: 133
-      largura: 71
+      x: 1434
+      y: 287
+      comprimento: 196
+      largura: 96
   - id: Familia_II
     label: Setor Familia II
     box:
-      x: 1155
-      y: 316
-      comprimento: 141
-      largura: 71
-  - id: Fugitivos
-    label: Fugitivos I e II
-    box:
-      x: 1798
-      y: 381
-      comprimento: 140
-      largura: 69
+      x: 1232
+      y: 330
+      comprimento: 165
+      largura: 119
   - id: Me_Leve
     label: Setor Me Leve ao Cume
     box:
-      x: 560
-      y: 434
-      comprimento: 141
-      largura: 108
-  - id: Melhor_Impossivel
-    label: Setor Melhor Impossível
-    box:
-      x: 799
-      y: 564
-      comprimento: 162
-      largura: 108
+      x: 610
+      y: 486
+      comprimento: 198
+      largura: 131
   - id: Estacionamento
     label: Setor Estacionamento
     box:
-      x: 1504
-      y: 559
-      comprimento: 247
-      largura: 72
-  - id: Micos
-    label: Setor Micos
-    box:
-      x: 1078
-      y: 643
-      comprimento: 94
-      largura: 72
+      x: 1631
+      y: 556
+      comprimento: 260
+      largura: 162
   - id: Tetos
     label: Setor Tetos
     box:
-      x: 583
-      y: 780
-      comprimento: 89
-      largura: 70
-  - id: Florestinha
-    label: Setor Florestinha
-    box:
-      x: 1002
-      y: 851
-      comprimento: 170
-      largura: 72
-  - id: Pracinha
-    label: Setor Pracinha
-    box:
-      x: 570
-      y: 891
-      comprimento: 137
-      largura: 70
-  - id: Igarameca
-    label: Setor Igarameca
-    box:
-      x: 384
-      y: 971
-      comprimento: 163
-      largura: 75
-  - id: Totem
-    label: Setor Totem
-    box:
-      x: 539
-      y: 1071
-      comprimento: 98
-      largura: 72
-  - id: Medinho
-    label: Setor Tô com Medinho...
-    box:
-      x: 701
-      y: 1061
-      comprimento: 142
-      largura: 108
-  - id: Mineradora
-    label: Mineradora
-    box:
-      x: 1827
-      y: 173
-      comprimento: 126
-      largura: 25
+      x: 607
+      y: 826
+      comprimento: 150
+      largura: 102
   - id: Vale_Perdido
     label: Vale Perdido, BR 381 e Igarapé - MG
     box:
@@ -116,89 +46,144 @@ mapas:
       y: 1279
       comprimento: 400
       largura: 25
-  - id: Desconhecido_1
-    label: Setor ?
-    box:
-      x: 528
-      y: 261
-      comprimento: 91
-      largura: 36
-  - id: Desconhecido_2
-    label: Setor ?
-    box:
-      x: 260
-      y: 923
-      comprimento: 88
-      largura: 33
+  - id: micos
+    label: Micos
+    area_livre:
+      coordenadas:
+      - 1092
+      - 746
+      - 1072
+      - 713
+      - 1070
+      - 638
+      - 1172
+      - 636
+      - 1175
+      - 714
+      - 1128
+      - 796
+  - id: pracinha
+    label: Setor Pracinha
+    area_livre:
+      coordenadas:
+      - 524
+      - 883
+      - 524
+      - 901
+      - 565
+      - 969
+      - 719
+      - 967
+      - 717
+      - 880
+  - id: igarameca
+    label: Setor Igarameca
+    area_livre:
+      coordenadas:
+      - 493
+      - 928
+      - 492
+      - 964
+      - 416
+      - 964
+      - 414
+      - 1003
+      - 382
+      - 1003
+      - 381
+      - 1050
+      - 557
+      - 1054
+      - 555
+      - 960
+      - 535
+      - 929
+  - id: totem
+    label: Setor Totem
+    area_livre:
+      coordenadas:
+      - 559
+      - 989
+      - 561
+      - 1063
+      - 538
+      - 1063
+      - 539
+      - 1145
+      - 643
+      - 1145
+      - 640
+      - 1064
+      - 609
+      - 990
   referencias:
   - setor: Setor Estacionamento
     ids:
     - Estacionamento
-  - setor: Setor Micos
+  - setor: Setor Família I
     ids:
-    - Micos
-  - setor: Setor Pracinha
+    - Familia_I
+  - setor: Setor Família II
     ids:
-    - Pracinha
+    - Familia_II
   - setor: Setor Igarameca
     ids:
-    - Igarameca
+    - igarameca
   - setor: Setor Totem
     ids:
-    - Totem
+    - totem
+  - ids:
+    - pracinha
+    setor: Setor Pracinha
+  - ids:
+    - Tetos
+    setor: Setor dos Tetos
+  - ids:
+    - Me_Leve
+    setor: Setor Trad
+    escalada: Me Leve ao Cume
+  - ids:
+    - micos
+    setor: Setor Micos
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157
   pontos_de_interesse:
-  - id: Desconhecido_1
-    label: Setor ?
-    box:
-      x: 937
-      y: 63
-      comprimento: 96
-      largura: 37
   - id: Totem
     label: Setor Toten
     box:
-      x: 197
-      y: 485
-      comprimento: 99
-      largura: 79
+      x: 249
+      y: 524
+      comprimento: 102
+      largura: 81
   - id: Igarameca
     label: Setor Igarameca
     box:
-      x: 612
-      y: 810
-      comprimento: 180
-      largura: 84
+      x: 702
+      y: 853
+      comprimento: 185
+      largura: 86
   - id: Pracinha
     label: Setor Pracinha
     box:
-      x: 968
-      y: 866
-      comprimento: 153
-      largura: 79
+      x: 1048
+      y: 908
+      comprimento: 165
+      largura: 84
   - id: Tetos
     label: Setor Tetos
     box:
-      x: 1340
-      y: 895
-      comprimento: 98
-      largura: 80
+      x: 1394
+      y: 938
+      comprimento: 103
+      largura: 83
   - id: Me_Leve
     label: Setor Me Leve ao Cume
     box:
-      x: 1648
-      y: 836
-      comprimento: 155
-      largura: 119
-  - id: Desconhecido_2
-    label: Setor ?
-    box:
-      x: 1886
-      y: 882
-      comprimento: 95
-      largura: 37
+      x: 1728
+      y: 894
+      comprimento: 164
+      largura: 145
   referencias:
   - setor: Setor Igarameca
     ids:
@@ -206,7 +191,14 @@ mapas:
   - setor: Setor Pracinha
     ids:
     - Pracinha
+  - ids:
+    - Totem
+    setor: Setor Totem
+  - ids:
+    - Tetos
+    setor: Setor dos Tetos
+  - ids:
+    - Me_Leve
+    setor: Setor Trad
+    escalada: Me Leve ao Cume
 ---
-
-
-

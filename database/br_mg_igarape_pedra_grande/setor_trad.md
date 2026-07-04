@@ -1,4 +1,4 @@
----
+---
 nome: Setor Trad
 mapas:
 - caminho_imagem_mapa: imagens/setor_trad_p0.webp
@@ -7,270 +7,232 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 86
+    circular:
+      x: 88
       y: 1153
-      comprimento: 19
-      largura: 20
+      raio: 14
   - id: a
     label: a
-    box:
-      x: 128
-      y: 1142
-      comprimento: 23
-      largura: 25
+    circular:
+      x: 130
+      y: 1144
+      raio: 14
   - id: b
     label: b
-    box:
+    circular:
       x: 160
-      y: 1140
-      comprimento: 21
-      largura: 25
+      y: 1141
+      raio: 14
   - id: '02'
     label: '02'
-    box:
-      x: 109
+    circular:
+      x: 110
       y: 1173
-      comprimento: 22
-      largura: 22
+      raio: 14
   - id: '03'
     label: '03'
-    box:
-      x: 168
-      y: 1174
-      comprimento: 25
-      largura: 25
+    circular:
+      x: 169
+      y: 1173
+      raio: 15
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 202
-      y: 1170
-      comprimento: 25
-      largura: 25
+      y: 1172
+      raio: 15
   - id: '05'
     label: '05'
-    box:
-      x: 230
-      y: 1182
-      comprimento: 25
-      largura: 24
+    circular:
+      x: 231
+      y: 1183
+      raio: 14
   - id: c
     label: c
-    box:
+    circular:
       x: 263
       y: 1184
-      comprimento: 20
-      largura: 25
+      raio: 14
   - id: '06'
     label: '06'
-    box:
-      x: 290
-      y: 1156
-      comprimento: 25
-      largura: 25
+    circular:
+      x: 289
+      y: 1158
+      raio: 14
   - id: d
     label: d
-    box:
+    circular:
       x: 366
-      y: 1150
-      comprimento: 20
-      largura: 25
+      y: 1151
+      raio: 14
   - id: '07'
     label: '07'
-    box:
-      x: 396
+    circular:
+      x: 395
       y: 1142
-      comprimento: 25
-      largura: 25
+      raio: 14
   - id: e
     label: e
-    box:
+    circular:
       x: 404
       y: 1096
-      comprimento: 21
-      largura: 25
+      raio: 14
   - id: '08'
     label: '08'
-    box:
-      x: 449
-      y: 1158
-      comprimento: 24
-      largura: 25
+    circular:
+      x: 448
+      y: 1157
+      raio: 14
   - id: f
     label: f
-    box:
-      x: 488
-      y: 1158
-      comprimento: 21
-      largura: 24
+    circular:
+      x: 487
+      y: 1157
+      raio: 14
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 473
-      y: 1130
-      comprimento: 24
-      largura: 25
+      y: 1131
+      raio: 14
   - id: g
     label: g
-    box:
+    circular:
       x: 536
-      y: 1080
-      comprimento: 21
-      largura: 25
+      y: 1081
+      raio: 14
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 592
-      y: 568
-      comprimento: 25
-      largura: 33
+      y: 569
+      raio: 15
   - id: '16'
     label: '16'
-    box:
-      x: 1108
-      y: 632
-      comprimento: 25
-      largura: 33
+    circular:
+      x: 1110
+      y: 628
+      raio: 15
   - id: '09'
     label: '09'
-    box:
+    circular:
       x: 468
-      y: 728
-      comprimento: 25
-      largura: 33
+      y: 730
+      raio: 14
   - id: '12'
     label: '12'
-    box:
-      x: 630
-      y: 1270
-      comprimento: 25
-      largura: 29
+    circular:
+      x: 631
+      y: 1269
+      raio: 15
   - id: h
     label: h
-    box:
-      x: 814
-      y: 1269
-      comprimento: 21
-      largura: 36
+    circular:
+      x: 813
+      y: 1268
+      raio: 14
   - id: '13'
     label: '13'
-    box:
-      x: 842
-      y: 1266
-      comprimento: 25
-      largura: 37
+    circular:
+      x: 844
+      y: 1265
+      raio: 14
   - id: i
     label: i
-    box:
-      x: 884
+    circular:
+      x: 886
       y: 1246
-      comprimento: 21
-      largura: 35
+      raio: 14
   - id: '14'
     label: '14'
-    box:
-      x: 935
-      y: 1234
-      comprimento: 22
-      largura: 26
+    circular:
+      x: 934
+      y: 1237
+      raio: 14
   - id: '15'
     label: '15'
-    box:
-      x: 964
+    circular:
+      x: 965
       y: 1239
-      comprimento: 23
-      largura: 24
+      raio: 15
   - id: j
     label: j
-    box:
-      x: 1137
-      y: 1248
-      comprimento: 20
-      largura: 35
+    circular:
+      x: 1138
+      y: 1251
+      raio: 14
   - id: k
     label: k
-    box:
-      x: 1213
-      y: 1250
-      comprimento: 20
-      largura: 35
+    circular:
+      x: 1214
+      y: 1249
+      raio: 14
   - id: '17'
     label: '17'
-    box:
+    circular:
       x: 1481
       y: 1216
-      comprimento: 24
-      largura: 33
+      raio: 14
   - id: m
     label: m
-    box:
-      x: 1450
-      y: 1222
-      comprimento: 20
-      largura: 33
+    circular:
+      x: 1452
+      y: 1226
+      raio: 14
   - id: n
     label: n
-    box:
-      x: 1574
+    circular:
+      x: 1575
       y: 1198
-      comprimento: 22
-      largura: 23
+      raio: 14
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 1606
-      y: 1192
-      comprimento: 26
-      largura: 25
+      y: 1195
+      raio: 14
   - id: '19'
     label: '19'
-    box:
+    circular:
       x: 1641
-      y: 1163
-      comprimento: 24
-      largura: 24
+      y: 1164
+      raio: 14
   - id: '20'
     label: '20'
-    box:
-      x: 1716
+    circular:
+      x: 1717
       y: 1098
-      comprimento: 25
-      largura: 23
+      raio: 14
   - id: '21'
     label: '21'
-    box:
-      x: 1742
-      y: 1083
-      comprimento: 23
-      largura: 22
+    circular:
+      x: 1744
+      y: 1084
+      raio: 14
   - id: '22'
     label: '22'
-    box:
-      x: 1770
-      y: 1068
-      comprimento: 23
-      largura: 21
+    circular:
+      x: 1771
+      y: 1069
+      raio: 15
   - id: '23'
     label: '23'
-    box:
-      x: 1832
-      y: 1050
-      comprimento: 25
-      largura: 33
+    circular:
+      x: 1833
+      y: 1051
+      raio: 15
   - id: '24'
     label: '24'
-    box:
-      x: 1894
-      y: 1042
-      comprimento: 25
-      largura: 33
+    circular:
+      x: 1895
+      y: 1045
+      raio: 15
   - id: L
     label: L
-    box:
-      x: 1363
-      y: 1212
-      comprimento: 30
-      largura: 27
+    circular:
+      x: 1362
+      y: 1213
+      raio: 14
   referencias:
   - escalada: Aresta Daniel
     ids:
@@ -513,7 +475,8 @@ escaladas:
 - via_movel:
     nome: Marimbondos Me Mordam
     dificuldade: INDEFINIDO
----
+---
+
 # Setor Trad
 
 Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.

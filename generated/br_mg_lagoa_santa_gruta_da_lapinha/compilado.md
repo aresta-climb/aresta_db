@@ -2327,6 +2327,7 @@
         - Fábio Luiz Farias "Fabinho"
   - **[1]**:
     - **via_esportiva**:
+      - **descricao**: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
       - **nome**: Bigode Sujo
       - **dificuldade**: BR_7C
       - **conquistadores**:

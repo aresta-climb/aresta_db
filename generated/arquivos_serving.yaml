@@ -384,7 +384,7 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.md
   checksum_sha256: 898201776b34849fbc8e24d10ce8fc1d45f517246d8940102435258d795974f8
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: 178ab5de28e5d1a77586a7b1c3523d5976c2bf394a8af5fe78e48bca50e3e2c8
+  checksum_sha256: a1e278cd627240ce028595cbace54b99c623ad9e34a1b46538dd2db0e3af4939
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -442,9 +442,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 2d91a16fdbc46be20d00401002305d0af769ccd0213e8f53cb000d0552dbb20f
+  checksum_sha256: e870330a1367189cc164f28559b3a0129c27f62da5cd9af9d5fd90a4bbe652dd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: d4654ab2b3a1280c97ff83f550af3641ef9ae4e62b9aa29e88dbc49f99432e3b
+  checksum_sha256: b6ab92afeeff3fde9ec3b85eb3b82d133aa927ef171ef03db88aeacbfde7ef80
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
   checksum_sha256: 1e4d1145930f9faf37889962e8358978b92d1b75dbd0d40f2c42b100a09ae8a5
 - caminho_relativo: thumbnails/br_mg_ipatinga_ipaba_vale_verde.webp
@@ -532,7 +532,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
   checksum_sha256: 050954e495af6182344d859fe04d504f52f5a6ee47ee86dc10241541fb878c42
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: 351736d7d41af83c0383eb068dc41edb207edfb78eaf73b5e9b953a5a6a0fa2d
+  checksum_sha256: 5d9aafb564eabada10ab1a9abcde3b5a94ac66f3a2e52a018626a56799d6aef4
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -568,9 +568,9 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 9b4e58223c952d05642676f635c92d11cf76057014498859b770e30a2030d868
+  checksum_sha256: 503be4aa03acd06934487345bc286e93de713d77684c935b18706fb039319595
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.md
-  checksum_sha256: 525f4a746df758649dbf67a0e3ad8b7a4515a23d67a8e2d539a4749637e0a455
+  checksum_sha256: 997358c1cb3a6e8ba636eaa732ee1ea4ad9018eeefcd6a0bfd6665435098199d
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 90b58e8b76caffb192ea4fe4b97587aef9f02842c59310a1242e8c0451dc746f
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 14f24e959d37c9500f89715b5caa2abf4a01496c18622dba74de1a4693a595c6
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 98d3ecad5658ba19c51d4d373c21459dc9d216abca3164cbb37552da10d3dcee
+  checksum_sha256: fbdb8aec4c117085eef6063dd135353e58c23f4b1937931436f20124e0ca7aa5
 - caminho_relativo: indice.yaml
-  checksum_sha256: d3f9399de343dfd3f2e331836a7ed8d696b7758f47b87952714412536ebc2ad5
+  checksum_sha256: b3488ee7823b4dd4ca253770211ba4d89e74d9b65503b290cf7054fcd671c19c

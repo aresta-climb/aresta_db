@@ -1,4 +1,4 @@
----
+---
 nome: Setor Totem
 mapas:
 - caminho_imagem_mapa: imagens/setor_totem_p0.webp
@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 216
-      y: 1395
-      comprimento: 40
-      largura: 40
+      y: 1397
+      raio: 17
   - id: '02'
     label: '02'
-    box:
-      x: 562
-      y: 1204
-      comprimento: 31
-      largura: 39
+    circular:
+      x: 561
+      y: 1206
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 804
-      y: 1039
-      comprimento: 31
-      largura: 36
+    circular:
+      x: 806
+      y: 1040
+      raio: 17
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 917
-      y: 970
-      comprimento: 34
-      largura: 41
+      y: 972
+      raio: 17
   referencias:
   - escalada: Takeyeasy
     ids:
@@ -52,32 +48,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 392
-      y: 645
-      comprimento: 40
-      largura: 40
+    circular:
+      x: 394
+      y: 644
+      raio: 17
   - id: '02'
     label: '02'
-    box:
-      x: 629
-      y: 716
-      comprimento: 34
-      largura: 39
+    circular:
+      x: 628
+      y: 715
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 825
+    circular:
+      x: 826
       y: 750
-      comprimento: 24
-      largura: 31
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 890
-      y: 786
-      comprimento: 27
-      largura: 38
+    circular:
+      x: 892
+      y: 788
+      raio: 17
   referencias:
   - escalada: Takeyeasy
     ids:
@@ -142,7 +134,8 @@ escaladas:
     - Alex
     - Ruy
     data_abertura: '2005'
----
+---
+
 # Setor Totem
 
 Sombra até 10h e após 16h.

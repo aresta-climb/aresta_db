@@ -78,9 +78,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo
     da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 178ab5de28e5d1a77586a7b1c3523d5976c2bf394a8af5fe78e48bca50e3e2c8
+  checksum_sha256_croqui: a1e278cd627240ce028595cbace54b99c623ad9e34a1b46538dd2db0e3af4939
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-06-28T22:35:47Z'
+  timestamp_update: '2026-07-04T22:03:12Z'
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
@@ -100,9 +100,9 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: 351736d7d41af83c0383eb068dc41edb207edfb78eaf73b5e9b953a5a6a0fa2d
+  checksum_sha256_croqui: 5d9aafb564eabada10ab1a9abcde3b5a94ac66f3a2e52a018626a56799d6aef4
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-07-01T03:43:57Z'
+  timestamp_update: '2026-07-04T21:22:20Z'
 - id: br_mg_lagoa_santa_sitio_do_rod
   nome: Sítio do Rod
   descricao: O Sítio do Rod é um importante campo escola de escalada localizado em

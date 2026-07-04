@@ -1,4 +1,4 @@
----
+---
 nome: Setor Estacionamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_estacionamento_p0.webp
@@ -7,137 +7,118 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 532
-      y: 525
-      comprimento: 31
-      largura: 38
+    circular:
+      x: 533
+      y: 527
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 590
       y: 561
-      comprimento: 34
-      largura: 40
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 616
-      y: 600
-      comprimento: 25
-      largura: 32
+    circular:
+      x: 617
+      y: 601
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 650
+    circular:
+      x: 651
       y: 623
-      comprimento: 31
-      largura: 30
+      raio: 17
   - id: '05'
     label: '05'
-    box:
-      x: 776
-      y: 705
-      comprimento: 24
-      largura: 32
+    circular:
+      x: 778
+      y: 706
+      raio: 17
   - id: '08'
     label: '08'
-    box:
+    circular:
       x: 905
       y: 377
-      comprimento: 22
-      largura: 28
+      raio: 18
   - id: '06'
     label: '06'
-    box:
-      x: 914
+    circular:
+      x: 913
       y: 774
-      comprimento: 29
-      largura: 36
+      raio: 18
   - id: '07'
     label: '07'
-    box:
-      x: 977
-      y: 807
-      comprimento: 38
-      largura: 44
+    circular:
+      x: 980
+      y: 809
+      raio: 17
   - id: '09'
     label: '09'
-    box:
-      x: 1042
-      y: 848
-      comprimento: 29
-      largura: 35
+    circular:
+      x: 1043
+      y: 849
+      raio: 17
   - id: '10'
     label: '10'
-    box:
-      x: 1110
-      y: 886
-      comprimento: 40
-      largura: 35
+    circular:
+      x: 1111
+      y: 888
+      raio: 17
   - id: '11'
     label: '11'
-    box:
-      x: 1194
+    circular:
+      x: 1195
       y: 918
-      comprimento: 40
-      largura: 37
+      raio: 17
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 1349
-      y: 1036
-      comprimento: 40
-      largura: 36
+      y: 1037
+      raio: 17
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 1684
-      y: 1070
-      comprimento: 39
-      largura: 36
+      y: 1071
+      raio: 17
   - id: '14'
     label: '14'
-    box:
-      x: 1728
-      y: 1023
-      comprimento: 40
-      largura: 34
+    circular:
+      x: 1729
+      y: 1024
+      raio: 17
   - id: '15'
     label: '15'
-    box:
-      x: 1764
-      y: 962
-      comprimento: 41
-      largura: 35
+    circular:
+      x: 1765
+      y: 963
+      raio: 17
   - id: '16'
     label: '16'
-    box:
-      x: 1802
-      y: 922
-      comprimento: 41
-      largura: 35
+    circular:
+      x: 1804
+      y: 923
+      raio: 17
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 1840
-      y: 475
-      comprimento: 39
-      largura: 34
+      y: 476
+      raio: 17
   - id: '19'
     label: '19'
-    box:
-      x: 1876
+    circular:
+      x: 1877
       y: 367
-      comprimento: 39
-      largura: 36
+      raio: 17
   - id: '17'
     label: '17'
-    box:
-      x: 1898
-      y: 517
-      comprimento: 40
-      largura: 38
+    circular:
+      x: 1901
+      y: 519
+      raio: 17
   referencias:
   - escalada: Bacon com Linguiça
     ids:
@@ -190,143 +171,132 @@ mapas:
   - escalada: Cochyna Blue
     ids:
     - '19'
+  - ids:
+    - '08'
+    setor: Setor Estacionamento
+    escalada: Teto Preto
+  - ids:
+    - '09'
+    setor: Setor Estacionamento
+    escalada: 101 Dalmatas
 - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
   largura_mapa: 1067
   altura_mapa: 1440
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    box:
-      x: 344
-      y: 188
-      comprimento: 33
-      largura: 35
+    circular:
+      x: 346
+      y: 189
+      raio: 17
   - id: '16'
     label: '16'
-    box:
-      x: 402
+    circular:
+      x: 406
       y: 185
-      comprimento: 33
-      largura: 36
+      raio: 18
   - id: '15'
     label: '15'
-    box:
-      x: 474
-      y: 213
-      comprimento: 37
-      largura: 34
+    circular:
+      x: 475
+      y: 216
+      raio: 18
   - id: '19'
     label: '19'
-    box:
-      x: 266
-      y: 234
-      comprimento: 37
-      largura: 35
+    circular:
+      x: 269
+      y: 235
+      raio: 17
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 314
-      y: 231
-      comprimento: 31
-      largura: 32
+      y: 233
+      raio: 17
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 516
       y: 240
-      comprimento: 31
-      largura: 31
+      raio: 17
   - id: '13'
     label: '13'
-    box:
-      x: 558
-      y: 235
-      comprimento: 31
-      largura: 34
+    circular:
+      x: 560
+      y: 236
+      raio: 18
   - id: '12'
     label: '12'
-    box:
-      x: 642
-      y: 428
-      comprimento: 44
-      largura: 41
+    circular:
+      x: 644
+      y: 429
+      raio: 17
   - id: '11'
     label: '11'
-    box:
-      x: 635
+    circular:
+      x: 636
       y: 505
-      comprimento: 42
-      largura: 42
+      raio: 17
   - id: '10'
     label: '10'
-    box:
-      x: 624
+    circular:
+      x: 625
       y: 558
-      comprimento: 41
-      largura: 37
+      raio: 17
   - id: '09'
     label: '09'
-    box:
-      x: 616
-      y: 611
-      comprimento: 36
-      largura: 42
+    circular:
+      x: 614
+      y: 610
+      raio: 17
   - id: '08'
     label: '08'
-    box:
-      x: 607
-      y: 668
-      comprimento: 32
-      largura: 29
+    circular:
+      x: 606
+      y: 671
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 605
-      y: 708
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 606
+      y: 707
+      raio: 17
   - id: '06'
     label: '06'
-    box:
+    circular:
       x: 604
       y: 768
-      comprimento: 32
-      largura: 44
+      raio: 17
   - id: '05'
     label: '05'
-    box:
-      x: 594
-      y: 864
-      comprimento: 34
-      largura: 33
+    circular:
+      x: 595
+      y: 868
+      raio: 17
   - id: '04'
     label: '04'
-    box:
-      x: 583
-      y: 914
-      comprimento: 32
-      largura: 29
+    circular:
+      x: 584
+      y: 915
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 568
-      y: 960
-      comprimento: 28
-      largura: 38
+    circular:
+      x: 569
+      y: 961
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 553
-      y: 1022
-      comprimento: 34
-      largura: 31
+      y: 1024
+      raio: 17
   - id: '01'
     label: '01'
-    box:
-      x: 542
-      y: 1076
-      comprimento: 33
-      largura: 39
+    circular:
+      x: 541
+      y: 1077
+      raio: 17
   referencias:
   - escalada: Bacon com Linguiça
     ids:
@@ -379,6 +349,14 @@ mapas:
   - escalada: Cochyna Blue
     ids:
     - '19'
+  - ids:
+    - '08'
+    setor: Setor Estacionamento
+    escalada: Teto Preto
+  - ids:
+    - '09'
+    setor: Setor Estacionamento
+    escalada: 101 Dalmatas
 escaladas:
 - via_esportiva:
     nome: Bacon com Linguiça
@@ -585,7 +563,8 @@ escaladas:
     - Berbari
     - Chinha
     data_abertura: '2006'
----
+---
+
 # Setor Estacionamento
 
 O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Família II
 mapas:
 - caminho_imagem_mapa: imagens/setor_familia_ii_p0.webp
@@ -7,81 +7,70 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 154
       y: 323
-      comprimento: 32
-      largura: 28
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 228
-      y: 349
-      comprimento: 34
-      largura: 40
+      y: 350
+      raio: 17
   - id: '03'
     label: '03'
-    box:
+    circular:
       x: 368
-      y: 556
-      comprimento: 35
-      largura: 41
+      y: 557
+      raio: 17
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 476
       y: 584
-      comprimento: 28
-      largura: 30
+      raio: 17
   - id: '05'
     label: '05'
-    box:
+    circular:
       x: 558
-      y: 587
-      comprimento: 31
-      largura: 32
+      y: 589
+      raio: 17
   - id: '06'
     label: '06'
-    box:
-      x: 632
-      y: 580
-      comprimento: 29
-      largura: 33
+    circular:
+      x: 634
+      y: 581
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 748
-      y: 606
-      comprimento: 34
-      largura: 39
+    circular:
+      x: 749
+      y: 609
+      raio: 17
   - id: '08'
     label: '08'
-    box:
-      x: 902
-      y: 563
-      comprimento: 21
-      largura: 30
+    circular:
+      x: 903
+      y: 565
+      raio: 17
   - id: '11'
     label: '11'
-    box:
-      x: 1112
+    circular:
+      x: 1113
       y: 812
-      comprimento: 39
-      largura: 37
+      raio: 17
   - id: '10'
     label: '10'
-    box:
-      x: 1140
+    circular:
+      x: 1141
       y: 878
-      comprimento: 42
-      largura: 34
+      raio: 17
   - id: '09'
     label: '09'
-    box:
+    circular:
       x: 1166
-      y: 950
-      comprimento: 30
-      largura: 32
+      y: 951
+      raio: 17
   referencias:
   - escalada: Filhos da Revolução
     ids:
@@ -110,87 +99,84 @@ mapas:
   - escalada: Cerro Azul
     ids:
     - '11'
+  - ids:
+    - '08'
+    setor: Setor Família II
+    escalada: Sumchine
+  - ids:
+    - '09'
+    setor: Setor Família II
+    escalada: Cater Pillar
 - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
   largura_mapa: 1032
   altura_mapa: 1442
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 270
       y: 467
-      comprimento: 29
-      largura: 40
+      raio: 17
   - id: '02'
     label: '02'
-    box:
+    circular:
       x: 278
-      y: 556
-      comprimento: 31
-      largura: 38
+      y: 557
+      raio: 17
   - id: '03'
     label: '03'
-    box:
-      x: 283
+    circular:
+      x: 285
       y: 687
-      comprimento: 32
-      largura: 36
+      raio: 17
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 277
-      y: 859
-      comprimento: 26
-      largura: 32
+      y: 860
+      raio: 17
   - id: '05'
     label: '05'
-    box:
-      x: 296
-      y: 932
-      comprimento: 25
-      largura: 33
+    circular:
+      x: 298
+      y: 935
+      raio: 18
   - id: '06'
     label: '06'
-    box:
-      x: 312
-      y: 1036
-      comprimento: 25
-      largura: 31
+    circular:
+      x: 314
+      y: 1037
+      raio: 17
   - id: '07'
     label: '07'
-    box:
-      x: 334
-      y: 1118
-      comprimento: 30
-      largura: 39
+    circular:
+      x: 335
+      y: 1119
+      raio: 17
   - id: '08'
     label: '08'
-    box:
-      x: 414
-      y: 1148
-      comprimento: 24
-      largura: 32
+    circular:
+      x: 415
+      y: 1149
+      raio: 17
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 547
-      y: 1153
-      comprimento: 32
-      largura: 30
+      y: 1152
+      raio: 17
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 518
       y: 1187
-      comprimento: 31
-      largura: 30
+      raio: 17
   - id: '09'
     label: '09'
-    box:
-      x: 488
-      y: 1223
-      comprimento: 27
-      largura: 28
+    circular:
+      x: 491
+      y: 1224
+      raio: 17
   referencias:
   - escalada: Filhos da Revolução
     ids:
@@ -219,6 +205,14 @@ mapas:
   - escalada: Cerro Azul
     ids:
     - '11'
+  - ids:
+    - '08'
+    setor: Setor Família II
+    escalada: Sumchine
+  - ids:
+    - '09'
+    setor: Setor Família II
+    escalada: Cater Pillar
 escaladas:
 - via_esportiva:
     nome: Filhos da Revolução
@@ -327,7 +321,8 @@ escaladas:
     - Berbari
     - Ró
     data_abertura: '2009'
----
+---
+
 # Setor Família II
 
 Sombra após 14h (varia de acordo com a estação).
