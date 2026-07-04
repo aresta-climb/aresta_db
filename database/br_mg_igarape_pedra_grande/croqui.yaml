@@ -63,3 +63,4 @@ botoes:
       caminho: patrocinadores.md
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true

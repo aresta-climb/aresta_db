@@ -188,6 +188,7 @@
             [@igarameca](https://www.instagram.com/igarameca)
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_estacionamento

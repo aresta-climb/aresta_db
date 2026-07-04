@@ -4016,6 +4016,7 @@ botoes:
         [@igarameca](https://www.instagram.com/igarameca)'
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289

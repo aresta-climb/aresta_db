@@ -384,7 +384,7 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.md
   checksum_sha256: 898201776b34849fbc8e24d10ce8fc1d45f517246d8940102435258d795974f8
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: a1e278cd627240ce028595cbace54b99c623ad9e34a1b46538dd2db0e3af4939
+  checksum_sha256: 02f12499a4cd04d67d69843a06632d3cb65aa33c0cd963963bd76efde60f665d
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -442,9 +442,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: e870330a1367189cc164f28559b3a0129c27f62da5cd9af9d5fd90a4bbe652dd
+  checksum_sha256: e48b6ecedeabd2f7db1ec05dfe04d5e173462ea65652985638f12218244d1540
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: b6ab92afeeff3fde9ec3b85eb3b82d133aa927ef171ef03db88aeacbfde7ef80
+  checksum_sha256: 633e4d1cf0cf2a7b9ca80e8c18c2b7ca779bb6ffd70fb314864568b2708a1a3c
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
   checksum_sha256: 1e4d1145930f9faf37889962e8358978b92d1b75dbd0d40f2c42b100a09ae8a5
 - caminho_relativo: thumbnails/br_mg_ipatinga_ipaba_vale_verde.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 14f24e959d37c9500f89715b5caa2abf4a01496c18622dba74de1a4693a595c6
 - caminho_relativo: indice.binarypb
-  checksum_sha256: fbdb8aec4c117085eef6063dd135353e58c23f4b1937931436f20124e0ca7aa5
+  checksum_sha256: 4fab4261bc0e736d0f0b0ef39773fb45621bfd30a57c802d724a00eee80f2afc
 - caminho_relativo: indice.yaml
-  checksum_sha256: b3488ee7823b4dd4ca253770211ba4d89e74d9b65503b290cf7054fcd671c19c
+  checksum_sha256: 74dce0c58740d83ae92e71f352813bb83db7b3ddc2c613226a25d239db780e1b
