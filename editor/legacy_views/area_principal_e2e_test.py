@@ -55,7 +55,12 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
     janela.croqui_controller = CroquiController(janela.croqui_model, janela.historico.obter_pilha())
     janela.pagina_dados.carregar_dados(janela.croqui_model, janela.croqui_controller)
     
+    from PyQt6.QtCore import QEventLoop, QTimer
+    loop = QEventLoop()
+    janela.salvamento_finalizado.connect(loop.quit)
     janela.salvar_croqui()
+    QTimer.singleShot(5000, loop.quit)
+    loop.exec()
     
     with open(db_path / "croqui.yaml", "r", encoding="utf-8") as f:
         saved_yaml = yaml.safe_load(f)
@@ -193,7 +198,12 @@ Corpo original.
     janela.croqui_controller.undo_stack.push(cmd)
     
     # Salva
+    from PyQt6.QtCore import QEventLoop, QTimer
+    loop = QEventLoop()
+    janela.salvamento_finalizado.connect(loop.quit)
     janela.salvar_croqui()
+    QTimer.singleShot(5000, loop.quit)
+    loop.exec()
     
     # O arquivo antigo deve ter sido excluído e o novo deve ter sido criado
     assert not (db_path / "setor_teste.md").exists()

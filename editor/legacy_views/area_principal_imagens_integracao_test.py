@@ -15,13 +15,16 @@ def test_pagina_imagens_contem_editor_de_imagens(qtbot):
     # Este assert deve falhar pois 'editor' ainda não foi adicionado à PaginaImagens
     assert hasattr(pagina, "editor"), "PaginaImagens deve ter um atributo 'editor'"
 
-def test_salvamento_global_chama_salvamento_de_imagens(qtbot):
-    with patch("editor.legacy_views.area_principal.yaml.dump"), \
-         patch("editor.legacy_views.area_principal.open", MagicMock()), \
-         patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental.compilar_croqui"):
+def test_salvamento_global_chama_salvamento_de_imagens(qtbot, tmp_path):
+    with patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental.compilar_croqui"), \
+         patch("editor.legacy_views.area_principal.QMessageBox.critical"):
         
         from editor.core.workspace import ExperimentalWorkspace
-        janela = JanelaPrincipal(workspace=ExperimentalWorkspace("temp_croqui"))
+        
+        db_path = tmp_path / "temp_croqui" / "database"
+        db_path.mkdir(parents=True)
+        
+        janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path / "temp_croqui"))
         qtbot.addWidget(janela)
         janela.croqui_data = {"id": "teste"}
         
@@ -32,6 +35,11 @@ def test_salvamento_global_chama_salvamento_de_imagens(qtbot):
         # Mock do editor de mapas para não falhar
         janela.pagina_mapas.editor = MagicMock()
         
+        from PyQt6.QtCore import QEventLoop, QTimer
+        loop = QEventLoop()
+        janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
+        QTimer.singleShot(5000, loop.quit)
+        loop.exec()
         
         assert mock_editor.salvar_alteracoes.called, "O salvamento global deve chamar salvar_alteracoes() do editor de imagens"

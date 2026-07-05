@@ -183,7 +183,12 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela, "exibir_notificacao") as mock_notif:
             
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
             # Verifica que QMessageBox NÃO foi chamado
             mock_info.assert_not_called()
@@ -192,6 +197,60 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
             assert not mock_crit.called
             # Verifica que a notificação FOI chamada
             mock_notif.assert_called_once_with("Croqui salvo e compilado com sucesso!")
+
+def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path):
+    """[TDD] Verifica se o salvamento ocorre de forma assíncrona, não bloqueando a UI."""
+    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
+        db_path = tmp_path / "temp_croqui"
+        db_path.mkdir()
+        mock_workspace = MagicMock()
+        mock_workspace.obter_caminho_database.return_value = db_path
+        mock_workspace.caminho_raiz.name = "temp_croqui"
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [])
+        janela = JanelaPrincipal(workspace=mock_workspace)
+        qtbot.addWidget(janela)
+        janela.croqui_data = {"id": "teste"}
+        janela.croqui_model = MagicMock()
+        janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "teste_serializado"}
+        janela.pagina_dados = MagicMock()
+        janela.pagina_mapas = MagicMock()
+        janela.pagina_imagens = MagicMock()
+        janela.pagina_imagens.editor.salvar_alteracoes = MagicMock()
+        
+        with patch.object(janela, "exibir_notificacao"), \
+             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
+             
+            event_loop_ran = False
+            def process_events_check():
+                nonlocal event_loop_ran
+                event_loop_ran = True
+            
+            from PyQt6.QtCore import QTimer
+            timer = QTimer()
+            timer.timeout.connect(process_events_check)
+            timer.start(10)
+            
+            original_processar = mock_workspace.processar_renomeacao_e_compilacao
+            def mock_salvar_lento(*args, **kwargs):
+                import time
+                time.sleep(0.1)
+                return (Path("temp_croqui"), [])
+                
+            mock_workspace.processar_renomeacao_e_compilacao.side_effect = mock_salvar_lento
+    
+            janela.show()
+            janela.salvar_croqui()
+    
+            assert hasattr(janela, 'label_status_salvamento') and not janela.label_status_salvamento.isHidden(), "Aviso de salvamento não está visível na UI"
+            
+            if hasattr(janela, 'salvamento_finalizado'):
+                with qtbot.waitSignal(janela.salvamento_finalizado, timeout=1000):
+                    pass
+                timer.stop()
+                if mock_crit.called:
+                    print("ERRO CAPTURADO:", mock_crit.call_args)
+                assert event_loop_ran, "O Event Loop travou e o QTimer não rodou!"
+                qtbot.waitUntil(lambda: janela.label_status_salvamento.isHidden(), timeout=1000)
 
 def test_janela_principal_tem_icone_configurado(qtbot):
     """Garante que a Janela Principal carrega o ícone de montanha."""
@@ -235,7 +294,12 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
              
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
         mock_clear.assert_called_once()
 
@@ -282,7 +346,12 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
             
             # Executar a ação alvo
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
             # Se chamou error dialog, printar o erro
             if mock_crit.called:
@@ -351,7 +420,12 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
          patch.object(janela, "exibir_notificacao") as mock_notif, \
          patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
          
+        from PyQt6.QtCore import QEventLoop, QTimer
+        loop = QEventLoop()
+        janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
+        QTimer.singleShot(5000, loop.quit)
+        loop.exec()
         
         # Verifica se os erros foram passados pro controlador
 def test_salvar_croqui_exibe_notificacao(qtbot):
@@ -378,7 +452,12 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela, "exibir_notificacao") as mock_notif:
             
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
             # Verifica que QMessageBox NÃO foi chamado
             mock_info.assert_not_called()
@@ -430,7 +509,12 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
              
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
         mock_clear.assert_called_once()
 
@@ -477,7 +561,12 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
             
             # Executar a ação alvo
+            from PyQt6.QtCore import QEventLoop, QTimer
+            loop = QEventLoop()
+            janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
+            QTimer.singleShot(5000, loop.quit)
+            loop.exec()
             
             # Se chamou error dialog, printar o erro
             if mock_crit.called:
@@ -546,7 +635,12 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
          patch.object(janela, "exibir_notificacao") as mock_notif, \
          patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
          
+        from PyQt6.QtCore import QEventLoop, QTimer
+        loop = QEventLoop()
+        janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
+        QTimer.singleShot(5000, loop.quit)
+        loop.exec()
         
         # Verifica se os erros foram passados pro controlador
         mock_processar.assert_called_once_with(["Erro no mapa"])
@@ -662,3 +756,23 @@ def test_area_principal_regex_mapas_gerais(mock_carregar, qtbot):
     janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, -1, 0, -1)
     
     janela.close()
+
+def test_close_event_enquanto_salva_marca_para_fechar(qtbot):
+    """[TDD] Verifica se tentar fechar a janela durante o salvamento marca _fechar_apos_salvar."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import patch
+    from PyQt6.QtGui import QCloseEvent
+
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    # Simula salvamento em andamento
+    janela._salvando = True
+    
+    with patch.object(janela, "_mostrar_modal_fechamento") as mock_modal:
+        event = QCloseEvent()
+        janela.closeEvent(event)
+        
+        assert not event.isAccepted(), "O evento de fechamento deveria ser ignorado (adiado)."
+        assert getattr(janela, "_fechar_apos_salvar", False) is True, "A janela não foi marcada para fechar após o término do salvamento."
+        assert mock_modal.called, "O modal de 'Finalizando salvamento...' deveria ter sido exibido."

@@ -1606,6 +1606,11 @@ class WidgetEditorMapas(QWidget):
         w_scene = scene_rect.width()
         h_scene = scene_rect.height()
         
+        # Fallback de segurança caso cena seja nula
+        if w_scene <= 0 or h_scene <= 0:
+            w_scene = 800
+            h_scene = 600
+        
         if referencia.HasField('ajuste_de_camera') and referencia.ajuste_de_camera.zoom > 0:
             zoom = referencia.ajuste_de_camera.zoom
             pos_h = referencia.ajuste_de_camera.posicao_horizontal / 100.0
@@ -1721,6 +1726,11 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setStyleSheet("color: white; background-color: #007bff; font-weight: bold; padding: 8px; border-radius: 4px;")
         self.label_modo.setVisible(True)
         self._aplicar_highlight_linkagem()
+        
+        # TDD: Impedir POIs de se moverem durante a linkagem
+        from PyQt6.QtWidgets import QGraphicsItem
+        for poi in self.itens_poi.values():
+            poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, False)
 
     def parar_modo_linkagem(self):
         from PyQt6.QtCore import Qt
@@ -1731,6 +1741,11 @@ class WidgetEditorMapas(QWidget):
         self.visualizador.setCursor(Qt.CursorShape.ArrowCursor)
         self.remover_destaque_pois()
         self.label_modo.setVisible(False)
+        
+        # TDD: Restaurar movimento dos POIs
+        from PyQt6.QtWidgets import QGraphicsItem
+        for poi in self.itens_poi.values():
+            poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)
 
     def tratar_clique_poi_linkagem(self, poi_id):
         if not hasattr(self, 'modo_linkagem') or not self.modo_linkagem:

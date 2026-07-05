@@ -312,6 +312,45 @@ def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict) 
         print(f"\nAviso: A escalada '{nome}' aparece mais de uma vez no croqui '{croqui_id}'. Nomes duplicados podem causar confusão.")
 
 
+def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict) -> None:
+    """Avisa se há escaladas que não estão mapeadas, caso o croqui já possua mapas desenhados."""
+    todas_escaladas = set()
+    escaladas_referenciadas = set()
+    tem_mapas_com_pontos = False
+
+    def _buscar(obj):
+        nonlocal tem_mapas_com_pontos
+        if isinstance(obj, dict):
+            if "escaladas" in obj and isinstance(obj["escaladas"], list):
+                for esc in obj["escaladas"]:
+                    if isinstance(esc, dict) and "nome" in esc:
+                        todas_escaladas.add(esc["nome"])
+            
+            if "pontos_de_interesse" in obj and isinstance(obj["pontos_de_interesse"], list) and len(obj["pontos_de_interesse"]) > 0:
+                tem_mapas_com_pontos = True
+                
+            if "referencias" in obj and isinstance(obj["referencias"], list):
+                for ref in obj["referencias"]:
+                    if isinstance(ref, dict) and "escalada" in ref:
+                        escaladas_referenciadas.add(ref["escalada"])
+                        
+            for v in obj.values():
+                _buscar(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                _buscar(item)
+
+    _buscar(compiled_data)
+
+    if not tem_mapas_com_pontos:
+        return
+
+    escaladas_sem_mapa = todas_escaladas - escaladas_referenciadas
+    for nome in sorted(escaladas_sem_mapa):
+        print(f"\nAviso: A escalada '{nome}' não está referenciada em nenhum mapa no croqui '{croqui_id}'.")
+
+
+
 # ---------------------------------------------------------------------------
 # Imagens: symlink ou cópia
 # ---------------------------------------------------------------------------
@@ -440,6 +479,7 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                             
                 _check_integer_ids(compiled_data)
                 verificar_nomes_duplicados_de_escalada(croqui_id, compiled_data)
+                verificar_escaladas_sem_mapa(croqui_id, compiled_data)
                 
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug:

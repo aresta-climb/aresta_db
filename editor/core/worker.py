@@ -286,3 +286,39 @@ class TarefaDadosConexao(QThread):
             self.concluido.emit(url, qr_bytes)
         except Exception:
             traceback.print_exc()
+
+class TarefaSalvamento(QThread):
+    """
+    Thread responsável por salvar em background (I/O intensivo e compilação).
+    """
+    sucesso = pyqtSignal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
+    erro = pyqtSignal(str)
+
+    def __init__(self, workspace, storage, caminho_db, croqui_data, novo_id, id_atual, undo_index):
+        super().__init__()
+        self.workspace = workspace
+        self.storage = storage
+        self.caminho_db = caminho_db
+        self.croqui_data = croqui_data
+        self.novo_id = novo_id
+        self.id_atual = id_atual
+        self.undo_index = undo_index
+
+    def run(self):
+        try:
+            import yaml
+            
+            yaml_path = self.caminho_db / "croqui.yaml"
+            with open(yaml_path, "w", encoding="utf-8") as f:
+                yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
+                
+            houve_renomeacao = False
+            if self.novo_id and self.id_atual and self.novo_id != self.id_atual:
+                houve_renomeacao = True
+                
+            caminho_retornado, erros = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
+            
+            self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index)
+        except Exception as e:
+            traceback.print_exc()
+            self.erro.emit(str(e))

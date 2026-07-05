@@ -140,6 +140,7 @@ class PaginaHistorico(PaginaBase):
 class JanelaPrincipal(QMainWindow):
     # Sinal emitido quando o usuário deseja voltar para a tela de carregamento
     solicitar_abrir_novo = pyqtSignal()
+    salvamento_finalizado = pyqtSignal()
     
     def __init__(self, storage=None, auth=None, workspace=None, parent=None):
         super().__init__(parent)
@@ -571,6 +572,9 @@ class JanelaPrincipal(QMainWindow):
         if not self.workspace or not self.croqui_data:
             return
             
+        if getattr(self, '_salvando', False):
+            return
+            
         foco_atual = QApplication.focusWidget()
         if foco_atual:
             foco_atual.clearFocus()
@@ -579,54 +583,89 @@ class JanelaPrincipal(QMainWindow):
             
         try:
             if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados:
-                # Usar a assinatura atualizada que não recebe dicionários de tracking
                 self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
                 
-            # 1. Salva croqui.yaml na pasta ATUAL do db
-            yaml_path = caminho_db / "croqui.yaml"
-            with open(yaml_path, "w", encoding="utf-8") as f:
-                yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
-                
-            # 2. Salva Mapas na pasta ATUAL
             if hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
                 self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
             
-            # 3. Salva Imagens na pasta ATUAL
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
             
-            # Verifica se precisa renomear a pasta (mudou o ID)
             novo_id = self.croqui_data.get("id") if self.croqui_data else None
-            
             nome_raiz = self.workspace.caminho_raiz.name
             partes = nome_raiz.split("_", 1)
             id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
-
-            houve_renomeacao = False
-            if novo_id and id_atual and novo_id != id_atual:
-                houve_renomeacao = True
-                
-            # 4. Processa renomeação (se houver) e Compila
-            caminho_retornado, erros = self.workspace.processar_renomeacao_e_compilacao(novo_id, id_atual, self.storage)
             
+            undo_index = self.historico.obter_pilha().index()
+            
+            import copy
+            from editor.core.worker import TarefaSalvamento
+            self._worker_salvar = TarefaSalvamento(
+                self.workspace, self.storage, caminho_db, copy.deepcopy(self.croqui_data), novo_id, id_atual, undo_index
+            )
+            self._worker_salvar.sucesso.connect(self._on_salvar_sucesso)
+            self._worker_salvar.erro.connect(self._on_salvar_erro)
+            
+            self._salvando = True
+            
+            if not hasattr(self, 'label_status_salvamento'):
+                from PyQt6.QtWidgets import QLabel
+                from PyQt6.QtCore import Qt
+                self.label_status_salvamento = QLabel("Salvando...", self)
+                self.label_status_salvamento.setStyleSheet("background-color: #28a745; color: white; padding: 5px; border-radius: 4px; font-weight: bold;")
+                self.label_status_salvamento.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            
+            self.label_status_salvamento.move(self.width() - 150, 20)
+            self.label_status_salvamento.resize(120, 30)
+            self.label_status_salvamento.show()
+            self.label_status_salvamento.raise_()
+            
+            self._worker_salvar.start()
+            
+        except Exception as e:
+            QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível iniciar o salvamento:\n{str(e)}")
+
+    def _on_salvar_sucesso(self, caminho_retornado, erros, houve_renomeacao, undo_index):
+        self._salvando = False
+        if hasattr(self, 'label_status_salvamento'):
+            self.label_status_salvamento.hide()
+            
+        if self.historico.obter_pilha().index() == undo_index:
             self.historico.obter_pilha().setClean()
             
-            if erros:
-                self.compilacao_controller.processar_resultado(erros)
-            else:
-                self.compilacao_controller.processar_resultado([])
-                self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
+        if erros:
+            self.compilacao_controller.processar_resultado(erros)
+        else:
+            self.compilacao_controller.processar_resultado([])
+            self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
+        
+        if houve_renomeacao:
+            novo_db = self.workspace.obter_caminho_database()
+            if hasattr(self, 'croqui_model') and self.croqui_model:
+                if getattr(self, "croqui_model", None) is not None:
+                    self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), novo_db)
+            self.pagina_imagens.carregar_imagens(novo_db)
             
-            if houve_renomeacao:
-                # Recarrega para atualizar os caminhos absolutos que os editores seguram em memória
-                novo_db = self.workspace.obter_caminho_database()
-                if hasattr(self, 'croqui_model') and self.croqui_model:
-                    # Força a atualização do widget de mapas se estiver ativo e houver modelo
-                    if getattr(self, "croqui_model", None) is not None:
-                        self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), novo_db)
-                self.pagina_imagens.carregar_imagens(novo_db)
-                
-        except Exception as e:
-            QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
+        if hasattr(self, 'salvamento_finalizado'):
+            self.salvamento_finalizado.emit()
+            
+        if getattr(self, '_fechar_apos_salvar', False):
+            if hasattr(self, 'dlg_fechamento') and self.dlg_fechamento:
+                self.dlg_fechamento.accept()
+            self.close()
+
+    def _on_salvar_erro(self, e):
+        self._salvando = False
+        if hasattr(self, 'label_status_salvamento'):
+            self.label_status_salvamento.hide()
+        QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
+        
+        if hasattr(self, 'salvamento_finalizado'):
+            self.salvamento_finalizado.emit()
+            
+        if getattr(self, '_fechar_apos_salvar', False):
+            self._fechar_apos_salvar = False
+            if hasattr(self, 'dlg_fechamento') and self.dlg_fechamento:
+                self.dlg_fechamento.reject()
 
     def exportar_croqui(self):
         """Gera o arquivo .croqui (ZIP)."""
@@ -739,6 +778,12 @@ class JanelaPrincipal(QMainWindow):
 
     def closeEvent(self, event):
         """Intercepta o fechamento da janela para verificar modificações."""
+        if getattr(self, '_salvando', False):
+            self._fechar_apos_salvar = True
+            self._mostrar_modal_fechamento()
+            event.ignore()
+            return
+            
         if not self.historico.obter_pilha().isClean():
             resposta = QMessageBox.question(
                 self, "Sair do Editor",
@@ -747,14 +792,26 @@ class JanelaPrincipal(QMainWindow):
             )
             
             if resposta == QMessageBox.StandardButton.Save:
+                self._fechar_apos_salvar = True
                 self.salvar_croqui()
-                event.accept()
+                self._mostrar_modal_fechamento()
+                event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
                 event.accept()
             else:
                 event.ignore()
         else:
             event.accept()
+            
+    def _mostrar_modal_fechamento(self):
+        from PyQt6.QtWidgets import QProgressDialog
+        from PyQt6.QtCore import Qt
+        if not hasattr(self, 'dlg_fechamento') or not self.dlg_fechamento:
+            self.dlg_fechamento = QProgressDialog("Finalizando salvamento...", None, 0, 0, self)
+            self.dlg_fechamento.setWindowTitle("Aguarde")
+            self.dlg_fechamento.setWindowModality(Qt.WindowModality.WindowModal)
+            self.dlg_fechamento.setCancelButton(None)
+        self.dlg_fechamento.show()
     def _exibir_conexao_celular(self):
         """Inicia o servidor e exibe o diálogo de conexão com o celular."""
         if not self.workspace:

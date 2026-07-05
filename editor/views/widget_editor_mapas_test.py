@@ -1733,3 +1733,79 @@ def test_converter_item_para_retangulo(qtbot):
     widget.mapas_controller.converter_circulos_para_boxes.assert_called_with(widget.msg_mapa_proxy, [4])
 
 
+
+def test_item_camera_overlay_is_visible_and_in_scene(qtbot):
+    """[TDD] Verifica se o overlay da camera é instanciado corretamente, fica visível, é adicionado à cena e possui rect maior que zero."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PyQt6.QtWidgets import QGraphicsScene
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    # Inicia a cena forçadamente sem tamanho para que a câmera teste o fallback
+    cena = QGraphicsScene()
+    widget.visualizador.setScene(cena)
+    
+    # Mocks para forçar o boundingRect() a ser vazio (0,0,0,0)
+    from PyQt6.QtCore import QRectF
+    mock_rect = QRectF(0, 0, 0, 0)
+    widget.visualizador.sceneRect = MagicMock(return_value=mock_rect)
+    widget.visualizador.mapToScene = MagicMock()
+    widget.visualizador.mapToScene().boundingRect.return_value = mock_rect
+    
+    
+    # Chama o modo de câmera
+    mock_ref = MagicMock()
+    mock_ref.HasField.return_value = False
+    widget.iniciar_modo_camera(0, mock_ref)
+    
+    overlay = widget.item_camera_overlay
+    
+    # 1.2: A cena não pode ser nula e o overlay deve estar visível
+    assert overlay is not None, "O overlay da câmera não foi criado."
+    assert overlay.scene() is not None, "O overlay não foi adicionado à cena."
+    assert overlay.isVisible() == True, "O overlay não está visível."
+    
+    # 1.3: A área do rect deve ser estritamente maior que zero
+    rect = overlay.rect()
+    area = rect.width() * rect.height()
+    assert area > 0, f"A área do overlay da câmera é zero ou menor (w={rect.width()}, h={rect.height()}). O componente não aparece na tela."
+
+def test_poi_bloqueado_no_modo_linkagem(qtbot):
+    """[TDD] Verifica se a flag ItemIsMovable dos POIs é desativada durante a iniciação do modo de linkagem."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from PyQt6.QtWidgets import QGraphicsItem, QGraphicsScene
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    # Adiciona um POI mock
+    box_dict = {'box': {'x': 10, 'y': 10, 'comprimento': 50, 'largura': 50}, 'id': 'teste'}
+    item = ItemBoundingBox(box_dict, lambda: None)
+    
+    # Por padrão, um POI instanciado DEVE ser móvel
+    item.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)
+    
+    widget.itens_poi = {0: item}
+    cena = QGraphicsScene()
+    widget.visualizador.setScene(cena)
+    widget.visualizador.scene().addItem(item)
+    
+    assert item.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable, "Condição inicial: POI deveria ser móvel."
+    
+    # Inicia modo de linkagem
+    mock_ref = MagicMock()
+    mock_ref.HasField.return_value = False
+    mock_ref.ids = []
+    widget.iniciar_modo_linkagem(0, mock_ref)
+    
+    # 1.4: O POI não deve ser móvel
+    assert not (item.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable), "O POI não teve seu movimento bloqueado durante a linkagem!"
+    
+    # Para o modo de linkagem
+    widget.parar_modo_linkagem()
+    
+    # 1.4: O POI deve voltar a ser móvel
+    assert item.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable, "O POI não teve seu movimento restaurado após a linkagem!"

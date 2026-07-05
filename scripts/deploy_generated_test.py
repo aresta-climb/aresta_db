@@ -22,6 +22,7 @@ from scripts.deploy_generated import (
     passo_c_gerar_indice,
     passo_d_gerar_manifesto_serving,
     processar_thumbnail,
+    verificar_escaladas_sem_mapa,
 )
 
 def test_calcular_sha256(tmp_path):
@@ -653,3 +654,61 @@ def test_verbose_flag_passo_b(capsys):
         captured = capsys.readouterr()
         assert 'Passo B' in captured.out
         assert 'pico_test' in captured.out
+
+def test_verificar_escaladas_sem_mapa(capsys):
+    from scripts.deploy_generated import verificar_escaladas_sem_mapa
+    # Caso 1: sem mapas com POI (ignora o teste, não avisa)
+    data1 = {
+        "escaladas": [{"nome": "E1"}],
+        "mapas": []
+    }
+    verificar_escaladas_sem_mapa("croqui1", data1)
+    captured = capsys.readouterr()
+    assert "não está referenciada" not in captured.out
+
+    # Caso 2: com mapa com POI e todas escaladas referenciadas
+    data2 = {
+        "escaladas": [{"nome": "E1"}],
+        "mapas": [
+            {
+                "pontos_de_interesse": [{"id": "p1"}],
+                "referencias": [{"escalada": "E1"}]
+            }
+        ]
+    }
+    verificar_escaladas_sem_mapa("croqui2", data2)
+    captured = capsys.readouterr()
+    assert "não está referenciada" not in captured.out
+
+    # Caso 3: com mapa com POI e uma escalada sem referência
+    data3 = {
+        "escaladas": [{"nome": "E1"}, {"nome": "E2"}],
+        "mapas": [
+            {
+                "pontos_de_interesse": [{"id": "p1"}],
+                "referencias": [{"escalada": "E1"}]
+            }
+        ]
+    }
+    verificar_escaladas_sem_mapa("croqui3", data3)
+    captured = capsys.readouterr()
+    assert "Aviso: A escalada 'E2' não está referenciada em nenhum mapa no croqui 'croqui3'" in captured.out
+
+    # Caso 4: com mapas_gerais e nested escaladas
+    data4 = {
+        "picos": [
+            {
+                "escaladas": [{"nome": "E1"}, {"nome": "E3"}],
+                "mapas_gerais": [
+                    {
+                        "pontos_de_interesse": [{"id": "p2"}],
+                        "referencias": [{"escalada": "E3"}]
+                    }
+                ]
+            }
+        ]
+    }
+    verificar_escaladas_sem_mapa("croqui4", data4)
+    captured = capsys.readouterr()
+    assert "Aviso: A escalada 'E1' não está referenciada em nenhum mapa no croqui 'croqui4'" in captured.out
+
