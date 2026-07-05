@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Baixo
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_baixo_p1.webp
@@ -10,64 +10,64 @@ mapas:
     box:
       x: 188
       y: 606
-      comprimento: 15
-      largura: 23
+      comprimento: 21
+      largura: 24
   - id: '2'
     label: '2'
     box:
       x: 312
       y: 602
-      comprimento: 16
+      comprimento: 21
       largura: 22
   - id: '3'
     label: '3'
     box:
-      x: 405
+      x: 406
       y: 590
-      comprimento: 18
-      largura: 21
+      comprimento: 23
+      largura: 22
   - id: '4'
     label: '4'
     box:
-      x: 445
-      y: 585
-      comprimento: 16
-      largura: 20
+      x: 446
+      y: 586
+      comprimento: 23
+      largura: 23
   - id: '5'
     label: '5'
     box:
-      x: 513
+      x: 514
       y: 584
-      comprimento: 18
+      comprimento: 21
       largura: 21
   - id: '6'
     label: '6'
     box:
       x: 574
       y: 587
-      comprimento: 13
-      largura: 18
+      comprimento: 21
+      largura: 20
   - id: '7'
     label: '7'
     box:
-      x: 829
+      x: 830
       y: 580
-      comprimento: 16
-      largura: 22
+      comprimento: 21
+      largura: 21
   - id: '8'
     label: '8'
     box:
-      x: 940
+      x: 941
       y: 576
-      comprimento: 17
+      comprimento: 22
       largura: 21
   - id: '9'
     label: '9'
     box:
       x: 1064
-      y: 573
-      comprimento: 17
-      largura: 20
+      y: 574
+      comprimento: 22
+      largura: 21
   referencias:
   - escalada: Extremo Norte
     ids:
@@ -125,7 +125,8 @@ escaladas:
 - via_esportiva:
     nome: Maldita Obsessão
     dificuldade: BR_7B
----
+---
+
 # Setor de Baixo
 
 O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).

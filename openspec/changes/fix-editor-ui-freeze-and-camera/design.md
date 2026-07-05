@@ -9,7 +9,7 @@ O aplicativo editor é construído utilizando PyQt6. No momento, o fluxo de salv
 - Fornecer feedback visual ao usuário indicando o estado de "Salvando...".
 - Corrigir a lógica visual e de injeção na cena do `ItemCameraOverlay` em `widget_editor_mapas.py` para que a caixa roxa de ajuste 9:16 reapareça perfeitamente.
 - Bloquear o movimento dos Itens de POI na cena (`ItemInteresse`) apenas durante o modo de linkagem, prevenindo arrastos involuntários.
-- Garantir a completude dos testes em 100% nas novas lógicas usando a metodologia TDD.
+- Seguir estritamente o `PRINCIPIOS.md`: Utilizar TDD (Red-Green-Refactor), criar testes de integração primeiro, buscar simplicidade (Anti-Abstração) e atingir 100% de unit test coverage para todas as modificações introduzidas. Todas as variáveis e descrições em português.
 
 **Non-Goals:**
 - Mudar o modelo assíncrono padrão do PyQt6 para Python genérico `asyncio` no app todo.
@@ -23,7 +23,10 @@ O aplicativo editor é construído utilizando PyQt6. No momento, o fluxo de salv
 
 ## Risks / Trade-offs
 
-- **[Risco] Modificação de dados durante o save**: O usuário pode continuar interagindo e alterar dados durante a operação de salvamento demorada, gerando inconsistências no arquivo salvo versus na tela.
-  - **Mitigação**: Bloquear temporariamente edições globais ou criar um *snapshot* na memória principal antes de jogar para a thread de disco. O feedback de UI ajudará a desestimular a edição cruzada.
+- **[Risco] Modificação de dados durante o save**: O usuário pode continuar interagindo e alterar dados durante a operação assíncrona, gerando inconsistências ou salvando versões parciais indesejadas se o arquivo for modificado em disco enquanto edita na tela.
+  - **Mitigação 1 (Snapshot)**: Para resolver isso de forma elegante, o sistema fará um *snapshot* (cópia imutável na memória principal) do estado exato dos dados a serem salvos **antes** de passá-los para a thread de disco.
+  - **Mitigação 2 (Marcação de Estado via Histórico)**: A interface (UI) marcará até qual ponto o dado foi salvo utilizando a posição exata (índice) na pilha de histórico (`QUndoStack`/`QUndoHistory`) no momento do snapshot. Assim, qualquer comando posterior feito pelo usuário avançará a pilha, marcando automaticamente o documento como "necessitando de novo salvamento", garantindo sincronia perfeita com o mecanismo de Undo/Redo do `PRINCIPIOS.md`.
+- **[Risco] O usuário tentar fechar o aplicativo enquanto a thread de salvamento opera**: Isso poderia resultar no término prematuro do processo, causando corrupção ou perda de dados do arquivo sendo gravado.
+  - **Mitigação**: O `closeEvent` (evento de fechamento) será interceptado de maneira rigorosa. Se houver um salvamento em andamento, a UI será bloqueada com um modal/overlay exibindo "Finalizando salvamento...". O app só fechará automaticamente após o sinal `finalizado` retornar com sucesso. Se retornar com erro (falta de espaço, permissão), o fechamento é **cancelado** (ignorado) e o usuário volta para o editor com o erro exposto.
 - **[Risco] Testes assíncronos falhos com `pytest-qt`**: O teste pode encerrar antes da thread de salvamento completar.
-  - **Mitigação**: Utilizaremos amplamente a diretiva `qtbot.waitUntil()` para garantir que sinais de término foram capturados de forma robusta.
+  - **Mitigação**: Utilizaremos `qtbot.waitUntil()` rigorosamente. Criaremos **testes de integração primeiro** (PRINCIPIOS.md), e depois desceremos para testes unitários com 100% de coverage.

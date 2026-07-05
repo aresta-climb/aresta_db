@@ -32,6 +32,7 @@
             Atualizado em: 2010
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_01
@@ -57,154 +58,154 @@
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 90
-          - **y**: 243
+          - **x**: 89
+          - **y**: 244
           - **comprimento**: 22
           - **largura**: 20
       - **[1]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 69
+          - **x**: 70
           - **y**: 280
-          - **comprimento**: 26
-          - **largura**: 21
+          - **comprimento**: 21
+          - **largura**: 19
       - **[2]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 40
-          - **y**: 337
-          - **comprimento**: 22
-          - **largura**: 18
+          - **x**: 42
+          - **y**: 339
+          - **comprimento**: 20
+          - **largura**: 20
       - **[3]**:
         - **id**: 16
         - **label**: 16
         - **box**:
           - **x**: 12
-          - **y**: 398
+          - **y**: 401
           - **comprimento**: 23
-          - **largura**: 17
+          - **largura**: 20
       - **[4]**:
         - **id**: 17
         - **label**: 17
         - **box**:
-          - **x**: 138
-          - **y**: 448
-          - **comprimento**: 26
-          - **largura**: 17
+          - **x**: 139
+          - **y**: 449
+          - **comprimento**: 20
+          - **largura**: 18
       - **[5]**:
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 220
-          - **y**: 448
-          - **comprimento**: 29
+          - **x**: 218
+          - **y**: 449
+          - **comprimento**: 20
           - **largura**: 20
       - **[6]**:
         - **id**: 19
         - **label**: 19
         - **box**:
           - **x**: 272
-          - **y**: 448
-          - **comprimento**: 22
-          - **largura**: 18
+          - **y**: 450
+          - **comprimento**: 21
+          - **largura**: 21
       - **[7]**:
         - **id**: 20
         - **label**: 20
         - **box**:
-          - **x**: 311
-          - **y**: 448
-          - **comprimento**: 24
+          - **x**: 310
+          - **y**: 449
+          - **comprimento**: 21
           - **largura**: 20
       - **[8]**:
         - **id**: 21
         - **label**: 21
         - **box**:
           - **x**: 372
-          - **y**: 448
-          - **comprimento**: 29
-          - **largura**: 20
+          - **y**: 450
+          - **comprimento**: 21
+          - **largura**: 19
       - **[9]**:
         - **id**: 22
         - **label**: 22
         - **box**:
           - **x**: 418
-          - **y**: 448
-          - **comprimento**: 27
-          - **largura**: 21
+          - **y**: 449
+          - **comprimento**: 22
+          - **largura**: 18
       - **[10]**:
         - **id**: 23
         - **label**: 23
         - **box**:
           - **x**: 529
-          - **y**: 449
-          - **comprimento**: 24
-          - **largura**: 20
+          - **y**: 450
+          - **comprimento**: 22
+          - **largura**: 19
       - **[11]**:
         - **id**: 24
         - **label**: 24
         - **box**:
           - **x**: 563
-          - **y**: 388
-          - **comprimento**: 22
-          - **largura**: 17
+          - **y**: 390
+          - **comprimento**: 20
+          - **largura**: 19
       - **[12]**:
         - **id**: 25
         - **label**: 25
         - **box**:
           - **x**: 600
-          - **y**: 448
-          - **comprimento**: 25
-          - **largura**: 22
+          - **y**: 449
+          - **comprimento**: 21
+          - **largura**: 18
       - **[13]**:
         - **id**: 26
         - **label**: 26
         - **box**:
           - **x**: 620
           - **y**: 388
-          - **comprimento**: 24
-          - **largura**: 17
+          - **comprimento**: 21
+          - **largura**: 20
       - **[14]**:
         - **id**: 27
         - **label**: 27
         - **box**:
-          - **x**: 690
-          - **y**: 448
-          - **comprimento**: 27
-          - **largura**: 21
+          - **x**: 691
+          - **y**: 449
+          - **comprimento**: 22
+          - **largura**: 20
       - **[15]**:
         - **id**: 28
         - **label**: 28
         - **box**:
-          - **x**: 899
-          - **y**: 429
-          - **comprimento**: 22
-          - **largura**: 16
+          - **x**: 898
+          - **y**: 430
+          - **comprimento**: 21
+          - **largura**: 19
       - **[16]**:
         - **id**: 29
         - **label**: 29
         - **box**:
           - **x**: 794
           - **y**: 313
-          - **comprimento**: 22
-          - **largura**: 16
+          - **comprimento**: 21
+          - **largura**: 18
       - **[17]**:
         - **id**: 30
         - **label**: 30
         - **box**:
-          - **x**: 766
+          - **x**: 768
           - **y**: 318
-          - **comprimento**: 23
-          - **largura**: 16
+          - **comprimento**: 19
+          - **largura**: 18
       - **[18]**:
         - **id**: 31
         - **label**: 31
         - **box**:
           - **x**: 742
           - **y**: 326
-          - **comprimento**: 22
-          - **largura**: 16
+          - **comprimento**: 20
+          - **largura**: 19
       - **[19]**:
         - **id**: 32
         - **label**: 32
@@ -212,15 +213,15 @@
           - **x**: 679
           - **y**: 306
           - **comprimento**: 22
-          - **largura**: 17
+          - **largura**: 20
       - **[20]**:
         - **id**: 33
         - **label**: 33
         - **box**:
           - **x**: 632
           - **y**: 264
-          - **comprimento**: 15
-          - **largura**: 11
+          - **comprimento**: 19
+          - **largura**: 21
       - **[21]**:
         - **id**: 34
         - **label**: 34
@@ -228,7 +229,7 @@
           - **x**: 580
           - **y**: 234
           - **comprimento**: 21
-          - **largura**: 17
+          - **largura**: 21
       - **[22]**:
         - **id**: 35
         - **label**: 35
@@ -241,34 +242,34 @@
         - **id**: A
         - **label**: A
         - **box**:
-          - **x**: 102
-          - **y**: 448
+          - **x**: 101
+          - **y**: 449
           - **comprimento**: 22
-          - **largura**: 18
+          - **largura**: 20
       - **[24]**:
         - **id**: B
         - **label**: B
         - **box**:
-          - **x**: 288
+          - **x**: 289
           - **y**: 154
-          - **comprimento**: 13
+          - **comprimento**: 16
           - **largura**: 17
       - **[25]**:
         - **id**: C
         - **label**: C
         - **box**:
           - **x**: 302
-          - **y**: 128
-          - **comprimento**: 15
-          - **largura**: 15
+          - **y**: 129
+          - **comprimento**: 17
+          - **largura**: 18
       - **[26]**:
         - **id**: D
         - **label**: D
         - **box**:
-          - **x**: 378
-          - **y**: 67
-          - **comprimento**: 13
-          - **largura**: 14
+          - **x**: 380
+          - **y**: 68
+          - **comprimento**: 19
+          - **largura**: 19
       - **[27]**:
         - **id**: Negativo
         - **label**: Negativo
@@ -527,97 +528,97 @@
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 156
-          - **y**: 464
+          - **x**: 154
+          - **y**: 465
           - **comprimento**: 27
-          - **largura**: 20
+          - **largura**: 26
       - **[1]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 212
-          - **y**: 464
-          - **comprimento**: 22
-          - **largura**: 19
+          - **y**: 465
+          - **comprimento**: 26
+          - **largura**: 26
       - **[2]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 246
+          - **x**: 248
           - **y**: 464
-          - **comprimento**: 19
-          - **largura**: 19
+          - **comprimento**: 25
+          - **largura**: 25
       - **[3]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 293
-          - **y**: 464
-          - **comprimento**: 30
-          - **largura**: 20
+          - **x**: 295
+          - **y**: 466
+          - **comprimento**: 26
+          - **largura**: 23
       - **[4]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 356
-          - **y**: 464
-          - **comprimento**: 29
-          - **largura**: 20
+          - **x**: 357
+          - **y**: 465
+          - **comprimento**: 26
+          - **largura**: 24
       - **[5]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 400
-          - **y**: 464
-          - **comprimento**: 21
-          - **largura**: 20
+          - **y**: 465
+          - **comprimento**: 25
+          - **largura**: 24
       - **[6]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 436
+          - **x**: 437
           - **y**: 464
-          - **comprimento**: 21
-          - **largura**: 21
+          - **comprimento**: 24
+          - **largura**: 23
       - **[7]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 470
-          - **y**: 464
-          - **comprimento**: 24
-          - **largura**: 21
+          - **x**: 471
+          - **y**: 465
+          - **comprimento**: 26
+          - **largura**: 24
       - **[8]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 516
-          - **y**: 464
-          - **comprimento**: 29
-          - **largura**: 20
+          - **x**: 514
+          - **y**: 465
+          - **comprimento**: 25
+          - **largura**: 24
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 589
-          - **y**: 464
-          - **comprimento**: 28
-          - **largura**: 20
+          - **x**: 592
+          - **y**: 465
+          - **comprimento**: 23
+          - **largura**: 22
       - **[10]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 657
+          - **x**: 656
           - **y**: 464
-          - **comprimento**: 26
-          - **largura**: 21
+          - **comprimento**: 25
+          - **largura**: 23
       - **[11]**:
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 748
+          - **x**: 747
           - **y**: 464
-          - **comprimento**: 29
+          - **comprimento**: 24
           - **largura**: 21
       - **[12]**:
         - **id**: 13
@@ -625,8 +626,8 @@
         - **box**:
           - **x**: 868
           - **y**: 464
-          - **comprimento**: 28
-          - **largura**: 20
+          - **comprimento**: 25
+          - **largura**: 21
     - **referencias**:
       - **[0]**:
         - **escalada**: Festival dos Lagartos
@@ -672,6 +673,16 @@
         - **escalada**: Parede Preta
         - **ids**:
           - 13
+      - **[11]**:
+        - **ids**:
+          - 08
+        - **setor**: Croqui 02 da Pedra Branca
+        - **escalada**: Barbarela
+      - **[12]**:
+        - **ids**:
+          - 09
+        - **setor**: Croqui 02 da Pedra Branca
+        - **escalada**: Ciganos Molhados
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

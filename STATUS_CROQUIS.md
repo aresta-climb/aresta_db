@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 05/07/2026 00:21:04
+Relatório gerado em: 05/07/2026 10:50:48
 
-| Croqui | Publicado (23/48) | Revisado Manual (23/48) | Revisado Circ (15/48) | Desenho Extraível (24/8/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
+| Croqui | Publicado (23/48) | Revisado Manual (23/48) | Revisado Circ (17/48) | Desenho Extraível (24/8/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ❌ | ⚠️ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ❌ | ⚠️ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -12,8 +12,8 @@ Relatório gerado em: 05/07/2026 00:21:04
 | br_mg_arcos_rastro | ✅ | ✅ | ✅ | ✅ (não) | ✅ (17/17) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_barao_de_cocais_cambotas | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/11) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_caete_monte_alvao | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (4/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_caete_pedra_branca | ✅ | ✅ | ❌ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_caete_pedra_filha | ✅ | ✅ | ❌ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_caete_pedra_branca | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_caete_pedra_filha | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_conceicao_do_mato_dentro_festboulder | ❌ | ❌ | ❌ | ⚠️ | ✅ (36/36) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_diamantina_diamaboulder | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (22/26) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |

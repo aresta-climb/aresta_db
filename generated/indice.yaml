@@ -62,17 +62,17 @@ croquis:
   nome: Pedra Branca
   descricao: ''
   caminho_relativo: br_mg_caete_pedra_branca/compilado.binarypb
-  checksum_sha256_croqui: 29f8768b4dd8f4b3575386576b2cf3b62f099e096e2ae3d5fdfdcdbd259e4c00
+  checksum_sha256_croqui: 5f6c0bffe780efa28471fb5d58bb9d076cc571d885960af9465d6025b714e266
   checksum_sha256_thumbnail: 5595e0ed31526cb50b44acf14574b4c203e4435e10dbd102f3006ab744f71145
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-07-05T13:48:42Z'
 - id: br_mg_caete_pedra_filha
   nome: Pedra Filha (Pedrinha)
   descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas
     técnicas em dois setores principais.
   caminho_relativo: br_mg_caete_pedra_filha/compilado.binarypb
-  checksum_sha256_croqui: fc55673b4fc6ddd4160392b3ae6c5e7f9741fa9522717a5688c70b5cfce034ca
+  checksum_sha256_croqui: 0cdb2279db49788bcec4b5bba88caa66e4ce68b3ca12d3d1af31dcd1ce92c158
   checksum_sha256_thumbnail: 86ebad5aaf4e224f8ae16f15622cd24e33922939de8c4909b5ab598c8444a8f2
-  timestamp_update: '2026-06-28T14:56:36Z'
+  timestamp_update: '2026-07-05T13:50:46Z'
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo

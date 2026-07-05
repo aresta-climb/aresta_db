@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_cima_p0.webp
@@ -9,41 +9,41 @@ mapas:
     label: '1'
     box:
       x: 90
-      y: 373
-      comprimento: 11
-      largura: 14
+      y: 374
+      comprimento: 13
+      largura: 15
   - id: '2'
     label: '2'
     box:
       x: 107
-      y: 372
-      comprimento: 12
-      largura: 12
+      y: 373
+      comprimento: 14
+      largura: 14
   - id: '3'
     label: '3'
     box:
       x: 123
-      y: 372
-      comprimento: 10
+      y: 373
+      comprimento: 14
       largura: 14
   - id: '4'
     label: '4'
     box:
-      x: 165
-      y: 374
-      comprimento: 14
-      largura: 15
+      x: 166
+      y: 373
+      comprimento: 15
+      largura: 14
   - id: '5'
     label: '5'
     box:
-      x: 198
+      x: 200
       y: 370
       comprimento: 14
       largura: 15
   - id: '6'
     label: '6'
     box:
-      x: 226
+      x: 228
       y: 370
       comprimento: 15
       largura: 15
@@ -52,26 +52,26 @@ mapas:
     box:
       x: 258
       y: 368
-      comprimento: 14
-      largura: 14
+      comprimento: 15
+      largura: 16
   - id: '8'
     label: '8'
     box:
-      x: 286
+      x: 287
       y: 370
-      comprimento: 15
-      largura: 14
+      comprimento: 16
+      largura: 15
   - id: '9'
     label: '9'
     box:
       x: 366
-      y: 370
+      y: 369
       comprimento: 15
       largura: 16
   - id: '10'
     label: '10'
     box:
-      x: 434
+      x: 436
       y: 367
       comprimento: 20
       largura: 18
@@ -85,21 +85,21 @@ mapas:
   - id: '12'
     label: '12'
     box:
-      x: 491
+      x: 493
       y: 368
       comprimento: 20
       largura: 19
   - id: '13'
     label: '13'
     box:
-      x: 527
+      x: 530
       y: 368
-      comprimento: 22
+      comprimento: 20
       largura: 18
   - id: '14'
     label: '14'
     box:
-      x: 572
+      x: 571
       y: 370
       comprimento: 20
       largura: 19
@@ -183,7 +183,8 @@ escaladas:
 - via_esportiva:
     nome: Independence Day
     dificuldade: BR_5
----
+---
+
 # Setor de Cima
 
 O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.

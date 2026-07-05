@@ -1,4 +1,4 @@
----
+---
 nome: Croqui 01 da Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/pagina_1_imagem_0.webp
@@ -8,157 +8,157 @@ mapas:
   - id: '13'
     label: '13'
     box:
-      x: 90
-      y: 243
+      x: 89
+      y: 244
       comprimento: 22
       largura: 20
   - id: '14'
     label: '14'
     box:
-      x: 69
+      x: 70
       y: 280
-      comprimento: 26
-      largura: 21
+      comprimento: 21
+      largura: 19
   - id: '15'
     label: '15'
     box:
-      x: 40
-      y: 337
-      comprimento: 22
-      largura: 18
+      x: 42
+      y: 339
+      comprimento: 20
+      largura: 20
   - id: '16'
     label: '16'
     box:
       x: 12
-      y: 398
+      y: 401
       comprimento: 23
-      largura: 17
+      largura: 20
   - id: '17'
     label: '17'
     box:
-      x: 138
-      y: 448
-      comprimento: 26
-      largura: 17
+      x: 139
+      y: 449
+      comprimento: 20
+      largura: 18
   - id: '18'
     label: '18'
     box:
-      x: 220
-      y: 448
-      comprimento: 29
+      x: 218
+      y: 449
+      comprimento: 20
       largura: 20
   - id: '19'
     label: '19'
     box:
       x: 272
-      y: 448
-      comprimento: 22
-      largura: 18
+      y: 450
+      comprimento: 21
+      largura: 21
   - id: '20'
     label: '20'
     box:
-      x: 311
-      y: 448
-      comprimento: 24
+      x: 310
+      y: 449
+      comprimento: 21
       largura: 20
   - id: '21'
     label: '21'
     box:
       x: 372
-      y: 448
-      comprimento: 29
-      largura: 20
+      y: 450
+      comprimento: 21
+      largura: 19
   - id: '22'
     label: '22'
     box:
       x: 418
-      y: 448
-      comprimento: 27
-      largura: 21
+      y: 449
+      comprimento: 22
+      largura: 18
   - id: '23'
     label: '23'
     box:
       x: 529
-      y: 449
-      comprimento: 24
-      largura: 20
+      y: 450
+      comprimento: 22
+      largura: 19
   - id: '24'
     label: '24'
     box:
       x: 563
-      y: 388
-      comprimento: 22
-      largura: 17
+      y: 390
+      comprimento: 20
+      largura: 19
   - id: '25'
     label: '25'
     box:
       x: 600
-      y: 448
-      comprimento: 25
-      largura: 22
+      y: 449
+      comprimento: 21
+      largura: 18
   - id: '26'
     label: '26'
     box:
       x: 620
       y: 388
-      comprimento: 24
-      largura: 17
+      comprimento: 21
+      largura: 20
   - id: '27'
     label: '27'
     box:
-      x: 690
-      y: 448
-      comprimento: 27
-      largura: 21
+      x: 691
+      y: 449
+      comprimento: 22
+      largura: 20
   - id: '28'
     label: '28'
     box:
-      x: 899
-      y: 429
-      comprimento: 22
-      largura: 16
+      x: 898
+      y: 430
+      comprimento: 21
+      largura: 19
   - id: '29'
     label: '29'
     box:
       x: 794
       y: 313
-      comprimento: 22
-      largura: 16
+      comprimento: 21
+      largura: 18
   - id: '30'
     label: '30'
     box:
-      x: 766
+      x: 768
       y: 318
-      comprimento: 23
-      largura: 16
+      comprimento: 19
+      largura: 18
   - id: '31'
     label: '31'
     box:
       x: 742
       y: 326
-      comprimento: 22
-      largura: 16
+      comprimento: 20
+      largura: 19
   - id: '32'
     label: '32'
     box:
       x: 679
       y: 306
       comprimento: 22
-      largura: 17
+      largura: 20
   - id: '33'
     label: '33'
     box:
       x: 632
       y: 264
-      comprimento: 15
-      largura: 11
+      comprimento: 19
+      largura: 21
   - id: '34'
     label: '34'
     box:
       x: 580
       y: 234
       comprimento: 21
-      largura: 17
+      largura: 21
   - id: '35'
     label: '35'
     box:
@@ -169,31 +169,31 @@ mapas:
   - id: A
     label: A
     box:
-      x: 102
-      y: 448
+      x: 101
+      y: 449
       comprimento: 22
-      largura: 18
+      largura: 20
   - id: B
     label: B
     box:
-      x: 288
+      x: 289
       y: 154
-      comprimento: 13
+      comprimento: 16
       largura: 17
   - id: C
     label: C
     box:
       x: 302
-      y: 128
-      comprimento: 15
-      largura: 15
+      y: 129
+      comprimento: 17
+      largura: 18
   - id: D
     label: D
     box:
-      x: 378
-      y: 67
-      comprimento: 13
-      largura: 14
+      x: 380
+      y: 68
+      comprimento: 19
+      largura: 19
   - id: Negativo
     label: Negativo
     box:
@@ -370,7 +370,8 @@ escaladas:
 - via_esportiva:
     nome: Variante do Judas
     dificuldade: BR_4
----
+---
+
 # Croqui 01 da Pedra Branca
 
 Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.

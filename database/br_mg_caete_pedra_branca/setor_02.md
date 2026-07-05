@@ -1,4 +1,4 @@
----
+---
 nome: Croqui 02 da Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/pagina_2_imagem_0.webp
@@ -8,94 +8,94 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 156
-      y: 464
+      x: 154
+      y: 465
       comprimento: 27
-      largura: 20
+      largura: 26
   - id: '02'
     label: '02'
     box:
       x: 212
-      y: 464
-      comprimento: 22
-      largura: 19
+      y: 465
+      comprimento: 26
+      largura: 26
   - id: '03'
     label: '03'
     box:
-      x: 246
+      x: 248
       y: 464
-      comprimento: 19
-      largura: 19
+      comprimento: 25
+      largura: 25
   - id: '04'
     label: '04'
     box:
-      x: 293
-      y: 464
-      comprimento: 30
-      largura: 20
+      x: 295
+      y: 466
+      comprimento: 26
+      largura: 23
   - id: '05'
     label: '05'
     box:
-      x: 356
-      y: 464
-      comprimento: 29
-      largura: 20
+      x: 357
+      y: 465
+      comprimento: 26
+      largura: 24
   - id: '06'
     label: '06'
     box:
       x: 400
-      y: 464
-      comprimento: 21
-      largura: 20
+      y: 465
+      comprimento: 25
+      largura: 24
   - id: '07'
     label: '07'
     box:
-      x: 436
+      x: 437
       y: 464
-      comprimento: 21
-      largura: 21
+      comprimento: 24
+      largura: 23
   - id: '08'
     label: '08'
     box:
-      x: 470
-      y: 464
-      comprimento: 24
-      largura: 21
+      x: 471
+      y: 465
+      comprimento: 26
+      largura: 24
   - id: '09'
     label: '09'
     box:
-      x: 516
-      y: 464
-      comprimento: 29
-      largura: 20
+      x: 514
+      y: 465
+      comprimento: 25
+      largura: 24
   - id: '10'
     label: '10'
     box:
-      x: 589
-      y: 464
-      comprimento: 28
-      largura: 20
+      x: 592
+      y: 465
+      comprimento: 23
+      largura: 22
   - id: '11'
     label: '11'
     box:
-      x: 657
+      x: 656
       y: 464
-      comprimento: 26
-      largura: 21
+      comprimento: 25
+      largura: 23
   - id: '12'
     label: '12'
     box:
-      x: 748
+      x: 747
       y: 464
-      comprimento: 29
+      comprimento: 24
       largura: 21
   - id: '13'
     label: '13'
     box:
       x: 868
       y: 464
-      comprimento: 28
-      largura: 20
+      comprimento: 25
+      largura: 21
   referencias:
   - escalada: Festival dos Lagartos
     ids:
@@ -130,6 +130,14 @@ mapas:
   - escalada: Parede Preta
     ids:
     - '13'
+  - ids:
+    - '08'
+    setor: Croqui 02 da Pedra Branca
+    escalada: Barbarela
+  - ids:
+    - '09'
+    setor: Croqui 02 da Pedra Branca
+    escalada: Ciganos Molhados
 escaladas:
 - via_esportiva:
     nome: Festival dos Lagartos
@@ -171,7 +179,8 @@ escaladas:
     nome: Parede Preta
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
----
+---
+
 # Croqui 02 da Pedra Branca
 
 O resto da grampeação da via Parede Preta esta no croqui 01 da Pedra Branca.

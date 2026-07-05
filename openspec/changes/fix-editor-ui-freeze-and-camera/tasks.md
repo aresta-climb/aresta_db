@@ -14,11 +14,14 @@
 
 ## 3. Refatoração do Salvamento (Thread de Background)
 
-- [ ] 3.1 Isolar a lógica atual de disco/banco de dados em uma classe assíncrona (como `WorkerSalvar(QRunnable)` ou classe customizada baseada no worker já existente em `core`).
-- [ ] 3.2 Implementar bloqueio (desabilitar comandos chave da UI) e indicação visual de progresso (label ou barra de status de "Salvando...") no momento do clique.
-- [ ] 3.3 Iniciar o worker usando um `QThreadPool` e conectar os sinais customizados `finalizado(bool)` e `erro(str)` na Main Thread.
-- [ ] 3.4 Restaurar estado de bloqueio da UI e processar pop-ups de confirmação ou erro `QMessageBox` quando o slot de término for ativado.
-- [ ] 3.5 Executar os testes de `area_principal_test.py` atualizados e certificar 100% de coverage para as lógicas síncronas e assíncronas do salvamento.
+- [ ] 3.1 Implementar mecanismo de *snapshot* na Main Thread: extrair cópia independente do modelo de dados antes de repassar à thread de background.
+- [ ] 3.2 Isolar a lógica atual de disco/banco de dados em uma classe assíncrona (`WorkerSalvar(QRunnable)`) que recebe o *snapshot*.
+- [ ] 3.3 Implementar indicação visual de progresso (label de "Salvando...") na UI no momento do clique, sem bloquear edições permitidas.
+- [ ] 3.4 Iniciar o worker via `QThreadPool`, marcando internamente o ponto da operação (estado do `historico`).
+- [ ] 3.5 No sinal `finalizado(bool)` na Main Thread, restaurar estado visual e, se concluído com sucesso, validar que modificações ocorridas *durante* o salvamento continuem marcadas como "não salvas".
+- [ ] 3.6 Modificar `closeEvent` em `area_principal.py` para bloquear fechamento com um modal "Finalizando salvamento..." se um salvamento assíncrono estiver ocorrendo.
+- [ ] 3.7 Garantir que o `closeEvent` cancele o fechamento e retorne o usuário ao editor caso o salvamento pendente finalize com erro.
+- [ ] 3.8 Executar testes de **integração e unitários** em `area_principal_test.py` (conforme `PRINCIPIOS.md`), garantindo 100% de coverage para as lógicas síncronas e assíncronas, incluindo testes de modificação durante o save e comportamento de fechamento bloqueado.
 
 ## 4. Prevenção de Movimentação Acidental de POIs
 

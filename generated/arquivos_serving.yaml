@@ -358,7 +358,7 @@ arquivos:
 - caminho_relativo: br_mg_caete_monte_alvao/compilado.md
   checksum_sha256: 3d106cd71a8a2ccdf9909a4af4ef930f6bc4f744297f209c680582d6675aaf13
 - caminho_relativo: br_mg_caete_pedra_branca/compilado.binarypb
-  checksum_sha256: 29f8768b4dd8f4b3575386576b2cf3b62f099e096e2ae3d5fdfdcdbd259e4c00
+  checksum_sha256: 5f6c0bffe780efa28471fb5d58bb9d076cc571d885960af9465d6025b714e266
 - caminho_relativo: thumbnails/br_mg_caete_pedra_branca.webp
   checksum_sha256: 5595e0ed31526cb50b44acf14574b4c203e4435e10dbd102f3006ab744f71145
 - caminho_relativo: br_mg_caete_pedra_branca/imagens/pagina_0_imagem_0.webp
@@ -368,11 +368,11 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_branca/imagens/pagina_2_imagem_0.webp
   checksum_sha256: 2be1ba32f6bc4191dd1dfbb6c5cd9c12e12760cbac900bd67f3e855ff7e066a4
 - caminho_relativo: br_mg_caete_pedra_branca/compilado.yaml
-  checksum_sha256: 81268303a5d67a53f41f032a1d9bf59e6a18ddc4ca1b1a24ae03ca8114ebe7e5
+  checksum_sha256: bdfb516654a91ea5c4cb38c89b4efe2ad3628f0079f9c295764b3c76f1bde852
 - caminho_relativo: br_mg_caete_pedra_branca/compilado.md
-  checksum_sha256: 6d4b30c025540f40c1159cc425e2ab248b3ca7be5cb94c6f2e4120b6ead8145d
+  checksum_sha256: 084c1988788e6a535ca954d1241a20a618299bcb145b0bc1fc313b17b8ecbc23
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.binarypb
-  checksum_sha256: fc55673b4fc6ddd4160392b3ae6c5e7f9741fa9522717a5688c70b5cfce034ca
+  checksum_sha256: 0cdb2279db49788bcec4b5bba88caa66e4ce68b3ca12d3d1af31dcd1ce92c158
 - caminho_relativo: thumbnails/br_mg_caete_pedra_filha.webp
   checksum_sha256: 86ebad5aaf4e224f8ae16f15622cd24e33922939de8c4909b5ab598c8444a8f2
 - caminho_relativo: br_mg_caete_pedra_filha/imagens/setor_de_baixo_p1.webp
@@ -380,9 +380,9 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_filha/imagens/setor_de_cima_p0.webp
   checksum_sha256: 89777869e4ce42931b2036452a129f7fc7c2208f06df31bbbf2df809cfdf5a77
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.yaml
-  checksum_sha256: bbd628d9f26bf2eac66fb3ca80f7dfb2dac0871c58078690a3bb10748b49aa1e
+  checksum_sha256: 38feaaea889cfede6f08c4601d69a3bbb6ccf770f75f9a9c244fde0429b62daa
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.md
-  checksum_sha256: 898201776b34849fbc8e24d10ce8fc1d45f517246d8940102435258d795974f8
+  checksum_sha256: f6a93f314aa8509e1f6b7d081611682b5b7fe85ced5c9cd540e4d9c5322768a9
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 02f12499a4cd04d67d69843a06632d3cb65aa33c0cd963963bd76efde60f665d
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 3a6da465073b3618ea0f5db42f86dec8aec748619fcf07861369c450b2dd7dc5
 - caminho_relativo: indice.binarypb
-  checksum_sha256: bd2940aee309e960fec18505436634540797d91ba42049ae70cf9b1730bb2dfb
+  checksum_sha256: 840d88238e8ff214ca696dbf7a5c38da0f651d38405b2164eaf27eca34328bd0
 - caminho_relativo: indice.yaml
-  checksum_sha256: 183b206782cfda8597c6d4cb9a3776047a558f5c2b49342e952d7ad53b579e4f
+  checksum_sha256: cb8ad34daed10d2c62abacc84f270cc5c8fb6863ceb4bd403919949305cc732b

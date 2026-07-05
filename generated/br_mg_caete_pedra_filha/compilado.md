@@ -10,6 +10,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 - **botoes**: []
 
 
@@ -33,38 +34,38 @@
         - **label**: 1
         - **box**:
           - **x**: 90
-          - **y**: 373
-          - **comprimento**: 11
-          - **largura**: 14
+          - **y**: 374
+          - **comprimento**: 13
+          - **largura**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
         - **box**:
           - **x**: 107
-          - **y**: 372
-          - **comprimento**: 12
-          - **largura**: 12
+          - **y**: 373
+          - **comprimento**: 14
+          - **largura**: 14
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **box**:
           - **x**: 123
-          - **y**: 372
-          - **comprimento**: 10
+          - **y**: 373
+          - **comprimento**: 14
           - **largura**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **box**:
-          - **x**: 165
-          - **y**: 374
-          - **comprimento**: 14
-          - **largura**: 15
+          - **x**: 166
+          - **y**: 373
+          - **comprimento**: 15
+          - **largura**: 14
       - **[4]**:
         - **id**: 5
         - **label**: 5
         - **box**:
-          - **x**: 198
+          - **x**: 200
           - **y**: 370
           - **comprimento**: 14
           - **largura**: 15
@@ -72,7 +73,7 @@
         - **id**: 6
         - **label**: 6
         - **box**:
-          - **x**: 226
+          - **x**: 228
           - **y**: 370
           - **comprimento**: 15
           - **largura**: 15
@@ -82,29 +83,29 @@
         - **box**:
           - **x**: 258
           - **y**: 368
-          - **comprimento**: 14
-          - **largura**: 14
+          - **comprimento**: 15
+          - **largura**: 16
       - **[7]**:
         - **id**: 8
         - **label**: 8
         - **box**:
-          - **x**: 286
+          - **x**: 287
           - **y**: 370
-          - **comprimento**: 15
-          - **largura**: 14
+          - **comprimento**: 16
+          - **largura**: 15
       - **[8]**:
         - **id**: 9
         - **label**: 9
         - **box**:
           - **x**: 366
-          - **y**: 370
+          - **y**: 369
           - **comprimento**: 15
           - **largura**: 16
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 434
+          - **x**: 436
           - **y**: 367
           - **comprimento**: 20
           - **largura**: 18
@@ -120,7 +121,7 @@
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 491
+          - **x**: 493
           - **y**: 368
           - **comprimento**: 20
           - **largura**: 19
@@ -128,15 +129,15 @@
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 527
+          - **x**: 530
           - **y**: 368
-          - **comprimento**: 22
+          - **comprimento**: 20
           - **largura**: 18
       - **[13]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 572
+          - **x**: 571
           - **y**: 370
           - **comprimento**: 20
           - **largura**: 19
@@ -269,39 +270,39 @@
         - **box**:
           - **x**: 188
           - **y**: 606
-          - **comprimento**: 15
-          - **largura**: 23
+          - **comprimento**: 21
+          - **largura**: 24
       - **[1]**:
         - **id**: 2
         - **label**: 2
         - **box**:
           - **x**: 312
           - **y**: 602
-          - **comprimento**: 16
+          - **comprimento**: 21
           - **largura**: 22
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **box**:
-          - **x**: 405
+          - **x**: 406
           - **y**: 590
-          - **comprimento**: 18
-          - **largura**: 21
+          - **comprimento**: 23
+          - **largura**: 22
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **box**:
-          - **x**: 445
-          - **y**: 585
-          - **comprimento**: 16
-          - **largura**: 20
+          - **x**: 446
+          - **y**: 586
+          - **comprimento**: 23
+          - **largura**: 23
       - **[4]**:
         - **id**: 5
         - **label**: 5
         - **box**:
-          - **x**: 513
+          - **x**: 514
           - **y**: 584
-          - **comprimento**: 18
+          - **comprimento**: 21
           - **largura**: 21
       - **[5]**:
         - **id**: 6
@@ -309,32 +310,32 @@
         - **box**:
           - **x**: 574
           - **y**: 587
-          - **comprimento**: 13
-          - **largura**: 18
+          - **comprimento**: 21
+          - **largura**: 20
       - **[6]**:
         - **id**: 7
         - **label**: 7
         - **box**:
-          - **x**: 829
+          - **x**: 830
           - **y**: 580
-          - **comprimento**: 16
-          - **largura**: 22
+          - **comprimento**: 21
+          - **largura**: 21
       - **[7]**:
         - **id**: 8
         - **label**: 8
         - **box**:
-          - **x**: 940
+          - **x**: 941
           - **y**: 576
-          - **comprimento**: 17
+          - **comprimento**: 22
           - **largura**: 21
       - **[8]**:
         - **id**: 9
         - **label**: 9
         - **box**:
           - **x**: 1064
-          - **y**: 573
-          - **comprimento**: 17
-          - **largura**: 20
+          - **y**: 574
+          - **comprimento**: 22
+          - **largura**: 21
     - **referencias**:
       - **[0]**:
         - **escalada**: Extremo Norte
