@@ -67,6 +67,7 @@
             **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_esquerda
@@ -84,67 +85,59 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 176
-          - **y**: 889
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 891
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 695
+        - **circular**:
+          - **x**: 697
           - **y**: 1010
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 950
-          - **y**: 1010
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 951
+          - **y**: 1009
+          - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 1185
-          - **y**: 970
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1187
+          - **y**: 971
+          - **raio**: 15
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **circular**:
           - **x**: 1275
-          - **y**: 970
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 971
+          - **raio**: 15
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 1365
+        - **circular**:
+          - **x**: 1364
           - **y**: 990
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 1575
-          - **y**: 985
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 984
+          - **raio**: 15
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 1660
-          - **y**: 985
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 984
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Água Bolhas
@@ -186,11 +179,10 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 302
-          - **y**: 886
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 300
+          - **y**: 889
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Água Bolhas
@@ -204,19 +196,17 @@
       - **[0]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 330
-          - **y**: 1005
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 1007
+          - **raio**: 15
       - **[1]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 585
-          - **y**: 1130
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 1129
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Concretino
@@ -234,43 +224,38 @@
       - **[0]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 12
-          - **y**: 1105
-          - **comprimento**: 25
-          - **largura**: 30
+        - **circular**:
+          - **x**: 11
+          - **y**: 1106
+          - **raio**: 14
       - **[1]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 176
+        - **circular**:
+          - **x**: 174
           - **y**: 942
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 15
       - **[2]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 322
+        - **circular**:
+          - **x**: 323
           - **y**: 1110
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[3]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 533
-          - **y**: 1103
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 1104
+          - **raio**: 15
       - **[4]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 620
-          - **y**: 1105
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 619
+          - **y**: 1104
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: (via inacabada)
@@ -374,91 +359,80 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 207
-          - **y**: 894
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 892
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 262
-          - **y**: 902
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 903
+          - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 317
-          - **y**: 890
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 316
+          - **y**: 891
+          - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 354
-          - **y**: 890
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 353
+          - **y**: 891
+          - **raio**: 15
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 457
-          - **y**: 887
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 454
+          - **y**: 890
+          - **raio**: 15
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **circular**:
           - **x**: 633
-          - **y**: 868
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 867
+          - **raio**: 15
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 732
-          - **y**: 893
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 894
+          - **raio**: 15
       - **[7]**:
         - **id**: 8-9
         - **label**: 8-9
-        - **box**:
+        - **circular**:
           - **x**: 770
-          - **y**: 890
-          - **comprimento**: 35
-          - **largura**: 30
+          - **y**: 893
+          - **raio**: 19
       - **[8]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 1071
-          - **y**: 912
-          - **comprimento**: 30
-          - **largura**: 26
+        - **circular**:
+          - **x**: 1072
+          - **y**: 914
+          - **raio**: 15
       - **[9]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 1226
-          - **y**: 926
-          - **comprimento**: 31
-          - **largura**: 26
+        - **circular**:
+          - **x**: 1224
+          - **y**: 927
+          - **raio**: 15
       - **[10]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 1261
-          - **y**: 927
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1259
+          - **y**: 928
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Lá Cancha
@@ -611,75 +585,66 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 190
           - **y**: 968
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 383
-          - **y**: 967
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 382
+          - **y**: 968
+          - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 605
-          - **y**: 966
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 604
+          - **y**: 968
+          - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **circular**:
           - **x**: 893
           - **y**: 968
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 1008
-          - **y**: 965
-          - **comprimento**: 35
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1007
+          - **y**: 968
+          - **raio**: 15
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 1278
+        - **circular**:
+          - **x**: 1274
           - **y**: 968
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 15
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1618
-          - **y**: 967
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1620
+          - **y**: 969
+          - **raio**: 15
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 1748
           - **y**: 968
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 15
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 1898
+        - **circular**:
+          - **x**: 1899
           - **y**: 968
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: La Cucaracha
@@ -725,19 +690,17 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 520
+        - **circular**:
+          - **x**: 519
           - **y**: 1135
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 845
-          - **y**: 1126
-          - **comprimento**: 28
-          - **largura**: 30
+        - **circular**:
+          - **x**: 846
+          - **y**: 1127
+          - **raio**: 14
     - **referencias**:
       - **[0]**:
         - **escalada**: La Cucaracha
@@ -755,27 +718,24 @@
       - **[0]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 35
-          - **y**: 1130
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 1132
+          - **raio**: 15
       - **[1]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 365
-          - **y**: 1100
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 364
+          - **y**: 1099
+          - **raio**: 15
       - **[2]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **circular**:
           - **x**: 478
-          - **y**: 1090
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 1092
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: (via inacabada)
@@ -797,35 +757,31 @@
       - **[0]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 48
-          - **y**: 1132
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 49
+          - **y**: 1134
+          - **raio**: 14
       - **[1]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 518
-          - **y**: 1132
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 519
+          - **y**: 1135
+          - **raio**: 14
       - **[2]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 648
-          - **y**: 1128
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 646
+          - **y**: 1130
+          - **raio**: 15
       - **[3]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 802
+        - **circular**:
+          - **x**: 798
           - **y**: 1118
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Segunda Divisão
@@ -917,7 +873,7 @@
     - **checksum_sha256**: 261f76ff3065187fce694e5becc134487ed35813ecab875cf9b584cdb90fd98a
   - **[1]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
-    - **checksum_sha256**: 080e61fe4b4731776e5bfd1b80fab43ce5ff72dda980fd4f05806ea9fb35db1e
+    - **checksum_sha256**: 1294ed7024af6d4e5d1b40ce0dcd5cf25c13404eeed8b058be0324d56c3c9d20
   - **[2]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1_i0.webp)
     - **checksum_sha256**: 86783d44014864c391c2be15e4029ca4b123571af0deb078eefd2399c98a2727

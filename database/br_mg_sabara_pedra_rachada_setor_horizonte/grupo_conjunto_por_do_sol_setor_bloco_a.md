@@ -23,13 +23,6 @@ mapas:
       x: 756
       y: 377
       raio: 19
-  - id: Bloco A
-    label: Bloco A
-    box:
-      x: 654
-      y: 59
-      comprimento: 193
-      largura: 58
   referencias:
   - escalada: Sem querer
     ids:
@@ -49,26 +42,19 @@ mapas:
     circular:
       x: 185
       y: 744
-      raio: 12
+      raio: 19
   - id: '10'
     label: '10'
     circular:
       x: 257
       y: 698
-      raio: 15
+      raio: 19
   - id: '11'
     label: '11'
     circular:
       x: 693
       y: 541
-      raio: 15
-  - id: Bloco A
-    label: Bloco A
-    box:
-      x: 410
-      y: 400
-      comprimento: 80
-      largura: 80
+      raio: 19
   referencias:
   - escalada: Pôr-do-sol
     ids:

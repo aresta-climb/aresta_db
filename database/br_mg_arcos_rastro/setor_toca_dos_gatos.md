@@ -1,4 +1,4 @@
----
+---
 nome: Setor Toca dos Gatos
 mapas:
 - caminho_imagem_mapa: imagens/setor_toca_dos_gatos_p0_i0.webp
@@ -9,83 +9,76 @@ mapas:
     label: Setor Vale das Sombras
     box:
       x: 58
-      y: 11
-      comprimento: 103
-      largura: 14
+      y: 13
+      comprimento: 113
+      largura: 20
   - id: Setor_Intermediario
     label: Setor Intermediário
     box:
       x: 192
       y: 160
-      comprimento: 85
-      largura: 15
-  - id: Tunel_Acesso
-    label: Túnel de acesso
-    box:
-      x: 274
-      y: 552
-      comprimento: 47
-      largura: 42
+      comprimento: 92
+      largura: 20
   - id: Setor_da_Onca
     label: Setor da Onça
     box:
       x: 624
       y: 1081
-      comprimento: 42
-      largura: 28
+      comprimento: 48
+      largura: 36
   - id: '01'
     label: '01'
     box:
       x: 246
       y: 443
-      comprimento: 17
-      largura: 12
+      comprimento: 21
+      largura: 18
   - id: '02'
     label: '02'
     box:
-      x: 308
+      x: 310
       y: 726
-      comprimento: 21
-      largura: 17
+      comprimento: 23
+      largura: 18
   - id: '03'
     label: '03'
     box:
-      x: 298
-      y: 814
-      comprimento: 29
-      largura: 19
+      x: 302
+      y: 815
+      comprimento: 23
+      largura: 20
   - id: '04'
     label: '04'
     box:
       x: 179
-      y: 869
-      comprimento: 18
-      largura: 12
+      y: 871
+      comprimento: 24
+      largura: 22
   - id: '05'
     label: '05'
     box:
       x: 174
-      y: 792
-      comprimento: 17
-      largura: 13
+      y: 794
+      comprimento: 23
+      largura: 21
   - id: '06'
     label: '06'
     box:
       x: 130
       y: 728
-      comprimento: 17
-      largura: 14
+      comprimento: 24
+      largura: 19
   - id: '07'
     label: '07'
     box:
       x: 164
       y: 652
-      comprimento: 21
-      largura: 17
+      comprimento: 22
+      largura: 20
   - id: '08'
     label: '08'
     box:
-      x: 140
+      x: 139
       y: 436
       comprimento: 22
       largura: 17
@@ -111,6 +104,19 @@ mapas:
   - escalada: Fila de Espera
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Setor Toca dos Gatos
+    escalada: Nem C/ Chuva a Gente Para
+  - ids:
+    - Setor_Vale_das_Sombras
+    setor: Setor Vale das Sombras
+  - ids:
+    - Setor_Intermediario
+    setor: Setor Intermediário
+  - ids:
+    - Setor_da_Onca
+    setor: Setor Onça
 escaladas:
 - via_esportiva:
     nome: Eakthecat
@@ -162,7 +168,8 @@ escaladas:
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Toca dos Gatos
 
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".

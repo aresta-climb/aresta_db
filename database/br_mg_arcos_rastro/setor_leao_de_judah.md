@@ -1,4 +1,4 @@
----
+---
 nome: Setor Leão de Judah
 mapas:
 - caminho_imagem_mapa: imagens/setor_leao_de_judah_p0_i0.webp
@@ -12,20 +12,6 @@ mapas:
       y: 52
       comprimento: 46
       largura: 39
-  - id: Grutas
-    label: Grutas
-    box:
-      x: 210
-      y: 739
-      comprimento: 47
-      largura: 20
-  - id: Estrada
-    label: ESTRADA
-    box:
-      x: 740
-      y: 670
-      comprimento: 41
-      largura: 61
   - id: Totem_Pedra
     label: TOTEM PEDRA
     box:
@@ -37,57 +23,57 @@ mapas:
     label: Setor Vale das Sombras
     box:
       x: 72
-      y: 1092
-      comprimento: 45
-      largura: 25
+      y: 1090
+      comprimento: 59
+      largura: 47
   - id: '01'
     label: '01'
     box:
-      x: 210
-      y: 842
+      x: 201
+      y: 823
       comprimento: 16
       largura: 14
   - id: '02'
     label: '02'
     box:
-      x: 226
-      y: 852
+      x: 216
+      y: 830
       comprimento: 16
       largura: 14
   - id: '03'
     label: '03'
     box:
-      x: 243
-      y: 862
+      x: 246
+      y: 847
       comprimento: 16
       largura: 14
   - id: '04'
     label: '04'
     box:
-      x: 273
-      y: 887
+      x: 285
+      y: 864
       comprimento: 16
       largura: 14
   - id: '05'
     label: '05'
     box:
-      x: 296
-      y: 902
+      x: 317
+      y: 876
       comprimento: 16
       largura: 14
   - id: '06'
     label: '06'
     box:
-      x: 313
-      y: 817
-      comprimento: 16
+      x: 334
+      y: 903
+      comprimento: 13
       largura: 14
   - id: '07'
     label: '07'
     box:
-      x: 321
-      y: 827
-      comprimento: 16
+      x: 348
+      y: 891
+      comprimento: 14
       largura: 14
   - id: '08'
     label: '08'
@@ -106,87 +92,80 @@ mapas:
   - id: '10'
     label: '10'
     box:
-      x: 332
+      x: 331
       y: 760
-      comprimento: 21
+      comprimento: 18
       largura: 17
   - id: '11'
     label: '11'
     box:
       x: 334
       y: 720
-      comprimento: 15
-      largura: 14
+      comprimento: 16
+      largura: 15
   - id: '12'
     label: '12'
     box:
       x: 362
       y: 658
-      comprimento: 17
-      largura: 14
+      comprimento: 19
+      largura: 17
   - id: '13'
     label: '13'
     box:
-      x: 393
-      y: 672
-      comprimento: 16
-      largura: 14
+      x: 418
+      y: 656
+      comprimento: 18
+      largura: 17
   - id: '14'
     label: '14'
     box:
-      x: 414
-      y: 692
-      comprimento: 16
-      largura: 14
+      x: 440
+      y: 684
+      comprimento: 19
+      largura: 19
   - id: '15'
     label: '15'
     box:
-      x: 433
-      y: 682
-      comprimento: 16
-      largura: 14
+      x: 462
+      y: 660
+      comprimento: 19
+      largura: 18
   - id: '16'
     label: '16'
     box:
-      x: 501
+      x: 502
       y: 642
-      comprimento: 14
-      largura: 13
-  - id: '17'
-    label: '17'
-    box:
-      x: 518
-      y: 652
-      comprimento: 16
-      largura: 14
+      comprimento: 17
+      largura: 17
   - id: '18'
     label: '18'
     box:
       x: 621
       y: 468
-      comprimento: 18
-      largura: 13
+      comprimento: 20
+      largura: 17
   - id: '19'
     label: '19'
     box:
       x: 644
-      y: 389
-      comprimento: 19
-      largura: 16
+      y: 392
+      comprimento: 17
+      largura: 15
   - id: '20'
     label: '20'
     box:
-      x: 649
-      y: 376
-      comprimento: 18
-      largura: 17
+      x: 653
+      y: 368
+      comprimento: 24
+      largura: 27
   - id: '21'
     label: '21'
     box:
       x: 638
-      y: 347
-      comprimento: 16
-      largura: 12
+      y: 348
+      comprimento: 19
+      largura: 15
   - id: '22'
     label: '22'
     box:
@@ -255,6 +234,20 @@ mapas:
   - escalada: Ce ki Sabe
     ids:
     - '22'
+  - ids:
+    - '08'
+    setor: Setor Leão de Judah
+    escalada: Efeito Moral
+  - ids:
+    - '09'
+    setor: Setor Leão de Judah
+    escalada: Risco de Discórdia
+  - ids:
+    - Setor_Vale_das_Sombras
+    setor: Setor Vale das Sombras
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Antigo Camping
 escaladas:
 - via_esportiva:
     nome: Aline no País das Maravilhas
@@ -378,7 +371,8 @@ escaladas:
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Leão de Judah
 
 Este setor possui sombra até as 12h (variando de acordo com a estação).

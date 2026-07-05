@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale dos Espinhos
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_dos_espinhos_p0_i6.webp
@@ -11,287 +11,273 @@ mapas:
       x: 330
       y: 86
       comprimento: 30
-      largura: 19
+      largura: 24
   - id: '33'
     label: '33'
     box:
       x: 490
-      y: 103
-      comprimento: 29
-      largura: 16
+      y: 104
+      comprimento: 32
+      largura: 23
   - id: Setor_Sentinela_Top
     label: Setor Sentinela
     box:
       x: 684
       y: 132
-      comprimento: 115
-      largura: 46
+      comprimento: 118
+      largura: 52
   - id: '02'
     label: '02'
     box:
-      x: 281
+      x: 282
       y: 130
-      comprimento: 34
-      largura: 19
+      comprimento: 35
+      largura: 26
   - id: '03'
     label: '03'
     box:
       x: 262
-      y: 165
-      comprimento: 30
-      largura: 16
+      y: 164
+      comprimento: 33
+      largura: 25
   - id: '04'
     label: '04'
     box:
       x: 232
-      y: 196
+      y: 195
       comprimento: 33
-      largura: 19
+      largura: 24
   - id: '34'
     label: '34'
     box:
       x: 216
-      y: 224
-      comprimento: 30
-      largura: 15
+      y: 225
+      comprimento: 32
+      largura: 24
   - id: '05'
     label: '05'
     box:
       x: 176
-      y: 334
-      comprimento: 34
-      largura: 19
+      y: 335
+      comprimento: 35
+      largura: 28
   - id: '06'
     label: '06'
     box:
       x: 176
-      y: 395
+      y: 396
       comprimento: 33
-      largura: 20
+      largura: 27
   - id: '09'
     label: '09'
     box:
-      x: 398
-      y: 409
-      comprimento: 37
-      largura: 26
+      x: 399
+      y: 410
+      comprimento: 34
+      largura: 28
   - id: '07'
     label: '07'
     box:
-      x: 224
+      x: 227
       y: 444
-      comprimento: 25
-      largura: 15
+      comprimento: 32
+      largura: 30
   - id: '35'
     label: '35'
     box:
       x: 318
       y: 450
       comprimento: 33
-      largura: 19
+      largura: 27
   - id: '08'
     label: '08'
     box:
       x: 380
-      y: 444
-      comprimento: 33
-      largura: 20
+      y: 445
+      comprimento: 34
+      largura: 26
   - id: '37'
     label: '37'
     box:
-      x: 546
+      x: 548
       y: 448
-      comprimento: 39
-      largura: 27
+      comprimento: 35
+      largura: 28
   - id: '36'
     label: '36'
     box:
       x: 402
       y: 480
       comprimento: 35
-      largura: 20
+      largura: 27
   - id: '32'
     label: '32'
     box:
-      x: 523
+      x: 524
       y: 541
-      comprimento: 34
-      largura: 18
+      comprimento: 35
+      largura: 26
   - id: '31'
     label: '31'
     box:
-      x: 518
+      x: 520
       y: 606
       comprimento: 31
-      largura: 19
+      largura: 27
   - id: '10'
     label: '10'
     box:
-      x: 346
+      x: 345
       y: 683
-      comprimento: 33
-      largura: 22
+      comprimento: 34
+      largura: 28
   - id: '30'
     label: '30'
     box:
-      x: 522
+      x: 523
       y: 682
-      comprimento: 33
-      largura: 19
+      comprimento: 36
+      largura: 27
   - id: '14'
     label: '14'
     box:
       x: 235
-      y: 699
-      comprimento: 22
-      largura: 14
+      y: 700
+      comprimento: 28
+      largura: 27
   - id: '13'
     label: '13'
     box:
       x: 250
-      y: 748
+      y: 750
       comprimento: 30
-      largura: 19
+      largura: 25
   - id: '15'
     label: '15'
     box:
-      x: 62
-      y: 761
-      comprimento: 29
-      largura: 20
+      x: 63
+      y: 762
+      comprimento: 30
+      largura: 27
   - id: '12'
     label: '12'
     box:
-      x: 250
-      y: 786
+      x: 251
+      y: 787
       comprimento: 30
-      largura: 19
+      largura: 26
   - id: '29'
     label: '29'
     box:
       x: 548
       y: 820
-      comprimento: 29
-      largura: 15
+      comprimento: 34
+      largura: 27
   - id: '11'
     label: '11'
     box:
       x: 264
       y: 832
-      comprimento: 27
-      largura: 20
+      comprimento: 29
+      largura: 23
   - id: '28'
     label: '28'
     box:
       x: 542
       y: 854
-      comprimento: 30
-      largura: 15
+      comprimento: 31
+      largura: 25
   - id: '27'
     label: '27'
     box:
-      x: 541
-      y: 888
-      comprimento: 28
-      largura: 15
+      x: 540
+      y: 890
+      comprimento: 31
+      largura: 27
   - id: '26'
     label: '26'
     box:
-      x: 544
+      x: 546
       y: 926
-      comprimento: 31
-      largura: 16
+      comprimento: 33
+      largura: 26
   - id: Setor_Sentinela_Bottom
     label: Setor Sentinela
     box:
       x: 682
       y: 996
-      comprimento: 108
-      largura: 39
+      comprimento: 110
+      largura: 45
   - id: '16'
     label: '16'
     box:
       x: 176
       y: 1010
-      comprimento: 24
-      largura: 17
+      comprimento: 31
+      largura: 26
   - id: '17'
     label: '17'
     box:
       x: 260
       y: 1018
       comprimento: 30
-      largura: 19
+      largura: 24
   - id: '18'
     label: '18'
     box:
       x: 284
       y: 1056
-      comprimento: 29
-      largura: 20
+      comprimento: 30
+      largura: 23
   - id: '25'
     label: '25'
     box:
       x: 488
       y: 1055
       comprimento: 34
-      largura: 20
-  - id: Acesso_escalando
-    label: Acesso escalando
-    box:
-      x: 504
-      y: 1083
-      comprimento: 201
-      largura: 16
+      largura: 24
   - id: '24'
     label: '24'
     box:
       x: 504
       y: 1116
-      comprimento: 28
-      largura: 15
+      comprimento: 32
+      largura: 24
   - id: '23'
     label: '23'
     box:
-      x: 514
+      x: 516
       y: 1146
-      comprimento: 33
-      largura: 19
+      comprimento: 32
+      largura: 22
   - id: '22'
     label: '22'
     box:
       x: 540
-      y: 1172
-      comprimento: 32
-      largura: 17
-  - id: Clarabóia
-    label: Clarabóia
-    box:
-      x: 373
-      y: 1196
-      comprimento: 154
-      largura: 29
+      y: 1173
+      comprimento: 34
+      largura: 22
   - id: '21'
     label: '21'
     box:
-      x: 552
-      y: 1206
-      comprimento: 33
-      largura: 19
+      x: 554
+      y: 1205
+      comprimento: 31
+      largura: 24
   - id: '20'
     label: '20'
     box:
-      x: 556
-      y: 1232
-      comprimento: 34
-      largura: 19
+      x: 558
+      y: 1233
+      comprimento: 33
+      largura: 24
   - id: '19'
     label: '19'
     box:
       x: 540
       y: 1260
       comprimento: 31
-      largura: 19
+      largura: 23
   referencias:
   - escalada: Quase Nove
     ids:
@@ -398,6 +384,18 @@ mapas:
   - escalada: Skywalker
     ids:
     - '37'
+  - ids:
+    - '08'
+    setor: Setor Vale dos Espinhos
+    escalada: Tá Esperando o quê?
+  - ids:
+    - '09'
+    setor: Setor Vale dos Espinhos
+    escalada: Quem Sabe ano que Vem
+  - ids:
+    - Setor_Sentinela_Bottom
+    - Setor_Sentinela_Top
+    setor: Setor Sentinela e Vale do Joga
 escaladas:
 - via_esportiva:
     nome: Quase Nove
@@ -685,7 +683,8 @@ escaladas:
     conquistadores:
     - Dy Oliveira
     - Marco Durães
----
+---
+
 # Setor Vale dos Espinhos
 
 **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.

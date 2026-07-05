@@ -1,4 +1,4 @@
----
+---
 nome: Setor Antigo Camping
 mapas:
 - caminho_imagem_mapa: imagens/setor_antigo_camping_p0_i0.webp
@@ -10,41 +10,41 @@ mapas:
     box:
       x: 62
       y: 46
-      comprimento: 44
-      largura: 26
+      comprimento: 46
+      largura: 29
   - id: Savassinha
     label: Savassinha
     box:
       x: 146
       y: 308
-      comprimento: 74
-      largura: 17
+      comprimento: 80
+      largura: 26
   - id: Beco_do_Tiu
     label: Beco do Tiú
     box:
       x: 285
       y: 348
-      comprimento: 76
-      largura: 17
+      comprimento: 78
+      largura: 25
   - id: '01'
     label: '01'
     box:
       x: 372
-      y: 899
-      comprimento: 16
-      largura: 12
+      y: 900
+      comprimento: 18
+      largura: 15
   - id: '02'
     label: '02'
     box:
       x: 396
-      y: 882
-      comprimento: 18
-      largura: 13
+      y: 884
+      comprimento: 21
+      largura: 16
   - id: '03'
     label: '03'
     box:
       x: 410
-      y: 862
+      y: 863
       comprimento: 21
       largura: 16
   - id: '04'
@@ -57,122 +57,115 @@ mapas:
   - id: '05'
     label: '05'
     box:
-      x: 435
-      y: 828
+      x: 448
+      y: 824
       comprimento: 20
       largura: 15
   - id: '06'
     label: '06'
     box:
-      x: 452
+      x: 459
       y: 808
       comprimento: 20
       largura: 15
   - id: '07'
     label: '07'
     box:
-      x: 468
+      x: 466
       y: 790
-      comprimento: 29
-      largura: 19
+      comprimento: 20
+      largura: 15
   - id: '08'
     label: '08'
     box:
-      x: 467
-      y: 772
-      comprimento: 28
-      largura: 21
+      x: 466
+      y: 771
+      comprimento: 21
+      largura: 16
   - id: '09'
     label: '09'
     box:
-      x: 457
+      x: 458
       y: 748
-      comprimento: 26
-      largura: 21
+      comprimento: 21
+      largura: 16
   - id: '10'
     label: '10'
     box:
       x: 470
       y: 718
-      comprimento: 24
-      largura: 19
+      comprimento: 20
+      largura: 17
   - id: '11'
     label: '11'
     box:
       x: 490
       y: 689
-      comprimento: 21
+      comprimento: 19
       largura: 18
   - id: '12'
     label: '12'
     box:
-      x: 469
+      x: 470
       y: 658
-      comprimento: 24
-      largura: 21
+      comprimento: 21
+      largura: 17
   - id: '13'
     label: '13'
     box:
       x: 449
-      y: 620
-      comprimento: 22
-      largura: 18
+      y: 622
+      comprimento: 20
+      largura: 17
   - id: '14'
     label: '14'
     box:
-      x: 465
-      y: 592
-      comprimento: 20
-      largura: 15
+      x: 492
+      y: 562
+      comprimento: 18
+      largura: 16
   - id: '15'
     label: '15'
     box:
-      x: 494
-      y: 536
-      comprimento: 33
-      largura: 29
+      x: 492
+      y: 538
+      comprimento: 19
+      largura: 17
   - id: '16'
     label: '16'
     box:
-      x: 490
-      y: 479
-      comprimento: 23
-      largura: 16
+      x: 489
+      y: 480
+      comprimento: 20
+      largura: 18
   - id: '17'
     label: '17'
     box:
-      x: 477
+      x: 476
       y: 438
-      comprimento: 24
-      largura: 17
+      comprimento: 19
+      largura: 18
   - id: '18'
     label: '18'
     box:
       x: 460
-      y: 399
-      comprimento: 21
+      y: 400
+      comprimento: 19
       largura: 18
   - id: '19'
     label: '19'
     box:
-      x: 400
-      y: 310
-      comprimento: 20
-      largura: 20
+      x: 398
+      y: 282
+      comprimento: 19
+      largura: 17
   - id: Leao_de_Judah
     label: Leão de Judah
     box:
       x: 159
       y: 1046
-      comprimento: 40
-      largura: 25
-  - id: Estrada
-    label: Estrada
-    box:
-      x: 345
-      y: 1102
-      comprimento: 38
-      largura: 14
+      comprimento: 46
+      largura: 32
   referencias:
   - escalada: Lucy Não
     ids:
@@ -225,6 +218,18 @@ mapas:
   - escalada: Lenços Umedecidos
     ids:
     - '19'
+  - ids:
+    - Setor_Grutinha
+    setor: Setor Grutinha
+  - ids:
+    - Savassinha
+    setor: Setor Savassinha
+  - ids:
+    - Beco_do_Tiu
+    setor: Setor Beco do Tiú
+  - ids:
+    - Leao_de_Judah
+    setor: Setor Leão de Judah
 escaladas:
 - via_esportiva:
     nome: Lucy Não
@@ -333,7 +338,8 @@ escaladas:
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Antigo Camping
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

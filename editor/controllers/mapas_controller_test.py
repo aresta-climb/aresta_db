@@ -182,5 +182,30 @@ class MapasControllerTest(unittest.TestCase):
         self.undo_stack.redo()
         self.assertEqual(sinal_emitido[-1], test_path)
 
+    def test_converter_circulos_para_boxes(self):
+        """[TDD] Verifica conversao de circulo para retangulo."""
+        poi1 = croqui_pb2.Mapa.PontoDeInteresse()
+        poi1.circular.x = 100
+        poi1.circular.y = 200
+        poi1.circular.raio = 50
+        
+        poi2 = croqui_pb2.Mapa.PontoDeInteresse()
+        poi2.box.x = 10
+        poi2.box.y = 10
+        
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi1)
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi2)
+        
+        self.controller.converter_circulos_para_boxes(self.msg_mapa_proxy, [0, 1])
+        
+        poi_convertido = self.msg_mapa_proxy.pontos_de_interesse[0]
+        self.assertTrue(poi_convertido.HasField('box'))
+        self.assertFalse(poi_convertido.HasField('circular'))
+        
+        self.assertEqual(poi_convertido.box.x, 100)
+        self.assertEqual(poi_convertido.box.y, 200)
+        self.assertEqual(poi_convertido.box.comprimento, 100)
+        self.assertEqual(poi_convertido.box.largura, 100)
+
 if __name__ == '__main__':
     unittest.main()

@@ -45,13 +45,13 @@ mapas:
     circular:
       x: 456
       y: 946
-      raio: 26
+      raio: 27
   - id: '45'
     label: '45'
     circular:
       x: 651
       y: 858
-      raio: 26
+      raio: 27
   referencias:
   - escalada: Medeia
     ids:
@@ -66,9 +66,9 @@ mapas:
   - id: '47'
     label: '47'
     circular:
-      x: 585
-      y: 1000
-      raio: 24
+      x: 586
+      y: 1001
+      raio: 25
   referencias:
   - escalada: Herança de Ferro
     ids:

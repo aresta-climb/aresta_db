@@ -1,4 +1,4 @@
----
+---
 nome: 3º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_3o_andar_p0_i0.webp
@@ -8,178 +8,178 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 374
-      y: 816
-      comprimento: 23
-      largura: 17
+      x: 372
+      y: 818
+      comprimento: 26
+      largura: 24
   - id: '02'
     label: '02'
     box:
-      x: 417
+      x: 416
       y: 738
-      comprimento: 32
-      largura: 24
+      comprimento: 27
+      largura: 25
   - id: '03'
     label: '03'
     box:
-      x: 415
+      x: 413
       y: 704
-      comprimento: 30
-      largura: 20
+      comprimento: 24
+      largura: 24
   - id: '04'
     label: '04'
     box:
       x: 432
-      y: 656
-      comprimento: 26
-      largura: 20
+      y: 658
+      comprimento: 23
+      largura: 24
   - id: '05'
     label: '05'
     box:
       x: 426
       y: 598
-      comprimento: 27
+      comprimento: 22
       largura: 21
   - id: '06'
     label: '06'
     box:
-      x: 454
-      y: 487
-      comprimento: 25
-      largura: 20
+      x: 453
+      y: 488
+      comprimento: 24
+      largura: 23
   - id: '07'
     label: '07'
     box:
-      x: 434
+      x: 436
       y: 432
-      comprimento: 22
-      largura: 18
+      comprimento: 25
+      largura: 25
   - id: '08'
     label: '08'
     box:
-      x: 491
-      y: 390
-      comprimento: 24
-      largura: 17
+      x: 490
+      y: 391
+      comprimento: 25
+      largura: 22
   - id: '09'
     label: '09'
     box:
       x: 534
-      y: 365
-      comprimento: 21
-      largura: 18
+      y: 366
+      comprimento: 24
+      largura: 21
   - id: '10'
     label: '10'
     box:
-      x: 525
-      y: 404
-      comprimento: 20
-      largura: 18
+      x: 550
+      y: 408
+      comprimento: 17
+      largura: 17
   - id: '11'
     label: '11'
     box:
-      x: 555
-      y: 404
-      comprimento: 20
-      largura: 18
+      x: 568
+      y: 398
+      comprimento: 17
+      largura: 17
   - id: '12'
     label: '12'
     box:
-      x: 591
+      x: 592
       y: 386
       comprimento: 20
-      largura: 16
+      largura: 17
   - id: '13'
     label: '13'
     box:
-      x: 606
-      y: 445
-      comprimento: 22
-      largura: 18
+      x: 608
+      y: 446
+      comprimento: 21
+      largura: 17
   - id: '14'
     label: '14'
     box:
-      x: 600
-      y: 463
+      x: 599
+      y: 464
       comprimento: 20
       largura: 18
   - id: '15'
     label: '15'
     box:
-      x: 555
-      y: 454
+      x: 561
+      y: 453
       comprimento: 20
       largura: 18
   - id: '16'
     label: '16'
     box:
-      x: 535
-      y: 469
+      x: 525
+      y: 467
       comprimento: 20
       largura: 18
   - id: '17'
     label: '17'
     box:
-      x: 535
+      x: 532
       y: 504
       comprimento: 20
       largura: 18
   - id: '18'
     label: '18'
     box:
-      x: 583
+      x: 582
       y: 606
       comprimento: 18
       largura: 18
   - id: '19'
     label: '19'
     box:
-      x: 575
-      y: 624
-      comprimento: 20
-      largura: 18
+      x: 565
+      y: 622
+      comprimento: 18
+      largura: 17
   - id: '20'
     label: '20'
     box:
       x: 564
       y: 644
-      comprimento: 22
-      largura: 15
+      comprimento: 21
+      largura: 19
   - id: '21'
     label: '21'
     box:
-      x: 564
+      x: 565
       y: 696
-      comprimento: 25
-      largura: 21
+      comprimento: 22
+      largura: 22
   - id: '22'
     label: '22'
     box:
-      x: 598
-      y: 742
-      comprimento: 25
+      x: 600
+      y: 744
+      comprimento: 22
       largura: 21
   - id: '23'
     label: '23'
     box:
       x: 624
-      y: 723
-      comprimento: 26
-      largura: 20
+      y: 724
+      comprimento: 20
+      largura: 19
   - id: '24'
     label: '24'
     box:
       x: 752
       y: 586
-      comprimento: 26
-      largura: 20
+      comprimento: 23
+      largura: 19
   - id: Setor_Conexao
     label: Setor Jardim Suspenso e Segundo Andar
     box:
       x: 82
       y: 918
-      comprimento: 67
-      largura: 92
+      comprimento: 78
+      largura: 98
   referencias:
   - escalada: Pinguela de Ema
     ids:
@@ -247,6 +247,20 @@ mapas:
   - escalada: Exame de Próstata
     ids:
     - '24'
+  - ids:
+    - Setor_Conexao
+    setor: Jardim Suspenso
+  - ids:
+    - Setor_Conexao
+    setor: 2º Andar
+  - ids:
+    - '08'
+    setor: 3º Andar
+    escalada: Iara
+  - ids:
+    - '09'
+    setor: 3º Andar
+    escalada: Come Hamburguer
 escaladas:
 - via_esportiva:
     nome: Pinguela de Ema
@@ -378,7 +392,8 @@ escaladas:
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor 3º Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

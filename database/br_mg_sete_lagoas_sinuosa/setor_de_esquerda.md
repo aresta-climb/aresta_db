@@ -1,4 +1,4 @@
----
+---
 nome: Setor de Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_esquerda_p0_i0.webp
@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 407
-      y: 564
-      comprimento: 40
-      largura: 45
+    circular:
+      x: 409
+      y: 565
+      raio: 22
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 595
-      y: 612
-      comprimento: 40
-      largura: 45
+      y: 614
+      raio: 22
   - id: '3'
     label: '3'
-    box:
-      x: 695
+    circular:
+      x: 698
       y: 628
-      comprimento: 40
-      largura: 45
+      raio: 22
   - id: '4'
     label: '4'
-    box:
-      x: 810
+    circular:
+      x: 812
       y: 638
-      comprimento: 40
-      largura: 45
+      raio: 22
   - id: Setor_7_Paralelo
     label: ← SETOR 7 PARALELO
     box:
@@ -61,6 +57,12 @@ mapas:
   - escalada: Moça de 100 Anos
     ids:
     - '4'
+  - ids:
+    - Setor_7_Paralelo
+    setor: Setor 7 Paralelo
+  - ids:
+    - Setor_Panelinha
+    setor: Setor Panelinha
 escaladas:
 - via_esportiva:
     nome: Milicianos
@@ -83,7 +85,8 @@ escaladas:
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
     extensao: 15
----
+---
+
 # Setor de Esquerda
 
 Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"

@@ -6,7 +6,7 @@
 - **nome**: Sabará - Pedra Rachada - Setor Horizonte
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i1.webp)
 - **revisado_manualmente**: True
-- **revisado_bounding_circle**: False
+- **revisado_bounding_circle**: True
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
@@ -166,45 +166,34 @@
     - **altura_mapa**: 810
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Estacionamento setor Horizonte
-        - **label**: Estacionamento setor Horizonte
-        - **box**:
-          - **x**: 312
-          - **y**: 644
-          - **comprimento**: 190
-          - **largura**: 59
-      - **[1]**:
-        - **id**: Estacionamento setores tradicionais
-        - **label**: Estacionamento setores tradicionais
-        - **box**:
-          - **x**: 1082
-          - **y**: 40
-          - **comprimento**: 219
-          - **largura**: 59
-      - **[2]**:
         - **id**: Sub-setor Beija Flor
         - **label**: Sub-setor Beija Flor
         - **box**:
           - **x**: 723
           - **y**: 365
-          - **comprimento**: 196
-          - **largura**: 24
-      - **[3]**:
-        - **id**: Conjunto pôr-do-sol
-        - **label**: Conjunto pôr-do-sol
-        - **box**:
-          - **x**: 772
-          - **y**: 460
-          - **comprimento**: 202
-          - **largura**: 24
-      - **[4]**:
+          - **comprimento**: 204
+          - **largura**: 34
+      - **[1]**:
         - **id**: Sub-setor Moctezuma
         - **label**: Sub-setor Moctezuma
         - **box**:
           - **x**: 850
-          - **y**: 529
-          - **comprimento**: 222
-          - **largura**: 24
+          - **y**: 530
+          - **comprimento**: 230
+          - **largura**: 32
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - Sub-setor Beija Flor
+        - **setor**: Beija Flor
+      - **[1]**:
+        - **ids**:
+          - Conjunto pôr-do-sol
+        - **grupo**: Conjunto pôr-do-sol
+      - **[2]**:
+        - **ids**:
+          - Sub-setor Moctezuma
+        - **setor**: Moctezuma
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -240,14 +229,6 @@
                 - **x**: 756
                 - **y**: 377
                 - **raio**: 19
-            - **[3]**:
-              - **id**: Bloco A
-              - **label**: Bloco A
-              - **box**:
-                - **x**: 654
-                - **y**: 59
-                - **comprimento**: 193
-                - **largura**: 58
           - **referencias**:
             - **[0]**:
               - **escalada**: Sem querer
@@ -272,29 +253,21 @@
               - **circular**:
                 - **x**: 185
                 - **y**: 744
-                - **raio**: 12
+                - **raio**: 19
             - **[1]**:
               - **id**: 10
               - **label**: 10
               - **circular**:
                 - **x**: 257
                 - **y**: 698
-                - **raio**: 15
+                - **raio**: 19
             - **[2]**:
               - **id**: 11
               - **label**: 11
               - **circular**:
                 - **x**: 693
                 - **y**: 541
-                - **raio**: 15
-            - **[3]**:
-              - **id**: Bloco A
-              - **label**: Bloco A
-              - **box**:
-                - **x**: 410
-                - **y**: 400
-                - **comprimento**: 80
-                - **largura**: 80
+                - **raio**: 19
           - **referencias**:
             - **[0]**:
               - **escalada**: Pôr-do-sol
@@ -355,22 +328,14 @@
               - **circular**:
                 - **x**: 355
                 - **y**: 614
-                - **raio**: 21
+                - **raio**: 22
             - **[1]**:
               - **id**: 12
               - **label**: 12
               - **circular**:
                 - **x**: 237
                 - **y**: 552
-                - **raio**: 21
-            - **[2]**:
-              - **id**: Bloco B
-              - **label**: Bloco B
-              - **box**:
-                - **x**: 128
-                - **y**: 45
-                - **comprimento**: 218
-                - **largura**: 66
+                - **raio**: 22
           - **referencias**:
             - **[0]**:
               - **escalada**: Essa moça
@@ -389,31 +354,23 @@
               - **id**: 15
               - **label**: 15
               - **circular**:
-                - **x**: 244
+                - **x**: 187
                 - **y**: 652
-                - **raio**: 46
+                - **raio**: 22
             - **[1]**:
               - **id**: 16
               - **label**: 16
               - **circular**:
-                - **x**: 577
-                - **y**: 692
-                - **raio**: 17
+                - **x**: 576
+                - **y**: 693
+                - **raio**: 21
             - **[2]**:
-              - **id**: Bloco B
-              - **label**: Bloco B
-              - **box**:
-                - **x**: 126
-                - **y**: 53
-                - **comprimento**: 212
-                - **largura**: 64
-            - **[3]**:
               - **id**: 14
               - **label**: 14
               - **circular**:
-                - **x**: 390
-                - **y**: 676
-                - **raio**: 40
+                - **x**: 300
+                - **y**: 654
+                - **raio**: 21
           - **referencias**:
             - **[0]**:
               - **escalada**: Ponto alto
@@ -485,23 +442,15 @@
               - **id**: 18
               - **label**: 18
               - **circular**:
-                - **x**: 226
-                - **y**: 703
+                - **x**: 227
+                - **y**: 704
                 - **raio**: 22
             - **[1]**:
-              - **id**: Bloco C
-              - **label**: Bloco C
-              - **box**:
-                - **x**: 150
-                - **y**: 65
-                - **comprimento**: 210
-                - **largura**: 64
-            - **[2]**:
               - **id**: 17
               - **label**: 17
               - **circular**:
                 - **x**: 172
-                - **y**: 709
+                - **y**: 710
                 - **raio**: 21
           - **referencias**:
             - **[0]**:
@@ -716,30 +665,30 @@
         - **id**: 29
         - **label**: 29
         - **circular**:
-          - **x**: 316
-          - **y**: 793
-          - **raio**: 23
+          - **x**: 317
+          - **y**: 794
+          - **raio**: 24
       - **[1]**:
         - **id**: 30
         - **label**: 30
         - **circular**:
           - **x**: 369
           - **y**: 818
-          - **raio**: 23
+          - **raio**: 24
       - **[2]**:
         - **id**: 31
         - **label**: 31
         - **circular**:
           - **x**: 771
           - **y**: 634
-          - **raio**: 23
+          - **raio**: 24
       - **[3]**:
         - **id**: 32
         - **label**: 32
         - **circular**:
           - **x**: 623
           - **y**: 818
-          - **raio**: 23
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Juruva
@@ -772,14 +721,14 @@
         - **circular**:
           - **x**: 612
           - **y**: 862
-          - **raio**: 23
+          - **raio**: 24
       - **[1]**:
         - **id**: 34
         - **label**: 34
         - **circular**:
           - **x**: 675
           - **y**: 1033
-          - **raio**: 23
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Beija-Flor
@@ -1015,14 +964,14 @@
         - **circular**:
           - **x**: 456
           - **y**: 946
-          - **raio**: 26
+          - **raio**: 27
       - **[1]**:
         - **id**: 45
         - **label**: 45
         - **circular**:
           - **x**: 651
           - **y**: 858
-          - **raio**: 26
+          - **raio**: 27
     - **referencias**:
       - **[0]**:
         - **escalada**: Medeia
@@ -1041,9 +990,9 @@
         - **id**: 47
         - **label**: 47
         - **circular**:
-          - **x**: 585
-          - **y**: 1000
-          - **raio**: 24
+          - **x**: 586
+          - **y**: 1001
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Herança de Ferro
@@ -1238,14 +1187,14 @@
         - **circular**:
           - **x**: 237
           - **y**: 594
-          - **raio**: 15
+          - **raio**: 17
       - **[1]**:
         - **id**: 55
         - **label**: 55
         - **circular**:
           - **x**: 277
-          - **y**: 567
-          - **raio**: 15
+          - **y**: 568
+          - **raio**: 17
     - **referencias**:
       - **[0]**:
         - **escalada**: Anemia
@@ -1264,16 +1213,16 @@
         - **id**: 56
         - **label**: 56
         - **circular**:
-          - **x**: 507
+          - **x**: 508
           - **y**: 592
-          - **raio**: 17
+          - **raio**: 18
       - **[1]**:
         - **id**: 57
         - **label**: 57
         - **circular**:
-          - **x**: 450
+          - **x**: 451
           - **y**: 606
-          - **raio**: 18
+          - **raio**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Diagnóstico

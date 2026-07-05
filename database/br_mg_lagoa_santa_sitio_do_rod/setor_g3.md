@@ -1,4 +1,4 @@
----
+---
 nome: G3
 mapas:
 - caminho_imagem_mapa: imagens/pagina_19.webp
@@ -7,340 +7,286 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 826
+    circular:
+      x: 827
       y: 1013
-      comprimento: 25
-      largura: 30
+      raio: 14
   - id: '2'
     label: '2'
-    box:
-      x: 651
-      y: 935
-      comprimento: 26
-      largura: 24
+    circular:
+      x: 652
+      y: 936
+      raio: 14
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 662
-      y: 905
-      comprimento: 22
-      largura: 22
+      y: 907
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 588
-      y: 876
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 587
+      y: 878
+      raio: 13
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 591
       y: 812
-      comprimento: 30
-      largura: 30
+      raio: 14
   - id: '6'
     label: '6'
-    box:
-      x: 504
-      y: 1022
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 503
+      y: 1023
+      raio: 13
   - id: '7'
     label: '7'
-    box:
-      x: 499
-      y: 984
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 498
+      y: 983
+      raio: 13
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 404
       y: 955
-      comprimento: 30
-      largura: 30
+      raio: 17
   - id: '9'
     label: '9'
-    box:
+    circular:
       x: 450
       y: 936
-      comprimento: 30
-      largura: 30
+      raio: 17
   - id: '10'
     label: '10'
-    box:
-      x: 264
+    circular:
+      x: 265
       y: 600
-      comprimento: 22
-      largura: 21
+      raio: 13
   - id: '11'
     label: '11'
-    box:
-      x: 270
-      y: 637
-      comprimento: 22
-      largura: 22
+    circular:
+      x: 271
+      y: 638
+      raio: 13
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 220
-      y: 642
-      comprimento: 30
-      largura: 25
+      y: 643
+      raio: 13
   - id: '13'
     label: '13'
-    box:
-      x: 272
-      y: 666
-      comprimento: 24
-      largura: 22
+    circular:
+      x: 273
+      y: 667
+      raio: 13
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 300
-      y: 683
-      comprimento: 24
-      largura: 24
+      y: 684
+      raio: 13
   - id: '15'
     label: '15'
-    box:
+    circular:
       x: 265
       y: 542
-      comprimento: 22
-      largura: 19
+      raio: 13
   - id: '16'
     label: '16'
-    box:
+    circular:
       x: 229
       y: 545
-      comprimento: 24
-      largura: 20
+      raio: 13
   - id: '17'
     label: '17'
-    box:
+    circular:
       x: 208
       y: 579
-      comprimento: 22
-      largura: 20
+      raio: 13
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 182
-      y: 558
-      comprimento: 25
-      largura: 25
+      y: 557
+      raio: 13
   - id: '19'
     label: '19'
-    box:
+    circular:
       x: 190
-      y: 522
-      comprimento: 24
-      largura: 24
+      y: 523
+      raio: 13
   - id: '20'
     label: '20'
-    box:
+    circular:
       x: 113
-      y: 418
-      comprimento: 22
-      largura: 25
+      y: 417
+      raio: 13
   - id: '21'
     label: '21'
-    box:
-      x: 85
-      y: 428
-      comprimento: 24
-      largura: 25
+    circular:
+      x: 86
+      y: 426
+      raio: 13
   - id: '22'
     label: '22'
-    box:
+    circular:
       x: 260
-      y: 474
-      comprimento: 24
-      largura: 23
+      y: 475
+      raio: 13
   - id: '23'
     label: '23'
-    box:
-      x: 187
+    circular:
+      x: 188
       y: 348
-      comprimento: 30
-      largura: 25
+      raio: 13
   - id: '24'
     label: '24'
-    box:
+    circular:
       x: 146
-      y: 342
-      comprimento: 24
-      largura: 24
+      y: 343
+      raio: 13
   - id: '25'
     label: '25'
-    box:
-      x: 442
+    circular:
+      x: 440
       y: 566
-      comprimento: 21
-      largura: 23
+      raio: 13
   - id: '26'
     label: '26'
-    box:
+    circular:
       x: 409
       y: 550
-      comprimento: 24
-      largura: 23
+      raio: 13
   - id: '27'
     label: '27'
-    box:
-      x: 378
+    circular:
+      x: 377
       y: 526
-      comprimento: 25
-      largura: 24
+      raio: 13
   - id: '28'
     label: '28'
-    box:
-      x: 411
-      y: 478
-      comprimento: 24
-      largura: 21
+    circular:
+      x: 412
+      y: 479
+      raio: 13
   - id: '29'
     label: '29'
-    box:
-      x: 402
-      y: 446
-      comprimento: 23
-      largura: 21
+    circular:
+      x: 404
+      y: 447
+      raio: 13
   - id: '30'
     label: '30'
-    box:
+    circular:
       x: 432
-      y: 423
-      comprimento: 23
-      largura: 24
+      y: 425
+      raio: 13
   - id: '31'
     label: '31'
-    box:
-      x: 415
+    circular:
+      x: 414
       y: 392
-      comprimento: 22
-      largura: 22
+      raio: 13
   - id: '32'
     label: '32'
-    box:
+    circular:
       x: 452
-      y: 384
-      comprimento: 24
-      largura: 23
+      y: 385
+      raio: 13
   - id: '33'
     label: '33'
-    box:
-      x: 449
-      y: 356
-      comprimento: 22
-      largura: 24
+    circular:
+      x: 450
+      y: 357
+      raio: 13
   - id: '34'
     label: '34'
-    box:
-      x: 416
+    circular:
+      x: 417
       y: 324
-      comprimento: 22
-      largura: 22
+      raio: 13
   - id: '35'
     label: '35'
-    box:
-      x: 305
+    circular:
+      x: 304
       y: 226
-      comprimento: 30
-      largura: 23
+      raio: 13
   - id: '36'
     label: '36'
-    box:
+    circular:
       x: 304
       y: 174
-      comprimento: 24
-      largura: 23
+      raio: 13
   - id: '37'
     label: '37'
-    box:
-      x: 274
+    circular:
+      x: 275
       y: 180
-      comprimento: 24
-      largura: 25
+      raio: 13
   - id: '38'
     label: '38'
-    box:
+    circular:
       x: 49
       y: 129
-      comprimento: 24
-      largura: 22
+      raio: 13
   - id: '39'
     label: '39'
-    box:
+    circular:
       x: 81
-      y: 128
-      comprimento: 26
-      largura: 22
+      y: 130
+      raio: 13
   - id: '40'
     label: '40'
-    box:
-      x: 87
+    circular:
+      x: 86
       y: 87
-      comprimento: 30
-      largura: 22
+      raio: 13
   - id: '41'
     label: '41'
-    box:
+    circular:
       x: 85
-      y: 58
-      comprimento: 30
-      largura: 25
+      y: 57
+      raio: 13
   - id: '42'
     label: '42'
-    box:
-      x: 155
-      y: 60
-      comprimento: 30
-      largura: 24
+    circular:
+      x: 154
+      y: 61
+      raio: 13
   - id: '43'
     label: '43'
-    box:
-      x: 325
-      y: 112
-      comprimento: 30
-      largura: 25
+    circular:
+      x: 324
+      y: 113
+      raio: 13
   - id: '44'
     label: '44'
-    box:
+    circular:
       x: 505
       y: 74
-      comprimento: 30
-      largura: 25
+      raio: 13
   - id: '45'
     label: '45'
-    box:
-      x: 652
-      y: 202
-      comprimento: 30
-      largura: 23
+    circular:
+      x: 651
+      y: 203
+      raio: 13
   - id: '46'
     label: '46'
-    box:
+    circular:
       x: 668
       y: 58
-      comprimento: 30
-      largura: 25
+      raio: 13
   - id: '47'
     label: '47'
-    box:
-      x: 707
+    circular:
+      x: 705
       y: 58
-      comprimento: 30
-      largura: 25
-  - id: Sitio_Arqueologico
-    label: Sítio arqueológico
-    box:
-      x: 708
-      y: 992
-      comprimento: 85
-      largura: 20
+      raio: 13
   referencias:
   - escalada: Quem manda aqui sou Eu "Eterosapiens"
     ids:
@@ -480,6 +426,22 @@ mapas:
   - escalada: Patati Patata
     ids:
     - '46'
+  - ids:
+    - '14'
+    setor: G3
+    escalada: Dinamicuzão em Rodlá
+  - ids:
+    - '13'
+    setor: G3
+    escalada: Dinamicuzão em catapulta
+  - ids:
+    - '12'
+    setor: G3
+    escalada: Dinamicuzão em El paseo
+  - ids:
+    - '11'
+    setor: G3
+    escalada: El paseo em Dinamicuzão
 escaladas:
 - via_esportiva:
     nome: Quem manda aqui sou Eu "Eterosapiens"
@@ -496,8 +458,8 @@ escaladas:
     conquistadores:
     - Felipe Belisário
     - Marcela Romanelli
-    descricao: Em uma linha magnifica que corta a parte mais negativa da parede é a mais 
-      bonita e também a mais difícil do Sítio.
+    descricao: Em uma linha magnifica que corta a parte mais negativa da parede é
+      a mais bonita e também a mais difícil do Sítio.
 - via_esportiva:
     nome: Pra você
     dificuldade: BR_8C
@@ -518,7 +480,7 @@ escaladas:
     conquistadores:
     - Marius Bagnati
     - escaladores do Sul
-    descricao: Chaminé no teto. Via bem diferente e necessário que um segundo escale 
+    descricao: Chaminé no teto. Via bem diferente e necessário que um segundo escale
       limpando as costuras.
 - via_esportiva:
     nome: Elvira a rainha das trevas
@@ -590,8 +552,8 @@ escaladas:
     conquistadores:
     - Felipe Belisario
     - Marcus "Rufino"
-    descricao: Variante muito bacana, para desmontar e preciso desescalar até uma parada 
-      abaixo ou o segundo subir limpando.
+    descricao: Variante muito bacana, para desmontar e preciso desescalar até uma
+      parada abaixo ou o segundo subir limpando.
 - via_esportiva:
     nome: Dinamicuzão em catapulta
     dificuldade: BR_9A
@@ -633,7 +595,7 @@ escaladas:
     - Juan Kemper
     - Pedro Assis
     - Yan Ouriques
-    descricao: Clássica, bem completa com um boulder na saida, lances técnicos e de 
+    descricao: Clássica, bem completa com um boulder na saida, lances técnicos e de
       equilíbrio.
 - via_esportiva:
     nome: Segunda sem lei
@@ -648,8 +610,8 @@ escaladas:
     - Andre Coutinho
     - Vinicius de Assis
     - Daniel Mariano
-    descricao: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux muito 
-      bacana.
+    descricao: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux
+      muito bacana.
 - via_esportiva:
     nome: Decapitados
     dificuldade: BR_8C
@@ -719,16 +681,16 @@ escaladas:
     conquistadores:
     - '"Marcelinho" Terra Zoni'
     - Marcus "Rufino"
-    descricao: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top em 
-      árvore no cume. Melhor o segundo subir de top limpando.
+    descricao: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top
+      em árvore no cume. Melhor o segundo subir de top limpando.
 - via_esportiva:
     nome: Prakaramba
     dificuldade: BR_7B
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: 'Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na parede do
-      lado o grau cai para 6sup.'
+    descricao: 'Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na
+      parede do lado o grau cai para 6sup.'
 - via_movel:
     nome: Estilo junkie
     dificuldade: BR_7A
@@ -763,9 +725,9 @@ escaladas:
     - Gilberto
     - Geraldo "Araxá"
     - Marcus "Rufino"
-    descricao: Tem duas opções de escalada, subir até terceira proteção em chaminé (5sup),
-      ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco inseguro 
-      perto da saída.
+    descricao: Tem duas opções de escalada, subir até terceira proteção em chaminé
+      (5sup), ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco
+      inseguro perto da saída.
 - via_esportiva:
     nome: Até que enfim
     dificuldade: BR_7A
@@ -834,7 +796,8 @@ escaladas:
     - Thiago "Vá"
     - GROTS
     descricao: Boa para iniciantes
----
+---
+
 # Setor G3
 
 O setor G3 é o maior setor do Sítio do Rod, com vias que variam do 3º ao 10º grau.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Savassinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_savassinha_p0_i0.webp
@@ -17,7 +17,7 @@ mapas:
     box:
       x: 346
       y: 598
-      comprimento: 39
+      comprimento: 44
       largura: 50
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
@@ -31,62 +31,62 @@ mapas:
     box:
       x: 442
       y: 1110
-      comprimento: 97
-      largura: 13
+      comprimento: 100
+      largura: 19
   - id: '01'
     label: '01'
     box:
       x: 262
-      y: 472
-      comprimento: 14
-      largura: 14
+      y: 483
+      comprimento: 15
+      largura: 16
   - id: '02'
     label: '02'
     box:
-      x: 235
-      y: 402
-      comprimento: 14
-      largura: 14
+      x: 226
+      y: 408
+      comprimento: 15
+      largura: 17
   - id: '03'
     label: '3'
     box:
-      x: 241
-      y: 384
-      comprimento: 8
-      largura: 9
+      x: 242
+      y: 386
+      comprimento: 13
+      largura: 15
   - id: '04'
     label: '04'
     box:
-      x: 252
-      y: 370
+      x: 242
+      y: 369
       comprimento: 14
       largura: 14
   - id: '05'
     label: '05'
     box:
-      x: 255
-      y: 355
+      x: 250
+      y: 350
       comprimento: 14
-      largura: 14
+      largura: 15
   - id: '06'
     label: '06'
     box:
-      x: 255
-      y: 340
+      x: 251
+      y: 329
       comprimento: 14
       largura: 14
   - id: '07'
     label: '07'
     box:
-      x: 255
-      y: 322
+      x: 241
+      y: 310
       comprimento: 14
-      largura: 14
+      largura: 16
   - id: '08'
     label: '08'
     box:
-      x: 255
-      y: 307
+      x: 242
+      y: 287
       comprimento: 14
       largura: 14
   - id: '09'
@@ -94,19 +94,19 @@ mapas:
     box:
       x: 257
       y: 253
-      comprimento: 12
-      largura: 14
+      comprimento: 16
+      largura: 16
   - id: '10'
     label: '10'
     box:
       x: 312
       y: 252
-      comprimento: 21
+      comprimento: 18
       largura: 17
   - id: '11'
     label: '11'
     box:
-      x: 356
+      x: 358
       y: 249
       comprimento: 19
       largura: 18
@@ -115,8 +115,8 @@ mapas:
     box:
       x: 292
       y: 142
-      comprimento: 16
-      largura: 13
+      comprimento: 18
+      largura: 17
   referencias:
   - escalada: 4i20
     ids:
@@ -148,6 +148,23 @@ mapas:
   - escalada: Frango Com Farofa
     ids:
     - '12'
+  - ids:
+    - '08'
+    setor: Setor Savassinha
+    escalada: Curupira
+  - ids:
+    - '09'
+    setor: Setor Savassinha
+    escalada: Só Beleza
+  - ids:
+    - Setor_Grutinha
+    setor: Setor Grutinha
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Antigo Camping
+  - ids:
+    - Setor_Leao_de_Judah
+    setor: Setor Leão de Judah
 escaladas:
 - via_esportiva:
     nome: 4i20
@@ -218,7 +235,8 @@ escaladas:
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Savassinha
 
 Este setor possui sombra até as 12h (variando de acordo com a estação).

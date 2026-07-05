@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale Zela
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_zela_p0_i0.webp
@@ -7,61 +7,54 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 134
-      y: 232
-      comprimento: 35
-      largura: 35
+      y: 234
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 206
-      y: 232
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 203
+      y: 234
+      raio: 13
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 262
-      y: 224
-      comprimento: 35
-      largura: 35
+      y: 227
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 302
+    circular:
+      x: 300
       y: 240
-      comprimento: 35
-      largura: 35
+      raio: 13
   - id: '5'
     label: '5'
-    box:
-      x: 350
-      y: 224
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 348
+      y: 227
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 160
-      y: 420
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 159
+      y: 421
+      raio: 13
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 340
-      y: 420
-      comprimento: 35
-      largura: 35
+      y: 421
+      raio: 13
   - id: Vale_das_Sombras
     label: ↙ VALE DAS SOMBRAS
     box:
-      x: 404
-      y: 556
+      x: 406
+      y: 559
       comprimento: 33
       largura: 218
-      angulo_graus_x100: 3568
+      angulo_graus_x100: 3372
   referencias:
   - escalada: Hugossauro
     ids:
@@ -84,6 +77,9 @@ mapas:
   - escalada: De Menor
     ids:
     - '7'
+  - ids:
+    - Vale_das_Sombras
+    setor: Setor Vale das Sombras
 escaladas:
 - via_esportiva:
     nome: Hugossauro
@@ -113,7 +109,8 @@ escaladas:
     nome: De Menor
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 4
----
+---
+
 # Setor Vale Zela
 
 ![Vale Zela](imagens/setor_vale_zela_p0_i1.webp)

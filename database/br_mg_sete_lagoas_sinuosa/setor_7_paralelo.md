@@ -1,4 +1,4 @@
----
+---
 nome: Setor 7 Paralelo
 mapas:
 - caminho_imagem_mapa: imagens/setor_7_paralelo_p0_i0.webp
@@ -7,128 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 94
-      y: 1005
-      comprimento: 22
-      largura: 24
+    circular:
+      x: 95
+      y: 1007
+      raio: 14
   - id: '2'
     label: '2'
-    box:
-      x: 118
-      y: 962
-      comprimento: 24
-      largura: 27
+    circular:
+      x: 120
+      y: 963
+      raio: 14
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 146
-      y: 922
-      comprimento: 23
-      largura: 24
+      y: 924
+      raio: 14
   - id: '4'
     label: '4'
-    box:
-      x: 188
-      y: 868
-      comprimento: 24
-      largura: 25
+    circular:
+      x: 189
+      y: 867
+      raio: 14
   - id: '5'
     label: '5'
-    box:
-      x: 206
-      y: 832
-      comprimento: 27
-      largura: 25
+    circular:
+      x: 209
+      y: 837
+      raio: 14
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 220
-      y: 798
-      comprimento: 26
-      largura: 24
+      y: 801
+      raio: 14
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 220
-      y: 760
-      comprimento: 24
-      largura: 26
+      y: 764
+      raio: 14
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 310
-      y: 492
-      comprimento: 29
-      largura: 29
+      y: 493
+      raio: 14
   - id: '9'
     label: '9'
-    box:
+    circular:
       x: 318
-      y: 436
-      comprimento: 22
-      largura: 25
+      y: 439
+      raio: 14
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 331
-      y: 383
-      comprimento: 26
-      largura: 24
+      y: 384
+      raio: 14
   - id: '11'
     label: '11'
-    box:
-      x: 341
-      y: 284
-      comprimento: 24
-      largura: 23
+    circular:
+      x: 343
+      y: 285
+      raio: 14
   - id: '12'
     label: '12'
-    box:
-      x: 343
-      y: 224
-      comprimento: 22
-      largura: 23
+    circular:
+      x: 344
+      y: 225
+      raio: 14
   - id: '13'
     label: '13'
-    box:
-      x: 336
-      y: 182
-      comprimento: 27
-      largura: 23
+    circular:
+      x: 337
+      y: 183
+      raio: 14
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 312
-      y: 154
-      comprimento: 23
-      largura: 24
+      y: 157
+      raio: 14
   - id: '15'
     label: '15'
-    box:
-      x: 319
-      y: 120
-      comprimento: 22
-      largura: 23
+    circular:
+      x: 320
+      y: 121
+      raio: 14
   - id: '16'
     label: '16'
-    box:
-      x: 338
-      y: 91
-      comprimento: 26
-      largura: 26
+    circular:
+      x: 340
+      y: 93
+      raio: 14
   - id: Setor_Death_Horse
     label: SETOR DEATH HORSE→
     box:
-      x: 283
-      y: 1015
-      comprimento: 250
-      largura: 20
+      x: 282
+      y: 1014
+      comprimento: 265
+      largura: 33
   - id: Setor_Sentinela
     label: SETOR SENTINELA →
     box:
       x: 246
-      y: 84
+      y: 86
       comprimento: 203
       largura: 24
       angulo_graus_x100: -2606
@@ -189,6 +173,15 @@ mapas:
   - escalada: Plano Paralelo
     ids:
     - '16'
+  - ids:
+    - Setor_Death_Horse
+    setor: Setor Death Horse
+  - ids:
+    - Setor_De_Esquerda
+    setor: Setor de Esquerda
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela
 escaladas:
 - via_esportiva:
     nome: Eu Sei Meu Ofício
@@ -268,7 +261,8 @@ escaladas:
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     extensao: 15
----
+---
+
 # Setor 7 Paralelo
 
 Setor com grande concentração de vias, predomínio de vias de sétimo grau,

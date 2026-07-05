@@ -1,4 +1,4 @@
----
+---
 nome: Setor Bombonera
 mapas:
 - caminho_imagem_mapa: imagens/setor_bombonera_p0_i0.webp
@@ -7,81 +7,70 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 207
-      y: 894
-      comprimento: 30
-      largura: 30
+      y: 892
+      raio: 15
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 262
-      y: 902
-      comprimento: 30
-      largura: 30
+      y: 903
+      raio: 15
   - id: '3'
     label: '3'
-    box:
-      x: 317
-      y: 890
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 316
+      y: 891
+      raio: 15
   - id: '4'
     label: '4'
-    box:
-      x: 354
-      y: 890
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 353
+      y: 891
+      raio: 15
   - id: '5'
     label: '5'
-    box:
-      x: 457
-      y: 887
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 454
+      y: 890
+      raio: 15
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 633
-      y: 868
-      comprimento: 30
-      largura: 30
+      y: 867
+      raio: 15
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 732
-      y: 893
-      comprimento: 30
-      largura: 30
+      y: 894
+      raio: 15
   - id: 8-9
     label: 8-9
-    box:
+    circular:
       x: 770
-      y: 890
-      comprimento: 35
-      largura: 30
+      y: 893
+      raio: 19
   - id: '10'
     label: '10'
-    box:
-      x: 1071
-      y: 912
-      comprimento: 30
-      largura: 26
+    circular:
+      x: 1072
+      y: 914
+      raio: 15
   - id: '11'
     label: '11'
-    box:
-      x: 1226
-      y: 926
-      comprimento: 31
-      largura: 26
+    circular:
+      x: 1224
+      y: 927
+      raio: 15
   - id: '12'
     label: '12'
-    box:
-      x: 1261
-      y: 927
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1259
+      y: 928
+      raio: 15
   referencias:
   - escalada: Lá Cancha
     ids:
@@ -193,7 +182,8 @@ escaladas:
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2023'
----
+---
+
 # Setor bombonera
 
 ![Bombonera](imagens/setor_bombonera_p1_i0.webp)

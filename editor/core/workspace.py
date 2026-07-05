@@ -182,5 +182,13 @@ class LocalRepoWorkspace(EditorWorkspace):
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")
                 
+            # Atualiza a saúde dos croquis
+            script_saude = self.caminho_raiz.parent.parent / "scripts" / "medir_saude_croquis.py"
+            if script_saude.exists():
+                try:
+                    subprocess.run([sys.executable, str(script_saude)], check=False)
+                except Exception as e:
+                    print(f"Erro ao medir saúde dos croquis: {e}")
+                
         mensagens = _filtrar_mensagens(out.getvalue())
         return caminho, mensagens

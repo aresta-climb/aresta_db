@@ -1,4 +1,4 @@
----
+---
 nome: 2º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2o_andar_p0_i0.webp
@@ -10,225 +10,162 @@ mapas:
     box:
       x: 601
       y: 36
-      comprimento: 108
-      largura: 13
-  - id: Tunel_Top
-    label: Túnel
-    box:
-      x: 690
-      y: 54
-      comprimento: 45
-      largura: 19
-  - id: Escada_De_Acesso
-    label: Escada de acesso
-    box:
-      x: 774
-      y: 56
-      comprimento: 75
-      largura: 33
-  - id: Portal
-    label: Portal
-    box:
-      x: 154
-      y: 181
-      comprimento: 47
+      comprimento: 118
       largura: 18
   - id: '01'
     label: '01'
     box:
-      x: 325
-      y: 268
+      x: 284
+      y: 300
       comprimento: 20
       largura: 15
   - id: '02'
     label: '02'
     box:
-      x: 342
-      y: 266
-      comprimento: 21
-      largura: 13
+      x: 308
+      y: 289
+      comprimento: 23
+      largura: 18
   - id: '03'
     label: '03'
     box:
-      x: 590
-      y: 306
+      x: 518
+      y: 338
       comprimento: 20
       largura: 15
   - id: '04'
     label: '04'
     box:
-      x: 610
-      y: 298
+      x: 540
+      y: 330
       comprimento: 20
       largura: 15
   - id: '05'
     label: '05'
     box:
-      x: 636
-      y: 262
-      comprimento: 19
-      largura: 13
+      x: 556
+      y: 284
+      comprimento: 21
+      largura: 15
   - id: '06'
     label: '06'
     box:
-      x: 638
-      y: 242
+      x: 560
+      y: 266
       comprimento: 19
-      largura: 13
+      largura: 14
   - id: '07'
     label: '07'
     box:
-      x: 640
-      y: 167
+      x: 562
+      y: 209
       comprimento: 20
       largura: 16
   - id: '08'
     label: '08'
     box:
-      x: 636
-      y: 94
+      x: 556
+      y: 106
       comprimento: 22
       largura: 17
   - id: '09'
     label: '09'
     box:
-      x: 660
+      x: 612
       y: 60
       comprimento: 21
       largura: 16
   - id: '10'
     label: '10'
     box:
-      x: 681
+      x: 630
       y: 94
-      comprimento: 16
-      largura: 14
+      comprimento: 20
+      largura: 17
   - id: '11'
     label: '11'
     box:
-      x: 690
-      y: 74
-      comprimento: 13
-      largura: 13
+      x: 641
+      y: 75
+      comprimento: 20
+      largura: 18
   - id: '12'
     label: '12'
     box:
-      x: 753
-      y: 95
+      x: 723
+      y: 109
       comprimento: 20
       largura: 16
   - id: '13'
     label: '13'
     box:
-      x: 763
+      x: 714
       y: 138
-      comprimento: 18
-      largura: 14
+      comprimento: 19
+      largura: 16
   - id: '14'
     label: '14'
     box:
-      x: 764
+      x: 712
       y: 157
-      comprimento: 17
-      largura: 14
+      comprimento: 19
+      largura: 16
   - id: '15'
     label: '15'
     box:
-      x: 768
+      x: 720
       y: 174
-      comprimento: 23
-      largura: 17
+      comprimento: 18
+      largura: 15
   - id: '16'
     label: '16'
     box:
-      x: 775
-      y: 190
-      comprimento: 20
-      largura: 16
+      x: 728
+      y: 189
+      comprimento: 18
+      largura: 14
   - id: '17'
     label: '17'
     box:
-      x: 802
-      y: 177
-      comprimento: 17
-      largura: 14
+      x: 752
+      y: 178
+      comprimento: 19
+      largura: 17
   - id: '18'
     label: '18'
     box:
-      x: 814
+      x: 764
       y: 206
       comprimento: 20
       largura: 17
   - id: '19'
     label: '19'
     box:
-      x: 820
-      y: 242
-      comprimento: 21
+      x: 770
+      y: 243
+      comprimento: 19
       largura: 16
   - id: '20'
     label: '20'
     box:
-      x: 780
+      x: 781
       y: 286
-      comprimento: 24
-      largura: 20
+      comprimento: 22
+      largura: 17
   - id: '21'
     label: '21'
     box:
       x: 780
-      y: 341
+      y: 342
       comprimento: 20
       largura: 16
-  - id: Torres_De_Pedra_A
-    label: Torres de Pedra
-    box:
-      x: 378
-      y: 192
-      comprimento: 115
-      largura: 13
-  - id: Torres_De_Pedra_B
-    label: Torres de Pedra
-    box:
-      x: 262
-      y: 464
-      comprimento: 117
-      largura: 17
-  - id: Torres_De_Pedra_C
-    label: Torres de Pedra
-    box:
-      x: 629
-      y: 774
-      comprimento: 116
-      largura: 14
-  - id: Plato
-    label: Platô
-    box:
-      x: 106
-      y: 722
-      comprimento: 45
-      largura: 25
-  - id: OBS_Abelha
-    label: OBS.! Caixa de abelha entre as vias
-    box:
-      x: 580
-      y: 884
-      comprimento: 87
-      largura: 59
-  - id: Corredor_Baixo
-    label: Corredor com paredes baixas
-    box:
-      x: 136
-      y: 941
-      comprimento: 70
-      largura: 72
   - id: Setor_Chegada
     label: Setor Chegada
     box:
-      x: 135
-      y: 1087
-      comprimento: 86
-      largura: 16
+      x: 136
+      y: 1088
+      comprimento: 91
+      largura: 23
   referencias:
   - escalada: Primeiro Prêmio
     ids:
@@ -287,6 +224,20 @@ mapas:
   - escalada: Iemanjá
     ids:
     - '21'
+  - ids:
+    - Setor_Chegada
+    setor: Setor Chegada
+  - ids:
+    - Setor_Jardim_Suspenso
+    setor: Jardim Suspenso
+  - ids:
+    - '08'
+    setor: 2º Andar
+    escalada: Gardneria Angustata
+  - ids:
+    - '09'
+    setor: 2º Andar
+    escalada: Vai e Volta e Vai
 escaladas:
 - via_esportiva:
     nome: Primeiro Prêmio
@@ -409,7 +360,8 @@ escaladas:
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor 2º Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

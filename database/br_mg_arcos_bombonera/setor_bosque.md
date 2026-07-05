@@ -1,4 +1,4 @@
----
+---
 nome: Setor Bosque
 mapas:
 - caminho_imagem_mapa: imagens/setor_bosque_p0_i0.webp
@@ -7,67 +7,58 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 190
       y: 968
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '2'
     label: '2'
-    box:
-      x: 383
-      y: 967
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 382
+      y: 968
+      raio: 15
   - id: '3'
     label: '3'
-    box:
-      x: 605
-      y: 966
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 604
+      y: 968
+      raio: 15
   - id: '4'
     label: '4'
-    box:
+    circular:
       x: 893
       y: 968
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '5'
     label: '5'
-    box:
-      x: 1008
-      y: 965
-      comprimento: 35
-      largura: 30
+    circular:
+      x: 1007
+      y: 968
+      raio: 15
   - id: '6'
     label: '6'
-    box:
-      x: 1278
+    circular:
+      x: 1274
       y: 968
-      comprimento: 35
-      largura: 35
+      raio: 15
   - id: '7'
     label: '7'
-    box:
-      x: 1618
-      y: 967
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1620
+      y: 969
+      raio: 15
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 1748
       y: 968
-      comprimento: 35
-      largura: 35
+      raio: 15
   - id: '9'
     label: '9'
-    box:
-      x: 1898
+    circular:
+      x: 1899
       y: 968
-      comprimento: 35
-      largura: 35
+      raio: 15
   referencias:
   - escalada: La Cucaracha
     ids:
@@ -102,18 +93,16 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 520
+    circular:
+      x: 519
       y: 1135
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '2'
     label: '2'
-    box:
-      x: 845
-      y: 1126
-      comprimento: 28
-      largura: 30
+    circular:
+      x: 846
+      y: 1127
+      raio: 14
   referencias:
   - escalada: La Cucaracha
     ids:
@@ -127,25 +116,22 @@ mapas:
   pontos_de_interesse:
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 35
-      y: 1130
-      comprimento: 30
-      largura: 30
+      y: 1132
+      raio: 15
   - id: '4'
     label: '4'
-    box:
-      x: 365
-      y: 1100
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 364
+      y: 1099
+      raio: 15
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 478
-      y: 1090
-      comprimento: 30
-      largura: 30
+      y: 1092
+      raio: 15
   referencias:
   - escalada: (via inacabada)
     ids:
@@ -162,32 +148,28 @@ mapas:
   pontos_de_interesse:
   - id: '6'
     label: '6'
-    box:
-      x: 48
-      y: 1132
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 49
+      y: 1134
+      raio: 14
   - id: '7'
     label: '7'
-    box:
-      x: 518
-      y: 1132
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 519
+      y: 1135
+      raio: 14
   - id: '8'
     label: '8'
-    box:
-      x: 648
-      y: 1128
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 646
+      y: 1130
+      raio: 15
   - id: '9'
     label: '9'
-    box:
-      x: 802
+    circular:
+      x: 798
       y: 1118
-      comprimento: 35
-      largura: 35
+      raio: 15
   referencias:
   - escalada: Segunda Divisão
     ids:
@@ -256,5 +238,6 @@ escaladas:
     destaque: true
     quantidade_protecoes_parada: 2
     data_abertura: '2020'
----
+---
+
 Sombra o dia todo (varia de acordo com a estação).

@@ -1,4 +1,4 @@
----
+---
 nome: Sub Setor Anfiteatro
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i0.webp
@@ -7,116 +7,100 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 292
-      y: 556
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 295
+      y: 553
+      raio: 20
   - id: '2'
     label: '2'
-    box:
-      x: 334
-      y: 522
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 333
+      y: 523
+      raio: 20
   - id: '3'
     label: '3'
-    box:
-      x: 400
+    circular:
+      x: 401
       y: 478
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '4'
     label: '4'
-    box:
-      x: 436
-      y: 384
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 438
+      y: 386
+      raio: 20
   - id: '5'
     label: '5'
-    box:
-      x: 386
+    circular:
+      x: 387
       y: 380
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 330
       y: 380
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '7'
     label: '7'
-    box:
-      x: 278
-      y: 379
-      comprimento: 29
-      largura: 32
+    circular:
+      x: 280
+      y: 380
+      raio: 20
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 246
-      y: 346
-      comprimento: 27
-      largura: 30
+      y: 345
+      raio: 20
   - id: '9'
     label: '9'
-    box:
-      x: 200
-      y: 318
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 201
+      y: 319
+      raio: 20
   - id: '10'
     label: '10'
-    box:
-      x: 192
-      y: 266
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 193
+      y: 269
+      raio: 20
   - id: '11'
     label: '11'
-    box:
-      x: 266
-      y: 152
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 268
+      y: 151
+      raio: 20
   - id: '12'
     label: '12'
-    box:
-      x: 328
+    circular:
+      x: 329
       y: 146
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '13'
     label: '13'
-    box:
-      x: 378
+    circular:
+      x: 379
       y: 146
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '14'
     label: '14'
-    box:
-      x: 434
-      y: 130
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 432
+      y: 132
+      raio: 20
   - id: '15'
     label: '15'
-    box:
-      x: 510
+    circular:
+      x: 511
       y: 76
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '16'
     label: '16'
-    box:
-      x: 596
-      y: 96
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 597
+      y: 97
+      raio: 20
   - id: Sub_Setor_de_Cara
     label: SUB SETOR DE CARA ↗
     box:
@@ -171,6 +155,10 @@ mapas:
   - escalada: Tio Tonhas
     ids:
     - '16'
+  - ids:
+    - Sub_Setor_de_Cara
+    grupo: Vale Oculto
+    setor: Sub Setor de Cara
 escaladas:
 - via_esportiva:
     nome: A Cara do Tia
@@ -247,7 +235,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 1
----
+---
+
 # Setor Vale Oculto - Sub Setor Anfiteatro
 
 ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp)

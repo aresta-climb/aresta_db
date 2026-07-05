@@ -348,6 +348,7 @@
             | *Contra capa* |
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_g1
@@ -375,131 +376,101 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 524
-          - **y**: 1147
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 1149
+          - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 499
-          - **y**: 1113
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circular**:
+          - **x**: 500
+          - **y**: 1114
+          - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 545
-          - **y**: 1041
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 1043
+          - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **circular**:
           - **x**: 572
-          - **y**: 991
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 992
+          - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 477
-          - **y**: 900
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circular**:
+          - **x**: 478
+          - **y**: 902
+          - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 320
-          - **y**: 769
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circular**:
+          - **x**: 321
+          - **y**: 770
+          - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 235
+        - **circular**:
+          - **x**: 236
           - **y**: 427
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 271
           - **y**: 394
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 321
+        - **circular**:
+          - **x**: 322
           - **y**: 421
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **circular**:
           - **x**: 379
-          - **y**: 358
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 359
+          - **raio**: 13
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 393
-          - **y**: 307
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circular**:
+          - **x**: 394
+          - **y**: 309
+          - **raio**: 13
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 413
-          - **y**: 261
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circular**:
+          - **x**: 415
+          - **y**: 262
+          - **raio**: 13
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 426
-          - **y**: 214
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 216
+          - **raio**: 13
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 475
-          - **y**: 133
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[14]**:
-        - **id**: Dolina
-        - **label**: Dolina
-        - **box**:
-          - **x**: 318
-          - **y**: 944
-          - **comprimento**: 65
-          - **largura**: 27
-      - **[15]**:
-        - **id**: Cuidado_Abelhas
-        - **label**: Cuidado abelhas!!!
-        - **box**:
-          - **x**: 308
-          - **y**: 720
-          - **comprimento**: 62
-          - **largura**: 34
+          - **y**: 135
+          - **raio**: 13
     - **referencias**:
       - **[0]**:
         - **escalada**: Mão de martelo
@@ -693,171 +664,150 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 210
-          - **y**: 823
-          - **comprimento**: 21
-          - **largura**: 22
+        - **circular**:
+          - **x**: 211
+          - **y**: 825
+          - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 214
+        - **circular**:
+          - **x**: 213
           - **y**: 786
-          - **comprimento**: 21
-          - **largura**: 22
+          - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 202
-          - **y**: 752
-          - **comprimento**: 21
-          - **largura**: 20
+          - **y**: 753
+          - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 197
-          - **y**: 724
-          - **comprimento**: 18
-          - **largura**: 20
+        - **circular**:
+          - **x**: 198
+          - **y**: 726
+          - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 371
+        - **circular**:
+          - **x**: 372
           - **y**: 560
-          - **comprimento**: 24
-          - **largura**: 22
+          - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 430
+        - **circular**:
+          - **x**: 431
           - **y**: 568
-          - **comprimento**: 21
-          - **largura**: 24
+          - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 456
-          - **y**: 550
-          - **comprimento**: 24
-          - **largura**: 23
+          - **y**: 551
+          - **raio**: 13
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 482
-          - **y**: 558
-          - **comprimento**: 21
-          - **largura**: 21
+        - **circular**:
+          - **x**: 483
+          - **y**: 560
+          - **raio**: 13
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 504
-          - **y**: 580
-          - **comprimento**: 18
-          - **largura**: 22
+        - **circular**:
+          - **x**: 505
+          - **y**: 581
+          - **raio**: 13
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **circular**:
           - **x**: 526
           - **y**: 618
-          - **comprimento**: 25
-          - **largura**: 25
+          - **raio**: 13
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **circular**:
           - **x**: 555
-          - **y**: 655
-          - **comprimento**: 24
-          - **largura**: 22
+          - **y**: 656
+          - **raio**: 14
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **circular**:
           - **x**: 686
           - **y**: 580
-          - **comprimento**: 25
-          - **largura**: 23
+          - **raio**: 13
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
-          - **x**: 729
-          - **y**: 498
-          - **comprimento**: 24
-          - **largura**: 24
+        - **circular**:
+          - **x**: 730
+          - **y**: 499
+          - **raio**: 13
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 732
-          - **y**: 386
-          - **comprimento**: 27
-          - **largura**: 22
+          - **y**: 387
+          - **raio**: 13
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
-          - **x**: 705
-          - **y**: 304
-          - **comprimento**: 24
-          - **largura**: 23
+        - **circular**:
+          - **x**: 704
+          - **y**: 305
+          - **raio**: 13
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **circular**:
           - **x**: 704
-          - **y**: 256
-          - **comprimento**: 22
-          - **largura**: 24
+          - **y**: 258
+          - **raio**: 14
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **circular**:
           - **x**: 732
-          - **y**: 248
-          - **comprimento**: 22
-          - **largura**: 23
+          - **y**: 249
+          - **raio**: 13
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
-          - **x**: 788
+        - **circular**:
+          - **x**: 787
           - **y**: 190
-          - **comprimento**: 22
-          - **largura**: 21
+          - **raio**: 13
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
-          - **x**: 793
-          - **y**: 158
-          - **comprimento**: 22
-          - **largura**: 23
+        - **circular**:
+          - **x**: 792
+          - **y**: 160
+          - **raio**: 13
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **circular**:
           - **x**: 776
-          - **y**: 78
-          - **comprimento**: 22
-          - **largura**: 23
+          - **y**: 79
+          - **raio**: 13
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
-          - **x**: 774
-          - **y**: 28
-          - **comprimento**: 24
-          - **largura**: 25
+        - **circular**:
+          - **x**: 773
+          - **y**: 30
+          - **raio**: 13
     - **referencias**:
       - **[0]**:
         - **escalada**: Pé da Gameleira
@@ -1137,387 +1087,332 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 826
+        - **circular**:
+          - **x**: 827
           - **y**: 1013
-          - **comprimento**: 25
-          - **largura**: 30
+          - **raio**: 14
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 651
-          - **y**: 935
-          - **comprimento**: 26
-          - **largura**: 24
+        - **circular**:
+          - **x**: 652
+          - **y**: 936
+          - **raio**: 14
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 662
-          - **y**: 905
-          - **comprimento**: 22
-          - **largura**: 22
+          - **y**: 907
+          - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 588
-          - **y**: 876
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 587
+          - **y**: 878
+          - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **circular**:
           - **x**: 591
           - **y**: 812
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 504
-          - **y**: 1022
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 503
+          - **y**: 1023
+          - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 499
-          - **y**: 984
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 498
+          - **y**: 983
+          - **raio**: 13
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 404
           - **y**: 955
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 17
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **circular**:
           - **x**: 450
           - **y**: 936
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 17
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 264
+        - **circular**:
+          - **x**: 265
           - **y**: 600
-          - **comprimento**: 22
-          - **largura**: 21
+          - **raio**: 13
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 270
-          - **y**: 637
-          - **comprimento**: 22
-          - **largura**: 22
+        - **circular**:
+          - **x**: 271
+          - **y**: 638
+          - **raio**: 13
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **circular**:
           - **x**: 220
-          - **y**: 642
-          - **comprimento**: 30
-          - **largura**: 25
+          - **y**: 643
+          - **raio**: 13
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
-          - **x**: 272
-          - **y**: 666
-          - **comprimento**: 24
-          - **largura**: 22
+        - **circular**:
+          - **x**: 273
+          - **y**: 667
+          - **raio**: 13
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 300
-          - **y**: 683
-          - **comprimento**: 24
-          - **largura**: 24
+          - **y**: 684
+          - **raio**: 13
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **circular**:
           - **x**: 265
           - **y**: 542
-          - **comprimento**: 22
-          - **largura**: 19
+          - **raio**: 13
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **circular**:
           - **x**: 229
           - **y**: 545
-          - **comprimento**: 24
-          - **largura**: 20
+          - **raio**: 13
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **circular**:
           - **x**: 208
           - **y**: 579
-          - **comprimento**: 22
-          - **largura**: 20
+          - **raio**: 13
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **circular**:
           - **x**: 182
-          - **y**: 558
-          - **comprimento**: 25
-          - **largura**: 25
+          - **y**: 557
+          - **raio**: 13
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **circular**:
           - **x**: 190
-          - **y**: 522
-          - **comprimento**: 24
-          - **largura**: 24
+          - **y**: 523
+          - **raio**: 13
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **circular**:
           - **x**: 113
-          - **y**: 418
-          - **comprimento**: 22
-          - **largura**: 25
+          - **y**: 417
+          - **raio**: 13
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
-          - **x**: 85
-          - **y**: 428
-          - **comprimento**: 24
-          - **largura**: 25
+        - **circular**:
+          - **x**: 86
+          - **y**: 426
+          - **raio**: 13
       - **[21]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **circular**:
           - **x**: 260
-          - **y**: 474
-          - **comprimento**: 24
-          - **largura**: 23
+          - **y**: 475
+          - **raio**: 13
       - **[22]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
-          - **x**: 187
+        - **circular**:
+          - **x**: 188
           - **y**: 348
-          - **comprimento**: 30
-          - **largura**: 25
+          - **raio**: 13
       - **[23]**:
         - **id**: 24
         - **label**: 24
-        - **box**:
+        - **circular**:
           - **x**: 146
-          - **y**: 342
-          - **comprimento**: 24
-          - **largura**: 24
+          - **y**: 343
+          - **raio**: 13
       - **[24]**:
         - **id**: 25
         - **label**: 25
-        - **box**:
-          - **x**: 442
+        - **circular**:
+          - **x**: 440
           - **y**: 566
-          - **comprimento**: 21
-          - **largura**: 23
+          - **raio**: 13
       - **[25]**:
         - **id**: 26
         - **label**: 26
-        - **box**:
+        - **circular**:
           - **x**: 409
           - **y**: 550
-          - **comprimento**: 24
-          - **largura**: 23
+          - **raio**: 13
       - **[26]**:
         - **id**: 27
         - **label**: 27
-        - **box**:
-          - **x**: 378
+        - **circular**:
+          - **x**: 377
           - **y**: 526
-          - **comprimento**: 25
-          - **largura**: 24
+          - **raio**: 13
       - **[27]**:
         - **id**: 28
         - **label**: 28
-        - **box**:
-          - **x**: 411
-          - **y**: 478
-          - **comprimento**: 24
-          - **largura**: 21
+        - **circular**:
+          - **x**: 412
+          - **y**: 479
+          - **raio**: 13
       - **[28]**:
         - **id**: 29
         - **label**: 29
-        - **box**:
-          - **x**: 402
-          - **y**: 446
-          - **comprimento**: 23
-          - **largura**: 21
+        - **circular**:
+          - **x**: 404
+          - **y**: 447
+          - **raio**: 13
       - **[29]**:
         - **id**: 30
         - **label**: 30
-        - **box**:
+        - **circular**:
           - **x**: 432
-          - **y**: 423
-          - **comprimento**: 23
-          - **largura**: 24
+          - **y**: 425
+          - **raio**: 13
       - **[30]**:
         - **id**: 31
         - **label**: 31
-        - **box**:
-          - **x**: 415
+        - **circular**:
+          - **x**: 414
           - **y**: 392
-          - **comprimento**: 22
-          - **largura**: 22
+          - **raio**: 13
       - **[31]**:
         - **id**: 32
         - **label**: 32
-        - **box**:
+        - **circular**:
           - **x**: 452
-          - **y**: 384
-          - **comprimento**: 24
-          - **largura**: 23
+          - **y**: 385
+          - **raio**: 13
       - **[32]**:
         - **id**: 33
         - **label**: 33
-        - **box**:
-          - **x**: 449
-          - **y**: 356
-          - **comprimento**: 22
-          - **largura**: 24
+        - **circular**:
+          - **x**: 450
+          - **y**: 357
+          - **raio**: 13
       - **[33]**:
         - **id**: 34
         - **label**: 34
-        - **box**:
-          - **x**: 416
+        - **circular**:
+          - **x**: 417
           - **y**: 324
-          - **comprimento**: 22
-          - **largura**: 22
+          - **raio**: 13
       - **[34]**:
         - **id**: 35
         - **label**: 35
-        - **box**:
-          - **x**: 305
+        - **circular**:
+          - **x**: 304
           - **y**: 226
-          - **comprimento**: 30
-          - **largura**: 23
+          - **raio**: 13
       - **[35]**:
         - **id**: 36
         - **label**: 36
-        - **box**:
+        - **circular**:
           - **x**: 304
           - **y**: 174
-          - **comprimento**: 24
-          - **largura**: 23
+          - **raio**: 13
       - **[36]**:
         - **id**: 37
         - **label**: 37
-        - **box**:
-          - **x**: 274
+        - **circular**:
+          - **x**: 275
           - **y**: 180
-          - **comprimento**: 24
-          - **largura**: 25
+          - **raio**: 13
       - **[37]**:
         - **id**: 38
         - **label**: 38
-        - **box**:
+        - **circular**:
           - **x**: 49
           - **y**: 129
-          - **comprimento**: 24
-          - **largura**: 22
+          - **raio**: 13
       - **[38]**:
         - **id**: 39
         - **label**: 39
-        - **box**:
+        - **circular**:
           - **x**: 81
-          - **y**: 128
-          - **comprimento**: 26
-          - **largura**: 22
+          - **y**: 130
+          - **raio**: 13
       - **[39]**:
         - **id**: 40
         - **label**: 40
-        - **box**:
-          - **x**: 87
+        - **circular**:
+          - **x**: 86
           - **y**: 87
-          - **comprimento**: 30
-          - **largura**: 22
+          - **raio**: 13
       - **[40]**:
         - **id**: 41
         - **label**: 41
-        - **box**:
+        - **circular**:
           - **x**: 85
-          - **y**: 58
-          - **comprimento**: 30
-          - **largura**: 25
+          - **y**: 57
+          - **raio**: 13
       - **[41]**:
         - **id**: 42
         - **label**: 42
-        - **box**:
-          - **x**: 155
-          - **y**: 60
-          - **comprimento**: 30
-          - **largura**: 24
+        - **circular**:
+          - **x**: 154
+          - **y**: 61
+          - **raio**: 13
       - **[42]**:
         - **id**: 43
         - **label**: 43
-        - **box**:
-          - **x**: 325
-          - **y**: 112
-          - **comprimento**: 30
-          - **largura**: 25
+        - **circular**:
+          - **x**: 324
+          - **y**: 113
+          - **raio**: 13
       - **[43]**:
         - **id**: 44
         - **label**: 44
-        - **box**:
+        - **circular**:
           - **x**: 505
           - **y**: 74
-          - **comprimento**: 30
-          - **largura**: 25
+          - **raio**: 13
       - **[44]**:
         - **id**: 45
         - **label**: 45
-        - **box**:
-          - **x**: 652
-          - **y**: 202
-          - **comprimento**: 30
-          - **largura**: 23
+        - **circular**:
+          - **x**: 651
+          - **y**: 203
+          - **raio**: 13
       - **[45]**:
         - **id**: 46
         - **label**: 46
-        - **box**:
+        - **circular**:
           - **x**: 668
           - **y**: 58
-          - **comprimento**: 30
-          - **largura**: 25
+          - **raio**: 13
       - **[46]**:
         - **id**: 47
         - **label**: 47
-        - **box**:
-          - **x**: 707
+        - **circular**:
+          - **x**: 705
           - **y**: 58
-          - **comprimento**: 30
-          - **largura**: 25
-      - **[47]**:
-        - **id**: Sitio_Arqueologico
-        - **label**: Sítio arqueológico
-        - **box**:
-          - **x**: 708
-          - **y**: 992
-          - **comprimento**: 85
-          - **largura**: 20
+          - **raio**: 13
     - **referencias**:
       - **[0]**:
         - **escalada**: Quem manda aqui sou Eu "Eterosapiens"
@@ -1703,6 +1598,26 @@
         - **escalada**: Patati Patata
         - **ids**:
           - 46
+      - **[46]**:
+        - **ids**:
+          - 14
+        - **setor**: G3
+        - **escalada**: Dinamicuzão em Rodlá
+      - **[47]**:
+        - **ids**:
+          - 13
+        - **setor**: G3
+        - **escalada**: Dinamicuzão em catapulta
+      - **[48]**:
+        - **ids**:
+          - 12
+        - **setor**: G3
+        - **escalada**: Dinamicuzão em El paseo
+      - **[49]**:
+        - **ids**:
+          - 11
+        - **setor**: G3
+        - **escalada**: El paseo em Dinamicuzão
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

@@ -1,4 +1,4 @@
----
+---
 nome: G1
 mapas:
 - caminho_imagem_mapa: imagens/pagina_15.webp
@@ -7,116 +7,88 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 524
-      y: 1147
-      comprimento: 20
-      largura: 20
+      y: 1149
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 499
-      y: 1113
-      comprimento: 20
-      largura: 20
+    circular:
+      x: 500
+      y: 1114
+      raio: 13
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 545
-      y: 1041
-      comprimento: 20
-      largura: 20
+      y: 1043
+      raio: 13
   - id: '4'
     label: '4'
-    box:
+    circular:
       x: 572
-      y: 991
-      comprimento: 20
-      largura: 20
+      y: 992
+      raio: 13
   - id: '5'
     label: '5'
-    box:
-      x: 477
-      y: 900
-      comprimento: 20
-      largura: 20
+    circular:
+      x: 478
+      y: 902
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 320
-      y: 769
-      comprimento: 20
-      largura: 20
+    circular:
+      x: 321
+      y: 770
+      raio: 13
   - id: '7'
     label: '7'
-    box:
-      x: 235
+    circular:
+      x: 236
       y: 427
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 271
       y: 394
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '9'
     label: '9'
-    box:
-      x: 321
+    circular:
+      x: 322
       y: 421
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 379
-      y: 358
-      comprimento: 20
-      largura: 20
+      y: 359
+      raio: 13
   - id: '11'
     label: '11'
-    box:
-      x: 393
-      y: 307
-      comprimento: 20
-      largura: 20
+    circular:
+      x: 394
+      y: 309
+      raio: 13
   - id: '12'
     label: '12'
-    box:
-      x: 413
-      y: 261
-      comprimento: 20
-      largura: 20
+    circular:
+      x: 415
+      y: 262
+      raio: 13
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 426
-      y: 214
-      comprimento: 20
-      largura: 20
+      y: 216
+      raio: 13
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 475
-      y: 133
-      comprimento: 20
-      largura: 20
-  - id: Dolina
-    label: Dolina
-    box:
-      x: 318
-      y: 944
-      comprimento: 65
-      largura: 27
-  - id: Cuidado_Abelhas
-    label: Cuidado abelhas!!!
-    box:
-      x: 308
-      y: 720
-      comprimento: 62
-      largura: 34
+      y: 135
+      raio: 13
   referencias:
   - escalada: Mão de martelo
     ids:
@@ -189,8 +161,8 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por 
-      perto!**
+    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas
+      por perto!**
 - via_esportiva:
     nome: Não contavam com minha astucia
     dificuldade: BR_7B
@@ -257,7 +229,8 @@ escaladas:
     nome: '?'
     dificuldade: BR_6
     descricao: Via inacabada. Cuidado abelhas!
----
+---
+
 # Setor G1
 
 ![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp)

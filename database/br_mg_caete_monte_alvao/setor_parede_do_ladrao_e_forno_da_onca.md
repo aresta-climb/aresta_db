@@ -1,4 +1,4 @@
----
+---
 nome: Parede do Ladrão e Forno da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp
@@ -137,120 +137,10 @@ mapas:
     ids:
     - 7az
 setores:
-- conteudo:
-    nome: Forno da Onça
-    escaladas:
-    - via_esportiva:
-        nome: Cuidado Ketely
-        dificuldade: BR_6
-        extensao: 24
-        quantidade_protecoes_intermediarias: 8
-        quantidade_protecoes_parada: 2
-        conquistadores:
-        - Jg
-    - via_esportiva:
-        nome: You will survive
-        dificuldade: BR_7A
-        extensao: 20
-        quantidade_protecoes_intermediarias: 6
-        quantidade_protecoes_parada: 2
-        conquistadores:
-        - Jg
-    - via_esportiva:
-        nome: Cara ou Coroa
-        dificuldade: BR_6
-        extensao: 22
-        quantidade_protecoes_intermediarias: 6
-        quantidade_protecoes_parada: 2
-        conquistadores:
-        - Jg
-    - via_esportiva:
-        nome: French CanCan
-        dificuldade: BR_6SUP
-        extensao: 28
-        quantidade_protecoes_intermediarias: 5
-        quantidade_protecoes_parada: 2
-        conquistadores:
-        - Jg
-    - via_esportiva:
-        nome: On the road again
-        dificuldade: BR_6SUP
-        extensao: 18
-        quantidade_protecoes_intermediarias: 5
-        quantidade_protecoes_parada: 2
-        conquistadores:
-        - Jg
-    - via_multiplas_enfiadas:
-        nome: Incrível mas verdadeiro
-        dificuldade_media: BR_6
-        dificuldade_maxima: BR_6
-        quantidade_costuras_intermediarias: 12
-        quantidade_equipamentos_parada: 2
-        comprimento_total: 50
-        numero_enfiadas: 2
-        tipo_via_multiplas_enfiadas: MISTA
-        conquistadores:
-        - Jg
-        enfiadas:
-        - via_esportiva:
-            nome: L1
-            dificuldade: BR_4
-            extensao: 15
-        - via_esportiva:
-            nome: L2
-            dificuldade: BR_6
-            extensao: 35
-            descricao: mista
-- conteudo:
-    nome: Parede do Ladrão
-    escaladas:
-    - via_esportiva:
-        nome: Bouder com leite
-        dificuldade: BR_5
-        extensao: 25
-        quantidade_protecoes_intermediarias: 4
-        quantidade_protecoes_parada: 2
-    - via_esportiva:
-        nome: Chipie chipie
-        dificuldade: BR_4SUP
-        extensao: 23
-        quantidade_protecoes_intermediarias: 6
-        quantidade_protecoes_parada: 2
-    - via_esportiva:
-        nome: Bambi
-        dificuldade: BR_4
-        extensao: 20
-        quantidade_protecoes_intermediarias: 4
-        quantidade_protecoes_parada: 2
-    - via_esportiva:
-        nome: Ana Thor
-        dificuldade: BR_7C
-        extensao: 15
-        quantidade_protecoes_intermediarias: 6
-        quantidade_protecoes_parada: 2
-    - via_esportiva:
-        nome: Au bout des doigts
-        dificuldade: BR_7B
-        extensao: 22
-        quantidade_protecoes_intermediarias: 6
-        quantidade_protecoes_parada: 3
-        conquistadores:
-        - Pablo Gonçalves
-        - Jg
-        descricao: Base no platô superior
-    - via_esportiva:
-        nome: Boom Boom
-        dificuldade: BR_6SUP
-        extensao: 28
-        quantidade_protecoes_intermediarias: 8
-        quantidade_protecoes_parada: 2
-    - via_esportiva:
-        nome: Petit Pichou
-        dificuldade: BR_6SUP
-        extensao: 28
-        quantidade_protecoes_intermediarias: 8
-        quantidade_protecoes_parada: 2
----
+- caminho: setor_forno_da_onça.md
+- caminho: setor_parede_do_ladrão.md
+---
+
 # Parede do Ladrão e Forno da Onça
 
 Estes setores estão localizados lado a lado no Alto Monte Alvão.

@@ -59,5 +59,28 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         self.assertEqual(ref.escalada, "Via Teste")
         self.assertEqual(len(ref.ids), 0) # Sem IDs ainda
 
+    def test_primeiro_item_selecionado_automaticamente(self):
+        # Quando a lista inicial carrega, o primeiro item deve estar selecionado
+        self.assertEqual(self.dialogo.lista_resultados.currentRow(), 0)
+        
+        # Filtrar por "Via" também deve deixar o primeiro (único) item selecionado
+        self.dialogo.input_busca.setText("Via")
+        self.assertEqual(self.dialogo.lista_resultados.currentRow(), 0)
+
+    def test_busca_ignora_acentos(self):
+        # Vamos adicionar uma entidade com acentos manualmente
+        self.dialogo.todas_entidades.append({
+            "tipo": "Escalada",
+            "display": f"🧗 Via: Conceição > Vía Láctea",
+            "grupo": "",
+            "setor": "Conceição",
+            "escalada": "Vía Láctea"
+        })
+        
+        # Filtrar sem acento e tudo minúsculo
+        self.dialogo.input_busca.setText("via lactea")
+        self.assertEqual(self.dialogo.lista_resultados.count(), 1)
+        self.assertIn("Vía Láctea", self.dialogo.lista_resultados.item(0).text())
+
 if __name__ == '__main__':
     unittest.main()

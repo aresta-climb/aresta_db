@@ -1,4 +1,4 @@
----
+---
 nome: Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
@@ -9,28 +9,21 @@ mapas:
     label: Setor Terceiro Andar
     box:
       x: 846
-      y: 300
-      comprimento: 56
-      largura: 46
+      y: 302
+      comprimento: 61
+      largura: 55
   - id: Setor_Segundo_Andar
     label: Setor Segundo Andar
     box:
       x: 566
-      y: 932
-      comprimento: 61
-      largura: 49
-  - id: Escada_De_Acesso
-    label: Escada de acesso
-    box:
-      x: 696
-      y: 734
-      comprimento: 91
-      largura: 43
+      y: 935
+      comprimento: 65
+      largura: 54
   - id: '01'
     label: '01'
     box:
-      x: 593
-      y: 598
+      x: 594
+      y: 599
       comprimento: 22
       largura: 18
   - id: '02'
@@ -44,43 +37,43 @@ mapas:
     label: '03'
     box:
       x: 460
-      y: 392
-      comprimento: 28
-      largura: 23
+      y: 394
+      comprimento: 21
+      largura: 19
   - id: '04'
     label: '04'
     box:
-      x: 459
+      x: 458
       y: 372
-      comprimento: 26
-      largura: 20
+      comprimento: 21
+      largura: 17
   - id: '05'
     label: '05'
     box:
       x: 444
       y: 310
-      comprimento: 24
+      comprimento: 21
       largura: 18
   - id: '06'
     label: '06'
     box:
-      x: 532
-      y: 310
-      comprimento: 25
+      x: 534
+      y: 311
+      comprimento: 21
       largura: 20
   - id: '07'
     label: '07'
     box:
-      x: 534
+      x: 536
       y: 434
-      comprimento: 27
-      largura: 23
+      comprimento: 23
+      largura: 21
   - id: '08'
     label: '08'
     box:
       x: 562
       y: 463
-      comprimento: 26
+      comprimento: 23
       largura: 20
   - id: '09'
     label: '09'
@@ -111,6 +104,20 @@ mapas:
   - escalada: Cai Mais Não, Zé
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Jardim Suspenso
+    escalada: Corte Profundo
+  - ids:
+    - '09'
+    setor: Jardim Suspenso
+    escalada: Avenida Paulista
+  - ids:
+    - Setor_Segundo_Andar
+    setor: 2º Andar
+  - ids:
+    - Setor_Terceiro_Andar
+    setor: 3º Andar
 escaladas:
 - via_esportiva:
     nome: (via inacabada)
@@ -157,7 +164,8 @@ escaladas:
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Jardim Suspenso
 
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.

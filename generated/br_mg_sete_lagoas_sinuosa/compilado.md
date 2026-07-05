@@ -151,6 +151,7 @@
             **EDIÇÃO:** 2019-1
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_de_esquerda
@@ -199,35 +200,31 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 407
-          - **y**: 564
-          - **comprimento**: 40
-          - **largura**: 45
+        - **circular**:
+          - **x**: 409
+          - **y**: 565
+          - **raio**: 22
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 595
-          - **y**: 612
-          - **comprimento**: 40
-          - **largura**: 45
+          - **y**: 614
+          - **raio**: 22
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 695
+        - **circular**:
+          - **x**: 698
           - **y**: 628
-          - **comprimento**: 40
-          - **largura**: 45
+          - **raio**: 22
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 810
+        - **circular**:
+          - **x**: 812
           - **y**: 638
-          - **comprimento**: 40
-          - **largura**: 45
+          - **raio**: 22
       - **[4]**:
         - **id**: Setor_7_Paralelo
         - **label**: ← SETOR 7 PARALELO
@@ -262,6 +259,14 @@
         - **escalada**: Moça de 100 Anos
         - **ids**:
           - 4
+      - **[4]**:
+        - **ids**:
+          - Setor_7_Paralelo
+        - **setor**: Setor 7 Paralelo
+      - **[5]**:
+        - **ids**:
+          - Setor_Panelinha
+        - **setor**: Setor Panelinha
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -332,43 +337,39 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 530
-          - **y**: 396
-          - **comprimento**: 45
-          - **largura**: 47
+        - **circular**:
+          - **x**: 528
+          - **y**: 397
+          - **raio**: 24
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 578
-          - **y**: 318
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 579
+          - **y**: 317
+          - **raio**: 23
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 608
-          - **y**: 398
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 609
+          - **y**: 397
+          - **raio**: 23
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 234
-          - **y**: 478
-          - **comprimento**: 51
-          - **largura**: 51
+        - **circular**:
+          - **x**: 235
+          - **y**: 477
+          - **raio**: 24
       - **[4]**:
         - **id**: Setor_de_Esquerda
         - **label**: ↑ SETOR DE ESQUERDA
         - **box**:
           - **x**: 560
           - **y**: 597
-          - **comprimento**: 43
-          - **largura**: 250
+          - **comprimento**: 37
+          - **largura**: 248
           - **angulo_graus_x100**: 666
     - **referencias**:
       - **[0]**:
@@ -387,6 +388,10 @@
         - **escalada**: Corda de Violão
         - **ids**:
           - 4
+      - **[4]**:
+        - **ids**:
+          - Setor_de_Esquerda
+        - **setor**: Setor de Esquerda
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -459,145 +464,129 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 94
-          - **y**: 1005
-          - **comprimento**: 22
-          - **largura**: 24
+        - **circular**:
+          - **x**: 95
+          - **y**: 1007
+          - **raio**: 14
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 118
-          - **y**: 962
-          - **comprimento**: 24
-          - **largura**: 27
+        - **circular**:
+          - **x**: 120
+          - **y**: 963
+          - **raio**: 14
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 146
-          - **y**: 922
-          - **comprimento**: 23
-          - **largura**: 24
+          - **y**: 924
+          - **raio**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 188
-          - **y**: 868
-          - **comprimento**: 24
-          - **largura**: 25
+        - **circular**:
+          - **x**: 189
+          - **y**: 867
+          - **raio**: 14
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 206
-          - **y**: 832
-          - **comprimento**: 27
-          - **largura**: 25
+        - **circular**:
+          - **x**: 209
+          - **y**: 837
+          - **raio**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **circular**:
           - **x**: 220
-          - **y**: 798
-          - **comprimento**: 26
-          - **largura**: 24
+          - **y**: 801
+          - **raio**: 14
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 220
-          - **y**: 760
-          - **comprimento**: 24
-          - **largura**: 26
+          - **y**: 764
+          - **raio**: 14
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 310
-          - **y**: 492
-          - **comprimento**: 29
-          - **largura**: 29
+          - **y**: 493
+          - **raio**: 14
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **circular**:
           - **x**: 318
-          - **y**: 436
-          - **comprimento**: 22
-          - **largura**: 25
+          - **y**: 439
+          - **raio**: 14
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **circular**:
           - **x**: 331
-          - **y**: 383
-          - **comprimento**: 26
-          - **largura**: 24
+          - **y**: 384
+          - **raio**: 14
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 341
-          - **y**: 284
-          - **comprimento**: 24
-          - **largura**: 23
+        - **circular**:
+          - **x**: 343
+          - **y**: 285
+          - **raio**: 14
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 343
-          - **y**: 224
-          - **comprimento**: 22
-          - **largura**: 23
+        - **circular**:
+          - **x**: 344
+          - **y**: 225
+          - **raio**: 14
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
-          - **x**: 336
-          - **y**: 182
-          - **comprimento**: 27
-          - **largura**: 23
+        - **circular**:
+          - **x**: 337
+          - **y**: 183
+          - **raio**: 14
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 312
-          - **y**: 154
-          - **comprimento**: 23
-          - **largura**: 24
+          - **y**: 157
+          - **raio**: 14
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
-          - **x**: 319
-          - **y**: 120
-          - **comprimento**: 22
-          - **largura**: 23
+        - **circular**:
+          - **x**: 320
+          - **y**: 121
+          - **raio**: 14
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
-          - **x**: 338
-          - **y**: 91
-          - **comprimento**: 26
-          - **largura**: 26
+        - **circular**:
+          - **x**: 340
+          - **y**: 93
+          - **raio**: 14
       - **[16]**:
         - **id**: Setor_Death_Horse
         - **label**: SETOR DEATH HORSE→
         - **box**:
-          - **x**: 283
-          - **y**: 1015
-          - **comprimento**: 250
-          - **largura**: 20
+          - **x**: 282
+          - **y**: 1014
+          - **comprimento**: 265
+          - **largura**: 33
       - **[17]**:
         - **id**: Setor_Sentinela
         - **label**: SETOR SENTINELA →
         - **box**:
           - **x**: 246
-          - **y**: 84
+          - **y**: 86
           - **comprimento**: 203
           - **largura**: 24
           - **angulo_graus_x100**: -2606
@@ -675,6 +664,18 @@
         - **escalada**: Plano Paralelo
         - **ids**:
           - 16
+      - **[16]**:
+        - **ids**:
+          - Setor_Death_Horse
+        - **setor**: Setor Death Horse
+      - **[17]**:
+        - **ids**:
+          - Setor_De_Esquerda
+        - **setor**: Setor de Esquerda
+      - **[18]**:
+        - **ids**:
+          - Setor_Sentinela
+        - **setor**: Setor Sentinela
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -814,67 +815,59 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 40
+        - **circular**:
+          - **x**: 39
           - **y**: 198
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 18
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 290
-          - **y**: 244
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 246
+          - **raio**: 18
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 718
-          - **y**: 278
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 276
+          - **raio**: 18
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 826
-          - **y**: 298
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 828
+          - **y**: 295
+          - **raio**: 18
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 904
+        - **circular**:
+          - **x**: 903
           - **y**: 352
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 18
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 954
-          - **y**: 390
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 955
+          - **y**: 391
+          - **raio**: 18
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1038
-          - **y**: 422
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 1040
+          - **y**: 421
+          - **raio**: 18
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 1104
+        - **circular**:
+          - **x**: 1107
           - **y**: 446
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Brenfoterapia
@@ -988,75 +981,66 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 64
-          - **y**: 254
-          - **comprimento**: 25
-          - **largura**: 25
+        - **circular**:
+          - **x**: 66
+          - **y**: 255
+          - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 94
-          - **y**: 285
-          - **comprimento**: 23
-          - **largura**: 28
+          - **y**: 286
+          - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 130
-          - **y**: 292
-          - **comprimento**: 25
-          - **largura**: 29
+        - **circular**:
+          - **x**: 131
+          - **y**: 291
+          - **raio**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 172
+        - **circular**:
+          - **x**: 174
           - **y**: 270
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 14
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 236
+        - **circular**:
+          - **x**: 238
           - **y**: 252
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 424
-          - **y**: 278
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 425
+          - **y**: 279
+          - **raio**: 14
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 480
-          - **y**: 188
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 189
+          - **raio**: 14
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 528
-          - **y**: 184
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 529
+          - **y**: 187
+          - **raio**: 14
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **circular**:
           - **x**: 1008
-          - **y**: 346
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 347
+          - **raio**: 14
       - **[9]**:
         - **id**: Setor_7_Paralelo
         - **label**: ↑ SETOR 7 PARALELO
@@ -1119,6 +1103,14 @@
         - **escalada**: Araticum
         - **ids**:
           - 9
+      - **[9]**:
+        - **ids**:
+          - Setor_7_Paralelo
+        - **setor**: Setor 7 Paralelo
+      - **[10]**:
+        - **ids**:
+          - Setor_Gameleira
+        - **setor**: Setor Gameleira
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1202,35 +1194,31 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 248
-          - **y**: 446
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 447
+          - **raio**: 17
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 254
-          - **y**: 372
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 370
+          - **raio**: 17
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 160
-          - **y**: 242
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 157
+          - **y**: 244
+          - **raio**: 17
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 298
+        - **circular**:
+          - **x**: 299
           - **y**: 99
-          - **comprimento**: 35
-          - **largura**: 40
+          - **raio**: 17
       - **[4]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: SETOR VALE DAS SOMBRAS →
@@ -1264,6 +1252,14 @@
         - **escalada**: Girassol
         - **ids**:
           - 4
+      - **[4]**:
+        - **ids**:
+          - Setor_Death_Horse
+        - **setor**: Setor Death Horse
+      - **[5]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1328,139 +1324,122 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 64
-          - **y**: 788
-          - **comprimento**: 26
-          - **largura**: 26
+        - **circular**:
+          - **x**: 63
+          - **y**: 790
+          - **raio**: 12
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 119
-          - **y**: 800
-          - **comprimento**: 24
-          - **largura**: 29
+        - **circular**:
+          - **x**: 118
+          - **y**: 802
+          - **raio**: 12
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 189
-          - **y**: 818
-          - **comprimento**: 28
-          - **largura**: 27
+        - **circular**:
+          - **x**: 188
+          - **y**: 816
+          - **raio**: 12
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 258
-          - **y**: 748
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 257
+          - **y**: 749
+          - **raio**: 12
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **circular**:
           - **x**: 270
-          - **y**: 654
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 655
+          - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 282
-          - **y**: 504
-          - **comprimento**: 21
-          - **largura**: 25
+        - **circular**:
+          - **x**: 283
+          - **y**: 506
+          - **raio**: 12
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 300
-          - **y**: 468
-          - **comprimento**: 21
-          - **largura**: 23
+        - **circular**:
+          - **x**: 299
+          - **y**: 469
+          - **raio**: 12
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 314
-          - **y**: 354
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 356
+          - **raio**: 12
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **circular**:
           - **x**: 203
           - **y**: 210
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 12
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 196
-          - **y**: 169
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 198
+          - **y**: 168
+          - **raio**: 12
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **circular**:
           - **x**: 212
-          - **y**: 125
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 128
+          - **raio**: 12
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 330
-          - **y**: 114
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 328
+          - **y**: 115
+          - **raio**: 12
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 404
-          - **y**: 112
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 113
+          - **raio**: 12
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
-          - **x**: 474
+        - **circular**:
+          - **x**: 472
           - **y**: 89
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 12
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
-          - **x**: 510
-          - **y**: 79
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 509
+          - **y**: 81
+          - **raio**: 12
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
-          - **x**: 551
-          - **y**: 70
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 549
+          - **y**: 71
+          - **raio**: 12
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **circular**:
           - **x**: 592
-          - **y**: 52
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 51
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Curta e Grossa
@@ -1542,107 +1521,94 @@
       - **[0]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
-          - **x**: 341
+        - **circular**:
+          - **x**: 342
           - **y**: 1211
-          - **comprimento**: 42
-          - **largura**: 42
+          - **raio**: 23
       - **[1]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **circular**:
           - **x**: 359
           - **y**: 1146
-          - **comprimento**: 40
-          - **largura**: 43
+          - **raio**: 23
       - **[2]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
-          - **x**: 401
-          - **y**: 1083
-          - **comprimento**: 38
-          - **largura**: 42
+        - **circular**:
+          - **x**: 399
+          - **y**: 1084
+          - **raio**: 23
       - **[3]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
-          - **x**: 415
-          - **y**: 1003
-          - **comprimento**: 40
-          - **largura**: 40
+        - **circular**:
+          - **x**: 414
+          - **y**: 1004
+          - **raio**: 24
       - **[4]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
-          - **x**: 442
+        - **circular**:
+          - **x**: 443
           - **y**: 917
-          - **comprimento**: 40
-          - **largura**: 40
+          - **raio**: 24
       - **[5]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
-          - **x**: 505
-          - **y**: 841
-          - **comprimento**: 42
-          - **largura**: 40
+        - **circular**:
+          - **x**: 504
+          - **y**: 842
+          - **raio**: 23
       - **[6]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
-          - **x**: 562
-          - **y**: 756
-          - **comprimento**: 42
-          - **largura**: 41
+        - **circular**:
+          - **x**: 560
+          - **y**: 757
+          - **raio**: 24
       - **[7]**:
         - **id**: 24
         - **label**: 24
-        - **box**:
-          - **x**: 602
-          - **y**: 683
-          - **comprimento**: 41
-          - **largura**: 42
+        - **circular**:
+          - **x**: 603
+          - **y**: 687
+          - **raio**: 24
       - **[8]**:
         - **id**: 25
         - **label**: 25
-        - **box**:
-          - **x**: 634
-          - **y**: 568
-          - **comprimento**: 49
-          - **largura**: 41
+        - **circular**:
+          - **x**: 632
+          - **y**: 567
+          - **raio**: 24
       - **[9]**:
         - **id**: 26
         - **label**: 26
-        - **box**:
+        - **circular**:
           - **x**: 642
           - **y**: 483
-          - **comprimento**: 45
-          - **largura**: 40
+          - **raio**: 24
       - **[10]**:
         - **id**: 27
         - **label**: 27
-        - **box**:
-          - **x**: 660
-          - **y**: 382
-          - **comprimento**: 47
-          - **largura**: 47
+        - **circular**:
+          - **x**: 661
+          - **y**: 383
+          - **raio**: 24
       - **[11]**:
         - **id**: 28
         - **label**: 28
-        - **box**:
+        - **circular**:
           - **x**: 654
-          - **y**: 311
-          - **comprimento**: 47
-          - **largura**: 40
+          - **y**: 312
+          - **raio**: 24
       - **[12]**:
         - **id**: 29
         - **label**: 29
-        - **box**:
-          - **x**: 660
+        - **circular**:
+          - **x**: 658
           - **y**: 243
-          - **comprimento**: 43
-          - **largura**: 36
+          - **raio**: 23
       - **[13]**:
         - **id**: Setor_Gameleira
         - **label**: ← SETOR GAMELEIRA
@@ -1651,16 +1617,16 @@
           - **y**: 976
           - **comprimento**: 31
           - **largura**: 201
-          - **angulo_graus_x100**: -3625
+          - **angulo_graus_x100**: -3782
       - **[14]**:
         - **id**: Setor_4_Picos
         - **label**: ← SETOR 4 PICOS
         - **box**:
           - **x**: 100
-          - **y**: 1198
-          - **comprimento**: 45
-          - **largura**: 161
-          - **angulo_graus_x100**: 1843
+          - **y**: 1200
+          - **comprimento**: 31
+          - **largura**: 165
+          - **angulo_graus_x100**: 1162
     - **referencias**:
       - **[0]**:
         - **escalada**: Peripécias do Climb
@@ -1718,6 +1684,14 @@
         - **escalada**: Velhos Novatos
         - **ids**:
           - 29
+      - **[14]**:
+        - **ids**:
+          - Setor_4_Picos
+        - **setor**: Setor 4 Picos
+      - **[15]**:
+        - **ids**:
+          - Setor_Gameleira
+        - **setor**: Setor Gameleira
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1884,67 +1858,59 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 512
-          - **y**: 892
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 513
+          - **y**: 891
+          - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 441
-          - **y**: 816
-          - **comprimento**: 22
-          - **largura**: 22
+        - **circular**:
+          - **x**: 443
+          - **y**: 818
+          - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 442
-          - **y**: 786
-          - **comprimento**: 22
-          - **largura**: 25
+        - **circular**:
+          - **x**: 443
+          - **y**: 788
+          - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **circular**:
           - **x**: 54
-          - **y**: 738
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 743
+          - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 62
+        - **circular**:
+          - **x**: 64
           - **y**: 658
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 82
-          - **y**: 608
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 79
+          - **y**: 602
+          - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 100
-          - **y**: 500
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 101
+          - **y**: 499
+          - **raio**: 13
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 122
-          - **y**: 418
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 123
+          - **y**: 417
+          - **raio**: 13
       - **[8]**:
         - **id**: Sentinela
         - **label**: ← SENTINELA
@@ -1994,6 +1960,14 @@
         - **escalada**: Escalada Eclética
         - **ids**:
           - 8
+      - **[8]**:
+        - **ids**:
+          - Sentinela
+        - **setor**: Setor Sentinela
+      - **[9]**:
+        - **ids**:
+          - Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2057,68 +2031,61 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 134
-          - **y**: 232
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 234
+          - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 206
-          - **y**: 232
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 203
+          - **y**: 234
+          - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **circular**:
           - **x**: 262
-          - **y**: 224
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 227
+          - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 302
+        - **circular**:
+          - **x**: 300
           - **y**: 240
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 350
-          - **y**: 224
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 348
+          - **y**: 227
+          - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 160
-          - **y**: 420
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 159
+          - **y**: 421
+          - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **circular**:
           - **x**: 340
-          - **y**: 420
-          - **comprimento**: 35
-          - **largura**: 35
+          - **y**: 421
+          - **raio**: 13
       - **[7]**:
         - **id**: Vale_das_Sombras
         - **label**: ↙ VALE DAS SOMBRAS
         - **box**:
-          - **x**: 404
-          - **y**: 556
+          - **x**: 406
+          - **y**: 559
           - **comprimento**: 33
           - **largura**: 218
-          - **angulo_graus_x100**: 3568
+          - **angulo_graus_x100**: 3372
     - **referencias**:
       - **[0]**:
         - **escalada**: Hugossauro
@@ -2148,6 +2115,10 @@
         - **escalada**: De Menor
         - **ids**:
           - 7
+      - **[7]**:
+        - **ids**:
+          - Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2206,27 +2177,24 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 352
-          - **y**: 274
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 353
+          - **y**: 277
+          - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 410
-          - **y**: 268
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 409
+          - **y**: 269
+          - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 508
-          - **y**: 292
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 507
+          - **y**: 293
+          - **raio**: 20
       - **[3]**:
         - **id**: Setor_Primordios
         - **label**: ← SETOR PRIMÓRDIOS
@@ -2257,6 +2225,14 @@
         - **escalada**: Anfitriões do Dia
         - **ids**:
           - 3
+      - **[3]**:
+        - **ids**:
+          - Setor_Primordios
+        - **setor**: Setor Primórdios
+      - **[4]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2320,99 +2296,87 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 82
+        - **circular**:
+          - **x**: 84
           - **y**: 444
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 298
-          - **y**: 482
-          - **comprimento**: 35
-          - **largura**: 35
+        - **circular**:
+          - **x**: 297
+          - **y**: 480
+          - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 302
-          - **y**: 420
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 300
+          - **y**: 422
+          - **raio**: 20
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 298
-          - **y**: 245
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 296
+          - **y**: 244
+          - **raio**: 21
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 288
-          - **y**: 180
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 286
+          - **y**: 181
+          - **raio**: 21
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 326
+        - **circular**:
+          - **x**: 323
           - **y**: 144
-          - **comprimento**: 35
-          - **largura**: 35
+          - **raio**: 21
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 442
-          - **y**: 167
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 441
+          - **y**: 166
+          - **raio**: 21
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 462
-          - **y**: 120
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 463
+          - **y**: 121
+          - **raio**: 21
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 488
-          - **y**: 65
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 487
+          - **y**: 64
+          - **raio**: 21
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 562
-          - **y**: 156
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 564
+          - **y**: 158
+          - **raio**: 21
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **circular**:
           - **x**: 866
-          - **y**: 132
-          - **comprimento**: 35
-          - **largura**: 40
+          - **y**: 134
+          - **raio**: 21
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **circular**:
           - **x**: 924
-          - **y**: 152
-          - **comprimento**: 35
-          - **largura**: 40
+          - **y**: 153
+          - **raio**: 21
     - **referencias**:
       - **[0]**:
         - **escalada**: No Pulso
@@ -2545,35 +2509,31 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 205
+        - **circular**:
+          - **x**: 204
           - **y**: 80
-          - **comprimento**: 40
-          - **largura**: 40
+          - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 335
-          - **y**: 54
-          - **comprimento**: 40
-          - **largura**: 40
+        - **circular**:
+          - **x**: 333
+          - **y**: 57
+          - **raio**: 19
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 488
-          - **y**: 55
-          - **comprimento**: 42
-          - **largura**: 40
+        - **circular**:
+          - **x**: 489
+          - **y**: 53
+          - **raio**: 19
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 590
-          - **y**: 351
-          - **comprimento**: 40
-          - **largura**: 40
+        - **circular**:
+          - **x**: 588
+          - **y**: 353
+          - **raio**: 20
       - **[4]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: ← SETOR VALE DAS SOMBRAS
@@ -2582,7 +2542,7 @@
           - **y**: 518
           - **comprimento**: 267
           - **largura**: 29
-          - **angulo_graus_x100**: 790
+          - **angulo_graus_x100**: 779
       - **[5]**:
         - **id**: Setor_Primordios
         - **label**: SETOR PRIMÓRDIOS →
@@ -2608,6 +2568,14 @@
         - **escalada**: ???
         - **ids**:
           - 4
+      - **[4]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
+      - **[5]**:
+        - **ids**:
+          - Setor_Primordios
+        - **setor**: Setor Primórdios
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2680,51 +2648,47 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 350
+              - **circular**:
+                - **x**: 349
                 - **y**: 308
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 308
+              - **circular**:
+                - **x**: 309
                 - **y**: 238
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
+              - **circular**:
                 - **x**: 242
-                - **y**: 218
-                - **comprimento**: 35
-                - **largura**: 35
+                - **y**: 216
+                - **raio**: 19
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 278
-                - **y**: 158
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 279
+                - **y**: 159
+                - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **box**:
-                - **x**: 254
+              - **circular**:
+                - **x**: 252
                 - **y**: 96
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[5]**:
               - **id**: Setores_Laranja_Anfiteatro
               - **label**: SUB SETOR LARANJA / ANFITEATRO →
               - **box**:
-                - **x**: 525
-                - **y**: 665
-                - **comprimento**: 250
+                - **x**: 498
+                - **y**: 664
+                - **comprimento**: 263
                 - **largura**: 50
+                - **angulo_graus_x100**: 132
           - **referencias**:
             - **[0]**:
               - **escalada**: Facão Traiçoeiro
@@ -2746,6 +2710,16 @@
               - **escalada**: Tio Ativo
               - **ids**:
                 - 5
+            - **[5]**:
+              - **ids**:
+                - Setores_Laranja_Anfiteatro
+              - **grupo**: Vale Oculto
+              - **setor**: Sub Setor Laranja
+            - **[6]**:
+              - **ids**:
+                - Setores_Laranja_Anfiteatro
+              - **grupo**: Vale Oculto
+              - **setor**: Sub Setor Anfiteatro
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -2795,99 +2769,87 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 476
-                - **y**: 270
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 475
+                - **y**: 269
+                - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
+              - **circular**:
                 - **x**: 434
                 - **y**: 180
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 372
+              - **circular**:
+                - **x**: 375
                 - **y**: 192
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 332
-                - **y**: 136
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 330
+                - **y**: 137
+                - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **box**:
+              - **circular**:
                 - **x**: 524
-                - **y**: 370
-                - **comprimento**: 35
-                - **largura**: 35
+                - **y**: 369
+                - **raio**: 20
             - **[5]**:
               - **id**: 6
               - **label**: 6
-              - **box**:
+              - **circular**:
                 - **x**: 578
-                - **y**: 370
-                - **comprimento**: 35
-                - **largura**: 35
+                - **y**: 369
+                - **raio**: 20
             - **[6]**:
               - **id**: 7
               - **label**: 7
-              - **box**:
-                - **x**: 632
-                - **y**: 376
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 630
+                - **y**: 378
+                - **raio**: 20
             - **[7]**:
               - **id**: 8
               - **label**: 8
-              - **box**:
+              - **circular**:
                 - **x**: 686
-                - **y**: 370
-                - **comprimento**: 35
-                - **largura**: 35
+                - **y**: 369
+                - **raio**: 20
             - **[8]**:
               - **id**: 9
               - **label**: 9
-              - **box**:
-                - **x**: 732
-                - **y**: 368
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 731
+                - **y**: 369
+                - **raio**: 20
             - **[9]**:
               - **id**: 10
               - **label**: 10
-              - **box**:
+              - **circular**:
                 - **x**: 786
                 - **y**: 368
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[10]**:
               - **id**: 11
               - **label**: 11
-              - **box**:
-                - **x**: 836
-                - **y**: 338
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 837
+                - **y**: 339
+                - **raio**: 20
             - **[11]**:
               - **id**: 12
               - **label**: 12
-              - **box**:
+              - **circular**:
                 - **x**: 876
-                - **y**: 290
-                - **comprimento**: 35
-                - **largura**: 35
+                - **y**: 292
+                - **raio**: 20
             - **[12]**:
               - **id**: Sub_Setor_Anfiteatro
               - **label**: SUB SETOR ANFITEATRO →
@@ -2955,6 +2917,16 @@
               - **escalada**: Dr. Máquina
               - **ids**:
                 - 12
+            - **[12]**:
+              - **ids**:
+                - Sub_Setor_de_Cara
+              - **grupo**: Vale Oculto
+              - **setor**: Sub Setor de Cara
+            - **[13]**:
+              - **ids**:
+                - Sub_Setor_Anfiteatro
+              - **grupo**: Vale Oculto
+              - **setor**: Sub Setor Anfiteatro
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -3046,131 +3018,115 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **box**:
-                - **x**: 292
-                - **y**: 556
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 295
+                - **y**: 553
+                - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **box**:
-                - **x**: 334
-                - **y**: 522
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 333
+                - **y**: 523
+                - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **box**:
-                - **x**: 400
+              - **circular**:
+                - **x**: 401
                 - **y**: 478
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **box**:
-                - **x**: 436
-                - **y**: 384
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 438
+                - **y**: 386
+                - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **box**:
-                - **x**: 386
+              - **circular**:
+                - **x**: 387
                 - **y**: 380
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[5]**:
               - **id**: 6
               - **label**: 6
-              - **box**:
+              - **circular**:
                 - **x**: 330
                 - **y**: 380
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[6]**:
               - **id**: 7
               - **label**: 7
-              - **box**:
-                - **x**: 278
-                - **y**: 379
-                - **comprimento**: 29
-                - **largura**: 32
+              - **circular**:
+                - **x**: 280
+                - **y**: 380
+                - **raio**: 20
             - **[7]**:
               - **id**: 8
               - **label**: 8
-              - **box**:
+              - **circular**:
                 - **x**: 246
-                - **y**: 346
-                - **comprimento**: 27
-                - **largura**: 30
+                - **y**: 345
+                - **raio**: 20
             - **[8]**:
               - **id**: 9
               - **label**: 9
-              - **box**:
-                - **x**: 200
-                - **y**: 318
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 201
+                - **y**: 319
+                - **raio**: 20
             - **[9]**:
               - **id**: 10
               - **label**: 10
-              - **box**:
-                - **x**: 192
-                - **y**: 266
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 193
+                - **y**: 269
+                - **raio**: 20
             - **[10]**:
               - **id**: 11
               - **label**: 11
-              - **box**:
-                - **x**: 266
-                - **y**: 152
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 268
+                - **y**: 151
+                - **raio**: 20
             - **[11]**:
               - **id**: 12
               - **label**: 12
-              - **box**:
-                - **x**: 328
+              - **circular**:
+                - **x**: 329
                 - **y**: 146
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[12]**:
               - **id**: 13
               - **label**: 13
-              - **box**:
-                - **x**: 378
+              - **circular**:
+                - **x**: 379
                 - **y**: 146
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[13]**:
               - **id**: 14
               - **label**: 14
-              - **box**:
-                - **x**: 434
-                - **y**: 130
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 432
+                - **y**: 132
+                - **raio**: 20
             - **[14]**:
               - **id**: 15
               - **label**: 15
-              - **box**:
-                - **x**: 510
+              - **circular**:
+                - **x**: 511
                 - **y**: 76
-                - **comprimento**: 35
-                - **largura**: 35
+                - **raio**: 20
             - **[15]**:
               - **id**: 16
               - **label**: 16
-              - **box**:
-                - **x**: 596
-                - **y**: 96
-                - **comprimento**: 35
-                - **largura**: 35
+              - **circular**:
+                - **x**: 597
+                - **y**: 97
+                - **raio**: 20
             - **[16]**:
               - **id**: Sub_Setor_de_Cara
               - **label**: SUB SETOR DE CARA ↗
@@ -3241,6 +3197,11 @@
               - **escalada**: Tio Tonhas
               - **ids**:
                 - 16
+            - **[15]**:
+              - **ids**:
+                - Sub_Setor_de_Cara
+              - **grupo**: Vale Oculto
+              - **setor**: Sub Setor de Cara
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:

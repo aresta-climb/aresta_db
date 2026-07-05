@@ -77,53 +77,46 @@ mapas:
   - id: Setor_Zona_Leste
     label: Setor Zona Leste
     box:
-      x: 479
-      y: 59
-      comprimento: 176
-      largura: 72
+      x: 571
+      y: 95
+      comprimento: 228
+      largura: 142
   - id: 3o_Andar
     label: 3º Andar
     box:
-      x: 834
-      y: 140
-      comprimento: 141
-      largura: 34
+      x: 908
+      y: 159
+      comprimento: 159
+      largura: 68
   - id: Jardim_Suspenso
     label: Jardim Suspenso
     box:
-      x: 887
-      y: 199
-      comprimento: 274
-      largura: 37
+      x: 1032
+      y: 220
+      comprimento: 293
+      largura: 46
       angulo_graus_x100: 84
   - id: 2o_Andar
     label: 2º Andar
     box:
-      x: 658
-      y: 244
-      comprimento: 136
-      largura: 35
+      x: 737
+      y: 263
+      comprimento: 170
+      largura: 66
   - id: 1o_Andar
     label: 1º Andar
     box:
-      x: 878
-      y: 289
-      comprimento: 136
-      largura: 38
+      x: 944
+      y: 307
+      comprimento: 149
+      largura: 40
   - id: Mezanino
     label: Mezanino
     box:
-      x: 727
-      y: 359
-      comprimento: 153
-      largura: 34
-  - id: Afloramento_do_Rastro
-    label: Afloramento do Rastro
-    box:
-      x: 994
-      y: 377
-      comprimento: 487
-      largura: 48
+      x: 808
+      y: 376
+      comprimento: 165
+      largura: 42
   - id: Arcos_Oeste
     label: Arcos
     box:
@@ -148,17 +141,17 @@ mapas:
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
     box:
-      x: 1013
-      y: 495
-      comprimento: 229
-      largura: 71
+      x: 1132
+      y: 528
+      comprimento: 236
+      largura: 76
   - id: Setor_Grutinha
     label: Setor Grutinha
     box:
-      x: 1331
-      y: 550
-      comprimento: 137
-      largura: 71
+      x: 1400
+      y: 586
+      comprimento: 173
+      largura: 96
   - id: Estacionamento
     label: Estacionamento
     box:
@@ -170,66 +163,66 @@ mapas:
   - id: Setor_Chegada
     label: Setor Chegada
     box:
-      x: 397
-      y: 577
-      comprimento: 238
-      largura: 38
+      x: 514
+      y: 625
+      comprimento: 367
+      largura: 192
   - id: Intermediario
     label: Intermediário
     box:
-      x: 830
-      y: 576
-      comprimento: 203
-      largura: 31
+      x: 935
+      y: 592
+      comprimento: 234
+      largura: 47
   - id: Parede_dos_Conflitos
     label: Parede dos Conflitos
     box:
-      x: 1141
-      y: 608
-      comprimento: 137
-      largura: 101
+      x: 1215
+      y: 656
+      comprimento: 152
+      largura: 121
   - id: Toca_dos_Gatos
     label: Toca dos Gatos
     box:
-      x: 742
-      y: 658
-      comprimento: 239
-      largura: 30
+      x: 865
+      y: 672
+      comprimento: 262
+      largura: 45
   - id: Savassinha
     label: Savassinha
     box:
-      x: 1294
-      y: 728
-      comprimento: 182
-      largura: 31
+      x: 1388
+      y: 742
+      comprimento: 200
+      largura: 44
   - id: Beco_do_Tiu
     label: Beco do Tiú
     box:
-      x: 1270
-      y: 764
-      comprimento: 186
-      largura: 35
+      x: 1366
+      y: 787
+      comprimento: 199
+      largura: 40
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
     box:
-      x: 1364
-      y: 817
-      comprimento: 183
-      largura: 112
+      x: 1480
+      y: 878
+      comprimento: 166
+      largura: 135
   - id: Setor_Onca
     label: Setor Onça
     box:
-      x: 756
-      y: 838
-      comprimento: 179
-      largura: 34
+      x: 870
+      y: 854
+      comprimento: 389
+      largura: 209
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
     box:
-      x: 1185
-      y: 847
-      comprimento: 186
-      largura: 69
+      x: 1286
+      y: 882
+      comprimento: 191
+      largura: 140
   - id: Corumba_Leste
     label: Corumbá
     box:
@@ -251,13 +244,6 @@ mapas:
       y: 990
       comprimento: 39
       largura: 19
-  - id: H2O_Noroeste
-    label: H2O
-    box:
-      x: 236
-      y: 329
-      comprimento: 40
-      largura: 22
   referencias:
   - setor: Setor Zona Leste
     ids:
@@ -311,6 +297,3 @@ mapas:
     ids:
     - Setor_Leao_de_Judah
 ---
-
-
-

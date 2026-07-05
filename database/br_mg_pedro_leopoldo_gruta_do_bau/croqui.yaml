@@ -7,9 +7,9 @@ revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Gruta do Baú
-  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É um dos 
-    principais picos de escalada em calcário de Minas Gerais, com centenas de vias de 
-    diversos graus.
+  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
+    um dos principais picos de escalada em calcário de Minas Gerais, com centenas
+    de vias de diversos graus.
   estado: Minas Gerais
   localizacao:
     latitude: -195480000
@@ -78,3 +78,4 @@ botoes:
       caminho: manutencao.md
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true

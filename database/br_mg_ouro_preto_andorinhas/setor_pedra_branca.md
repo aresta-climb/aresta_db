@@ -1,4 +1,4 @@
----
+---
 nome: Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_branca_p0.webp
@@ -7,116 +7,100 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 269
-      y: 1375
-      comprimento: 30
-      largura: 40
+    circular:
+      x: 271
+      y: 1376
+      raio: 28
   - id: '2'
     label: '2'
-    box:
-      x: 712
+    circular:
+      x: 716
       y: 1078
-      comprimento: 27
-      largura: 40
+      raio: 28
   - id: '3'
     label: '3'
-    box:
-      x: 874
-      y: 1001
-      comprimento: 34
-      largura: 44
+    circular:
+      x: 881
+      y: 1000
+      raio: 29
   - id: '4'
     label: '4'
-    box:
-      x: 994
+    circular:
+      x: 998
       y: 982
-      comprimento: 37
-      largura: 49
+      raio: 29
   - id: '5'
     label: '5'
-    box:
-      x: 1076
-      y: 858
-      comprimento: 30
-      largura: 42
+    circular:
+      x: 1079
+      y: 857
+      raio: 29
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 1178
       y: 875
-      comprimento: 28
-      largura: 44
+      raio: 29
   - id: '7'
     label: '7'
-    box:
-      x: 1231
-      y: 766
-      comprimento: 26
-      largura: 39
+    circular:
+      x: 1235
+      y: 767
+      raio: 28
   - id: '8'
     label: '8'
-    box:
-      x: 1336
+    circular:
+      x: 1341
       y: 726
-      comprimento: 29
-      largura: 45
+      raio: 29
   - id: '9'
     label: '9'
-    box:
-      x: 1377
+    circular:
+      x: 1380
       y: 610
-      comprimento: 30
-      largura: 45
+      raio: 29
   - id: '10'
     label: '10'
-    box:
-      x: 1428
+    circular:
+      x: 1433
       y: 521
-      comprimento: 53
-      largura: 46
+      raio: 28
   - id: '11'
     label: '11'
-    box:
-      x: 1493
+    circular:
+      x: 1498
       y: 474
-      comprimento: 52
-      largura: 47
+      raio: 29
   - id: '12'
     label: '12'
-    box:
-      x: 1570
-      y: 541
-      comprimento: 52
-      largura: 44
+    circular:
+      x: 1573
+      y: 540
+      raio: 29
   - id: '13'
     label: '13'
-    box:
-      x: 1689
-      y: 570
-      comprimento: 52
-      largura: 48
+    circular:
+      x: 1691
+      y: 569
+      raio: 29
   - id: '14'
     label: '14'
-    box:
-      x: 1808
+    circular:
+      x: 1806
       y: 550
-      comprimento: 55
-      largura: 47
+      raio: 29
   - id: '15'
     label: '15'
-    box:
-      x: 1860
-      y: 475
-      comprimento: 53
-      largura: 48
+    circular:
+      x: 1865
+      y: 474
+      raio: 29
   - id: '16'
     label: '16'
-    box:
-      x: 1964
-      y: 376
-      comprimento: 53
-      largura: 48
+    circular:
+      x: 1968
+      y: 375
+      raio: 29
   referencias:
   - escalada: Vaca Virgem
     ids:
@@ -347,7 +331,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Marcelo Henriques
----
+---
+
 # Setor Pedra Branca
 
 Setor com vias de 9m até 12m.

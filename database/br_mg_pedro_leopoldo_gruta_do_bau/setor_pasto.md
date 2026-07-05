@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pasto
 mapas:
 - caminho_imagem_mapa: imagens/setor_pasto_p0_i8.webp
@@ -16,16 +16,16 @@ mapas:
     label: '01'
     box:
       x: 550
-      y: 499
-      comprimento: 39
-      largura: 36
+      y: 500
+      comprimento: 34
+      largura: 28
   - id: '02'
     label: '02'
     box:
-      x: 515
+      x: 516
       y: 584
-      comprimento: 42
-      largura: 32
+      comprimento: 39
+      largura: 31
   - id: '03'
     label: '03'
     box:
@@ -33,27 +33,13 @@ mapas:
       y: 618
       comprimento: 37
       largura: 31
-  - id: Fechadura
-    label: Fechadura
-    box:
-      x: 310
-      y: 1024
-      comprimento: 166
-      largura: 39
-  - id: PASTO
-    label: PASTO
-    box:
-      x: 908
-      y: 1038
-      comprimento: 269
-      largura: 77
   - id: '04'
     label: '04'
     box:
-      x: 483
+      x: 484
       y: 1089
-      comprimento: 38
-      largura: 28
+      comprimento: 43
+      largura: 32
   - id: '05'
     label: '05'
     box:
@@ -87,6 +73,12 @@ mapas:
   - escalada: Rolha de Algodão
     ids:
     - '05'
+  - ids:
+    - Setor_Entrada
+    setor: Setor Entrada Inferior
+  - ids:
+    - Setor_Fechadura
+    setor: Setor Fechadura
 escaladas:
 - via_esportiva:
     nome: Cemitério das Caranguejeiras - Direita
@@ -135,7 +127,8 @@ escaladas:
     - Fabinho
     - Half
     - Tinoco
----
+---
+
 # Setor Pasto
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.

@@ -1,4 +1,4 @@
----
+---
 nome: Vale Gaules
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_gaules_p0.webp
@@ -206,7 +206,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
----
+---
+
 # Vale Gaules
 
 O setor Vale Gaules está localizado no Alto Monte Alvão.

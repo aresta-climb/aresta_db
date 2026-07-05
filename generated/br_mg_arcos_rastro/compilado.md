@@ -86,6 +86,7 @@
             - **Contribuição/Parceria (PIX)**: 37 99918-3634
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_zona_leste
@@ -104,69 +105,61 @@
     - **altura_mapa**: 1151
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Estacionamento
-        - **label**: Estacionamento
-        - **box**:
-          - **x**: 90
-          - **y**: 164
-          - **comprimento**: 107
-          - **largura**: 139
-      - **[1]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
           - **x**: 74
           - **y**: 286
-          - **comprimento**: 40
-          - **largura**: 21
-      - **[2]**:
+          - **comprimento**: 45
+          - **largura**: 29
+      - **[1]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 386
-          - **y**: 1066
-          - **comprimento**: 27
-          - **largura**: 20
-      - **[3]**:
+          - **x**: 384
+          - **y**: 1067
+          - **comprimento**: 24
+          - **largura**: 18
+      - **[2]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 382
           - **y**: 1036
-          - **comprimento**: 25
-          - **largura**: 21
-      - **[4]**:
+          - **comprimento**: 21
+          - **largura**: 17
+      - **[3]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 379
-          - **y**: 1000
-          - **comprimento**: 26
-          - **largura**: 21
-      - **[5]**:
+          - **x**: 380
+          - **y**: 1002
+          - **comprimento**: 23
+          - **largura**: 16
+      - **[4]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 374
-          - **y**: 984
-          - **comprimento**: 25
-          - **largura**: 23
-      - **[6]**:
+          - **x**: 375
+          - **y**: 986
+          - **comprimento**: 22
+          - **largura**: 15
+      - **[5]**:
         - **id**: 05
         - **label**: 05
         - **box**:
           - **x**: 370
           - **y**: 970
-          - **comprimento**: 23
-          - **largura**: 22
-      - **[7]**:
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[6]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 367
-          - **y**: 942
-          - **comprimento**: 24
-          - **largura**: 21
+          - **x**: 366
+          - **y**: 943
+          - **comprimento**: 22
+          - **largura**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Machado de Xangô
@@ -192,6 +185,10 @@
         - **escalada**: Respeito é pra quem tem
         - **ids**:
           - 06
+      - **[6]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -264,27 +261,19 @@
         - **id**: Setores_Conexao
         - **label**: Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar
         - **box**:
-          - **x**: 66
-          - **y**: 711
-          - **comprimento**: 73
-          - **largura**: 64
+          - **x**: 67
+          - **y**: 712
+          - **comprimento**: 86
+          - **largura**: 78
       - **[1]**:
-        - **id**: Corredor
-        - **label**: Corredor
-        - **box**:
-          - **x**: 100
-          - **y**: 910
-          - **comprimento**: 62
-          - **largura**: 17
-      - **[2]**:
         - **id**: Trilha_2o_Andar
         - **label**: Trilha para o 2º Andar
         - **box**:
-          - **x**: 126
-          - **y**: 948
-          - **comprimento**: 57
-          - **largura**: 44
-      - **[3]**:
+          - **x**: 128
+          - **y**: 950
+          - **comprimento**: 63
+          - **largura**: 47
+      - **[2]**:
         - **id**: Sitio
         - **label**: SÍTIO
         - **box**:
@@ -292,7 +281,7 @@
           - **y**: 1032
           - **comprimento**: 68
           - **largura**: 79
-      - **[4]**:
+      - **[3]**:
         - **id**: Obs_Abelha
         - **label**: OBS.! Caixa de Abelha
         - **box**:
@@ -300,71 +289,71 @@
           - **y**: 356
           - **comprimento**: 64
           - **largura**: 52
-      - **[5]**:
+      - **[4]**:
         - **id**: Setor_da_Onca
         - **label**: Setor da Onça
         - **box**:
-          - **x**: 811
+          - **x**: 813
           - **y**: 342
-          - **comprimento**: 34
-          - **largura**: 22
-      - **[6]**:
+          - **comprimento**: 46
+          - **largura**: 30
+      - **[5]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 286
-          - **y**: 806
+          - **y**: 808
           - **comprimento**: 19
           - **largura**: 17
-      - **[7]**:
+      - **[6]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 303
           - **y**: 796
-          - **comprimento**: 22
-          - **largura**: 17
-      - **[8]**:
+          - **comprimento**: 20
+          - **largura**: 16
+      - **[7]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 310
-          - **y**: 762
-          - **comprimento**: 33
-          - **largura**: 19
-      - **[9]**:
+          - **x**: 305
+          - **y**: 764
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[8]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 313
-          - **y**: 748
-          - **comprimento**: 22
-          - **largura**: 17
-      - **[10]**:
+          - **x**: 314
+          - **y**: 749
+          - **comprimento**: 19
+          - **largura**: 16
+      - **[9]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 325
-          - **y**: 726
-          - **comprimento**: 22
+          - **x**: 326
+          - **y**: 728
+          - **comprimento**: 19
           - **largura**: 17
-      - **[11]**:
+      - **[10]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 350
           - **y**: 670
-          - **comprimento**: 23
+          - **comprimento**: 21
           - **largura**: 17
-      - **[12]**:
+      - **[11]**:
         - **id**: 07
         - **label**: 07
         - **box**:
           - **x**: 456
           - **y**: 380
-          - **comprimento**: 17
-          - **largura**: 14
-      - **[13]**:
+          - **comprimento**: 20
+          - **largura**: 17
+      - **[12]**:
         - **id**: 08
         - **label**: 08
         - **box**:
@@ -372,20 +361,20 @@
           - **y**: 346
           - **comprimento**: 20
           - **largura**: 17
-      - **[14]**:
+      - **[13]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 552
-          - **y**: 226
+          - **x**: 543
+          - **y**: 372
           - **comprimento**: 20
           - **largura**: 17
-      - **[15]**:
+      - **[14]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 573
-          - **y**: 230
+          - **x**: 574
+          - **y**: 378
           - **comprimento**: 20
           - **largura**: 17
     - **referencias**:
@@ -421,6 +410,41 @@
         - **escalada**: Good Bye
         - **ids**:
           - 10
+      - **[8]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Chegada
+        - **escalada**: Linha de Frente
+      - **[9]**:
+        - **ids**:
+          - 10
+        - **setor**: Setor Chegada
+        - **escalada**: Helow (variante)
+      - **[10]**:
+        - **ids**:
+          - Trilha_2o_Andar
+          - Setores_Conexao
+        - **setor**: 2º Andar
+      - **[11]**:
+        - **ids**:
+          - Setor_da_Onca
+        - **setor**: Setor Onça
+      - **[12]**:
+        - **ids**:
+          - Setores_Conexao
+        - **setor**: Setor Mezanino
+      - **[13]**:
+        - **ids**:
+          - Setores_Conexao
+        - **setor**: 1º Andar
+      - **[14]**:
+        - **ids**:
+          - Setores_Conexao
+        - **setor**: Jardim Suspenso
+      - **[15]**:
+        - **ids**:
+          - Setores_Conexao
+        - **setor**: 3º Andar
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
@@ -526,138 +550,130 @@
         - **id**: Setor_Vale_das_Sombras
         - **label**: Setor Vale das Sombras
         - **box**:
-          - **x**: 375
+          - **x**: 376
           - **y**: 22
-          - **comprimento**: 78
-          - **largura**: 21
+          - **comprimento**: 87
+          - **largura**: 27
       - **[1]**:
         - **id**: Toca_dos_Gatos
         - **label**: Toca dos Gatos
         - **box**:
           - **x**: 332
-          - **y**: 213
-          - **comprimento**: 99
-          - **largura**: 18
+          - **y**: 212
+          - **comprimento**: 106
+          - **largura**: 25
       - **[2]**:
         - **id**: Setor_Leao_de_Judah
         - **label**: Setor Leão de Judah
         - **box**:
           - **x**: 794
           - **y**: 57
-          - **comprimento**: 41
-          - **largura**: 32
+          - **comprimento**: 47
+          - **largura**: 38
       - **[3]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
-          - **x**: 59
+          - **x**: 58
           - **y**: 965
-          - **comprimento**: 44
-          - **largura**: 26
+          - **comprimento**: 53
+          - **largura**: 28
       - **[4]**:
-        - **id**: Estrada
-        - **label**: ESTRADA
-        - **box**:
-          - **x**: 150
-          - **y**: 998
-          - **comprimento**: 58
-          - **largura**: 34
-      - **[5]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 203
-          - **y**: 887
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[6]**:
+          - **x**: 206
+          - **y**: 884
+          - **comprimento**: 13
+          - **largura**: 16
+      - **[5]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 219
-          - **y**: 892
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[7]**:
+          - **x**: 229
+          - **y**: 884
+          - **comprimento**: 12
+          - **largura**: 16
+      - **[6]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 235
-          - **y**: 902
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[8]**:
+          - **x**: 242
+          - **y**: 892
+          - **comprimento**: 13
+          - **largura**: 16
+      - **[7]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 247
-          - **y**: 907
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[9]**:
+          - **x**: 254
+          - **y**: 890
+          - **comprimento**: 11
+          - **largura**: 16
+      - **[8]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 282
-          - **y**: 887
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[10]**:
+          - **x**: 284
+          - **y**: 878
+          - **comprimento**: 11
+          - **largura**: 18
+      - **[9]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 297
-          - **y**: 877
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[11]**:
+          - **x**: 302
+          - **y**: 870
+          - **comprimento**: 13
+          - **largura**: 19
+      - **[10]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 312
-          - **y**: 887
+          - **x**: 316
+          - **y**: 882
           - **comprimento**: 14
-          - **largura**: 14
-      - **[12]**:
+          - **largura**: 19
+      - **[11]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 457
-          - **y**: 772
+          - **x**: 456
+          - **y**: 764
           - **comprimento**: 14
-          - **largura**: 14
-      - **[13]**:
+          - **largura**: 16
+      - **[12]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 467
-          - **y**: 752
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[14]**:
+          - **x**: 466
+          - **y**: 746
+          - **comprimento**: 15
+          - **largura**: 16
+      - **[13]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 467
-          - **y**: 732
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[15]**:
+          - **x**: 476
+          - **y**: 723
+          - **comprimento**: 17
+          - **largura**: 16
+      - **[14]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 492
-          - **y**: 717
-          - **comprimento**: 14
-          - **largura**: 14
-      - **[16]**:
+          - **x**: 499
+          - **y**: 710
+          - **comprimento**: 16
+          - **largura**: 13
+      - **[15]**:
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 490
+          - **x**: 488
           - **y**: 696
-          - **comprimento**: 19
-          - **largura**: 17
+          - **comprimento**: 17
+          - **largura**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Esticãozinho e Chororô
@@ -699,6 +715,32 @@
         - **escalada**: Jardim da Babilônia
         - **ids**:
           - 12
+      - **[10]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Onça
+        - **escalada**: Estica e Clipa
+      - **[11]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Onça
+        - **escalada**: Pai Bravo
+      - **[12]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[13]**:
+        - **ids**:
+          - Toca_dos_Gatos
+        - **setor**: Setor Toca dos Gatos
+      - **[14]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
+      - **[15]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_onca_p1_i0.webp)
     - **largura_mapa**: 916
@@ -710,168 +752,152 @@
         - **box**:
           - **x**: 374
           - **y**: 20
-          - **comprimento**: 79
-          - **largura**: 23
+          - **comprimento**: 85
+          - **largura**: 29
       - **[1]**:
         - **id**: Intermediario
         - **label**: Intermediário
         - **box**:
           - **x**: 266
           - **y**: 92
-          - **comprimento**: 82
-          - **largura**: 17
+          - **comprimento**: 87
+          - **largura**: 21
       - **[2]**:
         - **id**: Toca_dos_Gatos
         - **label**: Toca dos Gatos
         - **box**:
           - **x**: 332
           - **y**: 212
-          - **comprimento**: 97
-          - **largura**: 14
+          - **comprimento**: 103
+          - **largura**: 24
       - **[3]**:
         - **id**: Setor_Leao_de_Judah
         - **label**: Setor Leão de Judah
         - **box**:
           - **x**: 794
           - **y**: 54
-          - **comprimento**: 41
-          - **largura**: 33
+          - **comprimento**: 48
+          - **largura**: 40
       - **[4]**:
-        - **id**: Obs_Abelha
-        - **label**: OBS.! Caixa de Abelha Arapuã
-        - **box**:
-          - **x**: 436
-          - **y**: 328
-          - **comprimento**: 104
-          - **largura**: 75
-      - **[5]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
-          - **x**: 59
+          - **x**: 60
           - **y**: 963
-          - **comprimento**: 44
-          - **largura**: 26
-      - **[6]**:
-        - **id**: Estrada
-        - **label**: ESTRADA
-        - **box**:
-          - **x**: 150
-          - **y**: 996
-          - **comprimento**: 59
-          - **largura**: 36
-      - **[7]**:
+          - **comprimento**: 45
+          - **largura**: 32
+      - **[5]**:
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 553
+          - **x**: 552
           - **y**: 494
           - **comprimento**: 20
           - **largura**: 17
-      - **[8]**:
+      - **[6]**:
         - **id**: 14
         - **label**: 14
         - **box**:
           - **x**: 552
           - **y**: 466
-          - **comprimento**: 18
-          - **largura**: 13
-      - **[9]**:
+          - **comprimento**: 19
+          - **largura**: 16
+      - **[7]**:
         - **id**: 15
         - **label**: 15
         - **box**:
           - **x**: 536
           - **y**: 418
-          - **comprimento**: 16
-          - **largura**: 13
-      - **[10]**:
+          - **comprimento**: 20
+          - **largura**: 16
+      - **[8]**:
         - **id**: 16
         - **label**: 16
         - **box**:
           - **x**: 550
-          - **y**: 398
-          - **comprimento**: 13
-          - **largura**: 13
-      - **[11]**:
+          - **y**: 399
+          - **comprimento**: 16
+          - **largura**: 12
+      - **[9]**:
         - **id**: 17
         - **label**: 17
         - **box**:
           - **x**: 564
-          - **y**: 387
-          - **comprimento**: 12
-          - **largura**: 10
-      - **[12]**:
+          - **y**: 386
+          - **comprimento**: 16
+          - **largura**: 13
+      - **[10]**:
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 563
-          - **y**: 373
-          - **comprimento**: 12
-          - **largura**: 10
-      - **[13]**:
+          - **x**: 564
+          - **y**: 374
+          - **comprimento**: 15
+          - **largura**: 13
+      - **[11]**:
         - **id**: 19
         - **label**: 19
         - **box**:
           - **x**: 558
-          - **y**: 356
-          - **comprimento**: 16
-          - **largura**: 11
-      - **[14]**:
+          - **y**: 358
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[12]**:
         - **id**: 20
         - **label**: 20
         - **box**:
           - **x**: 550
           - **y**: 338
-          - **comprimento**: 15
-          - **largura**: 14
-      - **[15]**:
+          - **comprimento**: 18
+          - **largura**: 16
+      - **[13]**:
         - **id**: 21
         - **label**: 21
         - **box**:
           - **x**: 542
           - **y**: 262
-          - **comprimento**: 15
-          - **largura**: 11
-      - **[16]**:
+          - **comprimento**: 17
+          - **largura**: 15
+      - **[14]**:
         - **id**: 22
         - **label**: 22
         - **box**:
-          - **x**: 514
-          - **y**: 261
-          - **comprimento**: 17
-          - **largura**: 12
-      - **[17]**:
+          - **x**: 515
+          - **y**: 262
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[15]**:
         - **id**: 23
         - **label**: 23
         - **box**:
-          - **x**: 529
+          - **x**: 528
           - **y**: 230
-          - **comprimento**: 12
-          - **largura**: 11
-      - **[18]**:
+          - **comprimento**: 19
+          - **largura**: 15
+      - **[16]**:
         - **id**: 24
         - **label**: 24
         - **box**:
           - **x**: 525
           - **y**: 214
-          - **comprimento**: 12
-          - **largura**: 11
-      - **[19]**:
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[17]**:
         - **id**: 25
         - **label**: 25
         - **box**:
           - **x**: 524
           - **y**: 198
-          - **comprimento**: 14
-          - **largura**: 11
-      - **[20]**:
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[18]**:
         - **id**: 26
         - **label**: 26
         - **box**:
           - **x**: 522
-          - **y**: 182
-          - **comprimento**: 12
-          - **largura**: 12
+          - **y**: 184
+          - **comprimento**: 19
+          - **largura**: 14
     - **referencias**:
       - **[0]**:
         - **escalada**: Incrível Teto
@@ -929,6 +955,26 @@
         - **escalada**: Carne d Homi ñ dá Coxinha
         - **ids**:
           - 26
+      - **[14]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[15]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
+      - **[16]**:
+        - **ids**:
+          - Intermediario
+        - **setor**: Setor Intermediário
+      - **[17]**:
+        - **ids**:
+          - Toca_dos_Gatos
+        - **setor**: Setor Toca dos Gatos
+      - **[18]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1122,94 +1168,86 @@
         - **label**: Setor Vale das Sombras
         - **box**:
           - **x**: 58
-          - **y**: 11
-          - **comprimento**: 103
-          - **largura**: 14
+          - **y**: 13
+          - **comprimento**: 113
+          - **largura**: 20
       - **[1]**:
         - **id**: Setor_Intermediario
         - **label**: Setor Intermediário
         - **box**:
           - **x**: 192
           - **y**: 160
-          - **comprimento**: 85
-          - **largura**: 15
+          - **comprimento**: 92
+          - **largura**: 20
       - **[2]**:
-        - **id**: Tunel_Acesso
-        - **label**: Túnel de acesso
-        - **box**:
-          - **x**: 274
-          - **y**: 552
-          - **comprimento**: 47
-          - **largura**: 42
-      - **[3]**:
         - **id**: Setor_da_Onca
         - **label**: Setor da Onça
         - **box**:
           - **x**: 624
           - **y**: 1081
-          - **comprimento**: 42
-          - **largura**: 28
-      - **[4]**:
+          - **comprimento**: 48
+          - **largura**: 36
+      - **[3]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 246
           - **y**: 443
-          - **comprimento**: 17
-          - **largura**: 12
-      - **[5]**:
+          - **comprimento**: 21
+          - **largura**: 18
+      - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 308
+          - **x**: 310
           - **y**: 726
-          - **comprimento**: 21
-          - **largura**: 17
-      - **[6]**:
+          - **comprimento**: 23
+          - **largura**: 18
+      - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 298
-          - **y**: 814
-          - **comprimento**: 29
-          - **largura**: 19
-      - **[7]**:
+          - **x**: 302
+          - **y**: 815
+          - **comprimento**: 23
+          - **largura**: 20
+      - **[6]**:
         - **id**: 04
         - **label**: 04
         - **box**:
           - **x**: 179
-          - **y**: 869
-          - **comprimento**: 18
-          - **largura**: 12
-      - **[8]**:
+          - **y**: 871
+          - **comprimento**: 24
+          - **largura**: 22
+      - **[7]**:
         - **id**: 05
         - **label**: 05
         - **box**:
           - **x**: 174
-          - **y**: 792
-          - **comprimento**: 17
-          - **largura**: 13
-      - **[9]**:
+          - **y**: 794
+          - **comprimento**: 23
+          - **largura**: 21
+      - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 130
           - **y**: 728
-          - **comprimento**: 17
-          - **largura**: 14
-      - **[10]**:
+          - **comprimento**: 24
+          - **largura**: 19
+      - **[9]**:
         - **id**: 07
         - **label**: 07
         - **box**:
           - **x**: 164
           - **y**: 652
-          - **comprimento**: 21
-          - **largura**: 17
-      - **[11]**:
+          - **comprimento**: 22
+          - **largura**: 20
+      - **[10]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 140
+          - **x**: 139
           - **y**: 436
           - **comprimento**: 22
           - **largura**: 17
@@ -1242,6 +1280,23 @@
         - **escalada**: Fila de Espera
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Toca dos Gatos
+        - **escalada**: Nem C/ Chuva a Gente Para
+      - **[8]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
+      - **[9]**:
+        - **ids**:
+          - Setor_Intermediario
+        - **setor**: Setor Intermediário
+      - **[10]**:
+        - **ids**:
+          - Setor_da_Onca
+        - **setor**: Setor Onça
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1323,89 +1378,89 @@
         - **label**: Setor Vale das Sombras
         - **box**:
           - **x**: 70
-          - **y**: 80
-          - **comprimento**: 105
-          - **largura**: 13
+          - **y**: 81
+          - **comprimento**: 109
+          - **largura**: 16
       - **[1]**:
         - **id**: Setor_Leao_de_Judah
         - **label**: Setor Leão de Judah
         - **box**:
-          - **x**: 689
+          - **x**: 690
           - **y**: 146
-          - **comprimento**: 42
-          - **largura**: 35
+          - **comprimento**: 47
+          - **largura**: 41
       - **[2]**:
         - **id**: Toca_dos_Gatos
         - **label**: Toca dos Gatos
         - **box**:
-          - **x**: 129
+          - **x**: 128
           - **y**: 600
-          - **comprimento**: 100
-          - **largura**: 20
+          - **comprimento**: 105
+          - **largura**: 25
       - **[3]**:
         - **id**: Setor_Onca
         - **label**: Setor Onça
         - **box**:
           - **x**: 334
-          - **y**: 809
-          - **comprimento**: 31
-          - **largura**: 26
+          - **y**: 808
+          - **comprimento**: 37
+          - **largura**: 33
       - **[4]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
           - **x**: 750
           - **y**: 1072
-          - **comprimento**: 45
-          - **largura**: 27
+          - **comprimento**: 53
+          - **largura**: 32
       - **[5]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 237
-          - **y**: 428
-          - **comprimento**: 16
-          - **largura**: 14
+          - **y**: 429
+          - **comprimento**: 22
+          - **largura**: 20
       - **[6]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 208
           - **y**: 408
-          - **comprimento**: 15
-          - **largura**: 14
+          - **comprimento**: 22
+          - **largura**: 19
       - **[7]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 178
-          - **y**: 391
-          - **comprimento**: 21
-          - **largura**: 20
+          - **x**: 179
+          - **y**: 392
+          - **comprimento**: 22
+          - **largura**: 18
       - **[8]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 144
+          - **x**: 145
           - **y**: 372
-          - **comprimento**: 19
-          - **largura**: 16
+          - **comprimento**: 22
+          - **largura**: 19
       - **[9]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 124
-          - **y**: 330
-          - **comprimento**: 25
-          - **largura**: 23
+          - **x**: 126
+          - **y**: 332
+          - **comprimento**: 23
+          - **largura**: 18
       - **[10]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 90
           - **y**: 310
-          - **comprimento**: 23
-          - **largura**: 21
+          - **comprimento**: 22
+          - **largura**: 18
       - **[11]**:
         - **id**: 07
         - **label**: 07
@@ -1413,15 +1468,15 @@
           - **x**: 38
           - **y**: 225
           - **comprimento**: 22
-          - **largura**: 16
+          - **largura**: 18
       - **[12]**:
         - **id**: 08
         - **label**: 08
         - **box**:
           - **x**: 82
           - **y**: 190
-          - **comprimento**: 22
-          - **largura**: 16
+          - **comprimento**: 21
+          - **largura**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Tufo Não
@@ -1451,6 +1506,27 @@
         - **escalada**: Bigodagem
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Intermediário
+        - **escalada**: Delicinha
+      - **[8]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
+      - **[9]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[10]**:
+        - **ids**:
+          - Setor_Onca
+        - **setor**: Setor Onça
+      - **[11]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1526,258 +1602,250 @@
         - **label**: Setor Leão de Judah
         - **box**:
           - **x**: 264
-          - **y**: 41
-          - **comprimento**: 65
-          - **largura**: 22
+          - **y**: 42
+          - **comprimento**: 73
+          - **largura**: 33
       - **[1]**:
         - **id**: Setor_Parede_dos_Conflitos
         - **label**: Setor Parede dos Conflitos
         - **box**:
           - **x**: 334
-          - **y**: 234
-          - **comprimento**: 54
-          - **largura**: 36
+          - **y**: 236
+          - **comprimento**: 57
+          - **largura**: 39
       - **[2]**:
         - **id**: Setor_Intermediario
         - **label**: Setor Intermediário
         - **box**:
-          - **x**: 873
+          - **x**: 872
           - **y**: 662
-          - **comprimento**: 58
-          - **largura**: 21
+          - **comprimento**: 61
+          - **largura**: 26
       - **[3]**:
-        - **id**: Gruta
-        - **label**: Gruta
-        - **box**:
-          - **x**: 73
-          - **y**: 894
-          - **comprimento**: 40
-          - **largura**: 15
-      - **[4]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 693
-          - **y**: 652
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[5]**:
+          - **x**: 694
+          - **y**: 660
+          - **comprimento**: 19
+          - **largura**: 18
+      - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 614
+          - **x**: 616
           - **y**: 712
           - **comprimento**: 24
           - **largura**: 19
-      - **[6]**:
+      - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 588
+          - **x**: 589
           - **y**: 718
           - **comprimento**: 24
           - **largura**: 19
-      - **[7]**:
+      - **[6]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 530
-          - **y**: 720
-          - **comprimento**: 25
-          - **largura**: 25
-      - **[8]**:
+          - **x**: 532
+          - **y**: 718
+          - **comprimento**: 22
+          - **largura**: 19
+      - **[7]**:
         - **id**: 05
         - **label**: 05
         - **box**:
           - **x**: 506
-          - **y**: 720
-          - **comprimento**: 25
-          - **largura**: 25
-      - **[9]**:
+          - **y**: 722
+          - **comprimento**: 21
+          - **largura**: 19
+      - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 450
-          - **y**: 739
-          - **comprimento**: 21
-          - **largura**: 16
-      - **[10]**:
+          - **y**: 740
+          - **comprimento**: 22
+          - **largura**: 19
+      - **[9]**:
         - **id**: 07
         - **label**: 07
         - **box**:
           - **x**: 445
           - **y**: 768
-          - **comprimento**: 20
-          - **largura**: 16
-      - **[11]**:
+          - **comprimento**: 22
+          - **largura**: 20
+      - **[10]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 364
-          - **y**: 792
-          - **comprimento**: 20
-          - **largura**: 16
-      - **[12]**:
+          - **x**: 365
+          - **y**: 793
+          - **comprimento**: 24
+          - **largura**: 20
+      - **[11]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 306
-          - **y**: 809
+          - **x**: 308
+          - **y**: 810
           - **comprimento**: 23
           - **largura**: 18
-      - **[13]**:
+      - **[12]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 277
+          - **x**: 278
           - **y**: 848
-          - **comprimento**: 18
-          - **largura**: 13
-      - **[14]**:
+          - **comprimento**: 21
+          - **largura**: 18
+      - **[13]**:
         - **id**: 11
         - **label**: 11
         - **box**:
           - **x**: 260
-          - **y**: 887
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[15]**:
+          - **y**: 886
+          - **comprimento**: 20
+          - **largura**: 18
+      - **[14]**:
         - **id**: 12
         - **label**: 12
         - **box**:
           - **x**: 103
-          - **y**: 874
+          - **y**: 876
           - **comprimento**: 22
           - **largura**: 19
-      - **[16]**:
+      - **[15]**:
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 65
+          - **x**: 66
           - **y**: 864
-          - **comprimento**: 20
-          - **largura**: 16
-      - **[17]**:
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[16]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 43
-          - **y**: 827
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[18]**:
+          - **x**: 42
+          - **y**: 818
+          - **comprimento**: 19
+          - **largura**: 17
+      - **[17]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 58
+          - **x**: 60
           - **y**: 805
-          - **comprimento**: 22
+          - **comprimento**: 19
           - **largura**: 16
-      - **[19]**:
+      - **[18]**:
         - **id**: 16
         - **label**: 16
         - **box**:
-          - **x**: 70
-          - **y**: 784
-          - **comprimento**: 21
-          - **largura**: 17
-      - **[20]**:
+          - **x**: 71
+          - **y**: 786
+          - **comprimento**: 20
+          - **largura**: 19
+      - **[19]**:
         - **id**: 17
         - **label**: 17
         - **box**:
           - **x**: 122
           - **y**: 765
-          - **comprimento**: 23
+          - **comprimento**: 20
           - **largura**: 20
-      - **[21]**:
+      - **[20]**:
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 309
+          - **x**: 310
           - **y**: 654
-          - **comprimento**: 26
-          - **largura**: 22
-      - **[22]**:
+          - **comprimento**: 20
+          - **largura**: 19
+      - **[21]**:
         - **id**: 19
         - **label**: 19
         - **box**:
           - **x**: 350
           - **y**: 636
-          - **comprimento**: 23
-          - **largura**: 21
-      - **[23]**:
+          - **comprimento**: 21
+          - **largura**: 18
+      - **[22]**:
         - **id**: 20
         - **label**: 20
         - **box**:
-          - **x**: 374
-          - **y**: 626
-          - **comprimento**: 29
-          - **largura**: 24
-      - **[24]**:
+          - **x**: 375
+          - **y**: 628
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[23]**:
         - **id**: 21
         - **label**: 21
         - **box**:
-          - **x**: 388
+          - **x**: 389
           - **y**: 614
-          - **comprimento**: 20
-          - **largura**: 17
-      - **[25]**:
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[24]**:
         - **id**: 22
         - **label**: 22
         - **box**:
-          - **x**: 401
-          - **y**: 597
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[26]**:
+          - **x**: 400
+          - **y**: 594
+          - **comprimento**: 21
+          - **largura**: 17
+      - **[25]**:
         - **id**: 23
         - **label**: 23
         - **box**:
-          - **x**: 444
+          - **x**: 445
           - **y**: 566
-          - **comprimento**: 19
-          - **largura**: 13
-      - **[27]**:
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[26]**:
         - **id**: 24
         - **label**: 24
         - **box**:
-          - **x**: 472
-          - **y**: 570
-          - **comprimento**: 23
+          - **x**: 474
+          - **y**: 571
+          - **comprimento**: 20
           - **largura**: 18
-      - **[28]**:
+      - **[27]**:
         - **id**: 25
         - **label**: 25
         - **box**:
-          - **x**: 496
+          - **x**: 498
           - **y**: 570
-          - **comprimento**: 23
-          - **largura**: 18
-      - **[29]**:
+          - **comprimento**: 21
+          - **largura**: 19
+      - **[28]**:
         - **id**: 26
         - **label**: 26
         - **box**:
           - **x**: 522
-          - **y**: 559
-          - **comprimento**: 25
-          - **largura**: 20
-      - **[30]**:
+          - **y**: 560
+          - **comprimento**: 20
+          - **largura**: 18
+      - **[29]**:
         - **id**: 27
         - **label**: 27
         - **box**:
-          - **x**: 548
+          - **x**: 550
           - **y**: 554
           - **comprimento**: 19
           - **largura**: 17
-      - **[31]**:
+      - **[30]**:
         - **id**: 28
         - **label**: 28
         - **box**:
-          - **x**: 579
+          - **x**: 580
           - **y**: 555
           - **comprimento**: 20
           - **largura**: 16
-      - **[32]**:
+      - **[31]**:
         - **id**: 29
         - **label**: 29
         - **box**:
@@ -1894,6 +1962,28 @@
         - **escalada**: A Estréia
         - **ids**:
           - 29
+      - **[27]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Vale das Sombras
+        - **escalada**: Uso Capial
+      - **[28]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Vale das Sombras
+        - **escalada**: Clara Morena
+      - **[29]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
+      - **[30]**:
+        - **ids**:
+          - Setor_Parede_dos_Conflitos
+        - **setor**: Setor Parede dos Conflitos
+      - **[31]**:
+        - **ids**:
+          - Setor_Intermediario
+        - **setor**: Setor Intermediário
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2100,148 +2190,132 @@
     - **altura_mapa**: 1151
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Grutas
-        - **label**: Grutas
-        - **box**:
-          - **x**: 402
-          - **y**: 320
-          - **comprimento**: 46
-          - **largura**: 21
-      - **[1]**:
         - **id**: Setor_Antigo_Camping
         - **label**: Setor Antigo Camping
         - **box**:
-          - **x**: 892
-          - **y**: 298
-          - **comprimento**: 43
-          - **largura**: 35
-      - **[2]**:
+          - **x**: 896
+          - **y**: 297
+          - **comprimento**: 51
+          - **largura**: 42
+      - **[1]**:
         - **id**: Setor_Leao_de_Judah
         - **label**: Setor Leão de Judah
         - **box**:
           - **x**: 652
           - **y**: 542
-          - **comprimento**: 72
-          - **largura**: 25
-      - **[3]**:
+          - **comprimento**: 79
+          - **largura**: 38
+      - **[2]**:
         - **id**: Totem_Pedra
         - **label**: TOTEM PEDRA
         - **box**:
           - **x**: 836
           - **y**: 860
-          - **comprimento**: 57
-          - **largura**: 33
-      - **[4]**:
-        - **id**: Estrada
-        - **label**: ESTRADA
-        - **box**:
-          - **x**: 803
-          - **y**: 1094
-          - **comprimento**: 38
-          - **largura**: 63
-      - **[5]**:
+          - **comprimento**: 64
+          - **largura**: 43
+      - **[3]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: Setor Vale das Sombras
         - **box**:
           - **x**: 198
-          - **y**: 1129
-          - **comprimento**: 45
-          - **largura**: 34
-      - **[6]**:
+          - **y**: 1130
+          - **comprimento**: 51
+          - **largura**: 38
+      - **[4]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 138
-          - **y**: 937
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[7]**:
+          - **x**: 140
+          - **y**: 938
+          - **comprimento**: 19
+          - **largura**: 23
+      - **[5]**:
         - **id**: 02
         - **label**: 2
         - **box**:
           - **x**: 140
-          - **y**: 896
-          - **comprimento**: 15
-          - **largura**: 21
-      - **[8]**:
+          - **y**: 897
+          - **comprimento**: 19
+          - **largura**: 22
+      - **[6]**:
         - **id**: 03
         - **label**: 3
         - **box**:
-          - **x**: 142
+          - **x**: 141
           - **y**: 859
-          - **comprimento**: 15
+          - **comprimento**: 18
           - **largura**: 22
-      - **[9]**:
+      - **[7]**:
         - **id**: 04
         - **label**: 4
         - **box**:
-          - **x**: 145
-          - **y**: 816
-          - **comprimento**: 20
+          - **x**: 146
+          - **y**: 817
+          - **comprimento**: 21
           - **largura**: 24
-      - **[10]**:
+      - **[8]**:
         - **id**: 05
         - **label**: 5
         - **box**:
           - **x**: 150
           - **y**: 762
-          - **comprimento**: 13
-          - **largura**: 15
-      - **[11]**:
+          - **comprimento**: 20
+          - **largura**: 22
+      - **[9]**:
         - **id**: 06
         - **label**: 6
         - **box**:
           - **x**: 166
           - **y**: 628
-          - **comprimento**: 14
-          - **largura**: 17
-      - **[12]**:
+          - **comprimento**: 20
+          - **largura**: 25
+      - **[10]**:
         - **id**: 07
         - **label**: 7
         - **box**:
           - **x**: 192
           - **y**: 563
-          - **comprimento**: 13
-          - **largura**: 16
-      - **[13]**:
+          - **comprimento**: 19
+          - **largura**: 24
+      - **[11]**:
         - **id**: 08
         - **label**: 8
         - **box**:
-          - **x**: 276
+          - **x**: 277
           - **y**: 530
-          - **comprimento**: 17
-          - **largura**: 21
-      - **[14]**:
+          - **comprimento**: 20
+          - **largura**: 22
+      - **[12]**:
         - **id**: 09
         - **label**: 9
         - **box**:
           - **x**: 279
-          - **y**: 471
-          - **comprimento**: 18
-          - **largura**: 20
-      - **[15]**:
+          - **y**: 473
+          - **comprimento**: 20
+          - **largura**: 24
+      - **[13]**:
         - **id**: 10
         - **label**: 10
         - **box**:
           - **x**: 280
-          - **y**: 444
-          - **comprimento**: 31
-          - **largura**: 25
-      - **[16]**:
+          - **y**: 445
+          - **comprimento**: 27
+          - **largura**: 22
+      - **[14]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 276
+          - **x**: 275
           - **y**: 417
-          - **comprimento**: 30
-          - **largura**: 26
-      - **[17]**:
+          - **comprimento**: 26
+          - **largura**: 24
+      - **[15]**:
         - **id**: 12
         - **label**: 12
         - **box**:
           - **x**: 276
           - **y**: 370
-          - **comprimento**: 30
+          - **comprimento**: 27
           - **largura**: 25
     - **referencias**:
       - **[0]**:
@@ -2284,6 +2358,28 @@
         - **escalada**: Antônio Conselheiro
         - **ids**:
           - 12
+      - **[10]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Parede dos Conflitos
+        - **escalada**: Guerra dos Côcos
+      - **[11]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Parede dos Conflitos
+        - **escalada**: Guerrilha do Araguaia
+      - **[12]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Antigo Camping
+      - **[13]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
+      - **[14]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2387,22 +2483,6 @@
           - **comprimento**: 46
           - **largura**: 39
       - **[1]**:
-        - **id**: Grutas
-        - **label**: Grutas
-        - **box**:
-          - **x**: 210
-          - **y**: 739
-          - **comprimento**: 47
-          - **largura**: 20
-      - **[2]**:
-        - **id**: Estrada
-        - **label**: ESTRADA
-        - **box**:
-          - **x**: 740
-          - **y**: 670
-          - **comprimento**: 41
-          - **largura**: 61
-      - **[3]**:
         - **id**: Totem_Pedra
         - **label**: TOTEM PEDRA
         - **box**:
@@ -2410,71 +2490,71 @@
           - **y**: 1054
           - **comprimento**: 56
           - **largura**: 32
-      - **[4]**:
+      - **[2]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: Setor Vale das Sombras
         - **box**:
           - **x**: 72
-          - **y**: 1092
-          - **comprimento**: 45
-          - **largura**: 25
-      - **[5]**:
+          - **y**: 1090
+          - **comprimento**: 59
+          - **largura**: 47
+      - **[3]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 210
-          - **y**: 842
+          - **x**: 201
+          - **y**: 823
           - **comprimento**: 16
           - **largura**: 14
-      - **[6]**:
+      - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 226
-          - **y**: 852
+          - **x**: 216
+          - **y**: 830
           - **comprimento**: 16
           - **largura**: 14
-      - **[7]**:
+      - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 243
-          - **y**: 862
+          - **x**: 246
+          - **y**: 847
           - **comprimento**: 16
           - **largura**: 14
-      - **[8]**:
+      - **[6]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 273
-          - **y**: 887
+          - **x**: 285
+          - **y**: 864
           - **comprimento**: 16
           - **largura**: 14
-      - **[9]**:
+      - **[7]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 296
-          - **y**: 902
+          - **x**: 317
+          - **y**: 876
           - **comprimento**: 16
           - **largura**: 14
-      - **[10]**:
+      - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 313
-          - **y**: 817
-          - **comprimento**: 16
+          - **x**: 334
+          - **y**: 903
+          - **comprimento**: 13
           - **largura**: 14
-      - **[11]**:
+      - **[9]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 321
-          - **y**: 827
-          - **comprimento**: 16
+          - **x**: 348
+          - **y**: 891
+          - **comprimento**: 14
           - **largura**: 14
-      - **[12]**:
+      - **[10]**:
         - **id**: 08
         - **label**: 08
         - **box**:
@@ -2482,7 +2562,7 @@
           - **y**: 824
           - **comprimento**: 13
           - **largura**: 13
-      - **[13]**:
+      - **[11]**:
         - **id**: 09
         - **label**: 9
         - **box**:
@@ -2490,103 +2570,95 @@
           - **y**: 781
           - **comprimento**: 13
           - **largura**: 14
-      - **[14]**:
+      - **[12]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 332
+          - **x**: 331
           - **y**: 760
-          - **comprimento**: 21
+          - **comprimento**: 18
           - **largura**: 17
-      - **[15]**:
+      - **[13]**:
         - **id**: 11
         - **label**: 11
         - **box**:
           - **x**: 334
           - **y**: 720
-          - **comprimento**: 15
-          - **largura**: 14
-      - **[16]**:
+          - **comprimento**: 16
+          - **largura**: 15
+      - **[14]**:
         - **id**: 12
         - **label**: 12
         - **box**:
           - **x**: 362
           - **y**: 658
-          - **comprimento**: 17
-          - **largura**: 14
-      - **[17]**:
+          - **comprimento**: 19
+          - **largura**: 17
+      - **[15]**:
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 393
-          - **y**: 672
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[18]**:
+          - **x**: 418
+          - **y**: 656
+          - **comprimento**: 18
+          - **largura**: 17
+      - **[16]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 414
-          - **y**: 692
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[19]**:
+          - **x**: 440
+          - **y**: 684
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[17]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 433
-          - **y**: 682
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[20]**:
+          - **x**: 462
+          - **y**: 660
+          - **comprimento**: 19
+          - **largura**: 18
+      - **[18]**:
         - **id**: 16
         - **label**: 16
         - **box**:
-          - **x**: 501
+          - **x**: 502
           - **y**: 642
-          - **comprimento**: 14
-          - **largura**: 13
-      - **[21]**:
-        - **id**: 17
-        - **label**: 17
-        - **box**:
-          - **x**: 518
-          - **y**: 652
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[22]**:
+          - **comprimento**: 17
+          - **largura**: 17
+      - **[19]**:
         - **id**: 18
         - **label**: 18
         - **box**:
           - **x**: 621
           - **y**: 468
-          - **comprimento**: 18
-          - **largura**: 13
-      - **[23]**:
+          - **comprimento**: 20
+          - **largura**: 17
+      - **[20]**:
         - **id**: 19
         - **label**: 19
         - **box**:
           - **x**: 644
-          - **y**: 389
-          - **comprimento**: 19
-          - **largura**: 16
-      - **[24]**:
+          - **y**: 392
+          - **comprimento**: 17
+          - **largura**: 15
+      - **[21]**:
         - **id**: 20
         - **label**: 20
         - **box**:
-          - **x**: 649
-          - **y**: 376
-          - **comprimento**: 18
-          - **largura**: 17
-      - **[25]**:
+          - **x**: 653
+          - **y**: 368
+          - **comprimento**: 24
+          - **largura**: 27
+      - **[22]**:
         - **id**: 21
         - **label**: 21
         - **box**:
           - **x**: 638
-          - **y**: 347
-          - **comprimento**: 16
-          - **largura**: 12
-      - **[26]**:
+          - **y**: 348
+          - **comprimento**: 19
+          - **largura**: 15
+      - **[23]**:
         - **id**: 22
         - **label**: 22
         - **box**:
@@ -2675,6 +2747,24 @@
         - **escalada**: Ce ki Sabe
         - **ids**:
           - 22
+      - **[20]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Leão de Judah
+        - **escalada**: Efeito Moral
+      - **[21]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Leão de Judah
+        - **escalada**: Risco de Discórdia
+      - **[22]**:
+        - **ids**:
+          - Setor_Vale_das_Sombras
+        - **setor**: Setor Vale das Sombras
+      - **[23]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Antigo Camping
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2843,46 +2933,46 @@
         - **box**:
           - **x**: 62
           - **y**: 46
-          - **comprimento**: 44
-          - **largura**: 26
+          - **comprimento**: 46
+          - **largura**: 29
       - **[1]**:
         - **id**: Savassinha
         - **label**: Savassinha
         - **box**:
           - **x**: 146
           - **y**: 308
-          - **comprimento**: 74
-          - **largura**: 17
+          - **comprimento**: 80
+          - **largura**: 26
       - **[2]**:
         - **id**: Beco_do_Tiu
         - **label**: Beco do Tiú
         - **box**:
           - **x**: 285
           - **y**: 348
-          - **comprimento**: 76
-          - **largura**: 17
+          - **comprimento**: 78
+          - **largura**: 25
       - **[3]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 372
-          - **y**: 899
-          - **comprimento**: 16
-          - **largura**: 12
+          - **y**: 900
+          - **comprimento**: 18
+          - **largura**: 15
       - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 396
-          - **y**: 882
-          - **comprimento**: 18
-          - **largura**: 13
+          - **y**: 884
+          - **comprimento**: 21
+          - **largura**: 16
       - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
           - **x**: 410
-          - **y**: 862
+          - **y**: 863
           - **comprimento**: 21
           - **largura**: 16
       - **[6]**:
@@ -2897,15 +2987,15 @@
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 435
-          - **y**: 828
+          - **x**: 448
+          - **y**: 824
           - **comprimento**: 20
           - **largura**: 15
       - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 452
+          - **x**: 459
           - **y**: 808
           - **comprimento**: 20
           - **largura**: 15
@@ -2913,122 +3003,114 @@
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 468
+          - **x**: 466
           - **y**: 790
-          - **comprimento**: 29
-          - **largura**: 19
+          - **comprimento**: 20
+          - **largura**: 15
       - **[10]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 467
-          - **y**: 772
-          - **comprimento**: 28
-          - **largura**: 21
+          - **x**: 466
+          - **y**: 771
+          - **comprimento**: 21
+          - **largura**: 16
       - **[11]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 457
+          - **x**: 458
           - **y**: 748
-          - **comprimento**: 26
-          - **largura**: 21
+          - **comprimento**: 21
+          - **largura**: 16
       - **[12]**:
         - **id**: 10
         - **label**: 10
         - **box**:
           - **x**: 470
           - **y**: 718
-          - **comprimento**: 24
-          - **largura**: 19
+          - **comprimento**: 20
+          - **largura**: 17
       - **[13]**:
         - **id**: 11
         - **label**: 11
         - **box**:
           - **x**: 490
           - **y**: 689
-          - **comprimento**: 21
+          - **comprimento**: 19
           - **largura**: 18
       - **[14]**:
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 469
+          - **x**: 470
           - **y**: 658
-          - **comprimento**: 24
-          - **largura**: 21
+          - **comprimento**: 21
+          - **largura**: 17
       - **[15]**:
         - **id**: 13
         - **label**: 13
         - **box**:
           - **x**: 449
-          - **y**: 620
-          - **comprimento**: 22
-          - **largura**: 18
+          - **y**: 622
+          - **comprimento**: 20
+          - **largura**: 17
       - **[16]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 465
-          - **y**: 592
-          - **comprimento**: 20
-          - **largura**: 15
+          - **x**: 492
+          - **y**: 562
+          - **comprimento**: 18
+          - **largura**: 16
       - **[17]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 494
-          - **y**: 536
-          - **comprimento**: 33
-          - **largura**: 29
+          - **x**: 492
+          - **y**: 538
+          - **comprimento**: 19
+          - **largura**: 17
       - **[18]**:
         - **id**: 16
         - **label**: 16
         - **box**:
-          - **x**: 490
-          - **y**: 479
-          - **comprimento**: 23
-          - **largura**: 16
+          - **x**: 489
+          - **y**: 480
+          - **comprimento**: 20
+          - **largura**: 18
       - **[19]**:
         - **id**: 17
         - **label**: 17
         - **box**:
-          - **x**: 477
+          - **x**: 476
           - **y**: 438
-          - **comprimento**: 24
-          - **largura**: 17
+          - **comprimento**: 19
+          - **largura**: 18
       - **[20]**:
         - **id**: 18
         - **label**: 18
         - **box**:
           - **x**: 460
-          - **y**: 399
-          - **comprimento**: 21
+          - **y**: 400
+          - **comprimento**: 19
           - **largura**: 18
       - **[21]**:
         - **id**: 19
         - **label**: 19
         - **box**:
-          - **x**: 400
-          - **y**: 310
-          - **comprimento**: 20
-          - **largura**: 20
+          - **x**: 398
+          - **y**: 282
+          - **comprimento**: 19
+          - **largura**: 17
       - **[22]**:
         - **id**: Leao_de_Judah
         - **label**: Leão de Judah
         - **box**:
           - **x**: 159
           - **y**: 1046
-          - **comprimento**: 40
-          - **largura**: 25
-      - **[23]**:
-        - **id**: Estrada
-        - **label**: Estrada
-        - **box**:
-          - **x**: 345
-          - **y**: 1102
-          - **comprimento**: 38
-          - **largura**: 14
+          - **comprimento**: 46
+          - **largura**: 32
     - **referencias**:
       - **[0]**:
         - **escalada**: Lucy Não
@@ -3098,6 +3180,22 @@
         - **escalada**: Lenços Umedecidos
         - **ids**:
           - 19
+      - **[17]**:
+        - **ids**:
+          - Setor_Grutinha
+        - **setor**: Setor Grutinha
+      - **[18]**:
+        - **ids**:
+          - Savassinha
+        - **setor**: Setor Savassinha
+      - **[19]**:
+        - **ids**:
+          - Beco_do_Tiu
+        - **setor**: Setor Beco do Tiú
+      - **[20]**:
+        - **ids**:
+          - Leao_de_Judah
+        - **setor**: Setor Leão de Judah
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3247,9 +3345,9 @@
         - **label**: Setor Grutinha
         - **box**:
           - **x**: 228
-          - **y**: 16
-          - **comprimento**: 43
-          - **largura**: 27
+          - **y**: 18
+          - **comprimento**: 47
+          - **largura**: 33
       - **[1]**:
         - **id**: Savassinha
         - **label**: Savassinha
@@ -3262,34 +3360,34 @@
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 400
-          - **y**: 714
-          - **comprimento**: 19
-          - **largura**: 13
+          - **x**: 398
+          - **y**: 716
+          - **comprimento**: 21
+          - **largura**: 17
       - **[3]**:
         - **id**: 02
         - **label**: 02
         - **box**:
           - **x**: 358
-          - **y**: 664
+          - **y**: 666
           - **comprimento**: 21
           - **largura**: 17
       - **[4]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 315
-          - **y**: 615
+          - **x**: 311
+          - **y**: 596
           - **comprimento**: 20
           - **largura**: 20
       - **[5]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 300
+          - **x**: 296
           - **y**: 572
-          - **comprimento**: 32
-          - **largura**: 18
+          - **comprimento**: 21
+          - **largura**: 17
       - **[6]**:
         - **id**: 05
         - **label**: 05
@@ -3303,31 +3401,31 @@
         - **label**: 06
         - **box**:
           - **x**: 354
-          - **y**: 552
-          - **comprimento**: 25
-          - **largura**: 21
+          - **y**: 553
+          - **comprimento**: 22
+          - **largura**: 18
       - **[8]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 400
-          - **y**: 597
-          - **comprimento**: 28
-          - **largura**: 26
+          - **x**: 402
+          - **y**: 598
+          - **comprimento**: 22
+          - **largura**: 19
       - **[9]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 442
-          - **y**: 637
-          - **comprimento**: 25
-          - **largura**: 22
+          - **x**: 443
+          - **y**: 638
+          - **comprimento**: 22
+          - **largura**: 18
       - **[10]**:
         - **id**: 09
         - **label**: 09
         - **box**:
           - **x**: 475
-          - **y**: 644
+          - **y**: 646
           - **comprimento**: 22
           - **largura**: 17
       - **[11]**:
@@ -3344,8 +3442,8 @@
         - **box**:
           - **x**: 378
           - **y**: 1142
-          - **comprimento**: 98
-          - **largura**: 13
+          - **comprimento**: 102
+          - **largura**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Panqueca de Salada
@@ -3375,6 +3473,32 @@
         - **escalada**: Usa Quatro e Sobra Um
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Antigo Camping
+        - **escalada**: Xuxa Preta de Pains
+      - **[8]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Antigo Camping
+        - **escalada**: Brenfa Móvel
+      - **[9]**:
+        - **ids**:
+          - Setor_Grutinha
+        - **setor**: Setor Grutinha
+      - **[10]**:
+        - **ids**:
+          - Savassinha
+        - **setor**: Setor Savassinha
+      - **[11]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Antigo Camping
+      - **[12]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3480,7 +3604,7 @@
         - **box**:
           - **x**: 346
           - **y**: 598
-          - **comprimento**: 39
+          - **comprimento**: 44
           - **largura**: 50
       - **[2]**:
         - **id**: Setor_Antigo_Camping
@@ -3496,70 +3620,70 @@
         - **box**:
           - **x**: 442
           - **y**: 1110
-          - **comprimento**: 97
-          - **largura**: 13
+          - **comprimento**: 100
+          - **largura**: 19
       - **[4]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 262
-          - **y**: 472
-          - **comprimento**: 14
-          - **largura**: 14
+          - **y**: 483
+          - **comprimento**: 15
+          - **largura**: 16
       - **[5]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 235
-          - **y**: 402
-          - **comprimento**: 14
-          - **largura**: 14
+          - **x**: 226
+          - **y**: 408
+          - **comprimento**: 15
+          - **largura**: 17
       - **[6]**:
         - **id**: 03
         - **label**: 3
         - **box**:
-          - **x**: 241
-          - **y**: 384
-          - **comprimento**: 8
-          - **largura**: 9
+          - **x**: 242
+          - **y**: 386
+          - **comprimento**: 13
+          - **largura**: 15
       - **[7]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 252
-          - **y**: 370
+          - **x**: 242
+          - **y**: 369
           - **comprimento**: 14
           - **largura**: 14
       - **[8]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 255
-          - **y**: 355
+          - **x**: 250
+          - **y**: 350
           - **comprimento**: 14
-          - **largura**: 14
+          - **largura**: 15
       - **[9]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 255
-          - **y**: 340
+          - **x**: 251
+          - **y**: 329
           - **comprimento**: 14
           - **largura**: 14
       - **[10]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 255
-          - **y**: 322
+          - **x**: 241
+          - **y**: 310
           - **comprimento**: 14
-          - **largura**: 14
+          - **largura**: 16
       - **[11]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 255
-          - **y**: 307
+          - **x**: 242
+          - **y**: 287
           - **comprimento**: 14
           - **largura**: 14
       - **[12]**:
@@ -3568,21 +3692,21 @@
         - **box**:
           - **x**: 257
           - **y**: 253
-          - **comprimento**: 12
-          - **largura**: 14
+          - **comprimento**: 16
+          - **largura**: 16
       - **[13]**:
         - **id**: 10
         - **label**: 10
         - **box**:
           - **x**: 312
           - **y**: 252
-          - **comprimento**: 21
+          - **comprimento**: 18
           - **largura**: 17
       - **[14]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 356
+          - **x**: 358
           - **y**: 249
           - **comprimento**: 19
           - **largura**: 18
@@ -3592,8 +3716,8 @@
         - **box**:
           - **x**: 292
           - **y**: 142
-          - **comprimento**: 16
-          - **largura**: 13
+          - **comprimento**: 18
+          - **largura**: 17
     - **referencias**:
       - **[0]**:
         - **escalada**: 4i20
@@ -3635,6 +3759,28 @@
         - **escalada**: Frango Com Farofa
         - **ids**:
           - 12
+      - **[10]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Savassinha
+        - **escalada**: Curupira
+      - **[11]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Savassinha
+        - **escalada**: Só Beleza
+      - **[12]**:
+        - **ids**:
+          - Setor_Grutinha
+        - **setor**: Setor Grutinha
+      - **[13]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Antigo Camping
+      - **[14]**:
+        - **ids**:
+          - Setor_Leao_de_Judah
+        - **setor**: Setor Leão de Judah
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3739,9 +3885,9 @@
         - **label**: Setor Antigo Camping (Savassinha)
         - **box**:
           - **x**: 360
-          - **y**: 56
-          - **comprimento**: 59
-          - **largura**: 48
+          - **y**: 57
+          - **comprimento**: 66
+          - **largura**: 54
       - **[1]**:
         - **id**: Gruta
         - **label**: Gruta
@@ -3762,72 +3908,72 @@
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 514
-          - **y**: 487
-          - **comprimento**: 13
-          - **largura**: 8
+          - **x**: 516
+          - **y**: 488
+          - **comprimento**: 17
+          - **largura**: 17
       - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 532
-          - **y**: 487
-          - **comprimento**: 15
-          - **largura**: 8
+          - **x**: 534
+          - **y**: 484
+          - **comprimento**: 19
+          - **largura**: 17
       - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 552
-          - **y**: 502
-          - **comprimento**: 15
-          - **largura**: 13
+          - **x**: 554
+          - **y**: 505
+          - **comprimento**: 20
+          - **largura**: 16
       - **[6]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 583
+          - **x**: 584
           - **y**: 512
-          - **comprimento**: 16
-          - **largura**: 12
+          - **comprimento**: 19
+          - **largura**: 16
       - **[7]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 572
-          - **y**: 538
-          - **comprimento**: 15
-          - **largura**: 15
+          - **x**: 574
+          - **y**: 543
+          - **comprimento**: 19
+          - **largura**: 16
       - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 579
-          - **y**: 560
-          - **comprimento**: 18
-          - **largura**: 13
+          - **x**: 580
+          - **y**: 559
+          - **comprimento**: 19
+          - **largura**: 16
       - **[9]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 600
-          - **y**: 572
+          - **x**: 603
+          - **y**: 574
           - **comprimento**: 20
           - **largura**: 15
       - **[10]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 630
+          - **x**: 632
           - **y**: 584
-          - **comprimento**: 25
-          - **largura**: 19
+          - **comprimento**: 21
+          - **largura**: 17
       - **[11]**:
         - **id**: 09
         - **label**: 09
         - **box**:
           - **x**: 672
-          - **y**: 596
+          - **y**: 597
           - **comprimento**: 21
           - **largura**: 16
     - **referencias**:
@@ -3859,6 +4005,24 @@
         - **escalada**: Quem Ama Planta
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Setor Grutinha
+        - **escalada**: Respeite os Mais Velhos
+      - **[8]**:
+        - **ids**:
+          - 09
+        - **setor**: Setor Grutinha
+        - **escalada**: Quem Ama Implanta
+      - **[9]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Antigo Camping
+      - **[10]**:
+        - **ids**:
+          - Setor_Antigo_Camping
+        - **setor**: Setor Savassinha
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3956,33 +4120,9 @@
         - **box**:
           - **x**: 609
           - **y**: 36
-          - **comprimento**: 108
-          - **largura**: 13
+          - **comprimento**: 112
+          - **largura**: 17
       - **[1]**:
-        - **id**: Tunel
-        - **label**: Túnel
-        - **box**:
-          - **x**: 693
-          - **y**: 54
-          - **comprimento**: 56
-          - **largura**: 22
-      - **[2]**:
-        - **id**: Escada_De_Acesso
-        - **label**: Escada de acesso
-        - **box**:
-          - **x**: 779
-          - **y**: 56
-          - **comprimento**: 80
-          - **largura**: 36
-      - **[3]**:
-        - **id**: Portal
-        - **label**: Portal
-        - **box**:
-          - **x**: 160
-          - **y**: 180
-          - **comprimento**: 45
-          - **largura**: 15
-      - **[4]**:
         - **id**: Plato
         - **label**: Platô
         - **box**:
@@ -3990,86 +4130,70 @@
           - **y**: 722
           - **comprimento**: 44
           - **largura**: 26
-      - **[5]**:
-        - **id**: Corredor_Paredes_Baixas
-        - **label**: Corredor com paredes baixas
-        - **box**:
-          - **x**: 142
-          - **y**: 942
-          - **comprimento**: 68
-          - **largura**: 71
-      - **[6]**:
+      - **[2]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
           - **x**: 140
           - **y**: 1088
-          - **comprimento**: 85
-          - **largura**: 17
-      - **[7]**:
-        - **id**: Obs_Abelha
-        - **label**: OBS.! Caixa de abelha entre as vias
-        - **box**:
-          - **x**: 586
-          - **y**: 884
-          - **comprimento**: 89
-          - **largura**: 58
-      - **[8]**:
+          - **comprimento**: 92
+          - **largura**: 24
+      - **[3]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 458
-          - **y**: 552
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[9]**:
+          - **x**: 460
+          - **y**: 554
+          - **comprimento**: 18
+          - **largura**: 18
+      - **[4]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 478
-          - **y**: 562
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[10]**:
+          - **x**: 492
+          - **y**: 568
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[5]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 480
-          - **y**: 600
-          - **comprimento**: 26
-          - **largura**: 16
-      - **[11]**:
+          - **x**: 482
+          - **y**: 601
+          - **comprimento**: 21
+          - **largura**: 20
+      - **[6]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 490
+          - **x**: 494
           - **y**: 626
-          - **comprimento**: 29
-          - **largura**: 19
-      - **[12]**:
+          - **comprimento**: 22
+          - **largura**: 20
+      - **[7]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 380
+          - **x**: 381
           - **y**: 789
-          - **comprimento**: 19
-          - **largura**: 16
-      - **[13]**:
+          - **comprimento**: 20
+          - **largura**: 18
+      - **[8]**:
         - **id**: 06
         - **label**: 06
         - **box**:
           - **x**: 361
           - **y**: 831
-          - **comprimento**: 20
-          - **largura**: 16
-      - **[14]**:
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[9]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 136
-          - **y**: 422
-          - **comprimento**: 16
-          - **largura**: 14
+          - **x**: 152
+          - **y**: 432
+          - **comprimento**: 19
+          - **largura**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Passeio das Patacas
@@ -4099,6 +4223,14 @@
         - **escalada**: Legionários
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[8]**:
+        - **ids**:
+          - Setor_Jardim_Suspenso
+        - **setor**: Jardim Suspenso
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4166,81 +4298,41 @@
         - **box**:
           - **x**: 608
           - **y**: 40
-          - **comprimento**: 109
-          - **largura**: 16
+          - **comprimento**: 114
+          - **largura**: 22
       - **[1]**:
-        - **id**: Tunel_Top
-        - **label**: Túnel
-        - **box**:
-          - **x**: 687
-          - **y**: 57
-          - **comprimento**: 70
-          - **largura**: 26
-      - **[2]**:
-        - **id**: Escada_De_Acesso
-        - **label**: Escada de acesso
-        - **box**:
-          - **x**: 779
-          - **y**: 60
-          - **comprimento**: 80
-          - **largura**: 36
-      - **[3]**:
-        - **id**: Portal
-        - **label**: Portal
-        - **box**:
-          - **x**: 160
-          - **y**: 184
-          - **comprimento**: 47
-          - **largura**: 17
-      - **[4]**:
-        - **id**: Torres_De_Pedra_A
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 384
-          - **y**: 195
-          - **comprimento**: 118
-          - **largura**: 16
-      - **[5]**:
         - **id**: 01
         - **label**: 01
         - **box**:
           - **x**: 808
-          - **y**: 380
-          - **comprimento**: 20
+          - **y**: 381
+          - **comprimento**: 17
           - **largura**: 16
-      - **[6]**:
+      - **[2]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 821
+          - **x**: 824
           - **y**: 414
-          - **comprimento**: 24
+          - **comprimento**: 19
           - **largura**: 17
-      - **[7]**:
+      - **[3]**:
         - **id**: 03
         - **label**: 03
         - **box**:
           - **x**: 807
-          - **y**: 446
+          - **y**: 447
           - **comprimento**: 18
           - **largura**: 16
-      - **[8]**:
-        - **id**: Torres_De_Pedra_B
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 268
-          - **y**: 470
-          - **comprimento**: 118
-          - **largura**: 17
-      - **[9]**:
+      - **[4]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 793
+          - **x**: 794
           - **y**: 468
-          - **comprimento**: 16
-          - **largura**: 13
-      - **[10]**:
+          - **comprimento**: 20
+          - **largura**: 16
+      - **[5]**:
         - **id**: 05
         - **label**: 05
         - **box**:
@@ -4248,7 +4340,7 @@
           - **y**: 488
           - **comprimento**: 19
           - **largura**: 16
-      - **[11]**:
+      - **[6]**:
         - **id**: 06
         - **label**: 06
         - **box**:
@@ -4256,94 +4348,54 @@
           - **y**: 512
           - **comprimento**: 20
           - **largura**: 17
-      - **[12]**:
-        - **id**: Tunel_Vertical
-        - **label**: Túnel
-        - **box**:
-          - **x**: 318
-          - **y**: 589
-          - **comprimento**: 23
-          - **largura**: 34
-      - **[13]**:
-        - **id**: Plato
-        - **label**: Platô
-        - **box**:
-          - **x**: 112
-          - **y**: 726
-          - **comprimento**: 44
-          - **largura**: 26
-      - **[14]**:
-        - **id**: Torres_De_Pedra_C
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 636
-          - **y**: 778
-          - **comprimento**: 117
-          - **largura**: 17
-      - **[15]**:
-        - **id**: Obs_Abelha
-        - **label**: OBS.! Caixa de abelha entre as vias
-        - **box**:
-          - **x**: 586
-          - **y**: 888
-          - **comprimento**: 89
-          - **largura**: 60
-      - **[16]**:
-        - **id**: Corredor_Baixo
-        - **label**: Corredor com paredes baixas
-        - **box**:
-          - **x**: 142
-          - **y**: 944
-          - **comprimento**: 71
-          - **largura**: 72
-      - **[17]**:
+      - **[7]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
           - **x**: 141
-          - **y**: 1091
-          - **comprimento**: 84
-          - **largura**: 14
-      - **[18]**:
+          - **y**: 1090
+          - **comprimento**: 90
+          - **largura**: 21
+      - **[8]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 580
-          - **y**: 490
-          - **comprimento**: 20
-          - **largura**: 15
-      - **[19]**:
+          - **x**: 623
+          - **y**: 540
+          - **comprimento**: 22
+          - **largura**: 18
+      - **[9]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 520
-          - **y**: 480
-          - **comprimento**: 20
-          - **largura**: 15
-      - **[20]**:
+          - **x**: 553
+          - **y**: 534
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[10]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 500
-          - **y**: 512
-          - **comprimento**: 20
-          - **largura**: 15
-      - **[21]**:
+          - **x**: 514
+          - **y**: 574
+          - **comprimento**: 19
+          - **largura**: 18
+      - **[11]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 475
-          - **y**: 468
-          - **comprimento**: 20
-          - **largura**: 15
-      - **[22]**:
+          - **x**: 486
+          - **y**: 538
+          - **comprimento**: 19
+          - **largura**: 19
+      - **[12]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 452
-          - **y**: 468
-          - **comprimento**: 15
-          - **largura**: 15
+          - **x**: 464
+          - **y**: 536
+          - **comprimento**: 18
+          - **largura**: 17
     - **referencias**:
       - **[0]**:
         - **escalada**: Roolinhalala
@@ -4381,6 +4433,24 @@
         - **escalada**: Minha Criança
         - **ids**:
           - 11
+      - **[9]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[10]**:
+        - **ids**:
+          - Setor_Jardim_Suspenso
+        - **setor**: Jardim Suspenso
+      - **[11]**:
+        - **ids**:
+          - 08
+        - **setor**: 1º Andar
+        - **escalada**: Curte o Planeta que Você Vive
+      - **[12]**:
+        - **ids**:
+          - 09
+        - **setor**: 1º Andar
+        - **escalada**: Subaco da Zen
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4475,256 +4545,184 @@
         - **box**:
           - **x**: 601
           - **y**: 36
-          - **comprimento**: 108
-          - **largura**: 13
-      - **[1]**:
-        - **id**: Tunel_Top
-        - **label**: Túnel
-        - **box**:
-          - **x**: 690
-          - **y**: 54
-          - **comprimento**: 45
-          - **largura**: 19
-      - **[2]**:
-        - **id**: Escada_De_Acesso
-        - **label**: Escada de acesso
-        - **box**:
-          - **x**: 774
-          - **y**: 56
-          - **comprimento**: 75
-          - **largura**: 33
-      - **[3]**:
-        - **id**: Portal
-        - **label**: Portal
-        - **box**:
-          - **x**: 154
-          - **y**: 181
-          - **comprimento**: 47
+          - **comprimento**: 118
           - **largura**: 18
-      - **[4]**:
+      - **[1]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 325
-          - **y**: 268
+          - **x**: 284
+          - **y**: 300
           - **comprimento**: 20
           - **largura**: 15
-      - **[5]**:
+      - **[2]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 342
-          - **y**: 266
-          - **comprimento**: 21
-          - **largura**: 13
-      - **[6]**:
+          - **x**: 308
+          - **y**: 289
+          - **comprimento**: 23
+          - **largura**: 18
+      - **[3]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 590
-          - **y**: 306
+          - **x**: 518
+          - **y**: 338
           - **comprimento**: 20
           - **largura**: 15
-      - **[7]**:
+      - **[4]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 610
-          - **y**: 298
+          - **x**: 540
+          - **y**: 330
           - **comprimento**: 20
           - **largura**: 15
-      - **[8]**:
+      - **[5]**:
         - **id**: 05
         - **label**: 05
         - **box**:
-          - **x**: 636
-          - **y**: 262
-          - **comprimento**: 19
-          - **largura**: 13
-      - **[9]**:
+          - **x**: 556
+          - **y**: 284
+          - **comprimento**: 21
+          - **largura**: 15
+      - **[6]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 638
-          - **y**: 242
+          - **x**: 560
+          - **y**: 266
           - **comprimento**: 19
-          - **largura**: 13
-      - **[10]**:
+          - **largura**: 14
+      - **[7]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 640
-          - **y**: 167
+          - **x**: 562
+          - **y**: 209
           - **comprimento**: 20
           - **largura**: 16
-      - **[11]**:
+      - **[8]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 636
-          - **y**: 94
+          - **x**: 556
+          - **y**: 106
           - **comprimento**: 22
           - **largura**: 17
-      - **[12]**:
+      - **[9]**:
         - **id**: 09
         - **label**: 09
         - **box**:
-          - **x**: 660
+          - **x**: 612
           - **y**: 60
           - **comprimento**: 21
           - **largura**: 16
-      - **[13]**:
+      - **[10]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 681
+          - **x**: 630
           - **y**: 94
-          - **comprimento**: 16
-          - **largura**: 14
-      - **[14]**:
+          - **comprimento**: 20
+          - **largura**: 17
+      - **[11]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 690
-          - **y**: 74
-          - **comprimento**: 13
-          - **largura**: 13
-      - **[15]**:
+          - **x**: 641
+          - **y**: 75
+          - **comprimento**: 20
+          - **largura**: 18
+      - **[12]**:
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 753
-          - **y**: 95
+          - **x**: 723
+          - **y**: 109
           - **comprimento**: 20
           - **largura**: 16
-      - **[16]**:
+      - **[13]**:
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 763
+          - **x**: 714
           - **y**: 138
-          - **comprimento**: 18
-          - **largura**: 14
-      - **[17]**:
+          - **comprimento**: 19
+          - **largura**: 16
+      - **[14]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 764
+          - **x**: 712
           - **y**: 157
-          - **comprimento**: 17
-          - **largura**: 14
-      - **[18]**:
+          - **comprimento**: 19
+          - **largura**: 16
+      - **[15]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 768
+          - **x**: 720
           - **y**: 174
-          - **comprimento**: 23
-          - **largura**: 17
-      - **[19]**:
+          - **comprimento**: 18
+          - **largura**: 15
+      - **[16]**:
         - **id**: 16
         - **label**: 16
         - **box**:
-          - **x**: 775
-          - **y**: 190
-          - **comprimento**: 20
-          - **largura**: 16
-      - **[20]**:
+          - **x**: 728
+          - **y**: 189
+          - **comprimento**: 18
+          - **largura**: 14
+      - **[17]**:
         - **id**: 17
         - **label**: 17
         - **box**:
-          - **x**: 802
-          - **y**: 177
-          - **comprimento**: 17
-          - **largura**: 14
-      - **[21]**:
+          - **x**: 752
+          - **y**: 178
+          - **comprimento**: 19
+          - **largura**: 17
+      - **[18]**:
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 814
+          - **x**: 764
           - **y**: 206
           - **comprimento**: 20
           - **largura**: 17
-      - **[22]**:
+      - **[19]**:
         - **id**: 19
         - **label**: 19
         - **box**:
-          - **x**: 820
-          - **y**: 242
-          - **comprimento**: 21
+          - **x**: 770
+          - **y**: 243
+          - **comprimento**: 19
           - **largura**: 16
-      - **[23]**:
+      - **[20]**:
         - **id**: 20
         - **label**: 20
         - **box**:
-          - **x**: 780
+          - **x**: 781
           - **y**: 286
-          - **comprimento**: 24
-          - **largura**: 20
-      - **[24]**:
+          - **comprimento**: 22
+          - **largura**: 17
+      - **[21]**:
         - **id**: 21
         - **label**: 21
         - **box**:
           - **x**: 780
-          - **y**: 341
+          - **y**: 342
           - **comprimento**: 20
           - **largura**: 16
-      - **[25]**:
-        - **id**: Torres_De_Pedra_A
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 378
-          - **y**: 192
-          - **comprimento**: 115
-          - **largura**: 13
-      - **[26]**:
-        - **id**: Torres_De_Pedra_B
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 262
-          - **y**: 464
-          - **comprimento**: 117
-          - **largura**: 17
-      - **[27]**:
-        - **id**: Torres_De_Pedra_C
-        - **label**: Torres de Pedra
-        - **box**:
-          - **x**: 629
-          - **y**: 774
-          - **comprimento**: 116
-          - **largura**: 14
-      - **[28]**:
-        - **id**: Plato
-        - **label**: Platô
-        - **box**:
-          - **x**: 106
-          - **y**: 722
-          - **comprimento**: 45
-          - **largura**: 25
-      - **[29]**:
-        - **id**: OBS_Abelha
-        - **label**: OBS.! Caixa de abelha entre as vias
-        - **box**:
-          - **x**: 580
-          - **y**: 884
-          - **comprimento**: 87
-          - **largura**: 59
-      - **[30]**:
-        - **id**: Corredor_Baixo
-        - **label**: Corredor com paredes baixas
-        - **box**:
-          - **x**: 136
-          - **y**: 941
-          - **comprimento**: 70
-          - **largura**: 72
-      - **[31]**:
+      - **[22]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
         - **box**:
-          - **x**: 135
-          - **y**: 1087
-          - **comprimento**: 86
-          - **largura**: 16
+          - **x**: 136
+          - **y**: 1088
+          - **comprimento**: 91
+          - **largura**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Primeiro Prêmio
@@ -4802,6 +4800,24 @@
         - **escalada**: Iemanjá
         - **ids**:
           - 21
+      - **[19]**:
+        - **ids**:
+          - Setor_Chegada
+        - **setor**: Setor Chegada
+      - **[20]**:
+        - **ids**:
+          - Setor_Jardim_Suspenso
+        - **setor**: Jardim Suspenso
+      - **[21]**:
+        - **ids**:
+          - 08
+        - **setor**: 2º Andar
+        - **escalada**: Gardneria Angustata
+      - **[22]**:
+        - **ids**:
+          - 09
+        - **setor**: 2º Andar
+        - **escalada**: Vai e Volta e Vai
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4967,34 +4983,26 @@
         - **label**: Setor Terceiro Andar
         - **box**:
           - **x**: 846
-          - **y**: 300
-          - **comprimento**: 56
-          - **largura**: 46
+          - **y**: 302
+          - **comprimento**: 61
+          - **largura**: 55
       - **[1]**:
         - **id**: Setor_Segundo_Andar
         - **label**: Setor Segundo Andar
         - **box**:
           - **x**: 566
-          - **y**: 932
-          - **comprimento**: 61
-          - **largura**: 49
+          - **y**: 935
+          - **comprimento**: 65
+          - **largura**: 54
       - **[2]**:
-        - **id**: Escada_De_Acesso
-        - **label**: Escada de acesso
-        - **box**:
-          - **x**: 696
-          - **y**: 734
-          - **comprimento**: 91
-          - **largura**: 43
-      - **[3]**:
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 593
-          - **y**: 598
+          - **x**: 594
+          - **y**: 599
           - **comprimento**: 22
           - **largura**: 18
-      - **[4]**:
+      - **[3]**:
         - **id**: 02
         - **label**: 02
         - **box**:
@@ -5002,55 +5010,55 @@
           - **y**: 598
           - **comprimento**: 25
           - **largura**: 21
-      - **[5]**:
+      - **[4]**:
         - **id**: 03
         - **label**: 03
         - **box**:
           - **x**: 460
-          - **y**: 392
-          - **comprimento**: 28
-          - **largura**: 23
-      - **[6]**:
+          - **y**: 394
+          - **comprimento**: 21
+          - **largura**: 19
+      - **[5]**:
         - **id**: 04
         - **label**: 04
         - **box**:
-          - **x**: 459
+          - **x**: 458
           - **y**: 372
-          - **comprimento**: 26
-          - **largura**: 20
-      - **[7]**:
+          - **comprimento**: 21
+          - **largura**: 17
+      - **[6]**:
         - **id**: 05
         - **label**: 05
         - **box**:
           - **x**: 444
           - **y**: 310
-          - **comprimento**: 24
+          - **comprimento**: 21
           - **largura**: 18
-      - **[8]**:
+      - **[7]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 532
-          - **y**: 310
-          - **comprimento**: 25
+          - **x**: 534
+          - **y**: 311
+          - **comprimento**: 21
           - **largura**: 20
-      - **[9]**:
+      - **[8]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 534
+          - **x**: 536
           - **y**: 434
-          - **comprimento**: 27
-          - **largura**: 23
-      - **[10]**:
+          - **comprimento**: 23
+          - **largura**: 21
+      - **[9]**:
         - **id**: 08
         - **label**: 08
         - **box**:
           - **x**: 562
           - **y**: 463
-          - **comprimento**: 26
+          - **comprimento**: 23
           - **largura**: 20
-      - **[11]**:
+      - **[10]**:
         - **id**: 09
         - **label**: 09
         - **box**:
@@ -5087,6 +5095,24 @@
         - **escalada**: Cai Mais Não, Zé
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Jardim Suspenso
+        - **escalada**: Corte Profundo
+      - **[8]**:
+        - **ids**:
+          - 09
+        - **setor**: Jardim Suspenso
+        - **escalada**: Avenida Paulista
+      - **[9]**:
+        - **ids**:
+          - Setor_Segundo_Andar
+        - **setor**: 2º Andar
+      - **[10]**:
+        - **ids**:
+          - Setor_Terceiro_Andar
+        - **setor**: 3º Andar
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -5163,135 +5189,135 @@
         - **id**: 01
         - **label**: 01
         - **box**:
-          - **x**: 374
-          - **y**: 816
-          - **comprimento**: 23
-          - **largura**: 17
+          - **x**: 372
+          - **y**: 818
+          - **comprimento**: 26
+          - **largura**: 24
       - **[1]**:
         - **id**: 02
         - **label**: 02
         - **box**:
-          - **x**: 417
+          - **x**: 416
           - **y**: 738
-          - **comprimento**: 32
-          - **largura**: 24
+          - **comprimento**: 27
+          - **largura**: 25
       - **[2]**:
         - **id**: 03
         - **label**: 03
         - **box**:
-          - **x**: 415
+          - **x**: 413
           - **y**: 704
-          - **comprimento**: 30
-          - **largura**: 20
+          - **comprimento**: 24
+          - **largura**: 24
       - **[3]**:
         - **id**: 04
         - **label**: 04
         - **box**:
           - **x**: 432
-          - **y**: 656
-          - **comprimento**: 26
-          - **largura**: 20
+          - **y**: 658
+          - **comprimento**: 23
+          - **largura**: 24
       - **[4]**:
         - **id**: 05
         - **label**: 05
         - **box**:
           - **x**: 426
           - **y**: 598
-          - **comprimento**: 27
+          - **comprimento**: 22
           - **largura**: 21
       - **[5]**:
         - **id**: 06
         - **label**: 06
         - **box**:
-          - **x**: 454
-          - **y**: 487
-          - **comprimento**: 25
-          - **largura**: 20
+          - **x**: 453
+          - **y**: 488
+          - **comprimento**: 24
+          - **largura**: 23
       - **[6]**:
         - **id**: 07
         - **label**: 07
         - **box**:
-          - **x**: 434
+          - **x**: 436
           - **y**: 432
-          - **comprimento**: 22
-          - **largura**: 18
+          - **comprimento**: 25
+          - **largura**: 25
       - **[7]**:
         - **id**: 08
         - **label**: 08
         - **box**:
-          - **x**: 491
-          - **y**: 390
-          - **comprimento**: 24
-          - **largura**: 17
+          - **x**: 490
+          - **y**: 391
+          - **comprimento**: 25
+          - **largura**: 22
       - **[8]**:
         - **id**: 09
         - **label**: 09
         - **box**:
           - **x**: 534
-          - **y**: 365
-          - **comprimento**: 21
-          - **largura**: 18
+          - **y**: 366
+          - **comprimento**: 24
+          - **largura**: 21
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 525
-          - **y**: 404
-          - **comprimento**: 20
-          - **largura**: 18
+          - **x**: 550
+          - **y**: 408
+          - **comprimento**: 17
+          - **largura**: 17
       - **[10]**:
         - **id**: 11
         - **label**: 11
         - **box**:
-          - **x**: 555
-          - **y**: 404
-          - **comprimento**: 20
-          - **largura**: 18
+          - **x**: 568
+          - **y**: 398
+          - **comprimento**: 17
+          - **largura**: 17
       - **[11]**:
         - **id**: 12
         - **label**: 12
         - **box**:
-          - **x**: 591
+          - **x**: 592
           - **y**: 386
           - **comprimento**: 20
-          - **largura**: 16
+          - **largura**: 17
       - **[12]**:
         - **id**: 13
         - **label**: 13
         - **box**:
-          - **x**: 606
-          - **y**: 445
-          - **comprimento**: 22
-          - **largura**: 18
+          - **x**: 608
+          - **y**: 446
+          - **comprimento**: 21
+          - **largura**: 17
       - **[13]**:
         - **id**: 14
         - **label**: 14
         - **box**:
-          - **x**: 600
-          - **y**: 463
+          - **x**: 599
+          - **y**: 464
           - **comprimento**: 20
           - **largura**: 18
       - **[14]**:
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 555
-          - **y**: 454
+          - **x**: 561
+          - **y**: 453
           - **comprimento**: 20
           - **largura**: 18
       - **[15]**:
         - **id**: 16
         - **label**: 16
         - **box**:
-          - **x**: 535
-          - **y**: 469
+          - **x**: 525
+          - **y**: 467
           - **comprimento**: 20
           - **largura**: 18
       - **[16]**:
         - **id**: 17
         - **label**: 17
         - **box**:
-          - **x**: 535
+          - **x**: 532
           - **y**: 504
           - **comprimento**: 20
           - **largura**: 18
@@ -5299,7 +5325,7 @@
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 583
+          - **x**: 582
           - **y**: 606
           - **comprimento**: 18
           - **largura**: 18
@@ -5307,58 +5333,58 @@
         - **id**: 19
         - **label**: 19
         - **box**:
-          - **x**: 575
-          - **y**: 624
-          - **comprimento**: 20
-          - **largura**: 18
+          - **x**: 565
+          - **y**: 622
+          - **comprimento**: 18
+          - **largura**: 17
       - **[19]**:
         - **id**: 20
         - **label**: 20
         - **box**:
           - **x**: 564
           - **y**: 644
-          - **comprimento**: 22
-          - **largura**: 15
+          - **comprimento**: 21
+          - **largura**: 19
       - **[20]**:
         - **id**: 21
         - **label**: 21
         - **box**:
-          - **x**: 564
+          - **x**: 565
           - **y**: 696
-          - **comprimento**: 25
-          - **largura**: 21
+          - **comprimento**: 22
+          - **largura**: 22
       - **[21]**:
         - **id**: 22
         - **label**: 22
         - **box**:
-          - **x**: 598
-          - **y**: 742
-          - **comprimento**: 25
+          - **x**: 600
+          - **y**: 744
+          - **comprimento**: 22
           - **largura**: 21
       - **[22]**:
         - **id**: 23
         - **label**: 23
         - **box**:
           - **x**: 624
-          - **y**: 723
-          - **comprimento**: 26
-          - **largura**: 20
+          - **y**: 724
+          - **comprimento**: 20
+          - **largura**: 19
       - **[23]**:
         - **id**: 24
         - **label**: 24
         - **box**:
           - **x**: 752
           - **y**: 586
-          - **comprimento**: 26
-          - **largura**: 20
+          - **comprimento**: 23
+          - **largura**: 19
       - **[24]**:
         - **id**: Setor_Conexao
         - **label**: Setor Jardim Suspenso e Segundo Andar
         - **box**:
           - **x**: 82
           - **y**: 918
-          - **comprimento**: 67
-          - **largura**: 92
+          - **comprimento**: 78
+          - **largura**: 98
     - **referencias**:
       - **[0]**:
         - **escalada**: Pinguela de Ema
@@ -5448,6 +5474,24 @@
         - **escalada**: Exame de Próstata
         - **ids**:
           - 24
+      - **[22]**:
+        - **ids**:
+          - Setor_Conexao
+        - **setor**: Jardim Suspenso
+      - **[23]**:
+        - **ids**:
+          - Setor_Conexao
+        - **setor**: 2º Andar
+      - **[24]**:
+        - **ids**:
+          - 08
+        - **setor**: 3º Andar
+        - **escalada**: Iara
+      - **[25]**:
+        - **ids**:
+          - 09
+        - **setor**: 3º Andar
+        - **escalada**: Come Hamburguer
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

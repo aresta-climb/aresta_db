@@ -59,20 +59,6 @@ picos:
               y: 592
               comprimento: 62
               largura: 27
-          - id: Estrada_de_terra
-            label: Estrada de terra
-            box:
-              x: 408
-              y: 884
-              comprimento: 125
-              largura: 27
-          - id: H2O
-            label: H2O
-            box:
-              x: 640
-              y: 927
-              comprimento: 43
-              largura: 22
           referencias:
           - escalada: Dia da Maldade
             ids:
@@ -102,92 +88,92 @@ picos:
             box:
               x: 534
               y: 136
-              comprimento: 7
-              largura: 12
+              comprimento: 9
+              largura: 14
           - id: '2'
             label: '2'
             box:
               x: 545
               y: 124
-              comprimento: 8
-              largura: 13
+              comprimento: 10
+              largura: 16
           - id: '3'
             label: '3'
             box:
-              x: 564
-              y: 108
-              comprimento: 9
-              largura: 13
+              x: 566
+              y: 109
+              comprimento: 13
+              largura: 14
           - id: '4'
             label: '4'
             box:
               x: 588
               y: 106
-              comprimento: 7
-              largura: 11
+              comprimento: 10
+              largura: 17
           - id: '5'
             label: '5'
             box:
               x: 598
               y: 110
-              comprimento: 7
-              largura: 12
+              comprimento: 9
+              largura: 14
           - id: '6'
             label: '6'
             box:
               x: 608
-              y: 121
-              comprimento: 7
-              largura: 12
+              y: 120
+              comprimento: 10
+              largura: 13
           - id: '7'
             label: '7'
             box:
               x: 608
-              y: 135
-              comprimento: 9
-              largura: 10
+              y: 136
+              comprimento: 11
+              largura: 15
           - id: '8'
             label: '8'
             box:
-              x: 605
+              x: 604
               y: 148
-              comprimento: 6
-              largura: 10
+              comprimento: 9
+              largura: 12
           - id: '9'
             label: '9'
             box:
-              x: 613
+              x: 612
               y: 156
-              comprimento: 6
-              largura: 11
+              comprimento: 9
+              largura: 14
           - id: '10'
             label: '10'
             box:
               x: 618
               y: 170
-              comprimento: 13
-              largura: 13
+              comprimento: 16
+              largura: 14
           - id: '11'
             label: '11'
             box:
               x: 618
               y: 186
-              comprimento: 10
-              largura: 12
+              comprimento: 14
+              largura: 14
           - id: '12'
             label: '12'
             box:
               x: 616
               y: 202
-              comprimento: 13
-              largura: 13
+              comprimento: 15
+              largura: 15
           - id: '13'
             label: '13'
             box:
               x: 614
               y: 218
-              comprimento: 13
-              largura: 11
+              comprimento: 16
+              largura: 13
           - id: Setor_Cemiterio_dos_Ossos
             label: Setor Cemitério dos Ossos
             box:
@@ -206,7 +192,7 @@ picos:
             label: Setor Corredor Polonês
             box:
               x: 684
-              y: 288
+              y: 290
               comprimento: 110
               largura: 17
               angulo_graus_x100: -298
@@ -362,21 +348,21 @@ picos:
           - id: '1'
             label: '1'
             box:
-              x: 595
+              x: 596
               y: 262
               comprimento: 12
               largura: 15
           - id: '2'
             label: '2'
             box:
-              x: 616
-              y: 274
+              x: 615
+              y: 276
               comprimento: 12
               largura: 15
           - id: '3'
             label: '3'
             box:
-              x: 642
+              x: 641
               y: 274
               comprimento: 12
               largura: 15
@@ -500,35 +486,35 @@ picos:
           - id: '2'
             label: '2'
             box:
-              x: 623
+              x: 625
               y: 552
               comprimento: 12
               largura: 15
           - id: '3'
             label: '3'
             box:
-              x: 616
-              y: 592
+              x: 618
+              y: 594
               comprimento: 12
               largura: 15
           - id: '4'
             label: '4'
             box:
-              x: 641
+              x: 642
               y: 610
               comprimento: 12
               largura: 15
           - id: '5'
             label: '5'
             box:
-              x: 665
+              x: 667
               y: 608
               comprimento: 12
               largura: 15
           - id: '6'
             label: '6'
             box:
-              x: 700
+              x: 701
               y: 602
               comprimento: 12
               largura: 15
@@ -661,186 +647,38 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0.webp
         largura_mapa: 1073
         altura_mapa: 624
-        pontos_de_interesse:
-        - id: A2
-          label: A2
-          box:
-            x: 390
-            y: 228
-            comprimento: 25
-            largura: 18
-        - id: Rastro
-          label: Rastro
-          box:
-            x: 465
-            y: 228
-            comprimento: 55
-            largura: 20
-        - id: Corumba
-          label: Corumbá
-          box:
-            x: 310
-            y: 240
-            comprimento: 85
-            largura: 25
-        - id: Quilombo
-          label: Quilombo
-          box:
-            x: 430
-            y: 240
-            comprimento: 90
-            largura: 25
-        - id: Novo_Mundo
-          label: Novo Mundo
-          box:
-            x: 440
-            y: 325
-            comprimento: 115
-            largura: 25
-        - id: Jucarmo
-          label: Jucarmo
-          box:
-            x: 155
-            y: 372
-            comprimento: 75
-            largura: 22
-        - id: Pains
-          label: Pains
-          box:
-            x: 266
-            y: 397
-            comprimento: 52
-            largura: 22
-        - id: La_Bombonera
-          label: Lá Bombonera
-          box:
-            x: 305
-            y: 455
-            comprimento: 130
-            largura: 25
-        - id: Arcos
-          label: Arcos
-          box:
-            x: 627
-            y: 133
-            comprimento: 58
-            largura: 24
-        - id: MG_170_1
-          label: MG-170
-          box:
-            x: 598
-            y: 7
-            comprimento: 55
-            largura: 25
-        - id: MG_170_2
-          label: MG-170
-          box:
-            x: 388
-            y: 287
-            comprimento: 55
-            largura: 25
-        - id: MG_170_3
-          label: MG-170
-          box:
-            x: 26
-            y: 539
-            comprimento: 56
-            largura: 25
-        - id: '354_1'
-          label: '354'
-          box:
-            x: 465
-            y: 36
-            comprimento: 37
-            largura: 27
-        - id: '354_2'
-          label: '354'
-          box:
-            x: 677
-            y: 286
-            comprimento: 36
-            largura: 27
-        - id: MG_439
-          label: MG-439
-          box:
-            x: 668
-            y: 451
-            comprimento: 55
-            largura: 25
-        - id: MG_050
-          label: MG-050
-          box:
-            x: 996
-            y: 507
-            comprimento: 55
-            largura: 25
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
         largura_mapa: 1060
         altura_mapa: 617
         pontos_de_interesse:
-        - id: Afloramento_Novo_Mundo
-          label: Afloramento do Novo Mundo
-          box:
-            x: 44
-            y: 28
-            comprimento: 375
-            largura: 28
         - id: Setor_Barceloneta
           label: Setor Barceloneta
           box:
-            x: 374
-            y: 413
-            comprimento: 115
-            largura: 45
+            x: 432
+            y: 438
+            comprimento: 163
+            largura: 135
         - id: Setor_Corredor_Polones
           label: Setor Corredor Polonês
           box:
-            x: 535
-            y: 510
-            comprimento: 90
-            largura: 55
+            x: 582
+            y: 536
+            comprimento: 100
+            largura: 144
         - id: Setor_Aristoteles
           label: Setor Aristóteles
           box:
-            x: 724
-            y: 511
-            comprimento: 100
-            largura: 45
+            x: 774
+            y: 533
+            comprimento: 219
+            largura: 138
         - id: Setor_Cemiterio_Ossos
           label: Setor Cemitério dos Ossos
           box:
-            x: 804
-            y: 360
-            comprimento: 102
-            largura: 70
-        - id: Pains
-          label: Pains
-          box:
-            x: 84
-            y: 565
-            comprimento: 40
-            largura: 18
-        - id: H2O
-          label: H2O
-          box:
-            x: 68
-            y: 177
-            comprimento: 30
-            largura: 16
-        - id: Arcos_MG
-          label: Arcos/MG
-          box:
-            x: 535
-            y: 10
-            comprimento: 80
-            largura: 15
-        - id: Corumba_MG
-          label: Corumbá/MG
-          box:
-            x: 525
-            y: 28
-            comprimento: 80
-            largura: 15
+            x: 855
+            y: 396
+            comprimento: 138
+            largura: 86
         referencias:
         - setor: Setor Barceloneta
           ids:
@@ -959,6 +797,7 @@ botoes:
         - **Contribuição/Parceria:** Pix 37 99918-3634'
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 1edb610d3a0c7597deeffd8b501e453d4d33c1011a28a5af18774748bafaa667

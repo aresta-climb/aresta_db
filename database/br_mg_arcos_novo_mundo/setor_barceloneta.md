@@ -1,4 +1,4 @@
----
+---
 nome: Setor Barceloneta
 mapas:
 - caminho_imagem_mapa: imagens/setor_barceloneta_p0_i0.webp
@@ -15,35 +15,35 @@ mapas:
   - id: '2'
     label: '2'
     box:
-      x: 623
+      x: 625
       y: 552
       comprimento: 12
       largura: 15
   - id: '3'
     label: '3'
     box:
-      x: 616
-      y: 592
+      x: 618
+      y: 594
       comprimento: 12
       largura: 15
   - id: '4'
     label: '4'
     box:
-      x: 641
+      x: 642
       y: 610
       comprimento: 12
       largura: 15
   - id: '5'
     label: '5'
     box:
-      x: 665
+      x: 667
       y: 608
       comprimento: 12
       largura: 15
   - id: '6'
     label: '6'
     box:
-      x: 700
+      x: 701
       y: 602
       comprimento: 12
       largura: 15
@@ -166,7 +166,8 @@ escaladas:
     nome: Maldita Dependência
     dificuldade: BR_7A
     data_abertura: '2016'
----
+---
+
 # Setor Barceloneta
 
 Sombra das 7h as 12h (varia de acordo com a estação).

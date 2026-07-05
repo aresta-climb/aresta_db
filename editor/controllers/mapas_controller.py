@@ -77,6 +77,45 @@ class MapasController:
             )
             self.undo_stack.push(cmd)
 
+    def converter_circulos_para_boxes(self, msg_mapa_proxy, indices):
+        """Converte múltiplos POIs do tipo circular para box de uma só vez."""
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.models.readonly_proxy import ReadOnlyProxy
+        from editor.commands.comandos_protobuf import CmdAlterarMultiplosRepeatedItems
+        
+        alteracoes = []
+        for index in indices:
+            poi_antigo = msg_mapa_proxy.pontos_de_interesse[index]
+            if not poi_antigo.HasField('circular'):
+                continue
+                
+            poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
+            if isinstance(poi_antigo, ReadOnlyProxy):
+                poi_novo.CopyFrom(poi_antigo._obj)
+            else:
+                poi_novo.CopyFrom(poi_antigo)
+            
+            circ = poi_antigo.circular
+            r = circ.raio
+            
+            poi_novo.ClearField('tipo_area')
+            poi_novo.box.x = circ.x
+            poi_novo.box.y = circ.y
+            poi_novo.box.comprimento = r * 2
+            poi_novo.box.largura = r * 2
+            
+            alteracoes.append((index, poi_antigo, poi_novo))
+            
+        if alteracoes:
+            cmd = CmdAlterarMultiplosRepeatedItems(
+                model=self.model,
+                msg=msg_mapa_proxy,
+                campo_nome="pontos_de_interesse",
+                alteracoes=alteracoes,
+                context_path=self.contexto_atual_path
+            )
+            self.undo_stack.push(cmd)
+
     def adicionar_poi(self, msg_mapa_proxy, poi_novo):
         """Adiciona um POI ao mapa."""
         from aresta_api.proto.generated.croqui_pb2 import Mapa

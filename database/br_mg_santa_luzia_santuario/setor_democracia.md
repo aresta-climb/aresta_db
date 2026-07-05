@@ -1,4 +1,4 @@
----
+---
 nome: Setor Democracia
 mapas:
 - caminho_imagem_mapa: imagens/setor_democracia_p1.webp
@@ -7,109 +7,94 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
-      x: 270
-      y: 254
-      comprimento: 38
-      largura: 39
+    circular:
+      x: 272
+      y: 252
+      raio: 28
   - id: '02'
     label: '02'
-    box:
-      x: 428
+    circular:
+      x: 429
       y: 322
-      comprimento: 39
-      largura: 39
+      raio: 29
   - id: '03'
     label: '03'
-    box:
-      x: 554
+    circular:
+      x: 555
       y: 392
-      comprimento: 39
-      largura: 39
+      raio: 29
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 726
-      y: 420
-      comprimento: 39
-      largura: 39
+      y: 421
+      raio: 29
   - id: '05'
     label: '05'
-    box:
-      x: 881
-      y: 486
-      comprimento: 38
-      largura: 39
+    circular:
+      x: 880
+      y: 485
+      raio: 29
   - id: '06'
     label: '06'
-    box:
+    circular:
       x: 1020
-      y: 584
-      comprimento: 39
-      largura: 39
+      y: 585
+      raio: 29
   - id: '07'
     label: '07'
-    box:
-      x: 1132
-      y: 694
-      comprimento: 39
-      largura: 39
+    circular:
+      x: 1134
+      y: 696
+      raio: 29
   - id: '08'
     label: '08'
-    box:
-      x: 1192
-      y: 822
-      comprimento: 39
-      largura: 39
+    circular:
+      x: 1191
+      y: 823
+      raio: 29
   - id: '09'
     label: '09'
-    box:
-      x: 1240
-      y: 944
-      comprimento: 39
-      largura: 39
+    circular:
+      x: 1238
+      y: 945
+      raio: 29
   - id: '10'
     label: '10'
-    box:
-      x: 1265
+    circular:
+      x: 1266
       y: 1070
-      comprimento: 46
-      largura: 37
+      raio: 29
   - id: '11'
     label: '11'
-    box:
-      x: 1311
+    circular:
+      x: 1313
       y: 1190
-      comprimento: 48
-      largura: 41
+      raio: 29
   - id: '12'
     label: '12'
-    box:
-      x: 1370
-      y: 1306
-      comprimento: 46
-      largura: 38
+    circular:
+      x: 1371
+      y: 1307
+      raio: 29
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 1476
       y: 1634
-      comprimento: 47
-      largura: 37
+      raio: 29
   - id: '14'
     label: '14'
-    box:
-      x: 1534
+    circular:
+      x: 1535
       y: 1759
-      comprimento: 46
-      largura: 36
+      raio: 29
   - id: '15'
     label: '15'
-    box:
-      x: 1559
-      y: 1885
-      comprimento: 42
-      largura: 34
+    circular:
+      x: 1561
+      y: 1886
+      raio: 29
   referencias:
   - escalada: O PODER DO ROCAMBOLE
     ids:
@@ -261,7 +246,8 @@ escaladas:
         dificuldade: BR_8B
 - via_esportiva:
     nome: VIA INACABADA 2
----
+---
+
 # Setor Democracia
 
 ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp)

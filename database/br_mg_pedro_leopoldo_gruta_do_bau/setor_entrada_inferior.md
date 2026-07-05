@@ -1,4 +1,4 @@
----
+---
 nome: Setor Entrada Inferior
 mapas:
 - caminho_imagem_mapa: imagens/setor_entrada_inferior_p0_i6.webp
@@ -15,10 +15,10 @@ mapas:
   - id: 17a
     label: 17a
     box:
-      x: 488
+      x: 489
       y: 154
-      comprimento: 43
-      largura: 33
+      comprimento: 38
+      largura: 30
   - id: Setor_Sentinela
     label: Setor Sentinela
     box:
@@ -26,83 +26,62 @@ mapas:
       y: 198
       comprimento: 82
       largura: 55
-  - id: Top
-    label: Top
-    box:
-      x: 851
-      y: 254
-      comprimento: 38
-      largura: 40
   - id: '17'
     label: '17'
     box:
-      x: 516
-      y: 239
-      comprimento: 34
-      largura: 30
+      x: 513
+      y: 240
+      comprimento: 26
+      largura: 27
   - id: '16'
     label: '16'
     box:
       x: 516
       y: 285
-      comprimento: 29
+      comprimento: 27
       largura: 28
   - id: '14'
     label: '14'
     box:
       x: 386
       y: 352
-      comprimento: 35
-      largura: 35
+      comprimento: 30
+      largura: 30
   - id: '15'
     label: '15'
     box:
-      x: 524
+      x: 525
       y: 340
-      comprimento: 32
-      largura: 31
+      comprimento: 28
+      largura: 29
   - id: '13'
     label: '13'
     box:
-      x: 308
+      x: 310
       y: 354
-      comprimento: 31
-      largura: 31
+      comprimento: 30
+      largura: 29
   - id: '37'
     label: '37'
     box:
       x: 480
       y: 360
-      comprimento: 35
-      largura: 32
-  - id: Parquinho
-    label: Parquinho
-    box:
-      x: 994
-      y: 494
-      comprimento: 91
-      largura: 31
+      comprimento: 33
+      largura: 29
   - id: '12'
     label: '12'
     box:
-      x: 294
+      x: 288
       y: 522
-      comprimento: 43
-      largura: 32
+      comprimento: 31
+      largura: 31
   - id: '11'
     label: '11'
     box:
-      x: 341
-      y: 534
-      comprimento: 32
-      largura: 27
-  - id: '10'
-    label: '10'
-    box:
-      x: 404
-      y: 552
+      x: 346
+      y: 536
       comprimento: 27
-      largura: 28
+      largura: 29
   - id: '08'
     label: '08'
     box:
@@ -113,10 +92,10 @@ mapas:
   - id: '07'
     label: '07'
     box:
-      x: 661
-      y: 559
-      comprimento: 30
-      largura: 26
+      x: 662
+      y: 560
+      comprimento: 33
+      largura: 31
   - id: '09'
     label: '09'
     box:
@@ -124,61 +103,47 @@ mapas:
       y: 572
       comprimento: 29
       largura: 28
-  - id: Mesa
-    label: Mesa
-    box:
-      x: 855
-      y: 566
-      comprimento: 50
-      largura: 27
   - id: '06'
     label: '06'
     box:
       x: 706
       y: 584
-      comprimento: 29
-      largura: 27
+      comprimento: 33
+      largura: 30
   - id: '05'
     label: '05'
     box:
-      x: 757
+      x: 754
       y: 588
-      comprimento: 38
-      largura: 28
+      comprimento: 31
+      largura: 27
   - id: '19'
     label: '19'
     box:
-      x: 416
-      y: 611
-      comprimento: 31
+      x: 414
+      y: 612
+      comprimento: 28
       largura: 26
   - id: '25'
     label: '25'
     box:
-      x: 502
-      y: 629
-      comprimento: 33
-      largura: 24
-  - id: Tunel_de_pedra
-    label: Túnel de pedra
-    box:
-      x: 601
+      x: 504
       y: 630
-      comprimento: 106
-      largura: 27
+      comprimento: 31
+      largura: 28
   - id: '04'
     label: '04'
     box:
-      x: 760
+      x: 756
       y: 630
-      comprimento: 35
-      largura: 24
+      comprimento: 31
+      largura: 29
   - id: '20'
     label: '20'
     box:
-      x: 408
-      y: 645
-      comprimento: 34
+      x: 410
+      y: 646
+      comprimento: 31
       largura: 30
   - id: '26'
     label: '26'
@@ -186,7 +151,7 @@ mapas:
       x: 494
       y: 666
       comprimento: 31
-      largura: 26
+      largura: 28
   - id: '02'
     label: '02'
     box:
@@ -197,9 +162,9 @@ mapas:
   - id: '03'
     label: '03'
     box:
-      x: 758
+      x: 756
       y: 672
-      comprimento: 37
+      comprimento: 32
       largura: 28
   - id: '21'
     label: '21'
@@ -208,19 +173,12 @@ mapas:
       y: 682
       comprimento: 28
       largura: 27
-  - id: Estacionamento
-    label: Estacionamento
-    box:
-      x: 1026
-      y: 684
-      comprimento: 136
-      largura: 21
   - id: '27'
     label: '27'
     box:
-      x: 494
+      x: 498
       y: 708
-      comprimento: 34
+      comprimento: 33
       largura: 29
   - id: '22'
     label: '22'
@@ -233,9 +191,9 @@ mapas:
     label: '24'
     box:
       x: 353
-      y: 745
-      comprimento: 38
-      largura: 34
+      y: 746
+      comprimento: 32
+      largura: 31
   - id: 2_Andar
     label: 2º Andar
     box:
@@ -246,10 +204,10 @@ mapas:
   - id: '23'
     label: '23'
     box:
-      x: 397
+      x: 398
       y: 760
-      comprimento: 36
-      largura: 33
+      comprimento: 31
+      largura: 28
   - id: '29'
     label: '29'
     box:
@@ -257,13 +215,6 @@ mapas:
       y: 780
       comprimento: 33
       largura: 31
-  - id: Ponte de madeira
-    label: Ponte de madeira
-    box:
-      x: 301
-      y: 788
-      comprimento: 82
-      largura: 22
   - id: '30'
     label: '30'
     box:
@@ -320,41 +271,41 @@ mapas:
       y: 928
       comprimento: 33
       largura: 31
-  - id: Gruta_Acesso
-    label: GRUTA Acesso somente acompanhado
-    box:
-      x: 535
-      y: 988
-      comprimento: 170
-      largura: 85
   - id: '34'
     label: '34'
     box:
       x: 410
       y: 990
-      comprimento: 35
+      comprimento: 32
       largura: 29
   - id: '18'
     label: '18'
     box:
-      x: 547
-      y: 1131
+      x: 548
+      y: 1132
       comprimento: 28
       largura: 28
   - id: Setor_Fechadura
     label: Setor Fechadura
     box:
-      x: 592
+      x: 591
       y: 1224
       comprimento: 136
       largura: 33
   - id: Setor_Pasto
     label: Setor Pasto
     box:
-      x: 755
-      y: 1216
+      x: 758
+      y: 1218
       comprimento: 156
       largura: 34
+  - id: '10'
+    label: '10'
+    box:
+      x: 404
+      y: 554
+      comprimento: 32
+      largura: 31
   referencias:
   - escalada: Zero Um
     ids:
@@ -383,9 +334,6 @@ mapas:
   - escalada: Pop Rock
     ids:
     - '09'
-  - escalada: Juliana
-    ids:
-    - '10'
   - escalada: A Despedida
     ids:
     - '11'
@@ -473,6 +421,25 @@ mapas:
   - escalada: Velha Guarda
     ids:
     - '37'
+  - escalada: Juliana
+    ids:
+    - '10'
+    setor: Setor Entrada Inferior
+  - ids:
+    - Entrada_Superior
+    setor: Setor Entrada Superior
+  - ids:
+    - 2_Andar
+    setor: Setor 2º Andar
+  - ids:
+    - Setor_Fechadura
+    setor: Setor Fechadura
+  - ids:
+    - Setor_Pasto
+    setor: Setor Pasto
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela e Vale do Joga
 escaladas:
 - via_esportiva:
     nome: Zero Um
@@ -779,7 +746,8 @@ escaladas:
     conquistadores:
     - Christian Costa
     - Marcus Rufino
----
+---
+
 # Setor Entrada Inferior
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.

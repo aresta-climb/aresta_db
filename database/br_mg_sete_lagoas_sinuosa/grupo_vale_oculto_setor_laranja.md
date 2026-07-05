@@ -1,4 +1,4 @@
----
+---
 nome: Sub Setor Laranja
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_laranja_p0_i0.webp
@@ -7,88 +7,76 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 476
-      y: 270
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 475
+      y: 269
+      raio: 20
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 434
       y: 180
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '3'
     label: '3'
-    box:
-      x: 372
+    circular:
+      x: 375
       y: 192
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '4'
     label: '4'
-    box:
-      x: 332
-      y: 136
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 330
+      y: 137
+      raio: 20
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 524
-      y: 370
-      comprimento: 35
-      largura: 35
+      y: 369
+      raio: 20
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 578
-      y: 370
-      comprimento: 35
-      largura: 35
+      y: 369
+      raio: 20
   - id: '7'
     label: '7'
-    box:
-      x: 632
-      y: 376
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 630
+      y: 378
+      raio: 20
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 686
-      y: 370
-      comprimento: 35
-      largura: 35
+      y: 369
+      raio: 20
   - id: '9'
     label: '9'
-    box:
-      x: 732
-      y: 368
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 731
+      y: 369
+      raio: 20
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 786
       y: 368
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '11'
     label: '11'
-    box:
-      x: 836
-      y: 338
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 837
+      y: 339
+      raio: 20
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 876
-      y: 290
-      comprimento: 35
-      largura: 35
+      y: 292
+      raio: 20
   - id: Sub_Setor_Anfiteatro
     label: SUB SETOR ANFITEATRO →
     box:
@@ -142,6 +130,14 @@ mapas:
   - escalada: Dr. Máquina
     ids:
     - '12'
+  - ids:
+    - Sub_Setor_de_Cara
+    grupo: Vale Oculto
+    setor: Sub Setor de Cara
+  - ids:
+    - Sub_Setor_Anfiteatro
+    grupo: Vale Oculto
+    setor: Sub Setor Anfiteatro
 escaladas:
 - via_esportiva:
     nome: Interação Nativa
@@ -203,7 +199,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 1
----
+---
+
 # Setor Vale Oculto - Sub Setor Laranja
 
 ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp)

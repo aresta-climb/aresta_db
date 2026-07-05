@@ -1,4 +1,4 @@
----
+---
 nome: Setor Corredor Polonês
 mapas:
 - caminho_imagem_mapa: imagens/setor_corredor_polones_p0_i0.webp
@@ -8,21 +8,21 @@ mapas:
   - id: '1'
     label: '1'
     box:
-      x: 595
+      x: 596
       y: 262
       comprimento: 12
       largura: 15
   - id: '2'
     label: '2'
     box:
-      x: 616
-      y: 274
+      x: 615
+      y: 276
       comprimento: 12
       largura: 15
   - id: '3'
     label: '3'
     box:
-      x: 642
+      x: 641
       y: 274
       comprimento: 12
       largura: 15
@@ -124,7 +124,8 @@ escaladas:
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2018'
----
+---
+
 # Setor Corredor Polonês
 
 Sombra o dia todo (varia de acordo com a estação).

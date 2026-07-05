@@ -1,52 +1,45 @@
----
+---
 nome: Setor Mr. Bean
 mapas:
 - caminho_imagem_mapa: imagens/setor_mr_bean_p0_i6.webp
   largura_mapa: 1266
   altura_mapa: 1215
   pontos_de_interesse:
-  - id: Mirante
-    label: Mirante
-    box:
-      x: 47
-      y: 102
-      comprimento: 94
-      largura: 25
   - id: '03'
     label: '03'
     box:
-      x: 444
+      x: 445
       y: 158
-      comprimento: 33
+      comprimento: 30
       largura: 25
   - id: '08'
     label: '08'
     box:
       x: 707
       y: 164
-      comprimento: 28
-      largura: 21
+      comprimento: 32
+      largura: 30
   - id: '09'
     label: '09'
     box:
-      x: 750
+      x: 752
       y: 218
-      comprimento: 35
-      largura: 29
+      comprimento: 31
+      largura: 30
   - id: '02'
     label: '02'
     box:
       x: 380
       y: 234
-      comprimento: 34
-      largura: 25
+      comprimento: 33
+      largura: 28
   - id: '04'
     label: '04'
     box:
       x: 558
-      y: 279
-      comprimento: 34
-      largura: 24
+      y: 280
+      comprimento: 32
+      largura: 27
   - id: '01'
     label: '01'
     box:
@@ -60,14 +53,14 @@ mapas:
       x: 538
       y: 334
       comprimento: 33
-      largura: 26
+      largura: 27
   - id: '07'
     label: '07'
     box:
-      x: 608
+      x: 610
       y: 338
-      comprimento: 32
-      largura: 25
+      comprimento: 33
+      largura: 27
   - id: '06'
     label: '06'
     box:
@@ -78,45 +71,45 @@ mapas:
   - id: '12'
     label: '12'
     box:
-      x: 926
+      x: 925
       y: 388
       comprimento: 30
       largura: 25
   - id: '13'
     label: '13'
     box:
-      x: 975
-      y: 384
-      comprimento: 26
-      largura: 22
+      x: 976
+      y: 383
+      comprimento: 29
+      largura: 24
   - id: '10'
     label: '10'
     box:
-      x: 804
-      y: 406
-      comprimento: 27
-      largura: 22
+      x: 806
+      y: 405
+      comprimento: 29
+      largura: 26
   - id: '11'
     label: '11'
     box:
-      x: 852
-      y: 420
-      comprimento: 23
-      largura: 23
+      x: 854
+      y: 419
+      comprimento: 27
+      largura: 26
   - id: '31'
     label: '31'
     box:
       x: 1129
       y: 522
-      comprimento: 28
-      largura: 25
+      comprimento: 30
+      largura: 28
   - id: '14'
     label: '14'
     box:
       x: 1014
       y: 562
       comprimento: 30
-      largura: 25
+      largura: 27
   - id: '30'
     label: '30'
     box:
@@ -128,23 +121,23 @@ mapas:
     label: '16'
     box:
       x: 659
-      y: 602
-      comprimento: 26
-      largura: 21
+      y: 601
+      comprimento: 30
+      largura: 28
   - id: '15'
     label: '15'
     box:
-      x: 861
+      x: 862
       y: 596
-      comprimento: 28
-      largura: 25
+      comprimento: 31
+      largura: 28
   - id: '17'
     label: '17'
     box:
       x: 328
       y: 644
-      comprimento: 25
-      largura: 23
+      comprimento: 31
+      largura: 27
   - id: '27'
     label: '27'
     box:
@@ -164,7 +157,7 @@ mapas:
     box:
       x: 1166
       y: 708
-      comprimento: 34
+      comprimento: 33
       largura: 27
   - id: '24'
     label: '24'
@@ -184,37 +177,37 @@ mapas:
     label: '21'
     box:
       x: 578
-      y: 780
-      comprimento: 35
-      largura: 33
+      y: 781
+      comprimento: 31
+      largura: 30
   - id: '28'
     label: '28'
     box:
       x: 1232
       y: 793
       comprimento: 30
-      largura: 24
+      largura: 28
   - id: '18'
     label: '18'
     box:
       x: 200
       y: 824
       comprimento: 31
-      largura: 25
+      largura: 29
   - id: '19'
     label: '19'
     box:
-      x: 233
-      y: 818
+      x: 235
+      y: 819
       comprimento: 30
       largura: 24
   - id: '20'
     label: '20'
     box:
-      x: 546
-      y: 836
-      comprimento: 33
-      largura: 25
+      x: 547
+      y: 837
+      comprimento: 32
+      largura: 26
   - id: '22'
     label: '22'
     box:
@@ -222,27 +215,20 @@ mapas:
       y: 896
       comprimento: 30
       largura: 20
-  - id: GRUTA
-    label: GRUTA
-    box:
-      x: 1190
-      y: 900
-      comprimento: 75
-      largura: 21
   - id: '29'
     label: '29'
     box:
       x: 1234
       y: 976
-      comprimento: 28
-      largura: 21
+      comprimento: 29
+      largura: 29
   - id: Setores_Sentinela_e_Onda_de_Calcario
     label: Setores Sentinela e Onda de Calcário
     box:
       x: 152
       y: 1166
-      comprimento: 171
-      largura: 59
+      comprimento: 182
+      largura: 74
   referencias:
   - escalada: Primogênito
     ids:
@@ -331,6 +317,20 @@ mapas:
   - escalada: Vai no Molhado Mesmo (Rapel do bico de pedra)
     ids:
     - '31'
+  - ids:
+    - '08'
+    setor: Setor Mr. Bean
+    escalada: Fenda Gerações
+  - ids:
+    - '09'
+    setor: Setor Mr. Bean
+    escalada: Encontros Temporais
+  - ids:
+    - Setores_Sentinela_e_Onda_de_Calcario
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - Setores_Sentinela_e_Onda_de_Calcario
+    setor: Setor Onda de Calcário
 escaladas:
 - via_esportiva:
     nome: Primogênito
@@ -548,7 +548,8 @@ escaladas:
     conquistadores:
     - Alberto Melo
     - Gabriel Lousada
----
+---
+
 # Setor Mr. Bean
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.

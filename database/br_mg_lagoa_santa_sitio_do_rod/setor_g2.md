@@ -1,4 +1,4 @@
----
+---
 nome: G2
 mapas:
 - caminho_imagem_mapa: imagens/pagina_17.webp
@@ -7,151 +7,130 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 210
-      y: 823
-      comprimento: 21
-      largura: 22
+    circular:
+      x: 211
+      y: 825
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 214
+    circular:
+      x: 213
       y: 786
-      comprimento: 21
-      largura: 22
+      raio: 13
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 202
-      y: 752
-      comprimento: 21
-      largura: 20
+      y: 753
+      raio: 13
   - id: '4'
     label: '4'
-    box:
-      x: 197
-      y: 724
-      comprimento: 18
-      largura: 20
+    circular:
+      x: 198
+      y: 726
+      raio: 13
   - id: '5'
     label: '5'
-    box:
-      x: 371
+    circular:
+      x: 372
       y: 560
-      comprimento: 24
-      largura: 22
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 430
+    circular:
+      x: 431
       y: 568
-      comprimento: 21
-      largura: 24
+      raio: 13
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 456
-      y: 550
-      comprimento: 24
-      largura: 23
+      y: 551
+      raio: 13
   - id: '8'
     label: '8'
-    box:
-      x: 482
-      y: 558
-      comprimento: 21
-      largura: 21
+    circular:
+      x: 483
+      y: 560
+      raio: 13
   - id: '9'
     label: '9'
-    box:
-      x: 504
-      y: 580
-      comprimento: 18
-      largura: 22
+    circular:
+      x: 505
+      y: 581
+      raio: 13
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 526
       y: 618
-      comprimento: 25
-      largura: 25
+      raio: 13
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 555
-      y: 655
-      comprimento: 24
-      largura: 22
+      y: 656
+      raio: 14
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 686
       y: 580
-      comprimento: 25
-      largura: 23
+      raio: 13
   - id: '13'
     label: '13'
-    box:
-      x: 729
-      y: 498
-      comprimento: 24
-      largura: 24
+    circular:
+      x: 730
+      y: 499
+      raio: 13
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 732
-      y: 386
-      comprimento: 27
-      largura: 22
+      y: 387
+      raio: 13
   - id: '15'
     label: '15'
-    box:
-      x: 705
-      y: 304
-      comprimento: 24
-      largura: 23
+    circular:
+      x: 704
+      y: 305
+      raio: 13
   - id: '16'
     label: '16'
-    box:
+    circular:
       x: 704
-      y: 256
-      comprimento: 22
-      largura: 24
+      y: 258
+      raio: 14
   - id: '17'
     label: '17'
-    box:
+    circular:
       x: 732
-      y: 248
-      comprimento: 22
-      largura: 23
+      y: 249
+      raio: 13
   - id: '18'
     label: '18'
-    box:
-      x: 788
+    circular:
+      x: 787
       y: 190
-      comprimento: 22
-      largura: 21
+      raio: 13
   - id: '19'
     label: '19'
-    box:
-      x: 793
-      y: 158
-      comprimento: 22
-      largura: 23
+    circular:
+      x: 792
+      y: 160
+      raio: 13
   - id: '20'
     label: '20'
-    box:
+    circular:
       x: 776
-      y: 78
-      comprimento: 22
-      largura: 23
+      y: 79
+      raio: 13
   - id: '21'
     label: '21'
-    box:
-      x: 774
-      y: 28
-      comprimento: 24
-      largura: 25
+    circular:
+      x: 773
+      y: 30
+      raio: 13
   referencias:
   - escalada: Pé da Gameleira
     ids:
@@ -262,7 +241,7 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas 
+    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas
       e medias, top duplo no final da canaleta.
 - via_esportiva:
     nome: Cactos talidomida
@@ -323,8 +302,8 @@ escaladas:
 - via_movel:
     nome: Ossos do orifício
     dificuldade: BR_5
-    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. 
-      Termina no top da "mapa". Ótima opção!
+    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e
+      médias. Termina no top da "mapa". Ótima opção!
 - via_esportiva:
     nome: Baião de dois
     dificuldade: BR_5
@@ -338,8 +317,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Marcus "Rufino"
-    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para 
-      iniciantes em móvel.
+    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção
+      para iniciantes em móvel.
 - via_esportiva:
     nome: SOS mandacaru
     dificuldade: BR_5
@@ -368,7 +347,8 @@ escaladas:
     - Thiago "Vá"
     - Thiago "Tato"
     descricao: Via de equilibrio
----
+---
+
 # Setor G2
 
 ![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp)

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Aristóteles
 mapas:
 - caminho_imagem_mapa: imagens/setor_aristoteles_p0_i0.webp
@@ -10,92 +10,92 @@ mapas:
     box:
       x: 534
       y: 136
-      comprimento: 7
-      largura: 12
+      comprimento: 9
+      largura: 14
   - id: '2'
     label: '2'
     box:
       x: 545
       y: 124
-      comprimento: 8
-      largura: 13
+      comprimento: 10
+      largura: 16
   - id: '3'
     label: '3'
     box:
-      x: 564
-      y: 108
-      comprimento: 9
-      largura: 13
+      x: 566
+      y: 109
+      comprimento: 13
+      largura: 14
   - id: '4'
     label: '4'
     box:
       x: 588
       y: 106
-      comprimento: 7
-      largura: 11
+      comprimento: 10
+      largura: 17
   - id: '5'
     label: '5'
     box:
       x: 598
       y: 110
-      comprimento: 7
-      largura: 12
+      comprimento: 9
+      largura: 14
   - id: '6'
     label: '6'
     box:
       x: 608
-      y: 121
-      comprimento: 7
-      largura: 12
+      y: 120
+      comprimento: 10
+      largura: 13
   - id: '7'
     label: '7'
     box:
       x: 608
-      y: 135
-      comprimento: 9
-      largura: 10
+      y: 136
+      comprimento: 11
+      largura: 15
   - id: '8'
     label: '8'
     box:
-      x: 605
+      x: 604
       y: 148
-      comprimento: 6
-      largura: 10
+      comprimento: 9
+      largura: 12
   - id: '9'
     label: '9'
     box:
-      x: 613
+      x: 612
       y: 156
-      comprimento: 6
-      largura: 11
+      comprimento: 9
+      largura: 14
   - id: '10'
     label: '10'
     box:
       x: 618
       y: 170
-      comprimento: 13
-      largura: 13
+      comprimento: 16
+      largura: 14
   - id: '11'
     label: '11'
     box:
       x: 618
       y: 186
-      comprimento: 10
-      largura: 12
+      comprimento: 14
+      largura: 14
   - id: '12'
     label: '12'
     box:
       x: 616
       y: 202
-      comprimento: 13
-      largura: 13
+      comprimento: 15
+      largura: 15
   - id: '13'
     label: '13'
     box:
       x: 614
       y: 218
-      comprimento: 13
-      largura: 11
+      comprimento: 16
+      largura: 13
   - id: Setor_Cemiterio_dos_Ossos
     label: Setor Cemitério dos Ossos
     box:
@@ -114,7 +114,7 @@ mapas:
     label: Setor Corredor Polonês
     box:
       x: 684
-      y: 288
+      y: 290
       comprimento: 110
       largura: 17
       angulo_graus_x100: -298
@@ -253,7 +253,8 @@ escaladas:
 - via_esportiva:
     nome: via inacabada
     dificuldade: INDEFINIDO
----
+---
+
 # Setor Aristóteles
 
 Sombra de 7h as 13h (varia de acordo com a estação).

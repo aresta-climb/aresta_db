@@ -1,4 +1,4 @@
----
+---
 nome: Setor Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_escola_p0_i6.webp
@@ -12,27 +12,20 @@ mapas:
       y: 33
       comprimento: 163
       largura: 36
-  - id: Portao
-    label: Portão
-    box:
-      x: 709
-      y: 236
-      comprimento: 94
-      largura: 41
   - id: '01'
     label: '01'
     box:
       x: 452
-      y: 248
+      y: 249
       comprimento: 28
-      largura: 22
+      largura: 26
   - id: '02'
     label: '02'
     box:
-      x: 306
+      x: 307
       y: 274
-      comprimento: 27
-      largura: 23
+      comprimento: 28
+      largura: 27
   - id: Setor_Geriatria
     label: Setor Geriatria
     box:
@@ -50,8 +43,8 @@ mapas:
   - id: '04'
     label: '04'
     box:
-      x: 451
-      y: 460
+      x: 452
+      y: 462
       comprimento: 32
       largura: 27
   - id: Top
@@ -66,8 +59,8 @@ mapas:
     box:
       x: 792
       y: 638
-      comprimento: 169
-      largura: 21
+      comprimento: 177
+      largura: 31
   referencias:
   - escalada: Credo, que Delícia
     ids:
@@ -81,6 +74,15 @@ mapas:
   - escalada: Essa Molezinha vai Abacar
     ids:
     - '04'
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - Setor_Geriatria
+    setor: Setor Geriatria
+  - ids:
+    - Vale_da_Onca
+    setor: Setor Vale da Onça
 escaladas:
 - via_esportiva:
     nome: Credo, que Delícia
@@ -110,7 +112,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - GT Baú 2021
----
+---
+
 # Setor Escola
 
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Chegada
 mapas:
 - caminho_imagem_mapa: imagens/setor_chegada_p0_i0.webp
@@ -8,24 +8,17 @@ mapas:
   - id: Setores_Conexao
     label: Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar
     box:
-      x: 66
-      y: 711
-      comprimento: 73
-      largura: 64
-  - id: Corredor
-    label: Corredor
-    box:
-      x: 100
-      y: 910
-      comprimento: 62
-      largura: 17
+      x: 67
+      y: 712
+      comprimento: 86
+      largura: 78
   - id: Trilha_2o_Andar
     label: Trilha para o 2º Andar
     box:
-      x: 126
-      y: 948
-      comprimento: 57
-      largura: 44
+      x: 128
+      y: 950
+      comprimento: 63
+      largura: 47
   - id: Sitio
     label: SÍTIO
     box:
@@ -43,15 +36,15 @@ mapas:
   - id: Setor_da_Onca
     label: Setor da Onça
     box:
-      x: 811
+      x: 813
       y: 342
-      comprimento: 34
-      largura: 22
+      comprimento: 46
+      largura: 30
   - id: '01'
     label: '01'
     box:
       x: 286
-      y: 806
+      y: 808
       comprimento: 19
       largura: 17
   - id: '02'
@@ -59,43 +52,43 @@ mapas:
     box:
       x: 303
       y: 796
-      comprimento: 22
-      largura: 17
+      comprimento: 20
+      largura: 16
   - id: '03'
     label: '03'
     box:
-      x: 310
-      y: 762
-      comprimento: 33
-      largura: 19
+      x: 305
+      y: 764
+      comprimento: 18
+      largura: 15
   - id: '04'
     label: '04'
     box:
-      x: 313
-      y: 748
-      comprimento: 22
-      largura: 17
+      x: 314
+      y: 749
+      comprimento: 19
+      largura: 16
   - id: '05'
     label: '05'
     box:
-      x: 325
-      y: 726
-      comprimento: 22
+      x: 326
+      y: 728
+      comprimento: 19
       largura: 17
   - id: '06'
     label: '06'
     box:
       x: 350
       y: 670
-      comprimento: 23
+      comprimento: 21
       largura: 17
   - id: '07'
     label: '07'
     box:
       x: 456
       y: 380
-      comprimento: 17
-      largura: 14
+      comprimento: 20
+      largura: 17
   - id: '08'
     label: '08'
     box:
@@ -106,15 +99,15 @@ mapas:
   - id: '09'
     label: '09'
     box:
-      x: 552
-      y: 226
+      x: 543
+      y: 372
       comprimento: 20
       largura: 17
   - id: '10'
     label: '10'
     box:
-      x: 573
-      y: 230
+      x: 574
+      y: 378
       comprimento: 20
       largura: 17
   referencias:
@@ -142,6 +135,33 @@ mapas:
   - escalada: Good Bye
     ids:
     - '10'
+  - ids:
+    - '09'
+    setor: Setor Chegada
+    escalada: Linha de Frente
+  - ids:
+    - '10'
+    setor: Setor Chegada
+    escalada: Helow (variante)
+  - ids:
+    - Trilha_2o_Andar
+    - Setores_Conexao
+    setor: 2º Andar
+  - ids:
+    - Setor_da_Onca
+    setor: Setor Onça
+  - ids:
+    - Setores_Conexao
+    setor: Setor Mezanino
+  - ids:
+    - Setores_Conexao
+    setor: 1º Andar
+  - ids:
+    - Setores_Conexao
+    setor: Jardim Suspenso
+  - ids:
+    - Setores_Conexao
+    setor: 3º Andar
 escaladas:
 - via_movel:
     nome: sem nome
@@ -210,7 +230,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Chegada
 
 Este setor é o primeiro contato com o afloramento. Possui sombra até as 12h (variando de acordo com a estação).

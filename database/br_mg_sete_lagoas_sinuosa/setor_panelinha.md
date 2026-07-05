@@ -1,4 +1,4 @@
----
+---
 nome: Setor Panelinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_panelinha_p0_i0.webp
@@ -7,39 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 530
-      y: 396
-      comprimento: 45
-      largura: 47
+    circular:
+      x: 528
+      y: 397
+      raio: 24
   - id: '2'
     label: '2'
-    box:
-      x: 578
-      y: 318
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 579
+      y: 317
+      raio: 23
   - id: '3'
     label: '3'
-    box:
-      x: 608
-      y: 398
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 609
+      y: 397
+      raio: 23
   - id: '4'
     label: '4'
-    box:
-      x: 234
-      y: 478
-      comprimento: 51
-      largura: 51
+    circular:
+      x: 235
+      y: 477
+      raio: 24
   - id: Setor_de_Esquerda
     label: ↑ SETOR DE ESQUERDA
     box:
       x: 560
       y: 597
-      comprimento: 43
-      largura: 250
+      comprimento: 37
+      largura: 248
       angulo_graus_x100: 666
   referencias:
   - escalada: Caipora
@@ -54,6 +50,9 @@ mapas:
   - escalada: Corda de Violão
     ids:
     - '4'
+  - ids:
+    - Setor_de_Esquerda
+    setor: Setor de Esquerda
 escaladas:
 - via_esportiva:
     nome: Caipora
@@ -71,7 +70,8 @@ escaladas:
     nome: Corda de Violão
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
----
+---
+
 # Setor Panelinha
 
 O "Panelinha" é composto por paredes escuras em formas circulares que lembram

@@ -1,66 +1,59 @@
----
+---
 nome: Setor Zona Leste
 mapas:
 - caminho_imagem_mapa: imagens/setor_zona_leste_p0_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
   pontos_de_interesse:
-  - id: Estacionamento
-    label: Estacionamento
-    box:
-      x: 90
-      y: 164
-      comprimento: 107
-      largura: 139
   - id: Setor_Chegada
     label: Setor Chegada
     box:
       x: 74
       y: 286
-      comprimento: 40
-      largura: 21
+      comprimento: 45
+      largura: 29
   - id: '01'
     label: '01'
     box:
-      x: 386
-      y: 1066
-      comprimento: 27
-      largura: 20
+      x: 384
+      y: 1067
+      comprimento: 24
+      largura: 18
   - id: '02'
     label: '02'
     box:
       x: 382
       y: 1036
-      comprimento: 25
-      largura: 21
+      comprimento: 21
+      largura: 17
   - id: '03'
     label: '03'
     box:
-      x: 379
-      y: 1000
-      comprimento: 26
-      largura: 21
+      x: 380
+      y: 1002
+      comprimento: 23
+      largura: 16
   - id: '04'
     label: '04'
     box:
-      x: 374
-      y: 984
-      comprimento: 25
-      largura: 23
+      x: 375
+      y: 986
+      comprimento: 22
+      largura: 15
   - id: '05'
     label: '05'
     box:
       x: 370
       y: 970
-      comprimento: 23
-      largura: 22
+      comprimento: 22
+      largura: 17
   - id: '06'
     label: '06'
     box:
-      x: 367
-      y: 942
-      comprimento: 24
-      largura: 21
+      x: 366
+      y: 943
+      comprimento: 22
+      largura: 18
   referencias:
   - escalada: Machado de Xangô
     ids:
@@ -80,6 +73,9 @@ mapas:
   - escalada: Respeito é pra quem tem
     ids:
     - '06'
+  - ids:
+    - Setor_Chegada
+    setor: Setor Chegada
 escaladas:
 - via_esportiva:
     nome: Machado de Xangô
@@ -122,7 +118,8 @@ escaladas:
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Zona Leste
 
 Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).

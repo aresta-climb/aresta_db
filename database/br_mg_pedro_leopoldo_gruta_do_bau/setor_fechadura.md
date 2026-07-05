@@ -1,24 +1,17 @@
----
+---
 nome: Setor Fechadura
 mapas:
 - caminho_imagem_mapa: imagens/setor_fechadura_p0_i6.webp
   largura_mapa: 1025
   altura_mapa: 1149
   pontos_de_interesse:
-  - id: Gruta_Acesso
-    label: GRUTA Acesso somente acompanhado
-    box:
-      x: 754
-      y: 70
-      comprimento: 103
-      largura: 44
   - id: '01'
     label: '01'
     box:
       x: 616
       y: 138
-      comprimento: 23
-      largura: 17
+      comprimento: 28
+      largura: 22
   - id: Setor_Entrada
     label: Setor Entrada
     box:
@@ -31,15 +24,8 @@ mapas:
     box:
       x: 605
       y: 198
-      comprimento: 26
-      largura: 20
-  - id: Tunel_de_pedra
-    label: Túnel de pedra
-    box:
-      x: 610
-      y: 278
-      comprimento: 97
-      largura: 24
+      comprimento: 28
+      largura: 22
   - id: '03'
     label: '03'
     box:
@@ -51,63 +37,56 @@ mapas:
     label: '04'
     box:
       x: 500
-      y: 491
-      comprimento: 21
-      largura: 18
+      y: 492
+      comprimento: 26
+      largura: 23
   - id: '05'
     label: '05'
     box:
-      x: 458
+      x: 460
       y: 541
-      comprimento: 23
-      largura: 20
+      comprimento: 27
+      largura: 24
   - id: '09'
     label: '09'
     box:
-      x: 31
-      y: 620
-      comprimento: 24
-      largura: 17
+      x: 32
+      y: 622
+      comprimento: 28
+      largura: 23
   - id: '08'
     label: '08'
     box:
-      x: 166
-      y: 678
-      comprimento: 25
-      largura: 17
+      x: 167
+      y: 677
+      comprimento: 28
+      largura: 26
   - id: '07'
     label: '07'
     box:
       x: 250
       y: 689
-      comprimento: 27
-      largura: 16
+      comprimento: 30
+      largura: 26
   - id: '06'
     label: '06'
     box:
-      x: 372
-      y: 696
-      comprimento: 25
-      largura: 17
-  - id: Parte_Baixa
-    label: Parte Baixa
-    box:
-      x: 930
-      y: 738
-      comprimento: 126
-      largura: 89
+      x: 373
+      y: 694
+      comprimento: 26
+      largura: 23
   - id: '13'
     label: '13'
     box:
-      x: 512
-      y: 796
+      x: 511
+      y: 800
       comprimento: 26
-      largura: 17
+      largura: 23
   - id: Top
     label: Top
     box:
-      x: 118
-      y: 842
+      x: 120
+      y: 844
       comprimento: 37
       largura: 23
   - id: '11'
@@ -115,50 +94,43 @@ mapas:
     box:
       x: 290
       y: 846
-      comprimento: 21
+      comprimento: 25
       largura: 23
   - id: '14'
     label: '14'
     box:
       x: 478
       y: 897
-      comprimento: 20
-      largura: 20
+      comprimento: 22
+      largura: 26
   - id: '10'
     label: '10'
     box:
-      x: 122
+      x: 123
       y: 880
-      comprimento: 22
-      largura: 17
+      comprimento: 26
+      largura: 23
   - id: '16'
     label: '16'
     box:
       x: 764
       y: 900
-      comprimento: 22
-      largura: 17
+      comprimento: 23
+      largura: 21
   - id: '12'
     label: '12'
     box:
       x: 298
       y: 916
-      comprimento: 26
-      largura: 19
+      comprimento: 29
+      largura: 23
   - id: '15'
     label: '15'
     box:
       x: 716
       y: 913
-      comprimento: 21
-      largura: 14
-  - id: Fechadura
-    label: Fechadura
-    box:
-      x: 820
-      y: 1022
-      comprimento: 227
-      largura: 34
+      comprimento: 23
+      largura: 18
   - id: Setor_Pasto
     label: Setor Pasto
     box:
@@ -209,6 +181,20 @@ mapas:
   - escalada: Chuva Orgânica
     ids:
     - '16'
+  - ids:
+    - '08'
+    setor: Setor Fechadura
+    escalada: Primeira Batida
+  - ids:
+    - '09'
+    setor: Setor Fechadura
+    escalada: Menino de Toca
+  - ids:
+    - Setor_Pasto
+    setor: Setor Pasto
+  - ids:
+    - Setor_Entrada
+    setor: Setor Entrada Inferior
 escaladas:
 - via_esportiva:
     nome: Era de Aquários (Interditada)
@@ -329,7 +315,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio e Helon
----
+---
+
 # Setor Fechadura
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”. A trilha segue pela esquerda, por fora da gruta.

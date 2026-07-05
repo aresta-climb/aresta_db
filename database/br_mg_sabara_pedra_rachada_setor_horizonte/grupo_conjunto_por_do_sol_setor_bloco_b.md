@@ -10,20 +10,13 @@ mapas:
     circular:
       x: 355
       y: 614
-      raio: 21
+      raio: 22
   - id: '12'
     label: '12'
     circular:
       x: 237
       y: 552
-      raio: 21
-  - id: Bloco B
-    label: Bloco B
-    box:
-      x: 128
-      y: 45
-      comprimento: 218
-      largura: 66
+      raio: 22
   referencias:
   - escalada: Essa moça
     ids:
@@ -38,28 +31,21 @@ mapas:
   - id: '15'
     label: '15'
     circular:
-      x: 244
+      x: 187
       y: 652
-      raio: 46
+      raio: 22
   - id: '16'
     label: '16'
     circular:
-      x: 577
-      y: 692
-      raio: 17
-  - id: Bloco B
-    label: Bloco B
-    box:
-      x: 126
-      y: 53
-      comprimento: 212
-      largura: 64
+      x: 576
+      y: 693
+      raio: 21
   - id: '14'
     label: '14'
     circular:
-      x: 390
-      y: 676
-      raio: 40
+      x: 300
+      y: 654
+      raio: 21
   referencias:
   - escalada: Ponto alto
     ids:

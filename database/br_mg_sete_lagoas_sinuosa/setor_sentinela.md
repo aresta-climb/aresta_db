@@ -1,4 +1,4 @@
----
+---
 nome: Setor Sentinela
 mapas:
 - caminho_imagem_mapa: imagens/setor_sentinela_p0_i0.webp
@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 40
+    circular:
+      x: 39
       y: 198
-      comprimento: 35
-      largura: 35
+      raio: 18
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 290
-      y: 244
-      comprimento: 35
-      largura: 35
+      y: 246
+      raio: 18
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 718
-      y: 278
-      comprimento: 35
-      largura: 35
+      y: 276
+      raio: 18
   - id: '4'
     label: '4'
-    box:
-      x: 826
-      y: 298
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 828
+      y: 295
+      raio: 18
   - id: '5'
     label: '5'
-    box:
-      x: 904
+    circular:
+      x: 903
       y: 352
-      comprimento: 35
-      largura: 35
+      raio: 18
   - id: '6'
     label: '6'
-    box:
-      x: 954
-      y: 390
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 955
+      y: 391
+      raio: 18
   - id: '7'
     label: '7'
-    box:
-      x: 1038
-      y: 422
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 1040
+      y: 421
+      raio: 18
   - id: '8'
     label: '8'
-    box:
-      x: 1104
+    circular:
+      x: 1107
       y: 446
-      comprimento: 35
-      largura: 35
+      raio: 18
   referencias:
   - escalada: Brenfoterapia
     ids:
@@ -119,7 +111,8 @@ escaladas:
     nome: Vitamina M
     dificuldade: BR_5
     protecoes_moveis: Móvel. Rapel da chapa com cordelete.
----
+---
+
 # Setor Sentinela
 
 Setor um pouco mais afastado, localizado após subir as escadas do setor

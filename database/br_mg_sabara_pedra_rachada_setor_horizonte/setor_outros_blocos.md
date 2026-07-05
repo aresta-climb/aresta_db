@@ -57,13 +57,13 @@ mapas:
     circular:
       x: 237
       y: 594
-      raio: 15
+      raio: 17
   - id: '55'
     label: '55'
     circular:
       x: 277
-      y: 567
-      raio: 15
+      y: 568
+      raio: 17
   referencias:
   - escalada: Anemia
     ids:
@@ -78,15 +78,15 @@ mapas:
   - id: '56'
     label: '56'
     circular:
-      x: 507
+      x: 508
       y: 592
-      raio: 17
+      raio: 18
   - id: '57'
     label: '57'
     circular:
-      x: 450
+      x: 451
       y: 606
-      raio: 18
+      raio: 19
   referencias:
   - escalada: Diagnóstico
     ids:

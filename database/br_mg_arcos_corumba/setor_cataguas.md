@@ -1,31 +1,22 @@
----
+---
 nome: Setor Cataguás
 mapas:
 - caminho_imagem_mapa: imagens/setor_cataguas_p0_i0.webp
   largura_mapa: 920
   altura_mapa: 1130
   pontos_de_interesse:
-  - id: Aviso
-    label: O ACESSO A ESTE SETOR PROIBIDO POR HORA
-    box:
-      x: 461
-      y: 84
-      comprimento: 814
-      largura: 30
   - id: '1'
     label: '1'
-    box:
-      x: 357
-      y: 1071
-      comprimento: 32
-      largura: 32
+    circular:
+      x: 358
+      y: 1070
+      raio: 15
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 532
-      y: 966
-      comprimento: 37
-      largura: 42
+      y: 968
+      raio: 17
   referencias:
   - escalada: (via inacabada)
     ids:
@@ -44,7 +35,8 @@ escaladas:
 - via_movel:
     nome: sem nome (via mixta)
     data_abertura: '2008-01-01'
----
+---
+
 # Setor Cataguás
 
 > [!WARNING]

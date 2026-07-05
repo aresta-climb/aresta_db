@@ -110,10 +110,18 @@ class BaseItemPOI:
     def set_clique_handler(self, handler):
         self.clique_handler = handler
 
-    def tratar_menu_contexto(self, evento, callback_deletar):
+    def tratar_menu_contexto(self, evento, callback_deletar, acoes_extras=None):
         menu = QMenu()
         acao_renomear = menu.addAction("Renomear Ponto de Interesse")
         acao_deletar = menu.addAction("Deletar Ponto de Interesse")
+        
+        acoes_map = {}
+        if acoes_extras:
+            menu.addSeparator()
+            for texto, cb in acoes_extras:
+                acao = menu.addAction(texto)
+                acoes_map[acao] = cb
+                
         acao = menu.exec(evento.screenPos())
         
         if acao == acao_renomear:
@@ -136,12 +144,16 @@ class BaseItemPOI:
         elif acao == acao_deletar:
             if callback_deletar:
                 callback_deletar(self)
+                
+        elif acao in acoes_map:
+            acoes_map[acao]()
 
 
 class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None):
+    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
         super().__init__()
         self.callback_deletar = callback_deletar
+        self.callback_converter = callback_converter
         self.configurar_comum(pt_dict, callback_mudanca)
         
         box = pt_dict['box']
@@ -173,7 +185,10 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
         self.inicializando = False
 
     def contextMenuEvent(self, evento):
-        self.tratar_menu_contexto(evento, self.callback_deletar)
+        acoes_extras = []
+        if getattr(self, 'callback_converter', None):
+            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self)))
+        self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
 
     def mousePressEvent(self, evento):
         if hasattr(self, 'clique_handler') and self.clique_handler:
@@ -265,9 +280,10 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
 
 
 class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None):
+    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
         super().__init__()
         self.callback_deletar = callback_deletar
+        self.callback_converter = callback_converter
         self.configurar_comum(pt_dict, callback_mudanca)
         
         circ = pt_dict['circular']
@@ -295,7 +311,10 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
         self.inicializando = False
 
     def contextMenuEvent(self, evento):
-        self.tratar_menu_contexto(evento, self.callback_deletar)
+        acoes_extras = []
+        if getattr(self, 'callback_converter', None):
+            acoes_extras.append(("Converter para Retângulo", lambda: self.callback_converter(self)))
+        self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
 
     def mousePressEvent(self, evento):
         if hasattr(self, 'clique_handler') and self.clique_handler:
@@ -889,7 +908,7 @@ class WidgetEditorMapas(QWidget):
         
     def _atualizar_lista_mapas(self, *args):
         """Reconstrói a lista lendo do CroquiModel."""
-        if len(args) == 2 and args[1] == 'referencias':
+        if len(args) >= 2 and args[1] in ('referencias', 'pontos_de_interesse'):
             return
             
         from PyQt6.QtWidgets import QListWidgetItem
@@ -1122,11 +1141,17 @@ class WidgetEditorMapas(QWidget):
         def cb_deletar(item):
             self.deletar_item_poi(item)
             
+        def cb_converter(item):
+            self.converter_item_para_circulo(item)
+            
+        def cb_converter_retangulo(item):
+            self.converter_item_para_retangulo(item)
+            
         item_visual = None
         if poi.HasField('box'):
-            item_visual = ItemBoundingBox(pt_dict, cb_deletar)
+            item_visual = ItemBoundingBox(pt_dict, cb_deletar, callback_converter=cb_converter)
         elif poi.HasField('circular'):
-            item_visual = ItemBoundingCircular(pt_dict, cb_deletar)
+            item_visual = ItemBoundingCircular(pt_dict, cb_deletar, callback_converter=cb_converter_retangulo)
         elif poi.HasField('area_livre'):
             item_visual = ItemBoundingAreaLivre(pt_dict, cb_deletar)
             
@@ -1177,6 +1202,26 @@ class WidgetEditorMapas(QWidget):
                 
         if idx_poi != -1:
             self.mapas_controller.deletar_poi(self.msg_mapa_proxy, idx_poi)
+
+    def converter_item_para_circulo(self, item):
+        if not self.mapas_controller: return
+        idx_poi = -1
+        for idx, gui_item in self.itens_poi.items():
+            if gui_item == item:
+                idx_poi = idx
+                break
+        if idx_poi != -1:
+            self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx_poi])
+
+    def converter_item_para_retangulo(self, item):
+        if not self.mapas_controller: return
+        idx_poi = -1
+        for idx, gui_item in self.itens_poi.items():
+            if gui_item == item:
+                idx_poi = idx
+                break
+        if idx_poi != -1:
+            self.mapas_controller.converter_circulos_para_boxes(self.msg_mapa_proxy, [idx_poi])
 
     def marcar_modificado(self):
         if not self.esta_modificado:
@@ -1412,19 +1457,52 @@ class WidgetEditorMapas(QWidget):
                 if mesmo_tipo:
                     item_existente.carregar_de_dict(pt_dict)
                 else:
-                    self._renderizar_mapa()
+                    cena = self.visualizador.scene()
+                    if cena:
+                        cena.removeItem(item_existente)
+                        if self.dados_atuais and 'itens_bb' in self.dados_atuais:
+                            if item_existente in self.dados_atuais['itens_bb']:
+                                self.dados_atuais['itens_bb'].remove(item_existente)
+                        self._adicionar_item_cena(poi, index, cena)
 
     def _on_repeated_adicionado(self, msg, campo_nome, index):
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
-            self._renderizar_mapa()
+            poi = msg.pontos_de_interesse[index]
+            cena = self.visualizador.scene()
+            if cena:
+                nova_dict = {}
+                for k, v in self.itens_poi.items():
+                    if k >= index:
+                        nova_dict[k + 1] = v
+                    else:
+                        nova_dict[k] = v
+                self.itens_poi = nova_dict
+                
+                self._adicionar_item_cena(poi, index, cena)
 
     def _on_repeated_removido(self, msg, campo_nome, index):
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
-            self._renderizar_mapa()
+            item = self.itens_poi.get(index)
+            if item:
+                cena = self.visualizador.scene()
+                if cena:
+                    cena.removeItem(item)
+                if self.dados_atuais and 'itens_bb' in self.dados_atuais:
+                    if item in self.dados_atuais['itens_bb']:
+                        self.dados_atuais['itens_bb'].remove(item)
+                del self.itens_poi[index]
+                
+            nova_dict = {}
+            for k, v in self.itens_poi.items():
+                if k > index:
+                    nova_dict[k - 1] = v
+                else:
+                    nova_dict[k] = v
+            self.itens_poi = nova_dict
 
 
     def destacar_pois_temporariamente(self, referencia):

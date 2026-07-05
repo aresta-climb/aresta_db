@@ -72,6 +72,7 @@
             - **Contribuição/Parceria:** Pix 37 99918-3634
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_cemiterio_dos_ossos
@@ -131,22 +132,6 @@
           - **y**: 592
           - **comprimento**: 62
           - **largura**: 27
-      - **[5]**:
-        - **id**: Estrada_de_terra
-        - **label**: Estrada de terra
-        - **box**:
-          - **x**: 408
-          - **y**: 884
-          - **comprimento**: 125
-          - **largura**: 27
-      - **[6]**:
-        - **id**: H2O
-        - **label**: H2O
-        - **box**:
-          - **x**: 640
-          - **y**: 927
-          - **comprimento**: 43
-          - **largura**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Dia da Maldade
@@ -186,104 +171,104 @@
         - **box**:
           - **x**: 534
           - **y**: 136
-          - **comprimento**: 7
-          - **largura**: 12
+          - **comprimento**: 9
+          - **largura**: 14
       - **[1]**:
         - **id**: 2
         - **label**: 2
         - **box**:
           - **x**: 545
           - **y**: 124
-          - **comprimento**: 8
-          - **largura**: 13
+          - **comprimento**: 10
+          - **largura**: 16
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **box**:
-          - **x**: 564
-          - **y**: 108
-          - **comprimento**: 9
-          - **largura**: 13
+          - **x**: 566
+          - **y**: 109
+          - **comprimento**: 13
+          - **largura**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **box**:
           - **x**: 588
           - **y**: 106
-          - **comprimento**: 7
-          - **largura**: 11
+          - **comprimento**: 10
+          - **largura**: 17
       - **[4]**:
         - **id**: 5
         - **label**: 5
         - **box**:
           - **x**: 598
           - **y**: 110
-          - **comprimento**: 7
-          - **largura**: 12
+          - **comprimento**: 9
+          - **largura**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
         - **box**:
           - **x**: 608
-          - **y**: 121
-          - **comprimento**: 7
-          - **largura**: 12
+          - **y**: 120
+          - **comprimento**: 10
+          - **largura**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
         - **box**:
           - **x**: 608
-          - **y**: 135
-          - **comprimento**: 9
-          - **largura**: 10
+          - **y**: 136
+          - **comprimento**: 11
+          - **largura**: 15
       - **[7]**:
         - **id**: 8
         - **label**: 8
         - **box**:
-          - **x**: 605
+          - **x**: 604
           - **y**: 148
-          - **comprimento**: 6
-          - **largura**: 10
+          - **comprimento**: 9
+          - **largura**: 12
       - **[8]**:
         - **id**: 9
         - **label**: 9
         - **box**:
-          - **x**: 613
+          - **x**: 612
           - **y**: 156
-          - **comprimento**: 6
-          - **largura**: 11
+          - **comprimento**: 9
+          - **largura**: 14
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **box**:
           - **x**: 618
           - **y**: 170
-          - **comprimento**: 13
-          - **largura**: 13
+          - **comprimento**: 16
+          - **largura**: 14
       - **[10]**:
         - **id**: 11
         - **label**: 11
         - **box**:
           - **x**: 618
           - **y**: 186
-          - **comprimento**: 10
-          - **largura**: 12
+          - **comprimento**: 14
+          - **largura**: 14
       - **[11]**:
         - **id**: 12
         - **label**: 12
         - **box**:
           - **x**: 616
           - **y**: 202
-          - **comprimento**: 13
-          - **largura**: 13
+          - **comprimento**: 15
+          - **largura**: 15
       - **[12]**:
         - **id**: 13
         - **label**: 13
         - **box**:
           - **x**: 614
           - **y**: 218
-          - **comprimento**: 13
-          - **largura**: 11
+          - **comprimento**: 16
+          - **largura**: 13
       - **[13]**:
         - **id**: Setor_Cemiterio_dos_Ossos
         - **label**: Setor Cemitério dos Ossos
@@ -305,7 +290,7 @@
         - **label**: Setor Corredor Polonês
         - **box**:
           - **x**: 684
-          - **y**: 288
+          - **y**: 290
           - **comprimento**: 110
           - **largura**: 17
           - **angulo_graus_x100**: -298
@@ -495,7 +480,7 @@
         - **id**: 1
         - **label**: 1
         - **box**:
-          - **x**: 595
+          - **x**: 596
           - **y**: 262
           - **comprimento**: 12
           - **largura**: 15
@@ -503,15 +488,15 @@
         - **id**: 2
         - **label**: 2
         - **box**:
-          - **x**: 616
-          - **y**: 274
+          - **x**: 615
+          - **y**: 276
           - **comprimento**: 12
           - **largura**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **box**:
-          - **x**: 642
+          - **x**: 641
           - **y**: 274
           - **comprimento**: 12
           - **largura**: 15
@@ -660,7 +645,7 @@
         - **id**: 2
         - **label**: 2
         - **box**:
-          - **x**: 623
+          - **x**: 625
           - **y**: 552
           - **comprimento**: 12
           - **largura**: 15
@@ -668,15 +653,15 @@
         - **id**: 3
         - **label**: 3
         - **box**:
-          - **x**: 616
-          - **y**: 592
+          - **x**: 618
+          - **y**: 594
           - **comprimento**: 12
           - **largura**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **box**:
-          - **x**: 641
+          - **x**: 642
           - **y**: 610
           - **comprimento**: 12
           - **largura**: 15
@@ -684,7 +669,7 @@
         - **id**: 5
         - **label**: 5
         - **box**:
-          - **x**: 665
+          - **x**: 667
           - **y**: 608
           - **comprimento**: 12
           - **largura**: 15
@@ -692,7 +677,7 @@
         - **id**: 6
         - **label**: 6
         - **box**:
-          - **x**: 700
+          - **x**: 701
           - **y**: 602
           - **comprimento**: 12
           - **largura**: 15

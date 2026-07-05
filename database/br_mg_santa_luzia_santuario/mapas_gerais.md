@@ -7,24 +7,24 @@ mapas:
   - id: Setor_Clube_Da_Luta
     label: SETOR CLUBE DA LUTA
     box:
-      x: 455
-      y: 65
-      comprimento: 330
-      largura: 95
+      x: 556
+      y: 94
+      comprimento: 360
+      largura: 107
   - id: Setor_Santa_Linea
     label: SETOR SANTA LÍNEA
     box:
-      x: 1045
-      y: 65
-      comprimento: 290
-      largura: 95
+      x: 1125
+      y: 93
+      comprimento: 300
+      largura: 110
   - id: Setor_Democracia
     label: SETOR DEMOCRACIA
     box:
-      x: 1765
-      y: 65
-      comprimento: 310
-      largura: 95
+      x: 1776
+      y: 89
+      comprimento: 327
+      largura: 112
   referencias:
   - setor: Setor Clube da Luta
     ids:
@@ -36,6 +36,3 @@ mapas:
     ids:
     - Setor_Democracia
 ---
-
-
-

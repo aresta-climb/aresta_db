@@ -14,6 +14,7 @@
 - **revisado_manualmente**: True
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 - **botoes**: []
 
 
@@ -443,6 +444,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Forno da Onça
       - **escaladas**:
         - **[0]**:
@@ -495,13 +497,9 @@
             - **nome**: Incrível mas verdadeiro
             - **dificuldade_media**: BR_6
             - **dificuldade_maxima**: BR_6
-            - **quantidade_costuras_intermediarias**: 12
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 50
             - **numero_enfiadas**: 2
+            - **comprimento_total**: 50
             - **tipo_via_multiplas_enfiadas**: MISTA
-            - **conquistadores**:
-              - Jg
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -514,8 +512,13 @@
                   - **nome**: L2
                   - **dificuldade**: BR_6
                   - **extensao**: 35
+            - **conquistadores**:
+              - Jg
+            - **quantidade_costuras_intermediarias**: 12
+            - **quantidade_equipamentos_parada**: 2
   - **[1]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Parede do Ladrão
       - **escaladas**:
         - **[0]**:
@@ -880,6 +883,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Caverna do Bin Laden
       - **escaladas**:
         - **[0]**:
@@ -896,13 +900,9 @@
             - **nome**: He Man
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7B
-            - **quantidade_costuras_intermediarias**: 8
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 65
             - **numero_enfiadas**: 4
+            - **comprimento_total**: 65
             - **tipo_via_multiplas_enfiadas**: TODA_FIXA
-            - **conquistadores**:
-              - Jg
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -925,18 +925,18 @@
                   - **nome**: L4
                   - **dificuldade**: BR_2SUP
                   - **extensao**: 20
+            - **conquistadores**:
+              - Jg
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
         - **[2]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Esqueleto
             - **dificuldade_media**: BR_6
             - **dificuldade_maxima**: BR_6
-            - **quantidade_costuras_intermediarias**: 8
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 65
             - **numero_enfiadas**: 4
+            - **comprimento_total**: 65
             - **tipo_via_multiplas_enfiadas**: MISTA
-            - **conquistadores**:
-              - Jg
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -960,6 +960,10 @@
                   - **nome**: L4
                   - **dificuldade**: BR_2SUP
                   - **extensao**: 20
+            - **conquistadores**:
+              - Jg
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
         - **[3]**:
           - **via_esportiva**:
             - **nome**: Allahu Akbar
@@ -992,6 +996,7 @@
               - Fred Gonçalves
   - **[1]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Mirante da Cruz
       - **escaladas**:
         - **[0]**:
@@ -1050,6 +1055,7 @@
               - jg
   - **[2]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Ground Control
       - **escaladas**:
         - **[0]**:
@@ -1073,14 +1079,9 @@
             - **nome**: Mr Bean
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7A
-            - **quantidade_costuras_intermediarias**: 10
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 70
             - **numero_enfiadas**: 3
+            - **comprimento_total**: 70
             - **tipo_via_multiplas_enfiadas**: TODA_FIXA
-            - **conquistadores**:
-              - Pablo Gonçalves
-              - Jg
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -1098,6 +1099,11 @@
                   - **nome**: L3
                   - **dificuldade**: BR_2SUP
                   - **extensao**: 22
+            - **conquistadores**:
+              - Pablo Gonçalves
+              - Jg
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
         - **[3]**:
           - **via_esportiva**:
             - **descricao**: Variante Mr Bean
@@ -1148,12 +1154,8 @@
             - **nome**: Sabor Baunilha
             - **dificuldade_media**: BR_7B
             - **dificuldade_maxima**: BR_7B
-            - **quantidade_costuras_intermediarias**: 10
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 50
             - **numero_enfiadas**: 2
-            - **conquistadores**:
-              - Jg
+            - **comprimento_total**: 50
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -1166,6 +1168,10 @@
                   - **nome**: L2
                   - **dificuldade**: BR_5SUP
                   - **extensao**: 20
+            - **conquistadores**:
+              - Jg
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
         - **[9]**:
           - **via_movel**:
             - **descricao**: Parada fixa
@@ -1180,13 +1186,8 @@
             - **nome**: Café Ole
             - **dificuldade_media**: BR_5
             - **dificuldade_maxima**: BR_5SUP
-            - **quantidade_costuras_intermediarias**: 8
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 55
             - **numero_enfiadas**: 2
-            - **conquistadores**:
-              - Jg
-              - Ana de Papel
+            - **comprimento_total**: 55
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -1198,17 +1199,18 @@
                   - **nome**: L2
                   - **dificuldade**: BR_5SUP
                   - **extensao**: 35
+            - **conquistadores**:
+              - Jg
+              - Ana de Papel
+            - **quantidade_costuras_intermediarias**: 8
+            - **quantidade_equipamentos_parada**: 2
         - **[11]**:
           - **via_multiplas_enfiadas**:
             - **nome**: Tio Tonton
             - **dificuldade_media**: BR_6SUP
             - **dificuldade_maxima**: BR_7B
-            - **quantidade_costuras_intermediarias**: 10
-            - **quantidade_equipamentos_parada**: 2
-            - **comprimento_total**: 55
             - **numero_enfiadas**: 2
-            - **conquistadores**:
-              - Jg
+            - **comprimento_total**: 55
             - **enfiadas**:
               - **[0]**:
                 - **via_esportiva**:
@@ -1220,6 +1222,10 @@
                   - **descricao**: crux 7b
                   - **nome**: L2
                   - **dificuldade**: BR_6
+            - **conquistadores**:
+              - Jg
+            - **quantidade_costuras_intermediarias**: 10
+            - **quantidade_equipamentos_parada**: 2
 
 
 ## Parte: setor_curto_e_grosso_malibu_e_terra_do_nunca
@@ -1325,6 +1331,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Terra do Nunca
       - **escaladas**:
         - **[0]**:
@@ -1339,6 +1346,7 @@
               - Samuel Corleone
   - **[1]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Curto e Grosso
       - **escaladas**:
         - **[0]**:
@@ -1383,6 +1391,7 @@
               - Arthur King
   - **[2]**:
     - **conteudo**:
+      - **descricao**: 
       - **nome**: Malibu
       - **escaladas**:
         - **[0]**:

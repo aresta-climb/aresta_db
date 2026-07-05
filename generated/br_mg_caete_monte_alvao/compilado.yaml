@@ -492,13 +492,9 @@ picos:
                 nome: He Man
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
-                quantidade_costuras_intermediarias: 8
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 65
                 numero_enfiadas: 4
+                comprimento_total: 65
                 tipo_via_multiplas_enfiadas: TODA_FIXA
-                conquistadores:
-                - Jg
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -517,17 +513,17 @@ picos:
                     dificuldade: BR_2SUP
                     extensao: 20
                     descricao: free
+                conquistadores:
+                - Jg
+                quantidade_costuras_intermediarias: 8
+                quantidade_equipamentos_parada: 2
             - via_multiplas_enfiadas:
                 nome: Esqueleto
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
-                quantidade_costuras_intermediarias: 8
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 65
                 numero_enfiadas: 4
+                comprimento_total: 65
                 tipo_via_multiplas_enfiadas: MISTA
-                conquistadores:
-                - Jg
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -547,6 +543,10 @@ picos:
                     dificuldade: BR_2SUP
                     extensao: 20
                     descricao: free
+                conquistadores:
+                - Jg
+                quantidade_costuras_intermediarias: 8
+                quantidade_equipamentos_parada: 2
             - via_esportiva:
                 nome: Allahu Akbar
                 dificuldade: BR_7A
@@ -567,13 +567,14 @@ picos:
             - via_esportiva:
                 nome: Paris em Chamas
                 dificuldade: BR_10A
-                descricao: 10?
                 extensao: 24
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Pablo Gonçalves
                 - Fred Gonçalves
+                descricao: 10?
+            descricao: ''
         - conteudo:
             nome: Mirante da Cruz
             escaladas:
@@ -625,6 +626,7 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
+            descricao: ''
         - conteudo:
             nome: Ground Control
             escaladas:
@@ -646,14 +648,9 @@ picos:
                 nome: Mr Bean
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7A
-                quantidade_costuras_intermediarias: 10
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 70
                 numero_enfiadas: 3
+                comprimento_total: 70
                 tipo_via_multiplas_enfiadas: TODA_FIXA
-                conquistadores:
-                - Pablo Gonçalves
-                - Jg
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -668,6 +665,11 @@ picos:
                     dificuldade: BR_2SUP
                     extensao: 22
                     descricao: free
+                conquistadores:
+                - Pablo Gonçalves
+                - Jg
+                quantidade_costuras_intermediarias: 10
+                quantidade_equipamentos_parada: 2
             - via_esportiva:
                 nome: Lagarto de aniversário
                 dificuldade: BR_6
@@ -712,12 +714,8 @@ picos:
                 nome: Sabor Baunilha
                 dificuldade_media: BR_7B
                 dificuldade_maxima: BR_7B
-                quantidade_costuras_intermediarias: 10
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 50
                 numero_enfiadas: 2
-                conquistadores:
-                - Jg
+                comprimento_total: 50
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -728,6 +726,10 @@ picos:
                     dificuldade: BR_5SUP
                     extensao: 20
                     descricao: expo
+                conquistadores:
+                - Jg
+                quantidade_costuras_intermediarias: 10
+                quantidade_equipamentos_parada: 2
             - via_movel:
                 nome: O charme da Trad
                 dificuldade: BR_6
@@ -740,13 +742,8 @@ picos:
                 nome: Café Ole
                 dificuldade_media: BR_5
                 dificuldade_maxima: BR_5SUP
-                quantidade_costuras_intermediarias: 8
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 55
                 numero_enfiadas: 2
-                conquistadores:
-                - Jg
-                - Ana de Papel
+                comprimento_total: 55
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -756,16 +753,17 @@ picos:
                     nome: L2
                     dificuldade: BR_5SUP
                     extensao: 35
+                conquistadores:
+                - Jg
+                - Ana de Papel
+                quantidade_costuras_intermediarias: 8
+                quantidade_equipamentos_parada: 2
             - via_multiplas_enfiadas:
                 nome: Tio Tonton
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
-                quantidade_costuras_intermediarias: 10
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 55
                 numero_enfiadas: 2
-                conquistadores:
-                - Jg
+                comprimento_total: 55
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -775,6 +773,11 @@ picos:
                     nome: L2
                     dificuldade: BR_6
                     descricao: crux 7b
+                conquistadores:
+                - Jg
+                quantidade_costuras_intermediarias: 10
+                quantidade_equipamentos_parada: 2
+            descricao: ''
         descricao: '# Caverna, Mirante e Ground Control
 
 
@@ -967,13 +970,9 @@ picos:
                 nome: Incrível mas verdadeiro
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
-                quantidade_costuras_intermediarias: 12
-                quantidade_equipamentos_parada: 2
-                comprimento_total: 50
                 numero_enfiadas: 2
+                comprimento_total: 50
                 tipo_via_multiplas_enfiadas: MISTA
-                conquistadores:
-                - Jg
                 enfiadas:
                 - via_esportiva:
                     nome: L1
@@ -984,6 +983,11 @@ picos:
                     dificuldade: BR_6
                     extensao: 35
                     descricao: mista
+                conquistadores:
+                - Jg
+                quantidade_costuras_intermediarias: 12
+                quantidade_equipamentos_parada: 2
+            descricao: ''
         - conteudo:
             nome: Parede do Ladrão
             escaladas:
@@ -1033,6 +1037,7 @@ picos:
                 extensao: 28
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
+            descricao: ''
         descricao: '# Parede do Ladrão e Forno da Onça
 
 
@@ -1129,6 +1134,7 @@ picos:
                 conquistadores:
                 - Jg
                 - Samuel Corleone
+            descricao: ''
         - conteudo:
             nome: Curto e Grosso
             escaladas:
@@ -1168,6 +1174,7 @@ picos:
                 conquistadores:
                 - Jg
                 - Arthur King
+            descricao: ''
         - conteudo:
             nome: Malibu
             escaladas:
@@ -1188,6 +1195,7 @@ picos:
                 conquistadores:
                 - Jg
                 - Ana Gonzalez Sanchez
+            descricao: ''
         descricao: '# Curto e Grosso, Malibu e Terra do Nunca
 
 
@@ -1199,164 +1207,171 @@ picos:
         largura_mapa: 2048
         altura_mapa: 1447
         pontos_de_interesse:
-        - id: Trilha_da_Mata
-          label: Trilha da Mata
-          box:
-            x: 1700
-            y: 247
-            comprimento: 140
-            largura: 32
-        - id: Volta_ao_Monte
-          label: Volta ao Monte
-          box:
-            x: 1700
-            y: 292
-            comprimento: 140
-            largura: 33
-        - id: Trilha
-          label: Trilha
-          box:
-            x: 1665
-            y: 338
-            comprimento: 70
-            largura: 36
-        - id: Setores_de_escalada
-          label: Setores de escalada
-          box:
-            x: 1730
-            y: 388
-            comprimento: 200
-            largura: 31
-        - id: Afloramento_Quartzito
-          label: Afloramento Quartzito
-          box:
-            x: 1730
-            y: 432
-            comprimento: 200
-            largura: 31
-        - id: Caverna_do_Bin_Laden
+        - id: malibu
+          label: Malibu
+          area_livre:
+            coordenadas:
+            - 938
+            - 1064
+            - 977
+            - 1076
+            - 971
+            - 1097
+            - 966
+            - 1099
+            - 943
+            - 1094
+        - id: terra_do_nunca
+          label: Terra do Nunca
+          area_livre:
+            coordenadas:
+            - 726
+            - 906
+            - 758
+            - 901
+            - 785
+            - 913
+            - 804
+            - 940
+            - 795
+            - 981
+            - 779
+            - 982
+            - 748
+            - 961
+            - 729
+            - 929
+        - id: mirante_da_cruz
+          label: Mirante da Cruz
+          area_livre:
+            coordenadas:
+            - 677
+            - 813
+            - 698
+            - 795
+            - 736
+            - 877
+            - 693
+            - 887
+            - 686
+            - 834
+        - id: curto_e_grosso
+          label: Curto e Grosso
+          area_livre:
+            coordenadas:
+            - 823
+            - 970
+            - 914
+            - 1036
+            - 923
+            - 1051
+            - 906
+            - 1072
+            - 903
+            - 1067
+            - 892
+            - 1064
+            - 865
+            - 1040
+            - 845
+            - 1039
+            - 809
+            - 1008
+        - id: ground_control
+          label: Ground Control
+          area_livre:
+            coordenadas:
+            - 733
+            - 736
+            - 750
+            - 741
+            - 802
+            - 743
+            - 803
+            - 761
+            - 753
+            - 765
+            - 724
+            - 754
+        - id: forno_da_onca
+          label: Forno da Onça
+          area_livre:
+            coordenadas:
+            - 808
+            - 748
+            - 818
+            - 742
+            - 831
+            - 742
+            - 846
+            - 748
+            - 849
+            - 767
+            - 845
+            - 776
+            - 836
+            - 778
+            - 830
+            - 772
+            - 816
+            - 778
+            - 809
+            - 766
+        - id: caverna_do_bin_laden
           label: Caverna do Bin Laden
           box:
-            x: 1735
-            y: 476
-            comprimento: 210
-            largura: 30
-        - id: Forno_da_Onca
-          label: Forno da Onça
-          box:
-            x: 1700
-            y: 522
-            comprimento: 140
-            largura: 35
-        - id: Ground_Control
-          label: Ground Control
-          box:
-            x: 1705
-            y: 566
-            comprimento: 150
-            largura: 28
-        - id: Mirante_da_Cruz
-          label: Mirante da Cruz
-          box:
-            x: 1712
-            y: 611
-            comprimento: 165
-            largura: 28
-        - id: Vale_Gaules
-          label: Vale Gaules
-          box:
-            x: 1695
-            y: 656
-            comprimento: 130
-            largura: 31
-        - id: Parede_do_Ladrao
+            x: 714
+            y: 758
+            comprimento: 55
+            largura: 8
+            angulo_graus_x100: -5973
+        - id: parede_do_ladrao
           label: Parede do Ladrão
-          box:
-            x: 1715
-            y: 700
-            comprimento: 170
-            largura: 30
-        - id: Curto_e_Grosso
-          label: Curto e Grosso
-          box:
-            x: 1710
-            y: 746
-            comprimento: 160
-            largura: 31
-        - id: Malibu
-          label: Malibu
-          box:
-            x: 1670
-            y: 790
-            comprimento: 80
-            largura: 32
-        - id: Terra_do_Nunca
-          label: Terra do Nunca
-          box:
-            x: 1710
-            y: 836
-            comprimento: 160
-            largura: 31
-        - id: pico_1221m
-          label: 1.221 m
-          box:
-            x: 820
-            y: 890
-            comprimento: 85
-            largura: 25
-        - id: Eucalipto
-          label: Eucalipto
-          box:
-            x: 1680
-            y: 880
-            comprimento: 100
-            largura: 37
-        - id: Mata_Nativa
-          label: Mata Nativa
-          box:
-            x: 1695
-            y: 925
-            comprimento: 130
-            largura: 32
-        - id: Pastagem
-          label: Pastagem
-          box:
-            x: 1680
-            y: 970
-            comprimento: 100
-            largura: 35
-        - id: Lagoas
-          label: Lagoas
-          box:
-            x: 1670
-            y: 1013
-            comprimento: 80
-            largura: 36
-        - id: Area_do_Camping
-          label: Área do Camping
-          box:
-            x: 1715
-            y: 1088
-            comprimento: 170
-            largura: 40
+          area_livre:
+            coordenadas:
+            - 857
+            - 774
+            - 853
+            - 746
+            - 877
+            - 740
+            - 914
+            - 737
+            - 919
+            - 764
+        - id: vale_gaules
+          label: Vale Gaules
+          area_livre:
+            coordenadas:
+            - 673
+            - 681
+            - 669
+            - 648
+            - 734
+            - 637
+            - 722
+            - 659
         referencias:
-        - setor: Parede do Ladrão e Forno da Onça
-          ids:
-          - Forno_da_Onca
-          - Parede_do_Ladrao
-        - setor: Caverna, Mirante e Ground Control
-          ids:
-          - Ground_Control
         - setor: Vale Gaules
           ids:
-          - Vale_Gaules
-        - setor: Curto e Grosso, Malibu e Terra do Nunca
-          ids:
-          - Curto_e_Grosso
-          - Malibu
-          - Terra_do_Nunca
+          - vale_gaules
+        - ids:
+          - caverna_do_bin_laden
+          - mirante_da_cruz
+          - ground_control
+          grupo: Caverna, Mirante e Ground Control
+        - ids:
+          - parede_do_ladrao
+          - forno_da_onca
+          grupo: Parede do Ladrão e Forno da Onça
+        - ids:
+          - terra_do_nunca
+          - curto_e_grosso
+          - malibu
+          grupo: Curto e Grosso, Malibu e Terra do Nunca
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true
 botoes: []
 arquivos_externos:
 - caminho: imagens/mapas_gerais_p0.webp

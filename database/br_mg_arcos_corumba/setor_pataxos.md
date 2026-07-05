@@ -1,4 +1,4 @@
----
+---
 nome: Setor Pataxós
 mapas:
 - caminho_imagem_mapa: imagens/setor_pataxos_p0_i0.webp
@@ -7,158 +7,136 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 122
-      y: 879
-      comprimento: 30
-      largura: 30
+      y: 878
+      raio: 15
   - id: '2'
     label: '2'
-    box:
-      x: 224
-      y: 905
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 226
+      y: 907
+      raio: 15
   - id: '3'
     label: '3'
-    box:
-      x: 276
-      y: 911
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 279
+      y: 914
+      raio: 15
   - id: '4'
     label: '4'
-    box:
+    circular:
       x: 314
-      y: 916
-      comprimento: 30
-      largura: 30
+      y: 918
+      raio: 15
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 363
-      y: 919
-      comprimento: 30
-      largura: 30
+      y: 921
+      raio: 15
   - id: '6'
     label: '6'
-    box:
-      x: 466
+    circular:
+      x: 468
       y: 938
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '7'
     label: '7'
-    box:
-      x: 510
-      y: 935
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 511
+      y: 938
+      raio: 15
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 544
       y: 952
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '9'
     label: '9'
-    box:
-      x: 582
-      y: 940
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 580
+      y: 942
+      raio: 15
   - id: '10'
     label: '10'
-    box:
-      x: 619
-      y: 929
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 617
+      y: 930
+      raio: 15
   - id: '11'
     label: '11'
-    box:
-      x: 920
-      y: 975
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 919
+      y: 977
+      raio: 15
   - id: '12'
     label: '12'
-    box:
-      x: 1030
-      y: 955
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1029
+      y: 957
+      raio: 15
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 1085
-      y: 945
-      comprimento: 30
-      largura: 30
+      y: 946
+      raio: 15
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 1130
       y: 925
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '15'
     label: '15'
-    box:
+    circular:
       x: 1180
       y: 920
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '16'
     label: '16'
-    box:
+    circular:
       x: 1221
-      y: 916
-      comprimento: 30
-      largura: 30
+      y: 918
+      raio: 15
   - id: '17'
     label: '17'
-    box:
-      x: 1276
-      y: 917
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1277
+      y: 920
+      raio: 15
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 1320
       y: 900
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '19'
     label: '19'
-    box:
-      x: 1375
-      y: 875
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1373
+      y: 876
+      raio: 15
   - id: '20'
     label: '20'
-    box:
-      x: 1437
-      y: 860
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1436
+      y: 863
+      raio: 15
   - id: '21'
     label: '21'
-    box:
-      x: 1474
+    circular:
+      x: 1475
       y: 848
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '22'
     label: '22'
-    box:
+    circular:
       x: 1750
-      y: 770
-      comprimento: 30
-      largura: 30
+      y: 772
+      raio: 15
   referencias:
   - escalada: Ditadura do Barulho
     ids:
@@ -362,7 +340,8 @@ escaladas:
     dificuldade: PROJETO
     data_abertura: '2020-10-01'
     quantidade_protecoes_intermediarias: 3
----
+---
+
 # Setor Pataxós
 
 Sombra a partir de 11h (varia de acordo com a sessão).

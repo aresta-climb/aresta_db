@@ -11,6 +11,7 @@
 - **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 - **botoes**: []
 
 
@@ -38,75 +39,66 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 252
-          - **y**: 801
-          - **comprimento**: 28
-          - **largura**: 34
+        - **circular**:
+          - **x**: 253
+          - **y**: 803
+          - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 406
-          - **y**: 798
-          - **comprimento**: 21
-          - **largura**: 29
+        - **circular**:
+          - **x**: 409
+          - **y**: 799
+          - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 527
-          - **y**: 760
-          - **comprimento**: 32
-          - **largura**: 37
+        - **circular**:
+          - **x**: 528
+          - **y**: 759
+          - **raio**: 21
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 802
+        - **circular**:
+          - **x**: 805
           - **y**: 674
-          - **comprimento**: 25
-          - **largura**: 32
+          - **raio**: 20
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 954
-          - **y**: 598
-          - **comprimento**: 25
-          - **largura**: 35
+        - **circular**:
+          - **x**: 957
+          - **y**: 599
+          - **raio**: 20
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **circular**:
           - **x**: 1110
           - **y**: 554
-          - **comprimento**: 31
-          - **largura**: 32
+          - **raio**: 20
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1458
-          - **y**: 821
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circular**:
+          - **x**: 1456
+          - **y**: 823
+          - **raio**: 20
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 1574
-          - **y**: 751
-          - **comprimento**: 24
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1577
+          - **y**: 750
+          - **raio**: 20
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 1938
-          - **y**: 741
-          - **comprimento**: 33
-          - **largura**: 42
+        - **circular**:
+          - **x**: 1942
+          - **y**: 743
+          - **raio**: 20
     - **referencias**:
       - **[0]**:
         - **escalada**: Aresta do Apicultor
@@ -262,67 +254,59 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 296
-          - **y**: 924
-          - **comprimento**: 40
-          - **largura**: 50
+        - **circular**:
+          - **x**: 299
+          - **y**: 923
+          - **raio**: 29
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 512
-          - **y**: 912
-          - **comprimento**: 41
-          - **largura**: 44
+        - **circular**:
+          - **x**: 515
+          - **y**: 914
+          - **raio**: 29
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 636
-          - **y**: 873
-          - **comprimento**: 39
-          - **largura**: 46
+        - **circular**:
+          - **x**: 642
+          - **y**: 872
+          - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 687
-          - **y**: 1004
-          - **comprimento**: 38
-          - **largura**: 51
+        - **circular**:
+          - **x**: 691
+          - **y**: 1002
+          - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 816
-          - **y**: 963
-          - **comprimento**: 38
-          - **largura**: 50
+        - **circular**:
+          - **x**: 819
+          - **y**: 962
+          - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 1008
-          - **y**: 961
-          - **comprimento**: 45
-          - **largura**: 56
+        - **circular**:
+          - **x**: 1009
+          - **y**: 962
+          - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1235
-          - **y**: 930
-          - **comprimento**: 44
-          - **largura**: 52
+        - **circular**:
+          - **x**: 1237
+          - **y**: 933
+          - **raio**: 29
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 1480
-          - **y**: 833
-          - **comprimento**: 43
-          - **largura**: 52
+          - **y**: 835
+          - **raio**: 29
     - **referencias**:
       - **[0]**:
         - **escalada**: Vivi Fernandes
@@ -461,59 +445,52 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 552
-          - **y**: 1168
-          - **comprimento**: 37
-          - **largura**: 54
+        - **circular**:
+          - **x**: 553
+          - **y**: 1165
+          - **raio**: 29
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 670
-          - **y**: 1206
-          - **comprimento**: 27
-          - **largura**: 39
+        - **circular**:
+          - **x**: 673
+          - **y**: 1207
+          - **raio**: 29
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 872
+        - **circular**:
+          - **x**: 876
           - **y**: 1185
-          - **comprimento**: 29
-          - **largura**: 44
+          - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 1362
+        - **circular**:
+          - **x**: 1367
           - **y**: 1156
-          - **comprimento**: 26
-          - **largura**: 41
+          - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 1552
+        - **circular**:
+          - **x**: 1554
           - **y**: 1156
-          - **comprimento**: 27
-          - **largura**: 41
+          - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 1766
-          - **y**: 1096
-          - **comprimento**: 26
-          - **largura**: 41
+        - **circular**:
+          - **x**: 1767
+          - **y**: 1095
+          - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1913
-          - **y**: 1064
-          - **comprimento**: 36
-          - **largura**: 45
+        - **circular**:
+          - **x**: 1918
+          - **y**: 1066
+          - **raio**: 29
     - **referencias**:
       - **[0]**:
         - **escalada**: Temer Jamais
@@ -640,131 +617,115 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 269
-          - **y**: 1375
-          - **comprimento**: 30
-          - **largura**: 40
+        - **circular**:
+          - **x**: 271
+          - **y**: 1376
+          - **raio**: 28
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 712
+        - **circular**:
+          - **x**: 716
           - **y**: 1078
-          - **comprimento**: 27
-          - **largura**: 40
+          - **raio**: 28
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 874
-          - **y**: 1001
-          - **comprimento**: 34
-          - **largura**: 44
+        - **circular**:
+          - **x**: 881
+          - **y**: 1000
+          - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 994
+        - **circular**:
+          - **x**: 998
           - **y**: 982
-          - **comprimento**: 37
-          - **largura**: 49
+          - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 1076
-          - **y**: 858
-          - **comprimento**: 30
-          - **largura**: 42
+        - **circular**:
+          - **x**: 1079
+          - **y**: 857
+          - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **circular**:
           - **x**: 1178
           - **y**: 875
-          - **comprimento**: 28
-          - **largura**: 44
+          - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 1231
-          - **y**: 766
-          - **comprimento**: 26
-          - **largura**: 39
+        - **circular**:
+          - **x**: 1235
+          - **y**: 767
+          - **raio**: 28
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
-          - **x**: 1336
+        - **circular**:
+          - **x**: 1341
           - **y**: 726
-          - **comprimento**: 29
-          - **largura**: 45
+          - **raio**: 29
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 1377
+        - **circular**:
+          - **x**: 1380
           - **y**: 610
-          - **comprimento**: 30
-          - **largura**: 45
+          - **raio**: 29
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 1428
+        - **circular**:
+          - **x**: 1433
           - **y**: 521
-          - **comprimento**: 53
-          - **largura**: 46
+          - **raio**: 28
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 1493
+        - **circular**:
+          - **x**: 1498
           - **y**: 474
-          - **comprimento**: 52
-          - **largura**: 47
+          - **raio**: 29
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 1570
-          - **y**: 541
-          - **comprimento**: 52
-          - **largura**: 44
+        - **circular**:
+          - **x**: 1573
+          - **y**: 540
+          - **raio**: 29
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
-          - **x**: 1689
-          - **y**: 570
-          - **comprimento**: 52
-          - **largura**: 48
+        - **circular**:
+          - **x**: 1691
+          - **y**: 569
+          - **raio**: 29
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
-          - **x**: 1808
+        - **circular**:
+          - **x**: 1806
           - **y**: 550
-          - **comprimento**: 55
-          - **largura**: 47
+          - **raio**: 29
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
-          - **x**: 1860
-          - **y**: 475
-          - **comprimento**: 53
-          - **largura**: 48
+        - **circular**:
+          - **x**: 1865
+          - **y**: 474
+          - **raio**: 29
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
-          - **x**: 1964
-          - **y**: 376
-          - **comprimento**: 53
-          - **largura**: 48
+        - **circular**:
+          - **x**: 1968
+          - **y**: 375
+          - **raio**: 29
     - **referencias**:
       - **[0]**:
         - **escalada**: Vaca Virgem

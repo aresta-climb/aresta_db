@@ -33,7 +33,7 @@ def test_pico_renders_mapas_gerais_inline(qtbot):
             
     assert found_mapas_gerais, "Label 'Mapas gerais' not found inside Pico, so the field is being skipped"
 
-def test_verify_mapas_gerais_path(qtbot):
+def test_verify_mapas_gerais_path(qtbot, monkeypatch):
     pico = Pico()
     pico.nome = "Gruta da Lapinha"
     pico.mapas_gerais.conteudo.mapas.add().caminho_imagem_mapa = "mapa1.webp"
@@ -53,7 +53,7 @@ def test_verify_mapas_gerais_path(qtbot):
     
     # We must patch get_node_path
     import editor.views.widget_editor_dados
-    editor.views.widget_editor_dados.get_node_path = lambda n: "expando:picos/item:0"
+    monkeypatch.setattr(editor.views.widget_editor_dados, "get_node_path", lambda n: "expando:picos/item:0")
     
     widget.load_node(mock_node)
     

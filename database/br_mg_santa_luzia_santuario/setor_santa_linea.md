@@ -1,4 +1,4 @@
----
+---
 nome: Setor Santa Línea
 mapas:
 - caminho_imagem_mapa: imagens/setor_santa_linea_p1.webp
@@ -7,109 +7,94 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 288
-      y: 76
-      comprimento: 26
-      largura: 35
+      y: 77
+      raio: 33
   - id: '02'
     label: '02'
-    box:
-      x: 438
+    circular:
+      x: 439
       y: 133
-      comprimento: 26
-      largura: 36
+      raio: 34
   - id: '03'
     label: '03'
-    box:
-      x: 556
-      y: 237
-      comprimento: 28
-      largura: 36
+    circular:
+      x: 557
+      y: 238
+      raio: 34
   - id: '04'
     label: '04'
-    box:
+    circular:
       x: 633
       y: 372
-      comprimento: 32
-      largura: 38
+      raio: 33
   - id: '05'
     label: '05'
-    box:
-      x: 698
-      y: 539
-      comprimento: 32
-      largura: 40
+    circular:
+      x: 700
+      y: 541
+      raio: 33
   - id: '06'
     label: '06'
-    box:
+    circular:
       x: 784
-      y: 716
-      comprimento: 32
-      largura: 40
+      y: 718
+      raio: 33
   - id: '07'
     label: '07'
-    box:
+    circular:
       x: 799
-      y: 866
-      comprimento: 28
-      largura: 38
+      y: 867
+      raio: 33
   - id: '08'
     label: '08'
-    box:
-      x: 898
-      y: 964
-      comprimento: 26
-      largura: 35
+    circular:
+      x: 899
+      y: 965
+      raio: 33
   - id: '09'
     label: '09'
-    box:
-      x: 930
-      y: 1076
-      comprimento: 24
-      largura: 33
+    circular:
+      x: 931
+      y: 1077
+      raio: 33
   - id: '10'
     label: '10'
-    box:
+    circular:
       x: 953
       y: 1190
-      comprimento: 48
-      largura: 39
+      raio: 33
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 964
       y: 1301
-      comprimento: 47
-      largura: 38
+      raio: 33
   - id: '12'
     label: '12'
-    box:
-      x: 964
-      y: 1413
-      comprimento: 47
-      largura: 38
+    circular:
+      x: 966
+      y: 1414
+      raio: 34
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 975
-      y: 1557
-      comprimento: 48
-      largura: 38
+      y: 1558
+      raio: 34
   - id: '14'
     label: '14'
-    box:
+    circular:
       x: 975
       y: 1700
-      comprimento: 48
-      largura: 36
+      raio: 34
   - id: '15'
     label: '15'
-    box:
+    circular:
       x: 975
       y: 1844
-      comprimento: 48
-      largura: 38
+      raio: 34
   referencias:
   - escalada: MEU AMIGO CHARLIE BROWN
     ids:
@@ -316,7 +301,8 @@ escaladas:
     - via_esportiva:
         nome: P3
         dificuldade: BR_9C
----
+---
+
 # Setor Santa Línea
 
 ![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp)

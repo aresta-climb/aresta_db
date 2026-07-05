@@ -1,4 +1,4 @@
----
+---
 nome: Setor Death Horse
 mapas:
 - caminho_imagem_mapa: imagens/setor_death_horse_p0_i0.webp
@@ -7,67 +7,58 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 64
-      y: 254
-      comprimento: 25
-      largura: 25
+    circular:
+      x: 66
+      y: 255
+      raio: 13
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 94
-      y: 285
-      comprimento: 23
-      largura: 28
+      y: 286
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 130
-      y: 292
-      comprimento: 25
-      largura: 29
+    circular:
+      x: 131
+      y: 291
+      raio: 14
   - id: '4'
     label: '4'
-    box:
-      x: 172
+    circular:
+      x: 174
       y: 270
-      comprimento: 35
-      largura: 35
+      raio: 14
   - id: '5'
     label: '5'
-    box:
-      x: 236
+    circular:
+      x: 238
       y: 252
-      comprimento: 35
-      largura: 35
+      raio: 14
   - id: '6'
     label: '6'
-    box:
-      x: 424
-      y: 278
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 425
+      y: 279
+      raio: 14
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 480
-      y: 188
-      comprimento: 35
-      largura: 35
+      y: 189
+      raio: 14
   - id: '8'
     label: '8'
-    box:
-      x: 528
-      y: 184
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 529
+      y: 187
+      raio: 14
   - id: '9'
     label: '9'
-    box:
+    circular:
       x: 1008
-      y: 346
-      comprimento: 35
-      largura: 35
+      y: 347
+      raio: 14
   - id: Setor_7_Paralelo
     label: ↑ SETOR 7 PARALELO
     box:
@@ -118,6 +109,12 @@ mapas:
   - escalada: Araticum
     ids:
     - '9'
+  - ids:
+    - Setor_7_Paralelo
+    setor: Setor 7 Paralelo
+  - ids:
+    - Setor_Gameleira
+    setor: Setor Gameleira
 escaladas:
 - via_esportiva:
     nome: Mary Jane
@@ -154,7 +151,8 @@ escaladas:
     nome: Araticum
     quantidade_protecoes_intermediarias: 14
     descricao: Projeto (Sem F/A).
----
+---
+
 # Setor Death Horse
 
 Setor que fica logo na entrada. Parede extensa, alta e com trechos muito

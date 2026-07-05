@@ -95,6 +95,7 @@
             - **Contribuição/Parceria PIX:** 37 99918-3634
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_pataxos
@@ -119,179 +120,157 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 122
-          - **y**: 879
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 878
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 224
-          - **y**: 905
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 226
+          - **y**: 907
+          - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 276
-          - **y**: 911
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 279
+          - **y**: 914
+          - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **circular**:
           - **x**: 314
-          - **y**: 916
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 918
+          - **raio**: 15
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **circular**:
           - **x**: 363
-          - **y**: 919
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 921
+          - **raio**: 15
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 466
+        - **circular**:
+          - **x**: 468
           - **y**: 938
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
-          - **x**: 510
-          - **y**: 935
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 511
+          - **y**: 938
+          - **raio**: 15
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **circular**:
           - **x**: 544
           - **y**: 952
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
-          - **x**: 582
-          - **y**: 940
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 580
+          - **y**: 942
+          - **raio**: 15
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 619
-          - **y**: 929
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 617
+          - **y**: 930
+          - **raio**: 15
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 920
-          - **y**: 975
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 919
+          - **y**: 977
+          - **raio**: 15
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 1030
-          - **y**: 955
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1029
+          - **y**: 957
+          - **raio**: 15
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 1085
-          - **y**: 945
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 946
+          - **raio**: 15
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 1130
           - **y**: 925
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **circular**:
           - **x**: 1180
           - **y**: 920
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **circular**:
           - **x**: 1221
-          - **y**: 916
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 918
+          - **raio**: 15
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
-          - **x**: 1276
-          - **y**: 917
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1277
+          - **y**: 920
+          - **raio**: 15
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **circular**:
           - **x**: 1320
           - **y**: 900
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
-          - **x**: 1375
-          - **y**: 875
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1373
+          - **y**: 876
+          - **raio**: 15
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
-          - **x**: 1437
-          - **y**: 860
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 1436
+          - **y**: 863
+          - **raio**: 15
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
-          - **x**: 1474
+        - **circular**:
+          - **x**: 1475
           - **y**: 848
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[21]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **circular**:
           - **x**: 1750
-          - **y**: 770
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 772
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Ditadura do Barulho
@@ -561,29 +540,19 @@
     - **altura_mapa**: 1130
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Aviso
-        - **label**: O ACESSO A ESTE SETOR PROIBIDO POR HORA
-        - **box**:
-          - **x**: 461
-          - **y**: 84
-          - **comprimento**: 814
-          - **largura**: 30
-      - **[1]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
-          - **x**: 357
-          - **y**: 1071
-          - **comprimento**: 32
-          - **largura**: 32
-      - **[2]**:
+        - **circular**:
+          - **x**: 358
+          - **y**: 1070
+          - **raio**: 15
+      - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **circular**:
           - **x**: 532
-          - **y**: 966
-          - **comprimento**: 37
-          - **largura**: 42
+          - **y**: 968
+          - **raio**: 17
     - **referencias**:
       - **[0]**:
         - **escalada**: (via inacabada)
@@ -631,35 +600,31 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **circular**:
           - **x**: 292
-          - **y**: 866
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 868
+          - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
-          - **x**: 477
+        - **circular**:
+          - **x**: 476
           - **y**: 1112
-          - **comprimento**: 30
-          - **largura**: 30
+          - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
-          - **x**: 608
-          - **y**: 1110
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 607
+          - **y**: 1112
+          - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
-          - **x**: 712
-          - **y**: 1110
-          - **comprimento**: 29
-          - **largura**: 30
+        - **circular**:
+          - **x**: 714
+          - **y**: 1112
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Curumim
@@ -685,19 +650,17 @@
       - **[0]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
-          - **x**: 499
-          - **y**: 1095
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circular**:
+          - **x**: 498
+          - **y**: 1097
+          - **raio**: 15
       - **[1]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
-          - **x**: 638
-          - **y**: 1085
-          - **comprimento**: 32
-          - **largura**: 30
+        - **circular**:
+          - **x**: 639
+          - **y**: 1084
+          - **raio**: 15
     - **referencias**:
       - **[0]**:
         - **escalada**: Especiaria
@@ -776,81 +739,81 @@
         - **id**: 1
         - **label**: 1
         - **box**:
-          - **x**: 76
+          - **x**: 78
           - **y**: 811
-          - **comprimento**: 30
-          - **largura**: 30
+          - **comprimento**: 25
+          - **largura**: 28
       - **[1]**:
         - **id**: 2
         - **label**: 2
         - **box**:
           - **x**: 122
           - **y**: 780
-          - **comprimento**: 17
-          - **largura**: 23
+          - **comprimento**: 26
+          - **largura**: 28
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **box**:
-          - **x**: 166
-          - **y**: 759
-          - **comprimento**: 21
+          - **x**: 165
+          - **y**: 760
+          - **comprimento**: 26
           - **largura**: 28
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **box**:
-          - **x**: 251
-          - **y**: 750
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 252
+          - **y**: 752
+          - **comprimento**: 25
+          - **largura**: 28
       - **[4]**:
         - **id**: 5
         - **label**: 5
         - **box**:
           - **x**: 294
           - **y**: 752
-          - **comprimento**: 30
-          - **largura**: 30
+          - **comprimento**: 29
+          - **largura**: 25
       - **[5]**:
         - **id**: 6
         - **label**: 6
         - **box**:
           - **x**: 374
           - **y**: 796
-          - **comprimento**: 30
-          - **largura**: 30
+          - **comprimento**: 29
+          - **largura**: 26
       - **[6]**:
         - **id**: 7
         - **label**: 7
         - **box**:
           - **x**: 421
-          - **y**: 848
-          - **comprimento**: 22
-          - **largura**: 24
+          - **y**: 849
+          - **comprimento**: 28
+          - **largura**: 28
       - **[7]**:
         - **id**: 8
         - **label**: 8
         - **box**:
-          - **x**: 472
-          - **y**: 876
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 474
+          - **y**: 874
+          - **comprimento**: 25
+          - **largura**: 27
       - **[8]**:
         - **id**: 9
         - **label**: 9
         - **box**:
           - **x**: 518
-          - **y**: 872
-          - **comprimento**: 21
-          - **largura**: 25
+          - **y**: 873
+          - **comprimento**: 26
+          - **largura**: 30
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **box**:
-          - **x**: 541
+          - **x**: 542
           - **y**: 682
-          - **comprimento**: 34
+          - **comprimento**: 31
           - **largura**: 30
       - **[10]**:
         - **id**: 11
@@ -865,17 +828,17 @@
         - **label**: 12
         - **box**:
           - **x**: 686
-          - **y**: 814
-          - **comprimento**: 27
-          - **largura**: 25
+          - **y**: 816
+          - **comprimento**: 31
+          - **largura**: 32
       - **[12]**:
         - **id**: 13
         - **label**: 13
         - **box**:
           - **x**: 734
-          - **y**: 814
-          - **comprimento**: 25
-          - **largura**: 25
+          - **y**: 816
+          - **comprimento**: 32
+          - **largura**: 30
       - **[13]**:
         - **id**: 14
         - **label**: 14
@@ -888,7 +851,7 @@
         - **id**: 15
         - **label**: 15
         - **box**:
-          - **x**: 919
+          - **x**: 918
           - **y**: 477
           - **comprimento**: 30
           - **largura**: 30
@@ -898,8 +861,8 @@
         - **box**:
           - **x**: 1006
           - **y**: 592
-          - **comprimento**: 37
-          - **largura**: 31
+          - **comprimento**: 32
+          - **largura**: 27
       - **[16]**:
         - **id**: 17
         - **label**: 17
@@ -912,18 +875,18 @@
         - **id**: 18
         - **label**: 18
         - **box**:
-          - **x**: 1141
-          - **y**: 388
-          - **comprimento**: 26
-          - **largura**: 25
+          - **x**: 1142
+          - **y**: 386
+          - **comprimento**: 30
+          - **largura**: 30
       - **[18]**:
         - **id**: 19
         - **label**: 19
         - **box**:
           - **x**: 995
           - **y**: 895
-          - **comprimento**: 30
-          - **largura**: 26
+          - **comprimento**: 34
+          - **largura**: 30
       - **[19]**:
         - **id**: 20
         - **label**: 20
@@ -937,7 +900,7 @@
         - **label**: 21
         - **box**:
           - **x**: 1498
-          - **y**: 936
+          - **y**: 938
           - **comprimento**: 32
           - **largura**: 27
     - **referencias**:

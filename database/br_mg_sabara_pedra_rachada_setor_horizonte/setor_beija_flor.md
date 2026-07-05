@@ -8,27 +8,27 @@ mapas:
   - id: '29'
     label: '29'
     circular:
-      x: 316
-      y: 793
-      raio: 23
+      x: 317
+      y: 794
+      raio: 24
   - id: '30'
     label: '30'
     circular:
       x: 369
       y: 818
-      raio: 23
+      raio: 24
   - id: '31'
     label: '31'
     circular:
       x: 771
       y: 634
-      raio: 23
+      raio: 24
   - id: '32'
     label: '32'
     circular:
       x: 623
       y: 818
-      raio: 23
+      raio: 24
   referencias:
   - escalada: Juruva
     ids:
@@ -54,13 +54,13 @@ mapas:
     circular:
       x: 612
       y: 862
-      raio: 23
+      raio: 24
   - id: '34'
     label: '34'
     circular:
       x: 675
       y: 1033
-      raio: 23
+      raio: 24
   referencias:
   - escalada: Beija-Flor
     ids:

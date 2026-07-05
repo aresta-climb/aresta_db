@@ -1,4 +1,4 @@
----
+---
 nome: Setor Gameleira
 mapas:
 - caminho_imagem_mapa: imagens/setor_gameleira_p0_i0.webp
@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 248
-      y: 446
-      comprimento: 35
-      largura: 35
+      y: 447
+      raio: 17
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 254
-      y: 372
-      comprimento: 35
-      largura: 35
+      y: 370
+      raio: 17
   - id: '3'
     label: '3'
-    box:
-      x: 160
-      y: 242
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 157
+      y: 244
+      raio: 17
   - id: '4'
     label: '4'
-    box:
-      x: 298
+    circular:
+      x: 299
       y: 99
-      comprimento: 35
-      largura: 40
+      raio: 17
   - id: Setor_Vale_das_Sombras
     label: SETOR VALE DAS SOMBRAS →
     box:
@@ -60,6 +56,12 @@ mapas:
   - escalada: Girassol
     ids:
     - '4'
+  - ids:
+    - Setor_Death_Horse
+    setor: Setor Death Horse
+  - ids:
+    - Setor_Vale_das_Sombras
+    setor: Setor Vale das Sombras
 escaladas:
 - via_esportiva:
     nome: Sou Fria
@@ -77,7 +79,8 @@ escaladas:
     nome: Girassol
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
----
+---
+
 # Setor Gameleira
 
 Conta com poucas vias e mesmo assim abriga um dos maiores desafios do pico

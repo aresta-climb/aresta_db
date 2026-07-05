@@ -1,4 +1,4 @@
----
+---
 nome: Setor Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p0_i0.webp
@@ -10,29 +10,8 @@ mapas:
     box:
       x: 609
       y: 36
-      comprimento: 108
-      largura: 13
-  - id: Tunel
-    label: Túnel
-    box:
-      x: 693
-      y: 54
-      comprimento: 56
-      largura: 22
-  - id: Escada_De_Acesso
-    label: Escada de acesso
-    box:
-      x: 779
-      y: 56
-      comprimento: 80
-      largura: 36
-  - id: Portal
-    label: Portal
-    box:
-      x: 160
-      y: 180
-      comprimento: 45
-      largura: 15
+      comprimento: 112
+      largura: 17
   - id: Plato
     label: Platô
     box:
@@ -40,76 +19,62 @@ mapas:
       y: 722
       comprimento: 44
       largura: 26
-  - id: Corredor_Paredes_Baixas
-    label: Corredor com paredes baixas
-    box:
-      x: 142
-      y: 942
-      comprimento: 68
-      largura: 71
   - id: Setor_Chegada
     label: Setor Chegada
     box:
       x: 140
       y: 1088
-      comprimento: 85
-      largura: 17
-  - id: Obs_Abelha
-    label: OBS.! Caixa de abelha entre as vias
-    box:
-      x: 586
-      y: 884
-      comprimento: 89
-      largura: 58
+      comprimento: 92
+      largura: 24
   - id: '01'
     label: '01'
     box:
-      x: 458
-      y: 552
-      comprimento: 16
-      largura: 14
+      x: 460
+      y: 554
+      comprimento: 18
+      largura: 18
   - id: '02'
     label: '02'
     box:
-      x: 478
-      y: 562
-      comprimento: 16
-      largura: 14
+      x: 492
+      y: 568
+      comprimento: 19
+      largura: 19
   - id: '03'
     label: '03'
     box:
-      x: 480
-      y: 600
-      comprimento: 26
-      largura: 16
+      x: 482
+      y: 601
+      comprimento: 21
+      largura: 20
   - id: '04'
     label: '04'
     box:
-      x: 490
+      x: 494
       y: 626
-      comprimento: 29
-      largura: 19
+      comprimento: 22
+      largura: 20
   - id: '05'
     label: '05'
     box:
-      x: 380
+      x: 381
       y: 789
-      comprimento: 19
-      largura: 16
+      comprimento: 20
+      largura: 18
   - id: '06'
     label: '06'
     box:
       x: 361
       y: 831
-      comprimento: 20
-      largura: 16
+      comprimento: 22
+      largura: 18
   - id: '07'
     label: '07'
     box:
-      x: 136
-      y: 422
-      comprimento: 16
-      largura: 14
+      x: 152
+      y: 432
+      comprimento: 19
+      largura: 19
   referencias:
   - escalada: Passeio das Patacas
     ids:
@@ -132,6 +97,12 @@ mapas:
   - escalada: Legionários
     ids:
     - '07'
+  - ids:
+    - Setor_Chegada
+    setor: Setor Chegada
+  - ids:
+    - Setor_Jardim_Suspenso
+    setor: Jardim Suspenso
 escaladas:
 - via_esportiva:
     nome: Passeio das Patacas
@@ -169,7 +140,8 @@ escaladas:
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Mezanino
 
 Este setor possui sombra a partir das 13h (variando de acordo com a estação). O acesso pode ser feito pelo "Portal", "Túnel" ou "Escada de acesso" que leva ao Jardim Suspenso.

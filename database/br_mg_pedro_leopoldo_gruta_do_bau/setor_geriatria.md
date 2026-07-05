@@ -1,4 +1,4 @@
----
+---
 nome: Setor Geriatria
 mapas:
 - caminho_imagem_mapa: imagens/setor_geriatria_p0_i6.webp
@@ -10,8 +10,8 @@ mapas:
     box:
       x: 1085
       y: 46
-      comprimento: 98
-      largura: 62
+      comprimento: 102
+      largura: 64
   - id: '10'
     label: '10'
     box:
@@ -24,15 +24,15 @@ mapas:
     box:
       x: 514
       y: 93
-      comprimento: 28
-      largura: 28
+      comprimento: 31
+      largura: 30
   - id: '12'
     label: '12'
     box:
-      x: 430
+      x: 432
       y: 146
-      comprimento: 33
-      largura: 30
+      comprimento: 35
+      largura: 34
   - id: '13'
     label: '13'
     box:
@@ -58,9 +58,9 @@ mapas:
     label: '14'
     box:
       x: 343
-      y: 265
-      comprimento: 32
-      largura: 26
+      y: 264
+      comprimento: 34
+      largura: 33
   - id: '21'
     label: '21'
     box:
@@ -80,8 +80,8 @@ mapas:
     box:
       x: 874
       y: 340
-      comprimento: 31
-      largura: 25
+      comprimento: 33
+      largura: 32
   - id: '19'
     label: '19'
     box:
@@ -141,10 +141,10 @@ mapas:
   - id: '17'
     label: '17'
     box:
-      x: 322
+      x: 320
       y: 586
-      comprimento: 30
-      largura: 25
+      comprimento: 34
+      largura: 31
   - id: '07'
     label: '07'
     box:
@@ -173,13 +173,6 @@ mapas:
       y: 781
       comprimento: 37
       largura: 30
-  - id: Portao
-    label: Portão
-    box:
-      x: 200
-      y: 858
-      comprimento: 126
-      largura: 50
   - id: Vale_da_Onca
     label: Vale da Onça
     box:
@@ -192,8 +185,8 @@ mapas:
     box:
       x: 1090
       y: 940
-      comprimento: 86
-      largura: 46
+      comprimento: 91
+      largura: 52
   referencias:
   - escalada: Osteoporose
     ids:
@@ -258,6 +251,23 @@ mapas:
   - escalada: As Bondosas
     ids:
     - '23'
+  - ids:
+    - '08'
+    setor: Setor Geriatria
+    escalada: Tira o Andador e Vai
+  - ids:
+    - '09'
+    setor: Setor Geriatria
+    escalada: Rupestre
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - Vale_da_Onca
+    setor: Setor Vale da Onça
+  - ids:
+    - Onda_de_Calcario
+    setor: Setor Onda de Calcário
 escaladas:
 - via_esportiva:
     nome: Osteoporose
@@ -438,7 +448,8 @@ escaladas:
     conquistadores:
     - Roberto Lincoln
     - André Braga
----
+---
+
 # Setor Geriatria
 
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.

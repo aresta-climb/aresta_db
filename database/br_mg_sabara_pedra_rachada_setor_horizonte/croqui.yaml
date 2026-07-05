@@ -23,7 +23,7 @@ picos:
     caminho: mapas_gerais.md
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
-revisado_bounding_circle: false
+revisado_bounding_circle: true
 status_desenho_extraivel: DESENHO_EXTRAIDO
 botoes:
 - texto: Capa

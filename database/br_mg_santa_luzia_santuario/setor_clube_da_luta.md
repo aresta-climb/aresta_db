@@ -1,4 +1,4 @@
----
+---
 nome: Setor Clube da Luta
 mapas:
 - caminho_imagem_mapa: imagens/setor_clube_da_luta_p1.webp
@@ -7,116 +7,100 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    circular:
       x: 448
       y: 58
-      comprimento: 43
-      largura: 41
+      raio: 35
   - id: '02'
     label: '02'
-    box:
-      x: 450
-      y: 146
-      comprimento: 54
-      largura: 49
+    circular:
+      x: 448
+      y: 147
+      raio: 36
   - id: '03'
     label: '03'
-    box:
-      x: 450
-      y: 240
-      comprimento: 57
-      largura: 52
+    circular:
+      x: 449
+      y: 241
+      raio: 36
   - id: '04'
     label: '04'
-    box:
-      x: 424
-      y: 339
-      comprimento: 53
-      largura: 62
+    circular:
+      x: 426
+      y: 345
+      raio: 36
   - id: '05'
     label: '05'
-    box:
+    circular:
       x: 366
       y: 456
-      comprimento: 54
-      largura: 57
+      raio: 36
   - id: '06'
     label: '06'
-    box:
+    circular:
       x: 320
-      y: 600
-      comprimento: 47
-      largura: 60
+      y: 599
+      raio: 35
   - id: '07'
     label: '07'
-    box:
-      x: 250
-      y: 711
-      comprimento: 43
-      largura: 56
+    circular:
+      x: 248
+      y: 713
+      raio: 35
   - id: '08'
     label: '08'
-    box:
-      x: 228
-      y: 836
-      comprimento: 46
-      largura: 54
+    circular:
+      x: 229
+      y: 839
+      raio: 35
   - id: '09'
     label: '09'
-    box:
+    circular:
       x: 231
-      y: 974
-      comprimento: 46
-      largura: 47
+      y: 979
+      raio: 35
   - id: '10'
     label: '10'
-    box:
-      x: 268
-      y: 1134
-      comprimento: 60
-      largura: 51
+    circular:
+      x: 265
+      y: 1135
+      raio: 35
   - id: '11'
     label: '11'
-    box:
-      x: 303
-      y: 1250
-      comprimento: 64
-      largura: 53
+    circular:
+      x: 304
+      y: 1247
+      raio: 35
   - id: '12'
     label: '12'
-    box:
-      x: 358
+    circular:
+      x: 353
       y: 1378
-      comprimento: 73
-      largura: 53
+      raio: 35
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 376
       y: 1520
-      comprimento: 63
-      largura: 61
+      raio: 35
   - id: '14'
     label: '14'
-    box:
-      x: 389
-      y: 1666
-      comprimento: 58
-      largura: 55
+    circular:
+      x: 390
+      y: 1663
+      raio: 35
   - id: '15'
     label: '15'
-    box:
+    circular:
       x: 412
-      y: 1808
-      comprimento: 59
-      largura: 62
+      y: 1806
+      raio: 35
   - id: '16'
     label: '16'
-    box:
+    circular:
       x: 412
       y: 1948
-      comprimento: 65
-      largura: 54
+      raio: 35
   referencias:
   - escalada: POLLY SHELBY
     ids:
@@ -260,7 +244,8 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: PROJETO
----
+---
+
 # Setor Clube da Luta
 
 ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp)

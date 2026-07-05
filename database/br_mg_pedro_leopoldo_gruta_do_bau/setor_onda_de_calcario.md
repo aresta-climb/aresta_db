@@ -1,50 +1,43 @@
----
+---
 nome: Setor Onda de Calcário
 mapas:
 - caminho_imagem_mapa: imagens/setor_onda_de_calcario_p0_i6.webp
   largura_mapa: 1041
   altura_mapa: 1213
   pontos_de_interesse:
-  - id: Trilha_Caminhada
-    label: Trilha Caminhada
-    box:
-      x: 646
-      y: 26
-      comprimento: 219
-      largura: 27
   - id: '01'
     label: '01'
     box:
       x: 505
-      y: 73
-      comprimento: 26
-      largura: 22
+      y: 74
+      comprimento: 30
+      largura: 27
   - id: '02'
     label: '02'
     box:
-      x: 488
-      y: 187
-      comprimento: 38
-      largura: 24
+      x: 486
+      y: 186
+      comprimento: 31
+      largura: 29
   - id: '03'
     label: '03'
     box:
       x: 482
       y: 219
-      comprimento: 34
-      largura: 28
+      comprimento: 33
+      largura: 26
   - id: '14'
     label: '14'
     box:
-      x: 500
-      y: 252
-      comprimento: 31
-      largura: 29
+      x: 501
+      y: 253
+      comprimento: 28
+      largura: 26
   - id: '04'
     label: '04'
     box:
       x: 512
-      y: 280
+      y: 282
       comprimento: 31
       largura: 25
   - id: '15'
@@ -59,64 +52,64 @@ mapas:
     box:
       x: 500
       y: 411
-      comprimento: 33
+      comprimento: 31
       largura: 26
   - id: '06'
     label: '06'
     box:
       x: 438
       y: 440
-      comprimento: 29
+      comprimento: 32
       largura: 29
   - id: '16'
     label: '16'
     box:
-      x: 478
+      x: 480
       y: 440
-      comprimento: 31
-      largura: 25
+      comprimento: 29
+      largura: 26
   - id: '07'
     label: '07'
     box:
       x: 364
       y: 510
-      comprimento: 33
-      largura: 26
+      comprimento: 31
+      largura: 29
   - id: '08'
     label: '08'
     box:
-      x: 356
-      y: 602
-      comprimento: 33
-      largura: 25
+      x: 355
+      y: 603
+      comprimento: 30
+      largura: 28
   - id: '09'
     label: '09'
     box:
-      x: 398
-      y: 634
-      comprimento: 43
-      largura: 28
+      x: 390
+      y: 636
+      comprimento: 31
+      largura: 29
   - id: '10'
     label: '10'
     box:
-      x: 436
-      y: 718
-      comprimento: 31
+      x: 435
+      y: 719
+      comprimento: 26
       largura: 26
   - id: '11'
     label: '11'
     box:
       x: 462
       y: 818
-      comprimento: 24
-      largura: 24
+      comprimento: 25
+      largura: 26
   - id: '12'
     label: '12'
     box:
       x: 472
       y: 924
-      comprimento: 27
-      largura: 22
+      comprimento: 28
+      largura: 28
   - id: '13'
     label: '13'
     box:
@@ -127,10 +120,10 @@ mapas:
   - id: Setores_Sentinela_e_Geriatria
     label: Setores Sentinela e Geriatria
     box:
-      x: 597
+      x: 596
       y: 1176
-      comprimento: 226
-      largura: 64
+      comprimento: 232
+      largura: 68
   referencias:
   - escalada: Marreta Kamikaze
     ids:
@@ -174,6 +167,20 @@ mapas:
   - escalada: Zig Marley
     ids:
     - '16'
+  - ids:
+    - Setores_Sentinela_e_Geriatria
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - Setores_Sentinela_e_Geriatria
+    setor: Setor Geriatria
+  - ids:
+    - '08'
+    setor: Setor Onda de Calcário
+    escalada: Rayovac
+  - ids:
+    - '09'
+    setor: Setor Onda de Calcário
+    escalada: O Corpo Ainda é Pouco
 escaladas:
 - via_esportiva:
     nome: Marreta Kamikaze
@@ -311,7 +318,8 @@ escaladas:
     - Iule Ornelas
     - Igor Andrade
     - Samuel Lucas
----
+---
+
 # Setor Onda de Calcário
 
 **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.

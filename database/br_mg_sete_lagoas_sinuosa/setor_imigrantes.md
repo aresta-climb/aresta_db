@@ -1,4 +1,4 @@
----
+---
 nome: Setor Imigrantes
 mapas:
 - caminho_imagem_mapa: imagens/setor_imigrantes_p0_i0.webp
@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 512
-      y: 892
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 513
+      y: 891
+      raio: 13
   - id: '2'
     label: '2'
-    box:
-      x: 441
-      y: 816
-      comprimento: 22
-      largura: 22
+    circular:
+      x: 443
+      y: 818
+      raio: 13
   - id: '3'
     label: '3'
-    box:
-      x: 442
-      y: 786
-      comprimento: 22
-      largura: 25
+    circular:
+      x: 443
+      y: 788
+      raio: 13
   - id: '4'
     label: '4'
-    box:
+    circular:
       x: 54
-      y: 738
-      comprimento: 35
-      largura: 35
+      y: 743
+      raio: 13
   - id: '5'
     label: '5'
-    box:
-      x: 62
+    circular:
+      x: 64
       y: 658
-      comprimento: 35
-      largura: 35
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 82
-      y: 608
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 79
+      y: 602
+      raio: 13
   - id: '7'
     label: '7'
-    box:
-      x: 100
-      y: 500
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 101
+      y: 499
+      raio: 13
   - id: '8'
     label: '8'
-    box:
-      x: 122
-      y: 418
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 123
+      y: 417
+      raio: 13
   - id: Sentinela
     label: ← SENTINELA
     box:
@@ -100,6 +92,12 @@ mapas:
   - escalada: Escalada Eclética
     ids:
     - '8'
+  - ids:
+    - Sentinela
+    setor: Setor Sentinela
+  - ids:
+    - Vale_das_Sombras
+    setor: Setor Vale das Sombras
 escaladas:
 - via_esportiva:
     nome: Ressucita Makita
@@ -133,5 +131,6 @@ escaladas:
     nome: Escalada Eclética
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 6
----
+---
+
 # Setor Imigrantes

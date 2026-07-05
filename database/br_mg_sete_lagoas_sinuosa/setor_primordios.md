@@ -1,4 +1,4 @@
----
+---
 nome: Setor Primórdios
 mapas:
 - caminho_imagem_mapa: imagens/setor_primordios_p0_i0.webp
@@ -7,88 +7,76 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 82
+    circular:
+      x: 84
       y: 444
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '2'
     label: '2'
-    box:
-      x: 298
-      y: 482
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 297
+      y: 480
+      raio: 20
   - id: '3'
     label: '3'
-    box:
-      x: 302
-      y: 420
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 300
+      y: 422
+      raio: 20
   - id: '4'
     label: '4'
-    box:
-      x: 298
-      y: 245
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 296
+      y: 244
+      raio: 21
   - id: '5'
     label: '5'
-    box:
-      x: 288
-      y: 180
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 286
+      y: 181
+      raio: 21
   - id: '6'
     label: '6'
-    box:
-      x: 326
+    circular:
+      x: 323
       y: 144
-      comprimento: 35
-      largura: 35
+      raio: 21
   - id: '7'
     label: '7'
-    box:
-      x: 442
-      y: 167
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 441
+      y: 166
+      raio: 21
   - id: '8'
     label: '8'
-    box:
-      x: 462
-      y: 120
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 463
+      y: 121
+      raio: 21
   - id: '9'
     label: '9'
-    box:
-      x: 488
-      y: 65
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 487
+      y: 64
+      raio: 21
   - id: '10'
     label: '10'
-    box:
-      x: 562
-      y: 156
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 564
+      y: 158
+      raio: 21
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 866
-      y: 132
-      comprimento: 35
-      largura: 40
+      y: 134
+      raio: 21
   - id: '12'
     label: '12'
-    box:
+    circular:
       x: 924
-      y: 152
-      comprimento: 35
-      largura: 40
+      y: 153
+      raio: 21
   referencias:
   - escalada: No Pulso
     ids:
@@ -175,7 +163,8 @@ escaladas:
     nome: Não Deu Bigode
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
----
+---
+
 # Setor Primórdios
 
 Setor onde tudo começou na década de 90, parede com grande concentração

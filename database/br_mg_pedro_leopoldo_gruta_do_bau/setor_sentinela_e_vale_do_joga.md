@@ -1,4 +1,4 @@
----
+---
 nome: Setor Sentinela e Vale do Joga
 mapas:
 - caminho_imagem_mapa: imagens/setor_sentinela_e_vale_do_joga_p0_i6.webp
@@ -9,9 +9,9 @@ mapas:
     label: Setor Onda
     box:
       x: 971
-      y: 27
-      comprimento: 68
-      largura: 42
+      y: 28
+      comprimento: 72
+      largura: 51
   - id: Vale_dos_Espinhos_Top
     label: Vale dos Espinhos
     box:
@@ -22,192 +22,185 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 514
-      y: 283
-      comprimento: 53
-      largura: 30
+      x: 506
+      y: 284
+      comprimento: 31
+      largura: 29
   - id: '06'
     label: '06'
     box:
-      x: 644
-      y: 310
-      comprimento: 42
-      largura: 22
+      x: 650
+      y: 311
+      comprimento: 29
+      largura: 28
   - id: '02'
     label: '02'
     box:
-      x: 486
-      y: 322
-      comprimento: 39
-      largura: 25
+      x: 484
+      y: 324
+      comprimento: 31
+      largura: 27
   - id: '03'
     label: '03'
     box:
       x: 438
       y: 350
-      comprimento: 35
-      largura: 23
+      comprimento: 32
+      largura: 28
   - id: '07'
     label: '07'
     box:
-      x: 750
-      y: 356
-      comprimento: 35
-      largura: 25
-  - id: Vale_do_Joga
-    label: Vale do Joga
-    box:
-      x: 546
-      y: 398
-      comprimento: 101
-      largura: 65
+      x: 751
+      y: 357
+      comprimento: 30
+      largura: 26
   - id: '08'
     label: '08'
     box:
-      x: 737
-      y: 389
-      comprimento: 36
-      largura: 24
+      x: 738
+      y: 390
+      comprimento: 31
+      largura: 28
   - id: '04'
     label: '04'
     box:
-      x: 470
-      y: 448
-      comprimento: 35
-      largura: 24
+      x: 469
+      y: 450
+      comprimento: 32
+      largura: 27
   - id: '09'
     label: '09'
     box:
       x: 700
-      y: 472
-      comprimento: 34
-      largura: 25
+      y: 473
+      comprimento: 31
+      largura: 28
   - id: '05'
     label: '05'
     box:
       x: 642
       y: 482
-      comprimento: 35
-      largura: 23
+      comprimento: 31
+      largura: 27
   - id: '10'
     label: '10'
     box:
-      x: 676
+      x: 674
       y: 510
-      comprimento: 29
-      largura: 20
+      comprimento: 31
+      largura: 25
   - id: '11'
     label: '11'
     box:
       x: 632
       y: 524
-      comprimento: 25
-      largura: 21
+      comprimento: 29
+      largura: 25
   - id: '13'
     label: '13'
     box:
-      x: 526
-      y: 540
-      comprimento: 31
-      largura: 21
+      x: 527
+      y: 542
+      comprimento: 30
+      largura: 27
   - id: '12'
     label: '12'
     box:
       x: 582
-      y: 537
-      comprimento: 32
-      largura: 24
+      y: 538
+      comprimento: 31
+      largura: 26
   - id: '14'
     label: '14'
     box:
       x: 474
-      y: 550
-      comprimento: 29
-      largura: 21
+      y: 551
+      comprimento: 30
+      largura: 26
   - id: '15'
     label: '15'
     box:
       x: 375
       y: 797
-      comprimento: 26
-      largura: 16
+      comprimento: 28
+      largura: 26
   - id: '17'
     label: '17'
     box:
       x: 678
       y: 930
-      comprimento: 23
-      largura: 16
+      comprimento: 28
+      largura: 26
   - id: '28'
     label: '28'
     box:
       x: 732
-      y: 936
-      comprimento: 33
-      largura: 24
+      y: 937
+      comprimento: 30
+      largura: 28
   - id: '16'
     label: '16'
     box:
       x: 592
-      y: 952
-      comprimento: 30
-      largura: 25
+      y: 954
+      comprimento: 29
+      largura: 29
   - id: Vale_dos_Espinhos_Bottom
     label: Vale dos Espinhos
     box:
       x: 144
       y: 982
-      comprimento: 125
-      largura: 63
+      comprimento: 127
+      largura: 69
   - id: '18'
     label: '18'
     box:
       x: 732
       y: 967
-      comprimento: 30
-      largura: 20
+      comprimento: 29
+      largura: 24
   - id: '19'
     label: '19'
     box:
       x: 740
       y: 1044
-      comprimento: 29
-      largura: 20
+      comprimento: 28
+      largura: 26
   - id: '20'
     label: '20'
     box:
       x: 748
       y: 1078
-      comprimento: 31
-      largura: 19
+      comprimento: 30
+      largura: 24
   - id: '21'
     label: '21'
     box:
-      x: 725
-      y: 1128
-      comprimento: 26
-      largura: 21
+      x: 726
+      y: 1129
+      comprimento: 27
+      largura: 26
   - id: '23'
     label: '23'
     box:
       x: 678
       y: 1152
-      comprimento: 30
-      largura: 20
+      comprimento: 29
+      largura: 25
   - id: '22'
     label: '22'
     box:
-      x: 713
-      y: 1172
+      x: 714
+      y: 1170
       comprimento: 30
-      largura: 21
+      largura: 25
   - id: '24'
     label: '24'
     box:
       x: 722
-      y: 1227
+      y: 1228
       comprimento: 29
-      largura: 16
+      largura: 19
   - id: '27'
     label: '27'
     box:
@@ -218,24 +211,24 @@ mapas:
   - id: '25'
     label: '25'
     box:
-      x: 732
+      x: 733
       y: 1269
-      comprimento: 27
-      largura: 16
+      comprimento: 28
+      largura: 18
   - id: Setor_Entrada
     label: Setor Entrada
     box:
       x: 966
-      y: 1287
-      comprimento: 105
-      largura: 46
+      y: 1288
+      comprimento: 109
+      largura: 59
   - id: '26'
     label: '26'
     box:
       x: 720
-      y: 1301
+      y: 1300
       comprimento: 27
-      largura: 16
+      largura: 21
   referencias:
   - escalada: Barbie Face última
     ids:
@@ -315,6 +308,24 @@ mapas:
   - escalada: Paisagistas
     ids:
     - '28'
+  - ids:
+    - '08'
+    setor: Setor Sentinela e Vale do Joga
+    escalada: Contagem Regressiva
+  - ids:
+    - '09'
+    setor: Setor Sentinela e Vale do Joga
+    escalada: Woodstock
+  - ids:
+    - Vale_dos_Espinhos_Bottom
+    - Vale_dos_Espinhos_Top
+    setor: Setor Vale dos Espinhos
+  - ids:
+    - Setor_Onda
+    setor: Setor Onda de Calcário
+  - ids:
+    - Setor_Entrada
+    setor: Setor Entrada Inferior
 escaladas:
 - via_esportiva:
     nome: Barbie Face última
@@ -541,7 +552,8 @@ escaladas:
     - Iule Ornelas
     - Márcio Vasconcelos
     - Samuel Lucas
----
+---
+
 # Setor Sentinela e Vale do Joga
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Depois de passar pela base das vias “Retorno de Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da via “Sentinela”.

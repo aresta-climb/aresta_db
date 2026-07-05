@@ -1,4 +1,4 @@
----
+---
 nome: Setor Yanomami
 mapas:
 - caminho_imagem_mapa: imagens/setor_yanomami_p0_i0.webp
@@ -8,72 +8,72 @@ mapas:
   - id: '1'
     label: '1'
     box:
-      x: 76
+      x: 78
       y: 811
-      comprimento: 30
-      largura: 30
+      comprimento: 25
+      largura: 28
   - id: '2'
     label: '2'
     box:
       x: 122
       y: 780
-      comprimento: 17
-      largura: 23
+      comprimento: 26
+      largura: 28
   - id: '3'
     label: '3'
     box:
-      x: 166
-      y: 759
-      comprimento: 21
+      x: 165
+      y: 760
+      comprimento: 26
       largura: 28
   - id: '4'
     label: '4'
     box:
-      x: 251
-      y: 750
-      comprimento: 30
-      largura: 30
+      x: 252
+      y: 752
+      comprimento: 25
+      largura: 28
   - id: '5'
     label: '5'
     box:
       x: 294
       y: 752
-      comprimento: 30
-      largura: 30
+      comprimento: 29
+      largura: 25
   - id: '6'
     label: '6'
     box:
       x: 374
       y: 796
-      comprimento: 30
-      largura: 30
+      comprimento: 29
+      largura: 26
   - id: '7'
     label: '7'
     box:
       x: 421
-      y: 848
-      comprimento: 22
-      largura: 24
+      y: 849
+      comprimento: 28
+      largura: 28
   - id: '8'
     label: '8'
     box:
-      x: 472
-      y: 876
-      comprimento: 30
-      largura: 30
+      x: 474
+      y: 874
+      comprimento: 25
+      largura: 27
   - id: '9'
     label: '9'
     box:
       x: 518
-      y: 872
-      comprimento: 21
-      largura: 25
+      y: 873
+      comprimento: 26
+      largura: 30
   - id: '10'
     label: '10'
     box:
-      x: 541
+      x: 542
       y: 682
-      comprimento: 34
+      comprimento: 31
       largura: 30
   - id: '11'
     label: '11'
@@ -86,16 +86,16 @@ mapas:
     label: '12'
     box:
       x: 686
-      y: 814
-      comprimento: 27
-      largura: 25
+      y: 816
+      comprimento: 31
+      largura: 32
   - id: '13'
     label: '13'
     box:
       x: 734
-      y: 814
-      comprimento: 25
-      largura: 25
+      y: 816
+      comprimento: 32
+      largura: 30
   - id: '14'
     label: '14'
     box:
@@ -106,7 +106,7 @@ mapas:
   - id: '15'
     label: '15'
     box:
-      x: 919
+      x: 918
       y: 477
       comprimento: 30
       largura: 30
@@ -115,8 +115,8 @@ mapas:
     box:
       x: 1006
       y: 592
-      comprimento: 37
-      largura: 31
+      comprimento: 32
+      largura: 27
   - id: '17'
     label: '17'
     box:
@@ -127,17 +127,17 @@ mapas:
   - id: '18'
     label: '18'
     box:
-      x: 1141
-      y: 388
-      comprimento: 26
-      largura: 25
+      x: 1142
+      y: 386
+      comprimento: 30
+      largura: 30
   - id: '19'
     label: '19'
     box:
       x: 995
       y: 895
-      comprimento: 30
-      largura: 26
+      comprimento: 34
+      largura: 30
   - id: '20'
     label: '20'
     box:
@@ -149,7 +149,7 @@ mapas:
     label: '21'
     box:
       x: 1498
-      y: 936
+      y: 938
       comprimento: 32
       largura: 27
   referencias:
@@ -332,7 +332,8 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Yanomami
 
 Sombra até as 14h30 (varia de acordo com a estação).

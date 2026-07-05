@@ -124,6 +124,7 @@
             | *Instruções sobre a estrutura do guia* |
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_clube_da_luta
@@ -146,131 +147,115 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **circular**:
           - **x**: 448
           - **y**: 58
-          - **comprimento**: 43
-          - **largura**: 41
+          - **raio**: 35
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
-          - **x**: 450
-          - **y**: 146
-          - **comprimento**: 54
-          - **largura**: 49
+        - **circular**:
+          - **x**: 448
+          - **y**: 147
+          - **raio**: 36
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
-          - **x**: 450
-          - **y**: 240
-          - **comprimento**: 57
-          - **largura**: 52
+        - **circular**:
+          - **x**: 449
+          - **y**: 241
+          - **raio**: 36
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
-          - **x**: 424
-          - **y**: 339
-          - **comprimento**: 53
-          - **largura**: 62
+        - **circular**:
+          - **x**: 426
+          - **y**: 345
+          - **raio**: 36
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **circular**:
           - **x**: 366
           - **y**: 456
-          - **comprimento**: 54
-          - **largura**: 57
+          - **raio**: 36
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **circular**:
           - **x**: 320
-          - **y**: 600
-          - **comprimento**: 47
-          - **largura**: 60
+          - **y**: 599
+          - **raio**: 35
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
-          - **x**: 250
-          - **y**: 711
-          - **comprimento**: 43
-          - **largura**: 56
+        - **circular**:
+          - **x**: 248
+          - **y**: 713
+          - **raio**: 35
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **box**:
-          - **x**: 228
-          - **y**: 836
-          - **comprimento**: 46
-          - **largura**: 54
+        - **circular**:
+          - **x**: 229
+          - **y**: 839
+          - **raio**: 35
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **box**:
+        - **circular**:
           - **x**: 231
-          - **y**: 974
-          - **comprimento**: 46
-          - **largura**: 47
+          - **y**: 979
+          - **raio**: 35
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 268
-          - **y**: 1134
-          - **comprimento**: 60
-          - **largura**: 51
+        - **circular**:
+          - **x**: 265
+          - **y**: 1135
+          - **raio**: 35
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 303
-          - **y**: 1250
-          - **comprimento**: 64
-          - **largura**: 53
+        - **circular**:
+          - **x**: 304
+          - **y**: 1247
+          - **raio**: 35
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 358
+        - **circular**:
+          - **x**: 353
           - **y**: 1378
-          - **comprimento**: 73
-          - **largura**: 53
+          - **raio**: 35
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 376
           - **y**: 1520
-          - **comprimento**: 63
-          - **largura**: 61
+          - **raio**: 35
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
-          - **x**: 389
-          - **y**: 1666
-          - **comprimento**: 58
-          - **largura**: 55
+        - **circular**:
+          - **x**: 390
+          - **y**: 1663
+          - **raio**: 35
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **circular**:
           - **x**: 412
-          - **y**: 1808
-          - **comprimento**: 59
-          - **largura**: 62
+          - **y**: 1806
+          - **raio**: 35
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **circular**:
           - **x**: 412
           - **y**: 1948
-          - **comprimento**: 65
-          - **largura**: 54
+          - **raio**: 35
     - **referencias**:
       - **[0]**:
         - **escalada**: POLLY SHELBY
@@ -501,123 +486,108 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **circular**:
           - **x**: 288
-          - **y**: 76
-          - **comprimento**: 26
-          - **largura**: 35
+          - **y**: 77
+          - **raio**: 33
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
-          - **x**: 438
+        - **circular**:
+          - **x**: 439
           - **y**: 133
-          - **comprimento**: 26
-          - **largura**: 36
+          - **raio**: 34
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
-          - **x**: 556
-          - **y**: 237
-          - **comprimento**: 28
-          - **largura**: 36
+        - **circular**:
+          - **x**: 557
+          - **y**: 238
+          - **raio**: 34
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **circular**:
           - **x**: 633
           - **y**: 372
-          - **comprimento**: 32
-          - **largura**: 38
+          - **raio**: 33
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
-          - **x**: 698
-          - **y**: 539
-          - **comprimento**: 32
-          - **largura**: 40
+        - **circular**:
+          - **x**: 700
+          - **y**: 541
+          - **raio**: 33
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **circular**:
           - **x**: 784
-          - **y**: 716
-          - **comprimento**: 32
-          - **largura**: 40
+          - **y**: 718
+          - **raio**: 33
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
+        - **circular**:
           - **x**: 799
-          - **y**: 866
-          - **comprimento**: 28
-          - **largura**: 38
+          - **y**: 867
+          - **raio**: 33
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **box**:
-          - **x**: 898
-          - **y**: 964
-          - **comprimento**: 26
-          - **largura**: 35
+        - **circular**:
+          - **x**: 899
+          - **y**: 965
+          - **raio**: 33
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **box**:
-          - **x**: 930
-          - **y**: 1076
-          - **comprimento**: 24
-          - **largura**: 33
+        - **circular**:
+          - **x**: 931
+          - **y**: 1077
+          - **raio**: 33
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **circular**:
           - **x**: 953
           - **y**: 1190
-          - **comprimento**: 48
-          - **largura**: 39
+          - **raio**: 33
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **circular**:
           - **x**: 964
           - **y**: 1301
-          - **comprimento**: 47
-          - **largura**: 38
+          - **raio**: 33
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 964
-          - **y**: 1413
-          - **comprimento**: 47
-          - **largura**: 38
+        - **circular**:
+          - **x**: 966
+          - **y**: 1414
+          - **raio**: 34
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 975
-          - **y**: 1557
-          - **comprimento**: 48
-          - **largura**: 38
+          - **y**: 1558
+          - **raio**: 34
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **circular**:
           - **x**: 975
           - **y**: 1700
-          - **comprimento**: 48
-          - **largura**: 36
+          - **raio**: 34
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **circular**:
           - **x**: 975
           - **y**: 1844
-          - **comprimento**: 48
-          - **largura**: 38
+          - **raio**: 34
     - **referencias**:
       - **[0]**:
         - **escalada**: MEU AMIGO CHARLIE BROWN
@@ -910,123 +880,108 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
-          - **x**: 270
-          - **y**: 254
-          - **comprimento**: 38
-          - **largura**: 39
+        - **circular**:
+          - **x**: 272
+          - **y**: 252
+          - **raio**: 28
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
-          - **x**: 428
+        - **circular**:
+          - **x**: 429
           - **y**: 322
-          - **comprimento**: 39
-          - **largura**: 39
+          - **raio**: 29
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
-          - **x**: 554
+        - **circular**:
+          - **x**: 555
           - **y**: 392
-          - **comprimento**: 39
-          - **largura**: 39
+          - **raio**: 29
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **circular**:
           - **x**: 726
-          - **y**: 420
-          - **comprimento**: 39
-          - **largura**: 39
+          - **y**: 421
+          - **raio**: 29
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
-          - **x**: 881
-          - **y**: 486
-          - **comprimento**: 38
-          - **largura**: 39
+        - **circular**:
+          - **x**: 880
+          - **y**: 485
+          - **raio**: 29
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **circular**:
           - **x**: 1020
-          - **y**: 584
-          - **comprimento**: 39
-          - **largura**: 39
+          - **y**: 585
+          - **raio**: 29
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
-          - **x**: 1132
-          - **y**: 694
-          - **comprimento**: 39
-          - **largura**: 39
+        - **circular**:
+          - **x**: 1134
+          - **y**: 696
+          - **raio**: 29
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **box**:
-          - **x**: 1192
-          - **y**: 822
-          - **comprimento**: 39
-          - **largura**: 39
+        - **circular**:
+          - **x**: 1191
+          - **y**: 823
+          - **raio**: 29
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **box**:
-          - **x**: 1240
-          - **y**: 944
-          - **comprimento**: 39
-          - **largura**: 39
+        - **circular**:
+          - **x**: 1238
+          - **y**: 945
+          - **raio**: 29
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
-          - **x**: 1265
+        - **circular**:
+          - **x**: 1266
           - **y**: 1070
-          - **comprimento**: 46
-          - **largura**: 37
+          - **raio**: 29
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
-          - **x**: 1311
+        - **circular**:
+          - **x**: 1313
           - **y**: 1190
-          - **comprimento**: 48
-          - **largura**: 41
+          - **raio**: 29
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
-          - **x**: 1370
-          - **y**: 1306
-          - **comprimento**: 46
-          - **largura**: 38
+        - **circular**:
+          - **x**: 1371
+          - **y**: 1307
+          - **raio**: 29
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **circular**:
           - **x**: 1476
           - **y**: 1634
-          - **comprimento**: 47
-          - **largura**: 37
+          - **raio**: 29
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
-          - **x**: 1534
+        - **circular**:
+          - **x**: 1535
           - **y**: 1759
-          - **comprimento**: 46
-          - **largura**: 36
+          - **raio**: 29
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
-          - **x**: 1559
-          - **y**: 1885
-          - **comprimento**: 42
-          - **largura**: 34
+        - **circular**:
+          - **x**: 1561
+          - **y**: 1886
+          - **raio**: 29
     - **referencias**:
       - **[0]**:
         - **escalada**: O PODER DO ROCAMBOLE

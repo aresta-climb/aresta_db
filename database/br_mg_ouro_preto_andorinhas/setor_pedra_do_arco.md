@@ -1,4 +1,4 @@
----
+---
 nome: Pedra do Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_do_arco_p0.webp
@@ -7,67 +7,58 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 252
-      y: 801
-      comprimento: 28
-      largura: 34
+    circular:
+      x: 253
+      y: 803
+      raio: 20
   - id: '2'
     label: '2'
-    box:
-      x: 406
-      y: 798
-      comprimento: 21
-      largura: 29
+    circular:
+      x: 409
+      y: 799
+      raio: 20
   - id: '3'
     label: '3'
-    box:
-      x: 527
-      y: 760
-      comprimento: 32
-      largura: 37
+    circular:
+      x: 528
+      y: 759
+      raio: 21
   - id: '4'
     label: '4'
-    box:
-      x: 802
+    circular:
+      x: 805
       y: 674
-      comprimento: 25
-      largura: 32
+      raio: 20
   - id: '5'
     label: '5'
-    box:
-      x: 954
-      y: 598
-      comprimento: 25
-      largura: 35
+    circular:
+      x: 957
+      y: 599
+      raio: 20
   - id: '6'
     label: '6'
-    box:
+    circular:
       x: 1110
       y: 554
-      comprimento: 31
-      largura: 32
+      raio: 20
   - id: '7'
     label: '7'
-    box:
-      x: 1458
-      y: 821
-      comprimento: 35
-      largura: 40
+    circular:
+      x: 1456
+      y: 823
+      raio: 20
   - id: '8'
     label: '8'
-    box:
-      x: 1574
-      y: 751
-      comprimento: 24
-      largura: 30
+    circular:
+      x: 1577
+      y: 750
+      raio: 20
   - id: '9'
     label: '9'
-    box:
-      x: 1938
-      y: 741
-      comprimento: 33
-      largura: 42
+    circular:
+      x: 1942
+      y: 743
+      raio: 20
   referencias:
   - escalada: Aresta do Apicultor
     ids:
@@ -179,7 +170,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
----
+---
+
 # Setor Pedra do Arco
 
 Setor com vias de 12m até 17m.

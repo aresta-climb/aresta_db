@@ -110,15 +110,23 @@ class DialogoBuscaReferencia(QDialog):
                             "escalada": nome_esc
                         })
 
+    def _remover_acentos(self, texto):
+        import unicodedata
+        return ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
+
     def _popular_lista(self, filtro=""):
         self.lista_resultados.clear()
-        filtro_lower = filtro.lower()
+        filtro_lower = self._remover_acentos(filtro.lower())
         
         for entidade in self.todas_entidades:
-            if filtro_lower in entidade["display"].lower():
+            display_lower = self._remover_acentos(entidade["display"].lower())
+            if filtro_lower in display_lower:
                 item = QListWidgetItem(entidade["display"])
                 item.setData(Qt.ItemDataRole.UserRole, entidade)
                 self.lista_resultados.addItem(item)
+                
+        if self.lista_resultados.count() > 0:
+            self.lista_resultados.setCurrentRow(0)
                 
     def _filtrar_resultados(self, texto):
         self._popular_lista(texto)

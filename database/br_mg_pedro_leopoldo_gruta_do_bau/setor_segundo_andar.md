@@ -1,4 +1,4 @@
----
+---
 nome: Setor 2º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p0_i6.webp
@@ -10,22 +10,22 @@ mapas:
     box:
       x: 168
       y: 82
-      comprimento: 27
-      largura: 21
+      comprimento: 28
+      largura: 24
   - id: '39'
     label: '39'
     box:
-      x: 256
-      y: 88
-      comprimento: 33
-      largura: 29
+      x: 258
+      y: 89
+      comprimento: 27
+      largura: 26
   - id: '37'
     label: '37'
     box:
       x: 150
       y: 166
-      comprimento: 27
-      largura: 21
+      comprimento: 26
+      largura: 23
   - id: '36'
     label: '36'
     box:
@@ -37,86 +37,79 @@ mapas:
     label: '40'
     box:
       x: 288
-      y: 217
-      comprimento: 27
-      largura: 20
+      y: 218
+      comprimento: 29
+      largura: 25
   - id: '34'
     label: '34'
     box:
-      x: 99
-      y: 234
-      comprimento: 28
-      largura: 21
+      x: 100
+      y: 235
+      comprimento: 27
+      largura: 24
   - id: '35'
     label: '35'
     box:
       x: 146
-      y: 229
+      y: 228
       comprimento: 27
-      largura: 22
+      largura: 23
   - id: '41'
     label: '41'
     box:
       x: 370
       y: 262
-      comprimento: 25
-      largura: 21
+      comprimento: 28
+      largura: 24
   - id: '42'
     label: '42'
     box:
-      x: 481
-      y: 270
-      comprimento: 28
-      largura: 21
+      x: 482
+      y: 272
+      comprimento: 29
+      largura: 27
   - id: '43'
     label: '43'
     box:
       x: 650
-      y: 250
-      comprimento: 30
-      largura: 20
+      y: 288
+      comprimento: 28
+      largura: 25
   - id: Setor_Entrada
     label: Setor Entrada
     box:
-      x: 948
-      y: 300
+      x: 950
+      y: 302
       comprimento: 75
       largura: 47
-  - id: Ponte_de_madeira
-    label: Ponte de madeira
-    box:
-      x: 816
-      y: 304
-      comprimento: 76
-      largura: 17
   - id: '33'
     label: '33'
     box:
       x: 126
       y: 330
-      comprimento: 29
-      largura: 25
+      comprimento: 25
+      largura: 23
   - id: '04'
     label: '04'
     box:
       x: 380
       y: 396
-      comprimento: 31
-      largura: 24
+      comprimento: 32
+      largura: 27
   - id: '03'
     label: '03'
     box:
       x: 448
-      y: 391
-      comprimento: 31
-      largura: 24
+      y: 392
+      comprimento: 29
+      largura: 27
   - id: '02'
     label: '02'
     box:
-      x: 554
-      y: 393
-      comprimento: 31
-      largura: 24
+      x: 553
+      y: 394
+      comprimento: 28
+      largura: 26
   - id: '32'
     label: '32'
     box:
@@ -127,10 +120,10 @@ mapas:
   - id: '05'
     label: '05'
     box:
-      x: 306
-      y: 412
+      x: 308
+      y: 413
       comprimento: 29
-      largura: 21
+      largura: 28
   - id: '01'
     label: '01'
     box:
@@ -150,78 +143,78 @@ mapas:
     box:
       x: 800
       y: 467
-      comprimento: 26
-      largura: 20
+      comprimento: 28
+      largura: 26
   - id: '31'
     label: '31'
     box:
       x: 146
-      y: 489
-      comprimento: 29
-      largura: 26
+      y: 490
+      comprimento: 26
+      largura: 23
   - id: '06'
     label: '06'
     box:
-      x: 287
-      y: 485
-      comprimento: 40
-      largura: 24
+      x: 291
+      y: 486
+      comprimento: 28
+      largura: 27
   - id: '22'
     label: '22'
     box:
       x: 956
-      y: 504
-      comprimento: 32
+      y: 505
+      comprimento: 31
       largura: 26
   - id: '18'
     label: '18'
     box:
-      x: 790
+      x: 794
       y: 526
-      comprimento: 36
-      largura: 23
+      comprimento: 28
+      largura: 26
   - id: '15'
     label: '15'
     box:
-      x: 650
+      x: 652
       y: 568
-      comprimento: 29
-      largura: 26
+      comprimento: 27
+      largura: 25
   - id: '19'
     label: '19'
     box:
-      x: 791
-      y: 574
-      comprimento: 34
-      largura: 29
+      x: 792
+      y: 575
+      comprimento: 30
+      largura: 26
   - id: '21'
     label: '21'
     box:
-      x: 905
-      y: 576
-      comprimento: 28
-      largura: 22
+      x: 904
+      y: 577
+      comprimento: 30
+      largura: 26
   - id: '07'
     label: '07'
     box:
-      x: 291
+      x: 292
       y: 588
-      comprimento: 32
-      largura: 24
+      comprimento: 31
+      largura: 28
   - id: '14'
     label: '14'
     box:
-      x: 615
+      x: 616
       y: 616
-      comprimento: 28
-      largura: 22
+      comprimento: 27
+      largura: 25
   - id: '08'
     label: '08'
     box:
-      x: 283
+      x: 284
       y: 666
-      comprimento: 32
-      largura: 25
+      comprimento: 31
+      largura: 28
   - id: '20'
     label: '20'
     box:
@@ -234,7 +227,7 @@ mapas:
     box:
       x: 362
       y: 672
-      comprimento: 31
+      comprimento: 29
       largura: 24
   - id: '10'
     label: '10'
@@ -242,27 +235,27 @@ mapas:
       x: 422
       y: 666
       comprimento: 27
-      largura: 22
+      largura: 27
   - id: '11'
     label: '11'
     box:
-      x: 508
+      x: 506
       y: 718
-      comprimento: 33
+      comprimento: 26
       largura: 25
   - id: '12'
     label: '12'
     box:
-      x: 578
-      y: 721
-      comprimento: 29
-      largura: 26
+      x: 579
+      y: 720
+      comprimento: 26
+      largura: 25
   - id: '13'
     label: '13'
     box:
-      x: 646
+      x: 647
       y: 715
-      comprimento: 29
+      comprimento: 26
       largura: 26
   - id: '44'
     label: '44'
@@ -281,59 +274,59 @@ mapas:
   - id: '29'
     label: '29'
     box:
-      x: 243
+      x: 244
       y: 846
-      comprimento: 32
+      comprimento: 28
       largura: 25
   - id: '26'
     label: '26'
     box:
       x: 498
-      y: 852
-      comprimento: 30
-      largura: 25
+      y: 853
+      comprimento: 27
+      largura: 22
   - id: '27'
     label: '27'
     box:
-      x: 452
+      x: 451
       y: 878
-      comprimento: 31
+      comprimento: 28
       largura: 25
   - id: '25'
     label: '25'
     box:
-      x: 528
-      y: 876
-      comprimento: 33
-      largura: 25
+      x: 527
+      y: 878
+      comprimento: 28
+      largura: 24
   - id: '28'
     label: '28'
     box:
       x: 350
-      y: 893
-      comprimento: 33
-      largura: 28
+      y: 894
+      comprimento: 28
+      largura: 23
   - id: '24'
     label: '24'
     box:
-      x: 540
+      x: 538
       y: 912
-      comprimento: 33
-      largura: 24
+      comprimento: 27
+      largura: 25
   - id: '23'
     label: '23'
     box:
       x: 542
       y: 969
-      comprimento: 31
+      comprimento: 29
       largura: 24
   - id: Setor_Fechadura_Abaixo
     label: Setor Fechadura (Abaixo)
     box:
-      x: 910
+      x: 906
       y: 1152
-      comprimento: 155
-      largura: 129
+      comprimento: 171
+      largura: 139
   referencias:
   - escalada: Criatura Hediondas
     ids:
@@ -470,6 +463,12 @@ mapas:
   - escalada: Amor Verdadeiro
     ids:
     - '44'
+  - ids:
+    - Setor_Entrada
+    setor: Setor Entrada Inferior
+  - ids:
+    - Setor_Fechadura_Abaixo
+    setor: Setor Fechadura
 escaladas:
 - via_esportiva:
     nome: Criatura Hediondas
@@ -829,7 +828,8 @@ escaladas:
     - Igor Andrade
     - Iule Ornelas
     - Samuel Lucas
----
+---
+
 # Setor 2º Andar
 
 **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras” a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para direita, subindo em direção ao segundo andar. O acesso é por uma ponte com dois troncos de madeira.

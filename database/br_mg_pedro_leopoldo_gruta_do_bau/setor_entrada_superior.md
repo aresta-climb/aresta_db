@@ -1,4 +1,4 @@
----
+---
 nome: Setor Entrada Superior
 mapas:
 - caminho_imagem_mapa: imagens/setor_entrada_superior_p0_i6.webp
@@ -15,10 +15,10 @@ mapas:
   - id: '23'
     label: '23'
     box:
-      x: 214
-      y: 128
-      comprimento: 40
-      largura: 37
+      x: 220
+      y: 134
+      comprimento: 27
+      largura: 28
   - id: '22'
     label: '22'
     box:
@@ -30,79 +30,72 @@ mapas:
     label: '40'
     box:
       x: 868
-      y: 156
-      comprimento: 33
-      largura: 32
+      y: 157
+      comprimento: 27
+      largura: 26
   - id: '21'
     label: '21'
     box:
       x: 62
       y: 184
-      comprimento: 23
-      largura: 25
+      comprimento: 26
+      largura: 28
   - id: '39'
     label: '39'
     box:
       x: 870
       y: 206
-      comprimento: 29
-      largura: 29
+      comprimento: 28
+      largura: 26
   - id: '24'
     label: '24'
     box:
       x: 180
       y: 222
-      comprimento: 29
-      largura: 27
+      comprimento: 27
+      largura: 28
   - id: '20'
     label: '20'
     box:
-      x: 52
-      y: 268
-      comprimento: 42
-      largura: 30
+      x: 48
+      y: 269
+      comprimento: 27
+      largura: 28
   - id: '38'
     label: '38'
     box:
-      x: 862
-      y: 258
-      comprimento: 21
-      largura: 24
+      x: 864
+      y: 260
+      comprimento: 25
+      largura: 25
   - id: '25'
     label: '25'
     box:
-      x: 166
-      y: 308
-      comprimento: 33
-      largura: 26
-  - id: WC
-    label: WC
-    box:
-      x: 999
+      x: 167
       y: 309
-      comprimento: 64
-      largura: 52
+      comprimento: 28
+      largura: 26
   - id: '19'
     label: '19'
     box:
       x: 66
-      y: 316
-      comprimento: 28
-      largura: 29
+      y: 318
+      comprimento: 26
+      largura: 27
   - id: '18'
     label: '18'
     box:
-      x: 78
-      y: 356
-      comprimento: 33
+      x: 74
+      y: 358
+      comprimento: 26
       largura: 27
   - id: '26'
     label: '26'
     box:
-      x: 150
+      x: 156
       y: 428
-      comprimento: 41
-      largura: 30
+      comprimento: 28
+      largura: 29
   - id: '17'
     label: '17'
     box:
@@ -120,21 +113,21 @@ mapas:
   - id: '31'
     label: '31'
     box:
-      x: 291
-      y: 518
-      comprimento: 26
-      largura: 29
+      x: 292
+      y: 519
+      comprimento: 24
+      largura: 26
   - id: '27'
     label: '27'
     box:
-      x: 146
+      x: 150
       y: 540
-      comprimento: 39
-      largura: 29
+      comprimento: 29
+      largura: 27
   - id: '36'
     label: '36'
     box:
-      x: 440
+      x: 442
       y: 542
       comprimento: 26
       largura: 27
@@ -142,84 +135,84 @@ mapas:
     label: '16'
     box:
       x: 54
-      y: 565
-      comprimento: 30
-      largura: 28
+      y: 566
+      comprimento: 28
+      largura: 27
   - id: '32'
     label: '32'
     box:
       x: 302
       y: 578
-      comprimento: 32
-      largura: 32
+      comprimento: 27
+      largura: 27
   - id: '34'
     label: '34'
     box:
-      x: 358
-      y: 579
-      comprimento: 23
-      largura: 26
+      x: 361
+      y: 580
+      comprimento: 26
+      largura: 25
   - id: '35'
     label: '35'
     box:
-      x: 389
-      y: 572
+      x: 392
+      y: 574
       comprimento: 26
       largura: 27
   - id: '41'
     label: '41'
     box:
       x: 423
-      y: 576
+      y: 578
       comprimento: 24
-      largura: 29
+      largura: 25
   - id: '30'
     label: '30'
     box:
       x: 180
       y: 612
-      comprimento: 33
-      largura: 31
+      comprimento: 29
+      largura: 27
   - id: '33'
     label: '33'
     box:
-      x: 311
+      x: 312
       y: 630
-      comprimento: 32
-      largura: 31
+      comprimento: 27
+      largura: 26
   - id: '15'
     label: '15'
     box:
-      x: 51
-      y: 665
-      comprimento: 36
-      largura: 30
+      x: 48
+      y: 666
+      comprimento: 28
+      largura: 31
   - id: '28'
     label: '28'
     box:
-      x: 150
-      y: 686
-      comprimento: 33
-      largura: 31
+      x: 151
+      y: 688
+      comprimento: 28
+      largura: 29
   - id: '14'
     label: '14'
     box:
-      x: 34
+      x: 30
       y: 750
-      comprimento: 41
-      largura: 33
+      comprimento: 28
+      largura: 27
   - id: '29'
     label: '29'
     box:
-      x: 166
+      x: 168
       y: 762
       comprimento: 29
       largura: 28
   - id: '06'
     label: '06'
     box:
-      x: 286
-      y: 799
+      x: 287
+      y: 800
       comprimento: 28
       largura: 28
   - id: '13'
@@ -260,36 +253,36 @@ mapas:
   - id: '03'
     label: '03'
     box:
-      x: 387
+      x: 389
       y: 901
       comprimento: 28
       largura: 28
   - id: '08'
     label: '08'
     box:
-      x: 152
-      y: 912
-      comprimento: 33
-      largura: 30
+      x: 154
+      y: 914
+      comprimento: 28
+      largura: 27
   - id: '07'
     label: '07'
     box:
       x: 196
       y: 908
-      comprimento: 26
-      largura: 23
+      comprimento: 28
+      largura: 27
   - id: '09'
     label: '09'
     box:
-      x: 121
+      x: 122
       y: 926
-      comprimento: 24
-      largura: 22
+      comprimento: 27
+      largura: 25
   - id: '01'
     label: '01'
     box:
-      x: 418
-      y: 932
+      x: 419
+      y: 934
       comprimento: 28
       largura: 27
   - id: '10'
@@ -297,28 +290,28 @@ mapas:
     box:
       x: 114
       y: 964
-      comprimento: 23
+      comprimento: 26
       largura: 25
   - id: '11'
     label: '11'
     box:
       x: 155
       y: 1115
-      comprimento: 30
-      largura: 30
+      comprimento: 26
+      largura: 26
   - id: Entrada_inferior_1
     label: Entrada inferior
     box:
       x: 480
       y: 1125
-      comprimento: 80
-      largura: 70
+      comprimento: 74
+      largura: 64
   - id: Entrada_inferior_2
     label: Entrada inferior
     box:
-      x: 720
-      y: 1135
-      comprimento: 80
+      x: 719
+      y: 1132
+      comprimento: 78
       largura: 70
   referencias:
   - escalada: A Fenda da Discórdia
@@ -438,6 +431,21 @@ mapas:
   - escalada: Zé Carlos, Domador de Cavalos
     ids:
     - '41'
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - Entrada_inferior_1
+    - Entrada_inferior_2
+    setor: Setor Entrada Inferior
+  - ids:
+    - '08'
+    setor: Setor Entrada Superior
+    escalada: O Basilisco de Slytherin
+  - ids:
+    - '09'
+    setor: Setor Entrada Superior
+    escalada: Disparada
 escaladas:
 - via_movel:
     nome: A Fenda da Discórdia
@@ -754,7 +762,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Roberto Lincoln
----
+---
+
 # Setor Entrada Superior
 
 **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.

@@ -2711,6 +2711,7 @@ botoes:
         > Escale com segurança, respeite o local e traga seu lixo de volta para casa.'
 ultima_migracao: 3
 publicar_croqui: true
+revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 62a972fe6e8f30f6e636d276f401029a7d49a419775bfd097ff742e8d0455cf8

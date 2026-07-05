@@ -1,24 +1,17 @@
----
+---
 nome: Setor Vale do Cinema
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_do_cinema_p0_i6.webp
   largura_mapa: 1202
   altura_mapa: 1219
   pontos_de_interesse:
-  - id: Trilha
-    label: Trilha
-    box:
-      x: 1130
-      y: 28
-      comprimento: 74
-      largura: 35
   - id: '07'
     label: '07'
     box:
-      x: 390
+      x: 388
       y: 136
-      comprimento: 52
-      largura: 37
+      comprimento: 43
+      largura: 41
   - id: '01'
     label: '01'
     box:
@@ -29,80 +22,73 @@ mapas:
   - id: '08'
     label: '08'
     box:
-      x: 132
+      x: 134
       y: 450
-      comprimento: 39
+      comprimento: 38
       largura: 35
   - id: '09'
     label: '09'
     box:
       x: 262
-      y: 478
-      comprimento: 44
-      largura: 39
+      y: 479
+      comprimento: 38
+      largura: 34
   - id: '02'
     label: '02'
     box:
-      x: 240
-      y: 541
-      comprimento: 45
-      largura: 38
+      x: 239
+      y: 542
+      comprimento: 38
+      largura: 35
   - id: '03'
     label: '03'
     box:
       x: 149
       y: 629
-      comprimento: 40
+      comprimento: 38
       largura: 36
   - id: '14'
     label: '14'
     box:
-      x: 563
-      y: 720
-      comprimento: 50
-      largura: 37
+      x: 568
+      y: 721
+      comprimento: 36
+      largura: 36
   - id: '06'
     label: '06'
     box:
-      x: 534
-      y: 819
-      comprimento: 49
+      x: 538
+      y: 820
+      comprimento: 35
       largura: 36
   - id: '04'
     label: '04'
     box:
       x: 162
       y: 872
-      comprimento: 37
-      largura: 31
+      comprimento: 36
+      largura: 34
   - id: '13'
     label: '13'
     box:
-      x: 508
-      y: 902
-      comprimento: 42
-      largura: 35
+      x: 511
+      y: 901
+      comprimento: 36
+      largura: 36
   - id: '10'
     label: '10'
     box:
       x: 176
-      y: 954
-      comprimento: 35
-      largura: 32
+      y: 955
+      comprimento: 37
+      largura: 34
   - id: '12'
     label: '12'
     box:
-      x: 576
+      x: 581
       y: 1004
-      comprimento: 48
-      largura: 39
-  - id: Portao
-    label: Portão
-    box:
-      x: 1020
-      y: 1026
-      comprimento: 88
-      largura: 39
+      comprimento: 36
+      largura: 40
   - id: '05'
     label: '05'
     box:
@@ -115,8 +101,8 @@ mapas:
     box:
       x: 446
       y: 1084
-      comprimento: 32
-      largura: 34
+      comprimento: 36
+      largura: 37
   - id: Setor_Sentinela
     label: Setor Sentinela
     box:
@@ -161,6 +147,17 @@ mapas:
   - escalada: Bilheteria
     ids:
     - '14'
+  - ids:
+    - Setor_Sentinela
+    setor: Setor Sentinela e Vale do Joga
+  - ids:
+    - '08'
+    setor: Setor Vale do Cinema
+    escalada: Navio Fantasma
+  - ids:
+    - '09'
+    setor: Setor Vale do Cinema
+    escalada: Pata Afiada
 escaladas:
 - via_movel:
     nome: Armagedon
@@ -284,7 +281,8 @@ escaladas:
     conquistadores:
     - Marco Durães
     - Roberto Lincoln
----
+---
+
 # Setor Vale do Cinema
 
 **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.

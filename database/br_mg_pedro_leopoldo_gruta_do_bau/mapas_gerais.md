@@ -7,88 +7,88 @@ mapas:
   - id: Setor_Fechadura
     label: Setor Fechadura
     box:
-      x: 178
-      y: 485
-      comprimento: 195
-      largura: 115
+      x: 284
+      y: 546
+      comprimento: 199
+      largura: 112
   - id: Setor_2_Andar
     label: Setor 2º Andar
     box:
-      x: 385
-      y: 510
-      comprimento: 170
-      largura: 95
+      x: 480
+      y: 564
+      comprimento: 163
+      largura: 102
   - id: Setor_Pasto
     label: Setor Pasto
     box:
-      x: 175
-      y: 610
-      comprimento: 165
-      largura: 95
+      x: 266
+      y: 662
+      comprimento: 161
+      largura: 99
   - id: Setor_Entrada
     label: Setor Entrada
     box:
-      x: 390
-      y: 655
-      comprimento: 205
-      largura: 115
+      x: 489
+      y: 722
+      comprimento: 196
+      largura: 121
   - id: Setor_Sentinela
     label: Setor Sentinela
     box:
-      x: 750
-      y: 705
-      comprimento: 240
-      largura: 140
+      x: 878
+      y: 741
+      comprimento: 221
+      largura: 170
       angulo_graus_x100: -1050
   - id: Vale_dos_Espinhos
     label: Vale dos Espinhos
     box:
-      x: 815
-      y: 505
-      comprimento: 220
-      largura: 95
+      x: 940
+      y: 572
+      comprimento: 195
+      largura: 97
   - id: Mr_Bean
     label: Mr. Bean
     box:
-      x: 1035
-      y: 455
+      x: 1121
+      y: 497
       comprimento: 140
-      largura: 95
+      largura: 102
   - id: Sala_de_Aula
     label: Sala de Aula
     box:
-      x: 1215
-      y: 440
-      comprimento: 140
-      largura: 100
+      x: 1278
+      y: 483
+      comprimento: 137
+      largura: 112
   - id: Vale_do_Cinema
     label: Vale do Cinema
     box:
-      x: 1130
-      y: 305
-      comprimento: 145
-      largura: 95
+      x: 1200
+      y: 343
+      comprimento: 140
+      largura: 98
   - id: Setor_Geriatria
     label: Setor Geriatria
     box:
-      x: 1370
-      y: 475
+      x: 1466
+      y: 535
       comprimento: 165
       largura: 100
   - id: Vale_da_Onca
     label: Vale da Onça
     box:
-      x: 1490
-      y: 270
-      comprimento: 190
-      largura: 115
+      x: 1581
+      y: 320
+      comprimento: 192
+      largura: 120
   - id: Onda_de_Calcario
     label: Onda de Calcário
     box:
-      x: 1475
-      y: 635
+      x: 1576
+      y: 684
       comprimento: 180
-      largura: 95
+      largura: 102
   referencias:
   - setor: Setor Fechadura
     ids:
@@ -123,6 +123,9 @@ mapas:
   - setor: Setor Onda de Calcário
     ids:
     - Onda_de_Calcario
+  - ids:
+    - Sala_de_Aula
+    setor: Setor Escola
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 1700
   altura_mapa: 1143
@@ -130,31 +133,31 @@ mapas:
   - id: Setor_Fechadura
     label: Setor Fechadura
     box:
-      x: 255
-      y: 420
-      comprimento: 180
-      largura: 90
+      x: 366
+      y: 479
+      comprimento: 195
+      largura: 102
   - id: Setor_2_Andar
     label: Setor 2º Andar
     box:
-      x: 915
-      y: 345
-      comprimento: 150
-      largura: 85
+      x: 996
+      y: 390
+      comprimento: 160
+      largura: 95
   - id: Setor_Pasto
     label: Setor Pasto
     box:
-      x: 240
-      y: 575
+      x: 367
+      y: 617
       comprimento: 220
       largura: 60
   - id: Setor_Entrada
     label: Setor Entrada
     box:
-      x: 1290
-      y: 590
-      comprimento: 160
-      largura: 90
+      x: 1380
+      y: 640
+      comprimento: 143
+      largura: 92
   referencias:
   - setor: Setor Fechadura
     ids:
@@ -169,6 +172,3 @@ mapas:
     ids:
     - Setor_Entrada
 ---
-
-
-

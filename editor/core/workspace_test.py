@@ -10,10 +10,24 @@ from editor.core.workspace import (
 
 @pytest.fixture
 def tmp_paths(tmp_path):
-    raiz = tmp_path / "meu_croqui"
+    # Simula a estrutura aresta_db/database/meu_croqui
+    aresta_db = tmp_path / "aresta_db"
+    aresta_db.mkdir()
+    
+    scripts = aresta_db / "scripts"
+    scripts.mkdir()
+    (scripts / "medir_saude_croquis.py").touch()
+    
+    db_dir = aresta_db / "database"
+    db_dir.mkdir()
+    
+    raiz = db_dir / "meu_croqui"
     raiz.mkdir()
+    
+    # Para o ExperimentalWorkspace (que usa a raiz diretamente)
     (raiz / "database").mkdir()
     (raiz / "compilado").mkdir()
+    
     return raiz
 
 def test_experimental_workspace_paths(tmp_paths):
@@ -74,7 +88,11 @@ def test_local_repo_workspace_processar(mock_run, mock_deploy, tmp_paths):
     # Testa quando ID não muda
     resultado, msgs = ws.processar_renomeacao_e_compilacao("meu_croqui", "meu_croqui", mock_storage)
     
-    mock_run.assert_not_called()
+    # O health check deve ter sido chamado via subprocess
+    mock_run.assert_called_once()
+    chamada = mock_run.call_args[0][0]
+    assert "medir_saude_croquis.py" in str(chamada[1])
+    
     mock_deploy.assert_called_once()
     
     # Verifica argumentos do deploy
@@ -103,8 +121,8 @@ def test_local_repo_workspace_processar_com_renomeacao(mock_run, mock_deploy, tm
     assert resultado == novo_caminho
     assert ws.caminho_raiz == novo_caminho
     
-    # Verifica chamadas ao git mv
-    assert mock_run.call_count == 2
+    # Verifica chamadas ao git mv e ao medir saude
+    assert mock_run.call_count == 3
     chamada1 = mock_run.call_args_list[0][0][0]
     assert chamada1[:3] == ["git", "mv", str(tmp_paths)]
     assert chamada1[3] == str(novo_caminho)
@@ -112,6 +130,9 @@ def test_local_repo_workspace_processar_com_renomeacao(mock_run, mock_deploy, tm
     chamada2 = mock_run.call_args_list[1][0][0]
     assert chamada2[:3] == ["git", "mv", str(caminho_compilado)]
     assert chamada2[3] == str(caminho_compilado.parent / "novo_croqui")
+
+    chamada3 = mock_run.call_args_list[2][0][0]
+    assert "medir_saude_croquis.py" in str(chamada3[1])
     
     mock_deploy.assert_called_once()
 

@@ -1,4 +1,4 @@
----
+---
 nome: Setor Beco do Tiú
 mapas:
 - caminho_imagem_mapa: imagens/setor_beco_do_tiu_p0_i0.webp
@@ -9,9 +9,9 @@ mapas:
     label: Setor Grutinha
     box:
       x: 228
-      y: 16
-      comprimento: 43
-      largura: 27
+      y: 18
+      comprimento: 47
+      largura: 33
   - id: Savassinha
     label: Savassinha
     box:
@@ -22,31 +22,31 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 400
-      y: 714
-      comprimento: 19
-      largura: 13
+      x: 398
+      y: 716
+      comprimento: 21
+      largura: 17
   - id: '02'
     label: '02'
     box:
       x: 358
-      y: 664
+      y: 666
       comprimento: 21
       largura: 17
   - id: '03'
     label: '03'
     box:
-      x: 315
-      y: 615
+      x: 311
+      y: 596
       comprimento: 20
       largura: 20
   - id: '04'
     label: '04'
     box:
-      x: 300
+      x: 296
       y: 572
-      comprimento: 32
-      largura: 18
+      comprimento: 21
+      largura: 17
   - id: '05'
     label: '05'
     box:
@@ -58,28 +58,28 @@ mapas:
     label: '06'
     box:
       x: 354
-      y: 552
-      comprimento: 25
-      largura: 21
+      y: 553
+      comprimento: 22
+      largura: 18
   - id: '07'
     label: '07'
     box:
-      x: 400
-      y: 597
-      comprimento: 28
-      largura: 26
+      x: 402
+      y: 598
+      comprimento: 22
+      largura: 19
   - id: '08'
     label: '08'
     box:
-      x: 442
-      y: 637
-      comprimento: 25
-      largura: 22
+      x: 443
+      y: 638
+      comprimento: 22
+      largura: 18
   - id: '09'
     label: '09'
     box:
       x: 475
-      y: 644
+      y: 646
       comprimento: 22
       largura: 17
   - id: Setor_Antigo_Camping
@@ -94,8 +94,8 @@ mapas:
     box:
       x: 378
       y: 1142
-      comprimento: 98
-      largura: 13
+      comprimento: 102
+      largura: 19
   referencias:
   - escalada: Panqueca de Salada
     ids:
@@ -118,6 +118,26 @@ mapas:
   - escalada: Usa Quatro e Sobra Um
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Setor Antigo Camping
+    escalada: Xuxa Preta de Pains
+  - ids:
+    - '09'
+    setor: Setor Antigo Camping
+    escalada: Brenfa Móvel
+  - ids:
+    - Setor_Grutinha
+    setor: Setor Grutinha
+  - ids:
+    - Savassinha
+    setor: Setor Savassinha
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Antigo Camping
+  - ids:
+    - Setor_Leao_de_Judah
+    setor: Setor Leão de Judah
 escaladas:
 - via_esportiva:
     nome: Panqueca de Salada
@@ -181,7 +201,8 @@ escaladas:
     destaque: true
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Beco do Tiú
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

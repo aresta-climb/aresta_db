@@ -1,4 +1,4 @@
----
+---
 nome: Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp
@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 296
-      y: 924
-      comprimento: 40
-      largura: 50
+    circular:
+      x: 299
+      y: 923
+      raio: 29
   - id: '2'
     label: '2'
-    box:
-      x: 512
-      y: 912
-      comprimento: 41
-      largura: 44
+    circular:
+      x: 515
+      y: 914
+      raio: 29
   - id: '3'
     label: '3'
-    box:
-      x: 636
-      y: 873
-      comprimento: 39
-      largura: 46
+    circular:
+      x: 642
+      y: 872
+      raio: 29
   - id: '4'
     label: '4'
-    box:
-      x: 687
-      y: 1004
-      comprimento: 38
-      largura: 51
+    circular:
+      x: 691
+      y: 1002
+      raio: 29
   - id: '5'
     label: '5'
-    box:
-      x: 816
-      y: 963
-      comprimento: 38
-      largura: 50
+    circular:
+      x: 819
+      y: 962
+      raio: 29
   - id: '6'
     label: '6'
-    box:
-      x: 1008
-      y: 961
-      comprimento: 45
-      largura: 56
+    circular:
+      x: 1009
+      y: 962
+      raio: 29
   - id: '7'
     label: '7'
-    box:
-      x: 1235
-      y: 930
-      comprimento: 44
-      largura: 52
+    circular:
+      x: 1237
+      y: 933
+      raio: 29
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 1480
-      y: 833
-      comprimento: 43
-      largura: 52
+      y: 835
+      raio: 29
   referencias:
   - escalada: Vivi Fernandes
     ids:
@@ -157,7 +149,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Rodrigo 'Mussula'
----
+---
+
 # Setor Campo Escola
 
 Setor com vias de 8m até 10m.

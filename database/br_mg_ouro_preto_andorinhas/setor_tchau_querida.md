@@ -1,4 +1,4 @@
----
+---
 nome: Tchau Querida
 mapas:
 - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
@@ -7,53 +7,46 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 552
-      y: 1168
-      comprimento: 37
-      largura: 54
+    circular:
+      x: 553
+      y: 1165
+      raio: 29
   - id: '2'
     label: '2'
-    box:
-      x: 670
-      y: 1206
-      comprimento: 27
-      largura: 39
+    circular:
+      x: 673
+      y: 1207
+      raio: 29
   - id: '3'
     label: '3'
-    box:
-      x: 872
+    circular:
+      x: 876
       y: 1185
-      comprimento: 29
-      largura: 44
+      raio: 29
   - id: '4'
     label: '4'
-    box:
-      x: 1362
+    circular:
+      x: 1367
       y: 1156
-      comprimento: 26
-      largura: 41
+      raio: 29
   - id: '5'
     label: '5'
-    box:
-      x: 1552
+    circular:
+      x: 1554
       y: 1156
-      comprimento: 27
-      largura: 41
+      raio: 29
   - id: '6'
     label: '6'
-    box:
-      x: 1766
-      y: 1096
-      comprimento: 26
-      largura: 41
+    circular:
+      x: 1767
+      y: 1095
+      raio: 29
   - id: '7'
     label: '7'
-    box:
-      x: 1913
-      y: 1064
-      comprimento: 36
-      largura: 45
+    circular:
+      x: 1918
+      y: 1066
+      raio: 29
   referencias:
   - escalada: Temer Jamais
     ids:
@@ -140,7 +133,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
----
+---
+
 # Setor Tchau Querida
 
 Setor com vias de 11m até 12m.

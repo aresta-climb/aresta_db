@@ -86,3 +86,6 @@ def test_tela_de_abertura_tem_icone_configurado(qtbot):
     abertura = TelaDeAbertura()
     qtbot.addWidget(abertura)
     assert not abertura.windowIcon().isNull()
+
+
+

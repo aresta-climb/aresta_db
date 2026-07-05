@@ -1,4 +1,4 @@
----
+---
 nome: Setor Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/setor_esquerda_p0_i0.webp
@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    circular:
       x: 176
-      y: 889
-      comprimento: 30
-      largura: 30
+      y: 891
+      raio: 15
   - id: '2'
     label: '2'
-    box:
-      x: 695
+    circular:
+      x: 697
       y: 1010
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '3'
     label: '3'
-    box:
-      x: 950
-      y: 1010
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 951
+      y: 1009
+      raio: 15
   - id: '4'
     label: '4'
-    box:
-      x: 1185
-      y: 970
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 1187
+      y: 971
+      raio: 15
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 1275
-      y: 970
-      comprimento: 30
-      largura: 30
+      y: 971
+      raio: 15
   - id: '6'
     label: '6'
-    box:
-      x: 1365
+    circular:
+      x: 1364
       y: 990
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 1575
-      y: 985
-      comprimento: 30
-      largura: 30
+      y: 984
+      raio: 15
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 1660
-      y: 985
-      comprimento: 30
-      largura: 30
+      y: 984
+      raio: 15
   referencias:
   - escalada: Água Bolhas
     ids:
@@ -92,11 +84,10 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 302
-      y: 886
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 300
+      y: 889
+      raio: 15
   referencias:
   - escalada: Água Bolhas
     ids:
@@ -107,18 +98,16 @@ mapas:
   pontos_de_interesse:
   - id: '2'
     label: '2'
-    box:
+    circular:
       x: 330
-      y: 1005
-      comprimento: 30
-      largura: 30
+      y: 1007
+      raio: 15
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 585
-      y: 1130
-      comprimento: 30
-      largura: 30
+      y: 1129
+      raio: 15
   referencias:
   - escalada: Concretino
     ids:
@@ -132,39 +121,34 @@ mapas:
   pontos_de_interesse:
   - id: '4'
     label: '4'
-    box:
-      x: 12
-      y: 1105
-      comprimento: 25
-      largura: 30
+    circular:
+      x: 11
+      y: 1106
+      raio: 14
   - id: '5'
     label: '5'
-    box:
-      x: 176
+    circular:
+      x: 174
       y: 942
-      comprimento: 35
-      largura: 35
+      raio: 15
   - id: '6'
     label: '6'
-    box:
-      x: 322
+    circular:
+      x: 323
       y: 1110
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '7'
     label: '7'
-    box:
+    circular:
       x: 533
-      y: 1103
-      comprimento: 30
-      largura: 30
+      y: 1104
+      raio: 15
   - id: '8'
     label: '8'
-    box:
-      x: 620
-      y: 1105
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 619
+      y: 1104
+      raio: 15
   referencias:
   - escalada: (via inacabada)
     ids:
@@ -231,5 +215,6 @@ escaladas:
     quantidade_protecoes_parada: 2
     destaque: true
     data_abertura: '2022'
----
+---
+
 Sombra o dia todo (varia de acordo com a estação).

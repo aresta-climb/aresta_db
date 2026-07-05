@@ -59,6 +59,7 @@
             > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
 - **ultima_migracao**: 3
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_mapa_1

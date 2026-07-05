@@ -8,21 +8,14 @@ mapas:
   - id: '18'
     label: '18'
     circular:
-      x: 226
-      y: 703
+      x: 227
+      y: 704
       raio: 22
-  - id: Bloco C
-    label: Bloco C
-    box:
-      x: 150
-      y: 65
-      comprimento: 210
-      largura: 64
   - id: '17'
     label: '17'
     circular:
       x: 172
-      y: 709
+      y: 710
       raio: 21
   referencias:
   - escalada: Hematoma

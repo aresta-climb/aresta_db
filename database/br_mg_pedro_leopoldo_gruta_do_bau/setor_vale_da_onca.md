@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_da_onca_p0_i6.webp
@@ -24,15 +24,15 @@ mapas:
     box:
       x: 688
       y: 162
-      comprimento: 33
-      largura: 23
+      comprimento: 35
+      largura: 30
   - id: '36'
     label: '36'
     box:
       x: 412
       y: 174
       comprimento: 38
-      largura: 23
+      largura: 28
   - id: '38'
     label: '38'
     box:
@@ -45,15 +45,15 @@ mapas:
     box:
       x: 584
       y: 230
-      comprimento: 43
-      largura: 27
+      comprimento: 41
+      largura: 29
   - id: '35'
     label: '35'
     box:
       x: 362
       y: 248
       comprimento: 41
-      largura: 24
+      largura: 31
   - id: '34'
     label: '34'
     box:
@@ -73,13 +73,13 @@ mapas:
     box:
       x: 548
       y: 324
-      comprimento: 42
-      largura: 27
+      comprimento: 37
+      largura: 23
   - id: '31'
     label: '31'
     box:
       x: 556
-      y: 348
+      y: 349
       comprimento: 36
       largura: 24
   - id: '30'
@@ -87,119 +87,119 @@ mapas:
     box:
       x: 594
       y: 376
-      comprimento: 43
-      largura: 27
+      comprimento: 41
+      largura: 25
   - id: '29'
     label: '29'
     box:
-      x: 615
+      x: 616
       y: 402
-      comprimento: 44
-      largura: 31
+      comprimento: 39
+      largura: 25
   - id: '28'
     label: '28'
     box:
-      x: 639
+      x: 640
       y: 432
-      comprimento: 40
+      comprimento: 39
       largura: 24
   - id: '27'
     label: '27'
     box:
       x: 662
       y: 460
-      comprimento: 40
+      comprimento: 39
       largura: 24
   - id: '26'
     label: '26'
     box:
-      x: 687
-      y: 495
-      comprimento: 40
-      largura: 22
+      x: 689
+      y: 496
+      comprimento: 38
+      largura: 27
   - id: '25'
     label: '25'
     box:
       x: 708
-      y: 533
+      y: 534
       comprimento: 40
-      largura: 24
+      largura: 31
   - id: '16'
     label: '16'
     box:
       x: 686
       y: 580
-      comprimento: 35
-      largura: 24
+      comprimento: 36
+      largura: 30
   - id: '15'
     label: '15'
     box:
-      x: 540
-      y: 623
-      comprimento: 43
-      largura: 32
+      x: 541
+      y: 622
+      comprimento: 36
+      largura: 27
   - id: '14'
     label: '14'
     box:
       x: 560
       y: 652
       comprimento: 37
-      largura: 25
+      largura: 27
   - id: '13'
     label: '13'
     box:
-      x: 576
+      x: 579
       y: 686
-      comprimento: 40
-      largura: 24
+      comprimento: 36
+      largura: 29
   - id: '12'
     label: '12'
     box:
-      x: 566
+      x: 567
       y: 735
-      comprimento: 40
-      largura: 24
+      comprimento: 36
+      largura: 26
   - id: '24'
     label: '24'
     box:
       x: 532
-      y: 764
-      comprimento: 44
+      y: 766
+      comprimento: 40
       largura: 31
   - id: '23'
     label: '23'
     box:
-      x: 588
-      y: 785
+      x: 590
+      y: 784
       comprimento: 42
-      largura: 24
+      largura: 22
   - id: '11'
     label: '11'
     box:
-      x: 611
-      y: 806
-      comprimento: 32
-      largura: 25
+      x: 612
+      y: 808
+      comprimento: 31
+      largura: 23
   - id: '22'
     label: '22'
     box:
       x: 642
       y: 836
-      comprimento: 41
-      largura: 23
+      comprimento: 39
+      largura: 27
   - id: '10'
     label: '10'
     box:
       x: 636
       y: 870
       comprimento: 37
-      largura: 24
+      largura: 26
   - id: '21'
     label: '21'
     box:
-      x: 604
-      y: 894
-      comprimento: 37
+      x: 602
+      y: 896
+      comprimento: 39
       largura: 24
   - id: '09'
     label: '09'
@@ -207,84 +207,84 @@ mapas:
       x: 558
       y: 908
       comprimento: 39
-      largura: 25
+      largura: 30
   - id: '20'
     label: '20'
     box:
       x: 580
-      y: 965
-      comprimento: 41
-      largura: 24
+      y: 966
+      comprimento: 42
+      largura: 31
   - id: '08'
     label: '08'
     box:
-      x: 594
-      y: 1014
-      comprimento: 42
-      largura: 26
+      x: 596
+      y: 1015
+      comprimento: 40
+      largura: 32
   - id: '19'
     label: '19'
     box:
       x: 539
       y: 1043
-      comprimento: 36
-      largura: 24
+      comprimento: 38
+      largura: 28
   - id: '07'
     label: '07'
     box:
       x: 564
-      y: 1075
-      comprimento: 42
-      largura: 24
+      y: 1076
+      comprimento: 40
+      largura: 32
   - id: '06'
     label: '06'
     box:
       x: 604
-      y: 1117
+      y: 1116
       comprimento: 40
-      largura: 24
+      largura: 29
   - id: '05'
     label: '05'
     box:
       x: 602
       y: 1150
       comprimento: 42
-      largura: 24
+      largura: 29
   - id: '04'
     label: '04'
     box:
       x: 614
       y: 1194
       comprimento: 41
-      largura: 23
+      largura: 29
   - id: '03'
     label: '03'
     box:
       x: 602
       y: 1244
       comprimento: 40
-      largura: 23
+      largura: 29
   - id: '02'
     label: '02'
     box:
       x: 592
       y: 1286
-      comprimento: 42
-      largura: 23
+      comprimento: 38
+      largura: 31
   - id: '01'
     label: '01'
     box:
       x: 550
       y: 1312
       comprimento: 35
-      largura: 23
+      largura: 29
   - id: Setores_Mr_Bean_e_Geriatria
     label: Setores Mr. Bean e Geriatria
     box:
       x: 288
-      y: 1313
-      comprimento: 229
-      largura: 46
+      y: 1312
+      comprimento: 233
+      largura: 53
   referencias:
   - escalada: Quebrando o Pau
     ids:
@@ -397,6 +397,20 @@ mapas:
   - escalada: Supimpa
     ids:
     - '39'
+  - ids:
+    - Setores_Mr_Bean_e_Geriatria
+    setor: Setor Mr. Bean
+  - ids:
+    - Setores_Mr_Bean_e_Geriatria
+    setor: Setor Geriatria
+  - ids:
+    - '08'
+    setor: Setor Vale da Onça
+    escalada: Retorno de Borges
+  - ids:
+    - '09'
+    setor: Setor Vale da Onça
+    escalada: 3º Pecado Capital
 escaladas:
 - via_esportiva:
     nome: Quebrando o Pau
@@ -721,7 +735,8 @@ escaladas:
     conquistadores:
     - Marcelo Novais
     - Átila Cunha
----
+---
+
 # Setor Vale da Onça
 
 **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.

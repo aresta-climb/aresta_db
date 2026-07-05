@@ -1,4 +1,4 @@
----
+---
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp
@@ -7,123 +7,106 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 64
-      y: 788
-      comprimento: 26
-      largura: 26
+    circular:
+      x: 63
+      y: 790
+      raio: 12
   - id: '2'
     label: '2'
-    box:
-      x: 119
-      y: 800
-      comprimento: 24
-      largura: 29
+    circular:
+      x: 118
+      y: 802
+      raio: 12
   - id: '3'
     label: '3'
-    box:
-      x: 189
-      y: 818
-      comprimento: 28
-      largura: 27
+    circular:
+      x: 188
+      y: 816
+      raio: 12
   - id: '4'
     label: '4'
-    box:
-      x: 258
-      y: 748
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 257
+      y: 749
+      raio: 12
   - id: '5'
     label: '5'
-    box:
+    circular:
       x: 270
-      y: 654
-      comprimento: 35
-      largura: 35
+      y: 655
+      raio: 13
   - id: '6'
     label: '6'
-    box:
-      x: 282
-      y: 504
-      comprimento: 21
-      largura: 25
+    circular:
+      x: 283
+      y: 506
+      raio: 12
   - id: '7'
     label: '7'
-    box:
-      x: 300
-      y: 468
-      comprimento: 21
-      largura: 23
+    circular:
+      x: 299
+      y: 469
+      raio: 12
   - id: '8'
     label: '8'
-    box:
+    circular:
       x: 314
-      y: 354
-      comprimento: 30
-      largura: 30
+      y: 356
+      raio: 12
   - id: '9'
     label: '9'
-    box:
+    circular:
       x: 203
       y: 210
-      comprimento: 30
-      largura: 30
+      raio: 12
   - id: '10'
     label: '10'
-    box:
-      x: 196
-      y: 169
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 198
+      y: 168
+      raio: 12
   - id: '11'
     label: '11'
-    box:
+    circular:
       x: 212
-      y: 125
-      comprimento: 30
-      largura: 30
+      y: 128
+      raio: 12
   - id: '12'
     label: '12'
-    box:
-      x: 330
-      y: 114
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 328
+      y: 115
+      raio: 12
   - id: '13'
     label: '13'
-    box:
+    circular:
       x: 404
-      y: 112
-      comprimento: 30
-      largura: 30
+      y: 113
+      raio: 12
   - id: '14'
     label: '14'
-    box:
-      x: 474
+    circular:
+      x: 472
       y: 89
-      comprimento: 30
-      largura: 30
+      raio: 12
   - id: '15'
     label: '15'
-    box:
-      x: 510
-      y: 79
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 509
+      y: 81
+      raio: 12
   - id: '16'
     label: '16'
-    box:
-      x: 551
-      y: 70
-      comprimento: 30
-      largura: 30
+    circular:
+      x: 549
+      y: 71
+      raio: 12
   - id: '17'
     label: '17'
-    box:
+    circular:
       x: 592
-      y: 52
-      comprimento: 30
-      largura: 30
+      y: 51
+      raio: 12
   referencias:
   - escalada: Curta e Grossa
     ids:
@@ -185,95 +168,82 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    box:
-      x: 341
+    circular:
+      x: 342
       y: 1211
-      comprimento: 42
-      largura: 42
+      raio: 23
   - id: '18'
     label: '18'
-    box:
+    circular:
       x: 359
       y: 1146
-      comprimento: 40
-      largura: 43
+      raio: 23
   - id: '19'
     label: '19'
-    box:
-      x: 401
-      y: 1083
-      comprimento: 38
-      largura: 42
+    circular:
+      x: 399
+      y: 1084
+      raio: 23
   - id: '20'
     label: '20'
-    box:
-      x: 415
-      y: 1003
-      comprimento: 40
-      largura: 40
+    circular:
+      x: 414
+      y: 1004
+      raio: 24
   - id: '21'
     label: '21'
-    box:
-      x: 442
+    circular:
+      x: 443
       y: 917
-      comprimento: 40
-      largura: 40
+      raio: 24
   - id: '22'
     label: '22'
-    box:
-      x: 505
-      y: 841
-      comprimento: 42
-      largura: 40
+    circular:
+      x: 504
+      y: 842
+      raio: 23
   - id: '23'
     label: '23'
-    box:
-      x: 562
-      y: 756
-      comprimento: 42
-      largura: 41
+    circular:
+      x: 560
+      y: 757
+      raio: 24
   - id: '24'
     label: '24'
-    box:
-      x: 602
-      y: 683
-      comprimento: 41
-      largura: 42
+    circular:
+      x: 603
+      y: 687
+      raio: 24
   - id: '25'
     label: '25'
-    box:
-      x: 634
-      y: 568
-      comprimento: 49
-      largura: 41
+    circular:
+      x: 632
+      y: 567
+      raio: 24
   - id: '26'
     label: '26'
-    box:
+    circular:
       x: 642
       y: 483
-      comprimento: 45
-      largura: 40
+      raio: 24
   - id: '27'
     label: '27'
-    box:
-      x: 660
-      y: 382
-      comprimento: 47
-      largura: 47
+    circular:
+      x: 661
+      y: 383
+      raio: 24
   - id: '28'
     label: '28'
-    box:
+    circular:
       x: 654
-      y: 311
-      comprimento: 47
-      largura: 40
+      y: 312
+      raio: 24
   - id: '29'
     label: '29'
-    box:
-      x: 660
+    circular:
+      x: 658
       y: 243
-      comprimento: 43
-      largura: 36
+      raio: 23
   - id: Setor_Gameleira
     label: ← SETOR GAMELEIRA
     box:
@@ -281,15 +251,15 @@ mapas:
       y: 976
       comprimento: 31
       largura: 201
-      angulo_graus_x100: -3625
+      angulo_graus_x100: -3782
   - id: Setor_4_Picos
     label: ← SETOR 4 PICOS
     box:
       x: 100
-      y: 1198
-      comprimento: 45
-      largura: 161
-      angulo_graus_x100: 1843
+      y: 1200
+      comprimento: 31
+      largura: 165
+      angulo_graus_x100: 1162
   referencias:
   - escalada: Peripécias do Climb
     ids:
@@ -333,6 +303,12 @@ mapas:
   - escalada: Velhos Novatos
     ids:
     - '29'
+  - ids:
+    - Setor_4_Picos
+    setor: Setor 4 Picos
+  - ids:
+    - Setor_Gameleira
+    setor: Setor Gameleira
 escaladas:
 - via_esportiva:
     nome: Curta e Grossa
@@ -452,7 +428,8 @@ escaladas:
     nome: Velhos Novatos
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 5
----
+---
+
 # Setor Vale das Sombras
 
 Setor com maior concentração de vias, predominância de vias mais altas e verticais

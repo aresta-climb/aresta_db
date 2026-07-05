@@ -1,4 +1,4 @@
----
+---
 nome: Sub Setor de Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_de_cara_p0_i0.webp
@@ -7,46 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
-      x: 350
+    circular:
+      x: 349
       y: 308
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '2'
     label: '2'
-    box:
-      x: 308
+    circular:
+      x: 309
       y: 238
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: '3'
     label: '3'
-    box:
+    circular:
       x: 242
-      y: 218
-      comprimento: 35
-      largura: 35
+      y: 216
+      raio: 19
   - id: '4'
     label: '4'
-    box:
-      x: 278
-      y: 158
-      comprimento: 35
-      largura: 35
+    circular:
+      x: 279
+      y: 159
+      raio: 20
   - id: '5'
     label: '5'
-    box:
-      x: 254
+    circular:
+      x: 252
       y: 96
-      comprimento: 35
-      largura: 35
+      raio: 20
   - id: Setores_Laranja_Anfiteatro
     label: SUB SETOR LARANJA / ANFITEATRO →
     box:
-      x: 525
-      y: 665
-      comprimento: 250
+      x: 498
+      y: 664
+      comprimento: 263
       largura: 50
+      angulo_graus_x100: 132
   referencias:
   - escalada: Facão Traiçoeiro
     ids:
@@ -63,6 +59,14 @@ mapas:
   - escalada: Tio Ativo
     ids:
     - '5'
+  - ids:
+    - Setores_Laranja_Anfiteatro
+    grupo: Vale Oculto
+    setor: Sub Setor Laranja
+  - ids:
+    - Setores_Laranja_Anfiteatro
+    grupo: Vale Oculto
+    setor: Sub Setor Anfiteatro
 escaladas:
 - via_esportiva:
     nome: Facão Traiçoeiro
@@ -89,7 +93,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
----
+---
+
 # Setor Vale Oculto - Sub Setor de Cara
 
 ![Sub Setor de Cara](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp)

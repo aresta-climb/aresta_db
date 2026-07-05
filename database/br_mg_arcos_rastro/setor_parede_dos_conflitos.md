@@ -1,135 +1,121 @@
----
+---
 nome: Setor Parede dos Conflitos
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_dos_conflitos_p0_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
   pontos_de_interesse:
-  - id: Grutas
-    label: Grutas
-    box:
-      x: 402
-      y: 320
-      comprimento: 46
-      largura: 21
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
     box:
-      x: 892
-      y: 298
-      comprimento: 43
-      largura: 35
+      x: 896
+      y: 297
+      comprimento: 51
+      largura: 42
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
     box:
       x: 652
       y: 542
-      comprimento: 72
-      largura: 25
+      comprimento: 79
+      largura: 38
   - id: Totem_Pedra
     label: TOTEM PEDRA
     box:
       x: 836
       y: 860
-      comprimento: 57
-      largura: 33
-  - id: Estrada
-    label: ESTRADA
-    box:
-      x: 803
-      y: 1094
-      comprimento: 38
-      largura: 63
+      comprimento: 64
+      largura: 43
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
     box:
       x: 198
-      y: 1129
-      comprimento: 45
-      largura: 34
+      y: 1130
+      comprimento: 51
+      largura: 38
   - id: '01'
     label: '01'
     box:
-      x: 138
-      y: 937
-      comprimento: 16
-      largura: 14
+      x: 140
+      y: 938
+      comprimento: 19
+      largura: 23
   - id: '02'
     label: '2'
     box:
       x: 140
-      y: 896
-      comprimento: 15
-      largura: 21
+      y: 897
+      comprimento: 19
+      largura: 22
   - id: '03'
     label: '3'
     box:
-      x: 142
+      x: 141
       y: 859
-      comprimento: 15
+      comprimento: 18
       largura: 22
   - id: '04'
     label: '4'
     box:
-      x: 145
-      y: 816
-      comprimento: 20
+      x: 146
+      y: 817
+      comprimento: 21
       largura: 24
   - id: '05'
     label: '5'
     box:
       x: 150
       y: 762
-      comprimento: 13
-      largura: 15
+      comprimento: 20
+      largura: 22
   - id: '06'
     label: '6'
     box:
       x: 166
       y: 628
-      comprimento: 14
-      largura: 17
+      comprimento: 20
+      largura: 25
   - id: '07'
     label: '7'
     box:
       x: 192
       y: 563
-      comprimento: 13
-      largura: 16
+      comprimento: 19
+      largura: 24
   - id: '08'
     label: '8'
     box:
-      x: 276
+      x: 277
       y: 530
-      comprimento: 17
-      largura: 21
+      comprimento: 20
+      largura: 22
   - id: '09'
     label: '9'
     box:
       x: 279
-      y: 471
-      comprimento: 18
-      largura: 20
+      y: 473
+      comprimento: 20
+      largura: 24
   - id: '10'
     label: '10'
     box:
       x: 280
-      y: 444
-      comprimento: 31
-      largura: 25
+      y: 445
+      comprimento: 27
+      largura: 22
   - id: '11'
     label: '11'
     box:
-      x: 276
+      x: 275
       y: 417
-      comprimento: 30
-      largura: 26
+      comprimento: 26
+      largura: 24
   - id: '12'
     label: '12'
     box:
       x: 276
       y: 370
-      comprimento: 30
+      comprimento: 27
       largura: 25
   referencias:
   - escalada: Ubuntu
@@ -162,6 +148,23 @@ mapas:
   - escalada: Antônio Conselheiro
     ids:
     - '12'
+  - ids:
+    - '08'
+    setor: Setor Parede dos Conflitos
+    escalada: Guerra dos Côcos
+  - ids:
+    - '09'
+    setor: Setor Parede dos Conflitos
+    escalada: Guerrilha do Araguaia
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Antigo Camping
+  - ids:
+    - Setor_Leao_de_Judah
+    setor: Setor Leão de Judah
+  - ids:
+    - Setor_Vale_das_Sombras
+    setor: Setor Vale das Sombras
 escaladas:
 - via_esportiva:
     nome: Ubuntu
@@ -227,7 +230,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
----
+---
+
 # Setor Parede dos Conflitos
 
 Este setor possui sombra até as 13h (variando de acordo com a estação).

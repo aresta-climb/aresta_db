@@ -7,38 +7,38 @@ mapas:
   - id: Campo_Escola
     label: Campo Escola
     box:
-      x: 642
-      y: 33
-      comprimento: 280
+      x: 814
+      y: 54
+      comprimento: 231
       largura: 42
   - id: Pedra_do_Arco
     label: Pedra do Arco
     box:
-      x: 437
-      y: 82
-      comprimento: 218
-      largura: 36
+      x: 548
+      y: 104
+      comprimento: 227
+      largura: 43
   - id: Mirante_Pedra_do_Jacare
     label: Mirante Pedra do Jacaré
     box:
-      x: 985
-      y: 81
-      comprimento: 367
-      largura: 31
+      x: 1172
+      y: 96
+      comprimento: 387
+      largura: 45
   - id: Cachoeira_das_Andorinhas
     label: Cachoeira das Andorinhas
     box:
-      x: 1437
-      y: 77
-      comprimento: 403
-      largura: 32
+      x: 1636
+      y: 94
+      comprimento: 417
+      largura: 45
   - id: Sede_do_Parque
     label: Sede do Parque
     box:
-      x: 1235
-      y: 443
-      comprimento: 239
-      largura: 39
+      x: 1357
+      y: 463
+      comprimento: 250
+      largura: 42
   referencias:
   - setor: Campo Escola
     ids:
@@ -53,38 +53,38 @@ mapas:
   - id: Tchau_Querida
     label: Tchau Querida
     box:
-      x: 731
-      y: 111
-      comprimento: 224
-      largura: 32
+      x: 846
+      y: 128
+      comprimento: 231
+      largura: 40
   - id: Pedra_Branca
     label: Pedra Branca
     box:
-      x: 496
-      y: 205
-      comprimento: 202
-      largura: 34
+      x: 601
+      y: 226
+      comprimento: 214
+      largura: 45
   - id: Mirante_Pedra_do_Jacare
     label: Mirante Pedra do Jacaré
     box:
-      x: 985
-      y: 81
-      comprimento: 367
-      largura: 31
+      x: 1166
+      y: 94
+      comprimento: 389
+      largura: 41
   - id: Cachoeira_das_Andorinhas
     label: Cachoeira das Andorinhas
     box:
-      x: 1437
-      y: 77
-      comprimento: 403
-      largura: 32
+      x: 1638
+      y: 93
+      comprimento: 411
+      largura: 44
   - id: Sede_do_Parque
     label: Sede do Parque
     box:
-      x: 1233
-      y: 445
-      comprimento: 237
-      largura: 34
+      x: 1352
+      y: 462
+      comprimento: 251
+      largura: 37
   referencias:
   - setor: Tchau Querida
     ids:
@@ -93,6 +93,3 @@ mapas:
     ids:
     - Pedra_Branca
 ---
-
-
-

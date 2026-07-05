@@ -1,4 +1,4 @@
----
+---
 nome: Setor Grutinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_grutinha_p0_i0.webp
@@ -9,9 +9,9 @@ mapas:
     label: Setor Antigo Camping (Savassinha)
     box:
       x: 360
-      y: 56
-      comprimento: 59
-      largura: 48
+      y: 57
+      comprimento: 66
+      largura: 54
   - id: Gruta
     label: Gruta
     box:
@@ -29,64 +29,64 @@ mapas:
   - id: '01'
     label: '01'
     box:
-      x: 514
-      y: 487
-      comprimento: 13
-      largura: 8
+      x: 516
+      y: 488
+      comprimento: 17
+      largura: 17
   - id: '02'
     label: '02'
     box:
-      x: 532
-      y: 487
-      comprimento: 15
-      largura: 8
+      x: 534
+      y: 484
+      comprimento: 19
+      largura: 17
   - id: '03'
     label: '03'
     box:
-      x: 552
-      y: 502
-      comprimento: 15
-      largura: 13
+      x: 554
+      y: 505
+      comprimento: 20
+      largura: 16
   - id: '04'
     label: '04'
     box:
-      x: 583
+      x: 584
       y: 512
-      comprimento: 16
-      largura: 12
+      comprimento: 19
+      largura: 16
   - id: '05'
     label: '05'
     box:
-      x: 572
-      y: 538
-      comprimento: 15
-      largura: 15
+      x: 574
+      y: 543
+      comprimento: 19
+      largura: 16
   - id: '06'
     label: '06'
     box:
-      x: 579
-      y: 560
-      comprimento: 18
-      largura: 13
+      x: 580
+      y: 559
+      comprimento: 19
+      largura: 16
   - id: '07'
     label: '07'
     box:
-      x: 600
-      y: 572
+      x: 603
+      y: 574
       comprimento: 20
       largura: 15
   - id: '08'
     label: '08'
     box:
-      x: 630
+      x: 632
       y: 584
-      comprimento: 25
-      largura: 19
+      comprimento: 21
+      largura: 17
   - id: '09'
     label: '09'
     box:
       x: 672
-      y: 596
+      y: 597
       comprimento: 21
       largura: 16
   referencias:
@@ -111,6 +111,20 @@ mapas:
   - escalada: Quem Ama Planta
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Setor Grutinha
+    escalada: Respeite os Mais Velhos
+  - ids:
+    - '09'
+    setor: Setor Grutinha
+    escalada: Quem Ama Implanta
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Antigo Camping
+  - ids:
+    - Setor_Antigo_Camping
+    setor: Setor Savassinha
 escaladas:
 - via_esportiva:
     nome: Tal Pai Tal Filho
@@ -173,7 +187,8 @@ escaladas:
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2017'
----
+---
+
 # Setor Grutinha
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

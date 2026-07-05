@@ -4,36 +4,27 @@ mapas:
   largura_mapa: 1332
   altura_mapa: 810
   pontos_de_interesse:
-  - id: Estacionamento_tradicionais
-    label: Estacionamento setores tradicionais
-    circular:
-      x: 925
-      y: 55
-      raio: 25
   - id: Sub-setor_Beija_Flor
     label: Sub-setor Beija Flor
-    circular:
-      x: 735
-      y: 330
-      raio: 40
+    box:
+      x: 724
+      y: 364
+      comprimento: 212
+      largura: 29
   - id: Conjunto_por-do-sol
     label: Conjunto pôr-do-sol
-    circular:
-      x: 755
-      y: 440
-      raio: 25
+    box:
+      x: 771
+      y: 460
+      comprimento: 216
+      largura: 29
   - id: Sub-setor_Moctezuma
     label: Sub-setor Moctezuma
-    circular:
-      x: 860
-      y: 520
-      raio: 25
-  - id: Estacionamento_Horizonte
-    label: Estacionamento setor Horizonte
-    circular:
-      x: 315
-      y: 705
-      raio: 25
+    box:
+      x: 851
+      y: 529
+      comprimento: 248
+      largura: 30
   referencias:
   - setor: Beija Flor
     ids:

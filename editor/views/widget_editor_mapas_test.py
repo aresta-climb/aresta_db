@@ -1649,3 +1649,87 @@ class TestVisualizadorMapa(unittest.TestCase):
     def test_resize_anchor(self):
         from PyQt6.QtWidgets import QGraphicsView
         self.assertEqual(self.view.resizeAnchor(), QGraphicsView.ViewportAnchor.AnchorViewCenter)
+
+def test_deletar_ou_adicionar_poi_nao_reseta_zoom(qtbot):
+    """[TDD] Verifica se deletar ou adicionar um POI não reseta o zoom do mapa."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    widget.msg_mapa_proxy = MagicMock()
+    widget.msg_mapa_proxy.pontos_de_interesse = [MagicMock(), MagicMock()]
+    widget._renderizar_mapa = MagicMock()
+    widget.visualizador = MagicMock()
+    
+    # Mock para dicionario itens_poi
+    item_mock = MagicMock()
+    widget.itens_poi = {0: item_mock}
+    
+    widget._on_repeated_removido(widget.msg_mapa_proxy, 'pontos_de_interesse', 0)
+    widget._renderizar_mapa.assert_not_called()
+    
+    widget._renderizar_mapa.reset_mock()
+    widget._adicionar_item_cena = MagicMock()
+    
+    widget._on_repeated_adicionado(widget.msg_mapa_proxy, 'pontos_de_interesse', 0)
+    widget._renderizar_mapa.assert_not_called()
+
+def test_converter_item_para_circulo(qtbot):
+    """[TDD] Verifica se o item pode ser convertido para circulo via metodo do widget."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    widget.mapas_controller = MagicMock()
+    widget.msg_mapa_proxy = MagicMock()
+    
+    item_mock = MagicMock()
+    widget.itens_poi = {3: item_mock}
+    
+    widget.converter_item_para_circulo(item_mock)
+    widget.mapas_controller.converter_boxes_para_circulos.assert_called_with(widget.msg_mapa_proxy, [3])
+
+def test_alterar_tipo_poi_nao_reseta_zoom(qtbot):
+    """[TDD] Verifica se alterar o tipo de um POI (conversao) não reseta o zoom do mapa."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    widget.msg_mapa_proxy = MagicMock()
+    
+    poi = croqui_pb2.Mapa.PontoDeInteresse()
+    poi.circular.raio = 10
+    widget.msg_mapa_proxy.pontos_de_interesse = [poi]
+    
+    widget._renderizar_mapa = MagicMock()
+    widget.visualizador = MagicMock()
+    cena_mock = MagicMock()
+    widget.visualizador.scene.return_value = cena_mock
+    
+    item_existente = MagicMock(spec=ItemBoundingBox)
+    widget.itens_poi = {0: item_existente}
+    
+    widget._adicionar_item_cena = MagicMock()
+    
+    widget._on_repeated_item_alterado(widget.msg_mapa_proxy, 'pontos_de_interesse', 0)
+    
+    widget._renderizar_mapa.assert_not_called()
+    cena_mock.removeItem.assert_called_with(item_existente)
+
+def test_converter_item_para_retangulo(qtbot):
+    """[TDD] Verifica se o item circular pode ser convertido para retangulo via metodo do widget."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+    
+    widget = WidgetEditorMapas()
+    widget.mapas_controller = MagicMock()
+    widget.msg_mapa_proxy = MagicMock()
+    
+    item_mock = MagicMock()
+    widget.itens_poi = {4: item_mock}
+    
+    widget.converter_item_para_retangulo(item_mock)
+    widget.mapas_controller.converter_circulos_para_boxes.assert_called_with(widget.msg_mapa_proxy, [4])
+
+

@@ -3,69 +3,9 @@ mapas:
 - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
   largura_mapa: 1773
   altura_mapa: 1575
-  pontos_de_interesse:
-  - id: A_Sinuosa
-    label: A Sinuosa
-    box:
-      x: 445
-      y: 270
-      comprimento: 104
-      largura: 21
-  - id: Sitio_do_Rod
-    label: Sítio do Rod
-    box:
-      x: 1065
-      y: 575
-      comprimento: 124
-      largura: 24
 - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
   largura_mapa: 1773
   altura_mapa: 1575
-  pontos_de_interesse:
-  - id: A_Sinuosa
-    label: A Sinuosa
-    box:
-      x: 780
-      y: 390
-      comprimento: 87
-      largura: 22
-  - id: Bifurcacao
-    label: Bifurcação. Siga à direita
-    box:
-      x: 655
-      y: 770
-      comprimento: 110
-      largura: 42
-  - id: Trevo
-    label: Trevo
-    box:
-      x: 1255
-      y: 1090
-      comprimento: 52
-      largura: 23
-  - id: Shopping_Sete_Lagoas
-    label: Shopping Sete Lagoas
-    box:
-      x: 1115
-      y: 1260
-      comprimento: 105
-      largura: 40
-  - id: 700m
-    label: 700 m
-    box:
-      x: 740
-      y: 690
-      comprimento: 72
-      largura: 28
-      angulo_graus_x100: -5122
-  - id: 1200m
-    label: 1200 m
-    box:
-      x: 880
-      y: 880
-      comprimento: 79
-      largura: 28
-      angulo_graus_x100: 6376
 - caminho_imagem_mapa: imagens/mapas_gerais_p2_i0.webp
   largura_mapa: 1773
   altura_mapa: 1575
@@ -73,106 +13,106 @@ mapas:
   - id: Setor_Panelinha
     label: Setor Panelinha
     box:
-      x: 110
-      y: 445
-      comprimento: 110
-      largura: 45
+      x: 186
+      y: 447
+      comprimento: 111
+      largura: 48
   - id: Setor_De_Esquerda
     label: Setor De Esquerda
     box:
-      x: 105
-      y: 565
-      comprimento: 150
-      largura: 50
+      x: 184
+      y: 566
+      comprimento: 151
+      largura: 53
   - id: Setor_Vale_Zela
     label: Setor Vale Zela
     box:
-      x: 1140
-      y: 420
+      x: 1256
+      y: 428
       comprimento: 110
-      largura: 48
+      largura: 51
   - id: Setor_Sentinela
     label: Setor Sentinela
     box:
-      x: 740
-      y: 470
-      comprimento: 183
-      largura: 24
+      x: 802
+      y: 471
+      comprimento: 196
+      largura: 28
   - id: Setor_Vale_das_Sombras_Top
     label: Setor Vale das Sombras
     box:
-      x: 1330
-      y: 544
-      comprimento: 200
-      largura: 50
+      x: 1433
+      y: 546
+      comprimento: 210
+      largura: 53
   - id: Setor_Janelas_Pro_Abismo
     label: Setor Janelas Pro Abismo
     box:
-      x: 795
-      y: 651
+      x: 840
+      y: 652
       comprimento: 180
       largura: 45
   - id: Boulder_Marley
     label: Boulder Marley
     box:
-      x: 425
-      y: 688
+      x: 450
+      y: 692
       comprimento: 105
       largura: 55
   - id: Setor_Imigrantes
     label: Setor Imigrantes
     box:
-      x: 950
-      y: 755
+      x: 1013
+      y: 758
       comprimento: 130
       largura: 50
   - id: Setor_Gameleira
     label: Setor Gameleira
     box:
-      x: 730
-      y: 871
+      x: 798
+      y: 874
       comprimento: 125
       largura: 50
   - id: Setor_Vale_das_Sombras_Bottom
     label: Setor Vale das Sombras
     box:
-      x: 1120
-      y: 893
-      comprimento: 210
+      x: 1182
+      y: 894
+      comprimento: 213
       largura: 50
   - id: Setor_Macaubas
     label: Setor Macaúbas
     box:
-      x: 1510
-      y: 918
+      x: 1586
+      y: 921
       comprimento: 125
       largura: 50
   - id: Setor_7_Paralelo
     label: Setor 7 Paralelo
     box:
-      x: 395
-      y: 938
-      comprimento: 120
-      largura: 50
+      x: 418
+      y: 939
+      comprimento: 126
+      largura: 56
   - id: Setor_Death_Horse
     label: Setor Death Horse
     box:
-      x: 685
-      y: 1013
+      x: 726
+      y: 1015
       comprimento: 145
       largura: 50
   - id: Setor_4_Picos
     label: Setor 4 Picos
     box:
-      x: 1300
-      y: 1007
+      x: 1400
+      y: 1009
       comprimento: 95
       largura: 50
   - id: Setor_Primordios
     label: Setor Primórdios
     box:
-      x: 1520
-      y: 1031
+      x: 1626
+      y: 1034
       comprimento: 135
       largura: 50
   referencias:
@@ -214,6 +154,3 @@ mapas:
     ids:
     - Setor_Primordios
 ---
-
-
-

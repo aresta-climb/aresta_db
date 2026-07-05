@@ -109,7 +109,7 @@ class ControladorAplicativo:
     def executar(self):
         return self.app.exec()
 
-if __name__ == "__main__":
+def main():
     # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
     # E é de fato um diretório que contém croqui.yaml
     if len(sys.argv) > 1 and "database" in sys.argv[1]:
@@ -123,7 +123,15 @@ if __name__ == "__main__":
                 
             storage = GerenciadorCaminhos()
             caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
-            app.setWindowIcon(QIcon(str(caminho_logo_app)))
+            if not caminho_logo_app.exists() and hasattr(storage, 'obter_caminho_recurso'):
+                # fallback em caso de testes/diferenças
+                pass
+            
+            # QIcon precisa receber string
+            try:
+                app.setWindowIcon(QIcon(str(caminho_logo_app)))
+            except Exception:
+                pass
             
             from editor.core.workspace import LocalRepoWorkspace
             workspace = LocalRepoWorkspace(caminho_path)
@@ -135,3 +143,6 @@ if __name__ == "__main__":
     # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
     controlador = ControladorAplicativo()
     sys.exit(controlador.executar())
+
+if __name__ == "__main__":
+    main()
