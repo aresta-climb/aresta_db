@@ -4,22 +4,24 @@
 - [ ] 1.2 Em `aresta_api/proto/croqui.proto`, renomear a mensagem `BoundingBox` para `BoundingRetangulo`.
 - [ ] 1.3 Em `PontoDeInteresse.tipo_area`, renomear a declaração `box` para `retangulo`.
 - [ ] 1.4 No mesmo bloco `tipo_area`, adicionar `BoundingQuadrado quadrado = 8;`.
+- [ ] 1.5 Compilar o schema executando o comando base do projeto: `python build.py protos`.
 
-## 2. Refatoração de Código Python e Compilação
+## 2. Refatoração e TDD no Código Python
 
-- [ ] 2.1 Buscar e substituir usos de `.box` por `.retangulo` e de `BoundingBox` por `BoundingRetangulo` em todo o código em Python (views, scripts, formatadores, etc).
-- [ ] 2.2 Compilar o schema executando o comando base do projeto: `python build.py protos`.
-- [ ] 2.3 Executar os testes automatizados do projeto via `python build.py test` para assegurar que nenhuma chamada a atributo descontinuado (.box) passou despercebida.
+- [ ] 2.1 (TDD) Adicionar testes unitários ou certificar-se de que testes já existentes em `mapas_controller_test.py`, `widget_editor_mapas_test.py` (ou onde os POIs são manipulados) definam as expectativas corretas para `.retangulo` e `.quadrado`, falhando inicialmente.
+- [ ] 2.2 Buscar e substituir usos de `.box` por `.retangulo` e de `BoundingBox` por `BoundingRetangulo` em todo o código Python (views, scripts, formatadores, etc).
+- [ ] 2.3 Implementar o novo suporte a `BoundingQuadrado` (e garantir a retrocompatibilidade) nas validações e views, até que os testes do passo 2.1 fiquem verdes.
+- [ ] 2.4 Executar os testes automatizados via `python build.py test` para assegurar 100% de cobertura de testes conforme PRINCIPIOS.md e aprovar a refatoração.
 
-## 3. Criação da Rotina de Migração JSON
+## 3. TDD e Criação da Rotina de Migração JSON
 
-- [ ] 3.1 Criar o script de migração na pasta `/migracoes/` (ex: `00XX_migrar_pois_box_para_retangulo.py`) usando o ID numérico seguinte livre e os padrões do motor de migração.
-- [ ] 3.2 O script deve carregar o modelo do croqui ou iterar pelos JSONs, encontrar as propriedades `"box"`, trocar o nome para `"retangulo"` e persistir os dados originais.
-- [ ] 3.3 Criar o arquivo de testes da migração na mesma pasta (ex: `00XX_migrar_pois_box_para_retangulo_test.py`).
-- [ ] 3.4 Aplicar uma conversão paralela usando search & replace (ou script no `/scratch`) para a pasta de arquivos estáticos `raw_mapas/*.json` para que novas execuções não puxem arquivos quebrados.
+- [ ] 3.1 (TDD) Criar o arquivo de testes da migração na pasta `/migracoes/` (ex: `00XX_migrar_pois_box_para_retangulo_test.py`) que mocke um croqui json com `.box`, prevendo a transformação final para `.retangulo` com o conteúdo intacto, que falhará no início.
+- [ ] 3.2 Criar o script de migração funcional na pasta `/migracoes/` (ex: `00XX_migrar_pois_box_para_retangulo.py`) seguindo a padronização seqüencial e resolver a falha do teste.
+- [ ] 3.3 Rodar a cobertura de testes `python build.py coverage` confirmando que 100% das novas linhas da migração estão cobertas.
+- [ ] 3.4 Aplicar a conversão para arquivos da pasta estática de extração `raw_mapas/*.json` para mantê-los consistentes (via script auxiliar isolado ou regex replace no scratch).
 
 ## 4. Atualização da Skill de Agente de ML
 
 - [ ] 4.1 Editar o arquivo `.agents/skills/mapa_extrair_pontos_de_interesse/SKILL.md`.
 - [ ] 4.2 Alterar a documentação dos formatos de bounding areas para: `circular` > `quadrado` > `retangulo` > `area_livre`.
-- [ ] 4.3 Acrescentar a instrução de extração solicitando que o agente selecione um tamanho padrão (raio ou lado) aplicável a todos os marcadores de rotas e use isso de forma consistente.
+- [ ] 4.3 Acrescentar a instrução exigindo que o agente de IA adote um padrão unificado (mesmo raio ou lado relativo a todos os outros POIs daquele tipo no mapa).

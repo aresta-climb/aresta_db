@@ -8,6 +8,7 @@ A extração automatizada de Pontos de Interesse (POIs) em croquis de escalada a
 - Inclusão do tipo `quadrado` (`BoundingQuadrado` com lado fixo) nas opções de bounding area de pontos de interesse.
 - Atualização da skill do agente (`mapa_extrair_pontos_de_interesse`) para priorizar quadrados acima de retângulos e uniformizar o tamanho relativo dos marcadores de referências de escaladas.
 - Script de migração para atualizar retroativamente os metadados JSON dos croquis já processados, convertendo os campos `"box"` antigos para `"retangulo"`.
+- **Governança Strict**: Toda e qualquer alteração de código gerada nesta refatoração seguirá a metodologia TDD (Test-Driven Development) rigorosa, garantindo 100% de cobertura de código (unit test coverage) antes da finalização, alinhado à documentação inegociável contida em `PRINCIPIOS.md`.
 
 ## Capabilities
 
