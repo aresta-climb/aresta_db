@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 96
-      y: 1181
-      comprimento: 38
-      largura: 30
+    circulo:
+      x: 97
+      y: 1180
+      raio: 22
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 428
-      y: 1143
-      comprimento: 38
-      largura: 30
+      y: 1142
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 548
-      y: 1100
-      comprimento: 40
-      largura: 29
+      y: 1098
+      raio: 22
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 576
-      y: 905
-      comprimento: 33
-      largura: 32
+      y: 904
+      raio: 22
   - id: '05'
     label: '05'
-    retangulo:
-      x: 632
+    circulo:
+      x: 633
       y: 902
-      comprimento: 33
-      largura: 31
+      raio: 22
   referencias:
   - escalada: Física Quântica
     ids:
@@ -62,46 +57,40 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 330
-      y: 893
-      comprimento: 43
-      largura: 32
+      y: 892
+      raio: 23
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 389
-      y: 828
-      comprimento: 38
-      largura: 32
-  - id: 08
-    label: 08
-    retangulo:
+      y: 827
+      raio: 22
+  - id: '08'
+    label: '08'
+    circulo:
       x: 498
-      y: 943
-      comprimento: 43
-      largura: 32
-  - id: 09
-    label: 09
-    retangulo:
+      y: 942
+      raio: 23
+  - id: '09'
+    label: '09'
+    circulo:
       x: 558
-      y: 1080
-      comprimento: 39
-      largura: 29
+      y: 1079
+      raio: 22
   - id: '10'
     label: '10'
-    retangulo:
-      x: 634
-      y: 1156
-      comprimento: 39
-      largura: 29
+    circulo:
+      x: 633
+      y: 1155
+      raio: 22
   - id: '11'
     label: '11'
-    retangulo:
+    circulo:
       x: 703
-      y: 1148
-      comprimento: 36
-      largura: 29
+      y: 1147
+      raio: 22
   referencias:
   - escalada: Cortina de Fumaça
     ids:
@@ -115,45 +104,48 @@ mapas:
   - escalada: Pelos de Aldebaran
     ids:
     - '11'
+  - ids:
+    - '08'
+    setor: Paulistas
+    escalada: Pubianos
+  - ids:
+    - '09'
+    setor: Paulistas
+    escalada: Bocaina Roots
 - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '12'
     label: '12'
-    retangulo:
-      x: 454
-      y: 1132
-      comprimento: 37
-      largura: 29
+    circulo:
+      x: 453
+      y: 1129
+      raio: 22
   - id: '13'
     label: '13'
-    retangulo:
+    circulo:
       x: 469
-      y: 716
-      comprimento: 38
-      largura: 31
+      y: 714
+      raio: 22
   - id: '14'
     label: '14'
-    retangulo:
+    circulo:
       x: 614
-      y: 797
-      comprimento: 39
-      largura: 30
+      y: 796
+      raio: 22
   - id: '15'
     label: '15'
-    retangulo:
+    circulo:
       x: 732
-      y: 802
-      comprimento: 38
-      largura: 29
+      y: 800
+      raio: 22
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 815
-      y: 790
-      comprimento: 38
-      largura: 31
+      y: 788
+      raio: 22
   referencias:
   - escalada: Ejaculação Precoce
     ids:

@@ -13,9 +13,9 @@ croquis:
     \ de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque,\
     \ distribuídas em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256_croqui: a9ab7024dd1253ec5ec3255eca150ba639718caf1af15e355e552de4b83fa007
+  checksum_sha256_croqui: 6f9e7f348dd7dd5ef56bfd5d27421865eaa285e0584105e42fc2a4b66eea2fcb
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-08T02:35:36Z'
 - id: br_mg_arcos_bombonera
   nome: Arcos - Bombonera
   descricao: Afloramento de calcário situado em Pains, Minas Gerais, com diversos

@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 280
-      y: 1013
-      comprimento: 42
-      largura: 34
+    circulo:
+      x: 281
+      y: 1011
+      raio: 26
   - id: '02'
     label: '02'
-    retangulo:
-      x: 506
-      y: 1013
-      comprimento: 46
-      largura: 32
+    circulo:
+      x: 507
+      y: 1012
+      raio: 26
   - id: '03'
     label: '03'
-    retangulo:
-      x: 587
-      y: 1028
-      comprimento: 48
-      largura: 36
+    circulo:
+      x: 588
+      y: 1027
+      raio: 26
   - id: '04'
     label: '04'
-    retangulo:
-      x: 660
-      y: 1029
-      comprimento: 49
-      largura: 36
+    circulo:
+      x: 662
+      y: 1028
+      raio: 26
   - id: '05'
     label: '05'
-    retangulo:
-      x: 750
-      y: 1070
-      comprimento: 44
-      largura: 33
+    circulo:
+      x: 751
+      y: 1068
+      raio: 26
   - id: '06'
     label: '06'
-    retangulo:
-      x: 801
-      y: 875
-      comprimento: 50
-      largura: 40
+    circulo:
+      x: 802
+      y: 873
+      raio: 26
   referencias:
   - escalada: Jaratataca
     ids:
@@ -72,11 +66,10 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
-      x: 234
-      y: 928
-      comprimento: 48
-      largura: 37
+    circulo:
+      x: 235
+      y: 927
+      raio: 24
   referencias:
   - escalada: Barriga Verde
     ids:

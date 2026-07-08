@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 364
-      y: 548
-      comprimento: 46
-      largura: 38
+    circulo:
+      x: 365
+      y: 547
+      raio: 26
   - id: '02'
     label: '02'
-    retangulo:
-      x: 460
-      y: 624
-      comprimento: 49
-      largura: 37
+    circulo:
+      x: 459
+      y: 623
+      raio: 26
   - id: '03'
     label: '03'
-    retangulo:
-      x: 523
-      y: 694
-      comprimento: 52
-      largura: 41
+    circulo:
+      x: 524
+      y: 692
+      raio: 26
   - id: '04'
     label: '04'
-    retangulo:
-      x: 596
-      y: 751
-      comprimento: 50
-      largura: 36
+    circulo:
+      x: 597
+      y: 749
+      raio: 26
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 654
       y: 838
-      comprimento: 33
-      largura: 31
+      raio: 26
   - id: '06'
     label: '06'
-    retangulo:
-      x: 702
+    circulo:
+      x: 701
       y: 838
-      comprimento: 36
-      largura: 31
+      raio: 26
   referencias:
   - escalada: Pêro no Mucho
     ids:
@@ -66,48 +60,40 @@ mapas:
   - escalada: Efeito Colateral
     ids:
     - '06'
-  - escalada: Efeito Variado
-    ids:
-    - '06'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    retangulo:
-      x: 192
+    circulo:
+      x: 191
       y: 1022
-      comprimento: 29
-      largura: 25
+      raio: 22
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 230
       y: 1028
-      comprimento: 31
-      largura: 27
+      raio: 22
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 292
-      y: 1040
-      comprimento: 34
-      largura: 28
-  - id: 08
-    label: 08
-    retangulo:
-      x: 356
-      y: 1036
-      comprimento: 31
-      largura: 28
-  - id: 09
-    label: 09
-    retangulo:
-      x: 412
-      y: 1036
-      comprimento: 31
-      largura: 29
+      y: 1041
+      raio: 22
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 358
+      y: 1037
+      raio: 22
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 413
+      y: 1038
+      raio: 22
   referencias:
   - escalada: Efeito Cascata
     ids:
@@ -120,55 +106,44 @@ mapas:
     - '07'
   - escalada: Rock Supimpa
     ids:
-    - 08
+    - '08'
   - escalada: Você Decide
     ids:
-    - 09
-  - escalada: Efeito Variado
-    ids:
-    - '06'
-  - escalada: Só paracolateral
-    ids:
-    - '07'
+    - '09'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    retangulo:
-      x: 478
-      y: 1028
-      comprimento: 40
-      largura: 29
+    circulo:
+      x: 479
+      y: 1026
+      raio: 22
   - id: '11'
     label: '11'
-    retangulo:
-      x: 541
-      y: 1002
-      comprimento: 36
-      largura: 30
+    circulo:
+      x: 542
+      y: 1000
+      raio: 22
   - id: '12'
     label: '12'
-    retangulo:
-      x: 630
-      y: 946
-      comprimento: 29
-      largura: 25
+    circulo:
+      x: 632
+      y: 949
+      raio: 22
   - id: '13'
     label: '13'
-    retangulo:
-      x: 668
+    circulo:
+      x: 670
       y: 947
-      comprimento: 31
-      largura: 24
+      raio: 22
   - id: '14'
     label: '14'
-    retangulo:
-      x: 746
-      y: 980
-      comprimento: 38
-      largura: 29
+    circulo:
+      x: 747
+      y: 979
+      raio: 22
   referencias:
   - escalada: Grande Hotel
     ids:
@@ -185,64 +160,61 @@ mapas:
   - escalada: Honney Money
     ids:
     - '14'
-  - escalada: Trimura do Hotel
-    ids:
-    - '11'
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 192
       y: 1032
-      comprimento: 37
-      largura: 29
+      raio: 22
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 278
-      y: 1032
-      comprimento: 41
-      largura: 32
+      y: 1031
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 448
-      y: 1011
-      comprimento: 39
-      largura: 30
+      y: 1009
+      raio: 22
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 527
-      y: 950
-      comprimento: 40
-      largura: 27
+      y: 949
+      raio: 22
   - id: '05'
     label: '05'
-    retangulo:
-      x: 645
-      y: 928
-      comprimento: 40
-      largura: 30
+    circulo:
+      x: 646
+      y: 927
+      raio: 22
   referencias:
-  - escalada: Pêro no Mucho
+  - escalada: Efeito Variado
     ids:
     - '01'
-  - escalada: Meia Hora
+    setor: Terceiro Andar
+  - escalada: Só paracolateral
     ids:
     - '02'
-  - escalada: Falta de Educação
+    setor: Terceiro Andar
+  - escalada: Grande Hotel
     ids:
     - '03'
-  - escalada: De Mão Beijada
+    setor: Terceiro Andar
+  - escalada: Trimura do Hotel
     ids:
     - '04'
-  - escalada: Efeito Cascata
+    setor: Terceiro Andar
+  - escalada: Própria Loucura
     ids:
     - '05'
+    setor: Terceiro Andar
 escaladas:
 - via_esportiva:
     nome: Pêro no Mucho

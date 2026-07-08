@@ -26,6 +26,7 @@
             ## Croqui 220 Vias
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_highlines
@@ -43,43 +44,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 803
-          - **y**: 312
-          - **comprimento**: 28
-          - **largura**: 35
+          - **y**: 314
+          - **raio**: 21
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 644
           - **y**: 461
-          - **comprimento**: 24
-          - **largura**: 32
+          - **raio**: 21
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 438
           - **y**: 331
-          - **comprimento**: 25
-          - **largura**: 32
+          - **raio**: 21
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 480
+        - **circulo**:
+          - **x**: 479
           - **y**: 198
-          - **comprimento**: 27
-          - **largura**: 29
+          - **raio**: 21
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 200
           - **y**: 188
-          - **comprimento**: 24
-          - **largura**: 34
+          - **raio**: 21
     - **referencias**:
       - **[0]**:
         - **escalada**: Trickline
@@ -192,59 +188,52 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 218
-          - **y**: 913
-          - **comprimento**: 30
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 219
+          - **y**: 914
+          - **raio**: 23
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 268
-          - **y**: 911
-          - **comprimento**: 36
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 269
+          - **y**: 913
+          - **raio**: 23
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 312
+        - **circulo**:
+          - **x**: 314
           - **y**: 931
-          - **comprimento**: 35
-          - **largura**: 30
+          - **raio**: 23
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 380
-          - **y**: 922
-          - **comprimento**: 49
-          - **largura**: 35
+        - **circulo**:
+          - **x**: 382
+          - **y**: 920
+          - **raio**: 23
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 458
-          - **y**: 917
-          - **comprimento**: 43
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 459
+          - **y**: 914
+          - **raio**: 24
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 532
+        - **circulo**:
+          - **x**: 531
           - **y**: 800
-          - **comprimento**: 35
-          - **largura**: 29
+          - **raio**: 23
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 580
-          - **y**: 789
-          - **comprimento**: 43
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 584
+          - **y**: 786
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Índios
@@ -282,59 +271,52 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 170
-          - **y**: 794
-          - **comprimento**: 44
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 171
+          - **y**: 793
+          - **raio**: 23
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 244
-          - **y**: 790
-          - **comprimento**: 43
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 245
+          - **y**: 788
+          - **raio**: 23
       - **[2]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 341
-          - **y**: 763
-          - **comprimento**: 42
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 343
+          - **y**: 761
+          - **raio**: 23
       - **[3]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 413
+        - **circulo**:
+          - **x**: 414
           - **y**: 748
-          - **comprimento**: 42
-          - **largura**: 37
+          - **raio**: 24
       - **[4]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 655
-          - **y**: 882
-          - **comprimento**: 38
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 656
+          - **y**: 881
+          - **raio**: 23
       - **[5]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
+        - **circulo**:
           - **x**: 724
-          - **y**: 873
-          - **comprimento**: 39
-          - **largura**: 30
+          - **y**: 871
+          - **raio**: 23
       - **[6]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 776
-          - **y**: 928
-          - **comprimento**: 41
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 777
+          - **y**: 926
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Família Martins
@@ -356,6 +338,16 @@
         - **escalada**: Último Suspiro
         - **ids**:
           - 14
+      - **[5]**:
+        - **ids**:
+          - 08
+        - **setor**: Ensolarado
+        - **escalada**: Mundo Mágico dos Abacates
+      - **[6]**:
+        - **ids**:
+          - 09
+        - **setor**: Ensolarado
+        - **escalada**: Ariba Cabron
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ensolarado_p3.webp)
     - **largura_mapa**: 1152
@@ -364,59 +356,52 @@
       - **[0]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 476
-          - **y**: 914
-          - **comprimento**: 38
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 477
+          - **y**: 912
+          - **raio**: 23
       - **[1]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
+        - **circulo**:
           - **x**: 548
-          - **y**: 936
-          - **comprimento**: 41
-          - **largura**: 35
+          - **y**: 935
+          - **raio**: 23
       - **[2]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 623
-          - **y**: 936
-          - **comprimento**: 36
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 624
+          - **y**: 934
+          - **raio**: 23
       - **[3]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
-          - **x**: 702
-          - **y**: 992
-          - **comprimento**: 41
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 703
+          - **y**: 991
+          - **raio**: 23
       - **[4]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 908
-          - **y**: 1082
-          - **comprimento**: 38
-          - **largura**: 31
+        - **circulo**:
+          - **x**: 909
+          - **y**: 1080
+          - **raio**: 23
       - **[5]**:
         - **id**: 20
         - **label**: 20
-        - **retangulo**:
-          - **x**: 968
-          - **y**: 1096
-          - **comprimento**: 33
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 970
+          - **y**: 1097
+          - **raio**: 23
       - **[6]**:
         - **id**: 21
         - **label**: 21
-        - **retangulo**:
-          - **x**: 1010
+        - **circulo**:
+          - **x**: 1011
           - **y**: 1126
-          - **comprimento**: 32
-          - **largura**: 26
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Barba Negra
@@ -454,27 +439,24 @@
       - **[0]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 279
+        - **circulo**:
+          - **x**: 280
           - **y**: 1226
-          - **comprimento**: 36
-          - **largura**: 29
+          - **raio**: 20
       - **[1]**:
         - **id**: 20
         - **label**: 20
-        - **retangulo**:
-          - **x**: 636
+        - **circulo**:
+          - **x**: 637
           - **y**: 1119
-          - **comprimento**: 40
-          - **largura**: 32
+          - **raio**: 20
       - **[2]**:
         - **id**: 21
         - **label**: 21
-        - **retangulo**:
+        - **circulo**:
           - **x**: 829
           - **y**: 1022
-          - **comprimento**: 34
-          - **largura**: 30
+          - **raio**: 20
     - **referencias**:
       - **[0]**:
         - **escalada**: Todo Cuidado e Pouco
@@ -737,27 +719,24 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 948
-          - **y**: 986
-          - **comprimento**: 43
-          - **largura**: 34
+          - **y**: 985
+          - **raio**: 24
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 630
+        - **circulo**:
+          - **x**: 629
           - **y**: 1069
-          - **comprimento**: 45
-          - **largura**: 32
+          - **raio**: 25
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 320
           - **y**: 1060
-          - **comprimento**: 45
-          - **largura**: 33
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Love's in the Air
@@ -779,11 +758,10 @@
       - **[0]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 612
           - **y**: 1224
-          - **comprimento**: 46
-          - **largura**: 32
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: De Pai para Filho
@@ -797,11 +775,10 @@
       - **[0]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 533
-          - **y**: 1248
-          - **comprimento**: 44
-          - **largura**: 33
+          - **y**: 1247
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Amor de Mãe
@@ -815,19 +792,17 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 1076
-          - **y**: 1082
-          - **comprimento**: 51
-          - **largura**: 42
+          - **y**: 1079
+          - **raio**: 24
       - **[1]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 707
-          - **y**: 958
-          - **comprimento**: 44
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 709
+          - **y**: 957
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Pagador de Promessa
@@ -845,19 +820,28 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 928
-          - **y**: 1134
-          - **comprimento**: 50
-          - **largura**: 37
+          - **y**: 1131
+          - **raio**: 24
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 642
-          - **y**: 1140
-          - **comprimento**: 51
-          - **largura**: 45
+        - **circulo**:
+          - **x**: 641
+          - **y**: 1136
+          - **raio**: 25
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - 08
+        - **setor**: Garganta
+        - **escalada**: Sangue do meu Sangue
+      - **[1]**:
+        - **ids**:
+          - 09
+        - **setor**: Garganta
+        - **escalada**: Cocalcinhas
   - **[5]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p6.webp)
     - **largura_mapa**: 854
@@ -866,35 +850,31 @@
       - **[0]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
+        - **circulo**:
           - **x**: 320
           - **y**: 1250
-          - **comprimento**: 43
-          - **largura**: 33
+          - **raio**: 25
       - **[1]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 390
+        - **circulo**:
+          - **x**: 391
           - **y**: 1250
-          - **comprimento**: 30
-          - **largura**: 29
+          - **raio**: 25
       - **[2]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 452
-          - **y**: 1249
-          - **comprimento**: 34
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 454
+          - **y**: 1250
+          - **raio**: 25
       - **[3]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 662
+        - **circulo**:
+          - **x**: 664
           - **y**: 1250
-          - **comprimento**: 42
-          - **largura**: 33
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Guerreiro da Bocaina
@@ -920,59 +900,52 @@
       - **[0]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
+        - **circulo**:
           - **x**: 178
-          - **y**: 1172
-          - **comprimento**: 25
-          - **largura**: 23
+          - **y**: 1173
+          - **raio**: 19
       - **[1]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 220
-          - **y**: 1168
-          - **comprimento**: 23
-          - **largura**: 22
+        - **circulo**:
+          - **x**: 221
+          - **y**: 1167
+          - **raio**: 18
       - **[2]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 262
-          - **y**: 1154
-          - **comprimento**: 32
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 263
+          - **y**: 1152
+          - **raio**: 19
       - **[3]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 313
+        - **circulo**:
+          - **x**: 314
           - **y**: 1006
-          - **comprimento**: 30
-          - **largura**: 25
+          - **raio**: 19
       - **[4]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 342
-          - **y**: 878
-          - **comprimento**: 33
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 343
+          - **y**: 877
+          - **raio**: 19
       - **[5]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
+        - **circulo**:
           - **x**: 362
           - **y**: 697
-          - **comprimento**: 33
-          - **largura**: 26
+          - **raio**: 19
       - **[6]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
-          - **x**: 354
+        - **circulo**:
+          - **x**: 355
           - **y**: 315
-          - **comprimento**: 37
-          - **largura**: 30
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Guerreiro da Bocaina
@@ -1010,59 +983,52 @@
       - **[0]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 488
+        - **circulo**:
+          - **x**: 489
           - **y**: 820
-          - **comprimento**: 29
-          - **largura**: 25
+          - **raio**: 18
       - **[1]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
-          - **x**: 525
-          - **y**: 622
-          - **comprimento**: 34
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 526
+          - **y**: 621
+          - **raio**: 19
       - **[2]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 592
-          - **y**: 720
-          - **comprimento**: 32
-          - **largura**: 26
+        - **circulo**:
+          - **x**: 593
+          - **y**: 719
+          - **raio**: 19
       - **[3]**:
         - **id**: 20
         - **label**: 20
-        - **retangulo**:
-          - **x**: 608
-          - **y**: 657
-          - **comprimento**: 37
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 610
+          - **y**: 656
+          - **raio**: 18
       - **[4]**:
         - **id**: 21
         - **label**: 21
-        - **retangulo**:
+        - **circulo**:
           - **x**: 639
-          - **y**: 622
-          - **comprimento**: 24
-          - **largura**: 24
+          - **y**: 623
+          - **raio**: 18
       - **[5]**:
         - **id**: 22
         - **label**: 22
-        - **retangulo**:
+        - **circulo**:
           - **x**: 686
           - **y**: 623
-          - **comprimento**: 26
-          - **largura**: 22
+          - **raio**: 19
       - **[6]**:
         - **id**: 23
         - **label**: 23
-        - **retangulo**:
-          - **x**: 628
-          - **y**: 294
-          - **comprimento**: 35
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 630
+          - **y**: 295
+          - **raio**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Invasão Bacteriana
@@ -1100,43 +1066,38 @@
       - **[0]**:
         - **id**: 24
         - **label**: 24
-        - **retangulo**:
-          - **x**: 666
-          - **y**: 250
-          - **comprimento**: 37
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 668
+          - **y**: 249
+          - **raio**: 19
       - **[1]**:
         - **id**: 25
         - **label**: 25
-        - **retangulo**:
-          - **x**: 711
-          - **y**: 238
-          - **comprimento**: 34
-          - **largura**: 26
+        - **circulo**:
+          - **x**: 713
+          - **y**: 237
+          - **raio**: 18
       - **[2]**:
         - **id**: 26
         - **label**: 26
-        - **retangulo**:
-          - **x**: 804
+        - **circulo**:
+          - **x**: 805
           - **y**: 410
-          - **comprimento**: 34
-          - **largura**: 25
+          - **raio**: 19
       - **[3]**:
         - **id**: 27
         - **label**: 27
-        - **retangulo**:
-          - **x**: 828
-          - **y**: 164
-          - **comprimento**: 30
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 829
+          - **y**: 163
+          - **raio**: 19
       - **[4]**:
         - **id**: 28
         - **label**: 28
-        - **retangulo**:
+        - **circulo**:
           - **x**: 878
           - **y**: 206
-          - **comprimento**: 35
-          - **largura**: 25
+          - **raio**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Peter Park
@@ -1470,35 +1431,31 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 391
-          - **y**: 1062
-          - **comprimento**: 38
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 390
+          - **y**: 1061
+          - **raio**: 22
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 604
-          - **y**: 1066
-          - **comprimento**: 43
-          - **largura**: 31
+        - **circulo**:
+          - **x**: 605
+          - **y**: 1065
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 854
-          - **y**: 1106
-          - **comprimento**: 39
-          - **largura**: 29
+          - **y**: 1104
+          - **raio**: 22
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 1050
-          - **y**: 1120
-          - **comprimento**: 44
-          - **largura**: 32
+          - **y**: 1119
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Marcha lenta
@@ -1590,51 +1547,45 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 364
-          - **y**: 548
-          - **comprimento**: 46
-          - **largura**: 38
+        - **circulo**:
+          - **x**: 365
+          - **y**: 547
+          - **raio**: 26
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 460
-          - **y**: 624
-          - **comprimento**: 49
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 459
+          - **y**: 623
+          - **raio**: 26
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 523
-          - **y**: 694
-          - **comprimento**: 52
-          - **largura**: 41
+        - **circulo**:
+          - **x**: 524
+          - **y**: 692
+          - **raio**: 26
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 596
-          - **y**: 751
-          - **comprimento**: 50
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 597
+          - **y**: 749
+          - **raio**: 26
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 654
           - **y**: 838
-          - **comprimento**: 33
-          - **largura**: 31
+          - **raio**: 26
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 702
+        - **circulo**:
+          - **x**: 701
           - **y**: 838
-          - **comprimento**: 36
-          - **largura**: 31
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Pêro no Mucho
@@ -1660,10 +1611,6 @@
         - **escalada**: Efeito Colateral
         - **ids**:
           - 06
-      - **[6]**:
-        - **escalada**: Efeito Variado
-        - **ids**:
-          - 06
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p2.webp)
     - **largura_mapa**: 1151
@@ -1672,43 +1619,38 @@
       - **[0]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 192
+        - **circulo**:
+          - **x**: 191
           - **y**: 1022
-          - **comprimento**: 29
-          - **largura**: 25
+          - **raio**: 22
       - **[1]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 230
           - **y**: 1028
-          - **comprimento**: 31
-          - **largura**: 27
+          - **raio**: 22
       - **[2]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 292
-          - **y**: 1040
-          - **comprimento**: 34
-          - **largura**: 28
+          - **y**: 1041
+          - **raio**: 22
       - **[3]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 356
-          - **y**: 1036
-          - **comprimento**: 31
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 358
+          - **y**: 1037
+          - **raio**: 22
       - **[4]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 412
-          - **y**: 1036
-          - **comprimento**: 31
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 413
+          - **y**: 1038
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Efeito Cascata
@@ -1730,14 +1672,6 @@
         - **escalada**: Você Decide
         - **ids**:
           - 09
-      - **[5]**:
-        - **escalada**: Efeito Variado
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Só paracolateral
-        - **ids**:
-          - 07
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p3.webp)
     - **largura_mapa**: 1149
@@ -1746,43 +1680,38 @@
       - **[0]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 478
-          - **y**: 1028
-          - **comprimento**: 40
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 479
+          - **y**: 1026
+          - **raio**: 22
       - **[1]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 541
-          - **y**: 1002
-          - **comprimento**: 36
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 542
+          - **y**: 1000
+          - **raio**: 22
       - **[2]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 630
-          - **y**: 946
-          - **comprimento**: 29
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 632
+          - **y**: 949
+          - **raio**: 22
       - **[3]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 668
+        - **circulo**:
+          - **x**: 670
           - **y**: 947
-          - **comprimento**: 31
-          - **largura**: 24
+          - **raio**: 22
       - **[4]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 746
-          - **y**: 980
-          - **comprimento**: 38
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 747
+          - **y**: 979
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Grande Hotel
@@ -1804,10 +1733,6 @@
         - **escalada**: Honney Money
         - **ids**:
           - 14
-      - **[5]**:
-        - **escalada**: Trimura do Hotel
-        - **ids**:
-          - 11
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p4.webp)
     - **largura_mapa**: 1143
@@ -1816,64 +1741,64 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 192
           - **y**: 1032
-          - **comprimento**: 37
-          - **largura**: 29
+          - **raio**: 22
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 278
-          - **y**: 1032
-          - **comprimento**: 41
-          - **largura**: 32
+          - **y**: 1031
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 448
-          - **y**: 1011
-          - **comprimento**: 39
-          - **largura**: 30
+          - **y**: 1009
+          - **raio**: 22
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 527
-          - **y**: 950
-          - **comprimento**: 40
-          - **largura**: 27
+          - **y**: 949
+          - **raio**: 22
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 645
-          - **y**: 928
-          - **comprimento**: 40
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 646
+          - **y**: 927
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
-        - **escalada**: Pêro no Mucho
+        - **escalada**: Efeito Variado
         - **ids**:
           - 01
+        - **setor**: Terceiro Andar
       - **[1]**:
-        - **escalada**: Meia Hora
+        - **escalada**: Só paracolateral
         - **ids**:
           - 02
+        - **setor**: Terceiro Andar
       - **[2]**:
-        - **escalada**: Falta de Educação
+        - **escalada**: Grande Hotel
         - **ids**:
           - 03
+        - **setor**: Terceiro Andar
       - **[3]**:
-        - **escalada**: De Mão Beijada
+        - **escalada**: Trimura do Hotel
         - **ids**:
           - 04
+        - **setor**: Terceiro Andar
       - **[4]**:
-        - **escalada**: Efeito Cascata
+        - **escalada**: Própria Loucura
         - **ids**:
           - 05
+        - **setor**: Terceiro Andar
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2072,43 +1997,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 96
-          - **y**: 1181
-          - **comprimento**: 38
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 97
+          - **y**: 1180
+          - **raio**: 22
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 428
-          - **y**: 1143
-          - **comprimento**: 38
-          - **largura**: 30
+          - **y**: 1142
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 548
-          - **y**: 1100
-          - **comprimento**: 40
-          - **largura**: 29
+          - **y**: 1098
+          - **raio**: 22
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 576
-          - **y**: 905
-          - **comprimento**: 33
-          - **largura**: 32
+          - **y**: 904
+          - **raio**: 22
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 632
+        - **circulo**:
+          - **x**: 633
           - **y**: 902
-          - **comprimento**: 33
-          - **largura**: 31
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Física Quântica
@@ -2138,51 +2058,45 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 330
-          - **y**: 893
-          - **comprimento**: 43
-          - **largura**: 32
+          - **y**: 892
+          - **raio**: 23
       - **[1]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 389
-          - **y**: 828
-          - **comprimento**: 38
-          - **largura**: 32
+          - **y**: 827
+          - **raio**: 22
       - **[2]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 498
-          - **y**: 943
-          - **comprimento**: 43
-          - **largura**: 32
+          - **y**: 942
+          - **raio**: 23
       - **[3]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 558
-          - **y**: 1080
-          - **comprimento**: 39
-          - **largura**: 29
+          - **y**: 1079
+          - **raio**: 22
       - **[4]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 634
-          - **y**: 1156
-          - **comprimento**: 39
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 633
+          - **y**: 1155
+          - **raio**: 22
       - **[5]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
+        - **circulo**:
           - **x**: 703
-          - **y**: 1148
-          - **comprimento**: 36
-          - **largura**: 29
+          - **y**: 1147
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Cortina de Fumaça
@@ -2200,6 +2114,16 @@
         - **escalada**: Pelos de Aldebaran
         - **ids**:
           - 11
+      - **[4]**:
+        - **ids**:
+          - 08
+        - **setor**: Paulistas
+        - **escalada**: Pubianos
+      - **[5]**:
+        - **ids**:
+          - 09
+        - **setor**: Paulistas
+        - **escalada**: Bocaina Roots
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_paulistas_p3.webp)
     - **largura_mapa**: 1152
@@ -2208,43 +2132,38 @@
       - **[0]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 454
-          - **y**: 1132
-          - **comprimento**: 37
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 453
+          - **y**: 1129
+          - **raio**: 22
       - **[1]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
+        - **circulo**:
           - **x**: 469
-          - **y**: 716
-          - **comprimento**: 38
-          - **largura**: 31
+          - **y**: 714
+          - **raio**: 22
       - **[2]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
+        - **circulo**:
           - **x**: 614
-          - **y**: 797
-          - **comprimento**: 39
-          - **largura**: 30
+          - **y**: 796
+          - **raio**: 22
       - **[3]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
+        - **circulo**:
           - **x**: 732
-          - **y**: 802
-          - **comprimento**: 38
-          - **largura**: 29
+          - **y**: 800
+          - **raio**: 22
       - **[4]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
+        - **circulo**:
           - **x**: 815
-          - **y**: 790
-          - **comprimento**: 38
-          - **largura**: 31
+          - **y**: 788
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Ejaculação Precoce
@@ -2463,43 +2382,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 226
           - **y**: 818
-          - **comprimento**: 21
-          - **largura**: 29
+          - **raio**: 18
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 262
           - **y**: 864
-          - **comprimento**: 27
-          - **largura**: 31
+          - **raio**: 18
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 496
-          - **y**: 1089
-          - **comprimento**: 20
-          - **largura**: 26
+          - **y**: 1090
+          - **raio**: 18
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 640
-          - **y**: 1064
-          - **comprimento**: 17
-          - **largura**: 22
+        - **circulo**:
+          - **x**: 641
+          - **y**: 1065
+          - **raio**: 18
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 718
           - **y**: 997
-          - **comprimento**: 22
-          - **largura**: 28
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Alberto Roberto
@@ -2529,19 +2443,17 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 250
           - **y**: 1180
-          - **comprimento**: 21
-          - **largura**: 27
+          - **raio**: 18
       - **[1]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 659
-          - **y**: 1022
-          - **comprimento**: 28
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 661
+          - **y**: 1024
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: São Jorge
@@ -2559,43 +2471,38 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 180
-          - **y**: 1074
-          - **comprimento**: 17
-          - **largura**: 22
+          - **y**: 1076
+          - **raio**: 18
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 292
-          - **y**: 1102
-          - **comprimento**: 16
-          - **largura**: 20
+          - **y**: 1103
+          - **raio**: 18
       - **[2]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
+        - **circulo**:
           - **x**: 375
-          - **y**: 1121
-          - **comprimento**: 32
-          - **largura**: 26
+          - **y**: 1122
+          - **raio**: 18
       - **[3]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 457
-          - **y**: 1117
-          - **comprimento**: 28
-          - **largura**: 26
+        - **circulo**:
+          - **x**: 458
+          - **y**: 1116
+          - **raio**: 18
       - **[4]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
+        - **circulo**:
           - **x**: 596
-          - **y**: 1098
-          - **comprimento**: 31
-          - **largura**: 27
+          - **y**: 1099
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Sabotagem
@@ -2617,18 +2524,6 @@
         - **escalada**: Bafo de Onça
         - **ids**:
           - 12
-      - **[5]**:
-        - **escalada**: Sabotagem do Universo
-        - **ids**:
-          - 08
-      - **[6]**:
-        - **escalada**: Universo Sabotada
-        - **ids**:
-          - 09
-      - **[7]**:
-        - **escalada**: Ego Paralelo
-        - **ids**:
-          - 10
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p4.webp)
     - **largura_mapa**: 846
@@ -2637,43 +2532,38 @@
       - **[0]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 26
+        - **circulo**:
+          - **x**: 27
           - **y**: 907
-          - **comprimento**: 33
-          - **largura**: 26
+          - **raio**: 18
       - **[1]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 64
-          - **y**: 960
-          - **comprimento**: 32
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 66
+          - **y**: 959
+          - **raio**: 18
       - **[2]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 123
+        - **circulo**:
+          - **x**: 124
           - **y**: 1004
-          - **comprimento**: 32
-          - **largura**: 27
+          - **raio**: 18
       - **[3]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
+        - **circulo**:
           - **x**: 248
-          - **y**: 1128
-          - **comprimento**: 33
-          - **largura**: 26
+          - **y**: 1127
+          - **raio**: 18
       - **[4]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 438
-          - **y**: 1226
-          - **comprimento**: 31
-          - **largura**: 27
+        - **circulo**:
+          - **x**: 439
+          - **y**: 1225
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: 12 anos
@@ -2703,40 +2593,40 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 187
-          - **y**: 1059
-          - **comprimento**: 38
-          - **largura**: 30
+          - **y**: 1057
+          - **raio**: 22
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 262
-          - **y**: 1050
-          - **comprimento**: 43
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 263
+          - **y**: 1049
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 364
-          - **y**: 1050
-          - **comprimento**: 39
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 365
+          - **y**: 1049
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
-        - **escalada**: Alberto Roberto
+        - **escalada**: Sabotagem do Universo
         - **ids**:
           - 01
+        - **setor**: Mezanino
       - **[1]**:
-        - **escalada**: Chico Anísio
+        - **escalada**: Universo Sabotada
         - **ids**:
           - 02
+        - **setor**: Mezanino
       - **[2]**:
-        - **escalada**: Onjacktallbeck
+        - **escalada**: Ego Paralelo
         - **ids**:
           - 03
+        - **setor**: Mezanino
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2953,11 +2843,10 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 365
           - **y**: 1038
-          - **comprimento**: 32
-          - **largura**: 26
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Caroço de Manga
@@ -2971,35 +2860,31 @@
       - **[0]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 262
-          - **y**: 1223
-          - **comprimento**: 41
-          - **largura**: 28
+          - **y**: 1222
+          - **raio**: 22
       - **[1]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 394
-          - **y**: 1223
-          - **comprimento**: 39
-          - **largura**: 28
+          - **y**: 1222
+          - **raio**: 22
       - **[2]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 627
           - **y**: 1244
-          - **comprimento**: 42
-          - **largura**: 32
+          - **raio**: 22
       - **[3]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 816
           - **y**: 1169
-          - **comprimento**: 43
-          - **largura**: 36
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Caminho das pedras
@@ -3025,35 +2910,31 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 368
-          - **y**: 1232
-          - **comprimento**: 43
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 367
+          - **y**: 1230
+          - **raio**: 22
       - **[1]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 612
-          - **y**: 1231
-          - **comprimento**: 37
-          - **largura**: 30
+          - **y**: 1230
+          - **raio**: 22
       - **[2]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 833
           - **y**: 1187
-          - **comprimento**: 40
-          - **largura**: 28
+          - **raio**: 22
       - **[3]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 992
-          - **y**: 1179
-          - **comprimento**: 42
-          - **largura**: 32
+          - **y**: 1178
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: Lei Rounet
@@ -3063,6 +2944,16 @@
         - **escalada**: Maria da Penha
         - **ids**:
           - 07
+      - **[2]**:
+        - **ids**:
+          - 08
+        - **setor**: Shana Crazy
+        - **escalada**: Para-raio de Maluco
+      - **[3]**:
+        - **ids**:
+          - 09
+        - **setor**: Shana Crazy
+        - **escalada**: Sandálias da Humildade
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -3182,67 +3073,59 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 204
-          - **y**: 1092
-          - **comprimento**: 38
-          - **largura**: 29
+          - **y**: 1090
+          - **raio**: 22
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 248
-          - **y**: 1039
-          - **comprimento**: 39
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 249
+          - **y**: 1037
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 302
-          - **y**: 1080
-          - **comprimento**: 39
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 303
+          - **y**: 1077
+          - **raio**: 22
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 378
-          - **y**: 1062
-          - **comprimento**: 42
-          - **largura**: 29
+          - **y**: 1059
+          - **raio**: 22
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 429
-          - **y**: 1040
-          - **comprimento**: 40
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 430
+          - **y**: 1037
+          - **raio**: 22
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 548
-          - **y**: 1006
-          - **comprimento**: 41
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 547
+          - **y**: 1005
+          - **raio**: 23
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 610
-          - **y**: 994
-          - **comprimento**: 38
-          - **largura**: 29
+          - **y**: 992
+          - **raio**: 22
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 674
-          - **y**: 978
-          - **comprimento**: 45
-          - **largura**: 35
+        - **circulo**:
+          - **x**: 675
+          - **y**: 977
+          - **raio**: 22
     - **referencias**:
       - **[0]**:
         - **escalada**: ET de Varginha
@@ -3272,6 +3155,11 @@
         - **escalada**: Foi sem Querer
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Tsunami
+        - **escalada**: Cabeleira
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tsunami_p2.webp)
     - **largura_mapa**: 1152
@@ -3280,67 +3168,59 @@
       - **[0]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 96
-          - **y**: 929
-          - **comprimento**: 31
-          - **largura**: 24
+        - **circulo**:
+          - **x**: 97
+          - **y**: 928
+          - **raio**: 23
       - **[1]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 142
+        - **circulo**:
+          - **x**: 143
           - **y**: 930
-          - **comprimento**: 32
-          - **largura**: 27
+          - **raio**: 24
       - **[2]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 190
+        - **circulo**:
+          - **x**: 192
           - **y**: 932
-          - **comprimento**: 29
-          - **largura**: 25
+          - **raio**: 23
       - **[3]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 234
+        - **circulo**:
+          - **x**: 235
           - **y**: 945
-          - **comprimento**: 29
-          - **largura**: 26
+          - **raio**: 22
       - **[4]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 272
+        - **circulo**:
+          - **x**: 274
           - **y**: 930
-          - **comprimento**: 27
-          - **largura**: 25
+          - **raio**: 22
       - **[5]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 308
-          - **y**: 916
-          - **comprimento**: 29
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 311
+          - **y**: 915
+          - **raio**: 22
       - **[6]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
+        - **circulo**:
           - **x**: 340
-          - **y**: 1020
-          - **comprimento**: 42
-          - **largura**: 33
+          - **y**: 1018
+          - **raio**: 23
       - **[7]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
-          - **x**: 406
+        - **circulo**:
+          - **x**: 407
           - **y**: 1026
-          - **comprimento**: 43
-          - **largura**: 33
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Muy Hermosa
@@ -3370,6 +3250,11 @@
         - **escalada**: Buena Onda
         - **ids**:
           - 16
+      - **[7]**:
+        - **ids**:
+          - 09
+        - **setor**: Tsunami
+        - **escalada**: Muchas Gracias
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tsunami_p3.webp)
     - **largura_mapa**: 1152
@@ -3378,67 +3263,59 @@
       - **[0]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 456
+        - **circulo**:
+          - **x**: 457
           - **y**: 1041
-          - **comprimento**: 42
-          - **largura**: 36
+          - **raio**: 23
       - **[1]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
-          - **x**: 562
-          - **y**: 1054
-          - **comprimento**: 43
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 563
+          - **y**: 1052
+          - **raio**: 23
       - **[2]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 642
-          - **y**: 1074
-          - **comprimento**: 30
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 644
+          - **y**: 1075
+          - **raio**: 23
       - **[3]**:
         - **id**: 20
         - **label**: 20
-        - **retangulo**:
-          - **x**: 698
-          - **y**: 1082
-          - **comprimento**: 31
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 699
+          - **y**: 1083
+          - **raio**: 23
       - **[4]**:
         - **id**: 21
         - **label**: 21
-        - **retangulo**:
-          - **x**: 748
-          - **y**: 1092
-          - **comprimento**: 31
-          - **largura**: 27
+        - **circulo**:
+          - **x**: 749
+          - **y**: 1090
+          - **raio**: 23
       - **[5]**:
         - **id**: 22
         - **label**: 22
-        - **retangulo**:
+        - **circulo**:
           - **x**: 801
-          - **y**: 1126
-          - **comprimento**: 30
-          - **largura**: 26
+          - **y**: 1125
+          - **raio**: 23
       - **[6]**:
         - **id**: 23
         - **label**: 23
-        - **retangulo**:
+        - **circulo**:
           - **x**: 850
-          - **y**: 1132
-          - **comprimento**: 34
-          - **largura**: 29
+          - **y**: 1131
+          - **raio**: 23
       - **[7]**:
         - **id**: 24
         - **label**: 24
-        - **retangulo**:
-          - **x**: 914
-          - **y**: 1122
-          - **comprimento**: 37
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 917
+          - **y**: 1121
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Marola
@@ -3754,51 +3631,45 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 223
+        - **circulo**:
+          - **x**: 224
           - **y**: 1090
-          - **comprimento**: 30
-          - **largura**: 27
+          - **raio**: 23
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 274
-          - **y**: 1084
-          - **comprimento**: 33
-          - **largura**: 27
+          - **y**: 1086
+          - **raio**: 23
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 340
-          - **y**: 1088
-          - **comprimento**: 41
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 342
+          - **y**: 1086
+          - **raio**: 23
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 570
-          - **y**: 952
-          - **comprimento**: 44
-          - **largura**: 33
+          - **y**: 950
+          - **raio**: 23
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 622
-          - **y**: 900
-          - **comprimento**: 43
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 623
+          - **y**: 899
+          - **raio**: 23
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 668
-          - **y**: 854
-          - **comprimento**: 45
-          - **largura**: 34
+          - **y**: 853
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Pulando a cerca
@@ -3832,59 +3703,52 @@
       - **[0]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 702
+        - **circulo**:
+          - **x**: 700
           - **y**: 808
-          - **comprimento**: 31
-          - **largura**: 25
+          - **raio**: 23
       - **[1]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 745
+        - **circulo**:
+          - **x**: 747
           - **y**: 784
-          - **comprimento**: 32
-          - **largura**: 26
+          - **raio**: 23
       - **[2]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 787
-          - **y**: 814
-          - **comprimento**: 34
-          - **largura**: 23
+        - **circulo**:
+          - **x**: 788
+          - **y**: 815
+          - **raio**: 23
       - **[3]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 831
-          - **y**: 799
-          - **comprimento**: 34
-          - **largura**: 24
+        - **circulo**:
+          - **x**: 833
+          - **y**: 798
+          - **raio**: 23
       - **[4]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 884
-          - **y**: 772
-          - **comprimento**: 41
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 885
+          - **y**: 771
+          - **raio**: 23
       - **[5]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
+        - **circulo**:
           - **x**: 947
-          - **y**: 740
-          - **comprimento**: 42
-          - **largura**: 32
+          - **y**: 739
+          - **raio**: 23
       - **[6]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 1000
-          - **y**: 715
-          - **comprimento**: 42
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 1001
+          - **y**: 714
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Filho de Vó
@@ -3906,6 +3770,16 @@
         - **escalada**: Rota Aérea
         - **ids**:
           - 13
+      - **[5]**:
+        - **ids**:
+          - 08
+        - **setor**: Udão
+        - **escalada**: Loucura Alheia
+      - **[6]**:
+        - **ids**:
+          - 09
+        - **setor**: Udão
+        - **escalada**: Mistério de Ramadã
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -4070,51 +3944,45 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 280
-          - **y**: 1013
-          - **comprimento**: 42
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 281
+          - **y**: 1011
+          - **raio**: 26
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 506
-          - **y**: 1013
-          - **comprimento**: 46
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 507
+          - **y**: 1012
+          - **raio**: 26
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 587
-          - **y**: 1028
-          - **comprimento**: 48
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 588
+          - **y**: 1027
+          - **raio**: 26
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 660
-          - **y**: 1029
-          - **comprimento**: 49
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 662
+          - **y**: 1028
+          - **raio**: 26
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 750
-          - **y**: 1070
-          - **comprimento**: 44
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 751
+          - **y**: 1068
+          - **raio**: 26
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 801
-          - **y**: 875
-          - **comprimento**: 50
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 802
+          - **y**: 873
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Jaratataca
@@ -4148,11 +4016,10 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 234
-          - **y**: 928
-          - **comprimento**: 48
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 235
+          - **y**: 927
+          - **raio**: 24
     - **referencias**:
       - **[0]**:
         - **escalada**: Barriga Verde
@@ -4246,43 +4113,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 320
-          - **y**: 1200
-          - **comprimento**: 45
-          - **largura**: 33
+          - **y**: 1199
+          - **raio**: 26
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 394
-          - **y**: 1219
-          - **comprimento**: 45
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 395
+          - **y**: 1217
+          - **raio**: 26
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 488
-          - **y**: 1220
-          - **comprimento**: 46
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 489
+          - **y**: 1219
+          - **raio**: 26
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 558
-          - **y**: 1201
-          - **comprimento**: 48
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 559
+          - **y**: 1200
+          - **raio**: 26
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 686
-          - **y**: 1213
-          - **comprimento**: 46
-          - **largura**: 32
+          - **y**: 1212
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Carapuça
@@ -4312,35 +4174,31 @@
       - **[0]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 739
           - **y**: 1188
-          - **comprimento**: 44
-          - **largura**: 33
+          - **raio**: 22
       - **[1]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 786
-          - **y**: 1102
-          - **comprimento**: 47
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 787
+          - **y**: 1101
+          - **raio**: 25
       - **[2]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 861
-          - **y**: 1210
-          - **comprimento**: 50
-          - **largura**: 37
+          - **y**: 1207
+          - **raio**: 26
       - **[3]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 923
-          - **y**: 1234
-          - **comprimento**: 48
-          - **largura**: 37
+          - **y**: 1231
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Chapeleta Voadora
@@ -4350,6 +4208,16 @@
         - **escalada**: Pau Podre
         - **ids**:
           - 07
+      - **[2]**:
+        - **ids**:
+          - 08
+        - **setor**: Bem-vindo
+        - **escalada**: Bonsai Cearense
+      - **[3]**:
+        - **ids**:
+          - 09
+        - **setor**: Bem-vindo
+        - **escalada**: Macaco Velho
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bem_vindo_p3.webp)
     - **largura_mapa**: 1152
@@ -4358,51 +4226,45 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 184
-          - **y**: 974
-          - **comprimento**: 53
-          - **largura**: 38
+          - **y**: 972
+          - **raio**: 26
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 246
-          - **y**: 988
-          - **comprimento**: 52
-          - **largura**: 41
+        - **circulo**:
+          - **x**: 248
+          - **y**: 986
+          - **raio**: 26
       - **[2]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 393
-          - **y**: 1042
-          - **comprimento**: 48
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 394
+          - **y**: 1040
+          - **raio**: 26
       - **[3]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 485
-          - **y**: 1233
-          - **comprimento**: 42
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 486
+          - **y**: 1231
+          - **raio**: 26
       - **[4]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 573
-          - **y**: 1225
-          - **comprimento**: 42
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 574
+          - **y**: 1223
+          - **raio**: 26
       - **[5]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 660
-          - **y**: 1244
-          - **comprimento**: 43
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 662
+          - **y**: 1243
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Sargento Pincel
@@ -4420,6 +4282,16 @@
         - **escalada**: Espírito de Equipe
         - **ids**:
           - 13
+      - **[4]**:
+        - **ids**:
+          - 08
+        - **setor**: Bem-vindo
+        - **escalada**: Bonsai Cearense
+      - **[5]**:
+        - **ids**:
+          - 09
+        - **setor**: Bem-vindo
+        - **escalada**: Macaco Velho
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bem_vindo_p4.webp)
     - **largura_mapa**: 1152
@@ -4428,51 +4300,45 @@
       - **[0]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 728
+        - **circulo**:
+          - **x**: 727
           - **y**: 1240
-          - **comprimento**: 33
-          - **largura**: 29
+          - **raio**: 26
       - **[1]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 782
+        - **circulo**:
+          - **x**: 781
           - **y**: 1240
-          - **comprimento**: 33
-          - **largura**: 30
+          - **raio**: 26
       - **[2]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
+        - **circulo**:
           - **x**: 836
-          - **y**: 1238
-          - **comprimento**: 35
-          - **largura**: 30
+          - **y**: 1240
+          - **raio**: 26
       - **[3]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 886
-          - **y**: 1241
-          - **comprimento**: 33
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 889
+          - **y**: 1240
+          - **raio**: 26
       - **[4]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
-          - **x**: 942
+        - **circulo**:
+          - **x**: 944
           - **y**: 1240
-          - **comprimento**: 33
-          - **largura**: 32
+          - **raio**: 26
       - **[5]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 996
+        - **circulo**:
+          - **x**: 998
           - **y**: 1238
-          - **comprimento**: 32
-          - **largura**: 31
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Bem-vindo
@@ -4722,67 +4588,59 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 30
-          - **y**: 1100
-          - **comprimento**: 43
-          - **largura**: 33
+          - **y**: 1098
+          - **raio**: 26
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 245
-          - **y**: 850
-          - **comprimento**: 44
-          - **largura**: 33
+          - **y**: 849
+          - **raio**: 26
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 355
-          - **y**: 856
-          - **comprimento**: 48
-          - **largura**: 35
+        - **circulo**:
+          - **x**: 356
+          - **y**: 855
+          - **raio**: 25
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 494
-          - **y**: 732
-          - **comprimento**: 47
-          - **largura**: 33
+          - **y**: 730
+          - **raio**: 26
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 648
-          - **y**: 732
-          - **comprimento**: 45
-          - **largura**: 34
+          - **y**: 730
+          - **raio**: 26
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 774
-          - **y**: 772
-          - **comprimento**: 49
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 775
+          - **y**: 770
+          - **raio**: 26
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 866
-          - **y**: 782
-          - **comprimento**: 44
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 867
+          - **y**: 781
+          - **raio**: 26
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 958
-          - **y**: 782
-          - **comprimento**: 49
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 959
+          - **y**: 780
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Permissão Concebida
@@ -4812,6 +4670,11 @@
         - **escalada**: Resta Um
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - 08
+        - **setor**: Tetos
+        - **escalada**: Medo de quê Aresta
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p2.webp)
     - **largura_mapa**: 1143
@@ -4820,67 +4683,59 @@
       - **[0]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 126
           - **y**: 801
-          - **comprimento**: 37
-          - **largura**: 28
+          - **raio**: 26
       - **[1]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 176
-          - **y**: 821
-          - **comprimento**: 33
-          - **largura**: 28
+        - **circulo**:
+          - **x**: 177
+          - **y**: 820
+          - **raio**: 25
       - **[2]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
+        - **circulo**:
           - **x**: 248
-          - **y**: 838
-          - **comprimento**: 41
-          - **largura**: 33
+          - **y**: 837
+          - **raio**: 25
       - **[3]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
+        - **circulo**:
           - **x**: 527
-          - **y**: 1034
-          - **comprimento**: 42
-          - **largura**: 32
+          - **y**: 1033
+          - **raio**: 26
       - **[4]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 604
-          - **y**: 1046
-          - **comprimento**: 43
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 605
+          - **y**: 1045
+          - **raio**: 26
       - **[5]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 670
+        - **circulo**:
+          - **x**: 671
           - **y**: 1052
-          - **comprimento**: 45
-          - **largura**: 33
+          - **raio**: 26
       - **[6]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 729
-          - **y**: 1053
-          - **comprimento**: 44
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 732
+          - **y**: 1051
+          - **raio**: 26
       - **[7]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
+        - **circulo**:
           - **x**: 782
-          - **y**: 1072
-          - **comprimento**: 43
-          - **largura**: 33
+          - **y**: 1070
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Zumbi da Bocaina
@@ -4910,6 +4765,11 @@
         - **escalada**: Mão de Vaca
         - **ids**:
           - 16
+      - **[7]**:
+        - **ids**:
+          - 09
+        - **setor**: Tetos
+        - **escalada**: Pressão Psicológica
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p3.webp)
     - **largura_mapa**: 1140
@@ -4918,35 +4778,31 @@
       - **[0]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
-          - **x**: 856
-          - **y**: 1083
-          - **comprimento**: 35
-          - **largura**: 36
+        - **circulo**:
+          - **x**: 858
+          - **y**: 1081
+          - **raio**: 26
       - **[1]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
+        - **circulo**:
           - **x**: 914
           - **y**: 1062
-          - **comprimento**: 35
-          - **largura**: 30
+          - **raio**: 25
       - **[2]**:
         - **id**: 19
         - **label**: 19
-        - **retangulo**:
-          - **x**: 954
+        - **circulo**:
+          - **x**: 955
           - **y**: 1068
-          - **comprimento**: 35
-          - **largura**: 27
+          - **raio**: 26
       - **[3]**:
         - **id**: 20
         - **label**: 20
-        - **retangulo**:
-          - **x**: 1052
-          - **y**: 1086
-          - **comprimento**: 39
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 1053
+          - **y**: 1087
+          - **raio**: 26
     - **referencias**:
       - **[0]**:
         - **escalada**: Natural Climb
@@ -4972,67 +4828,59 @@
       - **[0]**:
         - **id**: 21
         - **label**: 21
-        - **retangulo**:
-          - **x**: 208
+        - **circulo**:
+          - **x**: 210
           - **y**: 1154
-          - **comprimento**: 41
-          - **largura**: 33
+          - **raio**: 25
       - **[1]**:
         - **id**: 22
         - **label**: 22
-        - **retangulo**:
-          - **x**: 321
-          - **y**: 1150
-          - **comprimento**: 44
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 324
+          - **y**: 1149
+          - **raio**: 25
       - **[2]**:
         - **id**: 23
         - **label**: 23
-        - **retangulo**:
-          - **x**: 435
-          - **y**: 1139
-          - **comprimento**: 44
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 436
+          - **y**: 1138
+          - **raio**: 25
       - **[3]**:
         - **id**: 24
         - **label**: 24
-        - **retangulo**:
+        - **circulo**:
           - **x**: 666
           - **y**: 1141
-          - **comprimento**: 44
-          - **largura**: 32
+          - **raio**: 25
       - **[4]**:
         - **id**: 25
         - **label**: 25
-        - **retangulo**:
-          - **x**: 745
-          - **y**: 1111
-          - **comprimento**: 44
-          - **largura**: 34
+        - **circulo**:
+          - **x**: 746
+          - **y**: 1109
+          - **raio**: 24
       - **[5]**:
         - **id**: 26
         - **label**: 26
-        - **retangulo**:
+        - **circulo**:
           - **x**: 810
-          - **y**: 1108
-          - **comprimento**: 49
-          - **largura**: 36
+          - **y**: 1107
+          - **raio**: 24
       - **[6]**:
         - **id**: 27
         - **label**: 27
-        - **retangulo**:
-          - **x**: 896
-          - **y**: 1126
-          - **comprimento**: 41
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 897
+          - **y**: 1124
+          - **raio**: 24
       - **[7]**:
         - **id**: 28
         - **label**: 28
-        - **retangulo**:
-          - **x**: 962
-          - **y**: 1126
-          - **comprimento**: 45
-          - **largura**: 33
+        - **circulo**:
+          - **x**: 963
+          - **y**: 1123
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Mato Seco
@@ -5074,67 +4922,59 @@
       - **[0]**:
         - **id**: 29
         - **label**: 29
-        - **retangulo**:
-          - **x**: 102
-          - **y**: 1138
-          - **comprimento**: 45
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 104
+          - **y**: 1136
+          - **raio**: 25
       - **[1]**:
         - **id**: 30
         - **label**: 30
-        - **retangulo**:
-          - **x**: 173
-          - **y**: 1142
-          - **comprimento**: 48
-          - **largura**: 37
+        - **circulo**:
+          - **x**: 174
+          - **y**: 1140
+          - **raio**: 25
       - **[2]**:
         - **id**: 31
         - **label**: 31
-        - **retangulo**:
+        - **circulo**:
           - **x**: 261
           - **y**: 1155
-          - **comprimento**: 36
-          - **largura**: 32
+          - **raio**: 25
       - **[3]**:
         - **id**: 32
         - **label**: 32
-        - **retangulo**:
-          - **x**: 315
-          - **y**: 1162
-          - **comprimento**: 34
-          - **largura**: 31
+        - **circulo**:
+          - **x**: 316
+          - **y**: 1161
+          - **raio**: 25
       - **[4]**:
         - **id**: 33
         - **label**: 33
-        - **retangulo**:
-          - **x**: 370
+        - **circulo**:
+          - **x**: 371
           - **y**: 1160
-          - **comprimento**: 32
-          - **largura**: 30
+          - **raio**: 25
       - **[5]**:
         - **id**: 34
         - **label**: 34
-        - **retangulo**:
-          - **x**: 438
-          - **y**: 1162
-          - **comprimento**: 39
-          - **largura**: 31
+        - **circulo**:
+          - **x**: 439
+          - **y**: 1161
+          - **raio**: 25
       - **[6]**:
         - **id**: 35
         - **label**: 35
-        - **retangulo**:
+        - **circulo**:
           - **x**: 499
-          - **y**: 1162
-          - **comprimento**: 36
-          - **largura**: 31
+          - **y**: 1161
+          - **raio**: 25
       - **[7]**:
         - **id**: 36
         - **label**: 36
-        - **retangulo**:
-          - **x**: 558
-          - **y**: 1162
-          - **comprimento**: 36
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 559
+          - **y**: 1161
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Vergateza
@@ -5176,43 +5016,38 @@
       - **[0]**:
         - **id**: 37
         - **label**: 37
-        - **retangulo**:
-          - **x**: 618
+        - **circulo**:
+          - **x**: 619
           - **y**: 1161
-          - **comprimento**: 30
-          - **largura**: 26
+          - **raio**: 25
       - **[1]**:
         - **id**: 38
         - **label**: 38
-        - **retangulo**:
-          - **x**: 668
-          - **y**: 1174
-          - **comprimento**: 33
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 669
+          - **y**: 1173
+          - **raio**: 25
       - **[2]**:
         - **id**: 39
         - **label**: 39
-        - **retangulo**:
+        - **circulo**:
           - **x**: 715
           - **y**: 1181
-          - **comprimento**: 36
-          - **largura**: 26
+          - **raio**: 25
       - **[3]**:
         - **id**: 40
         - **label**: 40
-        - **retangulo**:
+        - **circulo**:
           - **x**: 761
-          - **y**: 1174
-          - **comprimento**: 34
-          - **largura**: 29
+          - **y**: 1173
+          - **raio**: 25
       - **[4]**:
         - **id**: 41
         - **label**: 41
-        - **retangulo**:
-          - **x**: 813
+        - **circulo**:
+          - **x**: 815
           - **y**: 1185
-          - **comprimento**: 36
-          - **largura**: 26
+          - **raio**: 25
     - **referencias**:
       - **[0]**:
         - **escalada**: Jardinagem
@@ -5667,59 +5502,52 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 820
-          - **y**: 958
-          - **comprimento**: 33
-          - **largura**: 25
+          - **y**: 956
+          - **raio**: 19
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 710
-          - **y**: 934
-          - **comprimento**: 25
-          - **largura**: 18
+        - **circulo**:
+          - **x**: 711
+          - **y**: 935
+          - **raio**: 18
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 672
-          - **y**: 936
-          - **comprimento**: 25
-          - **largura**: 21
+        - **circulo**:
+          - **x**: 674
+          - **y**: 935
+          - **raio**: 19
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 650
-          - **y**: 905
-          - **comprimento**: 27
-          - **largura**: 22
+        - **circulo**:
+          - **x**: 651
+          - **y**: 904
+          - **raio**: 19
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 612
+        - **circulo**:
+          - **x**: 615
           - **y**: 882
-          - **comprimento**: 25
-          - **largura**: 19
+          - **raio**: 19
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 576
+        - **circulo**:
+          - **x**: 578
           - **y**: 856
-          - **comprimento**: 27
-          - **largura**: 19
+          - **raio**: 19
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 540
+        - **circulo**:
+          - **x**: 541
           - **y**: 843
-          - **comprimento**: 24
-          - **largura**: 20
+          - **raio**: 18
     - **referencias**:
       - **[0]**:
         - **escalada**: Torrecitas
@@ -5757,35 +5585,31 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 488
-          - **y**: 822
-          - **comprimento**: 29
-          - **largura**: 23
+          - **y**: 823
+          - **raio**: 19
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 438
-          - **y**: 797
-          - **comprimento**: 26
-          - **largura**: 20
+          - **y**: 798
+          - **raio**: 19
       - **[2]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 400
-          - **y**: 778
-          - **comprimento**: 26
-          - **largura**: 19
+        - **circulo**:
+          - **x**: 401
+          - **y**: 779
+          - **raio**: 18
       - **[3]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 352
-          - **y**: 760
-          - **comprimento**: 25
-          - **largura**: 23
+        - **circulo**:
+          - **x**: 354
+          - **y**: 761
+          - **raio**: 19
     - **referencias**:
       - **[0]**:
         - **escalada**: Rock Balboa
@@ -5795,6 +5619,16 @@
         - **escalada**: Xodó da Bocaina
         - **ids**:
           - 11
+      - **[2]**:
+        - **ids**:
+          - 08
+        - **setor**: Segundo Andar
+        - **escalada**: James Bond
+      - **[3]**:
+        - **ids**:
+          - 09
+        - **setor**: Segundo Andar
+        - **escalada**: Apolo o Doutrinador
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -5940,59 +5774,52 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 946
-          - **y**: 1119
-          - **comprimento**: 36
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 947
+          - **y**: 1118
+          - **raio**: 21
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 826
-          - **y**: 873
-          - **comprimento**: 43
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 827
+          - **y**: 872
+          - **raio**: 22
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 738
-          - **y**: 870
-          - **comprimento**: 40
-          - **largura**: 30
+        - **circulo**:
+          - **x**: 743
+          - **y**: 865
+          - **raio**: 21
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 658
           - **y**: 865
-          - **comprimento**: 42
-          - **largura**: 28
+          - **raio**: 22
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 308
-          - **y**: 788
-          - **comprimento**: 29
-          - **largura**: 22
+          - **y**: 789
+          - **raio**: 22
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 260
-          - **y**: 796
-          - **comprimento**: 33
-          - **largura**: 23
+          - **y**: 798
+          - **raio**: 22
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 204
-          - **y**: 797
-          - **comprimento**: 27
-          - **largura**: 24
+          - **y**: 798
+          - **raio**: 21
     - **referencias**:
       - **[0]**:
         - **escalada**: Uphill

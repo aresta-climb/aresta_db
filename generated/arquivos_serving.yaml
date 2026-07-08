@@ -58,7 +58,7 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
   checksum_sha256: 4dc836ee3ad6c59ab00ff2de118a820c342ae6d9670a3462eaa0dfaeb8d10c1b
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256: a9ab7024dd1253ec5ec3255eca150ba639718caf1af15e355e552de4b83fa007
+  checksum_sha256: 6f9e7f348dd7dd5ef56bfd5d27421865eaa285e0584105e42fc2a4b66eea2fcb
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
   checksum_sha256: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/capa_p0.webp
@@ -192,9 +192,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/setor_udao_p2.webp
   checksum_sha256: 179b635c8bcd811edaa32ae6d1adb9f2773231537704bdca908afa69d71c4dc6
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.yaml
-  checksum_sha256: af7aeec2bfc3af651c86a88c73a87378467298573e3068c04cf80afe1ee7cccc
+  checksum_sha256: c9f9be1e340997122f0d207abfe049a9bba3599bfe077037ad7cfce836e4d7fb
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
-  checksum_sha256: 4fe75745dfc6436a70e525d3381ab9d2ac4cd5a2acda5190482d5ae15b9df3bb
+  checksum_sha256: 706a34a995dab28348ab781c19103834dcfc731c7b55082a90f163abcff4cc15
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
   checksum_sha256: 72a9faf84dbdcea731f6e70543a5646e359e611c2b088580c78fb731a388e450
 - caminho_relativo: thumbnails/br_mg_arcos_bombonera.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 30c11d7014ac9579ae5227e2c6ccff9ad529fab77fa721d29b1da3b68aa3188e
+  checksum_sha256: 358d7e3dc727b10002ef9e1844a999b2d4a5e09e076c636da4db0272df8c5d6d
 - caminho_relativo: indice.yaml
-  checksum_sha256: 3e27feaacd66aa05aef98e6d8880aeaa7271b89a90fd54640c0f31a2794485d9
+  checksum_sha256: 24982237bd3870132122fcce02f677e9a8c7473e3b00a8ebd2276cb78c964b28

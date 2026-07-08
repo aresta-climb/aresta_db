@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 803
-      y: 312
-      comprimento: 28
-      largura: 35
+      y: 314
+      raio: 21
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 644
       y: 461
-      comprimento: 24
-      largura: 32
+      raio: 21
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 438
       y: 331
-      comprimento: 25
-      largura: 32
+      raio: 21
   - id: '04'
     label: '04'
-    retangulo:
-      x: 480
+    circulo:
+      x: 479
       y: 198
-      comprimento: 27
-      largura: 29
+      raio: 21
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 200
       y: 188
-      comprimento: 24
-      largura: 34
+      raio: 21
   referencias:
   - escalada: Trickline
     ids:

@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 30
-      y: 1100
-      comprimento: 43
-      largura: 33
+      y: 1098
+      raio: 26
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 245
-      y: 850
-      comprimento: 44
-      largura: 33
+      y: 849
+      raio: 26
   - id: '03'
     label: '03'
-    retangulo:
-      x: 355
-      y: 856
-      comprimento: 48
-      largura: 35
+    circulo:
+      x: 356
+      y: 855
+      raio: 25
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 494
-      y: 732
-      comprimento: 47
-      largura: 33
+      y: 730
+      raio: 26
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 648
-      y: 732
-      comprimento: 45
-      largura: 34
+      y: 730
+      raio: 26
   - id: '06'
     label: '06'
-    retangulo:
-      x: 774
-      y: 772
-      comprimento: 49
-      largura: 36
+    circulo:
+      x: 775
+      y: 770
+      raio: 26
   - id: '07'
     label: '07'
-    retangulo:
-      x: 866
-      y: 782
-      comprimento: 44
-      largura: 34
-  - id: 08
-    label: 08
-    retangulo:
-      x: 958
-      y: 782
-      comprimento: 49
-      largura: 36
+    circulo:
+      x: 867
+      y: 781
+      raio: 26
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 959
+      y: 780
+      raio: 26
   referencias:
   - escalada: Permissão Concebida
     ids:
@@ -83,66 +75,62 @@ mapas:
   - escalada: Resta Um
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Tetos
+    escalada: Medo de quê Aresta
 - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 09
-    label: 09
-    retangulo:
+  - id: '09'
+    label: '09'
+    circulo:
       x: 126
       y: 801
-      comprimento: 37
-      largura: 28
+      raio: 26
   - id: '10'
     label: '10'
-    retangulo:
-      x: 176
-      y: 821
-      comprimento: 33
-      largura: 28
+    circulo:
+      x: 177
+      y: 820
+      raio: 25
   - id: '11'
     label: '11'
-    retangulo:
+    circulo:
       x: 248
-      y: 838
-      comprimento: 41
-      largura: 33
+      y: 837
+      raio: 25
   - id: '12'
     label: '12'
-    retangulo:
+    circulo:
       x: 527
-      y: 1034
-      comprimento: 42
-      largura: 32
+      y: 1033
+      raio: 26
   - id: '13'
     label: '13'
-    retangulo:
-      x: 604
-      y: 1046
-      comprimento: 43
-      largura: 33
+    circulo:
+      x: 605
+      y: 1045
+      raio: 26
   - id: '14'
     label: '14'
-    retangulo:
-      x: 670
+    circulo:
+      x: 671
       y: 1052
-      comprimento: 45
-      largura: 33
+      raio: 26
   - id: '15'
     label: '15'
-    retangulo:
-      x: 729
-      y: 1053
-      comprimento: 44
-      largura: 34
+    circulo:
+      x: 732
+      y: 1051
+      raio: 26
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 782
-      y: 1072
-      comprimento: 43
-      largura: 33
+      y: 1070
+      raio: 26
   referencias:
   - escalada: Zumbi da Bocaina
     ids:
@@ -165,38 +153,38 @@ mapas:
   - escalada: Mão de Vaca
     ids:
     - '16'
+  - ids:
+    - '09'
+    setor: Tetos
+    escalada: Pressão Psicológica
 - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    retangulo:
-      x: 856
-      y: 1083
-      comprimento: 35
-      largura: 36
+    circulo:
+      x: 858
+      y: 1081
+      raio: 26
   - id: '18'
     label: '18'
-    retangulo:
+    circulo:
       x: 914
       y: 1062
-      comprimento: 35
-      largura: 30
+      raio: 25
   - id: '19'
     label: '19'
-    retangulo:
-      x: 954
+    circulo:
+      x: 955
       y: 1068
-      comprimento: 35
-      largura: 27
+      raio: 26
   - id: '20'
     label: '20'
-    retangulo:
-      x: 1052
-      y: 1086
-      comprimento: 39
-      largura: 34
+    circulo:
+      x: 1053
+      y: 1087
+      raio: 26
   referencias:
   - escalada: Natural Climb
     ids:
@@ -216,60 +204,52 @@ mapas:
   pontos_de_interesse:
   - id: '21'
     label: '21'
-    retangulo:
-      x: 208
+    circulo:
+      x: 210
       y: 1154
-      comprimento: 41
-      largura: 33
+      raio: 25
   - id: '22'
     label: '22'
-    retangulo:
-      x: 321
-      y: 1150
-      comprimento: 44
-      largura: 32
+    circulo:
+      x: 324
+      y: 1149
+      raio: 25
   - id: '23'
     label: '23'
-    retangulo:
-      x: 435
-      y: 1139
-      comprimento: 44
-      largura: 34
+    circulo:
+      x: 436
+      y: 1138
+      raio: 25
   - id: '24'
     label: '24'
-    retangulo:
+    circulo:
       x: 666
       y: 1141
-      comprimento: 44
-      largura: 32
+      raio: 25
   - id: '25'
     label: '25'
-    retangulo:
-      x: 745
-      y: 1111
-      comprimento: 44
-      largura: 34
+    circulo:
+      x: 746
+      y: 1109
+      raio: 24
   - id: '26'
     label: '26'
-    retangulo:
+    circulo:
       x: 810
-      y: 1108
-      comprimento: 49
-      largura: 36
+      y: 1107
+      raio: 24
   - id: '27'
     label: '27'
-    retangulo:
-      x: 896
-      y: 1126
-      comprimento: 41
-      largura: 33
+    circulo:
+      x: 897
+      y: 1124
+      raio: 24
   - id: '28'
     label: '28'
-    retangulo:
-      x: 962
-      y: 1126
-      comprimento: 45
-      largura: 33
+    circulo:
+      x: 963
+      y: 1123
+      raio: 25
   referencias:
   - escalada: Mato Seco
     ids:
@@ -301,60 +281,52 @@ mapas:
   pontos_de_interesse:
   - id: '29'
     label: '29'
-    retangulo:
-      x: 102
-      y: 1138
-      comprimento: 45
-      largura: 37
+    circulo:
+      x: 104
+      y: 1136
+      raio: 25
   - id: '30'
     label: '30'
-    retangulo:
-      x: 173
-      y: 1142
-      comprimento: 48
-      largura: 37
+    circulo:
+      x: 174
+      y: 1140
+      raio: 25
   - id: '31'
     label: '31'
-    retangulo:
+    circulo:
       x: 261
       y: 1155
-      comprimento: 36
-      largura: 32
+      raio: 25
   - id: '32'
     label: '32'
-    retangulo:
-      x: 315
-      y: 1162
-      comprimento: 34
-      largura: 31
+    circulo:
+      x: 316
+      y: 1161
+      raio: 25
   - id: '33'
     label: '33'
-    retangulo:
-      x: 370
+    circulo:
+      x: 371
       y: 1160
-      comprimento: 32
-      largura: 30
+      raio: 25
   - id: '34'
     label: '34'
-    retangulo:
-      x: 438
-      y: 1162
-      comprimento: 39
-      largura: 31
+    circulo:
+      x: 439
+      y: 1161
+      raio: 25
   - id: '35'
     label: '35'
-    retangulo:
+    circulo:
       x: 499
-      y: 1162
-      comprimento: 36
-      largura: 31
+      y: 1161
+      raio: 25
   - id: '36'
     label: '36'
-    retangulo:
-      x: 558
-      y: 1162
-      comprimento: 36
-      largura: 29
+    circulo:
+      x: 559
+      y: 1161
+      raio: 25
   referencias:
   - escalada: Vergateza
     ids:
@@ -386,39 +358,34 @@ mapas:
   pontos_de_interesse:
   - id: '37'
     label: '37'
-    retangulo:
-      x: 618
+    circulo:
+      x: 619
       y: 1161
-      comprimento: 30
-      largura: 26
+      raio: 25
   - id: '38'
     label: '38'
-    retangulo:
-      x: 668
-      y: 1174
-      comprimento: 33
-      largura: 29
+    circulo:
+      x: 669
+      y: 1173
+      raio: 25
   - id: '39'
     label: '39'
-    retangulo:
+    circulo:
       x: 715
       y: 1181
-      comprimento: 36
-      largura: 26
+      raio: 25
   - id: '40'
     label: '40'
-    retangulo:
+    circulo:
       x: 761
-      y: 1174
-      comprimento: 34
-      largura: 29
+      y: 1173
+      raio: 25
   - id: '41'
     label: '41'
-    retangulo:
-      x: 813
+    circulo:
+      x: 815
       y: 1185
-      comprimento: 36
-      largura: 26
+      raio: 25
   referencias:
   - escalada: Jardinagem
     ids:

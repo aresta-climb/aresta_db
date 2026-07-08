@@ -7,53 +7,46 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 218
-      y: 913
-      comprimento: 30
-      largura: 32
+    circulo:
+      x: 219
+      y: 914
+      raio: 23
   - id: '02'
     label: '02'
-    retangulo:
-      x: 268
-      y: 911
-      comprimento: 36
-      largura: 28
+    circulo:
+      x: 269
+      y: 913
+      raio: 23
   - id: '03'
     label: '03'
-    retangulo:
-      x: 312
+    circulo:
+      x: 314
       y: 931
-      comprimento: 35
-      largura: 30
+      raio: 23
   - id: '04'
     label: '04'
-    retangulo:
-      x: 380
-      y: 922
-      comprimento: 49
-      largura: 35
+    circulo:
+      x: 382
+      y: 920
+      raio: 23
   - id: '05'
     label: '05'
-    retangulo:
-      x: 458
-      y: 917
-      comprimento: 43
-      largura: 32
+    circulo:
+      x: 459
+      y: 914
+      raio: 24
   - id: '06'
     label: '06'
-    retangulo:
-      x: 532
+    circulo:
+      x: 531
       y: 800
-      comprimento: 35
-      largura: 29
+      raio: 23
   - id: '07'
     label: '07'
-    retangulo:
-      x: 580
-      y: 789
-      comprimento: 43
-      largura: 34
+    circulo:
+      x: 584
+      y: 786
+      raio: 24
   referencias:
   - escalada: Índios
     ids:
@@ -80,55 +73,48 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
-      x: 170
-      y: 794
-      comprimento: 44
-      largura: 33
-  - id: 09
-    label: 09
-    retangulo:
-      x: 244
-      y: 790
-      comprimento: 43
-      largura: 33
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 171
+      y: 793
+      raio: 23
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 245
+      y: 788
+      raio: 23
   - id: '10'
     label: '10'
-    retangulo:
-      x: 341
-      y: 763
-      comprimento: 42
-      largura: 34
+    circulo:
+      x: 343
+      y: 761
+      raio: 23
   - id: '11'
     label: '11'
-    retangulo:
-      x: 413
+    circulo:
+      x: 414
       y: 748
-      comprimento: 42
-      largura: 37
+      raio: 24
   - id: '12'
     label: '12'
-    retangulo:
-      x: 655
-      y: 882
-      comprimento: 38
-      largura: 30
+    circulo:
+      x: 656
+      y: 881
+      raio: 23
   - id: '13'
     label: '13'
-    retangulo:
+    circulo:
       x: 724
-      y: 873
-      comprimento: 39
-      largura: 30
+      y: 871
+      raio: 23
   - id: '14'
     label: '14'
-    retangulo:
-      x: 776
-      y: 928
-      comprimento: 41
-      largura: 28
+    circulo:
+      x: 777
+      y: 926
+      raio: 23
   referencias:
   - escalada: Família Martins
     ids:
@@ -145,59 +131,60 @@ mapas:
   - escalada: Último Suspiro
     ids:
     - '14'
+  - ids:
+    - '08'
+    setor: Ensolarado
+    escalada: Mundo Mágico dos Abacates
+  - ids:
+    - '09'
+    setor: Ensolarado
+    escalada: Ariba Cabron
 - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
   - id: '15'
     label: '15'
-    retangulo:
-      x: 476
-      y: 914
-      comprimento: 38
-      largura: 30
+    circulo:
+      x: 477
+      y: 912
+      raio: 23
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 548
-      y: 936
-      comprimento: 41
-      largura: 35
+      y: 935
+      raio: 23
   - id: '17'
     label: '17'
-    retangulo:
-      x: 623
-      y: 936
-      comprimento: 36
-      largura: 33
+    circulo:
+      x: 624
+      y: 934
+      raio: 23
   - id: '18'
     label: '18'
-    retangulo:
-      x: 702
-      y: 992
-      comprimento: 41
-      largura: 29
+    circulo:
+      x: 703
+      y: 991
+      raio: 23
   - id: '19'
     label: '19'
-    retangulo:
-      x: 908
-      y: 1082
-      comprimento: 38
-      largura: 31
+    circulo:
+      x: 909
+      y: 1080
+      raio: 23
   - id: '20'
     label: '20'
-    retangulo:
-      x: 968
-      y: 1096
-      comprimento: 33
-      largura: 25
+    circulo:
+      x: 970
+      y: 1097
+      raio: 23
   - id: '21'
     label: '21'
-    retangulo:
-      x: 1010
+    circulo:
+      x: 1011
       y: 1126
-      comprimento: 32
-      largura: 26
+      raio: 23
   referencias:
   - escalada: Barba Negra
     ids:
@@ -226,25 +213,22 @@ mapas:
   pontos_de_interesse:
   - id: '19'
     label: '19'
-    retangulo:
-      x: 279
+    circulo:
+      x: 280
       y: 1226
-      comprimento: 36
-      largura: 29
+      raio: 20
   - id: '20'
     label: '20'
-    retangulo:
-      x: 636
+    circulo:
+      x: 637
       y: 1119
-      comprimento: 40
-      largura: 32
+      raio: 20
   - id: '21'
     label: '21'
-    retangulo:
+    circulo:
       x: 829
       y: 1022
-      comprimento: 34
-      largura: 30
+      raio: 20
   referencias:
   - escalada: Todo Cuidado e Pouco
     ids:

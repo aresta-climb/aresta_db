@@ -7,11 +7,10 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 365
       y: 1038
-      comprimento: 32
-      largura: 26
+      raio: 18
   referencias:
   - escalada: Caroço de Manga
     ids:
@@ -22,32 +21,28 @@ mapas:
   pontos_de_interesse:
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 262
-      y: 1223
-      comprimento: 41
-      largura: 28
+      y: 1222
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 394
-      y: 1223
-      comprimento: 39
-      largura: 28
+      y: 1222
+      raio: 22
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 627
       y: 1244
-      comprimento: 42
-      largura: 32
+      raio: 22
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 816
       y: 1169
-      comprimento: 43
-      largura: 36
+      raio: 22
   referencias:
   - escalada: Caminho das pedras
     ids:
@@ -67,32 +62,28 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
-      x: 368
-      y: 1232
-      comprimento: 43
-      largura: 33
+    circulo:
+      x: 367
+      y: 1230
+      raio: 22
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 612
-      y: 1231
-      comprimento: 37
-      largura: 30
-  - id: 08
-    label: 08
-    retangulo:
+      y: 1230
+      raio: 22
+  - id: '08'
+    label: '08'
+    circulo:
       x: 833
       y: 1187
-      comprimento: 40
-      largura: 28
-  - id: 09
-    label: 09
-    retangulo:
+      raio: 22
+  - id: '09'
+    label: '09'
+    circulo:
       x: 992
-      y: 1179
-      comprimento: 42
-      largura: 32
+      y: 1178
+      raio: 22
   referencias:
   - escalada: Lei Rounet
     ids:
@@ -100,6 +91,14 @@ mapas:
   - escalada: Maria da Penha
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Shana Crazy
+    escalada: Para-raio de Maluco
+  - ids:
+    - '09'
+    setor: Shana Crazy
+    escalada: Sandálias da Humildade
 escaladas:
 - via_esportiva:
     nome: Caroço de Manga

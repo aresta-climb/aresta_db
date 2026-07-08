@@ -7,25 +7,22 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 948
-      y: 986
-      comprimento: 43
-      largura: 34
+      y: 985
+      raio: 24
   - id: '02'
     label: '02'
-    retangulo:
-      x: 630
+    circulo:
+      x: 629
       y: 1069
-      comprimento: 45
-      largura: 32
+      raio: 25
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 320
       y: 1060
-      comprimento: 45
-      largura: 33
+      raio: 24
   referencias:
   - escalada: Love's in the Air
     ids:
@@ -42,11 +39,10 @@ mapas:
   pontos_de_interesse:
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 612
       y: 1224
-      comprimento: 46
-      largura: 32
+      raio: 25
   referencias:
   - escalada: De Pai para Filho
     ids:
@@ -57,11 +53,10 @@ mapas:
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 533
-      y: 1248
-      comprimento: 44
-      largura: 33
+      y: 1247
+      raio: 25
   referencias:
   - escalada: Amor de Mãe
     ids:
@@ -72,18 +67,16 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 1076
-      y: 1082
-      comprimento: 51
-      largura: 42
+      y: 1079
+      raio: 24
   - id: '07'
     label: '07'
-    retangulo:
-      x: 707
-      y: 958
-      comprimento: 44
-      largura: 37
+    circulo:
+      x: 709
+      y: 957
+      raio: 24
   referencias:
   - escalada: Pagador de Promessa
     ids:
@@ -95,52 +88,55 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
+  - id: '08'
+    label: '08'
+    circulo:
       x: 928
-      y: 1134
-      comprimento: 50
-      largura: 37
-  - id: 09
-    label: 09
-    retangulo:
-      x: 642
-      y: 1140
-      comprimento: 51
-      largura: 45
+      y: 1131
+      raio: 24
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 641
+      y: 1136
+      raio: 25
+  referencias:
+  - ids:
+    - '08'
+    setor: Garganta
+    escalada: Sangue do meu Sangue
+  - ids:
+    - '09'
+    setor: Garganta
+    escalada: Cocalcinhas
 - caminho_imagem_mapa: imagens/setor_garganta_p6.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    retangulo:
+    circulo:
       x: 320
       y: 1250
-      comprimento: 43
-      largura: 33
+      raio: 25
   - id: '11'
     label: '11'
-    retangulo:
-      x: 390
+    circulo:
+      x: 391
       y: 1250
-      comprimento: 30
-      largura: 29
+      raio: 25
   - id: '12'
     label: '12'
-    retangulo:
-      x: 452
-      y: 1249
-      comprimento: 34
-      largura: 30
+    circulo:
+      x: 454
+      y: 1250
+      raio: 25
   - id: '13'
     label: '13'
-    retangulo:
-      x: 662
+    circulo:
+      x: 664
       y: 1250
-      comprimento: 42
-      largura: 33
+      raio: 25
   referencias:
   - escalada: Guerreiro da Bocaina
     ids:
@@ -160,53 +156,46 @@ mapas:
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    retangulo:
+    circulo:
       x: 178
-      y: 1172
-      comprimento: 25
-      largura: 23
+      y: 1173
+      raio: 19
   - id: '11'
     label: '11'
-    retangulo:
-      x: 220
-      y: 1168
-      comprimento: 23
-      largura: 22
+    circulo:
+      x: 221
+      y: 1167
+      raio: 18
   - id: '12'
     label: '12'
-    retangulo:
-      x: 262
-      y: 1154
-      comprimento: 32
-      largura: 25
+    circulo:
+      x: 263
+      y: 1152
+      raio: 19
   - id: '13'
     label: '13'
-    retangulo:
-      x: 313
+    circulo:
+      x: 314
       y: 1006
-      comprimento: 30
-      largura: 25
+      raio: 19
   - id: '14'
     label: '14'
-    retangulo:
-      x: 342
-      y: 878
-      comprimento: 33
-      largura: 25
+    circulo:
+      x: 343
+      y: 877
+      raio: 19
   - id: '15'
     label: '15'
-    retangulo:
+    circulo:
       x: 362
       y: 697
-      comprimento: 33
-      largura: 26
+      raio: 19
   - id: '16'
     label: '16'
-    retangulo:
-      x: 354
+    circulo:
+      x: 355
       y: 315
-      comprimento: 37
-      largura: 30
+      raio: 18
   referencias:
   - escalada: Guerreiro da Bocaina
     ids:
@@ -235,53 +224,46 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    retangulo:
-      x: 488
+    circulo:
+      x: 489
       y: 820
-      comprimento: 29
-      largura: 25
+      raio: 18
   - id: '18'
     label: '18'
-    retangulo:
-      x: 525
-      y: 622
-      comprimento: 34
-      largura: 25
+    circulo:
+      x: 526
+      y: 621
+      raio: 19
   - id: '19'
     label: '19'
-    retangulo:
-      x: 592
-      y: 720
-      comprimento: 32
-      largura: 26
+    circulo:
+      x: 593
+      y: 719
+      raio: 19
   - id: '20'
     label: '20'
-    retangulo:
-      x: 608
-      y: 657
-      comprimento: 37
-      largura: 28
+    circulo:
+      x: 610
+      y: 656
+      raio: 18
   - id: '21'
     label: '21'
-    retangulo:
+    circulo:
       x: 639
-      y: 622
-      comprimento: 24
-      largura: 24
+      y: 623
+      raio: 18
   - id: '22'
     label: '22'
-    retangulo:
+    circulo:
       x: 686
       y: 623
-      comprimento: 26
-      largura: 22
+      raio: 19
   - id: '23'
     label: '23'
-    retangulo:
-      x: 628
-      y: 294
-      comprimento: 35
-      largura: 29
+    circulo:
+      x: 630
+      y: 295
+      raio: 19
   referencias:
   - escalada: Invasão Bacteriana
     ids:
@@ -310,39 +292,34 @@ mapas:
   pontos_de_interesse:
   - id: '24'
     label: '24'
-    retangulo:
-      x: 666
-      y: 250
-      comprimento: 37
-      largura: 28
+    circulo:
+      x: 668
+      y: 249
+      raio: 19
   - id: '25'
     label: '25'
-    retangulo:
-      x: 711
-      y: 238
-      comprimento: 34
-      largura: 26
+    circulo:
+      x: 713
+      y: 237
+      raio: 18
   - id: '26'
     label: '26'
-    retangulo:
-      x: 804
+    circulo:
+      x: 805
       y: 410
-      comprimento: 34
-      largura: 25
+      raio: 19
   - id: '27'
     label: '27'
-    retangulo:
-      x: 828
-      y: 164
-      comprimento: 30
-      largura: 25
+    circulo:
+      x: 829
+      y: 163
+      raio: 19
   - id: '28'
     label: '28'
-    retangulo:
+    circulo:
       x: 878
       y: 206
-      comprimento: 35
-      largura: 25
+      raio: 19
   referencias:
   - escalada: Peter Park
     ids:

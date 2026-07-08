@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 320
-      y: 1200
-      comprimento: 45
-      largura: 33
+      y: 1199
+      raio: 26
   - id: '02'
     label: '02'
-    retangulo:
-      x: 394
-      y: 1219
-      comprimento: 45
-      largura: 32
+    circulo:
+      x: 395
+      y: 1217
+      raio: 26
   - id: '03'
     label: '03'
-    retangulo:
-      x: 488
-      y: 1220
-      comprimento: 46
-      largura: 33
+    circulo:
+      x: 489
+      y: 1219
+      raio: 26
   - id: '04'
     label: '04'
-    retangulo:
-      x: 558
-      y: 1201
-      comprimento: 48
-      largura: 32
+    circulo:
+      x: 559
+      y: 1200
+      raio: 26
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 686
-      y: 1213
-      comprimento: 46
-      largura: 32
+      y: 1212
+      raio: 26
   referencias:
   - escalada: Carapuça
     ids:
@@ -62,32 +57,28 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 739
       y: 1188
-      comprimento: 44
-      largura: 33
+      raio: 22
   - id: '07'
     label: '07'
-    retangulo:
-      x: 786
-      y: 1102
-      comprimento: 47
-      largura: 37
-  - id: 08
-    label: 08
-    retangulo:
+    circulo:
+      x: 787
+      y: 1101
+      raio: 25
+  - id: '08'
+    label: '08'
+    circulo:
       x: 861
-      y: 1210
-      comprimento: 50
-      largura: 37
-  - id: 09
-    label: 09
-    retangulo:
+      y: 1207
+      raio: 26
+  - id: '09'
+    label: '09'
+    circulo:
       x: 923
-      y: 1234
-      comprimento: 48
-      largura: 37
+      y: 1231
+      raio: 25
   referencias:
   - escalada: Chapeleta Voadora
     ids:
@@ -95,52 +86,54 @@ mapas:
   - escalada: Pau Podre
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Bem-vindo
+    escalada: Bonsai Cearense
+  - ids:
+    - '09'
+    setor: Bem-vindo
+    escalada: Macaco Velho
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
+  - id: '08'
+    label: '08'
+    circulo:
       x: 184
-      y: 974
-      comprimento: 53
-      largura: 38
-  - id: 09
-    label: 09
-    retangulo:
-      x: 246
-      y: 988
-      comprimento: 52
-      largura: 41
+      y: 972
+      raio: 26
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 248
+      y: 986
+      raio: 26
   - id: '10'
     label: '10'
-    retangulo:
-      x: 393
-      y: 1042
-      comprimento: 48
-      largura: 37
+    circulo:
+      x: 394
+      y: 1040
+      raio: 26
   - id: '11'
     label: '11'
-    retangulo:
-      x: 485
-      y: 1233
-      comprimento: 42
-      largura: 36
+    circulo:
+      x: 486
+      y: 1231
+      raio: 26
   - id: '12'
     label: '12'
-    retangulo:
-      x: 573
-      y: 1225
-      comprimento: 42
-      largura: 32
+    circulo:
+      x: 574
+      y: 1223
+      raio: 26
   - id: '13'
     label: '13'
-    retangulo:
-      x: 660
-      y: 1244
-      comprimento: 43
-      largura: 33
+    circulo:
+      x: 662
+      y: 1243
+      raio: 26
   referencias:
   - escalada: Sargento Pincel
     ids:
@@ -154,52 +147,54 @@ mapas:
   - escalada: Espírito de Equipe
     ids:
     - '13'
+  - ids:
+    - '08'
+    setor: Bem-vindo
+    escalada: Bonsai Cearense
+  - ids:
+    - '09'
+    setor: Bem-vindo
+    escalada: Macaco Velho
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
   - id: '14'
     label: '14'
-    retangulo:
-      x: 728
+    circulo:
+      x: 727
       y: 1240
-      comprimento: 33
-      largura: 29
+      raio: 26
   - id: '15'
     label: '15'
-    retangulo:
-      x: 782
+    circulo:
+      x: 781
       y: 1240
-      comprimento: 33
-      largura: 30
+      raio: 26
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 836
-      y: 1238
-      comprimento: 35
-      largura: 30
+      y: 1240
+      raio: 26
   - id: '17'
     label: '17'
-    retangulo:
-      x: 886
-      y: 1241
-      comprimento: 33
-      largura: 32
+    circulo:
+      x: 889
+      y: 1240
+      raio: 26
   - id: '18'
     label: '18'
-    retangulo:
-      x: 942
+    circulo:
+      x: 944
       y: 1240
-      comprimento: 33
-      largura: 32
+      raio: 26
   - id: '19'
     label: '19'
-    retangulo:
-      x: 996
+    circulo:
+      x: 998
       y: 1238
-      comprimento: 32
-      largura: 31
+      raio: 26
   referencias:
   - escalada: Bem-vindo
     ids:

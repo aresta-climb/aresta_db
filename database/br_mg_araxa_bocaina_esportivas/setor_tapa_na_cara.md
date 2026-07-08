@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 391
-      y: 1062
-      comprimento: 38
-      largura: 30
+    circulo:
+      x: 390
+      y: 1061
+      raio: 22
   - id: '02'
     label: '02'
-    retangulo:
-      x: 604
-      y: 1066
-      comprimento: 43
-      largura: 31
+    circulo:
+      x: 605
+      y: 1065
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 854
-      y: 1106
-      comprimento: 39
-      largura: 29
+      y: 1104
+      raio: 22
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 1050
-      y: 1120
-      comprimento: 44
-      largura: 32
+      y: 1119
+      raio: 22
   referencias:
   - escalada: Marcha lenta
     ids:

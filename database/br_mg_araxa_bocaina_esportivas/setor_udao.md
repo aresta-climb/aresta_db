@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 223
+    circulo:
+      x: 224
       y: 1090
-      comprimento: 30
-      largura: 27
+      raio: 23
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 274
-      y: 1084
-      comprimento: 33
-      largura: 27
+      y: 1086
+      raio: 23
   - id: '03'
     label: '03'
-    retangulo:
-      x: 340
-      y: 1088
-      comprimento: 41
-      largura: 29
+    circulo:
+      x: 342
+      y: 1086
+      raio: 23
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 570
-      y: 952
-      comprimento: 44
-      largura: 33
+      y: 950
+      raio: 23
   - id: '05'
     label: '05'
-    retangulo:
-      x: 622
-      y: 900
-      comprimento: 43
-      largura: 34
+    circulo:
+      x: 623
+      y: 899
+      raio: 23
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 668
-      y: 854
-      comprimento: 45
-      largura: 34
+      y: 853
+      raio: 23
   referencias:
   - escalada: Pulando a cerca
     ids:
@@ -72,53 +66,46 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    retangulo:
-      x: 702
+    circulo:
+      x: 700
       y: 808
-      comprimento: 31
-      largura: 25
-  - id: 08
-    label: 08
-    retangulo:
-      x: 745
+      raio: 23
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 747
       y: 784
-      comprimento: 32
-      largura: 26
-  - id: 09
-    label: 09
-    retangulo:
-      x: 787
-      y: 814
-      comprimento: 34
-      largura: 23
+      raio: 23
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 788
+      y: 815
+      raio: 23
   - id: '10'
     label: '10'
-    retangulo:
-      x: 831
-      y: 799
-      comprimento: 34
-      largura: 24
+    circulo:
+      x: 833
+      y: 798
+      raio: 23
   - id: '11'
     label: '11'
-    retangulo:
-      x: 884
-      y: 772
-      comprimento: 41
-      largura: 36
+    circulo:
+      x: 885
+      y: 771
+      raio: 23
   - id: '12'
     label: '12'
-    retangulo:
+    circulo:
       x: 947
-      y: 740
-      comprimento: 42
-      largura: 32
+      y: 739
+      raio: 23
   - id: '13'
     label: '13'
-    retangulo:
-      x: 1000
-      y: 715
-      comprimento: 42
-      largura: 32
+    circulo:
+      x: 1001
+      y: 714
+      raio: 23
   referencias:
   - escalada: Filho de Vó
     ids:
@@ -135,6 +122,14 @@ mapas:
   - escalada: Rota Aérea
     ids:
     - '13'
+  - ids:
+    - '08'
+    setor: Udão
+    escalada: Loucura Alheia
+  - ids:
+    - '09'
+    setor: Udão
+    escalada: Mistério de Ramadã
 escaladas:
 - via_esportiva:
     nome: Pulando a cerca

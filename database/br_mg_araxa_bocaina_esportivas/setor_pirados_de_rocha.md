@@ -7,53 +7,46 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 946
-      y: 1119
-      comprimento: 36
-      largura: 30
+    circulo:
+      x: 947
+      y: 1118
+      raio: 21
   - id: '02'
     label: '02'
-    retangulo:
-      x: 826
-      y: 873
-      comprimento: 43
-      largura: 32
+    circulo:
+      x: 827
+      y: 872
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
-      x: 738
-      y: 870
-      comprimento: 40
-      largura: 30
+    circulo:
+      x: 743
+      y: 865
+      raio: 21
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 658
       y: 865
-      comprimento: 42
-      largura: 28
+      raio: 22
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 308
-      y: 788
-      comprimento: 29
-      largura: 22
+      y: 789
+      raio: 22
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 260
-      y: 796
-      comprimento: 33
-      largura: 23
+      y: 798
+      raio: 22
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 204
-      y: 797
-      comprimento: 27
-      largura: 24
+      y: 798
+      raio: 21
   referencias:
   - escalada: Uphill
     ids:

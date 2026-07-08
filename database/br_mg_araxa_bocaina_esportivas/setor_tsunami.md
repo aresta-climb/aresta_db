@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 204
-      y: 1092
-      comprimento: 38
-      largura: 29
+      y: 1090
+      raio: 22
   - id: '02'
     label: '02'
-    retangulo:
-      x: 248
-      y: 1039
-      comprimento: 39
-      largura: 30
+    circulo:
+      x: 249
+      y: 1037
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
-      x: 302
-      y: 1080
-      comprimento: 39
-      largura: 29
+    circulo:
+      x: 303
+      y: 1077
+      raio: 22
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 378
-      y: 1062
-      comprimento: 42
-      largura: 29
+      y: 1059
+      raio: 22
   - id: '05'
     label: '05'
-    retangulo:
-      x: 429
-      y: 1040
-      comprimento: 40
-      largura: 29
+    circulo:
+      x: 430
+      y: 1037
+      raio: 22
   - id: '06'
     label: '06'
-    retangulo:
-      x: 548
-      y: 1006
-      comprimento: 41
-      largura: 29
+    circulo:
+      x: 547
+      y: 1005
+      raio: 23
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 610
-      y: 994
-      comprimento: 38
-      largura: 29
-  - id: 08
-    label: 08
-    retangulo:
-      x: 674
-      y: 978
-      comprimento: 45
-      largura: 35
+      y: 992
+      raio: 22
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 675
+      y: 977
+      raio: 22
   referencias:
   - escalada: ET de Varginha
     ids:
@@ -83,66 +75,62 @@ mapas:
   - escalada: Foi sem Querer
     ids:
     - '07'
+  - ids:
+    - '08'
+    setor: Tsunami
+    escalada: Cabeleira
 - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 09
-    label: 09
-    retangulo:
-      x: 96
-      y: 929
-      comprimento: 31
-      largura: 24
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 97
+      y: 928
+      raio: 23
   - id: '10'
     label: '10'
-    retangulo:
-      x: 142
+    circulo:
+      x: 143
       y: 930
-      comprimento: 32
-      largura: 27
+      raio: 24
   - id: '11'
     label: '11'
-    retangulo:
-      x: 190
+    circulo:
+      x: 192
       y: 932
-      comprimento: 29
-      largura: 25
+      raio: 23
   - id: '12'
     label: '12'
-    retangulo:
-      x: 234
+    circulo:
+      x: 235
       y: 945
-      comprimento: 29
-      largura: 26
+      raio: 22
   - id: '13'
     label: '13'
-    retangulo:
-      x: 272
+    circulo:
+      x: 274
       y: 930
-      comprimento: 27
-      largura: 25
+      raio: 22
   - id: '14'
     label: '14'
-    retangulo:
-      x: 308
-      y: 916
-      comprimento: 29
-      largura: 28
+    circulo:
+      x: 311
+      y: 915
+      raio: 22
   - id: '15'
     label: '15'
-    retangulo:
+    circulo:
       x: 340
-      y: 1020
-      comprimento: 42
-      largura: 33
+      y: 1018
+      raio: 23
   - id: '16'
     label: '16'
-    retangulo:
-      x: 406
+    circulo:
+      x: 407
       y: 1026
-      comprimento: 43
-      largura: 33
+      raio: 23
   referencias:
   - escalada: Muy Hermosa
     ids:
@@ -165,66 +153,62 @@ mapas:
   - escalada: Buena Onda
     ids:
     - '16'
+  - ids:
+    - '09'
+    setor: Tsunami
+    escalada: Muchas Gracias
 - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    retangulo:
-      x: 456
+    circulo:
+      x: 457
       y: 1041
-      comprimento: 42
-      largura: 36
+      raio: 23
   - id: '18'
     label: '18'
-    retangulo:
-      x: 562
-      y: 1054
-      comprimento: 43
-      largura: 34
+    circulo:
+      x: 563
+      y: 1052
+      raio: 23
   - id: '19'
     label: '19'
-    retangulo:
-      x: 642
-      y: 1074
-      comprimento: 30
-      largura: 30
+    circulo:
+      x: 644
+      y: 1075
+      raio: 23
   - id: '20'
     label: '20'
-    retangulo:
-      x: 698
-      y: 1082
-      comprimento: 31
-      largura: 29
+    circulo:
+      x: 699
+      y: 1083
+      raio: 23
   - id: '21'
     label: '21'
-    retangulo:
-      x: 748
-      y: 1092
-      comprimento: 31
-      largura: 27
+    circulo:
+      x: 749
+      y: 1090
+      raio: 23
   - id: '22'
     label: '22'
-    retangulo:
+    circulo:
       x: 801
-      y: 1126
-      comprimento: 30
-      largura: 26
+      y: 1125
+      raio: 23
   - id: '23'
     label: '23'
-    retangulo:
+    circulo:
       x: 850
-      y: 1132
-      comprimento: 34
-      largura: 29
+      y: 1131
+      raio: 23
   - id: '24'
     label: '24'
-    retangulo:
-      x: 914
-      y: 1122
-      comprimento: 37
-      largura: 29
+    circulo:
+      x: 917
+      y: 1121
+      raio: 23
   referencias:
   - escalada: Marola
     ids:

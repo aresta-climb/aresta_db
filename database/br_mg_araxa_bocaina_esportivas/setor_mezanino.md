@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 226
       y: 818
-      comprimento: 21
-      largura: 29
+      raio: 18
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 262
       y: 864
-      comprimento: 27
-      largura: 31
+      raio: 18
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 496
-      y: 1089
-      comprimento: 20
-      largura: 26
+      y: 1090
+      raio: 18
   - id: '04'
     label: '04'
-    retangulo:
-      x: 640
-      y: 1064
-      comprimento: 17
-      largura: 22
+    circulo:
+      x: 641
+      y: 1065
+      raio: 18
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 718
       y: 997
-      comprimento: 22
-      largura: 28
+      raio: 18
   referencias:
   - escalada: Alberto Roberto
     ids:
@@ -62,18 +57,16 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 250
       y: 1180
-      comprimento: 21
-      largura: 27
+      raio: 18
   - id: '07'
     label: '07'
-    retangulo:
-      x: 659
-      y: 1022
-      comprimento: 28
-      largura: 33
+    circulo:
+      x: 661
+      y: 1024
+      raio: 18
   referencias:
   - escalada: São Jorge
     ids:
@@ -85,48 +78,43 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
+  - id: '08'
+    label: '08'
+    circulo:
       x: 180
-      y: 1074
-      comprimento: 17
-      largura: 22
-  - id: 09
-    label: 09
-    retangulo:
+      y: 1076
+      raio: 18
+  - id: '09'
+    label: '09'
+    circulo:
       x: 292
-      y: 1102
-      comprimento: 16
-      largura: 20
+      y: 1103
+      raio: 18
   - id: '10'
     label: '10'
-    retangulo:
+    circulo:
       x: 375
-      y: 1121
-      comprimento: 32
-      largura: 26
+      y: 1122
+      raio: 18
   - id: '11'
     label: '11'
-    retangulo:
-      x: 457
-      y: 1117
-      comprimento: 28
-      largura: 26
+    circulo:
+      x: 458
+      y: 1116
+      raio: 18
   - id: '12'
     label: '12'
-    retangulo:
+    circulo:
       x: 596
-      y: 1098
-      comprimento: 31
-      largura: 27
+      y: 1099
+      raio: 18
   referencias:
   - escalada: Sabotagem
     ids:
-    - 08
+    - '08'
   - escalada: Universo Paralelo
     ids:
-    - 09
+    - '09'
   - escalada: Egocentrismo
     ids:
     - '10'
@@ -136,54 +124,40 @@ mapas:
   - escalada: Bafo de Onça
     ids:
     - '12'
-  - escalada: Sabotagem do Universo
-    ids:
-    - 08
-  - escalada: Universo Sabotada
-    ids:
-    - 09
-  - escalada: Ego Paralelo
-    ids:
-    - '10'
 - caminho_imagem_mapa: imagens/setor_mezanino_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
   - id: '13'
     label: '13'
-    retangulo:
-      x: 26
+    circulo:
+      x: 27
       y: 907
-      comprimento: 33
-      largura: 26
+      raio: 18
   - id: '14'
     label: '14'
-    retangulo:
-      x: 64
-      y: 960
-      comprimento: 32
-      largura: 25
+    circulo:
+      x: 66
+      y: 959
+      raio: 18
   - id: '15'
     label: '15'
-    retangulo:
-      x: 123
+    circulo:
+      x: 124
       y: 1004
-      comprimento: 32
-      largura: 27
+      raio: 18
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 248
-      y: 1128
-      comprimento: 33
-      largura: 26
+      y: 1127
+      raio: 18
   - id: '17'
     label: '17'
-    retangulo:
-      x: 438
-      y: 1226
-      comprimento: 31
-      largura: 27
+    circulo:
+      x: 439
+      y: 1225
+      raio: 18
   referencias:
   - escalada: 12 anos
     ids:
@@ -206,35 +180,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 187
-      y: 1059
-      comprimento: 38
-      largura: 30
+      y: 1057
+      raio: 22
   - id: '02'
     label: '02'
-    retangulo:
-      x: 262
-      y: 1050
-      comprimento: 43
-      largura: 33
+    circulo:
+      x: 263
+      y: 1049
+      raio: 22
   - id: '03'
     label: '03'
-    retangulo:
-      x: 364
-      y: 1050
-      comprimento: 39
-      largura: 30
+    circulo:
+      x: 365
+      y: 1049
+      raio: 22
   referencias:
-  - escalada: Alberto Roberto
+  - escalada: Sabotagem do Universo
     ids:
     - '01'
-  - escalada: Chico Anísio
+    setor: Mezanino
+  - escalada: Universo Sabotada
     ids:
     - '02'
-  - escalada: Onjacktallbeck
+    setor: Mezanino
+  - escalada: Ego Paralelo
     ids:
     - '03'
+    setor: Mezanino
 escaladas:
 - via_esportiva:
     nome: Alberto Roberto

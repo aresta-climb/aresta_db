@@ -7,53 +7,46 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 820
-      y: 958
-      comprimento: 33
-      largura: 25
+      y: 956
+      raio: 19
   - id: '02'
     label: '02'
-    retangulo:
-      x: 710
-      y: 934
-      comprimento: 25
-      largura: 18
+    circulo:
+      x: 711
+      y: 935
+      raio: 18
   - id: '03'
     label: '03'
-    retangulo:
-      x: 672
-      y: 936
-      comprimento: 25
-      largura: 21
+    circulo:
+      x: 674
+      y: 935
+      raio: 19
   - id: '04'
     label: '04'
-    retangulo:
-      x: 650
-      y: 905
-      comprimento: 27
-      largura: 22
+    circulo:
+      x: 651
+      y: 904
+      raio: 19
   - id: '05'
     label: '05'
-    retangulo:
-      x: 612
+    circulo:
+      x: 615
       y: 882
-      comprimento: 25
-      largura: 19
+      raio: 19
   - id: '06'
     label: '06'
-    retangulo:
-      x: 576
+    circulo:
+      x: 578
       y: 856
-      comprimento: 27
-      largura: 19
+      raio: 19
   - id: '07'
     label: '07'
-    retangulo:
-      x: 540
+    circulo:
+      x: 541
       y: 843
-      comprimento: 24
-      largura: 20
+      raio: 18
   referencias:
   - escalada: Torrecitas
     ids:
@@ -80,34 +73,30 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
+  - id: '08'
+    label: '08'
+    circulo:
       x: 488
-      y: 822
-      comprimento: 29
-      largura: 23
-  - id: 09
-    label: 09
-    retangulo:
+      y: 823
+      raio: 19
+  - id: '09'
+    label: '09'
+    circulo:
       x: 438
-      y: 797
-      comprimento: 26
-      largura: 20
+      y: 798
+      raio: 19
   - id: '10'
     label: '10'
-    retangulo:
-      x: 400
-      y: 778
-      comprimento: 26
-      largura: 19
+    circulo:
+      x: 401
+      y: 779
+      raio: 18
   - id: '11'
     label: '11'
-    retangulo:
-      x: 352
-      y: 760
-      comprimento: 25
-      largura: 23
+    circulo:
+      x: 354
+      y: 761
+      raio: 19
   referencias:
   - escalada: Rock Balboa
     ids:
@@ -115,6 +104,14 @@ mapas:
   - escalada: Xodó da Bocaina
     ids:
     - '11'
+  - ids:
+    - '08'
+    setor: Segundo Andar
+    escalada: James Bond
+  - ids:
+    - '09'
+    setor: Segundo Andar
+    escalada: Apolo o Doutrinador
 escaladas:
 - via_esportiva:
     nome: Torrecitas
