@@ -25,19 +25,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 329
       y: 409
       raio: 9
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 514
       y: 357
       raio: 9
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 658
       y: 294
       raio: 9
@@ -57,7 +57,7 @@ mapas:
   pontos_de_interesse:
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 195
       y: 554
       raio: 9
@@ -71,7 +71,7 @@ mapas:
   pontos_de_interesse:
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 246
       y: 386
       raio: 9
@@ -80,6 +80,5 @@ mapas:
     ids:
     - '5'
 ---
-
 
 # Bloco Sunset

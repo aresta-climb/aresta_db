@@ -1,4 +1,4 @@
----
+---
 nome: Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 310
       y: 255
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 470
       y: 330
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 510
       y: 230
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 150
       y: 155
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 150
       y: 250
       comprimento: 30
@@ -89,42 +89,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 200
       y: 490
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 285
       y: 540
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 754
       y: 554
       comprimento: 8
       largura: 28
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 749
       y: 530
       comprimento: 18
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 744
       y: 550
       comprimento: 28
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 750
       y: 556
       comprimento: 10
@@ -181,28 +181,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 360
       y: 520
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 490
       y: 510
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 540
       y: 545
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 740
       y: 550
       comprimento: 30
@@ -290,7 +290,8 @@ escaladas:
 - boulder:
     nome: Natural
     dificuldade: V6
----
+---
+
 # Setor Caverninha
 
 O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.

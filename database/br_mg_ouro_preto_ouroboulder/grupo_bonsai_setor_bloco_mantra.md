@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 957
       y: 1039
       raio: 13
@@ -21,19 +21,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 707
       y: 1013
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 973
       y: 895
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1409
       y: 1133
       raio: 13
@@ -46,7 +46,7 @@ mapas:
     - '2'
     grupo: Bonsai
     setor: 'Bloco: Mantra'
-  - escalada: '008'
+  - escalada: 008
     ids:
     - '3'
     grupo: Bonsai
@@ -57,37 +57,37 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 80
       y: 401
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 415
       y: 346
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1071
       y: 339
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 202
       y: 834
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 722
       y: 940
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 615
       y: 796
       raio: 13
@@ -117,13 +117,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 394
       y: 779
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 955
       y: 817
       raio: 13
@@ -145,7 +145,7 @@ escaladas:
     nome: Oráculo
     dificuldade: V9
 - boulder:
-    nome: '008'
+    nome: 008
     dificuldade: V5
 - boulder:
     nome: Afrodisíaco
@@ -169,5 +169,4 @@ escaladas:
     nome: Popeye
     dificuldade: V2
 ---
-
 

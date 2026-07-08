@@ -7,161 +7,161 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Grutinha
     label: Setor Grutinha
-    box:
+    retangulo:
       x: 62
       y: 46
       comprimento: 46
       largura: 29
   - id: Savassinha
     label: Savassinha
-    box:
+    retangulo:
       x: 146
       y: 308
       comprimento: 80
       largura: 26
   - id: Beco_do_Tiu
     label: Beco do Tiú
-    box:
+    retangulo:
       x: 285
       y: 348
       comprimento: 78
       largura: 25
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 372
       y: 900
       comprimento: 18
       largura: 15
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 396
       y: 884
       comprimento: 21
       largura: 16
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 410
       y: 863
       comprimento: 21
       largura: 16
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 412
       y: 844
       comprimento: 19
       largura: 15
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 448
       y: 824
       comprimento: 20
       largura: 15
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 459
       y: 808
       comprimento: 20
       largura: 15
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 466
       y: 790
       comprimento: 20
       largura: 15
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 466
       y: 771
       comprimento: 21
       largura: 16
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 458
       y: 748
       comprimento: 21
       largura: 16
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 470
       y: 718
       comprimento: 20
       largura: 17
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 490
       y: 689
       comprimento: 19
       largura: 18
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 470
       y: 658
       comprimento: 21
       largura: 17
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 449
       y: 622
       comprimento: 20
       largura: 17
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 492
       y: 562
       comprimento: 18
       largura: 16
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 492
       y: 538
       comprimento: 19
       largura: 17
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 489
       y: 480
       comprimento: 20
       largura: 18
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 476
       y: 438
       comprimento: 19
       largura: 18
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 460
       y: 400
       comprimento: 19
       largura: 18
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 398
       y: 282
       comprimento: 19
       largura: 17
   - id: Leao_de_Judah
     label: Leão de Judah
-    box:
+    retangulo:
       x: 159
       y: 1046
       comprimento: 46

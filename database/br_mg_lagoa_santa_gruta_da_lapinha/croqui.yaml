@@ -38,6 +38,6 @@ botoes:
   destino:
     secao_textual:
       caminho: creditos.md
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

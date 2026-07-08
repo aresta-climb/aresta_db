@@ -1,4 +1,4 @@
----
+---
 nome: Shana Crazy
 mapas:
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp
@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 365
       y: 1038
       comprimento: 32
@@ -22,28 +22,28 @@ mapas:
   pontos_de_interesse:
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 262
       y: 1223
       comprimento: 41
       largura: 28
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 394
       y: 1223
       comprimento: 39
       largura: 28
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 627
       y: 1244
       comprimento: 42
       largura: 32
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 816
       y: 1169
       comprimento: 43
@@ -67,28 +67,28 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 368
       y: 1232
       comprimento: 43
       largura: 33
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 612
       y: 1231
       comprimento: 37
       largura: 30
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 833
       y: 1187
       comprimento: 40
       largura: 28
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 992
       y: 1179
       comprimento: 42
@@ -183,7 +183,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2011'
----
+---
+
 # Setor Shana Crazy
 
 ![Setor Shana Crazy](imagens/setor_shana_crazy_p0_i0.webp)

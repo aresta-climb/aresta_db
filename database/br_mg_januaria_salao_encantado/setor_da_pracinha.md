@@ -1,4 +1,4 @@
----
+---
 nome: Setor da Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_pracinha_p0_i1.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 348
       y: 60
       comprimento: 30
       largura: 45
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 438
       y: 49
       comprimento: 37
       largura: 46
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 526
       y: 28
       comprimento: 41
       largura: 50
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 958
       y: 50
       comprimento: 35
       largura: 45
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 1041
       y: 87
       comprimento: 32
       largura: 44
   - id: Claraboia
     label: Claraboia
-    box:
+    retangulo:
       x: 746
       y: 70
       comprimento: 192
       largura: 49
   - id: Platô
     label: Platô
-    box:
+    retangulo:
       x: 294
       y: 138
       comprimento: 107
@@ -57,14 +57,14 @@ mapas:
       angulo_graus_x100: 2536
   - id: Praça
     label: Praça
-    box:
+    retangulo:
       x: 380
       y: 226
       comprimento: 119
       largura: 55
   - id: Estacionamento
     label: Estacionamento
-    box:
+    retangulo:
       x: 125
       y: 386
       comprimento: 60
@@ -72,21 +72,21 @@ mapas:
       angulo_graus_x100: -4730
   - id: Abrigo
     label: Abrigo
-    box:
+    retangulo:
       x: 1729
       y: 194
       comprimento: 140
       largura: 54
   - id: Sertão
     label: Sertão
-    box:
+    retangulo:
       x: 1681
       y: 264
       comprimento: 158
       largura: 42
   - id: Mocó
     label: Mocó
-    box:
+    retangulo:
       x: 1727
       y: 322
       comprimento: 114
@@ -129,7 +129,8 @@ escaladas:
     nome: Uma Lágrima que Cai
     dificuldade: PROJETO
     descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base
----
+---
+
 Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
 
 ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp)

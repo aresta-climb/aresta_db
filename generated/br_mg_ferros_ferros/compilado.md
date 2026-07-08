@@ -210,7 +210,7 @@
             | ![QR Code Google Maps](imagens/guia_na_web_p0_i1.webp) |
             | :--: |
             | *QR Code Google Maps* |
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 
 
 ## Parte: setor_cachoeira

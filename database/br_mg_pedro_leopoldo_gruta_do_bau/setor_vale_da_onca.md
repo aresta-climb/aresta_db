@@ -7,280 +7,280 @@ mapas:
   pontos_de_interesse:
   - id: '39'
     label: '39'
-    box:
+    retangulo:
       x: 550
       y: 36
       comprimento: 42
       largura: 27
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 642
       y: 70
       comprimento: 36
       largura: 25
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 688
       y: 162
       comprimento: 35
       largura: 30
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 412
       y: 174
       comprimento: 38
       largura: 28
   - id: '38'
     label: '38'
-    box:
+    retangulo:
       x: 636
       y: 212
       comprimento: 42
       largura: 27
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 584
       y: 230
       comprimento: 41
       largura: 29
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 362
       y: 248
       comprimento: 41
       largura: 31
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 528
       y: 264
       comprimento: 42
       largura: 27
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 529
       y: 293
       comprimento: 40
       largura: 24
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 548
       y: 324
       comprimento: 37
       largura: 23
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 556
       y: 349
       comprimento: 36
       largura: 24
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 594
       y: 376
       comprimento: 41
       largura: 25
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 616
       y: 402
       comprimento: 39
       largura: 25
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 640
       y: 432
       comprimento: 39
       largura: 24
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 662
       y: 460
       comprimento: 39
       largura: 24
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 689
       y: 496
       comprimento: 38
       largura: 27
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 708
       y: 534
       comprimento: 40
       largura: 31
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 686
       y: 580
       comprimento: 36
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 541
       y: 622
       comprimento: 36
       largura: 27
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 560
       y: 652
       comprimento: 37
       largura: 27
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 579
       y: 686
       comprimento: 36
       largura: 29
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 567
       y: 735
       comprimento: 36
       largura: 26
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 532
       y: 766
       comprimento: 40
       largura: 31
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 590
       y: 784
       comprimento: 42
       largura: 22
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 612
       y: 808
       comprimento: 31
       largura: 23
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 642
       y: 836
       comprimento: 39
       largura: 27
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 636
       y: 870
       comprimento: 37
       largura: 26
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 602
       y: 896
       comprimento: 39
       largura: 24
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 558
       y: 908
       comprimento: 39
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 580
       y: 966
       comprimento: 42
       largura: 31
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 596
       y: 1015
       comprimento: 40
       largura: 32
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 539
       y: 1043
       comprimento: 38
       largura: 28
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 564
       y: 1076
       comprimento: 40
       largura: 32
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 604
       y: 1116
       comprimento: 40
       largura: 29
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 602
       y: 1150
       comprimento: 42
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 614
       y: 1194
       comprimento: 41
       largura: 29
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 602
       y: 1244
       comprimento: 40
       largura: 29
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 592
       y: 1286
       comprimento: 38
       largura: 31
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 550
       y: 1312
       comprimento: 35
       largura: 29
   - id: Setores_Mr_Bean_e_Geriatria
     label: Setores Mr. Bean e Geriatria
-    box:
+    retangulo:
       x: 288
       y: 1312
       comprimento: 233
@@ -404,11 +404,11 @@ mapas:
     - Setores_Mr_Bean_e_Geriatria
     setor: Setor Geriatria
   - ids:
-    - '08'
+    - 08
     setor: Setor Vale da Onça
     escalada: Retorno de Borges
   - ids:
-    - '09'
+    - 09
     setor: Setor Vale da Onça
     escalada: 3º Pecado Capital
 escaladas:

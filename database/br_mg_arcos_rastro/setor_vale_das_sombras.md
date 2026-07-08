@@ -7,224 +7,224 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 264
       y: 42
       comprimento: 73
       largura: 33
   - id: Setor_Parede_dos_Conflitos
     label: Setor Parede dos Conflitos
-    box:
+    retangulo:
       x: 334
       y: 236
       comprimento: 57
       largura: 39
   - id: Setor_Intermediario
     label: Setor Intermediário
-    box:
+    retangulo:
       x: 872
       y: 662
       comprimento: 61
       largura: 26
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 694
       y: 660
       comprimento: 19
       largura: 18
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 616
       y: 712
       comprimento: 24
       largura: 19
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 589
       y: 718
       comprimento: 24
       largura: 19
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 532
       y: 718
       comprimento: 22
       largura: 19
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 506
       y: 722
       comprimento: 21
       largura: 19
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 450
       y: 740
       comprimento: 22
       largura: 19
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 445
       y: 768
       comprimento: 22
       largura: 20
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 365
       y: 793
       comprimento: 24
       largura: 20
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 308
       y: 810
       comprimento: 23
       largura: 18
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 278
       y: 848
       comprimento: 21
       largura: 18
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 260
       y: 886
       comprimento: 20
       largura: 18
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 103
       y: 876
       comprimento: 22
       largura: 19
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 66
       y: 864
       comprimento: 19
       largura: 19
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 42
       y: 818
       comprimento: 19
       largura: 17
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 60
       y: 805
       comprimento: 19
       largura: 16
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 71
       y: 786
       comprimento: 20
       largura: 19
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 122
       y: 765
       comprimento: 20
       largura: 20
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 310
       y: 654
       comprimento: 20
       largura: 19
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 350
       y: 636
       comprimento: 21
       largura: 18
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 375
       y: 628
       comprimento: 18
       largura: 15
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 389
       y: 614
       comprimento: 18
       largura: 15
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 400
       y: 594
       comprimento: 21
       largura: 17
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 445
       y: 566
       comprimento: 22
       largura: 17
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 474
       y: 571
       comprimento: 20
       largura: 18
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 498
       y: 570
       comprimento: 21
       largura: 19
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 522
       y: 560
       comprimento: 20
       largura: 18
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 550
       y: 554
       comprimento: 19
       largura: 17
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 580
       y: 555
       comprimento: 20
       largura: 16
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 611
       y: 526
       comprimento: 22
@@ -312,11 +312,11 @@ mapas:
     ids:
     - '29'
   - ids:
-    - '08'
+    - 08
     setor: Setor Vale das Sombras
     escalada: Uso Capial
   - ids:
-    - '09'
+    - 09
     setor: Setor Vale das Sombras
     escalada: Clara Morena
   - ids:

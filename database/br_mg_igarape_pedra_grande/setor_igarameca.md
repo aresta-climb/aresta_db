@@ -7,127 +7,127 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 317
       y: 1001
       raio: 15
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 341
       y: 956
       raio: 15
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 329
       y: 656
       raio: 15
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 327
       y: 622
       raio: 15
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 521
       y: 699
       raio: 15
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 612
       y: 711
       raio: 15
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 643
       y: 428
       raio: 15
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 649
       y: 772
       raio: 15
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 707
       y: 815
       raio: 15
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 797
       y: 897
       raio: 15
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 878
       y: 941
       raio: 15
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 940
       y: 968
       raio: 15
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 1065
       y: 1002
       raio: 15
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 1120
       y: 1015
       raio: 15
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 1186
       y: 1084
       raio: 15
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 1239
       y: 1103
       raio: 15
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 1277
       y: 1162
       raio: 16
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 1345
       y: 1216
       raio: 15
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 1395
       y: 1218
       raio: 15
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 1413
       y: 1193
       raio: 15
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 1438
       y: 1173
       raio: 15
@@ -190,11 +190,11 @@ mapas:
     ids:
     - '21'
   - ids:
-    - '08'
+    - 08
     setor: Setor Igarameca
     escalada: I Like This
   - ids:
-    - '09'
+    - 09
     setor: Setor Igarameca
     escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
@@ -203,121 +203,121 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 215
       y: 534
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 328
       y: 520
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 396
       y: 509
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 433
       y: 502
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 450
       y: 572
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 477
       y: 626
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 529
       y: 648
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 486
       y: 680
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 460
       y: 744
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 436
       y: 784
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 412
       y: 823
       raio: 17
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 397
       y: 887
       raio: 17
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 402
       y: 938
       raio: 17
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 393
       y: 975
       raio: 17
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 381
       y: 1037
       raio: 17
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 363
       y: 1074
       raio: 17
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 337
       y: 1104
       raio: 17
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 296
       y: 1142
       raio: 17
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 319
       y: 1216
       raio: 17
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 367
       y: 1274
       raio: 18
@@ -377,11 +377,11 @@ mapas:
     ids:
     - '20'
   - ids:
-    - '08'
+    - 08
     setor: Setor Igarameca
     escalada: I Like This
   - ids:
-    - '09'
+    - 09
     setor: Setor Igarameca
     escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
@@ -390,25 +390,25 @@ mapas:
   pontos_de_interesse:
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 515
       y: 326
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 484
       y: 369
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 389
       y: 490
       raio: 17
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 218
       y: 508
       raio: 17

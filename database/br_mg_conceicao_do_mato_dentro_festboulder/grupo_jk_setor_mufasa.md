@@ -1,4 +1,4 @@
----
+---
 nome: Mufasa
 mapas:
 - caminho_imagem_mapa: imagens/grupo_jk_setor_mufasa_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 268
       y: 228
       comprimento: 25
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 508
       y: 268
       comprimento: 25
@@ -33,7 +33,8 @@ escaladas:
 - boulder:
     nome: Mufasa
     dificuldade: V10
----
+---
+
 # Setor Mufasa
 
 O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.

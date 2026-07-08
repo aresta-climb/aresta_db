@@ -1,4 +1,4 @@
----
+---
 nome: Essência
 mapas:
 - caminho_imagem_mapa: imagens/setor_essencia_p0.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 234
       y: 475
       comprimento: 20
       largura: 20
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 345
       y: 535
       comprimento: 20
       largura: 20
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 387
       y: 567
       comprimento: 20
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 638
       y: 724
       comprimento: 20
       largura: 20
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 689
       y: 737
       comprimento: 20
       largura: 20
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 853
       y: 668
       comprimento: 20
       largura: 20
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 866
       y: 630
       comprimento: 20
@@ -80,9 +80,9 @@ mapas:
   largura_mapa: 1094
   altura_mapa: 782
   pontos_de_interesse:
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 376
       y: 428
       comprimento: 20
@@ -90,7 +90,7 @@ mapas:
   referencias:
   - escalada: Jardim de Infância
     ids:
-    - '09'
+    - 09
 escaladas:
 - boulder:
     nome: Agricultor
@@ -119,5 +119,6 @@ escaladas:
 - boulder:
     nome: Jardim de Infância
     dificuldade: V0
----
+---
+
 # Setor Essência

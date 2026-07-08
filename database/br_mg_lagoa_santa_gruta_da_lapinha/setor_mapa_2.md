@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 153
       y: 102
       comprimento: 10
       largura: 9
   - id: '08'
     label: '08'
-    box:
+    retangulo:
       x: 178
       y: 112
       comprimento: 10

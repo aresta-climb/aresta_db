@@ -6,35 +6,35 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Fechadura
     label: Setor Fechadura
-    box:
+    retangulo:
       x: 284
       y: 546
       comprimento: 199
       largura: 112
   - id: Setor_2_Andar
     label: Setor 2º Andar
-    box:
+    retangulo:
       x: 480
       y: 564
       comprimento: 163
       largura: 102
   - id: Setor_Pasto
     label: Setor Pasto
-    box:
+    retangulo:
       x: 266
       y: 662
       comprimento: 161
       largura: 99
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 489
       y: 722
       comprimento: 196
       largura: 121
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 878
       y: 741
       comprimento: 221
@@ -42,49 +42,49 @@ mapas:
       angulo_graus_x100: -1050
   - id: Vale_dos_Espinhos
     label: Vale dos Espinhos
-    box:
+    retangulo:
       x: 940
       y: 572
       comprimento: 195
       largura: 97
   - id: Mr_Bean
     label: Mr. Bean
-    box:
+    retangulo:
       x: 1121
       y: 497
       comprimento: 140
       largura: 102
   - id: Sala_de_Aula
     label: Sala de Aula
-    box:
+    retangulo:
       x: 1278
       y: 483
       comprimento: 137
       largura: 112
   - id: Vale_do_Cinema
     label: Vale do Cinema
-    box:
+    retangulo:
       x: 1200
       y: 343
       comprimento: 140
       largura: 98
   - id: Setor_Geriatria
     label: Setor Geriatria
-    box:
+    retangulo:
       x: 1466
       y: 535
       comprimento: 165
       largura: 100
   - id: Vale_da_Onca
     label: Vale da Onça
-    box:
+    retangulo:
       x: 1581
       y: 320
       comprimento: 192
       largura: 120
   - id: Onda_de_Calcario
     label: Onda de Calcário
-    box:
+    retangulo:
       x: 1576
       y: 684
       comprimento: 180
@@ -132,28 +132,28 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Fechadura
     label: Setor Fechadura
-    box:
+    retangulo:
       x: 366
       y: 479
       comprimento: 195
       largura: 102
   - id: Setor_2_Andar
     label: Setor 2º Andar
-    box:
+    retangulo:
       x: 996
       y: 390
       comprimento: 160
       largura: 95
   - id: Setor_Pasto
     label: Setor Pasto
-    box:
+    retangulo:
       x: 367
       y: 617
       comprimento: 220
       largura: 60
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 1380
       y: 640
       comprimento: 143
@@ -172,3 +172,4 @@ mapas:
     ids:
     - Setor_Entrada
 ---
+

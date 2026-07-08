@@ -1,4 +1,4 @@
----
+---
 nome: Bomba Atômica
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p0.webp
@@ -7,63 +7,63 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 720
       y: 490
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 645
       y: 525
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 510
       y: 500
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 755
       y: 515
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 755
       y: 525
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 670
       y: 390
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 345
       y: 270
       comprimento: 30
       largura: 30
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 435
       y: 440
       comprimento: 30
       largura: 30
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 170
       y: 280
       comprimento: 30
@@ -132,7 +132,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 590
       y: 485
       comprimento: 30
@@ -156,42 +156,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 690
       y: 470
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 690
       y: 440
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 690
       y: 410
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 425
       y: 490
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 425
       y: 340
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 495
       y: 400
       comprimento: 30
@@ -251,21 +251,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 250
       y: 450
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 190
       y: 500
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 505
       y: 460
       comprimento: 30
@@ -359,7 +359,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V1
----
+---
+
 # Setor Bomba Atômica
 
 O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.

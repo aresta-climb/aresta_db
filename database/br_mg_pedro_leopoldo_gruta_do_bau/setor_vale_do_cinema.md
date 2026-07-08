@@ -7,105 +7,105 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 388
       y: 136
       comprimento: 43
       largura: 41
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 50
       y: 414
       comprimento: 37
       largura: 36
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 134
       y: 450
       comprimento: 38
       largura: 35
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 262
       y: 479
       comprimento: 38
       largura: 34
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 239
       y: 542
       comprimento: 38
       largura: 35
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 149
       y: 629
       comprimento: 38
       largura: 36
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 568
       y: 721
       comprimento: 36
       largura: 36
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 538
       y: 820
       comprimento: 35
       largura: 36
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 162
       y: 872
       comprimento: 36
       largura: 34
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 511
       y: 901
       comprimento: 36
       largura: 36
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 176
       y: 955
       comprimento: 37
       largura: 34
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 581
       y: 1004
       comprimento: 36
       largura: 40
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 197
       y: 1046
       comprimento: 38
       largura: 34
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 446
       y: 1084
       comprimento: 36
       largura: 37
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 1111
       y: 1192
       comprimento: 166
@@ -151,11 +151,11 @@ mapas:
     - Setor_Sentinela
     setor: Setor Sentinela e Vale do Joga
   - ids:
-    - '08'
+    - 08
     setor: Setor Vale do Cinema
     escalada: Navio Fantasma
   - ids:
-    - '09'
+    - 09
     setor: Setor Vale do Cinema
     escalada: Pata Afiada
 escaladas:

@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 694
       y: 1109
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 814
       y: 1099
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 200
       y: 372
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 359
       y: 103
       raio: 13
@@ -52,5 +52,4 @@ escaladas:
     nome: Íngreme
     dificuldade: V3
 ---
-
 

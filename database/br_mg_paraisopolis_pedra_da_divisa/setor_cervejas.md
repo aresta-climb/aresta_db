@@ -7,105 +7,105 @@ mapas:
   pontos_de_interesse:
   - id: titulo
     label: SETOR CERVEJAS
-    box:
+    retangulo:
       x: 187
       y: 87
       comprimento: 250
       largura: 81
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 85
       y: 319
       raio: 17
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 168
       y: 314
       raio: 17
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 257
       y: 320
       raio: 17
   - id: '23'
     label: '23'
-    circular:
+    circulo:
       x: 322
       y: 312
       raio: 17
   - id: '24'
     label: '24'
-    circular:
+    circulo:
       x: 493
       y: 313
       raio: 17
   - id: '25'
     label: '25'
-    circular:
+    circulo:
       x: 577
       y: 271
       raio: 17
   - id: '26'
     label: '26'
-    circular:
+    circulo:
       x: 686
       y: 190
       raio: 17
   - id: '27'
     label: '27'
-    circular:
+    circulo:
       x: 779
       y: 178
       raio: 17
   - id: '28'
     label: '28'
-    circular:
+    circulo:
       x: 892
       y: 172
       raio: 17
   - id: '29'
     label: '29'
-    circular:
+    circulo:
       x: 1271
       y: 725
       raio: 17
   - id: '30'
     label: '30'
-    circular:
+    circulo:
       x: 1391
       y: 56
       raio: 17
   - id: '31'
     label: '31'
-    circular:
+    circulo:
       x: 1457
       y: 68
       raio: 17
   - id: '32'
     label: '32'
-    circular:
+    circulo:
       x: 1430
       y: 602
       raio: 17
   - id: '33'
     label: '33'
-    circular:
+    circulo:
       x: 1545
       y: 593
       raio: 17
   - id: ditados
     label: DITADOS
-    box:
+    retangulo:
       x: 118
       y: 769
       comprimento: 103
       largura: 20
   - id: questao_de_tempo
     label: QUESTÃO DE TEMPO
-    box:
+    retangulo:
       x: 1465
       y: 713
       comprimento: 223
@@ -255,7 +255,6 @@ escaladas:
     - Antônio Calvo
     - Ingo Moller
 ---
-
 
 ![Eliseu Frechou na via Black, 6ºsup](imagens/setor_cervejas_p1_i0.webp)
 

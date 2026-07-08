@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: 1az
     label: 1az
-    box:
+    retangulo:
       x: 212
       y: 402
       comprimento: 35
       largura: 49
   - id: 1ve
     label: 1ve
-    box:
+    retangulo:
       x: 722
       y: 848
       comprimento: 19
       largura: 35
   - id: 2ve
     label: 2ve
-    box:
+    retangulo:
       x: 746
       y: 869
       comprimento: 21
       largura: 40
   - id: 3ve
     label: 3ve
-    box:
+    retangulo:
       x: 719
       y: 944
       comprimento: 32
       largura: 39
   - id: 4ve
     label: 4ve
-    box:
+    retangulo:
       x: 789
       y: 902
       comprimento: 32
       largura: 41
   - id: 1ro
     label: 1ro
-    box:
+    retangulo:
       x: 1756
       y: 1474
       comprimento: 31
       largura: 45
   - id: 2ro
     label: 2ro
-    box:
+    retangulo:
       x: 1686
       y: 1468
       comprimento: 26

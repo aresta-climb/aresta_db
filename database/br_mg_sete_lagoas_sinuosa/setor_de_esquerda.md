@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 409
       y: 565
       raio: 22
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 595
       y: 614
       raio: 22
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 698
       y: 628
       raio: 22
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 812
       y: 638
       raio: 22
   - id: Setor_7_Paralelo
     label: ← SETOR 7 PARALELO
-    box:
+    retangulo:
       x: 269
       y: 648
       comprimento: 36
@@ -39,7 +39,7 @@ mapas:
       angulo_graus_x100: 1813
   - id: Setor_Panelinha
     label: SETOR PANELINHA →
-    box:
+    retangulo:
       x: 937
       y: 537
       comprimento: 34

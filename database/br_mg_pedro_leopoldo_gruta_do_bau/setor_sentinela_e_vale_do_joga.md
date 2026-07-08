@@ -7,224 +7,224 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Onda
     label: Setor Onda
-    box:
+    retangulo:
       x: 971
       y: 28
       comprimento: 72
       largura: 51
   - id: Vale_dos_Espinhos_Top
     label: Vale dos Espinhos
-    box:
+    retangulo:
       x: 135
       y: 157
       comprimento: 134
       largura: 64
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 506
       y: 284
       comprimento: 31
       largura: 29
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 650
       y: 311
       comprimento: 29
       largura: 28
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 484
       y: 324
       comprimento: 31
       largura: 27
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 438
       y: 350
       comprimento: 32
       largura: 28
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 751
       y: 357
       comprimento: 30
       largura: 26
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 738
       y: 390
       comprimento: 31
       largura: 28
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 469
       y: 450
       comprimento: 32
       largura: 27
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 700
       y: 473
       comprimento: 31
       largura: 28
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 642
       y: 482
       comprimento: 31
       largura: 27
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 674
       y: 510
       comprimento: 31
       largura: 25
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 632
       y: 524
       comprimento: 29
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 527
       y: 542
       comprimento: 30
       largura: 27
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 582
       y: 538
       comprimento: 31
       largura: 26
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 474
       y: 551
       comprimento: 30
       largura: 26
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 375
       y: 797
       comprimento: 28
       largura: 26
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 678
       y: 930
       comprimento: 28
       largura: 26
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 732
       y: 937
       comprimento: 30
       largura: 28
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 592
       y: 954
       comprimento: 29
       largura: 29
   - id: Vale_dos_Espinhos_Bottom
     label: Vale dos Espinhos
-    box:
+    retangulo:
       x: 144
       y: 982
       comprimento: 127
       largura: 69
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 732
       y: 967
       comprimento: 29
       largura: 24
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 740
       y: 1044
       comprimento: 28
       largura: 26
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 748
       y: 1078
       comprimento: 30
       largura: 24
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 726
       y: 1129
       comprimento: 27
       largura: 26
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 678
       y: 1152
       comprimento: 29
       largura: 25
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 714
       y: 1170
       comprimento: 30
       largura: 25
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 722
       y: 1228
       comprimento: 29
       largura: 19
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 731
       y: 1248
       comprimento: 30
       largura: 20
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 733
       y: 1269
       comprimento: 28
       largura: 18
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 966
       y: 1288
       comprimento: 109
       largura: 59
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 720
       y: 1300
       comprimento: 27
@@ -309,11 +309,11 @@ mapas:
     ids:
     - '28'
   - ids:
-    - '08'
+    - 08
     setor: Setor Sentinela e Vale do Joga
     escalada: Contagem Regressiva
   - ids:
-    - '09'
+    - 09
     setor: Setor Sentinela e Vale do Joga
     escalada: Woodstock
   - ids:

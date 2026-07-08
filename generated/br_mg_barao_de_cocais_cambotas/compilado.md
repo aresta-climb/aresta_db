@@ -70,7 +70,7 @@
             - **E-mail:** comercial@canelaema.com.br
             - **GPS:** 19º53'5290'' 43º32'1188''
             - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 
 
 ## Parte: setor_chamine

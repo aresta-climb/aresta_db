@@ -203,7 +203,7 @@ botoes:
 
 
         AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS'
-ultima_migracao: 3
+ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: fd9dad9574cb6806a22df45be2404f16a7063c7547f83e299242a64da0dd706d

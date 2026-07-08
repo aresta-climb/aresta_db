@@ -18,98 +18,98 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 90
               y: 374
               comprimento: 13
               largura: 15
           - id: '2'
             label: '2'
-            box:
+            retangulo:
               x: 107
               y: 373
               comprimento: 14
               largura: 14
           - id: '3'
             label: '3'
-            box:
+            retangulo:
               x: 123
               y: 373
               comprimento: 14
               largura: 14
           - id: '4'
             label: '4'
-            box:
+            retangulo:
               x: 166
               y: 373
               comprimento: 15
               largura: 14
           - id: '5'
             label: '5'
-            box:
+            retangulo:
               x: 200
               y: 370
               comprimento: 14
               largura: 15
           - id: '6'
             label: '6'
-            box:
+            retangulo:
               x: 228
               y: 370
               comprimento: 15
               largura: 15
           - id: '7'
             label: '7'
-            box:
+            retangulo:
               x: 258
               y: 368
               comprimento: 15
               largura: 16
           - id: '8'
             label: '8'
-            box:
+            retangulo:
               x: 287
               y: 370
               comprimento: 16
               largura: 15
           - id: '9'
             label: '9'
-            box:
+            retangulo:
               x: 366
               y: 369
               comprimento: 15
               largura: 16
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 436
               y: 367
               comprimento: 20
               largura: 18
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 464
               y: 366
               comprimento: 19
               largura: 18
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 493
               y: 368
               comprimento: 20
               largura: 19
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 530
               y: 368
               comprimento: 20
               largura: 18
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 571
               y: 370
               comprimento: 20
@@ -210,63 +210,63 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 188
               y: 606
               comprimento: 21
               largura: 24
           - id: '2'
             label: '2'
-            box:
+            retangulo:
               x: 312
               y: 602
               comprimento: 21
               largura: 22
           - id: '3'
             label: '3'
-            box:
+            retangulo:
               x: 406
               y: 590
               comprimento: 23
               largura: 22
           - id: '4'
             label: '4'
-            box:
+            retangulo:
               x: 446
               y: 586
               comprimento: 23
               largura: 23
           - id: '5'
             label: '5'
-            box:
+            retangulo:
               x: 514
               y: 584
               comprimento: 21
               largura: 21
           - id: '6'
             label: '6'
-            box:
+            retangulo:
               x: 574
               y: 587
               comprimento: 21
               largura: 20
           - id: '7'
             label: '7'
-            box:
+            retangulo:
               x: 830
               y: 580
               comprimento: 21
               largura: 21
           - id: '8'
             label: '8'
-            box:
+            retangulo:
               x: 941
               y: 576
               comprimento: 22
               largura: 21
           - id: '9'
             label: '9'
-            box:
+            retangulo:
               x: 1064
               y: 574
               comprimento: 22
@@ -334,7 +334,7 @@ picos:
           O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte
           e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial
           (A0).'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 botoes: []

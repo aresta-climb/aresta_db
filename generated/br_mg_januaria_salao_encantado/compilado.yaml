@@ -21,126 +21,126 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 324
               y: 317
               comprimento: 35
               largura: 40
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 572
               y: 366
               comprimento: 35
               largura: 40
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 668
               y: 327
               comprimento: 35
               largura: 40
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 754
               y: 219
               comprimento: 37
               largura: 40
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 990
               y: 200
               comprimento: 27
               largura: 31
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 1080
               y: 202
               comprimento: 30
               largura: 33
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 1158
               y: 621
               comprimento: 30
               largura: 40
           - id: 08
             label: 08
-            box:
+            retangulo:
               x: 1181
               y: 545
               comprimento: 30
               largura: 40
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 1297
               y: 527
               comprimento: 30
               largura: 40
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 1343
               y: 510
               comprimento: 38
               largura: 40
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 1317
               y: 141
               comprimento: 48
               largura: 40
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 1550
               y: 136
               comprimento: 43
               largura: 39
           - id: Claraboia
             label: Claraboia
-            box:
+            retangulo:
               x: 1348
               y: 458
               comprimento: 157
               largura: 37
           - id: Platô
             label: Platô
-            box:
+            retangulo:
               x: 814
               y: 566
               comprimento: 86
               largura: 41
           - id: Pracinha
             label: Pracinha
-            box:
+            retangulo:
               x: 1624
               y: 754
               comprimento: 151
               largura: 38
           - id: Estacionamento_01
             label: Estacionamento
-            box:
+            retangulo:
               x: 274
               y: 1463
               comprimento: 205
               largura: 30
           - id: Estacionamento_02
             label: Estacionamento
-            box:
+            retangulo:
               x: 794
               y: 1482
               comprimento: 230
               largura: 34
           - id: Setor_Sertão
             label: Setor Sertão
-            box:
+            retangulo:
               x: 1913
               y: 740
               comprimento: 36
@@ -148,7 +148,7 @@ picos:
               angulo_graus_x100: -298
           - id: Setor_Mocó
             label: Setor Mocó
-            box:
+            retangulo:
               x: 1974
               y: 744
               comprimento: 34
@@ -156,7 +156,7 @@ picos:
               angulo_graus_x100: 650
           - id: Setor_Abrigo
             label: Setor Abrigo
-            box:
+            retangulo:
               x: 2013
               y: 812
               comprimento: 36
@@ -247,49 +247,49 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 348
               y: 60
               comprimento: 30
               largura: 45
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 438
               y: 49
               comprimento: 37
               largura: 46
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 526
               y: 28
               comprimento: 41
               largura: 50
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 958
               y: 50
               comprimento: 35
               largura: 45
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 1041
               y: 87
               comprimento: 32
               largura: 44
           - id: Claraboia
             label: Claraboia
-            box:
+            retangulo:
               x: 746
               y: 70
               comprimento: 192
               largura: 49
           - id: Platô
             label: Platô
-            box:
+            retangulo:
               x: 294
               y: 138
               comprimento: 107
@@ -297,14 +297,14 @@ picos:
               angulo_graus_x100: 2536
           - id: Praça
             label: Praça
-            box:
+            retangulo:
               x: 380
               y: 226
               comprimento: 119
               largura: 55
           - id: Estacionamento
             label: Estacionamento
-            box:
+            retangulo:
               x: 125
               y: 386
               comprimento: 60
@@ -312,21 +312,21 @@ picos:
               angulo_graus_x100: -4730
           - id: Abrigo
             label: Abrigo
-            box:
+            retangulo:
               x: 1729
               y: 194
               comprimento: 140
               largura: 54
           - id: Sertão
             label: Sertão
-            box:
+            retangulo:
               x: 1681
               y: 264
               comprimento: 158
               largura: 42
           - id: Mocó
             label: Mocó
-            box:
+            retangulo:
               x: 1727
               y: 322
               comprimento: 114
@@ -391,42 +391,42 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 111
               y: 268
               comprimento: 30
               largura: 40
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 198
               y: 80
               comprimento: 29
               largura: 38
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 248
               y: 99
               comprimento: 29
               largura: 38
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 302
               y: 120
               comprimento: 30
               largura: 40
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 546
               y: 371
               comprimento: 25
               largura: 32
           - id: Estacionamento
             label: Estacionamento
-            box:
+            retangulo:
               x: 305
               y: 600
               comprimento: 46
@@ -490,21 +490,21 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 228
               y: 374
               comprimento: 29
               largura: 36
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 174
               y: 324
               comprimento: 29
               largura: 37
           - id: Pracinha
             label: Pracinha
-            box:
+            retangulo:
               x: 362
               y: 476
               comprimento: 134
@@ -548,56 +548,56 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 56
               y: 857
               comprimento: 25
               largura: 30
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 104
               y: 756
               comprimento: 23
               largura: 29
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 218
               y: 582
               comprimento: 24
               largura: 29
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 236
               y: 526
               comprimento: 20
               largura: 30
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 252
               y: 423
               comprimento: 21
               largura: 30
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 244
               y: 362
               comprimento: 24
               largura: 31
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 219
               y: 303
               comprimento: 24
               largura: 30
           - id: Abrigo
             label: Abrigo
-            box:
+            retangulo:
               x: 133
               y: 38
               comprimento: 82
@@ -605,14 +605,14 @@ picos:
               angulo_graus_x100: 1810
           - id: Mocó
             label: Mocó
-            box:
+            retangulo:
               x: 273
               y: 92
               comprimento: 36
               largura: 74
           - id: Pracinha
             label: Pracinha
-            box:
+            retangulo:
               x: 176
               y: 914
               comprimento: 117
@@ -689,70 +689,70 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 338
               y: 105
               comprimento: 21
               largura: 32
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 525
               y: 307
               comprimento: 22
               largura: 28
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 582
               y: 291
               comprimento: 21
               largura: 28
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 636
               y: 270
               comprimento: 21
               largura: 27
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 704
               y: 250
               comprimento: 24
               largura: 31
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 776
               y: 266
               comprimento: 20
               largura: 28
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 936
               y: 202
               comprimento: 20
               largura: 27
           - id: 08
             label: 08
-            box:
+            retangulo:
               x: 977
               y: 137
               comprimento: 24
               largura: 30
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 1006
               y: 63
               comprimento: 23
               largura: 30
           - id: Abrigo
             label: Abrigo
-            box:
+            retangulo:
               x: 66
               y: 212
               comprimento: 35
@@ -760,14 +760,14 @@ picos:
               angulo_graus_x100: -4434
           - id: Sertão
             label: Sertão
-            box:
+            retangulo:
               x: 176
               y: 329
               comprimento: 78
               largura: 24
           - id: Pracinha
             label: Pracinha
-            box:
+            retangulo:
               x: 222
               y: 390
               comprimento: 102
@@ -857,49 +857,49 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 163
               y: 474
               comprimento: 30
               largura: 52
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 466
               y: 344
               comprimento: 33
               largura: 45
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 528
               y: 346
               comprimento: 34
               largura: 46
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 634
               y: 378
               comprimento: 33
               largura: 51
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 833
               y: 547
               comprimento: 30
               largura: 50
           - id: Sertão
             label: Sertão
-            box:
+            retangulo:
               x: 1201
               y: 25
               comprimento: 150
               largura: 50
           - id: Mocó
             label: Mocó
-            box:
+            retangulo:
               x: 1193
               y: 102
               comprimento: 130
@@ -961,7 +961,7 @@ picos:
         pontos_de_interesse:
         - id: Pedreira
           label: Pedreira
-          box:
+          retangulo:
             x: 1014
             y: 156
             comprimento: 132
@@ -969,7 +969,7 @@ picos:
             angulo_graus_x100: 174
         - id: Estacionamento
           label: Estacionamento
-          box:
+          retangulo:
             x: 205
             y: 308
             comprimento: 172
@@ -977,14 +977,14 @@ picos:
             angulo_graus_x100: 67
         - id: Escalada
           label: Escalada
-          box:
+          retangulo:
             x: 15
             y: 348
             comprimento: 202
             largura: 50
         - id: Comunidade
           label: Comunidade
-          box:
+          retangulo:
             x: 475
             y: 343
             comprimento: 274
@@ -992,7 +992,7 @@ picos:
             angulo_graus_x100: 42
         - id: Barreiro
           label: Barreiro
-          box:
+          retangulo:
             x: 510
             y: 395
             comprimento: 180
@@ -1000,7 +1000,7 @@ picos:
             angulo_graus_x100: 64
         - id: Trevo_1
           label: Trevo
-          box:
+          retangulo:
             x: 1205
             y: 498
             comprimento: 137
@@ -1008,7 +1008,7 @@ picos:
             angulo_graus_x100: 167
         - id: Aeroporto
           label: Aeroporto
-          box:
+          retangulo:
             x: 1455
             y: 454
             comprimento: 220
@@ -1016,7 +1016,7 @@ picos:
             angulo_graus_x100: -3911
         - id: SESC
           label: SESC
-          box:
+          retangulo:
             x: 1570
             y: 589
             comprimento: 120
@@ -1024,14 +1024,14 @@ picos:
             angulo_graus_x100: -5141
         - id: Asfalto
           label: Asfalto
-          box:
+          retangulo:
             x: 287
             y: 668
             comprimento: 157
             largura: 51
         - id: Trevo_2
           label: Trevo
-          box:
+          retangulo:
             x: 1184
             y: 705
             comprimento: 128
@@ -1039,7 +1039,7 @@ picos:
             angulo_graus_x100: 134
         - id: Terra
           label: Terra
-          box:
+          retangulo:
             x: 309
             y: 766
             comprimento: 126
@@ -1047,14 +1047,14 @@ picos:
             angulo_graus_x100: 182
         - id: Januaria
           label: Januária
-          box:
+          retangulo:
             x: 1240
             y: 882
             comprimento: 286
             largura: 75
         - id: Trevo_3
           label: Trevo
-          box:
+          retangulo:
             x: 1041
             y: 945
             comprimento: 134
@@ -1062,7 +1062,7 @@ picos:
             angulo_graus_x100: 86
         - id: Policia
           label: Policia
-          box:
+          retangulo:
             x: 769
             y: 1004
             comprimento: 154
@@ -1070,7 +1070,7 @@ picos:
             angulo_graus_x100: 149
         - id: Ponte
           label: Ponte
-          box:
+          retangulo:
             x: 786
             y: 1138
             comprimento: 136
@@ -1078,21 +1078,21 @@ picos:
             angulo_graus_x100: 84
         - id: Rio_Sao_Francisco
           label: Rio São Francisco
-          box:
+          retangulo:
             x: 1142
             y: 1177
             comprimento: 391
             largura: 49
         - id: BR_135
           label: BR 135
-          box:
+          retangulo:
             x: 677
             y: 1285
             comprimento: 102
             largura: 37
         - id: Montes_Claros
           label: Montes Claros
-          box:
+          retangulo:
             x: 792
             y: 1331
             comprimento: 183
@@ -1104,14 +1104,14 @@ picos:
         pontos_de_interesse:
         - id: Moco
           label: Mocó
-          box:
+          retangulo:
             x: 1602
             y: 160
             comprimento: 91
             largura: 38
         - id: Abrigo
           label: Abrigo
-          box:
+          retangulo:
             x: 899
             y: 341
             comprimento: 105
@@ -1119,14 +1119,14 @@ picos:
             angulo_graus_x100: 436
         - id: Sertao
           label: Sertão
-          box:
+          retangulo:
             x: 1169
             y: 372
             comprimento: 108
             largura: 39
         - id: Claraboia
           label: Claraboia
-          box:
+          retangulo:
             x: 690
             y: 477
             comprimento: 149
@@ -1134,14 +1134,14 @@ picos:
             angulo_graus_x100: 192
         - id: Plato
           label: Platô
-          box:
+          retangulo:
             x: 361
             y: 586
             comprimento: 84
             largura: 36
         - id: Pracinha
           label: Pracinha
-          box:
+          retangulo:
             x: 829
             y: 773
             comprimento: 137
@@ -1149,7 +1149,7 @@ picos:
             angulo_graus_x100: 84
         - id: Praca
           label: Praça
-          box:
+          retangulo:
             x: 495
             y: 845
             comprimento: 61
@@ -1157,7 +1157,7 @@ picos:
             angulo_graus_x100: 469
         - id: Estrada_Januaria
           label: Estrada Januária
-          box:
+          retangulo:
             x: 1621
             y: 1020
             comprimento: 256
@@ -1165,7 +1165,7 @@ picos:
             angulo_graus_x100: 45
         - id: Estacionamento_esq
           label: Estacionamento
-          box:
+          retangulo:
             x: 0
             y: 1224
             comprimento: 212
@@ -1173,7 +1173,7 @@ picos:
             angulo_graus_x100: 54
         - id: Estacionamento_dir
           label: Estacionamento
-          box:
+          retangulo:
             x: 436
             y: 1222
             comprimento: 216
@@ -1265,7 +1265,7 @@ botoes:
 
         **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro
         ou de ônibus para Januária.'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

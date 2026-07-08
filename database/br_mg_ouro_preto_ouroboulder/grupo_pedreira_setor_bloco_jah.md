@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 578
       y: 336
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1013
       y: 310
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 647
       y: 756
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1070
       y: 779
       raio: 13
@@ -53,5 +53,4 @@ escaladas:
     nome: Invertido
     dificuldade: V2
 ---
-
 

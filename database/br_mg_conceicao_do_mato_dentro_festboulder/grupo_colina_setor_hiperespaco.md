@@ -1,4 +1,4 @@
----
+---
 nome: Hiperespaço
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_hiperespaco_p0.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 48
       y: 430
       comprimento: 35
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 82
       y: 430
       comprimento: 35
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 262
       y: 515
       comprimento: 35
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 382
       y: 440
       comprimento: 35
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 592
       y: 515
       comprimento: 35
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 751
       y: 455
       comprimento: 12
@@ -85,7 +85,8 @@ escaladas:
 - boulder:
     nome: Jardins Suspensos
     dificuldade: V5
----
+---
+
 # Setor Hiperespaço
 
 O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.

@@ -7,55 +7,55 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 488
       y: 341
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 692
       y: 138
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1281
       y: 87
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 116
       y: 659
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 179
       y: 743
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 415
       y: 840
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 711
       y: 812
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1183
       y: 840
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1361
       y: 753
       raio: 13
@@ -89,61 +89,61 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 9
       y: 285
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 554
       y: 241
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1207
       y: 326
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1397
       y: 305
       raio: 13
   - id: E
     label: E
-    circular:
+    circulo:
       x: 1521
       y: 431
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 41
       y: 576
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 588
       y: 858
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1281
       y: 835
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1389
       y: 766
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1492
       y: 751
       raio: 13
@@ -202,5 +202,4 @@ escaladas:
     nome: Movimentos Eróticos
     dificuldade: V1
 ---
-
 

@@ -6,28 +6,28 @@ mapas:
   pontos_de_interesse:
   - id: Extracao_Curralinho
     label: EXTRAÇÃO (CURRALINHO)
-    box:
+    retangulo:
       x: 315
       y: 250
       comprimento: 210
       largura: 17
   - id: Associacao
     label: Associação
-    box:
+    retangulo:
       x: 150
       y: 440
       comprimento: 85
       largura: 17
   - id: Cerrado_Groove
     label: Cerrado Groove
-    box:
+    retangulo:
       x: 825
       y: 290
       comprimento: 130
       largura: 17
   - id: Entrada_Cerrado_Groove
     label: Entrada Cerrado Groove
-    box:
+    retangulo:
       x: 825
       y: 430
       comprimento: 170

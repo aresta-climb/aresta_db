@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 641
       y: 243
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 949
       y: 345
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1461
       y: 667
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 552
       y: 940
       raio: 13
@@ -53,5 +53,4 @@ escaladas:
     nome: Periscópio
     dificuldade: V5
 ---
-
 

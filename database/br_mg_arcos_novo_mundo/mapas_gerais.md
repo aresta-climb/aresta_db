@@ -9,28 +9,28 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Barceloneta
     label: Setor Barceloneta
-    box:
+    retangulo:
       x: 432
       y: 438
       comprimento: 163
       largura: 135
   - id: Setor_Corredor_Polones
     label: Setor Corredor Polonês
-    box:
+    retangulo:
       x: 582
       y: 536
       comprimento: 100
       largura: 144
   - id: Setor_Aristoteles
     label: Setor Aristóteles
-    box:
+    retangulo:
       x: 774
       y: 533
       comprimento: 219
       largura: 138
   - id: Setor_Cemiterio_Ossos
     label: Setor Cemitério dos Ossos
-    box:
+    retangulo:
       x: 855
       y: 396
       comprimento: 138
@@ -49,3 +49,4 @@ mapas:
     ids:
     - Setor_Cemiterio_Ossos
 ---
+

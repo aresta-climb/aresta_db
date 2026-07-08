@@ -1,4 +1,4 @@
----
+---
 nome: Manda Lá
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_manda_la_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 180
       y: 535
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 260
       y: 425
       comprimento: 30
@@ -33,7 +33,8 @@ escaladas:
 - boulder:
     nome: Manda Lá
     dificuldade: V8
----
+---
+
 # Setor Manda Lá
 
 O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.

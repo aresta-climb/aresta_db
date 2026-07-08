@@ -1,4 +1,4 @@
----
+---
 nome: Parede Principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_principal_p0_i0.webp
@@ -7,126 +7,126 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 324
       y: 317
       comprimento: 35
       largura: 40
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 572
       y: 366
       comprimento: 35
       largura: 40
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 668
       y: 327
       comprimento: 35
       largura: 40
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 754
       y: 219
       comprimento: 37
       largura: 40
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 990
       y: 200
       comprimento: 27
       largura: 31
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 1080
       y: 202
       comprimento: 30
       largura: 33
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 1158
       y: 621
       comprimento: 30
       largura: 40
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 1181
       y: 545
       comprimento: 30
       largura: 40
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 1297
       y: 527
       comprimento: 30
       largura: 40
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 1343
       y: 510
       comprimento: 38
       largura: 40
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 1317
       y: 141
       comprimento: 48
       largura: 40
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 1550
       y: 136
       comprimento: 43
       largura: 39
   - id: Claraboia
     label: Claraboia
-    box:
+    retangulo:
       x: 1348
       y: 458
       comprimento: 157
       largura: 37
   - id: Platô
     label: Platô
-    box:
+    retangulo:
       x: 814
       y: 566
       comprimento: 86
       largura: 41
   - id: Pracinha
     label: Pracinha
-    box:
+    retangulo:
       x: 1624
       y: 754
       comprimento: 151
       largura: 38
   - id: Estacionamento_01
     label: Estacionamento
-    box:
+    retangulo:
       x: 274
       y: 1463
       comprimento: 205
       largura: 30
   - id: Estacionamento_02
     label: Estacionamento
-    box:
+    retangulo:
       x: 794
       y: 1482
       comprimento: 230
       largura: 34
   - id: Setor_Sertão
     label: Setor Sertão
-    box:
+    retangulo:
       x: 1913
       y: 740
       comprimento: 36
@@ -134,7 +134,7 @@ mapas:
       angulo_graus_x100: -298
   - id: Setor_Mocó
     label: Setor Mocó
-    box:
+    retangulo:
       x: 1974
       y: 744
       comprimento: 34
@@ -142,7 +142,7 @@ mapas:
       angulo_graus_x100: 650
   - id: Setor_Abrigo
     label: Setor Abrigo
-    box:
+    retangulo:
       x: 2013
       y: 812
       comprimento: 36
@@ -172,10 +172,10 @@ mapas:
     - '07'
   - escalada: Cordadinha
     ids:
-    - '08'
+    - 08
   - escalada: Calazar Certo
     ids:
-    - '09'
+    - 09
   - escalada: Cabeça de Rato
     ids:
     - '10'
@@ -222,4 +222,5 @@ escaladas:
 - via_esportiva:
     nome: Uma Lágrima que Cai
     dificuldade: PROJETO
----
+---
+

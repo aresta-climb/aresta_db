@@ -1,4 +1,4 @@
----
+---
 nome: Chegada
 mapas:
 - caminho_imagem_mapa: imagens/setor_chegada_p0.webp
@@ -7,168 +7,168 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    box:
+    retangulo:
       x: 15
       y: 760
       comprimento: 30
       largura: 30
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 60
       y: 760
       comprimento: 30
       largura: 30
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 95
       y: 760
       comprimento: 30
       largura: 30
   - id: '04'
     label: '4'
-    box:
+    retangulo:
       x: 125
       y: 760
       comprimento: 30
       largura: 30
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 160
       y: 760
       comprimento: 30
       largura: 30
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 220
       y: 760
       comprimento: 30
       largura: 30
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 315
       y: 760
       comprimento: 30
       largura: 30
-  - id: '08'
+  - id: 08
     label: '8'
-    box:
+    retangulo:
       x: 260
       y: 265
       comprimento: 30
       largura: 30
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 345
       y: 760
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 490
       y: 695
       comprimento: 30
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 505
       y: 310
       comprimento: 30
       largura: 30
   - id: 12_topo
     label: '12'
-    box:
+    retangulo:
       x: 565
       y: 315
       comprimento: 30
       largura: 30
   - id: 12_base
     label: '12'
-    box:
+    retangulo:
       x: 575
       y: 805
       comprimento: 30
       largura: 30
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 605
       y: 610
       comprimento: 30
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 695
       y: 785
       comprimento: 30
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 695
       y: 215
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 755
       y: 640
       comprimento: 30
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 835
       y: 570
       comprimento: 30
       largura: 30
   - id: 18_topo
     label: '18'
-    box:
+    retangulo:
       x: 865
       y: 485
       comprimento: 30
       largura: 30
   - id: 18_base
     label: '18'
-    box:
+    retangulo:
       x: 805
       y: 875
       comprimento: 30
       largura: 30
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 905
       y: 865
       comprimento: 30
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 935
       y: 530
       comprimento: 30
       largura: 30
   - id: Setores_Vizinhos
     label: Setores Central, Acampamento, Arquibancada e Gênesis
-    box:
+    retangulo:
       x: 350
       y: 930
       comprimento: 500
       largura: 30
   - id: Setor_Teto_Preto
     label: Setor Teto Preto
-    box:
+    retangulo:
       x: 1050
       y: 900
       comprimento: 150
@@ -197,11 +197,11 @@ mapas:
     - '07'
   - escalada: Mad Max P2
     ids:
-    - '08'
-    - '08'
+    - 08
+    - 08
   - escalada: Além da Cúpula do Trovão
     ids:
-    - '09'
+    - 09
   - escalada: Perestroika P1
     ids:
     - '10'
@@ -298,5 +298,5 @@ escaladas:
 - via_esportiva:
     nome: Macunaína
     dificuldade: BR_9B
----
+---
 

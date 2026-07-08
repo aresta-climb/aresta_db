@@ -149,14 +149,15 @@ class BaseItemPOI:
             acoes_map[acao]()
 
 
-class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
+class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
+    """Representa visualmente uma área de interesse retangular no editor de mapas. Permite redimensionamento pelos cantos e rotação."""
     def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
         super().__init__()
         self.callback_deletar = callback_deletar
         self.callback_converter = callback_converter
         self.configurar_comum(pt_dict, callback_mudanca)
         
-        box = pt_dict['box']
+        box = pt_dict.get('retangulo', pt_dict.get('retangulo', {}))
         w, h = box['comprimento'], box['largura']
         self.setRect(0, 0, w, h)
         self.setPos(box['x'] - w / 2, box['y'] - h / 2)
@@ -171,7 +172,7 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
     def carregar_de_dict(self, pt_dict):
         self.inicializando = True
         self.pt_dict.update(pt_dict)
-        box = self.pt_dict['box']
+        box = self.pt_dict['retangulo']
         w, h = box['comprimento'], box['largura']
         self.setRect(0, 0, w, h)
         self.setPos(box['x'] - w / 2, box['y'] - h / 2)
@@ -275,18 +276,122 @@ class ItemBoundingBox(QGraphicsRectItem, BaseItemPOI):
         if angulo_escalonado != 0:
             dados_box['angulo_graus_x100'] = angulo_escalonado
             
-        self.pt_dict['box'] = dados_box
+        self.pt_dict['retangulo'] = dados_box
         return self.pt_dict
 
 
-class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
+
+class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
+    """Representa visualmente uma área de interesse quadrada no editor de mapas. Mantém proporção 1:1 e permite redimensionamento preservando os eixos centrais."""
     def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
         super().__init__()
         self.callback_deletar = callback_deletar
         self.callback_converter = callback_converter
         self.configurar_comum(pt_dict, callback_mudanca)
         
-        circ = pt_dict['circular']
+        box = pt_dict.get('quadrado', {})
+        lado = box['lado']
+        self.setRect(0, 0, lado, lado)
+        self.setPos(box['x'] - lado / 2, box['y'] - lado / 2)
+        
+        self.setPen(self.pen)
+        self.setBrush(self.brush)
+        self.setTransformOriginPoint(self.rect().center())
+        self.atualizar_pos_texto(0, 0)
+        self.inicializando = False
+
+    def carregar_de_dict(self, pt_dict):
+        self.inicializando = True
+        self.pt_dict.update(pt_dict)
+        box = self.pt_dict['quadrado']
+        lado = box['lado']
+        self.setRect(0, 0, lado, lado)
+        self.setPos(box['x'] - lado / 2, box['y'] - lado / 2)
+        self.setTransformOriginPoint(self.rect().center())
+        self.atualizar_pos_texto(0, 0)
+        id_atual = self.pt_dict.get('id', '')
+        label_atual = self.pt_dict.get('label', '')
+        self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
+        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        self.inicializando = False
+
+    def contextMenuEvent(self, evento):
+        acoes_extras = []
+        if getattr(self, 'callback_converter', None):
+            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self)))
+        self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
+
+    def mousePressEvent(self, evento):
+        if hasattr(self, 'clique_handler') and self.clique_handler:
+            if self.clique_handler(self.pt_dict.get('id')):
+                evento.accept()
+                return
+        self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        if evento.modifiers() == Qt.KeyboardModifier.ControlModifier:
+            self.redimensionando = True
+            self.rect_inicio_redim = self.rect()
+            self.setTransformOriginPoint(self.rect_inicio_redim.center())
+            self.centro_cena_inicio_redim = self.mapToScene(self.rect_inicio_redim.center())
+            
+            delta_inicio_cena = evento.scenePos() - self.centro_cena_inicio_redim
+            self.dist_inicio_redim_abs = QPointF(abs(delta_inicio_cena.x()), abs(delta_inicio_cena.y()))
+            
+            evento.accept()
+        else:
+            super().mousePressEvent(evento)
+
+    def mouseMoveEvent(self, evento):
+        if hasattr(self, 'redimensionando') and self.redimensionando:
+            mouse_cena = evento.scenePos()
+            delta_cena = mouse_cena - self.centro_cena_inicio_redim
+            
+            diff_x = abs(delta_cena.x()) - self.dist_inicio_redim_abs.x()
+            diff_y = abs(delta_cena.y()) - self.dist_inicio_redim_abs.y()
+            
+            diff = max(diff_x, diff_y)
+            novo_lado = max(5, round(self.rect_inicio_redim.width() + 2 * diff))
+            
+            self.setRect(0, 0, novo_lado, novo_lado)
+            novo_centro = self.rect().center()
+            self.setTransformOriginPoint(novo_centro)
+            self.setPos(self.centro_cena_inicio_redim - novo_centro)
+            evento.accept()
+        else:
+            super().mouseMoveEvent(evento)
+
+    def mouseReleaseEvent(self, evento):
+        self.redimensionando = False
+        super().mouseReleaseEvent(evento)
+        registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
+
+    def itemChange(self, mudanca, valor):
+        if mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionChange:
+            if self.scene():
+                return QPointF(round(valor.x()), round(valor.y()))
+        elif mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionHasChanged:
+            self.marcar_alterado()
+        return super().itemChange(mudanca, valor)
+
+    def obter_dict_atualizado(self):
+        rect = self.rect()
+        dados_box = {
+            'x': int(round(self.x() + rect.width() / 2)),
+            'y': int(round(self.y() + rect.height() / 2)),
+            'lado': int(round(rect.width()))
+        }
+        self.pt_dict['quadrado'] = dados_box
+        return self.pt_dict
+
+
+class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
+    """Representa visualmente uma área de interesse circular no editor de mapas. Trata redimensionamento radial a partir do centro."""
+    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
+        super().__init__()
+        self.callback_deletar = callback_deletar
+        self.callback_converter = callback_converter
+        self.configurar_comum(pt_dict, callback_mudanca)
+        
+        circ = pt_dict.get('circulo', pt_dict.get('circulo', {}))
         r = circ['raio']
         self.setRect(-r, -r, 2 * r, 2 * r)
         self.setPos(circ['x'], circ['y'])
@@ -299,7 +404,7 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
     def carregar_de_dict(self, pt_dict):
         self.inicializando = True
         self.pt_dict.update(pt_dict)
-        circ = self.pt_dict['circular']
+        circ = self.pt_dict['circulo']
         r = circ['raio']
         self.setRect(-r, -r, 2 * r, 2 * r)
         self.setPos(circ['x'], circ['y'])
@@ -355,7 +460,7 @@ class ItemBoundingCircular(QGraphicsEllipseItem, BaseItemPOI):
 
     def obter_dict_atualizado(self):
         r = int(round(self.rect().width() / 2))
-        self.pt_dict['circular'] = {
+        self.pt_dict['circulo'] = {
             'x': int(round(self.x())),
             'y': int(round(self.y())),
             'raio': r
@@ -368,7 +473,7 @@ class AlcaVertice(QGraphicsEllipseItem):
         super().__init__(-7, -7, 14, 14, pai)
         self.indice = indice
         self.item_pai = pai
-        cor = QColor(100, 100, 255) if isinstance(pai, ItemBoundingAreaLivre) else QColor(100, 255, 100)
+        cor = QColor(100, 100, 255) if isinstance(pai, ItemBoundingPoligono) else QColor(100, 255, 100)
         self.setBrush(QBrush(cor))
         self.setPen(QPen(QColor(0, 0, 0), 1))
         self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemIsMovable)
@@ -399,13 +504,14 @@ class AlcaVertice(QGraphicsEllipseItem):
         registrar_movimento_final(self.item_pai, getattr(self.item_pai, '_estado_inicial', None))
 
 
-class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
+class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
+    """Representa visualmente uma área de interesse de polígono livre no editor de mapas. Permite adicionar e mover vértices (alças) individualmente."""
     def __init__(self, pt_dict, callback_deletar, callback_mudanca=None):
         super().__init__()
         self.callback_deletar = callback_deletar
         self.configurar_comum(pt_dict, callback_mudanca)
         
-        coords = pt_dict['area_livre']['coordenadas']
+        coords = pt_dict.get('poligono', pt_dict.get('poligono', {}))['coordenadas']
         self.pontos = [QPointF(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
         
         self.setPolygon(QPolygonF(self.pontos))
@@ -432,7 +538,7 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
     def carregar_de_dict(self, pt_dict):
         self.inicializando = True
         self.pt_dict.update(pt_dict)
-        coords = self.pt_dict['area_livre']['coordenadas']
+        coords = self.pt_dict['poligono']['coordenadas']
         self.pontos = [QPointF(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
         self.setPos(0, 0)
         self.setPolygon(QPolygonF(self.pontos))
@@ -521,7 +627,7 @@ class ItemBoundingAreaLivre(QGraphicsPolygonItem, BaseItemPOI):
         for p in self.pontos:
             coords.append(int(round(p.x() + pos.x())))
             coords.append(int(round(p.y() + pos.y())))
-        self.pt_dict['area_livre'] = {'coordenadas': coords}
+        self.pt_dict['poligono'] = {'coordenadas': coords}
         return self.pt_dict
 
 
@@ -782,18 +888,18 @@ class WidgetEditorMapas(QWidget):
         
         self.btn_add_circ = QPushButton(" Novo Círculo")
         self.btn_add_circ.setIcon(Icones.obter("dados")) # Temporário, ou usar qta diretamente
-        self.btn_add_circ.clicked.connect(lambda: self.adicionar_poi('circular'))
+        self.btn_add_circ.clicked.connect(lambda: self.adicionar_poi('circulo'))
         layout_botoes.addWidget(self.btn_add_circ)
 
         self.btn_add_box = QPushButton(" Novo Retângulo")
         self.btn_add_box.setIcon(Icones.obter("imagens"))
-        self.btn_add_box.clicked.connect(lambda: self.adicionar_poi('box'))
+        self.btn_add_box.clicked.connect(lambda: self.adicionar_poi('retangulo'))
         layout_botoes.addWidget(self.btn_add_box)
 
-        self.btn_add_area = QPushButton(" Nova Área Livre")
-        self.btn_add_area.setIcon(Icones.obter("mapas"))
-        self.btn_add_area.clicked.connect(lambda: self.adicionar_poi('area_livre'))
-        layout_botoes.addWidget(self.btn_add_area)
+        self.btn_add_poligono = QPushButton(" Novo Polígono")
+        self.btn_add_poligono.setIcon(Icones.obter("mapas"))
+        self.btn_add_poligono.clicked.connect(lambda: self.adicionar_poi('poligono'))
+        layout_botoes.addWidget(self.btn_add_poligono)
         
         layout_esquerdo.addLayout(layout_botoes)
         layout_esquerdo.addSpacing(10)
@@ -813,9 +919,9 @@ class WidgetEditorMapas(QWidget):
         self.slider_circ = QSlider(Qt.Orientation.Horizontal)
         self.slider_circ.setRange(-50, 50)
         self.slider_circ.setValue(0)
-        self.slider_circ.sliderPressed.connect(lambda: self.ao_pressionar_slider_bulk('circular'))
-        self.slider_circ.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'circular'))
-        self.slider_circ.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('circular'))
+        self.slider_circ.sliderPressed.connect(lambda: self.ao_pressionar_slider_bulk('circulo'))
+        self.slider_circ.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'circulo'))
+        self.slider_circ.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('circulo'))
         self.label_circ = QLabel("0%")
         self.label_circ.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout_bulk.addWidget(self.slider_circ)
@@ -825,13 +931,25 @@ class WidgetEditorMapas(QWidget):
         self.slider_box = QSlider(Qt.Orientation.Horizontal)
         self.slider_box.setRange(-50, 50)
         self.slider_box.setValue(0)
-        self.slider_box.sliderPressed.connect(lambda: self.ao_pressionar_slider_bulk('box'))
-        self.slider_box.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'box'))
-        self.slider_box.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('box'))
+        self.slider_box.sliderPressed.connect(lambda: self.ao_pressionar_slider_bulk('retangulo'))
+        self.slider_box.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'retangulo'))
+        self.slider_box.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('retangulo'))
         self.label_box = QLabel("0%")
         self.label_box.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout_bulk.addWidget(self.slider_box)
         layout_bulk.addWidget(self.label_box)
+        
+        layout_bulk.addWidget(QLabel("Quadrados:"))
+        self.slider_quad = QSlider(Qt.Orientation.Horizontal)
+        self.slider_quad.setRange(-50, 50)
+        self.slider_quad.setValue(0)
+        self.slider_quad.sliderPressed.connect(lambda: self.ao_pressionar_slider_bulk('quadrado'))
+        self.slider_quad.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'quadrado'))
+        self.slider_quad.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('quadrado'))
+        self.label_quad = QLabel("0%")
+        self.label_quad.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout_bulk.addWidget(self.slider_quad)
+        layout_bulk.addWidget(self.label_quad)
         
         layout_esquerdo.addLayout(layout_bulk)
         layout_esquerdo.addSpacing(10)
@@ -1148,12 +1266,12 @@ class WidgetEditorMapas(QWidget):
             self.converter_item_para_retangulo(item)
             
         item_visual = None
-        if poi.HasField('box'):
-            item_visual = ItemBoundingBox(pt_dict, cb_deletar, callback_converter=cb_converter)
-        elif poi.HasField('circular'):
-            item_visual = ItemBoundingCircular(pt_dict, cb_deletar, callback_converter=cb_converter_retangulo)
-        elif poi.HasField('area_livre'):
-            item_visual = ItemBoundingAreaLivre(pt_dict, cb_deletar)
+        if poi.HasField('retangulo'):
+            item_visual = ItemBoundingRetangulo(pt_dict, cb_deletar, callback_converter=cb_converter)
+        elif poi.HasField('circulo'):
+            item_visual = ItemBoundingCirculo(pt_dict, cb_deletar, callback_converter=cb_converter_retangulo)
+        elif poi.HasField('poligono'):
+            item_visual = ItemBoundingPoligono(pt_dict, cb_deletar)
             
         if item_visual:
             item_visual.set_clique_handler(self.tratar_clique_poi_linkagem)
@@ -1164,7 +1282,7 @@ class WidgetEditorMapas(QWidget):
     def adicionar_poi(self, tipo):
         if not self.dados_atuais or not self.mapas_controller: return
         
-        if tipo == 'area_livre':
+        if tipo == 'poligono':
             self.iniciar_modo_desenho(self.dados_atuais)
             return
 
@@ -1179,15 +1297,15 @@ class WidgetEditorMapas(QWidget):
             from aresta_api.proto.generated import croqui_pb2
             novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
             
-            if tipo == 'circular':
-                novo_poi.circular.x = int(cx)
-                novo_poi.circular.y = int(cy)
-                novo_poi.circular.raio = 40
-            elif tipo == 'box':
-                novo_poi.box.x = int(cx-40)
-                novo_poi.box.y = int(cy-40)
-                novo_poi.box.comprimento = 80
-                novo_poi.box.largura = 80
+            if tipo == 'circulo':
+                novo_poi.circulo.x = int(cx)
+                novo_poi.circulo.y = int(cy)
+                novo_poi.circulo.raio = 40
+            elif tipo == 'retangulo':
+                novo_poi.retangulo.x = int(cx-40)
+                novo_poi.retangulo.y = int(cy-40)
+                novo_poi.retangulo.comprimento = 80
+                novo_poi.retangulo.largura = 80
             
             self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
 
@@ -1293,8 +1411,8 @@ class WidgetEditorMapas(QWidget):
                 from aresta_api.proto.generated import croqui_pb2
                 novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
                 for p in self.pontos_desenho:
-                    novo_poi.area_livre.coordenadas.append(int(p.x()))
-                    novo_poi.area_livre.coordenadas.append(int(p.y()))
+                    novo_poi.poligono.coordenadas.append(int(p.x()))
+                    novo_poi.poligono.coordenadas.append(int(p.y()))
                 
                 if self.mapas_controller:
                     self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
@@ -1320,7 +1438,7 @@ class WidgetEditorMapas(QWidget):
             if self.dados_atuais and self.mapas_controller:
                 indices = []
                 for idx_poi, gui_item in list(self.itens_poi.items()):
-                    if isinstance(gui_item, ItemBoundingBox):
+                    if isinstance(gui_item, ItemBoundingRetangulo):
                         indices.append(idx_poi)
                 if indices:
                     self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, indices)
@@ -1347,7 +1465,7 @@ class WidgetEditorMapas(QWidget):
         if not self.dados_atuais or not self.mapas_controller: return
         a_converter = []
         for idx_poi, gui_item in list(self.itens_poi.items()):
-            if isinstance(gui_item, ItemBoundingBox):
+            if isinstance(gui_item, ItemBoundingRetangulo):
                 if rect.contains(gui_item.mapToScene(gui_item.rect().center())):
                     a_converter.append(idx_poi)
         if a_converter:
@@ -1360,13 +1478,19 @@ class WidgetEditorMapas(QWidget):
         self.bulk_base_dims = {}
         from copy import deepcopy
         for idx, gui_item in self.itens_poi.items():
-            if tipo == 'circular' and isinstance(gui_item, ItemBoundingCircular):
+            if tipo == 'circulo' and isinstance(gui_item, ItemBoundingCirculo):
                 self.bulk_base_dims[id(gui_item)] = {
                     'r': gui_item.rect().width() / 2,
                     'estado_inicial': deepcopy(gui_item.obter_dict_atualizado()),
                     'idx': idx
                 }
-            elif tipo == 'box' and isinstance(gui_item, ItemBoundingBox):
+            elif tipo == 'quadrado' and isinstance(gui_item, ItemBoundingQuadrado):
+                self.bulk_base_dims[id(gui_item)] = {
+                    'lado': gui_item.rect().width(),
+                    'estado_inicial': deepcopy(gui_item.obter_dict_atualizado()),
+                    'idx': idx
+                }
+            elif tipo == 'retangulo' and isinstance(gui_item, ItemBoundingRetangulo):
                 self.bulk_base_dims[id(gui_item)] = {
                     'w': gui_item.rect().width(),
                     'h': gui_item.rect().height(),
@@ -1378,19 +1502,30 @@ class WidgetEditorMapas(QWidget):
         if not self.bulk_base_dims: return
         fator = 1.0 + valor / 100.0
         mudou = False
-        if tipo == 'circular':
+        if tipo == 'circulo':
             self.label_circ.setText(f"{valor:+}%")
             for gui_item in self.itens_poi.values():
-                if isinstance(gui_item, ItemBoundingCircular) and id(gui_item) in self.bulk_base_dims:
+                if isinstance(gui_item, ItemBoundingCirculo) and id(gui_item) in self.bulk_base_dims:
                     base_r = self.bulk_base_dims[id(gui_item)]['r']
                     novo_r = max(2, base_r * fator)
                     gui_item.setRect(-novo_r, -novo_r, 2 * novo_r, 2 * novo_r)
                     gui_item.atualizar_pos_texto(-novo_r, -novo_r)
                     mudou = True
-        elif tipo == 'box':
+        elif tipo == 'quadrado':
+            self.label_quad.setText(f"{valor:+}%")
+            for gui_item in self.itens_poi.values():
+                if isinstance(gui_item, ItemBoundingQuadrado) and id(gui_item) in self.bulk_base_dims:
+                    base_lado = self.bulk_base_dims[id(gui_item)]['lado']
+                    novo_lado = max(4, base_lado * fator)
+                    centro_cena_antigo = gui_item.mapToScene(gui_item.rect().center())
+                    gui_item.setRect(0, 0, novo_lado, novo_lado)
+                    gui_item.setTransformOriginPoint(gui_item.rect().center())
+                    gui_item.setPos(centro_cena_antigo - gui_item.rect().center())
+                    mudou = True
+        elif tipo == 'retangulo':
             self.label_box.setText(f"{valor:+}%")
             for gui_item in self.itens_poi.values():
-                if isinstance(gui_item, ItemBoundingBox) and id(gui_item) in self.bulk_base_dims:
+                if isinstance(gui_item, ItemBoundingRetangulo) and id(gui_item) in self.bulk_base_dims:
                     base_w = self.bulk_base_dims[id(gui_item)]['w']
                     base_h = self.bulk_base_dims[id(gui_item)]['h']
                     novo_w = max(4, base_w * fator)
@@ -1408,7 +1543,7 @@ class WidgetEditorMapas(QWidget):
             from google.protobuf.json_format import ParseDict
             
             # Cria nome da ação
-            nome_acao = "Redimensionar Círculos" if tipo == 'circular' else "Redimensionar Retângulos"
+            nome_acao = "Redimensionar Círculos" if tipo == 'circulo' else ("Redimensionar Quadrados" if tipo == 'quadrado' else "Redimensionar Retângulos")
             self.mapas_controller.iniciar_grupo_undo(nome_acao)
             
             # Simples iterar e aplicar modificações
@@ -1429,11 +1564,12 @@ class WidgetEditorMapas(QWidget):
             self.mapas_controller.finalizar_grupo_undo()
             
         self.bulk_base_dims = {}
-        if tipo == 'circular':
+        if tipo == 'circulo':
             self.slider_circ.blockSignals(True); self.slider_circ.setValue(0); self.slider_circ.blockSignals(False)
             self.label_circ.setText("0%")
-        elif tipo == 'box':
+        elif tipo == 'retangulo':
             self.slider_box.blockSignals(True); self.slider_box.setValue(0); self.slider_box.blockSignals(False)
+            self.slider_quad.blockSignals(True); self.slider_quad.setValue(0); self.slider_quad.blockSignals(False)
             self.label_box.setText("0%")
 
     def _on_repeated_item_alterado(self, msg, campo_nome, index):
@@ -1447,11 +1583,13 @@ class WidgetEditorMapas(QWidget):
                 pt_dict = MessageToDict(poi, preserving_proto_field_name=True)
                 # Verifica se o tipo da Box foi convertido (ex: box -> circular)
                 mesmo_tipo = False
-                if poi.HasField('box') and isinstance(item_existente, ItemBoundingBox):
+                if poi.HasField('retangulo') and isinstance(item_existente, ItemBoundingRetangulo):
                     mesmo_tipo = True
-                elif poi.HasField('circular') and isinstance(item_existente, ItemBoundingCircular):
+                elif poi.HasField('quadrado') and isinstance(item_existente, ItemBoundingQuadrado):
+                    item_existente.carregar_de_dict(pt_dict)
+                elif poi.HasField('circulo') and isinstance(item_existente, ItemBoundingCirculo):
                     mesmo_tipo = True
-                elif poi.HasField('area_livre') and isinstance(item_existente, ItemBoundingAreaLivre):
+                elif poi.HasField('poligono') and isinstance(item_existente, ItemBoundingPoligono):
                     mesmo_tipo = True
                     
                 if mesmo_tipo:

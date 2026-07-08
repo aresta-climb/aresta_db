@@ -21,22 +21,24 @@ Os pontos de interesse já estão marcados no arquivo JSON. Por exemplo, para o 
 {
   "dimensoes_imagem": { "largura": 1108, "altura": 1241 },
   "pontos_de_interesse": [
-    { "id": "01", "label": "Via 01", "circular": { "x": 684, "y": 824, "raio": 16 } },
-    { "id": "Mesa", "label": "Mesa", "box": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
-    { "id": "Setor_Diagonal", "label": "Setor Diagonal", "box": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 3000 } }
+    { "id": "01", "label": "Via 01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
+    { "id": "02", "label": "Via 02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
+    { "id": "Mesa", "label": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
+    { "id": "Setor_Diagonal", "label": "Setor Diagonal", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 3000 } },
+    { "id": "Livre", "label": "Área Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
   ]
 }
 ```
 
 ## 2. Script para verificação da localização dos pontos de interesse 
 
-Para confirmar que cada ponto de interesse está na posição correta, você possui um script que gera uma imagem com as bounding boxes dos pontos de interesse marcados em vermelho. Para gerar a imagem processada, execute o script `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>`. O resultado será uma imagem ao lado do arquivo JSON, `raw_mapas/<arquivo_json>_processado.webp`.
+Para confirmar que cada ponto de interesse está na posição correta, você possui um script que gera uma imagem com as bounding areas dos pontos de interesse marcados em vermelho. Para gerar a imagem processada, execute o script `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>`. O resultado será uma imagem ao lado do arquivo JSON, `raw_mapas/<arquivo_json>_processado.webp`.
 
-## 3. Acertando a posição das bounding boxes dos pontos de interesse 
+## 3. Acertando a posição das bounding areas dos pontos de interesse 
 
 > [!IMPORTANT]
 > **Loop de Iteração Visual (Execute até acertar)**
-> É possível que as bounding boxes necessitem ajustes manuais finos. Faça os ajustes abaixo em loop sem interrupção até atingir um enquadramento **perfeito**:
+> É possível que as bounding areas necessitem ajustes manuais finos. Faça os ajustes abaixo em loop sem interrupção até atingir um enquadramento **perfeito**:
 > 
 > 1. Use `run_command`: `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>` para cuspir a imagem processada. **Você tem autonomia para rodar isto quantas vezes precisar.** *Nota:* Se o script der erro de "JSONDecodeError" ou similar, isso significa que você estragou a sintaxe do JSON. Corrija a sintaxe com prioridade máxima antes de continuar!
 > 2. Use `view_file` na imagem recém gerada `_processado.webp` para visualizá-la.

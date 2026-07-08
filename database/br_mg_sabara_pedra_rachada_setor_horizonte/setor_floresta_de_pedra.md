@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 494
       y: 601
       raio: 28
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 649
       y: 328
       raio: 28
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 871
       y: 462
       raio: 28
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 960
       y: 599
       raio: 28
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1078
       y: 477
       raio: 28
@@ -77,5 +77,4 @@ escaladas:
     descricao: Começa com as duas mãos em um reglete e escala reto por regletes clássicos
       até o topo.
 ---
-
 

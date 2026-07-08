@@ -55,32 +55,34 @@ def processar_mapa(caminho_imagem, caminho_json):
         draw = ImageDraw.Draw(img_recortada)
         tamanho_marcador = 10
 
+        from editor.core.geometrias_poi import GeometriaPOI
         pontos = dados.get('pontos_de_interesse', [])
         for ponto in pontos:
-            # As coordenadas já são relativas ao canto superior esquerdo do mapa
-            if 'circular' in ponto:
-                circ = ponto['circular']
-                x, y, r = circ['x'], circ['y'], circ['raio']
-                draw.ellipse([x - r, y - r, x + r, y + r], outline="red", width=3)
+            try:
+                geom = GeometriaPOI.from_dict(ponto)
+            except ValueError:
+                continue
             
-            elif 'box' in ponto:
-                box = ponto['box']
-                x, y = box['x'], box['y']
-                w, h = box['comprimento'], box['largura']
-                angulo = box.get('angulo_graus_x100', 0) / 100.0 # Convert from scaled integer if needed
+            if geom.tipo == 'circulo':
+                x, y, r = geom.x, geom.y, geom.raio
+                draw.ellipse([x - r, y - r, x + r, y + r], outline="red", width=3)
+            elif geom.tipo == 'quadrado':
+                x, y, lado = geom.x, geom.y, geom.lado
+                meio = lado / 2.0
+                draw.rectangle([x - meio, y - meio, x + meio, y + meio], outline="red", width=3)
+            elif geom.tipo == 'retangulo':
+                x, y = geom.x, geom.y
+                w, h = geom.comprimento, geom.largura
+                angulo = geom.propriedades.get('angulo_graus_x100', 0) / 100.0
                 
-                # Definir os 4 pontos do retângulo original
-                p1 = (x, y)
-                p2 = (x + w, y)
-                p3 = (x + w, y + h)
-                p4 = (x, y + h)
+                # Centro é x, y
+                p1 = (x - w/2, y - h/2)
+                p2 = (x + w/2, y - h/2)
+                p3 = (x + w/2, y + h/2)
+                p4 = (x - w/2, y + h/2)
                 
                 if angulo != 0:
                     import math
-                    # Centro da rotação (canto superior esquerdo no proto, mas vamos seguir o que o user definiu)
-                    # O proto diz: "Definido pela posição do canto superior esquerdo, comprimento e largura."
-                    # "Opcionalmente aceita um ângulo para especificar a box de maneira angulada."
-                    # Geralmente a rotação é em volta do ponto (x,y).
                     rad = math.radians(angulo)
                     def rotate_point(px, py, cx, cy, angle_rad):
                         dx = px - cx
@@ -89,16 +91,15 @@ def processar_mapa(caminho_imagem, caminho_json):
                         ny = cy + dx * math.sin(angle_rad) + dy * math.cos(angle_rad)
                         return (nx, ny)
                     
+                    p1 = rotate_point(p1[0], p1[1], x, y, rad)
                     p2 = rotate_point(p2[0], p2[1], x, y, rad)
                     p3 = rotate_point(p3[0], p3[1], x, y, rad)
                     p4 = rotate_point(p4[0], p4[1], x, y, rad)
                 
                 draw.polygon([p1, p2, p3, p4], outline="red", width=3)
-
-            elif 'area_livre' in ponto:
-                coords = ponto['area_livre'].get('coordenadas', [])
-                if len(coords) >= 4:
-                    # coords is [x1, y1, x2, y2, ...]
+            elif geom.tipo == 'poligono':
+                coords = geom.coordenadas
+                if coords and len(coords) >= 4:
                     pts = [(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
                     draw.polygon(pts, outline="red", width=3)
 

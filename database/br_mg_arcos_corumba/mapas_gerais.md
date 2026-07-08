@@ -9,28 +9,28 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Tupi
     label: Setor Tupi (boulders)
-    box:
+    retangulo:
       x: 422
       y: 236
       comprimento: 89
       largura: 53
   - id: Setor_Cataguas
     label: Setor Cataguás
-    box:
+    retangulo:
       x: 522
       y: 226
       comprimento: 91
       largura: 56
   - id: Setor_Xavante
     label: Setor Xavante
-    box:
+    retangulo:
       x: 814
       y: 302
       comprimento: 95
       largura: 79
   - id: Setor_Pataxos
     label: Setor Pataxós
-    box:
+    retangulo:
       x: 126
       y: 352
       comprimento: 144
@@ -38,7 +38,7 @@ mapas:
       angulo_graus_x100: 30489
   - id: Setor_Yanomami
     label: Setor Yanomami
-    box:
+    retangulo:
       x: 582
       y: 434
       comprimento: 115
@@ -57,3 +57,4 @@ mapas:
     ids:
     - Setor_Yanomami
 ---
+

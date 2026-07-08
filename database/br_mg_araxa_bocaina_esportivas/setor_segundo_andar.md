@@ -1,4 +1,4 @@
----
+---
 nome: Segundo Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p1.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 820
       y: 958
       comprimento: 33
       largura: 25
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 710
       y: 934
       comprimento: 25
       largura: 18
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 672
       y: 936
       comprimento: 25
       largura: 21
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 650
       y: 905
       comprimento: 27
       largura: 22
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 612
       y: 882
       comprimento: 25
       largura: 19
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 576
       y: 856
       comprimento: 27
       largura: 19
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 540
       y: 843
       comprimento: 24
@@ -80,30 +80,30 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 488
       y: 822
       comprimento: 29
       largura: 23
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 438
       y: 797
       comprimento: 26
       largura: 20
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 400
       y: 778
       comprimento: 26
       largura: 19
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 352
       y: 760
       comprimento: 25
@@ -222,7 +222,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
----
+---
+
 # Setor Segundo Andar
 
 ![Setor Segundo Andar](imagens/setor_segundo_andar_p0_i0.webp)

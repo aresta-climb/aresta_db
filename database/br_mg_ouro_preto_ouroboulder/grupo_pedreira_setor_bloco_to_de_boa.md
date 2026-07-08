@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 551
       y: 725
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 904
       y: 939
       raio: 13
@@ -30,49 +30,49 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 147
       y: 434
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 346
       y: 332
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 644
       y: 300
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1006
       y: 376
       raio: 13
   - id: E
     label: E
-    circular:
+    circulo:
       x: 1212
       y: 448
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 597
       y: 774
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 642
       y: 763
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1335
       y: 650
       raio: 13
@@ -127,5 +127,4 @@ escaladas:
     nome: Tô Suave
     dificuldade: V4_BARRA_V5
 ---
-
 

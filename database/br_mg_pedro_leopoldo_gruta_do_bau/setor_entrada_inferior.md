@@ -7,301 +7,301 @@ mapas:
   pontos_de_interesse:
   - id: Entrada_Superior
     label: Entrada Superior
-    box:
+    retangulo:
       x: 599
       y: 50
       comprimento: 76
       largura: 57
   - id: 17a
     label: 17a
-    box:
+    retangulo:
       x: 489
       y: 154
       comprimento: 38
       largura: 30
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 913
       y: 198
       comprimento: 82
       largura: 55
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 513
       y: 240
       comprimento: 26
       largura: 27
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 516
       y: 285
       comprimento: 27
       largura: 28
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 386
       y: 352
       comprimento: 30
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 525
       y: 340
       comprimento: 28
       largura: 29
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 310
       y: 354
       comprimento: 30
       largura: 29
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 480
       y: 360
       comprimento: 33
       largura: 29
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 288
       y: 522
       comprimento: 31
       largura: 31
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 346
       y: 536
       comprimento: 27
       largura: 29
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 561
       y: 560
       comprimento: 34
       largura: 30
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 662
       y: 560
       comprimento: 33
       largura: 31
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 516
       y: 572
       comprimento: 29
       largura: 28
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 706
       y: 584
       comprimento: 33
       largura: 30
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 754
       y: 588
       comprimento: 31
       largura: 27
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 414
       y: 612
       comprimento: 28
       largura: 26
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 504
       y: 630
       comprimento: 31
       largura: 28
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 756
       y: 630
       comprimento: 31
       largura: 29
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 410
       y: 646
       comprimento: 31
       largura: 30
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 494
       y: 666
       comprimento: 31
       largura: 28
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 693
       y: 678
       comprimento: 30
       largura: 20
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 756
       y: 672
       comprimento: 32
       largura: 28
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 405
       y: 682
       comprimento: 28
       largura: 27
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 498
       y: 708
       comprimento: 33
       largura: 29
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 404
       y: 726
       comprimento: 31
       largura: 27
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 353
       y: 746
       comprimento: 32
       largura: 31
   - id: 2_Andar
     label: 2º Andar
-    box:
+    retangulo:
       x: 50
       y: 775
       comprimento: 61
       largura: 62
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 398
       y: 760
       comprimento: 31
       largura: 28
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 534
       y: 780
       comprimento: 33
       largura: 31
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 580
       y: 786
       comprimento: 33
       largura: 29
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 647
       y: 784
       comprimento: 30
       largura: 27
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 491
       y: 796
       comprimento: 30
       largura: 27
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 268
       y: 873
       comprimento: 33
       largura: 30
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 345
       y: 909
       comprimento: 34
       largura: 30
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 526
       y: 918
       comprimento: 34
       largura: 30
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 608
       y: 908
       comprimento: 27
       largura: 29
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 468
       y: 928
       comprimento: 33
       largura: 31
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 410
       y: 990
       comprimento: 32
       largura: 29
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 548
       y: 1132
       comprimento: 28
       largura: 28
   - id: Setor_Fechadura
     label: Setor Fechadura
-    box:
+    retangulo:
       x: 591
       y: 1224
       comprimento: 136
       largura: 33
   - id: Setor_Pasto
     label: Setor Pasto
-    box:
+    retangulo:
       x: 758
       y: 1218
       comprimento: 156
       largura: 34
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 404
       y: 554
       comprimento: 32
@@ -330,10 +330,10 @@ mapas:
     - '07'
   - escalada: Caretas por Acaso
     ids:
-    - '08'
+    - 08
   - escalada: Pop Rock
     ids:
-    - '09'
+    - 09
   - escalada: A Despedida
     ids:
     - '11'

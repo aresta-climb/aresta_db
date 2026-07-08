@@ -1,4 +1,4 @@
----
+---
 nome: Samurai
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 425
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 380
       y: 365
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 680
       y: 500
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 100
       y: 290
       comprimento: 30
@@ -55,7 +55,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 160
       y: 510
       comprimento: 30
@@ -83,7 +83,8 @@ escaladas:
 - boulder:
     nome: Ouro Branco
     dificuldade: V7
----
+---
+
 # Setor Samurai
 
 O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.

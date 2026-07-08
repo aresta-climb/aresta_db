@@ -1,4 +1,4 @@
----
+---
 nome: Show Time
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 380
       y: 470
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 510
       y: 535
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 590
       y: 540
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 670
       y: 440
       comprimento: 30
@@ -64,42 +64,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 572
       y: 515
       comprimento: 35
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 442
       y: 515
       comprimento: 35
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 382
       y: 515
       comprimento: 35
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 252
       y: 340
       comprimento: 35
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 222
       y: 270
       comprimento: 35
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 132
       y: 515
       comprimento: 35
@@ -166,7 +166,8 @@ escaladas:
 - boulder:
     nome: Show Time
     dificuldade: V5
----
+---
+
 # Setor Show Time
 
 O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.

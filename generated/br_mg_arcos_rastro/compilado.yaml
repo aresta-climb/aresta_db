@@ -17,49 +17,49 @@ picos:
           pontos_de_interesse:
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 74
               y: 286
               comprimento: 45
               largura: 29
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 384
               y: 1067
               comprimento: 24
               largura: 18
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 382
               y: 1036
               comprimento: 21
               largura: 17
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 380
               y: 1002
               comprimento: 23
               largura: 16
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 375
               y: 986
               comprimento: 22
               largura: 15
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 370
               y: 970
               comprimento: 22
               largura: 17
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 366
               y: 943
               comprimento: 22
@@ -143,105 +143,105 @@ picos:
           pontos_de_interesse:
           - id: Setores_Conexao
             label: Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar
-            box:
+            retangulo:
               x: 67
               y: 712
               comprimento: 86
               largura: 78
           - id: Trilha_2o_Andar
             label: Trilha para o 2º Andar
-            box:
+            retangulo:
               x: 128
               y: 950
               comprimento: 63
               largura: 47
           - id: Sitio
             label: SÍTIO
-            box:
+            retangulo:
               x: 471
               y: 1032
               comprimento: 68
               largura: 79
           - id: Obs_Abelha
             label: OBS.! Caixa de Abelha
-            box:
+            retangulo:
               x: 371
               y: 356
               comprimento: 64
               largura: 52
           - id: Setor_da_Onca
             label: Setor da Onça
-            box:
+            retangulo:
               x: 813
               y: 342
               comprimento: 46
               largura: 30
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 286
               y: 808
               comprimento: 19
               largura: 17
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 303
               y: 796
               comprimento: 20
               largura: 16
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 305
               y: 764
               comprimento: 18
               largura: 15
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 314
               y: 749
               comprimento: 19
               largura: 16
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 326
               y: 728
               comprimento: 19
               largura: 17
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 350
               y: 670
               comprimento: 21
               largura: 17
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 456
               y: 380
               comprimento: 20
               largura: 17
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 462
               y: 346
               comprimento: 20
               largura: 17
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 543
               y: 372
               comprimento: 20
               largura: 17
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 574
               y: 378
               comprimento: 20
@@ -272,7 +272,7 @@ picos:
             ids:
             - '10'
           - ids:
-            - '09'
+            - 09
             setor: Setor Chegada
             escalada: Linha de Frente
           - ids:
@@ -386,112 +386,112 @@ picos:
           pontos_de_interesse:
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 376
               y: 22
               comprimento: 87
               largura: 27
           - id: Toca_dos_Gatos
             label: Toca dos Gatos
-            box:
+            retangulo:
               x: 332
               y: 212
               comprimento: 106
               largura: 25
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 794
               y: 57
               comprimento: 47
               largura: 38
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 58
               y: 965
               comprimento: 53
               largura: 28
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 206
               y: 884
               comprimento: 13
               largura: 16
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 229
               y: 884
               comprimento: 12
               largura: 16
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 242
               y: 892
               comprimento: 13
               largura: 16
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 254
               y: 890
               comprimento: 11
               largura: 16
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 284
               y: 878
               comprimento: 11
               largura: 18
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 302
               y: 870
               comprimento: 13
               largura: 19
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 316
               y: 882
               comprimento: 14
               largura: 19
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 456
               y: 764
               comprimento: 14
               largura: 16
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 466
               y: 746
               comprimento: 15
               largura: 16
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 476
               y: 723
               comprimento: 17
               largura: 16
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 499
               y: 710
               comprimento: 16
               largura: 13
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 488
               y: 696
               comprimento: 17
@@ -528,11 +528,11 @@ picos:
             ids:
             - '12'
           - ids:
-            - '08'
+            - 08
             setor: Setor Onça
             escalada: Estica e Clipa
           - ids:
-            - '09'
+            - 09
             setor: Setor Onça
             escalada: Pai Bravo
           - ids:
@@ -553,133 +553,133 @@ picos:
           pontos_de_interesse:
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 374
               y: 20
               comprimento: 85
               largura: 29
           - id: Intermediario
             label: Intermediário
-            box:
+            retangulo:
               x: 266
               y: 92
               comprimento: 87
               largura: 21
           - id: Toca_dos_Gatos
             label: Toca dos Gatos
-            box:
+            retangulo:
               x: 332
               y: 212
               comprimento: 103
               largura: 24
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 794
               y: 54
               comprimento: 48
               largura: 40
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 60
               y: 963
               comprimento: 45
               largura: 32
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 552
               y: 494
               comprimento: 20
               largura: 17
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 552
               y: 466
               comprimento: 19
               largura: 16
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 536
               y: 418
               comprimento: 20
               largura: 16
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 550
               y: 399
               comprimento: 16
               largura: 12
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 564
               y: 386
               comprimento: 16
               largura: 13
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 564
               y: 374
               comprimento: 15
               largura: 13
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 558
               y: 358
               comprimento: 18
               largura: 15
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 550
               y: 338
               comprimento: 18
               largura: 16
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 542
               y: 262
               comprimento: 17
               largura: 15
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 515
               y: 262
               comprimento: 18
               largura: 15
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 528
               y: 230
               comprimento: 19
               largura: 15
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 525
               y: 214
               comprimento: 18
               largura: 15
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 524
               y: 198
               comprimento: 18
               largura: 15
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 522
               y: 184
               comprimento: 19
@@ -906,77 +906,77 @@ picos:
           pontos_de_interesse:
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 58
               y: 13
               comprimento: 113
               largura: 20
           - id: Setor_Intermediario
             label: Setor Intermediário
-            box:
+            retangulo:
               x: 192
               y: 160
               comprimento: 92
               largura: 20
           - id: Setor_da_Onca
             label: Setor da Onça
-            box:
+            retangulo:
               x: 624
               y: 1081
               comprimento: 48
               largura: 36
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 246
               y: 443
               comprimento: 21
               largura: 18
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 310
               y: 726
               comprimento: 23
               largura: 18
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 302
               y: 815
               comprimento: 23
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 179
               y: 871
               comprimento: 24
               largura: 22
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 174
               y: 794
               comprimento: 23
               largura: 21
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 130
               y: 728
               comprimento: 24
               largura: 19
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 164
               y: 652
               comprimento: 22
               largura: 20
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 139
               y: 436
               comprimento: 22
@@ -1004,7 +1004,7 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Toca dos Gatos
             escalada: Nem C/ Chuva a Gente Para
           - ids:
@@ -1082,91 +1082,91 @@ picos:
           pontos_de_interesse:
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 70
               y: 81
               comprimento: 109
               largura: 16
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 690
               y: 146
               comprimento: 47
               largura: 41
           - id: Toca_dos_Gatos
             label: Toca dos Gatos
-            box:
+            retangulo:
               x: 128
               y: 600
               comprimento: 105
               largura: 25
           - id: Setor_Onca
             label: Setor Onça
-            box:
+            retangulo:
               x: 334
               y: 808
               comprimento: 37
               largura: 33
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 750
               y: 1072
               comprimento: 53
               largura: 32
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 237
               y: 429
               comprimento: 22
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 208
               y: 408
               comprimento: 22
               largura: 19
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 179
               y: 392
               comprimento: 22
               largura: 18
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 145
               y: 372
               comprimento: 22
               largura: 19
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 126
               y: 332
               comprimento: 23
               largura: 18
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 90
               y: 310
               comprimento: 22
               largura: 18
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 38
               y: 225
               comprimento: 22
               largura: 18
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 82
               y: 190
               comprimento: 21
@@ -1194,7 +1194,7 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Intermediário
             escalada: Delicinha
           - ids:
@@ -1268,224 +1268,224 @@ picos:
           pontos_de_interesse:
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 264
               y: 42
               comprimento: 73
               largura: 33
           - id: Setor_Parede_dos_Conflitos
             label: Setor Parede dos Conflitos
-            box:
+            retangulo:
               x: 334
               y: 236
               comprimento: 57
               largura: 39
           - id: Setor_Intermediario
             label: Setor Intermediário
-            box:
+            retangulo:
               x: 872
               y: 662
               comprimento: 61
               largura: 26
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 694
               y: 660
               comprimento: 19
               largura: 18
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 616
               y: 712
               comprimento: 24
               largura: 19
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 589
               y: 718
               comprimento: 24
               largura: 19
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 532
               y: 718
               comprimento: 22
               largura: 19
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 506
               y: 722
               comprimento: 21
               largura: 19
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 450
               y: 740
               comprimento: 22
               largura: 19
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 445
               y: 768
               comprimento: 22
               largura: 20
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 365
               y: 793
               comprimento: 24
               largura: 20
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 308
               y: 810
               comprimento: 23
               largura: 18
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 278
               y: 848
               comprimento: 21
               largura: 18
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 260
               y: 886
               comprimento: 20
               largura: 18
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 103
               y: 876
               comprimento: 22
               largura: 19
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 66
               y: 864
               comprimento: 19
               largura: 19
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 42
               y: 818
               comprimento: 19
               largura: 17
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 60
               y: 805
               comprimento: 19
               largura: 16
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 71
               y: 786
               comprimento: 20
               largura: 19
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 122
               y: 765
               comprimento: 20
               largura: 20
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 310
               y: 654
               comprimento: 20
               largura: 19
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 350
               y: 636
               comprimento: 21
               largura: 18
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 375
               y: 628
               comprimento: 18
               largura: 15
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 389
               y: 614
               comprimento: 18
               largura: 15
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 400
               y: 594
               comprimento: 21
               largura: 17
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 445
               y: 566
               comprimento: 22
               largura: 17
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 474
               y: 571
               comprimento: 20
               largura: 18
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 498
               y: 570
               comprimento: 21
               largura: 19
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 522
               y: 560
               comprimento: 20
               largura: 18
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 550
               y: 554
               comprimento: 19
               largura: 17
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 580
               y: 555
               comprimento: 20
               largura: 16
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 611
               y: 526
               comprimento: 22
@@ -1573,11 +1573,11 @@ picos:
             ids:
             - '29'
           - ids:
-            - '08'
+            - 08
             setor: Setor Vale das Sombras
             escalada: Uso Capial
           - ids:
-            - '09'
+            - 09
             setor: Setor Vale das Sombras
             escalada: Clara Morena
           - ids:
@@ -1762,112 +1762,112 @@ picos:
           pontos_de_interesse:
           - id: Setor_Antigo_Camping
             label: Setor Antigo Camping
-            box:
+            retangulo:
               x: 896
               y: 297
               comprimento: 51
               largura: 42
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 652
               y: 542
               comprimento: 79
               largura: 38
           - id: Totem_Pedra
             label: TOTEM PEDRA
-            box:
+            retangulo:
               x: 836
               y: 860
               comprimento: 64
               largura: 43
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 198
               y: 1130
               comprimento: 51
               largura: 38
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 140
               y: 938
               comprimento: 19
               largura: 23
           - id: '02'
             label: '2'
-            box:
+            retangulo:
               x: 140
               y: 897
               comprimento: 19
               largura: 22
           - id: '03'
             label: '3'
-            box:
+            retangulo:
               x: 141
               y: 859
               comprimento: 18
               largura: 22
           - id: '04'
             label: '4'
-            box:
+            retangulo:
               x: 146
               y: 817
               comprimento: 21
               largura: 24
           - id: '05'
             label: '5'
-            box:
+            retangulo:
               x: 150
               y: 762
               comprimento: 20
               largura: 22
           - id: '06'
             label: '6'
-            box:
+            retangulo:
               x: 166
               y: 628
               comprimento: 20
               largura: 25
           - id: '07'
             label: '7'
-            box:
+            retangulo:
               x: 192
               y: 563
               comprimento: 19
               largura: 24
-          - id: '08'
+          - id: 08
             label: '8'
-            box:
+            retangulo:
               x: 277
               y: 530
               comprimento: 20
               largura: 22
-          - id: '09'
+          - id: 09
             label: '9'
-            box:
+            retangulo:
               x: 279
               y: 473
               comprimento: 20
               largura: 24
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 280
               y: 445
               comprimento: 27
               largura: 22
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 275
               y: 417
               comprimento: 26
               largura: 24
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 276
               y: 370
               comprimento: 27
@@ -1904,11 +1904,11 @@ picos:
             ids:
             - '12'
           - ids:
-            - '08'
+            - 08
             setor: Setor Parede dos Conflitos
             escalada: Guerra dos Côcos
           - ids:
-            - '09'
+            - 09
             setor: Setor Parede dos Conflitos
             escalada: Guerrilha do Araguaia
           - ids:
@@ -1999,168 +1999,168 @@ picos:
           pontos_de_interesse:
           - id: Setor_Antigo_Camping
             label: Setor Antigo Camping
-            box:
+            retangulo:
               x: 808
               y: 52
               comprimento: 46
               largura: 39
           - id: Totem_Pedra
             label: TOTEM PEDRA
-            box:
+            retangulo:
               x: 457
               y: 1054
               comprimento: 56
               largura: 32
           - id: Setor_Vale_das_Sombras
             label: Setor Vale das Sombras
-            box:
+            retangulo:
               x: 72
               y: 1090
               comprimento: 59
               largura: 47
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 201
               y: 823
               comprimento: 16
               largura: 14
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 216
               y: 830
               comprimento: 16
               largura: 14
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 246
               y: 847
               comprimento: 16
               largura: 14
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 285
               y: 864
               comprimento: 16
               largura: 14
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 317
               y: 876
               comprimento: 16
               largura: 14
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 334
               y: 903
               comprimento: 13
               largura: 14
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 348
               y: 891
               comprimento: 14
               largura: 14
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 344
               y: 824
               comprimento: 13
               largura: 13
-          - id: '09'
+          - id: 09
             label: '9'
-            box:
+            retangulo:
               x: 336
               y: 781
               comprimento: 13
               largura: 14
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 331
               y: 760
               comprimento: 18
               largura: 17
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 334
               y: 720
               comprimento: 16
               largura: 15
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 362
               y: 658
               comprimento: 19
               largura: 17
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 418
               y: 656
               comprimento: 18
               largura: 17
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 440
               y: 684
               comprimento: 19
               largura: 19
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 462
               y: 660
               comprimento: 19
               largura: 18
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 502
               y: 642
               comprimento: 17
               largura: 17
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 621
               y: 468
               comprimento: 20
               largura: 17
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 644
               y: 392
               comprimento: 17
               largura: 15
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 653
               y: 368
               comprimento: 24
               largura: 27
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 638
               y: 348
               comprimento: 19
               largura: 15
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 615
               y: 324
               comprimento: 18
@@ -2227,11 +2227,11 @@ picos:
             ids:
             - '22'
           - ids:
-            - '08'
+            - 08
             setor: Setor Leão de Judah
             escalada: Efeito Moral
           - ids:
-            - '09'
+            - 09
             setor: Setor Leão de Judah
             escalada: Risco de Discórdia
           - ids:
@@ -2377,161 +2377,161 @@ picos:
           pontos_de_interesse:
           - id: Setor_Grutinha
             label: Setor Grutinha
-            box:
+            retangulo:
               x: 62
               y: 46
               comprimento: 46
               largura: 29
           - id: Savassinha
             label: Savassinha
-            box:
+            retangulo:
               x: 146
               y: 308
               comprimento: 80
               largura: 26
           - id: Beco_do_Tiu
             label: Beco do Tiú
-            box:
+            retangulo:
               x: 285
               y: 348
               comprimento: 78
               largura: 25
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 372
               y: 900
               comprimento: 18
               largura: 15
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 396
               y: 884
               comprimento: 21
               largura: 16
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 410
               y: 863
               comprimento: 21
               largura: 16
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 412
               y: 844
               comprimento: 19
               largura: 15
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 448
               y: 824
               comprimento: 20
               largura: 15
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 459
               y: 808
               comprimento: 20
               largura: 15
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 466
               y: 790
               comprimento: 20
               largura: 15
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 466
               y: 771
               comprimento: 21
               largura: 16
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 458
               y: 748
               comprimento: 21
               largura: 16
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 470
               y: 718
               comprimento: 20
               largura: 17
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 490
               y: 689
               comprimento: 19
               largura: 18
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 470
               y: 658
               comprimento: 21
               largura: 17
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 449
               y: 622
               comprimento: 20
               largura: 17
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 492
               y: 562
               comprimento: 18
               largura: 16
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 492
               y: 538
               comprimento: 19
               largura: 17
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 489
               y: 480
               comprimento: 20
               largura: 18
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 476
               y: 438
               comprimento: 19
               largura: 18
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 460
               y: 400
               comprimento: 19
               largura: 18
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 398
               y: 282
               comprimento: 19
               largura: 17
           - id: Leao_de_Judah
             label: Leão de Judah
-            box:
+            retangulo:
               x: 159
               y: 1046
               comprimento: 46
@@ -2722,91 +2722,91 @@ picos:
           pontos_de_interesse:
           - id: Setor_Grutinha
             label: Setor Grutinha
-            box:
+            retangulo:
               x: 228
               y: 18
               comprimento: 47
               largura: 33
           - id: Savassinha
             label: Savassinha
-            box:
+            retangulo:
               x: 320
               y: 310
               comprimento: 78
               largura: 21
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 398
               y: 716
               comprimento: 21
               largura: 17
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 358
               y: 666
               comprimento: 21
               largura: 17
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 311
               y: 596
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 296
               y: 572
               comprimento: 21
               largura: 17
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 316
               y: 507
               comprimento: 21
               largura: 18
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 354
               y: 553
               comprimento: 22
               largura: 18
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 402
               y: 598
               comprimento: 22
               largura: 19
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 443
               y: 638
               comprimento: 22
               largura: 18
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 475
               y: 646
               comprimento: 22
               largura: 17
           - id: Setor_Antigo_Camping
             label: Setor Antigo Camping
-            box:
+            retangulo:
               x: 378
               y: 1116
               comprimento: 78
               largura: 25
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 378
               y: 1142
               comprimento: 102
@@ -2834,11 +2834,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Antigo Camping
             escalada: Xuxa Preta de Pains
           - ids:
-            - '09'
+            - 09
             setor: Setor Antigo Camping
             escalada: Brenfa Móvel
           - ids:
@@ -2930,112 +2930,112 @@ picos:
           pontos_de_interesse:
           - id: Setor_Grutinha
             label: Setor Grutinha
-            box:
+            retangulo:
               x: 306
               y: 50
               comprimento: 50
               largura: 25
           - id: Beco_do_Tiu
             label: Beco do Tiú
-            box:
+            retangulo:
               x: 346
               y: 598
               comprimento: 44
               largura: 50
           - id: Setor_Antigo_Camping
             label: Setor Antigo Camping
-            box:
+            retangulo:
               x: 441
               y: 1082
               comprimento: 76
               largura: 27
           - id: Setor_Leao_de_Judah
             label: Setor Leão de Judah
-            box:
+            retangulo:
               x: 442
               y: 1110
               comprimento: 100
               largura: 19
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 262
               y: 483
               comprimento: 15
               largura: 16
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 226
               y: 408
               comprimento: 15
               largura: 17
           - id: '03'
             label: '3'
-            box:
+            retangulo:
               x: 242
               y: 386
               comprimento: 13
               largura: 15
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 242
               y: 369
               comprimento: 14
               largura: 14
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 250
               y: 350
               comprimento: 14
               largura: 15
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 251
               y: 329
               comprimento: 14
               largura: 14
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 241
               y: 310
               comprimento: 14
               largura: 16
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 242
               y: 287
               comprimento: 14
               largura: 14
-          - id: '09'
+          - id: 09
             label: '9'
-            box:
+            retangulo:
               x: 257
               y: 253
               comprimento: 16
               largura: 16
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 312
               y: 252
               comprimento: 18
               largura: 17
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 358
               y: 249
               comprimento: 19
               largura: 18
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 292
               y: 142
               comprimento: 18
@@ -3072,11 +3072,11 @@ picos:
             ids:
             - '12'
           - ids:
-            - '08'
+            - 08
             setor: Setor Savassinha
             escalada: Curupira
           - ids:
-            - '09'
+            - 09
             setor: Setor Savassinha
             escalada: Só Beleza
           - ids:
@@ -3172,84 +3172,84 @@ picos:
           pontos_de_interesse:
           - id: Setor_Antigo_Camping
             label: Setor Antigo Camping (Savassinha)
-            box:
+            retangulo:
               x: 360
               y: 57
               comprimento: 66
               largura: 54
           - id: Gruta
             label: Gruta
-            box:
+            retangulo:
               x: 513
               y: 246
               comprimento: 40
               largura: 21
           - id: Totem_Pedra
             label: TOTEM PEDRA
-            box:
+            retangulo:
               x: 270
               y: 510
               comprimento: 47
               largura: 28
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 516
               y: 488
               comprimento: 17
               largura: 17
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 534
               y: 484
               comprimento: 19
               largura: 17
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 554
               y: 505
               comprimento: 20
               largura: 16
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 584
               y: 512
               comprimento: 19
               largura: 16
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 574
               y: 543
               comprimento: 19
               largura: 16
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 580
               y: 559
               comprimento: 19
               largura: 16
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 603
               y: 574
               comprimento: 20
               largura: 15
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 632
               y: 584
               comprimento: 21
               largura: 17
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 672
               y: 597
               comprimento: 21
@@ -3277,11 +3277,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Grutinha
             escalada: Respeite os Mais Velhos
           - ids:
-            - '09'
+            - 09
             setor: Setor Grutinha
             escalada: Quem Ama Implanta
           - ids:
@@ -3366,70 +3366,70 @@ picos:
           pontos_de_interesse:
           - id: Setor_Jardim_Suspenso
             label: Setor Jardim Suspenso
-            box:
+            retangulo:
               x: 609
               y: 36
               comprimento: 112
               largura: 17
           - id: Plato
             label: Platô
-            box:
+            retangulo:
               x: 112
               y: 722
               comprimento: 44
               largura: 26
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 140
               y: 1088
               comprimento: 92
               largura: 24
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 460
               y: 554
               comprimento: 18
               largura: 18
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 492
               y: 568
               comprimento: 19
               largura: 19
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 482
               y: 601
               comprimento: 21
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 494
               y: 626
               comprimento: 22
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 381
               y: 789
               comprimento: 20
               largura: 18
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 361
               y: 831
               comprimento: 22
               largura: 18
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 152
               y: 432
               comprimento: 19
@@ -3520,91 +3520,91 @@ picos:
           pontos_de_interesse:
           - id: Setor_Jardim_Suspenso
             label: Setor Jardim Suspenso
-            box:
+            retangulo:
               x: 608
               y: 40
               comprimento: 114
               largura: 22
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 808
               y: 381
               comprimento: 17
               largura: 16
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 824
               y: 414
               comprimento: 19
               largura: 17
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 807
               y: 447
               comprimento: 18
               largura: 16
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 794
               y: 468
               comprimento: 20
               largura: 16
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 782
               y: 488
               comprimento: 19
               largura: 16
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 767
               y: 512
               comprimento: 20
               largura: 17
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 141
               y: 1090
               comprimento: 90
               largura: 21
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 623
               y: 540
               comprimento: 22
               largura: 18
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 553
               y: 534
               comprimento: 22
               largura: 17
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 514
               y: 574
               comprimento: 19
               largura: 18
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 486
               y: 538
               comprimento: 19
               largura: 19
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 464
               y: 536
               comprimento: 18
@@ -3644,11 +3644,11 @@ picos:
             - Setor_Jardim_Suspenso
             setor: Jardim Suspenso
           - ids:
-            - '08'
+            - 08
             setor: 1º Andar
             escalada: Curte o Planeta que Você Vive
           - ids:
-            - '09'
+            - 09
             setor: 1º Andar
             escalada: Subaco da Zen
         escaladas:
@@ -3725,161 +3725,161 @@ picos:
           pontos_de_interesse:
           - id: Setor_Jardim_Suspenso
             label: Setor Jardim Suspenso
-            box:
+            retangulo:
               x: 601
               y: 36
               comprimento: 118
               largura: 18
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 284
               y: 300
               comprimento: 20
               largura: 15
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 308
               y: 289
               comprimento: 23
               largura: 18
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 518
               y: 338
               comprimento: 20
               largura: 15
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 540
               y: 330
               comprimento: 20
               largura: 15
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 556
               y: 284
               comprimento: 21
               largura: 15
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 560
               y: 266
               comprimento: 19
               largura: 14
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 562
               y: 209
               comprimento: 20
               largura: 16
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 556
               y: 106
               comprimento: 22
               largura: 17
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 612
               y: 60
               comprimento: 21
               largura: 16
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 630
               y: 94
               comprimento: 20
               largura: 17
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 641
               y: 75
               comprimento: 20
               largura: 18
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 723
               y: 109
               comprimento: 20
               largura: 16
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 714
               y: 138
               comprimento: 19
               largura: 16
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 712
               y: 157
               comprimento: 19
               largura: 16
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 720
               y: 174
               comprimento: 18
               largura: 15
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 728
               y: 189
               comprimento: 18
               largura: 14
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 752
               y: 178
               comprimento: 19
               largura: 17
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 764
               y: 206
               comprimento: 20
               largura: 17
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 770
               y: 243
               comprimento: 19
               largura: 16
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 781
               y: 286
               comprimento: 22
               largura: 17
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 780
               y: 342
               comprimento: 20
               largura: 16
           - id: Setor_Chegada
             label: Setor Chegada
-            box:
+            retangulo:
               x: 136
               y: 1088
               comprimento: 91
@@ -3949,11 +3949,11 @@ picos:
             - Setor_Jardim_Suspenso
             setor: Jardim Suspenso
           - ids:
-            - '08'
+            - 08
             setor: 2º Andar
             escalada: Gardneria Angustata
           - ids:
-            - '09'
+            - 09
             setor: 2º Andar
             escalada: Vai e Volta e Vai
         escaladas:
@@ -4092,77 +4092,77 @@ picos:
           pontos_de_interesse:
           - id: Setor_Terceiro_Andar
             label: Setor Terceiro Andar
-            box:
+            retangulo:
               x: 846
               y: 302
               comprimento: 61
               largura: 55
           - id: Setor_Segundo_Andar
             label: Setor Segundo Andar
-            box:
+            retangulo:
               x: 566
               y: 935
               comprimento: 65
               largura: 54
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 594
               y: 599
               comprimento: 22
               largura: 18
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 540
               y: 598
               comprimento: 25
               largura: 21
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 460
               y: 394
               comprimento: 21
               largura: 19
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 458
               y: 372
               comprimento: 21
               largura: 17
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 444
               y: 310
               comprimento: 21
               largura: 18
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 534
               y: 311
               comprimento: 21
               largura: 20
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 536
               y: 434
               comprimento: 23
               largura: 21
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 562
               y: 463
               comprimento: 23
               largura: 20
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 633
               y: 441
               comprimento: 22
@@ -4190,11 +4190,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Jardim Suspenso
             escalada: Corte Profundo
           - ids:
-            - '09'
+            - 09
             setor: Jardim Suspenso
             escalada: Avenida Paulista
           - ids:
@@ -4264,175 +4264,175 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 372
               y: 818
               comprimento: 26
               largura: 24
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 416
               y: 738
               comprimento: 27
               largura: 25
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 413
               y: 704
               comprimento: 24
               largura: 24
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 432
               y: 658
               comprimento: 23
               largura: 24
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 426
               y: 598
               comprimento: 22
               largura: 21
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 453
               y: 488
               comprimento: 24
               largura: 23
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 436
               y: 432
               comprimento: 25
               largura: 25
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 490
               y: 391
               comprimento: 25
               largura: 22
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 534
               y: 366
               comprimento: 24
               largura: 21
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 550
               y: 408
               comprimento: 17
               largura: 17
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 568
               y: 398
               comprimento: 17
               largura: 17
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 592
               y: 386
               comprimento: 20
               largura: 17
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 608
               y: 446
               comprimento: 21
               largura: 17
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 599
               y: 464
               comprimento: 20
               largura: 18
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 561
               y: 453
               comprimento: 20
               largura: 18
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 525
               y: 467
               comprimento: 20
               largura: 18
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 532
               y: 504
               comprimento: 20
               largura: 18
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 582
               y: 606
               comprimento: 18
               largura: 18
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 565
               y: 622
               comprimento: 18
               largura: 17
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 564
               y: 644
               comprimento: 21
               largura: 19
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 565
               y: 696
               comprimento: 22
               largura: 22
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 600
               y: 744
               comprimento: 22
               largura: 21
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 624
               y: 724
               comprimento: 20
               largura: 19
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 752
               y: 586
               comprimento: 23
               largura: 19
           - id: Setor_Conexao
             label: Setor Jardim Suspenso e Segundo Andar
-            box:
+            retangulo:
               x: 82
               y: 918
               comprimento: 78
@@ -4511,11 +4511,11 @@ picos:
             - Setor_Conexao
             setor: 2º Andar
           - ids:
-            - '08'
+            - 08
             setor: 3º Andar
             escalada: Iara
           - ids:
-            - '09'
+            - 09
             setor: 3º Andar
             escalada: Come Hamburguer
         escaladas:
@@ -4662,21 +4662,21 @@ picos:
         pontos_de_interesse:
         - id: MG-170_norte
           label: MG-170
-          box:
+          retangulo:
             x: 988
             y: 15
             comprimento: 88
             largura: 37
         - id: 354_norte
           label: '354'
-          box:
+          retangulo:
             x: 772
             y: 63
             comprimento: 56
             largura: 40
         - id: Arcos
           label: Arcos
-          box:
+          retangulo:
             x: 1034
             y: 218
             comprimento: 96
@@ -4684,21 +4684,21 @@ picos:
             angulo_graus_x100: 239
         - id: MG-170_centro
           label: MG-170
-          box:
+          retangulo:
             x: 643
             y: 473
             comprimento: 89
             largura: 37
         - id: 354_centro
           label: '354'
-          box:
+          retangulo:
             x: 1117
             y: 471
             comprimento: 57
             largura: 41
         - id: Pains
           label: Pains
-          box:
+          retangulo:
             x: 442
             y: 651
             comprimento: 84
@@ -4706,14 +4706,14 @@ picos:
             angulo_graus_x100: 341
         - id: MG-439
           label: MG-439
-          box:
+          retangulo:
             x: 1104
             y: 741
             comprimento: 90
             largura: 40
         - id: MG-050
           label: MG-050
-          box:
+          retangulo:
             x: 1639
             y: 832
             comprimento: 91
@@ -4721,7 +4721,7 @@ picos:
             angulo_graus_x100: -189
         - id: MG-170_sul
           label: MG-170
-          box:
+          retangulo:
             x: 48
             y: 886
             comprimento: 91
@@ -4732,21 +4732,21 @@ picos:
         pontos_de_interesse:
         - id: Setor_Zona_Leste
           label: Setor Zona Leste
-          box:
+          retangulo:
             x: 571
             y: 95
             comprimento: 228
             largura: 142
         - id: 3o_Andar
           label: 3º Andar
-          box:
+          retangulo:
             x: 908
             y: 159
             comprimento: 159
             largura: 68
         - id: Jardim_Suspenso
           label: Jardim Suspenso
-          box:
+          retangulo:
             x: 1032
             y: 220
             comprimento: 293
@@ -4754,63 +4754,63 @@ picos:
             angulo_graus_x100: 84
         - id: 2o_Andar
           label: 2º Andar
-          box:
+          retangulo:
             x: 737
             y: 263
             comprimento: 170
             largura: 66
         - id: 1o_Andar
           label: 1º Andar
-          box:
+          retangulo:
             x: 944
             y: 307
             comprimento: 149
             largura: 40
         - id: Mezanino
           label: Mezanino
-          box:
+          retangulo:
             x: 808
             y: 376
             comprimento: 165
             largura: 42
         - id: Arcos_Oeste
           label: Arcos
-          box:
+          retangulo:
             x: 19
             y: 452
             comprimento: 58
             largura: 22
         - id: Corumba_Oeste
           label: Corumbá
-          box:
+          retangulo:
             x: 18
             y: 474
             comprimento: 92
             largura: 24
         - id: Pains_Oeste
           label: Pains
-          box:
+          retangulo:
             x: 19
             y: 498
             comprimento: 57
             largura: 23
         - id: Setor_Vale_das_Sombras
           label: Setor Vale das Sombras
-          box:
+          retangulo:
             x: 1132
             y: 528
             comprimento: 236
             largura: 76
         - id: Setor_Grutinha
           label: Setor Grutinha
-          box:
+          retangulo:
             x: 1400
             y: 586
             comprimento: 173
             largura: 96
         - id: Estacionamento
           label: Estacionamento
-          box:
+          retangulo:
             x: 164
             y: 587
             comprimento: 153
@@ -4818,84 +4818,84 @@ picos:
             angulo_graus_x100: 675
         - id: Setor_Chegada
           label: Setor Chegada
-          box:
+          retangulo:
             x: 514
             y: 625
             comprimento: 367
             largura: 192
         - id: Intermediario
           label: Intermediário
-          box:
+          retangulo:
             x: 935
             y: 592
             comprimento: 234
             largura: 47
         - id: Parede_dos_Conflitos
           label: Parede dos Conflitos
-          box:
+          retangulo:
             x: 1215
             y: 656
             comprimento: 152
             largura: 121
         - id: Toca_dos_Gatos
           label: Toca dos Gatos
-          box:
+          retangulo:
             x: 865
             y: 672
             comprimento: 262
             largura: 45
         - id: Savassinha
           label: Savassinha
-          box:
+          retangulo:
             x: 1388
             y: 742
             comprimento: 200
             largura: 44
         - id: Beco_do_Tiu
           label: Beco do Tiú
-          box:
+          retangulo:
             x: 1366
             y: 787
             comprimento: 199
             largura: 40
         - id: Setor_Antigo_Camping
           label: Setor Antigo Camping
-          box:
+          retangulo:
             x: 1480
             y: 878
             comprimento: 166
             largura: 135
         - id: Setor_Onca
           label: Setor Onça
-          box:
+          retangulo:
             x: 870
             y: 854
             comprimento: 389
             largura: 209
         - id: Setor_Leao_de_Judah
           label: Setor Leão de Judah
-          box:
+          retangulo:
             x: 1286
             y: 882
             comprimento: 191
             largura: 140
         - id: Corumba_Leste
           label: Corumbá
-          box:
+          retangulo:
             x: 1645
             y: 879
             comprimento: 89
             largura: 21
         - id: H2O_Leste
           label: H2O
-          box:
+          retangulo:
             x: 1633
             y: 952
             comprimento: 40
             largura: 19
         - id: H2O_Sul
           label: H2O
-          box:
+          retangulo:
             x: 664
             y: 990
             comprimento: 39
@@ -5086,7 +5086,7 @@ botoes:
         - **Atualizações/Sugestões**: abrigobase@gmail.com
 
         - **Contribuição/Parceria (PIX)**: 37 99918-3634'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

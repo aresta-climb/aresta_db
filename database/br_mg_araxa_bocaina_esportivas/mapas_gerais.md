@@ -6,21 +6,21 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 94
       y: 272
       comprimento: 33
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 167
       y: 235
       comprimento: 33
       largura: 31
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 195
       y: 331
       comprimento: 35
@@ -28,70 +28,70 @@ mapas:
       angulo_graus_x100: -652
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 214
       y: 246
       comprimento: 30
       largura: 28
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 266
       y: 241
       comprimento: 34
       largura: 31
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 331
       y: 250
       comprimento: 30
       largura: 28
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 338
       y: 349
       comprimento: 34
       largura: 31
   - id: 08
     label: 08
-    box:
+    retangulo:
       x: 470
       y: 261
       comprimento: 33
       largura: 30
   - id: 09
     label: 09
-    box:
+    retangulo:
       x: 630
       y: 249
       comprimento: 34
       largura: 31
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 976
       y: 298
       comprimento: 29
       largura: 29
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 1033
       y: 286
       comprimento: 32
       largura: 31
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 1073
       y: 306
       comprimento: 22
       largura: 22
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 1107
       y: 312
       comprimento: 22

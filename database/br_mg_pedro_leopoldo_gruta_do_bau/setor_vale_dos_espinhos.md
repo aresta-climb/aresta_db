@@ -7,273 +7,273 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 330
       y: 86
       comprimento: 30
       largura: 24
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 490
       y: 104
       comprimento: 32
       largura: 23
   - id: Setor_Sentinela_Top
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 684
       y: 132
       comprimento: 118
       largura: 52
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 282
       y: 130
       comprimento: 35
       largura: 26
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 262
       y: 164
       comprimento: 33
       largura: 25
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 232
       y: 195
       comprimento: 33
       largura: 24
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 216
       y: 225
       comprimento: 32
       largura: 24
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 176
       y: 335
       comprimento: 35
       largura: 28
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 176
       y: 396
       comprimento: 33
       largura: 27
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 399
       y: 410
       comprimento: 34
       largura: 28
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 227
       y: 444
       comprimento: 32
       largura: 30
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 318
       y: 450
       comprimento: 33
       largura: 27
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 380
       y: 445
       comprimento: 34
       largura: 26
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 548
       y: 448
       comprimento: 35
       largura: 28
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 402
       y: 480
       comprimento: 35
       largura: 27
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 524
       y: 541
       comprimento: 35
       largura: 26
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 520
       y: 606
       comprimento: 31
       largura: 27
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 345
       y: 683
       comprimento: 34
       largura: 28
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 523
       y: 682
       comprimento: 36
       largura: 27
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 235
       y: 700
       comprimento: 28
       largura: 27
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 250
       y: 750
       comprimento: 30
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 63
       y: 762
       comprimento: 30
       largura: 27
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 251
       y: 787
       comprimento: 30
       largura: 26
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 548
       y: 820
       comprimento: 34
       largura: 27
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 264
       y: 832
       comprimento: 29
       largura: 23
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 542
       y: 854
       comprimento: 31
       largura: 25
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 540
       y: 890
       comprimento: 31
       largura: 27
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 546
       y: 926
       comprimento: 33
       largura: 26
   - id: Setor_Sentinela_Bottom
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 682
       y: 996
       comprimento: 110
       largura: 45
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 176
       y: 1010
       comprimento: 31
       largura: 26
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 260
       y: 1018
       comprimento: 30
       largura: 24
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 284
       y: 1056
       comprimento: 30
       largura: 23
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 488
       y: 1055
       comprimento: 34
       largura: 24
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 504
       y: 1116
       comprimento: 32
       largura: 24
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 516
       y: 1146
       comprimento: 32
       largura: 22
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 540
       y: 1173
       comprimento: 34
       largura: 22
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 554
       y: 1205
       comprimento: 31
       largura: 24
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 558
       y: 1233
       comprimento: 33
       largura: 24
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 540
       y: 1260
       comprimento: 31
@@ -385,11 +385,11 @@ mapas:
     ids:
     - '37'
   - ids:
-    - '08'
+    - 08
     setor: Setor Vale dos Espinhos
     escalada: Tá Esperando o quê?
   - ids:
-    - '09'
+    - 09
     setor: Setor Vale dos Espinhos
     escalada: Quem Sabe ano que Vem
   - ids:

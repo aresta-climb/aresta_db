@@ -18,6 +18,6 @@ picos:
       caminho: setor_pedra_branca.md
   mapas_gerais:
     caminho: mapas_gerais.md
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

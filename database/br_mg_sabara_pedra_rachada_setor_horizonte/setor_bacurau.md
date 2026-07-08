@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: '35'
     label: '35'
-    circular:
+    circulo:
       x: 205
       y: 954
       raio: 26
   - id: '36'
     label: '36'
-    circular:
+    circulo:
       x: 252
       y: 768
       raio: 26
   - id: '37'
     label: '37'
-    circular:
+    circulo:
       x: 736
       y: 969
       raio: 26
   - id: '38'
     label: '38'
-    circular:
+    circulo:
       x: 724
       y: 867
       raio: 26
@@ -48,7 +48,7 @@ mapas:
   pontos_de_interesse:
   - id: '39'
     label: '39'
-    circular:
+    circulo:
       x: 374
       y: 883
       raio: 28
@@ -62,7 +62,7 @@ mapas:
   pontos_de_interesse:
   - id: '40'
     label: '40'
-    circular:
+    circulo:
       x: 485
       y: 773
       raio: 28
@@ -102,6 +102,5 @@ escaladas:
     descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem
       usar os blocos de baixo, tocando por toda a aresta.
 ---
-
 
 # Bacurau

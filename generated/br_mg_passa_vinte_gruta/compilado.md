@@ -84,7 +84,7 @@
             - Juliano Magalhães - Instagram: [@jzmagalhaes](https://www.instagram.com/jzmagalhaes)
             - Instagram: [@escalada_itatiaia](https://www.instagram.com/escalada_itatiaia)
             - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 
 
 ## Parte: setor_chegada
@@ -102,7 +102,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 15
           - **y**: 760
           - **comprimento**: 30
@@ -110,7 +110,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 60
           - **y**: 760
           - **comprimento**: 30
@@ -118,7 +118,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 95
           - **y**: 760
           - **comprimento**: 30
@@ -126,7 +126,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 125
           - **y**: 760
           - **comprimento**: 30
@@ -134,7 +134,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 160
           - **y**: 760
           - **comprimento**: 30
@@ -142,7 +142,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 220
           - **y**: 760
           - **comprimento**: 30
@@ -150,7 +150,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 315
           - **y**: 760
           - **comprimento**: 30
@@ -158,7 +158,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 260
           - **y**: 265
           - **comprimento**: 30
@@ -166,7 +166,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 345
           - **y**: 760
           - **comprimento**: 30
@@ -174,7 +174,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 490
           - **y**: 695
           - **comprimento**: 30
@@ -182,7 +182,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 505
           - **y**: 310
           - **comprimento**: 30
@@ -190,7 +190,7 @@
       - **[11]**:
         - **id**: 12_topo
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 565
           - **y**: 315
           - **comprimento**: 30
@@ -198,7 +198,7 @@
       - **[12]**:
         - **id**: 12_base
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 575
           - **y**: 805
           - **comprimento**: 30
@@ -206,7 +206,7 @@
       - **[13]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 605
           - **y**: 610
           - **comprimento**: 30
@@ -214,7 +214,7 @@
       - **[14]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 695
           - **y**: 785
           - **comprimento**: 30
@@ -222,7 +222,7 @@
       - **[15]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 695
           - **y**: 215
           - **comprimento**: 30
@@ -230,7 +230,7 @@
       - **[16]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 755
           - **y**: 640
           - **comprimento**: 30
@@ -238,7 +238,7 @@
       - **[17]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 835
           - **y**: 570
           - **comprimento**: 30
@@ -246,7 +246,7 @@
       - **[18]**:
         - **id**: 18_topo
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 865
           - **y**: 485
           - **comprimento**: 30
@@ -254,7 +254,7 @@
       - **[19]**:
         - **id**: 18_base
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 805
           - **y**: 875
           - **comprimento**: 30
@@ -262,7 +262,7 @@
       - **[20]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 905
           - **y**: 865
           - **comprimento**: 30
@@ -270,7 +270,7 @@
       - **[21]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 935
           - **y**: 530
           - **comprimento**: 30
@@ -278,7 +278,7 @@
       - **[22]**:
         - **id**: Setores_Vizinhos
         - **label**: Setores Central, Acampamento, Arquibancada e Gênesis
-        - **box**:
+        - **retangulo**:
           - **x**: 350
           - **y**: 930
           - **comprimento**: 500
@@ -286,7 +286,7 @@
       - **[23]**:
         - **id**: Setor_Teto_Preto
         - **label**: Setor Teto Preto
-        - **box**:
+        - **retangulo**:
           - **x**: 1050
           - **y**: 900
           - **comprimento**: 150
@@ -473,7 +473,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 130
           - **y**: 315
           - **comprimento**: 30
@@ -481,7 +481,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 215
           - **y**: 510
           - **comprimento**: 30
@@ -489,7 +489,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 218
           - **y**: 108
           - **comprimento**: 30
@@ -497,7 +497,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 275
           - **y**: 510
           - **comprimento**: 30
@@ -505,7 +505,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 335
           - **y**: 510
           - **comprimento**: 30
@@ -513,7 +513,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 375
           - **y**: 650
           - **comprimento**: 30
@@ -521,7 +521,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 465
           - **y**: 675
           - **comprimento**: 30
@@ -529,7 +529,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 600
           - **y**: 740
           - **comprimento**: 30
@@ -537,7 +537,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 665
           - **y**: 740
           - **comprimento**: 30
@@ -545,7 +545,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 720
           - **y**: 740
           - **comprimento**: 30
@@ -553,7 +553,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 795
           - **y**: 740
           - **comprimento**: 30
@@ -561,7 +561,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 870
           - **y**: 740
           - **comprimento**: 30
@@ -569,7 +569,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 945
           - **y**: 740
           - **comprimento**: 30
@@ -577,7 +577,7 @@
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 1040
           - **y**: 785
           - **comprimento**: 30
@@ -585,7 +585,7 @@
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 1090
           - **y**: 785
           - **comprimento**: 30
@@ -593,7 +593,7 @@
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 1145
           - **y**: 785
           - **comprimento**: 30
@@ -601,7 +601,7 @@
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 1250
           - **y**: 775
           - **comprimento**: 30
@@ -609,7 +609,7 @@
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 1230
           - **y**: 122
           - **comprimento**: 30
@@ -617,7 +617,7 @@
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 682
           - **y**: 487
           - **comprimento**: 30
@@ -625,7 +625,7 @@
       - **[19]**:
         - **id**: Setor_Chegada
         - **label**: Setor Chegada
-        - **box**:
+        - **retangulo**:
           - **x**: 10
           - **y**: 800
           - **comprimento**: 200
@@ -633,7 +633,7 @@
       - **[20]**:
         - **id**: Setor_Tradicionais
         - **label**: Setor Tradicionais
-        - **box**:
+        - **retangulo**:
           - **x**: 1500
           - **y**: 940
           - **comprimento**: 250
@@ -812,7 +812,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 130
           - **y**: 740
           - **comprimento**: 30
@@ -820,7 +820,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 275
           - **y**: 740
           - **comprimento**: 30
@@ -828,7 +828,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 375
           - **y**: 700
           - **comprimento**: 30
@@ -836,7 +836,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 410
           - **y**: 740
           - **comprimento**: 30
@@ -844,7 +844,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 620
           - **y**: 730
           - **comprimento**: 30
@@ -852,7 +852,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 740
           - **y**: 505
           - **comprimento**: 30
@@ -860,7 +860,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 825
           - **y**: 610
           - **comprimento**: 30
@@ -868,7 +868,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 910
           - **y**: 615
           - **comprimento**: 30
@@ -876,7 +876,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 875
           - **y**: 520
           - **comprimento**: 30
@@ -884,7 +884,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 1080
           - **y**: 520
           - **comprimento**: 30
@@ -892,7 +892,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 925
           - **y**: 785
           - **comprimento**: 30
@@ -900,7 +900,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 1075
           - **y**: 710
           - **comprimento**: 30
@@ -908,7 +908,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 1120
           - **y**: 830
           - **comprimento**: 30
@@ -916,7 +916,7 @@
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 1175
           - **y**: 820
           - **comprimento**: 30
@@ -924,7 +924,7 @@
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 1179
           - **y**: 528
           - **comprimento**: 30
@@ -932,7 +932,7 @@
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 1350
           - **y**: 860
           - **comprimento**: 30
@@ -940,7 +940,7 @@
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 1420
           - **y**: 860
           - **comprimento**: 30
@@ -948,7 +948,7 @@
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 565
           - **y**: 730
           - **comprimento**: 30
@@ -956,7 +956,7 @@
       - **[18]**:
         - **id**: Setores_Vizinhos
         - **label**: Setores Arquibancada, Acampamento e Gênesis
-        - **box**:
+        - **retangulo**:
           - **x**: 326
           - **y**: 921
           - **comprimento**: 700
@@ -1124,7 +1124,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 110
           - **y**: 745
           - **comprimento**: 30
@@ -1132,7 +1132,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 71
           - **y**: 478
           - **comprimento**: 30
@@ -1140,7 +1140,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 135
           - **y**: 585
           - **comprimento**: 30
@@ -1148,7 +1148,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 150
           - **y**: 405
           - **comprimento**: 30
@@ -1156,7 +1156,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 810
           - **y**: 484
           - **comprimento**: 30
@@ -1164,7 +1164,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 160
           - **y**: 135
           - **comprimento**: 30
@@ -1172,7 +1172,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 285
           - **y**: 725
           - **comprimento**: 30
@@ -1180,7 +1180,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 375
           - **y**: 725
           - **comprimento**: 30
@@ -1188,7 +1188,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 230
           - **y**: 235
           - **comprimento**: 30
@@ -1196,7 +1196,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 260
           - **y**: 340
           - **comprimento**: 30
@@ -1204,7 +1204,7 @@
       - **[10]**:
         - **id**: 11_topo
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 325
           - **y**: 295
           - **comprimento**: 30
@@ -1212,7 +1212,7 @@
       - **[11]**:
         - **id**: 11_base
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 315
           - **y**: 430
           - **comprimento**: 30
@@ -1220,7 +1220,7 @@
       - **[12]**:
         - **id**: 12_base
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 305
           - **y**: 585
           - **comprimento**: 30
@@ -1228,7 +1228,7 @@
       - **[13]**:
         - **id**: 13_topo
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 465
           - **y**: 385
           - **comprimento**: 30
@@ -1236,7 +1236,7 @@
       - **[14]**:
         - **id**: 13_base
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 450
           - **y**: 515
           - **comprimento**: 30
@@ -1244,7 +1244,7 @@
       - **[15]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 418
           - **y**: 712
           - **comprimento**: 30
@@ -1252,7 +1252,7 @@
       - **[16]**:
         - **id**: 15_topo
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 433
           - **y**: 198
           - **comprimento**: 30
@@ -1260,7 +1260,7 @@
       - **[17]**:
         - **id**: 15_meio
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 505
           - **y**: 345
           - **comprimento**: 30
@@ -1268,7 +1268,7 @@
       - **[18]**:
         - **id**: 15_base
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 505
           - **y**: 515
           - **comprimento**: 30
@@ -1276,7 +1276,7 @@
       - **[19]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 536
           - **y**: 262
           - **comprimento**: 30
@@ -1284,7 +1284,7 @@
       - **[20]**:
         - **id**: 17_topo
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 570
           - **y**: 135
           - **comprimento**: 30
@@ -1292,7 +1292,7 @@
       - **[21]**:
         - **id**: 17_base
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 655
           - **y**: 365
           - **comprimento**: 30
@@ -1300,7 +1300,7 @@
       - **[22]**:
         - **id**: 18_topo
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 594
           - **y**: 288
           - **comprimento**: 30
@@ -1308,7 +1308,7 @@
       - **[23]**:
         - **id**: 18_base
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 655
           - **y**: 295
           - **comprimento**: 30
@@ -1316,7 +1316,7 @@
       - **[24]**:
         - **id**: 19_topo
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 580
           - **y**: 226
           - **comprimento**: 30
@@ -1324,7 +1324,7 @@
       - **[25]**:
         - **id**: 19_base
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 645
           - **y**: 225
           - **comprimento**: 30
@@ -1332,7 +1332,7 @@
       - **[26]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 628
           - **y**: 552
           - **comprimento**: 30
@@ -1340,7 +1340,7 @@
       - **[27]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 682
           - **y**: 420
           - **comprimento**: 30
@@ -1348,7 +1348,7 @@
       - **[28]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **retangulo**:
           - **x**: 835
           - **y**: 425
           - **comprimento**: 30
@@ -1356,7 +1356,7 @@
       - **[29]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
+        - **retangulo**:
           - **x**: 743
           - **y**: 372
           - **comprimento**: 30
@@ -1364,7 +1364,7 @@
       - **[30]**:
         - **id**: 24
         - **label**: 24
-        - **box**:
+        - **retangulo**:
           - **x**: 762
           - **y**: 134
           - **comprimento**: 30
@@ -1372,7 +1372,7 @@
       - **[31]**:
         - **id**: 25
         - **label**: 25
-        - **box**:
+        - **retangulo**:
           - **x**: 880
           - **y**: 485
           - **comprimento**: 30
@@ -1380,7 +1380,7 @@
       - **[32]**:
         - **id**: 26
         - **label**: 26
-        - **box**:
+        - **retangulo**:
           - **x**: 960
           - **y**: 450
           - **comprimento**: 30
@@ -1388,7 +1388,7 @@
       - **[33]**:
         - **id**: 27
         - **label**: 27
-        - **box**:
+        - **retangulo**:
           - **x**: 1068
           - **y**: 542
           - **comprimento**: 30
@@ -1396,7 +1396,7 @@
       - **[34]**:
         - **id**: 28
         - **label**: 28
-        - **box**:
+        - **retangulo**:
           - **x**: 1068
           - **y**: 338
           - **comprimento**: 30
@@ -1404,7 +1404,7 @@
       - **[35]**:
         - **id**: 29
         - **label**: 29
-        - **box**:
+        - **retangulo**:
           - **x**: 1072
           - **y**: 126
           - **comprimento**: 30
@@ -1412,7 +1412,7 @@
       - **[36]**:
         - **id**: 30
         - **label**: 30
-        - **box**:
+        - **retangulo**:
           - **x**: 1158
           - **y**: 336
           - **comprimento**: 30
@@ -1420,7 +1420,7 @@
       - **[37]**:
         - **id**: 31
         - **label**: 31
-        - **box**:
+        - **retangulo**:
           - **x**: 478
           - **y**: 718
           - **comprimento**: 30
@@ -1428,7 +1428,7 @@
       - **[38]**:
         - **id**: 32
         - **label**: 32
-        - **box**:
+        - **retangulo**:
           - **x**: 74
           - **y**: 778
           - **comprimento**: 30
@@ -1436,7 +1436,7 @@
       - **[39]**:
         - **id**: Setores_Vizinhos
         - **label**: Setores Arquibancada, Acampamento e Gênesis
-        - **box**:
+        - **retangulo**:
           - **x**: 328
           - **y**: 923
           - **comprimento**: 700
@@ -1720,7 +1720,7 @@
       - **[0]**:
         - **id**: 01_topo
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 1150
           - **y**: 525
           - **comprimento**: 30
@@ -1728,7 +1728,7 @@
       - **[1]**:
         - **id**: 01_base
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 1210
           - **y**: 775
           - **comprimento**: 30
@@ -1736,7 +1736,7 @@
       - **[2]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 1165
           - **y**: 385
           - **comprimento**: 30
@@ -1744,7 +1744,7 @@
       - **[3]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 1160
           - **y**: 235
           - **comprimento**: 30
@@ -1752,7 +1752,7 @@
       - **[4]**:
         - **id**: 04_topo
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 670
           - **y**: 261
           - **comprimento**: 40
@@ -1760,7 +1760,7 @@
       - **[5]**:
         - **id**: 04_base
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 1055
           - **y**: 505
           - **comprimento**: 30
@@ -1768,7 +1768,7 @@
       - **[6]**:
         - **id**: 05_topo
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 977
           - **y**: 492
           - **comprimento**: 30
@@ -1776,7 +1776,7 @@
       - **[7]**:
         - **id**: 05_base
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 1090
           - **y**: 870
           - **comprimento**: 30
@@ -1784,7 +1784,7 @@
       - **[8]**:
         - **id**: 06_topo
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 995
           - **y**: 605
           - **comprimento**: 30
@@ -1792,7 +1792,7 @@
       - **[9]**:
         - **id**: 06_base
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 995
           - **y**: 635
           - **comprimento**: 30
@@ -1800,7 +1800,7 @@
       - **[10]**:
         - **id**: 07_topo
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 962
           - **y**: 552
           - **comprimento**: 30
@@ -1808,7 +1808,7 @@
       - **[11]**:
         - **id**: 07_base
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 961
           - **y**: 705
           - **comprimento**: 30
@@ -1816,7 +1816,7 @@
       - **[12]**:
         - **id**: 08_topo
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 877
           - **y**: 771
           - **comprimento**: 30
@@ -1824,7 +1824,7 @@
       - **[13]**:
         - **id**: 08_base
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 880
           - **y**: 815
           - **comprimento**: 30
@@ -1832,7 +1832,7 @@
       - **[14]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 920
           - **y**: 330
           - **comprimento**: 30
@@ -1840,7 +1840,7 @@
       - **[15]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 923
           - **y**: 193
           - **comprimento**: 30
@@ -1848,7 +1848,7 @@
       - **[16]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 795
           - **y**: 675
           - **comprimento**: 30
@@ -1856,7 +1856,7 @@
       - **[17]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 525
           - **y**: 380
           - **comprimento**: 30
@@ -1864,7 +1864,7 @@
       - **[18]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 670
           - **y**: 290
           - **comprimento**: 30
@@ -1872,7 +1872,7 @@
       - **[19]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 1026
           - **y**: 196
           - **comprimento**: 30
@@ -1880,7 +1880,7 @@
       - **[20]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 675
           - **y**: 599
           - **comprimento**: 30
@@ -1888,7 +1888,7 @@
       - **[21]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 585
           - **y**: 621
           - **comprimento**: 30
@@ -1896,7 +1896,7 @@
       - **[22]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 434
           - **y**: 496
           - **comprimento**: 30
@@ -1904,7 +1904,7 @@
       - **[23]**:
         - **id**: 19_topo
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 373
           - **y**: 275
           - **comprimento**: 30
@@ -1912,7 +1912,7 @@
       - **[24]**:
         - **id**: 19_meio
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 183
           - **y**: 531
           - **comprimento**: 30
@@ -1920,7 +1920,7 @@
       - **[25]**:
         - **id**: 19_base
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 90
           - **y**: 760
           - **comprimento**: 30
@@ -1928,7 +1928,7 @@
       - **[26]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 277
           - **y**: 255
           - **comprimento**: 30
@@ -1936,7 +1936,7 @@
       - **[27]**:
         - **id**: 21_topo
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 123
           - **y**: 375
           - **comprimento**: 30
@@ -1944,7 +1944,7 @@
       - **[28]**:
         - **id**: 21_base
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 60
           - **y**: 700
           - **comprimento**: 30
@@ -1952,7 +1952,7 @@
       - **[29]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **retangulo**:
           - **x**: 470
           - **y**: 200
           - **comprimento**: 30
@@ -1960,7 +1960,7 @@
       - **[30]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
+        - **retangulo**:
           - **x**: 1019
           - **y**: 379
           - **comprimento**: 30
@@ -1968,7 +1968,7 @@
       - **[31]**:
         - **id**: 24
         - **label**: 24
-        - **box**:
+        - **retangulo**:
           - **x**: 281
           - **y**: 426
           - **comprimento**: 30
@@ -1976,7 +1976,7 @@
       - **[32]**:
         - **id**: 25
         - **label**: 25
-        - **box**:
+        - **retangulo**:
           - **x**: 205
           - **y**: 175
           - **comprimento**: 30
@@ -1984,7 +1984,7 @@
       - **[33]**:
         - **id**: 26
         - **label**: 26
-        - **box**:
+        - **retangulo**:
           - **x**: 260
           - **y**: 95
           - **comprimento**: 30
@@ -1992,7 +1992,7 @@
       - **[34]**:
         - **id**: 27
         - **label**: 27
-        - **box**:
+        - **retangulo**:
           - **x**: 634
           - **y**: 107
           - **comprimento**: 30
@@ -2234,7 +2234,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 135
           - **y**: 695
           - **comprimento**: 30
@@ -2242,7 +2242,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 225
           - **y**: 695
           - **comprimento**: 30
@@ -2250,7 +2250,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 285
           - **y**: 695
           - **comprimento**: 30
@@ -2258,7 +2258,7 @@
       - **[3]**:
         - **id**: 04_topo
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 300
           - **y**: 355
           - **comprimento**: 30
@@ -2266,7 +2266,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 365
           - **y**: 695
           - **comprimento**: 30
@@ -2274,7 +2274,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 375
           - **y**: 270
           - **comprimento**: 30
@@ -2282,7 +2282,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 430
           - **y**: 695
           - **comprimento**: 30
@@ -2290,7 +2290,7 @@
       - **[7]**:
         - **id**: 08_topo
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 625
           - **y**: 295
           - **comprimento**: 30
@@ -2298,7 +2298,7 @@
       - **[8]**:
         - **id**: 08_base
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 530
           - **y**: 695
           - **comprimento**: 30
@@ -2306,7 +2306,7 @@
       - **[9]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 810
           - **y**: 355
           - **comprimento**: 30
@@ -2314,7 +2314,7 @@
       - **[10]**:
         - **id**: 10_topo
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 945
           - **y**: 465
           - **comprimento**: 30
@@ -2322,7 +2322,7 @@
       - **[11]**:
         - **id**: 10_base
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 570
           - **y**: 620
           - **comprimento**: 30
@@ -2330,7 +2330,7 @@
       - **[12]**:
         - **id**: 10_extra
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 1145
           - **y**: 455
           - **comprimento**: 30
@@ -2338,7 +2338,7 @@
       - **[13]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 835
           - **y**: 610
           - **comprimento**: 30
@@ -2346,7 +2346,7 @@
       - **[14]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 955
           - **y**: 555
           - **comprimento**: 30
@@ -2354,7 +2354,7 @@
       - **[15]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 1000
           - **y**: 615
           - **comprimento**: 30
@@ -2362,7 +2362,7 @@
       - **[16]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 1040
           - **y**: 175
           - **comprimento**: 30
@@ -2370,7 +2370,7 @@
       - **[17]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 1315
           - **y**: 335
           - **comprimento**: 30
@@ -2378,7 +2378,7 @@
       - **[18]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 1240
           - **y**: 505
           - **comprimento**: 30
@@ -2386,7 +2386,7 @@
       - **[19]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 1085
           - **y**: 490
           - **comprimento**: 30
@@ -2394,7 +2394,7 @@
       - **[20]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 1120
           - **y**: 345
           - **comprimento**: 30
@@ -2402,7 +2402,7 @@
       - **[21]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 1405
           - **y**: 435
           - **comprimento**: 30
@@ -2410,7 +2410,7 @@
       - **[22]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 1385
           - **y**: 650
           - **comprimento**: 30
@@ -2418,7 +2418,7 @@
       - **[23]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 1475
           - **y**: 495
           - **comprimento**: 30
@@ -2426,7 +2426,7 @@
       - **[24]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **retangulo**:
           - **x**: 1405
           - **y**: 285
           - **comprimento**: 30
@@ -2434,7 +2434,7 @@
       - **[25]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
+        - **retangulo**:
           - **x**: 1210
           - **y**: 75
           - **comprimento**: 30
@@ -2442,7 +2442,7 @@
       - **[26]**:
         - **id**: Setores_Vizinhos
         - **label**: Setores Arquibancada e Acampamento
-        - **box**:
+        - **retangulo**:
           - **x**: 1400
           - **y**: 787
           - **comprimento**: 500
@@ -2656,7 +2656,7 @@
       - **[0]**:
         - **id**: 01_topo
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 1178
           - **y**: 195
           - **comprimento**: 30
@@ -2664,7 +2664,7 @@
       - **[1]**:
         - **id**: 01_meio
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 1160
           - **y**: 360
           - **comprimento**: 30
@@ -2672,7 +2672,7 @@
       - **[2]**:
         - **id**: 01_base
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 1215
           - **y**: 625
           - **comprimento**: 30
@@ -2680,7 +2680,7 @@
       - **[3]**:
         - **id**: 02_topo
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 1085
           - **y**: 210
           - **comprimento**: 30
@@ -2688,7 +2688,7 @@
       - **[4]**:
         - **id**: 02_base
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 1145
           - **y**: 590
           - **comprimento**: 30
@@ -2696,7 +2696,7 @@
       - **[5]**:
         - **id**: 03_topo
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 1000
           - **y**: 245
           - **comprimento**: 30
@@ -2704,7 +2704,7 @@
       - **[6]**:
         - **id**: 03_base
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 990
           - **y**: 655
           - **comprimento**: 30
@@ -2712,7 +2712,7 @@
       - **[7]**:
         - **id**: 04_topo
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 910
           - **y**: 255
           - **comprimento**: 30
@@ -2720,7 +2720,7 @@
       - **[8]**:
         - **id**: 04_base
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 855
           - **y**: 645
           - **comprimento**: 30
@@ -2728,7 +2728,7 @@
       - **[9]**:
         - **id**: 05_topo
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 825
           - **y**: 245
           - **comprimento**: 30
@@ -2736,7 +2736,7 @@
       - **[10]**:
         - **id**: 05_base
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 770
           - **y**: 635
           - **comprimento**: 30
@@ -2744,7 +2744,7 @@
       - **[11]**:
         - **id**: 06_topo
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 740
           - **y**: 240
           - **comprimento**: 30
@@ -2752,7 +2752,7 @@
       - **[12]**:
         - **id**: 06_base
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 665
           - **y**: 610
           - **comprimento**: 30
@@ -2760,7 +2760,7 @@
       - **[13]**:
         - **id**: 07_topo
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 690
           - **y**: 235
           - **comprimento**: 30
@@ -2768,7 +2768,7 @@
       - **[14]**:
         - **id**: 07_base
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 515
           - **y**: 550
           - **comprimento**: 30
@@ -2776,7 +2776,7 @@
       - **[15]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 405
           - **y**: 395
           - **comprimento**: 30
@@ -2784,7 +2784,7 @@
       - **[16]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 255
           - **y**: 380
           - **comprimento**: 30
@@ -2792,7 +2792,7 @@
       - **[17]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 190
           - **y**: 380
           - **comprimento**: 30
@@ -2800,7 +2800,7 @@
       - **[18]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 125
           - **y**: 375
           - **comprimento**: 30
@@ -2808,7 +2808,7 @@
       - **[19]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 65
           - **y**: 370
           - **comprimento**: 30
@@ -2816,7 +2816,7 @@
       - **[20]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 935
           - **y**: 650
           - **comprimento**: 30
@@ -2824,7 +2824,7 @@
       - **[21]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 945
           - **y**: 340
           - **comprimento**: 30
@@ -2832,7 +2832,7 @@
       - **[22]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 305
           - **y**: 385
           - **comprimento**: 30
@@ -2840,7 +2840,7 @@
       - **[23]**:
         - **id**: Acampamento
         - **label**: Acampamento
-        - **box**:
+        - **retangulo**:
           - **x**: 702
           - **y**: 795
           - **comprimento**: 250

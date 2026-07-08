@@ -7,43 +7,43 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 553
       y: 1165
       raio: 29
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 673
       y: 1207
       raio: 29
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 876
       y: 1185
       raio: 29
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1367
       y: 1156
       raio: 29
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1554
       y: 1156
       raio: 29
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1767
       y: 1095
       raio: 29
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1918
       y: 1066
       raio: 29

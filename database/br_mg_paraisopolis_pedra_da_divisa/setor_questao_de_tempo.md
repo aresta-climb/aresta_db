@@ -7,39 +7,39 @@ mapas:
   pontos_de_interesse:
   - id: titulo
     label: SETOR QUESTÃO DE TEMPO
-    box:
+    retangulo:
       x: 303
       y: 121
       comprimento: 506
       largura: 87
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 458
       y: 250
       raio: 13
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 569
       y: 249
       raio: 13
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 745
       y: 230
       raio: 13
   - id: cervejas
     label: CERVEJAS
-    box:
+    retangulo:
       x: 358
       y: 645
       comprimento: 110
       largura: 30
   - id: hospicio
     label: HOSPÍCIO
-    box:
+    retangulo:
       x: 738
       y: 702
       comprimento: 110
@@ -84,7 +84,6 @@ escaladas:
     - Samuel Moreira
     data_abertura: '2020'
 ---
-
 
 ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 

@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 374
       y: 790
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 331
       y: 660
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 610
       y: 848
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 730
       y: 726
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 838
       y: 818
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 259
       y: 272
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 404
       y: 132
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1520
       y: 366
       raio: 13
@@ -105,5 +105,4 @@ escaladas:
     nome: Tutano
     dificuldade: V10
 ---
-
 

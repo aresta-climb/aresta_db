@@ -7,61 +7,61 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 477
       y: 441
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 953
       y: 400
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1087
       y: 426
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 203
       y: 924
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 591
       y: 930
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 804
       y: 854
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 939
       y: 818
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 981
       y: 930
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1213
       y: 980
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1183
       y: 788
       raio: 13
@@ -107,7 +107,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 481
       y: 795
       raio: 13
@@ -121,7 +121,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 414
       y: 954
       raio: 13
@@ -135,31 +135,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 142
       y: 968
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 511
       y: 955
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 907
       y: 948
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 494
       y: 229
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1367
       y: 124
       raio: 13
@@ -228,5 +228,4 @@ escaladas:
     nome: Super Bonder
     dificuldade: V6
 ---
-
 

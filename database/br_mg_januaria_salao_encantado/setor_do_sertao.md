@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Sertão
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_sertao_p0_i0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 56
       y: 857
       comprimento: 25
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 104
       y: 756
       comprimento: 23
       largura: 29
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 218
       y: 582
       comprimento: 24
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 236
       y: 526
       comprimento: 20
       largura: 30
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 252
       y: 423
       comprimento: 21
       largura: 30
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 244
       y: 362
       comprimento: 24
       largura: 31
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 219
       y: 303
       comprimento: 24
       largura: 30
   - id: Abrigo
     label: Abrigo
-    box:
+    retangulo:
       x: 133
       y: 38
       comprimento: 82
@@ -64,14 +64,14 @@ mapas:
       angulo_graus_x100: 1810
   - id: Mocó
     label: Mocó
-    box:
+    retangulo:
       x: 273
       y: 92
       comprimento: 36
       largura: 74
   - id: Pracinha
     label: Pracinha
-    box:
+    retangulo:
       x: 176
       y: 914
       comprimento: 117
@@ -128,7 +128,8 @@ escaladas:
     nome: Insolação
     dificuldade: BR_7A
     descricao: Via oposições em fendas. Protegida com chapeletas.
----
+---
+
 Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
 
 ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp)

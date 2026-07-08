@@ -7,61 +7,61 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 21
       y: 1383
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 472
       y: 1389
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 753
       y: 1300
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 823
       y: 1252
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 849
       y: 1157
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 1063
       y: 1193
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 1091
       y: 1228
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 1112
       y: 1266
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 1140
       y: 1313
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 1178
       y: 1324
       raio: 17
@@ -92,11 +92,11 @@ mapas:
     - '01'
     setor: Setor Trad
   - ids:
-    - '08'
+    - 08
     setor: Setor dos Tetos
     escalada: Lilith
   - ids:
-    - '09'
+    - 09
     setor: Setor dos Tetos
     escalada: Deu Brasil
 escaladas:

@@ -1,4 +1,4 @@
----
+---
 nome: ”Negativo” Central
 mapas:
 - caminho_imagem_mapa: imagens/setor_negativo_central_p0.webp
@@ -7,280 +7,280 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    box:
+    retangulo:
       x: 110
       y: 745
       comprimento: 30
       largura: 30
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 71
       y: 478
       comprimento: 30
       largura: 30
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 135
       y: 585
       comprimento: 30
       largura: 30
   - id: '04'
     label: '4'
-    box:
+    retangulo:
       x: 150
       y: 405
       comprimento: 30
       largura: 30
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 810
       y: 484
       comprimento: 30
       largura: 30
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 160
       y: 135
       comprimento: 30
       largura: 30
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 285
       y: 725
       comprimento: 30
       largura: 30
-  - id: '08'
+  - id: 08
     label: '8'
-    box:
+    retangulo:
       x: 375
       y: 725
       comprimento: 30
       largura: 30
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 230
       y: 235
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 260
       y: 340
       comprimento: 30
       largura: 30
   - id: 11_topo
     label: '11'
-    box:
+    retangulo:
       x: 325
       y: 295
       comprimento: 30
       largura: 30
   - id: 11_base
     label: '11'
-    box:
+    retangulo:
       x: 315
       y: 430
       comprimento: 30
       largura: 30
   - id: 12_base
     label: '12'
-    box:
+    retangulo:
       x: 305
       y: 585
       comprimento: 30
       largura: 30
   - id: 13_topo
     label: '13'
-    box:
+    retangulo:
       x: 465
       y: 385
       comprimento: 30
       largura: 30
   - id: 13_base
     label: '13'
-    box:
+    retangulo:
       x: 450
       y: 515
       comprimento: 30
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 418
       y: 712
       comprimento: 30
       largura: 30
   - id: 15_topo
     label: '15'
-    box:
+    retangulo:
       x: 433
       y: 198
       comprimento: 30
       largura: 30
   - id: 15_meio
     label: '15'
-    box:
+    retangulo:
       x: 505
       y: 345
       comprimento: 30
       largura: 30
   - id: 15_base
     label: '15'
-    box:
+    retangulo:
       x: 505
       y: 515
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 536
       y: 262
       comprimento: 30
       largura: 30
   - id: 17_topo
     label: '17'
-    box:
+    retangulo:
       x: 570
       y: 135
       comprimento: 30
       largura: 30
   - id: 17_base
     label: '17'
-    box:
+    retangulo:
       x: 655
       y: 365
       comprimento: 30
       largura: 30
   - id: 18_topo
     label: '18'
-    box:
+    retangulo:
       x: 594
       y: 288
       comprimento: 30
       largura: 30
   - id: 18_base
     label: '18'
-    box:
+    retangulo:
       x: 655
       y: 295
       comprimento: 30
       largura: 30
   - id: 19_topo
     label: '19'
-    box:
+    retangulo:
       x: 580
       y: 226
       comprimento: 30
       largura: 30
   - id: 19_base
     label: '19'
-    box:
+    retangulo:
       x: 645
       y: 225
       comprimento: 30
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 628
       y: 552
       comprimento: 30
       largura: 30
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 682
       y: 420
       comprimento: 30
       largura: 30
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 835
       y: 425
       comprimento: 30
       largura: 30
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 743
       y: 372
       comprimento: 30
       largura: 30
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 762
       y: 134
       comprimento: 30
       largura: 30
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 880
       y: 485
       comprimento: 30
       largura: 30
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 960
       y: 450
       comprimento: 30
       largura: 30
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 1068
       y: 542
       comprimento: 30
       largura: 30
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 1068
       y: 338
       comprimento: 30
       largura: 30
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 1072
       y: 126
       comprimento: 30
       largura: 30
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 1158
       y: 336
       comprimento: 30
       largura: 30
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 478
       y: 718
       comprimento: 30
       largura: 30
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 74
       y: 778
       comprimento: 30
       largura: 30
   - id: Setores_Vizinhos
     label: Setores Arquibancada, Acampamento e Gênesis
-    box:
+    retangulo:
       x: 328
       y: 923
       comprimento: 700
@@ -311,10 +311,10 @@ mapas:
     - '07'
   - escalada: Esqueleto
     ids:
-    - '08'
+    - 08
   - escalada: Brinco de Caveira
     ids:
-    - '09'
+    - 09
   - escalada: Bruce Lee (Projeto)
     ids:
     - '10'
@@ -483,5 +483,5 @@ escaladas:
 - via_esportiva:
     nome: Ceci
     dificuldade: BR_6SUP
----
+---
 

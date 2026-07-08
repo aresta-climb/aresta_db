@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 426
       y: 457
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 601
       y: 491
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 911
       y: 439
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1376
       y: 404
       raio: 13
   - id: E
     label: E
-    circular:
+    circulo:
       x: 1521
       y: 425
       raio: 13
   - id: F
     label: F
-    circular:
+    circulo:
       x: 1462
       y: 649
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 236
       y: 742
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 723
       y: 793
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 873
       y: 787
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 900
       y: 787
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1067
       y: 805
       raio: 13
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 1081
       y: 829
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1303
       y: 705
       raio: 13
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 1342
       y: 710
       raio: 16
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 1450
       y: 611
       raio: 13
@@ -154,67 +154,67 @@ mapas:
   pontos_de_interesse:
   - id: B
     label: B
-    circular:
+    circulo:
       x: 157
       y: 372
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 86
       y: 583
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 582
       y: 118
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1268
       y: 328
       raio: 13
   - id: ▲
     label: ▲
-    circular:
+    circulo:
       x: 301
       y: 730
       raio: 13
   - id: ★
     label: ★
-    circular:
+    circulo:
       x: 284
       y: 820
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 383
       y: 938
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 724
       y: 951
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 629
       y: 514
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 982
       y: 713
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 816
       y: 769
       raio: 13
@@ -267,43 +267,43 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 155
       y: 695
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 811
       y: 817
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 837
       y: 823
       raio: 13
   - id: ▲_esquerda
     label: ▲
-    circular:
+    circulo:
       x: 781
       y: 715
       raio: 13
   - id: ★_esquerda
     label: ★
-    circular:
+    circulo:
       x: 844
       y: 731
       raio: 13
   - id: ▲_direita
     label: ▲
-    circular:
+    circulo:
       x: 970
       y: 708
       raio: 13
   - id: ★_direita
     label: ★
-    circular:
+    circulo:
       x: 1032
       y: 775
       raio: 13
@@ -341,37 +341,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 343
       y: 1051
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 417
       y: 1051
       raio: 13
   - id: ▲_esquerda
     label: ▲
-    circular:
+    circulo:
       x: 230
       y: 733
       raio: 13
   - id: ★_esquerda
     label: ★
-    circular:
+    circulo:
       x: 371
       y: 611
       raio: 13
   - id: ▲_direita
     label: ▲
-    circular:
+    circulo:
       x: 576
       y: 684
       raio: 13
   - id: ★_direita
     label: ★
-    circular:
+    circulo:
       x: 897
       y: 829
       raio: 13
@@ -406,13 +406,13 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 76
       y: 321
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 231
       y: 469
       raio: 13
@@ -426,43 +426,43 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 344
       y: 504
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 856
       y: 376
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 901
       y: 693
       raio: 13
   - id: triangulo
     label: ▲
-    circular:
+    circulo:
       x: 1100
       y: 791
       raio: 13
   - id: estrela
     label: ★
-    circular:
+    circulo:
       x: 957
       y: 876
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 734
       y: 871
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1071
       y: 943
       raio: 13
@@ -507,13 +507,13 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 1005
       y: 227
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1096
       y: 764
       raio: 13
@@ -599,5 +599,4 @@ escaladas:
     nome: Passível
     dificuldade: V2
 ---
-
 

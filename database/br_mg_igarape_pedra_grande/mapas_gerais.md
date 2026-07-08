@@ -6,49 +6,49 @@ mapas:
   pontos_de_interesse:
   - id: Familia_I
     label: Setor Familia I
-    box:
+    retangulo:
       x: 1434
       y: 287
       comprimento: 196
       largura: 96
   - id: Familia_II
     label: Setor Familia II
-    box:
+    retangulo:
       x: 1232
       y: 330
       comprimento: 165
       largura: 119
   - id: Me_Leve
     label: Setor Me Leve ao Cume
-    box:
+    retangulo:
       x: 610
       y: 486
       comprimento: 198
       largura: 131
   - id: Estacionamento
     label: Setor Estacionamento
-    box:
+    retangulo:
       x: 1631
       y: 556
       comprimento: 260
       largura: 162
   - id: Tetos
     label: Setor Tetos
-    box:
+    retangulo:
       x: 607
       y: 826
       comprimento: 150
       largura: 102
   - id: Vale_Perdido
     label: Vale Perdido, BR 381 e Igarapé - MG
-    box:
+    retangulo:
       x: 1566
       y: 1279
       comprimento: 400
       largura: 25
   - id: micos
     label: Micos
-    area_livre:
+    poligono:
       coordenadas:
       - 1092
       - 746
@@ -64,7 +64,7 @@ mapas:
       - 796
   - id: pracinha
     label: Setor Pracinha
-    area_livre:
+    poligono:
       coordenadas:
       - 524
       - 883
@@ -78,7 +78,7 @@ mapas:
       - 880
   - id: igarameca
     label: Setor Igarameca
-    area_livre:
+    poligono:
       coordenadas:
       - 493
       - 928
@@ -100,7 +100,7 @@ mapas:
       - 929
   - id: totem
     label: Setor Totem
-    area_livre:
+    poligono:
       coordenadas:
       - 559
       - 989
@@ -151,35 +151,35 @@ mapas:
   pontos_de_interesse:
   - id: Totem
     label: Setor Toten
-    box:
+    retangulo:
       x: 249
       y: 524
       comprimento: 102
       largura: 81
   - id: Igarameca
     label: Setor Igarameca
-    box:
+    retangulo:
       x: 702
       y: 853
       comprimento: 185
       largura: 86
   - id: Pracinha
     label: Setor Pracinha
-    box:
+    retangulo:
       x: 1048
       y: 908
       comprimento: 165
       largura: 84
   - id: Tetos
     label: Setor Tetos
-    box:
+    retangulo:
       x: 1394
       y: 938
       comprimento: 103
       largura: 83
   - id: Me_Leve
     label: Setor Me Leve ao Cume
-    box:
+    retangulo:
       x: 1728
       y: 894
       comprimento: 164
@@ -202,3 +202,4 @@ mapas:
     setor: Setor Trad
     escalada: Me Leve ao Cume
 ---
+

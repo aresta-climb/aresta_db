@@ -1,4 +1,4 @@
----
+---
 nome: Preguiça
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 280
       y: 535
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 550
       y: 535
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 575
       y: 495
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 680
       y: 525
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 760
       y: 535
       comprimento: 30
@@ -110,7 +110,8 @@ escaladas:
 - boulder:
     nome: Carlos Drummond
     dificuldade: V7
----
+---
+
 # Setor Preguiça
 
 O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.

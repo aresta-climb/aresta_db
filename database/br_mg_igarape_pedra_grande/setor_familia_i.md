@@ -7,115 +7,115 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 708
       y: 226
       raio: 15
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 652
       y: 248
       raio: 15
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 590
       y: 289
       raio: 15
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 545
       y: 342
       raio: 15
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 501
       y: 385
       raio: 15
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 470
       y: 446
       raio: 15
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 515
       y: 549
       raio: 15
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 548
       y: 647
       raio: 15
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 828
       y: 1077
       raio: 15
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 918
       y: 1098
       raio: 15
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 997
       y: 1106
       raio: 15
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 1110
       y: 1105
       raio: 16
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 1200
       y: 1128
       raio: 15
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 1361
       y: 1090
       raio: 16
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 1437
       y: 1040
       raio: 16
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 1593
       y: 812
       raio: 16
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 1663
       y: 728
       raio: 16
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 1717
       y: 681
       raio: 15
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 1752
       y: 627
       raio: 15
@@ -172,11 +172,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - '08'
+    - 08
     setor: Setor Família I
     escalada: Chapas Onorixicas
   - ids:
-    - '09'
+    - 09
     setor: Setor Família I
     escalada: Tora Flex
 - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
@@ -185,115 +185,115 @@ mapas:
   pontos_de_interesse:
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 514
       y: 146
       raio: 17
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 552
       y: 189
       raio: 17
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 628
       y: 269
       raio: 17
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 761
       y: 425
       raio: 17
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 820
       y: 516
       raio: 17
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 910
       y: 632
       raio: 17
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 928
       y: 782
       raio: 17
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 930
       y: 916
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 904
       y: 999
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 845
       y: 1083
       raio: 17
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 230
       y: 1150
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 813
       y: 1144
       raio: 18
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 276
       y: 1174
       raio: 18
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 319
       y: 1207
       raio: 18
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 402
       y: 1243
       raio: 18
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 425
       y: 1289
       raio: 18
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 627
       y: 1281
       raio: 18
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 467
       y: 1316
       raio: 18
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 577
       y: 1311
       raio: 18
@@ -350,11 +350,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - '08'
+    - 08
     setor: Setor Família I
     escalada: Chapas Onorixicas
   - ids:
-    - '09'
+    - 09
     setor: Setor Família I
     escalada: Tora Flex
 escaladas:

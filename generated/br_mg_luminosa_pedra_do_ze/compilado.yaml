@@ -441,7 +441,7 @@ botoes:
 
 
         Dê preferência ao arquivo digital. Não imprima.'
-ultima_migracao: 3
+ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/agradecimentos_p0_i0.webp
   checksum_sha256: 1d36071b6d0ab70dea5445c273558d0b695349fd8bec71ec4ce41e49f399255f

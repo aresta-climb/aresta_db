@@ -7,63 +7,63 @@ mapas:
   pontos_de_interesse:
   - id: Sunset
     label: Sunset
-    box:
+    retangulo:
       x: 768
       y: 45
       comprimento: 75
       largura: 30
   - id: Camaroa
     label: Camaroa
-    box:
+    retangulo:
       x: 102
       y: 86
       comprimento: 92
       largura: 31
   - id: Aresta_Punk
     label: Aresta Punk
-    box:
+    retangulo:
       x: 252
       y: 114
       comprimento: 65
       largura: 46
   - id: Planetario
     label: Planetario
-    box:
+    retangulo:
       x: 381
       y: 161
       comprimento: 102
       largura: 30
   - id: Free_Solo
     label: Free Solo
-    box:
+    retangulo:
       x: 487
       y: 128
       comprimento: 56
       largura: 55
   - id: Carrapicho
     label: Carrapicho
-    box:
+    retangulo:
       x: 578
       y: 185
       comprimento: 110
       largura: 30
   - id: Jahngada
     label: Jahngada
-    box:
+    retangulo:
       x: 454
       y: 298
       comprimento: 104
       largura: 36
   - id: Capitão_Jack
     label: Capitão Jack
-    box:
+    retangulo:
       x: 243
       y: 372
       comprimento: 78
       largura: 53
   - id: Aleijadinho
     label: Aleijadinho
-    box:
+    retangulo:
       x: 343
       y: 488
       comprimento: 118
@@ -111,6 +111,7 @@ setores:
 - caminho: grupo_sunset_setor_sunset.md
 - caminho: grupo_sunset_setor_camaroa.md
 ---
+
 # Grupo Sunset
 
 O local está localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso pôr-do-sol!

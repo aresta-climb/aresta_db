@@ -6,21 +6,21 @@ mapas:
   pontos_de_interesse:
   - id: Sub-setor_Beija_Flor
     label: Sub-setor Beija Flor
-    box:
+    retangulo:
       x: 724
       y: 364
       comprimento: 212
       largura: 29
   - id: Conjunto_por-do-sol
     label: Conjunto pôr-do-sol
-    box:
+    retangulo:
       x: 771
       y: 460
       comprimento: 216
       largura: 29
   - id: Sub-setor_Moctezuma
     label: Sub-setor Moctezuma
-    box:
+    retangulo:
       x: 851
       y: 529
       comprimento: 248
@@ -36,3 +36,4 @@ mapas:
     ids:
     - Sub-setor_Moctezuma
 ---
+

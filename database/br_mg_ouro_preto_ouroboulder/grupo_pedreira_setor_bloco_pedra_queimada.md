@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 1509
       y: 280
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 684
       y: 308
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 390
       y: 816
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 706
       y: 857
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 514
       y: 780
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 766
       y: 799
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1108
       y: 604
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1313
       y: 761
       raio: 13
@@ -88,7 +88,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 633
       y: 731
       raio: 13
@@ -126,5 +126,4 @@ escaladas:
     nome: Identidade
     dificuldade: V0
 ---
-
 

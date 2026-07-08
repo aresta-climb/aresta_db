@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 667
       y: 711
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 696
       y: 755
       raio: 17
@@ -30,43 +30,43 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 343
       y: 699
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 968
       y: 727
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 874
       y: 748
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 862
       y: 804
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 368
       y: 838
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 839
       y: 906
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 821
       y: 1015
       raio: 17
@@ -98,31 +98,31 @@ mapas:
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 295
       y: 782
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 376
       y: 803
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 480
       y: 821
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 590
       y: 821
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 681
       y: 811
       raio: 17

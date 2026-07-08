@@ -22,55 +22,55 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 190
               y: 968
               raio: 15
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 382
               y: 968
               raio: 15
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 604
               y: 968
               raio: 15
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 893
               y: 968
               raio: 15
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 1007
               y: 968
               raio: 15
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1274
               y: 968
               raio: 15
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1620
               y: 969
               raio: 15
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 1748
               y: 968
               raio: 15
           - id: '9'
             label: '9'
-            circular:
+            circulo:
               x: 1899
               y: 968
               raio: 15
@@ -108,13 +108,13 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 519
               y: 1135
               raio: 15
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 846
               y: 1127
               raio: 14
@@ -131,19 +131,19 @@ picos:
           pontos_de_interesse:
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 35
               y: 1132
               raio: 15
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 364
               y: 1099
               raio: 15
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 478
               y: 1092
               raio: 15
@@ -163,25 +163,25 @@ picos:
           pontos_de_interesse:
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 49
               y: 1134
               raio: 14
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 519
               y: 1135
               raio: 14
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 646
               y: 1130
               raio: 15
           - id: '9'
             label: '9'
-            circular:
+            circulo:
               x: 798
               y: 1118
               raio: 15
@@ -264,67 +264,67 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 207
               y: 892
               raio: 15
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 262
               y: 903
               raio: 15
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 316
               y: 891
               raio: 15
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 353
               y: 891
               raio: 15
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 454
               y: 890
               raio: 15
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 633
               y: 867
               raio: 15
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 732
               y: 894
               raio: 15
           - id: 8-9
             label: 8-9
-            circular:
+            circulo:
               x: 770
               y: 893
               raio: 19
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 1072
               y: 914
               raio: 15
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 1224
               y: 927
               raio: 15
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 1259
               y: 928
               raio: 15
@@ -460,49 +460,49 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 176
               y: 891
               raio: 15
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 697
               y: 1010
               raio: 15
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 951
               y: 1009
               raio: 15
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 1187
               y: 971
               raio: 15
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 1275
               y: 971
               raio: 15
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1364
               y: 990
               raio: 15
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1575
               y: 984
               raio: 15
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 1660
               y: 984
               raio: 15
@@ -537,7 +537,7 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 300
               y: 889
               raio: 15
@@ -551,13 +551,13 @@ picos:
           pontos_de_interesse:
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 330
               y: 1007
               raio: 15
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 585
               y: 1129
               raio: 15
@@ -574,31 +574,31 @@ picos:
           pontos_de_interesse:
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 11
               y: 1106
               raio: 14
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 174
               y: 942
               raio: 15
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 323
               y: 1110
               raio: 15
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 533
               y: 1104
               raio: 15
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 619
               y: 1104
               raio: 15
@@ -678,49 +678,49 @@ picos:
         pontos_de_interesse:
         - id: A2
           label: A2
-          box:
+          retangulo:
             x: 417
             y: 142
             comprimento: 32
             largura: 26
         - id: Rastro
           label: Rastro
-          box:
+          retangulo:
             x: 502
             y: 154
             comprimento: 73
             largura: 29
         - id: Corumba
           label: Corumbá
-          box:
+          retangulo:
             x: 366
             y: 240
             comprimento: 99
             largura: 27
         - id: Quilombo
           label: Quilombo
-          box:
+          retangulo:
             x: 504
             y: 255
             comprimento: 109
             largura: 26
         - id: Novo_Mundo
           label: Novo Mundo
-          box:
+          retangulo:
             x: 527
             y: 333
             comprimento: 142
             largura: 26
         - id: Jucarmo
           label: Jucarmo
-          box:
+          retangulo:
             x: 190
             y: 380
             comprimento: 95
             largura: 31
         - id: La_Bombonera
           label: La Bombonera
-          box:
+          retangulo:
             x: 396
             y: 469
             comprimento: 161
@@ -731,7 +731,7 @@ picos:
         pontos_de_interesse:
         - id: Setor_Bosque
           label: Setor Bosque
-          box:
+          retangulo:
             x: 634
             y: 337
             comprimento: 231
@@ -739,7 +739,7 @@ picos:
             angulo_graus_x100: 1277
         - id: Setor_Bombonera
           label: Setor Bombonera
-          box:
+          retangulo:
             x: 968
             y: 442
             comprimento: 389
@@ -747,7 +747,7 @@ picos:
             angulo_graus_x100: 1859
         - id: Setor_Esquerda
           label: Setor Esquerda
-          box:
+          retangulo:
             x: 1304
             y: 565
             comprimento: 227
@@ -857,7 +857,7 @@ botoes:
 
 
         **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

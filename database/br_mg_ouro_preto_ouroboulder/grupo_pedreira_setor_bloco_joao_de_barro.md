@@ -7,19 +7,19 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 84
       y: 257
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 718
       y: 266
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1226
       y: 1034
       raio: 13
@@ -38,31 +38,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1296
       y: 923
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 377
       y: 81
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 541
       y: 634
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 260
       y: 663
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 175
       y: 607
       raio: 14
@@ -91,25 +91,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 462
       y: 882
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 503
       y: 882
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 631
       y: 127
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1354
       y: 97
       raio: 13
@@ -154,5 +154,4 @@ escaladas:
     nome: João de Barro
     dificuldade: V4
 ---
-
 

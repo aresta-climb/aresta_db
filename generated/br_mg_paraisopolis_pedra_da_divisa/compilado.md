@@ -140,7 +140,7 @@
             | ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp) |
             | :--: |
             | *Foto de escalada na contracapa* |
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 
 
@@ -169,7 +169,7 @@
       - **[0]**:
         - **id**: titulo
         - **label**: SETOR CANGAÇO
-        - **box**:
+        - **retangulo**:
           - **x**: 166
           - **y**: 72
           - **comprimento**: 256
@@ -177,133 +177,133 @@
       - **[1]**:
         - **id**: 01_bot
         - **label**: 01
-        - **circular**:
+        - **circulo**:
           - **x**: 56
           - **y**: 587
           - **raio**: 12
       - **[2]**:
         - **id**: 02_bot
         - **label**: 02
-        - **circular**:
+        - **circulo**:
           - **x**: 139
           - **y**: 596
           - **raio**: 11
       - **[3]**:
         - **id**: 03_bot
         - **label**: 03
-        - **circular**:
+        - **circulo**:
           - **x**: 265
           - **y**: 607
           - **raio**: 12
       - **[4]**:
         - **id**: 02_mid
         - **label**: 02
-        - **circular**:
+        - **circulo**:
           - **x**: 140
           - **y**: 209
           - **raio**: 12
       - **[5]**:
         - **id**: 03_mid
         - **label**: 03
-        - **circular**:
+        - **circulo**:
           - **x**: 208
           - **y**: 192
           - **raio**: 12
       - **[6]**:
         - **id**: 04_top
         - **label**: 04
-        - **circular**:
+        - **circulo**:
           - **x**: 500
           - **y**: 206
           - **raio**: 12
       - **[7]**:
         - **id**: 05_top
         - **label**: 05
-        - **circular**:
+        - **circulo**:
           - **x**: 574
           - **y**: 194
           - **raio**: 12
       - **[8]**:
         - **id**: 06_mid
         - **label**: 06
-        - **circular**:
+        - **circulo**:
           - **x**: 750
           - **y**: 248
           - **raio**: 12
       - **[9]**:
         - **id**: 06_bot
         - **label**: 06
-        - **circular**:
+        - **circulo**:
           - **x**: 611
           - **y**: 662
           - **raio**: 12
       - **[10]**:
         - **id**: 07_bot
         - **label**: 07
-        - **circular**:
+        - **circulo**:
           - **x**: 768
           - **y**: 661
           - **raio**: 12
       - **[11]**:
         - **id**: 08_bot
         - **label**: 08
-        - **circular**:
+        - **circulo**:
           - **x**: 945
           - **y**: 671
           - **raio**: 12
       - **[12]**:
         - **id**: 09_bot
         - **label**: 09
-        - **circular**:
+        - **circulo**:
           - **x**: 1000
           - **y**: 670
           - **raio**: 12
       - **[13]**:
         - **id**: 10_bot
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 1072
           - **y**: 662
           - **raio**: 12
       - **[14]**:
         - **id**: 09_top
         - **label**: 09
-        - **circular**:
+        - **circulo**:
           - **x**: 937
           - **y**: 112
           - **raio**: 12
       - **[15]**:
         - **id**: 10_top
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 1072
           - **y**: 178
           - **raio**: 12
       - **[16]**:
         - **id**: 11_top
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 1171
           - **y**: 159
           - **raio**: 12
       - **[17]**:
         - **id**: 12_top
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 1257
           - **y**: 145
           - **raio**: 12
       - **[18]**:
         - **id**: 13_top
         - **label**: 13
-        - **circular**:
+        - **circulo**:
           - **x**: 1348
           - **y**: 134
           - **raio**: 12
       - **[19]**:
         - **id**: ditados
         - **label**: DITADOS
-        - **box**:
+        - **retangulo**:
           - **x**: 1479
           - **y**: 661
           - **comprimento**: 110
@@ -489,7 +489,7 @@
       - **[0]**:
         - **id**: titulo
         - **label**: SETOR DITADOS
-        - **box**:
+        - **retangulo**:
           - **x**: 689
           - **y**: 85
           - **comprimento**: 235
@@ -497,70 +497,70 @@
       - **[1]**:
         - **id**: 14
         - **label**: 14
-        - **circular**:
+        - **circulo**:
           - **x**: 165
           - **y**: 154
           - **raio**: 14
       - **[2]**:
         - **id**: 16
         - **label**: 16
-        - **circular**:
+        - **circulo**:
           - **x**: 291
           - **y**: 143
           - **raio**: 14
       - **[3]**:
         - **id**: 19_top
         - **label**: 19
-        - **circular**:
+        - **circulo**:
           - **x**: 431
           - **y**: 131
           - **raio**: 14
       - **[4]**:
         - **id**: 20
         - **label**: 20
-        - **circular**:
+        - **circulo**:
           - **x**: 653
           - **y**: 348
           - **raio**: 14
       - **[5]**:
         - **id**: 21
         - **label**: 21
-        - **circular**:
+        - **circulo**:
           - **x**: 714
           - **y**: 350
           - **raio**: 14
       - **[6]**:
         - **id**: 15
         - **label**: 15
-        - **circular**:
+        - **circulo**:
           - **x**: 218
           - **y**: 735
           - **raio**: 14
       - **[7]**:
         - **id**: 17
         - **label**: 17
-        - **circular**:
+        - **circulo**:
           - **x**: 433
           - **y**: 734
           - **raio**: 14
       - **[8]**:
         - **id**: 18
         - **label**: 18
-        - **circular**:
+        - **circulo**:
           - **x**: 589
           - **y**: 718
           - **raio**: 14
       - **[9]**:
         - **id**: 19_bot
         - **label**: 19
-        - **circular**:
+        - **circulo**:
           - **x**: 662
           - **y**: 713
           - **raio**: 14
       - **[10]**:
         - **id**: cangaco
         - **label**: CANGAÇO
-        - **box**:
+        - **retangulo**:
           - **x**: 117
           - **y**: 766
           - **comprimento**: 114
@@ -687,7 +687,7 @@
       - **[0]**:
         - **id**: titulo
         - **label**: SETOR CERVEJAS
-        - **box**:
+        - **retangulo**:
           - **x**: 187
           - **y**: 87
           - **comprimento**: 250
@@ -695,105 +695,105 @@
       - **[1]**:
         - **id**: 20
         - **label**: 20
-        - **circular**:
+        - **circulo**:
           - **x**: 85
           - **y**: 319
           - **raio**: 17
       - **[2]**:
         - **id**: 21
         - **label**: 21
-        - **circular**:
+        - **circulo**:
           - **x**: 168
           - **y**: 314
           - **raio**: 17
       - **[3]**:
         - **id**: 22
         - **label**: 22
-        - **circular**:
+        - **circulo**:
           - **x**: 257
           - **y**: 320
           - **raio**: 17
       - **[4]**:
         - **id**: 23
         - **label**: 23
-        - **circular**:
+        - **circulo**:
           - **x**: 322
           - **y**: 312
           - **raio**: 17
       - **[5]**:
         - **id**: 24
         - **label**: 24
-        - **circular**:
+        - **circulo**:
           - **x**: 493
           - **y**: 313
           - **raio**: 17
       - **[6]**:
         - **id**: 25
         - **label**: 25
-        - **circular**:
+        - **circulo**:
           - **x**: 577
           - **y**: 271
           - **raio**: 17
       - **[7]**:
         - **id**: 26
         - **label**: 26
-        - **circular**:
+        - **circulo**:
           - **x**: 686
           - **y**: 190
           - **raio**: 17
       - **[8]**:
         - **id**: 27
         - **label**: 27
-        - **circular**:
+        - **circulo**:
           - **x**: 779
           - **y**: 178
           - **raio**: 17
       - **[9]**:
         - **id**: 28
         - **label**: 28
-        - **circular**:
+        - **circulo**:
           - **x**: 892
           - **y**: 172
           - **raio**: 17
       - **[10]**:
         - **id**: 29
         - **label**: 29
-        - **circular**:
+        - **circulo**:
           - **x**: 1271
           - **y**: 725
           - **raio**: 17
       - **[11]**:
         - **id**: 30
         - **label**: 30
-        - **circular**:
+        - **circulo**:
           - **x**: 1391
           - **y**: 56
           - **raio**: 17
       - **[12]**:
         - **id**: 31
         - **label**: 31
-        - **circular**:
+        - **circulo**:
           - **x**: 1457
           - **y**: 68
           - **raio**: 17
       - **[13]**:
         - **id**: 32
         - **label**: 32
-        - **circular**:
+        - **circulo**:
           - **x**: 1430
           - **y**: 602
           - **raio**: 17
       - **[14]**:
         - **id**: 33
         - **label**: 33
-        - **circular**:
+        - **circulo**:
           - **x**: 1545
           - **y**: 593
           - **raio**: 17
       - **[15]**:
         - **id**: ditados
         - **label**: DITADOS
-        - **box**:
+        - **retangulo**:
           - **x**: 118
           - **y**: 769
           - **comprimento**: 103
@@ -801,7 +801,7 @@
       - **[16]**:
         - **id**: questao_de_tempo
         - **label**: QUESTÃO DE TEMPO
-        - **box**:
+        - **retangulo**:
           - **x**: 1465
           - **y**: 713
           - **comprimento**: 223
@@ -1004,7 +1004,7 @@
       - **[0]**:
         - **id**: titulo
         - **label**: SETOR QUESTÃO DE TEMPO
-        - **box**:
+        - **retangulo**:
           - **x**: 303
           - **y**: 121
           - **comprimento**: 506
@@ -1012,28 +1012,28 @@
       - **[1]**:
         - **id**: 01
         - **label**: 01
-        - **circular**:
+        - **circulo**:
           - **x**: 458
           - **y**: 250
           - **raio**: 13
       - **[2]**:
         - **id**: 02
         - **label**: 02
-        - **circular**:
+        - **circulo**:
           - **x**: 569
           - **y**: 249
           - **raio**: 13
       - **[3]**:
         - **id**: 03
         - **label**: 03
-        - **circular**:
+        - **circulo**:
           - **x**: 745
           - **y**: 230
           - **raio**: 13
       - **[4]**:
         - **id**: cervejas
         - **label**: CERVEJAS
-        - **box**:
+        - **retangulo**:
           - **x**: 358
           - **y**: 645
           - **comprimento**: 110
@@ -1041,7 +1041,7 @@
       - **[5]**:
         - **id**: hospicio
         - **label**: HOSPÍCIO
-        - **box**:
+        - **retangulo**:
           - **x**: 738
           - **y**: 702
           - **comprimento**: 110
@@ -1108,42 +1108,42 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **circular**:
+        - **circulo**:
           - **x**: 257
           - **y**: 100
           - **raio**: 20
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **circular**:
+        - **circulo**:
           - **x**: 368
           - **y**: 313
           - **raio**: 20
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **circular**:
+        - **circulo**:
           - **x**: 475
           - **y**: 325
           - **raio**: 20
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **circular**:
+        - **circulo**:
           - **x**: 676
           - **y**: 333
           - **raio**: 20
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **circular**:
+        - **circulo**:
           - **x**: 853
           - **y**: 452
           - **raio**: 20
       - **[5]**:
         - **id**: cervejas
         - **label**: CERVEJAS
-        - **box**:
+        - **retangulo**:
           - **x**: 124
           - **y**: 688
           - **comprimento**: 114
@@ -1151,7 +1151,7 @@
       - **[6]**:
         - **id**: blocos_soltos
         - **label**: Blocos soltos
-        - **box**:
+        - **retangulo**:
           - **x**: 1095
           - **y**: 432
           - **comprimento**: 31

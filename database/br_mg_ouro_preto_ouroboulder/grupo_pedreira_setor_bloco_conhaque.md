@@ -7,37 +7,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 20
       y: 1023
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 523
       y: 1035
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 693
       y: 1003
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1283
       y: 973
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 359
       y: 184
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1034
       y: 26
       raio: 13
@@ -78,5 +78,4 @@ escaladas:
     nome: Conhaque Presidente
     dificuldade: V6
 ---
-
 

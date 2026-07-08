@@ -7,84 +7,84 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping (Savassinha)
-    box:
+    retangulo:
       x: 360
       y: 57
       comprimento: 66
       largura: 54
   - id: Gruta
     label: Gruta
-    box:
+    retangulo:
       x: 513
       y: 246
       comprimento: 40
       largura: 21
   - id: Totem_Pedra
     label: TOTEM PEDRA
-    box:
+    retangulo:
       x: 270
       y: 510
       comprimento: 47
       largura: 28
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 516
       y: 488
       comprimento: 17
       largura: 17
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 534
       y: 484
       comprimento: 19
       largura: 17
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 554
       y: 505
       comprimento: 20
       largura: 16
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 584
       y: 512
       comprimento: 19
       largura: 16
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 574
       y: 543
       comprimento: 19
       largura: 16
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 580
       y: 559
       comprimento: 19
       largura: 16
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 603
       y: 574
       comprimento: 20
       largura: 15
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 632
       y: 584
       comprimento: 21
       largura: 17
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 672
       y: 597
       comprimento: 21
@@ -112,11 +112,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - '08'
+    - 08
     setor: Setor Grutinha
     escalada: Respeite os Mais Velhos
   - ids:
-    - '09'
+    - 09
     setor: Setor Grutinha
     escalada: Quem Ama Implanta
   - ids:

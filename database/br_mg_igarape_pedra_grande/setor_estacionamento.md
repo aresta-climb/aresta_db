@@ -7,115 +7,115 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 533
       y: 527
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 590
       y: 561
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 617
       y: 601
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 651
       y: 623
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 778
       y: 706
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 905
       y: 377
       raio: 18
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 913
       y: 774
       raio: 18
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 980
       y: 809
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 1043
       y: 849
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 1111
       y: 888
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 1195
       y: 918
       raio: 17
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 1349
       y: 1037
       raio: 17
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 1684
       y: 1071
       raio: 17
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 1729
       y: 1024
       raio: 17
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 1765
       y: 963
       raio: 17
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 1804
       y: 923
       raio: 17
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 1840
       y: 476
       raio: 17
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 1877
       y: 367
       raio: 17
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 1901
       y: 519
       raio: 17
@@ -172,11 +172,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - '08'
+    - 08
     setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
-    - '09'
+    - 09
     setor: Setor Estacionamento
     escalada: 101 Dalmatas
 - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
@@ -185,115 +185,115 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 346
       y: 189
       raio: 17
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 406
       y: 185
       raio: 18
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 475
       y: 216
       raio: 18
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 269
       y: 235
       raio: 17
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 314
       y: 233
       raio: 17
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 516
       y: 240
       raio: 17
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 560
       y: 236
       raio: 18
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 644
       y: 429
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 636
       y: 505
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 625
       y: 558
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 614
       y: 610
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 606
       y: 671
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 606
       y: 707
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 604
       y: 768
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 595
       y: 868
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 584
       y: 915
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 569
       y: 961
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 553
       y: 1024
       raio: 17
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 541
       y: 1077
       raio: 17
@@ -350,11 +350,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - '08'
+    - 08
     setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
-    - '09'
+    - 09
     setor: Setor Estacionamento
     escalada: 101 Dalmatas
 escaladas:

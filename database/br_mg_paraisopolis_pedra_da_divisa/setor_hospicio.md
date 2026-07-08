@@ -7,44 +7,44 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 257
       y: 100
       raio: 20
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 368
       y: 313
       raio: 20
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 475
       y: 325
       raio: 20
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 676
       y: 333
       raio: 20
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 853
       y: 452
       raio: 20
   - id: cervejas
     label: CERVEJAS
-    box:
+    retangulo:
       x: 124
       y: 688
       comprimento: 114
       largura: 24
   - id: blocos_soltos
     label: Blocos soltos
-    box:
+    retangulo:
       x: 1095
       y: 432
       comprimento: 31
@@ -113,6 +113,5 @@ escaladas:
     - Michel Gonçalves
     data_abertura: '2020'
 ---
-
 
 **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 12 costuras.

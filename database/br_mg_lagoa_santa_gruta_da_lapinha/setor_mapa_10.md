@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '125'
     label: '125'
-    box:
+    retangulo:
       x: 123
       y: 183
       comprimento: 14
       largura: 12
   - id: '126'
     label: '126'
-    box:
+    retangulo:
       x: 103
       y: 163
       comprimento: 14
       largura: 12
   - id: '127'
     label: '127'
-    box:
+    retangulo:
       x: 67
       y: 168
       comprimento: 14
       largura: 12
   - id: '128'
     label: '128'
-    box:
+    retangulo:
       x: 45
       y: 153
       comprimento: 14
       largura: 12
   - id: '129'
     label: '129'
-    box:
+    retangulo:
       x: 33
       y: 137
       comprimento: 14
       largura: 12
   - id: '130'
     label: '130'
-    box:
+    retangulo:
       x: 50
       y: 88
       comprimento: 14
       largura: 12
   - id: '131'
     label: '131'
-    box:
+    retangulo:
       x: 75
       y: 58
       comprimento: 14

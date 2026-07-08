@@ -7,229 +7,229 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 88
       y: 1153
       raio: 14
   - id: a
     label: a
-    circular:
+    circulo:
       x: 130
       y: 1144
       raio: 14
   - id: b
     label: b
-    circular:
+    circulo:
       x: 160
       y: 1141
       raio: 14
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 110
       y: 1173
       raio: 14
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 169
       y: 1173
       raio: 15
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 202
       y: 1172
       raio: 15
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 231
       y: 1183
       raio: 14
   - id: c
     label: c
-    circular:
+    circulo:
       x: 263
       y: 1184
       raio: 14
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 289
       y: 1158
       raio: 14
   - id: d
     label: d
-    circular:
+    circulo:
       x: 366
       y: 1151
       raio: 14
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 395
       y: 1142
       raio: 14
   - id: e
     label: e
-    circular:
+    circulo:
       x: 404
       y: 1096
       raio: 14
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 448
       y: 1157
       raio: 14
   - id: f
     label: f
-    circular:
+    circulo:
       x: 487
       y: 1157
       raio: 14
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 473
       y: 1131
       raio: 14
   - id: g
     label: g
-    circular:
+    circulo:
       x: 536
       y: 1081
       raio: 14
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 592
       y: 569
       raio: 15
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 1110
       y: 628
       raio: 15
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 468
       y: 730
       raio: 14
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 631
       y: 1269
       raio: 15
   - id: h
     label: h
-    circular:
+    circulo:
       x: 813
       y: 1268
       raio: 14
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 844
       y: 1265
       raio: 14
   - id: i
     label: i
-    circular:
+    circulo:
       x: 886
       y: 1246
       raio: 14
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 934
       y: 1237
       raio: 14
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 965
       y: 1239
       raio: 15
   - id: j
     label: j
-    circular:
+    circulo:
       x: 1138
       y: 1251
       raio: 14
   - id: k
     label: k
-    circular:
+    circulo:
       x: 1214
       y: 1249
       raio: 14
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 1481
       y: 1216
       raio: 14
   - id: m
     label: m
-    circular:
+    circulo:
       x: 1452
       y: 1226
       raio: 14
   - id: n
     label: n
-    circular:
+    circulo:
       x: 1575
       y: 1198
       raio: 14
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 1606
       y: 1195
       raio: 14
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 1641
       y: 1164
       raio: 14
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 1717
       y: 1098
       raio: 14
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 1744
       y: 1084
       raio: 14
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 1771
       y: 1069
       raio: 15
   - id: '23'
     label: '23'
-    circular:
+    circulo:
       x: 1833
       y: 1051
       raio: 15
   - id: '24'
     label: '24'
-    circular:
+    circulo:
       x: 1895
       y: 1045
       raio: 15
   - id: L
     label: L
-    circular:
+    circulo:
       x: 1362
       y: 1213
       raio: 14
@@ -272,10 +272,10 @@ mapas:
     - e
   - escalada: Absoluta Inconsequência
     ids:
-    - '08'
+    - 08
   - escalada: Inconsequência Moderada
     ids:
-    - '09'
+    - 09
   - escalada: Mentiras Sinceras
     ids:
     - '10'

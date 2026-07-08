@@ -1,4 +1,4 @@
----
+---
 nome: Arquibancada
 mapas:
 - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
@@ -7,245 +7,245 @@ mapas:
   pontos_de_interesse:
   - id: 01_topo
     label: '1'
-    box:
+    retangulo:
       x: 1150
       y: 525
       comprimento: 30
       largura: 30
   - id: 01_base
     label: '1'
-    box:
+    retangulo:
       x: 1210
       y: 775
       comprimento: 30
       largura: 30
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 1165
       y: 385
       comprimento: 30
       largura: 30
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 1160
       y: 235
       comprimento: 30
       largura: 30
   - id: 04_topo
     label: '4'
-    box:
+    retangulo:
       x: 670
       y: 261
       comprimento: 40
       largura: 40
   - id: 04_base
     label: '4'
-    box:
+    retangulo:
       x: 1055
       y: 505
       comprimento: 30
       largura: 30
   - id: 05_topo
     label: '5'
-    box:
+    retangulo:
       x: 977
       y: 492
       comprimento: 30
       largura: 30
   - id: 05_base
     label: '5'
-    box:
+    retangulo:
       x: 1090
       y: 870
       comprimento: 30
       largura: 30
   - id: 06_topo
     label: '6'
-    box:
+    retangulo:
       x: 995
       y: 605
       comprimento: 30
       largura: 30
   - id: 06_base
     label: '6'
-    box:
+    retangulo:
       x: 995
       y: 635
       comprimento: 30
       largura: 30
   - id: 07_topo
     label: '7'
-    box:
+    retangulo:
       x: 962
       y: 552
       comprimento: 30
       largura: 30
   - id: 07_base
     label: '7'
-    box:
+    retangulo:
       x: 961
       y: 705
       comprimento: 30
       largura: 30
   - id: 08_topo
     label: '8'
-    box:
+    retangulo:
       x: 877
       y: 771
       comprimento: 30
       largura: 30
   - id: 08_base
     label: '8'
-    box:
+    retangulo:
       x: 880
       y: 815
       comprimento: 30
       largura: 30
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 920
       y: 330
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 923
       y: 193
       comprimento: 30
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 795
       y: 675
       comprimento: 30
       largura: 30
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 525
       y: 380
       comprimento: 30
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 670
       y: 290
       comprimento: 30
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 1026
       y: 196
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 675
       y: 599
       comprimento: 30
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 585
       y: 621
       comprimento: 30
       largura: 30
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 434
       y: 496
       comprimento: 30
       largura: 30
   - id: 19_topo
     label: '19'
-    box:
+    retangulo:
       x: 373
       y: 275
       comprimento: 30
       largura: 30
   - id: 19_meio
     label: '19'
-    box:
+    retangulo:
       x: 183
       y: 531
       comprimento: 30
       largura: 30
   - id: 19_base
     label: '19'
-    box:
+    retangulo:
       x: 90
       y: 760
       comprimento: 30
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 277
       y: 255
       comprimento: 30
       largura: 30
   - id: 21_topo
     label: '21'
-    box:
+    retangulo:
       x: 123
       y: 375
       comprimento: 30
       largura: 30
   - id: 21_base
     label: '21'
-    box:
+    retangulo:
       x: 60
       y: 700
       comprimento: 30
       largura: 30
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 470
       y: 200
       comprimento: 30
       largura: 30
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 1019
       y: 379
       comprimento: 30
       largura: 30
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 281
       y: 426
       comprimento: 30
       largura: 30
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 205
       y: 175
       comprimento: 30
       largura: 30
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 260
       y: 95
       comprimento: 30
       largura: 30
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 634
       y: 107
       comprimento: 30
@@ -279,8 +279,8 @@ mapas:
     - 08_base
   - escalada: Ext. Soco Inglês P1
     ids:
-    - '09'
-    - '09'
+    - 09
+    - 09
   - escalada: Ex. Soco Inglês P2 (Projeto)
     ids:
     - '10'
@@ -417,5 +417,5 @@ escaladas:
 - via_esportiva:
     nome: Face Oculta (Projeto)
     dificuldade: PROJETO
----
+---
 

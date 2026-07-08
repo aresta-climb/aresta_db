@@ -1,4 +1,4 @@
----
+---
 nome: Gênesis
 mapas:
 - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
@@ -7,189 +7,189 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    box:
+    retangulo:
       x: 135
       y: 695
       comprimento: 30
       largura: 30
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 225
       y: 695
       comprimento: 30
       largura: 30
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 285
       y: 695
       comprimento: 30
       largura: 30
   - id: 04_topo
     label: '4'
-    box:
+    retangulo:
       x: 300
       y: 355
       comprimento: 30
       largura: 30
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 365
       y: 695
       comprimento: 30
       largura: 30
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 375
       y: 270
       comprimento: 30
       largura: 30
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 430
       y: 695
       comprimento: 30
       largura: 30
   - id: 08_topo
     label: '8'
-    box:
+    retangulo:
       x: 625
       y: 295
       comprimento: 30
       largura: 30
   - id: 08_base
     label: '8'
-    box:
+    retangulo:
       x: 530
       y: 695
       comprimento: 30
       largura: 30
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 810
       y: 355
       comprimento: 30
       largura: 30
   - id: 10_topo
     label: '10'
-    box:
+    retangulo:
       x: 945
       y: 465
       comprimento: 30
       largura: 30
   - id: 10_base
     label: '10'
-    box:
+    retangulo:
       x: 570
       y: 620
       comprimento: 30
       largura: 30
   - id: 10_extra
     label: '10'
-    box:
+    retangulo:
       x: 1145
       y: 455
       comprimento: 30
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 835
       y: 610
       comprimento: 30
       largura: 30
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 955
       y: 555
       comprimento: 30
       largura: 30
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 1000
       y: 615
       comprimento: 30
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 1040
       y: 175
       comprimento: 30
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 1315
       y: 335
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 1240
       y: 505
       comprimento: 30
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 1085
       y: 490
       comprimento: 30
       largura: 30
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 1120
       y: 345
       comprimento: 30
       largura: 30
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 1405
       y: 435
       comprimento: 30
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 1385
       y: 650
       comprimento: 30
       largura: 30
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 1475
       y: 495
       comprimento: 30
       largura: 30
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 1405
       y: 285
       comprimento: 30
       largura: 30
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 1210
       y: 75
       comprimento: 30
       largura: 30
   - id: Setores_Vizinhos
     label: Setores Arquibancada e Acampamento
-    box:
+    retangulo:
       x: 1400
       y: 787
       comprimento: 500
@@ -223,7 +223,7 @@ mapas:
     - 08_base
   - escalada: Triplo X
     ids:
-    - '09'
+    - 09
   - escalada: Além do Horizonte
     ids:
     - 10_base
@@ -340,5 +340,5 @@ escaladas:
 - via_esportiva:
     nome: Sinairo P3
     dificuldade: PROJETO
----
+---
 

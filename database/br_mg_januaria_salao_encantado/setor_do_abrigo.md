@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Abrigo
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_abrigo_p0_i0.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 163
       y: 474
       comprimento: 30
       largura: 52
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 466
       y: 344
       comprimento: 33
       largura: 45
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 528
       y: 346
       comprimento: 34
       largura: 46
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 634
       y: 378
       comprimento: 33
       largura: 51
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 833
       y: 547
       comprimento: 30
       largura: 50
   - id: Sertão
     label: Sertão
-    box:
+    retangulo:
       x: 1201
       y: 25
       comprimento: 150
       largura: 50
   - id: Mocó
     label: Mocó
-    box:
+    retangulo:
       x: 1193
       y: 102
       comprimento: 130
@@ -91,7 +91,8 @@ escaladas:
     nome: Tardia
     dificuldade: BR_7A
     descricao: Ultima via da parede.
----
+---
+
 O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
 
 ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp)

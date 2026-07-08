@@ -7,133 +7,133 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 122
       y: 878
       raio: 15
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 226
       y: 907
       raio: 15
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 279
       y: 914
       raio: 15
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 314
       y: 918
       raio: 15
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 363
       y: 921
       raio: 15
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 468
       y: 938
       raio: 15
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 511
       y: 938
       raio: 15
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 544
       y: 952
       raio: 15
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 580
       y: 942
       raio: 15
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 617
       y: 930
       raio: 15
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 919
       y: 977
       raio: 15
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 1029
       y: 957
       raio: 15
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 1085
       y: 946
       raio: 15
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 1130
       y: 925
       raio: 15
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 1180
       y: 920
       raio: 15
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 1221
       y: 918
       raio: 15
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 1277
       y: 920
       raio: 15
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 1320
       y: 900
       raio: 15
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 1373
       y: 876
       raio: 15
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 1436
       y: 863
       raio: 15
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 1475
       y: 848
       raio: 15
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 1750
       y: 772
       raio: 15

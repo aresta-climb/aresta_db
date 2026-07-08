@@ -1,4 +1,4 @@
----
+---
 nome: Ônibus
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_onibus_p0.webp
@@ -7,77 +7,77 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 70
       y: 370
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 170
       y: 410
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 230
       y: 430
       comprimento: 30
       largura: 30
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 290
       y: 445
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 490
       y: 380
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 570
       y: 380
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 650
       y: 380
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 750
       y: 400
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 830
       y: 440
       comprimento: 30
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 850
       y: 450
       comprimento: 30
       largura: 30
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 858
       y: 430
       comprimento: 16
@@ -137,35 +137,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 230
       y: 490
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 510
       y: 530
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 730
       y: 490
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 740
       y: 490
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 210
       y: 440
       comprimento: 30
@@ -250,7 +250,8 @@ escaladas:
 - boulder:
     nome: Saidex
     dificuldade: V1
----
+---
+
 # Setor Ônibus
 
 O setor Ônibus possui dois blocos principais com diversas linhas de boulder.

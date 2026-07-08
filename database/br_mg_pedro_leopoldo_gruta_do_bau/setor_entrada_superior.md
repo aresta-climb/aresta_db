@@ -7,308 +7,308 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 924
       y: 30
       comprimento: 173
       largura: 35
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 220
       y: 134
       comprimento: 27
       largura: 28
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 90
       y: 148
       comprimento: 29
       largura: 27
   - id: '40'
     label: '40'
-    box:
+    retangulo:
       x: 868
       y: 157
       comprimento: 27
       largura: 26
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 62
       y: 184
       comprimento: 26
       largura: 28
   - id: '39'
     label: '39'
-    box:
+    retangulo:
       x: 870
       y: 206
       comprimento: 28
       largura: 26
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 180
       y: 222
       comprimento: 27
       largura: 28
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 48
       y: 269
       comprimento: 27
       largura: 28
   - id: '38'
     label: '38'
-    box:
+    retangulo:
       x: 864
       y: 260
       comprimento: 25
       largura: 25
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 167
       y: 309
       comprimento: 28
       largura: 26
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 66
       y: 318
       comprimento: 26
       largura: 27
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 74
       y: 358
       comprimento: 26
       largura: 27
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 156
       y: 428
       comprimento: 28
       largura: 29
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 48
       y: 441
       comprimento: 28
       largura: 30
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 461
       y: 506
       comprimento: 26
       largura: 28
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 292
       y: 519
       comprimento: 24
       largura: 26
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 150
       y: 540
       comprimento: 29
       largura: 27
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 442
       y: 542
       comprimento: 26
       largura: 27
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 54
       y: 566
       comprimento: 28
       largura: 27
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 302
       y: 578
       comprimento: 27
       largura: 27
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 361
       y: 580
       comprimento: 26
       largura: 25
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 392
       y: 574
       comprimento: 26
       largura: 27
   - id: '41'
     label: '41'
-    box:
+    retangulo:
       x: 423
       y: 578
       comprimento: 24
       largura: 25
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 180
       y: 612
       comprimento: 29
       largura: 27
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 312
       y: 630
       comprimento: 27
       largura: 26
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 48
       y: 666
       comprimento: 28
       largura: 31
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 151
       y: 688
       comprimento: 28
       largura: 29
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 30
       y: 750
       comprimento: 28
       largura: 27
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 168
       y: 762
       comprimento: 29
       largura: 28
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 287
       y: 800
       comprimento: 28
       largura: 28
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 30
       y: 838
       comprimento: 27
       largura: 29
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 312
       y: 840
       comprimento: 28
       largura: 27
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 357
       y: 866
       comprimento: 30
       largura: 27
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 420
       y: 886
       comprimento: 28
       largura: 28
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 24
       y: 908
       comprimento: 27
       largura: 29
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 389
       y: 901
       comprimento: 28
       largura: 28
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 154
       y: 914
       comprimento: 28
       largura: 27
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 196
       y: 908
       comprimento: 28
       largura: 27
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 122
       y: 926
       comprimento: 27
       largura: 25
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 419
       y: 934
       comprimento: 28
       largura: 27
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 114
       y: 964
       comprimento: 26
       largura: 25
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 155
       y: 1115
       comprimento: 26
       largura: 26
   - id: Entrada_inferior_1
     label: Entrada inferior
-    box:
+    retangulo:
       x: 480
       y: 1125
       comprimento: 74
       largura: 64
   - id: Entrada_inferior_2
     label: Entrada inferior
-    box:
+    retangulo:
       x: 719
       y: 1132
       comprimento: 78
@@ -439,11 +439,11 @@ mapas:
     - Entrada_inferior_2
     setor: Setor Entrada Inferior
   - ids:
-    - '08'
+    - 08
     setor: Setor Entrada Superior
     escalada: O Basilisco de Slytherin
   - ids:
-    - '09'
+    - 09
     setor: Setor Entrada Superior
     escalada: Disparada
 escaladas:

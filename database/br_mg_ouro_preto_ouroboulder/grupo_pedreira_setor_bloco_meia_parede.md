@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 819
       y: 807
       raio: 13
@@ -21,19 +21,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 832
       y: 969
       raio: 13
   - id: 1A
     label: A
-    circular:
+    circulo:
       x: 188
       y: 447
       raio: 13
   - id: 1B
     label: B
-    circular:
+    circulo:
       x: 1162
       y: 447
       raio: 13
@@ -52,19 +52,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 312
       y: 1059
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 696
       y: 237
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 949
       y: 112
       raio: 13
@@ -85,13 +85,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1050
       y: 928
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1206
       y: 884
       raio: 13
@@ -125,5 +125,4 @@ escaladas:
     nome: Jardim Suspenso
     dificuldade: V6
 ---
-
 

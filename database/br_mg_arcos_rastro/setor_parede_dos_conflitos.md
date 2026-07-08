@@ -7,112 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
-    box:
+    retangulo:
       x: 896
       y: 297
       comprimento: 51
       largura: 42
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 652
       y: 542
       comprimento: 79
       largura: 38
   - id: Totem_Pedra
     label: TOTEM PEDRA
-    box:
+    retangulo:
       x: 836
       y: 860
       comprimento: 64
       largura: 43
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
-    box:
+    retangulo:
       x: 198
       y: 1130
       comprimento: 51
       largura: 38
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 140
       y: 938
       comprimento: 19
       largura: 23
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 140
       y: 897
       comprimento: 19
       largura: 22
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 141
       y: 859
       comprimento: 18
       largura: 22
   - id: '04'
     label: '4'
-    box:
+    retangulo:
       x: 146
       y: 817
       comprimento: 21
       largura: 24
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 150
       y: 762
       comprimento: 20
       largura: 22
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 166
       y: 628
       comprimento: 20
       largura: 25
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 192
       y: 563
       comprimento: 19
       largura: 24
-  - id: '08'
+  - id: 08
     label: '8'
-    box:
+    retangulo:
       x: 277
       y: 530
       comprimento: 20
       largura: 22
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 279
       y: 473
       comprimento: 20
       largura: 24
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 280
       y: 445
       comprimento: 27
       largura: 22
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 275
       y: 417
       comprimento: 26
       largura: 24
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 276
       y: 370
       comprimento: 27
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - '08'
+    - 08
     setor: Setor Parede dos Conflitos
     escalada: Guerra dos Côcos
   - ids:
-    - '09'
+    - 09
     setor: Setor Parede dos Conflitos
     escalada: Guerrilha do Araguaia
   - ids:

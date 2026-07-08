@@ -7,182 +7,182 @@ mapas:
   pontos_de_interesse:
   - id: '09'
     label: '09'
-    box:
+    retangulo:
       x: 241
       y: 73
       comprimento: 12
       largura: 10
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 246
       y: 61
       comprimento: 12
       largura: 10
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 243
       y: 48
       comprimento: 10
       largura: 9
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 238
       y: 36
       comprimento: 11
       largura: 10
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 226
       y: 40
       comprimento: 11
       largura: 10
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 213
       y: 50
       comprimento: 12
       largura: 11
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 193
       y: 63
       comprimento: 14
       largura: 12
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 154
       y: 99
       comprimento: 14
       largura: 12
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 71
       y: 122
       comprimento: 14
       largura: 12
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 85
       y: 184
       comprimento: 14
       largura: 12
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 105
       y: 190
       comprimento: 14
       largura: 12
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 178
       y: 150
       comprimento: 14
       largura: 12
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 205
       y: 143
       comprimento: 14
       largura: 12
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 234
       y: 135
       comprimento: 14
       largura: 12
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 247
       y: 156
       comprimento: 14
       largura: 12
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 272
       y: 147
       comprimento: 14
       largura: 12
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 305
       y: 142
       comprimento: 14
       largura: 12
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 304
       y: 126
       comprimento: 14
       largura: 12
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 357
       y: 74
       comprimento: 12
       largura: 10
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 372
       y: 52
       comprimento: 14
       largura: 11
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 388
       y: 30
       comprimento: 14
       largura: 11
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 399
       y: 16
       comprimento: 14
       largura: 11
   - id: '45'
     label: '45'
-    box:
+    retangulo:
       x: 348
       y: 141
       comprimento: 14
       largura: 12
   - id: '46'
     label: '46'
-    box:
+    retangulo:
       x: 361
       y: 168
       comprimento: 14
       largura: 12
   - id: '47'
     label: '47'
-    box:
+    retangulo:
       x: 362
       y: 188
       comprimento: 14
       largura: 12
   - id: '48'
     label: '48'
-    box:
+    retangulo:
       x: 366
       y: 203
       comprimento: 14

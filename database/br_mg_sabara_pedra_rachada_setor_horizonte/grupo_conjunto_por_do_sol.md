@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: Sub-setor Beija Flor
     label: Sub-setor Beija Flor
-    box:
+    retangulo:
       x: 723
       y: 365
       comprimento: 204
       largura: 34
   - id: Sub-setor Moctezuma
     label: Sub-setor Moctezuma
-    box:
+    retangulo:
       x: 850
       y: 530
       comprimento: 230

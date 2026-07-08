@@ -7,105 +7,105 @@ mapas:
   pontos_de_interesse:
   - id: '61'
     label: '61'
-    box:
+    retangulo:
       x: 31
       y: 140
       comprimento: 14
       largura: 12
   - id: '62'
     label: '62'
-    box:
+    retangulo:
       x: 79
       y: 164
       comprimento: 14
       largura: 12
   - id: '63'
     label: '63'
-    box:
+    retangulo:
       x: 122
       y: 189
       comprimento: 14
       largura: 12
   - id: '64'
     label: '64'
-    box:
+    retangulo:
       x: 240
       y: 179
       comprimento: 10
       largura: 8
   - id: '65'
     label: '65'
-    box:
+    retangulo:
       x: 224
       y: 157
       comprimento: 10
       largura: 8
   - id: '66'
     label: '66'
-    box:
+    retangulo:
       x: 224
       y: 146
       comprimento: 10
       largura: 8
   - id: '67'
     label: '67'
-    box:
+    retangulo:
       x: 237
       y: 152
       comprimento: 10
       largura: 8
   - id: '68'
     label: '68'
-    box:
+    retangulo:
       x: 266
       y: 123
       comprimento: 10
       largura: 10
   - id: '69'
     label: '69'
-    box:
+    retangulo:
       x: 280
       y: 97
       comprimento: 14
       largura: 12
   - id: '70'
     label: '70'
-    box:
+    retangulo:
       x: 307
       y: 104
       comprimento: 14
       largura: 12
   - id: '71'
     label: '71'
-    box:
+    retangulo:
       x: 280
       y: 136
       comprimento: 11
       largura: 10
   - id: '72'
     label: '72'
-    box:
+    retangulo:
       x: 307
       y: 175
       comprimento: 14
       largura: 12
   - id: '73'
     label: '73'
-    box:
+    retangulo:
       x: 321
       y: 202
       comprimento: 14
       largura: 12
   - id: '74'
     label: '74'
-    box:
+    retangulo:
       x: 345
       y: 216
       comprimento: 14
       largura: 12
   - id: '75'
     label: '75'
-    box:
+    retangulo:
       x: 421
       y: 238
       comprimento: 14

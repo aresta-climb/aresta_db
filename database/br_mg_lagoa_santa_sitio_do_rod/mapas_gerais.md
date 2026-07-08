@@ -6,21 +6,21 @@ mapas:
   pontos_de_interesse:
   - id: G3
     label: G3
-    box:
+    retangulo:
       x: 132
       y: 586
       comprimento: 189
       largura: 153
   - id: G2
     label: G2
-    box:
+    retangulo:
       x: 735
       y: 805
       comprimento: 214
       largura: 146
   - id: G1
     label: G1
-    box:
+    retangulo:
       x: 1575
       y: 1060
       comprimento: 180
@@ -36,3 +36,4 @@ mapas:
     ids:
     - G1
 ---
+

@@ -32,7 +32,7 @@
             Pico da Vó Gusta
             
             Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 
 
@@ -56,77 +56,77 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 853
           - **y**: 821
           - **raio**: 18
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 932
           - **y**: 816
           - **raio**: 18
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 451
           - **y**: 766
           - **raio**: 18
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 711
           - **y**: 757
           - **raio**: 18
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 654
           - **y**: 725
           - **raio**: 18
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 576
           - **y**: 688
           - **raio**: 18
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 620
           - **y**: 712
           - **raio**: 18
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 524
           - **y**: 743
           - **raio**: 18
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 1643
           - **y**: 748
           - **raio**: 20
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 1601
           - **y**: 763
           - **raio**: 22
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 1546
           - **y**: 756
           - **raio**: 22

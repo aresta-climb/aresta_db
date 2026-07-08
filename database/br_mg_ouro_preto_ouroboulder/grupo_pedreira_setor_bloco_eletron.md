@@ -7,37 +7,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 30
       y: 572
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1107
       y: 868
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1520
       y: 845
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 52
       y: 90
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 939
       y: 173
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1410
       y: 166
       raio: 13
@@ -79,5 +79,4 @@ escaladas:
     nome: Positron
     dificuldade: V3
 ---
-
 

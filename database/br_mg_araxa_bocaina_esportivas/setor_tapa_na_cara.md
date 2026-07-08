@@ -1,4 +1,4 @@
----
+---
 nome: Tapa na Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_tapa_na_cara_p1.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 391
       y: 1062
       comprimento: 38
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 604
       y: 1066
       comprimento: 43
       largura: 31
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 854
       y: 1106
       comprimento: 39
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 1050
       y: 1120
       comprimento: 44
@@ -89,7 +89,8 @@ escaladas:
     - Daiex
     - Paulo
     data_abertura: '2013'
----
+---
+
 # Setor Tapa na Cara
 
 ![Setor Tapa na Cara](imagens/setor_tapa_na_cara_p0_i0.webp)

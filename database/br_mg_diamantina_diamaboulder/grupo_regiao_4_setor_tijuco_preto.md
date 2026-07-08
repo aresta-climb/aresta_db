@@ -1,4 +1,4 @@
----
+---
 nome: Tijuco Preto
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_tijuco_preto_p0_i0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 962
       y: 720
       comprimento: 24
       largura: 27
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 928
       y: 439
       comprimento: 28
       largura: 32
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 704
       y: 744
       comprimento: 25
       largura: 27
   - id: 2_fim
     label: '2'
-    box:
+    retangulo:
       x: 929
       y: 396
       comprimento: 28
       largura: 33
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 704
       y: 784
       comprimento: 24
       largura: 31
   - id: 3_fim
     label: '3'
-    box:
+    retangulo:
       x: 686
       y: 206
       comprimento: 28
       largura: 33
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 227
       y: 864
       comprimento: 28
       largura: 33
   - id: 4_fim
     label: '4'
-    box:
+    retangulo:
       x: 411
       y: 116
       comprimento: 28
@@ -91,6 +91,7 @@ escaladas:
 - boulder:
     nome: Toque no Curralinho
     dificuldade: V3
----
+---
+
 # Bloco: Tijuco Preto
 ## Região 4

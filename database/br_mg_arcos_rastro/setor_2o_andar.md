@@ -7,161 +7,161 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Jardim_Suspenso
     label: Setor Jardim Suspenso
-    box:
+    retangulo:
       x: 601
       y: 36
       comprimento: 118
       largura: 18
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 284
       y: 300
       comprimento: 20
       largura: 15
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 308
       y: 289
       comprimento: 23
       largura: 18
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 518
       y: 338
       comprimento: 20
       largura: 15
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 540
       y: 330
       comprimento: 20
       largura: 15
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 556
       y: 284
       comprimento: 21
       largura: 15
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 560
       y: 266
       comprimento: 19
       largura: 14
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 562
       y: 209
       comprimento: 20
       largura: 16
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 556
       y: 106
       comprimento: 22
       largura: 17
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 612
       y: 60
       comprimento: 21
       largura: 16
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 630
       y: 94
       comprimento: 20
       largura: 17
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 641
       y: 75
       comprimento: 20
       largura: 18
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 723
       y: 109
       comprimento: 20
       largura: 16
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 714
       y: 138
       comprimento: 19
       largura: 16
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 712
       y: 157
       comprimento: 19
       largura: 16
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 720
       y: 174
       comprimento: 18
       largura: 15
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 728
       y: 189
       comprimento: 18
       largura: 14
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 752
       y: 178
       comprimento: 19
       largura: 17
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 764
       y: 206
       comprimento: 20
       largura: 17
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 770
       y: 243
       comprimento: 19
       largura: 16
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 781
       y: 286
       comprimento: 22
       largura: 17
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 780
       y: 342
       comprimento: 20
       largura: 16
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 136
       y: 1088
       comprimento: 91
@@ -231,11 +231,11 @@ mapas:
     - Setor_Jardim_Suspenso
     setor: Jardim Suspenso
   - ids:
-    - '08'
+    - 08
     setor: 2º Andar
     escalada: Gardneria Angustata
   - ids:
-    - '09'
+    - 09
     setor: 2º Andar
     escalada: Vai e Volta e Vai
 escaladas:

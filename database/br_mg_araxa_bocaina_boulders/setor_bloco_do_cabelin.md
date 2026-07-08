@@ -1,4 +1,4 @@
----
+---
 nome: Bloco do Cabelin
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p0.webp
@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 415
       y: 797
       comprimento: 20
@@ -22,42 +22,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 202
       y: 637
       comprimento: 20
       largura: 20
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 222
       y: 670
       comprimento: 20
       largura: 20
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 372
       y: 820
       comprimento: 21
       largura: 21
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 569
       y: 558
       comprimento: 20
       largura: 20
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 632
       y: 692
       comprimento: 23
       largura: 25
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 658
       y: 688
       comprimento: 20
@@ -87,49 +87,49 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 299
       y: 698
       comprimento: 20
       largura: 20
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 296
       y: 612
       comprimento: 20
       largura: 20
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 330
       y: 698
       comprimento: 20
       largura: 20
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 425
       y: 746
       comprimento: 20
       largura: 20
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 453
       y: 733
       comprimento: 20
       largura: 20
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 476
       y: 718
       comprimento: 20
       largura: 20
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 502
       y: 707
       comprimento: 20
@@ -140,10 +140,10 @@ mapas:
     - '07'
   - escalada: Mágico de Oz SDS
     ids:
-    - '08'
+    - 08
   - escalada: Mr. Gordura
     ids:
-    - '09'
+    - 09
   - escalada: País das Maravilhas
     ids:
     - '10'
@@ -160,17 +160,17 @@ escaladas:
 - boulder:
     nome: Sexto Sentido
     dificuldade: V4
-    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco e segue
-      pela fenda diagonal para direita e vira na proa.
+    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco
+      e segue pela fenda diagonal para direita e vira na proa.
 - boulder:
     nome: Dread Lock
     dificuldade: V7
-    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra no 
-      cabeludo.
+    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra
+      no cabeludo.
 - boulder:
     nome: Cabeludo
     dificuldade: V7
-    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro 
+    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro
       movimento para cima da pedra e sai pra direita e vira no cabelinho.
 - boulder:
     nome: Jacinto Barriguinha
@@ -183,28 +183,28 @@ escaladas:
 - boulder:
     nome: Cabelinho
     dificuldade: V5
-    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno, 
+    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno,
       virando a direita do bloco.
 - boulder:
     nome: Mágico de Oz
     dificuldade: V7
-    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho, e 
-      mão direita em pequeno reglete abaulado.
+    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho,
+      e mão direita em pequeno reglete abaulado.
 - boulder:
     nome: Mágico de Oz SDS
     dificuldade: V8
-    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em pinça 
-      investida.
+    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em
+      pinça investida.
 - boulder:
     nome: Mr. Gordura
     dificuldade: V9
-    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando no Capim
-      Gordura.
+    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando
+      no Capim Gordura.
 - boulder:
     nome: País das Maravilhas
     dificuldade: V10
-    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz da 
-      árvore e virando no Mágico de Oz.
+    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz
+      da árvore e virando no Mágico de Oz.
 - boulder:
     nome: Capim Louco
     dificuldade: V3
@@ -219,7 +219,8 @@ escaladas:
 - boulder:
     nome: La Qualitê
     dificuldade: V10
-    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na 
-      altura no quadril, virando reto e seguindo até o final do bloco.
----
+    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena
+      na altura no quadril, virando reto e seguindo até o final do bloco.
+---
+
 # Setor Bloco do Cabelin

@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 491
       y: 212
       comprimento: 10
       largura: 15
   - id: Setor_Cemiterio_dos_Ossos
     label: Setor Cemitério dos Ossos
-    box:
+    retangulo:
       x: 432
       y: 196
       comprimento: 50
@@ -22,14 +22,14 @@ mapas:
       angulo_graus_x100: 4685
   - id: Setor_Praca_Aristoteles
     label: Setor Praça Aristóteles
-    box:
+    retangulo:
       x: 644
       y: 139
       comprimento: 55
       largura: 36
   - id: Setor_Corredor_Polones
     label: Setor Corredor Polonês
-    box:
+    retangulo:
       x: 688
       y: 298
       comprimento: 111
@@ -37,7 +37,7 @@ mapas:
       angulo_graus_x100: -237
   - id: Setor_Barceloneta
     label: Setor Barceloneta
-    box:
+    retangulo:
       x: 647
       y: 592
       comprimento: 62

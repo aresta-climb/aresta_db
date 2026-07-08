@@ -7,119 +7,119 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 505
       y: 74
       comprimento: 30
       largura: 27
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 486
       y: 186
       comprimento: 31
       largura: 29
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 482
       y: 219
       comprimento: 33
       largura: 26
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 501
       y: 253
       comprimento: 28
       largura: 26
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 512
       y: 282
       comprimento: 31
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 478
       y: 374
       comprimento: 31
       largura: 27
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 500
       y: 411
       comprimento: 31
       largura: 26
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 438
       y: 440
       comprimento: 32
       largura: 29
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 480
       y: 440
       comprimento: 29
       largura: 26
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 364
       y: 510
       comprimento: 31
       largura: 29
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 355
       y: 603
       comprimento: 30
       largura: 28
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 390
       y: 636
       comprimento: 31
       largura: 29
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 435
       y: 719
       comprimento: 26
       largura: 26
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 462
       y: 818
       comprimento: 25
       largura: 26
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 472
       y: 924
       comprimento: 28
       largura: 28
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 493
       y: 1027
       comprimento: 28
       largura: 26
   - id: Setores_Sentinela_e_Geriatria
     label: Setores Sentinela e Geriatria
-    box:
+    retangulo:
       x: 596
       y: 1176
       comprimento: 232
@@ -174,11 +174,11 @@ mapas:
     - Setores_Sentinela_e_Geriatria
     setor: Setor Geriatria
   - ids:
-    - '08'
+    - 08
     setor: Setor Onda de Calcário
     escalada: Rayovac
   - ids:
-    - '09'
+    - 09
     setor: Setor Onda de Calcário
     escalada: O Corpo Ainda é Pouco
 escaladas:

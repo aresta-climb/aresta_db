@@ -1,4 +1,4 @@
----
+---
 nome: Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 350
       y: 410
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 510
       y: 380
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 568
       y: 380
       comprimento: 27
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 290
       y: 515
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 430
       y: 525
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 555
       y: 525
       comprimento: 30
@@ -90,42 +90,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 200
       y: 255
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 310
       y: 280
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 420
       y: 280
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 570
       y: 290
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 720
       y: 310
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 751
       y: 340
       comprimento: 12
@@ -204,7 +204,8 @@ escaladas:
 - boulder:
     nome: Das Meninas
     dificuldade: V3
----
+---
+
 # Setor Campo Escola
 
 O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.

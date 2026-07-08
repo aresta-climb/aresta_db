@@ -7,182 +7,182 @@ mapas:
   pontos_de_interesse:
   - id: Onda_de_Calcario
     label: Onda de Calcário
-    box:
+    retangulo:
       x: 1085
       y: 46
       comprimento: 102
       largura: 64
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 626
       y: 84
       comprimento: 35
       largura: 31
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 514
       y: 93
       comprimento: 31
       largura: 30
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 432
       y: 146
       comprimento: 35
       largura: 34
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 400
       y: 202
       comprimento: 35
       largura: 31
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 137
       y: 217
       comprimento: 32
       largura: 26
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 42
       y: 270
       comprimento: 37
       largura: 29
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 343
       y: 264
       comprimento: 34
       largura: 33
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 152
       y: 312
       comprimento: 35
       largura: 29
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 25
       y: 326
       comprimento: 36
       largura: 29
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 874
       y: 340
       comprimento: 33
       largura: 32
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 136
       y: 416
       comprimento: 32
       largura: 27
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 647
       y: 422
       comprimento: 38
       largura: 31
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 378
       y: 439
       comprimento: 33
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 364
       y: 495
       comprimento: 35
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 637
       y: 485
       comprimento: 38
       largura: 28
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 617
       y: 526
       comprimento: 38
       largura: 29
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 730
       y: 528
       comprimento: 41
       largura: 33
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 692
       y: 569
       comprimento: 39
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 320
       y: 586
       comprimento: 34
       largura: 31
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 626
       y: 627
       comprimento: 38
       largura: 30
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 680
       y: 618
       comprimento: 39
       largura: 29
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 674
       y: 720
       comprimento: 39
       largura: 30
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 658
       y: 781
       comprimento: 37
       largura: 30
   - id: Vale_da_Onca
     label: Vale da Onça
-    box:
+    retangulo:
       x: 37
       y: 908
       comprimento: 74
       largura: 56
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 1090
       y: 940
       comprimento: 91
@@ -252,11 +252,11 @@ mapas:
     ids:
     - '23'
   - ids:
-    - '08'
+    - 08
     setor: Setor Geriatria
     escalada: Tira o Andador e Vai
   - ids:
-    - '09'
+    - 09
     setor: Setor Geriatria
     escalada: Rupestre
   - ids:

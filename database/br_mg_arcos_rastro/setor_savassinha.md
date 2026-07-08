@@ -7,112 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Grutinha
     label: Setor Grutinha
-    box:
+    retangulo:
       x: 306
       y: 50
       comprimento: 50
       largura: 25
   - id: Beco_do_Tiu
     label: Beco do Tiú
-    box:
+    retangulo:
       x: 346
       y: 598
       comprimento: 44
       largura: 50
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
-    box:
+    retangulo:
       x: 441
       y: 1082
       comprimento: 76
       largura: 27
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 442
       y: 1110
       comprimento: 100
       largura: 19
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 262
       y: 483
       comprimento: 15
       largura: 16
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 226
       y: 408
       comprimento: 15
       largura: 17
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 242
       y: 386
       comprimento: 13
       largura: 15
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 242
       y: 369
       comprimento: 14
       largura: 14
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 250
       y: 350
       comprimento: 14
       largura: 15
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 251
       y: 329
       comprimento: 14
       largura: 14
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 241
       y: 310
       comprimento: 14
       largura: 16
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 242
       y: 287
       comprimento: 14
       largura: 14
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 257
       y: 253
       comprimento: 16
       largura: 16
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 312
       y: 252
       comprimento: 18
       largura: 17
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 358
       y: 249
       comprimento: 19
       largura: 18
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 292
       y: 142
       comprimento: 18
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - '08'
+    - 08
     setor: Setor Savassinha
     escalada: Curupira
   - ids:
-    - '09'
+    - 09
     setor: Setor Savassinha
     escalada: Só Beleza
   - ids:

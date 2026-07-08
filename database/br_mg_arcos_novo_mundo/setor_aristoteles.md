@@ -7,112 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 534
       y: 136
       comprimento: 9
       largura: 14
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 545
       y: 124
       comprimento: 10
       largura: 16
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 566
       y: 109
       comprimento: 13
       largura: 14
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 588
       y: 106
       comprimento: 10
       largura: 17
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 598
       y: 110
       comprimento: 9
       largura: 14
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 608
       y: 120
       comprimento: 10
       largura: 13
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 608
       y: 136
       comprimento: 11
       largura: 15
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 604
       y: 148
       comprimento: 9
       largura: 12
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 612
       y: 156
       comprimento: 9
       largura: 14
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 618
       y: 170
       comprimento: 16
       largura: 14
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 618
       y: 186
       comprimento: 14
       largura: 14
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 616
       y: 202
       comprimento: 15
       largura: 15
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 614
       y: 218
       comprimento: 16
       largura: 13
   - id: Setor_Cemiterio_dos_Ossos
     label: Setor Cemitério dos Ossos
-    box:
+    retangulo:
       x: 456
       y: 172
       comprimento: 77
       largura: 31
   - id: Setor_Praca_Aristoteles
     label: Setor Praça Aristóteles
-    box:
+    retangulo:
       x: 672
       y: 105
       comprimento: 97
       largura: 64
   - id: Setor_Corredor_Polones
     label: Setor Corredor Polonês
-    box:
+    retangulo:
       x: 684
       y: 290
       comprimento: 110
@@ -120,21 +120,21 @@ mapas:
       angulo_graus_x100: -298
   - id: Setor_Barceloneta
     label: Setor Barceloneta
-    box:
+    retangulo:
       x: 644
       y: 584
       comprimento: 52
       largura: 27
   - id: Estrada_de_terra
     label: Estrada de terra
-    box:
+    retangulo:
       x: 406
       y: 874
       comprimento: 125
       largura: 24
   - id: H2O
     label: H2O
-    box:
+    retangulo:
       x: 636
       y: 918
       comprimento: 47

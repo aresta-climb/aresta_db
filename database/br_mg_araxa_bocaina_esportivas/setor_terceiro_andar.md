@@ -1,4 +1,4 @@
----
+---
 nome: Terceiro Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 364
       y: 548
       comprimento: 46
       largura: 38
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 460
       y: 624
       comprimento: 49
       largura: 37
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 523
       y: 694
       comprimento: 52
       largura: 41
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 596
       y: 751
       comprimento: 50
       largura: 36
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 654
       y: 838
       comprimento: 33
       largura: 31
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 702
       y: 838
       comprimento: 36
@@ -75,35 +75,35 @@ mapas:
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 192
       y: 1022
       comprimento: 29
       largura: 25
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 230
       y: 1028
       comprimento: 31
       largura: 27
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 292
       y: 1040
       comprimento: 34
       largura: 28
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 356
       y: 1036
       comprimento: 31
       largura: 28
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 412
       y: 1036
       comprimento: 31
@@ -120,10 +120,10 @@ mapas:
     - '07'
   - escalada: Rock Supimpa
     ids:
-    - '08'
+    - 08
   - escalada: Você Decide
     ids:
-    - '09'
+    - 09
   - escalada: Efeito Variado
     ids:
     - '06'
@@ -136,35 +136,35 @@ mapas:
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 478
       y: 1028
       comprimento: 40
       largura: 29
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 541
       y: 1002
       comprimento: 36
       largura: 30
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 630
       y: 946
       comprimento: 29
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 668
       y: 947
       comprimento: 31
       largura: 24
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 746
       y: 980
       comprimento: 38
@@ -194,35 +194,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 192
       y: 1032
       comprimento: 37
       largura: 29
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 278
       y: 1032
       comprimento: 41
       largura: 32
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 448
       y: 1011
       comprimento: 39
       largura: 30
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 527
       y: 950
       comprimento: 40
       largura: 27
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 645
       y: 928
       comprimento: 40
@@ -388,7 +388,8 @@ escaladas:
 - via_esportiva:
     nome: Efeito Variado
     dificuldade: BR_9A
-    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra Variar.
+    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra
+      Variar.
 - via_esportiva:
     nome: Só paracolateral
     dificuldade: BR_9A
@@ -397,7 +398,8 @@ escaladas:
     nome: Trimura do Hotel
     dificuldade: PROJETO
     descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
----
+---
+
 # Setor Terceiro Andar
 
 ![Setor Terceiro Andar](imagens/setor_terceiro_andar_p0_i0.webp)

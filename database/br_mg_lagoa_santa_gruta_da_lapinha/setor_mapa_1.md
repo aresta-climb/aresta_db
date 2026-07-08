@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 123
       y: 180
       comprimento: 10
       largura: 9
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 138
       y: 193
       comprimento: 9
       largura: 8
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 193
       y: 222
       comprimento: 10
       largura: 9
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 211
       y: 212
       comprimento: 10
       largura: 9
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 226
       y: 198
       comprimento: 10
       largura: 9
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 275
       y: 166
       comprimento: 10
@@ -91,12 +91,14 @@ escaladas:
     conquistadores:
     - Christian A. N. Costa
     - Leo Guimarães "Léo Dandão"
+    data_abertura: '2001'
 - via_esportiva:
     nome: Castelinho
     dificuldade: BR_6
     conquistadores:
     - Marcelo Henrique Grijó Utsch
     - Cristiano Loureiro
+    data_abertura: '1993'
 - via_esportiva:
     nome: Projeto
 ---

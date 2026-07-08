@@ -150,7 +150,7 @@
             
             **IPATINGA**
             Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL: (31) 3829-9000
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 
 
@@ -188,7 +188,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 394
           - **y**: 1620
           - **comprimento**: 21
@@ -196,7 +196,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 373
           - **y**: 1571
           - **comprimento**: 24
@@ -204,7 +204,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 358
           - **y**: 1528
           - **comprimento**: 21
@@ -212,7 +212,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 352
           - **y**: 1482
           - **comprimento**: 13
@@ -220,7 +220,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 341
           - **y**: 1434
           - **comprimento**: 24
@@ -228,7 +228,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 332
           - **y**: 1369
           - **comprimento**: 19
@@ -236,7 +236,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 318
           - **y**: 1305
           - **comprimento**: 18
@@ -244,7 +244,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 316
           - **y**: 1264
           - **comprimento**: 17
@@ -252,7 +252,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 320
           - **y**: 1213
           - **comprimento**: 17
@@ -260,7 +260,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 318
           - **y**: 1118
           - **comprimento**: 25
@@ -268,7 +268,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 312
           - **y**: 1070
           - **comprimento**: 25
@@ -276,7 +276,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 318
           - **y**: 808
           - **comprimento**: 26
@@ -284,7 +284,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 316
           - **y**: 768
           - **comprimento**: 28
@@ -292,7 +292,7 @@
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 308
           - **y**: 700
           - **comprimento**: 25
@@ -300,7 +300,7 @@
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 306
           - **y**: 592
           - **comprimento**: 33
@@ -308,7 +308,7 @@
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 312
           - **y**: 541
           - **comprimento**: 32
@@ -316,7 +316,7 @@
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 317
           - **y**: 472
           - **comprimento**: 26
@@ -324,7 +324,7 @@
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 316
           - **y**: 436
           - **comprimento**: 25
@@ -332,7 +332,7 @@
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 317
           - **y**: 394
           - **comprimento**: 28
@@ -340,7 +340,7 @@
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 324
           - **y**: 310
           - **comprimento**: 25
@@ -348,7 +348,7 @@
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 336
           - **y**: 262
           - **comprimento**: 30
@@ -356,7 +356,7 @@
       - **[21]**:
         - **id**: 22
         - **label**: 22
-        - **box**:
+        - **retangulo**:
           - **x**: 337
           - **y**: 204
           - **comprimento**: 24
@@ -364,7 +364,7 @@
       - **[22]**:
         - **id**: 23
         - **label**: 23
-        - **box**:
+        - **retangulo**:
           - **x**: 342
           - **y**: 158
           - **comprimento**: 24
@@ -372,7 +372,7 @@
       - **[23]**:
         - **id**: 24
         - **label**: 24
-        - **box**:
+        - **retangulo**:
           - **x**: 345
           - **y**: 97
           - **comprimento**: 30
@@ -380,7 +380,7 @@
       - **[24]**:
         - **id**: Trilha_Jurassico
         - **label**: Trilha para o Setor Jurássico (Muito Fechada)
-        - **box**:
+        - **retangulo**:
           - **x**: 196
           - **y**: 78
           - **comprimento**: 115
@@ -388,7 +388,7 @@
       - **[25]**:
         - **id**: Trilha_Boulders_2nd
         - **label**: Trilha Boulders e 2º Andar
-        - **box**:
+        - **retangulo**:
           - **x**: 109
           - **y**: 565
           - **comprimento**: 134
@@ -396,7 +396,7 @@
       - **[26]**:
         - **id**: Voce_esta_aqui
         - **label**: Você está aqui
-        - **box**:
+        - **retangulo**:
           - **x**: 218
           - **y**: 1314
           - **comprimento**: 38
@@ -705,7 +705,7 @@
       - **[0]**:
         - **id**: 27
         - **label**: 27
-        - **box**:
+        - **retangulo**:
           - **x**: 429
           - **y**: 1611
           - **comprimento**: 34
@@ -713,7 +713,7 @@
       - **[1]**:
         - **id**: 28
         - **label**: 28
-        - **box**:
+        - **retangulo**:
           - **x**: 438
           - **y**: 1552
           - **comprimento**: 35
@@ -721,7 +721,7 @@
       - **[2]**:
         - **id**: 29
         - **label**: 29
-        - **box**:
+        - **retangulo**:
           - **x**: 431
           - **y**: 1404
           - **comprimento**: 34
@@ -729,7 +729,7 @@
       - **[3]**:
         - **id**: 30
         - **label**: 30
-        - **box**:
+        - **retangulo**:
           - **x**: 410
           - **y**: 1326
           - **comprimento**: 41
@@ -737,7 +737,7 @@
       - **[4]**:
         - **id**: 31
         - **label**: 31
-        - **box**:
+        - **retangulo**:
           - **x**: 312
           - **y**: 1072
           - **comprimento**: 33
@@ -745,7 +745,7 @@
       - **[5]**:
         - **id**: 32
         - **label**: 32
-        - **box**:
+        - **retangulo**:
           - **x**: 356
           - **y**: 545
           - **comprimento**: 32
@@ -753,7 +753,7 @@
       - **[6]**:
         - **id**: 33
         - **label**: 33
-        - **box**:
+        - **retangulo**:
           - **x**: 346
           - **y**: 486
           - **comprimento**: 35
@@ -761,7 +761,7 @@
       - **[7]**:
         - **id**: 34
         - **label**: 34
-        - **box**:
+        - **retangulo**:
           - **x**: 288
           - **y**: 424
           - **comprimento**: 35
@@ -769,7 +769,7 @@
       - **[8]**:
         - **id**: 35
         - **label**: 35
-        - **box**:
+        - **retangulo**:
           - **x**: 280
           - **y**: 362
           - **comprimento**: 31

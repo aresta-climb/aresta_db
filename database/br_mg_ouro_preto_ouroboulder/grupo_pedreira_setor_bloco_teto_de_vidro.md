@@ -7,43 +7,43 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 691
       y: 312
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1091
       y: 740
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 433
       y: 840
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1021
       y: 726
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 917
       y: 688
       raio: 13
   - id: ▲
     label: ▲
-    circular:
+    circulo:
       x: 957
       y: 737
       raio: 13
   - id: ★
     label: ★
-    circular:
+    circulo:
       x: 995
       y: 663
       raio: 13
@@ -76,37 +76,37 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 1001
       y: 297
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1172
       y: 401
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 532
       y: 892
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 470
       y: 750
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 849
       y: 892
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1253
       y: 984
       raio: 13
@@ -158,5 +158,4 @@ escaladas:
     nome: Wafer
     dificuldade: V1
 ---
-
 

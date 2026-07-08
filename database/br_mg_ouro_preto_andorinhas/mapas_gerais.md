@@ -6,35 +6,35 @@ mapas:
   pontos_de_interesse:
   - id: Campo_Escola
     label: Campo Escola
-    box:
+    retangulo:
       x: 814
       y: 54
       comprimento: 231
       largura: 42
   - id: Pedra_do_Arco
     label: Pedra do Arco
-    box:
+    retangulo:
       x: 548
       y: 104
       comprimento: 227
       largura: 43
   - id: Mirante_Pedra_do_Jacare
     label: Mirante Pedra do Jacaré
-    box:
+    retangulo:
       x: 1172
       y: 96
       comprimento: 387
       largura: 45
   - id: Cachoeira_das_Andorinhas
     label: Cachoeira das Andorinhas
-    box:
+    retangulo:
       x: 1636
       y: 94
       comprimento: 417
       largura: 45
   - id: Sede_do_Parque
     label: Sede do Parque
-    box:
+    retangulo:
       x: 1357
       y: 463
       comprimento: 250
@@ -52,35 +52,35 @@ mapas:
   pontos_de_interesse:
   - id: Tchau_Querida
     label: Tchau Querida
-    box:
+    retangulo:
       x: 846
       y: 128
       comprimento: 231
       largura: 40
   - id: Pedra_Branca
     label: Pedra Branca
-    box:
+    retangulo:
       x: 601
       y: 226
       comprimento: 214
       largura: 45
   - id: Mirante_Pedra_do_Jacare
     label: Mirante Pedra do Jacaré
-    box:
+    retangulo:
       x: 1166
       y: 94
       comprimento: 389
       largura: 41
   - id: Cachoeira_das_Andorinhas
     label: Cachoeira das Andorinhas
-    box:
+    retangulo:
       x: 1638
       y: 93
       comprimento: 411
       largura: 44
   - id: Sede_do_Parque
     label: Sede do Parque
-    box:
+    retangulo:
       x: 1352
       y: 462
       comprimento: 251
@@ -93,3 +93,4 @@ mapas:
     ids:
     - Pedra_Branca
 ---
+

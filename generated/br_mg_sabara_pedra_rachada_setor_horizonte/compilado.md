@@ -53,7 +53,7 @@
             | *Aviso* |
             
             Os blocos do setor Horizonte ainda não foram moldados para a atividade de escalada, de modo que muitos blocos ainda apresentam agarras quebradiças e pontos de atenção. Nós tentamos avaliar todas as possibilidades e remover agarras que não oferecem segurança, mas com a atividade de escalada intensa, novos betas são tirados e novas agarras utilizadas, bem como mais força é aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta estar firme e boa para utilização. Segurança sempre em primeiro lugar!
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 
 
@@ -72,35 +72,35 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 494
           - **y**: 601
           - **raio**: 28
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 649
           - **y**: 328
           - **raio**: 28
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 871
           - **y**: 462
           - **raio**: 28
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 960
           - **y**: 599
           - **raio**: 28
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 1078
           - **y**: 477
           - **raio**: 28
@@ -168,7 +168,7 @@
       - **[0]**:
         - **id**: Sub-setor Beija Flor
         - **label**: Sub-setor Beija Flor
-        - **box**:
+        - **retangulo**:
           - **x**: 723
           - **y**: 365
           - **comprimento**: 204
@@ -176,7 +176,7 @@
       - **[1]**:
         - **id**: Sub-setor Moctezuma
         - **label**: Sub-setor Moctezuma
-        - **box**:
+        - **retangulo**:
           - **x**: 850
           - **y**: 530
           - **comprimento**: 230
@@ -211,21 +211,21 @@
             - **[0]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 205
                 - **y**: 785
                 - **raio**: 19
             - **[1]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 430
                 - **y**: 430
                 - **raio**: 19
             - **[2]**:
               - **id**: 8
               - **label**: 8
-              - **circular**:
+              - **circulo**:
                 - **x**: 756
                 - **y**: 377
                 - **raio**: 19
@@ -250,21 +250,21 @@
             - **[0]**:
               - **id**: 9
               - **label**: 9
-              - **circular**:
+              - **circulo**:
                 - **x**: 185
                 - **y**: 744
                 - **raio**: 19
             - **[1]**:
               - **id**: 10
               - **label**: 10
-              - **circular**:
+              - **circulo**:
                 - **x**: 257
                 - **y**: 698
                 - **raio**: 19
             - **[2]**:
               - **id**: 11
               - **label**: 11
-              - **circular**:
+              - **circulo**:
                 - **x**: 693
                 - **y**: 541
                 - **raio**: 19
@@ -325,14 +325,14 @@
             - **[0]**:
               - **id**: 13
               - **label**: 13
-              - **circular**:
+              - **circulo**:
                 - **x**: 355
                 - **y**: 614
                 - **raio**: 22
             - **[1]**:
               - **id**: 12
               - **label**: 12
-              - **circular**:
+              - **circulo**:
                 - **x**: 237
                 - **y**: 552
                 - **raio**: 22
@@ -353,21 +353,21 @@
             - **[0]**:
               - **id**: 15
               - **label**: 15
-              - **circular**:
+              - **circulo**:
                 - **x**: 187
                 - **y**: 652
                 - **raio**: 22
             - **[1]**:
               - **id**: 16
               - **label**: 16
-              - **circular**:
+              - **circulo**:
                 - **x**: 576
                 - **y**: 693
                 - **raio**: 21
             - **[2]**:
               - **id**: 14
               - **label**: 14
-              - **circular**:
+              - **circulo**:
                 - **x**: 300
                 - **y**: 654
                 - **raio**: 21
@@ -441,14 +441,14 @@
             - **[0]**:
               - **id**: 18
               - **label**: 18
-              - **circular**:
+              - **circulo**:
                 - **x**: 227
                 - **y**: 704
                 - **raio**: 22
             - **[1]**:
               - **id**: 17
               - **label**: 17
-              - **circular**:
+              - **circulo**:
                 - **x**: 172
                 - **y**: 710
                 - **raio**: 21
@@ -502,14 +502,14 @@
       - **[0]**:
         - **id**: 21
         - **label**: 21
-        - **circular**:
+        - **circulo**:
           - **x**: 246
           - **y**: 573
           - **raio**: 16
       - **[1]**:
         - **id**: 22
         - **label**: 22
-        - **circular**:
+        - **circulo**:
           - **x**: 397
           - **y**: 692
           - **raio**: 16
@@ -530,21 +530,21 @@
       - **[0]**:
         - **id**: 23
         - **label**: 23
-        - **circular**:
+        - **circulo**:
           - **x**: 332
           - **y**: 1074
           - **raio**: 25
       - **[1]**:
         - **id**: 25
         - **label**: 25
-        - **circular**:
+        - **circulo**:
           - **x**: 886
           - **y**: 1038
           - **raio**: 25
       - **[2]**:
         - **id**: 24
         - **label**: 24
-        - **circular**:
+        - **circulo**:
           - **x**: 449
           - **y**: 972
           - **raio**: 25
@@ -569,14 +569,14 @@
       - **[0]**:
         - **id**: 26
         - **label**: 26
-        - **circular**:
+        - **circulo**:
           - **x**: 350
           - **y**: 874
           - **raio**: 27
       - **[1]**:
         - **id**: 27
         - **label**: 27
-        - **circular**:
+        - **circulo**:
           - **x**: 544
           - **y**: 858
           - **raio**: 27
@@ -597,7 +597,7 @@
       - **[0]**:
         - **id**: 28
         - **label**: 28
-        - **circular**:
+        - **circulo**:
           - **x**: 680
           - **y**: 858
           - **raio**: 26
@@ -664,28 +664,28 @@
       - **[0]**:
         - **id**: 29
         - **label**: 29
-        - **circular**:
+        - **circulo**:
           - **x**: 317
           - **y**: 794
           - **raio**: 24
       - **[1]**:
         - **id**: 30
         - **label**: 30
-        - **circular**:
+        - **circulo**:
           - **x**: 369
           - **y**: 818
           - **raio**: 24
       - **[2]**:
         - **id**: 31
         - **label**: 31
-        - **circular**:
+        - **circulo**:
           - **x**: 771
           - **y**: 634
           - **raio**: 24
       - **[3]**:
         - **id**: 32
         - **label**: 32
-        - **circular**:
+        - **circulo**:
           - **x**: 623
           - **y**: 818
           - **raio**: 24
@@ -718,14 +718,14 @@
       - **[0]**:
         - **id**: 33
         - **label**: 33
-        - **circular**:
+        - **circulo**:
           - **x**: 612
           - **y**: 862
           - **raio**: 24
       - **[1]**:
         - **id**: 34
         - **label**: 34
-        - **circular**:
+        - **circulo**:
           - **x**: 675
           - **y**: 1033
           - **raio**: 24
@@ -791,28 +791,28 @@
       - **[0]**:
         - **id**: 35
         - **label**: 35
-        - **circular**:
+        - **circulo**:
           - **x**: 205
           - **y**: 954
           - **raio**: 26
       - **[1]**:
         - **id**: 36
         - **label**: 36
-        - **circular**:
+        - **circulo**:
           - **x**: 252
           - **y**: 768
           - **raio**: 26
       - **[2]**:
         - **id**: 37
         - **label**: 37
-        - **circular**:
+        - **circulo**:
           - **x**: 736
           - **y**: 969
           - **raio**: 26
       - **[3]**:
         - **id**: 38
         - **label**: 38
-        - **circular**:
+        - **circulo**:
           - **x**: 724
           - **y**: 867
           - **raio**: 26
@@ -841,7 +841,7 @@
       - **[0]**:
         - **id**: 39
         - **label**: 39
-        - **circular**:
+        - **circulo**:
           - **x**: 374
           - **y**: 883
           - **raio**: 28
@@ -858,7 +858,7 @@
       - **[0]**:
         - **id**: 40
         - **label**: 40
-        - **circular**:
+        - **circulo**:
           - **x**: 485
           - **y**: 773
           - **raio**: 28
@@ -918,21 +918,21 @@
       - **[0]**:
         - **id**: 42
         - **label**: 42
-        - **circular**:
+        - **circulo**:
           - **x**: 591
           - **y**: 584
           - **raio**: 26
       - **[1]**:
         - **id**: 43
         - **label**: 43
-        - **circular**:
+        - **circulo**:
           - **x**: 644
           - **y**: 877
           - **raio**: 26
       - **[2]**:
         - **id**: 41
         - **label**: 41
-        - **circular**:
+        - **circulo**:
           - **x**: 211
           - **y**: 817
           - **raio**: 26
@@ -961,14 +961,14 @@
       - **[0]**:
         - **id**: 44
         - **label**: 44
-        - **circular**:
+        - **circulo**:
           - **x**: 456
           - **y**: 946
           - **raio**: 27
       - **[1]**:
         - **id**: 45
         - **label**: 45
-        - **circular**:
+        - **circulo**:
           - **x**: 651
           - **y**: 858
           - **raio**: 27
@@ -989,7 +989,7 @@
       - **[0]**:
         - **id**: 47
         - **label**: 47
-        - **circular**:
+        - **circulo**:
           - **x**: 586
           - **y**: 1001
           - **raio**: 25
@@ -1051,7 +1051,7 @@
       - **[0]**:
         - **id**: 46
         - **label**: 46
-        - **circular**:
+        - **circulo**:
           - **x**: 481
           - **y**: 843
           - **raio**: 26
@@ -1068,14 +1068,14 @@
       - **[0]**:
         - **id**: 48
         - **label**: 48
-        - **circular**:
+        - **circulo**:
           - **x**: 343
           - **y**: 1079
           - **raio**: 28
       - **[1]**:
         - **id**: 49
         - **label**: 49
-        - **circular**:
+        - **circulo**:
           - **x**: 975
           - **y**: 834
           - **raio**: 28
@@ -1124,14 +1124,14 @@
       - **[0]**:
         - **id**: 50
         - **label**: 50
-        - **circular**:
+        - **circulo**:
           - **x**: 285
           - **y**: 1307
           - **raio**: 28
       - **[1]**:
         - **id**: 51
         - **label**: 51
-        - **circular**:
+        - **circulo**:
           - **x**: 430
           - **y**: 1090
           - **raio**: 28
@@ -1152,14 +1152,14 @@
       - **[0]**:
         - **id**: 52
         - **label**: 52
-        - **circular**:
+        - **circulo**:
           - **x**: 319
           - **y**: 866
           - **raio**: 27
       - **[1]**:
         - **id**: 53
         - **label**: 53
-        - **circular**:
+        - **circulo**:
           - **x**: 229
           - **y**: 813
           - **raio**: 27
@@ -1184,14 +1184,14 @@
       - **[0]**:
         - **id**: 54
         - **label**: 54
-        - **circular**:
+        - **circulo**:
           - **x**: 237
           - **y**: 594
           - **raio**: 17
       - **[1]**:
         - **id**: 55
         - **label**: 55
-        - **circular**:
+        - **circulo**:
           - **x**: 277
           - **y**: 568
           - **raio**: 17
@@ -1212,14 +1212,14 @@
       - **[0]**:
         - **id**: 56
         - **label**: 56
-        - **circular**:
+        - **circulo**:
           - **x**: 508
           - **y**: 592
           - **raio**: 18
       - **[1]**:
         - **id**: 57
         - **label**: 57
-        - **circular**:
+        - **circulo**:
           - **x**: 451
           - **y**: 606
           - **raio**: 19

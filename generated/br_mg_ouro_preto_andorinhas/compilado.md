@@ -9,7 +9,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_pedra_branca_p0_i0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -39,63 +39,63 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 253
           - **y**: 803
           - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 409
           - **y**: 799
           - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 528
           - **y**: 759
           - **raio**: 21
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 805
           - **y**: 674
           - **raio**: 20
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 957
           - **y**: 599
           - **raio**: 20
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 1110
           - **y**: 554
           - **raio**: 20
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 1456
           - **y**: 823
           - **raio**: 20
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 1577
           - **y**: 750
           - **raio**: 20
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 1942
           - **y**: 743
           - **raio**: 20
@@ -254,56 +254,56 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 299
           - **y**: 923
           - **raio**: 29
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 515
           - **y**: 914
           - **raio**: 29
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 642
           - **y**: 872
           - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 691
           - **y**: 1002
           - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 819
           - **y**: 962
           - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 1009
           - **y**: 962
           - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 1237
           - **y**: 933
           - **raio**: 29
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 1480
           - **y**: 835
           - **raio**: 29
@@ -445,49 +445,49 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 553
           - **y**: 1165
           - **raio**: 29
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 673
           - **y**: 1207
           - **raio**: 29
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 876
           - **y**: 1185
           - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 1367
           - **y**: 1156
           - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 1554
           - **y**: 1156
           - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 1767
           - **y**: 1095
           - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 1918
           - **y**: 1066
           - **raio**: 29
@@ -617,112 +617,112 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 271
           - **y**: 1376
           - **raio**: 28
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 716
           - **y**: 1078
           - **raio**: 28
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 881
           - **y**: 1000
           - **raio**: 29
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 998
           - **y**: 982
           - **raio**: 29
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 1079
           - **y**: 857
           - **raio**: 29
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 1178
           - **y**: 875
           - **raio**: 29
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 1235
           - **y**: 767
           - **raio**: 28
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 1341
           - **y**: 726
           - **raio**: 29
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 1380
           - **y**: 610
           - **raio**: 29
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 1433
           - **y**: 521
           - **raio**: 28
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 1498
           - **y**: 474
           - **raio**: 29
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 1573
           - **y**: 540
           - **raio**: 29
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **circular**:
+        - **circulo**:
           - **x**: 1691
           - **y**: 569
           - **raio**: 29
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **circular**:
+        - **circulo**:
           - **x**: 1806
           - **y**: 550
           - **raio**: 29
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **circular**:
+        - **circulo**:
           - **x**: 1865
           - **y**: 474
           - **raio**: 29
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **circular**:
+        - **circulo**:
           - **x**: 1968
           - **y**: 375
           - **raio**: 29

@@ -1,4 +1,4 @@
----
+---
 nome: Sanfoneiro Maluco
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p0.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 395
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 630
       y: 495
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 230
       y: 515
       comprimento: 30
@@ -51,7 +51,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 155
       y: 430
       comprimento: 30
@@ -72,14 +72,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 260
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 420
       y: 495
       comprimento: 30
@@ -119,7 +119,8 @@ escaladas:
 - boulder:
     nome: Zuzuzela
     dificuldade: V6
----
+---
+
 # Setor Sanfoneiro Maluco
 
 O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.

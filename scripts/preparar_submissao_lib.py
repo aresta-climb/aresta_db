@@ -716,30 +716,39 @@ def validar_pontos_de_interesse_recursivo(obj, path=""):
                 poi_path = f"{path}.pontos_de_interesse[{i}]"
                 label = pt.get('label', pt.get('id', '?'))
                 
-                if 'circular' in pt:
-                    c = pt['circular']
-                    for field in ['x', 'y', 'raio']:
-                        if field not in c:
-                            raise ValueError(f"POI '{label}' em {poi_path}: Círculo faltando campo '{field}'")
-                elif 'box' in pt:
-                    b = pt['box']
-                    for field in ['x', 'y', 'comprimento', 'largura']:
-                        if field not in b:
-                            raise ValueError(f"POI '{label}' em {poi_path}: Box faltando campo '{field}'")
-                    if 'angulo_graus_x100' in b:
-                        ang = b['angulo_graus_x100']
+                if 'circulo' in pt:
+                    circ = pt['circulo']
+                    for req in ['x', 'y', 'raio']:
+                        if req not in circ:
+                            raise ValueError(f"POI '{label}' em {poi_path}: Círculo faltando campo '{req}'")
+                elif 'retangulo' in pt:
+                    ret = pt['retangulo']
+                    for req in ['x', 'y', 'comprimento', 'largura']:
+                        if req not in ret:
+                            raise ValueError(f"POI '{label}' em {poi_path}: Retângulo faltando campo '{req}'")
+                    if 'angulo_graus_x100' in ret:
+                        ang = ret['angulo_graus_x100']
                         if not (-36000 <= ang <= 36000):
                             raise ValueError(f"POI '{label}' em {poi_path}: angulo_graus_x100 ({ang}) deve estar entre -36000 e 36000")
-                elif 'area_livre' in pt:
-                    al = pt['area_livre']
-                    if 'coordenadas' not in al:
-                        raise ValueError(f"POI '{label}' em {poi_path}: Area livre faltando 'coordenadas'")
-                    coords = al['coordenadas']
+                elif 'quadrado' in pt:
+                    quad = pt['quadrado']
+                    for req in ['x', 'y', 'lado']:
+                        if req not in quad:
+                            raise ValueError(f"POI '{label}' em {poi_path}: Quadrado faltando campo '{req}'")
+                    if 'angulo_graus_x100' in quad:
+                        ang = quad['angulo_graus_x100']
+                        if not (-36000 <= ang <= 36000):
+                            raise ValueError(f"POI '{label}' em {poi_path}: angulo_graus_x100 ({ang}) deve estar entre -36000 e 36000")
+                elif 'poligono' in pt:
+                    pol = pt['poligono']
+                    if 'coordenadas' not in pol:
+                        raise ValueError(f"POI '{label}' em {poi_path}: Polígono faltando 'coordenadas'")
+                    coords = pol['coordenadas']
                     if not isinstance(coords, list) or len(coords) % 2 != 0:
-                        raise ValueError(f"POI '{label}' em {poi_path}: Area livre deve ter um número par de coordenadas (x,y pairs). Encontrado {len(coords)} elementos.")
+                        raise ValueError(f"POI '{label}' em {poi_path}: Polígono deve ter um número par de coordenadas (x,y pairs). Encontrado {len(coords)} elementos.")
                 else:
-                    # Se não tem nenhum dos 3 tipos, é inválido no novo esquema
-                    raise ValueError(f"POI '{label}' em {poi_path}: Tipo de área não especificado ou inválido (esperado circular, box ou area_livre)")
+                    # Se não tem nenhum dos 4 tipos, é inválido no novo esquema
+                    raise ValueError(f"POI '{label}' em {poi_path}: Tipo de área não especificado ou inválido (esperado circulo, quadrado, retangulo ou poligono)")
 
         # Continua a recursão em todos os campos
         for k, v in obj.items():

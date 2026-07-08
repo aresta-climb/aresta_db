@@ -1,4 +1,4 @@
----
+---
 nome: Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 320
       y: 1200
       comprimento: 45
       largura: 33
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 394
       y: 1219
       comprimento: 45
       largura: 32
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 488
       y: 1220
       comprimento: 46
       largura: 33
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 558
       y: 1201
       comprimento: 48
       largura: 32
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 686
       y: 1213
       comprimento: 46
@@ -62,28 +62,28 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 739
       y: 1188
       comprimento: 44
       largura: 33
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 786
       y: 1102
       comprimento: 47
       largura: 37
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 861
       y: 1210
       comprimento: 50
       largura: 37
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 923
       y: 1234
       comprimento: 48
@@ -99,44 +99,44 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 184
       y: 974
       comprimento: 53
       largura: 38
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 246
       y: 988
       comprimento: 52
       largura: 41
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 393
       y: 1042
       comprimento: 48
       largura: 37
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 485
       y: 1233
       comprimento: 42
       largura: 36
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 573
       y: 1225
       comprimento: 42
       largura: 32
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 660
       y: 1244
       comprimento: 43
@@ -160,42 +160,42 @@ mapas:
   pontos_de_interesse:
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 728
       y: 1240
       comprimento: 33
       largura: 29
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 782
       y: 1240
       comprimento: 33
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 836
       y: 1238
       comprimento: 35
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 886
       y: 1241
       comprimento: 33
       largura: 32
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 942
       y: 1240
       comprimento: 33
       largura: 32
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 996
       y: 1238
       comprimento: 32
@@ -397,7 +397,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2009'
----
+---
+
 # Setor Bem-vindo
 
 O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).

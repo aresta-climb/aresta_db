@@ -7,62 +7,62 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 513
       y: 891
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 443
       y: 818
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 443
       y: 788
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 54
       y: 743
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 64
       y: 658
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 79
       y: 602
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 101
       y: 499
       raio: 13
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 123
       y: 417
       raio: 13
   - id: Sentinela
     label: ← SENTINELA
-    box:
+    retangulo:
       x: 288
       y: 60
       comprimento: 133
       largura: 30
   - id: Vale_das_Sombras
     label: VALE DAS SOMBRAS ↘
-    box:
+    retangulo:
       x: 548
       y: 1255
       comprimento: 215

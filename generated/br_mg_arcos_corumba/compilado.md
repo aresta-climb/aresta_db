@@ -93,7 +93,7 @@
             - **Instagram:** [@abrigobase](https://www.instagram.com/abrigobase)
             - **E-mail:** abrigobase@gmail.com
             - **Contribuição/Parceria PIX:** 37 99918-3634
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -120,154 +120,154 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 122
           - **y**: 878
           - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 226
           - **y**: 907
           - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 279
           - **y**: 914
           - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 314
           - **y**: 918
           - **raio**: 15
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 363
           - **y**: 921
           - **raio**: 15
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 468
           - **y**: 938
           - **raio**: 15
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 511
           - **y**: 938
           - **raio**: 15
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 544
           - **y**: 952
           - **raio**: 15
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 580
           - **y**: 942
           - **raio**: 15
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 617
           - **y**: 930
           - **raio**: 15
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 919
           - **y**: 977
           - **raio**: 15
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 1029
           - **y**: 957
           - **raio**: 15
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **circular**:
+        - **circulo**:
           - **x**: 1085
           - **y**: 946
           - **raio**: 15
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **circular**:
+        - **circulo**:
           - **x**: 1130
           - **y**: 925
           - **raio**: 15
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **circular**:
+        - **circulo**:
           - **x**: 1180
           - **y**: 920
           - **raio**: 15
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **circular**:
+        - **circulo**:
           - **x**: 1221
           - **y**: 918
           - **raio**: 15
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **circular**:
+        - **circulo**:
           - **x**: 1277
           - **y**: 920
           - **raio**: 15
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **circular**:
+        - **circulo**:
           - **x**: 1320
           - **y**: 900
           - **raio**: 15
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **circular**:
+        - **circulo**:
           - **x**: 1373
           - **y**: 876
           - **raio**: 15
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **circular**:
+        - **circulo**:
           - **x**: 1436
           - **y**: 863
           - **raio**: 15
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **circular**:
+        - **circulo**:
           - **x**: 1475
           - **y**: 848
           - **raio**: 15
       - **[21]**:
         - **id**: 22
         - **label**: 22
-        - **circular**:
+        - **circulo**:
           - **x**: 1750
           - **y**: 772
           - **raio**: 15
@@ -542,14 +542,14 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 358
           - **y**: 1070
           - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 532
           - **y**: 968
           - **raio**: 17
@@ -600,28 +600,28 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 292
           - **y**: 868
           - **raio**: 15
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 476
           - **y**: 1112
           - **raio**: 15
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 607
           - **y**: 1112
           - **raio**: 15
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 714
           - **y**: 1112
           - **raio**: 15
@@ -650,14 +650,14 @@
       - **[0]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 498
           - **y**: 1097
           - **raio**: 15
       - **[1]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 639
           - **y**: 1084
           - **raio**: 15
@@ -738,7 +738,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 78
           - **y**: 811
           - **comprimento**: 25
@@ -746,7 +746,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 122
           - **y**: 780
           - **comprimento**: 26
@@ -754,7 +754,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 165
           - **y**: 760
           - **comprimento**: 26
@@ -762,7 +762,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 252
           - **y**: 752
           - **comprimento**: 25
@@ -770,7 +770,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 294
           - **y**: 752
           - **comprimento**: 29
@@ -778,7 +778,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 374
           - **y**: 796
           - **comprimento**: 29
@@ -786,7 +786,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 421
           - **y**: 849
           - **comprimento**: 28
@@ -794,7 +794,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 474
           - **y**: 874
           - **comprimento**: 25
@@ -802,7 +802,7 @@
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 518
           - **y**: 873
           - **comprimento**: 26
@@ -810,7 +810,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 542
           - **y**: 682
           - **comprimento**: 31
@@ -818,7 +818,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 575
           - **y**: 840
           - **comprimento**: 30
@@ -826,7 +826,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 686
           - **y**: 816
           - **comprimento**: 31
@@ -834,7 +834,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 734
           - **y**: 816
           - **comprimento**: 32
@@ -842,7 +842,7 @@
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 874
           - **y**: 572
           - **comprimento**: 35
@@ -850,7 +850,7 @@
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **box**:
+        - **retangulo**:
           - **x**: 918
           - **y**: 477
           - **comprimento**: 30
@@ -858,7 +858,7 @@
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **box**:
+        - **retangulo**:
           - **x**: 1006
           - **y**: 592
           - **comprimento**: 32
@@ -866,7 +866,7 @@
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **box**:
+        - **retangulo**:
           - **x**: 1066
           - **y**: 484
           - **comprimento**: 34
@@ -874,7 +874,7 @@
       - **[17]**:
         - **id**: 18
         - **label**: 18
-        - **box**:
+        - **retangulo**:
           - **x**: 1142
           - **y**: 386
           - **comprimento**: 30
@@ -882,7 +882,7 @@
       - **[18]**:
         - **id**: 19
         - **label**: 19
-        - **box**:
+        - **retangulo**:
           - **x**: 995
           - **y**: 895
           - **comprimento**: 34
@@ -890,7 +890,7 @@
       - **[19]**:
         - **id**: 20
         - **label**: 20
-        - **box**:
+        - **retangulo**:
           - **x**: 1368
           - **y**: 936
           - **comprimento**: 31
@@ -898,7 +898,7 @@
       - **[20]**:
         - **id**: 21
         - **label**: 21
-        - **box**:
+        - **retangulo**:
           - **x**: 1498
           - **y**: 938
           - **comprimento**: 32

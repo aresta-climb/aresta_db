@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 176
       y: 891
       raio: 15
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 697
       y: 1010
       raio: 15
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 951
       y: 1009
       raio: 15
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1187
       y: 971
       raio: 15
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1275
       y: 971
       raio: 15
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1364
       y: 990
       raio: 15
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1575
       y: 984
       raio: 15
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 1660
       y: 984
       raio: 15
@@ -84,7 +84,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 300
       y: 889
       raio: 15
@@ -98,13 +98,13 @@ mapas:
   pontos_de_interesse:
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 330
       y: 1007
       raio: 15
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 585
       y: 1129
       raio: 15
@@ -121,31 +121,31 @@ mapas:
   pontos_de_interesse:
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 11
       y: 1106
       raio: 14
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 174
       y: 942
       raio: 15
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 323
       y: 1110
       raio: 15
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 533
       y: 1104
       raio: 15
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 619
       y: 1104
       raio: 15

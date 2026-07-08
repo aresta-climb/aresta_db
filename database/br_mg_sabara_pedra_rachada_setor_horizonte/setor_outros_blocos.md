@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '50'
     label: '50'
-    circular:
+    circulo:
       x: 285
       y: 1307
       raio: 28
   - id: '51'
     label: '51'
-    circular:
+    circulo:
       x: 430
       y: 1090
       raio: 28
@@ -30,13 +30,13 @@ mapas:
   pontos_de_interesse:
   - id: '52'
     label: '52'
-    circular:
+    circulo:
       x: 319
       y: 866
       raio: 27
   - id: '53'
     label: '53'
-    circular:
+    circulo:
       x: 229
       y: 813
       raio: 27
@@ -54,13 +54,13 @@ mapas:
   pontos_de_interesse:
   - id: '54'
     label: '54'
-    circular:
+    circulo:
       x: 237
       y: 594
       raio: 17
   - id: '55'
     label: '55'
-    circular:
+    circulo:
       x: 277
       y: 568
       raio: 17
@@ -77,13 +77,13 @@ mapas:
   pontos_de_interesse:
   - id: '56'
     label: '56'
-    circular:
+    circulo:
       x: 508
       y: 592
       raio: 18
   - id: '57'
     label: '57'
-    circular:
+    circulo:
       x: 451
       y: 606
       raio: 19
@@ -132,7 +132,6 @@ escaladas:
     dificuldade: V5
     descricao: Boulder clássico.
 ---
-
 
 # Outros Blocos
 

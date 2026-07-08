@@ -1,4 +1,4 @@
----
+---
 nome: Bobsled
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bobsled_p0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 140
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 70
       y: 495
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 290
       y: 465
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 645
       y: 415
       comprimento: 30
@@ -59,7 +59,8 @@ escaladas:
 - boulder:
     nome: Bobsled
     dificuldade: V7
----
+---
+
 # Setor Bobsled
 
 O setor Bobsled possui um bloco com linhas atléticas e passagens de força.

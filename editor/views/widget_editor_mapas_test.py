@@ -71,16 +71,16 @@ def test_slider_bulk_vazio_reseta_para_zero(qtbot):
     
     # Testa para circular
     widget.slider_circ.setValue(50)
-    widget.ao_pressionar_slider_bulk('circular')
-    widget.ao_soltar_slider_bulk('circular')
+    widget.ao_pressionar_slider_bulk('circulo')
+    widget.ao_soltar_slider_bulk('circulo')
     
     assert widget.slider_circ.value() == 0
     assert widget.label_circ.text() == "0%"
     
     # Testa para box/retângulo
     widget.slider_box.setValue(50)
-    widget.ao_pressionar_slider_bulk('box')
-    widget.ao_soltar_slider_bulk('box')
+    widget.ao_pressionar_slider_bulk('retangulo')
+    widget.ao_soltar_slider_bulk('retangulo')
     
     assert widget.slider_box.value() == 0
     assert widget.label_box.text() == "0%"
@@ -266,22 +266,22 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     
     # Testa para circular
     widget.slider_circ.setValue(50)
-    widget.ao_pressionar_slider_bulk('circular')
-    widget.ao_soltar_slider_bulk('circular')
+    widget.ao_pressionar_slider_bulk('circulo')
+    widget.ao_soltar_slider_bulk('circulo')
     
     assert widget.slider_circ.value() == 0
     assert widget.label_circ.text() == "0%"
     
     # Testa para box/retângulo
     widget.slider_box.setValue(50)
-    widget.ao_pressionar_slider_bulk('box')
-    widget.ao_soltar_slider_bulk('box')
+    widget.ao_pressionar_slider_bulk('retangulo')
+    widget.ao_soltar_slider_bulk('retangulo')
     
     assert widget.slider_box.value() == 0
     assert widget.label_box.text() == "0%"
 
 def test_deletar_poi_com_tecla_delete(qtbot, mocker):
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingRetangulo
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from PyQt6.QtCore import Qt
@@ -294,10 +294,10 @@ def test_deletar_poi_com_tecla_delete(qtbot, mocker):
     poi = mapa_proto.pontos_de_interesse.add()
     poi.id = "poi_1"
     poi.label = "POI 1"
-    poi.box.x = 10
-    poi.box.y = 10
-    poi.box.comprimento = 20
-    poi.box.largura = 20
+    poi.retangulo.x = 10
+    poi.retangulo.y = 10
+    poi.retangulo.comprimento = 20
+    poi.retangulo.largura = 20
     
     widget.set_mapa_atual(ReadOnlyProxy(mapa_proto))
     
@@ -519,15 +519,15 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingBox, ItemBoundingCircular, AlcaVertice, ItemBoundingAreaLivre
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
     cena = QGraphicsScene()
     
-    # Test ItemBoundingBox
-    box_dict = {'box': {'x': 100, 'y': 100, 'comprimento': 50, 'largura': 50}}
-    box = ItemBoundingBox(box_dict, lambda: None)
+    # Test ItemBoundingRetangulo
+    box_dict = {'retangulo': {'x': 100, 'y': 100, 'comprimento': 50, 'largura': 50}}
+    box = ItemBoundingRetangulo(box_dict, lambda: None)
     cena.addItem(box)
     
     mudanca = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
@@ -537,9 +537,9 @@ def test_poi_snapping_to_integers():
     assert snapped_valor.x() == 10.0
     assert snapped_valor.y() == 21.0
     
-    # Test ItemBoundingCircular
-    circ_dict = {'circular': {'x': 100, 'y': 100, 'raio': 25}}
-    circ = ItemBoundingCircular(circ_dict, lambda: None)
+    # Test ItemBoundingCirculo
+    circ_dict = {'circulo': {'x': 100, 'y': 100, 'raio': 25}}
+    circ = ItemBoundingCirculo(circ_dict, lambda: None)
     cena.addItem(circ)
     
     mudanca_circ = QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange
@@ -549,9 +549,22 @@ def test_poi_snapping_to_integers():
     assert snapped_valor_circ.x() == 10.0
     assert snapped_valor_circ.y() == 20.0
     
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
     # Test Polygon (Area Livre)
-    poly_dict = {'area_livre': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
-    poly = ItemBoundingAreaLivre(poly_dict, lambda x: None, lambda y: None)
+    poly_dict = {'poligono': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
+    poly = ItemBoundingPoligono(poly_dict, lambda x: None, lambda y: None)
     cena.addItem(poly)
     
     mudanca_poly = QGraphicsPolygonItem.GraphicsItemChange.ItemPositionChange
@@ -714,15 +727,15 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingBox, ItemBoundingCircular, AlcaVertice, ItemBoundingAreaLivre
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
     cena = QGraphicsScene()
     
-    # Test ItemBoundingBox
-    box_dict = {'box': {'x': 100, 'y': 100, 'comprimento': 50, 'largura': 50}}
-    box = ItemBoundingBox(box_dict, lambda: None)
+    # Test ItemBoundingRetangulo
+    box_dict = {'retangulo': {'x': 100, 'y': 100, 'comprimento': 50, 'largura': 50}}
+    box = ItemBoundingRetangulo(box_dict, lambda: None)
     cena.addItem(box)
     
     mudanca = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
@@ -732,9 +745,9 @@ def test_poi_snapping_to_integers():
     assert snapped_valor.x() == 10.0
     assert snapped_valor.y() == 21.0
     
-    # Test ItemBoundingCircular
-    circ_dict = {'circular': {'x': 100, 'y': 100, 'raio': 25}}
-    circ = ItemBoundingCircular(circ_dict, lambda: None)
+    # Test ItemBoundingCirculo
+    circ_dict = {'circulo': {'x': 100, 'y': 100, 'raio': 25}}
+    circ = ItemBoundingCirculo(circ_dict, lambda: None)
     cena.addItem(circ)
     
     mudanca_circ = QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange
@@ -744,9 +757,22 @@ def test_poi_snapping_to_integers():
     assert snapped_valor_circ.x() == 10.0
     assert snapped_valor_circ.y() == 20.0
     
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
     # Test Polygon (Area Livre)
-    poly_dict = {'area_livre': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
-    poly = ItemBoundingAreaLivre(poly_dict, lambda x: None, lambda y: None)
+    poly_dict = {'poligono': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
+    poly = ItemBoundingPoligono(poly_dict, lambda x: None, lambda y: None)
     cena.addItem(poly)
     
     mudanca_poly = QGraphicsPolygonItem.GraphicsItemChange.ItemPositionChange
@@ -824,10 +850,10 @@ def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
     poi.id = "poi_1"
-    poi.box.x = 10
-    poi.box.y = 10
-    poi.box.comprimento = 20
-    poi.box.largura = 20
+    poi.retangulo.x = 10
+    poi.retangulo.y = 10
+    poi.retangulo.comprimento = 20
+    poi.retangulo.largura = 20
     
     # Cria a referência e adiciona o poi_1
     ref = mapa.referencias.add()
@@ -870,10 +896,10 @@ def test_clique_poi_atualiza_cor_imediato(qtbot):
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
     poi.id = "poi_1"
-    poi.box.x = 10
-    poi.box.y = 10
-    poi.box.comprimento = 20
-    poi.box.largura = 20
+    poi.retangulo.x = 10
+    poi.retangulo.y = 10
+    poi.retangulo.comprimento = 20
+    poi.retangulo.largura = 20
     
     ref = mapa.referencias.add()
     
@@ -895,12 +921,12 @@ def test_clique_poi_atualiza_cor_imediato(qtbot):
 
 def test_clique_poi_chama_handler_com_id_correto(qtbot):
     """[TDD] Verifica se o clique no POI chama o _clique_handler com o ID extraido do pt_dict."""
-    from editor.views.widget_editor_mapas import ItemBoundingBox
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo
     from PyQt6.QtCore import Qt, QPointF
     from unittest.mock import MagicMock
     
-    pt_dict = {'id': 'poi_123', 'box': {'x': 10, 'y': 10, 'comprimento': 20, 'largura': 20}}
-    item = ItemBoundingBox(pt_dict, lambda x: None)
+    pt_dict = {'id': 'poi_123', 'retangulo': {'x': 10, 'y': 10, 'comprimento': 20, 'largura': 20}}
+    item = ItemBoundingRetangulo(pt_dict, lambda x: None)
     
     handler = MagicMock(return_value=True)
     item.set_clique_handler(handler)
@@ -954,10 +980,10 @@ def test_iniciar_modo_camera_destaca_pois_ciano(qtbot):
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
     poi.id = "poi_cam"
-    poi.box.x = 10
-    poi.box.y = 10
-    poi.box.comprimento = 20
-    poi.box.largura = 20
+    poi.retangulo.x = 10
+    poi.retangulo.y = 10
+    poi.retangulo.comprimento = 20
+    poi.retangulo.largura = 20
     
     ref = mapa.referencias.add()
     ref.ids.append("poi_cam")
@@ -1017,10 +1043,10 @@ def test_remover_destaque_restaura_highlight_camera(qtbot):
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
     poi.id = "poi_1"
-    poi.box.x = 10
-    poi.box.y = 10
-    poi.box.comprimento = 20
-    poi.box.largura = 20
+    poi.retangulo.x = 10
+    poi.retangulo.y = 10
+    poi.retangulo.comprimento = 20
+    poi.retangulo.largura = 20
     
     ref = mapa.referencias.add()
     ref.ids.append("poi_1")
@@ -1691,7 +1717,7 @@ def test_converter_item_para_circulo(qtbot):
 
 def test_alterar_tipo_poi_nao_reseta_zoom(qtbot):
     """[TDD] Verifica se alterar o tipo de um POI (conversao) não reseta o zoom do mapa."""
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingRetangulo
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
     
@@ -1699,7 +1725,7 @@ def test_alterar_tipo_poi_nao_reseta_zoom(qtbot):
     widget.msg_mapa_proxy = MagicMock()
     
     poi = croqui_pb2.Mapa.PontoDeInteresse()
-    poi.circular.raio = 10
+    poi.circulo.raio = 10
     widget.msg_mapa_proxy.pontos_de_interesse = [poi]
     
     widget._renderizar_mapa = MagicMock()
@@ -1707,7 +1733,7 @@ def test_alterar_tipo_poi_nao_reseta_zoom(qtbot):
     cena_mock = MagicMock()
     widget.visualizador.scene.return_value = cena_mock
     
-    item_existente = MagicMock(spec=ItemBoundingBox)
+    item_existente = MagicMock(spec=ItemBoundingRetangulo)
     widget.itens_poi = {0: item_existente}
     
     widget._adicionar_item_cena = MagicMock()
@@ -1774,7 +1800,7 @@ def test_item_camera_overlay_is_visible_and_in_scene(qtbot):
 
 def test_poi_bloqueado_no_modo_linkagem(qtbot):
     """[TDD] Verifica se a flag ItemIsMovable dos POIs é desativada durante a iniciação do modo de linkagem."""
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingBox
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingRetangulo
     from PyQt6.QtWidgets import QGraphicsItem, QGraphicsScene
     from unittest.mock import MagicMock
     
@@ -1782,8 +1808,8 @@ def test_poi_bloqueado_no_modo_linkagem(qtbot):
     qtbot.addWidget(widget)
     
     # Adiciona um POI mock
-    box_dict = {'box': {'x': 10, 'y': 10, 'comprimento': 50, 'largura': 50}, 'id': 'teste'}
-    item = ItemBoundingBox(box_dict, lambda: None)
+    box_dict = {'retangulo': {'x': 10, 'y': 10, 'comprimento': 50, 'largura': 50}, 'id': 'teste'}
+    item = ItemBoundingRetangulo(box_dict, lambda: None)
     
     # Por padrão, um POI instanciado DEVE ser móvel
     item.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)

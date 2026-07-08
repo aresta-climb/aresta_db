@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 400
       y: 191
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 598
       y: 198
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 777
       y: 798
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 995
       y: 731
       raio: 13
@@ -47,37 +47,37 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 601
       y: 146
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 902
       y: 109
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1088
       y: 180
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1231
       y: 318
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 701
       y: 1005
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1064
       y: 776
       raio: 13
@@ -121,5 +121,4 @@ escaladas:
     nome: Encardido
     dificuldade: V4
 ---
-
 

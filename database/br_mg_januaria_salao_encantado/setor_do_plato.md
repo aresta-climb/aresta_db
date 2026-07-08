@@ -1,4 +1,4 @@
----
+---
 nome: Setor do Platô
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_plato_p0.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 111
       y: 268
       comprimento: 30
       largura: 40
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 198
       y: 80
       comprimento: 29
       largura: 38
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 248
       y: 99
       comprimento: 29
       largura: 38
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 302
       y: 120
       comprimento: 30
       largura: 40
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 546
       y: 371
       comprimento: 25
       largura: 32
   - id: Estacionamento
     label: Estacionamento
-    box:
+    retangulo:
       x: 305
       y: 600
       comprimento: 46
@@ -80,14 +80,15 @@ escaladas:
 - via_esportiva:
     nome: Visitante Oculto
     dificuldade: BR_8A
-    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem quer 
-      escalar 8º grau.
+    descricao: Via longa e técnica uma fenda na metade da parede. Opção para quem
+      quer escalar 8º grau.
 - via_esportiva:
     nome: Bestial Devastation
     dificuldade: BR_7A
-    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer
-      até o platô mais baixo.
----
+    descricao: Ultima via da parede. Se quiser fazer a via a partir da base tem que
+      descer até o platô mais baixo.
+---
+
 Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
 
 ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp)

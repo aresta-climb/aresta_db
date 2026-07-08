@@ -1,4 +1,4 @@
----
+---
 nome: Bloco do Guerreiro
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 370
       y: 631
       comprimento: 19
       largura: 20
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 578
       y: 602
       comprimento: 23
       largura: 23
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 786
       y: 594
       comprimento: 19
       largura: 19
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 924
       y: 625
       comprimento: 17
@@ -52,21 +52,21 @@ mapas:
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 496
       y: 605
       comprimento: 20
       largura: 20
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 756
       y: 454
       comprimento: 19
       largura: 20
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 764
       y: 512
       comprimento: 21
@@ -85,7 +85,7 @@ escaladas:
 - boulder:
     nome: Strike
     dificuldade: V7_BARRA_V8
-    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena 
+    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena
       seguindo para abaulado virando reto.
 - boulder:
     nome: Chove e Não Molha
@@ -98,13 +98,13 @@ escaladas:
 - boulder:
     nome: Marreteiro
     dificuldade: V5
-    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em 
+    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em
       reglete de meia falange com calcanhar na mão direita e segue a linha reta.
 - boulder:
     nome: Guerreiro da Bocaina
     dificuldade: V6
-    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado 
-      da mão e direita em reglete no teto.
+    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo
+      ao lado da mão e direita em reglete no teto.
 - boulder:
     nome: High Line
     dificuldade: V5
@@ -113,5 +113,6 @@ escaladas:
     nome: Colchão de Mola
     dificuldade: V4
     descricao: Saída em pé com as mãos em regletes investidos.
----
+---
+
 # Setor Bloco do Guerreiro

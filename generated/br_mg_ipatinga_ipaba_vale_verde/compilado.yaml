@@ -19,189 +19,189 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '1'
-            box:
+            retangulo:
               x: 394
               y: 1620
               comprimento: 21
               largura: 29
           - id: '02'
             label: '2'
-            box:
+            retangulo:
               x: 373
               y: 1571
               comprimento: 24
               largura: 32
           - id: '03'
             label: '3'
-            box:
+            retangulo:
               x: 358
               y: 1528
               comprimento: 21
               largura: 30
           - id: '04'
             label: '4'
-            box:
+            retangulo:
               x: 352
               y: 1482
               comprimento: 13
               largura: 17
           - id: '05'
             label: '5'
-            box:
+            retangulo:
               x: 341
               y: 1434
               comprimento: 24
               largura: 30
           - id: '06'
             label: '6'
-            box:
+            retangulo:
               x: 332
               y: 1369
               comprimento: 19
               largura: 26
           - id: '07'
             label: '7'
-            box:
+            retangulo:
               x: 318
               y: 1305
               comprimento: 18
               largura: 20
           - id: 08
             label: '8'
-            box:
+            retangulo:
               x: 316
               y: 1264
               comprimento: 17
               largura: 22
           - id: 09
             label: '9'
-            box:
+            retangulo:
               x: 320
               y: 1213
               comprimento: 17
               largura: 22
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 318
               y: 1118
               comprimento: 25
               largura: 22
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 312
               y: 1070
               comprimento: 25
               largura: 20
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 318
               y: 808
               comprimento: 26
               largura: 23
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 316
               y: 768
               comprimento: 28
               largura: 29
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 308
               y: 700
               comprimento: 25
               largura: 25
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 306
               y: 592
               comprimento: 33
               largura: 31
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 312
               y: 541
               comprimento: 32
               largura: 32
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 317
               y: 472
               comprimento: 26
               largura: 27
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 316
               y: 436
               comprimento: 25
               largura: 24
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 317
               y: 394
               comprimento: 28
               largura: 23
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 324
               y: 310
               comprimento: 25
               largura: 23
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 336
               y: 262
               comprimento: 30
               largura: 30
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 337
               y: 204
               comprimento: 24
               largura: 23
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 342
               y: 158
               comprimento: 24
               largura: 23
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 345
               y: 97
               comprimento: 30
               largura: 30
           - id: Trilha_Jurassico
             label: Trilha para o Setor Jurássico (Muito Fechada)
-            box:
+            retangulo:
               x: 196
               y: 78
               comprimento: 115
               largura: 157
           - id: Trilha_Boulders_2nd
             label: Trilha Boulders e 2º Andar
-            box:
+            retangulo:
               x: 109
               y: 565
               comprimento: 134
               largura: 82
           - id: Voce_esta_aqui
             label: Você está aqui
-            box:
+            retangulo:
               x: 218
               y: 1314
               comprimento: 38
@@ -488,63 +488,63 @@ picos:
           pontos_de_interesse:
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 429
               y: 1611
               comprimento: 34
               largura: 40
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 438
               y: 1552
               comprimento: 35
               largura: 35
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 431
               y: 1404
               comprimento: 34
               largura: 33
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 410
               y: 1326
               comprimento: 41
               largura: 37
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 312
               y: 1072
               comprimento: 33
               largura: 37
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 356
               y: 545
               comprimento: 32
               largura: 38
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 346
               y: 486
               comprimento: 35
               largura: 35
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 288
               y: 424
               comprimento: 35
               largura: 32
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 280
               y: 362
               comprimento: 31
@@ -636,7 +636,7 @@ picos:
         pontos_de_interesse:
         - id: 2_Andar
           label: 2° ANDAR
-          box:
+          retangulo:
             x: 625
             y: 115
             comprimento: 100
@@ -644,7 +644,7 @@ picos:
             angulo_graus_x100: 6500
         - id: Falesia_do_Vale_Verde
           label: FALÉSIA DO VALE VERDE
-          box:
+          retangulo:
             x: 830
             y: 130
             comprimento: 240
@@ -652,7 +652,7 @@ picos:
             angulo_graus_x100: 6900
         - id: Jurassico
           label: JURÁSSICO
-          box:
+          retangulo:
             x: 680
             y: 145
             comprimento: 110
@@ -660,7 +660,7 @@ picos:
             angulo_graus_x100: 6300
         - id: 1_Andar
           label: 1° ANDAR
-          box:
+          retangulo:
             x: 735
             y: 240
             comprimento: 115
@@ -668,14 +668,14 @@ picos:
             angulo_graus_x100: 6200
         - id: Setor_de_Boulder
           label: SETOR DE BOULDER
-          box:
+          retangulo:
             x: 570
             y: 250
             comprimento: 95
             largura: 45
         - id: Placa_Climb_Trilha
           label: CLIMB
-          box:
+          retangulo:
             x: 660
             y: 460
             comprimento: 45
@@ -683,20 +683,20 @@ picos:
             angulo_graus_x100: 7500
         - id: Torre_Alta_Tensao
           label: Torre
-          box:
+          retangulo:
             x: 225
             y: 500
             comprimento: 140
             largura: 220
         - id: Estacionamento
           label: E
-          circular:
+          circulo:
             x: 730
             y: 1430
             raio: 55
         - id: Bar
           label: BAR
-          box:
+          retangulo:
             x: 640
             y: 1555
             comprimento: 140
@@ -704,7 +704,7 @@ picos:
             angulo_graus_x100: 2000
         - id: Placa_Climb_Estrada
           label: CLIMB
-          box:
+          retangulo:
             x: 875
             y: 1265
             comprimento: 45
@@ -712,7 +712,7 @@ picos:
             angulo_graus_x100: 10500
         - id: R_104
           label: R. 104
-          box:
+          retangulo:
             x: 1170
             y: 1255
             comprimento: 120
@@ -1017,7 +1017,7 @@ botoes:
 
         Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL:
         (31) 3829-9000'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/betas_p0.webp

@@ -4,7 +4,7 @@
 Fornecer um editor visual para gerenciar Pontos de Interesse (POI) em mapas de setores e grupos de um croqui, permitindo a marcação precisa de áreas e a sincronização com o banco de dados YAML.
 ## Requirements
 ### Requirement: Editor de Pontos de Interesse (POI) em Mapas
-O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (POI) e Referências em mapas de setores e grupos de um croqui, acessível primariamente integrado no painel principal em sua própria aba, respondendo a comandos da QUndoStack global e lendo diretamente do `CroquiModel`. A interface SHALL ser estruturada em três painéis horizontais (Mapas à esquerda, Visualizador ao centro, Referências à direita). O Visualizador ao centro SHALL suportar navegação através do arrasto da visualização (panning) quando o usuário clicar e arrastar no fundo da imagem (fora dos POIs).
+O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (POI) e Referências em mapas de setores e grupos de um croqui, acessível primariamente integrado no painel principal em sua própria aba, respondendo a comandos da QUndoStack global e lendo diretamente do `CroquiModel`. A interface SHALL ser estruturada em três painéis horizontais (Mapas à esquerda, Visualizador ao centro, Referências à direita). O Visualizador ao centro SHALL suportar navegação através do arrasto da visualização (panning) quando o usuário clicar e arrastar no fundo da imagem (fora dos POIs). O editor visual SHALL suportar a renderização, criação e manipulação das geometrias `circulo`, `quadrado`, `retangulo` e `poligono`.
 
 #### Scenario: Acesso Embutido na Árvore de Dados
 - **WHEN** o usuário seleciona um nó correspondente a um mapa na árvore do Editor de Dados e clica para abri-lo
@@ -17,3 +17,7 @@ O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (PO
 #### Scenario: Arrasto da visualização pelo fundo do mapa
 - **WHEN** o usuário clica em uma área do mapa (Visualizador) que não contém um POI e arrasta o cursor
 - **THEN** o sistema SHALL mover a visualização do mapa (panning) correspondente ao movimento do mouse
+
+#### Scenario: Manipulação de Quadrados e Polígonos
+- **WHEN** o usuário visualiza ou interage com um mapa que possua os novos formatos de POI
+- **THEN** o sistema SHALL renderizar adequadamente `quadrado` e `poligono` no visualizador

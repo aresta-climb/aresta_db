@@ -1,4 +1,4 @@
----
+---
 nome: Tsunami
 mapas:
 - caminho_imagem_mapa: imagens/setor_tsunami_p1.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 204
       y: 1092
       comprimento: 38
       largura: 29
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 248
       y: 1039
       comprimento: 39
       largura: 30
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 302
       y: 1080
       comprimento: 39
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 378
       y: 1062
       comprimento: 42
       largura: 29
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 429
       y: 1040
       comprimento: 40
       largura: 29
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 548
       y: 1006
       comprimento: 41
       largura: 29
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 610
       y: 994
       comprimento: 38
       largura: 29
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 674
       y: 978
       comprimento: 45
@@ -87,58 +87,58 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 96
       y: 929
       comprimento: 31
       largura: 24
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 142
       y: 930
       comprimento: 32
       largura: 27
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 190
       y: 932
       comprimento: 29
       largura: 25
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 234
       y: 945
       comprimento: 29
       largura: 26
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 272
       y: 930
       comprimento: 27
       largura: 25
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 308
       y: 916
       comprimento: 29
       largura: 28
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 340
       y: 1020
       comprimento: 42
       largura: 33
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 406
       y: 1026
       comprimento: 43
@@ -171,56 +171,56 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 456
       y: 1041
       comprimento: 42
       largura: 36
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 562
       y: 1054
       comprimento: 43
       largura: 34
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 642
       y: 1074
       comprimento: 30
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 698
       y: 1082
       comprimento: 31
       largura: 29
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 748
       y: 1092
       comprimento: 31
       largura: 27
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 801
       y: 1126
       comprimento: 30
       largura: 26
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 850
       y: 1132
       comprimento: 34
       largura: 29
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 914
       y: 1122
       comprimento: 37
@@ -481,7 +481,8 @@ escaladas:
     - Diego
     - Lucas Ramos
     data_abertura: '2006'
----
+---
+
 # Setor Tsunami
 
 ![Setor Tsunami](imagens/setor_tsunami_p0_i0.webp)

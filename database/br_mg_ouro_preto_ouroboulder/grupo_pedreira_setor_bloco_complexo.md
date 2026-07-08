@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 114
       y: 1352
       raio: 16
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 517
       y: 1312
       raio: 16
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1189
       y: 1366
       raio: 16
   - id: A
     label: A
-    circular:
+    circulo:
       x: 1036
       y: 38
       raio: 16
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1548
       y: 152
       raio: 17
@@ -57,19 +57,19 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 655
       y: 233
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 887
       y: 109
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 965
       y: 931
       raio: 13
@@ -88,25 +88,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 491
       y: 868
       raio: 14
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 703
       y: 878
       raio: 14
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 967
       y: 867
       raio: 14
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1053
       y: 846
       raio: 14
@@ -129,19 +129,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 426
       y: 736
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1442
       y: 934
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1208
       y: 809
       raio: 13
@@ -161,7 +161,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 412
       y: 956
       raio: 13
@@ -210,5 +210,4 @@ escaladas:
     nome: Respira
     dificuldade: V6
 ---
-
 

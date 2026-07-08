@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 828
       y: 851
       raio: 13
@@ -21,7 +21,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 574
       y: 824
       raio: 13
@@ -35,25 +35,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 203
       y: 333
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 949
       y: 109
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 824
       y: 788
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 722
       y: 985
       raio: 13
@@ -87,5 +87,4 @@ escaladas:
     nome: Papo Reto sds
     dificuldade: V12
 ---
-
 

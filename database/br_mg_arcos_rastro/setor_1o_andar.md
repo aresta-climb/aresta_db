@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Jardim_Suspenso
     label: Setor Jardim Suspenso
-    box:
+    retangulo:
       x: 608
       y: 40
       comprimento: 114
       largura: 22
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 808
       y: 381
       comprimento: 17
       largura: 16
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 824
       y: 414
       comprimento: 19
       largura: 17
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 807
       y: 447
       comprimento: 18
       largura: 16
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 794
       y: 468
       comprimento: 20
       largura: 16
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 782
       y: 488
       comprimento: 19
       largura: 16
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 767
       y: 512
       comprimento: 20
       largura: 17
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 141
       y: 1090
       comprimento: 90
       largura: 21
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 623
       y: 540
       comprimento: 22
       largura: 18
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 553
       y: 534
       comprimento: 22
       largura: 17
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 514
       y: 574
       comprimento: 19
       largura: 18
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 486
       y: 538
       comprimento: 19
       largura: 19
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 464
       y: 536
       comprimento: 18
@@ -131,11 +131,11 @@ mapas:
     - Setor_Jardim_Suspenso
     setor: Jardim Suspenso
   - ids:
-    - '08'
+    - 08
     setor: 1º Andar
     escalada: Curte o Planeta que Você Vive
   - ids:
-    - '09'
+    - 09
     setor: 1º Andar
     escalada: Subaco da Zen
 escaladas:

@@ -1,4 +1,4 @@
----
+---
 nome: ”Positivo” Central
 mapas:
 - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
@@ -7,133 +7,133 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    box:
+    retangulo:
       x: 130
       y: 740
       comprimento: 30
       largura: 30
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 275
       y: 740
       comprimento: 30
       largura: 30
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 375
       y: 700
       comprimento: 30
       largura: 30
   - id: '04'
     label: '4'
-    box:
+    retangulo:
       x: 410
       y: 740
       comprimento: 30
       largura: 30
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 620
       y: 730
       comprimento: 30
       largura: 30
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 740
       y: 505
       comprimento: 30
       largura: 30
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 825
       y: 610
       comprimento: 30
       largura: 30
-  - id: '08'
+  - id: 08
     label: '8'
-    box:
+    retangulo:
       x: 910
       y: 615
       comprimento: 30
       largura: 30
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 875
       y: 520
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 1080
       y: 520
       comprimento: 30
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 925
       y: 785
       comprimento: 30
       largura: 30
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 1075
       y: 710
       comprimento: 30
       largura: 30
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 1120
       y: 830
       comprimento: 30
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 1175
       y: 820
       comprimento: 30
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 1179
       y: 528
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 1350
       y: 860
       comprimento: 30
       largura: 30
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 1420
       y: 860
       comprimento: 30
       largura: 30
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 565
       y: 730
       comprimento: 30
       largura: 30
   - id: Setores_Vizinhos
     label: Setores Arquibancada, Acampamento e Gênesis
-    box:
+    retangulo:
       x: 326
       y: 921
       comprimento: 700
@@ -162,10 +162,10 @@ mapas:
     - '07'
   - escalada: Kira
     ids:
-    - '08'
+    - 08
   - escalada: JucaTatuKira
     ids:
-    - '09'
+    - 09
   - escalada: Free Willy
     ids:
     - '10'
@@ -248,5 +248,5 @@ escaladas:
 - via_esportiva:
     nome: Sub-Zero
     dificuldade: BR_8C
----
+---
 

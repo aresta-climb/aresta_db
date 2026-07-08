@@ -1,4 +1,4 @@
----
+---
 nome: Udão
 mapas:
 - caminho_imagem_mapa: imagens/setor_udao_p1.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 223
       y: 1090
       comprimento: 30
       largura: 27
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 274
       y: 1084
       comprimento: 33
       largura: 27
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 340
       y: 1088
       comprimento: 41
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 570
       y: 952
       comprimento: 44
       largura: 33
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 622
       y: 900
       comprimento: 43
       largura: 34
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 668
       y: 854
       comprimento: 45
@@ -72,49 +72,49 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 702
       y: 808
       comprimento: 31
       largura: 25
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 745
       y: 784
       comprimento: 32
       largura: 26
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 787
       y: 814
       comprimento: 34
       largura: 23
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 831
       y: 799
       comprimento: 34
       largura: 24
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 884
       y: 772
       comprimento: 41
       largura: 36
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 947
       y: 740
       comprimento: 42
       largura: 32
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 1000
       y: 715
       comprimento: 42
@@ -259,7 +259,8 @@ escaladas:
     conquistadores:
     - Gustavo
     data_abertura: '2016'
----
+---
+
 # Setor Udão
 
 ![Setor Udão](imagens/setor_udao_p0_i0.webp)

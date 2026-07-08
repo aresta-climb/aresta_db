@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 926
       y: 42
       comprimento: 217
       largura: 34
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 550
       y: 500
       comprimento: 34
       largura: 28
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 516
       y: 584
       comprimento: 39
       largura: 31
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 482
       y: 618
       comprimento: 37
       largura: 31
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 484
       y: 1089
       comprimento: 43
       largura: 32
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 528
       y: 1224
       comprimento: 41
       largura: 33
   - id: Setor_Fechadura
     label: Setor Fechadura
-    box:
+    retangulo:
       x: 94
       y: 1303
       comprimento: 167

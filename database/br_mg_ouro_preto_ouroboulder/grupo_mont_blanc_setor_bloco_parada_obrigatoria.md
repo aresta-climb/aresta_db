@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 157
       y: 602
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 226
       y: 499
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 986
       y: 268
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 596
       y: 914
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1012
       y: 834
       raio: 13
@@ -58,19 +58,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 306
       y: 775
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 647
       y: 791
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1038
       y: 814
       raio: 13
@@ -107,5 +107,4 @@ escaladas:
     nome: Fulano
     dificuldade: V1
 ---
-
 

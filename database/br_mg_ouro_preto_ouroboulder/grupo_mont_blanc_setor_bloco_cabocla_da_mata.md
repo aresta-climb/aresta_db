@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 389
       y: 574
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1301
       y: 598
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1154
       y: 966
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 984
       y: 954
       raio: 13
@@ -46,5 +46,4 @@ escaladas:
     nome: Caboclo das Sete Encruzilhadas
     dificuldade: V5
 ---
-
 

@@ -7,63 +7,63 @@ mapas:
   pontos_de_interesse:
   - id: '52'
     label: '52'
-    box:
+    retangulo:
       x: 379
       y: 20
       comprimento: 14
       largura: 9
   - id: '53'
     label: '53'
-    box:
+    retangulo:
       x: 370
       y: 36
       comprimento: 13
       largura: 10
   - id: '54'
     label: '54'
-    box:
+    retangulo:
       x: 370
       y: 54
       comprimento: 14
       largura: 12
   - id: '55'
     label: '55'
-    box:
+    retangulo:
       x: 364
       y: 71
       comprimento: 14
       largura: 12
   - id: '56'
     label: '56'
-    box:
+    retangulo:
       x: 185
       y: 137
       comprimento: 14
       largura: 12
   - id: '57'
     label: '57'
-    box:
+    retangulo:
       x: 178
       y: 152
       comprimento: 14
       largura: 12
   - id: '58'
     label: '58'
-    box:
+    retangulo:
       x: 162
       y: 155
       comprimento: 13
       largura: 10
   - id: '59'
     label: '59'
-    box:
+    retangulo:
       x: 148
       y: 158
       comprimento: 13
       largura: 11
   - id: '60'
     label: '60'
-    box:
+    retangulo:
       x: 49
       y: 141
       comprimento: 14

@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 154
       y: 465
       comprimento: 27
       largura: 26
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 212
       y: 465
       comprimento: 26
       largura: 26
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 248
       y: 464
       comprimento: 25
       largura: 25
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 295
       y: 466
       comprimento: 26
       largura: 23
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 357
       y: 465
       comprimento: 26
       largura: 24
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 400
       y: 465
       comprimento: 25
       largura: 24
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 437
       y: 464
       comprimento: 24
       largura: 23
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 471
       y: 465
       comprimento: 26
       largura: 24
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 514
       y: 465
       comprimento: 25
       largura: 24
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 592
       y: 465
       comprimento: 23
       largura: 22
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 656
       y: 464
       comprimento: 25
       largura: 23
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 747
       y: 464
       comprimento: 24
       largura: 21
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 868
       y: 464
       comprimento: 25
@@ -131,11 +131,11 @@ mapas:
     ids:
     - '13'
   - ids:
-    - '08'
+    - 08
     setor: Croqui 02 da Pedra Branca
     escalada: Barbarela
   - ids:
-    - '09'
+    - 09
     setor: Croqui 02 da Pedra Branca
     escalada: Ciganos Molhados
 escaladas:

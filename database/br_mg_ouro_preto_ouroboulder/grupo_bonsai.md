@@ -13,42 +13,42 @@ mapas:
   pontos_de_interesse:
   - id: bonsai
     label: Bonsai
-    box:
+    retangulo:
       x: 422
       y: 393
       comprimento: 74
       largura: 26
   - id: crocancia
     label: Crocância
-    box:
+    retangulo:
       x: 557
       y: 378
       comprimento: 108
       largura: 24
   - id: mantra
     label: Mantra
-    box:
+    retangulo:
       x: 764
       y: 383
       comprimento: 76
       largura: 24
   - id: dali_goiabada
     label: Dali Goiabada
-    box:
+    retangulo:
       x: 906
       y: 387
       comprimento: 144
       largura: 24
   - id: pedra
     label: Pedra
-    box:
+    retangulo:
       x: 1334
       y: 664
       comprimento: 66
       largura: 25
   - id: seg_samambaia
     label: Seg-Samambaia
-    box:
+    retangulo:
       x: 1148
       y: 1062
       comprimento: 175

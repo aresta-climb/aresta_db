@@ -6,7 +6,7 @@
 - **nome**: Montes Claros - Vieiras
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/mapas_gerais_p0_i0.webp)
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **botoes**: []
 
 

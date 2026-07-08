@@ -7,322 +7,322 @@ mapas:
   pontos_de_interesse:
   - id: '38'
     label: '38'
-    box:
+    retangulo:
       x: 168
       y: 82
       comprimento: 28
       largura: 24
   - id: '39'
     label: '39'
-    box:
+    retangulo:
       x: 258
       y: 89
       comprimento: 27
       largura: 26
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 150
       y: 166
       comprimento: 26
       largura: 23
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 140
       y: 199
       comprimento: 27
       largura: 22
   - id: '40'
     label: '40'
-    box:
+    retangulo:
       x: 288
       y: 218
       comprimento: 29
       largura: 25
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 100
       y: 235
       comprimento: 27
       largura: 24
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 146
       y: 228
       comprimento: 27
       largura: 23
   - id: '41'
     label: '41'
-    box:
+    retangulo:
       x: 370
       y: 262
       comprimento: 28
       largura: 24
   - id: '42'
     label: '42'
-    box:
+    retangulo:
       x: 482
       y: 272
       comprimento: 29
       largura: 27
   - id: '43'
     label: '43'
-    box:
+    retangulo:
       x: 650
       y: 288
       comprimento: 28
       largura: 25
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 950
       y: 302
       comprimento: 75
       largura: 47
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 126
       y: 330
       comprimento: 25
       largura: 23
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 380
       y: 396
       comprimento: 32
       largura: 27
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 448
       y: 392
       comprimento: 29
       largura: 27
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 553
       y: 394
       comprimento: 28
       largura: 26
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 150
       y: 404
       comprimento: 29
       largura: 21
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 308
       y: 413
       comprimento: 29
       largura: 28
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 664
       y: 424
       comprimento: 29
       largura: 25
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 716
       y: 460
       comprimento: 29
       largura: 25
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 800
       y: 467
       comprimento: 28
       largura: 26
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 146
       y: 490
       comprimento: 26
       largura: 23
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 291
       y: 486
       comprimento: 28
       largura: 27
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 956
       y: 505
       comprimento: 31
       largura: 26
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 794
       y: 526
       comprimento: 28
       largura: 26
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 652
       y: 568
       comprimento: 27
       largura: 25
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 792
       y: 575
       comprimento: 30
       largura: 26
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 904
       y: 577
       comprimento: 30
       largura: 26
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 292
       y: 588
       comprimento: 31
       largura: 28
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 616
       y: 616
       comprimento: 27
       largura: 25
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 284
       y: 666
       comprimento: 31
       largura: 28
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 820
       y: 658
       comprimento: 31
       largura: 25
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 362
       y: 672
       comprimento: 29
       largura: 24
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 422
       y: 666
       comprimento: 27
       largura: 27
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 506
       y: 718
       comprimento: 26
       largura: 25
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 579
       y: 720
       comprimento: 26
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 647
       y: 715
       comprimento: 26
       largura: 26
   - id: '44'
     label: '44'
-    box:
+    retangulo:
       x: 126
       y: 753
       comprimento: 27
       largura: 20
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 161
       y: 852
       comprimento: 28
       largura: 22
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 244
       y: 846
       comprimento: 28
       largura: 25
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 498
       y: 853
       comprimento: 27
       largura: 22
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 451
       y: 878
       comprimento: 28
       largura: 25
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 527
       y: 878
       comprimento: 28
       largura: 24
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 350
       y: 894
       comprimento: 28
       largura: 23
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 538
       y: 912
       comprimento: 27
       largura: 25
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 542
       y: 969
       comprimento: 29
       largura: 24
   - id: Setor_Fechadura_Abaixo
     label: Setor Fechadura (Abaixo)
-    box:
+    retangulo:
       x: 906
       y: 1152
       comprimento: 171
@@ -354,10 +354,10 @@ mapas:
     - '07'
   - escalada: Neverland
     ids:
-    - '08'
+    - 08
   - escalada: Mestre Splinter
     ids:
-    - '09'
+    - 09
   - escalada: Enigma da Esfinge
     ids:
     - '10'

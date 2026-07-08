@@ -228,7 +228,7 @@
             
             *   **Instagram:** @ouroboulder
             *   **Email:** sime.ouroboulder@gmail.com
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_manualmente**: True
 - **revisado_bounding_circle**: True
@@ -255,7 +255,7 @@
       - **[0]**:
         - **id**: travessia
         - **label**: Travessia
-        - **box**:
+        - **retangulo**:
           - **x**: 240
           - **y**: 450
           - **comprimento**: 73
@@ -263,7 +263,7 @@
       - **[1]**:
         - **id**: jah
         - **label**: Jah
-        - **box**:
+        - **retangulo**:
           - **x**: 298
           - **y**: 428
           - **comprimento**: 29
@@ -271,7 +271,7 @@
       - **[2]**:
         - **id**: sauna
         - **label**: Sauna
-        - **box**:
+        - **retangulo**:
           - **x**: 395
           - **y**: 466
           - **comprimento**: 48
@@ -279,7 +279,7 @@
       - **[3]**:
         - **id**: joao_de_barro
         - **label**: João de Barro
-        - **box**:
+        - **retangulo**:
           - **x**: 427
           - **y**: 414
           - **comprimento**: 108
@@ -287,7 +287,7 @@
       - **[4]**:
         - **id**: mata_mata
         - **label**: Mata Mata
-        - **box**:
+        - **retangulo**:
           - **x**: 378
           - **y**: 347
           - **comprimento**: 84
@@ -295,7 +295,7 @@
       - **[5]**:
         - **id**: red_bull
         - **label**: Red Bull
-        - **box**:
+        - **retangulo**:
           - **x**: 420
           - **y**: 266
           - **comprimento**: 64
@@ -303,7 +303,7 @@
       - **[6]**:
         - **id**: bob
         - **label**: Bob
-        - **box**:
+        - **retangulo**:
           - **x**: 347
           - **y**: 276
           - **comprimento**: 30
@@ -311,7 +311,7 @@
       - **[7]**:
         - **id**: lagartixa
         - **label**: Lagartixa
-        - **box**:
+        - **retangulo**:
           - **x**: 490
           - **y**: 516
           - **comprimento**: 71
@@ -319,7 +319,7 @@
       - **[8]**:
         - **id**: entretidos
         - **label**: Entretidos
-        - **box**:
+        - **retangulo**:
           - **x**: 633
           - **y**: 398
           - **comprimento**: 76
@@ -327,7 +327,7 @@
       - **[9]**:
         - **id**: fiat_lux
         - **label**: Fiat Lux
-        - **box**:
+        - **retangulo**:
           - **x**: 532
           - **y**: 365
           - **comprimento**: 61
@@ -335,7 +335,7 @@
       - **[10]**:
         - **id**: teto_de_vidro
         - **label**: Teto de Vidro
-        - **box**:
+        - **retangulo**:
           - **x**: 722
           - **y**: 556
           - **comprimento**: 105
@@ -343,7 +343,7 @@
       - **[11]**:
         - **id**: to_de_boa
         - **label**: Tô de Boa
-        - **box**:
+        - **retangulo**:
           - **x**: 699
           - **y**: 426
           - **comprimento**: 78
@@ -351,7 +351,7 @@
       - **[12]**:
         - **id**: pedra_queimada
         - **label**: Pedra Queimada
-        - **box**:
+        - **retangulo**:
           - **x**: 892
           - **y**: 519
           - **comprimento**: 128
@@ -359,7 +359,7 @@
       - **[13]**:
         - **id**: hora_da_janta
         - **label**: Hora da Janta
-        - **box**:
+        - **retangulo**:
           - **x**: 664
           - **y**: 770
           - **comprimento**: 107
@@ -367,7 +367,7 @@
       - **[14]**:
         - **id**: mezanino
         - **label**: Mezanino
-        - **box**:
+        - **retangulo**:
           - **x**: 802
           - **y**: 761
           - **comprimento**: 79
@@ -375,7 +375,7 @@
       - **[15]**:
         - **id**: chicletes
         - **label**: Chicletes
-        - **box**:
+        - **retangulo**:
           - **x**: 719
           - **y**: 828
           - **comprimento**: 74
@@ -383,7 +383,7 @@
       - **[16]**:
         - **id**: longevidade
         - **label**: Longevidade
-        - **box**:
+        - **retangulo**:
           - **x**: 507
           - **y**: 925
           - **comprimento**: 92
@@ -391,7 +391,7 @@
       - **[17]**:
         - **id**: sossega_leao
         - **label**: Sossega Leão
-        - **box**:
+        - **retangulo**:
           - **x**: 1019
           - **y**: 790
           - **comprimento**: 106
@@ -399,7 +399,7 @@
       - **[18]**:
         - **id**: sonar
         - **label**: Sonar
-        - **box**:
+        - **retangulo**:
           - **x**: 884
           - **y**: 972
           - **comprimento**: 46
@@ -407,7 +407,7 @@
       - **[19]**:
         - **id**: meia_parede
         - **label**: Meia-Parede
-        - **box**:
+        - **retangulo**:
           - **x**: 933
           - **y**: 841
           - **comprimento**: 96
@@ -415,7 +415,7 @@
       - **[20]**:
         - **id**: nave_mae
         - **label**: Nave Mãe
-        - **box**:
+        - **retangulo**:
           - **x**: 974
           - **y**: 588
           - **comprimento**: 78
@@ -423,7 +423,7 @@
       - **[21]**:
         - **id**: abaulados
         - **label**: Abaulados
-        - **box**:
+        - **retangulo**:
           - **x**: 1120
           - **y**: 458
           - **comprimento**: 81
@@ -431,7 +431,7 @@
       - **[22]**:
         - **id**: deep_inside
         - **label**: Deep Inside
-        - **box**:
+        - **retangulo**:
           - **x**: 1144
           - **y**: 628
           - **comprimento**: 89
@@ -439,7 +439,7 @@
       - **[23]**:
         - **id**: complexo
         - **label**: Complexo
-        - **box**:
+        - **retangulo**:
           - **x**: 1194
           - **y**: 662
           - **comprimento**: 81
@@ -447,7 +447,7 @@
       - **[24]**:
         - **id**: conhaque
         - **label**: Conhaque
-        - **box**:
+        - **retangulo**:
           - **x**: 1344
           - **y**: 638
           - **comprimento**: 83
@@ -455,7 +455,7 @@
       - **[25]**:
         - **id**: eletron
         - **label**: Elétron/Positron
-        - **box**:
+        - **retangulo**:
           - **x**: 1440
           - **y**: 714
           - **comprimento**: 123
@@ -463,7 +463,7 @@
       - **[26]**:
         - **id**: ianque
         - **label**: Ianque
-        - **box**:
+        - **retangulo**:
           - **x**: 564
           - **y**: 409
           - **comprimento**: 53
@@ -471,7 +471,7 @@
       - **[27]**:
         - **id**: nat_geo
         - **label**: Nat Geo
-        - **box**:
+        - **retangulo**:
           - **x**: 789
           - **y**: 244
           - **comprimento**: 64
@@ -622,63 +622,63 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 488
                 - **y**: 341
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 692
                 - **y**: 138
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1281
                 - **y**: 87
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 116
                 - **y**: 659
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 179
                 - **y**: 743
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 415
                 - **y**: 840
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 711
                 - **y**: 812
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 1183
                 - **y**: 840
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 1361
                 - **y**: 753
                 - **raio**: 13
@@ -720,70 +720,70 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 9
                 - **y**: 285
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 554
                 - **y**: 241
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1207
                 - **y**: 326
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1397
                 - **y**: 305
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
-              - **circular**:
+              - **circulo**:
                 - **x**: 1521
                 - **y**: 431
                 - **raio**: 13
             - **[5]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 41
                 - **y**: 576
                 - **raio**: 13
             - **[6]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 588
                 - **y**: 858
                 - **raio**: 13
             - **[7]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1281
                 - **y**: 835
                 - **raio**: 13
             - **[8]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1389
                 - **y**: 766
                 - **raio**: 13
             - **[9]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 1492
                 - **y**: 751
                 - **raio**: 13
@@ -869,28 +869,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 578
                 - **y**: 336
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1013
                 - **y**: 310
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 647
                 - **y**: 756
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1070
                 - **y**: 779
                 - **raio**: 13
@@ -936,42 +936,42 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 615
                 - **y**: 128
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1071
                 - **y**: 228
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1256
                 - **y**: 260
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 871
                 - **y**: 918
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 954
                 - **y**: 903
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1071
                 - **y**: 841
                 - **raio**: 13
@@ -1027,21 +1027,21 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 84
                 - **y**: 257
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 718
                 - **y**: 266
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1226
                 - **y**: 1034
                 - **raio**: 13
@@ -1064,35 +1064,35 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1296
                 - **y**: 923
                 - **raio**: 13
             - **[1]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 377
                 - **y**: 81
                 - **raio**: 13
             - **[2]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 541
                 - **y**: 634
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 260
                 - **y**: 663
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 175
                 - **y**: 607
                 - **raio**: 14
@@ -1126,28 +1126,28 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 462
                 - **y**: 882
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 503
                 - **y**: 882
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 631
                 - **y**: 127
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1354
                 - **y**: 97
                 - **raio**: 13
@@ -1215,35 +1215,35 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 368
                 - **y**: 411
                 - **raio**: 13
             - **[1]**:
               - **id**: ★
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 689
                 - **y**: 613
                 - **raio**: 13
             - **[2]**:
               - **id**: ▲
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 767
                 - **y**: 803
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 600
                 - **y**: 958
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1042
                 - **y**: 863
                 - **raio**: 13
@@ -1273,21 +1273,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 501
                 - **y**: 815
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 937
                 - **y**: 740
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1242
                 - **y**: 927
                 - **raio**: 13
@@ -1312,14 +1312,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1110
                 - **y**: 742
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1386
                 - **y**: 723
                 - **raio**: 13
@@ -1340,14 +1340,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 442
                 - **y**: 788
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 963
                 - **y**: 891
                 - **raio**: 13
@@ -1414,28 +1414,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 400
                 - **y**: 191
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 598
                 - **y**: 198
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 777
                 - **y**: 798
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 995
                 - **y**: 731
                 - **raio**: 13
@@ -1462,42 +1462,42 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 601
                 - **y**: 146
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 902
                 - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1088
                 - **y**: 180
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1231
                 - **y**: 318
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 701
                 - **y**: 1005
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1064
                 - **y**: 776
                 - **raio**: 13
@@ -1564,42 +1564,42 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 843
                 - **y**: 78
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1137
                 - **y**: 513
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 503
                 - **y**: 937
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1038
                 - **y**: 835
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 345
                 - **y**: 448
                 - **raio**: 13
             - **[5]**:
               - **id**: ★
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 737
                 - **y**: 380
                 - **raio**: 13
@@ -1676,56 +1676,56 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 694
                 - **y**: 889
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 699
                 - **y**: 755
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 892
                 - **y**: 715
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 909
                 - **y**: 827
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 1108
                 - **y**: 789
                 - **raio**: 13
             - **[5]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 1183
                 - **y**: 815
                 - **raio**: 13
             - **[6]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 849
                 - **y**: 310
                 - **raio**: 13
             - **[7]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1465
                 - **y**: 152
                 - **raio**: 13
@@ -1771,63 +1771,63 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 29
                 - **y**: 316
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 579
                 - **y**: 246
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1502
                 - **y**: 399
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 281
                 - **y**: 882
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 239
                 - **y**: 769
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 531
                 - **y**: 846
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 653
                 - **y**: 864
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 979
                 - **y**: 720
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 967
                 - **y**: 873
                 - **raio**: 13
@@ -1895,77 +1895,77 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 33
                 - **y**: 242
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 608
                 - **y**: 201
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1549
                 - **y**: 392
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1405
                 - **y**: 806
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 358
                 - **y**: 770
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 395
                 - **y**: 977
                 - **raio**: 13
             - **[6]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 771
                 - **y**: 647
                 - **raio**: 13
             - **[7]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 791
                 - **y**: 954
                 - **raio**: 13
             - **[8]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 845
                 - **y**: 932
                 - **raio**: 13
             - **[9]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 973
                 - **y**: 883
                 - **raio**: 13
             - **[10]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 1176
                 - **y**: 829
                 - **raio**: 13
@@ -2153,14 +2153,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 704
                 - **y**: 715
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1171
                 - **y**: 787
                 - **raio**: 13
@@ -2181,28 +2181,28 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1103
                 - **y**: 598
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 471
                 - **y**: 705
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 151
                 - **y**: 738
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 712
                 - **y**: 725
                 - **raio**: 13
@@ -2231,21 +2231,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 190
                 - **y**: 1019
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 877
                 - **y**: 814
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 514
                 - **y**: 941
                 - **raio**: 13
@@ -2270,14 +2270,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 355
                 - **y**: 944
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 766
                 - **y**: 888
                 - **raio**: 13
@@ -2349,14 +2349,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 912
                 - **y**: 819
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 783
                 - **y**: 819
                 - **raio**: 13
@@ -2392,49 +2392,49 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 691
                 - **y**: 312
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1091
                 - **y**: 740
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 433
                 - **y**: 840
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1021
                 - **y**: 726
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 917
                 - **y**: 688
                 - **raio**: 13
             - **[5]**:
               - **id**: ▲
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 957
                 - **y**: 737
                 - **raio**: 13
             - **[6]**:
               - **id**: ★
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 995
                 - **y**: 663
                 - **raio**: 13
@@ -2474,42 +2474,42 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1001
                 - **y**: 297
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1172
                 - **y**: 401
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 532
                 - **y**: 892
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 470
                 - **y**: 750
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 849
                 - **y**: 892
                 - **raio**: 13
             - **[5]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1253
                 - **y**: 984
                 - **raio**: 13
@@ -2586,14 +2586,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 551
                 - **y**: 725
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 904
                 - **y**: 939
                 - **raio**: 13
@@ -2614,56 +2614,56 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 147
                 - **y**: 434
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 346
                 - **y**: 332
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 644
                 - **y**: 300
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1006
                 - **y**: 376
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
-              - **circular**:
+              - **circulo**:
                 - **x**: 1212
                 - **y**: 448
                 - **raio**: 13
             - **[5]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 597
                 - **y**: 774
                 - **raio**: 13
             - **[6]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 642
                 - **y**: 763
                 - **raio**: 13
             - **[7]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1335
                 - **y**: 650
                 - **raio**: 13
@@ -2744,56 +2744,56 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1509
                 - **y**: 280
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 684
                 - **y**: 308
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 390
                 - **y**: 816
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 706
                 - **y**: 857
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 514
                 - **y**: 780
                 - **raio**: 13
             - **[5]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 766
                 - **y**: 799
                 - **raio**: 13
             - **[6]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 1108
                 - **y**: 604
                 - **raio**: 13
             - **[7]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 1313
                 - **y**: 761
                 - **raio**: 13
@@ -2842,7 +2842,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 633
                 - **y**: 731
                 - **raio**: 13
@@ -2902,84 +2902,84 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 410
                 - **y**: 1048
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 507
                 - **y**: 1072
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 750
                 - **y**: 758
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1033
                 - **y**: 784
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 1341
                 - **y**: 879
                 - **raio**: 13
             - **[5]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 289
                 - **y**: 449
                 - **raio**: 13
             - **[6]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 443
                 - **y**: 277
                 - **raio**: 13
             - **[7]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 789
                 - **y**: 23
                 - **raio**: 13
             - **[8]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 911
                 - **y**: 42
                 - **raio**: 13
             - **[9]**:
               - **id**: E
               - **label**: E
-              - **circular**:
+              - **circulo**:
                 - **x**: 1162
                 - **y**: 138
                 - **raio**: 13
             - **[10]**:
               - **id**: triangulo
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 622
                 - **y**: 376
                 - **raio**: 13
             - **[11]**:
               - **id**: estrela
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 713
                 - **y**: 544
                 - **raio**: 13
@@ -3083,14 +3083,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 363
                 - **y**: 824
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1025
                 - **y**: 992
                 - **raio**: 13
@@ -3111,7 +3111,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 659
                 - **y**: 956
                 - **raio**: 13
@@ -3142,21 +3142,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 557
                 - **y**: 783
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 625
                 - **y**: 817
                 - **raio**: 13
             - **[2]**:
               - **id**: 3/1A
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 957
                 - **y**: 947
                 - **raio**: 13
@@ -3183,21 +3183,21 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 569
                 - **y**: 199
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1562
                 - **y**: 640
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 613
                 - **y**: 1007
                 - **raio**: 13
@@ -3242,42 +3242,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 160
                 - **y**: 753
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 17
                 - **y**: 867
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1108
                 - **y**: 809
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1445
                 - **y**: 300
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 621
                 - **y**: 373
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 319
                 - **y**: 624
                 - **raio**: 13
@@ -3310,56 +3310,56 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 55
                 - **y**: 282
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 515
                 - **y**: 227
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 855
                 - **y**: 282
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1563
                 - **y**: 768
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 529
                 - **y**: 728
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1046
                 - **y**: 840
                 - **raio**: 13
             - **[6]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1231
                 - **y**: 929
                 - **raio**: 13
             - **[7]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1381
                 - **y**: 847
                 - **raio**: 13
@@ -3466,28 +3466,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 641
                 - **y**: 243
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 949
                 - **y**: 345
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1461
                 - **y**: 667
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 552
                 - **y**: 940
                 - **raio**: 13
@@ -3533,7 +3533,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 819
                 - **y**: 807
                 - **raio**: 13
@@ -3550,21 +3550,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 832
                 - **y**: 969
                 - **raio**: 13
             - **[1]**:
               - **id**: 1A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 188
                 - **y**: 447
                 - **raio**: 13
             - **[2]**:
               - **id**: 1B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1162
                 - **y**: 447
                 - **raio**: 13
@@ -3587,21 +3587,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 312
                 - **y**: 1059
                 - **raio**: 13
             - **[1]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 696
                 - **y**: 237
                 - **raio**: 13
             - **[2]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 949
                 - **y**: 112
                 - **raio**: 13
@@ -3626,14 +3626,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1050
                 - **y**: 928
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1206
                 - **y**: 884
                 - **raio**: 13
@@ -3688,105 +3688,105 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 426
                 - **y**: 457
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 601
                 - **y**: 491
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 911
                 - **y**: 439
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1376
                 - **y**: 404
                 - **raio**: 13
             - **[4]**:
               - **id**: E
               - **label**: E
-              - **circular**:
+              - **circulo**:
                 - **x**: 1521
                 - **y**: 425
                 - **raio**: 13
             - **[5]**:
               - **id**: F
               - **label**: F
-              - **circular**:
+              - **circulo**:
                 - **x**: 1462
                 - **y**: 649
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 236
                 - **y**: 742
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 723
                 - **y**: 793
                 - **raio**: 13
             - **[8]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 873
                 - **y**: 787
                 - **raio**: 13
             - **[9]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 900
                 - **y**: 787
                 - **raio**: 13
             - **[10]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 1067
                 - **y**: 805
                 - **raio**: 13
             - **[11]**:
               - **id**: 9
               - **label**: 9
-              - **circular**:
+              - **circulo**:
                 - **x**: 1081
                 - **y**: 829
                 - **raio**: 13
             - **[12]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 1303
                 - **y**: 705
                 - **raio**: 13
             - **[13]**:
               - **id**: 10
               - **label**: 10
-              - **circular**:
+              - **circulo**:
                 - **x**: 1342
                 - **y**: 710
                 - **raio**: 16
             - **[14]**:
               - **id**: 8
               - **label**: 8
-              - **circular**:
+              - **circulo**:
                 - **x**: 1450
                 - **y**: 611
                 - **raio**: 13
@@ -3864,77 +3864,77 @@
             - **[0]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 157
                 - **y**: 372
                 - **raio**: 13
             - **[1]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 86
                 - **y**: 583
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 582
                 - **y**: 118
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1268
                 - **y**: 328
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 301
                 - **y**: 730
                 - **raio**: 13
             - **[5]**:
               - **id**: ★
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 284
                 - **y**: 820
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 383
                 - **y**: 938
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 724
                 - **y**: 951
                 - **raio**: 13
             - **[8]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 629
                 - **y**: 514
                 - **raio**: 13
             - **[9]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 982
                 - **y**: 713
                 - **raio**: 13
             - **[10]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 816
                 - **y**: 769
                 - **raio**: 13
@@ -3999,49 +3999,49 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 155
                 - **y**: 695
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 811
                 - **y**: 817
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 837
                 - **y**: 823
                 - **raio**: 13
             - **[3]**:
               - **id**: ▲_esquerda
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 781
                 - **y**: 715
                 - **raio**: 13
             - **[4]**:
               - **id**: ★_esquerda
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 844
                 - **y**: 731
                 - **raio**: 13
             - **[5]**:
               - **id**: ▲_direita
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 970
                 - **y**: 708
                 - **raio**: 13
             - **[6]**:
               - **id**: ★_direita
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 1032
                 - **y**: 775
                 - **raio**: 13
@@ -4086,42 +4086,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 343
                 - **y**: 1051
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 417
                 - **y**: 1051
                 - **raio**: 13
             - **[2]**:
               - **id**: ▲_esquerda
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 230
                 - **y**: 733
                 - **raio**: 13
             - **[3]**:
               - **id**: ★_esquerda
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 371
                 - **y**: 611
                 - **raio**: 13
             - **[4]**:
               - **id**: ▲_direita
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 576
                 - **y**: 684
                 - **raio**: 13
             - **[5]**:
               - **id**: ★_direita
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 897
                 - **y**: 829
                 - **raio**: 13
@@ -4162,14 +4162,14 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 76
                 - **y**: 321
                 - **raio**: 13
             - **[1]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 231
                 - **y**: 469
                 - **raio**: 13
@@ -4186,49 +4186,49 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 344
                 - **y**: 504
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 856
                 - **y**: 376
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 901
                 - **y**: 693
                 - **raio**: 13
             - **[3]**:
               - **id**: triangulo
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 1100
                 - **y**: 791
                 - **raio**: 13
             - **[4]**:
               - **id**: estrela
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 957
                 - **y**: 876
                 - **raio**: 13
             - **[5]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 734
                 - **y**: 871
                 - **raio**: 13
             - **[6]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1071
                 - **y**: 943
                 - **raio**: 13
@@ -4280,14 +4280,14 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1005
                 - **y**: 227
                 - **raio**: 13
             - **[1]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1096
                 - **y**: 764
                 - **raio**: 13
@@ -4411,7 +4411,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 828
                 - **y**: 851
                 - **raio**: 13
@@ -4428,7 +4428,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 574
                 - **y**: 824
                 - **raio**: 13
@@ -4445,28 +4445,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 203
                 - **y**: 333
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 949
                 - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 824
                 - **y**: 788
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 722
                 - **y**: 985
                 - **raio**: 13
@@ -4520,56 +4520,56 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 230
                 - **y**: 849
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1050
                 - **y**: 835
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1008
                 - **y**: 911
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 719
                 - **y**: 284
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1399
                 - **y**: 238
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1512
                 - **y**: 628
                 - **raio**: 13
             - **[6]**:
               - **id**: triangulo
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 1072
                 - **y**: 736
                 - **raio**: 13
             - **[7]**:
               - **id**: estrela
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 1331
                 - **y**: 778
                 - **raio**: 13
@@ -4621,91 +4621,91 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 250
                 - **y**: 407
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 565
                 - **y**: 225
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 874
                 - **y**: 197
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 1211
                 - **y**: 307
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 67
                 - **y**: 779
                 - **raio**: 13
             - **[5]**:
               - **id**: triangulo
               - **label**: ▲
-              - **circular**:
+              - **circulo**:
                 - **x**: 328
                 - **y**: 692
                 - **raio**: 13
             - **[6]**:
               - **id**: estrela
               - **label**: ★
-              - **circular**:
+              - **circulo**:
                 - **x**: 519
                 - **y**: 657
                 - **raio**: 13
             - **[7]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 474
                 - **y**: 748
                 - **raio**: 13
             - **[8]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 474
                 - **y**: 789
                 - **raio**: 13
             - **[9]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 662
                 - **y**: 778
                 - **raio**: 13
             - **[10]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 701
                 - **y**: 752
                 - **raio**: 13
             - **[11]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 764
                 - **y**: 605
                 - **raio**: 13
             - **[12]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 1201
                 - **y**: 693
                 - **raio**: 13
@@ -4804,42 +4804,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 512
                 - **y**: 776
                 - **raio**: 14
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 612
                 - **y**: 791
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1215
                 - **y**: 745
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 555
                 - **y**: 263
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 703
                 - **y**: 163
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 849
                 - **y**: 99
                 - **raio**: 13
@@ -4939,35 +4939,35 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 114
                 - **y**: 1352
                 - **raio**: 16
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 517
                 - **y**: 1312
                 - **raio**: 16
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1189
                 - **y**: 1366
                 - **raio**: 16
             - **[3]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1036
                 - **y**: 38
                 - **raio**: 16
             - **[4]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1548
                 - **y**: 152
                 - **raio**: 17
@@ -4999,21 +4999,21 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 655
                 - **y**: 233
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 887
                 - **y**: 109
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 965
                 - **y**: 931
                 - **raio**: 13
@@ -5036,28 +5036,28 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 491
                 - **y**: 868
                 - **raio**: 14
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 703
                 - **y**: 878
                 - **raio**: 14
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 967
                 - **y**: 867
                 - **raio**: 14
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1053
                 - **y**: 846
                 - **raio**: 14
@@ -5086,21 +5086,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 426
                 - **y**: 736
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1442
                 - **y**: 934
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1208
                 - **y**: 809
                 - **raio**: 13
@@ -5125,7 +5125,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 412
                 - **y**: 956
                 - **raio**: 13
@@ -5200,42 +5200,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 20
                 - **y**: 1023
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 523
                 - **y**: 1035
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 693
                 - **y**: 1003
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1283
                 - **y**: 973
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 359
                 - **y**: 184
                 - **raio**: 13
             - **[5]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1034
                 - **y**: 26
                 - **raio**: 13
@@ -5298,42 +5298,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 30
                 - **y**: 572
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1107
                 - **y**: 868
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1520
                 - **y**: 845
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 52
                 - **y**: 90
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 939
                 - **y**: 173
                 - **raio**: 13
             - **[5]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1410
                 - **y**: 166
                 - **raio**: 13
@@ -5407,7 +5407,7 @@
       - **[0]**:
         - **id**: mont_blanc
         - **label**: Mont Blanc
-        - **box**:
+        - **retangulo**:
           - **x**: 610
           - **y**: 239
           - **comprimento**: 128
@@ -5415,7 +5415,7 @@
       - **[1]**:
         - **id**: o_pequeno
         - **label**: O Pequeno
-        - **box**:
+        - **retangulo**:
           - **x**: 591
           - **y**: 480
           - **comprimento**: 120
@@ -5423,7 +5423,7 @@
       - **[2]**:
         - **id**: salao_dos_ossos
         - **label**: Salão dos Ossos
-        - **box**:
+        - **retangulo**:
           - **x**: 616
           - **y**: 518
           - **comprimento**: 183
@@ -5431,7 +5431,7 @@
       - **[3]**:
         - **id**: parada_obrigatoria
         - **label**: Parada Obrigatória
-        - **box**:
+        - **retangulo**:
           - **x**: 557
           - **y**: 654
           - **comprimento**: 206
@@ -5439,7 +5439,7 @@
       - **[4]**:
         - **id**: cabocla_da_mata
         - **label**: Caboclo da Mata
-        - **box**:
+        - **retangulo**:
           - **x**: 465
           - **y**: 718
           - **comprimento**: 188
@@ -5447,7 +5447,7 @@
       - **[5]**:
         - **id**: silencio_da_mutuca
         - **label**: Silêncio da Mutuca
-        - **box**:
+        - **retangulo**:
           - **x**: 1004
           - **y**: 837
           - **comprimento**: 211
@@ -5455,7 +5455,7 @@
       - **[6]**:
         - **id**: espreguicadeira
         - **label**: Espreguiçadeira
-        - **box**:
+        - **retangulo**:
           - **x**: 1261
           - **y**: 988
           - **comprimento**: 176
@@ -5463,7 +5463,7 @@
       - **[7]**:
         - **id**: espreguicadeira_2
         - **label**: Espreguiçadeira
-        - **box**:
+        - **retangulo**:
           - **x**: 1166
           - **y**: 1022
           - **comprimento**: 169
@@ -5519,70 +5519,70 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 477
                 - **y**: 441
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 953
                 - **y**: 400
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1087
                 - **y**: 426
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 203
                 - **y**: 924
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 591
                 - **y**: 930
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 804
                 - **y**: 854
                 - **raio**: 13
             - **[6]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 939
                 - **y**: 818
                 - **raio**: 13
             - **[7]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 981
                 - **y**: 930
                 - **raio**: 13
             - **[8]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 1213
                 - **y**: 980
                 - **raio**: 13
             - **[9]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 1183
                 - **y**: 788
                 - **raio**: 13
@@ -5639,7 +5639,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 481
                 - **y**: 795
                 - **raio**: 13
@@ -5656,7 +5656,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 414
                 - **y**: 954
                 - **raio**: 13
@@ -5673,35 +5673,35 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 142
                 - **y**: 968
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 511
                 - **y**: 955
                 - **raio**: 13
             - **[2]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 907
                 - **y**: 948
                 - **raio**: 13
             - **[3]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 494
                 - **y**: 229
                 - **raio**: 13
             - **[4]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1367
                 - **y**: 124
                 - **raio**: 13
@@ -5801,35 +5801,35 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 157
                 - **y**: 602
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 226
                 - **y**: 499
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 986
                 - **y**: 268
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 596
                 - **y**: 914
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1012
                 - **y**: 834
                 - **raio**: 13
@@ -5862,21 +5862,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 306
                 - **y**: 775
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 647
                 - **y**: 791
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1038
                 - **y**: 814
                 - **raio**: 13
@@ -5935,56 +5935,56 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 374
                 - **y**: 790
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 331
                 - **y**: 660
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 610
                 - **y**: 848
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 730
                 - **y**: 726
                 - **raio**: 13
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 838
                 - **y**: 818
                 - **raio**: 13
             - **[5]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 259
                 - **y**: 272
                 - **raio**: 13
             - **[6]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 404
                 - **y**: 132
                 - **raio**: 13
             - **[7]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1520
                 - **y**: 366
                 - **raio**: 13
@@ -6066,28 +6066,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 712
                 - **y**: 66
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 458
                 - **y**: 715
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1050
                 - **y**: 980
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 298
                 - **y**: 78
                 - **raio**: 13
@@ -6119,14 +6119,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 523
                 - **y**: 1026
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1021
                 - **y**: 923
                 - **raio**: 13
@@ -6173,28 +6173,28 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 389
                 - **y**: 574
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1301
                 - **y**: 598
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1154
                 - **y**: 966
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 984
                 - **y**: 954
                 - **raio**: 13
@@ -6231,28 +6231,28 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 694
                 - **y**: 1109
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 814
                 - **y**: 1099
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 200
                 - **y**: 372
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 359
                 - **y**: 103
                 - **raio**: 13
@@ -6297,28 +6297,28 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 508
                 - **y**: 779
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1037
                 - **y**: 887
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 378
                 - **y**: 395
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 863
                 - **y**: 179
                 - **raio**: 13
@@ -6373,7 +6373,7 @@
       - **[0]**:
         - **id**: bonsai
         - **label**: Bonsai
-        - **box**:
+        - **retangulo**:
           - **x**: 422
           - **y**: 393
           - **comprimento**: 74
@@ -6381,7 +6381,7 @@
       - **[1]**:
         - **id**: crocancia
         - **label**: Crocância
-        - **box**:
+        - **retangulo**:
           - **x**: 557
           - **y**: 378
           - **comprimento**: 108
@@ -6389,7 +6389,7 @@
       - **[2]**:
         - **id**: mantra
         - **label**: Mantra
-        - **box**:
+        - **retangulo**:
           - **x**: 764
           - **y**: 383
           - **comprimento**: 76
@@ -6397,7 +6397,7 @@
       - **[3]**:
         - **id**: dali_goiabada
         - **label**: Dali Goiabada
-        - **box**:
+        - **retangulo**:
           - **x**: 906
           - **y**: 387
           - **comprimento**: 144
@@ -6405,7 +6405,7 @@
       - **[4]**:
         - **id**: pedra
         - **label**: Pedra
-        - **box**:
+        - **retangulo**:
           - **x**: 1334
           - **y**: 664
           - **comprimento**: 66
@@ -6413,7 +6413,7 @@
       - **[5]**:
         - **id**: seg_samambaia
         - **label**: Seg-Samambaia
-        - **box**:
+        - **retangulo**:
           - **x**: 1148
           - **y**: 1062
           - **comprimento**: 175
@@ -6463,35 +6463,35 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 249
                 - **y**: 517
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 499
                 - **y**: 414
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1395
                 - **y**: 315
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 456
                 - **y**: 943
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1393
                 - **y**: 846
                 - **raio**: 13
@@ -6546,7 +6546,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1383
                 - **y**: 806
                 - **raio**: 13
@@ -6563,7 +6563,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1232
                 - **y**: 750
                 - **raio**: 13
@@ -6580,35 +6580,35 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 1561
                 - **y**: 433
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 647
                 - **y**: 366
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 1293
                 - **y**: 558
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 436
                 - **y**: 720
                 - **raio**: 13
             - **[4]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 114
                 - **y**: 757
                 - **raio**: 13
@@ -6643,42 +6643,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 538
                 - **y**: 705
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 980
                 - **y**: 781
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1105
                 - **y**: 855
                 - **raio**: 13
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 1417
                 - **y**: 699
                 - **raio**: 13
             - **[4]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 799
                 - **y**: 177
                 - **raio**: 13
             - **[5]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 1346
                 - **y**: 123
                 - **raio**: 13
@@ -6772,7 +6772,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 957
                 - **y**: 1039
                 - **raio**: 13
@@ -6789,21 +6789,21 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 707
                 - **y**: 1013
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 973
                 - **y**: 895
                 - **raio**: 13
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 1409
                 - **y**: 1133
                 - **raio**: 13
@@ -6832,42 +6832,42 @@
             - **[0]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 80
                 - **y**: 401
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 415
                 - **y**: 346
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1071
                 - **y**: 339
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 202
                 - **y**: 834
                 - **raio**: 13
             - **[4]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 722
                 - **y**: 940
                 - **raio**: 13
             - **[5]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 615
                 - **y**: 796
                 - **raio**: 13
@@ -6904,14 +6904,14 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 394
                 - **y**: 779
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 955
                 - **y**: 817
                 - **raio**: 13
@@ -6982,7 +6982,7 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 810
                 - **y**: 958
                 - **raio**: 13
@@ -7009,35 +7009,35 @@
             - **[0]**:
               - **id**: 1A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 196
                 - **y**: 456
                 - **raio**: 13
             - **[1]**:
               - **id**: 1B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 367
                 - **y**: 298
                 - **raio**: 13
             - **[2]**:
               - **id**: 1C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 767
                 - **y**: 213
                 - **raio**: 13
             - **[3]**:
               - **id**: 1D
               - **label**: D
-              - **circular**:
+              - **circulo**:
                 - **x**: 957
                 - **y**: 136
                 - **raio**: 13
             - **[4]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 446
                 - **y**: 978
                 - **raio**: 13
@@ -7092,35 +7092,35 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 410
                 - **y**: 889
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 1141
                 - **y**: 946
                 - **raio**: 13
             - **[2]**:
               - **id**: A
               - **label**: A
-              - **circular**:
+              - **circulo**:
                 - **x**: 149
                 - **y**: 424
                 - **raio**: 13
             - **[3]**:
               - **id**: B
               - **label**: B
-              - **circular**:
+              - **circulo**:
                 - **x**: 411
                 - **y**: 297
                 - **raio**: 13
             - **[4]**:
               - **id**: C
               - **label**: C
-              - **circular**:
+              - **circulo**:
                 - **x**: 1129
                 - **y**: 251
                 - **raio**: 13

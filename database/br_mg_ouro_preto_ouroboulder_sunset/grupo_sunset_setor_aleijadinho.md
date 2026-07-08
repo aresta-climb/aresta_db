@@ -12,7 +12,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 419
       y: 589
       raio: 11
@@ -21,6 +21,5 @@ mapas:
     ids:
     - '1'
 ---
-
 
 # Bloco Aleijadinho

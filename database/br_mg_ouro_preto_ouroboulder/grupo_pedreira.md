@@ -13,196 +13,196 @@ mapas:
   pontos_de_interesse:
   - id: travessia
     label: Travessia
-    box:
+    retangulo:
       x: 240
       y: 450
       comprimento: 73
       largura: 16
   - id: jah
     label: Jah
-    box:
+    retangulo:
       x: 298
       y: 428
       comprimento: 29
       largura: 16
   - id: sauna
     label: Sauna
-    box:
+    retangulo:
       x: 395
       y: 466
       comprimento: 48
       largura: 15
   - id: joao_de_barro
     label: João de Barro
-    box:
+    retangulo:
       x: 427
       y: 414
       comprimento: 108
       largura: 19
   - id: mata_mata
     label: Mata Mata
-    box:
+    retangulo:
       x: 378
       y: 347
       comprimento: 84
       largura: 18
   - id: red_bull
     label: Red Bull
-    box:
+    retangulo:
       x: 420
       y: 266
       comprimento: 64
       largura: 19
   - id: bob
     label: Bob
-    box:
+    retangulo:
       x: 347
       y: 276
       comprimento: 30
       largura: 15
   - id: lagartixa
     label: Lagartixa
-    box:
+    retangulo:
       x: 490
       y: 516
       comprimento: 71
       largura: 17
   - id: entretidos
     label: Entretidos
-    box:
+    retangulo:
       x: 633
       y: 398
       comprimento: 76
       largura: 16
   - id: fiat_lux
     label: Fiat Lux
-    box:
+    retangulo:
       x: 532
       y: 365
       comprimento: 61
       largura: 16
   - id: teto_de_vidro
     label: Teto de Vidro
-    box:
+    retangulo:
       x: 722
       y: 556
       comprimento: 105
       largura: 18
   - id: to_de_boa
     label: Tô de Boa
-    box:
+    retangulo:
       x: 699
       y: 426
       comprimento: 78
       largura: 18
   - id: pedra_queimada
     label: Pedra Queimada
-    box:
+    retangulo:
       x: 892
       y: 519
       comprimento: 128
       largura: 20
   - id: hora_da_janta
     label: Hora da Janta
-    box:
+    retangulo:
       x: 664
       y: 770
       comprimento: 107
       largura: 17
   - id: mezanino
     label: Mezanino
-    box:
+    retangulo:
       x: 802
       y: 761
       comprimento: 79
       largura: 18
   - id: chicletes
     label: Chicletes
-    box:
+    retangulo:
       x: 719
       y: 828
       comprimento: 74
       largura: 17
   - id: longevidade
     label: Longevidade
-    box:
+    retangulo:
       x: 507
       y: 925
       comprimento: 92
       largura: 20
   - id: sossega_leao
     label: Sossega Leão
-    box:
+    retangulo:
       x: 1019
       y: 790
       comprimento: 106
       largura: 19
   - id: sonar
     label: Sonar
-    box:
+    retangulo:
       x: 884
       y: 972
       comprimento: 46
       largura: 17
   - id: meia_parede
     label: Meia-Parede
-    box:
+    retangulo:
       x: 933
       y: 841
       comprimento: 96
       largura: 18
   - id: nave_mae
     label: Nave Mãe
-    box:
+    retangulo:
       x: 974
       y: 588
       comprimento: 78
       largura: 18
   - id: abaulados
     label: Abaulados
-    box:
+    retangulo:
       x: 1120
       y: 458
       comprimento: 81
       largura: 19
   - id: deep_inside
     label: Deep Inside
-    box:
+    retangulo:
       x: 1144
       y: 628
       comprimento: 89
       largura: 19
   - id: complexo
     label: Complexo
-    box:
+    retangulo:
       x: 1194
       y: 662
       comprimento: 81
       largura: 19
   - id: conhaque
     label: Conhaque
-    box:
+    retangulo:
       x: 1344
       y: 638
       comprimento: 83
       largura: 18
   - id: eletron
     label: Elétron/Positron
-    box:
+    retangulo:
       x: 1440
       y: 714
       comprimento: 123
       largura: 21
   - id: ianque
     label: Ianque
-    box:
+    retangulo:
       x: 564
       y: 409
       comprimento: 53
       largura: 16
   - id: nat_geo
     label: Nat Geo
-    box:
+    retangulo:
       x: 789
       y: 244
       comprimento: 64

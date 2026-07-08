@@ -1,4 +1,4 @@
----
+---
 nome: Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 226
       y: 818
       comprimento: 21
       largura: 29
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 262
       y: 864
       comprimento: 27
       largura: 31
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 496
       y: 1089
       comprimento: 20
       largura: 26
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 640
       y: 1064
       comprimento: 17
       largura: 22
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 718
       y: 997
       comprimento: 22
@@ -62,14 +62,14 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 250
       y: 1180
       comprimento: 21
       largura: 27
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 659
       y: 1022
       comprimento: 28
@@ -85,37 +85,37 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 180
       y: 1074
       comprimento: 17
       largura: 22
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 292
       y: 1102
       comprimento: 16
       largura: 20
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 375
       y: 1121
       comprimento: 32
       largura: 26
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 457
       y: 1117
       comprimento: 28
       largura: 26
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 596
       y: 1098
       comprimento: 31
@@ -123,10 +123,10 @@ mapas:
   referencias:
   - escalada: Sabotagem
     ids:
-    - '08'
+    - 08
   - escalada: Universo Paralelo
     ids:
-    - '09'
+    - 09
   - escalada: Egocentrismo
     ids:
     - '10'
@@ -138,10 +138,10 @@ mapas:
     - '12'
   - escalada: Sabotagem do Universo
     ids:
-    - '08'
+    - 08
   - escalada: Universo Sabotada
     ids:
-    - '09'
+    - 09
   - escalada: Ego Paralelo
     ids:
     - '10'
@@ -151,35 +151,35 @@ mapas:
   pontos_de_interesse:
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 26
       y: 907
       comprimento: 33
       largura: 26
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 64
       y: 960
       comprimento: 32
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 123
       y: 1004
       comprimento: 32
       largura: 27
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 248
       y: 1128
       comprimento: 33
       largura: 26
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 438
       y: 1226
       comprimento: 31
@@ -206,21 +206,21 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 187
       y: 1059
       comprimento: 38
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 262
       y: 1050
       comprimento: 43
       largura: 33
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 364
       y: 1050
       comprimento: 39
@@ -404,7 +404,8 @@ escaladas:
     nome: Ego Paralelo
     dificuldade: BR_10C
     descricao: Primeiro crux da Egocentrismo com o segundo crux da Universo Paralelo.
----
+---
+
 # Setor Mezanino
 
 ![Setor Mezanino](imagens/setor_mezanino_p0_i0.webp)

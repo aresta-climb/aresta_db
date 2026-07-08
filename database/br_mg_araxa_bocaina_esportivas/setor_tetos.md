@@ -1,4 +1,4 @@
----
+---
 nome: Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p1.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 30
       y: 1100
       comprimento: 43
       largura: 33
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 245
       y: 850
       comprimento: 44
       largura: 33
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 355
       y: 856
       comprimento: 48
       largura: 35
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 494
       y: 732
       comprimento: 47
       largura: 33
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 648
       y: 732
       comprimento: 45
       largura: 34
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 774
       y: 772
       comprimento: 49
       largura: 36
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 866
       y: 782
       comprimento: 44
       largura: 34
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 958
       y: 782
       comprimento: 49
@@ -87,58 +87,58 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 126
       y: 801
       comprimento: 37
       largura: 28
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 176
       y: 821
       comprimento: 33
       largura: 28
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 248
       y: 838
       comprimento: 41
       largura: 33
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 527
       y: 1034
       comprimento: 42
       largura: 32
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 604
       y: 1046
       comprimento: 43
       largura: 33
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 670
       y: 1052
       comprimento: 45
       largura: 33
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 729
       y: 1053
       comprimento: 44
       largura: 34
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 782
       y: 1072
       comprimento: 43
@@ -171,28 +171,28 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 856
       y: 1083
       comprimento: 35
       largura: 36
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 914
       y: 1062
       comprimento: 35
       largura: 30
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 954
       y: 1068
       comprimento: 35
       largura: 27
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 1052
       y: 1086
       comprimento: 39
@@ -216,56 +216,56 @@ mapas:
   pontos_de_interesse:
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 208
       y: 1154
       comprimento: 41
       largura: 33
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 321
       y: 1150
       comprimento: 44
       largura: 32
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 435
       y: 1139
       comprimento: 44
       largura: 34
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 666
       y: 1141
       comprimento: 44
       largura: 32
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 745
       y: 1111
       comprimento: 44
       largura: 34
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 810
       y: 1108
       comprimento: 49
       largura: 36
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 896
       y: 1126
       comprimento: 41
       largura: 33
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 962
       y: 1126
       comprimento: 45
@@ -301,56 +301,56 @@ mapas:
   pontos_de_interesse:
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 102
       y: 1138
       comprimento: 45
       largura: 37
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 173
       y: 1142
       comprimento: 48
       largura: 37
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 261
       y: 1155
       comprimento: 36
       largura: 32
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 315
       y: 1162
       comprimento: 34
       largura: 31
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 370
       y: 1160
       comprimento: 32
       largura: 30
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 438
       y: 1162
       comprimento: 39
       largura: 31
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 499
       y: 1162
       comprimento: 36
       largura: 31
   - id: '36'
     label: '36'
-    box:
+    retangulo:
       x: 558
       y: 1162
       comprimento: 36
@@ -386,35 +386,35 @@ mapas:
   pontos_de_interesse:
   - id: '37'
     label: '37'
-    box:
+    retangulo:
       x: 618
       y: 1161
       comprimento: 30
       largura: 26
   - id: '38'
     label: '38'
-    box:
+    retangulo:
       x: 668
       y: 1174
       comprimento: 33
       largura: 29
   - id: '39'
     label: '39'
-    box:
+    retangulo:
       x: 715
       y: 1181
       comprimento: 36
       largura: 26
   - id: '40'
     label: '40'
-    box:
+    retangulo:
       x: 761
       y: 1174
       comprimento: 34
       largura: 29
   - id: '41'
     label: '41'
-    box:
+    retangulo:
       x: 813
       y: 1185
       comprimento: 36
@@ -800,7 +800,8 @@ escaladas:
     - Daiex
     - Saulo
     data_abertura: '2017'
----
+---
+
 # Setor Tetos
 
 ![Setor Tetos](imagens/setor_tetos_p0_i0.webp)

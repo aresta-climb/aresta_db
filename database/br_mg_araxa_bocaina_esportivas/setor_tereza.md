@@ -1,4 +1,4 @@
----
+---
 nome: Tereza
 mapas:
 - caminho_imagem_mapa: imagens/setor_tereza_p1.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 280
       y: 1013
       comprimento: 42
       largura: 34
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 506
       y: 1013
       comprimento: 46
       largura: 32
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 587
       y: 1028
       comprimento: 48
       largura: 36
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 660
       y: 1029
       comprimento: 49
       largura: 36
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 750
       y: 1070
       comprimento: 44
       largura: 33
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 801
       y: 875
       comprimento: 50
@@ -72,7 +72,7 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 234
       y: 928
       comprimento: 48
@@ -140,7 +140,8 @@ escaladas:
     conquistadores:
     - Lucas Ramos
     data_abertura: '2006'
----
+---
+
 # Setor Tereza
 
 ![Setor Tereza](imagens/setor_tereza_p0_i0.webp)

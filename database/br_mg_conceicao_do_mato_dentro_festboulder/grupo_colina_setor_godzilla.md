@@ -1,4 +1,4 @@
----
+---
 nome: Godzilla
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p0.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 415
       y: 520
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 515
       y: 435
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 575
       y: 480
       comprimento: 30
@@ -57,21 +57,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 330
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 480
       y: 525
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 630
       y: 440
       comprimento: 30
@@ -107,14 +107,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 370
       y: 510
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 430
       y: 480
       comprimento: 30
@@ -163,7 +163,8 @@ escaladas:
 - boulder:
     nome: Obra de Arte
     dificuldade: V9
----
+---
+
 # Setor Godzilla
 
 O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.

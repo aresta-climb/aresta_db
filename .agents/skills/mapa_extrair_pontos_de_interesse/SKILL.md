@@ -30,36 +30,46 @@ Normalmente os pontos de interesse estão marcados no mapa com um símbolo (como
 
 ## 2. Extraindo pontos de interesse 
 
-Sua tarefa é extrair **todos** os pontos de interesse do mapa. Para isso, examine a imagem com cuidado, faça uma lista de pontos de interesse completa e extraia as seguintes informações para cada ponto de interesse na imagem:
-* Id marcado no mapa
-* Label textual **que está escrita na imagem** desse ponto. Não utilize outros arquivos para inferir labels, utilize apenas o conteúdo da imagem e o arquivo `<imagem>.json`. Note que pontos de interesse já podem estar presentes no arquivo `<imagem>.json`, e, se presentes, serão extremamente confiáveis.
-* Você pode representar as detecções como retangulos ou circulos. Prefira a representação mais próxima ao conteúdo do mapa. Normalmente isso significa usar círculos, particularmente se o ponto de interesse estiver envolto em um círculo no mapa. Porém, use retângulos caso a detecção seja claramente retangular ou se o ponto de interesse estiver envolto em uma caixa quadrada/retangular. Exemplos:
-    * Bounding circle do ponto de interesse: **x, y, raio** do círculo 
-    * Bounding box retangular do ponto de interesse:
-        * **x, y**: Coordenadas do **centro** da detecção em pixels.
-        * **comprimento, largura**: Dimensões da caixa em pixels.
-        * **angulo_graus_x100**: Campo opcional, apenas use caso o ponto de interesse seja inclinado. Representado por um ângulo de inteiro rotação em graus multiplicado por 100, no sentido horário, partindo do eixo x positivo, relativo ao centro do retângulo. Por exemplo, 35.6 graus vira 3560.
+Sua tarefa é extrair **todos** os pontos de interesse do mapa. Para isso, examine a imagem com cuidado e extraia as seguintes informações para cada ponto:
+
+* **Id marcado no mapa** (um identificador único).
+* **Label textual que está escrita na imagem**. Não deduza labels de outros arquivos; baseie-se apenas na imagem, no OCR, e nos pontos que porventura já existam no `<imagem>.json` (estes são extremamente confiáveis).
+* **Geometria delimitadora**. Cada ponto deve ser delimitado pela geometria que melhor descreve sua forma no mapa.
+
+> **Prioridade de Geometrias (Regra de Ouro):** 
+> Para manter a consistência visual do projeto, escolha a geometria seguindo a rigorosa ordem de prioridade abaixo:
+> 
+> 1. **`circulo`** (x, y, raio): Prioridade máxima. Use sempre que o ponto for circular ou tiver dimensões semelhantes no OCR. Se o OCR fornecer uma caixa, e `largura` for próxima de `comprimento`, converta para círculo com raio `(comprimento + largura) / 4`.
+> 2. **`quadrado`** (x, y, lado, [angulo_graus_x100]): Use quando a área tiver largura e altura semelhantes, mas for visualmente grafada como um quadrado no mapa.
+> 3. **`retangulo`** (x, y, comprimento, largura, [angulo_graus_x100]): Use apenas quando a área de interesse for nitidamente mais larga do que alta ou vice-versa (ex: placas de setor).
+> 4. **`poligono`** (coordenadas: [x1, y1, x2, y2, ...]): Útil apenas como último recurso para demarcações completamente irregulares (como áreas livres amorfas demarcadas).
+
+*Detalhe sobre o ângulo (`angulo_graus_x100`)*: Em geometrias com lados retos (retângulo e quadrado), caso a imagem original apresente o ponto de interesse inclinado, você pode rotacionar a área em torno do seu centro `(x,y)`. O valor deve ser a rotação no sentido horário em graus multiplicado por 100 (ex: 35.6° vira 3560).
 
 > [!TIP]
-> **Comparação Visual de OCR:** Você pode e deve extrair as bounding boxes (*x, y, comprimento, largura*) diretamente do arquivo `<imagem>.ocr_result.json`. Caso comprimento e largura forem próximos, converta para bounding circle com raio `(comprimento + largura) / 4`.
-> **Obrigatório:** Utilize sua habilidade de ver arquivos (`view_file` ou equivalente que retorne a imagem) para visualizar `<imagem>.ocr_result.png` e comparar fisicamente o resultado do texto com a imagem original para fechar boxes super precisos.
+> **Uso do OCR:** 
+> Você deve extrair as caixas delimitadoras (`x`, `y`, `comprimento`, `largura`) diretamente de `raw_mapas/<imagem>.ocr_result.json`. Em seguida, adapte esses dados brutos do OCR para a geometria ideal seguindo a hierarquia acima (ex: transformando uma caixa de 40x42 em um `circulo` com raio 20 ou em um `quadrado` de lado 41).
+> **Sempre** abra a imagem e cruze com `<imagem>.ocr_result.png` para garantir precisão e capturar itens que o OCR ignorou.
 
 > [!WARNING]
-> Os arquivos de detecção OCR podem falhar. Pode faltar itens ou eles estarem parciais. Mesmo assim, olhe o tamanho das marcações ao redor para **estimar** você mesmo o centro e as dimensões se não achar o json. O preenchimento da `box` é estritamente manual se o OCR errar.
+> **Limitações do OCR:**
+> O OCR frequentemente falha, ignora itens ou cria caixas partidas. Use o tamanho das marcações vizinhas para estimar as dimensões manualmente quando o JSON não for suficiente.
 
-* Não crie pontos de interesse para elementos que não estejam no mapa.
-* Não crie pontos de interesse para desenhos no mapa (por exemplo traços). Os pontos de interesse devem ter algum significado.
-* Caso houverem mais de um ponto de interesse com o mesmo texto (por exemplo, "2" aparecendo duas vezes no mapa), nomeie-os com labels iguais mas ids diferentes, por exemplo "02_abaixo" e "02_acima".
+**Regras Finais de Extração:**
+* Não invente pontos de interesse que não existem.
+* Não crie pontos de interesse para desenhos soltos (como traços). Todo ponto extraído precisa ter um significado (via, boulder, setor, etc).
+* Se um mesmo texto (ex: "2") aparecer repetido no mapa em locais distintos (o que acontece em continuações), extraia todos, diferenciando seus IDs lógicos no JSON (ex: "02_abaixo" e "02_acima"), mas mantendo o `label` idêntico ("2").
 
 Um exemplo de como ficaria a seção de pontos de interesse do arquivo JSON:
 
 ```json
 {
   "pontos_de_interesse": [
-    { "id": "01", "label": "01", "circular": { "x": 684, "y": 824, "raio": 16 } },
-    { "id": "02", "label": "02", "box": { "x": 732, "y": 882, "comprimento": 35, "largura": 35 } },
-    { "id": "Mesa", "label": "Mesa", "box": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
-    { "id": "Setor_Savassinha", "label": "Setor Savassinha", "box": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 4500 } },
+    { "id": "01", "label": "01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
+    { "id": "02", "label": "02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
+    { "id": "Mesa", "label": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
+    { "id": "Setor_Savassinha", "label": "Setor Savassinha", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 4500 } },
+    { "id": "Livre", "label": "Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
   ]
 }
 ```

@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 227
       y: 704
       raio: 22
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 172
       y: 710
       raio: 21
@@ -45,6 +45,5 @@ escaladas:
     descricao: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda
       até a virada pelo final da aresta.
 ---
-
 
 # Bloco C

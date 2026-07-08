@@ -29,13 +29,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 532
       y: 520
       raio: 9
   - id: x
     label: x
-    circular:
+    circulo:
       x: 445
       y: 31
       raio: 9
@@ -50,37 +50,37 @@ mapas:
   pontos_de_interesse:
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 346
       y: 454
       raio: 9
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 468
       y: 409
       raio: 9
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 632
       y: 338
       raio: 9
   - id: y
     label: y
-    circular:
+    circulo:
       x: 248
       y: 106
       raio: 11
   - id: z
     label: z
-    circular:
+    circulo:
       x: 495
       y: 47
       raio: 9
   - id: w
     label: w
-    circular:
+    circulo:
       x: 614
       y: 42
       raio: 10
@@ -103,19 +103,19 @@ mapas:
   pontos_de_interesse:
   - id: 1_b
     label: '1'
-    circular:
+    circulo:
       x: 191
       y: 499
       raio: 9
   - id: y_b
     label: y
-    circular:
+    circulo:
       x: 118
       y: 10
       raio: 9
   - id: x_b
     label: x
-    circular:
+    circulo:
       x: 585
       y: 6
       raio: 8
@@ -129,6 +129,5 @@ mapas:
     - 1_b
     - y_b
 ---
-
 
 # Bloco Planetário

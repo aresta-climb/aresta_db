@@ -1,4 +1,4 @@
----
+---
 nome: Serra do Groove
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_serra_do_groove_p0_i0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 942
       y: 803
       comprimento: 25
       largura: 30
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 852
       y: 194
       comprimento: 29
@@ -28,6 +28,7 @@ escaladas:
 - boulder:
     nome: Serra do Groove
     dificuldade: V3
----
+---
+
 # Bloco: Serra do Groove
 ## Região 2

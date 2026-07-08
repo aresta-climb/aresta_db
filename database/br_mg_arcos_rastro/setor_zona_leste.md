@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 74
       y: 286
       comprimento: 45
       largura: 29
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 384
       y: 1067
       comprimento: 24
       largura: 18
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 382
       y: 1036
       comprimento: 21
       largura: 17
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 380
       y: 1002
       comprimento: 23
       largura: 16
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 375
       y: 986
       comprimento: 22
       largura: 15
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 370
       y: 970
       comprimento: 22
       largura: 17
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 366
       y: 943
       comprimento: 22

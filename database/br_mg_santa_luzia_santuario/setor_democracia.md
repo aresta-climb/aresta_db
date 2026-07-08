@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 272
       y: 252
       raio: 28
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 429
       y: 322
       raio: 29
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 555
       y: 392
       raio: 29
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 726
       y: 421
       raio: 29
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 880
       y: 485
       raio: 29
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 1020
       y: 585
       raio: 29
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 1134
       y: 696
       raio: 29
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 1191
       y: 823
       raio: 29
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 1238
       y: 945
       raio: 29
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 1266
       y: 1070
       raio: 29
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 1313
       y: 1190
       raio: 29
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 1371
       y: 1307
       raio: 29
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 1476
       y: 1634
       raio: 29
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 1535
       y: 1759
       raio: 29
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 1561
       y: 1886
       raio: 29
@@ -119,10 +119,10 @@ mapas:
     - '07'
   - escalada: BUFFALO BILL
     ids:
-    - '08'
+    - 08
   - escalada: HANIBALL
     ids:
-    - '09'
+    - 09
   - escalada: DEMOCRACIA
     ids:
     - '10'

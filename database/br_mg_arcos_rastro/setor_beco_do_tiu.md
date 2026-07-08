@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Grutinha
     label: Setor Grutinha
-    box:
+    retangulo:
       x: 228
       y: 18
       comprimento: 47
       largura: 33
   - id: Savassinha
     label: Savassinha
-    box:
+    retangulo:
       x: 320
       y: 310
       comprimento: 78
       largura: 21
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 398
       y: 716
       comprimento: 21
       largura: 17
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 358
       y: 666
       comprimento: 21
       largura: 17
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 311
       y: 596
       comprimento: 20
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 296
       y: 572
       comprimento: 21
       largura: 17
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 316
       y: 507
       comprimento: 21
       largura: 18
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 354
       y: 553
       comprimento: 22
       largura: 18
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 402
       y: 598
       comprimento: 22
       largura: 19
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 443
       y: 638
       comprimento: 22
       largura: 18
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 475
       y: 646
       comprimento: 22
       largura: 17
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
-    box:
+    retangulo:
       x: 378
       y: 1116
       comprimento: 78
       largura: 25
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 378
       y: 1142
       comprimento: 102
@@ -119,11 +119,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - '08'
+    - 08
     setor: Setor Antigo Camping
     escalada: Xuxa Preta de Pains
   - ids:
-    - '09'
+    - 09
     setor: Setor Antigo Camping
     escalada: Brenfa Móvel
   - ids:

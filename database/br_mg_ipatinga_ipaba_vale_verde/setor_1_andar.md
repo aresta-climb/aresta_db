@@ -1,4 +1,4 @@
----
+---
 nome: 1° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1_andar_p0.webp
@@ -7,189 +7,189 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    box:
+    retangulo:
       x: 394
       y: 1620
       comprimento: 21
       largura: 29
   - id: '02'
     label: '2'
-    box:
+    retangulo:
       x: 373
       y: 1571
       comprimento: 24
       largura: 32
   - id: '03'
     label: '3'
-    box:
+    retangulo:
       x: 358
       y: 1528
       comprimento: 21
       largura: 30
   - id: '04'
     label: '4'
-    box:
+    retangulo:
       x: 352
       y: 1482
       comprimento: 13
       largura: 17
   - id: '05'
     label: '5'
-    box:
+    retangulo:
       x: 341
       y: 1434
       comprimento: 24
       largura: 30
   - id: '06'
     label: '6'
-    box:
+    retangulo:
       x: 332
       y: 1369
       comprimento: 19
       largura: 26
   - id: '07'
     label: '7'
-    box:
+    retangulo:
       x: 318
       y: 1305
       comprimento: 18
       largura: 20
-  - id: '08'
+  - id: 08
     label: '8'
-    box:
+    retangulo:
       x: 316
       y: 1264
       comprimento: 17
       largura: 22
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 320
       y: 1213
       comprimento: 17
       largura: 22
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 318
       y: 1118
       comprimento: 25
       largura: 22
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 312
       y: 1070
       comprimento: 25
       largura: 20
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 318
       y: 808
       comprimento: 26
       largura: 23
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 316
       y: 768
       comprimento: 28
       largura: 29
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 308
       y: 700
       comprimento: 25
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 306
       y: 592
       comprimento: 33
       largura: 31
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 312
       y: 541
       comprimento: 32
       largura: 32
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 317
       y: 472
       comprimento: 26
       largura: 27
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 316
       y: 436
       comprimento: 25
       largura: 24
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 317
       y: 394
       comprimento: 28
       largura: 23
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 324
       y: 310
       comprimento: 25
       largura: 23
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 336
       y: 262
       comprimento: 30
       largura: 30
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 337
       y: 204
       comprimento: 24
       largura: 23
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 342
       y: 158
       comprimento: 24
       largura: 23
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 345
       y: 97
       comprimento: 30
       largura: 30
   - id: Trilha_Jurassico
     label: Trilha para o Setor Jurássico (Muito Fechada)
-    box:
+    retangulo:
       x: 196
       y: 78
       comprimento: 115
       largura: 157
   - id: Trilha_Boulders_2nd
     label: Trilha Boulders e 2º Andar
-    box:
+    retangulo:
       x: 109
       y: 565
       comprimento: 134
       largura: 82
   - id: Voce_esta_aqui
     label: Você está aqui
-    box:
+    retangulo:
       x: 218
       y: 1314
       comprimento: 38
@@ -218,10 +218,10 @@ mapas:
     - '07'
   - escalada: Fundão
     ids:
-    - '08'
+    - 08
   - escalada: Caminho da Luz
     ids:
-    - '09'
+    - 09
   - escalada: Eu quero é ver o oco
     ids:
     - '10'
@@ -430,7 +430,8 @@ escaladas:
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     extensao: 15
----
+---
+
 # 1° Andar
 
 O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.

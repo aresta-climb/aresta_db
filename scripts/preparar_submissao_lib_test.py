@@ -13,61 +13,69 @@ from scripts.preparar_submissao_lib import (
     compilar_croqui
 )
 
-def test_validar_circular_valido():
+def test_validar_circulo_valido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "circular": {"x": 10, "y": 20, "raio": 5}}
+            {"id": "1", "circulo": {"x": 10, "y": 20, "raio": 5}}
         ]
     }
     # Não deve subir exceção
     validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_circular_invalido():
+def test_validar_circulo_invalido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "circular": {"x": 10, "raio": 5}} # faltando y
+            {"id": "1", "circulo": {"x": 10, "raio": 5}} # faltando y
         ]
     }
     with pytest.raises(ValueError, match="Círculo faltando campo 'y'"):
         validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_box_valido():
+def test_validar_retangulo_valido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "box": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 4500}}
+            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 4500}}
         ]
     }
     validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_box_angulo_valido_negativo():
+def test_validar_retangulo_angulo_valido_negativo():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "box": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": -4500}}
+            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": -4500}}
         ]
     }
     validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_box_angulo_invalido():
+def test_validar_retangulo_angulo_invalido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "box": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 40000}}
+            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 40000}}
         ]
     }
     with pytest.raises(ValueError, match="angulo_graus_x100 .* deve estar entre -36000 e 36000"):
         validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_area_livre_valido():
+def test_validar_quadrado_valido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "area_livre": {"coordenadas": [0, 0, 10, 0, 10, 10, 0, 10]}}
+            {"id": "1", "quadrado": {"x": 0, "y": 0, "lado": 100, "angulo_graus_x100": 4500}}
         ]
     }
     validar_pontos_de_interesse_recursivo(obj)
 
-def test_validar_area_livre_impar():
+def test_validar_poligono_valido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "area_livre": {"coordenadas": [0, 0, 10, 0, 10]}}
+            {"id": "1", "poligono": {"coordenadas": [0, 0, 10, 0, 10, 10, 0, 10]}}
+        ]
+    }
+    validar_pontos_de_interesse_recursivo(obj)
+
+def test_validar_poligono_impar():
+    obj = {
+        "pontos_de_interesse": [
+            {"id": "1", "poligono": {"coordenadas": [0, 0, 10, 0, 10]}}
         ]
     }
     with pytest.raises(ValueError, match="número par de coordenadas"):
@@ -91,7 +99,7 @@ def test_validar_recursivo():
                         "setor": {
                             "conteudo": {
                                 "pontos_de_interesse": [
-                                    {"id": "erro", "circular": {"x": 10}} # Faltando campos
+                                    {"id": "erro", "circulo": {"x": 10}} # Faltando campos
                                 ]
                             }
                         }

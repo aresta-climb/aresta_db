@@ -7,196 +7,196 @@ mapas:
   pontos_de_interesse:
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 89
       y: 244
       comprimento: 22
       largura: 20
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 70
       y: 280
       comprimento: 21
       largura: 19
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 42
       y: 339
       comprimento: 20
       largura: 20
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 12
       y: 401
       comprimento: 23
       largura: 20
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 139
       y: 449
       comprimento: 20
       largura: 18
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 218
       y: 449
       comprimento: 20
       largura: 20
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 272
       y: 450
       comprimento: 21
       largura: 21
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 310
       y: 449
       comprimento: 21
       largura: 20
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 372
       y: 450
       comprimento: 21
       largura: 19
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 418
       y: 449
       comprimento: 22
       largura: 18
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 529
       y: 450
       comprimento: 22
       largura: 19
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 563
       y: 390
       comprimento: 20
       largura: 19
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 600
       y: 449
       comprimento: 21
       largura: 18
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 620
       y: 388
       comprimento: 21
       largura: 20
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 691
       y: 449
       comprimento: 22
       largura: 20
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 898
       y: 430
       comprimento: 21
       largura: 19
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 794
       y: 313
       comprimento: 21
       largura: 18
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 768
       y: 318
       comprimento: 19
       largura: 18
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 742
       y: 326
       comprimento: 20
       largura: 19
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 679
       y: 306
       comprimento: 22
       largura: 20
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 632
       y: 264
       comprimento: 19
       largura: 21
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 580
       y: 234
       comprimento: 21
       largura: 21
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 536
       y: 232
       comprimento: 21
       largura: 19
   - id: A
     label: A
-    box:
+    retangulo:
       x: 101
       y: 449
       comprimento: 22
       largura: 20
   - id: B
     label: B
-    box:
+    retangulo:
       x: 289
       y: 154
       comprimento: 16
       largura: 17
   - id: C
     label: C
-    box:
+    retangulo:
       x: 302
       y: 129
       comprimento: 17
       largura: 18
   - id: D
     label: D
-    box:
+    retangulo:
       x: 380
       y: 68
       comprimento: 19
       largura: 19
   - id: Negativo
     label: Negativo
-    box:
+    retangulo:
       x: 485
       y: 384
       comprimento: 70

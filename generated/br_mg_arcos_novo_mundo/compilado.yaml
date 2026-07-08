@@ -24,14 +24,14 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 491
               y: 212
               comprimento: 10
               largura: 15
           - id: Setor_Cemiterio_dos_Ossos
             label: Setor Cemitério dos Ossos
-            box:
+            retangulo:
               x: 432
               y: 196
               comprimento: 50
@@ -39,14 +39,14 @@ picos:
               angulo_graus_x100: 4685
           - id: Setor_Praca_Aristoteles
             label: Setor Praça Aristóteles
-            box:
+            retangulo:
               x: 644
               y: 139
               comprimento: 55
               largura: 36
           - id: Setor_Corredor_Polones
             label: Setor Corredor Polonês
-            box:
+            retangulo:
               x: 688
               y: 298
               comprimento: 111
@@ -54,7 +54,7 @@ picos:
               angulo_graus_x100: -237
           - id: Setor_Barceloneta
             label: Setor Barceloneta
-            box:
+            retangulo:
               x: 647
               y: 592
               comprimento: 62
@@ -85,112 +85,112 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 534
               y: 136
               comprimento: 9
               largura: 14
           - id: '2'
             label: '2'
-            box:
+            retangulo:
               x: 545
               y: 124
               comprimento: 10
               largura: 16
           - id: '3'
             label: '3'
-            box:
+            retangulo:
               x: 566
               y: 109
               comprimento: 13
               largura: 14
           - id: '4'
             label: '4'
-            box:
+            retangulo:
               x: 588
               y: 106
               comprimento: 10
               largura: 17
           - id: '5'
             label: '5'
-            box:
+            retangulo:
               x: 598
               y: 110
               comprimento: 9
               largura: 14
           - id: '6'
             label: '6'
-            box:
+            retangulo:
               x: 608
               y: 120
               comprimento: 10
               largura: 13
           - id: '7'
             label: '7'
-            box:
+            retangulo:
               x: 608
               y: 136
               comprimento: 11
               largura: 15
           - id: '8'
             label: '8'
-            box:
+            retangulo:
               x: 604
               y: 148
               comprimento: 9
               largura: 12
           - id: '9'
             label: '9'
-            box:
+            retangulo:
               x: 612
               y: 156
               comprimento: 9
               largura: 14
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 618
               y: 170
               comprimento: 16
               largura: 14
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 618
               y: 186
               comprimento: 14
               largura: 14
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 616
               y: 202
               comprimento: 15
               largura: 15
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 614
               y: 218
               comprimento: 16
               largura: 13
           - id: Setor_Cemiterio_dos_Ossos
             label: Setor Cemitério dos Ossos
-            box:
+            retangulo:
               x: 456
               y: 172
               comprimento: 77
               largura: 31
           - id: Setor_Praca_Aristoteles
             label: Setor Praça Aristóteles
-            box:
+            retangulo:
               x: 672
               y: 105
               comprimento: 97
               largura: 64
           - id: Setor_Corredor_Polones
             label: Setor Corredor Polonês
-            box:
+            retangulo:
               x: 684
               y: 290
               comprimento: 110
@@ -198,21 +198,21 @@ picos:
               angulo_graus_x100: -298
           - id: Setor_Barceloneta
             label: Setor Barceloneta
-            box:
+            retangulo:
               x: 644
               y: 584
               comprimento: 52
               largura: 27
           - id: Estrada_de_terra
             label: Estrada de terra
-            box:
+            retangulo:
               x: 406
               y: 874
               comprimento: 125
               largura: 24
           - id: H2O
             label: H2O
-            box:
+            retangulo:
               x: 636
               y: 918
               comprimento: 47
@@ -347,77 +347,77 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 596
               y: 262
               comprimento: 12
               largura: 15
           - id: '2'
             label: '2'
-            box:
+            retangulo:
               x: 615
               y: 276
               comprimento: 12
               largura: 15
           - id: '3'
             label: '3'
-            box:
+            retangulo:
               x: 641
               y: 274
               comprimento: 12
               largura: 15
           - id: '4'
             label: '4'
-            box:
+            retangulo:
               x: 667
               y: 274
               comprimento: 12
               largura: 15
           - id: '5'
             label: '5'
-            box:
+            retangulo:
               x: 706
               y: 310
               comprimento: 12
               largura: 15
           - id: Setor_Praca_Aristoteles
             label: Setor Praça Aristóteles
-            box:
+            retangulo:
               x: 642
               y: 130
               comprimento: 49
               largura: 41
           - id: Setor_Cemiterio_dos_Ossos
             label: Setor Cemitério dos Ossos
-            box:
+            retangulo:
               x: 461
               y: 174
               comprimento: 70
               largura: 27
           - id: Setor_Corredor_Polones
             label: Setor Corredor Polonês
-            box:
+            retangulo:
               x: 710
               y: 238
               comprimento: 158
               largura: 43
           - id: Setor_Barceloneta
             label: Setor Barceloneta
-            box:
+            retangulo:
               x: 650
               y: 587
               comprimento: 62
               largura: 28
           - id: Estrada_de_terra
             label: Estrada de terra
-            box:
+            retangulo:
               x: 408
               y: 879
               comprimento: 125
               largura: 26
           - id: H2O
             label: H2O
-            box:
+            retangulo:
               x: 638
               y: 920
               comprimento: 43
@@ -478,77 +478,77 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            box:
+            retangulo:
               x: 629
               y: 522
               comprimento: 12
               largura: 15
           - id: '2'
             label: '2'
-            box:
+            retangulo:
               x: 625
               y: 552
               comprimento: 12
               largura: 15
           - id: '3'
             label: '3'
-            box:
+            retangulo:
               x: 618
               y: 594
               comprimento: 12
               largura: 15
           - id: '4'
             label: '4'
-            box:
+            retangulo:
               x: 642
               y: 610
               comprimento: 12
               largura: 15
           - id: '5'
             label: '5'
-            box:
+            retangulo:
               x: 667
               y: 608
               comprimento: 12
               largura: 15
           - id: '6'
             label: '6'
-            box:
+            retangulo:
               x: 701
               y: 602
               comprimento: 12
               largura: 15
           - id: '7'
             label: '7'
-            box:
+            retangulo:
               x: 724
               y: 614
               comprimento: 12
               largura: 15
           - id: '8'
             label: '8'
-            box:
+            retangulo:
               x: 776
               y: 594
               comprimento: 12
               largura: 15
           - id: Setor_Praca_Aristoteles
             label: Setor Praça Aristóteles
-            box:
+            retangulo:
               x: 643
               y: 132
               comprimento: 50
               largura: 38
           - id: Setor_Cemiterio_dos_Ossos
             label: Setor Cemitério dos Ossos
-            box:
+            retangulo:
               x: 462
               y: 172
               comprimento: 70
               largura: 27
           - id: Setor_Corredor_Polones
             label: Setor Corredor Polonês
-            box:
+            retangulo:
               x: 688
               y: 293
               comprimento: 105
@@ -556,21 +556,21 @@ picos:
               angulo_graus_x100: -322
           - id: Setor_Barceloneta
             label: Setor Barceloneta
-            box:
+            retangulo:
               x: 698
               y: 556
               comprimento: 111
               largura: 46
           - id: Estrada_de_terra
             label: Estrada de terra
-            box:
+            retangulo:
               x: 410
               y: 875
               comprimento: 125
               largura: 26
           - id: H2O
             label: H2O
-            box:
+            retangulo:
               x: 638
               y: 919
               comprimento: 43
@@ -653,28 +653,28 @@ picos:
         pontos_de_interesse:
         - id: Setor_Barceloneta
           label: Setor Barceloneta
-          box:
+          retangulo:
             x: 432
             y: 438
             comprimento: 163
             largura: 135
         - id: Setor_Corredor_Polones
           label: Setor Corredor Polonês
-          box:
+          retangulo:
             x: 582
             y: 536
             comprimento: 100
             largura: 144
         - id: Setor_Aristoteles
           label: Setor Aristóteles
-          box:
+          retangulo:
             x: 774
             y: 533
             comprimento: 219
             largura: 138
         - id: Setor_Cemiterio_Ossos
           label: Setor Cemitério dos Ossos
-          box:
+          retangulo:
             x: 855
             y: 396
             comprimento: 138
@@ -795,7 +795,7 @@ botoes:
         - **Atualizações/Sugestões:** abrigobase@gmail.com
 
         - **Contribuição/Parceria:** Pix 37 99918-3634'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

@@ -23,31 +23,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 499
       y: 470
       raio: 9
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 365
       y: 542
       raio: 8
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 43
       y: 501
       raio: 8
   - id: x
     label: x
-    circular:
+    circulo:
       x: 425
       y: 61
       raio: 10
   - id: y
     label: y
-    circular:
+    circulo:
       x: 97
       y: 164
       raio: 10
@@ -70,13 +70,13 @@ mapas:
   pontos_de_interesse:
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 245
       y: 284
       raio: 9
   - id: z
     label: z
-    circular:
+    circulo:
       x: 214
       y: 111
       raio: 9
@@ -86,6 +86,5 @@ mapas:
     - '4'
     - z
 ---
-
 
 # Bloco Jahngada

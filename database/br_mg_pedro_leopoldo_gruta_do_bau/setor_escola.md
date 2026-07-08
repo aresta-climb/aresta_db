@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: Vale_da_Onca
     label: Vale da Onça
-    box:
+    retangulo:
       x: 816
       y: 33
       comprimento: 163
       largura: 36
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 452
       y: 249
       comprimento: 28
       largura: 26
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 307
       y: 274
       comprimento: 28
       largura: 27
   - id: Setor_Geriatria
     label: Setor Geriatria
-    box:
+    retangulo:
       x: 1060
       y: 342
       comprimento: 105
       largura: 60
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 206
       y: 409
       comprimento: 28
       largura: 26
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 452
       y: 462
       comprimento: 32
       largura: 27
   - id: Top
     label: Top
-    box:
+    retangulo:
       x: 366
       y: 491
       comprimento: 39
       largura: 28
   - id: Setor_Sentinela
     label: Setor Sentinela
-    box:
+    retangulo:
       x: 792
       y: 638
       comprimento: 177

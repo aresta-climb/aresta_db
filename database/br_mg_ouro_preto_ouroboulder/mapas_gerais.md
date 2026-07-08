@@ -6,7 +6,7 @@ mapas:
   pontos_de_interesse:
   - id: pedreira
     label: Grupo Pedreira
-    area_livre:
+    poligono:
       coordenadas:
       - 285
       - 330
@@ -30,7 +30,7 @@ mapas:
       - 467
   - id: mont_blanc
     label: Mont Blanc
-    area_livre:
+    poligono:
       coordenadas:
       - 973
       - 581
@@ -74,7 +74,7 @@ mapas:
       - 825
   - id: bonsai
     label: Bonsai
-    area_livre:
+    poligono:
       coordenadas:
       - 1665
       - 1114
@@ -109,3 +109,4 @@ mapas:
     - bonsai
     grupo: Bonsai
 ---
+

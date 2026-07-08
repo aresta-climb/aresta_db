@@ -28,7 +28,7 @@ def test_processamento_de_mapa(tmp_path):
             {
                 "id": "1",
                 "label": "Via A",
-                "box": {"x": 10, "y": 10, "comprimento": 80, "largura": 80}
+                "retangulo": {"x": 50, "y": 50, "comprimento": 80, "largura": 80}
             }
         ]
     }

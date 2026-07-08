@@ -1,4 +1,4 @@
----
+---
 nome: Rock and Roll
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_rock_and_roll_p0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 180
       y: 525
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 330
       y: 525
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 645
       y: 470
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 760
       y: 490
       comprimento: 30
@@ -59,7 +59,8 @@ escaladas:
 - boulder:
     nome: Go Johnny Go
     dificuldade: V3
----
+---
+
 # Setor Rock and Roll
 
 O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.

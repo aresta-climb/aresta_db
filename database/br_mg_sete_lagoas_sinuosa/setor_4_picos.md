@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 204
       y: 80
       raio: 20
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 333
       y: 57
       raio: 19
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 489
       y: 53
       raio: 19
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 588
       y: 353
       raio: 20
   - id: Setor_Vale_das_Sombras
     label: ← SETOR VALE DAS SOMBRAS
-    box:
+    retangulo:
       x: 174
       y: 518
       comprimento: 267
@@ -39,7 +39,7 @@ mapas:
       angulo_graus_x100: 779
   - id: Setor_Primordios
     label: SETOR PRIMÓRDIOS →
-    box:
+    retangulo:
       x: 567
       y: 552
       comprimento: 204

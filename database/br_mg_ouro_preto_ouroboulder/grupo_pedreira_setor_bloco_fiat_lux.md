@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 912
       y: 819
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 783
       y: 819
       raio: 13
@@ -33,5 +33,4 @@ escaladas:
     dificuldade: V4
     descricao: (vira pela aresta atrás do bloco)
 ---
-
 

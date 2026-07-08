@@ -6,7 +6,7 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Sunset
     label: SETOR SUNSET
-    box:
+    retangulo:
       x: 396
       y: 5
       comprimento: 108
@@ -16,3 +16,4 @@ mapas:
     ids:
     - Setor_Sunset
 ---
+

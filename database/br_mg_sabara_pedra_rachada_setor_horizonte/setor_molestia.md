@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '46'
     label: '46'
-    circular:
+    circulo:
       x: 481
       y: 843
       raio: 26
@@ -21,13 +21,13 @@ mapas:
   pontos_de_interesse:
   - id: '48'
     label: '48'
-    circular:
+    circulo:
       x: 343
       y: 1079
       raio: 28
   - id: '49'
     label: '49'
-    circular:
+    circulo:
       x: 975
       y: 834
       raio: 28
@@ -54,6 +54,5 @@ escaladas:
     descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado
       com uma virada técnica.
 ---
-
 
 # Moléstia

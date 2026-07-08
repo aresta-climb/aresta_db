@@ -7,9 +7,9 @@ revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Sítio do Rod
-  descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
-    Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
-    com acesso fácil e rápido.
+  descricao: O Sítio do Rod é um importante campo escola de escalada localizado em Lagoa 
+    Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos, com 
+    acesso fácil e rápido.
   setores_ou_grupos:
   - setor:
       caminho: setor_g1.md
@@ -76,6 +76,6 @@ botoes:
   destino:
     secao_textual:
       caminho: contra_capa.md
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

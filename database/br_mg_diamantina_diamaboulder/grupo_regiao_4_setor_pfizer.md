@@ -1,4 +1,4 @@
----
+---
 nome: Pfizer
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 326
       y: 592
       comprimento: 25
       largura: 25
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 276
       y: 276
       comprimento: 25
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 548
       y: 602
       comprimento: 25
       largura: 29
   - id: 2_fim
     label: '2'
-    box:
+    retangulo:
       x: 550
       y: 290
       comprimento: 25
       largura: 25
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 888
       y: 624
       comprimento: 25
       largura: 25
   - id: 3_fim
     label: '3'
-    box:
+    retangulo:
       x: 872
       y: 218
       comprimento: 23
@@ -70,6 +70,7 @@ escaladas:
 - boulder:
     nome: Rosa
     dificuldade: V0
----
+---
+
 # Bloco: Pfizer
 ## Região 4

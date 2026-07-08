@@ -23,13 +23,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 294
       y: 507
       raio: 9
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 160
       y: 545
       raio: 9
@@ -46,19 +46,19 @@ mapas:
   pontos_de_interesse:
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 152
       y: 189
       raio: 9
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 348
       y: 221
       raio: 9
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 54
       y: 194
       raio: 9
@@ -73,6 +73,5 @@ mapas:
     ids:
     - '5'
 ---
-
 
 # Bloco Carrapicho

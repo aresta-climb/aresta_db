@@ -25,301 +25,301 @@ picos:
           pontos_de_interesse:
           - id: Entrada_Superior
             label: Entrada Superior
-            box:
+            retangulo:
               x: 599
               y: 50
               comprimento: 76
               largura: 57
           - id: 17a
             label: 17a
-            box:
+            retangulo:
               x: 489
               y: 154
               comprimento: 38
               largura: 30
           - id: Setor_Sentinela
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 913
               y: 198
               comprimento: 82
               largura: 55
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 513
               y: 240
               comprimento: 26
               largura: 27
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 516
               y: 285
               comprimento: 27
               largura: 28
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 386
               y: 352
               comprimento: 30
               largura: 30
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 525
               y: 340
               comprimento: 28
               largura: 29
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 310
               y: 354
               comprimento: 30
               largura: 29
           - id: '37'
             label: '37'
-            box:
+            retangulo:
               x: 480
               y: 360
               comprimento: 33
               largura: 29
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 288
               y: 522
               comprimento: 31
               largura: 31
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 346
               y: 536
               comprimento: 27
               largura: 29
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 561
               y: 560
               comprimento: 34
               largura: 30
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 662
               y: 560
               comprimento: 33
               largura: 31
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 516
               y: 572
               comprimento: 29
               largura: 28
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 706
               y: 584
               comprimento: 33
               largura: 30
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 754
               y: 588
               comprimento: 31
               largura: 27
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 414
               y: 612
               comprimento: 28
               largura: 26
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 504
               y: 630
               comprimento: 31
               largura: 28
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 756
               y: 630
               comprimento: 31
               largura: 29
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 410
               y: 646
               comprimento: 31
               largura: 30
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 494
               y: 666
               comprimento: 31
               largura: 28
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 693
               y: 678
               comprimento: 30
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 756
               y: 672
               comprimento: 32
               largura: 28
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 405
               y: 682
               comprimento: 28
               largura: 27
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 498
               y: 708
               comprimento: 33
               largura: 29
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 404
               y: 726
               comprimento: 31
               largura: 27
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 353
               y: 746
               comprimento: 32
               largura: 31
           - id: 2_Andar
             label: 2º Andar
-            box:
+            retangulo:
               x: 50
               y: 775
               comprimento: 61
               largura: 62
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 398
               y: 760
               comprimento: 31
               largura: 28
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 534
               y: 780
               comprimento: 33
               largura: 31
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 580
               y: 786
               comprimento: 33
               largura: 29
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 647
               y: 784
               comprimento: 30
               largura: 27
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 491
               y: 796
               comprimento: 30
               largura: 27
           - id: '36'
             label: '36'
-            box:
+            retangulo:
               x: 268
               y: 873
               comprimento: 33
               largura: 30
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 345
               y: 909
               comprimento: 34
               largura: 30
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 526
               y: 918
               comprimento: 34
               largura: 30
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 608
               y: 908
               comprimento: 27
               largura: 29
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 468
               y: 928
               comprimento: 33
               largura: 31
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 410
               y: 990
               comprimento: 32
               largura: 29
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 548
               y: 1132
               comprimento: 28
               largura: 28
           - id: Setor_Fechadura
             label: Setor Fechadura
-            box:
+            retangulo:
               x: 591
               y: 1224
               comprimento: 136
               largura: 33
           - id: Setor_Pasto
             label: Setor Pasto
-            box:
+            retangulo:
               x: 758
               y: 1218
               comprimento: 156
               largura: 34
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 404
               y: 554
               comprimento: 32
@@ -348,10 +348,10 @@ picos:
             - '07'
           - escalada: Caretas por Acaso
             ids:
-            - '08'
+            - 08
           - escalada: Pop Rock
             ids:
-            - '09'
+            - 09
           - escalada: A Despedida
             ids:
             - '11'
@@ -782,308 +782,308 @@ picos:
           pontos_de_interesse:
           - id: Setor_Sentinela
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 924
               y: 30
               comprimento: 173
               largura: 35
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 220
               y: 134
               comprimento: 27
               largura: 28
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 90
               y: 148
               comprimento: 29
               largura: 27
           - id: '40'
             label: '40'
-            box:
+            retangulo:
               x: 868
               y: 157
               comprimento: 27
               largura: 26
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 62
               y: 184
               comprimento: 26
               largura: 28
           - id: '39'
             label: '39'
-            box:
+            retangulo:
               x: 870
               y: 206
               comprimento: 28
               largura: 26
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 180
               y: 222
               comprimento: 27
               largura: 28
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 48
               y: 269
               comprimento: 27
               largura: 28
           - id: '38'
             label: '38'
-            box:
+            retangulo:
               x: 864
               y: 260
               comprimento: 25
               largura: 25
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 167
               y: 309
               comprimento: 28
               largura: 26
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 66
               y: 318
               comprimento: 26
               largura: 27
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 74
               y: 358
               comprimento: 26
               largura: 27
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 156
               y: 428
               comprimento: 28
               largura: 29
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 48
               y: 441
               comprimento: 28
               largura: 30
           - id: '37'
             label: '37'
-            box:
+            retangulo:
               x: 461
               y: 506
               comprimento: 26
               largura: 28
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 292
               y: 519
               comprimento: 24
               largura: 26
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 150
               y: 540
               comprimento: 29
               largura: 27
           - id: '36'
             label: '36'
-            box:
+            retangulo:
               x: 442
               y: 542
               comprimento: 26
               largura: 27
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 54
               y: 566
               comprimento: 28
               largura: 27
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 302
               y: 578
               comprimento: 27
               largura: 27
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 361
               y: 580
               comprimento: 26
               largura: 25
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 392
               y: 574
               comprimento: 26
               largura: 27
           - id: '41'
             label: '41'
-            box:
+            retangulo:
               x: 423
               y: 578
               comprimento: 24
               largura: 25
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 180
               y: 612
               comprimento: 29
               largura: 27
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 312
               y: 630
               comprimento: 27
               largura: 26
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 48
               y: 666
               comprimento: 28
               largura: 31
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 151
               y: 688
               comprimento: 28
               largura: 29
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 30
               y: 750
               comprimento: 28
               largura: 27
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 168
               y: 762
               comprimento: 29
               largura: 28
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 287
               y: 800
               comprimento: 28
               largura: 28
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 30
               y: 838
               comprimento: 27
               largura: 29
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 312
               y: 840
               comprimento: 28
               largura: 27
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 357
               y: 866
               comprimento: 30
               largura: 27
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 420
               y: 886
               comprimento: 28
               largura: 28
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 24
               y: 908
               comprimento: 27
               largura: 29
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 389
               y: 901
               comprimento: 28
               largura: 28
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 154
               y: 914
               comprimento: 28
               largura: 27
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 196
               y: 908
               comprimento: 28
               largura: 27
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 122
               y: 926
               comprimento: 27
               largura: 25
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 419
               y: 934
               comprimento: 28
               largura: 27
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 114
               y: 964
               comprimento: 26
               largura: 25
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 155
               y: 1115
               comprimento: 26
               largura: 26
           - id: Entrada_inferior_1
             label: Entrada inferior
-            box:
+            retangulo:
               x: 480
               y: 1125
               comprimento: 74
               largura: 64
           - id: Entrada_inferior_2
             label: Entrada inferior
-            box:
+            retangulo:
               x: 719
               y: 1132
               comprimento: 78
@@ -1214,11 +1214,11 @@ picos:
             - Entrada_inferior_2
             setor: Setor Entrada Inferior
           - ids:
-            - '08'
+            - 08
             setor: Setor Entrada Superior
             escalada: O Basilisco de Slytherin
           - ids:
-            - '09'
+            - 09
             setor: Setor Entrada Superior
             escalada: Disparada
         escaladas:
@@ -1552,322 +1552,322 @@ picos:
           pontos_de_interesse:
           - id: '38'
             label: '38'
-            box:
+            retangulo:
               x: 168
               y: 82
               comprimento: 28
               largura: 24
           - id: '39'
             label: '39'
-            box:
+            retangulo:
               x: 258
               y: 89
               comprimento: 27
               largura: 26
           - id: '37'
             label: '37'
-            box:
+            retangulo:
               x: 150
               y: 166
               comprimento: 26
               largura: 23
           - id: '36'
             label: '36'
-            box:
+            retangulo:
               x: 140
               y: 199
               comprimento: 27
               largura: 22
           - id: '40'
             label: '40'
-            box:
+            retangulo:
               x: 288
               y: 218
               comprimento: 29
               largura: 25
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 100
               y: 235
               comprimento: 27
               largura: 24
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 146
               y: 228
               comprimento: 27
               largura: 23
           - id: '41'
             label: '41'
-            box:
+            retangulo:
               x: 370
               y: 262
               comprimento: 28
               largura: 24
           - id: '42'
             label: '42'
-            box:
+            retangulo:
               x: 482
               y: 272
               comprimento: 29
               largura: 27
           - id: '43'
             label: '43'
-            box:
+            retangulo:
               x: 650
               y: 288
               comprimento: 28
               largura: 25
           - id: Setor_Entrada
             label: Setor Entrada
-            box:
+            retangulo:
               x: 950
               y: 302
               comprimento: 75
               largura: 47
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 126
               y: 330
               comprimento: 25
               largura: 23
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 380
               y: 396
               comprimento: 32
               largura: 27
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 448
               y: 392
               comprimento: 29
               largura: 27
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 553
               y: 394
               comprimento: 28
               largura: 26
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 150
               y: 404
               comprimento: 29
               largura: 21
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 308
               y: 413
               comprimento: 29
               largura: 28
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 664
               y: 424
               comprimento: 29
               largura: 25
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 716
               y: 460
               comprimento: 29
               largura: 25
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 800
               y: 467
               comprimento: 28
               largura: 26
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 146
               y: 490
               comprimento: 26
               largura: 23
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 291
               y: 486
               comprimento: 28
               largura: 27
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 956
               y: 505
               comprimento: 31
               largura: 26
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 794
               y: 526
               comprimento: 28
               largura: 26
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 652
               y: 568
               comprimento: 27
               largura: 25
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 792
               y: 575
               comprimento: 30
               largura: 26
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 904
               y: 577
               comprimento: 30
               largura: 26
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 292
               y: 588
               comprimento: 31
               largura: 28
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 616
               y: 616
               comprimento: 27
               largura: 25
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 284
               y: 666
               comprimento: 31
               largura: 28
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 820
               y: 658
               comprimento: 31
               largura: 25
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 362
               y: 672
               comprimento: 29
               largura: 24
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 422
               y: 666
               comprimento: 27
               largura: 27
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 506
               y: 718
               comprimento: 26
               largura: 25
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 579
               y: 720
               comprimento: 26
               largura: 25
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 647
               y: 715
               comprimento: 26
               largura: 26
           - id: '44'
             label: '44'
-            box:
+            retangulo:
               x: 126
               y: 753
               comprimento: 27
               largura: 20
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 161
               y: 852
               comprimento: 28
               largura: 22
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 244
               y: 846
               comprimento: 28
               largura: 25
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 498
               y: 853
               comprimento: 27
               largura: 22
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 451
               y: 878
               comprimento: 28
               largura: 25
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 527
               y: 878
               comprimento: 28
               largura: 24
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 350
               y: 894
               comprimento: 28
               largura: 23
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 538
               y: 912
               comprimento: 27
               largura: 25
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 542
               y: 969
               comprimento: 29
               largura: 24
           - id: Setor_Fechadura_Abaixo
             label: Setor Fechadura (Abaixo)
-            box:
+            retangulo:
               x: 906
               y: 1152
               comprimento: 171
@@ -1899,10 +1899,10 @@ picos:
             - '07'
           - escalada: Neverland
             ids:
-            - '08'
+            - 08
           - escalada: Mestre Splinter
             ids:
-            - '09'
+            - 09
           - escalada: Enigma da Esfinge
             ids:
             - '10'
@@ -2393,133 +2393,133 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 616
               y: 138
               comprimento: 28
               largura: 22
           - id: Setor_Entrada
             label: Setor Entrada
-            box:
+            retangulo:
               x: 949
               y: 156
               comprimento: 152
               largura: 23
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 605
               y: 198
               comprimento: 28
               largura: 22
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 563
               y: 354
               comprimento: 30
               largura: 21
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 500
               y: 492
               comprimento: 26
               largura: 23
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 460
               y: 541
               comprimento: 27
               largura: 24
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 32
               y: 622
               comprimento: 28
               largura: 23
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 167
               y: 677
               comprimento: 28
               largura: 26
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 250
               y: 689
               comprimento: 30
               largura: 26
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 373
               y: 694
               comprimento: 26
               largura: 23
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 511
               y: 800
               comprimento: 26
               largura: 23
           - id: Top
             label: Top
-            box:
+            retangulo:
               x: 120
               y: 844
               comprimento: 37
               largura: 23
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 290
               y: 846
               comprimento: 25
               largura: 23
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 478
               y: 897
               comprimento: 22
               largura: 26
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 123
               y: 880
               comprimento: 26
               largura: 23
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 764
               y: 900
               comprimento: 23
               largura: 21
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 298
               y: 916
               comprimento: 29
               largura: 23
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 716
               y: 913
               comprimento: 23
               largura: 18
           - id: Setor_Pasto
             label: Setor Pasto
-            box:
+            retangulo:
               x: 84
               y: 1108
               comprimento: 65
@@ -2568,11 +2568,11 @@ picos:
             ids:
             - '16'
           - ids:
-            - '08'
+            - 08
             setor: Setor Fechadura
             escalada: Primeira Batida
           - ids:
-            - '09'
+            - 09
             setor: Setor Fechadura
             escalada: Menino de Toca
           - ids:
@@ -2726,49 +2726,49 @@ picos:
           pontos_de_interesse:
           - id: Setor_Entrada
             label: Setor Entrada
-            box:
+            retangulo:
               x: 926
               y: 42
               comprimento: 217
               largura: 34
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 550
               y: 500
               comprimento: 34
               largura: 28
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 516
               y: 584
               comprimento: 39
               largura: 31
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 482
               y: 618
               comprimento: 37
               largura: 31
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 484
               y: 1089
               comprimento: 43
               largura: 32
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 528
               y: 1224
               comprimento: 41
               largura: 33
           - id: Setor_Fechadura
             label: Setor Fechadura
-            box:
+            retangulo:
               x: 94
               y: 1303
               comprimento: 167
@@ -2873,224 +2873,224 @@ picos:
           pontos_de_interesse:
           - id: Setor_Onda
             label: Setor Onda
-            box:
+            retangulo:
               x: 971
               y: 28
               comprimento: 72
               largura: 51
           - id: Vale_dos_Espinhos_Top
             label: Vale dos Espinhos
-            box:
+            retangulo:
               x: 135
               y: 157
               comprimento: 134
               largura: 64
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 506
               y: 284
               comprimento: 31
               largura: 29
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 650
               y: 311
               comprimento: 29
               largura: 28
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 484
               y: 324
               comprimento: 31
               largura: 27
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 438
               y: 350
               comprimento: 32
               largura: 28
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 751
               y: 357
               comprimento: 30
               largura: 26
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 738
               y: 390
               comprimento: 31
               largura: 28
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 469
               y: 450
               comprimento: 32
               largura: 27
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 700
               y: 473
               comprimento: 31
               largura: 28
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 642
               y: 482
               comprimento: 31
               largura: 27
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 674
               y: 510
               comprimento: 31
               largura: 25
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 632
               y: 524
               comprimento: 29
               largura: 25
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 527
               y: 542
               comprimento: 30
               largura: 27
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 582
               y: 538
               comprimento: 31
               largura: 26
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 474
               y: 551
               comprimento: 30
               largura: 26
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 375
               y: 797
               comprimento: 28
               largura: 26
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 678
               y: 930
               comprimento: 28
               largura: 26
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 732
               y: 937
               comprimento: 30
               largura: 28
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 592
               y: 954
               comprimento: 29
               largura: 29
           - id: Vale_dos_Espinhos_Bottom
             label: Vale dos Espinhos
-            box:
+            retangulo:
               x: 144
               y: 982
               comprimento: 127
               largura: 69
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 732
               y: 967
               comprimento: 29
               largura: 24
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 740
               y: 1044
               comprimento: 28
               largura: 26
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 748
               y: 1078
               comprimento: 30
               largura: 24
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 726
               y: 1129
               comprimento: 27
               largura: 26
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 678
               y: 1152
               comprimento: 29
               largura: 25
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 714
               y: 1170
               comprimento: 30
               largura: 25
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 722
               y: 1228
               comprimento: 29
               largura: 19
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 731
               y: 1248
               comprimento: 30
               largura: 20
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 733
               y: 1269
               comprimento: 28
               largura: 18
           - id: Setor_Entrada
             label: Setor Entrada
-            box:
+            retangulo:
               x: 966
               y: 1288
               comprimento: 109
               largura: 59
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 720
               y: 1300
               comprimento: 27
@@ -3175,11 +3175,11 @@ picos:
             ids:
             - '28'
           - ids:
-            - '08'
+            - 08
             setor: Setor Sentinela e Vale do Joga
             escalada: Contagem Regressiva
           - ids:
-            - '09'
+            - 09
             setor: Setor Sentinela e Vale do Joga
             escalada: Woodstock
           - ids:
@@ -3438,273 +3438,273 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 330
               y: 86
               comprimento: 30
               largura: 24
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 490
               y: 104
               comprimento: 32
               largura: 23
           - id: Setor_Sentinela_Top
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 684
               y: 132
               comprimento: 118
               largura: 52
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 282
               y: 130
               comprimento: 35
               largura: 26
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 262
               y: 164
               comprimento: 33
               largura: 25
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 232
               y: 195
               comprimento: 33
               largura: 24
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 216
               y: 225
               comprimento: 32
               largura: 24
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 176
               y: 335
               comprimento: 35
               largura: 28
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 176
               y: 396
               comprimento: 33
               largura: 27
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 399
               y: 410
               comprimento: 34
               largura: 28
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 227
               y: 444
               comprimento: 32
               largura: 30
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 318
               y: 450
               comprimento: 33
               largura: 27
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 380
               y: 445
               comprimento: 34
               largura: 26
           - id: '37'
             label: '37'
-            box:
+            retangulo:
               x: 548
               y: 448
               comprimento: 35
               largura: 28
           - id: '36'
             label: '36'
-            box:
+            retangulo:
               x: 402
               y: 480
               comprimento: 35
               largura: 27
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 524
               y: 541
               comprimento: 35
               largura: 26
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 520
               y: 606
               comprimento: 31
               largura: 27
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 345
               y: 683
               comprimento: 34
               largura: 28
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 523
               y: 682
               comprimento: 36
               largura: 27
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 235
               y: 700
               comprimento: 28
               largura: 27
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 250
               y: 750
               comprimento: 30
               largura: 25
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 63
               y: 762
               comprimento: 30
               largura: 27
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 251
               y: 787
               comprimento: 30
               largura: 26
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 548
               y: 820
               comprimento: 34
               largura: 27
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 264
               y: 832
               comprimento: 29
               largura: 23
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 542
               y: 854
               comprimento: 31
               largura: 25
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 540
               y: 890
               comprimento: 31
               largura: 27
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 546
               y: 926
               comprimento: 33
               largura: 26
           - id: Setor_Sentinela_Bottom
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 682
               y: 996
               comprimento: 110
               largura: 45
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 176
               y: 1010
               comprimento: 31
               largura: 26
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 260
               y: 1018
               comprimento: 30
               largura: 24
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 284
               y: 1056
               comprimento: 30
               largura: 23
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 488
               y: 1055
               comprimento: 34
               largura: 24
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 504
               y: 1116
               comprimento: 32
               largura: 24
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 516
               y: 1146
               comprimento: 32
               largura: 22
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 540
               y: 1173
               comprimento: 34
               largura: 22
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 554
               y: 1205
               comprimento: 31
               largura: 24
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 558
               y: 1233
               comprimento: 33
               largura: 24
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 540
               y: 1260
               comprimento: 31
@@ -3816,11 +3816,11 @@ picos:
             ids:
             - '37'
           - ids:
-            - '08'
+            - 08
             setor: Setor Vale dos Espinhos
             escalada: Tá Esperando o quê?
           - ids:
-            - '09'
+            - 09
             setor: Setor Vale dos Espinhos
             escalada: Quem Sabe ano que Vem
           - ids:
@@ -4134,56 +4134,56 @@ picos:
           pontos_de_interesse:
           - id: Vale_da_Onca
             label: Vale da Onça
-            box:
+            retangulo:
               x: 816
               y: 33
               comprimento: 163
               largura: 36
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 452
               y: 249
               comprimento: 28
               largura: 26
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 307
               y: 274
               comprimento: 28
               largura: 27
           - id: Setor_Geriatria
             label: Setor Geriatria
-            box:
+            retangulo:
               x: 1060
               y: 342
               comprimento: 105
               largura: 60
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 206
               y: 409
               comprimento: 28
               largura: 26
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 452
               y: 462
               comprimento: 32
               largura: 27
           - id: Top
             label: Top
-            box:
+            retangulo:
               x: 366
               y: 491
               comprimento: 39
               largura: 28
           - id: Setor_Sentinela
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 792
               y: 638
               comprimento: 177
@@ -4260,182 +4260,182 @@ picos:
           pontos_de_interesse:
           - id: Onda_de_Calcario
             label: Onda de Calcário
-            box:
+            retangulo:
               x: 1085
               y: 46
               comprimento: 102
               largura: 64
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 626
               y: 84
               comprimento: 35
               largura: 31
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 514
               y: 93
               comprimento: 31
               largura: 30
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 432
               y: 146
               comprimento: 35
               largura: 34
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 400
               y: 202
               comprimento: 35
               largura: 31
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 137
               y: 217
               comprimento: 32
               largura: 26
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 42
               y: 270
               comprimento: 37
               largura: 29
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 343
               y: 264
               comprimento: 34
               largura: 33
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 152
               y: 312
               comprimento: 35
               largura: 29
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 25
               y: 326
               comprimento: 36
               largura: 29
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 874
               y: 340
               comprimento: 33
               largura: 32
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 136
               y: 416
               comprimento: 32
               largura: 27
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 647
               y: 422
               comprimento: 38
               largura: 31
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 378
               y: 439
               comprimento: 33
               largura: 30
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 364
               y: 495
               comprimento: 35
               largura: 30
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 637
               y: 485
               comprimento: 38
               largura: 28
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 617
               y: 526
               comprimento: 38
               largura: 29
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 730
               y: 528
               comprimento: 41
               largura: 33
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 692
               y: 569
               comprimento: 39
               largura: 30
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 320
               y: 586
               comprimento: 34
               largura: 31
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 626
               y: 627
               comprimento: 38
               largura: 30
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 680
               y: 618
               comprimento: 39
               largura: 29
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 674
               y: 720
               comprimento: 39
               largura: 30
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 658
               y: 781
               comprimento: 37
               largura: 30
           - id: Vale_da_Onca
             label: Vale da Onça
-            box:
+            retangulo:
               x: 37
               y: 908
               comprimento: 74
               largura: 56
           - id: Setor_Sentinela
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 1090
               y: 940
               comprimento: 91
@@ -4505,11 +4505,11 @@ picos:
             ids:
             - '23'
           - ids:
-            - '08'
+            - 08
             setor: Setor Geriatria
             escalada: Tira o Andador e Vai
           - ids:
-            - '09'
+            - 09
             setor: Setor Geriatria
             escalada: Rupestre
           - ids:
@@ -4720,224 +4720,224 @@ picos:
           pontos_de_interesse:
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 445
               y: 158
               comprimento: 30
               largura: 25
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 707
               y: 164
               comprimento: 32
               largura: 30
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 752
               y: 218
               comprimento: 31
               largura: 30
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 380
               y: 234
               comprimento: 33
               largura: 28
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 558
               y: 280
               comprimento: 32
               largura: 27
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 338
               y: 305
               comprimento: 29
               largura: 26
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 538
               y: 334
               comprimento: 33
               largura: 27
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 610
               y: 338
               comprimento: 33
               largura: 27
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 556
               y: 388
               comprimento: 32
               largura: 26
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 925
               y: 388
               comprimento: 30
               largura: 25
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 976
               y: 383
               comprimento: 29
               largura: 24
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 806
               y: 405
               comprimento: 29
               largura: 26
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 854
               y: 419
               comprimento: 27
               largura: 26
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 1129
               y: 522
               comprimento: 30
               largura: 28
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 1014
               y: 562
               comprimento: 30
               largura: 27
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 259
               y: 574
               comprimento: 32
               largura: 26
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 659
               y: 601
               comprimento: 30
               largura: 28
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 862
               y: 596
               comprimento: 31
               largura: 28
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 328
               y: 644
               comprimento: 31
               largura: 27
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 1233
               y: 673
               comprimento: 30
               largura: 24
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 1200
               y: 688
               comprimento: 30
               largura: 25
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 1166
               y: 708
               comprimento: 33
               largura: 27
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 1134
               y: 734
               comprimento: 31
               largura: 25
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 1098
               y: 756
               comprimento: 31
               largura: 25
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 578
               y: 781
               comprimento: 31
               largura: 30
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 1232
               y: 793
               comprimento: 30
               largura: 28
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 200
               y: 824
               comprimento: 31
               largura: 29
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 235
               y: 819
               comprimento: 30
               largura: 24
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 547
               y: 837
               comprimento: 32
               largura: 26
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 896
               y: 896
               comprimento: 30
               largura: 20
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 1234
               y: 976
               comprimento: 29
               largura: 29
           - id: Setores_Sentinela_e_Onda_de_Calcario
             label: Setores Sentinela e Onda de Calcário
-            box:
+            retangulo:
               x: 152
               y: 1166
               comprimento: 182
@@ -5031,11 +5031,11 @@ picos:
             ids:
             - '31'
           - ids:
-            - '08'
+            - 08
             setor: Setor Mr. Bean
             escalada: Fenda Gerações
           - ids:
-            - '09'
+            - 09
             setor: Setor Mr. Bean
             escalada: Encontros Temporais
           - ids:
@@ -5291,105 +5291,105 @@ picos:
           pontos_de_interesse:
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 388
               y: 136
               comprimento: 43
               largura: 41
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 50
               y: 414
               comprimento: 37
               largura: 36
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 134
               y: 450
               comprimento: 38
               largura: 35
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 262
               y: 479
               comprimento: 38
               largura: 34
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 239
               y: 542
               comprimento: 38
               largura: 35
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 149
               y: 629
               comprimento: 38
               largura: 36
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 568
               y: 721
               comprimento: 36
               largura: 36
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 538
               y: 820
               comprimento: 35
               largura: 36
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 162
               y: 872
               comprimento: 36
               largura: 34
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 511
               y: 901
               comprimento: 36
               largura: 36
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 176
               y: 955
               comprimento: 37
               largura: 34
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 581
               y: 1004
               comprimento: 36
               largura: 40
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 197
               y: 1046
               comprimento: 38
               largura: 34
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 446
               y: 1084
               comprimento: 36
               largura: 37
           - id: Setor_Sentinela
             label: Setor Sentinela
-            box:
+            retangulo:
               x: 1111
               y: 1192
               comprimento: 166
@@ -5435,11 +5435,11 @@ picos:
             - Setor_Sentinela
             setor: Setor Sentinela e Vale do Joga
           - ids:
-            - '08'
+            - 08
             setor: Setor Vale do Cinema
             escalada: Navio Fantasma
           - ids:
-            - '09'
+            - 09
             setor: Setor Vale do Cinema
             escalada: Pata Afiada
         escaladas:
@@ -5585,119 +5585,119 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 505
               y: 74
               comprimento: 30
               largura: 27
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 486
               y: 186
               comprimento: 31
               largura: 29
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 482
               y: 219
               comprimento: 33
               largura: 26
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 501
               y: 253
               comprimento: 28
               largura: 26
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 512
               y: 282
               comprimento: 31
               largura: 25
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 478
               y: 374
               comprimento: 31
               largura: 27
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 500
               y: 411
               comprimento: 31
               largura: 26
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 438
               y: 440
               comprimento: 32
               largura: 29
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 480
               y: 440
               comprimento: 29
               largura: 26
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 364
               y: 510
               comprimento: 31
               largura: 29
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 355
               y: 603
               comprimento: 30
               largura: 28
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 390
               y: 636
               comprimento: 31
               largura: 29
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 435
               y: 719
               comprimento: 26
               largura: 26
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 462
               y: 818
               comprimento: 25
               largura: 26
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 472
               y: 924
               comprimento: 28
               largura: 28
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 493
               y: 1027
               comprimento: 28
               largura: 26
           - id: Setores_Sentinela_e_Geriatria
             label: Setores Sentinela e Geriatria
-            box:
+            retangulo:
               x: 596
               y: 1176
               comprimento: 232
@@ -5752,11 +5752,11 @@ picos:
             - Setores_Sentinela_e_Geriatria
             setor: Setor Geriatria
           - ids:
-            - '08'
+            - 08
             setor: Setor Onda de Calcário
             escalada: Rayovac
           - ids:
-            - '09'
+            - 09
             setor: Setor Onda de Calcário
             escalada: O Corpo Ainda é Pouco
         escaladas:
@@ -5915,280 +5915,280 @@ picos:
           pontos_de_interesse:
           - id: '39'
             label: '39'
-            box:
+            retangulo:
               x: 550
               y: 36
               comprimento: 42
               largura: 27
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 642
               y: 70
               comprimento: 36
               largura: 25
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 688
               y: 162
               comprimento: 35
               largura: 30
           - id: '36'
             label: '36'
-            box:
+            retangulo:
               x: 412
               y: 174
               comprimento: 38
               largura: 28
           - id: '38'
             label: '38'
-            box:
+            retangulo:
               x: 636
               y: 212
               comprimento: 42
               largura: 27
           - id: '37'
             label: '37'
-            box:
+            retangulo:
               x: 584
               y: 230
               comprimento: 41
               largura: 29
           - id: '35'
             label: '35'
-            box:
+            retangulo:
               x: 362
               y: 248
               comprimento: 41
               largura: 31
           - id: '34'
             label: '34'
-            box:
+            retangulo:
               x: 528
               y: 264
               comprimento: 42
               largura: 27
           - id: '33'
             label: '33'
-            box:
+            retangulo:
               x: 529
               y: 293
               comprimento: 40
               largura: 24
           - id: '32'
             label: '32'
-            box:
+            retangulo:
               x: 548
               y: 324
               comprimento: 37
               largura: 23
           - id: '31'
             label: '31'
-            box:
+            retangulo:
               x: 556
               y: 349
               comprimento: 36
               largura: 24
           - id: '30'
             label: '30'
-            box:
+            retangulo:
               x: 594
               y: 376
               comprimento: 41
               largura: 25
           - id: '29'
             label: '29'
-            box:
+            retangulo:
               x: 616
               y: 402
               comprimento: 39
               largura: 25
           - id: '28'
             label: '28'
-            box:
+            retangulo:
               x: 640
               y: 432
               comprimento: 39
               largura: 24
           - id: '27'
             label: '27'
-            box:
+            retangulo:
               x: 662
               y: 460
               comprimento: 39
               largura: 24
           - id: '26'
             label: '26'
-            box:
+            retangulo:
               x: 689
               y: 496
               comprimento: 38
               largura: 27
           - id: '25'
             label: '25'
-            box:
+            retangulo:
               x: 708
               y: 534
               comprimento: 40
               largura: 31
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 686
               y: 580
               comprimento: 36
               largura: 30
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 541
               y: 622
               comprimento: 36
               largura: 27
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 560
               y: 652
               comprimento: 37
               largura: 27
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 579
               y: 686
               comprimento: 36
               largura: 29
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 567
               y: 735
               comprimento: 36
               largura: 26
           - id: '24'
             label: '24'
-            box:
+            retangulo:
               x: 532
               y: 766
               comprimento: 40
               largura: 31
           - id: '23'
             label: '23'
-            box:
+            retangulo:
               x: 590
               y: 784
               comprimento: 42
               largura: 22
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 612
               y: 808
               comprimento: 31
               largura: 23
           - id: '22'
             label: '22'
-            box:
+            retangulo:
               x: 642
               y: 836
               comprimento: 39
               largura: 27
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 636
               y: 870
               comprimento: 37
               largura: 26
           - id: '21'
             label: '21'
-            box:
+            retangulo:
               x: 602
               y: 896
               comprimento: 39
               largura: 24
-          - id: '09'
-            label: '09'
-            box:
+          - id: 09
+            label: 09
+            retangulo:
               x: 558
               y: 908
               comprimento: 39
               largura: 30
           - id: '20'
             label: '20'
-            box:
+            retangulo:
               x: 580
               y: 966
               comprimento: 42
               largura: 31
-          - id: '08'
-            label: '08'
-            box:
+          - id: 08
+            label: 08
+            retangulo:
               x: 596
               y: 1015
               comprimento: 40
               largura: 32
           - id: '19'
             label: '19'
-            box:
+            retangulo:
               x: 539
               y: 1043
               comprimento: 38
               largura: 28
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 564
               y: 1076
               comprimento: 40
               largura: 32
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 604
               y: 1116
               comprimento: 40
               largura: 29
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 602
               y: 1150
               comprimento: 42
               largura: 29
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 614
               y: 1194
               comprimento: 41
               largura: 29
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 602
               y: 1244
               comprimento: 40
               largura: 29
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 592
               y: 1286
               comprimento: 38
               largura: 31
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 550
               y: 1312
               comprimento: 35
               largura: 29
           - id: Setores_Mr_Bean_e_Geriatria
             label: Setores Mr. Bean e Geriatria
-            box:
+            retangulo:
               x: 288
               y: 1312
               comprimento: 233
@@ -6312,11 +6312,11 @@ picos:
             - Setores_Mr_Bean_e_Geriatria
             setor: Setor Geriatria
           - ids:
-            - '08'
+            - 08
             setor: Setor Vale da Onça
             escalada: Retorno de Borges
           - ids:
-            - '09'
+            - 09
             setor: Setor Vale da Onça
             escalada: 3º Pecado Capital
         escaladas:
@@ -6658,35 +6658,35 @@ picos:
         pontos_de_interesse:
         - id: Setor_Fechadura
           label: Setor Fechadura
-          box:
+          retangulo:
             x: 284
             y: 546
             comprimento: 199
             largura: 112
         - id: Setor_2_Andar
           label: Setor 2º Andar
-          box:
+          retangulo:
             x: 480
             y: 564
             comprimento: 163
             largura: 102
         - id: Setor_Pasto
           label: Setor Pasto
-          box:
+          retangulo:
             x: 266
             y: 662
             comprimento: 161
             largura: 99
         - id: Setor_Entrada
           label: Setor Entrada
-          box:
+          retangulo:
             x: 489
             y: 722
             comprimento: 196
             largura: 121
         - id: Setor_Sentinela
           label: Setor Sentinela
-          box:
+          retangulo:
             x: 878
             y: 741
             comprimento: 221
@@ -6694,49 +6694,49 @@ picos:
             angulo_graus_x100: -1050
         - id: Vale_dos_Espinhos
           label: Vale dos Espinhos
-          box:
+          retangulo:
             x: 940
             y: 572
             comprimento: 195
             largura: 97
         - id: Mr_Bean
           label: Mr. Bean
-          box:
+          retangulo:
             x: 1121
             y: 497
             comprimento: 140
             largura: 102
         - id: Sala_de_Aula
           label: Sala de Aula
-          box:
+          retangulo:
             x: 1278
             y: 483
             comprimento: 137
             largura: 112
         - id: Vale_do_Cinema
           label: Vale do Cinema
-          box:
+          retangulo:
             x: 1200
             y: 343
             comprimento: 140
             largura: 98
         - id: Setor_Geriatria
           label: Setor Geriatria
-          box:
+          retangulo:
             x: 1466
             y: 535
             comprimento: 165
             largura: 100
         - id: Vale_da_Onca
           label: Vale da Onça
-          box:
+          retangulo:
             x: 1581
             y: 320
             comprimento: 192
             largura: 120
         - id: Onda_de_Calcario
           label: Onda de Calcário
-          box:
+          retangulo:
             x: 1576
             y: 684
             comprimento: 180
@@ -6784,28 +6784,28 @@ picos:
         pontos_de_interesse:
         - id: Setor_Fechadura
           label: Setor Fechadura
-          box:
+          retangulo:
             x: 366
             y: 479
             comprimento: 195
             largura: 102
         - id: Setor_2_Andar
           label: Setor 2º Andar
-          box:
+          retangulo:
             x: 996
             y: 390
             comprimento: 160
             largura: 95
         - id: Setor_Pasto
           label: Setor Pasto
-          box:
+          retangulo:
             x: 367
             y: 617
             comprimento: 220
             largura: 60
         - id: Setor_Entrada
           label: Setor Entrada
-          box:
+          retangulo:
             x: 1380
             y: 640
             comprimento: 143
@@ -7215,7 +7215,7 @@ botoes:
         | :--: |
 
         | *Manutencao na Sentinela 1* |'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

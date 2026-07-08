@@ -1,4 +1,4 @@
----
+---
 nome: Paulistas
 mapas:
 - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 96
       y: 1181
       comprimento: 38
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 428
       y: 1143
       comprimento: 38
       largura: 30
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 548
       y: 1100
       comprimento: 40
       largura: 29
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 576
       y: 905
       comprimento: 33
       largura: 32
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 632
       y: 902
       comprimento: 33
@@ -62,42 +62,42 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 330
       y: 893
       comprimento: 43
       largura: 32
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 389
       y: 828
       comprimento: 38
       largura: 32
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 498
       y: 943
       comprimento: 43
       largura: 32
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 558
       y: 1080
       comprimento: 39
       largura: 29
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 634
       y: 1156
       comprimento: 39
       largura: 29
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 703
       y: 1148
       comprimento: 36
@@ -121,35 +121,35 @@ mapas:
   pontos_de_interesse:
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 454
       y: 1132
       comprimento: 37
       largura: 29
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 469
       y: 716
       comprimento: 38
       largura: 31
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 614
       y: 797
       comprimento: 39
       largura: 30
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 732
       y: 802
       comprimento: 38
       largura: 29
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 815
       y: 790
       comprimento: 38
@@ -324,7 +324,8 @@ escaladas:
     - Deigo Leonardo
     - Daiex de Almeida
     data_abertura: '2014'
----
+---
+
 # Setor Paulistas
 
 ![Setor Paulistas](imagens/setor_paulistas_p0_i0.webp)

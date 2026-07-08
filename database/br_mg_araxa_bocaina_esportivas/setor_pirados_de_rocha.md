@@ -1,4 +1,4 @@
----
+---
 nome: Pirados de Rocha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 946
       y: 1119
       comprimento: 36
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 826
       y: 873
       comprimento: 43
       largura: 32
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 738
       y: 870
       comprimento: 40
       largura: 30
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 658
       y: 865
       comprimento: 42
       largura: 28
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 308
       y: 788
       comprimento: 29
       largura: 22
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 260
       y: 796
       comprimento: 33
       largura: 23
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 204
       y: 797
       comprimento: 27
@@ -148,7 +148,8 @@ escaladas:
     - Diego
     - Vitu
     data_abertura: '2017'
----
+---
+
 # Setor Pirados de Rocha
 
 ![Setor Pirados de Rocha](imagens/setor_pirados_de_rocha_p0_i0.webp)

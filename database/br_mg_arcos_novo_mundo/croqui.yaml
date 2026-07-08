@@ -1,7 +1,7 @@
 id: br_mg_arcos_novo_mundo
 nome: Afloramento Novo Mundo
-descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
-  que variam do 5º ao 9º grau.
+descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias que 
+  variam do 5º ao 9º grau.
 creditos:
 - alexsandro martins
 - Grupo de Trabalho
@@ -37,6 +37,6 @@ botoes:
   destino:
     secao_textual:
       caminho: parcerias.md
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

@@ -7,77 +7,77 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 596
       y: 262
       comprimento: 12
       largura: 15
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 615
       y: 276
       comprimento: 12
       largura: 15
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 641
       y: 274
       comprimento: 12
       largura: 15
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 667
       y: 274
       comprimento: 12
       largura: 15
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 706
       y: 310
       comprimento: 12
       largura: 15
   - id: Setor_Praca_Aristoteles
     label: Setor Praça Aristóteles
-    box:
+    retangulo:
       x: 642
       y: 130
       comprimento: 49
       largura: 41
   - id: Setor_Cemiterio_dos_Ossos
     label: Setor Cemitério dos Ossos
-    box:
+    retangulo:
       x: 461
       y: 174
       comprimento: 70
       largura: 27
   - id: Setor_Corredor_Polones
     label: Setor Corredor Polonês
-    box:
+    retangulo:
       x: 710
       y: 238
       comprimento: 158
       largura: 43
   - id: Setor_Barceloneta
     label: Setor Barceloneta
-    box:
+    retangulo:
       x: 650
       y: 587
       comprimento: 62
       largura: 28
   - id: Estrada_de_terra
     label: Estrada de terra
-    box:
+    retangulo:
       x: 408
       y: 879
       comprimento: 125
       largura: 26
   - id: H2O
     label: H2O
-    box:
+    retangulo:
       x: 638
       y: 920
       comprimento: 43

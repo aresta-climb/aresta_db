@@ -7,283 +7,283 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 827
       y: 1013
       raio: 14
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 652
       y: 936
       raio: 14
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 662
       y: 907
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 587
       y: 878
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 591
       y: 812
       raio: 14
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 503
       y: 1023
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 498
       y: 983
       raio: 13
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 404
       y: 955
       raio: 17
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 450
       y: 936
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 265
       y: 600
       raio: 13
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 271
       y: 638
       raio: 13
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 220
       y: 643
       raio: 13
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 273
       y: 667
       raio: 13
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 300
       y: 684
       raio: 13
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 265
       y: 542
       raio: 13
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 229
       y: 545
       raio: 13
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 208
       y: 579
       raio: 13
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 182
       y: 557
       raio: 13
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 190
       y: 523
       raio: 13
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 113
       y: 417
       raio: 13
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 86
       y: 426
       raio: 13
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 260
       y: 475
       raio: 13
   - id: '23'
     label: '23'
-    circular:
+    circulo:
       x: 188
       y: 348
       raio: 13
   - id: '24'
     label: '24'
-    circular:
+    circulo:
       x: 146
       y: 343
       raio: 13
   - id: '25'
     label: '25'
-    circular:
+    circulo:
       x: 440
       y: 566
       raio: 13
   - id: '26'
     label: '26'
-    circular:
+    circulo:
       x: 409
       y: 550
       raio: 13
   - id: '27'
     label: '27'
-    circular:
+    circulo:
       x: 377
       y: 526
       raio: 13
   - id: '28'
     label: '28'
-    circular:
+    circulo:
       x: 412
       y: 479
       raio: 13
   - id: '29'
     label: '29'
-    circular:
+    circulo:
       x: 404
       y: 447
       raio: 13
   - id: '30'
     label: '30'
-    circular:
+    circulo:
       x: 432
       y: 425
       raio: 13
   - id: '31'
     label: '31'
-    circular:
+    circulo:
       x: 414
       y: 392
       raio: 13
   - id: '32'
     label: '32'
-    circular:
+    circulo:
       x: 452
       y: 385
       raio: 13
   - id: '33'
     label: '33'
-    circular:
+    circulo:
       x: 450
       y: 357
       raio: 13
   - id: '34'
     label: '34'
-    circular:
+    circulo:
       x: 417
       y: 324
       raio: 13
   - id: '35'
     label: '35'
-    circular:
+    circulo:
       x: 304
       y: 226
       raio: 13
   - id: '36'
     label: '36'
-    circular:
+    circulo:
       x: 304
       y: 174
       raio: 13
   - id: '37'
     label: '37'
-    circular:
+    circulo:
       x: 275
       y: 180
       raio: 13
   - id: '38'
     label: '38'
-    circular:
+    circulo:
       x: 49
       y: 129
       raio: 13
   - id: '39'
     label: '39'
-    circular:
+    circulo:
       x: 81
       y: 130
       raio: 13
   - id: '40'
     label: '40'
-    circular:
+    circulo:
       x: 86
       y: 87
       raio: 13
   - id: '41'
     label: '41'
-    circular:
+    circulo:
       x: 85
       y: 57
       raio: 13
   - id: '42'
     label: '42'
-    circular:
+    circulo:
       x: 154
       y: 61
       raio: 13
   - id: '43'
     label: '43'
-    circular:
+    circulo:
       x: 324
       y: 113
       raio: 13
   - id: '44'
     label: '44'
-    circular:
+    circulo:
       x: 505
       y: 74
       raio: 13
   - id: '45'
     label: '45'
-    circular:
+    circulo:
       x: 651
       y: 203
       raio: 13
   - id: '46'
     label: '46'
-    circular:
+    circulo:
       x: 668
       y: 58
       raio: 13
   - id: '47'
     label: '47'
-    circular:
+    circulo:
       x: 705
       y: 58
       raio: 13

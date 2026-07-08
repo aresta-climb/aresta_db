@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: 1A
     label: A
-    circular:
+    circulo:
       x: 196
       y: 456
       raio: 13
   - id: 1B
     label: B
-    circular:
+    circulo:
       x: 367
       y: 298
       raio: 13
   - id: 1C
     label: C
-    circular:
+    circulo:
       x: 767
       y: 213
       raio: 13
   - id: 1D
     label: D
-    circular:
+    circulo:
       x: 957
       y: 136
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 446
       y: 978
       raio: 13
@@ -66,5 +66,4 @@ escaladas:
     nome: Toca Toca
     dificuldade: V4
 ---
-
 

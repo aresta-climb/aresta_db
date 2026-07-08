@@ -22,115 +22,115 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 533
               y: 527
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 590
               y: 561
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 617
               y: 601
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 651
               y: 623
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 778
               y: 706
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 905
               y: 377
               raio: 18
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 913
               y: 774
               raio: 18
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 980
               y: 809
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 1043
               y: 849
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 1111
               y: 888
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 1195
               y: 918
               raio: 17
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 1349
               y: 1037
               raio: 17
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 1684
               y: 1071
               raio: 17
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 1729
               y: 1024
               raio: 17
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 1765
               y: 963
               raio: 17
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 1804
               y: 923
               raio: 17
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 1840
               y: 476
               raio: 17
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 1877
               y: 367
               raio: 17
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 1901
               y: 519
               raio: 17
@@ -187,11 +187,11 @@ picos:
             ids:
             - '19'
           - ids:
-            - '08'
+            - 08
             setor: Setor Estacionamento
             escalada: Teto Preto
           - ids:
-            - '09'
+            - 09
             setor: Setor Estacionamento
             escalada: 101 Dalmatas
         - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
@@ -200,115 +200,115 @@ picos:
           pontos_de_interesse:
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 346
               y: 189
               raio: 17
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 406
               y: 185
               raio: 18
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 475
               y: 216
               raio: 18
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 269
               y: 235
               raio: 17
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 314
               y: 233
               raio: 17
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 516
               y: 240
               raio: 17
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 560
               y: 236
               raio: 18
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 644
               y: 429
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 636
               y: 505
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 625
               y: 558
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 614
               y: 610
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 606
               y: 671
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 606
               y: 707
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 604
               y: 768
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 595
               y: 868
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 584
               y: 915
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 569
               y: 961
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 553
               y: 1024
               raio: 17
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 541
               y: 1077
               raio: 17
@@ -365,11 +365,11 @@ picos:
             ids:
             - '19'
           - ids:
-            - '08'
+            - 08
             setor: Setor Estacionamento
             escalada: Teto Preto
           - ids:
-            - '09'
+            - 09
             setor: Setor Estacionamento
             escalada: 101 Dalmatas
         escaladas:
@@ -595,115 +595,115 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 708
               y: 226
               raio: 15
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 652
               y: 248
               raio: 15
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 590
               y: 289
               raio: 15
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 545
               y: 342
               raio: 15
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 501
               y: 385
               raio: 15
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 470
               y: 446
               raio: 15
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 515
               y: 549
               raio: 15
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 548
               y: 647
               raio: 15
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 828
               y: 1077
               raio: 15
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 918
               y: 1098
               raio: 15
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 997
               y: 1106
               raio: 15
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 1110
               y: 1105
               raio: 16
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 1200
               y: 1128
               raio: 15
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 1361
               y: 1090
               raio: 16
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 1437
               y: 1040
               raio: 16
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 1593
               y: 812
               raio: 16
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 1663
               y: 728
               raio: 16
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 1717
               y: 681
               raio: 15
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 1752
               y: 627
               raio: 15
@@ -760,11 +760,11 @@ picos:
             ids:
             - '19'
           - ids:
-            - '08'
+            - 08
             setor: Setor Família I
             escalada: Chapas Onorixicas
           - ids:
-            - '09'
+            - 09
             setor: Setor Família I
             escalada: Tora Flex
         - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
@@ -773,115 +773,115 @@ picos:
           pontos_de_interesse:
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 514
               y: 146
               raio: 17
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 552
               y: 189
               raio: 17
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 628
               y: 269
               raio: 17
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 761
               y: 425
               raio: 17
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 820
               y: 516
               raio: 17
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 910
               y: 632
               raio: 17
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 928
               y: 782
               raio: 17
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 930
               y: 916
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 904
               y: 999
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 845
               y: 1083
               raio: 17
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 230
               y: 1150
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 813
               y: 1144
               raio: 18
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 276
               y: 1174
               raio: 18
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 319
               y: 1207
               raio: 18
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 402
               y: 1243
               raio: 18
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 425
               y: 1289
               raio: 18
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 627
               y: 1281
               raio: 18
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 467
               y: 1316
               raio: 18
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 577
               y: 1311
               raio: 18
@@ -938,11 +938,11 @@ picos:
             ids:
             - '19'
           - ids:
-            - '08'
+            - 08
             setor: Setor Família I
             escalada: Chapas Onorixicas
           - ids:
-            - '09'
+            - 09
             setor: Setor Família I
             escalada: Tora Flex
         escaladas:
@@ -1154,67 +1154,67 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 154
               y: 323
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 228
               y: 350
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 368
               y: 557
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 476
               y: 584
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 558
               y: 589
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 634
               y: 581
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 749
               y: 609
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 903
               y: 565
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 1113
               y: 812
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 1141
               y: 878
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 1166
               y: 951
               raio: 17
@@ -1247,11 +1247,11 @@ picos:
             ids:
             - '11'
           - ids:
-            - '08'
+            - 08
             setor: Setor Família II
             escalada: Sumchine
           - ids:
-            - '09'
+            - 09
             setor: Setor Família II
             escalada: Cater Pillar
         - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
@@ -1260,67 +1260,67 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 270
               y: 467
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 278
               y: 557
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 285
               y: 687
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 277
               y: 860
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 298
               y: 935
               raio: 18
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 314
               y: 1037
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 335
               y: 1119
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 415
               y: 1149
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 547
               y: 1152
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 518
               y: 1187
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 491
               y: 1224
               raio: 17
@@ -1353,11 +1353,11 @@ picos:
             ids:
             - '11'
           - ids:
-            - '08'
+            - 08
             setor: Setor Família II
             escalada: Sumchine
           - ids:
-            - '09'
+            - 09
             setor: Setor Família II
             escalada: Cater Pillar
         escaladas:
@@ -1482,13 +1482,13 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 667
               y: 711
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 696
               y: 755
               raio: 17
@@ -1505,43 +1505,43 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 343
               y: 699
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 968
               y: 727
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 874
               y: 748
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 862
               y: 804
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 368
               y: 838
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 839
               y: 906
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 821
               y: 1015
               raio: 17
@@ -1573,31 +1573,31 @@ picos:
           pontos_de_interesse:
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 295
               y: 782
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 376
               y: 803
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 480
               y: 821
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 590
               y: 821
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 681
               y: 811
               raio: 17
@@ -1714,25 +1714,25 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 216
               y: 1397
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 561
               y: 1206
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 806
               y: 1040
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 917
               y: 972
               raio: 17
@@ -1755,25 +1755,25 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 394
               y: 644
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 628
               y: 715
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 826
               y: 750
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 892
               y: 788
               raio: 17
@@ -1855,127 +1855,127 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 317
               y: 1001
               raio: 15
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 341
               y: 956
               raio: 15
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 329
               y: 656
               raio: 15
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 327
               y: 622
               raio: 15
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 521
               y: 699
               raio: 15
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 612
               y: 711
               raio: 15
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 643
               y: 428
               raio: 15
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 649
               y: 772
               raio: 15
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 707
               y: 815
               raio: 15
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 797
               y: 897
               raio: 15
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 878
               y: 941
               raio: 15
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 940
               y: 968
               raio: 15
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 1065
               y: 1002
               raio: 15
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 1120
               y: 1015
               raio: 15
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 1186
               y: 1084
               raio: 15
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 1239
               y: 1103
               raio: 15
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 1277
               y: 1162
               raio: 16
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 1345
               y: 1216
               raio: 15
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 1395
               y: 1218
               raio: 15
           - id: '20'
             label: '20'
-            circular:
+            circulo:
               x: 1413
               y: 1193
               raio: 15
           - id: '21'
             label: '21'
-            circular:
+            circulo:
               x: 1438
               y: 1173
               raio: 15
@@ -2038,11 +2038,11 @@ picos:
             ids:
             - '21'
           - ids:
-            - '08'
+            - 08
             setor: Setor Igarameca
             escalada: I Like This
           - ids:
-            - '09'
+            - 09
             setor: Setor Igarameca
             escalada: Igarameca
         - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
@@ -2051,121 +2051,121 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 215
               y: 534
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 328
               y: 520
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 396
               y: 509
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 433
               y: 502
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 450
               y: 572
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 477
               y: 626
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 529
               y: 648
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 486
               y: 680
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 460
               y: 744
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 436
               y: 784
               raio: 17
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 412
               y: 823
               raio: 17
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 397
               y: 887
               raio: 17
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 402
               y: 938
               raio: 17
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 393
               y: 975
               raio: 17
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 381
               y: 1037
               raio: 17
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 363
               y: 1074
               raio: 17
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 337
               y: 1104
               raio: 17
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 296
               y: 1142
               raio: 17
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 319
               y: 1216
               raio: 17
           - id: '20'
             label: '20'
-            circular:
+            circulo:
               x: 367
               y: 1274
               raio: 18
@@ -2225,11 +2225,11 @@ picos:
             ids:
             - '20'
           - ids:
-            - '08'
+            - 08
             setor: Setor Igarameca
             escalada: I Like This
           - ids:
-            - '09'
+            - 09
             setor: Setor Igarameca
             escalada: Igarameca
         - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
@@ -2238,25 +2238,25 @@ picos:
           pontos_de_interesse:
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 515
               y: 326
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 484
               y: 369
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 389
               y: 490
               raio: 17
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 218
               y: 508
               raio: 17
@@ -2525,55 +2525,55 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 761
               y: 782
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 732
               y: 757
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 697
               y: 746
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 668
               y: 717
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 697
               y: 641
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 734
               y: 649
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 768
               y: 663
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 805
               y: 663
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 962
               y: 526
               raio: 17
@@ -2600,11 +2600,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Pracinha
             escalada: People crazy
           - ids:
-            - '09'
+            - 09
             setor: Setor Trad
             escalada: Aresta Daniel
         - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
@@ -2613,25 +2613,25 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 349
               y: 855
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 606
               y: 876
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 646
               y: 870
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 725
               y: 867
               raio: 17
@@ -2654,37 +2654,37 @@ picos:
           pontos_de_interesse:
           - id: P1
             label: P1
-            circular:
+            circulo:
               x: 764
               y: 151
               raio: 18
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 199
               y: 665
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 285
               y: 731
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 409
               y: 915
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 481
               y: 1037
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 1007
               y: 1164
               raio: 17
@@ -2699,11 +2699,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Setor Pracinha
             escalada: People crazy
           - ids:
-            - '09'
+            - 09
             setor: Setor Trad
             escalada: Aresta Daniel
         escaladas:
@@ -2809,61 +2809,61 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 21
               y: 1383
               raio: 17
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 472
               y: 1389
               raio: 17
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 753
               y: 1300
               raio: 17
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 823
               y: 1252
               raio: 17
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 849
               y: 1157
               raio: 17
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 1063
               y: 1193
               raio: 17
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 1091
               y: 1228
               raio: 17
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 1112
               y: 1266
               raio: 17
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 1140
               y: 1313
               raio: 17
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 1178
               y: 1324
               raio: 17
@@ -2894,11 +2894,11 @@ picos:
             - '01'
             setor: Setor Trad
           - ids:
-            - '08'
+            - 08
             setor: Setor dos Tetos
             escalada: Lilith
           - ids:
-            - '09'
+            - 09
             setor: Setor dos Tetos
             escalada: Deu Brasil
         escaladas:
@@ -3015,229 +3015,229 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            circular:
+            circulo:
               x: 88
               y: 1153
               raio: 14
           - id: a
             label: a
-            circular:
+            circulo:
               x: 130
               y: 1144
               raio: 14
           - id: b
             label: b
-            circular:
+            circulo:
               x: 160
               y: 1141
               raio: 14
           - id: '02'
             label: '02'
-            circular:
+            circulo:
               x: 110
               y: 1173
               raio: 14
           - id: '03'
             label: '03'
-            circular:
+            circulo:
               x: 169
               y: 1173
               raio: 15
           - id: '04'
             label: '04'
-            circular:
+            circulo:
               x: 202
               y: 1172
               raio: 15
           - id: '05'
             label: '05'
-            circular:
+            circulo:
               x: 231
               y: 1183
               raio: 14
           - id: c
             label: c
-            circular:
+            circulo:
               x: 263
               y: 1184
               raio: 14
           - id: '06'
             label: '06'
-            circular:
+            circulo:
               x: 289
               y: 1158
               raio: 14
           - id: d
             label: d
-            circular:
+            circulo:
               x: 366
               y: 1151
               raio: 14
           - id: '07'
             label: '07'
-            circular:
+            circulo:
               x: 395
               y: 1142
               raio: 14
           - id: e
             label: e
-            circular:
+            circulo:
               x: 404
               y: 1096
               raio: 14
-          - id: '08'
-            label: '08'
-            circular:
+          - id: 08
+            label: 08
+            circulo:
               x: 448
               y: 1157
               raio: 14
           - id: f
             label: f
-            circular:
+            circulo:
               x: 487
               y: 1157
               raio: 14
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 473
               y: 1131
               raio: 14
           - id: g
             label: g
-            circular:
+            circulo:
               x: 536
               y: 1081
               raio: 14
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 592
               y: 569
               raio: 15
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 1110
               y: 628
               raio: 15
-          - id: '09'
-            label: '09'
-            circular:
+          - id: 09
+            label: 09
+            circulo:
               x: 468
               y: 730
               raio: 14
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 631
               y: 1269
               raio: 15
           - id: h
             label: h
-            circular:
+            circulo:
               x: 813
               y: 1268
               raio: 14
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 844
               y: 1265
               raio: 14
           - id: i
             label: i
-            circular:
+            circulo:
               x: 886
               y: 1246
               raio: 14
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 934
               y: 1237
               raio: 14
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 965
               y: 1239
               raio: 15
           - id: j
             label: j
-            circular:
+            circulo:
               x: 1138
               y: 1251
               raio: 14
           - id: k
             label: k
-            circular:
+            circulo:
               x: 1214
               y: 1249
               raio: 14
           - id: '17'
             label: '17'
-            circular:
+            circulo:
               x: 1481
               y: 1216
               raio: 14
           - id: m
             label: m
-            circular:
+            circulo:
               x: 1452
               y: 1226
               raio: 14
           - id: n
             label: n
-            circular:
+            circulo:
               x: 1575
               y: 1198
               raio: 14
           - id: '18'
             label: '18'
-            circular:
+            circulo:
               x: 1606
               y: 1195
               raio: 14
           - id: '19'
             label: '19'
-            circular:
+            circulo:
               x: 1641
               y: 1164
               raio: 14
           - id: '20'
             label: '20'
-            circular:
+            circulo:
               x: 1717
               y: 1098
               raio: 14
           - id: '21'
             label: '21'
-            circular:
+            circulo:
               x: 1744
               y: 1084
               raio: 14
           - id: '22'
             label: '22'
-            circular:
+            circulo:
               x: 1771
               y: 1069
               raio: 15
           - id: '23'
             label: '23'
-            circular:
+            circulo:
               x: 1833
               y: 1051
               raio: 15
           - id: '24'
             label: '24'
-            circular:
+            circulo:
               x: 1895
               y: 1045
               raio: 15
           - id: L
             label: L
-            circular:
+            circulo:
               x: 1362
               y: 1213
               raio: 14
@@ -3280,10 +3280,10 @@ picos:
             - e
           - escalada: Absoluta Inconsequência
             ids:
-            - '08'
+            - 08
           - escalada: Inconsequência Moderada
             ids:
-            - '09'
+            - 09
           - escalada: Mentiras Sinceras
             ids:
             - '10'
@@ -3502,49 +3502,49 @@ picos:
         pontos_de_interesse:
         - id: Familia_I
           label: Setor Familia I
-          box:
+          retangulo:
             x: 1434
             y: 287
             comprimento: 196
             largura: 96
         - id: Familia_II
           label: Setor Familia II
-          box:
+          retangulo:
             x: 1232
             y: 330
             comprimento: 165
             largura: 119
         - id: Me_Leve
           label: Setor Me Leve ao Cume
-          box:
+          retangulo:
             x: 610
             y: 486
             comprimento: 198
             largura: 131
         - id: Estacionamento
           label: Setor Estacionamento
-          box:
+          retangulo:
             x: 1631
             y: 556
             comprimento: 260
             largura: 162
         - id: Tetos
           label: Setor Tetos
-          box:
+          retangulo:
             x: 607
             y: 826
             comprimento: 150
             largura: 102
         - id: Vale_Perdido
           label: Vale Perdido, BR 381 e Igarapé - MG
-          box:
+          retangulo:
             x: 1566
             y: 1279
             comprimento: 400
             largura: 25
         - id: micos
           label: Micos
-          area_livre:
+          poligono:
             coordenadas:
             - 1092
             - 746
@@ -3560,7 +3560,7 @@ picos:
             - 796
         - id: pracinha
           label: Setor Pracinha
-          area_livre:
+          poligono:
             coordenadas:
             - 524
             - 883
@@ -3574,7 +3574,7 @@ picos:
             - 880
         - id: igarameca
           label: Setor Igarameca
-          area_livre:
+          poligono:
             coordenadas:
             - 493
             - 928
@@ -3596,7 +3596,7 @@ picos:
             - 929
         - id: totem
           label: Setor Totem
-          area_livre:
+          poligono:
             coordenadas:
             - 559
             - 989
@@ -3647,35 +3647,35 @@ picos:
         pontos_de_interesse:
         - id: Totem
           label: Setor Toten
-          box:
+          retangulo:
             x: 249
             y: 524
             comprimento: 102
             largura: 81
         - id: Igarameca
           label: Setor Igarameca
-          box:
+          retangulo:
             x: 702
             y: 853
             comprimento: 185
             largura: 86
         - id: Pracinha
           label: Setor Pracinha
-          box:
+          retangulo:
             x: 1048
             y: 908
             comprimento: 165
             largura: 84
         - id: Tetos
           label: Setor Tetos
-          box:
+          retangulo:
             x: 1394
             y: 938
             comprimento: 103
             largura: 83
         - id: Me_Leve
           label: Setor Me Leve ao Cume
-          box:
+          retangulo:
             x: 1728
             y: 894
             comprimento: 164
@@ -4014,7 +4014,7 @@ botoes:
 
 
         [@igarameca](https://www.instagram.com/igarameca)'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

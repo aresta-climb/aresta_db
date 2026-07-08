@@ -6,56 +6,56 @@ mapas:
   pontos_de_interesse:
   - id: H2O_1
     label: H2O
-    box:
+    retangulo:
       x: 497
       y: 169
       comprimento: 41
       largura: 23
   - id: H2O_2
     label: H2O
-    box:
+    retangulo:
       x: 847
       y: 176
       comprimento: 41
       largura: 23
   - id: H2O_3
     label: H2O
-    box:
+    retangulo:
       x: 890
       y: 436
       comprimento: 42
       largura: 23
   - id: Salao_de_Pedras_Seta
     label: Salão de Pedras
-    box:
+    retangulo:
       x: 744
       y: 221
       comprimento: 139
       largura: 21
   - id: Salao_de_Pedras
     label: SALÃO DE PEDRAS
-    box:
+    retangulo:
       x: 575
       y: 279
       comprimento: 191
       largura: 17
   - id: JK_setor
     label: JK
-    box:
+    retangulo:
       x: 963
       y: 311
       comprimento: 29
       largura: 20
   - id: Colina
     label: COLINA
-    box:
+    retangulo:
       x: 322
       y: 453
       comprimento: 79
       largura: 17
   - id: Estrada_Colina_Pedreira
     label: Estrada p/ Colina e Pedreira
-    box:
+    retangulo:
       x: 634
       y: 579
       comprimento: 223
@@ -63,28 +63,28 @@ mapas:
       angulo_graus_x100: 824
   - id: Pedreira_setor
     label: PEDREIRA
-    box:
+    retangulo:
       x: 325
       y: 707
       comprimento: 105
       largura: 18
   - id: Pedreira_caminho
     label: Pedreira
-    box:
+    retangulo:
       x: 90
       y: 735
       comprimento: 60
       largura: 15
   - id: JK_caminho
     label: JK
-    box:
+    retangulo:
       x: 930
       y: 375
       comprimento: 25
       largura: 15
   - id: Estrada_CMD
     label: Estrada p/ CMD
-    box:
+    retangulo:
       x: 975
       y: 550
       comprimento: 120
@@ -108,6 +108,4 @@ mapas:
     - Pedreira_caminho
     - Pedreira_setor
 ---
-
-
 

@@ -8,7 +8,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_de_cima_p0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -32,7 +32,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 90
           - **y**: 374
           - **comprimento**: 13
@@ -40,7 +40,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 107
           - **y**: 373
           - **comprimento**: 14
@@ -48,7 +48,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 123
           - **y**: 373
           - **comprimento**: 14
@@ -56,7 +56,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 166
           - **y**: 373
           - **comprimento**: 15
@@ -64,7 +64,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 200
           - **y**: 370
           - **comprimento**: 14
@@ -72,7 +72,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 228
           - **y**: 370
           - **comprimento**: 15
@@ -80,7 +80,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 258
           - **y**: 368
           - **comprimento**: 15
@@ -88,7 +88,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 287
           - **y**: 370
           - **comprimento**: 16
@@ -96,7 +96,7 @@
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 366
           - **y**: 369
           - **comprimento**: 15
@@ -104,7 +104,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 436
           - **y**: 367
           - **comprimento**: 20
@@ -112,7 +112,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 464
           - **y**: 366
           - **comprimento**: 19
@@ -120,7 +120,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 493
           - **y**: 368
           - **comprimento**: 20
@@ -128,7 +128,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 530
           - **y**: 368
           - **comprimento**: 20
@@ -136,7 +136,7 @@
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **box**:
+        - **retangulo**:
           - **x**: 571
           - **y**: 370
           - **comprimento**: 20
@@ -267,7 +267,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 188
           - **y**: 606
           - **comprimento**: 21
@@ -275,7 +275,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 312
           - **y**: 602
           - **comprimento**: 21
@@ -283,7 +283,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 406
           - **y**: 590
           - **comprimento**: 23
@@ -291,7 +291,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 446
           - **y**: 586
           - **comprimento**: 23
@@ -299,7 +299,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 514
           - **y**: 584
           - **comprimento**: 21
@@ -307,7 +307,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 574
           - **y**: 587
           - **comprimento**: 21
@@ -315,7 +315,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 830
           - **y**: 580
           - **comprimento**: 21
@@ -323,7 +323,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 941
           - **y**: 576
           - **comprimento**: 22
@@ -331,7 +331,7 @@
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 1064
           - **y**: 574
           - **comprimento**: 22

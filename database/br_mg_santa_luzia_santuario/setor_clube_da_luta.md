@@ -7,97 +7,97 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 448
       y: 58
       raio: 35
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 448
       y: 147
       raio: 36
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 449
       y: 241
       raio: 36
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 426
       y: 345
       raio: 36
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 366
       y: 456
       raio: 36
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 320
       y: 599
       raio: 35
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 248
       y: 713
       raio: 35
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 229
       y: 839
       raio: 35
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 231
       y: 979
       raio: 35
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 265
       y: 1135
       raio: 35
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 304
       y: 1247
       raio: 35
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 353
       y: 1378
       raio: 35
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 376
       y: 1520
       raio: 35
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 390
       y: 1663
       raio: 35
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 412
       y: 1806
       raio: 35
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 412
       y: 1948
       raio: 35
@@ -125,10 +125,10 @@ mapas:
     - '07'
   - escalada: RINS DE PEDRA
     ids:
-    - '08'
+    - 08
   - escalada: PAGADOR DE PROMESSA
     ids:
-    - '09'
+    - 09
   - escalada: BIBI CORAGEM
     ids:
     - '10'

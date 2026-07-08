@@ -90,7 +90,21 @@ Descrição detalhada do setor de teste.
         f.write(setor_content)
         
     # 2. Escreve arquivo de seção textual (doc_capa.md)
-    capa_content = """# Capa Principal
+    capa_content = """---
+mapas:
+- caminho_imagem_mapa: imagens/mapa.webp
+  largura_mapa: 100
+  altura_mapa: 100
+  pontos_de_interesse:
+  - id: '1'
+    label: Via 1
+    box:
+      x: 10
+      y: 10
+      comprimento: 20
+      largura: 20
+---
+# Capa Principal
 Texto da capa do croqui.
 """
     with open(db_path / "doc_capa.md", "w", encoding="utf-8") as f:
@@ -223,7 +237,21 @@ def test_carregamento_aplica_migracoes_automaticamente(tmp_path, qapp):
     db_path.mkdir(parents=True)
     
     # 1. Escreve arquivo de seção textual (doc_capa.md)
-    capa_content = """# Capa Principal
+    capa_content = """---
+mapas:
+- caminho_imagem_mapa: imagens/mapa.webp
+  largura_mapa: 100
+  altura_mapa: 100
+  pontos_de_interesse:
+  - id: '1'
+    label: Via 1
+    box:
+      x: 10
+      y: 10
+      comprimento: 20
+      largura: 20
+---
+# Capa Principal
 Texto da capa do croqui.
 """
     with open(db_path / "doc_capa.md", "w", encoding="utf-8") as f:

@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1383
       y: 806
       raio: 13
@@ -21,7 +21,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1232
       y: 750
       raio: 13
@@ -35,31 +35,31 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 1561
       y: 433
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 647
       y: 366
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1293
       y: 558
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 436
       y: 720
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 114
       y: 757
       raio: 13
@@ -88,37 +88,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 538
       y: 705
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 980
       y: 781
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1105
       y: 855
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1417
       y: 699
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 799
       y: 177
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1346
       y: 123
       raio: 13
@@ -183,5 +183,4 @@ escaladas:
     nome: Crocância Rouba Monte sds
     dificuldade: V11
 ---
-
 

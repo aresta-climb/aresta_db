@@ -7,147 +7,147 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 78
       y: 811
       comprimento: 25
       largura: 28
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 122
       y: 780
       comprimento: 26
       largura: 28
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 165
       y: 760
       comprimento: 26
       largura: 28
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 252
       y: 752
       comprimento: 25
       largura: 28
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 294
       y: 752
       comprimento: 29
       largura: 25
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 374
       y: 796
       comprimento: 29
       largura: 26
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 421
       y: 849
       comprimento: 28
       largura: 28
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 474
       y: 874
       comprimento: 25
       largura: 27
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 518
       y: 873
       comprimento: 26
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 542
       y: 682
       comprimento: 31
       largura: 30
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 575
       y: 840
       comprimento: 30
       largura: 27
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 686
       y: 816
       comprimento: 31
       largura: 32
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 734
       y: 816
       comprimento: 32
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 874
       y: 572
       comprimento: 35
       largura: 31
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 918
       y: 477
       comprimento: 30
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 1006
       y: 592
       comprimento: 32
       largura: 27
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 1066
       y: 484
       comprimento: 34
       largura: 29
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 1142
       y: 386
       comprimento: 30
       largura: 30
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 995
       y: 895
       comprimento: 34
       largura: 30
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 1368
       y: 936
       comprimento: 31
       largura: 27
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 1498
       y: 938
       comprimento: 32

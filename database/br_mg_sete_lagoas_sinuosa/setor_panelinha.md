@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 528
       y: 397
       raio: 24
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 579
       y: 317
       raio: 23
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 609
       y: 397
       raio: 23
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 235
       y: 477
       raio: 24
   - id: Setor_de_Esquerda
     label: ↑ SETOR DE ESQUERDA
-    box:
+    retangulo:
       x: 560
       y: 597
       comprimento: 37

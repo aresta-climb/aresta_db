@@ -18,55 +18,55 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 253
               y: 803
               raio: 20
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 409
               y: 799
               raio: 20
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 528
               y: 759
               raio: 21
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 805
               y: 674
               raio: 20
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 957
               y: 599
               raio: 20
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1110
               y: 554
               raio: 20
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1456
               y: 823
               raio: 20
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 1577
               y: 750
               raio: 20
           - id: '9'
             label: '9'
-            circular:
+            circulo:
               x: 1942
               y: 743
               raio: 20
@@ -204,49 +204,49 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 299
               y: 923
               raio: 29
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 515
               y: 914
               raio: 29
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 642
               y: 872
               raio: 29
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 691
               y: 1002
               raio: 29
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 819
               y: 962
               raio: 29
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1009
               y: 962
               raio: 29
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1237
               y: 933
               raio: 29
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 1480
               y: 835
               raio: 29
@@ -369,43 +369,43 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 553
               y: 1165
               raio: 29
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 673
               y: 1207
               raio: 29
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 876
               y: 1185
               raio: 29
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 1367
               y: 1156
               raio: 29
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 1554
               y: 1156
               raio: 29
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1767
               y: 1095
               raio: 29
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1918
               y: 1066
               raio: 29
@@ -518,97 +518,97 @@ picos:
           pontos_de_interesse:
           - id: '1'
             label: '1'
-            circular:
+            circulo:
               x: 271
               y: 1376
               raio: 28
           - id: '2'
             label: '2'
-            circular:
+            circulo:
               x: 716
               y: 1078
               raio: 28
           - id: '3'
             label: '3'
-            circular:
+            circulo:
               x: 881
               y: 1000
               raio: 29
           - id: '4'
             label: '4'
-            circular:
+            circulo:
               x: 998
               y: 982
               raio: 29
           - id: '5'
             label: '5'
-            circular:
+            circulo:
               x: 1079
               y: 857
               raio: 29
           - id: '6'
             label: '6'
-            circular:
+            circulo:
               x: 1178
               y: 875
               raio: 29
           - id: '7'
             label: '7'
-            circular:
+            circulo:
               x: 1235
               y: 767
               raio: 28
           - id: '8'
             label: '8'
-            circular:
+            circulo:
               x: 1341
               y: 726
               raio: 29
           - id: '9'
             label: '9'
-            circular:
+            circulo:
               x: 1380
               y: 610
               raio: 29
           - id: '10'
             label: '10'
-            circular:
+            circulo:
               x: 1433
               y: 521
               raio: 28
           - id: '11'
             label: '11'
-            circular:
+            circulo:
               x: 1498
               y: 474
               raio: 29
           - id: '12'
             label: '12'
-            circular:
+            circulo:
               x: 1573
               y: 540
               raio: 29
           - id: '13'
             label: '13'
-            circular:
+            circulo:
               x: 1691
               y: 569
               raio: 29
           - id: '14'
             label: '14'
-            circular:
+            circulo:
               x: 1806
               y: 550
               raio: 29
           - id: '15'
             label: '15'
-            circular:
+            circulo:
               x: 1865
               y: 474
               raio: 29
           - id: '16'
             label: '16'
-            circular:
+            circulo:
               x: 1968
               y: 375
               raio: 29
@@ -864,35 +864,35 @@ picos:
         pontos_de_interesse:
         - id: Campo_Escola
           label: Campo Escola
-          box:
+          retangulo:
             x: 814
             y: 54
             comprimento: 231
             largura: 42
         - id: Pedra_do_Arco
           label: Pedra do Arco
-          box:
+          retangulo:
             x: 548
             y: 104
             comprimento: 227
             largura: 43
         - id: Mirante_Pedra_do_Jacare
           label: Mirante Pedra do Jacaré
-          box:
+          retangulo:
             x: 1172
             y: 96
             comprimento: 387
             largura: 45
         - id: Cachoeira_das_Andorinhas
           label: Cachoeira das Andorinhas
-          box:
+          retangulo:
             x: 1636
             y: 94
             comprimento: 417
             largura: 45
         - id: Sede_do_Parque
           label: Sede do Parque
-          box:
+          retangulo:
             x: 1357
             y: 463
             comprimento: 250
@@ -910,35 +910,35 @@ picos:
         pontos_de_interesse:
         - id: Tchau_Querida
           label: Tchau Querida
-          box:
+          retangulo:
             x: 846
             y: 128
             comprimento: 231
             largura: 40
         - id: Pedra_Branca
           label: Pedra Branca
-          box:
+          retangulo:
             x: 601
             y: 226
             comprimento: 214
             largura: 45
         - id: Mirante_Pedra_do_Jacare
           label: Mirante Pedra do Jacaré
-          box:
+          retangulo:
             x: 1166
             y: 94
             comprimento: 389
             largura: 41
         - id: Cachoeira_das_Andorinhas
           label: Cachoeira das Andorinhas
-          box:
+          retangulo:
             x: 1638
             y: 93
             comprimento: 411
             largura: 44
         - id: Sede_do_Parque
           label: Sede do Parque
-          box:
+          retangulo:
             x: 1352
             y: 462
             comprimento: 251
@@ -950,7 +950,7 @@ picos:
         - setor: Pedra Branca
           ids:
           - Pedra_Branca
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 botoes: []

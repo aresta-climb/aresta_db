@@ -1,4 +1,4 @@
----
+---
 nome: Ensolarado
 mapas:
 - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp
@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 218
       y: 913
       comprimento: 30
       largura: 32
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 268
       y: 911
       comprimento: 36
       largura: 28
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 312
       y: 931
       comprimento: 35
       largura: 30
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 380
       y: 922
       comprimento: 49
       largura: 35
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 458
       y: 917
       comprimento: 43
       largura: 32
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 532
       y: 800
       comprimento: 35
       largura: 29
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 580
       y: 789
       comprimento: 43
@@ -80,51 +80,51 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 170
       y: 794
       comprimento: 44
       largura: 33
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 244
       y: 790
       comprimento: 43
       largura: 33
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 341
       y: 763
       comprimento: 42
       largura: 34
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 413
       y: 748
       comprimento: 42
       largura: 37
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 655
       y: 882
       comprimento: 38
       largura: 30
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 724
       y: 873
       comprimento: 39
       largura: 30
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 776
       y: 928
       comprimento: 41
@@ -151,49 +151,49 @@ mapas:
   pontos_de_interesse:
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 476
       y: 914
       comprimento: 38
       largura: 30
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 548
       y: 936
       comprimento: 41
       largura: 35
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 623
       y: 936
       comprimento: 36
       largura: 33
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 702
       y: 992
       comprimento: 41
       largura: 29
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 908
       y: 1082
       comprimento: 38
       largura: 31
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 968
       y: 1096
       comprimento: 33
       largura: 25
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 1010
       y: 1126
       comprimento: 32
@@ -226,21 +226,21 @@ mapas:
   pontos_de_interesse:
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 279
       y: 1226
       comprimento: 36
       largura: 29
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 636
       y: 1119
       comprimento: 40
       largura: 32
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 829
       y: 1022
       comprimento: 34
@@ -456,7 +456,8 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2013'
----
+---
+
 # Setor Ensolarado
 
 ![Setor Ensolarado](imagens/setor_ensolarado_p0_i0.webp)

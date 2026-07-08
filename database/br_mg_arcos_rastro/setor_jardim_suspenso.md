@@ -7,77 +7,77 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Terceiro_Andar
     label: Setor Terceiro Andar
-    box:
+    retangulo:
       x: 846
       y: 302
       comprimento: 61
       largura: 55
   - id: Setor_Segundo_Andar
     label: Setor Segundo Andar
-    box:
+    retangulo:
       x: 566
       y: 935
       comprimento: 65
       largura: 54
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 594
       y: 599
       comprimento: 22
       largura: 18
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 540
       y: 598
       comprimento: 25
       largura: 21
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 460
       y: 394
       comprimento: 21
       largura: 19
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 458
       y: 372
       comprimento: 21
       largura: 17
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 444
       y: 310
       comprimento: 21
       largura: 18
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 534
       y: 311
       comprimento: 21
       largura: 20
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 536
       y: 434
       comprimento: 23
       largura: 21
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 562
       y: 463
       comprimento: 23
       largura: 20
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 633
       y: 441
       comprimento: 22
@@ -105,11 +105,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - '08'
+    - 08
     setor: Jardim Suspenso
     escalada: Corte Profundo
   - ids:
-    - '09'
+    - 09
     setor: Jardim Suspenso
     escalada: Avenida Paulista
   - ids:

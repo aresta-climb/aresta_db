@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 355
       y: 614
       raio: 22
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 237
       y: 552
       raio: 22
@@ -30,19 +30,19 @@ mapas:
   pontos_de_interesse:
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 187
       y: 652
       raio: 22
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 576
       y: 693
       raio: 21
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 300
       y: 654
       raio: 21
@@ -95,6 +95,5 @@ escaladas:
     descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte
       mais baixa.
 ---
-
 
 # Bloco B

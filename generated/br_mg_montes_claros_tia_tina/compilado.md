@@ -25,7 +25,7 @@
             **Montes Claros - MG**
             
             AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 
 
 ## Parte: setor_saara

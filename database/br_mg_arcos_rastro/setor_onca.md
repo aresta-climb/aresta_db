@@ -7,112 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
-    box:
+    retangulo:
       x: 376
       y: 22
       comprimento: 87
       largura: 27
   - id: Toca_dos_Gatos
     label: Toca dos Gatos
-    box:
+    retangulo:
       x: 332
       y: 212
       comprimento: 106
       largura: 25
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 794
       y: 57
       comprimento: 47
       largura: 38
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 58
       y: 965
       comprimento: 53
       largura: 28
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 206
       y: 884
       comprimento: 13
       largura: 16
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 229
       y: 884
       comprimento: 12
       largura: 16
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 242
       y: 892
       comprimento: 13
       largura: 16
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 254
       y: 890
       comprimento: 11
       largura: 16
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 284
       y: 878
       comprimento: 11
       largura: 18
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 302
       y: 870
       comprimento: 13
       largura: 19
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 316
       y: 882
       comprimento: 14
       largura: 19
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 456
       y: 764
       comprimento: 14
       largura: 16
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 466
       y: 746
       comprimento: 15
       largura: 16
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 476
       y: 723
       comprimento: 17
       largura: 16
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 499
       y: 710
       comprimento: 16
       largura: 13
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 488
       y: 696
       comprimento: 17
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - '08'
+    - 08
     setor: Setor Onça
     escalada: Estica e Clipa
   - ids:
-    - '09'
+    - 09
     setor: Setor Onça
     escalada: Pai Bravo
   - ids:
@@ -174,133 +174,133 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
-    box:
+    retangulo:
       x: 374
       y: 20
       comprimento: 85
       largura: 29
   - id: Intermediario
     label: Intermediário
-    box:
+    retangulo:
       x: 266
       y: 92
       comprimento: 87
       largura: 21
   - id: Toca_dos_Gatos
     label: Toca dos Gatos
-    box:
+    retangulo:
       x: 332
       y: 212
       comprimento: 103
       largura: 24
   - id: Setor_Leao_de_Judah
     label: Setor Leão de Judah
-    box:
+    retangulo:
       x: 794
       y: 54
       comprimento: 48
       largura: 40
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 60
       y: 963
       comprimento: 45
       largura: 32
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 552
       y: 494
       comprimento: 20
       largura: 17
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 552
       y: 466
       comprimento: 19
       largura: 16
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 536
       y: 418
       comprimento: 20
       largura: 16
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 550
       y: 399
       comprimento: 16
       largura: 12
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 564
       y: 386
       comprimento: 16
       largura: 13
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 564
       y: 374
       comprimento: 15
       largura: 13
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 558
       y: 358
       comprimento: 18
       largura: 15
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 550
       y: 338
       comprimento: 18
       largura: 16
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 542
       y: 262
       comprimento: 17
       largura: 15
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 515
       y: 262
       comprimento: 18
       largura: 15
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 528
       y: 230
       comprimento: 19
       largura: 15
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 525
       y: 214
       comprimento: 18
       largura: 15
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 524
       y: 198
       comprimento: 18
       largura: 15
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 522
       y: 184
       comprimento: 19

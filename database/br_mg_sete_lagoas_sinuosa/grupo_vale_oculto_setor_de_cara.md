@@ -7,37 +7,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 349
       y: 308
       raio: 20
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 309
       y: 238
       raio: 20
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 242
       y: 216
       raio: 19
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 279
       y: 159
       raio: 20
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 252
       y: 96
       raio: 20
   - id: Setores_Laranja_Anfiteatro
     label: SUB SETOR LARANJA / ANFITEATRO →
-    box:
+    retangulo:
       x: 498
       y: 664
       comprimento: 263

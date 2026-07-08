@@ -69,7 +69,7 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
         largura_mapa: 930
         altura_mapa: 938
-ultima_migracao: 3
+ultima_migracao: 4
 botoes: []
 arquivos_externos:
 - caminho: imagens/mapas_gerais_p0_i0.webp

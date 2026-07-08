@@ -7,103 +7,103 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 295
       y: 553
       raio: 20
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 333
       y: 523
       raio: 20
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 401
       y: 478
       raio: 20
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 438
       y: 386
       raio: 20
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 387
       y: 380
       raio: 20
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 330
       y: 380
       raio: 20
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 280
       y: 380
       raio: 20
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 246
       y: 345
       raio: 20
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 201
       y: 319
       raio: 20
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 193
       y: 269
       raio: 20
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 268
       y: 151
       raio: 20
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 329
       y: 146
       raio: 20
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 379
       y: 146
       raio: 20
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 432
       y: 132
       raio: 20
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 511
       y: 76
       raio: 20
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 597
       y: 97
       raio: 20
   - id: Sub_Setor_de_Cara
     label: SUB SETOR DE CARA ↗
-    box:
+    retangulo:
       x: 380
       y: 592
       comprimento: 196

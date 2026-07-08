@@ -7,79 +7,79 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 475
       y: 269
       raio: 20
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 434
       y: 180
       raio: 20
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 375
       y: 192
       raio: 20
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 330
       y: 137
       raio: 20
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 524
       y: 369
       raio: 20
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 578
       y: 369
       raio: 20
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 630
       y: 378
       raio: 20
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 686
       y: 369
       raio: 20
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 731
       y: 369
       raio: 20
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 786
       y: 368
       raio: 20
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 837
       y: 339
       raio: 20
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 876
       y: 292
       raio: 20
   - id: Sub_Setor_Anfiteatro
     label: SUB SETOR ANFITEATRO →
-    box:
+    retangulo:
       x: 628
       y: 476
       comprimento: 221
@@ -87,7 +87,7 @@ mapas:
       angulo_graus_x100: 114
   - id: Sub_Setor_de_Cara
     label: SUB SETOR DE CARA ↙
-    box:
+    retangulo:
       x: 243
       y: 622
       comprimento: 200

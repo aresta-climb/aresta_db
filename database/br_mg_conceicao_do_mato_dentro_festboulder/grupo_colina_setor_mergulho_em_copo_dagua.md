@@ -1,4 +1,4 @@
----
+---
 nome: Mergulho em Copo d'Água
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp
@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 280
       y: 515
       comprimento: 30
@@ -20,7 +20,8 @@ escaladas:
 - boulder:
     nome: Mergulho em Copo d'Água
     dificuldade: V4
----
+---
+
 # Setor Mergulho em Copo d'Água
 
 O setor Mergulho em Copo d'Água possui um bloco isolado com uma linha clássica.

@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: '29'
     label: '29'
-    circular:
+    circulo:
       x: 317
       y: 794
       raio: 24
   - id: '30'
     label: '30'
-    circular:
+    circulo:
       x: 369
       y: 818
       raio: 24
   - id: '31'
     label: '31'
-    circular:
+    circulo:
       x: 771
       y: 634
       raio: 24
   - id: '32'
     label: '32'
-    circular:
+    circulo:
       x: 623
       y: 818
       raio: 24
@@ -51,13 +51,13 @@ mapas:
   pontos_de_interesse:
   - id: '33'
     label: '33'
-    circular:
+    circulo:
       x: 612
       y: 862
       raio: 24
   - id: '34'
     label: '34'
-    circular:
+    circulo:
       x: 675
       y: 1033
       raio: 24
@@ -105,6 +105,5 @@ escaladas:
     descricao: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo
       do bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
 ---
-
 
 # Beija Flor

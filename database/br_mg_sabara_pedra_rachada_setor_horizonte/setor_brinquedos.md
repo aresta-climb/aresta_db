@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 246
       y: 573
       raio: 16
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 397
       y: 692
       raio: 16
@@ -30,19 +30,19 @@ mapas:
   pontos_de_interesse:
   - id: '23'
     label: '23'
-    circular:
+    circulo:
       x: 332
       y: 1074
       raio: 25
   - id: '25'
     label: '25'
-    circular:
+    circulo:
       x: 886
       y: 1038
       raio: 25
   - id: '24'
     label: '24'
-    circular:
+    circulo:
       x: 449
       y: 972
       raio: 25
@@ -62,13 +62,13 @@ mapas:
   pontos_de_interesse:
   - id: '26'
     label: '26'
-    circular:
+    circulo:
       x: 350
       y: 874
       raio: 27
   - id: '27'
     label: '27'
-    circular:
+    circulo:
       x: 544
       y: 858
       raio: 27
@@ -85,7 +85,7 @@ mapas:
   pontos_de_interesse:
   - id: '28'
     label: '28'
-    circular:
+    circulo:
       x: 680
       y: 858
       raio: 26
@@ -134,7 +134,6 @@ escaladas:
     descricao: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no
       agarrão na parte baixa.
 ---
-
 
 # Brinquedos
 

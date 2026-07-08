@@ -13,56 +13,56 @@ mapas:
   pontos_de_interesse:
   - id: mont_blanc
     label: Mont Blanc
-    box:
+    retangulo:
       x: 610
       y: 239
       comprimento: 128
       largura: 24
   - id: o_pequeno
     label: O Pequeno
-    box:
+    retangulo:
       x: 591
       y: 480
       comprimento: 120
       largura: 25
   - id: salao_dos_ossos
     label: Salão dos Ossos
-    box:
+    retangulo:
       x: 616
       y: 518
       comprimento: 183
       largura: 23
   - id: parada_obrigatoria
     label: Parada Obrigatória
-    box:
+    retangulo:
       x: 557
       y: 654
       comprimento: 206
       largura: 24
   - id: cabocla_da_mata
     label: Caboclo da Mata
-    box:
+    retangulo:
       x: 465
       y: 718
       comprimento: 188
       largura: 23
   - id: silencio_da_mutuca
     label: Silêncio da Mutuca
-    box:
+    retangulo:
       x: 1004
       y: 837
       comprimento: 211
       largura: 24
   - id: espreguicadeira
     label: Espreguiçadeira
-    box:
+    retangulo:
       x: 1261
       y: 988
       comprimento: 176
       largura: 25
   - id: espreguicadeira_2
     label: Espreguiçadeira
-    box:
+    retangulo:
       x: 1166
       y: 1022
       comprimento: 169

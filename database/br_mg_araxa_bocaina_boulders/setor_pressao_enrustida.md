@@ -1,4 +1,4 @@
----
+---
 nome: Pressão Enrustida
 mapas:
 - caminho_imagem_mapa: imagens/setor_pressao_enrustida_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 299
       y: 634
       comprimento: 20
       largura: 20
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 366
       y: 652
       comprimento: 20
       largura: 20
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 542
       y: 626
       comprimento: 20
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 631
       y: 628
       comprimento: 20
       largura: 20
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 701
       y: 540
       comprimento: 20
@@ -67,8 +67,8 @@ escaladas:
 - boulder:
     nome: Maltodextrina SDS
     dificuldade: V2
-    descricao: Saída sentado com as mãos em regletes abaixo do agarrão do Maltodextrina, e
-      virando reto.
+    descricao: Saída sentado com as mãos em regletes abaixo do agarrão do Maltodextrina,
+      e virando reto.
 - boulder:
     nome: Pinga Preta
     dificuldade: V3
@@ -80,12 +80,13 @@ escaladas:
 - boulder:
     nome: Não Contava com Minha Astúcia
     dificuldade: V1
-    descricao: Saída agachado com as duas mãos juntas em agarrão em bloco pequeno passando
-      para Pressão inrrustida no bloco da esquerda.
+    descricao: Saída agachado com as duas mãos juntas em agarrão em bloco pequeno
+      passando para Pressão inrrustida no bloco da esquerda.
 - boulder:
     nome: Rapé
     dificuldade: V3
-    descricao: Saída do Não Contava com minha astúcia fazendo travessia para esquerda 
+    descricao: Saída do Não Contava com minha astúcia fazendo travessia para esquerda
       virando no Maltodextrina.
----
+---
+
 # Setor Pressão Enrustida

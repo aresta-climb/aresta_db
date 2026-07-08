@@ -6,7 +6,7 @@ mapas:
   pontos_de_interesse:
   - id: Pedreira
     label: Pedreira
-    box:
+    retangulo:
       x: 1014
       y: 156
       comprimento: 132
@@ -14,7 +14,7 @@ mapas:
       angulo_graus_x100: 174
   - id: Estacionamento
     label: Estacionamento
-    box:
+    retangulo:
       x: 205
       y: 308
       comprimento: 172
@@ -22,14 +22,14 @@ mapas:
       angulo_graus_x100: 67
   - id: Escalada
     label: Escalada
-    box:
+    retangulo:
       x: 15
       y: 348
       comprimento: 202
       largura: 50
   - id: Comunidade
     label: Comunidade
-    box:
+    retangulo:
       x: 475
       y: 343
       comprimento: 274
@@ -37,7 +37,7 @@ mapas:
       angulo_graus_x100: 42
   - id: Barreiro
     label: Barreiro
-    box:
+    retangulo:
       x: 510
       y: 395
       comprimento: 180
@@ -45,7 +45,7 @@ mapas:
       angulo_graus_x100: 64
   - id: Trevo_1
     label: Trevo
-    box:
+    retangulo:
       x: 1205
       y: 498
       comprimento: 137
@@ -53,7 +53,7 @@ mapas:
       angulo_graus_x100: 167
   - id: Aeroporto
     label: Aeroporto
-    box:
+    retangulo:
       x: 1455
       y: 454
       comprimento: 220
@@ -61,7 +61,7 @@ mapas:
       angulo_graus_x100: -3911
   - id: SESC
     label: SESC
-    box:
+    retangulo:
       x: 1570
       y: 589
       comprimento: 120
@@ -69,14 +69,14 @@ mapas:
       angulo_graus_x100: -5141
   - id: Asfalto
     label: Asfalto
-    box:
+    retangulo:
       x: 287
       y: 668
       comprimento: 157
       largura: 51
   - id: Trevo_2
     label: Trevo
-    box:
+    retangulo:
       x: 1184
       y: 705
       comprimento: 128
@@ -84,7 +84,7 @@ mapas:
       angulo_graus_x100: 134
   - id: Terra
     label: Terra
-    box:
+    retangulo:
       x: 309
       y: 766
       comprimento: 126
@@ -92,14 +92,14 @@ mapas:
       angulo_graus_x100: 182
   - id: Januaria
     label: Januária
-    box:
+    retangulo:
       x: 1240
       y: 882
       comprimento: 286
       largura: 75
   - id: Trevo_3
     label: Trevo
-    box:
+    retangulo:
       x: 1041
       y: 945
       comprimento: 134
@@ -107,7 +107,7 @@ mapas:
       angulo_graus_x100: 86
   - id: Policia
     label: Policia
-    box:
+    retangulo:
       x: 769
       y: 1004
       comprimento: 154
@@ -115,7 +115,7 @@ mapas:
       angulo_graus_x100: 149
   - id: Ponte
     label: Ponte
-    box:
+    retangulo:
       x: 786
       y: 1138
       comprimento: 136
@@ -123,21 +123,21 @@ mapas:
       angulo_graus_x100: 84
   - id: Rio_Sao_Francisco
     label: Rio São Francisco
-    box:
+    retangulo:
       x: 1142
       y: 1177
       comprimento: 391
       largura: 49
   - id: BR_135
     label: BR 135
-    box:
+    retangulo:
       x: 677
       y: 1285
       comprimento: 102
       largura: 37
   - id: Montes_Claros
     label: Montes Claros
-    box:
+    retangulo:
       x: 792
       y: 1331
       comprimento: 183
@@ -149,14 +149,14 @@ mapas:
   pontos_de_interesse:
   - id: Moco
     label: Mocó
-    box:
+    retangulo:
       x: 1602
       y: 160
       comprimento: 91
       largura: 38
   - id: Abrigo
     label: Abrigo
-    box:
+    retangulo:
       x: 899
       y: 341
       comprimento: 105
@@ -164,14 +164,14 @@ mapas:
       angulo_graus_x100: 436
   - id: Sertao
     label: Sertão
-    box:
+    retangulo:
       x: 1169
       y: 372
       comprimento: 108
       largura: 39
   - id: Claraboia
     label: Claraboia
-    box:
+    retangulo:
       x: 690
       y: 477
       comprimento: 149
@@ -179,14 +179,14 @@ mapas:
       angulo_graus_x100: 192
   - id: Plato
     label: Platô
-    box:
+    retangulo:
       x: 361
       y: 586
       comprimento: 84
       largura: 36
   - id: Pracinha
     label: Pracinha
-    box:
+    retangulo:
       x: 829
       y: 773
       comprimento: 137
@@ -194,7 +194,7 @@ mapas:
       angulo_graus_x100: 84
   - id: Praca
     label: Praça
-    box:
+    retangulo:
       x: 495
       y: 845
       comprimento: 61
@@ -202,7 +202,7 @@ mapas:
       angulo_graus_x100: 469
   - id: Estrada_Januaria
     label: Estrada Januária
-    box:
+    retangulo:
       x: 1621
       y: 1020
       comprimento: 256
@@ -210,7 +210,7 @@ mapas:
       angulo_graus_x100: 45
   - id: Estacionamento_esq
     label: Estacionamento
-    box:
+    retangulo:
       x: 0
       y: 1224
       comprimento: 212
@@ -218,7 +218,7 @@ mapas:
       angulo_graus_x100: 54
   - id: Estacionamento_dir
     label: Estacionamento
-    box:
+    retangulo:
       x: 436
       y: 1222
       comprimento: 216
@@ -244,6 +244,4 @@ mapas:
     ids:
     - Pracinha
 ---
-
-
 

@@ -7,68 +7,68 @@ mapas:
   pontos_de_interesse:
   - id: titulo
     label: SETOR DITADOS
-    box:
+    retangulo:
       x: 689
       y: 85
       comprimento: 235
       largura: 75
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 165
       y: 154
       raio: 14
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 291
       y: 143
       raio: 14
   - id: 19_top
     label: '19'
-    circular:
+    circulo:
       x: 431
       y: 131
       raio: 14
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 653
       y: 348
       raio: 14
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 714
       y: 350
       raio: 14
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 218
       y: 735
       raio: 14
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 433
       y: 734
       raio: 14
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 589
       y: 718
       raio: 14
   - id: 19_bot
     label: '19'
-    circular:
+    circulo:
       x: 662
       y: 713
       raio: 14
   - id: cangaco
     label: CANGAÇO
-    box:
+    retangulo:
       x: 117
       y: 766
       comprimento: 114
@@ -158,7 +158,6 @@ escaladas:
     - Eliseu Frechou
     data_abertura: '2018'
 ---
-
 
 ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp)
 

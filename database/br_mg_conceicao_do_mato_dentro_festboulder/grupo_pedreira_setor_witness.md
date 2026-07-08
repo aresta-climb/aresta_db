@@ -1,4 +1,4 @@
----
+---
 nome: Witness
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p0.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 340
       y: 540
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 400
       y: 555
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 575
       y: 500
       comprimento: 30
@@ -45,7 +45,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 215
       y: 525
       comprimento: 30
@@ -70,7 +70,8 @@ escaladas:
 - boulder:
     nome: Picasso
     dificuldade: V5
----
+---
+
 # Setor Witness
 
 O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.

@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 249
       y: 517
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 499
       y: 414
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1395
       y: 315
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 456
       y: 943
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1393
       y: 846
       raio: 13
@@ -66,5 +66,4 @@ escaladas:
     nome: Mancada
     dificuldade: V3
 ---
-
 

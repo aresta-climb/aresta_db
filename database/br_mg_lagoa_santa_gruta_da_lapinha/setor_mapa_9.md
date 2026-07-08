@@ -7,140 +7,140 @@ mapas:
   pontos_de_interesse:
   - id: '105'
     label: '105'
-    box:
+    retangulo:
       x: 156
       y: 354
       comprimento: 20
       largura: 11
   - id: '106'
     label: '106'
-    box:
+    retangulo:
       x: 128
       y: 338
       comprimento: 19
       largura: 11
   - id: '107'
     label: '107'
-    box:
+    retangulo:
       x: 76
       y: 321
       comprimento: 21
       largura: 12
   - id: '108'
     label: '108'
-    box:
+    retangulo:
       x: 43
       y: 322
       comprimento: 18
       largura: 10
   - id: '109'
     label: '109'
-    box:
+    retangulo:
       x: 29
       y: 307
       comprimento: 18
       largura: 10
   - id: '110'
     label: '110'
-    box:
+    retangulo:
       x: 90
       y: 239
       comprimento: 19
       largura: 12
   - id: '111'
     label: '111'
-    box:
+    retangulo:
       x: 114
       y: 208
       comprimento: 18
       largura: 11
   - id: '112'
     label: '112'
-    box:
+    retangulo:
       x: 142
       y: 191
       comprimento: 18
       largura: 12
   - id: '113'
     label: '113'
-    box:
+    retangulo:
       x: 162
       y: 178
       comprimento: 17
       largura: 12
   - id: '114'
     label: '114'
-    box:
+    retangulo:
       x: 184
       y: 178
       comprimento: 17
       largura: 12
   - id: '115'
     label: '115'
-    box:
+    retangulo:
       x: 195
       y: 198
       comprimento: 18
       largura: 12
   - id: '116'
     label: '116'
-    box:
+    retangulo:
       x: 184
       y: 215
       comprimento: 18
       largura: 12
   - id: '117'
     label: '117'
-    box:
+    retangulo:
       x: 168
       y: 230
       comprimento: 19
       largura: 12
   - id: '118'
     label: '118'
-    box:
+    retangulo:
       x: 156
       y: 248
       comprimento: 19
       largura: 11
   - id: '119'
     label: '119'
-    box:
+    retangulo:
       x: 130
       y: 261
       comprimento: 19
       largura: 12
   - id: '120'
     label: '120'
-    box:
+    retangulo:
       x: 102
       y: 272
       comprimento: 19
       largura: 11
   - id: '121'
     label: '121'
-    box:
+    retangulo:
       x: 449
       y: 141
       comprimento: 20
       largura: 12
   - id: '122'
     label: '122'
-    box:
+    retangulo:
       x: 420
       y: 131
       comprimento: 21
       largura: 12
   - id: '123'
     label: '123'
-    box:
+    retangulo:
       x: 451
       y: 76
       comprimento: 20
       largura: 12
   - id: '124'
     label: '124'
-    box:
+    retangulo:
       x: 404
       y: 79
       comprimento: 21

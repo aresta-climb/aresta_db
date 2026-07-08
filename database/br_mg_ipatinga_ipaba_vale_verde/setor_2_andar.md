@@ -1,4 +1,4 @@
----
+---
 nome: 2° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp
@@ -7,63 +7,63 @@ mapas:
   pontos_de_interesse:
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 429
       y: 1611
       comprimento: 34
       largura: 40
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 438
       y: 1552
       comprimento: 35
       largura: 35
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 431
       y: 1404
       comprimento: 34
       largura: 33
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 410
       y: 1326
       comprimento: 41
       largura: 37
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 312
       y: 1072
       comprimento: 33
       largura: 37
   - id: '32'
     label: '32'
-    box:
+    retangulo:
       x: 356
       y: 545
       comprimento: 32
       largura: 38
   - id: '33'
     label: '33'
-    box:
+    retangulo:
       x: 346
       y: 486
       comprimento: 35
       largura: 35
   - id: '34'
     label: '34'
-    box:
+    retangulo:
       x: 288
       y: 424
       comprimento: 35
       largura: 32
   - id: '35'
     label: '35'
-    box:
+    retangulo:
       x: 280
       y: 362
       comprimento: 31
@@ -141,7 +141,8 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
----
+---
+
 # 2° Andar
 
 O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.

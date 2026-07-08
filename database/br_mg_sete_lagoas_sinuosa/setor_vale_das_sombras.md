@@ -7,103 +7,103 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 63
       y: 790
       raio: 12
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 118
       y: 802
       raio: 12
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 188
       y: 816
       raio: 12
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 257
       y: 749
       raio: 12
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 270
       y: 655
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 283
       y: 506
       raio: 12
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 299
       y: 469
       raio: 12
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 314
       y: 356
       raio: 12
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 203
       y: 210
       raio: 12
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 198
       y: 168
       raio: 12
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 212
       y: 128
       raio: 12
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 328
       y: 115
       raio: 12
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 404
       y: 113
       raio: 12
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 472
       y: 89
       raio: 12
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 509
       y: 81
       raio: 12
   - id: '16'
     label: '16'
-    circular:
+    circulo:
       x: 549
       y: 71
       raio: 12
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 592
       y: 51
       raio: 12
@@ -168,85 +168,85 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    circular:
+    circulo:
       x: 342
       y: 1211
       raio: 23
   - id: '18'
     label: '18'
-    circular:
+    circulo:
       x: 359
       y: 1146
       raio: 23
   - id: '19'
     label: '19'
-    circular:
+    circulo:
       x: 399
       y: 1084
       raio: 23
   - id: '20'
     label: '20'
-    circular:
+    circulo:
       x: 414
       y: 1004
       raio: 24
   - id: '21'
     label: '21'
-    circular:
+    circulo:
       x: 443
       y: 917
       raio: 24
   - id: '22'
     label: '22'
-    circular:
+    circulo:
       x: 504
       y: 842
       raio: 23
   - id: '23'
     label: '23'
-    circular:
+    circulo:
       x: 560
       y: 757
       raio: 24
   - id: '24'
     label: '24'
-    circular:
+    circulo:
       x: 603
       y: 687
       raio: 24
   - id: '25'
     label: '25'
-    circular:
+    circulo:
       x: 632
       y: 567
       raio: 24
   - id: '26'
     label: '26'
-    circular:
+    circulo:
       x: 642
       y: 483
       raio: 24
   - id: '27'
     label: '27'
-    circular:
+    circulo:
       x: 661
       y: 383
       raio: 24
   - id: '28'
     label: '28'
-    circular:
+    circulo:
       x: 654
       y: 312
       raio: 24
   - id: '29'
     label: '29'
-    circular:
+    circulo:
       x: 658
       y: 243
       raio: 23
   - id: Setor_Gameleira
     label: ← SETOR GAMELEIRA
-    box:
+    retangulo:
       x: 76
       y: 976
       comprimento: 31
@@ -254,7 +254,7 @@ mapas:
       angulo_graus_x100: -3782
   - id: Setor_4_Picos
     label: ← SETOR 4 PICOS
-    box:
+    retangulo:
       x: 100
       y: 1200
       comprimento: 31

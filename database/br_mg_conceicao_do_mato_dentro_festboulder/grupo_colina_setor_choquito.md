@@ -1,4 +1,4 @@
----
+---
 nome: Choquito
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 250
       y: 350
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 360
       y: 470
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 420
       y: 420
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 720
       y: 500
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 755
       y: 490
       comprimento: 30
@@ -68,14 +68,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 320
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 500
       y: 525
       comprimento: 30
@@ -114,7 +114,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V3
----
+---
+
 # Setor Choquito
 
 O setor Choquito possui blocos com linhas variadas.

@@ -28,25 +28,25 @@ mapas:
   pontos_de_interesse:
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 671
       y: 463
       raio: 9
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 500
       y: 448
       raio: 9
   - id: Z
     label: Z
-    circular:
+    circulo:
       x: 662
       y: 12
       raio: 9
   - id: W
     label: W
-    circular:
+    circulo:
       x: 772
       y: 9
       raio: 10
@@ -65,25 +65,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 354
       y: 396
       raio: 9
   - id: 3_b
     label: '3'
-    circular:
+    circulo:
       x: 516
       y: 358
       raio: 9
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 698
       y: 360
       raio: 9
   - id: 2_b
     label: '2'
-    circular:
+    circulo:
       x: 743
       y: 356
       raio: 9
@@ -101,6 +101,5 @@ mapas:
     ids:
     - '4'
 ---
-
 
 # Bloco Free Solo

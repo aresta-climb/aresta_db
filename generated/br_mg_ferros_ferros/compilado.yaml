@@ -2067,7 +2067,7 @@ botoes:
         | :--: |
 
         | *QR Code Google Maps* |'
-ultima_migracao: 3
+ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/como_chegar_p0_i0.webp
   checksum_sha256: eb11fb1d3d00687c48522a7ba1c78f794309b3f3866c0ecf03ddffb3da5a498c

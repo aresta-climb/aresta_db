@@ -7,175 +7,175 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 372
       y: 818
       comprimento: 26
       largura: 24
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 416
       y: 738
       comprimento: 27
       largura: 25
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 413
       y: 704
       comprimento: 24
       largura: 24
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 432
       y: 658
       comprimento: 23
       largura: 24
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 426
       y: 598
       comprimento: 22
       largura: 21
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 453
       y: 488
       comprimento: 24
       largura: 23
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 436
       y: 432
       comprimento: 25
       largura: 25
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 490
       y: 391
       comprimento: 25
       largura: 22
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 534
       y: 366
       comprimento: 24
       largura: 21
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 550
       y: 408
       comprimento: 17
       largura: 17
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 568
       y: 398
       comprimento: 17
       largura: 17
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 592
       y: 386
       comprimento: 20
       largura: 17
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 608
       y: 446
       comprimento: 21
       largura: 17
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 599
       y: 464
       comprimento: 20
       largura: 18
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 561
       y: 453
       comprimento: 20
       largura: 18
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 525
       y: 467
       comprimento: 20
       largura: 18
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 532
       y: 504
       comprimento: 20
       largura: 18
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 582
       y: 606
       comprimento: 18
       largura: 18
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 565
       y: 622
       comprimento: 18
       largura: 17
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 564
       y: 644
       comprimento: 21
       largura: 19
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 565
       y: 696
       comprimento: 22
       largura: 22
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 600
       y: 744
       comprimento: 22
       largura: 21
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 624
       y: 724
       comprimento: 20
       largura: 19
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 752
       y: 586
       comprimento: 23
       largura: 19
   - id: Setor_Conexao
     label: Setor Jardim Suspenso e Segundo Andar
-    box:
+    retangulo:
       x: 82
       y: 918
       comprimento: 78
@@ -254,11 +254,11 @@ mapas:
     - Setor_Conexao
     setor: 2º Andar
   - ids:
-    - '08'
+    - 08
     setor: 3º Andar
     escalada: Iara
   - ids:
-    - '09'
+    - 09
     setor: 3º Andar
     escalada: Come Hamburguer
 escaladas:

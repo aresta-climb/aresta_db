@@ -7,189 +7,189 @@ mapas:
   pontos_de_interesse:
   - id: '82'
     label: '82'
-    box:
+    retangulo:
       x: 11
       y: 97
       comprimento: 14
       largura: 12
   - id: '83'
     label: '83'
-    box:
+    retangulo:
       x: 21
       y: 114
       comprimento: 14
       largura: 12
   - id: '84'
     label: '84'
-    box:
+    retangulo:
       x: 46
       y: 144
       comprimento: 14
       largura: 12
   - id: '85'
     label: '85'
-    box:
+    retangulo:
       x: 64
       y: 142
       comprimento: 14
       largura: 12
   - id: '86'
     label: '86'
-    box:
+    retangulo:
       x: 87
       y: 140
       comprimento: 14
       largura: 12
   - id: '87'
     label: '87'
-    box:
+    retangulo:
       x: 128
       y: 142
       comprimento: 14
       largura: 12
   - id: '88'
     label: '88'
-    box:
+    retangulo:
       x: 122
       y: 158
       comprimento: 14
       largura: 12
   - id: '89'
     label: '89'
-    box:
+    retangulo:
       x: 103
       y: 154
       comprimento: 14
       largura: 12
   - id: '91'
     label: '91'
-    box:
+    retangulo:
       x: 243
       y: 324
       comprimento: 14
       largura: 12
   - id: '92'
     label: '92'
-    box:
+    retangulo:
       x: 182
       y: 194
       comprimento: 12
       largura: 9
   - id: '93'
     label: '93'
-    box:
+    retangulo:
       x: 194
       y: 184
       comprimento: 11
       largura: 9
   - id: '94'
     label: '94'
-    box:
+    retangulo:
       x: 211
       y: 173
       comprimento: 14
       largura: 12
   - id: '95'
     label: '95'
-    box:
+    retangulo:
       x: 239
       y: 159
       comprimento: 14
       largura: 12
   - id: '96'
     label: '96'
-    box:
+    retangulo:
       x: 221
       y: 130
       comprimento: 12
       largura: 9
   - id: '97'
     label: '97'
-    box:
+    retangulo:
       x: 207
       y: 140
       comprimento: 12
       largura: 8
   - id: '98'
     label: '98'
-    box:
+    retangulo:
       x: 202
       y: 158
       comprimento: 11
       largura: 11
   - id: '99'
     label: '99'
-    box:
+    retangulo:
       x: 181
       y: 126
       comprimento: 14
       largura: 11
   - id: '100'
     label: '100'
-    box:
+    retangulo:
       x: 152
       y: 116
       comprimento: 17
       largura: 10
   - id: '101'
     label: '101'
-    box:
+    retangulo:
       x: 158
       y: 98
       comprimento: 17
       largura: 9
   - id: '102'
     label: '102'
-    box:
+    retangulo:
       x: 180
       y: 88
       comprimento: 17
       largura: 11
   - id: '103'
     label: '103'
-    box:
+    retangulo:
       x: 207
       y: 105
       comprimento: 18
       largura: 10
   - id: '104'
     label: '104'
-    box:
+    retangulo:
       x: 230
       y: 99
       comprimento: 17
       largura: 10
   - id: '105'
     label: '105'
-    box:
+    retangulo:
       x: 240
       y: 70
       comprimento: 17
       largura: 10
   - id: '106'
     label: '106'
-    box:
+    retangulo:
       x: 216
       y: 56
       comprimento: 19
       largura: 10
   - id: '107'
     label: '107'
-    box:
+    retangulo:
       x: 168
       y: 42
       comprimento: 19
       largura: 9
   - id: '108'
     label: '108'
-    box:
+    retangulo:
       x: 138
       y: 42
       comprimento: 17
       largura: 9
   - id: '109'
     label: '109'
-    box:
+    retangulo:
       x: 130
       y: 29
       comprimento: 17

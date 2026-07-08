@@ -1,4 +1,4 @@
----
+---
 nome: JK
 mapas:
 - caminho_imagem_mapa: imagens/grupo_jk_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 302
       y: 222
       comprimento: 25
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 458
       y: 112
       comprimento: 25
@@ -25,7 +25,8 @@ mapas:
     - '1'
 setores:
 - caminho: grupo_jk_setor_mufasa.md
----
+---
+
 # Grupo JK
 
 O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.

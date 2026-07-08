@@ -12,7 +12,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/mapas_gerais_p0.webp)
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **revisado_manualmente**: True
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -36,7 +36,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 416
           - **y**: 1324
           - **comprimento**: 34
@@ -44,7 +44,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 290
           - **y**: 1258
           - **comprimento**: 35
@@ -52,7 +52,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 310
           - **y**: 1106
           - **comprimento**: 28
@@ -60,7 +60,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 318
           - **y**: 988
           - **comprimento**: 29
@@ -68,7 +68,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 410
           - **y**: 886
           - **comprimento**: 35
@@ -76,7 +76,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 524
           - **y**: 788
           - **comprimento**: 31
@@ -84,7 +84,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 755
           - **y**: 647
           - **comprimento**: 34
@@ -92,7 +92,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 894
           - **y**: 579
           - **comprimento**: 29
@@ -100,7 +100,7 @@
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 862
           - **y**: 482
           - **comprimento**: 29
@@ -108,7 +108,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 732
           - **y**: 504
           - **comprimento**: 45
@@ -116,7 +116,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 646
           - **y**: 512
           - **comprimento**: 41
@@ -287,7 +287,7 @@
       - **[0]**:
         - **id**: 1am
         - **label**: 1am
-        - **box**:
+        - **retangulo**:
           - **x**: 106
           - **y**: 728
           - **comprimento**: 28
@@ -295,7 +295,7 @@
       - **[1]**:
         - **id**: 2am
         - **label**: 2am
-        - **box**:
+        - **retangulo**:
           - **x**: 167
           - **y**: 840
           - **comprimento**: 36
@@ -303,7 +303,7 @@
       - **[2]**:
         - **id**: 3am
         - **label**: 3am
-        - **box**:
+        - **retangulo**:
           - **x**: 159
           - **y**: 720
           - **comprimento**: 34
@@ -311,7 +311,7 @@
       - **[3]**:
         - **id**: 4am
         - **label**: 4am
-        - **box**:
+        - **retangulo**:
           - **x**: 238
           - **y**: 756
           - **comprimento**: 29
@@ -319,7 +319,7 @@
       - **[4]**:
         - **id**: 5am
         - **label**: 5am
-        - **box**:
+        - **retangulo**:
           - **x**: 255
           - **y**: 670
           - **comprimento**: 28
@@ -327,7 +327,7 @@
       - **[5]**:
         - **id**: 6am
         - **label**: 6am
-        - **box**:
+        - **retangulo**:
           - **x**: 678
           - **y**: 711
           - **comprimento**: 35
@@ -335,7 +335,7 @@
       - **[6]**:
         - **id**: 1az
         - **label**: 1az
-        - **box**:
+        - **retangulo**:
           - **x**: 852
           - **y**: 728
           - **comprimento**: 26
@@ -343,7 +343,7 @@
       - **[7]**:
         - **id**: 2az
         - **label**: 2az
-        - **box**:
+        - **retangulo**:
           - **x**: 1000
           - **y**: 684
           - **comprimento**: 29
@@ -351,7 +351,7 @@
       - **[8]**:
         - **id**: 3az
         - **label**: 3az
-        - **box**:
+        - **retangulo**:
           - **x**: 1141
           - **y**: 642
           - **comprimento**: 32
@@ -359,7 +359,7 @@
       - **[9]**:
         - **id**: 4az
         - **label**: 4az
-        - **box**:
+        - **retangulo**:
           - **x**: 1426
           - **y**: 748
           - **comprimento**: 32
@@ -367,7 +367,7 @@
       - **[10]**:
         - **id**: 5az
         - **label**: 5az
-        - **box**:
+        - **retangulo**:
           - **x**: 1512
           - **y**: 688
           - **comprimento**: 31
@@ -375,7 +375,7 @@
       - **[11]**:
         - **id**: 6az
         - **label**: 6az
-        - **box**:
+        - **retangulo**:
           - **x**: 1614
           - **y**: 572
           - **comprimento**: 33
@@ -383,7 +383,7 @@
       - **[12]**:
         - **id**: 7az
         - **label**: 7az
-        - **box**:
+        - **retangulo**:
           - **x**: 1752
           - **y**: 558
           - **comprimento**: 32
@@ -594,7 +594,7 @@
       - **[0]**:
         - **id**: 1ros
         - **label**: 1ros
-        - **box**:
+        - **retangulo**:
           - **x**: 948
           - **y**: 184
           - **comprimento**: 30
@@ -602,7 +602,7 @@
       - **[1]**:
         - **id**: 2ros
         - **label**: 2ros
-        - **box**:
+        - **retangulo**:
           - **x**: 982
           - **y**: 286
           - **comprimento**: 29
@@ -610,7 +610,7 @@
       - **[2]**:
         - **id**: 3ros
         - **label**: 3ros
-        - **box**:
+        - **retangulo**:
           - **x**: 904
           - **y**: 256
           - **comprimento**: 30
@@ -618,7 +618,7 @@
       - **[3]**:
         - **id**: 4ros
         - **label**: 4ros
-        - **box**:
+        - **retangulo**:
           - **x**: 937
           - **y**: 360
           - **comprimento**: 34
@@ -626,7 +626,7 @@
       - **[4]**:
         - **id**: 5ros
         - **label**: 5ros
-        - **box**:
+        - **retangulo**:
           - **x**: 816
           - **y**: 248
           - **comprimento**: 35
@@ -634,7 +634,7 @@
       - **[5]**:
         - **id**: 6ros
         - **label**: 6ros
-        - **box**:
+        - **retangulo**:
           - **x**: 912
           - **y**: 182
           - **comprimento**: 31
@@ -642,7 +642,7 @@
       - **[6]**:
         - **id**: 1az
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 570
           - **y**: 1194
           - **comprimento**: 27
@@ -650,7 +650,7 @@
       - **[7]**:
         - **id**: 2az
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 528
           - **y**: 1362
           - **comprimento**: 38
@@ -658,7 +658,7 @@
       - **[8]**:
         - **id**: 3az
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 590
           - **y**: 1407
           - **comprimento**: 39
@@ -666,7 +666,7 @@
       - **[9]**:
         - **id**: 4az
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 536
           - **y**: 1508
           - **comprimento**: 28
@@ -674,7 +674,7 @@
       - **[10]**:
         - **id**: 5az
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 606
           - **y**: 1494
           - **comprimento**: 37
@@ -682,7 +682,7 @@
       - **[11]**:
         - **id**: 6az
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 608
           - **y**: 1575
           - **comprimento**: 35
@@ -690,7 +690,7 @@
       - **[12]**:
         - **id**: 1rox
         - **label**: 1rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1052
           - **y**: 163
           - **comprimento**: 29
@@ -698,7 +698,7 @@
       - **[13]**:
         - **id**: 2rox
         - **label**: 2rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1116
           - **y**: 194
           - **comprimento**: 32
@@ -706,7 +706,7 @@
       - **[14]**:
         - **id**: 3rox
         - **label**: 3rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1172
           - **y**: 196
           - **comprimento**: 37
@@ -714,7 +714,7 @@
       - **[15]**:
         - **id**: 4rox
         - **label**: 4rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1252
           - **y**: 210
           - **comprimento**: 35
@@ -722,7 +722,7 @@
       - **[16]**:
         - **id**: 5rox
         - **label**: 5rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1359
           - **y**: 213
           - **comprimento**: 30
@@ -730,7 +730,7 @@
       - **[17]**:
         - **id**: 6rox
         - **label**: 6rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1456
           - **y**: 218
           - **comprimento**: 34
@@ -738,7 +738,7 @@
       - **[18]**:
         - **id**: 7rox
         - **label**: 7rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1582
           - **y**: 220
           - **comprimento**: 33
@@ -746,7 +746,7 @@
       - **[19]**:
         - **id**: 8rox
         - **label**: 8rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1664
           - **y**: 236
           - **comprimento**: 33
@@ -754,7 +754,7 @@
       - **[20]**:
         - **id**: 9rox
         - **label**: 9rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1730
           - **y**: 303
           - **comprimento**: 32
@@ -762,7 +762,7 @@
       - **[21]**:
         - **id**: 10rox
         - **label**: 10rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1753
           - **y**: 246
           - **comprimento**: 56
@@ -770,7 +770,7 @@
       - **[22]**:
         - **id**: 11rox
         - **label**: 11rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1634
           - **y**: 436
           - **comprimento**: 45
@@ -778,7 +778,7 @@
       - **[23]**:
         - **id**: 12rox
         - **label**: 12rox
-        - **box**:
+        - **retangulo**:
           - **x**: 1543
           - **y**: 438
           - **comprimento**: 50
@@ -1246,7 +1246,7 @@
       - **[0]**:
         - **id**: 1az
         - **label**: 1az
-        - **box**:
+        - **retangulo**:
           - **x**: 212
           - **y**: 402
           - **comprimento**: 35
@@ -1254,7 +1254,7 @@
       - **[1]**:
         - **id**: 1ve
         - **label**: 1ve
-        - **box**:
+        - **retangulo**:
           - **x**: 722
           - **y**: 848
           - **comprimento**: 19
@@ -1262,7 +1262,7 @@
       - **[2]**:
         - **id**: 2ve
         - **label**: 2ve
-        - **box**:
+        - **retangulo**:
           - **x**: 746
           - **y**: 869
           - **comprimento**: 21
@@ -1270,7 +1270,7 @@
       - **[3]**:
         - **id**: 3ve
         - **label**: 3ve
-        - **box**:
+        - **retangulo**:
           - **x**: 719
           - **y**: 944
           - **comprimento**: 32
@@ -1278,7 +1278,7 @@
       - **[4]**:
         - **id**: 4ve
         - **label**: 4ve
-        - **box**:
+        - **retangulo**:
           - **x**: 789
           - **y**: 902
           - **comprimento**: 32
@@ -1286,7 +1286,7 @@
       - **[5]**:
         - **id**: 1ro
         - **label**: 1ro
-        - **box**:
+        - **retangulo**:
           - **x**: 1756
           - **y**: 1474
           - **comprimento**: 31
@@ -1294,7 +1294,7 @@
       - **[6]**:
         - **id**: 2ro
         - **label**: 2ro
-        - **box**:
+        - **retangulo**:
           - **x**: 1686
           - **y**: 1468
           - **comprimento**: 26

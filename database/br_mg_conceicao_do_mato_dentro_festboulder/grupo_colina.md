@@ -1,4 +1,4 @@
----
+---
 nome: Colina
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 542
       y: 362
       comprimento: 35
       largura: 35
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 638
       y: 222
       comprimento: 35
       largura: 35
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 438
       y: 262
       comprimento: 35
       largura: 35
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 38
       y: 162
       comprimento: 35
       largura: 35
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 708
       y: 442
       comprimento: 34
@@ -62,7 +62,8 @@ setores:
 - caminho: grupo_colina_setor_show_time.md
 - caminho: grupo_colina_setor_hiperespaco.md
 - caminho: grupo_colina_setor_mergulho_em_copo_dagua.md
----
+---
+
 # Grupo Colina
 
 A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.

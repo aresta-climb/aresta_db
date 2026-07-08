@@ -7,133 +7,133 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 616
       y: 138
       comprimento: 28
       largura: 22
   - id: Setor_Entrada
     label: Setor Entrada
-    box:
+    retangulo:
       x: 949
       y: 156
       comprimento: 152
       largura: 23
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 605
       y: 198
       comprimento: 28
       largura: 22
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 563
       y: 354
       comprimento: 30
       largura: 21
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 500
       y: 492
       comprimento: 26
       largura: 23
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 460
       y: 541
       comprimento: 27
       largura: 24
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 32
       y: 622
       comprimento: 28
       largura: 23
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 167
       y: 677
       comprimento: 28
       largura: 26
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 250
       y: 689
       comprimento: 30
       largura: 26
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 373
       y: 694
       comprimento: 26
       largura: 23
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 511
       y: 800
       comprimento: 26
       largura: 23
   - id: Top
     label: Top
-    box:
+    retangulo:
       x: 120
       y: 844
       comprimento: 37
       largura: 23
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 290
       y: 846
       comprimento: 25
       largura: 23
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 478
       y: 897
       comprimento: 22
       largura: 26
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 123
       y: 880
       comprimento: 26
       largura: 23
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 764
       y: 900
       comprimento: 23
       largura: 21
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 298
       y: 916
       comprimento: 29
       largura: 23
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 716
       y: 913
       comprimento: 23
       largura: 18
   - id: Setor_Pasto
     label: Setor Pasto
-    box:
+    retangulo:
       x: 84
       y: 1108
       comprimento: 65
@@ -182,11 +182,11 @@ mapas:
     ids:
     - '16'
   - ids:
-    - '08'
+    - 08
     setor: Setor Fechadura
     escalada: Primeira Batida
   - ids:
-    - '09'
+    - 09
     setor: Setor Fechadura
     escalada: Menino de Toca
   - ids:

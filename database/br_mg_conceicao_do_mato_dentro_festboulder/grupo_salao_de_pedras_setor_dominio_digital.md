@@ -1,4 +1,4 @@
----
+---
 nome: Domínio Digital
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_dominio_digital_p0.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 110
       y: 240
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 730
       y: 255
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 750
       y: 290
       comprimento: 21
@@ -46,7 +46,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V0
----
+---
+
 # Setor Domínio Digital
 
 O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.

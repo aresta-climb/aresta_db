@@ -70,7 +70,7 @@
             - **Contato/Informações:** @abrigobase
             - **Atualizações/Sugestões:** abrigobase@gmail.com
             - **Contribuição/Parceria:** Pix 37 99918-3634
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -93,7 +93,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 491
           - **y**: 212
           - **comprimento**: 10
@@ -101,7 +101,7 @@
       - **[1]**:
         - **id**: Setor_Cemiterio_dos_Ossos
         - **label**: Setor Cemitério dos Ossos
-        - **box**:
+        - **retangulo**:
           - **x**: 432
           - **y**: 196
           - **comprimento**: 50
@@ -110,7 +110,7 @@
       - **[2]**:
         - **id**: Setor_Praca_Aristoteles
         - **label**: Setor Praça Aristóteles
-        - **box**:
+        - **retangulo**:
           - **x**: 644
           - **y**: 139
           - **comprimento**: 55
@@ -118,7 +118,7 @@
       - **[3]**:
         - **id**: Setor_Corredor_Polones
         - **label**: Setor Corredor Polonês
-        - **box**:
+        - **retangulo**:
           - **x**: 688
           - **y**: 298
           - **comprimento**: 111
@@ -127,7 +127,7 @@
       - **[4]**:
         - **id**: Setor_Barceloneta
         - **label**: Setor Barceloneta
-        - **box**:
+        - **retangulo**:
           - **x**: 647
           - **y**: 592
           - **comprimento**: 62
@@ -168,7 +168,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 534
           - **y**: 136
           - **comprimento**: 9
@@ -176,7 +176,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 545
           - **y**: 124
           - **comprimento**: 10
@@ -184,7 +184,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 566
           - **y**: 109
           - **comprimento**: 13
@@ -192,7 +192,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 588
           - **y**: 106
           - **comprimento**: 10
@@ -200,7 +200,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 598
           - **y**: 110
           - **comprimento**: 9
@@ -208,7 +208,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 608
           - **y**: 120
           - **comprimento**: 10
@@ -216,7 +216,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 608
           - **y**: 136
           - **comprimento**: 11
@@ -224,7 +224,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 604
           - **y**: 148
           - **comprimento**: 9
@@ -232,7 +232,7 @@
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **box**:
+        - **retangulo**:
           - **x**: 612
           - **y**: 156
           - **comprimento**: 9
@@ -240,7 +240,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 618
           - **y**: 170
           - **comprimento**: 16
@@ -248,7 +248,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 618
           - **y**: 186
           - **comprimento**: 14
@@ -256,7 +256,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 616
           - **y**: 202
           - **comprimento**: 15
@@ -264,7 +264,7 @@
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **box**:
+        - **retangulo**:
           - **x**: 614
           - **y**: 218
           - **comprimento**: 16
@@ -272,7 +272,7 @@
       - **[13]**:
         - **id**: Setor_Cemiterio_dos_Ossos
         - **label**: Setor Cemitério dos Ossos
-        - **box**:
+        - **retangulo**:
           - **x**: 456
           - **y**: 172
           - **comprimento**: 77
@@ -280,7 +280,7 @@
       - **[14]**:
         - **id**: Setor_Praca_Aristoteles
         - **label**: Setor Praça Aristóteles
-        - **box**:
+        - **retangulo**:
           - **x**: 672
           - **y**: 105
           - **comprimento**: 97
@@ -288,7 +288,7 @@
       - **[15]**:
         - **id**: Setor_Corredor_Polones
         - **label**: Setor Corredor Polonês
-        - **box**:
+        - **retangulo**:
           - **x**: 684
           - **y**: 290
           - **comprimento**: 110
@@ -297,7 +297,7 @@
       - **[16]**:
         - **id**: Setor_Barceloneta
         - **label**: Setor Barceloneta
-        - **box**:
+        - **retangulo**:
           - **x**: 644
           - **y**: 584
           - **comprimento**: 52
@@ -305,7 +305,7 @@
       - **[17]**:
         - **id**: Estrada_de_terra
         - **label**: Estrada de terra
-        - **box**:
+        - **retangulo**:
           - **x**: 406
           - **y**: 874
           - **comprimento**: 125
@@ -313,7 +313,7 @@
       - **[18]**:
         - **id**: H2O
         - **label**: H2O
-        - **box**:
+        - **retangulo**:
           - **x**: 636
           - **y**: 918
           - **comprimento**: 47
@@ -479,7 +479,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 596
           - **y**: 262
           - **comprimento**: 12
@@ -487,7 +487,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 615
           - **y**: 276
           - **comprimento**: 12
@@ -495,7 +495,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 641
           - **y**: 274
           - **comprimento**: 12
@@ -503,7 +503,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 667
           - **y**: 274
           - **comprimento**: 12
@@ -511,7 +511,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 706
           - **y**: 310
           - **comprimento**: 12
@@ -519,7 +519,7 @@
       - **[5]**:
         - **id**: Setor_Praca_Aristoteles
         - **label**: Setor Praça Aristóteles
-        - **box**:
+        - **retangulo**:
           - **x**: 642
           - **y**: 130
           - **comprimento**: 49
@@ -527,7 +527,7 @@
       - **[6]**:
         - **id**: Setor_Cemiterio_dos_Ossos
         - **label**: Setor Cemitério dos Ossos
-        - **box**:
+        - **retangulo**:
           - **x**: 461
           - **y**: 174
           - **comprimento**: 70
@@ -535,7 +535,7 @@
       - **[7]**:
         - **id**: Setor_Corredor_Polones
         - **label**: Setor Corredor Polonês
-        - **box**:
+        - **retangulo**:
           - **x**: 710
           - **y**: 238
           - **comprimento**: 158
@@ -543,7 +543,7 @@
       - **[8]**:
         - **id**: Setor_Barceloneta
         - **label**: Setor Barceloneta
-        - **box**:
+        - **retangulo**:
           - **x**: 650
           - **y**: 587
           - **comprimento**: 62
@@ -551,7 +551,7 @@
       - **[9]**:
         - **id**: Estrada_de_terra
         - **label**: Estrada de terra
-        - **box**:
+        - **retangulo**:
           - **x**: 408
           - **y**: 879
           - **comprimento**: 125
@@ -559,7 +559,7 @@
       - **[10]**:
         - **id**: H2O
         - **label**: H2O
-        - **box**:
+        - **retangulo**:
           - **x**: 638
           - **y**: 920
           - **comprimento**: 43
@@ -636,7 +636,7 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **box**:
+        - **retangulo**:
           - **x**: 629
           - **y**: 522
           - **comprimento**: 12
@@ -644,7 +644,7 @@
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **box**:
+        - **retangulo**:
           - **x**: 625
           - **y**: 552
           - **comprimento**: 12
@@ -652,7 +652,7 @@
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **box**:
+        - **retangulo**:
           - **x**: 618
           - **y**: 594
           - **comprimento**: 12
@@ -660,7 +660,7 @@
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **box**:
+        - **retangulo**:
           - **x**: 642
           - **y**: 610
           - **comprimento**: 12
@@ -668,7 +668,7 @@
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **box**:
+        - **retangulo**:
           - **x**: 667
           - **y**: 608
           - **comprimento**: 12
@@ -676,7 +676,7 @@
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **box**:
+        - **retangulo**:
           - **x**: 701
           - **y**: 602
           - **comprimento**: 12
@@ -684,7 +684,7 @@
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **box**:
+        - **retangulo**:
           - **x**: 724
           - **y**: 614
           - **comprimento**: 12
@@ -692,7 +692,7 @@
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **box**:
+        - **retangulo**:
           - **x**: 776
           - **y**: 594
           - **comprimento**: 12
@@ -700,7 +700,7 @@
       - **[8]**:
         - **id**: Setor_Praca_Aristoteles
         - **label**: Setor Praça Aristóteles
-        - **box**:
+        - **retangulo**:
           - **x**: 643
           - **y**: 132
           - **comprimento**: 50
@@ -708,7 +708,7 @@
       - **[9]**:
         - **id**: Setor_Cemiterio_dos_Ossos
         - **label**: Setor Cemitério dos Ossos
-        - **box**:
+        - **retangulo**:
           - **x**: 462
           - **y**: 172
           - **comprimento**: 70
@@ -716,7 +716,7 @@
       - **[10]**:
         - **id**: Setor_Corredor_Polones
         - **label**: Setor Corredor Polonês
-        - **box**:
+        - **retangulo**:
           - **x**: 688
           - **y**: 293
           - **comprimento**: 105
@@ -725,7 +725,7 @@
       - **[11]**:
         - **id**: Setor_Barceloneta
         - **label**: Setor Barceloneta
-        - **box**:
+        - **retangulo**:
           - **x**: 698
           - **y**: 556
           - **comprimento**: 111
@@ -733,7 +733,7 @@
       - **[12]**:
         - **id**: Estrada_de_terra
         - **label**: Estrada de terra
-        - **box**:
+        - **retangulo**:
           - **x**: 410
           - **y**: 875
           - **comprimento**: 125
@@ -741,7 +741,7 @@
       - **[13]**:
         - **id**: H2O
         - **label**: H2O
-        - **box**:
+        - **retangulo**:
           - **x**: 638
           - **y**: 919
           - **comprimento**: 43

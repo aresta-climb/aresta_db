@@ -18,35 +18,35 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 299
               y: 634
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 366
               y: 652
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 542
               y: 626
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 631
               y: 628
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 701
               y: 540
               comprimento: 20
@@ -110,7 +110,7 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 500
               y: 712
               comprimento: 20
@@ -125,42 +125,42 @@ picos:
           pontos_de_interesse:
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 428
               y: 657
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 462
               y: 662
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 462
               y: 698
               comprimento: 19
               largura: 17
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 466
               y: 740
               comprimento: 19
               largura: 19
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 500
               y: 800
               comprimento: 19
               largura: 19
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 694
               y: 726
               comprimento: 20
@@ -190,28 +190,28 @@ picos:
           pontos_de_interesse:
           - id: 08
             label: 08
-            box:
+            retangulo:
               x: 659
               y: 726
               comprimento: 20
               largura: 20
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 652
               y: 757
               comprimento: 18
               largura: 18
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 799
               y: 774
               comprimento: 24
               largura: 22
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 970
               y: 696
               comprimento: 22
@@ -297,35 +297,35 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 472
               y: 688
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 366
               y: 661
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 327
               y: 662
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 535
               y: 654
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 578
               y: 649
               comprimento: 20
@@ -382,21 +382,21 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 231
               y: 789
               comprimento: 24
               largura: 24
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 388
               y: 814
               comprimento: 23
               largura: 24
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 814
               y: 548
               comprimento: 24
@@ -454,28 +454,28 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 370
               y: 631
               comprimento: 19
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 578
               y: 602
               comprimento: 23
               largura: 23
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 786
               y: 594
               comprimento: 19
               largura: 19
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 924
               y: 625
               comprimento: 17
@@ -499,21 +499,21 @@ picos:
           pontos_de_interesse:
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 496
               y: 605
               comprimento: 20
               largura: 20
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 756
               y: 454
               comprimento: 19
               largura: 20
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 764
               y: 512
               comprimento: 21
@@ -573,7 +573,7 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 415
               y: 797
               comprimento: 20
@@ -588,42 +588,42 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 202
               y: 637
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 222
               y: 670
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 372
               y: 820
               comprimento: 21
               largura: 21
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 569
               y: 558
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 632
               y: 692
               comprimento: 23
               largura: 25
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 658
               y: 688
               comprimento: 20
@@ -653,49 +653,49 @@ picos:
           pontos_de_interesse:
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 299
               y: 698
               comprimento: 20
               largura: 20
           - id: 08
             label: 08
-            box:
+            retangulo:
               x: 296
               y: 612
               comprimento: 20
               largura: 20
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 330
               y: 698
               comprimento: 20
               largura: 20
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 425
               y: 746
               comprimento: 20
               largura: 20
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 453
               y: 733
               comprimento: 20
               largura: 20
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 476
               y: 718
               comprimento: 20
               largura: 20
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 502
               y: 707
               comprimento: 20
@@ -800,14 +800,14 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 467
               y: 684
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 682
               y: 692
               comprimento: 27
@@ -825,21 +825,21 @@ picos:
           pontos_de_interesse:
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 410
               y: 589
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 635
               y: 700
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 710
               y: 687
               comprimento: 20
@@ -890,28 +890,28 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 511
               y: 668
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 928
               y: 750
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 982
               y: 750
               comprimento: 20
               largura: 20
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 1015
               y: 735
               comprimento: 20
@@ -970,28 +970,28 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 71
               y: 537
               comprimento: 24
               largura: 24
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 286
               y: 656
               comprimento: 28
               largura: 32
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 370
               y: 686
               comprimento: 28
               largura: 32
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 919
               y: 659
               comprimento: 30
@@ -1041,21 +1041,21 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 151
               y: 742
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 212
               y: 748
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 991
               y: 684
               comprimento: 20
@@ -1096,84 +1096,84 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 122
               y: 717
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 161
               y: 718
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 141
               y: 752
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 254
               y: 682
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 296
               y: 775
               comprimento: 20
               largura: 20
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 682
               y: 580
               comprimento: 20
               largura: 20
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 618
               y: 554
               comprimento: 20
               largura: 20
           - id: 08
             label: 08
-            box:
+            retangulo:
               x: 803
               y: 501
               comprimento: 20
               largura: 20
           - id: P1
             label: P
-            box:
+            retangulo:
               x: 384
               y: 740
               comprimento: 20
               largura: 20
           - id: P2
             label: P
-            box:
+            retangulo:
               x: 675
               y: 659
               comprimento: 20
               largura: 20
           - id: P3
             label: P
-            box:
+            retangulo:
               x: 714
               y: 662
               comprimento: 20
               largura: 20
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 674
               y: 693
               comprimento: 23
@@ -1209,56 +1209,56 @@ picos:
           pontos_de_interesse:
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 660
               y: 428
               comprimento: 20
               largura: 20
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 626
               y: 497
               comprimento: 20
               largura: 20
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 691
               y: 420
               comprimento: 20
               largura: 20
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 659
               y: 498
               comprimento: 20
               largura: 20
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 619
               y: 410
               comprimento: 20
               largura: 20
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 597
               y: 501
               comprimento: 20
               largura: 20
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 751
               y: 491
               comprimento: 20
               largura: 20
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 867
               y: 430
               comprimento: 20
@@ -1294,70 +1294,70 @@ picos:
           pontos_de_interesse:
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 656
               y: 430
               comprimento: 20
               largura: 20
           - id: '10'
             label: '10'
-            box:
+            retangulo:
               x: 623
               y: 498
               comprimento: 20
               largura: 20
           - id: '11'
             label: '11'
-            box:
+            retangulo:
               x: 689
               y: 422
               comprimento: 20
               largura: 20
           - id: '12'
             label: '12'
-            box:
+            retangulo:
               x: 656
               y: 500
               comprimento: 20
               largura: 20
           - id: '13'
             label: '13'
-            box:
+            retangulo:
               x: 618
               y: 414
               comprimento: 20
               largura: 20
           - id: '14'
             label: '14'
-            box:
+            retangulo:
               x: 594
               y: 503
               comprimento: 20
               largura: 20
           - id: '15'
             label: '15'
-            box:
+            retangulo:
               x: 748
               y: 492
               comprimento: 20
               largura: 20
           - id: '16'
             label: '16'
-            box:
+            retangulo:
               x: 865
               y: 432
               comprimento: 20
               largura: 20
           - id: '17'
             label: '17'
-            box:
+            retangulo:
               x: 899
               y: 435
               comprimento: 20
               largura: 20
           - id: '18'
             label: '18'
-            box:
+            retangulo:
               x: 1012
               y: 402
               comprimento: 20
@@ -1514,49 +1514,49 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            box:
+            retangulo:
               x: 234
               y: 475
               comprimento: 20
               largura: 20
           - id: '02'
             label: '02'
-            box:
+            retangulo:
               x: 345
               y: 535
               comprimento: 20
               largura: 20
           - id: '03'
             label: '03'
-            box:
+            retangulo:
               x: 387
               y: 567
               comprimento: 20
               largura: 20
           - id: '04'
             label: '04'
-            box:
+            retangulo:
               x: 638
               y: 724
               comprimento: 20
               largura: 20
           - id: '05'
             label: '05'
-            box:
+            retangulo:
               x: 689
               y: 737
               comprimento: 20
               largura: 20
           - id: '06'
             label: '06'
-            box:
+            retangulo:
               x: 853
               y: 668
               comprimento: 20
               largura: 20
           - id: '07'
             label: '07'
-            box:
+            retangulo:
               x: 866
               y: 630
               comprimento: 20
@@ -1589,7 +1589,7 @@ picos:
           pontos_de_interesse:
           - id: 09
             label: 09
-            box:
+            retangulo:
               x: 376
               y: 428
               comprimento: 20
@@ -1636,68 +1636,68 @@ picos:
         pontos_de_interesse:
         - id: '1'
           label: '1'
-          circular:
+          circulo:
             x: 770
             y: 590
             raio: 9
         - id: 2-6
           label: 2-6
-          box:
+          retangulo:
             x: 765
             y: 512
             comprimento: 28
             largura: 12
         - id: '3'
           label: '3'
-          circular:
+          circulo:
             x: 845
             y: 522
             raio: 9
         - id: '4'
           label: '4'
-          circular:
+          circulo:
             x: 860
             y: 528
             raio: 9
         - id: '5'
           label: '5'
-          circular:
+          circulo:
             x: 903
             y: 490
             raio: 9
         - id: '7'
           label: '7'
-          circular:
+          circulo:
             x: 835
             y: 490
             raio: 9
         - id: '8'
           label: '8'
-          circular:
+          circulo:
             x: 890
             y: 460
             raio: 9
         - id: '9'
           label: '9'
-          circular:
+          circulo:
             x: 778
             y: 473
             raio: 9
         - id: '10'
           label: '10'
-          circular:
+          circulo:
             x: 735
             y: 475
             raio: 9
         - id: '11'
           label: '11'
-          circular:
+          circulo:
             x: 260
             y: 328
             raio: 11
         - id: '12'
           label: '12'
-          circular:
+          circulo:
             x: 376
             y: 343
             raio: 11
@@ -1786,7 +1786,7 @@ botoes:
         | :--: |
 
         | *Graduações de boulders no croqui* |'
-ultima_migracao: 3
+ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

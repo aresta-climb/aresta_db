@@ -1,4 +1,4 @@
----
+---
 nome: Jubileu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jubileu_p0.webp
@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 640
       y: 430
       comprimento: 30
@@ -28,7 +28,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 585
       y: 540
       comprimento: 30
@@ -49,14 +49,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 185
       y: 415
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 610
       y: 505
       comprimento: 30
@@ -87,7 +87,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V2
----
+---
+
 # Setor Jubileu
 
 O setor Jubileu possui blocos interessantes com linhas de dificuldade intermediária.

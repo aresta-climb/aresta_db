@@ -1,4 +1,4 @@
----
+---
 nome: La Fúria
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 480
       y: 25
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 275
       y: 25
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 480
       y: 70
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 275
       y: 70
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 480
       y: 115
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 275
       y: 115
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 105
       y: 540
       comprimento: 30
       largura: 30
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 35
       y: 515
       comprimento: 30
@@ -117,49 +117,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 750
       y: 215
       comprimento: 19
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 750
       y: 265
       comprimento: 19
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 570
       y: 25
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 750
       y: 555
       comprimento: 19
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 570
       y: 65
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 570
       y: 105
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 570
       y: 145
       comprimento: 30
@@ -213,21 +213,21 @@ mapas:
   pontos_de_interesse:
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 748
       y: 500
       comprimento: 25
       largura: 30
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 565
       y: 545
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 290
       y: 545
       comprimento: 30
@@ -257,7 +257,7 @@ mapas:
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 650
       y: 435
       comprimento: 30
@@ -327,7 +327,8 @@ escaladas:
 - boulder:
     nome: Travessia da Fúria
     dificuldade: V5
----
+---
+
 # Setor La Fúria
 
 O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.

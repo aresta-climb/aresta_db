@@ -7,37 +7,37 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 615
       y: 128
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1071
       y: 228
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1256
       y: 260
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 871
       y: 918
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 954
       y: 903
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1071
       y: 841
       raio: 13
@@ -73,5 +73,4 @@ escaladas:
     dificuldade: V6
     descricao: (não usa a face direita da linha)
 ---
-
 

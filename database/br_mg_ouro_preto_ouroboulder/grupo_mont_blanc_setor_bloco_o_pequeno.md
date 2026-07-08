@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 712
       y: 66
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 458
       y: 715
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1050
       y: 980
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 298
       y: 78
       raio: 13
@@ -52,13 +52,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 523
       y: 1026
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1021
       y: 923
       raio: 13
@@ -86,5 +86,4 @@ escaladas:
     nome: O Pequeno
     dificuldade: V8
 ---
-
 

@@ -7,25 +7,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 508
       y: 779
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1037
       y: 887
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 378
       y: 395
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 863
       y: 179
       raio: 13
@@ -52,5 +52,4 @@ escaladas:
     nome: Hard Core
     dificuldade: V6_BARRA_V7
 ---
-
 

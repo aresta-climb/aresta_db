@@ -1,4 +1,4 @@
----
+---
 nome: Aresta do Cabeça
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp
@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 180
       y: 515
       comprimento: 30
@@ -20,7 +20,8 @@ escaladas:
 - boulder:
     nome: Aresta do Cabeça
     dificuldade: V6
----
+---
+
 # Setor Aresta do Cabeça
 
 O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.

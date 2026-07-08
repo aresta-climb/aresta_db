@@ -1,4 +1,4 @@
----
+---
 nome: Conceição
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_conceicao_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 260
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 550
       y: 515
       comprimento: 30
@@ -38,21 +38,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 365
       y: 525
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 600
       y: 540
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 760
       y: 535
       comprimento: 30
@@ -89,7 +89,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V2
----
+---
+
 # Setor Conceição
 
 O setor Conceição apresenta blocos com agarras boas e linhas de técnica.

@@ -7,70 +7,70 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Jardim_Suspenso
     label: Setor Jardim Suspenso
-    box:
+    retangulo:
       x: 609
       y: 36
       comprimento: 112
       largura: 17
   - id: Plato
     label: Platô
-    box:
+    retangulo:
       x: 112
       y: 722
       comprimento: 44
       largura: 26
   - id: Setor_Chegada
     label: Setor Chegada
-    box:
+    retangulo:
       x: 140
       y: 1088
       comprimento: 92
       largura: 24
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 460
       y: 554
       comprimento: 18
       largura: 18
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 492
       y: 568
       comprimento: 19
       largura: 19
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 482
       y: 601
       comprimento: 21
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 494
       y: 626
       comprimento: 22
       largura: 20
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 381
       y: 789
       comprimento: 20
       largura: 18
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 361
       y: 831
       comprimento: 22
       largura: 18
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 152
       y: 432
       comprimento: 19

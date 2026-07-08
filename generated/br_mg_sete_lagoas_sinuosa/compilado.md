@@ -149,7 +149,7 @@
             - Instagram: [@sinuosaclimb](https://instagram.com/sinuosaclimb)
             
             **EDIÇÃO:** 2019-1
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -200,35 +200,35 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 409
           - **y**: 565
           - **raio**: 22
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 595
           - **y**: 614
           - **raio**: 22
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 698
           - **y**: 628
           - **raio**: 22
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 812
           - **y**: 638
           - **raio**: 22
       - **[4]**:
         - **id**: Setor_7_Paralelo
         - **label**: ← SETOR 7 PARALELO
-        - **box**:
+        - **retangulo**:
           - **x**: 269
           - **y**: 648
           - **comprimento**: 36
@@ -237,7 +237,7 @@
       - **[5]**:
         - **id**: Setor_Panelinha
         - **label**: SETOR PANELINHA →
-        - **box**:
+        - **retangulo**:
           - **x**: 937
           - **y**: 537
           - **comprimento**: 34
@@ -337,35 +337,35 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 528
           - **y**: 397
           - **raio**: 24
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 579
           - **y**: 317
           - **raio**: 23
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 609
           - **y**: 397
           - **raio**: 23
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 235
           - **y**: 477
           - **raio**: 24
       - **[4]**:
         - **id**: Setor_de_Esquerda
         - **label**: ↑ SETOR DE ESQUERDA
-        - **box**:
+        - **retangulo**:
           - **x**: 560
           - **y**: 597
           - **comprimento**: 37
@@ -464,119 +464,119 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 95
           - **y**: 1007
           - **raio**: 14
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 120
           - **y**: 963
           - **raio**: 14
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 146
           - **y**: 924
           - **raio**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 189
           - **y**: 867
           - **raio**: 14
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 209
           - **y**: 837
           - **raio**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 220
           - **y**: 801
           - **raio**: 14
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 220
           - **y**: 764
           - **raio**: 14
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 310
           - **y**: 493
           - **raio**: 14
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 318
           - **y**: 439
           - **raio**: 14
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 331
           - **y**: 384
           - **raio**: 14
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 343
           - **y**: 285
           - **raio**: 14
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 344
           - **y**: 225
           - **raio**: 14
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **circular**:
+        - **circulo**:
           - **x**: 337
           - **y**: 183
           - **raio**: 14
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **circular**:
+        - **circulo**:
           - **x**: 312
           - **y**: 157
           - **raio**: 14
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **circular**:
+        - **circulo**:
           - **x**: 320
           - **y**: 121
           - **raio**: 14
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **circular**:
+        - **circulo**:
           - **x**: 340
           - **y**: 93
           - **raio**: 14
       - **[16]**:
         - **id**: Setor_Death_Horse
         - **label**: SETOR DEATH HORSE→
-        - **box**:
+        - **retangulo**:
           - **x**: 282
           - **y**: 1014
           - **comprimento**: 265
@@ -584,7 +584,7 @@
       - **[17]**:
         - **id**: Setor_Sentinela
         - **label**: SETOR SENTINELA →
-        - **box**:
+        - **retangulo**:
           - **x**: 246
           - **y**: 86
           - **comprimento**: 203
@@ -593,7 +593,7 @@
       - **[18]**:
         - **id**: Setor_De_Esquerda
         - **label**: ← SETOR DE ESQUERDA
-        - **box**:
+        - **retangulo**:
           - **x**: 90
           - **y**: 786
           - **comprimento**: 195
@@ -815,56 +815,56 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 39
           - **y**: 198
           - **raio**: 18
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 290
           - **y**: 246
           - **raio**: 18
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 718
           - **y**: 276
           - **raio**: 18
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 828
           - **y**: 295
           - **raio**: 18
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 903
           - **y**: 352
           - **raio**: 18
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 955
           - **y**: 391
           - **raio**: 18
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 1040
           - **y**: 421
           - **raio**: 18
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 1107
           - **y**: 446
           - **raio**: 18
@@ -981,70 +981,70 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 66
           - **y**: 255
           - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 94
           - **y**: 286
           - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 131
           - **y**: 291
           - **raio**: 14
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 174
           - **y**: 270
           - **raio**: 14
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 238
           - **y**: 252
           - **raio**: 14
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 425
           - **y**: 279
           - **raio**: 14
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 480
           - **y**: 189
           - **raio**: 14
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 529
           - **y**: 187
           - **raio**: 14
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 1008
           - **y**: 347
           - **raio**: 14
       - **[9]**:
         - **id**: Setor_7_Paralelo
         - **label**: ↑ SETOR 7 PARALELO
-        - **box**:
+        - **retangulo**:
           - **x**: 20
           - **y**: 254
           - **comprimento**: 26
@@ -1052,7 +1052,7 @@
       - **[10]**:
         - **id**: Entrada_Sinuosa
         - **label**: ENTRADA SINUOSA ↑
-        - **box**:
+        - **retangulo**:
           - **x**: 592
           - **y**: 526
           - **comprimento**: 30
@@ -1061,7 +1061,7 @@
       - **[11]**:
         - **id**: Setor_Gameleira
         - **label**: SETOR GAMELEIRA →
-        - **box**:
+        - **retangulo**:
           - **x**: 968
           - **y**: 450
           - **comprimento**: 193
@@ -1194,35 +1194,35 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 248
           - **y**: 447
           - **raio**: 17
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 254
           - **y**: 370
           - **raio**: 17
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 157
           - **y**: 244
           - **raio**: 17
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 299
           - **y**: 99
           - **raio**: 17
       - **[4]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: SETOR VALE DAS SOMBRAS →
-        - **box**:
+        - **retangulo**:
           - **x**: 492
           - **y**: 512
           - **comprimento**: 325
@@ -1230,7 +1230,7 @@
       - **[5]**:
         - **id**: Setor_Death_Horse
         - **label**: ← SETOR DEATH HORSE
-        - **box**:
+        - **retangulo**:
           - **x**: 252
           - **y**: 566
           - **comprimento**: 265
@@ -1324,119 +1324,119 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 63
           - **y**: 790
           - **raio**: 12
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 118
           - **y**: 802
           - **raio**: 12
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 188
           - **y**: 816
           - **raio**: 12
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 257
           - **y**: 749
           - **raio**: 12
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 270
           - **y**: 655
           - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 283
           - **y**: 506
           - **raio**: 12
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 299
           - **y**: 469
           - **raio**: 12
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 314
           - **y**: 356
           - **raio**: 12
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 203
           - **y**: 210
           - **raio**: 12
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 198
           - **y**: 168
           - **raio**: 12
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 212
           - **y**: 128
           - **raio**: 12
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 328
           - **y**: 115
           - **raio**: 12
       - **[12]**:
         - **id**: 13
         - **label**: 13
-        - **circular**:
+        - **circulo**:
           - **x**: 404
           - **y**: 113
           - **raio**: 12
       - **[13]**:
         - **id**: 14
         - **label**: 14
-        - **circular**:
+        - **circulo**:
           - **x**: 472
           - **y**: 89
           - **raio**: 12
       - **[14]**:
         - **id**: 15
         - **label**: 15
-        - **circular**:
+        - **circulo**:
           - **x**: 509
           - **y**: 81
           - **raio**: 12
       - **[15]**:
         - **id**: 16
         - **label**: 16
-        - **circular**:
+        - **circulo**:
           - **x**: 549
           - **y**: 71
           - **raio**: 12
       - **[16]**:
         - **id**: 17
         - **label**: 17
-        - **circular**:
+        - **circulo**:
           - **x**: 592
           - **y**: 51
           - **raio**: 12
@@ -1521,98 +1521,98 @@
       - **[0]**:
         - **id**: 17
         - **label**: 17
-        - **circular**:
+        - **circulo**:
           - **x**: 342
           - **y**: 1211
           - **raio**: 23
       - **[1]**:
         - **id**: 18
         - **label**: 18
-        - **circular**:
+        - **circulo**:
           - **x**: 359
           - **y**: 1146
           - **raio**: 23
       - **[2]**:
         - **id**: 19
         - **label**: 19
-        - **circular**:
+        - **circulo**:
           - **x**: 399
           - **y**: 1084
           - **raio**: 23
       - **[3]**:
         - **id**: 20
         - **label**: 20
-        - **circular**:
+        - **circulo**:
           - **x**: 414
           - **y**: 1004
           - **raio**: 24
       - **[4]**:
         - **id**: 21
         - **label**: 21
-        - **circular**:
+        - **circulo**:
           - **x**: 443
           - **y**: 917
           - **raio**: 24
       - **[5]**:
         - **id**: 22
         - **label**: 22
-        - **circular**:
+        - **circulo**:
           - **x**: 504
           - **y**: 842
           - **raio**: 23
       - **[6]**:
         - **id**: 23
         - **label**: 23
-        - **circular**:
+        - **circulo**:
           - **x**: 560
           - **y**: 757
           - **raio**: 24
       - **[7]**:
         - **id**: 24
         - **label**: 24
-        - **circular**:
+        - **circulo**:
           - **x**: 603
           - **y**: 687
           - **raio**: 24
       - **[8]**:
         - **id**: 25
         - **label**: 25
-        - **circular**:
+        - **circulo**:
           - **x**: 632
           - **y**: 567
           - **raio**: 24
       - **[9]**:
         - **id**: 26
         - **label**: 26
-        - **circular**:
+        - **circulo**:
           - **x**: 642
           - **y**: 483
           - **raio**: 24
       - **[10]**:
         - **id**: 27
         - **label**: 27
-        - **circular**:
+        - **circulo**:
           - **x**: 661
           - **y**: 383
           - **raio**: 24
       - **[11]**:
         - **id**: 28
         - **label**: 28
-        - **circular**:
+        - **circulo**:
           - **x**: 654
           - **y**: 312
           - **raio**: 24
       - **[12]**:
         - **id**: 29
         - **label**: 29
-        - **circular**:
+        - **circulo**:
           - **x**: 658
           - **y**: 243
           - **raio**: 23
       - **[13]**:
         - **id**: Setor_Gameleira
         - **label**: ← SETOR GAMELEIRA
-        - **box**:
+        - **retangulo**:
           - **x**: 76
           - **y**: 976
           - **comprimento**: 31
@@ -1621,7 +1621,7 @@
       - **[14]**:
         - **id**: Setor_4_Picos
         - **label**: ← SETOR 4 PICOS
-        - **box**:
+        - **retangulo**:
           - **x**: 100
           - **y**: 1200
           - **comprimento**: 31
@@ -1858,63 +1858,63 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 513
           - **y**: 891
           - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 443
           - **y**: 818
           - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 443
           - **y**: 788
           - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 54
           - **y**: 743
           - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 64
           - **y**: 658
           - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 79
           - **y**: 602
           - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 101
           - **y**: 499
           - **raio**: 13
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 123
           - **y**: 417
           - **raio**: 13
       - **[8]**:
         - **id**: Sentinela
         - **label**: ← SENTINELA
-        - **box**:
+        - **retangulo**:
           - **x**: 288
           - **y**: 60
           - **comprimento**: 133
@@ -1922,7 +1922,7 @@
       - **[9]**:
         - **id**: Vale_das_Sombras
         - **label**: VALE DAS SOMBRAS ↘
-        - **box**:
+        - **retangulo**:
           - **x**: 548
           - **y**: 1255
           - **comprimento**: 215
@@ -2031,56 +2031,56 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 134
           - **y**: 234
           - **raio**: 13
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 203
           - **y**: 234
           - **raio**: 13
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 262
           - **y**: 227
           - **raio**: 13
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 300
           - **y**: 240
           - **raio**: 13
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 348
           - **y**: 227
           - **raio**: 13
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 159
           - **y**: 421
           - **raio**: 13
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 340
           - **y**: 421
           - **raio**: 13
       - **[7]**:
         - **id**: Vale_das_Sombras
         - **label**: ↙ VALE DAS SOMBRAS
-        - **box**:
+        - **retangulo**:
           - **x**: 406
           - **y**: 559
           - **comprimento**: 33
@@ -2177,28 +2177,28 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 353
           - **y**: 277
           - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 409
           - **y**: 269
           - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 507
           - **y**: 293
           - **raio**: 20
       - **[3]**:
         - **id**: Setor_Primordios
         - **label**: ← SETOR PRIMÓRDIOS
-        - **box**:
+        - **retangulo**:
           - **x**: 196
           - **y**: 394
           - **comprimento**: 212
@@ -2207,7 +2207,7 @@
       - **[4]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: SETOR VALE DAS SOMBRAS →
-        - **box**:
+        - **retangulo**:
           - **x**: 832
           - **y**: 184
           - **comprimento**: 33
@@ -2296,84 +2296,84 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 84
           - **y**: 444
           - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 297
           - **y**: 480
           - **raio**: 20
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 300
           - **y**: 422
           - **raio**: 20
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 296
           - **y**: 244
           - **raio**: 21
       - **[4]**:
         - **id**: 5
         - **label**: 5
-        - **circular**:
+        - **circulo**:
           - **x**: 286
           - **y**: 181
           - **raio**: 21
       - **[5]**:
         - **id**: 6
         - **label**: 6
-        - **circular**:
+        - **circulo**:
           - **x**: 323
           - **y**: 144
           - **raio**: 21
       - **[6]**:
         - **id**: 7
         - **label**: 7
-        - **circular**:
+        - **circulo**:
           - **x**: 441
           - **y**: 166
           - **raio**: 21
       - **[7]**:
         - **id**: 8
         - **label**: 8
-        - **circular**:
+        - **circulo**:
           - **x**: 463
           - **y**: 121
           - **raio**: 21
       - **[8]**:
         - **id**: 9
         - **label**: 9
-        - **circular**:
+        - **circulo**:
           - **x**: 487
           - **y**: 64
           - **raio**: 21
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **circular**:
+        - **circulo**:
           - **x**: 564
           - **y**: 158
           - **raio**: 21
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **circular**:
+        - **circulo**:
           - **x**: 866
           - **y**: 134
           - **raio**: 21
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **circular**:
+        - **circulo**:
           - **x**: 924
           - **y**: 153
           - **raio**: 21
@@ -2509,35 +2509,35 @@
       - **[0]**:
         - **id**: 1
         - **label**: 1
-        - **circular**:
+        - **circulo**:
           - **x**: 204
           - **y**: 80
           - **raio**: 20
       - **[1]**:
         - **id**: 2
         - **label**: 2
-        - **circular**:
+        - **circulo**:
           - **x**: 333
           - **y**: 57
           - **raio**: 19
       - **[2]**:
         - **id**: 3
         - **label**: 3
-        - **circular**:
+        - **circulo**:
           - **x**: 489
           - **y**: 53
           - **raio**: 19
       - **[3]**:
         - **id**: 4
         - **label**: 4
-        - **circular**:
+        - **circulo**:
           - **x**: 588
           - **y**: 353
           - **raio**: 20
       - **[4]**:
         - **id**: Setor_Vale_das_Sombras
         - **label**: ← SETOR VALE DAS SOMBRAS
-        - **box**:
+        - **retangulo**:
           - **x**: 174
           - **y**: 518
           - **comprimento**: 267
@@ -2546,7 +2546,7 @@
       - **[5]**:
         - **id**: Setor_Primordios
         - **label**: SETOR PRIMÓRDIOS →
-        - **box**:
+        - **retangulo**:
           - **x**: 567
           - **y**: 552
           - **comprimento**: 204
@@ -2648,42 +2648,42 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 349
                 - **y**: 308
                 - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 309
                 - **y**: 238
                 - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 242
                 - **y**: 216
                 - **raio**: 19
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 279
                 - **y**: 159
                 - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 252
                 - **y**: 96
                 - **raio**: 20
             - **[5]**:
               - **id**: Setores_Laranja_Anfiteatro
               - **label**: SUB SETOR LARANJA / ANFITEATRO →
-              - **box**:
+              - **retangulo**:
                 - **x**: 498
                 - **y**: 664
                 - **comprimento**: 263
@@ -2769,91 +2769,91 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 475
                 - **y**: 269
                 - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 434
                 - **y**: 180
                 - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 375
                 - **y**: 192
                 - **raio**: 20
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 330
                 - **y**: 137
                 - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 524
                 - **y**: 369
                 - **raio**: 20
             - **[5]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 578
                 - **y**: 369
                 - **raio**: 20
             - **[6]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 630
                 - **y**: 378
                 - **raio**: 20
             - **[7]**:
               - **id**: 8
               - **label**: 8
-              - **circular**:
+              - **circulo**:
                 - **x**: 686
                 - **y**: 369
                 - **raio**: 20
             - **[8]**:
               - **id**: 9
               - **label**: 9
-              - **circular**:
+              - **circulo**:
                 - **x**: 731
                 - **y**: 369
                 - **raio**: 20
             - **[9]**:
               - **id**: 10
               - **label**: 10
-              - **circular**:
+              - **circulo**:
                 - **x**: 786
                 - **y**: 368
                 - **raio**: 20
             - **[10]**:
               - **id**: 11
               - **label**: 11
-              - **circular**:
+              - **circulo**:
                 - **x**: 837
                 - **y**: 339
                 - **raio**: 20
             - **[11]**:
               - **id**: 12
               - **label**: 12
-              - **circular**:
+              - **circulo**:
                 - **x**: 876
                 - **y**: 292
                 - **raio**: 20
             - **[12]**:
               - **id**: Sub_Setor_Anfiteatro
               - **label**: SUB SETOR ANFITEATRO →
-              - **box**:
+              - **retangulo**:
                 - **x**: 628
                 - **y**: 476
                 - **comprimento**: 221
@@ -2862,7 +2862,7 @@
             - **[13]**:
               - **id**: Sub_Setor_de_Cara
               - **label**: SUB SETOR DE CARA ↙
-              - **box**:
+              - **retangulo**:
                 - **x**: 243
                 - **y**: 622
                 - **comprimento**: 200
@@ -3018,119 +3018,119 @@
             - **[0]**:
               - **id**: 1
               - **label**: 1
-              - **circular**:
+              - **circulo**:
                 - **x**: 295
                 - **y**: 553
                 - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
-              - **circular**:
+              - **circulo**:
                 - **x**: 333
                 - **y**: 523
                 - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
-              - **circular**:
+              - **circulo**:
                 - **x**: 401
                 - **y**: 478
                 - **raio**: 20
             - **[3]**:
               - **id**: 4
               - **label**: 4
-              - **circular**:
+              - **circulo**:
                 - **x**: 438
                 - **y**: 386
                 - **raio**: 20
             - **[4]**:
               - **id**: 5
               - **label**: 5
-              - **circular**:
+              - **circulo**:
                 - **x**: 387
                 - **y**: 380
                 - **raio**: 20
             - **[5]**:
               - **id**: 6
               - **label**: 6
-              - **circular**:
+              - **circulo**:
                 - **x**: 330
                 - **y**: 380
                 - **raio**: 20
             - **[6]**:
               - **id**: 7
               - **label**: 7
-              - **circular**:
+              - **circulo**:
                 - **x**: 280
                 - **y**: 380
                 - **raio**: 20
             - **[7]**:
               - **id**: 8
               - **label**: 8
-              - **circular**:
+              - **circulo**:
                 - **x**: 246
                 - **y**: 345
                 - **raio**: 20
             - **[8]**:
               - **id**: 9
               - **label**: 9
-              - **circular**:
+              - **circulo**:
                 - **x**: 201
                 - **y**: 319
                 - **raio**: 20
             - **[9]**:
               - **id**: 10
               - **label**: 10
-              - **circular**:
+              - **circulo**:
                 - **x**: 193
                 - **y**: 269
                 - **raio**: 20
             - **[10]**:
               - **id**: 11
               - **label**: 11
-              - **circular**:
+              - **circulo**:
                 - **x**: 268
                 - **y**: 151
                 - **raio**: 20
             - **[11]**:
               - **id**: 12
               - **label**: 12
-              - **circular**:
+              - **circulo**:
                 - **x**: 329
                 - **y**: 146
                 - **raio**: 20
             - **[12]**:
               - **id**: 13
               - **label**: 13
-              - **circular**:
+              - **circulo**:
                 - **x**: 379
                 - **y**: 146
                 - **raio**: 20
             - **[13]**:
               - **id**: 14
               - **label**: 14
-              - **circular**:
+              - **circulo**:
                 - **x**: 432
                 - **y**: 132
                 - **raio**: 20
             - **[14]**:
               - **id**: 15
               - **label**: 15
-              - **circular**:
+              - **circulo**:
                 - **x**: 511
                 - **y**: 76
                 - **raio**: 20
             - **[15]**:
               - **id**: 16
               - **label**: 16
-              - **circular**:
+              - **circulo**:
                 - **x**: 597
                 - **y**: 97
                 - **raio**: 20
             - **[16]**:
               - **id**: Sub_Setor_de_Cara
               - **label**: SUB SETOR DE CARA ↗
-              - **box**:
+              - **retangulo**:
                 - **x**: 380
                 - **y**: 592
                 - **comprimento**: 196

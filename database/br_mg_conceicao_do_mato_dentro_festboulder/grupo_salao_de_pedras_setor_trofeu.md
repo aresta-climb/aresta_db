@@ -1,4 +1,4 @@
----
+---
 nome: Troféu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 190
       y: 325
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 390
       y: 325
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 550
       y: 325
       comprimento: 30
@@ -46,7 +46,8 @@ escaladas:
 - boulder:
     nome: Dreads de Goiás
     dificuldade: V7
----
+---
+
 # Setor Troféu
 
 O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.

@@ -25,13 +25,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 251
       y: 307
       raio: 9
   - id: x
     label: x
-    circular:
+    circulo:
       x: 12
       y: 12
       raio: 9
@@ -46,31 +46,31 @@ mapas:
   pontos_de_interesse:
   - id: 1_b
     label: '1'
-    circular:
+    circulo:
       x: 805
       y: 704
       raio: 9
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 379
       y: 666
       raio: 10
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 294
       y: 734
       raio: 9
   - id: y
     label: y
-    circular:
+    circulo:
       x: 256
       y: 13
       raio: 10
   - id: x_b
     label: x
-    circular:
+    circulo:
       x: 562
       y: 15
       raio: 9
@@ -88,6 +88,5 @@ mapas:
     - '3'
     - x_b
 ---
-
 
 # Bloco Capitão Jack

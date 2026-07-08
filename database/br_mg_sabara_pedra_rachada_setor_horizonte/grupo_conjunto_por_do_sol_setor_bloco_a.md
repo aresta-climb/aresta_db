@@ -7,19 +7,19 @@ mapas:
   pontos_de_interesse:
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 205
       y: 785
       raio: 19
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 430
       y: 430
       raio: 19
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 756
       y: 377
       raio: 19
@@ -39,19 +39,19 @@ mapas:
   pontos_de_interesse:
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 185
       y: 744
       raio: 19
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 257
       y: 698
       raio: 19
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 693
       y: 541
       raio: 19
@@ -98,7 +98,6 @@ escaladas:
     descricao: Boulder de movimentação específica. As duas mão começam juntas em uma
       agarra invertida muito boa na fenda horizontal e escala reto.
 ---
-
 
 # Bloco A
 

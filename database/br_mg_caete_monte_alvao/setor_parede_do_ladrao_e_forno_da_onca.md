@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: 1am
     label: 1am
-    box:
+    retangulo:
       x: 106
       y: 728
       comprimento: 28
       largura: 41
   - id: 2am
     label: 2am
-    box:
+    retangulo:
       x: 167
       y: 840
       comprimento: 36
       largura: 47
   - id: 3am
     label: 3am
-    box:
+    retangulo:
       x: 159
       y: 720
       comprimento: 34
       largura: 43
   - id: 4am
     label: 4am
-    box:
+    retangulo:
       x: 238
       y: 756
       comprimento: 29
       largura: 39
   - id: 5am
     label: 5am
-    box:
+    retangulo:
       x: 255
       y: 670
       comprimento: 28
       largura: 41
   - id: 6am
     label: 6am
-    box:
+    retangulo:
       x: 678
       y: 711
       comprimento: 35
       largura: 48
   - id: 1az
     label: 1az
-    box:
+    retangulo:
       x: 852
       y: 728
       comprimento: 26
       largura: 39
   - id: 2az
     label: 2az
-    box:
+    retangulo:
       x: 1000
       y: 684
       comprimento: 29
       largura: 35
   - id: 3az
     label: 3az
-    box:
+    retangulo:
       x: 1141
       y: 642
       comprimento: 32
       largura: 42
   - id: 4az
     label: 4az
-    box:
+    retangulo:
       x: 1426
       y: 748
       comprimento: 32
       largura: 43
   - id: 5az
     label: 5az
-    box:
+    retangulo:
       x: 1512
       y: 688
       comprimento: 31
       largura: 44
   - id: 6az
     label: 6az
-    box:
+    retangulo:
       x: 1614
       y: 572
       comprimento: 33
       largura: 44
   - id: 7az
     label: 7az
-    box:
+    retangulo:
       x: 1752
       y: 558
       comprimento: 32

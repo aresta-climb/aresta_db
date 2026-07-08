@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 363
       y: 824
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1025
       y: 992
       raio: 13
@@ -30,7 +30,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 659
       y: 956
       raio: 13
@@ -46,5 +46,4 @@ escaladas:
     nome: Mesa
     dificuldade: V5
 ---
-
 

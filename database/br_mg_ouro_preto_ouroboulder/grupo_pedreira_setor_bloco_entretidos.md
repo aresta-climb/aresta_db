@@ -7,13 +7,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 704
       y: 715
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1171
       y: 787
       raio: 13
@@ -30,25 +30,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 1103
       y: 598
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 471
       y: 705
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 151
       y: 738
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 712
       y: 725
       raio: 13
@@ -71,19 +71,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 190
       y: 1019
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 877
       y: 814
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 514
       y: 941
       raio: 13
@@ -103,13 +103,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 355
       y: 944
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 766
       y: 888
       raio: 13
@@ -156,5 +156,4 @@ escaladas:
     nome: Carranca
     dificuldade: V3
 ---
-
 

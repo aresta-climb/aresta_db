@@ -6,49 +6,49 @@ mapas:
   pontos_de_interesse:
   - id: A2
     label: A2
-    box:
+    retangulo:
       x: 417
       y: 142
       comprimento: 32
       largura: 26
   - id: Rastro
     label: Rastro
-    box:
+    retangulo:
       x: 502
       y: 154
       comprimento: 73
       largura: 29
   - id: Corumba
     label: Corumbá
-    box:
+    retangulo:
       x: 366
       y: 240
       comprimento: 99
       largura: 27
   - id: Quilombo
     label: Quilombo
-    box:
+    retangulo:
       x: 504
       y: 255
       comprimento: 109
       largura: 26
   - id: Novo_Mundo
     label: Novo Mundo
-    box:
+    retangulo:
       x: 527
       y: 333
       comprimento: 142
       largura: 26
   - id: Jucarmo
     label: Jucarmo
-    box:
+    retangulo:
       x: 190
       y: 380
       comprimento: 95
       largura: 31
   - id: La_Bombonera
     label: La Bombonera
-    box:
+    retangulo:
       x: 396
       y: 469
       comprimento: 161
@@ -59,7 +59,7 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Bosque
     label: Setor Bosque
-    box:
+    retangulo:
       x: 634
       y: 337
       comprimento: 231
@@ -67,7 +67,7 @@ mapas:
       angulo_graus_x100: 1277
   - id: Setor_Bombonera
     label: Setor Bombonera
-    box:
+    retangulo:
       x: 968
       y: 442
       comprimento: 389
@@ -75,7 +75,7 @@ mapas:
       angulo_graus_x100: 1859
   - id: Setor_Esquerda
     label: Setor Esquerda
-    box:
+    retangulo:
       x: 1304
       y: 565
       comprimento: 227
@@ -92,3 +92,4 @@ mapas:
     ids:
     - Setor_Esquerda
 ---
+

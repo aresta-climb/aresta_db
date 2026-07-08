@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 810
       y: 958
       raio: 13
@@ -20,5 +20,4 @@ escaladas:
     nome: Dali Goiabada
     dificuldade: V9
 ---
-
 

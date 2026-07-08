@@ -7,105 +7,105 @@ mapas:
   pontos_de_interesse:
   - id: Setores_Conexao
     label: Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar
-    box:
+    retangulo:
       x: 67
       y: 712
       comprimento: 86
       largura: 78
   - id: Trilha_2o_Andar
     label: Trilha para o 2º Andar
-    box:
+    retangulo:
       x: 128
       y: 950
       comprimento: 63
       largura: 47
   - id: Sitio
     label: SÍTIO
-    box:
+    retangulo:
       x: 471
       y: 1032
       comprimento: 68
       largura: 79
   - id: Obs_Abelha
     label: OBS.! Caixa de Abelha
-    box:
+    retangulo:
       x: 371
       y: 356
       comprimento: 64
       largura: 52
   - id: Setor_da_Onca
     label: Setor da Onça
-    box:
+    retangulo:
       x: 813
       y: 342
       comprimento: 46
       largura: 30
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 286
       y: 808
       comprimento: 19
       largura: 17
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 303
       y: 796
       comprimento: 20
       largura: 16
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 305
       y: 764
       comprimento: 18
       largura: 15
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 314
       y: 749
       comprimento: 19
       largura: 16
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 326
       y: 728
       comprimento: 19
       largura: 17
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 350
       y: 670
       comprimento: 21
       largura: 17
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 456
       y: 380
       comprimento: 20
       largura: 17
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 462
       y: 346
       comprimento: 20
       largura: 17
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 543
       y: 372
       comprimento: 20
       largura: 17
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 574
       y: 378
       comprimento: 20
@@ -136,7 +136,7 @@ mapas:
     ids:
     - '10'
   - ids:
-    - '09'
+    - 09
     setor: Setor Chegada
     escalada: Linha de Frente
   - ids:

@@ -1,4 +1,4 @@
----
+---
 nome: Raizeiro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_raizeiro_p0_i0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 48
       y: 514
       comprimento: 25
       largura: 25
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 148
       y: 186
       comprimento: 25
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 867
       y: 971
       comprimento: 22
       largura: 24
   - id: 2_fim
     label: '2'
-    box:
+    retangulo:
       x: 149
       y: 144
       comprimento: 22
       largura: 24
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 866
       y: 1010
       comprimento: 21
       largura: 24
   - id: 3_fim
     label: '3'
-    box:
+    retangulo:
       x: 844
       y: 300
       comprimento: 20
       largura: 25
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 864
       y: 1050
       comprimento: 23
       largura: 25
   - id: 4_fim
     label: '4'
-    box:
+    retangulo:
       x: 1072
       y: 468
       comprimento: 25
@@ -91,6 +91,7 @@ escaladas:
 - boulder:
     nome: Garrafada
     dificuldade: V3
----
+---
+
 # Bloco: Raizeiro
 ## Região 4

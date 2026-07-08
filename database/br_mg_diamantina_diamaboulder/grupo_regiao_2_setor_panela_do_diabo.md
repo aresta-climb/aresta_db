@@ -1,4 +1,4 @@
----
+---
 nome: Panela do Diabo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_panela_do_diabo_p0_i0.webp
@@ -7,112 +7,112 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 138
       y: 722
       comprimento: 25
       largura: 25
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 758
       y: 20
       comprimento: 25
       largura: 29
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 136
       y: 760
       comprimento: 25
       largura: 25
   - id: 2_fim
     label: '2'
-    box:
+    retangulo:
       x: 208
       y: 20
       comprimento: 26
       largura: 29
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 1211
       y: 584
       comprimento: 22
       largura: 24
   - id: 3_fim
     label: '3'
-    box:
+    retangulo:
       x: 799
       y: 22
       comprimento: 30
       largura: 29
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 828
       y: 674
       comprimento: 25
       largura: 25
   - id: 4_fim
     label: '4'
-    box:
+    retangulo:
       x: 837
       y: 20
       comprimento: 30
       largura: 29
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 987
       y: 678
       comprimento: 18
       largura: 20
   - id: 5_fim
     label: '5'
-    box:
+    retangulo:
       x: 877
       y: 20
       comprimento: 30
       largura: 29
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 134
       y: 800
       comprimento: 25
       largura: 25
   - id: 6_fim
     label: '6'
-    box:
+    retangulo:
       x: 1212
       y: 622
       comprimento: 20
       largura: 22
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 1209
       y: 656
       comprimento: 24
       largura: 29
   - id: 7_fim
     label: '7'
-    box:
+    retangulo:
       x: 244
       y: 21
       comprimento: 21
       largura: 24
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 1212
       y: 698
       comprimento: 25
       largura: 25
   - id: 8_fim
     label: '8'
-    box:
+    retangulo:
       x: 696
       y: 605
       comprimento: 22
@@ -155,12 +155,12 @@ escaladas:
 - boulder:
     nome: Groove
     dificuldade: V3
-    descricao: Mesma saída do consciência, dominando na face positiva logo acima do 
+    descricao: Mesma saída do consciência, dominando na face positiva logo acima do
       balcão.
 - boulder:
     nome: Caldeirão
     dificuldade: V6
-    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até 
+    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até
       finalizar como o panelaço (sem a utilização do "jorge"/bloco de sustentação).
 - boulder:
     nome: Panela do Diabo
@@ -168,7 +168,7 @@ escaladas:
 - boulder:
     nome: Consciência para ter Coragem
     dificuldade: V7
-    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder 
+    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder
       coragem.
 - boulder:
     nome: Caldeirão do Groove
@@ -176,8 +176,9 @@ escaladas:
 - boulder:
     nome: Coragem
     dificuldade: V5
-    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso do 
-      caldeirão, finalizando por agarrões na face vertical do bloco.
----
+    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso
+      do caldeirão, finalizando por agarrões na face vertical do bloco.
+---
+
 # Bloco: Panela do Diabo
 ## Região 2

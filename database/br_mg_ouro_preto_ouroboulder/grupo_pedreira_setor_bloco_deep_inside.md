@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 230
       y: 849
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1050
       y: 835
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1008
       y: 911
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 719
       y: 284
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1399
       y: 238
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1512
       y: 628
       raio: 13
   - id: triangulo
     label: ▲
-    circular:
+    circulo:
       x: 1072
       y: 736
       raio: 13
   - id: estrela
     label: ★
-    circular:
+    circulo:
       x: 1331
       y: 778
       raio: 13
@@ -93,79 +93,79 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 250
       y: 407
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 565
       y: 225
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 874
       y: 197
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1211
       y: 307
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 67
       y: 779
       raio: 13
   - id: triangulo
     label: ▲
-    circular:
+    circulo:
       x: 328
       y: 692
       raio: 13
   - id: estrela
     label: ★
-    circular:
+    circulo:
       x: 519
       y: 657
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 474
       y: 748
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 474
       y: 789
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 662
       y: 778
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 701
       y: 752
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 764
       y: 605
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1201
       y: 693
       raio: 13
@@ -249,37 +249,37 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 512
       y: 776
       raio: 14
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 612
       y: 791
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 1215
       y: 745
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 555
       y: 263
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 703
       y: 163
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 849
       y: 99
       raio: 13
@@ -348,5 +348,4 @@ escaladas:
     nome: Bolinho de Chuva
     dificuldade: VB
 ---
-
 

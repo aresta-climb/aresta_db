@@ -7,37 +7,37 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 843
       y: 78
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1137
       y: 513
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 503
       y: 937
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1038
       y: 835
       raio: 13
   - id: ▲
     label: ▲
-    circular:
+    circulo:
       x: 345
       y: 448
       raio: 13
   - id: ★
     label: ★
-    circular:
+    circulo:
       x: 737
       y: 380
       raio: 13
@@ -90,5 +90,4 @@ escaladas:
     nome: Mad Dog
     dificuldade: V1
 ---
-
 

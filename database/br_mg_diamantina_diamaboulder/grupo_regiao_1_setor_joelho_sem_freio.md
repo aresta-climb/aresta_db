@@ -1,4 +1,4 @@
----
+---
 nome: Joelho Sem Freio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp
@@ -7,28 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 544
       y: 838
       comprimento: 25
       largura: 25
   - id: 1_fim
     label: '1'
-    box:
+    retangulo:
       x: 766
       y: 204
       comprimento: 23
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 584
       y: 672
       comprimento: 25
       largura: 29
   - id: 2_fim
     label: '2'
-    box:
+    retangulo:
       x: 765
       y: 166
       comprimento: 22
@@ -50,8 +50,9 @@ escaladas:
 - boulder:
     nome: Joelho Sem Freio
     dificuldade: V3
-    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em 
+    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em
       abaulado invertido no teto.
----
+---
+
 # Bloco: Joelho Sem Freio
 ## Região 1

@@ -7,7 +7,7 @@ mapas:
   pontos_de_interesse:
   - id: 2_Andar
     label: 2° ANDAR
-    box:
+    retangulo:
       x: 625
       y: 115
       comprimento: 100
@@ -15,7 +15,7 @@ mapas:
       angulo_graus_x100: 6500
   - id: Falesia_do_Vale_Verde
     label: FALÉSIA DO VALE VERDE
-    box:
+    retangulo:
       x: 830
       y: 130
       comprimento: 240
@@ -23,7 +23,7 @@ mapas:
       angulo_graus_x100: 6900
   - id: Jurassico
     label: JURÁSSICO
-    box:
+    retangulo:
       x: 680
       y: 145
       comprimento: 110
@@ -31,7 +31,7 @@ mapas:
       angulo_graus_x100: 6300
   - id: 1_Andar
     label: 1° ANDAR
-    box:
+    retangulo:
       x: 735
       y: 240
       comprimento: 115
@@ -39,14 +39,14 @@ mapas:
       angulo_graus_x100: 6200
   - id: Setor_de_Boulder
     label: SETOR DE BOULDER
-    box:
+    retangulo:
       x: 570
       y: 250
       comprimento: 95
       largura: 45
   - id: Placa_Climb_Trilha
     label: CLIMB
-    box:
+    retangulo:
       x: 660
       y: 460
       comprimento: 45
@@ -54,20 +54,20 @@ mapas:
       angulo_graus_x100: 7500
   - id: Torre_Alta_Tensao
     label: Torre
-    box:
+    retangulo:
       x: 225
       y: 500
       comprimento: 140
       largura: 220
   - id: Estacionamento
     label: E
-    circular:
+    circulo:
       x: 730
       y: 1430
       raio: 55
   - id: Bar
     label: BAR
-    box:
+    retangulo:
       x: 640
       y: 1555
       comprimento: 140
@@ -75,7 +75,7 @@ mapas:
       angulo_graus_x100: 2000
   - id: Placa_Climb_Estrada
     label: CLIMB
-    box:
+    retangulo:
       x: 875
       y: 1265
       comprimento: 45
@@ -83,7 +83,7 @@ mapas:
       angulo_graus_x100: 10500
   - id: R_104
     label: R. 104
-    box:
+    retangulo:
       x: 1170
       y: 1255
       comprimento: 120
@@ -97,6 +97,4 @@ mapas:
     ids:
     - 1_Andar
 ---
-
-
 

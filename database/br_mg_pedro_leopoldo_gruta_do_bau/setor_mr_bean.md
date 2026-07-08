@@ -7,224 +7,224 @@ mapas:
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 445
       y: 158
       comprimento: 30
       largura: 25
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 707
       y: 164
       comprimento: 32
       largura: 30
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 752
       y: 218
       comprimento: 31
       largura: 30
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 380
       y: 234
       comprimento: 33
       largura: 28
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 558
       y: 280
       comprimento: 32
       largura: 27
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 338
       y: 305
       comprimento: 29
       largura: 26
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 538
       y: 334
       comprimento: 33
       largura: 27
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 610
       y: 338
       comprimento: 33
       largura: 27
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 556
       y: 388
       comprimento: 32
       largura: 26
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 925
       y: 388
       comprimento: 30
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 976
       y: 383
       comprimento: 29
       largura: 24
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 806
       y: 405
       comprimento: 29
       largura: 26
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 854
       y: 419
       comprimento: 27
       largura: 26
   - id: '31'
     label: '31'
-    box:
+    retangulo:
       x: 1129
       y: 522
       comprimento: 30
       largura: 28
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 1014
       y: 562
       comprimento: 30
       largura: 27
   - id: '30'
     label: '30'
-    box:
+    retangulo:
       x: 259
       y: 574
       comprimento: 32
       largura: 26
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 659
       y: 601
       comprimento: 30
       largura: 28
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 862
       y: 596
       comprimento: 31
       largura: 28
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 328
       y: 644
       comprimento: 31
       largura: 27
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 1233
       y: 673
       comprimento: 30
       largura: 24
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 1200
       y: 688
       comprimento: 30
       largura: 25
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 1166
       y: 708
       comprimento: 33
       largura: 27
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 1134
       y: 734
       comprimento: 31
       largura: 25
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 1098
       y: 756
       comprimento: 31
       largura: 25
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 578
       y: 781
       comprimento: 31
       largura: 30
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 1232
       y: 793
       comprimento: 30
       largura: 28
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 200
       y: 824
       comprimento: 31
       largura: 29
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 235
       y: 819
       comprimento: 30
       largura: 24
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 547
       y: 837
       comprimento: 32
       largura: 26
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 896
       y: 896
       comprimento: 30
       largura: 20
   - id: '29'
     label: '29'
-    box:
+    retangulo:
       x: 1234
       y: 976
       comprimento: 29
       largura: 29
   - id: Setores_Sentinela_e_Onda_de_Calcario
     label: Setores Sentinela e Onda de Calcário
-    box:
+    retangulo:
       x: 152
       y: 1166
       comprimento: 182
@@ -318,11 +318,11 @@ mapas:
     ids:
     - '31'
   - ids:
-    - '08'
+    - 08
     setor: Setor Mr. Bean
     escalada: Fenda Gerações
   - ids:
-    - '09'
+    - 09
     setor: Setor Mr. Bean
     escalada: Encontros Temporais
   - ids:

@@ -707,7 +707,7 @@ botoes:
 
         - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262),
         KM 2,5, Caeté - MG, CEP 34800-000'
-ultima_migracao: 3
+ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 68e86d58f05be03b3a01fe75063c0eca1a6458b48fe66a1e866b30792c6eca5f

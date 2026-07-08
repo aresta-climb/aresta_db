@@ -7,168 +7,168 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Antigo_Camping
     label: Setor Antigo Camping
-    box:
+    retangulo:
       x: 808
       y: 52
       comprimento: 46
       largura: 39
   - id: Totem_Pedra
     label: TOTEM PEDRA
-    box:
+    retangulo:
       x: 457
       y: 1054
       comprimento: 56
       largura: 32
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
-    box:
+    retangulo:
       x: 72
       y: 1090
       comprimento: 59
       largura: 47
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 201
       y: 823
       comprimento: 16
       largura: 14
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 216
       y: 830
       comprimento: 16
       largura: 14
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 246
       y: 847
       comprimento: 16
       largura: 14
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 285
       y: 864
       comprimento: 16
       largura: 14
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 317
       y: 876
       comprimento: 16
       largura: 14
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 334
       y: 903
       comprimento: 13
       largura: 14
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 348
       y: 891
       comprimento: 14
       largura: 14
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 344
       y: 824
       comprimento: 13
       largura: 13
-  - id: '09'
+  - id: 09
     label: '9'
-    box:
+    retangulo:
       x: 336
       y: 781
       comprimento: 13
       largura: 14
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 331
       y: 760
       comprimento: 18
       largura: 17
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 334
       y: 720
       comprimento: 16
       largura: 15
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 362
       y: 658
       comprimento: 19
       largura: 17
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 418
       y: 656
       comprimento: 18
       largura: 17
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 440
       y: 684
       comprimento: 19
       largura: 19
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 462
       y: 660
       comprimento: 19
       largura: 18
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 502
       y: 642
       comprimento: 17
       largura: 17
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 621
       y: 468
       comprimento: 20
       largura: 17
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 644
       y: 392
       comprimento: 17
       largura: 15
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 653
       y: 368
       comprimento: 24
       largura: 27
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 638
       y: 348
       comprimento: 19
       largura: 15
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 615
       y: 324
       comprimento: 18
@@ -235,11 +235,11 @@ mapas:
     ids:
     - '22'
   - ids:
-    - '08'
+    - 08
     setor: Setor Leão de Judah
     escalada: Efeito Moral
   - ids:
-    - '09'
+    - 09
     setor: Setor Leão de Judah
     escalada: Risco de Discórdia
   - ids:

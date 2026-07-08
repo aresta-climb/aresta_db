@@ -1,4 +1,4 @@
----
+---
 nome: Trabalhador
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 150
       y: 500
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 220
       y: 545
       comprimento: 30
@@ -38,21 +38,21 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 320
       y: 550
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 465
       y: 495
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 420
       y: 340
       comprimento: 30
@@ -89,7 +89,8 @@ escaladas:
 - boulder:
     nome: Estamos Trabalhando
     dificuldade: V8
----
+---
+
 # Setor Trabalhador
 
 O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.

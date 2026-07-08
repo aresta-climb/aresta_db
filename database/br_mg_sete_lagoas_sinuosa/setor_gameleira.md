@@ -7,38 +7,38 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 248
       y: 447
       raio: 17
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 254
       y: 370
       raio: 17
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 157
       y: 244
       raio: 17
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 299
       y: 99
       raio: 17
   - id: Setor_Vale_das_Sombras
     label: SETOR VALE DAS SOMBRAS →
-    box:
+    retangulo:
       x: 492
       y: 512
       comprimento: 325
       largura: 25
   - id: Setor_Death_Horse
     label: ← SETOR DEATH HORSE
-    box:
+    retangulo:
       x: 252
       y: 566
       comprimento: 265

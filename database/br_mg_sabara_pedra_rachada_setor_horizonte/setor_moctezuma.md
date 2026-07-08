@@ -7,19 +7,19 @@ mapas:
   pontos_de_interesse:
   - id: '42'
     label: '42'
-    circular:
+    circulo:
       x: 591
       y: 584
       raio: 26
   - id: '43'
     label: '43'
-    circular:
+    circulo:
       x: 644
       y: 877
       raio: 26
   - id: '41'
     label: '41'
-    circular:
+    circulo:
       x: 211
       y: 817
       raio: 26
@@ -42,13 +42,13 @@ mapas:
   pontos_de_interesse:
   - id: '44'
     label: '44'
-    circular:
+    circulo:
       x: 456
       y: 946
       raio: 27
   - id: '45'
     label: '45'
-    circular:
+    circulo:
       x: 651
       y: 858
       raio: 27
@@ -65,7 +65,7 @@ mapas:
   pontos_de_interesse:
   - id: '47'
     label: '47'
-    circular:
+    circulo:
       x: 586
       y: 1001
       raio: 25
@@ -109,7 +109,6 @@ escaladas:
     descricao: Saída com a mão esquerda na laca lateral e a mão direita no batente
       baixo, indo para a direita até um movimento forte em um batente liso.
 ---
-
 
 # Moctezuma
 

@@ -6,21 +6,21 @@ mapas:
   pontos_de_interesse:
   - id: Porteira
     label: Porteira
-    box:
+    retangulo:
       x: 224
       y: 194
       comprimento: 74
       largura: 22
   - id: 12_8km
     label: 12,8km
-    box:
+    retangulo:
       x: 224
       y: 215
       comprimento: 71
       largura: 26
   - id: Estacionamento
     label: Estacionamento
-    box:
+    retangulo:
       x: 65
       y: 237
       comprimento: 147
@@ -28,14 +28,14 @@ mapas:
       angulo_graus_x100: 78
   - id: 13_9km
     label: 13,9km
-    box:
+    retangulo:
       x: 145
       y: 260
       comprimento: 68
       largura: 23
   - id: 12_5km
     label: 12,5km
-    box:
+    retangulo:
       x: 290
       y: 248
       comprimento: 72
@@ -43,14 +43,14 @@ mapas:
       angulo_graus_x100: -2621
   - id: Igreja
     label: Igreja
-    box:
+    retangulo:
       x: 350
       y: 264
       comprimento: 56
       largura: 27
   - id: 10_4km
     label: 10,4km
-    box:
+    retangulo:
       x: 348
       y: 285
       comprimento: 73
@@ -58,21 +58,21 @@ mapas:
       angulo_graus_x100: 235
   - id: 9_8km
     label: 9,8km
-    box:
+    retangulo:
       x: 353
       y: 329
       comprimento: 61
       largura: 26
   - id: 6_3km
     label: 6,3km
-    box:
+    retangulo:
       x: 451
       y: 477
       comprimento: 61
       largura: 26
   - id: Placa_Japa_Dimy
     label: Placa Japa Dimy
-    box:
+    retangulo:
       x: 430
       y: 575
       comprimento: 168
@@ -80,7 +80,7 @@ mapas:
       angulo_graus_x100: -3360
   - id: Trevo
     label: Trevo
-    box:
+    retangulo:
       x: 114
       y: 577
       comprimento: 65
@@ -88,21 +88,21 @@ mapas:
       angulo_graus_x100: 264
   - id: Sao_Bento
     label: São Bento
-    box:
+    retangulo:
       x: 90
       y: 603
       comprimento: 116
       largura: 24
   - id: 0km
     label: 0km
-    box:
+    retangulo:
       x: 123
       y: 628
       comprimento: 48
       largura: 23
   - id: 5_0km
     label: 5,0km
-    box:
+    retangulo:
       x: 401
       y: 602
       comprimento: 62
@@ -110,16 +110,17 @@ mapas:
       angulo_graus_x100: -277
   - id: Corrego
     label: Córrego
-    box:
+    retangulo:
       x: 498
       y: 587
       comprimento: 80
       largura: 29
   - id: da_Foice
     label: da Foice
-    box:
+    retangulo:
       x: 499
       y: 611
       comprimento: 82
       largura: 24
 ---
+

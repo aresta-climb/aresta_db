@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 134
       y: 234
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 203
       y: 234
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 262
       y: 227
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 300
       y: 240
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 348
       y: 227
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 159
       y: 421
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 340
       y: 421
       raio: 13
   - id: Vale_das_Sombras
     label: ↙ VALE DAS SOMBRAS
-    box:
+    retangulo:
       x: 406
       y: 559
       comprimento: 33

@@ -7,77 +7,77 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Vale_das_Sombras
     label: Setor Vale das Sombras
-    box:
+    retangulo:
       x: 58
       y: 13
       comprimento: 113
       largura: 20
   - id: Setor_Intermediario
     label: Setor Intermediário
-    box:
+    retangulo:
       x: 192
       y: 160
       comprimento: 92
       largura: 20
   - id: Setor_da_Onca
     label: Setor da Onça
-    box:
+    retangulo:
       x: 624
       y: 1081
       comprimento: 48
       largura: 36
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 246
       y: 443
       comprimento: 21
       largura: 18
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 310
       y: 726
       comprimento: 23
       largura: 18
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 302
       y: 815
       comprimento: 23
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 179
       y: 871
       comprimento: 24
       largura: 22
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 174
       y: 794
       comprimento: 23
       largura: 21
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 130
       y: 728
       comprimento: 24
       largura: 19
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 164
       y: 652
       comprimento: 22
       largura: 20
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 139
       y: 436
       comprimento: 22
@@ -105,7 +105,7 @@ mapas:
     ids:
     - '07'
   - ids:
-    - '08'
+    - 08
     setor: Setor Toca dos Gatos
     escalada: Nem C/ Chuva a Gente Para
   - ids:

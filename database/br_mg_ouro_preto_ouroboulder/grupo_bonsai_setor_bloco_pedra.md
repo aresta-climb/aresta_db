@@ -7,31 +7,31 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 410
       y: 889
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 1141
       y: 946
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 149
       y: 424
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 411
       y: 297
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1129
       y: 251
       raio: 13
@@ -65,5 +65,4 @@ escaladas:
     nome: Semiárido
     dificuldade: V5
 ---
-
 

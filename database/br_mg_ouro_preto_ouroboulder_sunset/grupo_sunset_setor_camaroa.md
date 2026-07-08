@@ -28,25 +28,25 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 222
       y: 234
       raio: 8
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 490
       y: 339
       raio: 9
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 605
       y: 361
       raio: 9
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 682
       y: 361
       raio: 8
@@ -69,7 +69,7 @@ mapas:
   pontos_de_interesse:
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 462
       y: 480
       raio: 10
@@ -78,6 +78,5 @@ mapas:
     ids:
     - '5'
 ---
-
 
 # Bloco Camaroa

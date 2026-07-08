@@ -1,4 +1,4 @@
----
+---
 nome: Navio Pirata
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p0_i0.webp
@@ -7,42 +7,42 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P0)
     label: '1'
-    box:
+    retangulo:
       x: 540
       y: 702
       comprimento: 25
       largura: 25
   - id: 1 (P0)_fim
     label: '1'
-    box:
+    retangulo:
       x: 600
       y: 172
       comprimento: 25
       largura: 25
   - id: 2 (P0)
     label: '2'
-    box:
+    retangulo:
       x: 842
       y: 856
       comprimento: 25
       largura: 25
   - id: 2 (P0)_fim
     label: '2'
-    box:
+    retangulo:
       x: 600
       y: 134
       comprimento: 25
       largura: 25
   - id: 3 (P0)
     label: '3'
-    box:
+    retangulo:
       x: 844
       y: 892
       comprimento: 25
       largura: 25
   - id: 3 (P0)_fim
     label: '3'
-    box:
+    retangulo:
       x: 852
       y: 342
       comprimento: 25
@@ -66,56 +66,56 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P1)
     label: '1'
-    box:
+    retangulo:
       x: 320
       y: 846
       comprimento: 23
       largura: 29
   - id: 1 (P1)_fim
     label: '1'
-    box:
+    retangulo:
       x: 264
       y: 630
       comprimento: 24
       largura: 29
   - id: 2 (P1)
     label: '2'
-    box:
+    retangulo:
       x: 319
       y: 888
       comprimento: 24
       largura: 25
   - id: 2 (P1)_fim
     label: '2'
-    box:
+    retangulo:
       x: 386
       y: 448
       comprimento: 24
       largura: 25
   - id: 3 (P1)
     label: '3'
-    box:
+    retangulo:
       x: 318
       y: 923
       comprimento: 23
       largura: 26
   - id: 3 (P1)_fim
     label: '3'
-    box:
+    retangulo:
       x: 636
       y: 215
       comprimento: 25
       largura: 26
   - id: 4 (P1)
     label: '4'
-    box:
+    retangulo:
       x: 922
       y: 898
       comprimento: 23
       largura: 27
   - id: 4 (P1)_fim
     label: '4'
-    box:
+    retangulo:
       x: 1010
       y: 266
       comprimento: 21
@@ -143,28 +143,28 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P2)
     label: '1'
-    box:
+    retangulo:
       x: 754
       y: 992
       comprimento: 25
       largura: 25
   - id: 1 (P2)_fim
     label: '1'
-    box:
+    retangulo:
       x: 568
       y: 280
       comprimento: 25
       largura: 25
   - id: 2 (P2)
     label: '2'
-    box:
+    retangulo:
       x: 144
       y: 808
       comprimento: 27
       largura: 30
   - id: 2 (P2)_fim
     label: '2'
-    box:
+    retangulo:
       x: 350
       y: 608
       comprimento: 31
@@ -206,7 +206,8 @@ escaladas:
 - boulder:
     nome: Desce a Serra
     dificuldade: V3
----
+---
+
 # Bloco: Navio Pirata
 ## Região 4
 

@@ -6,7 +6,7 @@ mapas:
   pontos_de_interesse:
   - id: malibu
     label: Malibu
-    area_livre:
+    poligono:
       coordenadas:
       - 938
       - 1064
@@ -20,7 +20,7 @@ mapas:
       - 1094
   - id: terra_do_nunca
     label: Terra do Nunca
-    area_livre:
+    poligono:
       coordenadas:
       - 726
       - 906
@@ -40,7 +40,7 @@ mapas:
       - 929
   - id: mirante_da_cruz
     label: Mirante da Cruz
-    area_livre:
+    poligono:
       coordenadas:
       - 677
       - 813
@@ -54,7 +54,7 @@ mapas:
       - 834
   - id: curto_e_grosso
     label: Curto e Grosso
-    area_livre:
+    poligono:
       coordenadas:
       - 823
       - 970
@@ -76,7 +76,7 @@ mapas:
       - 1008
   - id: ground_control
     label: Ground Control
-    area_livre:
+    poligono:
       coordenadas:
       - 733
       - 736
@@ -92,7 +92,7 @@ mapas:
       - 754
   - id: forno_da_onca
     label: Forno da Onça
-    area_livre:
+    poligono:
       coordenadas:
       - 808
       - 748
@@ -116,7 +116,7 @@ mapas:
       - 766
   - id: caverna_do_bin_laden
     label: Caverna do Bin Laden
-    box:
+    retangulo:
       x: 714
       y: 758
       comprimento: 55
@@ -124,7 +124,7 @@ mapas:
       angulo_graus_x100: -5973
   - id: parede_do_ladrao
     label: Parede do Ladrão
-    area_livre:
+    poligono:
       coordenadas:
       - 857
       - 774
@@ -138,7 +138,7 @@ mapas:
       - 764
   - id: vale_gaules
     label: Vale Gaules
-    area_livre:
+    poligono:
       coordenadas:
       - 673
       - 681
@@ -167,3 +167,4 @@ mapas:
     - malibu
     grupo: Curto e Grosso, Malibu e Terra do Nunca
 ---
+

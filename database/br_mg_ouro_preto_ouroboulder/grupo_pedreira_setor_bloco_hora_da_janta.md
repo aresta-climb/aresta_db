@@ -7,73 +7,73 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 410
       y: 1048
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 507
       y: 1072
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 750
       y: 758
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 1033
       y: 784
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1341
       y: 879
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 289
       y: 449
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 443
       y: 277
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 789
       y: 23
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 911
       y: 42
       raio: 13
   - id: E
     label: E
-    circular:
+    circulo:
       x: 1162
       y: 138
       raio: 13
   - id: triangulo
     label: ▲
-    circular:
+    circulo:
       x: 622
       y: 376
       raio: 13
   - id: estrela
     label: ★
-    circular:
+    circulo:
       x: 713
       y: 544
       raio: 13
@@ -147,5 +147,4 @@ escaladas:
     nome: Tapa na Pantera
     dificuldade: V1
 ---
-
 

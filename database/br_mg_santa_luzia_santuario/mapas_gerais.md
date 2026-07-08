@@ -6,21 +6,21 @@ mapas:
   pontos_de_interesse:
   - id: Setor_Clube_Da_Luta
     label: SETOR CLUBE DA LUTA
-    box:
+    retangulo:
       x: 556
       y: 94
       comprimento: 360
       largura: 107
   - id: Setor_Santa_Linea
     label: SETOR SANTA LÍNEA
-    box:
+    retangulo:
       x: 1125
       y: 93
       comprimento: 300
       largura: 110
   - id: Setor_Democracia
     label: SETOR DEMOCRACIA
-    box:
+    retangulo:
       x: 1776
       y: 89
       comprimento: 327
@@ -36,3 +36,4 @@ mapas:
     ids:
     - Setor_Democracia
 ---
+

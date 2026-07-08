@@ -49,7 +49,7 @@
             **De Ônibus.** Chegando na rodoviária de Januária (aproximadamente 10 km do salão encantado), seguir em direção à comunidade de Barreiro próximo ao aeroporto. De Montes Claros, procurar na rodoviária pela empresa Transnorte. Até o dia 01 de outubro de 2012 o horário de saída do ônibus é as 05:00 horas (cinco horas da manhã).
             
             **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro ou de ônibus para Januária.
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 - **publicar_croqui**: True
 
 
@@ -68,7 +68,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 324
           - **y**: 317
           - **comprimento**: 35
@@ -76,7 +76,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 572
           - **y**: 366
           - **comprimento**: 35
@@ -84,7 +84,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 668
           - **y**: 327
           - **comprimento**: 35
@@ -92,7 +92,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 754
           - **y**: 219
           - **comprimento**: 37
@@ -100,7 +100,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 990
           - **y**: 200
           - **comprimento**: 27
@@ -108,7 +108,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **retangulo**:
           - **x**: 1080
           - **y**: 202
           - **comprimento**: 30
@@ -116,7 +116,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
+        - **retangulo**:
           - **x**: 1158
           - **y**: 621
           - **comprimento**: 30
@@ -124,7 +124,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **box**:
+        - **retangulo**:
           - **x**: 1181
           - **y**: 545
           - **comprimento**: 30
@@ -132,7 +132,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **box**:
+        - **retangulo**:
           - **x**: 1297
           - **y**: 527
           - **comprimento**: 30
@@ -140,7 +140,7 @@
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **box**:
+        - **retangulo**:
           - **x**: 1343
           - **y**: 510
           - **comprimento**: 38
@@ -148,7 +148,7 @@
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **box**:
+        - **retangulo**:
           - **x**: 1317
           - **y**: 141
           - **comprimento**: 48
@@ -156,7 +156,7 @@
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **box**:
+        - **retangulo**:
           - **x**: 1550
           - **y**: 136
           - **comprimento**: 43
@@ -164,7 +164,7 @@
       - **[12]**:
         - **id**: Claraboia
         - **label**: Claraboia
-        - **box**:
+        - **retangulo**:
           - **x**: 1348
           - **y**: 458
           - **comprimento**: 157
@@ -172,7 +172,7 @@
       - **[13]**:
         - **id**: Platô
         - **label**: Platô
-        - **box**:
+        - **retangulo**:
           - **x**: 814
           - **y**: 566
           - **comprimento**: 86
@@ -180,7 +180,7 @@
       - **[14]**:
         - **id**: Pracinha
         - **label**: Pracinha
-        - **box**:
+        - **retangulo**:
           - **x**: 1624
           - **y**: 754
           - **comprimento**: 151
@@ -188,7 +188,7 @@
       - **[15]**:
         - **id**: Estacionamento_01
         - **label**: Estacionamento
-        - **box**:
+        - **retangulo**:
           - **x**: 274
           - **y**: 1463
           - **comprimento**: 205
@@ -196,7 +196,7 @@
       - **[16]**:
         - **id**: Estacionamento_02
         - **label**: Estacionamento
-        - **box**:
+        - **retangulo**:
           - **x**: 794
           - **y**: 1482
           - **comprimento**: 230
@@ -204,7 +204,7 @@
       - **[17]**:
         - **id**: Setor_Sertão
         - **label**: Setor Sertão
-        - **box**:
+        - **retangulo**:
           - **x**: 1913
           - **y**: 740
           - **comprimento**: 36
@@ -213,7 +213,7 @@
       - **[18]**:
         - **id**: Setor_Mocó
         - **label**: Setor Mocó
-        - **box**:
+        - **retangulo**:
           - **x**: 1974
           - **y**: 744
           - **comprimento**: 34
@@ -222,7 +222,7 @@
       - **[19]**:
         - **id**: Setor_Abrigo
         - **label**: Setor Abrigo
-        - **box**:
+        - **retangulo**:
           - **x**: 2013
           - **y**: 812
           - **comprimento**: 36
@@ -348,7 +348,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 348
           - **y**: 60
           - **comprimento**: 30
@@ -356,7 +356,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 438
           - **y**: 49
           - **comprimento**: 37
@@ -364,7 +364,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 526
           - **y**: 28
           - **comprimento**: 41
@@ -372,7 +372,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 958
           - **y**: 50
           - **comprimento**: 35
@@ -380,7 +380,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 1041
           - **y**: 87
           - **comprimento**: 32
@@ -388,7 +388,7 @@
       - **[5]**:
         - **id**: Claraboia
         - **label**: Claraboia
-        - **box**:
+        - **retangulo**:
           - **x**: 746
           - **y**: 70
           - **comprimento**: 192
@@ -396,7 +396,7 @@
       - **[6]**:
         - **id**: Platô
         - **label**: Platô
-        - **box**:
+        - **retangulo**:
           - **x**: 294
           - **y**: 138
           - **comprimento**: 107
@@ -405,7 +405,7 @@
       - **[7]**:
         - **id**: Praça
         - **label**: Praça
-        - **box**:
+        - **retangulo**:
           - **x**: 380
           - **y**: 226
           - **comprimento**: 119
@@ -413,7 +413,7 @@
       - **[8]**:
         - **id**: Estacionamento
         - **label**: Estacionamento
-        - **box**:
+        - **retangulo**:
           - **x**: 125
           - **y**: 386
           - **comprimento**: 60
@@ -422,7 +422,7 @@
       - **[9]**:
         - **id**: Abrigo
         - **label**: Abrigo
-        - **box**:
+        - **retangulo**:
           - **x**: 1729
           - **y**: 194
           - **comprimento**: 140
@@ -430,7 +430,7 @@
       - **[10]**:
         - **id**: Sertão
         - **label**: Sertão
-        - **box**:
+        - **retangulo**:
           - **x**: 1681
           - **y**: 264
           - **comprimento**: 158
@@ -438,7 +438,7 @@
       - **[11]**:
         - **id**: Mocó
         - **label**: Mocó
-        - **box**:
+        - **retangulo**:
           - **x**: 1727
           - **y**: 322
           - **comprimento**: 114
@@ -513,7 +513,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 111
           - **y**: 268
           - **comprimento**: 30
@@ -521,7 +521,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 198
           - **y**: 80
           - **comprimento**: 29
@@ -529,7 +529,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 248
           - **y**: 99
           - **comprimento**: 29
@@ -537,7 +537,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 302
           - **y**: 120
           - **comprimento**: 30
@@ -545,7 +545,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 546
           - **y**: 371
           - **comprimento**: 25
@@ -553,7 +553,7 @@
       - **[5]**:
         - **id**: Estacionamento
         - **label**: Estacionamento
-        - **box**:
+        - **retangulo**:
           - **x**: 305
           - **y**: 600
           - **comprimento**: 46
@@ -628,7 +628,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 228
           - **y**: 374
           - **comprimento**: 29
@@ -636,7 +636,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 174
           - **y**: 324
           - **comprimento**: 29
@@ -644,7 +644,7 @@
       - **[2]**:
         - **id**: Pracinha
         - **label**: Pracinha
-        - **box**:
+        - **retangulo**:
           - **x**: 362
           - **y**: 476
           - **comprimento**: 134
@@ -691,7 +691,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 56
           - **y**: 857
           - **comprimento**: 25
@@ -699,7 +699,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 104
           - **y**: 756
           - **comprimento**: 23
@@ -707,7 +707,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 218
           - **y**: 582
           - **comprimento**: 24
@@ -715,7 +715,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 236
           - **y**: 526
           - **comprimento**: 20
@@ -723,7 +723,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 252
           - **y**: 423
           - **comprimento**: 21
@@ -731,7 +731,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **retangulo**:
           - **x**: 244
           - **y**: 362
           - **comprimento**: 24
@@ -739,7 +739,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
+        - **retangulo**:
           - **x**: 219
           - **y**: 303
           - **comprimento**: 24
@@ -747,7 +747,7 @@
       - **[7]**:
         - **id**: Abrigo
         - **label**: Abrigo
-        - **box**:
+        - **retangulo**:
           - **x**: 133
           - **y**: 38
           - **comprimento**: 82
@@ -756,7 +756,7 @@
       - **[8]**:
         - **id**: Mocó
         - **label**: Mocó
-        - **box**:
+        - **retangulo**:
           - **x**: 273
           - **y**: 92
           - **comprimento**: 36
@@ -764,7 +764,7 @@
       - **[9]**:
         - **id**: Pracinha
         - **label**: Pracinha
-        - **box**:
+        - **retangulo**:
           - **x**: 176
           - **y**: 914
           - **comprimento**: 117
@@ -857,7 +857,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 338
           - **y**: 105
           - **comprimento**: 21
@@ -865,7 +865,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 525
           - **y**: 307
           - **comprimento**: 22
@@ -873,7 +873,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 582
           - **y**: 291
           - **comprimento**: 21
@@ -881,7 +881,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 636
           - **y**: 270
           - **comprimento**: 21
@@ -889,7 +889,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 704
           - **y**: 250
           - **comprimento**: 24
@@ -897,7 +897,7 @@
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **box**:
+        - **retangulo**:
           - **x**: 776
           - **y**: 266
           - **comprimento**: 20
@@ -905,7 +905,7 @@
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **box**:
+        - **retangulo**:
           - **x**: 936
           - **y**: 202
           - **comprimento**: 20
@@ -913,7 +913,7 @@
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **box**:
+        - **retangulo**:
           - **x**: 977
           - **y**: 137
           - **comprimento**: 24
@@ -921,7 +921,7 @@
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **box**:
+        - **retangulo**:
           - **x**: 1006
           - **y**: 63
           - **comprimento**: 23
@@ -929,7 +929,7 @@
       - **[9]**:
         - **id**: Abrigo
         - **label**: Abrigo
-        - **box**:
+        - **retangulo**:
           - **x**: 66
           - **y**: 212
           - **comprimento**: 35
@@ -938,7 +938,7 @@
       - **[10]**:
         - **id**: Sertão
         - **label**: Sertão
-        - **box**:
+        - **retangulo**:
           - **x**: 176
           - **y**: 329
           - **comprimento**: 78
@@ -946,7 +946,7 @@
       - **[11]**:
         - **id**: Pracinha
         - **label**: Pracinha
-        - **box**:
+        - **retangulo**:
           - **x**: 222
           - **y**: 390
           - **comprimento**: 102
@@ -1056,7 +1056,7 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **box**:
+        - **retangulo**:
           - **x**: 163
           - **y**: 474
           - **comprimento**: 30
@@ -1064,7 +1064,7 @@
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **box**:
+        - **retangulo**:
           - **x**: 466
           - **y**: 344
           - **comprimento**: 33
@@ -1072,7 +1072,7 @@
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **box**:
+        - **retangulo**:
           - **x**: 528
           - **y**: 346
           - **comprimento**: 34
@@ -1080,7 +1080,7 @@
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **box**:
+        - **retangulo**:
           - **x**: 634
           - **y**: 378
           - **comprimento**: 33
@@ -1088,7 +1088,7 @@
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **box**:
+        - **retangulo**:
           - **x**: 833
           - **y**: 547
           - **comprimento**: 30
@@ -1096,7 +1096,7 @@
       - **[5]**:
         - **id**: Sertão
         - **label**: Sertão
-        - **box**:
+        - **retangulo**:
           - **x**: 1201
           - **y**: 25
           - **comprimento**: 150
@@ -1104,7 +1104,7 @@
       - **[6]**:
         - **id**: Mocó
         - **label**: Mocó
-        - **box**:
+        - **retangulo**:
           - **x**: 1193
           - **y**: 102
           - **comprimento**: 130

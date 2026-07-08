@@ -7,68 +7,68 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 66
       y: 255
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 94
       y: 286
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 131
       y: 291
       raio: 14
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 174
       y: 270
       raio: 14
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 238
       y: 252
       raio: 14
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 425
       y: 279
       raio: 14
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 480
       y: 189
       raio: 14
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 529
       y: 187
       raio: 14
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 1008
       y: 347
       raio: 14
   - id: Setor_7_Paralelo
     label: ↑ SETOR 7 PARALELO
-    box:
+    retangulo:
       x: 20
       y: 254
       comprimento: 26
       largura: 211
   - id: Entrada_Sinuosa
     label: ENTRADA SINUOSA ↑
-    box:
+    retangulo:
       x: 592
       y: 526
       comprimento: 30
@@ -76,7 +76,7 @@ mapas:
       angulo_graus_x100: -215
   - id: Setor_Gameleira
     label: SETOR GAMELEIRA →
-    box:
+    retangulo:
       x: 968
       y: 450
       comprimento: 193

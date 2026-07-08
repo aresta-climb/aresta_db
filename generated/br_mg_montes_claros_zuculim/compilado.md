@@ -55,7 +55,7 @@
             AENMG – Associação de Escaladores do Norte de Minas Gerais
             Site: www.aenmg.com.br
             E-mail: aenmg@hotmail.com
-- **ultima_migracao**: 3
+- **ultima_migracao**: 4
 
 
 ## Parte: setor_1

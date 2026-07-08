@@ -7,67 +7,67 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 154
       y: 323
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 228
       y: 350
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 368
       y: 557
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 476
       y: 584
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 558
       y: 589
       raio: 17
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 634
       y: 581
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 749
       y: 609
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 903
       y: 565
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 1113
       y: 812
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 1141
       y: 878
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 1166
       y: 951
       raio: 17
@@ -100,11 +100,11 @@ mapas:
     ids:
     - '11'
   - ids:
-    - '08'
+    - 08
     setor: Setor Família II
     escalada: Sumchine
   - ids:
-    - '09'
+    - 09
     setor: Setor Família II
     escalada: Cater Pillar
 - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
@@ -113,67 +113,67 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 270
       y: 467
       raio: 17
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 278
       y: 557
       raio: 17
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 285
       y: 687
       raio: 17
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 277
       y: 860
       raio: 17
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 298
       y: 935
       raio: 18
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 314
       y: 1037
       raio: 17
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 335
       y: 1119
       raio: 17
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 415
       y: 1149
       raio: 17
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 547
       y: 1152
       raio: 17
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 518
       y: 1187
       raio: 17
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 491
       y: 1224
       raio: 17
@@ -206,11 +206,11 @@ mapas:
     ids:
     - '11'
   - ids:
-    - '08'
+    - 08
     setor: Setor Família II
     escalada: Sumchine
   - ids:
-    - '09'
+    - 09
     setor: Setor Família II
     escalada: Cater Pillar
 escaladas:

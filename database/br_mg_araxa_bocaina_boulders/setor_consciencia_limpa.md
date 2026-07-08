@@ -1,4 +1,4 @@
----
+---
 nome: Consciência Limpa
 mapas:
 - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 467
       y: 684
       comprimento: 20
       largura: 20
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 682
       y: 692
       comprimento: 27
@@ -32,21 +32,21 @@ mapas:
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 410
       y: 589
       comprimento: 20
       largura: 20
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 635
       y: 700
       comprimento: 20
       largura: 20
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 710
       y: 687
       comprimento: 20
@@ -69,21 +69,22 @@ escaladas:
 - boulder:
     nome: Sabiá
     dificuldade: V1
-    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda 
+    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda
       da planta.
 - boulder:
     nome: Consciência Limpa
     dificuldade: V2
-    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda proximo 
-      as pedras .
+    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda
+      proximo as pedras .
 - boulder:
     nome: Consciência
     dificuldade: V1
-    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela 
+    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela
       aresta.
 - boulder:
     nome: Mulheres Poderosas
     dificuldade: V2
     descricao: Saída agachado com mão direita em agarra lateral e esquerda na aresta.
----
+---
+
 # Setor Consciência Limpa

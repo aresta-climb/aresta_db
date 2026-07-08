@@ -1,4 +1,4 @@
----
+---
 nome: Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_p0.webp
@@ -7,105 +7,105 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 282
       y: 252
       comprimento: 25
       largura: 25
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 202
       y: 252
       comprimento: 25
       largura: 25
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 138
       y: 312
       comprimento: 25
       largura: 25
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 118
       y: 262
       comprimento: 25
       largura: 25
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 232
       y: 318
       comprimento: 25
       largura: 25
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 482
       y: 418
       comprimento: 25
       largura: 25
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 348
       y: 348
       comprimento: 25
       largura: 25
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 268
       y: 342
       comprimento: 25
       largura: 25
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 538
       y: 422
       comprimento: 25
       largura: 25
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 98
       y: 408
       comprimento: 25
       largura: 25
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 278
       y: 402
       comprimento: 25
       largura: 25
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 62
       y: 222
       comprimento: 25
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 438
       y: 332
       comprimento: 25
       largura: 25
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 492
       y: 358
       comprimento: 25
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 402
       y: 312
       comprimento: 25
@@ -175,7 +175,8 @@ setores:
 - caminho: grupo_pedreira_setor_rock_and_roll.md
 - caminho: grupo_pedreira_setor_bloco_dos_canelas.md
 - caminho: grupo_pedreira_setor_maos_de_sebo.md
----
+---
+
 # Grupo Pedreira
 
 A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.

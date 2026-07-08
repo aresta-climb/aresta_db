@@ -7,49 +7,49 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 694
       y: 889
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 699
       y: 755
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 892
       y: 715
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 909
       y: 827
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1108
       y: 789
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1183
       y: 815
       raio: 13
   - id: A
     label: A
-    circular:
+    circulo:
       x: 849
       y: 310
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1465
       y: 152
       raio: 13
@@ -86,55 +86,55 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 29
       y: 316
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 579
       y: 246
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1502
       y: 399
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 281
       y: 882
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 239
       y: 769
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 531
       y: 846
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 653
       y: 864
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 979
       y: 720
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 967
       y: 873
       raio: 13
@@ -189,67 +189,67 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 33
       y: 242
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 608
       y: 201
       raio: 13
   - id: C
     label: C
-    circular:
+    circulo:
       x: 1549
       y: 392
       raio: 13
   - id: D
     label: D
-    circular:
+    circulo:
       x: 1405
       y: 806
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 358
       y: 770
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 395
       y: 977
       raio: 13
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 771
       y: 647
       raio: 13
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 791
       y: 954
       raio: 13
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 845
       y: 932
       raio: 13
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 973
       y: 883
       raio: 13
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1176
       y: 829
       raio: 13
@@ -386,5 +386,4 @@ escaladas:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
 ---
-
 

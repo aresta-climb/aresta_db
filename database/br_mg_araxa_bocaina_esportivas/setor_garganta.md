@@ -1,4 +1,4 @@
----
+---
 nome: Garganta
 mapas:
 - caminho_imagem_mapa: imagens/setor_garganta_p1.webp
@@ -7,21 +7,21 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    box:
+    retangulo:
       x: 948
       y: 986
       comprimento: 43
       largura: 34
   - id: '02'
     label: '02'
-    box:
+    retangulo:
       x: 630
       y: 1069
       comprimento: 45
       largura: 32
   - id: '03'
     label: '03'
-    box:
+    retangulo:
       x: 320
       y: 1060
       comprimento: 45
@@ -42,7 +42,7 @@ mapas:
   pontos_de_interesse:
   - id: '04'
     label: '04'
-    box:
+    retangulo:
       x: 612
       y: 1224
       comprimento: 46
@@ -57,7 +57,7 @@ mapas:
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    box:
+    retangulo:
       x: 533
       y: 1248
       comprimento: 44
@@ -72,14 +72,14 @@ mapas:
   pontos_de_interesse:
   - id: '06'
     label: '06'
-    box:
+    retangulo:
       x: 1076
       y: 1082
       comprimento: 51
       largura: 42
   - id: '07'
     label: '07'
-    box:
+    retangulo:
       x: 707
       y: 958
       comprimento: 44
@@ -95,16 +95,16 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
-    box:
+  - id: 08
+    label: 08
+    retangulo:
       x: 928
       y: 1134
       comprimento: 50
       largura: 37
-  - id: '09'
-    label: '09'
-    box:
+  - id: 09
+    label: 09
+    retangulo:
       x: 642
       y: 1140
       comprimento: 51
@@ -115,28 +115,28 @@ mapas:
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 320
       y: 1250
       comprimento: 43
       largura: 33
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 390
       y: 1250
       comprimento: 30
       largura: 29
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 452
       y: 1249
       comprimento: 34
       largura: 30
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 662
       y: 1250
       comprimento: 42
@@ -160,49 +160,49 @@ mapas:
   pontos_de_interesse:
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 178
       y: 1172
       comprimento: 25
       largura: 23
   - id: '11'
     label: '11'
-    box:
+    retangulo:
       x: 220
       y: 1168
       comprimento: 23
       largura: 22
   - id: '12'
     label: '12'
-    box:
+    retangulo:
       x: 262
       y: 1154
       comprimento: 32
       largura: 25
   - id: '13'
     label: '13'
-    box:
+    retangulo:
       x: 313
       y: 1006
       comprimento: 30
       largura: 25
   - id: '14'
     label: '14'
-    box:
+    retangulo:
       x: 342
       y: 878
       comprimento: 33
       largura: 25
   - id: '15'
     label: '15'
-    box:
+    retangulo:
       x: 362
       y: 697
       comprimento: 33
       largura: 26
   - id: '16'
     label: '16'
-    box:
+    retangulo:
       x: 354
       y: 315
       comprimento: 37
@@ -235,49 +235,49 @@ mapas:
   pontos_de_interesse:
   - id: '17'
     label: '17'
-    box:
+    retangulo:
       x: 488
       y: 820
       comprimento: 29
       largura: 25
   - id: '18'
     label: '18'
-    box:
+    retangulo:
       x: 525
       y: 622
       comprimento: 34
       largura: 25
   - id: '19'
     label: '19'
-    box:
+    retangulo:
       x: 592
       y: 720
       comprimento: 32
       largura: 26
   - id: '20'
     label: '20'
-    box:
+    retangulo:
       x: 608
       y: 657
       comprimento: 37
       largura: 28
   - id: '21'
     label: '21'
-    box:
+    retangulo:
       x: 639
       y: 622
       comprimento: 24
       largura: 24
   - id: '22'
     label: '22'
-    box:
+    retangulo:
       x: 686
       y: 623
       comprimento: 26
       largura: 22
   - id: '23'
     label: '23'
-    box:
+    retangulo:
       x: 628
       y: 294
       comprimento: 35
@@ -310,35 +310,35 @@ mapas:
   pontos_de_interesse:
   - id: '24'
     label: '24'
-    box:
+    retangulo:
       x: 666
       y: 250
       comprimento: 37
       largura: 28
   - id: '25'
     label: '25'
-    box:
+    retangulo:
       x: 711
       y: 238
       comprimento: 34
       largura: 26
   - id: '26'
     label: '26'
-    box:
+    retangulo:
       x: 804
       y: 410
       comprimento: 34
       largura: 25
   - id: '27'
     label: '27'
-    box:
+    retangulo:
       x: 828
       y: 164
       comprimento: 30
       largura: 25
   - id: '28'
     label: '28'
-    box:
+    retangulo:
       x: 878
       y: 206
       comprimento: 35
@@ -616,7 +616,8 @@ escaladas:
     conquistadores:
     - Alex
     data_abertura: '2013'
----
+---
+
 # Setor Garganta
 
 ![Setor Garganta](imagens/setor_garganta_p0_i0.webp)

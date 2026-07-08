@@ -1,4 +1,4 @@
----
+---
 nome: Escorpião
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp
@@ -7,35 +7,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 400
       y: 320
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 510
       y: 320
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 750
       y: 356
       comprimento: 21
       largura: 22
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 380
       y: 280
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 480
       y: 280
       comprimento: 30
@@ -68,14 +68,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 230
       y: 350
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 390
       y: 255
       comprimento: 30
@@ -115,7 +115,8 @@ escaladas:
 - boulder:
     nome: Sicronismo
     dificuldade: V8
----
+---
+
 # Setor Escorpião
 
 O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.

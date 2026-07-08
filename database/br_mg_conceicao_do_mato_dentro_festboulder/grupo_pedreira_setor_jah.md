@@ -1,4 +1,4 @@
----
+---
 nome: Jah
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 130
       y: 515
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 220
       y: 385
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 315
       y: 525
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 415
       y: 440
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 460
       y: 540
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 360
       y: 275
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 750
       y: 500
       comprimento: 30
       largura: 30
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 760
       y: 540
       comprimento: 30
@@ -92,14 +92,14 @@ mapas:
   pontos_de_interesse:
   - id: '9'
     label: '9'
-    box:
+    retangulo:
       x: 460
       y: 515
       comprimento: 30
       largura: 30
   - id: '10'
     label: '10'
-    box:
+    retangulo:
       x: 600
       y: 530
       comprimento: 30
@@ -142,7 +142,8 @@ escaladas:
 - boulder:
     nome: (sem nome)
     dificuldade: V3
----
+---
+
 # Setor Jah
 
 O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.

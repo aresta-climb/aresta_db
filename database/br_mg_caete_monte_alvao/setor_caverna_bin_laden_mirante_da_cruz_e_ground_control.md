@@ -7,168 +7,168 @@ mapas:
   pontos_de_interesse:
   - id: 1ros
     label: 1ros
-    box:
+    retangulo:
       x: 948
       y: 184
       comprimento: 30
       largura: 47
   - id: 2ros
     label: 2ros
-    box:
+    retangulo:
       x: 982
       y: 286
       comprimento: 29
       largura: 46
   - id: 3ros
     label: 3ros
-    box:
+    retangulo:
       x: 904
       y: 256
       comprimento: 30
       largura: 50
   - id: 4ros
     label: 4ros
-    box:
+    retangulo:
       x: 937
       y: 360
       comprimento: 34
       largura: 44
   - id: 5ros
     label: 5ros
-    box:
+    retangulo:
       x: 816
       y: 248
       comprimento: 35
       largura: 50
   - id: 6ros
     label: 6ros
-    box:
+    retangulo:
       x: 912
       y: 182
       comprimento: 31
       largura: 47
   - id: 1az
     label: '1'
-    box:
+    retangulo:
       x: 570
       y: 1194
       comprimento: 27
       largura: 43
   - id: 2az
     label: '2'
-    box:
+    retangulo:
       x: 528
       y: 1362
       comprimento: 38
       largura: 46
   - id: 3az
     label: '3'
-    box:
+    retangulo:
       x: 590
       y: 1407
       comprimento: 39
       largura: 52
   - id: 4az
     label: '4'
-    box:
+    retangulo:
       x: 536
       y: 1508
       comprimento: 28
       largura: 40
   - id: 5az
     label: '5'
-    box:
+    retangulo:
       x: 606
       y: 1494
       comprimento: 37
       largura: 51
   - id: 6az
     label: '6'
-    box:
+    retangulo:
       x: 608
       y: 1575
       comprimento: 35
       largura: 50
   - id: 1rox
     label: 1rox
-    box:
+    retangulo:
       x: 1052
       y: 163
       comprimento: 29
       largura: 50
   - id: 2rox
     label: 2rox
-    box:
+    retangulo:
       x: 1116
       y: 194
       comprimento: 32
       largura: 57
   - id: 3rox
     label: 3rox
-    box:
+    retangulo:
       x: 1172
       y: 196
       comprimento: 37
       largura: 47
   - id: 4rox
     label: 4rox
-    box:
+    retangulo:
       x: 1252
       y: 210
       comprimento: 35
       largura: 47
   - id: 5rox
     label: 5rox
-    box:
+    retangulo:
       x: 1359
       y: 213
       comprimento: 30
       largura: 50
   - id: 6rox
     label: 6rox
-    box:
+    retangulo:
       x: 1456
       y: 218
       comprimento: 34
       largura: 53
   - id: 7rox
     label: 7rox
-    box:
+    retangulo:
       x: 1582
       y: 220
       comprimento: 33
       largura: 50
   - id: 8rox
     label: 8rox
-    box:
+    retangulo:
       x: 1664
       y: 236
       comprimento: 33
       largura: 50
   - id: 9rox
     label: 9rox
-    box:
+    retangulo:
       x: 1730
       y: 303
       comprimento: 32
       largura: 48
   - id: 10rox
     label: 10rox
-    box:
+    retangulo:
       x: 1753
       y: 246
       comprimento: 56
       largura: 46
   - id: 11rox
     label: 11rox
-    box:
+    retangulo:
       x: 1634
       y: 436
       comprimento: 45
       largura: 53
   - id: 12rox
     label: 12rox
-    box:
+    retangulo:
       x: 1543
       y: 438
       comprimento: 50

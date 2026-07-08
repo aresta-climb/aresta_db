@@ -1,4 +1,4 @@
----
+---
 nome: Pole Dance
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p0.webp
@@ -7,56 +7,56 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 160
       y: 535
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 210
       y: 545
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 290
       y: 535
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 260
       y: 555
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 240
       y: 285
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 420
       y: 555
       comprimento: 30
       largura: 30
   - id: '7'
     label: '7'
-    box:
+    retangulo:
       x: 630
       y: 560
       comprimento: 30
       largura: 30
   - id: '8'
     label: '8'
-    box:
+    retangulo:
       x: 750
       y: 560
       comprimento: 30
@@ -125,35 +125,35 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 380
       y: 505
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 430
       y: 505
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 520
       y: 415
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 720
       y: 495
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 760
       y: 495
       comprimento: 30
@@ -210,42 +210,42 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 240
       y: 285
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 180
       y: 505
       comprimento: 30
       largura: 30
   - id: '3'
     label: '3'
-    box:
+    retangulo:
       x: 405
       y: 525
       comprimento: 30
       largura: 30
   - id: '4'
     label: '4'
-    box:
+    retangulo:
       x: 545
       y: 525
       comprimento: 30
       largura: 30
   - id: '5'
     label: '5'
-    box:
+    retangulo:
       x: 685
       y: 505
       comprimento: 30
       largura: 30
   - id: '6'
     label: '6'
-    box:
+    retangulo:
       x: 755
       y: 505
       comprimento: 30
@@ -360,7 +360,8 @@ escaladas:
 - boulder:
     nome: Rocklands
     dificuldade: V4
----
+---
+
 # Setor Pole Dance
 
 O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.

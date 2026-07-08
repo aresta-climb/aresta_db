@@ -7,91 +7,91 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    circular:
+    circulo:
       x: 288
       y: 77
       raio: 33
   - id: '02'
     label: '02'
-    circular:
+    circulo:
       x: 439
       y: 133
       raio: 34
   - id: '03'
     label: '03'
-    circular:
+    circulo:
       x: 557
       y: 238
       raio: 34
   - id: '04'
     label: '04'
-    circular:
+    circulo:
       x: 633
       y: 372
       raio: 33
   - id: '05'
     label: '05'
-    circular:
+    circulo:
       x: 700
       y: 541
       raio: 33
   - id: '06'
     label: '06'
-    circular:
+    circulo:
       x: 784
       y: 718
       raio: 33
   - id: '07'
     label: '07'
-    circular:
+    circulo:
       x: 799
       y: 867
       raio: 33
-  - id: '08'
-    label: '08'
-    circular:
+  - id: 08
+    label: 08
+    circulo:
       x: 899
       y: 965
       raio: 33
-  - id: '09'
-    label: '09'
-    circular:
+  - id: 09
+    label: 09
+    circulo:
       x: 931
       y: 1077
       raio: 33
   - id: '10'
     label: '10'
-    circular:
+    circulo:
       x: 953
       y: 1190
       raio: 33
   - id: '11'
     label: '11'
-    circular:
+    circulo:
       x: 964
       y: 1301
       raio: 33
   - id: '12'
     label: '12'
-    circular:
+    circulo:
       x: 966
       y: 1414
       raio: 34
   - id: '13'
     label: '13'
-    circular:
+    circulo:
       x: 975
       y: 1558
       raio: 34
   - id: '14'
     label: '14'
-    circular:
+    circulo:
       x: 975
       y: 1700
       raio: 34
   - id: '15'
     label: '15'
-    circular:
+    circulo:
       x: 975
       y: 1844
       raio: 34
@@ -119,10 +119,10 @@ mapas:
     - '07'
   - escalada: BERBARIDADE MÁXIMA
     ids:
-    - '08'
+    - 08
   - escalada: SANTA INQUISIÇÃO
     ids:
-    - '09'
+    - 09
   - escalada: TIRANOS DE PLANTÃO
     ids:
     - '10'

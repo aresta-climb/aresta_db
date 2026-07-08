@@ -7,55 +7,55 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 190
       y: 968
       raio: 15
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 382
       y: 968
       raio: 15
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 604
       y: 968
       raio: 15
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 893
       y: 968
       raio: 15
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 1007
       y: 968
       raio: 15
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 1274
       y: 968
       raio: 15
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 1620
       y: 969
       raio: 15
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 1748
       y: 968
       raio: 15
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 1899
       y: 968
       raio: 15
@@ -93,13 +93,13 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 519
       y: 1135
       raio: 15
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 846
       y: 1127
       raio: 14
@@ -116,19 +116,19 @@ mapas:
   pontos_de_interesse:
   - id: '3'
     label: '3'
-    circular:
+    circulo:
       x: 35
       y: 1132
       raio: 15
   - id: '4'
     label: '4'
-    circular:
+    circulo:
       x: 364
       y: 1099
       raio: 15
   - id: '5'
     label: '5'
-    circular:
+    circulo:
       x: 478
       y: 1092
       raio: 15
@@ -148,25 +148,25 @@ mapas:
   pontos_de_interesse:
   - id: '6'
     label: '6'
-    circular:
+    circulo:
       x: 49
       y: 1134
       raio: 14
   - id: '7'
     label: '7'
-    circular:
+    circulo:
       x: 519
       y: 1135
       raio: 14
   - id: '8'
     label: '8'
-    circular:
+    circulo:
       x: 646
       y: 1130
       raio: 15
   - id: '9'
     label: '9'
-    circular:
+    circulo:
       x: 798
       y: 1118
       raio: 15

@@ -7,122 +7,122 @@ mapas:
   pontos_de_interesse:
   - id: titulo
     label: SETOR CANGAÇO
-    box:
+    retangulo:
       x: 166
       y: 72
       comprimento: 256
       largura: 75
   - id: 01_bot
     label: '01'
-    circular:
+    circulo:
       x: 56
       y: 587
       raio: 12
   - id: 02_bot
     label: '02'
-    circular:
+    circulo:
       x: 139
       y: 596
       raio: 11
   - id: 03_bot
     label: '03'
-    circular:
+    circulo:
       x: 265
       y: 607
       raio: 12
   - id: 02_mid
     label: '02'
-    circular:
+    circulo:
       x: 140
       y: 209
       raio: 12
   - id: 03_mid
     label: '03'
-    circular:
+    circulo:
       x: 208
       y: 192
       raio: 12
   - id: 04_top
     label: '04'
-    circular:
+    circulo:
       x: 500
       y: 206
       raio: 12
   - id: 05_top
     label: '05'
-    circular:
+    circulo:
       x: 574
       y: 194
       raio: 12
   - id: 06_mid
     label: '06'
-    circular:
+    circulo:
       x: 750
       y: 248
       raio: 12
   - id: 06_bot
     label: '06'
-    circular:
+    circulo:
       x: 611
       y: 662
       raio: 12
   - id: 07_bot
     label: '07'
-    circular:
+    circulo:
       x: 768
       y: 661
       raio: 12
   - id: 08_bot
-    label: '08'
-    circular:
+    label: 08
+    circulo:
       x: 945
       y: 671
       raio: 12
   - id: 09_bot
-    label: '09'
-    circular:
+    label: 09
+    circulo:
       x: 1000
       y: 670
       raio: 12
   - id: 10_bot
     label: '10'
-    circular:
+    circulo:
       x: 1072
       y: 662
       raio: 12
   - id: 09_top
-    label: '09'
-    circular:
+    label: 09
+    circulo:
       x: 937
       y: 112
       raio: 12
   - id: 10_top
     label: '10'
-    circular:
+    circulo:
       x: 1072
       y: 178
       raio: 12
   - id: 11_top
     label: '11'
-    circular:
+    circulo:
       x: 1171
       y: 159
       raio: 12
   - id: 12_top
     label: '12'
-    circular:
+    circulo:
       x: 1257
       y: 145
       raio: 12
   - id: 13_top
     label: '13'
-    circular:
+    circulo:
       x: 1348
       y: 134
       raio: 12
   - id: ditados
     label: DITADOS
-    box:
+    retangulo:
       x: 1479
       y: 661
       comprimento: 110
@@ -256,7 +256,6 @@ escaladas:
     - Leonard Moreira
     data_abertura: 2021-03
 ---
-
 
 ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp)
 

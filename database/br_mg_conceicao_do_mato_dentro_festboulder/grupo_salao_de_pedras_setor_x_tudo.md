@@ -1,4 +1,4 @@
----
+---
 nome: X-Tudo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp
@@ -7,14 +7,14 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 450
       y: 255
       comprimento: 30
       largura: 30
   - id: '2'
     label: '2'
-    box:
+    retangulo:
       x: 590
       y: 255
       comprimento: 30
@@ -38,7 +38,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 380
       y: 405
       comprimento: 30
@@ -59,7 +59,7 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    box:
+    retangulo:
       x: 430
       y: 410
       comprimento: 30
@@ -87,7 +87,8 @@ escaladas:
 - boulder:
     nome: Kansas
     dificuldade: V3
----
+---
+
 # Setor X-Tudo
 
 O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.

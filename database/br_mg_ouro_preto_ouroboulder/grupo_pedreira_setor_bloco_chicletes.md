@@ -7,19 +7,19 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 557
       y: 783
       raio: 13
   - id: '2'
     label: '2'
-    circular:
+    circulo:
       x: 625
       y: 817
       raio: 13
   - id: 3/1A
     label: '3'
-    circular:
+    circulo:
       x: 957
       y: 947
       raio: 13
@@ -41,19 +41,19 @@ mapas:
   pontos_de_interesse:
   - id: A
     label: A
-    circular:
+    circulo:
       x: 569
       y: 199
       raio: 13
   - id: B
     label: B
-    circular:
+    circulo:
       x: 1562
       y: 640
       raio: 13
   - id: '1'
     label: '1'
-    circular:
+    circulo:
       x: 613
       y: 1007
       raio: 13
@@ -80,5 +80,4 @@ escaladas:
     nome: Chicletes
     dificuldade: V11
 ---
-
 
