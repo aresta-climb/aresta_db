@@ -105,28 +105,28 @@ class MapasControllerTest(unittest.TestCase):
     def test_converter_boxes_para_circulos(self):
         poi1 = self.mapa.pontos_de_interesse.add()
         poi1.id = "poi1"
-        poi1.box.x = 10
-        poi1.box.y = 10
-        poi1.box.comprimento = 40
-        poi1.box.largura = 40
+        poi1.retangulo.x = 10
+        poi1.retangulo.y = 10
+        poi1.retangulo.comprimento = 40
+        poi1.retangulo.largura = 40
 
         poi2 = self.mapa.pontos_de_interesse.add()
         poi2.id = "poi2"
-        poi2.box.x = 100
-        poi2.box.y = 100
-        poi2.box.comprimento = 80
-        poi2.box.largura = 80
+        poi2.retangulo.x = 100
+        poi2.retangulo.y = 100
+        poi2.retangulo.comprimento = 80
+        poi2.retangulo.largura = 80
         
         self.controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [0, 1])
         
-        self.assertTrue(self.mapa.pontos_de_interesse[0].HasField('circular'))
-        self.assertEqual(self.mapa.pontos_de_interesse[0].circular.raio, 20)
-        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField('circular'))
-        self.assertEqual(self.mapa.pontos_de_interesse[1].circular.raio, 40)
+        self.assertTrue(self.mapa.pontos_de_interesse[0].HasField('circulo'))
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.raio, 20)
+        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField('circulo'))
+        self.assertEqual(self.mapa.pontos_de_interesse[1].circulo.raio, 40)
         
         self.undo_stack.undo()
-        self.assertTrue(self.mapa.pontos_de_interesse[0].HasField('box'))
-        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField('box'))
+        self.assertTrue(self.mapa.pontos_de_interesse[0].HasField('retangulo'))
+        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField('retangulo'))
 
     def test_macro_undo_redo_agrupa_comandos(self):
         """Verifica se iniciar_grupo_undo e finalizar_grupo_undo agrupam comandos corretamente."""
@@ -185,13 +185,13 @@ class MapasControllerTest(unittest.TestCase):
     def test_converter_circulos_para_boxes(self):
         """[TDD] Verifica conversao de circulo para retangulo."""
         poi1 = croqui_pb2.Mapa.PontoDeInteresse()
-        poi1.circular.x = 100
-        poi1.circular.y = 200
-        poi1.circular.raio = 50
+        poi1.circulo.x = 100
+        poi1.circulo.y = 200
+        poi1.circulo.raio = 50
         
         poi2 = croqui_pb2.Mapa.PontoDeInteresse()
-        poi2.box.x = 10
-        poi2.box.y = 10
+        poi2.retangulo.x = 10
+        poi2.retangulo.y = 10
         
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi1)
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi2)
@@ -199,13 +199,13 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.converter_circulos_para_boxes(self.msg_mapa_proxy, [0, 1])
         
         poi_convertido = self.msg_mapa_proxy.pontos_de_interesse[0]
-        self.assertTrue(poi_convertido.HasField('box'))
-        self.assertFalse(poi_convertido.HasField('circular'))
+        self.assertTrue(poi_convertido.HasField('retangulo'))
+        self.assertFalse(poi_convertido.HasField('circulo'))
         
-        self.assertEqual(poi_convertido.box.x, 100)
-        self.assertEqual(poi_convertido.box.y, 200)
-        self.assertEqual(poi_convertido.box.comprimento, 100)
-        self.assertEqual(poi_convertido.box.largura, 100)
+        self.assertEqual(poi_convertido.retangulo.x, 100)
+        self.assertEqual(poi_convertido.retangulo.y, 200)
+        self.assertEqual(poi_convertido.retangulo.comprimento, 100)
+        self.assertEqual(poi_convertido.retangulo.largura, 100)
 
 if __name__ == '__main__':
     unittest.main()

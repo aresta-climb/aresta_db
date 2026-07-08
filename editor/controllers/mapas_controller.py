@@ -48,7 +48,7 @@ class MapasController:
         alteracoes = []
         for index in indices:
             poi_antigo = msg_mapa_proxy.pontos_de_interesse[index]
-            if not poi_antigo.HasField('box'):
+            if not poi_antigo.HasField('retangulo'):
                 continue
                 
             poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
@@ -57,13 +57,13 @@ class MapasController:
             else:
                 poi_novo.CopyFrom(poi_antigo)
             
-            box = poi_antigo.box
+            box = poi_antigo.retangulo
             r = (box.comprimento + box.largura) / 4.0
             
             poi_novo.ClearField('tipo_area')
-            poi_novo.circular.x = box.x
-            poi_novo.circular.y = box.y
-            poi_novo.circular.raio = int(round(r))
+            poi_novo.circulo.x = box.x
+            poi_novo.circulo.y = box.y
+            poi_novo.circulo.raio = int(round(r))
             
             alteracoes.append((index, poi_antigo, poi_novo))
             
@@ -86,7 +86,7 @@ class MapasController:
         alteracoes = []
         for index in indices:
             poi_antigo = msg_mapa_proxy.pontos_de_interesse[index]
-            if not poi_antigo.HasField('circular'):
+            if not poi_antigo.HasField('circulo'):
                 continue
                 
             poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
@@ -95,14 +95,14 @@ class MapasController:
             else:
                 poi_novo.CopyFrom(poi_antigo)
             
-            circ = poi_antigo.circular
+            circ = poi_antigo.circulo
             r = circ.raio
             
             poi_novo.ClearField('tipo_area')
-            poi_novo.box.x = circ.x
-            poi_novo.box.y = circ.y
-            poi_novo.box.comprimento = r * 2
-            poi_novo.box.largura = r * 2
+            poi_novo.retangulo.x = circ.x
+            poi_novo.retangulo.y = circ.y
+            poi_novo.retangulo.comprimento = r * 2
+            poi_novo.retangulo.largura = r * 2
             
             alteracoes.append((index, poi_antigo, poi_novo))
             
