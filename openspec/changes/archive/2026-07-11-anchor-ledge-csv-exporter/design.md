@@ -7,7 +7,7 @@ Os administradores e contribuidores do Aresta precisam enviar os dados de croqui
 **Goals:**
 - Prover um script (CLI) em Python fácil de rodar no terminal, para exportar rapidamente os dados de um croqui compilado.
 - Utilizar a desserialização do `compilado.binarypb` usando protobuf para iterar pelos dados sem risco de parse incorreto.
-- Fazer a conversão direta da graduação baseada no enum interno do Protobuf (`GrauVia`), extraindo o nome do enum francês equivalente ao inteiro armazenado e formatando-o (ex: `FR_7C_MAIS` -> `7c+`).
+- Fazer a conversão da graduação baseada no enum interno do Protobuf (`GrauVia`), extraindo o nome do enum brasileiro equivalente ao inteiro armazenado e formatando-o para texto minúsculo legível (ex: `BR_6SUP` -> `6sup`).
 - Mapear corretamente as informações para os campos obrigatórios e não-obrigatórios exigidos pelo sistema Anchor Ledge.
 
 **Non-Goals:**
@@ -18,8 +18,15 @@ Os administradores e contribuidores do Aresta precisam enviar os dados de croqui
 
 - **Leitura do Protobuf**: O script importará o módulo protobuf compilado (`aresta_api.proto.croqui_pb2`) e chamará `ParseFromString` no arquivo `generated/<id>/compilado.binarypb`. Isso elimina a necessidade de parsers YAML ou de lidar com a estrutura fragmentada de arquivos Markdown.
 - **Placeholders de Identificação**: Os campos `areaId` vão conter o nome base da pasta (ex: `br_mg_lagoa_santa_gruta_da_lapinha`) e `sectorId` conterá o próprio nome do setor (`setor.nome`).
-- **Grade Mapping**: Aproveitaremos a tabela de descritores do enum `GrauVia` no Python (`Croqui.DESCRIPTOR...`) para pegar o valor inteiro salvo e encontrar o nome da chave que comece com `FR_`, aplicando replace simples (ex: `_MAIS` para `+`).
+- **Grade Mapping**: Aproveitaremos a tabela de descritores do enum `GrauVia` no Python (`Croqui.DESCRIPTOR...`) para pegar o valor inteiro salvo e encontrar o nome da chave que comece com `BR_`, aplicando replaces de formatação (ex: `_BARRA_` para `/`, `SUP` para `sup`, e convertendo tudo para minúsculas).
 - **Tratamento de Strings no CSV**: Utilização do módulo interno do Python `csv`.
+
+## Quality Standards
+
+- **Princípios da Aresta**: O código seguirá estritamente as diretrizes contidas em `PRINCIPIOS.md`, mantendo idioma português, padrão Library-First, e simplicidade.
+- **TDD (Test-Driven Development)**: Os testes unitários (em `_test.py`) serão escritos e falharão *antes* do código de produção ser implementado.
+- **Cobertura de Testes**: Garantiremos 100% de cobertura de testes unitários para a funcionalidade de exportação, simulando o protobuf para cobrir todos os cenários de branches.
+- **Docstrings**: Todas as funções, módulos e classes estarão amplamente documentados com Docstrings claras, informando o que as entradas e saídas esperadas são.
 
 ## Risks / Trade-offs
 

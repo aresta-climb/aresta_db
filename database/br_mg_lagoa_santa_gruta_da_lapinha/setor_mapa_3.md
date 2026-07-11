@@ -397,6 +397,7 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1998'
+    data_manutencao: 27/05/2022
 - via_esportiva:
     nome: Bobeou Sobrou
     dificuldade: BR_7A
@@ -411,6 +412,7 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1999'
+    data_manutencao: 12/07/2022
 - via_movel:
     nome: Folião
     dificuldade: BR_6
@@ -436,6 +438,7 @@ escaladas:
     conquistadores:
     - Leonardo Hoffmann
     data_abertura: '2001'
+    data_manutencao: 10/08/2022
 - via_esportiva:
     nome: Sobreviventes
     dificuldade: BR_6

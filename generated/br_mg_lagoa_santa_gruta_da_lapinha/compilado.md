@@ -727,6 +727,7 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1998
+      - **data_manutencao**: 27/05/2022
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Bobeou Sobrou
@@ -743,6 +744,7 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1999
+      - **data_manutencao**: 12/07/2022
   - **[21]**:
     - **via_movel**:
       - **nome**: Folião
@@ -772,6 +774,7 @@
       - **conquistadores**:
         - Leonardo Hoffmann
       - **data_abertura**: 2001
+      - **data_manutencao**: 10/08/2022
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Sobreviventes
@@ -1011,18 +1014,22 @@
         - **escalada**: Fogo no Rabo
         - **ids**:
           - 27
+        - **setor**: Setor Gruta - Mapa 3
       - **[1]**:
         - **escalada**: Bobeou Sobrou
         - **ids**:
           - 28
+        - **setor**: Setor Gruta - Mapa 3
       - **[2]**:
         - **escalada**: Los Cubanos
         - **ids**:
           - 29
+        - **setor**: Setor Gruta - Mapa 3
       - **[3]**:
         - **escalada**: Folião
         - **ids**:
           - 30
+        - **setor**: Setor Gruta - Mapa 3
       - **[4]**:
         - **escalada**: Luzes
         - **ids**:
@@ -1083,18 +1090,22 @@
         - **escalada**: Escalador sem mãe
         - **ids**:
           - 45
+        - **setor**: Setor Gruta - Mapa 3
       - **[19]**:
         - **escalada**: Projeto inacabado
         - **ids**:
           - 46
+        - **setor**: Setor Gruta - Mapa 3
       - **[20]**:
         - **escalada**: Sobrevibrenf´s
         - **ids**:
           - 47
+        - **setor**: Setor Gruta - Mapa 3
       - **[21]**:
         - **escalada**: Sobreviventes
         - **ids**:
           - 48
+        - **setor**: Setor Gruta - Mapa 3
       - **[22]**:
         - **escalada**: Scarface
         - **ids**:
@@ -1113,38 +1124,6 @@
         - **setor**: Savassinha (Mapa 9)
 - **escaladas**:
   - **[0]**:
-    - **via_esportiva**:
-      - **nome**: Fogo no Rabo
-      - **dificuldade**: BR_6SUP
-      - **conquistadores**:
-        - Fabiano da Silva Fernandes
-        - Viviane da Silva Euler
-      - **data_abertura**: 1998
-  - **[1]**:
-    - **via_esportiva**:
-      - **nome**: Bobeou Sobrou
-      - **dificuldade**: BR_7A
-      - **conquistadores**:
-        - Fabiano da Silva Fernandes
-        - Viviane da Silva Euler
-      - **data_abertura**: 1998
-  - **[2]**:
-    - **via_esportiva**:
-      - **nome**: Los Cubanos
-      - **dificuldade**: BR_6SUP
-      - **conquistadores**:
-        - Fabiano da Silva Fernandes
-        - Viviane da Silva Euler
-      - **data_abertura**: 1999
-  - **[3]**:
-    - **via_movel**:
-      - **nome**: Folião
-      - **dificuldade**: BR_6
-      - **conquistadores**:
-        - Antonio Carlos Magalhães
-        - Lúcia Magalhães
-      - **data_abertura**: 1997
-  - **[4]**:
     - **via_movel**:
       - **nome**: Luzes
       - **dificuldade**: BR_4
@@ -1152,14 +1131,14 @@
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
       - **data_abertura**: 1997
-  - **[5]**:
+  - **[1]**:
     - **via_esportiva**:
       - **nome**: Via sem informação
+      - **dificuldade**: BR_4
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
       - **data_abertura**: 1994
-      - **dificuldade**: BR_4
-  - **[6]**:
+  - **[2]**:
     - **via_movel**:
       - **nome**: Êta Sô
       - **dificuldade**: BR_6
@@ -1167,14 +1146,14 @@
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
       - **data_abertura**: 1997
-  - **[7]**:
+  - **[3]**:
     - **via_esportiva**:
       - **nome**: Via do Tetinho
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
       - **data_abertura**: 1994
-  - **[8]**:
+  - **[4]**:
     - **via_esportiva**:
       - **nome**: Ataque das Bolinhas
       - **dificuldade**: BR_4
@@ -1182,23 +1161,26 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1998
-  - **[9]**:
+      - **data_manutencao**: 27/05/2022
+  - **[5]**:
     - **via_esportiva**:
       - **nome**: Via do curso
-      - **dificuldade**: BR_3
-      - **data_abertura**: 1997
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Felipe
         - Emerson Alves Azeredo
-  - **[10]**:
+      - **data_abertura**: 1997
+      - **dificuldade**: BR_3
+      - **data_manutencao**: 27/05/2022
+  - **[6]**:
     - **via_esportiva**:
       - **nome**: Viajandão Grampeando na Chuva
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Eustáquio M. Melo Júnior e alunos
       - **data_abertura**: 1997
-  - **[11]**:
+      - **data_manutencao**: 27/05/2022
+  - **[7]**:
     - **via_esportiva**:
       - **nome**: Martelo Voador
       - **dificuldade**: BR_4
@@ -1206,7 +1188,7 @@
         - Ramaya Vallias
         - Sérgio Soares
       - **data_abertura**: 1999
-  - **[12]**:
+  - **[8]**:
     - **via_esportiva**:
       - **nome**: Coquetel de Maracujá
       - **dificuldade**: BR_4
@@ -1214,14 +1196,14 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1998
-  - **[13]**:
+  - **[9]**:
     - **via_esportiva**:
       - **nome**: Ravenloft
       - **dificuldade**: BR_6
+      - **data_abertura**: 1997
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
-      - **data_abertura**: 1997
-  - **[14]**:
+  - **[10]**:
     - **via_esportiva**:
       - **nome**: Muro das Lamentações
       - **dificuldade**: BR_7B
@@ -1229,7 +1211,8 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1998
-  - **[15]**:
+      - **data_manutencao**: 12/07/2022
+  - **[11]**:
     - **via_esportiva**:
       - **nome**: Equilíbrio Distante
       - **dificuldade**: BR_8A
@@ -1237,14 +1220,15 @@
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
       - **data_abertura**: 1997
-  - **[16]**:
+      - **data_manutencao**: 12/07/2022
+  - **[12]**:
     - **via_esportiva**:
       - **nome**: Careta do Calango
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Cristiano Loureiro "Negão"
       - **data_abertura**: 1998
-  - **[17]**:
+  - **[13]**:
     - **via_movel**:
       - **nome**: Pierrô e Colombina
       - **dificuldade**: BR_4SUP
@@ -1252,37 +1236,7 @@
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
       - **data_abertura**: 2002
-  - **[18]**:
-    - **via_esportiva**:
-      - **nome**: Escalador sem mãe
-      - **dificuldade**: BR_8A
-      - **conquistadores**:
-        - Jovinei M. Medeiros
-        - Dante M. Borges
-        - Sérgio B. da Silva.
-      - **data_abertura**: 1997
-  - **[19]**:
-    - **via_esportiva**:
-      - **nome**: Projeto inacabado
-      - **conquistadores**:
-        - André Coutinho
-  - **[20]**:
-    - **via_esportiva**:
-      - **nome**: Sobrevibrenf´s
-      - **dificuldade**: BR_6SUP
-      - **conquistadores**:
-        - Leonardo Hoffmann
-      - **data_abertura**: 2001
-  - **[21]**:
-    - **via_esportiva**:
-      - **nome**: Sobreviventes
-      - **dificuldade**: BR_6
-      - **conquistadores**:
-        - Anderson (Neném)
-        - Douglas
-        - Bombom
-      - **data_abertura**: 1994
-  - **[22]**:
+  - **[14]**:
     - **via_esportiva**:
       - **nome**: Scarface
       - **dificuldade**: BR_7A
@@ -1290,14 +1244,14 @@
         - Gustavo Piancastelli
         - Ronie
       - **data_abertura**: 1997
-  - **[23]**:
+  - **[15]**:
     - **via_esportiva**:
       - **nome**: Posições Exóticas
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ivo Ferreira Marcelino
       - **data_abertura**: 1994
-  - **[24]**:
+  - **[16]**:
     - **via_esportiva**:
       - **nome**: Garotos não Choram
       - **dificuldade**: BR_7A
@@ -2426,6 +2380,7 @@
         - Eustáquio Macedo Melo Júnior
         - Gilberto Torres
       - **data_abertura**: 1993
+      - **data_manutencao**: 04/07/2026
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Bigode de Espinho
@@ -2865,6 +2820,7 @@
         - Alexandre Magos
         - Léo Hoffmann
       - **data_abertura**: 1999
+      - **data_manutencao**: 02/08/2022
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Anjo de Pedra

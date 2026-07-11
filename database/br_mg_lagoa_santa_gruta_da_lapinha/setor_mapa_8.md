@@ -296,10 +296,10 @@ escaladas:
     - Emerson Alves Azeredo
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
-    descricao: Ancorar o seg no telefone ao lado da saída até escalador passar a
-      terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado com
-      o pêndulo.
+    descricao: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira
+      chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
     data_abertura: '1993'
+    data_manutencao: 04/07/2026
 - via_esportiva:
     nome: Bigode de Espinho
     dificuldade: BR_6SUP

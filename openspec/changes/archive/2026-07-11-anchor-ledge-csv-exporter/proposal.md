@@ -7,7 +7,7 @@ O aplicativo de destino, Anchor Ledge, requer um arquivo CSV em um formato espec
 - Criação de um novo script Python (`scripts/exportar_para_anchor_ledge.py`).
 - O script fará a leitura direta do arquivo `generated/<id>/compilado.binarypb`, desserializando a mensagem Protobuf principal do croqui.
 - Extração dos dados das vias (`escaladas`) incluindo nome, graduação, e tipo da via.
-- Como o Protobuf já armazena a graduação como um enum numérico unificado (onde `BR_` e `FR_` compartilham IDs idênticos, ex: `BR_9B` e `FR_7C_MAIS` = 23), o script usará esse valor numérico para gerar a saída na escala francesa esperada (`7c+`).
+- Como o Protobuf armazena a graduação como um enum numérico unificado, o script usará esse valor numérico para extrair o identificador da escala brasileira (`BR_`), formatando-o para uso amigável (ex: `BR_6SUP` -> `6sup`).
 - Mapeamento das colunas faltantes e obrigatórias para o CSV, como `areaId` (ID do croqui) e `sectorId` (nome do setor).
 - Exportação dessas informações consolidadas num arquivo `.csv` único com codificação correta e campos separados por vírgula.
 

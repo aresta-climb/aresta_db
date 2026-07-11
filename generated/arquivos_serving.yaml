@@ -532,7 +532,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
   checksum_sha256: 05de39f9ad196eb66c70d1d75000b56e3182e7fb999f0ad2ef47ed6b4a90b14f
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: dce57bf16256935f7e68903c75530503cb1db03286738fca89aa2922269268d4
+  checksum_sha256: a338ed1a43a73dba1dbc148394b6c5c21448c12f889c4066d17db3c3fc7ce487
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -568,9 +568,9 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: feda65c15b53cdfeeb6f4d7d87b35d4b83c49af9996f99cb174fab8dc3fd9dac
+  checksum_sha256: 1da4559be0afbec311afe630e08269fc23518cd4d0807229895e05e423b5e0c3
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.md
-  checksum_sha256: 3e9ab47e48a4adeb27d01cb4d94dbbe827cab59b6cfc3956facf5906ddfa9028
+  checksum_sha256: 2d00523a7626d864eb43df71f3941abf7cbdddab5a36c018cd74cdfec8eea1dd
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: b575ed6b3b4cd0f6553cacdaf505eb094ae56ebff3d1aa1d87f08e36a7ef6e2a
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 93632a34f131cf2b1b1c47f9455c6eafc622194667b8952e1ad18b1c60812f24
+  checksum_sha256: 9701804b2c1e851b9edd562ec7cab49e1caf796549aab2f147adae20b692dbd2
 - caminho_relativo: indice.yaml
-  checksum_sha256: 3feb355cc4acb62f8d660d0761c943a6318786f90a30dbf6b3b0851f59e0310c
+  checksum_sha256: e50133324b0038e221de95258603d7b14148dea03e9caf0c869863f87686b8c5

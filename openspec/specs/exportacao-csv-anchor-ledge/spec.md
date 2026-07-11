@@ -12,7 +12,16 @@ O sistema SHALL mapear as propriedades de uma rota lidas do objeto Protobuf para
 
 #### Scenario: Conversão da graduação nativa
 - **WHEN** uma via possuir graduação definida (o campo inteiro de `dificuldade`)
-- **THEN** o script deverá inspecionar o enum do protobuf para achar a variante iniciada em `FR_` correspondente àquele inteiro, converte-la para minúsculo e trocar `_MAIS` por `+`.
+- **THEN** o script deverá inspecionar o enum do protobuf para achar a variante iniciada em `BR_` correspondente àquele inteiro, remover o prefixo `BR_`, converter para minúsculo e trocar `_BARRA_` por `/`.
+
+#### Scenario: Mapeamento de Metadados Estendidos
+- **WHEN** uma via contiver os campos `extensao`, `quantidade_protecoes_intermediarias`, `data_abertura`, `data_manutencao`, ou `destaque`
+- **THEN** o script deverá:
+  - Mapear `extensao` para `height`.
+  - Mapear `quantidade_protecoes_intermediarias` para `bolts`.
+  - Extrair os 4 primeiros dígitos de `data_abertura` (formato YYYY...) para popular `faYear`.
+  - Extrair os 4 últimos dígitos de `data_manutencao` (formato DD/MM/YYYY) para popular `rebolted`.
+  - Se `destaque` for verdadeiro, popular `stars` com 3; senão popular com 0.
 
 #### Scenario: Determinação do Status e Material
 - **WHEN** uma via for do tipo `projeto` no proto (enum GrauVia = PROJETO) ou similar (se for abordado assim)

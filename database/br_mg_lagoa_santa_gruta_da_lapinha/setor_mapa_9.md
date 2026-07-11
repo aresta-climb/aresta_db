@@ -222,6 +222,7 @@ escaladas:
     - Alexandre Magos
     - Léo Hoffmann
     data_abertura: '1999'
+    data_manutencao: 02/08/2022
 - via_esportiva:
     nome: Anjo de Pedra
     dificuldade: BR_5SUP

@@ -191,15 +191,19 @@ mapas:
   - escalada: Fogo no Rabo
     ids:
     - '27'
+    setor: Setor Gruta - Mapa 3
   - escalada: Bobeou Sobrou
     ids:
     - '28'
+    setor: Setor Gruta - Mapa 3
   - escalada: Los Cubanos
     ids:
     - '29'
+    setor: Setor Gruta - Mapa 3
   - escalada: Folião
     ids:
     - '30'
+    setor: Setor Gruta - Mapa 3
   - escalada: Luzes
     ids:
     - '31'
@@ -245,15 +249,19 @@ mapas:
   - escalada: Escalador sem mãe
     ids:
     - '45'
+    setor: Setor Gruta - Mapa 3
   - escalada: Projeto inacabado
     ids:
     - '46'
+    setor: Setor Gruta - Mapa 3
   - escalada: Sobrevibrenf´s
     ids:
     - '47'
+    setor: Setor Gruta - Mapa 3
   - escalada: Sobreviventes
     ids:
     - '48'
+    setor: Setor Gruta - Mapa 3
   - escalada: Scarface
     ids:
     - '49'
@@ -267,34 +275,6 @@ mapas:
     - Savassinha
     setor: Savassinha (Mapa 9)
 escaladas:
-- via_esportiva:
-    nome: Fogo no Rabo
-    dificuldade: BR_6SUP
-    conquistadores:
-    - Fabiano da Silva Fernandes
-    - Viviane da Silva Euler
-    data_abertura: '1998'
-- via_esportiva:
-    nome: Bobeou Sobrou
-    dificuldade: BR_7A
-    conquistadores:
-    - Fabiano da Silva Fernandes
-    - Viviane da Silva Euler
-    data_abertura: '1998'
-- via_esportiva:
-    nome: Los Cubanos
-    dificuldade: BR_6SUP
-    conquistadores:
-    - Fabiano da Silva Fernandes
-    - Viviane da Silva Euler
-    data_abertura: '1999'
-- via_movel:
-    nome: Folião
-    dificuldade: BR_6
-    conquistadores:
-    - Antonio Carlos Magalhães
-    - Lúcia Magalhães
-    data_abertura: '1997'
 - via_movel:
     nome: Luzes
     dificuldade: BR_4
@@ -304,10 +284,10 @@ escaladas:
     data_abertura: '1997'
 - via_esportiva:
     nome: Via sem informação
+    dificuldade: BR_4
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
     data_abertura: '1994'
-    dificuldade: BR_4
 - via_movel:
     nome: Êta Sô
     dificuldade: BR_6
@@ -328,20 +308,23 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1998'
+    data_manutencao: 27/05/2022
 - via_esportiva:
     nome: Via do curso
-    dificuldade: BR_3
-    data_abertura: '1997'
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Felipe
     - Emerson Alves Azeredo
+    data_abertura: '1997'
+    dificuldade: BR_3
+    data_manutencao: 27/05/2022
 - via_esportiva:
     nome: Viajandão Grampeando na Chuva
     dificuldade: BR_3
     conquistadores:
     - Eustáquio M. Melo Júnior e alunos
     data_abertura: '1997'
+    data_manutencao: 27/05/2022
 - via_esportiva:
     nome: Martelo Voador
     dificuldade: BR_4
@@ -359,9 +342,9 @@ escaladas:
 - via_esportiva:
     nome: Ravenloft
     dificuldade: BR_6
+    data_abertura: '1997'
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
-    data_abertura: '1997'
 - via_esportiva:
     nome: Muro das Lamentações
     dificuldade: BR_7B
@@ -369,6 +352,7 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1998'
+    data_manutencao: 12/07/2022
 - via_esportiva:
     nome: Equilíbrio Distante
     dificuldade: BR_8A
@@ -376,6 +360,7 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1997'
+    data_manutencao: 12/07/2022
 - via_esportiva:
     nome: Careta do Calango
     dificuldade: BR_9A
@@ -389,32 +374,6 @@ escaladas:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
     data_abertura: '2002'
-- via_esportiva:
-    nome: Escalador sem mãe
-    dificuldade: BR_8A
-    conquistadores:
-    - Jovinei M. Medeiros
-    - Dante M. Borges
-    - Sérgio B. da Silva.
-    data_abertura: '1997'
-- via_esportiva:
-    nome: Projeto inacabado
-    conquistadores:
-    - André Coutinho
-- via_esportiva:
-    nome: Sobrevibrenf´s
-    dificuldade: BR_6SUP
-    conquistadores:
-    - Leonardo Hoffmann
-    data_abertura: '2001'
-- via_esportiva:
-    nome: Sobreviventes
-    dificuldade: BR_6
-    conquistadores:
-    - Anderson (Neném)
-    - Douglas
-    - Bombom
-    data_abertura: '1994'
 - via_esportiva:
     nome: Scarface
     dificuldade: BR_7A
