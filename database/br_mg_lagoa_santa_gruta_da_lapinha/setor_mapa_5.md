@@ -104,18 +104,22 @@ escaladas:
     - Eustáquio Macedo
     - Emerson Alves Azeredo
     descricao: Vía em Top Rope
+    data_abertura: '1994'
 - via_esportiva:
     nome: Come Quieto
     dificuldade: BR_8B
     conquistadores:
     - Alexandre Galvão
-    - XXX
+    - Glauco
+    - Fabinho de Petrópolis
+    data_abertura: '1995'
 - via_esportiva:
     nome: O Perigo que Veio do Céu
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Charles Costa Marinho
+    data_abertura: '1993'
 - via_esportiva:
     nome: Arranca Couro
     dificuldade: BR_7A
@@ -123,18 +127,21 @@ escaladas:
     - Charles C. Marinho
     - Emerson A. Azeredo
     - Fabiano Fernandes
+    data_abertura: '1993'
 - via_esportiva:
     nome: Ônibus Inglês
     dificuldade: BR_6
     conquistadores:
     - Daniel Fernandes "Salim"
     - Leonardo Hoffmann
+    data_abertura: '1993'
 - via_esportiva:
     nome: Gigante de Bronze
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
+    data_abertura: '1994'
 - via_esportiva:
     nome: Karrenglass
     dificuldade: BR_5SUP
@@ -142,6 +149,7 @@ escaladas:
     - Eduardo V. de A. "Ralf"
     - Ricardo Leal
     - Rodrigo Tinoco
+    data_abertura: '1993'
 - via_esportiva:
     nome: Retorno dos Anões
     dificuldade: BR_6SUP
@@ -149,6 +157,7 @@ escaladas:
     - Fábio Luiz Faria "Fabinho"
     - Míriam Morato Duarte
     - Denise
+    data_abertura: '1996'
 - via_esportiva:
     nome: Compromisso Sexual
     dificuldade: BR_7C
@@ -156,6 +165,7 @@ escaladas:
     - Emerson A. Azeredo
     - Eustáquio Júnior
     - Fabiano Fernandes
+    data_abertura: '1994'
 ---
 
 # Setor Mapa 5

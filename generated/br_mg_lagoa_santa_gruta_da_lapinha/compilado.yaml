@@ -131,8 +131,8 @@ picos:
               y: 102
               comprimento: 10
               largura: 9
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             retangulo:
               x: 178
               y: 112
@@ -144,7 +144,7 @@ picos:
             - '07'
           - escalada: O Exibicionista
             ids:
-            - '08'
+            - 08
         escaladas:
         - via_movel:
             nome: Ajoelhou tem que Rezar
@@ -166,8 +166,8 @@ picos:
           largura_mapa: 438
           altura_mapa: 323
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             retangulo:
               x: 241
               y: 73
@@ -351,7 +351,7 @@ picos:
           referencias:
           - escalada: Lua Cheia
             ids:
-            - '09'
+            - 09
           - escalada: Jornada nas Estrelas
             ids:
             - '10'
@@ -440,24 +440,28 @@ picos:
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
+            data_abertura: '1997'
         - via_esportiva:
             nome: Egotrip
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
+            data_abertura: '1997'
         - via_esportiva:
             nome: Boicote de comunicação
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
             - Fao
+            data_abertura: '2001'
         - via_esportiva:
             nome: Vicio
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
+            data_abertura: '1997'
         - via_esportiva:
             nome: Conspiração Sanguessuga
             dificuldade: BR_6SUP
@@ -470,95 +474,111 @@ picos:
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
+            data_abertura: '1997'
         - via_movel:
             nome: Sai de Baixo
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Danilo Abreu
+            data_abertura: '1997'
         - via_esportiva:
             nome: Pipeline
             dificuldade: BR_6SUP
             conquistadores:
             - Gabriel Fillizola
             - Sílvio Om
+            data_abertura: '1997'
         - via_esportiva:
             nome: Jurubeba
             dificuldade: BR_8B
             conquistadores:
             - Wagner Morin Gomes
             - Wilson Novaes
+            data_abertura: '1998'
         - via_esportiva:
             nome: Perigo Mora ao Lado
             dificuldade: BR_8A
             conquistadores:
             - Márcio Soares Macena
             - Mozart
+            data_abertura: '1998'
         - via_esportiva:
             nome: Pretexto da Traição
             dificuldade: BR_6SUP
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
+            data_abertura: '1994'
         - via_esportiva:
             nome: Sorriso do Lagarto
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
+            data_abertura: '1995'
         - via_esportiva:
             nome: Orgasmatrom
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
+            data_abertura: '1995'
         - via_movel:
             nome: Escaramuça
             dificuldade: BR_3
             conquistadores:
             - Antonio Carlos Magalhães
+            data_abertura: '1997'
         - via_movel:
             nome: Túnel do Tempo
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_movel:
             nome: Dédalos
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_movel:
             nome: Bouquet de Rosas
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio C. Magalhães
             - Danilo Abreu
+            data_abertura: '1997'
         - via_esportiva:
             nome: Fogo no Rabo
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Bobeou Sobrou
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Los Cubanos
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1999'
         - via_movel:
             nome: Folião
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_esportiva:
             nome: Escalador sem mãe
             dificuldade: BR_8A
@@ -566,13 +586,17 @@ picos:
             - Jovinei M. Medeiros
             - Dante M. Borges
             - Sérgio B. da Silva.
+            data_abertura: '1997'
         - via_esportiva:
             nome: Projeto inacabado
+            conquistadores:
+            - André Coutinho
         - via_esportiva:
             nome: Sobrevibrenf´s
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
+            data_abertura: '2001'
         - via_esportiva:
             nome: Sobreviventes
             dificuldade: BR_6
@@ -580,6 +604,7 @@ picos:
             - Anderson (Neném)
             - Douglas
             - Bombom
+            data_abertura: '1994'
         descricao: '# Setor Gruta - Mapa 3
 
 
@@ -805,7 +830,7 @@ picos:
           - escalada: Via do curso
             ids:
             - '36'
-          - escalada: Viajandão Gramando na Chuva
+          - escalada: Viajandão Grampeando na Chuva
             ids:
             - '37'
           - escalada: Martelo Voador
@@ -860,99 +885,122 @@ picos:
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Bobeou Sobrou
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Los Cubanos
             dificuldade: BR_6SUP
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1999'
         - via_movel:
             nome: Folião
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_movel:
             nome: Luzes
             dificuldade: BR_4
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_esportiva:
             nome: Via sem informação
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
+            data_abertura: '1994'
+            dificuldade: BR_4
         - via_movel:
             nome: Êta Sô
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '1997'
         - via_esportiva:
             nome: Via do Tetinho
             dificuldade: BR_5SUP
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
+            data_abertura: '1994'
         - via_esportiva:
             nome: Ataque das Bolinhas
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Via do curso
             dificuldade: BR_3
+            data_abertura: '1997'
+            conquistadores:
+            - Eustáquio Macedo Melo Júnior
+            - Felipe
+            - Emerson Alves Azeredo
         - via_esportiva:
-            nome: Viajandão Gramando na Chuva
+            nome: Viajandão Grampeando na Chuva
             dificuldade: BR_3
             conquistadores:
             - Eustáquio M. Melo Júnior e alunos
+            data_abertura: '1997'
         - via_esportiva:
             nome: Martelo Voador
             dificuldade: BR_4
             conquistadores:
             - Ramaya Vallias
             - Sérgio Soares
+            data_abertura: '1999'
         - via_esportiva:
             nome: Coquetel de Maracujá
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Ravenloft
             dificuldade: BR_6
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
+            data_abertura: '1997'
         - via_esportiva:
             nome: Muro das Lamentações
             dificuldade: BR_7B
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1998'
         - via_esportiva:
             nome: Equilíbrio Distante
             dificuldade: BR_8A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
+            data_abertura: '1997'
         - via_esportiva:
             nome: Careta do Calango
             dificuldade: BR_9A
             conquistadores:
             - Cristiano Loureiro "Negão"
+            data_abertura: '1998'
         - via_movel:
             nome: Pierrô e Colombina
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
+            data_abertura: '2002'
         - via_esportiva:
             nome: Escalador sem mãe
             dificuldade: BR_8A
@@ -960,13 +1008,17 @@ picos:
             - Jovinei M. Medeiros
             - Dante M. Borges
             - Sérgio B. da Silva.
+            data_abertura: '1997'
         - via_esportiva:
             nome: Projeto inacabado
+            conquistadores:
+            - André Coutinho
         - via_esportiva:
             nome: Sobrevibrenf´s
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
+            data_abertura: '2001'
         - via_esportiva:
             nome: Sobreviventes
             dificuldade: BR_6
@@ -974,23 +1026,27 @@ picos:
             - Anderson (Neném)
             - Douglas
             - Bombom
+            data_abertura: '1994'
         - via_esportiva:
             nome: Scarface
             dificuldade: BR_7A
             conquistadores:
             - Gustavo Piancastelli
             - Ronie
+            data_abertura: '1997'
         - via_esportiva:
             nome: Posições Exóticas
             dificuldade: BR_7B
             conquistadores:
             - Ivo Ferreira Marcelino
+            data_abertura: '1994'
         - via_esportiva:
             nome: Garotos não Choram
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Emerson Alves Azeredo
+            data_abertura: '1997'
         descricao: '# Setor Gruta - Mapa 4 (Sala de Aula)
 
 
@@ -1102,18 +1158,22 @@ picos:
             - Eustáquio Macedo
             - Emerson Alves Azeredo
             descricao: Vía em Top Rope
+            data_abertura: '1994'
         - via_esportiva:
             nome: Come Quieto
             dificuldade: BR_8B
             conquistadores:
             - Alexandre Galvão
-            - XXX
+            - Glauco
+            - Fabinho de Petrópolis
+            data_abertura: '1995'
         - via_esportiva:
             nome: O Perigo que Veio do Céu
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Charles Costa Marinho
+            data_abertura: '1993'
         - via_esportiva:
             nome: Arranca Couro
             dificuldade: BR_7A
@@ -1121,18 +1181,21 @@ picos:
             - Charles C. Marinho
             - Emerson A. Azeredo
             - Fabiano Fernandes
+            data_abertura: '1993'
         - via_esportiva:
             nome: Ônibus Inglês
             dificuldade: BR_6
             conquistadores:
             - Daniel Fernandes "Salim"
             - Leonardo Hoffmann
+            data_abertura: '1993'
         - via_esportiva:
             nome: Gigante de Bronze
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
+            data_abertura: '1994'
         - via_esportiva:
             nome: Karrenglass
             dificuldade: BR_5SUP
@@ -1140,6 +1203,7 @@ picos:
             - Eduardo V. de A. "Ralf"
             - Ricardo Leal
             - Rodrigo Tinoco
+            data_abertura: '1993'
         - via_esportiva:
             nome: Retorno dos Anões
             dificuldade: BR_6SUP
@@ -1147,6 +1211,7 @@ picos:
             - Fábio Luiz Faria "Fabinho"
             - Míriam Morato Duarte
             - Denise
+            data_abertura: '1996'
         - via_esportiva:
             nome: Compromisso Sexual
             dificuldade: BR_7C
@@ -1154,6 +1219,7 @@ picos:
             - Emerson A. Azeredo
             - Eustáquio Júnior
             - Fabiano Fernandes
+            data_abertura: '1994'
         descricao: '# Setor Mapa 5
 
 
@@ -1323,6 +1389,7 @@ picos:
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
+            data_abertura: '1999'
         - via_esportiva:
             nome: Os impossíveis
             dificuldade: BR_8B
@@ -1335,6 +1402,7 @@ picos:
             conquistadores:
             - Leonardo Hoffmann
             - Eduardo Viana de Azevedo "Ralf"
+            data_abertura: '2000'
         - via_movel:
             nome: Para não dizer que não falei de flores
             dificuldade: BR_5SUP
@@ -1354,12 +1422,14 @@ picos:
             - Ricardo Jardim Leal
             - Leonardo Oliveira
             - Danilo Tolentino
+            data_abertura: '1995'
         - via_movel:
             nome: Cortando Prego
             dificuldade: BR_6SUP
             conquistadores:
             - Edgardo Abreu "Caca"
             - Leandro Antônio Reis
+            data_abertura: '1998'
         - via_esportiva:
             nome: Vive lá brenf
             dificuldade: BR_6SUP
@@ -1368,23 +1438,27 @@ picos:
             - Léo Hoffmann
             - André "Granola"
             - Guta Piancastelli
+            data_abertura: '1997'
         - via_esportiva:
             nome: Rastafary Baby
             dificuldade: BR_7C
             conquistadores:
             - Leonardo Hoffman
+            data_abertura: '1999'
         - via_esportiva:
             nome: Varinha de Condon
             dificuldade: BR_7A
             conquistadores:
             - Wilson Novaes
             - Márcio Soares Macenas
+            data_abertura: '2000'
         - via_esportiva:
             nome: Tempestade Cerebral
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
+            data_abertura: '1999'
         - via_esportiva:
             nome: Chambinho
             dificuldade: BR_8C
@@ -1393,19 +1467,22 @@ picos:
             - Andrezão
             - Eduardo "Ralf"
             - Eustáquio Jr.
+            data_abertura: '1996'
         - via_esportiva:
             nome: Revolução dos Micos
             dificuldade: BR_7B
             conquistadores:
             - Eduardo Amaral
-            - Jean
-            - Ane Ouriques
+            - Jean Ouriques
+            - Anne Ouriques
             - Leonardo Rocenik
+            data_abertura: '2000'
         - via_esportiva:
             nome: Al Capote
             dificuldade: BR_8B
             conquistadores:
             - Ricardo Jardim Leal
+            data_abertura: '1998'
         descricao: '# Setor Vale Verde (Mapa 6)
 
 
@@ -1539,30 +1616,35 @@ picos:
             conquistadores:
             - Ivo Júnior
             - Rma
+            data_abertura: '1999'
         - via_esportiva:
             nome: Doutor Lund
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
+            data_abertura: '1993'
         - via_esportiva:
             nome: Aceitam-se Sugestões
             dificuldade: BR_7C
             conquistadores:
             - Juan Kempen
             - Pedro Assis Leite
+            data_abertura: '1998'
         - via_esportiva:
             nome: Rosa dos Ventos
             dificuldade: BR_9A
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
+            data_abertura: '1994'
         - via_esportiva:
             nome: Monte Calvário
             dificuldade: BR_5SUP
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
+            data_abertura: '1994'
         - via_movel:
             nome: Pó-na-beiça
             dificuldade: BR_5
@@ -1573,32 +1655,37 @@ picos:
             nome: Três dentro, três fora
             dificuldade: BR_7A
             conquistadores:
-            - Jovinei M. Medeiros
-            - Helon B. Neto
+            - Jovinei Miguel Medeiros
+            - Helon Brazil Neto
             - Paulo R. Patrocínio
+            data_abertura: '2000'
         - via_esportiva:
             nome: Só para eles
             dificuldade: BR_6SUP
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
+            data_abertura: '1999'
         - via_esportiva:
             nome: Só para elas
             dificuldade: BR_4
             conquistadores:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
+            data_abertura: '1995'
         - via_esportiva:
             nome: Prestobarba
             dificuldade: BR_5
             conquistadores:
             - Daniel Fernandes "Salim"
+            data_abertura: '1999'
         - via_esportiva:
             nome: Bigode Limpo
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Emerson Alves Azeredo
+            data_abertura: '1993'
         descricao: '# Setor Mapa 7
 
 
@@ -1895,22 +1982,25 @@ picos:
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Fábio Luiz Farias "Fabinho"
+            data_abertura: '1993'
         - via_esportiva:
             nome: Bigode Sujo
             dificuldade: BR_7C
             conquistadores:
-            - Emerson A. Azeredo
-            - Eustáquio M. M. Júnior
+            - Emerson Alves Azeredo
+            - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
             descricao: Ancorar o seg no telefone ao lado da saída até escalador passar
               a terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado
               com o pêndulo.
+            data_abertura: '1993'
         - via_esportiva:
             nome: Bigode de Espinho
             dificuldade: BR_6SUP
             conquistadores:
             - Alexandre F. de Queiroz "Caverna"
             - Edgardo Abreu "Caca"
+            data_abertura: '1995'
         - via_esportiva:
             nome: Ecos do Além
             descricao: Era para ser a via 90, mas não tem marcação 90 no mapa.
@@ -1924,6 +2014,7 @@ picos:
             conquistadores:
             - Eustáquio M. Melo Júnior
             - Leonardo Hoffmann
+            data_abertura: '1994'
         - via_movel:
             nome: Meio Cubanos
             dificuldade: BR_6SUP
@@ -1935,19 +2026,23 @@ picos:
             conquistadores:
             - Dante Martins Borges
             - Sérgio Bastos da Silva
+            data_abertura: '2000'
         - via_esportiva:
             nome: Tripla Traição
             conquistadores:
             - Emerson A. Azeredo
             - Eustáquio M. M. Júnior
             - Léo Hoffmann
+            data_abertura: '1994'
+            dificuldade: BR_5
         - via_esportiva:
             nome: Noivado da Feiticeira
             dificuldade: BR_6
             conquistadores:
-            - Emerson A. Azeredo
+            - Emerson Alves Azeredo
             - Leonardo Hoffmann
             - Ramaya Vallias
+            data_abertura: '1994'
         - via_esportiva:
             nome: Planeta dos Macacos
             conquistadores:
@@ -1959,31 +2054,38 @@ picos:
             conquistadores:
             - Leonardo Hoffmann
             - Marco Antônio Canelas
+            data_abertura: '2001'
         - via_esportiva:
             nome: Projeto Daniel Salim
+            conquistadores:
+            - Daniel Fernandes "Salim"
         - via_esportiva:
             nome: Vale Perdido
             dificuldade: BR_6SUP
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
+            data_abertura: '1993'
         - via_esportiva:
             nome: Consolo da Surucucu
             dificuldade: BR_6SUP
             conquistadores:
             - Vinícius B. Assis
+            data_abertura: '1997'
         - via_esportiva:
             nome: Santos e Hereges
             dificuldade: BR_9B
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
+            data_abertura: '1993'
         - via_esportiva:
             nome: O Império Contra Ataca
             dificuldade: BR_7C
             conquistadores:
-            - Eustáquio M. M. Júnior
+            - Eustáquio Macedo Melo Júnior
             - Fabiano da Silva Fernandes
+            data_abertura: '1993'
         - via_esportiva:
             nome: Jegue Voador
             dificuldade: BR_6SUP
@@ -1991,32 +2093,42 @@ picos:
             - Léo Hoffmann
             - Marco Antônio Canelas
             - Marcelo Andrê
+            data_abertura: '1994'
         - via_esportiva:
             nome: Labirinto das Maritacas
             dificuldade: BR_6
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
+            data_abertura: '1993'
         - via_movel:
             nome: Tentações de Maria Madalena
             dificuldade: BR_6
             conquistadores:
-            - Eustáquio M. Melo Júnior
+            - Eustáquio Macedo Melo Júnior
             - Leonardo Hoffmann
+            data_abertura: '1993'
         - via_esportiva:
             nome: Sai do chão
             dificuldade: BR_9A
             conquistadores:
             - Jovinei Miguel Medeiros
             - Helon Brazil Neto
+            data_abertura: '2001'
         - via_esportiva:
             nome: Ato Imperdoável
             dificuldade: BR_8A
             conquistadores:
-            - Eustáquio M. M. Júnior
+            - Eustáquio Macedo Melo Júnior
             - Fabiano da Silva Fernandes
+            data_abertura: '1994'
         - via_esportiva:
             nome: Projeto Rodrigo do Paraná
+            conquistadores:
+            - Pedro (PR)
+            - Rodrigo (PR)
+            - Antônio Paulo
+            - Chico
         - via_esportiva:
             nome: Pequena Criança
             dificuldade: BR_7A
@@ -2024,6 +2136,7 @@ picos:
             - Wilson Novaes
             - Ivo Ferreira Marcelino
             - Alexandre Magos
+            data_abertura: '1998'
         descricao: '# Setor Túnel de Pedra (Mapa 8)
 
 
@@ -2245,6 +2358,7 @@ picos:
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
+            data_abertura: '1993'
         - via_esportiva:
             nome: Gralha Pigmeia
             dificuldade: BR_6
@@ -2253,25 +2367,29 @@ picos:
             - Ivo Marcelino
             - Alexandre Magos
             - Léo Hoffmann
+            data_abertura: '1999'
         - via_esportiva:
             nome: Anjo de Pedra
             dificuldade: BR_5SUP
             conquistadores:
             - Rodrigo Tinoco França
             - Vinícius
+            data_abertura: '1997'
         - via_esportiva:
             nome: Um Porco que Sobe
             dificuldade: BR_7A
             conquistadores:
             - Leonardo Hoffmann
             - Henriquinho
+            data_abertura: '1996'
         - via_esportiva:
             nome: Um Corpo que Cai
             dificuldade: BR_6
             conquistadores:
-            - Emerson A. Azeredo
+            - Emerson Alves Azeredo
             - Fábio C. Araújo
-            - Júlio C. Cardoso
+            - Júlio Cesar Cardoso
+            data_abertura: '1993'
         - via_esportiva:
             nome: Realidade da Coisa
             dificuldade: BR_9B
@@ -2279,24 +2397,28 @@ picos:
             - Fabinho de Petrópolis
             - Marquinhos
             - Xacundum
+            data_abertura: '1994'
         - via_esportiva:
             nome: Realidade Sobreposta
             dificuldade: BR_8C
             conquistadores:
             - Fabiano da Silva Fernandes
             - Fabinho de Teresópolis
+            data_abertura: '1993'
         - via_esportiva:
             nome: Talhadeira Passa
             dificuldade: BR_8B
             conquistadores:
             - Felipe
-            - Abobrinha
+            - Tiago Abobrinha
+            data_abertura: '1996'
         - via_esportiva:
             nome: Cova dos Leões
             dificuldade: BR_7A
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
+            data_abertura: '1993'
         - via_esportiva:
             nome: Mentalidade Suburbana
             dificuldade: BR_7A
@@ -2304,12 +2426,14 @@ picos:
             - Ricardo J. Leal
             - Rodrigo Tinoco
             - Fábio L. Farias "Fabinho"
+            data_abertura: '1994'
         - via_esportiva:
             nome: Rato Assassino
             dificuldade: BR_8A
             conquistadores:
             - Fabinho de Petrópolis
             - Alexandre Xacundum
+            data_abertura: '1996'
         - via_esportiva:
             nome: Masturbações de Calígula
             dificuldade: BR_7A
@@ -2322,6 +2446,7 @@ picos:
             conquistadores:
             - Roberto Lincoln de Freitas
             descricao: Vía de proteção mista
+            data_abertura: '1998'
         descricao: '# Setor Savassinha (Mapa 9)
 
 
@@ -2414,12 +2539,14 @@ picos:
             conquistadores:
             - Fabiano Fernandes da Silva
             descricao: Vía em Top Rope
+            data_abertura: '1993'
         - via_esportiva:
             nome: A Era dos Patrícios
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
+            data_abertura: '1994'
         - via_esportiva:
             nome: Coliseu
             dificuldade: BR_6
@@ -2429,31 +2556,34 @@ picos:
             nome: Pobre César
             dificuldade: BR_7A
             conquistadores:
-            - Emerson
-            - Eustáquio
-            - Fabiano Fernandes
+            - Emerson Alves Azeredo
+            - Eustáquio Macedo Melo Júnior
+            - Fabiano da Silva Fernandes
             - Gilberto Torres
+            data_abertura: '1993'
         - via_esportiva:
             nome: Soprano (inacabada)
             conquistadores:
-            - M. Macena
+            - Márcio Soares Macena
             - Eduardo Feliciano
-            - A. Magos
-            - Ivo Marcelino
+            - Alexandre Magos
+            - Ivo Ferreira Marcelino
         - via_esportiva:
             nome: Sodoma e Gomorra
             dificuldade: BR_4
             conquistadores:
             - Daniel Fernandes "Salim"
             - Eustáquio Macedo Melo Júnior
+            data_abertura: '1993'
         - via_esportiva:
             nome: Calígula
             dificuldade: BR_6SUP
             conquistadores:
-            - Eustáquio
-            - Fabiano
+            - Eustáquio Macedo Melo Júnior
+            - Fabiano da Silva Fernandes
             - Gilberto Torres
-            - Emerson Azeredo
+            - Emerson Alves Azeredo
+            data_abertura: '1993'
         descricao: '# Setor Bloco Romano (Mapa 10)
 
 

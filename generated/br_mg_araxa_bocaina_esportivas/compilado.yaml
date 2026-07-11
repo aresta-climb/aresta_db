@@ -217,14 +217,14 @@ picos:
           largura_mapa: 1152
           altura_mapa: 1267
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 171
               y: 793
               raio: 23
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 245
               y: 788
@@ -276,11 +276,11 @@ picos:
             ids:
             - '14'
           - ids:
-            - '08'
+            - 08
             setor: Ensolarado
             escalada: Mundo Mágico dos Abacates
           - ids:
-            - '09'
+            - 09
             setor: Ensolarado
             escalada: Ariba Cabron
         - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
@@ -695,25 +695,25 @@ picos:
           largura_mapa: 1148
           altura_mapa: 1258
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 928
               y: 1131
               raio: 24
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 641
               y: 1136
               raio: 25
           referencias:
           - ids:
-            - '08'
+            - 08
             setor: Garganta
             escalada: Sangue do meu Sangue
           - ids:
-            - '09'
+            - 09
             setor: Garganta
             escalada: Cocalcinhas
         - caminho_imagem_mapa: imagens/setor_garganta_p6.webp
@@ -1413,14 +1413,14 @@ picos:
               x: 292
               y: 1041
               raio: 22
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 358
               y: 1037
               raio: 22
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 413
               y: 1038
@@ -1437,10 +1437,10 @@ picos:
             - '07'
           - escalada: Rock Supimpa
             ids:
-            - '08'
+            - 08
           - escalada: Você Decide
             ids:
-            - '09'
+            - 09
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
           largura_mapa: 1149
           altura_mapa: 1276
@@ -1792,14 +1792,14 @@ picos:
               x: 389
               y: 827
               raio: 22
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 498
               y: 942
               raio: 23
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 558
               y: 1079
@@ -1830,11 +1830,11 @@ picos:
             ids:
             - '11'
           - ids:
-            - '08'
+            - 08
             setor: Paulistas
             escalada: Pubianos
           - ids:
-            - '09'
+            - 09
             setor: Paulistas
             escalada: Bocaina Roots
         - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
@@ -2142,14 +2142,14 @@ picos:
           largura_mapa: 852
           altura_mapa: 1275
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 180
               y: 1076
               raio: 18
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 292
               y: 1103
@@ -2175,10 +2175,10 @@ picos:
           referencias:
           - escalada: Sabotagem
             ids:
-            - '08'
+            - 08
           - escalada: Universo Paralelo
             ids:
-            - '09'
+            - 09
           - escalada: Egocentrismo
             ids:
             - '10'
@@ -2538,14 +2538,14 @@ picos:
               x: 612
               y: 1230
               raio: 22
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 833
               y: 1187
               raio: 22
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 992
               y: 1178
@@ -2558,11 +2558,11 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Shana Crazy
             escalada: Para-raio de Maluco
           - ids:
-            - '09'
+            - 09
             setor: Shana Crazy
             escalada: Sandálias da Humildade
         escaladas:
@@ -2718,8 +2718,8 @@ picos:
               x: 610
               y: 992
               raio: 22
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 675
               y: 977
@@ -2747,15 +2747,15 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Tsunami
             escalada: Cabeleira
         - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
           largura_mapa: 1152
           altura_mapa: 1270
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 97
               y: 928
@@ -2825,7 +2825,7 @@ picos:
             ids:
             - '16'
           - ids:
-            - '09'
+            - 09
             setor: Tsunami
             escalada: Muchas Gracias
         - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
@@ -3229,14 +3229,14 @@ picos:
               x: 700
               y: 808
               raio: 23
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 747
               y: 784
               raio: 23
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 788
               y: 815
@@ -3282,11 +3282,11 @@ picos:
             ids:
             - '13'
           - ids:
-            - '08'
+            - 08
             setor: Udão
             escalada: Loucura Alheia
           - ids:
-            - '09'
+            - 09
             setor: Udão
             escalada: Mistério de Ramadã
         escaladas:
@@ -3658,14 +3658,14 @@ picos:
               x: 787
               y: 1101
               raio: 25
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 861
               y: 1207
               raio: 26
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 923
               y: 1231
@@ -3678,25 +3678,25 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Bem-vindo
             escalada: Bonsai Cearense
           - ids:
-            - '09'
+            - 09
             setor: Bem-vindo
             escalada: Macaco Velho
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
           largura_mapa: 1152
           altura_mapa: 1267
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 184
               y: 972
               raio: 26
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 248
               y: 986
@@ -3739,11 +3739,11 @@ picos:
             ids:
             - '13'
           - ids:
-            - '08'
+            - 08
             setor: Bem-vindo
             escalada: Bonsai Cearense
           - ids:
-            - '09'
+            - 09
             setor: Bem-vindo
             escalada: Macaco Velho
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
@@ -4047,8 +4047,8 @@ picos:
               x: 867
               y: 781
               raio: 26
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 959
               y: 780
@@ -4076,15 +4076,15 @@ picos:
             ids:
             - '07'
           - ids:
-            - '08'
+            - 08
             setor: Tetos
             escalada: Medo de quê Aresta
         - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
           largura_mapa: 1143
           altura_mapa: 1267
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 126
               y: 801
@@ -4154,7 +4154,7 @@ picos:
             ids:
             - '16'
           - ids:
-            - '09'
+            - 09
             setor: Tetos
             escalada: Pressão Psicológica
         - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
@@ -4864,14 +4864,14 @@ picos:
           largura_mapa: 1140
           altura_mapa: 1255
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - id: 08
+            label: 08
             circulo:
               x: 488
               y: 823
               raio: 19
-          - id: '09'
-            label: '09'
+          - id: 09
+            label: 09
             circulo:
               x: 438
               y: 798
@@ -4896,11 +4896,11 @@ picos:
             ids:
             - '11'
           - ids:
-            - '08'
+            - 08
             setor: Segundo Andar
             escalada: James Bond
           - ids:
-            - '09'
+            - 09
             setor: Segundo Andar
             escalada: Apolo o Doutrinador
         escaladas:
@@ -5251,15 +5251,15 @@ picos:
             y: 362
             comprimento: 41
             largura: 53
-        - id: '08'
-          label: '08'
+        - id: 08
+          label: 08
           retangulo:
             x: 499
             y: 275
             comprimento: 208
             largura: 114
-        - id: '09'
-          label: '09'
+        - id: 09
+          label: 09
           retangulo:
             x: 652
             y: 265
@@ -5316,10 +5316,10 @@ picos:
           - '07'
           setor: Shana Crazy
         - ids:
-          - '08'
+          - 08
           setor: Tsunami
         - ids:
-          - '09'
+          - 09
           setor: Udão
         - ids:
           - '10'

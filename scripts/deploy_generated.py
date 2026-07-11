@@ -294,12 +294,14 @@ def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict) 
         if isinstance(obj, dict):
             if "escaladas" in obj and isinstance(obj["escaladas"], list):
                 for escalada in obj["escaladas"]:
-                    if isinstance(escalada, dict) and "nome" in escalada:
-                        nome = escalada["nome"]
-                        if nome in nomes_vistos:
-                            duplicados.add(nome)
-                        else:
-                            nomes_vistos.add(nome)
+                    if isinstance(escalada, dict):
+                        for tipo_via, dados_via in escalada.items():
+                            if isinstance(dados_via, dict) and "nome" in dados_via:
+                                nome = dados_via["nome"]
+                                if nome in nomes_vistos:
+                                    duplicados.add(nome)
+                                else:
+                                    nomes_vistos.add(nome)
             for v in obj.values():
                 _buscar_escaladas(v)
         elif isinstance(obj, list):
@@ -323,8 +325,10 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict) -> None:
         if isinstance(obj, dict):
             if "escaladas" in obj and isinstance(obj["escaladas"], list):
                 for esc in obj["escaladas"]:
-                    if isinstance(esc, dict) and "nome" in esc:
-                        todas_escaladas.add(esc["nome"])
+                    if isinstance(esc, dict):
+                        for tipo_via, dados_via in esc.items():
+                            if isinstance(dados_via, dict) and "nome" in dados_via:
+                                todas_escaladas.add(dados_via["nome"])
             
             if "pontos_de_interesse" in obj and isinstance(obj["pontos_de_interesse"], list) and len(obj["pontos_de_interesse"]) > 0:
                 tem_mapas_com_pontos = True

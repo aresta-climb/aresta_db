@@ -212,6 +212,7 @@ escaladas:
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
+    data_abertura: '1993'
 - via_esportiva:
     nome: Gralha Pigmeia
     dificuldade: BR_6
@@ -220,25 +221,29 @@ escaladas:
     - Ivo Marcelino
     - Alexandre Magos
     - Léo Hoffmann
+    data_abertura: '1999'
 - via_esportiva:
     nome: Anjo de Pedra
     dificuldade: BR_5SUP
     conquistadores:
     - Rodrigo Tinoco França
     - Vinícius
+    data_abertura: '1997'
 - via_esportiva:
     nome: Um Porco que Sobe
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Hoffmann
     - Henriquinho
+    data_abertura: '1996'
 - via_esportiva:
     nome: Um Corpo que Cai
     dificuldade: BR_6
     conquistadores:
-    - Emerson A. Azeredo
+    - Emerson Alves Azeredo
     - Fábio C. Araújo
-    - Júlio C. Cardoso
+    - Júlio Cesar Cardoso
+    data_abertura: '1993'
 - via_esportiva:
     nome: Realidade da Coisa
     dificuldade: BR_9B
@@ -246,24 +251,28 @@ escaladas:
     - Fabinho de Petrópolis
     - Marquinhos
     - Xacundum
+    data_abertura: '1994'
 - via_esportiva:
     nome: Realidade Sobreposta
     dificuldade: BR_8C
     conquistadores:
     - Fabiano da Silva Fernandes
     - Fabinho de Teresópolis
+    data_abertura: '1993'
 - via_esportiva:
     nome: Talhadeira Passa
     dificuldade: BR_8B
     conquistadores:
     - Felipe
-    - Abobrinha
+    - Tiago Abobrinha
+    data_abertura: '1996'
 - via_esportiva:
     nome: Cova dos Leões
     dificuldade: BR_7A
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
+    data_abertura: '1993'
 - via_esportiva:
     nome: Mentalidade Suburbana
     dificuldade: BR_7A
@@ -271,12 +280,14 @@ escaladas:
     - Ricardo J. Leal
     - Rodrigo Tinoco
     - Fábio L. Farias "Fabinho"
+    data_abertura: '1994'
 - via_esportiva:
     nome: Rato Assassino
     dificuldade: BR_8A
     conquistadores:
     - Fabinho de Petrópolis
     - Alexandre Xacundum
+    data_abertura: '1996'
 - via_esportiva:
     nome: Masturbações de Calígula
     dificuldade: BR_7A
@@ -289,6 +300,7 @@ escaladas:
     conquistadores:
     - Roberto Lincoln de Freitas
     descricao: Vía de proteção mista
+    data_abertura: '1998'
 ---
 
 # Setor Savassinha (Mapa 9)

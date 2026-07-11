@@ -160,6 +160,7 @@ escaladas:
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
+    data_abertura: '1999'
 - via_esportiva:
     nome: Os impossíveis
     dificuldade: BR_8B
@@ -172,6 +173,7 @@ escaladas:
     conquistadores:
     - Leonardo Hoffmann
     - Eduardo Viana de Azevedo "Ralf"
+    data_abertura: '2000'
 - via_movel:
     nome: Para não dizer que não falei de flores
     dificuldade: BR_5SUP
@@ -191,12 +193,14 @@ escaladas:
     - Ricardo Jardim Leal
     - Leonardo Oliveira
     - Danilo Tolentino
+    data_abertura: '1995'
 - via_movel:
     nome: Cortando Prego
     dificuldade: BR_6SUP
     conquistadores:
     - Edgardo Abreu "Caca"
     - Leandro Antônio Reis
+    data_abertura: '1998'
 - via_esportiva:
     nome: Vive lá brenf
     dificuldade: BR_6SUP
@@ -205,23 +209,27 @@ escaladas:
     - Léo Hoffmann
     - André "Granola"
     - Guta Piancastelli
+    data_abertura: '1997'
 - via_esportiva:
     nome: Rastafary Baby
     dificuldade: BR_7C
     conquistadores:
     - Leonardo Hoffman
+    data_abertura: '1999'
 - via_esportiva:
     nome: Varinha de Condon
     dificuldade: BR_7A
     conquistadores:
     - Wilson Novaes
     - Márcio Soares Macenas
+    data_abertura: '2000'
 - via_esportiva:
     nome: Tempestade Cerebral
     dificuldade: BR_8A
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
+    data_abertura: '1999'
 - via_esportiva:
     nome: Chambinho
     dificuldade: BR_8C
@@ -230,19 +238,22 @@ escaladas:
     - Andrezão
     - Eduardo "Ralf"
     - Eustáquio Jr.
+    data_abertura: '1996'
 - via_esportiva:
     nome: Revolução dos Micos
     dificuldade: BR_7B
     conquistadores:
     - Eduardo Amaral
-    - Jean
-    - Ane Ouriques
+    - Jean Ouriques
+    - Anne Ouriques
     - Leonardo Rocenik
+    data_abertura: '2000'
 - via_esportiva:
     nome: Al Capote
     dificuldade: BR_8B
     conquistadores:
     - Ricardo Jardim Leal
+    data_abertura: '1998'
 ---
 
 # Setor Vale Verde (Mapa 6)

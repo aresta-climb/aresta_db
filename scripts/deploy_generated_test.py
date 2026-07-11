@@ -659,7 +659,7 @@ def test_verificar_escaladas_sem_mapa(capsys):
     from scripts.deploy_generated import verificar_escaladas_sem_mapa
     # Caso 1: sem mapas com POI (ignora o teste, não avisa)
     data1 = {
-        "escaladas": [{"nome": "E1"}],
+        "escaladas": [{"via_esportiva": {"nome": "E1"}}],
         "mapas": []
     }
     verificar_escaladas_sem_mapa("croqui1", data1)
@@ -668,7 +668,7 @@ def test_verificar_escaladas_sem_mapa(capsys):
 
     # Caso 2: com mapa com POI e todas escaladas referenciadas
     data2 = {
-        "escaladas": [{"nome": "E1"}],
+        "escaladas": [{"via_esportiva": {"nome": "E1"}}],
         "mapas": [
             {
                 "pontos_de_interesse": [{"id": "p1"}],
@@ -682,7 +682,7 @@ def test_verificar_escaladas_sem_mapa(capsys):
 
     # Caso 3: com mapa com POI e uma escalada sem referência
     data3 = {
-        "escaladas": [{"nome": "E1"}, {"nome": "E2"}],
+        "escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E2"}}],
         "mapas": [
             {
                 "pontos_de_interesse": [{"id": "p1"}],
@@ -698,7 +698,7 @@ def test_verificar_escaladas_sem_mapa(capsys):
     data4 = {
         "picos": [
             {
-                "escaladas": [{"nome": "E1"}, {"nome": "E3"}],
+                "escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E3"}}],
                 "mapas_gerais": [
                     {
                         "pontos_de_interesse": [{"id": "p2"}],
@@ -711,4 +711,40 @@ def test_verificar_escaladas_sem_mapa(capsys):
     verificar_escaladas_sem_mapa("croqui4", data4)
     captured = capsys.readouterr()
     assert "Aviso: A escalada 'E1' não está referenciada em nenhum mapa no croqui 'croqui4'" in captured.out
+
+
+def test_verificar_nomes_duplicados_de_escalada(capsys):
+    from scripts.deploy_generated import verificar_nomes_duplicados_de_escalada
+    
+    # Caso 1: Sem duplicatas
+    data1 = {
+        "picos": [
+            {"escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E2"}}]},
+            {"escaladas": [{"via_esportiva": {"nome": "E3"}}, {"via_esportiva": {"nome": "E4"}}]}
+        ]
+    }
+    verificar_nomes_duplicados_de_escalada("croqui1", data1)
+    captured = capsys.readouterr()
+    assert "Aviso: A escalada" not in captured.out
+
+    # Caso 2: Duplicata em setores diferentes
+    data2 = {
+        "picos": [
+            {"escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E2"}}]},
+            {"escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E4"}}]}
+        ]
+    }
+    verificar_nomes_duplicados_de_escalada("croqui2", data2)
+    captured = capsys.readouterr()
+    assert "Aviso: A escalada 'E1' aparece mais de uma vez no croqui 'croqui2'" in captured.out
+
+    # Caso 3: Duplicata no mesmo setor
+    data3 = {
+        "picos": [
+            {"escaladas": [{"via_esportiva": {"nome": "E1"}}, {"via_esportiva": {"nome": "E1"}}]}
+        ]
+    }
+    verificar_nomes_duplicados_de_escalada("croqui3", data3)
+    captured = capsys.readouterr()
+    assert "Aviso: A escalada 'E1' aparece mais de uma vez no croqui 'croqui3'" in captured.out
 

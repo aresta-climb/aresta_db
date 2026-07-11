@@ -279,24 +279,28 @@ escaladas:
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
+    data_abertura: '1997'
 - via_esportiva:
     nome: Egotrip
     dificuldade: BR_6SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
+    data_abertura: '1997'
 - via_esportiva:
     nome: Boicote de comunicação
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
     - Fao
+    data_abertura: '2001'
 - via_esportiva:
     nome: Vicio
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
+    data_abertura: '1997'
 - via_esportiva:
     nome: Conspiração Sanguessuga
     dificuldade: BR_6SUP
@@ -309,95 +313,111 @@ escaladas:
     conquistadores:
     - Antonio Carlos Magalhães
     - Vladmir Haddad
+    data_abertura: '1997'
 - via_movel:
     nome: Sai de Baixo
     dificuldade: BR_5
     conquistadores:
     - Antonio Carlos Magalhães
     - Danilo Abreu
+    data_abertura: '1997'
 - via_esportiva:
     nome: Pipeline
     dificuldade: BR_6SUP
     conquistadores:
     - Gabriel Fillizola
     - Sílvio Om
+    data_abertura: '1997'
 - via_esportiva:
     nome: Jurubeba
     dificuldade: BR_8B
     conquistadores:
     - Wagner Morin Gomes
     - Wilson Novaes
+    data_abertura: '1998'
 - via_esportiva:
     nome: Perigo Mora ao Lado
     dificuldade: BR_8A
     conquistadores:
     - Márcio Soares Macena
     - Mozart
+    data_abertura: '1998'
 - via_esportiva:
     nome: Pretexto da Traição
     dificuldade: BR_6SUP
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
+    data_abertura: '1994'
 - via_esportiva:
     nome: Sorriso do Lagarto
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
+    data_abertura: '1995'
 - via_esportiva:
     nome: Orgasmatrom
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
+    data_abertura: '1995'
 - via_movel:
     nome: Escaramuça
     dificuldade: BR_3
     conquistadores:
     - Antonio Carlos Magalhães
+    data_abertura: '1997'
 - via_movel:
     nome: Túnel do Tempo
     dificuldade: BR_5
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_movel:
     nome: Dédalos
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_movel:
     nome: Bouquet de Rosas
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio C. Magalhães
     - Danilo Abreu
+    data_abertura: '1997'
 - via_esportiva:
     nome: Fogo no Rabo
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Bobeou Sobrou
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Los Cubanos
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1999'
 - via_movel:
     nome: Folião
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_esportiva:
     nome: Escalador sem mãe
     dificuldade: BR_8A
@@ -405,13 +425,17 @@ escaladas:
     - Jovinei M. Medeiros
     - Dante M. Borges
     - Sérgio B. da Silva.
+    data_abertura: '1997'
 - via_esportiva:
     nome: Projeto inacabado
+    conquistadores:
+    - André Coutinho
 - via_esportiva:
     nome: Sobrevibrenf´s
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
+    data_abertura: '2001'
 - via_esportiva:
     nome: Sobreviventes
     dificuldade: BR_6
@@ -419,6 +443,7 @@ escaladas:
     - Anderson (Neném)
     - Douglas
     - Bombom
+    data_abertura: '1994'
 ---
 
 # Setor Gruta - Mapa 3

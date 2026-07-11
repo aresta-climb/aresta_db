@@ -123,30 +123,35 @@ escaladas:
     conquistadores:
     - Ivo Júnior
     - Rma
+    data_abertura: '1999'
 - via_esportiva:
     nome: Doutor Lund
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
+    data_abertura: '1993'
 - via_esportiva:
     nome: Aceitam-se Sugestões
     dificuldade: BR_7C
     conquistadores:
     - Juan Kempen
     - Pedro Assis Leite
+    data_abertura: '1998'
 - via_esportiva:
     nome: Rosa dos Ventos
     dificuldade: BR_9A
     conquistadores:
     - Ramaya Vallias
     - Léo Quirino
+    data_abertura: '1994'
 - via_esportiva:
     nome: Monte Calvário
     dificuldade: BR_5SUP
     conquistadores:
     - Ramaya Vallias
     - Léo Quirino
+    data_abertura: '1994'
 - via_movel:
     nome: Pó-na-beiça
     dificuldade: BR_5
@@ -157,32 +162,37 @@ escaladas:
     nome: Três dentro, três fora
     dificuldade: BR_7A
     conquistadores:
-    - Jovinei M. Medeiros
-    - Helon B. Neto
+    - Jovinei Miguel Medeiros
+    - Helon Brazil Neto
     - Paulo R. Patrocínio
+    data_abertura: '2000'
 - via_esportiva:
     nome: Só para eles
     dificuldade: BR_6SUP
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
+    data_abertura: '1999'
 - via_esportiva:
     nome: Só para elas
     dificuldade: BR_4
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
+    data_abertura: '1995'
 - via_esportiva:
     nome: Prestobarba
     dificuldade: BR_5
     conquistadores:
     - Daniel Fernandes "Salim"
+    data_abertura: '1999'
 - via_esportiva:
     nome: Bigode Limpo
     dificuldade: BR_5SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Emerson Alves Azeredo
+    data_abertura: '1993'
 ---
 
 # Setor Mapa 7

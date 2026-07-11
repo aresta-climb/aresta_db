@@ -592,6 +592,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Vladmir Haddad
+      - **data_abertura**: 1997
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Egotrip
@@ -599,6 +600,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Vladmir Haddad
+      - **data_abertura**: 1997
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Boicote de comunicação
@@ -606,6 +608,7 @@
       - **conquistadores**:
         - Leonardo Hoffmann
         - Fao
+      - **data_abertura**: 2001
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Vicio
@@ -613,6 +616,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Vladmir Haddad
+      - **data_abertura**: 1997
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Conspiração Sanguessuga
@@ -627,6 +631,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Vladmir Haddad
+      - **data_abertura**: 1997
   - **[7]**:
     - **via_movel**:
       - **nome**: Sai de Baixo
@@ -634,6 +639,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Danilo Abreu
+      - **data_abertura**: 1997
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Pipeline
@@ -641,6 +647,7 @@
       - **conquistadores**:
         - Gabriel Fillizola
         - Sílvio Om
+      - **data_abertura**: 1997
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Jurubeba
@@ -648,6 +655,7 @@
       - **conquistadores**:
         - Wagner Morin Gomes
         - Wilson Novaes
+      - **data_abertura**: 1998
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Perigo Mora ao Lado
@@ -655,6 +663,7 @@
       - **conquistadores**:
         - Márcio Soares Macena
         - Mozart
+      - **data_abertura**: 1998
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Pretexto da Traição
@@ -662,6 +671,7 @@
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
+      - **data_abertura**: 1994
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Sorriso do Lagarto
@@ -669,6 +679,7 @@
       - **conquistadores**:
         - André C. B. "Andrezão"
         - J. Roberto Cardoso "Dagó"
+      - **data_abertura**: 1995
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Orgasmatrom
@@ -676,12 +687,14 @@
       - **conquistadores**:
         - André C. B. "Andrezão"
         - J. Roberto Cardoso "Dagó"
+      - **data_abertura**: 1995
   - **[14]**:
     - **via_movel**:
       - **nome**: Escaramuça
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Antonio Carlos Magalhães
+      - **data_abertura**: 1997
   - **[15]**:
     - **via_movel**:
       - **nome**: Túnel do Tempo
@@ -689,6 +702,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[16]**:
     - **via_movel**:
       - **nome**: Dédalos
@@ -696,6 +710,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[17]**:
     - **via_movel**:
       - **nome**: Bouquet de Rosas
@@ -703,6 +718,7 @@
       - **conquistadores**:
         - Antonio C. Magalhães
         - Danilo Abreu
+      - **data_abertura**: 1997
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Fogo no Rabo
@@ -710,6 +726,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Bobeou Sobrou
@@ -717,6 +734,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Los Cubanos
@@ -724,6 +742,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1999
   - **[21]**:
     - **via_movel**:
       - **nome**: Folião
@@ -731,6 +750,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Escalador sem mãe
@@ -739,15 +759,19 @@
         - Jovinei M. Medeiros
         - Dante M. Borges
         - Sérgio B. da Silva.
+      - **data_abertura**: 1997
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Projeto inacabado
+      - **conquistadores**:
+        - André Coutinho
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Sobrevibrenf´s
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
+      - **data_abertura**: 2001
   - **[25]**:
     - **via_esportiva**:
       - **nome**: Sobreviventes
@@ -756,6 +780,7 @@
         - Anderson (Neném)
         - Douglas
         - Bombom
+      - **data_abertura**: 1994
 
 
 ## Parte: setor_mapa_4
@@ -1023,7 +1048,7 @@
         - **ids**:
           - 36
       - **[10]**:
-        - **escalada**: Viajandão Gramando na Chuva
+        - **escalada**: Viajandão Grampeando na Chuva
         - **ids**:
           - 37
       - **[11]**:
@@ -1094,6 +1119,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Bobeou Sobrou
@@ -1101,6 +1127,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Los Cubanos
@@ -1108,6 +1135,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1999
   - **[3]**:
     - **via_movel**:
       - **nome**: Folião
@@ -1115,6 +1143,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[4]**:
     - **via_movel**:
       - **nome**: Luzes
@@ -1122,11 +1151,14 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Via sem informação
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
+      - **data_abertura**: 1994
+      - **dificuldade**: BR_4
   - **[6]**:
     - **via_movel**:
       - **nome**: Êta Sô
@@ -1134,12 +1166,14 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 1997
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Via do Tetinho
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
+      - **data_abertura**: 1994
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Ataque das Bolinhas
@@ -1147,16 +1181,23 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Via do curso
       - **dificuldade**: BR_3
+      - **data_abertura**: 1997
+      - **conquistadores**:
+        - Eustáquio Macedo Melo Júnior
+        - Felipe
+        - Emerson Alves Azeredo
   - **[10]**:
     - **via_esportiva**:
-      - **nome**: Viajandão Gramando na Chuva
+      - **nome**: Viajandão Grampeando na Chuva
       - **dificuldade**: BR_3
       - **conquistadores**:
         - Eustáquio M. Melo Júnior e alunos
+      - **data_abertura**: 1997
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Martelo Voador
@@ -1164,6 +1205,7 @@
       - **conquistadores**:
         - Ramaya Vallias
         - Sérgio Soares
+      - **data_abertura**: 1999
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Coquetel de Maracujá
@@ -1171,12 +1213,14 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Ravenloft
       - **dificuldade**: BR_6
       - **conquistadores**:
         - Leonardo Guimarães "Léo Dandão"
+      - **data_abertura**: 1997
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Muro das Lamentações
@@ -1184,6 +1228,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1998
   - **[15]**:
     - **via_esportiva**:
       - **nome**: Equilíbrio Distante
@@ -1191,12 +1236,14 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Viviane da Silva Euler
+      - **data_abertura**: 1997
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Careta do Calango
       - **dificuldade**: BR_9A
       - **conquistadores**:
         - Cristiano Loureiro "Negão"
+      - **data_abertura**: 1998
   - **[17]**:
     - **via_movel**:
       - **nome**: Pierrô e Colombina
@@ -1204,6 +1251,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Lúcia Magalhães
+      - **data_abertura**: 2002
   - **[18]**:
     - **via_esportiva**:
       - **nome**: Escalador sem mãe
@@ -1212,15 +1260,19 @@
         - Jovinei M. Medeiros
         - Dante M. Borges
         - Sérgio B. da Silva.
+      - **data_abertura**: 1997
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Projeto inacabado
+      - **conquistadores**:
+        - André Coutinho
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Sobrevibrenf´s
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Leonardo Hoffmann
+      - **data_abertura**: 2001
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Sobreviventes
@@ -1229,6 +1281,7 @@
         - Anderson (Neném)
         - Douglas
         - Bombom
+      - **data_abertura**: 1994
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Scarface
@@ -1236,12 +1289,14 @@
       - **conquistadores**:
         - Gustavo Piancastelli
         - Ronie
+      - **data_abertura**: 1997
   - **[23]**:
     - **via_esportiva**:
       - **nome**: Posições Exóticas
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Ivo Ferreira Marcelino
+      - **data_abertura**: 1994
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Garotos não Choram
@@ -1249,6 +1304,7 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Emerson Alves Azeredo
+      - **data_abertura**: 1997
 
 
 ## Parte: setor_mapa_5
@@ -1385,13 +1441,16 @@
       - **conquistadores**:
         - Eustáquio Macedo
         - Emerson Alves Azeredo
+      - **data_abertura**: 1994
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Come Quieto
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Alexandre Galvão
-        - XXX
+        - Glauco
+        - Fabinho de Petrópolis
+      - **data_abertura**: 1995
   - **[2]**:
     - **via_esportiva**:
       - **nome**: O Perigo que Veio do Céu
@@ -1399,6 +1458,7 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Charles Costa Marinho
+      - **data_abertura**: 1993
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Arranca Couro
@@ -1407,6 +1467,7 @@
         - Charles C. Marinho
         - Emerson A. Azeredo
         - Fabiano Fernandes
+      - **data_abertura**: 1993
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Ônibus Inglês
@@ -1414,6 +1475,7 @@
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Leonardo Hoffmann
+      - **data_abertura**: 1993
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Gigante de Bronze
@@ -1421,6 +1483,7 @@
       - **conquistadores**:
         - André C. B. "Andrezão"
         - Anderson B. Felisário
+      - **data_abertura**: 1994
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Karrenglass
@@ -1429,6 +1492,7 @@
         - Eduardo V. de A. "Ralf"
         - Ricardo Leal
         - Rodrigo Tinoco
+      - **data_abertura**: 1993
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Retorno dos Anões
@@ -1437,6 +1501,7 @@
         - Fábio Luiz Faria "Fabinho"
         - Míriam Morato Duarte
         - Denise
+      - **data_abertura**: 1996
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Compromisso Sexual
@@ -1445,6 +1510,7 @@
         - Emerson A. Azeredo
         - Eustáquio Júnior
         - Fabiano Fernandes
+      - **data_abertura**: 1994
 
 
 ## Parte: setor_mapa_6
@@ -1648,6 +1714,7 @@
       - **conquistadores**:
         - André C. B. "Andrezão"
         - Anderson B. Felisário
+      - **data_abertura**: 1999
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Os impossíveis
@@ -1662,6 +1729,7 @@
       - **conquistadores**:
         - Leonardo Hoffmann
         - Eduardo Viana de Azevedo "Ralf"
+      - **data_abertura**: 2000
   - **[3]**:
     - **via_movel**:
       - **nome**: Para não dizer que não falei de flores
@@ -1684,6 +1752,7 @@
         - Ricardo Jardim Leal
         - Leonardo Oliveira
         - Danilo Tolentino
+      - **data_abertura**: 1995
   - **[6]**:
     - **via_movel**:
       - **nome**: Cortando Prego
@@ -1691,6 +1760,7 @@
       - **conquistadores**:
         - Edgardo Abreu "Caca"
         - Leandro Antônio Reis
+      - **data_abertura**: 1998
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Vive lá brenf
@@ -1700,12 +1770,14 @@
         - Léo Hoffmann
         - André "Granola"
         - Guta Piancastelli
+      - **data_abertura**: 1997
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Rastafary Baby
       - **dificuldade**: BR_7C
       - **conquistadores**:
         - Leonardo Hoffman
+      - **data_abertura**: 1999
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Varinha de Condon
@@ -1713,6 +1785,7 @@
       - **conquistadores**:
         - Wilson Novaes
         - Márcio Soares Macenas
+      - **data_abertura**: 2000
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Tempestade Cerebral
@@ -1720,6 +1793,7 @@
       - **conquistadores**:
         - André C. B. "Andrezão"
         - Anderson B. Felisário
+      - **data_abertura**: 1999
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Chambinho
@@ -1729,21 +1803,24 @@
         - Andrezão
         - Eduardo "Ralf"
         - Eustáquio Jr.
+      - **data_abertura**: 1996
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Revolução dos Micos
       - **dificuldade**: BR_7B
       - **conquistadores**:
         - Eduardo Amaral
-        - Jean
-        - Ane Ouriques
+        - Jean Ouriques
+        - Anne Ouriques
         - Leonardo Rocenik
+      - **data_abertura**: 2000
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Al Capote
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Ricardo Jardim Leal
+      - **data_abertura**: 1998
 
 
 ## Parte: setor_mapa_7
@@ -1902,6 +1979,7 @@
       - **conquistadores**:
         - Ivo Júnior
         - Rma
+      - **data_abertura**: 1999
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Doutor Lund
@@ -1909,6 +1987,7 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Mário Almeida Neto
+      - **data_abertura**: 1993
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Aceitam-se Sugestões
@@ -1916,6 +1995,7 @@
       - **conquistadores**:
         - Juan Kempen
         - Pedro Assis Leite
+      - **data_abertura**: 1998
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Rosa dos Ventos
@@ -1923,6 +2003,7 @@
       - **conquistadores**:
         - Ramaya Vallias
         - Léo Quirino
+      - **data_abertura**: 1994
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Monte Calvário
@@ -1930,6 +2011,7 @@
       - **conquistadores**:
         - Ramaya Vallias
         - Léo Quirino
+      - **data_abertura**: 1994
   - **[5]**:
     - **via_movel**:
       - **nome**: Pó-na-beiça
@@ -1942,9 +2024,10 @@
       - **nome**: Três dentro, três fora
       - **dificuldade**: BR_7A
       - **conquistadores**:
-        - Jovinei M. Medeiros
-        - Helon B. Neto
+        - Jovinei Miguel Medeiros
+        - Helon Brazil Neto
         - Paulo R. Patrocínio
+      - **data_abertura**: 2000
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Só para eles
@@ -1952,6 +2035,7 @@
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
+      - **data_abertura**: 1999
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Só para elas
@@ -1959,12 +2043,14 @@
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
+      - **data_abertura**: 1995
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Prestobarba
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Daniel Fernandes "Salim"
+      - **data_abertura**: 1999
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Bigode Limpo
@@ -1972,6 +2058,7 @@
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Emerson Alves Azeredo
+      - **data_abertura**: 1993
 
 
 ## Parte: setor_mapa_8
@@ -2328,15 +2415,17 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Fábio Luiz Farias "Fabinho"
+      - **data_abertura**: 1993
   - **[1]**:
     - **via_esportiva**:
       - **descricao**: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
       - **nome**: Bigode Sujo
       - **dificuldade**: BR_7C
       - **conquistadores**:
-        - Emerson A. Azeredo
-        - Eustáquio M. M. Júnior
+        - Emerson Alves Azeredo
+        - Eustáquio Macedo Melo Júnior
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Bigode de Espinho
@@ -2344,6 +2433,7 @@
       - **conquistadores**:
         - Alexandre F. de Queiroz "Caverna"
         - Edgardo Abreu "Caca"
+      - **data_abertura**: 1995
   - **[3]**:
     - **via_esportiva**:
       - **descricao**: Era para ser a via 90, mas não tem marcação 90 no mapa.
@@ -2359,6 +2449,7 @@
       - **conquistadores**:
         - Eustáquio M. Melo Júnior
         - Leonardo Hoffmann
+      - **data_abertura**: 1994
   - **[5]**:
     - **via_movel**:
       - **nome**: Meio Cubanos
@@ -2372,6 +2463,7 @@
       - **conquistadores**:
         - Dante Martins Borges
         - Sérgio Bastos da Silva
+      - **data_abertura**: 2000
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tripla Traição
@@ -2379,14 +2471,17 @@
         - Emerson A. Azeredo
         - Eustáquio M. M. Júnior
         - Léo Hoffmann
+      - **data_abertura**: 1994
+      - **dificuldade**: BR_5
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Noivado da Feiticeira
       - **dificuldade**: BR_6
       - **conquistadores**:
-        - Emerson A. Azeredo
+        - Emerson Alves Azeredo
         - Leonardo Hoffmann
         - Ramaya Vallias
+      - **data_abertura**: 1994
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Planeta dos Macacos
@@ -2400,9 +2495,12 @@
       - **conquistadores**:
         - Leonardo Hoffmann
         - Marco Antônio Canelas
+      - **data_abertura**: 2001
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Projeto Daniel Salim
+      - **conquistadores**:
+        - Daniel Fernandes "Salim"
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Vale Perdido
@@ -2410,12 +2508,14 @@
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[13]**:
     - **via_esportiva**:
       - **nome**: Consolo da Surucucu
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Vinícius B. Assis
+      - **data_abertura**: 1997
   - **[14]**:
     - **via_esportiva**:
       - **nome**: Santos e Hereges
@@ -2423,13 +2523,15 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Mário Almeida Neto
+      - **data_abertura**: 1993
   - **[15]**:
     - **via_esportiva**:
       - **nome**: O Império Contra Ataca
       - **dificuldade**: BR_7C
       - **conquistadores**:
-        - Eustáquio M. M. Júnior
+        - Eustáquio Macedo Melo Júnior
         - Fabiano da Silva Fernandes
+      - **data_abertura**: 1993
   - **[16]**:
     - **via_esportiva**:
       - **nome**: Jegue Voador
@@ -2438,6 +2540,7 @@
         - Léo Hoffmann
         - Marco Antônio Canelas
         - Marcelo Andrê
+      - **data_abertura**: 1994
   - **[17]**:
     - **via_esportiva**:
       - **nome**: Labirinto das Maritacas
@@ -2445,13 +2548,15 @@
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[18]**:
     - **via_movel**:
       - **nome**: Tentações de Maria Madalena
       - **dificuldade**: BR_6
       - **conquistadores**:
-        - Eustáquio M. Melo Júnior
+        - Eustáquio Macedo Melo Júnior
         - Leonardo Hoffmann
+      - **data_abertura**: 1993
   - **[19]**:
     - **via_esportiva**:
       - **nome**: Sai do chão
@@ -2459,16 +2564,23 @@
       - **conquistadores**:
         - Jovinei Miguel Medeiros
         - Helon Brazil Neto
+      - **data_abertura**: 2001
   - **[20]**:
     - **via_esportiva**:
       - **nome**: Ato Imperdoável
       - **dificuldade**: BR_8A
       - **conquistadores**:
-        - Eustáquio M. M. Júnior
+        - Eustáquio Macedo Melo Júnior
         - Fabiano da Silva Fernandes
+      - **data_abertura**: 1994
   - **[21]**:
     - **via_esportiva**:
       - **nome**: Projeto Rodrigo do Paraná
+      - **conquistadores**:
+        - Pedro (PR)
+        - Rodrigo (PR)
+        - Antônio Paulo
+        - Chico
   - **[22]**:
     - **via_esportiva**:
       - **nome**: Pequena Criança
@@ -2477,6 +2589,7 @@
         - Wilson Novaes
         - Ivo Ferreira Marcelino
         - Alexandre Magos
+      - **data_abertura**: 1998
 
 
 ## Parte: setor_mapa_9
@@ -2741,6 +2854,7 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[1]**:
     - **via_esportiva**:
       - **nome**: Gralha Pigmeia
@@ -2750,6 +2864,7 @@
         - Ivo Marcelino
         - Alexandre Magos
         - Léo Hoffmann
+      - **data_abertura**: 1999
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Anjo de Pedra
@@ -2757,6 +2872,7 @@
       - **conquistadores**:
         - Rodrigo Tinoco França
         - Vinícius
+      - **data_abertura**: 1997
   - **[3]**:
     - **via_esportiva**:
       - **nome**: Um Porco que Sobe
@@ -2764,14 +2880,16 @@
       - **conquistadores**:
         - Leonardo Hoffmann
         - Henriquinho
+      - **data_abertura**: 1996
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Um Corpo que Cai
       - **dificuldade**: BR_6
       - **conquistadores**:
-        - Emerson A. Azeredo
+        - Emerson Alves Azeredo
         - Fábio C. Araújo
-        - Júlio C. Cardoso
+        - Júlio Cesar Cardoso
+      - **data_abertura**: 1993
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Realidade da Coisa
@@ -2780,6 +2898,7 @@
         - Fabinho de Petrópolis
         - Marquinhos
         - Xacundum
+      - **data_abertura**: 1994
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Realidade Sobreposta
@@ -2787,13 +2906,15 @@
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Fabinho de Teresópolis
+      - **data_abertura**: 1993
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Talhadeira Passa
       - **dificuldade**: BR_8B
       - **conquistadores**:
         - Felipe
-        - Abobrinha
+        - Tiago Abobrinha
+      - **data_abertura**: 1996
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Cova dos Leões
@@ -2801,6 +2922,7 @@
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[9]**:
     - **via_esportiva**:
       - **nome**: Mentalidade Suburbana
@@ -2809,6 +2931,7 @@
         - Ricardo J. Leal
         - Rodrigo Tinoco
         - Fábio L. Farias "Fabinho"
+      - **data_abertura**: 1994
   - **[10]**:
     - **via_esportiva**:
       - **nome**: Rato Assassino
@@ -2816,6 +2939,7 @@
       - **conquistadores**:
         - Fabinho de Petrópolis
         - Alexandre Xacundum
+      - **data_abertura**: 1996
   - **[11]**:
     - **via_esportiva**:
       - **nome**: Masturbações de Calígula
@@ -2830,6 +2954,7 @@
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
         - Roberto Lincoln de Freitas
+      - **data_abertura**: 1998
 
 
 ## Parte: setor_mapa_10
@@ -2941,6 +3066,7 @@
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Fabiano Fernandes da Silva
+      - **data_abertura**: 1993
   - **[1]**:
     - **via_esportiva**:
       - **nome**: A Era dos Patrícios
@@ -2948,6 +3074,7 @@
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Gilberto Torres
+      - **data_abertura**: 1994
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Coliseu
@@ -2959,18 +3086,19 @@
       - **nome**: Pobre César
       - **dificuldade**: BR_7A
       - **conquistadores**:
-        - Emerson
-        - Eustáquio
-        - Fabiano Fernandes
+        - Emerson Alves Azeredo
+        - Eustáquio Macedo Melo Júnior
+        - Fabiano da Silva Fernandes
         - Gilberto Torres
+      - **data_abertura**: 1993
   - **[4]**:
     - **via_esportiva**:
       - **nome**: Soprano (inacabada)
       - **conquistadores**:
-        - M. Macena
+        - Márcio Soares Macena
         - Eduardo Feliciano
-        - A. Magos
-        - Ivo Marcelino
+        - Alexandre Magos
+        - Ivo Ferreira Marcelino
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Sodoma e Gomorra
@@ -2978,15 +3106,17 @@
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Eustáquio Macedo Melo Júnior
+      - **data_abertura**: 1993
   - **[6]**:
     - **via_esportiva**:
       - **nome**: Calígula
       - **dificuldade**: BR_6SUP
       - **conquistadores**:
-        - Eustáquio
-        - Fabiano
+        - Eustáquio Macedo Melo Júnior
+        - Fabiano da Silva Fernandes
         - Gilberto Torres
-        - Emerson Azeredo
+        - Emerson Alves Azeredo
+      - **data_abertura**: 1993
 
 
 ## Arquivos Externos

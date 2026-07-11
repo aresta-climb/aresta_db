@@ -288,21 +288,25 @@ escaladas:
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
+    data_abertura: '1993'
 - via_esportiva:
     nome: Bigode Sujo
     dificuldade: BR_7C
     conquistadores:
-    - Emerson A. Azeredo
-    - Eustáquio M. M. Júnior
+    - Emerson Alves Azeredo
+    - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
-    descricao: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira
-      chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
+    descricao: Ancorar o seg no telefone ao lado da saída até escalador passar a
+      terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado com
+      o pêndulo.
+    data_abertura: '1993'
 - via_esportiva:
     nome: Bigode de Espinho
     dificuldade: BR_6SUP
     conquistadores:
     - Alexandre F. de Queiroz "Caverna"
     - Edgardo Abreu "Caca"
+    data_abertura: '1995'
 - via_esportiva:
     nome: Ecos do Além
     descricao: Era para ser a via 90, mas não tem marcação 90 no mapa.
@@ -316,6 +320,7 @@ escaladas:
     conquistadores:
     - Eustáquio M. Melo Júnior
     - Leonardo Hoffmann
+    data_abertura: '1994'
 - via_movel:
     nome: Meio Cubanos
     dificuldade: BR_6SUP
@@ -327,19 +332,23 @@ escaladas:
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
+    data_abertura: '2000'
 - via_esportiva:
     nome: Tripla Traição
     conquistadores:
     - Emerson A. Azeredo
     - Eustáquio M. M. Júnior
     - Léo Hoffmann
+    data_abertura: '1994'
+    dificuldade: BR_5
 - via_esportiva:
     nome: Noivado da Feiticeira
     dificuldade: BR_6
     conquistadores:
-    - Emerson A. Azeredo
+    - Emerson Alves Azeredo
     - Leonardo Hoffmann
     - Ramaya Vallias
+    data_abertura: '1994'
 - via_esportiva:
     nome: Planeta dos Macacos
     conquistadores:
@@ -351,31 +360,38 @@ escaladas:
     conquistadores:
     - Leonardo Hoffmann
     - Marco Antônio Canelas
+    data_abertura: '2001'
 - via_esportiva:
     nome: Projeto Daniel Salim
+    conquistadores:
+    - Daniel Fernandes "Salim"
 - via_esportiva:
     nome: Vale Perdido
     dificuldade: BR_6SUP
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
+    data_abertura: '1993'
 - via_esportiva:
     nome: Consolo da Surucucu
     dificuldade: BR_6SUP
     conquistadores:
     - Vinícius B. Assis
+    data_abertura: '1997'
 - via_esportiva:
     nome: Santos e Hereges
     dificuldade: BR_9B
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
+    data_abertura: '1993'
 - via_esportiva:
     nome: O Império Contra Ataca
     dificuldade: BR_7C
     conquistadores:
-    - Eustáquio M. M. Júnior
+    - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
+    data_abertura: '1993'
 - via_esportiva:
     nome: Jegue Voador
     dificuldade: BR_6SUP
@@ -383,32 +399,42 @@ escaladas:
     - Léo Hoffmann
     - Marco Antônio Canelas
     - Marcelo Andrê
+    data_abertura: '1994'
 - via_esportiva:
     nome: Labirinto das Maritacas
     dificuldade: BR_6
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
+    data_abertura: '1993'
 - via_movel:
     nome: Tentações de Maria Madalena
     dificuldade: BR_6
     conquistadores:
-    - Eustáquio M. Melo Júnior
+    - Eustáquio Macedo Melo Júnior
     - Leonardo Hoffmann
+    data_abertura: '1993'
 - via_esportiva:
     nome: Sai do chão
     dificuldade: BR_9A
     conquistadores:
     - Jovinei Miguel Medeiros
     - Helon Brazil Neto
+    data_abertura: '2001'
 - via_esportiva:
     nome: Ato Imperdoável
     dificuldade: BR_8A
     conquistadores:
-    - Eustáquio M. M. Júnior
+    - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
+    data_abertura: '1994'
 - via_esportiva:
     nome: Projeto Rodrigo do Paraná
+    conquistadores:
+    - Pedro (PR)
+    - Rodrigo (PR)
+    - Antônio Paulo
+    - Chico
 - via_esportiva:
     nome: Pequena Criança
     dificuldade: BR_7A
@@ -416,6 +442,7 @@ escaladas:
     - Wilson Novaes
     - Ivo Ferreira Marcelino
     - Alexandre Magos
+    data_abertura: '1998'
 ---
 
 # Setor Túnel de Pedra (Mapa 8)

@@ -83,12 +83,14 @@ escaladas:
     conquistadores:
     - Fabiano Fernandes da Silva
     descricao: Vía em Top Rope
+    data_abertura: '1993'
 - via_esportiva:
     nome: A Era dos Patrícios
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
+    data_abertura: '1994'
 - via_esportiva:
     nome: Coliseu
     dificuldade: BR_6
@@ -98,31 +100,34 @@ escaladas:
     nome: Pobre César
     dificuldade: BR_7A
     conquistadores:
-    - Emerson
-    - Eustáquio
-    - Fabiano Fernandes
+    - Emerson Alves Azeredo
+    - Eustáquio Macedo Melo Júnior
+    - Fabiano da Silva Fernandes
     - Gilberto Torres
+    data_abertura: '1993'
 - via_esportiva:
     nome: Soprano (inacabada)
     conquistadores:
-    - M. Macena
+    - Márcio Soares Macena
     - Eduardo Feliciano
-    - A. Magos
-    - Ivo Marcelino
+    - Alexandre Magos
+    - Ivo Ferreira Marcelino
 - via_esportiva:
     nome: Sodoma e Gomorra
     dificuldade: BR_4
     conquistadores:
     - Daniel Fernandes "Salim"
     - Eustáquio Macedo Melo Júnior
+    data_abertura: '1993'
 - via_esportiva:
     nome: Calígula
     dificuldade: BR_6SUP
     conquistadores:
-    - Eustáquio
-    - Fabiano
+    - Eustáquio Macedo Melo Júnior
+    - Fabiano da Silva Fernandes
     - Gilberto Torres
-    - Emerson Azeredo
+    - Emerson Alves Azeredo
+    data_abertura: '1993'
 ---
 
 # Setor Bloco Romano (Mapa 10)

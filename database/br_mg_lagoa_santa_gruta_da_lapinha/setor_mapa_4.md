@@ -218,7 +218,7 @@ mapas:
   - escalada: Via do curso
     ids:
     - '36'
-  - escalada: Viajandão Gramando na Chuva
+  - escalada: Viajandão Grampeando na Chuva
     ids:
     - '37'
   - escalada: Martelo Voador
@@ -273,99 +273,122 @@ escaladas:
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Bobeou Sobrou
     dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Los Cubanos
     dificuldade: BR_6SUP
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1999'
 - via_movel:
     nome: Folião
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_movel:
     nome: Luzes
     dificuldade: BR_4
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_esportiva:
     nome: Via sem informação
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
+    data_abertura: '1994'
+    dificuldade: BR_4
 - via_movel:
     nome: Êta Sô
     dificuldade: BR_6
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '1997'
 - via_esportiva:
     nome: Via do Tetinho
     dificuldade: BR_5SUP
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
+    data_abertura: '1994'
 - via_esportiva:
     nome: Ataque das Bolinhas
     dificuldade: BR_4
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Via do curso
     dificuldade: BR_3
+    data_abertura: '1997'
+    conquistadores:
+    - Eustáquio Macedo Melo Júnior
+    - Felipe
+    - Emerson Alves Azeredo
 - via_esportiva:
-    nome: Viajandão Gramando na Chuva
+    nome: Viajandão Grampeando na Chuva
     dificuldade: BR_3
     conquistadores:
     - Eustáquio M. Melo Júnior e alunos
+    data_abertura: '1997'
 - via_esportiva:
     nome: Martelo Voador
     dificuldade: BR_4
     conquistadores:
     - Ramaya Vallias
     - Sérgio Soares
+    data_abertura: '1999'
 - via_esportiva:
     nome: Coquetel de Maracujá
     dificuldade: BR_4
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Ravenloft
     dificuldade: BR_6
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
+    data_abertura: '1997'
 - via_esportiva:
     nome: Muro das Lamentações
     dificuldade: BR_7B
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1998'
 - via_esportiva:
     nome: Equilíbrio Distante
     dificuldade: BR_8A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
+    data_abertura: '1997'
 - via_esportiva:
     nome: Careta do Calango
     dificuldade: BR_9A
     conquistadores:
     - Cristiano Loureiro "Negão"
+    data_abertura: '1998'
 - via_movel:
     nome: Pierrô e Colombina
     dificuldade: BR_4SUP
     conquistadores:
     - Antonio Carlos Magalhães
     - Lúcia Magalhães
+    data_abertura: '2002'
 - via_esportiva:
     nome: Escalador sem mãe
     dificuldade: BR_8A
@@ -373,13 +396,17 @@ escaladas:
     - Jovinei M. Medeiros
     - Dante M. Borges
     - Sérgio B. da Silva.
+    data_abertura: '1997'
 - via_esportiva:
     nome: Projeto inacabado
+    conquistadores:
+    - André Coutinho
 - via_esportiva:
     nome: Sobrevibrenf´s
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
+    data_abertura: '2001'
 - via_esportiva:
     nome: Sobreviventes
     dificuldade: BR_6
@@ -387,23 +414,27 @@ escaladas:
     - Anderson (Neném)
     - Douglas
     - Bombom
+    data_abertura: '1994'
 - via_esportiva:
     nome: Scarface
     dificuldade: BR_7A
     conquistadores:
     - Gustavo Piancastelli
     - Ronie
+    data_abertura: '1997'
 - via_esportiva:
     nome: Posições Exóticas
     dificuldade: BR_7B
     conquistadores:
     - Ivo Ferreira Marcelino
+    data_abertura: '1994'
 - via_esportiva:
     nome: Garotos não Choram
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Emerson Alves Azeredo
+    data_abertura: '1997'
 ---
 
 # Setor Gruta - Mapa 4 (Sala de Aula)
