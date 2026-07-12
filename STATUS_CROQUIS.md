@@ -1,10 +1,10 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 11/07/2026 11:25:59
+Relatório gerado em: 12/07/2026 00:02:40
 
-| Croqui | Publicado (23/48) | Revisado Manual (23/48) | Revisado Circ (18/48) | Desenho Extraível (24/8/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
+| Croqui | Publicado (23/48) | Revisado Manual (23/48) | Revisado Circ (19/48) | Desenho Extraível (24/8/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| br_mg_araxa_bocaina_boulders | ✅ | ✅ | ❌ | ⚠️ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ⚠️ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ⚠️ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_arcos_bombonera | ✅ | ✅ | ✅ | ✅ (não) | ✅ (3/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_arcos_corumba | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |

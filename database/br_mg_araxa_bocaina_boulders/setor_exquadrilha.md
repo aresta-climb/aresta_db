@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 472
+    circulo:
+      x: 474
       y: 688
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '02'
     label: '02'
-    retangulo:
-      x: 366
-      y: 661
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 367
+      y: 662
+      raio: 12
   - id: '03'
     label: '03'
-    retangulo:
-      x: 327
+    circulo:
+      x: 329
       y: 662
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
-      x: 535
-      y: 654
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 536
+      y: 655
+      raio: 12
   - id: '05'
     label: '05'
-    retangulo:
-      x: 578
+    circulo:
+      x: 579
       y: 649
-      comprimento: 20
-      largura: 20
+      raio: 12
   referencias:
   - escalada: Fumaça Sagrada
     ids:

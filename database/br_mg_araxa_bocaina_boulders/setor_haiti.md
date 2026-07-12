@@ -7,36 +7,45 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 511
-      y: 668
-      comprimento: 20
-      largura: 20
+      y: 669
+      raio: 13
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 928
       y: 750
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 982
       y: 750
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 1015
-      y: 735
-      comprimento: 20
-      largura: 20
+      y: 737
+      raio: 13
+  - id: 1_fim
+    label: 1_fim
+    circulo:
+      x: 265
+      y: 56
+      raio: 13
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 721
+      y: 22
+      raio: 14
   referencias:
   - escalada: Jamaica Abaixo de Zero
     ids:
     - '01'
+    - '3'
   - escalada: Taiti
     ids:
     - '04'
@@ -46,6 +55,11 @@ mapas:
   - escalada: Nem Lá, Nem Cá
     ids:
     - '06'
+  - ids:
+    - '01'
+    - '2'
+    setor: Haiti
+    escalada: Jamaica
 escaladas:
 - boulder:
     nome: Jamaica Abaixo de Zero

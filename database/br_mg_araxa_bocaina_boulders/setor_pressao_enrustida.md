@@ -7,39 +7,34 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 299
+    circulo:
+      x: 300
       y: 634
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '02'
     label: '02'
-    retangulo:
-      x: 366
-      y: 652
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 367
+      y: 653
+      raio: 12
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 542
-      y: 626
-      comprimento: 20
-      largura: 20
+      y: 627
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
-      x: 631
-      y: 628
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 632
+      y: 629
+      raio: 12
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 701
-      y: 540
-      comprimento: 20
-      largura: 20
+      y: 541
+      raio: 12
   referencias:
   - escalada: Café com Leite
     ids:
@@ -56,6 +51,14 @@ mapas:
   - escalada: Pressão Enrustida
     ids:
     - '05'
+  - ids:
+    - '04'
+    setor: Pressão Enrustida
+    escalada: Não Contava com Minha Astúcia
+  - ids:
+    - '05'
+    setor: Pressão Enrustida
+    escalada: Rapé
 escaladas:
 - boulder:
     nome: Café com Leite

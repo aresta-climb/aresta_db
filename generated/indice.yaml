@@ -4,9 +4,9 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: 1a74aff9b6c7536b49f73a3bde72d1b302faa54d4304c426ae5652cf6b1f65d0
+  checksum_sha256_croqui: 53e8882d81b0d0b725d99c56666b90704785deb0b5cea3eff461e7b40acf197d
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-12T03:02:38Z'
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\

@@ -55,6 +55,7 @@
             | *Graduações de boulders no croqui* |
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_pressao_enrustida
@@ -72,43 +73,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 299
+        - **circulo**:
+          - **x**: 300
           - **y**: 634
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 366
-          - **y**: 652
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 367
+          - **y**: 653
+          - **raio**: 12
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 542
-          - **y**: 626
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 627
+          - **raio**: 12
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 631
-          - **y**: 628
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 632
+          - **y**: 629
+          - **raio**: 12
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 701
-          - **y**: 540
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 541
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Café com Leite
@@ -130,6 +126,16 @@
         - **escalada**: Pressão Enrustida
         - **ids**:
           - 05
+      - **[5]**:
+        - **ids**:
+          - 04
+        - **setor**: Pressão Enrustida
+        - **escalada**: Não Contava com Minha Astúcia
+      - **[6]**:
+        - **ids**:
+          - 05
+        - **setor**: Pressão Enrustida
+        - **escalada**: Rapé
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -182,11 +188,10 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 500
-          - **y**: 712
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 713
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Mingau
@@ -200,51 +205,45 @@
       - **[0]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 428
           - **y**: 657
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[1]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 462
-          - **y**: 662
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 463
+          - **y**: 663
+          - **raio**: 12
       - **[2]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 462
-          - **y**: 698
-          - **comprimento**: 19
-          - **largura**: 17
+        - **circulo**:
+          - **x**: 463
+          - **y**: 700
+          - **raio**: 12
       - **[3]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 466
           - **y**: 740
-          - **comprimento**: 19
-          - **largura**: 19
+          - **raio**: 12
       - **[4]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 500
+        - **circulo**:
+          - **x**: 501
           - **y**: 800
-          - **comprimento**: 19
-          - **largura**: 19
+          - **raio**: 12
       - **[5]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 694
           - **y**: 726
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Pretinho Irlandês
@@ -278,35 +277,31 @@
       - **[0]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 659
+        - **circulo**:
+          - **x**: 658
           - **y**: 726
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[1]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 652
-          - **y**: 757
-          - **comprimento**: 18
-          - **largura**: 18
+          - **y**: 758
+          - **raio**: 12
       - **[2]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 799
-          - **y**: 774
-          - **comprimento**: 24
-          - **largura**: 22
+        - **circulo**:
+          - **x**: 800
+          - **y**: 775
+          - **raio**: 12
       - **[3]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 970
-          - **y**: 696
-          - **comprimento**: 22
-          - **largura**: 17
+        - **circulo**:
+          - **x**: 971
+          - **y**: 697
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Aedes Egipse
@@ -397,43 +392,38 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 472
+        - **circulo**:
+          - **x**: 474
           - **y**: 688
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 366
-          - **y**: 661
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 367
+          - **y**: 662
+          - **raio**: 12
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 327
+        - **circulo**:
+          - **x**: 329
           - **y**: 662
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 535
-          - **y**: 654
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 536
+          - **y**: 655
+          - **raio**: 12
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 578
+        - **circulo**:
+          - **x**: 579
           - **y**: 649
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Fumaça Sagrada
@@ -498,27 +488,45 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 231
+        - **circulo**:
+          - **x**: 232
           - **y**: 789
-          - **comprimento**: 24
-          - **largura**: 24
+          - **raio**: 13
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 388
           - **y**: 814
-          - **comprimento**: 23
-          - **largura**: 24
+          - **raio**: 12
       - **[2]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 814
-          - **y**: 548
-          - **comprimento**: 24
-          - **largura**: 24
+        - **circulo**:
+          - **x**: 815
+          - **y**: 549
+          - **raio**: 12
+      - **[3]**:
+        - **id**: 3
+        - **label**: 4
+        - **circulo**:
+          - **x**: 783
+          - **y**: 104
+          - **raio**: 12
+      - **[4]**:
+        - **id**: 4
+        - **label**: 4
+        - **circulo**:
+          - **x**: 505
+          - **y**: 70
+          - **raio**: 12
+      - **[5]**:
+        - **id**: 7
+        - **label**: 7
+        - **circulo**:
+          - **x**: 393
+          - **y**: 38
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Sucrilhos no Prato
@@ -532,6 +540,24 @@
         - **escalada**: Loboulder
         - **ids**:
           - 06
+      - **[3]**:
+        - **ids**:
+          - 01
+          - 3
+        - **setor**: Canil
+        - **escalada**: Lobão
+      - **[4]**:
+        - **ids**:
+          - 01
+          - 4
+        - **setor**: Canil
+        - **escalada**: Tião Macalé
+      - **[5]**:
+        - **ids**:
+          - 06
+          - 7
+        - **setor**: Canil
+        - **escalada**: Savana
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -584,35 +610,31 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 370
-          - **y**: 631
-          - **comprimento**: 19
-          - **largura**: 20
+          - **y**: 632
+          - **raio**: 12
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 578
-          - **y**: 602
-          - **comprimento**: 23
-          - **largura**: 23
+        - **circulo**:
+          - **x**: 579
+          - **y**: 603
+          - **raio**: 12
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 786
-          - **y**: 594
-          - **comprimento**: 19
-          - **largura**: 19
+        - **circulo**:
+          - **x**: 787
+          - **y**: 595
+          - **raio**: 12
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 924
-          - **y**: 625
-          - **comprimento**: 17
-          - **largura**: 18
+          - **y**: 626
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Strike
@@ -638,27 +660,24 @@
       - **[0]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 496
-          - **y**: 605
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 606
+          - **raio**: 13
       - **[1]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 756
+        - **circulo**:
+          - **x**: 757
           - **y**: 454
-          - **comprimento**: 19
-          - **largura**: 20
+          - **raio**: 13
       - **[2]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 764
-          - **y**: 512
-          - **comprimento**: 21
-          - **largura**: 21
+          - **y**: 514
+          - **raio**: 13
     - **referencias**:
       - **[0]**:
         - **escalada**: Guerreiro da Bocaina
@@ -725,11 +744,10 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 415
-          - **y**: 797
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 416
+          - **y**: 799
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Sexto Sentido
@@ -743,51 +761,45 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 202
-          - **y**: 637
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 636
+          - **raio**: 13
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 222
           - **y**: 670
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 372
-          - **y**: 820
-          - **comprimento**: 21
-          - **largura**: 21
+          - **y**: 821
+          - **raio**: 13
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 569
-          - **y**: 558
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 570
+          - **y**: 559
+          - **raio**: 13
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 632
-          - **y**: 692
-          - **comprimento**: 23
-          - **largura**: 25
+        - **circulo**:
+          - **x**: 631
+          - **y**: 693
+          - **raio**: 12
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 658
           - **y**: 688
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Sexto Sentido
@@ -821,59 +833,52 @@
       - **[0]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 299
-          - **y**: 698
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 700
+          - **raio**: 12
       - **[1]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 296
           - **y**: 612
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[2]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 330
-          - **y**: 698
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 699
+          - **raio**: 12
       - **[3]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 425
+        - **circulo**:
+          - **x**: 428
           - **y**: 746
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[4]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 453
-          - **y**: 733
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 455
+          - **y**: 732
+          - **raio**: 12
       - **[5]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
+        - **circulo**:
           - **x**: 476
-          - **y**: 718
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 719
+          - **raio**: 12
       - **[6]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
+        - **circulo**:
           - **x**: 502
           - **y**: 707
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Mágico de Oz
@@ -990,19 +995,17 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 467
-          - **y**: 684
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 468
+          - **y**: 685
+          - **raio**: 12
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 682
-          - **y**: 692
-          - **comprimento**: 27
-          - **largura**: 29
+        - **circulo**:
+          - **x**: 683
+          - **y**: 693
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Canarim
@@ -1020,27 +1023,24 @@
       - **[0]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 410
-          - **y**: 589
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 411
+          - **y**: 590
+          - **raio**: 12
       - **[1]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 635
+        - **circulo**:
+          - **x**: 634
           - **y**: 700
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
       - **[2]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 710
+        - **circulo**:
+          - **x**: 711
           - **y**: 687
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 12
     - **referencias**:
       - **[0]**:
         - **escalada**: Consciência Limpa
@@ -1097,40 +1097,51 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
+        - **circulo**:
           - **x**: 511
-          - **y**: 668
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 669
+          - **raio**: 13
       - **[1]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 928
           - **y**: 750
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[2]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 982
           - **y**: 750
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 13
       - **[3]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 1015
-          - **y**: 735
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 737
+          - **raio**: 13
+      - **[4]**:
+        - **id**: 1_fim
+        - **label**: 1_fim
+        - **circulo**:
+          - **x**: 265
+          - **y**: 56
+          - **raio**: 13
+      - **[5]**:
+        - **id**: 2
+        - **label**: 2
+        - **circulo**:
+          - **x**: 721
+          - **y**: 22
+          - **raio**: 14
     - **referencias**:
       - **[0]**:
         - **escalada**: Jamaica Abaixo de Zero
         - **ids**:
           - 01
+          - 3
       - **[1]**:
         - **escalada**: Taiti
         - **ids**:
@@ -1143,6 +1154,12 @@
         - **escalada**: Nem Lá, Nem Cá
         - **ids**:
           - 06
+      - **[4]**:
+        - **ids**:
+          - 01
+          - 2
+        - **setor**: Haiti
+        - **escalada**: Jamaica
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1191,35 +1208,31 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 71
-          - **y**: 537
-          - **comprimento**: 24
-          - **largura**: 24
+        - **circulo**:
+          - **x**: 73
+          - **y**: 538
+          - **raio**: 12
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 286
-          - **y**: 656
-          - **comprimento**: 28
-          - **largura**: 32
+          - **y**: 658
+          - **raio**: 12
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 370
-          - **y**: 686
-          - **comprimento**: 28
-          - **largura**: 32
+        - **circulo**:
+          - **x**: 372
+          - **y**: 684
+          - **raio**: 12
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
+        - **circulo**:
           - **x**: 919
-          - **y**: 659
-          - **comprimento**: 30
-          - **largura**: 30
+          - **y**: 658
+          - **raio**: 13
     - **referencias**:
       - **[0]**:
         - **escalada**: Fala Comigo
@@ -1275,27 +1288,24 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 151
+        - **circulo**:
+          - **x**: 153
           - **y**: 742
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
-          - **x**: 212
+        - **circulo**:
+          - **x**: 213
           - **y**: 748
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 991
-          - **y**: 684
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 685
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Açaí Bocaina
@@ -1342,99 +1352,80 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 122
-          - **y**: 717
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 123
+          - **y**: 716
+          - **raio**: 11
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 161
           - **y**: 718
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 141
+        - **circulo**:
+          - **x**: 143
           - **y**: 752
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 254
-          - **y**: 682
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 256
+          - **y**: 683
+          - **raio**: 11
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
+        - **circulo**:
           - **x**: 296
           - **y**: 775
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
-        - **retangulo**:
-          - **x**: 682
-          - **y**: 580
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 618
           - **y**: 554
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[7]**:
+          - **raio**: 11
+      - **[6]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
+        - **circulo**:
           - **x**: 803
           - **y**: 501
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[8]**:
+          - **raio**: 11
+      - **[7]**:
         - **id**: P1
         - **label**: P
-        - **retangulo**:
+        - **circulo**:
           - **x**: 384
           - **y**: 740
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[9]**:
+          - **raio**: 11
+      - **[8]**:
         - **id**: P2
         - **label**: P
-        - **retangulo**:
-          - **x**: 675
+        - **circulo**:
+          - **x**: 674
           - **y**: 659
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[10]**:
+          - **raio**: 11
+      - **[9]**:
         - **id**: P3
         - **label**: P
-        - **retangulo**:
-          - **x**: 714
+        - **circulo**:
+          - **x**: 712
           - **y**: 662
-          - **comprimento**: 20
-          - **largura**: 20
-      - **[11]**:
+          - **raio**: 11
+      - **[10]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
+        - **circulo**:
           - **x**: 674
-          - **y**: 693
-          - **comprimento**: 23
-          - **largura**: 26
+          - **y**: 695
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Esquina do Gueto
@@ -1476,67 +1467,59 @@
       - **[0]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
+        - **circulo**:
           - **x**: 660
-          - **y**: 428
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 429
+          - **raio**: 11
       - **[1]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 626
-          - **y**: 497
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 627
+          - **y**: 498
+          - **raio**: 11
       - **[2]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
+        - **circulo**:
           - **x**: 691
-          - **y**: 420
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 421
+          - **raio**: 11
       - **[3]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 659
+        - **circulo**:
+          - **x**: 660
           - **y**: 498
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[4]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 619
-          - **y**: 410
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 621
+          - **y**: 411
+          - **raio**: 11
       - **[5]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
+        - **circulo**:
           - **x**: 597
-          - **y**: 501
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 502
+          - **raio**: 11
       - **[6]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 751
-          - **y**: 491
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 752
+          - **y**: 490
+          - **raio**: 11
       - **[7]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
-          - **x**: 867
-          - **y**: 430
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 868
+          - **y**: 431
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Tiro ao Alvo
@@ -1578,83 +1561,73 @@
       - **[0]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 656
-          - **y**: 430
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 658
+          - **y**: 431
+          - **raio**: 11
       - **[1]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 623
-          - **y**: 498
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 625
+          - **y**: 499
+          - **raio**: 11
       - **[2]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
-          - **x**: 689
-          - **y**: 422
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 690
+          - **y**: 423
+          - **raio**: 11
       - **[3]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
-          - **x**: 656
+        - **circulo**:
+          - **x**: 658
           - **y**: 500
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[4]**:
         - **id**: 13
         - **label**: 13
-        - **retangulo**:
-          - **x**: 618
-          - **y**: 414
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 619
+          - **y**: 413
+          - **raio**: 11
       - **[5]**:
         - **id**: 14
         - **label**: 14
-        - **retangulo**:
-          - **x**: 594
+        - **circulo**:
+          - **x**: 595
           - **y**: 503
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[6]**:
         - **id**: 15
         - **label**: 15
-        - **retangulo**:
-          - **x**: 748
-          - **y**: 492
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 750
+          - **y**: 493
+          - **raio**: 11
       - **[7]**:
         - **id**: 16
         - **label**: 16
-        - **retangulo**:
-          - **x**: 865
-          - **y**: 432
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 866
+          - **y**: 433
+          - **raio**: 11
       - **[8]**:
         - **id**: 17
         - **label**: 17
-        - **retangulo**:
+        - **circulo**:
           - **x**: 899
-          - **y**: 435
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 436
+          - **raio**: 11
       - **[9]**:
         - **id**: 18
         - **label**: 18
-        - **retangulo**:
-          - **x**: 1012
-          - **y**: 402
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 1011
+          - **y**: 403
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Tiro ao Alvo
@@ -1696,6 +1669,7 @@
         - **escalada**: Saída pela Culatra
         - **ids**:
           - 18
+        - **setor**: Bloco 45º
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -1829,59 +1803,52 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 234
+        - **circulo**:
+          - **x**: 235
           - **y**: 475
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 345
           - **y**: 535
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
+        - **circulo**:
           - **x**: 387
-          - **y**: 567
-          - **comprimento**: 20
-          - **largura**: 20
+          - **y**: 569
+          - **raio**: 11
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 638
-          - **y**: 724
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 639
+          - **y**: 725
+          - **raio**: 11
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 689
+        - **circulo**:
+          - **x**: 691
           - **y**: 737
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 853
+        - **circulo**:
+          - **x**: 854
           - **y**: 668
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
+        - **circulo**:
           - **x**: 866
           - **y**: 630
-          - **comprimento**: 20
-          - **largura**: 20
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Agricultor
@@ -1919,11 +1886,10 @@
       - **[0]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 376
-          - **y**: 428
-          - **comprimento**: 20
-          - **largura**: 20
+        - **circulo**:
+          - **x**: 377
+          - **y**: 429
+          - **raio**: 11
     - **referencias**:
       - **[0]**:
         - **escalada**: Jardim de Infância

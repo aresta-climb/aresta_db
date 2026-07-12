@@ -7,25 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 231
+    circulo:
+      x: 232
       y: 789
-      comprimento: 24
-      largura: 24
+      raio: 13
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 388
       y: 814
-      comprimento: 23
-      largura: 24
+      raio: 12
   - id: '06'
     label: '06'
-    retangulo:
-      x: 814
-      y: 548
-      comprimento: 24
-      largura: 24
+    circulo:
+      x: 815
+      y: 549
+      raio: 12
+  - id: '3'
+    label: '4'
+    circulo:
+      x: 783
+      y: 104
+      raio: 12
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 505
+      y: 70
+      raio: 12
+  - id: '7'
+    label: '7'
+    circulo:
+      x: 393
+      y: 38
+      raio: 12
   referencias:
   - escalada: Sucrilhos no Prato
     ids:
@@ -36,6 +51,21 @@ mapas:
   - escalada: Loboulder
     ids:
     - '06'
+  - ids:
+    - '01'
+    - '3'
+    setor: Canil
+    escalada: Lobão
+  - ids:
+    - '01'
+    - '4'
+    setor: Canil
+    escalada: Tião Macalé
+  - ids:
+    - '06'
+    - '7'
+    setor: Canil
+    escalada: Savana
 escaladas:
 - boulder:
     nome: Sucrilhos no Prato

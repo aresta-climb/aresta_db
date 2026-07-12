@@ -1,7 +1,10 @@
----
+---
 nome: Headwall
 mapas:
 - caminho_imagem_mapa: imagens/setor_headwall_p0_i0.webp
+  largura_mapa: 367
+  altura_mapa: 144
+  pontos_de_interesse: []
 escaladas:
 - via_movel:
     nome: Arthropoda
@@ -38,8 +41,8 @@ escaladas:
     - Anthony Hirata
     - Bruno Tebet
     protecoes_moveis: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
-    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos.
-      O rapel pode ser feito na parada da via ao lado.'
+    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em
+      três pontos. O rapel pode ser feito na parada da via ao lado.'
 - via_esportiva:
     nome: Taj Mahola
     dificuldade: BR_4SUP
@@ -57,10 +60,10 @@ escaladas:
     conquistadores:
     - Zé Ricardo
     - Jorge Lima
-    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10)
-      ou compatíveis
+    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1
+      a 5, 10) ou compatíveis
     descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
----
+---
 
 ![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp)
 

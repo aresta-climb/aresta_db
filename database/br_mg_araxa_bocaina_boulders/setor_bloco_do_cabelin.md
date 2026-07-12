@@ -7,11 +7,10 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 415
-      y: 797
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 416
+      y: 799
+      raio: 12
   referencias:
   - escalada: Sexto Sentido
     ids:
@@ -22,46 +21,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 202
-      y: 637
-      comprimento: 20
-      largura: 20
+      y: 636
+      raio: 13
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 222
       y: 670
-      comprimento: 20
-      largura: 20
+      raio: 13
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 372
-      y: 820
-      comprimento: 21
-      largura: 21
+      y: 821
+      raio: 13
   - id: '04'
     label: '04'
-    retangulo:
-      x: 569
-      y: 558
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 570
+      y: 559
+      raio: 13
   - id: '05'
     label: '05'
-    retangulo:
-      x: 632
-      y: 692
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 631
+      y: 693
+      raio: 12
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 658
       y: 688
-      comprimento: 20
-      largura: 20
+      raio: 12
   referencias:
   - escalada: Sexto Sentido
     ids:
@@ -87,63 +80,56 @@ mapas:
   pontos_de_interesse:
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 299
-      y: 698
-      comprimento: 20
-      largura: 20
-  - id: 08
-    label: 08
-    retangulo:
+      y: 700
+      raio: 12
+  - id: '08'
+    label: '08'
+    circulo:
       x: 296
       y: 612
-      comprimento: 20
-      largura: 20
-  - id: 09
-    label: 09
-    retangulo:
+      raio: 12
+  - id: '09'
+    label: '09'
+    circulo:
       x: 330
-      y: 698
-      comprimento: 20
-      largura: 20
+      y: 699
+      raio: 12
   - id: '10'
     label: '10'
-    retangulo:
-      x: 425
+    circulo:
+      x: 428
       y: 746
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '11'
     label: '11'
-    retangulo:
-      x: 453
-      y: 733
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 455
+      y: 732
+      raio: 12
   - id: '12'
     label: '12'
-    retangulo:
+    circulo:
       x: 476
-      y: 718
-      comprimento: 20
-      largura: 20
+      y: 719
+      raio: 12
   - id: '13'
     label: '13'
-    retangulo:
+    circulo:
       x: 502
       y: 707
-      comprimento: 20
-      largura: 20
+      raio: 12
   referencias:
   - escalada: Mágico de Oz
     ids:
     - '07'
   - escalada: Mágico de Oz SDS
     ids:
-    - 08
+    - '08'
   - escalada: Mr. Gordura
     ids:
-    - 09
+    - '09'
   - escalada: País das Maravilhas
     ids:
     - '10'

@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 71
-      y: 537
-      comprimento: 24
-      largura: 24
+    circulo:
+      x: 73
+      y: 538
+      raio: 12
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 286
-      y: 656
-      comprimento: 28
-      largura: 32
+      y: 658
+      raio: 12
   - id: '03'
     label: '03'
-    retangulo:
-      x: 370
-      y: 686
-      comprimento: 28
-      largura: 32
+    circulo:
+      x: 372
+      y: 684
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 919
-      y: 659
-      comprimento: 30
-      largura: 30
+      y: 658
+      raio: 13
   referencias:
   - escalada: Fala Comigo
     ids:

@@ -7,11 +7,10 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 500
-      y: 712
-      comprimento: 20
-      largura: 20
+      y: 713
+      raio: 12
   referencias:
   - escalada: Mingau
     ids:
@@ -22,46 +21,40 @@ mapas:
   pontos_de_interesse:
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 428
       y: 657
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '03'
     label: '03'
-    retangulo:
-      x: 462
-      y: 662
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 463
+      y: 663
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
-      x: 462
-      y: 698
-      comprimento: 19
-      largura: 17
+    circulo:
+      x: 463
+      y: 700
+      raio: 12
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 466
       y: 740
-      comprimento: 19
-      largura: 19
+      raio: 12
   - id: '06'
     label: '06'
-    retangulo:
-      x: 500
+    circulo:
+      x: 501
       y: 800
-      comprimento: 19
-      largura: 19
+      raio: 12
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 694
       y: 726
-      comprimento: 20
-      largura: 20
+      raio: 12
   referencias:
   - escalada: Pretinho Irlandês
     ids:
@@ -85,41 +78,37 @@ mapas:
   largura_mapa: 1069
   altura_mapa: 865
   pontos_de_interesse:
-  - id: 08
-    label: 08
-    retangulo:
-      x: 659
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 658
       y: 726
-      comprimento: 20
-      largura: 20
-  - id: 09
-    label: 09
-    retangulo:
+      raio: 12
+  - id: '09'
+    label: '09'
+    circulo:
       x: 652
-      y: 757
-      comprimento: 18
-      largura: 18
+      y: 758
+      raio: 12
   - id: '10'
     label: '10'
-    retangulo:
-      x: 799
-      y: 774
-      comprimento: 24
-      largura: 22
+    circulo:
+      x: 800
+      y: 775
+      raio: 12
   - id: '11'
     label: '11'
-    retangulo:
-      x: 970
-      y: 696
-      comprimento: 22
-      largura: 17
+    circulo:
+      x: 971
+      y: 697
+      raio: 12
   referencias:
   - escalada: Aedes Egipse
     ids:
-    - 08
+    - '08'
   - escalada: V9 do Rafinha
     ids:
-    - 09
+    - '09'
   - escalada: Os Trabalhos Não Param
     ids:
     - '10'

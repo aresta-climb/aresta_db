@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
+    circulo:
       x: 370
-      y: 631
-      comprimento: 19
-      largura: 20
+      y: 632
+      raio: 12
   - id: '02'
     label: '02'
-    retangulo:
-      x: 578
-      y: 602
-      comprimento: 23
-      largura: 23
+    circulo:
+      x: 579
+      y: 603
+      raio: 12
   - id: '03'
     label: '03'
-    retangulo:
-      x: 786
-      y: 594
-      comprimento: 19
-      largura: 19
+    circulo:
+      x: 787
+      y: 595
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
+    circulo:
       x: 924
-      y: 625
-      comprimento: 17
-      largura: 18
+      y: 626
+      raio: 12
   referencias:
   - escalada: Strike
     ids:
@@ -52,25 +48,22 @@ mapas:
   pontos_de_interesse:
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 496
-      y: 605
-      comprimento: 20
-      largura: 20
+      y: 606
+      raio: 13
   - id: '06'
     label: '06'
-    retangulo:
-      x: 756
+    circulo:
+      x: 757
       y: 454
-      comprimento: 19
-      largura: 20
+      raio: 13
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 764
-      y: 512
-      comprimento: 21
-      largura: 21
+      y: 514
+      raio: 13
   referencias:
   - escalada: Guerreiro da Bocaina
     ids:

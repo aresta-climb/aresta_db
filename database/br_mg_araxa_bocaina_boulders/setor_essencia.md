@@ -7,53 +7,46 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 234
+    circulo:
+      x: 235
       y: 475
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 345
       y: 535
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 387
-      y: 567
-      comprimento: 20
-      largura: 20
+      y: 569
+      raio: 11
   - id: '04'
     label: '04'
-    retangulo:
-      x: 638
-      y: 724
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 639
+      y: 725
+      raio: 11
   - id: '05'
     label: '05'
-    retangulo:
-      x: 689
+    circulo:
+      x: 691
       y: 737
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '06'
     label: '06'
-    retangulo:
-      x: 853
+    circulo:
+      x: 854
       y: 668
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 866
       y: 630
-      comprimento: 20
-      largura: 20
+      raio: 11
   referencias:
   - escalada: Agricultor
     ids:
@@ -80,17 +73,16 @@ mapas:
   largura_mapa: 1094
   altura_mapa: 782
   pontos_de_interesse:
-  - id: 09
-    label: 09
-    retangulo:
-      x: 376
-      y: 428
-      comprimento: 20
-      largura: 20
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 377
+      y: 429
+      raio: 11
   referencias:
   - escalada: Jardim de Infância
     ids:
-    - 09
+    - '09'
 escaladas:
 - boulder:
     nome: Agricultor

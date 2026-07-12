@@ -1,7 +1,10 @@
----
+---
 nome: Ecumênico
 mapas:
 - caminho_imagem_mapa: imagens/setor_ecumenico_p0_i0.webp
+  largura_mapa: 367
+  altura_mapa: 144
+  pontos_de_interesse: []
 escaladas:
 - via_esportiva:
     nome: Dízimo
@@ -50,8 +53,8 @@ escaladas:
     - Jorge Lima
     - André Morales
     - Felipe Pimenta
-    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de
-      algumas costuras longas.'
+    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer
+      uso de algumas costuras longas.'
 - via_esportiva:
     nome: Meninos de Gesso
     dificuldade: BR_6SUP
@@ -60,7 +63,7 @@ escaladas:
     conquistadores:
     - André Morales
     - Kaio Lupone
----
+---
 
 ![Vista do Setor Ecumênico](imagens/setor_ecumenico_p0_i0_2.webp)
 

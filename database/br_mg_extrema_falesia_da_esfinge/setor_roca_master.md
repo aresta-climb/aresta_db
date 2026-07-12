@@ -1,7 +1,10 @@
----
+---
 nome: Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
+  largura_mapa: 367
+  altura_mapa: 144
+  pontos_de_interesse: []
 escaladas:
 - via_esportiva:
     nome: Cão Castrado
@@ -79,7 +82,7 @@ escaladas:
     - Jorge Lima
     protecoes_moveis: Camalot (5 e 6) ou compatíveis.
     descricao: 'Obs: Importante a utilização de algumas costuras longas.'
----
+---
 
 ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp)
 

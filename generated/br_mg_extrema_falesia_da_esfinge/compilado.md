@@ -203,6 +203,7 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_headwall_p0_i0.webp)
     - **largura_mapa**: 367
     - **altura_mapa**: 144
+    - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
@@ -308,6 +309,7 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_roca_master_p0_i0.webp)
     - **largura_mapa**: 367
     - **altura_mapa**: 144
+    - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -436,6 +438,7 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ecumenico_p0_i0.webp)
     - **largura_mapa**: 367
     - **altura_mapa**: 144
+    - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

@@ -7,25 +7,22 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 151
+    circulo:
+      x: 153
       y: 742
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '02'
     label: '02'
-    retangulo:
-      x: 212
+    circulo:
+      x: 213
       y: 748
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '03'
     label: '03'
-    retangulo:
+    circulo:
       x: 991
-      y: 684
-      comprimento: 20
-      largura: 20
+      y: 685
+      raio: 11
   referencias:
   - escalada: Açaí Bocaina
     ids:

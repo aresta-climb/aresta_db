@@ -7,88 +7,70 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 122
-      y: 717
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 123
+      y: 716
+      raio: 11
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 161
       y: 718
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '03'
     label: '03'
-    retangulo:
-      x: 141
+    circulo:
+      x: 143
       y: 752
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '04'
     label: '04'
-    retangulo:
-      x: 254
-      y: 682
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 256
+      y: 683
+      raio: 11
   - id: '05'
     label: '05'
-    retangulo:
+    circulo:
       x: 296
       y: 775
-      comprimento: 20
-      largura: 20
-  - id: '06'
-    label: '06'
-    retangulo:
-      x: 682
-      y: 580
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '07'
     label: '07'
-    retangulo:
+    circulo:
       x: 618
       y: 554
-      comprimento: 20
-      largura: 20
-  - id: 08
-    label: 08
-    retangulo:
+      raio: 11
+  - id: '08'
+    label: '08'
+    circulo:
       x: 803
       y: 501
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: P1
     label: P
-    retangulo:
+    circulo:
       x: 384
       y: 740
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: P2
     label: P
-    retangulo:
-      x: 675
+    circulo:
+      x: 674
       y: 659
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: P3
     label: P
-    retangulo:
-      x: 714
+    circulo:
+      x: 712
       y: 662
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '06'
     label: '06'
-    retangulo:
+    circulo:
       x: 674
-      y: 693
-      comprimento: 23
-      largura: 26
+      y: 695
+      raio: 11
   referencias:
   - escalada: Esquina do Gueto
     ids:
@@ -113,71 +95,63 @@ mapas:
     - '07'
   - escalada: Espírito San
     ids:
-    - 08
+    - '08'
 - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
   largura_mapa: 1091
   altura_mapa: 813
   pontos_de_interesse:
-  - id: 09
-    label: 09
-    retangulo:
+  - id: '09'
+    label: '09'
+    circulo:
       x: 660
-      y: 428
-      comprimento: 20
-      largura: 20
+      y: 429
+      raio: 11
   - id: '10'
     label: '10'
-    retangulo:
-      x: 626
-      y: 497
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 627
+      y: 498
+      raio: 11
   - id: '11'
     label: '11'
-    retangulo:
+    circulo:
       x: 691
-      y: 420
-      comprimento: 20
-      largura: 20
+      y: 421
+      raio: 11
   - id: '12'
     label: '12'
-    retangulo:
-      x: 659
+    circulo:
+      x: 660
       y: 498
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '13'
     label: '13'
-    retangulo:
-      x: 619
-      y: 410
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 621
+      y: 411
+      raio: 11
   - id: '14'
     label: '14'
-    retangulo:
+    circulo:
       x: 597
-      y: 501
-      comprimento: 20
-      largura: 20
+      y: 502
+      raio: 11
   - id: '15'
     label: '15'
-    retangulo:
-      x: 751
-      y: 491
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 752
+      y: 490
+      raio: 11
   - id: '16'
     label: '16'
-    retangulo:
-      x: 867
-      y: 430
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 868
+      y: 431
+      raio: 11
   referencias:
   - escalada: Tiro ao Alvo
     ids:
-    - 09
+    - '09'
   - escalada: Tiro ao Alvo SDS
     ids:
     - '10'
@@ -203,80 +177,70 @@ mapas:
   largura_mapa: 1087
   altura_mapa: 812
   pontos_de_interesse:
-  - id: 09
-    label: 09
-    retangulo:
-      x: 656
-      y: 430
-      comprimento: 20
-      largura: 20
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 658
+      y: 431
+      raio: 11
   - id: '10'
     label: '10'
-    retangulo:
-      x: 623
-      y: 498
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 625
+      y: 499
+      raio: 11
   - id: '11'
     label: '11'
-    retangulo:
-      x: 689
-      y: 422
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 690
+      y: 423
+      raio: 11
   - id: '12'
     label: '12'
-    retangulo:
-      x: 656
+    circulo:
+      x: 658
       y: 500
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '13'
     label: '13'
-    retangulo:
-      x: 618
-      y: 414
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 619
+      y: 413
+      raio: 11
   - id: '14'
     label: '14'
-    retangulo:
-      x: 594
+    circulo:
+      x: 595
       y: 503
-      comprimento: 20
-      largura: 20
+      raio: 11
   - id: '15'
     label: '15'
-    retangulo:
-      x: 748
-      y: 492
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 750
+      y: 493
+      raio: 11
   - id: '16'
     label: '16'
-    retangulo:
-      x: 865
-      y: 432
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 866
+      y: 433
+      raio: 11
   - id: '17'
     label: '17'
-    retangulo:
+    circulo:
       x: 899
-      y: 435
-      comprimento: 20
-      largura: 20
+      y: 436
+      raio: 11
   - id: '18'
     label: '18'
-    retangulo:
-      x: 1012
-      y: 402
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 1011
+      y: 403
+      raio: 11
   referencias:
   - escalada: Tiro ao Alvo
     ids:
-    - 09
+    - '09'
   - escalada: Tiro ao Alvo SDS
     ids:
     - '10'
@@ -304,6 +268,7 @@ mapas:
   - escalada: Saída pela Culatra
     ids:
     - '18'
+    setor: Bloco 45º
 escaladas:
 - boulder:
     nome: Esquina do Gueto

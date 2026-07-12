@@ -100,6 +100,16 @@ Tem um 8-9 no mapa que temos que ver o que fazer para mapear para a via.
   - grupo_pedreira_setor_bloco_sauna_p0.webp
   - grupo_pedreira_setor_bloco_to_de_boa_p1.webp
 
+# Bocaina boulder
+
+- 1 Pressão Enrustida - Qual é qual? Eita setor confuso.
+- 4 Canil - qual é o 5. ZAC?
+- 6 Cabelin - qual é o 14. La Qualitê?
+- 11 Bloco 45o - falta do 19 ao 23.
+- 12 Essência - falta 8 Escravos de chó
+- Tem outros mapas que mereceriam marcar os finais pra conseguir ficar fácil de
+  ver vários boulders
+
 # TODOs do Linter
 
 - Adicionar verificação de Linter para emitir warnings caso o

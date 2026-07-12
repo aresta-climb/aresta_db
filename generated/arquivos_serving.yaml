@@ -1,6 +1,6 @@
 arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256: 1a74aff9b6c7536b49f73a3bde72d1b302faa54d4304c426ae5652cf6b1f65d0
+  checksum_sha256: 53e8882d81b0d0b725d99c56666b90704785deb0b5cea3eff461e7b40acf197d
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_boulders.webp
   checksum_sha256: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/capa_p0.webp
@@ -54,9 +54,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/setor_pressao_enrustida_p0.webp
   checksum_sha256: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.yaml
-  checksum_sha256: 692be5ef8903bdb3e07fdb3cdf3464a3b93f0e3ac9696446b7a1ab306e82af7e
+  checksum_sha256: b205d6d7d07673411218f6e9bef3be525f4429c812500cd9611d933df7324e49
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
-  checksum_sha256: 4dc836ee3ad6c59ab00ff2de118a820c342ae6d9670a3462eaa0dfaeb8d10c1b
+  checksum_sha256: 17a04a67d920cad5b84e13b9be194cac62088a004ba46722d2080a989dc6a470
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
   checksum_sha256: 6f9e7f348dd7dd5ef56bfd5d27421865eaa285e0584105e42fc2a4b66eea2fcb
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
@@ -1272,6 +1272,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 9701804b2c1e851b9edd562ec7cab49e1caf796549aab2f147adae20b692dbd2
+  checksum_sha256: 0b5c5244fc59ffa33a98cba88b8deeee1cb39b7b91b376282f5966ceb2b42e0b
 - caminho_relativo: indice.yaml
-  checksum_sha256: e50133324b0038e221de95258603d7b14148dea03e9caf0c869863f87686b8c5
+  checksum_sha256: 0460446f40099d37a581b356b68a7ab1e2b728749bbb6d7469b0c37dc7086545

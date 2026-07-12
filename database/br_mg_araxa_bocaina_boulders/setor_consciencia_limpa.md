@@ -7,18 +7,16 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 467
-      y: 684
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 468
+      y: 685
+      raio: 12
   - id: '02'
     label: '02'
-    retangulo:
-      x: 682
-      y: 692
-      comprimento: 27
-      largura: 29
+    circulo:
+      x: 683
+      y: 693
+      raio: 12
   referencias:
   - escalada: Canarim
     ids:
@@ -32,25 +30,22 @@ mapas:
   pontos_de_interesse:
   - id: '03'
     label: '03'
-    retangulo:
-      x: 410
-      y: 589
-      comprimento: 20
-      largura: 20
+    circulo:
+      x: 411
+      y: 590
+      raio: 12
   - id: '04'
     label: '04'
-    retangulo:
-      x: 635
+    circulo:
+      x: 634
       y: 700
-      comprimento: 20
-      largura: 20
+      raio: 12
   - id: '05'
     label: '05'
-    retangulo:
-      x: 710
+    circulo:
+      x: 711
       y: 687
-      comprimento: 20
-      largura: 20
+      raio: 12
   referencias:
   - escalada: Consciência Limpa
     ids:
