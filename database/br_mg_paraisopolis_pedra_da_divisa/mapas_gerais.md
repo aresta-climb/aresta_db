@@ -123,4 +123,3 @@ mapas:
       comprimento: 82
       largura: 24
 ---
-

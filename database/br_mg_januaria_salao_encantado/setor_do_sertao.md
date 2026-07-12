@@ -99,6 +99,15 @@ mapas:
   - escalada: Insolação
     ids:
     - '07'
+  - ids:
+    - Pracinha
+    setor: Setor da Pracinha
+  - ids:
+    - Mocó
+    setor: Setor do Mocó
+  - ids:
+    - Abrigo
+    setor: Setor do Abrigo
 escaladas:
 - via_esportiva:
     nome: Sol da Manhã

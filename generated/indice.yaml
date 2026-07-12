@@ -86,16 +86,16 @@ croquis:
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
     Gerais, com vias técnicas em regletes.
   caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
-  checksum_sha256_croqui: fb61a024c8cdc3fb048f76fe8891da571f6ff4e7bcbc230602cd4188a4e63033
+  checksum_sha256_croqui: 69d14fb568a25f51c43edb0589b91d6ac9f677a934830b234e36a8d9d8f664fd
   checksum_sha256_thumbnail: b7587af0978a2179d8f3b580f41b16cf4878c540439104afa9d5b1688c9607ce
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-12T03:10:48Z'
 - id: br_mg_januaria_salao_encantado
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
   caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
-  checksum_sha256_croqui: 86744953f4e4b9d3549780a75f01d03dd744255368a7a24d02145184b79c74f9
+  checksum_sha256_croqui: 970c5e0480b2a8b8035fe3d1c7bb0488df9856b1c60744507193ac985242cbad
   checksum_sha256_thumbnail: 7d240fdac4920b32a566c3b13e7e95a4b953405d284d9e9b43930e2f0fa1a71c
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-12T03:18:00Z'
 - id: br_mg_lagoa_santa_gruta_da_lapinha
   nome: Gruta da Lapinha
   descricao: Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.
@@ -146,9 +146,9 @@ croquis:
 
     '
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: e03f5eb867c933408a41afe1e17323cea8be45156d9d3cdbbc6a624c7d64c6ed
+  checksum_sha256_croqui: 2d5cde20e83308dde8b6f977df7a386376819a7a706cb9f0e7d62d7caea6edbb
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-12T03:29:01Z'
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
@@ -172,9 +172,9 @@ croquis:
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
   caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
-  checksum_sha256_croqui: a4f74117ee09fdff4439b042b1605437cca0bbf6d99a0d5f25ccc6fc5208023e
+  checksum_sha256_croqui: 4331253e32dc1afceef6080151ec62f8625939f26e41d1fcd131c0acad4a1253
   checksum_sha256_thumbnail: 83839077a1e4d6e4fd3c794ca5d5c9db433e6e933db95d3cc185f8b24e99c539
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-12T03:20:52Z'
   localizacao:
     latitude: -199973890
     longitude: -473989720

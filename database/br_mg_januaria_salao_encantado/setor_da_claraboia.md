@@ -9,9 +9,9 @@ mapas:
     label: '01'
     retangulo:
       x: 228
-      y: 374
-      comprimento: 29
-      largura: 36
+      y: 375
+      comprimento: 30
+      largura: 42
   - id: '02'
     label: '02'
     retangulo:
@@ -33,6 +33,9 @@ mapas:
   - escalada: Cabeça de Rato
     ids:
     - '02'
+  - ids:
+    - Pracinha
+    setor: Setor da Pracinha
 escaladas:
 - via_esportiva:
     nome: Calazar Certo

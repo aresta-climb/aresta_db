@@ -70,6 +70,12 @@ mapas:
   - escalada: Tardia
     ids:
     - '05'
+  - ids:
+    - Sertão
+    setor: Setor do Sertão
+  - ids:
+    - Mocó
+    setor: Setor do Mocó
 escaladas:
 - via_esportiva:
     nome: Gamon

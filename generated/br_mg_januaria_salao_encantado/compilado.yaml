@@ -21,88 +21,76 @@ picos:
           pontos_de_interesse:
           - id: '01'
             label: '01'
-            retangulo:
-              x: 324
+            circulo:
+              x: 323
               y: 317
-              comprimento: 35
-              largura: 40
+              raio: 19
           - id: '02'
             label: '02'
-            retangulo:
+            circulo:
               x: 572
-              y: 366
-              comprimento: 35
-              largura: 40
+              y: 367
+              raio: 19
           - id: '03'
             label: '03'
-            retangulo:
-              x: 668
-              y: 327
-              comprimento: 35
-              largura: 40
+            circulo:
+              x: 669
+              y: 328
+              raio: 19
           - id: '04'
             label: '04'
-            retangulo:
-              x: 754
-              y: 219
-              comprimento: 37
-              largura: 40
+            circulo:
+              x: 753
+              y: 220
+              raio: 19
           - id: '05'
             label: '05'
-            retangulo:
-              x: 990
-              y: 200
-              comprimento: 27
-              largura: 31
+            circulo:
+              x: 989
+              y: 201
+              raio: 19
           - id: '06'
             label: '06'
-            retangulo:
-              x: 1080
+            circulo:
+              x: 1081
               y: 202
-              comprimento: 30
-              largura: 33
+              raio: 19
           - id: '07'
             label: '07'
-            retangulo:
-              x: 1158
+            circulo:
+              x: 1160
               y: 621
-              comprimento: 30
-              largura: 40
-          - id: 08
-            label: 08
-            retangulo:
-              x: 1181
-              y: 545
-              comprimento: 30
-              largura: 40
-          - id: 09
-            label: 09
-            retangulo:
-              x: 1297
-              y: 527
-              comprimento: 30
-              largura: 40
+              raio: 19
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 1180
+              y: 546
+              raio: 19
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 1298
+              y: 528
+              raio: 19
           - id: '10'
             label: '10'
-            retangulo:
-              x: 1343
-              y: 510
-              comprimento: 38
-              largura: 40
+            circulo:
+              x: 1342
+              y: 513
+              raio: 23
           - id: '11'
             label: '11'
-            retangulo:
+            circulo:
               x: 1317
-              y: 141
-              comprimento: 48
-              largura: 40
+              y: 143
+              raio: 21
           - id: '12'
             label: '12'
-            retangulo:
+            circulo:
               x: 1550
-              y: 136
-              comprimento: 43
-              largura: 39
+              y: 139
+              raio: 21
           - id: Claraboia
             label: Claraboia
             retangulo:
@@ -124,20 +112,6 @@ picos:
               y: 754
               comprimento: 151
               largura: 38
-          - id: Estacionamento_01
-            label: Estacionamento
-            retangulo:
-              x: 274
-              y: 1463
-              comprimento: 205
-              largura: 30
-          - id: Estacionamento_02
-            label: Estacionamento
-            retangulo:
-              x: 794
-              y: 1482
-              comprimento: 230
-              largura: 34
           - id: Setor_Sertão
             label: Setor Sertão
             retangulo:
@@ -186,10 +160,10 @@ picos:
             - '07'
           - escalada: Cordadinha
             ids:
-            - 08
+            - '08'
           - escalada: Calazar Certo
             ids:
-            - 09
+            - '09'
           - escalada: Cabeça de Rato
             ids:
             - '10'
@@ -199,6 +173,24 @@ picos:
           - escalada: Uma Lágrima que Cai
             ids:
             - '12'
+          - ids:
+            - Platô
+            setor: Setor do Platô
+          - ids:
+            - Pracinha
+            setor: Setor da Pracinha
+          - ids:
+            - Claraboia
+            setor: Setor da Claraboia
+          - ids:
+            - Setor_Sertão
+            setor: Setor do Sertão
+          - ids:
+            - Setor_Mocó
+            setor: Setor do Mocó
+          - ids:
+            - Setor_Abrigo
+            setor: Setor do Abrigo
         escaladas:
         - via_esportiva:
             nome: Pescador de Planta
@@ -302,35 +294,27 @@ picos:
               y: 226
               comprimento: 119
               largura: 55
-          - id: Estacionamento
-            label: Estacionamento
-            retangulo:
-              x: 125
-              y: 386
-              comprimento: 60
-              largura: 307
-              angulo_graus_x100: -4730
           - id: Abrigo
             label: Abrigo
             retangulo:
               x: 1729
-              y: 194
-              comprimento: 140
-              largura: 54
+              y: 196
+              comprimento: 132
+              largura: 44
           - id: Sertão
             label: Sertão
             retangulo:
-              x: 1681
-              y: 264
-              comprimento: 158
-              largura: 42
+              x: 1671
+              y: 265
+              comprimento: 128
+              largura: 46
           - id: Mocó
             label: Mocó
             retangulo:
-              x: 1727
-              y: 322
-              comprimento: 114
-              largura: 46
+              x: 1728
+              y: 326
+              comprimento: 107
+              largura: 39
           referencias:
           - escalada: Velho Chico
             ids:
@@ -347,6 +331,21 @@ picos:
           - escalada: Uma Lágrima que Cai
             ids:
             - '05'
+          - ids:
+            - Platô
+            setor: Setor do Platô
+          - ids:
+            - Claraboia
+            setor: Setor da Claraboia
+          - ids:
+            - Abrigo
+            setor: Setor do Abrigo
+          - ids:
+            - Sertão
+            setor: Setor do Sertão
+          - ids:
+            - Mocó
+            setor: Setor do Mocó
         escaladas:
         - via_esportiva:
             nome: Velho Chico
@@ -421,17 +420,9 @@ picos:
             label: '05'
             retangulo:
               x: 546
-              y: 371
-              comprimento: 25
-              largura: 32
-          - id: Estacionamento
-            label: Estacionamento
-            retangulo:
-              x: 305
-              y: 600
-              comprimento: 46
-              largura: 242
-              angulo_graus_x100: -5526
+              y: 372
+              comprimento: 33
+              largura: 39
           referencias:
           - escalada: Pescador de Planta
             ids:
@@ -492,9 +483,9 @@ picos:
             label: '01'
             retangulo:
               x: 228
-              y: 374
-              comprimento: 29
-              largura: 36
+              y: 375
+              comprimento: 30
+              largura: 42
           - id: '02'
             label: '02'
             retangulo:
@@ -516,6 +507,9 @@ picos:
           - escalada: Cabeça de Rato
             ids:
             - '02'
+          - ids:
+            - Pracinha
+            setor: Setor da Pracinha
         escaladas:
         - via_esportiva:
             nome: Calazar Certo
@@ -640,6 +634,15 @@ picos:
           - escalada: Insolação
             ids:
             - '07'
+          - ids:
+            - Pracinha
+            setor: Setor da Pracinha
+          - ids:
+            - Mocó
+            setor: Setor do Mocó
+          - ids:
+            - Abrigo
+            setor: Setor do Abrigo
         escaladas:
         - via_esportiva:
             nome: Sol da Manhã
@@ -736,15 +739,15 @@ picos:
               y: 202
               comprimento: 20
               largura: 27
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 977
               y: 137
               comprimento: 24
               largura: 30
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 1006
               y: 63
@@ -796,10 +799,19 @@ picos:
             - '07'
           - escalada: Suposta Exposição
             ids:
-            - 08
+            - '08'
           - escalada: Bicho Morto
             ids:
-            - 09
+            - '09'
+          - ids:
+            - Abrigo
+            setor: Setor do Abrigo
+          - ids:
+            - Sertão
+            setor: Setor do Sertão
+          - ids:
+            - Pracinha
+            setor: Setor da Pracinha
         escaladas:
         - via_esportiva:
             nome: Vezúvio
@@ -920,6 +932,12 @@ picos:
           - escalada: Tardia
             ids:
             - '05'
+          - ids:
+            - Sertão
+            setor: Setor do Sertão
+          - ids:
+            - Mocó
+            setor: Setor do Mocó
         escaladas:
         - via_esportiva:
             nome: Gamon
@@ -958,146 +976,6 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
         largura_mapa: 1710
         altura_mapa: 1357
-        pontos_de_interesse:
-        - id: Pedreira
-          label: Pedreira
-          retangulo:
-            x: 1014
-            y: 156
-            comprimento: 132
-            largura: 39
-            angulo_graus_x100: 174
-        - id: Estacionamento
-          label: Estacionamento
-          retangulo:
-            x: 205
-            y: 308
-            comprimento: 172
-            largura: 27
-            angulo_graus_x100: 67
-        - id: Escalada
-          label: Escalada
-          retangulo:
-            x: 15
-            y: 348
-            comprimento: 202
-            largura: 50
-        - id: Comunidade
-          label: Comunidade
-          retangulo:
-            x: 475
-            y: 343
-            comprimento: 274
-            largura: 49
-            angulo_graus_x100: 42
-        - id: Barreiro
-          label: Barreiro
-          retangulo:
-            x: 510
-            y: 395
-            comprimento: 180
-            largura: 50
-            angulo_graus_x100: 64
-        - id: Trevo_1
-          label: Trevo
-          retangulo:
-            x: 1205
-            y: 498
-            comprimento: 137
-            largura: 56
-            angulo_graus_x100: 167
-        - id: Aeroporto
-          label: Aeroporto
-          retangulo:
-            x: 1455
-            y: 454
-            comprimento: 220
-            largura: 56
-            angulo_graus_x100: -3911
-        - id: SESC
-          label: SESC
-          retangulo:
-            x: 1570
-            y: 589
-            comprimento: 120
-            largura: 53
-            angulo_graus_x100: -5141
-        - id: Asfalto
-          label: Asfalto
-          retangulo:
-            x: 287
-            y: 668
-            comprimento: 157
-            largura: 51
-        - id: Trevo_2
-          label: Trevo
-          retangulo:
-            x: 1184
-            y: 705
-            comprimento: 128
-            largura: 47
-            angulo_graus_x100: 134
-        - id: Terra
-          label: Terra
-          retangulo:
-            x: 309
-            y: 766
-            comprimento: 126
-            largura: 55
-            angulo_graus_x100: 182
-        - id: Januaria
-          label: Januária
-          retangulo:
-            x: 1240
-            y: 882
-            comprimento: 286
-            largura: 75
-        - id: Trevo_3
-          label: Trevo
-          retangulo:
-            x: 1041
-            y: 945
-            comprimento: 134
-            largura: 55
-            angulo_graus_x100: 86
-        - id: Policia
-          label: Policia
-          retangulo:
-            x: 769
-            y: 1004
-            comprimento: 154
-            largura: 55
-            angulo_graus_x100: 149
-        - id: Ponte
-          label: Ponte
-          retangulo:
-            x: 786
-            y: 1138
-            comprimento: 136
-            largura: 52
-            angulo_graus_x100: 84
-        - id: Rio_Sao_Francisco
-          label: Rio São Francisco
-          retangulo:
-            x: 1142
-            y: 1177
-            comprimento: 391
-            largura: 49
-        - id: BR_135
-          label: BR 135
-          retangulo:
-            x: 677
-            y: 1285
-            comprimento: 102
-            largura: 37
-        - id: Montes_Claros
-          label: Montes Claros
-          retangulo:
-            x: 792
-            y: 1331
-            comprimento: 183
-            largura: 25
-            angulo_graus_x100: 63
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 2048
         altura_mapa: 1258
@@ -1105,80 +983,56 @@ picos:
         - id: Moco
           label: Mocó
           retangulo:
-            x: 1602
-            y: 160
+            x: 1648
+            y: 181
             comprimento: 91
             largura: 38
         - id: Abrigo
           label: Abrigo
           retangulo:
-            x: 899
-            y: 341
+            x: 954
+            y: 362
             comprimento: 105
             largura: 41
-            angulo_graus_x100: 436
+            angulo_graus_x100: 143
         - id: Sertao
           label: Sertão
           retangulo:
-            x: 1169
-            y: 372
+            x: 1227
+            y: 392
             comprimento: 108
             largura: 39
         - id: Claraboia
           label: Claraboia
           retangulo:
-            x: 690
-            y: 477
+            x: 768
+            y: 496
             comprimento: 149
             largura: 35
-            angulo_graus_x100: 192
+            angulo_graus_x100: 67
         - id: Plato
           label: Platô
           retangulo:
-            x: 361
-            y: 586
+            x: 405
+            y: 603
             comprimento: 84
             largura: 36
         - id: Pracinha
           label: Pracinha
           retangulo:
-            x: 829
-            y: 773
+            x: 898
+            y: 792
             comprimento: 137
             largura: 35
             angulo_graus_x100: 84
         - id: Praca
           label: Praça
           retangulo:
-            x: 495
-            y: 845
+            x: 528
+            y: 856
             comprimento: 61
             largura: 22
             angulo_graus_x100: 469
-        - id: Estrada_Januaria
-          label: Estrada Januária
-          retangulo:
-            x: 1621
-            y: 1020
-            comprimento: 256
-            largura: 31
-            angulo_graus_x100: 45
-        - id: Estacionamento_esq
-          label: Estacionamento
-          retangulo:
-            x: 0
-            y: 1224
-            comprimento: 212
-            largura: 28
-            angulo_graus_x100: 54
-        - id: Estacionamento_dir
-          label: Estacionamento
-          retangulo:
-            x: 436
-            y: 1222
-            comprimento: 216
-            largura: 31
-            angulo_graus_x100: 53
         referencias:
         - setor: Setor do Mocó
           ids:
@@ -1267,6 +1121,7 @@ botoes:
         ou de ônibus para Januária.'
 ultima_migracao: 4
 publicar_croqui: true
+revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 0ab7762be0ddbf55a1b473fb4a32f3e6e4395a2abf37005de4d8522c8a4311f2

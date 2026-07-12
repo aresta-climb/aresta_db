@@ -62,35 +62,27 @@ mapas:
       y: 226
       comprimento: 119
       largura: 55
-  - id: Estacionamento
-    label: Estacionamento
-    retangulo:
-      x: 125
-      y: 386
-      comprimento: 60
-      largura: 307
-      angulo_graus_x100: -4730
   - id: Abrigo
     label: Abrigo
     retangulo:
       x: 1729
-      y: 194
-      comprimento: 140
-      largura: 54
+      y: 196
+      comprimento: 132
+      largura: 44
   - id: Sertão
     label: Sertão
     retangulo:
-      x: 1681
-      y: 264
-      comprimento: 158
-      largura: 42
+      x: 1671
+      y: 265
+      comprimento: 128
+      largura: 46
   - id: Mocó
     label: Mocó
     retangulo:
-      x: 1727
-      y: 322
-      comprimento: 114
-      largura: 46
+      x: 1728
+      y: 326
+      comprimento: 107
+      largura: 39
   referencias:
   - escalada: Velho Chico
     ids:
@@ -107,6 +99,21 @@ mapas:
   - escalada: Uma Lágrima que Cai
     ids:
     - '05'
+  - ids:
+    - Platô
+    setor: Setor do Platô
+  - ids:
+    - Claraboia
+    setor: Setor da Claraboia
+  - ids:
+    - Abrigo
+    setor: Setor do Abrigo
+  - ids:
+    - Sertão
+    setor: Setor do Sertão
+  - ids:
+    - Mocó
+    setor: Setor do Mocó
 escaladas:
 - via_esportiva:
     nome: Velho Chico

@@ -23,7 +23,7 @@ mapas:
     circulo:
       x: 139
       y: 596
-      raio: 11
+      raio: 12
   - id: 03_bot
     label: '03'
     circulo:
@@ -34,25 +34,25 @@ mapas:
     label: '02'
     circulo:
       x: 140
-      y: 209
+      y: 210
       raio: 12
   - id: 03_mid
     label: '03'
     circulo:
       x: 208
-      y: 192
+      y: 193
       raio: 12
   - id: 04_top
     label: '04'
     circulo:
       x: 500
-      y: 206
+      y: 207
       raio: 12
   - id: 05_top
     label: '05'
     circulo:
       x: 574
-      y: 194
+      y: 195
       raio: 12
   - id: 06_mid
     label: '06'
@@ -63,35 +63,35 @@ mapas:
   - id: 06_bot
     label: '06'
     circulo:
-      x: 611
-      y: 662
+      x: 612
+      y: 663
       raio: 12
   - id: 07_bot
     label: '07'
     circulo:
-      x: 768
+      x: 769
       y: 661
       raio: 12
   - id: 08_bot
-    label: 08
+    label: '08'
     circulo:
       x: 945
-      y: 671
+      y: 672
       raio: 12
   - id: 09_bot
-    label: 09
+    label: '09'
     circulo:
-      x: 1000
-      y: 670
+      x: 1001
+      y: 669
       raio: 12
   - id: 10_bot
     label: '10'
     circulo:
       x: 1072
-      y: 662
-      raio: 12
+      y: 663
+      raio: 13
   - id: 09_top
-    label: 09
+    label: '09'
     circulo:
       x: 937
       y: 112
@@ -101,25 +101,25 @@ mapas:
     circulo:
       x: 1072
       y: 178
-      raio: 12
+      raio: 13
   - id: 11_top
     label: '11'
     circulo:
-      x: 1171
-      y: 159
-      raio: 12
+      x: 1172
+      y: 161
+      raio: 13
   - id: 12_top
     label: '12'
     circulo:
       x: 1257
       y: 145
-      raio: 12
+      raio: 13
   - id: 13_top
     label: '13'
     circulo:
       x: 1348
       y: 134
-      raio: 12
+      raio: 13
   - id: ditados
     label: DITADOS
     retangulo:
@@ -131,12 +131,15 @@ mapas:
   - escalada: Fenômeno
     ids:
     - 01_bot
+    - 02_mid
   - escalada: Maradona
     ids:
     - 02_bot
+    - 02_mid
   - escalada: Primogênito
     ids:
     - 03_bot
+    - 03_mid
   - escalada: Mil e um nomes de bebês
     ids:
     - 04_top
@@ -146,18 +149,23 @@ mapas:
   - escalada: Sem reservas, por favor
     ids:
     - 06_bot
+    - 06_mid
   - escalada: Antônio Conselheiro
     ids:
     - 07_bot
+    - 06_mid
   - escalada: Lampião
     ids:
     - 08_bot
+    - 09_top
   - escalada: Maria Bonita
     ids:
     - 09_bot
+    - 09_top
   - escalada: Corisco
     ids:
     - 10_bot
+    - 10_top
   - escalada: Volta Seca
     ids:
     - 11_top
@@ -167,6 +175,9 @@ mapas:
   - escalada: Zé Sereno
     ids:
     - 13_top
+  - ids:
+    - ditados
+    setor: Setor Ditados
 escaladas:
 - via_esportiva:
     nome: Fenômeno

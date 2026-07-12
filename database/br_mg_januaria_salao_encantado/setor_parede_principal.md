@@ -7,88 +7,76 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '01'
-    retangulo:
-      x: 324
+    circulo:
+      x: 323
       y: 317
-      comprimento: 35
-      largura: 40
+      raio: 19
   - id: '02'
     label: '02'
-    retangulo:
+    circulo:
       x: 572
-      y: 366
-      comprimento: 35
-      largura: 40
+      y: 367
+      raio: 19
   - id: '03'
     label: '03'
-    retangulo:
-      x: 668
-      y: 327
-      comprimento: 35
-      largura: 40
+    circulo:
+      x: 669
+      y: 328
+      raio: 19
   - id: '04'
     label: '04'
-    retangulo:
-      x: 754
-      y: 219
-      comprimento: 37
-      largura: 40
+    circulo:
+      x: 753
+      y: 220
+      raio: 19
   - id: '05'
     label: '05'
-    retangulo:
-      x: 990
-      y: 200
-      comprimento: 27
-      largura: 31
+    circulo:
+      x: 989
+      y: 201
+      raio: 19
   - id: '06'
     label: '06'
-    retangulo:
-      x: 1080
+    circulo:
+      x: 1081
       y: 202
-      comprimento: 30
-      largura: 33
+      raio: 19
   - id: '07'
     label: '07'
-    retangulo:
-      x: 1158
+    circulo:
+      x: 1160
       y: 621
-      comprimento: 30
-      largura: 40
-  - id: 08
-    label: 08
-    retangulo:
-      x: 1181
-      y: 545
-      comprimento: 30
-      largura: 40
-  - id: 09
-    label: 09
-    retangulo:
-      x: 1297
-      y: 527
-      comprimento: 30
-      largura: 40
+      raio: 19
+  - id: '08'
+    label: '08'
+    circulo:
+      x: 1180
+      y: 546
+      raio: 19
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 1298
+      y: 528
+      raio: 19
   - id: '10'
     label: '10'
-    retangulo:
-      x: 1343
-      y: 510
-      comprimento: 38
-      largura: 40
+    circulo:
+      x: 1342
+      y: 513
+      raio: 23
   - id: '11'
     label: '11'
-    retangulo:
+    circulo:
       x: 1317
-      y: 141
-      comprimento: 48
-      largura: 40
+      y: 143
+      raio: 21
   - id: '12'
     label: '12'
-    retangulo:
+    circulo:
       x: 1550
-      y: 136
-      comprimento: 43
-      largura: 39
+      y: 139
+      raio: 21
   - id: Claraboia
     label: Claraboia
     retangulo:
@@ -110,20 +98,6 @@ mapas:
       y: 754
       comprimento: 151
       largura: 38
-  - id: Estacionamento_01
-    label: Estacionamento
-    retangulo:
-      x: 274
-      y: 1463
-      comprimento: 205
-      largura: 30
-  - id: Estacionamento_02
-    label: Estacionamento
-    retangulo:
-      x: 794
-      y: 1482
-      comprimento: 230
-      largura: 34
   - id: Setor_Sertão
     label: Setor Sertão
     retangulo:
@@ -172,10 +146,10 @@ mapas:
     - '07'
   - escalada: Cordadinha
     ids:
-    - 08
+    - '08'
   - escalada: Calazar Certo
     ids:
-    - 09
+    - '09'
   - escalada: Cabeça de Rato
     ids:
     - '10'
@@ -185,6 +159,24 @@ mapas:
   - escalada: Uma Lágrima que Cai
     ids:
     - '12'
+  - ids:
+    - Platô
+    setor: Setor do Platô
+  - ids:
+    - Pracinha
+    setor: Setor da Pracinha
+  - ids:
+    - Claraboia
+    setor: Setor da Claraboia
+  - ids:
+    - Setor_Sertão
+    setor: Setor do Sertão
+  - ids:
+    - Setor_Mocó
+    setor: Setor do Mocó
+  - ids:
+    - Setor_Abrigo
+    setor: Setor do Abrigo
 escaladas:
 - via_esportiva:
     nome: Pescador de Planta

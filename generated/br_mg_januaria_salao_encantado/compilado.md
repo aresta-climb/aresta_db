@@ -51,6 +51,7 @@
             **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro ou de ônibus para Januária.
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
+- **revisado_bounding_circle**: True
 
 
 ## Parte: setor_parede_principal
@@ -68,99 +69,87 @@
       - **[0]**:
         - **id**: 01
         - **label**: 01
-        - **retangulo**:
-          - **x**: 324
+        - **circulo**:
+          - **x**: 323
           - **y**: 317
-          - **comprimento**: 35
-          - **largura**: 40
+          - **raio**: 19
       - **[1]**:
         - **id**: 02
         - **label**: 02
-        - **retangulo**:
+        - **circulo**:
           - **x**: 572
-          - **y**: 366
-          - **comprimento**: 35
-          - **largura**: 40
+          - **y**: 367
+          - **raio**: 19
       - **[2]**:
         - **id**: 03
         - **label**: 03
-        - **retangulo**:
-          - **x**: 668
-          - **y**: 327
-          - **comprimento**: 35
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 669
+          - **y**: 328
+          - **raio**: 19
       - **[3]**:
         - **id**: 04
         - **label**: 04
-        - **retangulo**:
-          - **x**: 754
-          - **y**: 219
-          - **comprimento**: 37
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 753
+          - **y**: 220
+          - **raio**: 19
       - **[4]**:
         - **id**: 05
         - **label**: 05
-        - **retangulo**:
-          - **x**: 990
-          - **y**: 200
-          - **comprimento**: 27
-          - **largura**: 31
+        - **circulo**:
+          - **x**: 989
+          - **y**: 201
+          - **raio**: 19
       - **[5]**:
         - **id**: 06
         - **label**: 06
-        - **retangulo**:
-          - **x**: 1080
+        - **circulo**:
+          - **x**: 1081
           - **y**: 202
-          - **comprimento**: 30
-          - **largura**: 33
+          - **raio**: 19
       - **[6]**:
         - **id**: 07
         - **label**: 07
-        - **retangulo**:
-          - **x**: 1158
+        - **circulo**:
+          - **x**: 1160
           - **y**: 621
-          - **comprimento**: 30
-          - **largura**: 40
+          - **raio**: 19
       - **[7]**:
         - **id**: 08
         - **label**: 08
-        - **retangulo**:
-          - **x**: 1181
-          - **y**: 545
-          - **comprimento**: 30
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 1180
+          - **y**: 546
+          - **raio**: 19
       - **[8]**:
         - **id**: 09
         - **label**: 09
-        - **retangulo**:
-          - **x**: 1297
-          - **y**: 527
-          - **comprimento**: 30
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 1298
+          - **y**: 528
+          - **raio**: 19
       - **[9]**:
         - **id**: 10
         - **label**: 10
-        - **retangulo**:
-          - **x**: 1343
-          - **y**: 510
-          - **comprimento**: 38
-          - **largura**: 40
+        - **circulo**:
+          - **x**: 1342
+          - **y**: 513
+          - **raio**: 23
       - **[10]**:
         - **id**: 11
         - **label**: 11
-        - **retangulo**:
+        - **circulo**:
           - **x**: 1317
-          - **y**: 141
-          - **comprimento**: 48
-          - **largura**: 40
+          - **y**: 143
+          - **raio**: 21
       - **[11]**:
         - **id**: 12
         - **label**: 12
-        - **retangulo**:
+        - **circulo**:
           - **x**: 1550
-          - **y**: 136
-          - **comprimento**: 43
-          - **largura**: 39
+          - **y**: 139
+          - **raio**: 21
       - **[12]**:
         - **id**: Claraboia
         - **label**: Claraboia
@@ -186,22 +175,6 @@
           - **comprimento**: 151
           - **largura**: 38
       - **[15]**:
-        - **id**: Estacionamento_01
-        - **label**: Estacionamento
-        - **retangulo**:
-          - **x**: 274
-          - **y**: 1463
-          - **comprimento**: 205
-          - **largura**: 30
-      - **[16]**:
-        - **id**: Estacionamento_02
-        - **label**: Estacionamento
-        - **retangulo**:
-          - **x**: 794
-          - **y**: 1482
-          - **comprimento**: 230
-          - **largura**: 34
-      - **[17]**:
         - **id**: Setor_Sertão
         - **label**: Setor Sertão
         - **retangulo**:
@@ -210,7 +183,7 @@
           - **comprimento**: 36
           - **largura**: 203
           - **angulo_graus_x100**: -298
-      - **[18]**:
+      - **[16]**:
         - **id**: Setor_Mocó
         - **label**: Setor Mocó
         - **retangulo**:
@@ -219,7 +192,7 @@
           - **comprimento**: 34
           - **largura**: 183
           - **angulo_graus_x100**: 650
-      - **[19]**:
+      - **[17]**:
         - **id**: Setor_Abrigo
         - **label**: Setor Abrigo
         - **retangulo**:
@@ -277,6 +250,30 @@
         - **escalada**: Uma Lágrima que Cai
         - **ids**:
           - 12
+      - **[12]**:
+        - **ids**:
+          - Platô
+        - **setor**: Setor do Platô
+      - **[13]**:
+        - **ids**:
+          - Pracinha
+        - **setor**: Setor da Pracinha
+      - **[14]**:
+        - **ids**:
+          - Claraboia
+        - **setor**: Setor da Claraboia
+      - **[15]**:
+        - **ids**:
+          - Setor_Sertão
+        - **setor**: Setor do Sertão
+      - **[16]**:
+        - **ids**:
+          - Setor_Mocó
+        - **setor**: Setor do Mocó
+      - **[17]**:
+        - **ids**:
+          - Setor_Abrigo
+        - **setor**: Setor do Abrigo
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -411,38 +408,29 @@
           - **comprimento**: 119
           - **largura**: 55
       - **[8]**:
-        - **id**: Estacionamento
-        - **label**: Estacionamento
-        - **retangulo**:
-          - **x**: 125
-          - **y**: 386
-          - **comprimento**: 60
-          - **largura**: 307
-          - **angulo_graus_x100**: -4730
-      - **[9]**:
         - **id**: Abrigo
         - **label**: Abrigo
         - **retangulo**:
           - **x**: 1729
-          - **y**: 194
-          - **comprimento**: 140
-          - **largura**: 54
-      - **[10]**:
+          - **y**: 196
+          - **comprimento**: 132
+          - **largura**: 44
+      - **[9]**:
         - **id**: Sertão
         - **label**: Sertão
         - **retangulo**:
-          - **x**: 1681
-          - **y**: 264
-          - **comprimento**: 158
-          - **largura**: 42
-      - **[11]**:
+          - **x**: 1671
+          - **y**: 265
+          - **comprimento**: 128
+          - **largura**: 46
+      - **[10]**:
         - **id**: Mocó
         - **label**: Mocó
         - **retangulo**:
-          - **x**: 1727
-          - **y**: 322
-          - **comprimento**: 114
-          - **largura**: 46
+          - **x**: 1728
+          - **y**: 326
+          - **comprimento**: 107
+          - **largura**: 39
     - **referencias**:
       - **[0]**:
         - **escalada**: Velho Chico
@@ -464,6 +452,26 @@
         - **escalada**: Uma Lágrima que Cai
         - **ids**:
           - 05
+      - **[5]**:
+        - **ids**:
+          - Platô
+        - **setor**: Setor do Platô
+      - **[6]**:
+        - **ids**:
+          - Claraboia
+        - **setor**: Setor da Claraboia
+      - **[7]**:
+        - **ids**:
+          - Abrigo
+        - **setor**: Setor do Abrigo
+      - **[8]**:
+        - **ids**:
+          - Sertão
+        - **setor**: Setor do Sertão
+      - **[9]**:
+        - **ids**:
+          - Mocó
+        - **setor**: Setor do Mocó
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -547,18 +555,9 @@
         - **label**: 05
         - **retangulo**:
           - **x**: 546
-          - **y**: 371
-          - **comprimento**: 25
-          - **largura**: 32
-      - **[5]**:
-        - **id**: Estacionamento
-        - **label**: Estacionamento
-        - **retangulo**:
-          - **x**: 305
-          - **y**: 600
-          - **comprimento**: 46
-          - **largura**: 242
-          - **angulo_graus_x100**: -5526
+          - **y**: 372
+          - **comprimento**: 33
+          - **largura**: 39
     - **referencias**:
       - **[0]**:
         - **escalada**: Pescador de Planta
@@ -630,9 +629,9 @@
         - **label**: 01
         - **retangulo**:
           - **x**: 228
-          - **y**: 374
-          - **comprimento**: 29
-          - **largura**: 36
+          - **y**: 375
+          - **comprimento**: 30
+          - **largura**: 42
       - **[1]**:
         - **id**: 02
         - **label**: 02
@@ -658,6 +657,10 @@
         - **escalada**: Cabeça de Rato
         - **ids**:
           - 02
+      - **[2]**:
+        - **ids**:
+          - Pracinha
+        - **setor**: Setor da Pracinha
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -799,6 +802,18 @@
         - **escalada**: Insolação
         - **ids**:
           - 07
+      - **[7]**:
+        - **ids**:
+          - Pracinha
+        - **setor**: Setor da Pracinha
+      - **[8]**:
+        - **ids**:
+          - Mocó
+        - **setor**: Setor do Mocó
+      - **[9]**:
+        - **ids**:
+          - Abrigo
+        - **setor**: Setor do Abrigo
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -988,6 +1003,18 @@
         - **escalada**: Bicho Morto
         - **ids**:
           - 09
+      - **[9]**:
+        - **ids**:
+          - Abrigo
+        - **setor**: Setor do Abrigo
+      - **[10]**:
+        - **ids**:
+          - Sertão
+        - **setor**: Setor do Sertão
+      - **[11]**:
+        - **ids**:
+          - Pracinha
+        - **setor**: Setor da Pracinha
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1130,6 +1157,14 @@
         - **escalada**: Tardia
         - **ids**:
           - 05
+      - **[5]**:
+        - **ids**:
+          - Sertão
+        - **setor**: Setor do Sertão
+      - **[6]**:
+        - **ids**:
+          - Mocó
+        - **setor**: Setor do Mocó
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

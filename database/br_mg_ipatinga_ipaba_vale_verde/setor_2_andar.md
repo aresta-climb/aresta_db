@@ -7,67 +7,58 @@ mapas:
   pontos_de_interesse:
   - id: '27'
     label: '27'
-    retangulo:
-      x: 429
-      y: 1611
-      comprimento: 34
-      largura: 40
+    circulo:
+      x: 430
+      y: 1612
+      raio: 20
   - id: '28'
     label: '28'
-    retangulo:
-      x: 438
-      y: 1552
-      comprimento: 35
-      largura: 35
+    circulo:
+      x: 439
+      y: 1554
+      raio: 20
   - id: '29'
     label: '29'
-    retangulo:
-      x: 431
+    circulo:
+      x: 432
       y: 1404
-      comprimento: 34
-      largura: 33
+      raio: 19
   - id: '30'
     label: '30'
-    retangulo:
+    circulo:
       x: 410
       y: 1326
-      comprimento: 41
-      largura: 37
+      raio: 20
   - id: '31'
     label: '31'
-    retangulo:
-      x: 312
-      y: 1072
-      comprimento: 33
-      largura: 37
+    circulo:
+      x: 313
+      y: 1073
+      raio: 19
   - id: '32'
     label: '32'
-    retangulo:
+    circulo:
       x: 356
       y: 545
-      comprimento: 32
-      largura: 38
+      raio: 20
   - id: '33'
     label: '33'
-    retangulo:
-      x: 346
-      y: 486
-      comprimento: 35
-      largura: 35
+    circulo:
+      x: 345
+      y: 489
+      raio: 20
   - id: '34'
     label: '34'
-    retangulo:
-      x: 288
-      y: 424
-      comprimento: 35
-      largura: 32
+    circulo:
+      x: 289
+      y: 425
+      raio: 20
   - id: '35'
     label: '35'
-    retangulo:
+    circulo:
       x: 280
-      y: 362
-      comprimento: 31
-      largura: 35
+      y: 365
+      raio: 20
   referencias:
   - escalada: CrossFit
     ids:

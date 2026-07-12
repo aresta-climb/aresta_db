@@ -10,67 +10,67 @@ mapas:
     circulo:
       x: 853
       y: 821
-      raio: 18
+      raio: 19
   - id: '02'
     label: '2'
     circulo:
       x: 932
       y: 816
-      raio: 18
+      raio: 19
   - id: '03'
     label: '3'
     circulo:
       x: 451
       y: 766
-      raio: 18
+      raio: 19
   - id: '04'
     label: '4'
     circulo:
       x: 711
       y: 757
-      raio: 18
+      raio: 19
   - id: '05'
     label: '5'
     circulo:
       x: 654
       y: 725
-      raio: 18
+      raio: 19
   - id: '06'
     label: '6'
     circulo:
       x: 576
       y: 688
-      raio: 18
+      raio: 19
   - id: '07'
     label: '7'
     circulo:
       x: 620
       y: 712
-      raio: 18
-  - id: 08
+      raio: 19
+  - id: '08'
     label: '8'
     circulo:
       x: 524
       y: 743
-      raio: 18
-  - id: 09
+      raio: 19
+  - id: '09'
     label: '9'
     circulo:
       x: 1643
       y: 748
-      raio: 20
+      raio: 21
   - id: '10'
     label: '10'
     circulo:
       x: 1601
       y: 763
-      raio: 22
+      raio: 23
   - id: '11'
     label: '11'
     circulo:
       x: 1546
       y: 756
-      raio: 22
+      raio: 23
   referencias:
   - escalada: Sonho de Infância
     ids:
@@ -95,10 +95,10 @@ mapas:
     - '07'
   - escalada: Faxineiro Fiel
     ids:
-    - 08
+    - '08'
   - escalada: Arrependimento
     ids:
-    - 09
+    - '09'
   - escalada: Aperta Bola
     ids:
     - '10'

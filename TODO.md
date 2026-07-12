@@ -22,21 +22,8 @@ Tarefas ainda a fazer na database.
 - Inspecionar se tem que converter quadrados para círculos
 - Inspecionar se tem como extrair desenhos dos mapas para refazer a parte das
   extrações de imagens/mapas com maior qualidade.
-- Adicionar linter (warning) caso `indice_mapa_padrao` estiver apontando para um
-  mapa inválido ou para um mapa que não contenha a escalada referenciada.
 - Adicionar linter (warning) caso o croqui contenha POIs órfãos (sem referência
   apontando para eles).
-
-## MIGRAÇÃO DO ESQUEMA DE MAPAS
-
-- Script para validar que os pontos de interesse todos encontram uma escalada
-  para referenciar
-- Por quê as imagens do 'acesso' do baú agora estão incluindo legenda?
-- Atualizar a documentação do workflow e skill de extrair mapas.
-- Extrair as mensagens de Mapa e sub-mensagens para um arquivo mapa.proto.
-- Converter os arquivos .json das pastas de mapas para formato YAML seguindo o
-  proto Mapa.
-- Atualizar todas as pastas raw_maps para estar de acordo com os novos formatos
 
 ## Geral
 
@@ -54,17 +41,9 @@ Tarefas ainda a fazer na database.
 - Corrigir o partes.json para ser um partes.yaml baseado em um partes.proto, e
   trocar todos para pararem de ser JSON.
 
-## Igarameca
-
-- Criar um super-setor pedra grande pra o mapa geral do complexo pedra grande
-
 ## Cambotas
 
 Precisa de MUITO trabalho no croqui de Cambotas pra fazer sentido dele.
-
-## Bombonera
-
-Tem um 8-9 no mapa que temos que ver o que fazer para mapear para a via.
 
 ## Ouroboulder
 
@@ -109,6 +88,22 @@ Tem um 8-9 no mapa que temos que ver o que fazer para mapear para a via.
 - 12 Essência - falta 8 Escravos de chó
 - Tem outros mapas que mereceriam marcar os finais pra conseguir ficar fácil de
   ver vários boulders
+
+# Salão encantado
+
+- Fazer o primeiro mapa geral ser na verdade como chegar, e manter só o 2o.
+
+# Sinuosa
+
+- Fazer os primeiros 2 mapas gerais serem como chegar, e manter só o 3o mapa.
+
+# Vó gusta
+
+- Mapas gerais são como chegar, não mapas gerais
+
+# Pedra da divisa
+
+- Mapas gerais são como chegar, não mapas gerais
 
 # TODOs do Linter
 

@@ -15,8 +15,8 @@ mapas:
   - id: '01'
     label: '01'
     circulo:
-      x: 458
-      y: 250
+      x: 459
+      y: 251
       raio: 13
   - id: '02'
     label: '02'
@@ -27,8 +27,8 @@ mapas:
   - id: '03'
     label: '03'
     circulo:
-      x: 745
-      y: 230
+      x: 746
+      y: 231
       raio: 13
   - id: cervejas
     label: CERVEJAS
@@ -54,6 +54,12 @@ mapas:
   - escalada: Hospício jamais
     ids:
     - '03'
+  - ids:
+    - cervejas
+    setor: Setor Cervejas
+  - ids:
+    - hospicio
+    setor: Setor Hospício
 escaladas:
 - via_esportiva:
     nome: C'est la vie

@@ -9,7 +9,7 @@
   - Autores do Croqui Original
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **revisado_manualmente**: True
-- **revisado_bounding_circle**: False
+- **revisado_bounding_circle**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
@@ -59,77 +59,77 @@
         - **circulo**:
           - **x**: 853
           - **y**: 821
-          - **raio**: 18
+          - **raio**: 19
       - **[1]**:
         - **id**: 02
         - **label**: 2
         - **circulo**:
           - **x**: 932
           - **y**: 816
-          - **raio**: 18
+          - **raio**: 19
       - **[2]**:
         - **id**: 03
         - **label**: 3
         - **circulo**:
           - **x**: 451
           - **y**: 766
-          - **raio**: 18
+          - **raio**: 19
       - **[3]**:
         - **id**: 04
         - **label**: 4
         - **circulo**:
           - **x**: 711
           - **y**: 757
-          - **raio**: 18
+          - **raio**: 19
       - **[4]**:
         - **id**: 05
         - **label**: 5
         - **circulo**:
           - **x**: 654
           - **y**: 725
-          - **raio**: 18
+          - **raio**: 19
       - **[5]**:
         - **id**: 06
         - **label**: 6
         - **circulo**:
           - **x**: 576
           - **y**: 688
-          - **raio**: 18
+          - **raio**: 19
       - **[6]**:
         - **id**: 07
         - **label**: 7
         - **circulo**:
           - **x**: 620
           - **y**: 712
-          - **raio**: 18
+          - **raio**: 19
       - **[7]**:
         - **id**: 08
         - **label**: 8
         - **circulo**:
           - **x**: 524
           - **y**: 743
-          - **raio**: 18
+          - **raio**: 19
       - **[8]**:
         - **id**: 09
         - **label**: 9
         - **circulo**:
           - **x**: 1643
           - **y**: 748
-          - **raio**: 20
+          - **raio**: 21
       - **[9]**:
         - **id**: 10
         - **label**: 10
         - **circulo**:
           - **x**: 1601
           - **y**: 763
-          - **raio**: 22
+          - **raio**: 23
       - **[10]**:
         - **id**: 11
         - **label**: 11
         - **circulo**:
           - **x**: 1546
           - **y**: 756
-          - **raio**: 22
+          - **raio**: 23
     - **referencias**:
       - **[0]**:
         - **escalada**: Sonho de Infância

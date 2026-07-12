@@ -5,7 +5,7 @@ creditos:
 - Autores do Croqui Original
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: true
-revisado_bounding_circle: false
+revisado_bounding_circle: true
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Pico da Vó Gusta
@@ -28,67 +28,67 @@ picos:
             circulo:
               x: 853
               y: 821
-              raio: 18
+              raio: 19
           - id: '02'
             label: '2'
             circulo:
               x: 932
               y: 816
-              raio: 18
+              raio: 19
           - id: '03'
             label: '3'
             circulo:
               x: 451
               y: 766
-              raio: 18
+              raio: 19
           - id: '04'
             label: '4'
             circulo:
               x: 711
               y: 757
-              raio: 18
+              raio: 19
           - id: '05'
             label: '5'
             circulo:
               x: 654
               y: 725
-              raio: 18
+              raio: 19
           - id: '06'
             label: '6'
             circulo:
               x: 576
               y: 688
-              raio: 18
+              raio: 19
           - id: '07'
             label: '7'
             circulo:
               x: 620
               y: 712
-              raio: 18
-          - id: 08
+              raio: 19
+          - id: '08'
             label: '8'
             circulo:
               x: 524
               y: 743
-              raio: 18
-          - id: 09
+              raio: 19
+          - id: '09'
             label: '9'
             circulo:
               x: 1643
               y: 748
-              raio: 20
+              raio: 21
           - id: '10'
             label: '10'
             circulo:
               x: 1601
               y: 763
-              raio: 22
+              raio: 23
           - id: '11'
             label: '11'
             circulo:
               x: 1546
               y: 756
-              raio: 22
+              raio: 23
           referencias:
           - escalada: Sonho de Infância
             ids:
@@ -113,10 +113,10 @@ picos:
             - '07'
           - escalada: Faxineiro Fiel
             ids:
-            - 08
+            - '08'
           - escalada: Arrependimento
             ids:
-            - 09
+            - '09'
           - escalada: Aperta Bola
             ids:
             - '10'
@@ -241,42 +241,6 @@ picos:
       - caminho_imagem_mapa: imagens/capa_p0_i1.webp
         largura_mapa: 1675
         altura_mapa: 1389
-        pontos_de_interesse:
-        - id: Sacramento_Araxa_Norte
-          label: Sacramento/Araxa
-          retangulo:
-            x: 870
-            y: 20
-            comprimento: 410
-            largura: 60
-        - id: Rodovia_liga
-          label: Rodovia que liga
-          retangulo:
-            x: 110
-            y: 520
-            comprimento: 380
-            largura: 60
-        - id: Rifaina_a_Sacramento_Araxa
-          label: Rifaina a Sacramento/Araxa
-          retangulo:
-            x: 150
-            y: 580
-            comprimento: 650
-            largura: 60
-        - id: Hidroeletrica_Jaguara
-          label: Hidroeletrica Jaguara
-          retangulo:
-            x: 50
-            y: 965
-            comprimento: 380
-            largura: 160
-        - id: Rifaina
-          label: Rifaina
-          retangulo:
-            x: 350
-            y: 1140
-            comprimento: 320
-            largura: 110
       - caminho_imagem_mapa: imagens/capa_p0_i2.webp
         largura_mapa: 1688
         altura_mapa: 1127
@@ -309,41 +273,13 @@ picos:
             y: 360
             comprimento: 290
             largura: 50
-        - id: Pico_vo_Gusta
-          label: Pico dá vó Gusta
-          retangulo:
-            x: 1150
-            y: 330
-            comprimento: 400
-            largura: 50
         - id: Setor_Quintal
           label: Setor Quintal
           retangulo:
-            x: 1150
-            y: 390
-            comprimento: 350
-            largura: 50
-        - id: Coord_Quintal_S
-          label: 19°59'50.6"S
-          retangulo:
-            x: 1150
-            y: 450
-            comprimento: 310
-            largura: 50
-        - id: Coord_Quintal_W
-          label: 47°23'56.3"W
-          retangulo:
-            x: 1150
-            y: 510
-            comprimento: 330
-            largura: 50
-        - id: Pinguela
-          label: Pinguela
-          retangulo:
-            x: 850
-            y: 515
-            comprimento: 230
-            largura: 50
+            x: 1330
+            y: 418
+            comprimento: 331
+            largura: 55
         - id: MG428_Rod
           label: MG428 Rod. Francisco Rodrigues Duarte,
           retangulo:

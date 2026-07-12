@@ -66,6 +66,9 @@ mapas:
   - escalada: Camisa de força
     ids:
     - '05'
+  - ids:
+    - cervejas
+    setor: Setor Cervejas
 escaladas:
 - via_esportiva:
     nome: Ócios do hospício

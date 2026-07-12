@@ -7,172 +7,148 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    retangulo:
-      x: 394
+    circulo:
+      x: 395
       y: 1620
-      comprimento: 21
-      largura: 29
+      raio: 15
   - id: '02'
     label: '2'
-    retangulo:
+    circulo:
       x: 373
       y: 1571
-      comprimento: 24
-      largura: 32
+      raio: 14
   - id: '03'
     label: '3'
-    retangulo:
-      x: 358
-      y: 1528
-      comprimento: 21
-      largura: 30
+    circulo:
+      x: 357
+      y: 1527
+      raio: 14
   - id: '04'
     label: '4'
-    retangulo:
+    circulo:
       x: 352
       y: 1482
-      comprimento: 13
-      largura: 17
+      raio: 14
   - id: '05'
     label: '5'
-    retangulo:
+    circulo:
       x: 341
-      y: 1434
-      comprimento: 24
-      largura: 30
+      y: 1435
+      raio: 14
   - id: '06'
     label: '6'
-    retangulo:
+    circulo:
       x: 332
       y: 1369
-      comprimento: 19
-      largura: 26
+      raio: 13
   - id: '07'
     label: '7'
-    retangulo:
-      x: 318
+    circulo:
+      x: 320
       y: 1305
-      comprimento: 18
-      largura: 20
-  - id: 08
+      raio: 14
+  - id: '08'
     label: '8'
-    retangulo:
+    circulo:
       x: 316
       y: 1264
-      comprimento: 17
-      largura: 22
-  - id: 09
+      raio: 14
+  - id: '09'
     label: '9'
-    retangulo:
-      x: 320
+    circulo:
+      x: 319
       y: 1213
-      comprimento: 17
-      largura: 22
+      raio: 14
   - id: '10'
     label: '10'
-    retangulo:
-      x: 318
-      y: 1118
-      comprimento: 25
-      largura: 22
+    circulo:
+      x: 321
+      y: 1120
+      raio: 15
   - id: '11'
     label: '11'
-    retangulo:
+    circulo:
       x: 312
       y: 1070
-      comprimento: 25
-      largura: 20
+      raio: 15
   - id: '12'
     label: '12'
-    retangulo:
-      x: 318
+    circulo:
+      x: 319
       y: 808
-      comprimento: 26
-      largura: 23
+      raio: 15
   - id: '13'
     label: '13'
-    retangulo:
+    circulo:
       x: 316
       y: 768
-      comprimento: 28
-      largura: 29
+      raio: 15
   - id: '14'
     label: '14'
-    retangulo:
-      x: 308
-      y: 700
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 309
+      y: 702
+      raio: 15
   - id: '15'
     label: '15'
-    retangulo:
+    circulo:
       x: 306
       y: 592
-      comprimento: 33
-      largura: 31
+      raio: 16
   - id: '16'
     label: '16'
-    retangulo:
+    circulo:
       x: 312
       y: 541
-      comprimento: 32
-      largura: 32
+      raio: 16
   - id: '17'
     label: '17'
-    retangulo:
-      x: 317
-      y: 472
-      comprimento: 26
-      largura: 27
+    circulo:
+      x: 318
+      y: 471
+      raio: 15
   - id: '18'
     label: '18'
-    retangulo:
-      x: 316
+    circulo:
+      x: 317
       y: 436
-      comprimento: 25
-      largura: 24
+      raio: 15
   - id: '19'
     label: '19'
-    retangulo:
-      x: 317
-      y: 394
-      comprimento: 28
-      largura: 23
+    circulo:
+      x: 318
+      y: 396
+      raio: 16
   - id: '20'
     label: '20'
-    retangulo:
+    circulo:
       x: 324
       y: 310
-      comprimento: 25
-      largura: 23
+      raio: 15
   - id: '21'
     label: '21'
-    retangulo:
-      x: 336
+    circulo:
+      x: 331
       y: 262
-      comprimento: 30
-      largura: 30
+      raio: 15
   - id: '22'
     label: '22'
-    retangulo:
-      x: 337
-      y: 204
-      comprimento: 24
-      largura: 23
+    circulo:
+      x: 338
+      y: 203
+      raio: 16
   - id: '23'
     label: '23'
-    retangulo:
-      x: 342
+    circulo:
+      x: 343
       y: 158
-      comprimento: 24
-      largura: 23
+      raio: 15
   - id: '24'
     label: '24'
-    retangulo:
+    circulo:
       x: 345
-      y: 97
-      comprimento: 30
-      largura: 30
+      y: 95
+      raio: 15
   - id: Trilha_Jurassico
     label: Trilha para o Setor Jurássico (Muito Fechada)
     retangulo:
@@ -183,17 +159,10 @@ mapas:
   - id: Trilha_Boulders_2nd
     label: Trilha Boulders e 2º Andar
     retangulo:
-      x: 109
+      x: 110
       y: 565
       comprimento: 134
       largura: 82
-  - id: Voce_esta_aqui
-    label: Você está aqui
-    retangulo:
-      x: 218
-      y: 1314
-      comprimento: 38
-      largura: 43
   referencias:
   - escalada: Jardineiro
     ids:
@@ -218,10 +187,10 @@ mapas:
     - '07'
   - escalada: Fundão
     ids:
-    - 08
+    - '08'
   - escalada: Caminho da Luz
     ids:
-    - 09
+    - '09'
   - escalada: Eu quero é ver o oco
     ids:
     - '10'
@@ -267,6 +236,9 @@ mapas:
   - escalada: Ho Ho Ho
     ids:
     - '24'
+  - ids:
+    - Trilha_Boulders_2nd
+    setor: 2° Andar
 escaladas:
 - via_esportiva:
     nome: Jardineiro

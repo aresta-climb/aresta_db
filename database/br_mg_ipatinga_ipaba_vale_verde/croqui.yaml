@@ -1,7 +1,7 @@
 id: br_mg_ipatinga_ipaba_vale_verde
 nome: Vale Verde
-descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas Gerais,
-  com vias técnicas em regletes.
+descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
+  Gerais, com vias técnicas em regletes.
 creditos:
 - Renato Miranda (Toba)
 - Gustavo Soares (Poul)
@@ -45,3 +45,4 @@ botoes:
       caminho: betas_de_ouro.md
 ultima_migracao: 4
 publicar_croqui: true
+revisado_bounding_circle: true

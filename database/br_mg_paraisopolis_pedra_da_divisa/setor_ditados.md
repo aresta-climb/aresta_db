@@ -15,7 +15,7 @@ mapas:
   - id: '14'
     label: '14'
     circulo:
-      x: 165
+      x: 166
       y: 154
       raio: 14
   - id: '16'
@@ -89,15 +89,20 @@ mapas:
   - escalada: Mais vale um na mão...
     ids:
     - '18'
+    - 19_top
   - escalada: Por fora bela viola...
     ids:
     - 19_bot
+    - 19_top
   - escalada: Em terra de rei...
     ids:
     - '20'
   - escalada: Red
     ids:
     - '21'
+  - ids:
+    - cangaco
+    setor: Setor Cangaço
 escaladas:
 - via_esportiva:
     nome: Boa noite Cinderela

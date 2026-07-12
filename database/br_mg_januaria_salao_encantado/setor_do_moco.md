@@ -54,15 +54,15 @@ mapas:
       y: 202
       comprimento: 20
       largura: 27
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 977
       y: 137
       comprimento: 24
       largura: 30
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 1006
       y: 63
@@ -114,10 +114,19 @@ mapas:
     - '07'
   - escalada: Suposta Exposição
     ids:
-    - 08
+    - '08'
   - escalada: Bicho Morto
     ids:
-    - 09
+    - '09'
+  - ids:
+    - Abrigo
+    setor: Setor do Abrigo
+  - ids:
+    - Sertão
+    setor: Setor do Sertão
+  - ids:
+    - Pracinha
+    setor: Setor da Pracinha
 escaladas:
 - via_esportiva:
     nome: Vezúvio

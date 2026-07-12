@@ -37,17 +37,9 @@ mapas:
     label: '05'
     retangulo:
       x: 546
-      y: 371
-      comprimento: 25
-      largura: 32
-  - id: Estacionamento
-    label: Estacionamento
-    retangulo:
-      x: 305
-      y: 600
-      comprimento: 46
-      largura: 242
-      angulo_graus_x100: -5526
+      y: 372
+      comprimento: 33
+      largura: 39
   referencias:
   - escalada: Pescador de Planta
     ids:

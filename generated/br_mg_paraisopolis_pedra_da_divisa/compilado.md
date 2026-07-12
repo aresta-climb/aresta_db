@@ -9,7 +9,7 @@
 - **id**: br_mg_paraisopolis_pedra_da_divisa
 - **nome**: Pedra da Divisa - Face MG
 - **revisado_manualmente**: True
-- **revisado_bounding_circle**: False
+- **revisado_bounding_circle**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **creditos**:
   - Ana Fujita
@@ -187,7 +187,7 @@
         - **circulo**:
           - **x**: 139
           - **y**: 596
-          - **raio**: 11
+          - **raio**: 12
       - **[3]**:
         - **id**: 03_bot
         - **label**: 03
@@ -200,28 +200,28 @@
         - **label**: 02
         - **circulo**:
           - **x**: 140
-          - **y**: 209
+          - **y**: 210
           - **raio**: 12
       - **[5]**:
         - **id**: 03_mid
         - **label**: 03
         - **circulo**:
           - **x**: 208
-          - **y**: 192
+          - **y**: 193
           - **raio**: 12
       - **[6]**:
         - **id**: 04_top
         - **label**: 04
         - **circulo**:
           - **x**: 500
-          - **y**: 206
+          - **y**: 207
           - **raio**: 12
       - **[7]**:
         - **id**: 05_top
         - **label**: 05
         - **circulo**:
           - **x**: 574
-          - **y**: 194
+          - **y**: 195
           - **raio**: 12
       - **[8]**:
         - **id**: 06_mid
@@ -234,14 +234,14 @@
         - **id**: 06_bot
         - **label**: 06
         - **circulo**:
-          - **x**: 611
-          - **y**: 662
+          - **x**: 612
+          - **y**: 663
           - **raio**: 12
       - **[10]**:
         - **id**: 07_bot
         - **label**: 07
         - **circulo**:
-          - **x**: 768
+          - **x**: 769
           - **y**: 661
           - **raio**: 12
       - **[11]**:
@@ -249,22 +249,22 @@
         - **label**: 08
         - **circulo**:
           - **x**: 945
-          - **y**: 671
+          - **y**: 672
           - **raio**: 12
       - **[12]**:
         - **id**: 09_bot
         - **label**: 09
         - **circulo**:
-          - **x**: 1000
-          - **y**: 670
+          - **x**: 1001
+          - **y**: 669
           - **raio**: 12
       - **[13]**:
         - **id**: 10_bot
         - **label**: 10
         - **circulo**:
           - **x**: 1072
-          - **y**: 662
-          - **raio**: 12
+          - **y**: 663
+          - **raio**: 13
       - **[14]**:
         - **id**: 09_top
         - **label**: 09
@@ -278,28 +278,28 @@
         - **circulo**:
           - **x**: 1072
           - **y**: 178
-          - **raio**: 12
+          - **raio**: 13
       - **[16]**:
         - **id**: 11_top
         - **label**: 11
         - **circulo**:
-          - **x**: 1171
-          - **y**: 159
-          - **raio**: 12
+          - **x**: 1172
+          - **y**: 161
+          - **raio**: 13
       - **[17]**:
         - **id**: 12_top
         - **label**: 12
         - **circulo**:
           - **x**: 1257
           - **y**: 145
-          - **raio**: 12
+          - **raio**: 13
       - **[18]**:
         - **id**: 13_top
         - **label**: 13
         - **circulo**:
           - **x**: 1348
           - **y**: 134
-          - **raio**: 12
+          - **raio**: 13
       - **[19]**:
         - **id**: ditados
         - **label**: DITADOS
@@ -313,14 +313,17 @@
         - **escalada**: Fenômeno
         - **ids**:
           - 01_bot
+          - 02_mid
       - **[1]**:
         - **escalada**: Maradona
         - **ids**:
           - 02_bot
+          - 02_mid
       - **[2]**:
         - **escalada**: Primogênito
         - **ids**:
           - 03_bot
+          - 03_mid
       - **[3]**:
         - **escalada**: Mil e um nomes de bebês
         - **ids**:
@@ -333,22 +336,27 @@
         - **escalada**: Sem reservas, por favor
         - **ids**:
           - 06_bot
+          - 06_mid
       - **[6]**:
         - **escalada**: Antônio Conselheiro
         - **ids**:
           - 07_bot
+          - 06_mid
       - **[7]**:
         - **escalada**: Lampião
         - **ids**:
           - 08_bot
+          - 09_top
       - **[8]**:
         - **escalada**: Maria Bonita
         - **ids**:
           - 09_bot
+          - 09_top
       - **[9]**:
         - **escalada**: Corisco
         - **ids**:
           - 10_bot
+          - 10_top
       - **[10]**:
         - **escalada**: Volta Seca
         - **ids**:
@@ -361,6 +369,10 @@
         - **escalada**: Zé Sereno
         - **ids**:
           - 13_top
+      - **[13]**:
+        - **ids**:
+          - ditados
+        - **setor**: Setor Ditados
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -498,7 +510,7 @@
         - **id**: 14
         - **label**: 14
         - **circulo**:
-          - **x**: 165
+          - **x**: 166
           - **y**: 154
           - **raio**: 14
       - **[2]**:
@@ -586,10 +598,12 @@
         - **escalada**: Mais vale um na mão...
         - **ids**:
           - 18
+          - 19_top
       - **[5]**:
         - **escalada**: Por fora bela viola...
         - **ids**:
           - 19_bot
+          - 19_top
       - **[6]**:
         - **escalada**: Em terra de rei...
         - **ids**:
@@ -598,6 +612,10 @@
         - **escalada**: Red
         - **ids**:
           - 21
+      - **[8]**:
+        - **ids**:
+          - cangaco
+        - **setor**: Setor Cangaço
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -711,7 +729,7 @@
         - **label**: 22
         - **circulo**:
           - **x**: 257
-          - **y**: 320
+          - **y**: 321
           - **raio**: 17
       - **[4]**:
         - **id**: 23
@@ -795,9 +813,9 @@
         - **label**: DITADOS
         - **retangulo**:
           - **x**: 118
-          - **y**: 769
-          - **comprimento**: 103
-          - **largura**: 20
+          - **y**: 768
+          - **comprimento**: 105
+          - **largura**: 25
       - **[16]**:
         - **id**: questao_de_tempo
         - **label**: QUESTÃO DE TEMPO
@@ -859,10 +877,20 @@
         - **escalada**: Bavariante
         - **ids**:
           - 32
+          - 31
       - **[13]**:
         - **escalada**: Old Ale
         - **ids**:
           - 33
+          - 31
+      - **[14]**:
+        - **ids**:
+          - ditados
+        - **setor**: Setor Ditados
+      - **[15]**:
+        - **ids**:
+          - questao_de_tempo
+        - **setor**: Setor Questão de Tempo
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
@@ -1013,8 +1041,8 @@
         - **id**: 01
         - **label**: 01
         - **circulo**:
-          - **x**: 458
-          - **y**: 250
+          - **x**: 459
+          - **y**: 251
           - **raio**: 13
       - **[2]**:
         - **id**: 02
@@ -1027,8 +1055,8 @@
         - **id**: 03
         - **label**: 03
         - **circulo**:
-          - **x**: 745
-          - **y**: 230
+          - **x**: 746
+          - **y**: 231
           - **raio**: 13
       - **[4]**:
         - **id**: cervejas
@@ -1059,6 +1087,14 @@
         - **escalada**: Hospício jamais
         - **ids**:
           - 03
+      - **[3]**:
+        - **ids**:
+          - cervejas
+        - **setor**: Setor Cervejas
+      - **[4]**:
+        - **ids**:
+          - hospicio
+        - **setor**: Setor Hospício
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1178,6 +1214,10 @@
         - **escalada**: Camisa de força
         - **ids**:
           - 05
+      - **[5]**:
+        - **ids**:
+          - cervejas
+        - **setor**: Setor Cervejas
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:

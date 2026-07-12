@@ -38,3 +38,4 @@ botoes:
       caminho: infos.md
 ultima_migracao: 4
 publicar_croqui: true
+revisado_bounding_circle: true

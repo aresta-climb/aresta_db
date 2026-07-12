@@ -28,7 +28,7 @@ mapas:
     label: '22'
     circulo:
       x: 257
-      y: 320
+      y: 321
       raio: 17
   - id: '23'
     label: '23'
@@ -100,9 +100,9 @@ mapas:
     label: DITADOS
     retangulo:
       x: 118
-      y: 769
-      comprimento: 103
-      largura: 20
+      y: 768
+      comprimento: 105
+      largura: 25
   - id: questao_de_tempo
     label: QUESTÃO DE TEMPO
     retangulo:
@@ -150,9 +150,17 @@ mapas:
   - escalada: Bavariante
     ids:
     - '32'
+    - '31'
   - escalada: Old Ale
     ids:
     - '33'
+    - '31'
+  - ids:
+    - ditados
+    setor: Setor Ditados
+  - ids:
+    - questao_de_tempo
+    setor: Setor Questão de Tempo
 escaladas:
 - via_movel:
     nome: Em terra de rei...
