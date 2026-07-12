@@ -62,13 +62,13 @@
             
             Boulder é uma das modalidades da escalada em rocha, praticada sem o uso de equipamentos convencionais, como cordas e mosquetões. O boulder consiste em escalar blocos de pedras, onde os movimentos apresentam dificuldade técnica e exigem força.
   - **[2]**:
-    - **texto**: Rupestre
+    - **texto**: Pintura Rupestre
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            # Rupestre
+            # Pintura Rupestre
             
-            | ![Pinturas Rupestres](imagens/secao_rupestre_p0.webp) |
+            | ![Pinturas Rupestres](imagens/secao_rupestre_p0_i0.webp) |
             | :--: |
             | *Pinturas Rupestres* |
             
@@ -97,66 +97,74 @@
         - **id**: 1
         - **label**: 1
         - **retangulo**:
-          - **x**: 305
-          - **y**: 340
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 212
+          - **y**: 169
+          - **comprimento**: 35
+          - **largura**: 24
       - **[1]**:
         - **id**: 2
         - **label**: 2
         - **retangulo**:
-          - **x**: 420
-          - **y**: 360
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 294
+          - **y**: 214
+          - **comprimento**: 34
+          - **largura**: 24
       - **[2]**:
         - **id**: 3
         - **label**: 3
         - **retangulo**:
-          - **x**: 705
-          - **y**: 360
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 588
+          - **y**: 212
+          - **comprimento**: 35
+          - **largura**: 23
       - **[3]**:
         - **id**: 4
         - **label**: 4
         - **retangulo**:
-          - **x**: 490
-          - **y**: 340
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 362
+          - **y**: 191
+          - **comprimento**: 35
+          - **largura**: 24
       - **[4]**:
         - **id**: 5
         - **label**: 5
         - **retangulo**:
-          - **x**: 655
-          - **y**: 320
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 552
+          - **y**: 188
+          - **comprimento**: 35
+          - **largura**: 23
       - **[5]**:
         - **id**: 6
         - **label**: 6
         - **retangulo**:
-          - **x**: 710
-          - **y**: 360
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 596
+          - **y**: 246
+          - **comprimento**: 35
+          - **largura**: 24
       - **[6]**:
         - **id**: 7
         - **label**: 7
         - **retangulo**:
-          - **x**: 710
-          - **y**: 400
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 608
+          - **y**: 297
+          - **comprimento**: 36
+          - **largura**: 24
       - **[7]**:
         - **id**: 8
         - **label**: 8
         - **retangulo**:
-          - **x**: 450
-          - **y**: 280
-          - **comprimento**: 30
-          - **largura**: 30
+          - **x**: 319
+          - **y**: 126
+          - **comprimento**: 34
+          - **largura**: 23
+      - **[8]**:
+        - **id**: colina_pedreira
+        - **label**: colina_pedreira
+        - **retangulo**:
+          - **x**: 398
+          - **y**: 382
+          - **comprimento**: 73
+          - **largura**: 13
     - **referencias**:
       - **[0]**:
         - **setor**: Ônibus
@@ -190,6 +198,14 @@
         - **setor**: Domínio Digital
         - **ids**:
           - 8
+      - **[8]**:
+        - **ids**:
+          - colina_pedreira
+        - **grupo**: Colina
+      - **[9]**:
+        - **ids**:
+          - colina_pedreira
+        - **grupo**: Pedreira
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -210,90 +226,90 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 70
-                - **y**: 370
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 40
+                - **y**: 324
+                - **comprimento**: 34
+                - **largura**: 23
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 170
-                - **y**: 410
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 114
+                - **y**: 344
+                - **comprimento**: 35
+                - **largura**: 25
             - **[2]**:
               - **id**: 10
               - **label**: 10
               - **retangulo**:
-                - **x**: 230
-                - **y**: 430
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 166
+                - **y**: 348
+                - **comprimento**: 35
+                - **largura**: 24
             - **[3]**:
               - **id**: 9
               - **label**: 9
               - **retangulo**:
-                - **x**: 290
-                - **y**: 445
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 205
+                - **y**: 372
+                - **comprimento**: 34
+                - **largura**: 24
             - **[4]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 490
-                - **y**: 380
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 336
+                - **y**: 333
+                - **comprimento**: 35
+                - **largura**: 24
             - **[5]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 570
-                - **y**: 380
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 403
+                - **y**: 333
+                - **comprimento**: 34
+                - **largura**: 24
             - **[6]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 650
-                - **y**: 380
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 460
+                - **y**: 332
+                - **comprimento**: 33
+                - **largura**: 25
             - **[7]**:
               - **id**: 6
               - **label**: 6
               - **retangulo**:
-                - **x**: 750
-                - **y**: 400
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 566
+                - **y**: 358
+                - **comprimento**: 35
+                - **largura**: 23
             - **[8]**:
               - **id**: 7
               - **label**: 7
               - **retangulo**:
-                - **x**: 830
-                - **y**: 440
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 614
+                - **y**: 363
+                - **comprimento**: 35
+                - **largura**: 24
             - **[9]**:
               - **id**: 11
               - **label**: 11
               - **retangulo**:
-                - **x**: 850
-                - **y**: 450
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 692
+                - **y**: 365
+                - **comprimento**: 35
+                - **largura**: 24
             - **[10]**:
               - **id**: 8
               - **label**: 8
               - **retangulo**:
-                - **x**: 858
-                - **y**: 430
-                - **comprimento**: 16
-                - **largura**: 30
+                - **x**: 830
+                - **y**: 358
+                - **comprimento**: 33
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
               - **escalada**: Pirulito
@@ -339,26 +355,6 @@
               - **escalada**: Fada
               - **ids**:
                 - 11
-            - **[11]**:
-              - **escalada**: Primeiro Esquenta
-              - **ids**:
-                - 1
-            - **[12]**:
-              - **escalada**: Mimetismo
-              - **ids**:
-                - 2
-            - **[13]**:
-              - **escalada**: Aborda
-              - **ids**:
-                - 3
-            - **[14]**:
-              - **escalada**: Easy Line
-              - **ids**:
-                - 4
-            - **[15]**:
-              - **escalada**: Saidex
-              - **ids**:
-                - 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_onibus_p1.webp)
           - **largura_mapa**: 761
@@ -368,80 +364,60 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 230
-                - **y**: 490
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 162
+                - **y**: 398
+                - **comprimento**: 35
+                - **largura**: 23
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 510
-                - **y**: 530
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 376
+                - **y**: 442
+                - **comprimento**: 36
+                - **largura**: 24
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 730
-                - **y**: 490
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 549
+                - **y**: 398
+                - **comprimento**: 34
+                - **largura**: 24
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 740
-                - **y**: 490
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 620
+                - **y**: 398
+                - **comprimento**: 33
+                - **largura**: 23
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 210
-                - **y**: 440
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 143
+                - **y**: 364
+                - **comprimento**: 36
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
-              - **escalada**: Pirulito
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Trocador
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Roleta
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Zebra
-              - **ids**:
-                - 4
-            - **[4]**:
-              - **escalada**: Linguinha
-              - **ids**:
-                - 5
-            - **[5]**:
               - **escalada**: Primeiro Esquenta
               - **ids**:
                 - 1
-            - **[6]**:
+            - **[1]**:
               - **escalada**: Mimetismo
               - **ids**:
                 - 2
-            - **[7]**:
+            - **[2]**:
               - **escalada**: Aborda
               - **ids**:
                 - 3
-            - **[8]**:
+            - **[3]**:
               - **escalada**: Easy Line
               - **ids**:
                 - 4
-            - **[9]**:
+            - **[4]**:
               - **escalada**: Saidex
               - **ids**:
                 - 5
@@ -529,34 +505,34 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 340
-                - **y**: 460
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 248
+                - **y**: 394
+                - **comprimento**: 34
+                - **largura**: 24
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 520
-                - **y**: 390
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 390
+                - **y**: 338
+                - **comprimento**: 34
+                - **largura**: 23
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 400
-                - **y**: 420
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 299
+                - **y**: 376
+                - **comprimento**: 34
+                - **largura**: 24
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 280
-                - **y**: 420
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 206
+                - **y**: 378
+                - **comprimento**: 33
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
               - **escalada**: Super Homem
@@ -610,42 +586,42 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 310
-                - **y**: 255
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 227
+                - **y**: 254
+                - **comprimento**: 34
+                - **largura**: 24
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 470
-                - **y**: 330
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 283
+                - **y**: 322
+                - **comprimento**: 34
+                - **largura**: 24
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 510
-                - **y**: 230
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 392
+                - **y**: 220
+                - **comprimento**: 36
+                - **largura**: 25
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 150
-                - **y**: 155
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 114
+                - **y**: 152
+                - **comprimento**: 35
+                - **largura**: 24
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 150
-                - **y**: 250
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 113
+                - **y**: 258
+                - **comprimento**: 34
+                - **largura**: 25
           - **referencias**:
             - **[0]**:
               - **escalada**: Terceira Camada
@@ -667,42 +643,6 @@
               - **escalada**: Natural SDS
               - **ids**:
                 - 5
-            - **[5]**:
-              - **escalada**: Simba
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: Dragão
-              - **ids**:
-                - 2
-            - **[7]**:
-              - **escalada**: Abaulados
-              - **ids**:
-                - 3
-            - **[8]**:
-              - **escalada**: Simba
-              - **ids**:
-                - 4
-            - **[9]**:
-              - **escalada**: Capitão Caverna
-              - **ids**:
-                - 5
-            - **[10]**:
-              - **escalada**: Combinação Perfeita
-              - **ids**:
-                - 1
-            - **[11]**:
-              - **escalada**: Trinca Ferro
-              - **ids**:
-                - 2
-            - **[12]**:
-              - **escalada**: Trinca Carangueijo
-              - **ids**:
-                - 3
-            - **[13]**:
-              - **escalada**: Natural
-              - **ids**:
-                - 4
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp)
           - **largura_mapa**: 758
@@ -712,111 +652,75 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 200
-                - **y**: 490
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 143
+                - **y**: 390
+                - **comprimento**: 34
+                - **largura**: 23
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 285
-                - **y**: 540
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 203
+                - **y**: 448
+                - **comprimento**: 34
+                - **largura**: 23
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 754
-                - **y**: 554
-                - **comprimento**: 8
-                - **largura**: 28
+                - **x**: 722
+                - **y**: 522
+                - **comprimento**: 33
+                - **largura**: 23
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 749
-                - **y**: 530
-                - **comprimento**: 18
-                - **largura**: 30
+                - **x**: 626
+                - **y**: 445
+                - **comprimento**: 34
+                - **largura**: 24
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 744
-                - **y**: 550
-                - **comprimento**: 28
-                - **largura**: 30
+                - **x**: 562
+                - **y**: 456
+                - **comprimento**: 33
+                - **largura**: 23
             - **[5]**:
               - **id**: 6
               - **label**: 6
               - **retangulo**:
-                - **x**: 750
-                - **y**: 556
-                - **comprimento**: 10
-                - **largura**: 23
+                - **x**: 635
+                - **y**: 522
+                - **comprimento**: 34
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
-              - **escalada**: Terceira Camada
+              - **escalada**: Simba
               - **ids**:
                 - 1
             - **[1]**:
-              - **escalada**: Caverninha
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Cavernoso
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Natural
-              - **ids**:
-                - 4
-            - **[4]**:
-              - **escalada**: Natural SDS
-              - **ids**:
-                - 5
-            - **[5]**:
-              - **escalada**: Simba
-              - **ids**:
-                - 1
-            - **[6]**:
               - **escalada**: Dragão
               - **ids**:
                 - 2
-            - **[7]**:
+            - **[2]**:
               - **escalada**: Abaulados
               - **ids**:
                 - 3
-            - **[8]**:
+            - **[3]**:
               - **escalada**: Simba
               - **ids**:
                 - 4
-            - **[9]**:
+            - **[4]**:
               - **escalada**: Capitão Caverna
               - **ids**:
                 - 5
-            - **[10]**:
+            - **[5]**:
               - **escalada**: Confuso
               - **ids**:
                 - 6
-            - **[11]**:
-              - **escalada**: Combinação Perfeita
-              - **ids**:
-                - 1
-            - **[12]**:
-              - **escalada**: Trinca Ferro
-              - **ids**:
-                - 2
-            - **[13]**:
-              - **escalada**: Trinca Carangueijo
-              - **ids**:
-                - 3
-            - **[14]**:
-              - **escalada**: Natural
-              - **ids**:
-                - 4
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp)
           - **largura_mapa**: 758
@@ -826,80 +730,48 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 360
-                - **y**: 520
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 274
+                - **y**: 472
+                - **comprimento**: 35
+                - **largura**: 23
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 490
-                - **y**: 510
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 368
+                - **y**: 436
+                - **comprimento**: 37
+                - **largura**: 24
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 540
-                - **y**: 545
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 406
+                - **y**: 524
+                - **comprimento**: 34
+                - **largura**: 25
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 740
-                - **y**: 550
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 624
+                - **y**: 496
+                - **comprimento**: 35
+                - **largura**: 25
           - **referencias**:
             - **[0]**:
-              - **escalada**: Terceira Camada
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Caverninha
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Cavernoso
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Natural
-              - **ids**:
-                - 4
-            - **[4]**:
-              - **escalada**: Simba
-              - **ids**:
-                - 1
-            - **[5]**:
-              - **escalada**: Dragão
-              - **ids**:
-                - 2
-            - **[6]**:
-              - **escalada**: Abaulados
-              - **ids**:
-                - 3
-            - **[7]**:
-              - **escalada**: Simba
-              - **ids**:
-                - 4
-            - **[8]**:
               - **escalada**: Combinação Perfeita
               - **ids**:
                 - 1
-            - **[9]**:
+            - **[1]**:
               - **escalada**: Trinca Ferro
               - **ids**:
                 - 2
-            - **[10]**:
+            - **[2]**:
               - **escalada**: Trinca Carangueijo
               - **ids**:
                 - 3
-            - **[11]**:
+            - **[3]**:
               - **escalada**: Natural
               - **ids**:
                 - 4
@@ -983,50 +855,50 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 350
-                - **y**: 410
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 206
+                - **y**: 238
+                - **comprimento**: 35
+                - **largura**: 24
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 510
-                - **y**: 380
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 296
+                - **y**: 216
+                - **comprimento**: 34
+                - **largura**: 25
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 568
-                - **y**: 380
-                - **comprimento**: 27
-                - **largura**: 30
+                - **x**: 362
+                - **y**: 216
+                - **comprimento**: 35
+                - **largura**: 22
             - **[3]**:
               - **id**: 6
               - **label**: 6
               - **retangulo**:
-                - **x**: 290
-                - **y**: 515
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 164
+                - **y**: 510
+                - **comprimento**: 35
+                - **largura**: 25
             - **[4]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 430
-                - **y**: 525
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 245
+                - **y**: 516
+                - **comprimento**: 34
+                - **largura**: 23
             - **[5]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 555
-                - **y**: 525
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 386
+                - **y**: 524
+                - **comprimento**: 35
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
               - **escalada**: Tré Bien
@@ -1050,30 +922,6 @@
                 - 5
             - **[5]**:
               - **escalada**: Casé
-              - **ids**:
-                - 6
-            - **[6]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 1
-            - **[7]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 2
-            - **[8]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 3
-            - **[9]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 4
-            - **[10]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 5
-            - **[11]**:
-              - **escalada**: Das Meninas
               - **ids**:
                 - 6
         - **[1]**:
@@ -1085,96 +933,72 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 200
-                - **y**: 255
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 149
+                - **y**: 252
+                - **comprimento**: 34
+                - **largura**: 24
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 310
-                - **y**: 280
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 234
+                - **y**: 252
+                - **comprimento**: 35
+                - **largura**: 23
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 420
-                - **y**: 280
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 315
+                - **y**: 253
+                - **comprimento**: 34
+                - **largura**: 24
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 570
-                - **y**: 290
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 426
+                - **y**: 272
+                - **comprimento**: 35
+                - **largura**: 23
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 720
-                - **y**: 310
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 541
+                - **y**: 292
+                - **comprimento**: 36
+                - **largura**: 23
             - **[5]**:
               - **id**: 6
               - **label**: 6
               - **retangulo**:
-                - **x**: 751
-                - **y**: 340
-                - **comprimento**: 12
-                - **largura**: 30
+                - **x**: 635
+                - **y**: 309
+                - **comprimento**: 34
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
-              - **escalada**: Tré Bien
+              - **escalada**: (sem nome)
               - **ids**:
                 - 1
             - **[1]**:
-              - **escalada**: Muvuca
+              - **escalada**: (sem nome)
               - **ids**:
                 - 2
             - **[2]**:
-              - **escalada**: Ninja de Verde
+              - **escalada**: (sem nome)
               - **ids**:
                 - 3
             - **[3]**:
-              - **escalada**: Ninja de Amarelo
+              - **escalada**: (sem nome)
               - **ids**:
                 - 4
             - **[4]**:
-              - **escalada**: Ninja de Rosa
+              - **escalada**: (sem nome)
               - **ids**:
                 - 5
             - **[5]**:
-              - **escalada**: Casé
-              - **ids**:
-                - 6
-            - **[6]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 1
-            - **[7]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 2
-            - **[8]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 3
-            - **[9]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 4
-            - **[10]**:
-              - **escalada**: (sem nome)
-              - **ids**:
-                - 5
-            - **[11]**:
               - **escalada**: Das Meninas
               - **ids**:
                 - 6
@@ -1246,42 +1070,42 @@
               - **id**: 1
               - **label**: 1
               - **retangulo**:
-                - **x**: 400
-                - **y**: 320
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 297
+                - **y**: 296
+                - **comprimento**: 36
+                - **largura**: 24
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **retangulo**:
-                - **x**: 510
-                - **y**: 320
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 388
+                - **y**: 296
+                - **comprimento**: 34
+                - **largura**: 25
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **retangulo**:
-                - **x**: 750
-                - **y**: 356
-                - **comprimento**: 21
-                - **largura**: 22
+                - **x**: 623
+                - **y**: 339
+                - **comprimento**: 34
+                - **largura**: 24
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **retangulo**:
-                - **x**: 380
-                - **y**: 280
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 286
+                - **y**: 216
+                - **comprimento**: 33
+                - **largura**: 23
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **retangulo**:
-                - **x**: 480
-                - **y**: 280
-                - **comprimento**: 30
-                - **largura**: 30
+                - **x**: 358
+                - **y**: 215
+                - **comprimento**: 35
+                - **largura**: 24
           - **referencias**:
             - **[0]**:
               - **escalada**: Super Foot Hook
@@ -1303,14 +1127,6 @@
               - **escalada**: Uaikisoba
               - **ids**:
                 - 5
-            - **[5]**:
-              - **escalada**: Insaciável
-              - **ids**:
-                - 1
-            - **[6]**:
-              - **escalada**: Sicronismo
-              - **ids**:
-                - 2
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp)
           - **largura_mapa**: 757
@@ -2821,12 +2637,10 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p1.webp)
           - **largura_mapa**: 756
           - **altura_mapa**: 548
-          - **pontos_de_interesse**: []
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_preguica_p2.webp)
           - **largura_mapa**: 759
           - **altura_mapa**: 548
-          - **pontos_de_interesse**: []
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5771,7 +5585,7 @@
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: cacdd30da7a749d154ef1de89cc24417f7eb3d46d7b04d92cb6872dab60360e8
   - **[69]**:
-    - **caminho**: ![caminho](imagens/secao_rupestre_p0.webp)
-    - **checksum_sha256**: 2669dee73a68d04536457203308779ee5bd430160e06b15d6a281ca9593206f9
+    - **caminho**: ![caminho](imagens/secao_rupestre_p0_i0.webp)
+    - **checksum_sha256**: 390c4ae0ca91d29bfac8ae77757e3b0bc333dca5fbc0b5051c2ba50b985c1f62
 
 

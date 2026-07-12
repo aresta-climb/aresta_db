@@ -8,45 +8,45 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 350
-      y: 410
-      comprimento: 30
-      largura: 30
+      x: 206
+      y: 238
+      comprimento: 35
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 510
-      y: 380
-      comprimento: 30
-      largura: 30
+      x: 296
+      y: 216
+      comprimento: 34
+      largura: 25
   - id: '3'
     label: '3'
     retangulo:
-      x: 568
-      y: 380
-      comprimento: 27
-      largura: 30
+      x: 362
+      y: 216
+      comprimento: 35
+      largura: 22
   - id: '6'
     label: '6'
     retangulo:
-      x: 290
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 164
+      y: 510
+      comprimento: 35
+      largura: 25
   - id: '4'
     label: '4'
     retangulo:
-      x: 430
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 245
+      y: 516
+      comprimento: 34
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 555
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 386
+      y: 524
+      comprimento: 35
+      largura: 24
   referencias:
   - escalada: Tré Bien
     ids:
@@ -64,24 +64,6 @@ mapas:
     ids:
     - '5'
   - escalada: Casé
-    ids:
-    - '6'
-  - escalada: (sem nome)
-    ids:
-    - '1'
-  - escalada: (sem nome)
-    ids:
-    - '2'
-  - escalada: (sem nome)
-    ids:
-    - '3'
-  - escalada: (sem nome)
-    ids:
-    - '4'
-  - escalada: (sem nome)
-    ids:
-    - '5'
-  - escalada: Das Meninas
     ids:
     - '6'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp
@@ -91,64 +73,46 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 200
-      y: 255
-      comprimento: 30
-      largura: 30
+      x: 149
+      y: 252
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 310
-      y: 280
-      comprimento: 30
-      largura: 30
+      x: 234
+      y: 252
+      comprimento: 35
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 420
-      y: 280
-      comprimento: 30
-      largura: 30
+      x: 315
+      y: 253
+      comprimento: 34
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 570
-      y: 290
-      comprimento: 30
-      largura: 30
+      x: 426
+      y: 272
+      comprimento: 35
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 720
-      y: 310
-      comprimento: 30
-      largura: 30
+      x: 541
+      y: 292
+      comprimento: 36
+      largura: 23
   - id: '6'
     label: '6'
     retangulo:
-      x: 751
-      y: 340
-      comprimento: 12
-      largura: 30
+      x: 635
+      y: 309
+      comprimento: 34
+      largura: 24
   referencias:
-  - escalada: Tré Bien
-    ids:
-    - '1'
-  - escalada: Muvuca
-    ids:
-    - '2'
-  - escalada: Ninja de Verde
-    ids:
-    - '3'
-  - escalada: Ninja de Amarelo
-    ids:
-    - '4'
-  - escalada: Ninja de Rosa
-    ids:
-    - '5'
-  - escalada: Casé
-    ids:
-    - '6'
   - escalada: (sem nome)
     ids:
     - '1'

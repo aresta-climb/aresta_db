@@ -8,38 +8,38 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 400
-      y: 320
-      comprimento: 30
-      largura: 30
+      x: 297
+      y: 296
+      comprimento: 36
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 510
-      y: 320
-      comprimento: 30
-      largura: 30
+      x: 388
+      y: 296
+      comprimento: 34
+      largura: 25
   - id: '3'
     label: '3'
     retangulo:
-      x: 750
-      y: 356
-      comprimento: 21
-      largura: 22
+      x: 623
+      y: 339
+      comprimento: 34
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 380
-      y: 280
-      comprimento: 30
-      largura: 30
+      x: 286
+      y: 216
+      comprimento: 33
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 480
-      y: 280
-      comprimento: 30
-      largura: 30
+      x: 358
+      y: 215
+      comprimento: 35
+      largura: 24
   referencias:
   - escalada: Super Foot Hook
     ids:
@@ -56,12 +56,6 @@ mapas:
   - escalada: Uaikisoba
     ids:
     - '5'
-  - escalada: Insaciável
-    ids:
-    - '1'
-  - escalada: Sicronismo
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp
   largura_mapa: 757
   altura_mapa: 370

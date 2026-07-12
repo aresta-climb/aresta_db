@@ -74,11 +74,9 @@ mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p1.webp
   largura_mapa: 756
   altura_mapa: 548
-  pontos_de_interesse: []
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p2.webp
   largura_mapa: 759
   altura_mapa: 548
-  pontos_de_interesse: []
 escaladas:
 - boulder:
     nome: Preguiça de Sofrer

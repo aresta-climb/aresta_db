@@ -8,38 +8,38 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 310
-      y: 255
-      comprimento: 30
-      largura: 30
+      x: 227
+      y: 254
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 470
-      y: 330
-      comprimento: 30
-      largura: 30
+      x: 283
+      y: 322
+      comprimento: 34
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 510
-      y: 230
-      comprimento: 30
-      largura: 30
+      x: 392
+      y: 220
+      comprimento: 36
+      largura: 25
   - id: '4'
     label: '4'
     retangulo:
-      x: 150
-      y: 155
-      comprimento: 30
-      largura: 30
+      x: 114
+      y: 152
+      comprimento: 35
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 150
-      y: 250
-      comprimento: 30
-      largura: 30
+      x: 113
+      y: 258
+      comprimento: 34
+      largura: 25
   referencias:
   - escalada: Terceira Camada
     ids:
@@ -56,33 +56,6 @@ mapas:
   - escalada: Natural SDS
     ids:
     - '5'
-  - escalada: Simba
-    ids:
-    - '1'
-  - escalada: Dragão
-    ids:
-    - '2'
-  - escalada: Abaulados
-    ids:
-    - '3'
-  - escalada: Simba
-    ids:
-    - '4'
-  - escalada: Capitão Caverna
-    ids:
-    - '5'
-  - escalada: Combinação Perfeita
-    ids:
-    - '1'
-  - escalada: Trinca Ferro
-    ids:
-    - '2'
-  - escalada: Trinca Carangueijo
-    ids:
-    - '3'
-  - escalada: Natural
-    ids:
-    - '4'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp
   largura_mapa: 758
   altura_mapa: 568
@@ -90,61 +63,46 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 200
-      y: 490
-      comprimento: 30
-      largura: 30
+      x: 143
+      y: 390
+      comprimento: 34
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 285
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 203
+      y: 448
+      comprimento: 34
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 754
-      y: 554
-      comprimento: 8
-      largura: 28
+      x: 722
+      y: 522
+      comprimento: 33
+      largura: 23
   - id: '4'
     label: '4'
     retangulo:
-      x: 749
-      y: 530
-      comprimento: 18
-      largura: 30
+      x: 626
+      y: 445
+      comprimento: 34
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 744
-      y: 550
-      comprimento: 28
-      largura: 30
+      x: 562
+      y: 456
+      comprimento: 33
+      largura: 23
   - id: '6'
     label: '6'
     retangulo:
-      x: 750
-      y: 556
-      comprimento: 10
-      largura: 23
+      x: 635
+      y: 522
+      comprimento: 34
+      largura: 24
   referencias:
-  - escalada: Terceira Camada
-    ids:
-    - '1'
-  - escalada: Caverninha
-    ids:
-    - '2'
-  - escalada: Cavernoso
-    ids:
-    - '3'
-  - escalada: Natural
-    ids:
-    - '4'
-  - escalada: Natural SDS
-    ids:
-    - '5'
   - escalada: Simba
     ids:
     - '1'
@@ -163,18 +121,6 @@ mapas:
   - escalada: Confuso
     ids:
     - '6'
-  - escalada: Combinação Perfeita
-    ids:
-    - '1'
-  - escalada: Trinca Ferro
-    ids:
-    - '2'
-  - escalada: Trinca Carangueijo
-    ids:
-    - '3'
-  - escalada: Natural
-    ids:
-    - '4'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp
   largura_mapa: 758
   altura_mapa: 570
@@ -182,56 +128,32 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 360
-      y: 520
-      comprimento: 30
-      largura: 30
+      x: 274
+      y: 472
+      comprimento: 35
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 490
-      y: 510
-      comprimento: 30
-      largura: 30
+      x: 368
+      y: 436
+      comprimento: 37
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 540
-      y: 545
-      comprimento: 30
-      largura: 30
+      x: 406
+      y: 524
+      comprimento: 34
+      largura: 25
   - id: '4'
     label: '4'
     retangulo:
-      x: 740
-      y: 550
-      comprimento: 30
-      largura: 30
+      x: 624
+      y: 496
+      comprimento: 35
+      largura: 25
   referencias:
-  - escalada: Terceira Camada
-    ids:
-    - '1'
-  - escalada: Caverninha
-    ids:
-    - '2'
-  - escalada: Cavernoso
-    ids:
-    - '3'
-  - escalada: Natural
-    ids:
-    - '4'
-  - escalada: Simba
-    ids:
-    - '1'
-  - escalada: Dragão
-    ids:
-    - '2'
-  - escalada: Abaulados
-    ids:
-    - '3'
-  - escalada: Simba
-    ids:
-    - '4'
   - escalada: Combinação Perfeita
     ids:
     - '1'

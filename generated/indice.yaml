@@ -73,6 +73,15 @@ croquis:
   checksum_sha256_croqui: e3c15d0c25f8f1459c3ed9409f1749e7179ac67da9db57cc406521e3360fcade
   checksum_sha256_thumbnail: 86ebad5aaf4e224f8ae16f15622cd24e33922939de8c4909b5ab598c8444a8f2
   timestamp_update: '2026-07-07T02:48:12Z'
+- id: br_mg_conceicao_do_mato_dentro_festboulder
+  nome: Fest Boulder
+  descricao: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas
+    Gerais. Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares
+    para a prática de boulder no Brasil.
+  caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
+  checksum_sha256_croqui: 5bb8d3f3ac3a334addc37f202053e7489a94322f7f3db51bd47dd99bdaf6a8b9
+  checksum_sha256_thumbnail: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
+  timestamp_update: '2026-07-12T17:18:29Z'
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo

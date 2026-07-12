@@ -8,59 +8,66 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 305
-      y: 340
-      comprimento: 30
-      largura: 30
+      x: 212
+      y: 169
+      comprimento: 35
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 420
-      y: 360
-      comprimento: 30
-      largura: 30
+      x: 294
+      y: 214
+      comprimento: 34
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 705
-      y: 360
-      comprimento: 30
-      largura: 30
+      x: 588
+      y: 212
+      comprimento: 35
+      largura: 23
   - id: '4'
     label: '4'
     retangulo:
-      x: 490
-      y: 340
-      comprimento: 30
-      largura: 30
+      x: 362
+      y: 191
+      comprimento: 35
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 655
-      y: 320
-      comprimento: 30
-      largura: 30
+      x: 552
+      y: 188
+      comprimento: 35
+      largura: 23
   - id: '6'
     label: '6'
     retangulo:
-      x: 710
-      y: 360
-      comprimento: 30
-      largura: 30
+      x: 596
+      y: 246
+      comprimento: 35
+      largura: 24
   - id: '7'
     label: '7'
     retangulo:
-      x: 710
-      y: 400
-      comprimento: 30
-      largura: 30
+      x: 608
+      y: 297
+      comprimento: 36
+      largura: 24
   - id: '8'
     label: '8'
     retangulo:
-      x: 450
-      y: 280
-      comprimento: 30
-      largura: 30
+      x: 319
+      y: 126
+      comprimento: 34
+      largura: 23
+  - id: colina_pedreira
+    label: colina_pedreira
+    retangulo:
+      x: 398
+      y: 382
+      comprimento: 73
+      largura: 13
   referencias:
   - setor: Ônibus
     ids:
@@ -86,6 +93,12 @@ mapas:
   - setor: Domínio Digital
     ids:
     - '8'
+  - ids:
+    - colina_pedreira
+    grupo: Colina
+  - ids:
+    - colina_pedreira
+    grupo: Pedreira
 setores:
 - caminho: grupo_salao_de_pedras_setor_onibus.md
 - caminho: grupo_salao_de_pedras_setor_super_heroi.md

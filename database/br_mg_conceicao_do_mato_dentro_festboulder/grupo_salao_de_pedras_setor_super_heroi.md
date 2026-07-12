@@ -8,31 +8,31 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 340
-      y: 460
-      comprimento: 30
-      largura: 30
+      x: 248
+      y: 394
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 520
-      y: 390
-      comprimento: 30
-      largura: 30
+      x: 390
+      y: 338
+      comprimento: 34
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 400
-      y: 420
-      comprimento: 30
-      largura: 30
+      x: 299
+      y: 376
+      comprimento: 34
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 280
-      y: 420
-      comprimento: 30
-      largura: 30
+      x: 206
+      y: 378
+      comprimento: 33
+      largura: 24
   referencias:
   - escalada: Super Homem
     ids:

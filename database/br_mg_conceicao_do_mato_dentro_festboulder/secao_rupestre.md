@@ -1,6 +1,6 @@
-# Rupestre
+# Pintura Rupestre
 
-![Pinturas Rupestres](imagens/secao_rupestre_p0.webp)
+![Pinturas Rupestres](imagens/secao_rupestre_p0_i0.webp)
 
 **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
 
