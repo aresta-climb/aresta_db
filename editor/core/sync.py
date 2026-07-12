@@ -45,19 +45,20 @@ class GerenciadorSincronizacao:
 
     def obter_url_clone(self, g: github.Github, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """
-        Verifica se o usuário tem permissão de escrita. 
-        Se não, cria um fork e retorna a URL do fork.
+        Garante a existência de um fork do repositório base para o usuário logado
+        e retorna a URL do fork. OBRIGATÓRIO pelo novo design, mesmo se o usuário 
+        tiver acesso de escrita no base.
         """
         repo = g.get_repo(repositorio_base)
         usuario = g.get_user()
         
+        # Tenta pegar diretamente pelo nome
         try:
-            # Tenta ver se o usuário tem permissão de escrita
-            permissao = repo.get_collaborator_permission(usuario.login)
-            if permissao in ["admin", "write"]:
-                return repo.clone_url
+            nome_repo_base = repositorio_base.split("/")[-1]
+            fork = usuario.get_repo(nome_repo_base)
+            if fork.fork and fork.parent.full_name == repositorio_base:
+                return fork.clone_url
         except Exception:
-            # Se der erro ou não for colaborador, tenta achar fork
             pass
             
         # Procura por um fork existente
@@ -70,24 +71,53 @@ class GerenciadorSincronizacao:
         fork = usuario.create_fork(repo)
         return fork.clone_url
 
-    def sincronizar(self, progresso_callback: Optional[Callable[[float], None]] = None):
+    def configurar_remotes(self, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
         """
-        Sincroniza o repositório existente (fetch + reset hard).
+        Garante que o repositório local tem os remotes necessários:
+        'origin' -> O fork do usuário.
+        'upstream' -> O repositório oficial (aresta_db).
         """
         repo = pygit2.Repository(str(self.caminho_repo))
-        remoto = repo.remotes["origin"]
+        remotes_names = list(repo.remotes)
         
+        if "upstream" not in remotes_names:
+            repo.remotes.create("upstream", url_upstream)
+
+    def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None):
+        """
+        Faz fetch de todos os remotes (origin e upstream).
+        """
+        repo = pygit2.Repository(str(self.caminho_repo))
         callbacks = self._obter_callbacks(progresso_callback)
-        remoto.fetch(callbacks=callbacks)
         
-        # Reset hard para a branch principal (origin/main)
-        try:
-            id_remoto_principal = repo.lookup_reference('refs/remotes/origin/main').target
-            repo.reset(id_remoto_principal, pygit2.GIT_RESET_HARD)
-        except KeyError:
-            # Tentar master se main não existir
-            id_remoto_principal = repo.lookup_reference('refs/remotes/origin/master').target
-            repo.reset(id_remoto_principal, pygit2.GIT_RESET_HARD)
+        for name in repo.remotes:
+            remote = repo.remotes[name]
+            remote.fetch(callbacks=callbacks)
+
+    def fazer_checkout_main_upstream(self):
+        """
+        Faz checkout da branch main do upstream de forma limpa,
+        descartando as alterações locais na main se houver.
+        """
+        repo = pygit2.Repository(str(self.caminho_repo))
+        branch_upstream = repo.branches.remote["upstream/main"]
+        
+        # Atualiza ou cria a branch local 'main' apontando para 'upstream/main'
+        if "main" not in repo.branches.local:
+            branch_local = repo.branches.local.create("main", repo[branch_upstream.target])
+        else:
+            branch_local = repo.branches.local["main"]
+            branch_local.set_target(branch_upstream.target)
+
+        # Faz o checkout forçado
+        repo.checkout(branch_local, strategy=pygit2.GIT_CHECKOUT_FORCE)
+        
+    def reset_hard(self):
+        """
+        Reseta o workspace local para o commit atual da branch HEAD.
+        """
+        repo = pygit2.Repository(str(self.caminho_repo))
+        repo.reset(repo.head.target, pygit2.GIT_RESET_HARD)
 
     def criar_pull_request(self, g: github.Github, branch_origem: str, titulo: str, corpo: str, repositorio_base: str = "aresta-climb/aresta_db") -> github.PullRequest.PullRequest:
         """

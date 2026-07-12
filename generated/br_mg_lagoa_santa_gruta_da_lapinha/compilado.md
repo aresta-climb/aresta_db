@@ -2,7 +2,7 @@
 
 ## Informações Gerais
 
-- **descricao**: Guia de escaladas da Gruta da Lapinha em Lagoa Santa, MG.
+- **descricao**: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
 - **id**: br_mg_lagoa_santa_gruta_da_lapinha
 - **nome**: Gruta da Lapinha
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)

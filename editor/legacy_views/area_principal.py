@@ -567,7 +567,7 @@ class JanelaPrincipal(QMainWindow):
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
                 self.pagina_imagens.carregar_imagens(caminho_db)
                 
-    def salvar_croqui(self):
+    def salvar_croqui(self, callback_sucesso=None):
         """Salva as alterações, compila e faz commit no git local se aplicável."""
         if not self.workspace or not self.croqui_data:
             return
@@ -606,6 +606,7 @@ class JanelaPrincipal(QMainWindow):
             self._worker_salvar.erro.connect(self._on_salvar_erro)
             
             self._salvando = True
+            self._callback_sucesso_salvar = callback_sucesso
             
             if not hasattr(self, 'label_status_salvamento'):
                 from PyQt6.QtWidgets import QLabel
@@ -648,9 +649,14 @@ class JanelaPrincipal(QMainWindow):
         if hasattr(self, 'salvamento_finalizado'):
             self.salvamento_finalizado.emit()
             
+        if hasattr(self, '_callback_sucesso_salvar') and self._callback_sucesso_salvar:
+            cb = self._callback_sucesso_salvar
+            self._callback_sucesso_salvar = None
+            cb()
+            
         if getattr(self, '_fechar_apos_salvar', False):
-            if hasattr(self, 'dlg_fechamento') and self.dlg_fechamento:
-                self.dlg_fechamento.accept()
+            if hasattr(self, 'dlg_espera') and self.dlg_espera:
+                self.dlg_espera.accept()
             self.close()
 
     def _on_salvar_erro(self, e):
@@ -702,62 +708,13 @@ class JanelaPrincipal(QMainWindow):
                 QMessageBox.critical(self, "Erro ao Exportar", f"Não foi possível iniciar a exportação:\n{str(e)}")
 
     def publicar_croqui(self):
-        """Cria um Pull Request no GitHub com as alterações do croqui."""
+        """Inicia o fluxo de publicação do croqui."""
         if not self.workspace or not self.auth:
             return
             
-        if not self.historico.obter_pilha().isClean():
-            resposta = QMessageBox.question(
-                self, "Salvar Necessário",
-                "Você precisa salvar suas alterações antes de publicar. Deseja salvar agora?",
-                QMessageBox.StandardButton.Save | QMessageBox.StandardButton.Cancel
-            )
-            if resposta == QMessageBox.StandardButton.Save:
-                self.salvar_croqui()
-            else:
-                return
-
-        # Coleta dados da PR
-        titulo_sugerido = self.croqui_data.get("nome", self.workspace.caminho_raiz.name) if self.croqui_data else self.workspace.caminho_raiz.name
-        dialogo = DialogoPublicar(titulo_padrao=titulo_sugerido, parent=self)
-        if dialogo.exec() != QDialog.DialogCode.Accepted:
-            return
-            
-        dados_pr = dialogo.obter_dados()
-        
-        # Inicia Worker
-        from editor.core.worker import TarefaPublicacao
-        from PyQt6.QtWidgets import QProgressDialog
-        
-        self.progresso_pr = QProgressDialog("Iniciando publicação...", "Cancelar", 0, 100, self)
-        self.progresso_pr.setWindowTitle("Publicando no GitHub")
-        self.progresso_pr.setWindowModality(Qt.WindowModality.WindowModal)
-        self.progresso_pr.setAutoClose(True)
-        self.progresso_pr.show()
-
-        self._worker_pr = TarefaPublicacao(
-            token=self.auth.recuperar_token(),
-            storage=self.storage,
-            caminho_database_croqui=self.workspace.obter_caminho_database(),
-            id_croqui=self.croqui_data.get("id") if self.croqui_data else self.workspace.caminho_raiz.name,
-            dados_pr=dados_pr
-        )
-        
-        self._worker_pr.status.connect(self.progresso_pr.setLabelText)
-        self._worker_pr.progresso.connect(self.progresso_pr.setValue)
-        self._worker_pr.sucesso.connect(self._on_publicacao_sucesso)
-        self._worker_pr.erro.connect(self._on_publicacao_erro)
-        
-        self._worker_pr.start()
-
-    def _on_publicacao_sucesso(self, url_pr):
-        QMessageBox.information(self, "Sucesso", f"Pull Request criada com sucesso!\n\nLink: {url_pr}")
-        # Opcional: abrir no browser
-        import webbrowser
-        webbrowser.open(url_pr)
-
-    def _on_publicacao_erro(self, erro):
-        QMessageBox.critical(self, "Erro na Publicação", f"Falha ao criar Pull Request:\n{erro}")
+        from editor.controllers.publish_controller import PublishController
+        self._publish_controller = PublishController(self)
+        self._publish_controller.iniciar_publicacao()
 
     def _on_abrir_novo_clicado(self):
         """Trata o clique no botão de voltar para a tela de carregamento."""
@@ -780,7 +737,7 @@ class JanelaPrincipal(QMainWindow):
         """Intercepta o fechamento da janela para verificar modificações."""
         if getattr(self, '_salvando', False):
             self._fechar_apos_salvar = True
-            self._mostrar_modal_fechamento()
+            self._mostrar_modal_espera("Finalizando salvamento...")
             event.ignore()
             return
             
@@ -794,7 +751,7 @@ class JanelaPrincipal(QMainWindow):
             if resposta == QMessageBox.StandardButton.Save:
                 self._fechar_apos_salvar = True
                 self.salvar_croqui()
-                self._mostrar_modal_fechamento()
+                self._mostrar_modal_espera("Finalizando salvamento...")
                 event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
                 event.accept()
@@ -803,15 +760,17 @@ class JanelaPrincipal(QMainWindow):
         else:
             event.accept()
             
-    def _mostrar_modal_fechamento(self):
+    def _mostrar_modal_espera(self, mensagem="Aguarde..."):
         from PyQt6.QtWidgets import QProgressDialog
         from PyQt6.QtCore import Qt
-        if not hasattr(self, 'dlg_fechamento') or not self.dlg_fechamento:
-            self.dlg_fechamento = QProgressDialog("Finalizando salvamento...", None, 0, 0, self)
-            self.dlg_fechamento.setWindowTitle("Aguarde")
-            self.dlg_fechamento.setWindowModality(Qt.WindowModality.WindowModal)
-            self.dlg_fechamento.setCancelButton(None)
-        self.dlg_fechamento.show()
+        if not hasattr(self, 'dlg_espera') or not self.dlg_espera:
+            self.dlg_espera = QProgressDialog(mensagem, None, 0, 0, self)
+            self.dlg_espera.setWindowTitle("Aguarde")
+            self.dlg_espera.setWindowModality(Qt.WindowModality.WindowModal)
+            self.dlg_espera.setCancelButton(None)
+        else:
+            self.dlg_espera.setLabelText(mensagem)
+        self.dlg_espera.show()
     def _exibir_conexao_celular(self):
         """Inicia o servidor e exibe o diálogo de conexão com o celular."""
         if not self.workspace:

@@ -89,7 +89,7 @@ class TarefaInicializacao(QThread):
                 try:
                     url_clone = sync.obter_url_clone(g)
                     print(f"[INFO] URL de clone obtida: {url_clone}")
-                    sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.6)))
+                    sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
                 except github.UnknownObjectException:
                     mensagem_erro = (
                         "Repositório 'aresta-climb/aresta_db' não encontrado (404).\n\n"
@@ -100,8 +100,18 @@ class TarefaInicializacao(QThread):
                     self.erro.emit(mensagem_erro)
                     return
             else:
-                print(f"[INFO] Repositório encontrado em {caminho_repo}. Sincronizando...")
-                sync.sincronizar(progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.6)))
+                print(f"[INFO] Repositório encontrado em {caminho_repo}. Configurando remotes...")
+            
+            # Configura Remotes (Origin=Fork, Upstream=Base)
+            sync.configurar_remotes()
+            
+            # Fetch Origin e Upstream
+            self.status.emit("Fazendo fetch de dados (origin e upstream)...")
+            sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
+            
+            # Checkout do upstream/main
+            self.status.emit("Aplicando estado oficial mais recente...")
+            sync.fazer_checkout_main_upstream()
 
             self.progresso.emit(100)
             print("[INFO] Inicialização concluída com sucesso!")
@@ -127,13 +137,15 @@ class TarefaPublicacao(QThread):
     progresso = pyqtSignal(int)
     status = pyqtSignal(str)
 
-    def __init__(self, token, storage, caminho_database_croqui, id_croqui, dados_pr):
+    def __init__(self, token, storage, caminho_database_croqui, id_croqui, dados_pr, modo_atualizacao=False, pr_branch=None):
         super().__init__()
         self.token = token
         self.storage = storage
         self.caminho_database_croqui = caminho_database_croqui
         self.id_croqui = id_croqui
         self.dados_pr = dados_pr
+        self.modo_atualizacao = modo_atualizacao
+        self.pr_branch = pr_branch
 
     def run(self):
         try:
@@ -145,24 +157,37 @@ class TarefaPublicacao(QThread):
             
             # 1. Sincronizar Repo Base
             self.status.emit("Sincronizando repositório base...")
-            sync.sincronizar()
+            sync.configurar_remotes()
+            sync.fazer_fetch()
             self.progresso.emit(20)
             
-            # 2. Criar Branch
             repo = pygit2.Repository(str(self.storage.obter_caminho_base_repo()))
-            nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%H%M%S')}"
             
-            # Pega o commit da branch principal (main/master)
-            try:
-                commit_base = repo.lookup_reference('refs/heads/main').peel()
-            except KeyError:
-                commit_base = repo.lookup_reference('refs/heads/master').peel()
+            if self.modo_atualizacao and self.pr_branch:
+                # Fazer checkout da branch existente no origin
+                nome_branch = self.pr_branch.replace("editor/", "") if "editor/" in self.pr_branch else self.pr_branch # limpar owner:branch? Nao, pr_branch é a branch local
+                # Ajuste se for do tipo 'owner:branch' -> nós criamos com nome_branch local igual ao remoto
+                if ":" in nome_branch:
+                    nome_branch = nome_branch.split(":")[-1]
+                    
+                self.status.emit(f"Fazendo checkout da branch {nome_branch}...")
                 
-            branch = repo.create_branch(nome_branch, commit_base)
-            self.status.emit(f"Criada branch: {nome_branch}")
-            
-            # Switch para a nova branch (soft reset + checkout)
-            repo.checkout(branch)
+                if nome_branch in repo.branches.local:
+                    branch = repo.branches.local[nome_branch]
+                else:
+                    remote_branch = repo.branches.remote[f"origin/{nome_branch}"]
+                    branch = repo.branches.local.create(nome_branch, repo[remote_branch.target])
+                
+                repo.checkout(branch)
+            else:
+                # 2. Criar Nova Branch a partir de upstream/main
+                nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%H%M%S')}"
+                sync.fazer_checkout_main_upstream()
+                commit_base = repo.lookup_reference('refs/heads/main').peel()
+                branch = repo.create_branch(nome_branch, commit_base)
+                self.status.emit(f"Criada branch: {nome_branch}")
+                repo.checkout(branch)
+
             self.progresso.emit(40)
             
             # 3. Copiar Arquivos
@@ -197,12 +222,17 @@ class TarefaPublicacao(QThread):
             shutil.copytree(self.caminho_database_croqui, destino)
             self.progresso.emit(60)
             
-            # 4. Commit e Push
-            self.status.emit("Enviando para o GitHub...")
+            # 4. Checar modificações, Commit e Push
+            self.status.emit("Checando modificações...")
             index = repo.index
             index.add_all([f"database/{self.id_croqui}"])
             index.write()
             
+            status = repo.status()
+            if not status:
+                raise Exception("Nenhuma mudança nova identificada em relação ao repositório base ou branch atual.")
+            
+            self.status.emit("Enviando para o GitHub...")
             tree = index.write_tree()
             autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
             
@@ -211,7 +241,7 @@ class TarefaPublicacao(QThread):
                 autor, autor,
                 f"Atualização do croqui {self.id_croqui} via Aresta Editor",
                 tree,
-                [commit_base.id]
+                [repo.head.peel().id]
             )
             
             # Push
@@ -220,16 +250,26 @@ class TarefaPublicacao(QThread):
             remoto.push([f'refs/heads/{nome_branch}'], callbacks=callbacks)
             self.progresso.emit(80)
             
-            # 5. Criar PR
-            self.status.emit("Criando Pull Request...")
-            pr = sync.criar_pull_request(
-                g, nome_branch, 
-                self.dados_pr["titulo"], 
-                self.dados_pr["descricao"]
-            )
+            # 5. Criar/Atualizar PR
+            if not self.modo_atualizacao:
+                self.status.emit("Criando Pull Request...")
+                pr = sync.criar_pull_request(
+                    g, nome_branch, 
+                    self.dados_pr["titulo"], 
+                    self.dados_pr["descricao"]
+                )
+                html_url = pr.html_url
+                pr_owner = g.get_user().login
+            else:
+                self.status.emit("Atualizando Pull Request (Push completo)...")
+                # Se for atualização, não precisa de nova PR na API, apenas confirmamos os dados
+                # pr_owner e html_url já devem estar gravados lá, mas vamos passar os mesmos que temos localmente
+                # ou não passar pra frente
+                html_url = "atualizado"
+                pr_owner = "atualizado"
             
             self.progresso.emit(100)
-            self.sucesso.emit(pr.html_url)
+            self.sucesso.emit(html_url, nome_branch, pr_owner)
             
         except Exception as e:
             traceback.print_exc()
