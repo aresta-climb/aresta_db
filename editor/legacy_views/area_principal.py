@@ -713,7 +713,13 @@ class JanelaPrincipal(QMainWindow):
             return
             
         from editor.controllers.publish_controller import PublishController
-        self._publish_controller = PublishController(self)
+        self._publish_controller = PublishController(
+            workspace=self.workspace,
+            auth=self.auth,
+            historico=self.historico,
+            storage=self.storage,
+            parent=self
+        )
         self._publish_controller.iniciar_publicacao()
 
     def _on_abrir_novo_clicado(self):

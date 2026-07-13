@@ -44,8 +44,10 @@ class TestPublishController(unittest.TestCase):
 
     @patch("editor.controllers.publish_controller.QProgressDialog")
     @patch("editor.controllers.publish_controller.PublishDialog")
-    def test_deve_abrir_dialogo_se_pr_nao_existe(self, dialog_mock_class, progress_mock):
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    def test_deve_abrir_dialogo_se_pr_nao_existe(self, ler_meta_mock, dialog_mock_class, progress_mock):
         """Se o croqui não tem PR aberta, deve pedir título e descrição."""
+        ler_meta_mock.return_value = {}
         self.controller.croqui_data = {"id": "novo_croqui"}
         dialog_mock = dialog_mock_class.return_value
         dialog_mock.exec.return_value = 1  # Accepted
@@ -62,16 +64,17 @@ class TestPublishController(unittest.TestCase):
 
     @patch("editor.controllers.publish_controller.QProgressDialog")
     @patch("editor.controllers.publish_controller.PublishDialog")
-    def test_deve_pular_dialogo_se_pr_ja_existe_e_esta_aberta(self, dialog_mock_class, progress_mock):
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    def test_deve_pular_dialogo_se_pr_ja_existe_e_esta_aberta(self, ler_meta_mock, dialog_mock_class, progress_mock):
         """Se o croqui já tem PR aberta, não deve pedir título de novo, vai atualizar silenciosamente."""
-        self.controller.croqui_data = {
-            "id": "meu_croqui",
+        ler_meta_mock.return_value = {
             "pull_request_branch": "editor/meu_croqui",
             "pull_request_url": "https://github.com/aresta-climb/aresta_db/pull/1"
         }
+        self.controller.croqui_data = {
+            "id": "meu_croqui"
+        }
         
-        # Simularemos que o Github API diz que a PR está aberta (Isso seria dentro da TarefaPublicacao, 
-        # mas o controller deve passar o estado "atualizar" para a tarefa)
         with patch("editor.controllers.publish_controller.TarefaPublicacao") as tarefa_mock_class:
             tarefa_mock = tarefa_mock_class.return_value
             self.controller.iniciar_publicacao()
@@ -83,6 +86,48 @@ class TestPublishController(unittest.TestCase):
             args, kwargs = tarefa_mock_class.call_args
             self.assertTrue(kwargs.get("modo_atualizacao", False))
             tarefa_mock.start.assert_called_once()
+
+    @patch("editor.controllers.publish_controller.DialogoSucessoPR")
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    @patch("editor.controllers.publish_controller.PublishController._salvar_meta_experimental")
+    def test_on_sucesso_deve_exibir_dialogo_sucesso(self, salvar_meta_mock, ler_meta_mock, dialog_mock_class):
+        """No sucesso, deve salvar yaml direto e abrir DialogoSucessoPR."""
+        ler_meta_mock.return_value = {}
+        self.controller.croqui_data = {"id": "meu_croqui"}
+        
+        self.controller._on_sucesso("https://github.com/fake/pr/1", "minha_branch", "renato")
+        
+        salvar_meta_mock.assert_called_once()
+        dados_salvos = salvar_meta_mock.call_args[0][0]
+        self.assertEqual(dados_salvos["pull_request_url"], "https://github.com/fake/pr/1")
+        
+        # Verifica se o dialogo foi aberto
+        dialog_mock_class.assert_called_once_with("https://github.com/fake/pr/1", self.parent_mock)
+        dialog_mock = dialog_mock_class.return_value
+        dialog_mock.exec.assert_called_once()
+
+    @patch("editor.controllers.publish_controller.DialogoSucessoPR")
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    def test_on_aviso_deve_exibir_dialogo_sucesso(self, ler_meta_mock, dialog_mock_class):
+        """Quando ocorre aviso, deve exibir o DialogoSucessoPR mas com mensagem de aviso."""
+        ler_meta_mock.return_value = {"pull_request_url": "https://github.com/fake/pr/1"}
+        
+        # Simula progresso instanciado
+        self.controller.progresso_pr = MagicMock()
+        
+        mensagem_aviso = "Nenhuma alteração foi detectada."
+        self.controller._on_aviso(mensagem_aviso)
+        
+        self.controller.progresso_pr.close.assert_called_once()
+        
+        dialog_mock_class.assert_called_once_with(
+            "https://github.com/fake/pr/1", 
+            self.parent_mock, 
+            titulo="Tudo Atualizado", 
+            mensagem_personalizada=mensagem_aviso
+        )
+        dialog_mock = dialog_mock_class.return_value
+        dialog_mock.exec.assert_called_once()
 
 if __name__ == "__main__":
     unittest.main()

@@ -164,7 +164,7 @@ class TelaDeAbertura(QWidget):
         self.auth_layout.addLayout(self.codigo_layout)
         
         self.btn_abrir_github = QPushButton(" Abrir GitHub")
-        self.btn_abrir_github.setIcon(Icones.obter("github", cor="#ffffff"))
+        self.btn_abrir_github.setIcon(Icones.obter("github", cor="#ffffff", cor_ativa="#ffffff"))
         self.btn_abrir_github.setIconSize(QSize(20, 20))
         self.btn_abrir_github.setFixedWidth(200)
         self.btn_abrir_github.setCursor(Qt.CursorShape.PointingHandCursor)

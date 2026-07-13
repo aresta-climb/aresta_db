@@ -1,7 +1,49 @@
-from PyQt6.QtWidgets import QMessageBox, QProgressDialog
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QMessageBox, QProgressDialog, QDialog, QVBoxLayout, QLabel, QPushButton
+from PyQt6.QtCore import Qt, QUrl, QSize
+from PyQt6.QtGui import QDesktopServices
 from editor.views.publish_dialog import PublishDialog
 from editor.core.worker import TarefaPublicacao
+from editor.views.estilo import Icones
+
+class DialogoSucessoPR(QDialog):
+    """Diálogo de sucesso com botão customizado para abrir no GitHub."""
+    def __init__(self, pr_url, parent=None, titulo="Sucesso", mensagem_personalizada="Pull Request publicada com sucesso!"):
+        super().__init__(parent)
+        self.pr_url = pr_url
+        self.setWindowTitle(titulo)
+        self.setFixedSize(350, 150)
+        
+        layout = QVBoxLayout(self)
+        layout.setSpacing(15)
+        layout.setContentsMargins(20, 20, 20, 20)
+        
+        self.label_mensagem = QLabel(mensagem_personalizada)
+        self.label_mensagem.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_mensagem.setStyleSheet("font-size: 14px; font-weight: bold; color: #28a745;")
+        layout.addWidget(self.label_mensagem)
+        
+        self.btn_abrir_github = QPushButton(" Abrir no GitHub")
+        self.btn_abrir_github.setIcon(Icones.obter("github", cor="#ffffff", cor_ativa="#ffffff"))
+        self.btn_abrir_github.setIconSize(QSize(20, 20))
+        self.btn_abrir_github.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_abrir_github.setStyleSheet("""
+            QPushButton {
+                background: #6c757d;
+                color: #ffffff;
+                border: none;
+                border-radius: 4px;
+                padding: 10px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QPushButton:hover { background: #5a6268; }
+        """)
+        self.btn_abrir_github.clicked.connect(self.abrir_link)
+        layout.addWidget(self.btn_abrir_github, alignment=Qt.AlignmentFlag.AlignCenter)
+
+    def abrir_link(self):
+        QDesktopServices.openUrl(QUrl(self.pr_url))
+        self.accept()
 
 class PublishController:
     """
@@ -14,10 +56,26 @@ class PublishController:
         self.historico = historico
         self.storage = storage
         self.parent = parent
-        self.croqui_data = None
-        
-        # Referência interna para manter a tarefa viva
+        self.croqui_data = getattr(parent, "croqui_data", None)
         self._worker_pr = None
+
+    def _ler_meta_experimental(self):
+        if not hasattr(self.workspace, "caminho_raiz"):
+            return {}
+        yaml_meta = self.workspace.caminho_raiz / "croqui_experimental.yaml"
+        if yaml_meta.is_file():
+            import yaml
+            with open(yaml_meta, "r", encoding="utf-8") as f:
+                return yaml.safe_load(f) or {}
+        return {}
+
+    def _salvar_meta_experimental(self, meta):
+        if not hasattr(self.workspace, "caminho_raiz"):
+            return
+        yaml_meta = self.workspace.caminho_raiz / "croqui_experimental.yaml"
+        import yaml
+        with open(yaml_meta, "w", encoding="utf-8") as f:
+            yaml.dump(meta, f, allow_unicode=True, default_flow_style=False)
 
     def iniciar_publicacao(self):
         """
@@ -34,9 +92,6 @@ class PublishController:
                 QMessageBox.StandardButton.Save | QMessageBox.StandardButton.Cancel
             )
             if resposta == QMessageBox.StandardButton.Save:
-                # O parent.salvar_croqui() deve ser ajustado para chamar o _prosseguir_publicacao após sucesso.
-                # No design atual, se a gente usa um diálogo de espera, o controller pode pedir ao parent
-                # para salvar de forma bloqueante, ou o parent sinaliza quando terminar.
                 self.parent.salvar_croqui(callback_sucesso=self._prosseguir_publicacao)
                 return
             else:
@@ -49,13 +104,11 @@ class PublishController:
         Continua o fluxo após validação de salvamento. 
         Verifica a existência de PR e exibe diálogo se necessário.
         """
-        # Checa se a PR já existe
-        pr_branch = self.croqui_data.get("pull_request_branch") if self.croqui_data else None
+        meta = self._ler_meta_experimental()
+        pr_branch = meta.get("pull_request_branch")
         
         if pr_branch:
             # Fluxo Silencioso de Atualização
-            # Aqui poderíamos checar na API se a PR está aberta. 
-            # Assumiremos "modo_atualizacao=True" para enviar ao worker
             self._iniciar_worker(dados_pr=None, modo_atualizacao=True)
         else:
             # Fluxo Novo PR
@@ -79,6 +132,8 @@ class PublishController:
         self.progresso_pr.show()
 
         id_croqui = self.croqui_data.get("id") if self.croqui_data else self.workspace.caminho_raiz.name
+        
+        meta = self._ler_meta_experimental()
 
         self._worker_pr = TarefaPublicacao(
             token=self.auth.recuperar_token(),
@@ -87,26 +142,40 @@ class PublishController:
             id_croqui=id_croqui,
             dados_pr=dados_pr,
             modo_atualizacao=modo_atualizacao,
-            pr_branch=self.croqui_data.get("pull_request_branch") if self.croqui_data else None
+            pr_branch=meta.get("pull_request_branch")
         )
         
         self._worker_pr.status.connect(self.progresso_pr.setLabelText)
         self._worker_pr.progresso.connect(self.progresso_pr.setValue)
         self._worker_pr.sucesso.connect(self._on_sucesso)
+        self._worker_pr.aviso.connect(self._on_aviso)
         self._worker_pr.erro.connect(self._on_erro)
         
         self._worker_pr.start()
 
+    def _on_aviso(self, mensagem):
+        """Callback acionado quando não há alterações para enviar."""
+        self.progresso_pr.close()
+        
+        meta = self._ler_meta_experimental()
+        pr_url = meta.get("pull_request_url")
+        
+        if pr_url:
+            dialogo = DialogoSucessoPR(pr_url, self.parent, titulo="Tudo Atualizado", mensagem_personalizada=mensagem)
+            dialogo.exec()
+        else:
+            QMessageBox.information(self.parent, "Tudo Atualizado", mensagem)
+
     def _on_sucesso(self, pr_url, pr_branch, pr_owner):
         """Callback acionado pelo sucesso do worker."""
-        if self.croqui_data:
-            self.croqui_data["pull_request_url"] = pr_url
-            self.croqui_data["pull_request_branch"] = pr_branch
-            self.croqui_data["pull_request_fork_owner"] = pr_owner
-            # Precisamos salvar o YAML aqui
-            self.workspace.salvar_yaml_direto(self.croqui_data)
+        meta = self._ler_meta_experimental()
+        meta["pull_request_url"] = pr_url
+        meta["pull_request_branch"] = pr_branch
+        meta["pull_request_fork_owner"] = pr_owner
+        self._salvar_meta_experimental(meta)
 
-        QMessageBox.information(self.parent, "Sucesso", f"Pull Request publicada com sucesso!\n\nLink: {pr_url}")
+        dialogo = DialogoSucessoPR(pr_url, self.parent)
+        dialogo.exec()
         
     def _on_erro(self, erro):
         """Callback acionado por falha no worker."""

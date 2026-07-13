@@ -60,24 +60,26 @@ class Icones:
     """
 
     @classmethod
-    def obter(cls, nome: str, cor: str = None) -> QIcon:
+    def obter(cls, nome: str, cor: str = None, cor_ativa: str = None) -> QIcon:
         """
         Retorna um QIcon estilizado para a ação solicitada.
         
         Args:
             nome: O identificador da ação (ex: 'salvar', 'mapas').
             cor: Cor hexadecimal opcional. Se omitida, usa COR_NORMAL.
+            cor_ativa: Cor hexadecimal para o estado hover/active. Se omitida, usa COR_DESTAQUE.
         """
         identificador = cls.MAPA.get(nome)
         if not identificador:
             return QIcon()
         
         cor_final = cor or cls.COR_NORMAL
+        cor_ativa_final = cor_ativa or cls.COR_DESTAQUE
         return qta.icon(
             identificador, 
             color=cor_final, 
-            color_active=cls.COR_DESTAQUE,
-            color_selected=cls.COR_DESTAQUE
+            color_active=cor_ativa_final,
+            color_selected=cor_ativa_final
         )
 
     @classmethod

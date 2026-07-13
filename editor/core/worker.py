@@ -103,7 +103,7 @@ class TarefaInicializacao(QThread):
                 print(f"[INFO] Repositório encontrado em {caminho_repo}. Configurando remotes...")
             
             # Configura Remotes (Origin=Fork, Upstream=Base)
-            sync.configurar_remotes()
+            sync.configurar_remotes(g)
             
             # Fetch Origin e Upstream
             self.status.emit("Fazendo fetch de dados (origin e upstream)...")
@@ -132,7 +132,8 @@ class TarefaPublicacao(QThread):
     4. Commit e Push para o fork do usuário.
     5. Criar o Pull Request no GitHub.
     """
-    sucesso = pyqtSignal(str)
+    sucesso = pyqtSignal(str, str, str)
+    aviso = pyqtSignal(str)
     erro = pyqtSignal(str)
     progresso = pyqtSignal(int)
     status = pyqtSignal(str)
@@ -157,7 +158,7 @@ class TarefaPublicacao(QThread):
             
             # 1. Sincronizar Repo Base
             self.status.emit("Sincronizando repositório base...")
-            sync.configurar_remotes()
+            sync.configurar_remotes(g)
             sync.fazer_fetch()
             self.progresso.emit(20)
             
@@ -210,27 +211,51 @@ class TarefaPublicacao(QThread):
                 except Exception:
                     pass
                     
-            if id_original and id_original != self.id_croqui:
-                destino_antigo = self.storage.obter_caminho_base_repo() / "database" / id_original
-                if destino_antigo.exists():
-                    shutil.rmtree(destino_antigo)
-                    repo.index.remove_all([f"database/{id_original}"])
+            if id_original:
+                id_publicacao = id_original
+            else:
+                id_publicacao = self.id_croqui
                     
-            destino = self.storage.obter_caminho_base_repo() / "database" / self.id_croqui
-            if destino.exists():
-                shutil.rmtree(destino)
-            shutil.copytree(self.caminho_database_croqui, destino)
+            import filecmp
+            
+            def sync_dir(src: Path, dst: Path):
+                if not dst.exists():
+                    dst.mkdir(parents=True)
+                
+                # Copiar ou atualizar arquivos
+                for item in src.iterdir():
+                    dst_item = dst / item.name
+                    if item.is_dir():
+                        sync_dir(item, dst_item)
+                    else:
+                        if not dst_item.exists() or not filecmp.cmp(item, dst_item, shallow=False):
+                            shutil.copy2(item, dst_item)
+                            
+                # Remover arquivos/pastas que não existem mais na origem
+                for item in dst.iterdir():
+                    src_item = src / item.name
+                    if not src_item.exists():
+                        if item.is_dir():
+                            shutil.rmtree(item)
+                        else:
+                            item.unlink()
+
+            destino = self.storage.obter_caminho_base_repo() / "database" / id_publicacao
+            sync_dir(self.caminho_database_croqui, destino)
             self.progresso.emit(60)
             
             # 4. Checar modificações, Commit e Push
             self.status.emit("Checando modificações...")
             index = repo.index
-            index.add_all([f"database/{self.id_croqui}"])
+            index.add_all([f"database/{id_publicacao}"])
             index.write()
             
-            status = repo.status()
-            if not status:
-                raise Exception("Nenhuma mudança nova identificada em relação ao repositório base ou branch atual.")
+            tree_id = index.write_tree()
+            head_commit = repo.head.peel()
+            
+            if tree_id == head_commit.tree_id:
+                self.aviso.emit("Nenhuma alteração foi detectada no croqui. O Pull Request já está atualizado!")
+                return
             
             self.status.emit("Enviando para o GitHub...")
             tree = index.write_tree()

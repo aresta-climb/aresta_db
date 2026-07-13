@@ -106,26 +106,7 @@ def test_navegacao_lateral_troca_paginas(qtbot):
     acao_dados.trigger()
     assert isinstance(stack.currentWidget(), PaginaDados)
 
-def test_clique_publicar_inicia_worker(qtbot):
-    # Mock do Diálogo para não abrir janela real no teste
-    with patch("editor.legacy_views.area_principal.DialogoPublicar") as MockDialog:
-        MockDialog.return_value.exec.return_value = QDialog.DialogCode.Accepted
-        MockDialog.return_value.obter_dados.return_value = {"titulo": "Test", "descricao": "Test"}
-        
-        # Mock do Worker para não iniciar thread real
-        with patch("editor.core.worker.TarefaPublicacao") as MockWorker:
-            mock_workspace = MagicMock()
-            mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
-            janela = JanelaPrincipal(auth=MagicMock(), workspace=mock_workspace)
-            qtbot.addWidget(janela)
-            
-            toolbar = janela.findChild(QToolBar, "toolbar_superior")
-            acoes = toolbar.actions()
-            acao_publicar = next(a for a in acoes if a.toolTip() == "Publicar para produção")
-            
-            acao_publicar.trigger()
-            
-            assert MockWorker.called
+
 
 def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot):
     """Verifica se a inicialização da janela não dispara avisos de QFont no terminal."""
@@ -769,10 +750,42 @@ def test_close_event_enquanto_salva_marca_para_fechar(qtbot):
     # Simula salvamento em andamento
     janela._salvando = True
     
-    with patch.object(janela, "_mostrar_modal_fechamento") as mock_modal:
+    with patch.object(janela, "_mostrar_modal_espera") as mock_modal:
         event = QCloseEvent()
         janela.closeEvent(event)
         
         assert not event.isAccepted(), "O evento de fechamento deveria ser ignorado (adiado)."
         assert getattr(janela, "_fechar_apos_salvar", False) is True, "A janela não foi marcada para fechar após o término do salvamento."
         assert mock_modal.called, "O modal de 'Finalizando salvamento...' deveria ter sido exibido."
+        
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_publicar_croqui_instancia_publish_controller_corretamente(mock_carregar, qtbot):
+    """Garante que o PublishController é instanciado corretamente evitando TypeErrors."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import patch, MagicMock
+
+    workspace_mock = MagicMock()
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+    
+    janela.auth = MagicMock()
+    janela.storage = MagicMock()
+
+    with patch("editor.controllers.publish_controller.PublishController") as mock_publish_controller_class:
+        # Execução
+        janela.publicar_croqui()
+        
+        # Validação
+        mock_publish_controller_class.assert_called_once_with(
+            workspace=workspace_mock,
+            auth=janela.auth,
+            historico=janela.historico,
+            storage=janela.storage,
+            parent=janela
+        )
+        
+        mock_publish_controller_class.return_value.iniciar_publicacao.assert_called_once()
+        
+    # Limpa estado e fecha
+    janela.historico.limpar()
+    janela.close()
