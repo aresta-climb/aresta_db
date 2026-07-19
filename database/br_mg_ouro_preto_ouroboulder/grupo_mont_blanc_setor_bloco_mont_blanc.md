@@ -2,69 +2,69 @@
 nome: 'Bloco: Mont Blanc'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 477
-      y: 441
-      raio: 13
+      x: 716
+      y: 662
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 953
-      y: 400
-      raio: 13
+      x: 1431
+      y: 601
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1087
-      y: 426
-      raio: 13
+      x: 1631
+      y: 640
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 203
-      y: 924
-      raio: 13
+      x: 305
+      y: 1387
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 591
-      y: 930
-      raio: 13
+      x: 889
+      y: 1397
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 804
-      y: 854
-      raio: 13
+      x: 1208
+      y: 1282
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 939
-      y: 818
-      raio: 13
+      x: 1409
+      y: 1228
+      raio: 20
   - id: '5'
     label: '5'
     circulo:
-      x: 981
-      y: 930
-      raio: 13
+      x: 1473
+      y: 1397
+      raio: 20
   - id: '6'
     label: '6'
     circulo:
-      x: 1213
-      y: 980
-      raio: 13
+      x: 1821
+      y: 1472
+      raio: 20
   - id: '7'
     label: '7'
     circulo:
-      x: 1183
-      y: 788
-      raio: 13
+      x: 1776
+      y: 1183
+      raio: 20
   referencias:
   - escalada: Pico da Neblina ext
     ids:
@@ -102,67 +102,67 @@ mapas:
     ids:
     - '7'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 481
-      y: 795
-      raio: 13
+      x: 722
+      y: 1193
+      raio: 20
   referencias:
   - escalada: Colibri
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 414
-      y: 954
-      raio: 13
+      x: 621
+      y: 1432
+      raio: 20
   referencias:
   - escalada: '011'
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 142
-      y: 968
-      raio: 13
+      x: 213
+      y: 1454
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 511
-      y: 955
-      raio: 13
+      x: 768
+      y: 1434
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 907
-      y: 948
-      raio: 13
+      x: 1361
+      y: 1423
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 494
-      y: 229
-      raio: 13
+      x: 741
+      y: 344
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1367
-      y: 124
-      raio: 13
+      x: 2052
+      y: 187
+      raio: 19
   referencias:
   - escalada: Raízes do Brasil
     ids:

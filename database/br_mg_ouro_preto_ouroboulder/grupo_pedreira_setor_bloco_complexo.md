@@ -2,39 +2,39 @@
 nome: 'Bloco: Complexo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1536
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 114
-      y: 1352
-      raio: 16
+      x: 132
+      y: 1561
+      raio: 18
   - id: '2'
     label: '2'
     circulo:
-      x: 517
-      y: 1312
-      raio: 16
+      x: 597
+      y: 1514
+      raio: 18
   - id: '3'
     label: '3'
     circulo:
-      x: 1189
-      y: 1366
-      raio: 16
+      x: 1372
+      y: 1577
+      raio: 18
   - id: A
     label: A
     circulo:
-      x: 1036
-      y: 38
-      raio: 16
+      x: 1196
+      y: 44
+      raio: 18
   - id: B
     label: B
     circulo:
-      x: 1548
-      y: 152
-      raio: 17
+      x: 1787
+      y: 175
+      raio: 20
   referencias:
   - escalada: Talhadeira
     ids:
@@ -52,27 +52,27 @@ mapas:
     - '3'
     - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 655
-      y: 233
-      raio: 13
+      x: 983
+      y: 350
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 887
-      y: 109
-      raio: 13
+      x: 1331
+      y: 164
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 965
-      y: 931
-      raio: 13
+      x: 1448
+      y: 1397
+      raio: 20
   referencias:
   - escalada: Talhadeira
     ids:
@@ -83,33 +83,33 @@ mapas:
     - '1'
     - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 491
-      y: 868
-      raio: 14
+      x: 737
+      y: 1302
+      raio: 21
   - id: '2'
     label: '2'
     circulo:
-      x: 703
-      y: 878
-      raio: 14
+      x: 1055
+      y: 1317
+      raio: 21
   - id: '3'
     label: '3'
     circulo:
-      x: 967
-      y: 867
-      raio: 14
+      x: 1451
+      y: 1300
+      raio: 21
   - id: '4'
     label: '4'
     circulo:
-      x: 1053
-      y: 846
-      raio: 14
+      x: 1581
+      y: 1269
+      raio: 21
   referencias:
   - escalada: Porosíssimo
     ids:
@@ -124,27 +124,27 @@ mapas:
     ids:
     - '4'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 426
-      y: 736
-      raio: 13
+      x: 639
+      y: 1104
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1442
-      y: 934
-      raio: 13
+      x: 2164
+      y: 1402
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1208
-      y: 809
-      raio: 13
+      x: 1812
+      y: 1215
+      raio: 20
   referencias:
   - escalada: Boulder de Raiz
     ids:
@@ -156,15 +156,15 @@ mapas:
     ids:
     - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 412
-      y: 956
-      raio: 13
+      x: 619
+      y: 1434
+      raio: 20
   referencias:
   - escalada: Respira
     ids:

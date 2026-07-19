@@ -2,99 +2,99 @@
 nome: 'Bloco: Nave-Mãe'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 426
-      y: 457
-      raio: 13
+      x: 640
+      y: 685
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 601
-      y: 491
-      raio: 13
+      x: 902
+      y: 736
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 911
-      y: 439
-      raio: 13
+      x: 1367
+      y: 660
+      raio: 19
   - id: D
     label: D
     circulo:
-      x: 1376
-      y: 404
-      raio: 13
+      x: 2066
+      y: 607
+      raio: 19
   - id: E
     label: E
     circulo:
-      x: 1521
-      y: 425
-      raio: 13
+      x: 2282
+      y: 639
+      raio: 20
   - id: F
     label: F
     circulo:
-      x: 1462
-      y: 649
-      raio: 13
+      x: 2193
+      y: 974
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 236
-      y: 742
-      raio: 13
+      x: 354
+      y: 1114
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 723
-      y: 793
-      raio: 13
+      x: 1086
+      y: 1191
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 873
-      y: 787
-      raio: 13
+      x: 1310
+      y: 1181
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
-      x: 900
-      y: 787
-      raio: 13
+      x: 1350
+      y: 1181
+      raio: 19
   - id: '6'
     label: '6'
     circulo:
-      x: 1067
-      y: 805
-      raio: 13
+      x: 1601
+      y: 1209
+      raio: 19
   - id: '9'
     label: '9'
     circulo:
-      x: 1081
-      y: 829
-      raio: 13
+      x: 1622
+      y: 1244
+      raio: 19
   - id: '7'
     label: '7'
     circulo:
-      x: 1303
-      y: 705
-      raio: 13
+      x: 1956
+      y: 1058
+      raio: 19
   - id: '10'
     label: '10'
     circulo:
-      x: 1342
-      y: 710
-      raio: 16
+      x: 2014
+      y: 1065
+      raio: 23
   - id: '8'
     label: '8'
     circulo:
-      x: 1450
-      y: 611
-      raio: 13
+      x: 2177
+      y: 918
+      raio: 19
   referencias:
   - escalada: Monte Mor
     ids:
@@ -149,75 +149,75 @@ mapas:
     - '10'
     - F
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: B
     label: B
     circulo:
-      x: 157
-      y: 372
-      raio: 13
+      x: 236
+      y: 558
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 86
-      y: 583
-      raio: 13
+      x: 130
+      y: 876
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 582
-      y: 118
-      raio: 13
+      x: 874
+      y: 178
+      raio: 19
   - id: D
     label: D
     circulo:
-      x: 1268
-      y: 328
-      raio: 13
+      x: 1904
+      y: 492
+      raio: 19
   - id: ▲
     label: ▲
     circulo:
-      x: 301
-      y: 730
-      raio: 13
+      x: 452
+      y: 1095
+      raio: 19
   - id: ★
     label: ★
     circulo:
-      x: 284
-      y: 820
-      raio: 13
+      x: 427
+      y: 1231
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 383
-      y: 938
-      raio: 13
+      x: 576
+      y: 1408
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 724
-      y: 951
-      raio: 13
+      x: 1087
+      y: 1426
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 629
-      y: 514
-      raio: 13
+      x: 944
+      y: 771
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 982
-      y: 713
-      raio: 13
+      x: 1473
+      y: 1070
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
-      x: 816
-      y: 769
-      raio: 13
+      x: 1224
+      y: 1155
+      raio: 19
   referencias:
   - escalada: Ora-Por-Todos
     ids:
@@ -262,51 +262,51 @@ mapas:
     - '4'
     - D
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 155
-      y: 695
-      raio: 13
+      x: 233
+      y: 1042
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 811
-      y: 817
-      raio: 13
+      x: 1217
+      y: 1227
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 837
-      y: 823
-      raio: 13
+      x: 1257
+      y: 1236
+      raio: 19
   - id: ▲_esquerda
     label: ▲
     circulo:
-      x: 781
-      y: 715
-      raio: 13
+      x: 1173
+      y: 1072
+      raio: 19
   - id: ★_esquerda
     label: ★
     circulo:
-      x: 844
-      y: 731
-      raio: 13
+      x: 1267
+      y: 1098
+      raio: 19
   - id: ▲_direita
     label: ▲
     circulo:
-      x: 970
-      y: 708
-      raio: 13
+      x: 1456
+      y: 1062
+      raio: 19
   - id: ★_direita
     label: ★
     circulo:
-      x: 1032
-      y: 775
-      raio: 13
+      x: 1550
+      y: 1164
+      raio: 19
   referencias:
   - escalada: Umbriacone
     ids:
@@ -336,45 +336,45 @@ mapas:
     setor: 'Bloco: Nave-Mãe'
     escalada: Carcomendo
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 343
-      y: 1051
-      raio: 13
+      x: 515
+      y: 1578
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 417
-      y: 1051
-      raio: 13
+      x: 626
+      y: 1578
+      raio: 20
   - id: ▲_esquerda
     label: ▲
     circulo:
-      x: 230
-      y: 733
-      raio: 13
+      x: 346
+      y: 1100
+      raio: 20
   - id: ★_esquerda
     label: ★
     circulo:
-      x: 371
-      y: 611
-      raio: 13
+      x: 557
+      y: 917
+      raio: 20
   - id: ▲_direita
     label: ▲
     circulo:
-      x: 576
-      y: 684
-      raio: 13
+      x: 864
+      y: 1027
+      raio: 20
   - id: ★_direita
     label: ★
     circulo:
-      x: 897
-      y: 829
-      raio: 13
+      x: 1346
+      y: 1245
+      raio: 20
   referencias:
   - escalada: Mortal Kombat
     ids:
@@ -401,71 +401,65 @@ mapas:
     setor: 'Bloco: Nave-Mãe'
     escalada: Carcomendo
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
-  - id: A
-    label: A
-    circulo:
-      x: 76
-      y: 321
-      raio: 13
   - id: '1'
     label: '1'
     circulo:
-      x: 231
-      y: 469
-      raio: 13
+      x: 346
+      y: 704
+      raio: 20
   referencias:
   - escalada: '003'
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 344
-      y: 504
-      raio: 13
+      x: 517
+      y: 756
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 856
-      y: 376
-      raio: 13
+      x: 1286
+      y: 565
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 901
-      y: 693
-      raio: 13
+      x: 1352
+      y: 1040
+      raio: 18
   - id: triangulo
     label: ▲
     circulo:
-      x: 1100
-      y: 791
-      raio: 13
+      x: 1651
+      y: 1188
+      raio: 19
   - id: estrela
     label: ★
     circulo:
-      x: 957
-      y: 876
-      raio: 13
+      x: 1437
+      y: 1314
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 734
-      y: 871
-      raio: 13
+      x: 1102
+      y: 1308
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 1071
-      y: 943
-      raio: 13
+      x: 1607
+      y: 1417
+      raio: 19
   referencias:
   - escalada: Pico do Baiano
     ids:
@@ -502,21 +496,21 @@ mapas:
     grupo: Pedreira
     setor: 'Bloco: Nave-Mãe'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 1005
-      y: 227
-      raio: 13
+      x: 1508
+      y: 342
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 1096
-      y: 764
-      raio: 13
+      x: 1645
+      y: 1147
+      raio: 20
   referencias:
   - escalada: Passível
     ids:

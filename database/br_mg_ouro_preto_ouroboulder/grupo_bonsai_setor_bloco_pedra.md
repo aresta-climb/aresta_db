@@ -2,39 +2,39 @@
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 410
-      y: 889
-      raio: 13
+      x: 616
+      y: 1335
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1141
-      y: 946
-      raio: 13
+      x: 1713
+      y: 1421
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 149
-      y: 424
-      raio: 13
+      x: 224
+      y: 638
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 411
-      y: 297
-      raio: 13
+      x: 617
+      y: 448
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1129
-      y: 251
-      raio: 13
+      x: 1694
+      y: 379
+      raio: 20
   referencias:
   - escalada: Billy The Kid
     ids:

@@ -2,57 +2,57 @@
 nome: 'Bloco: Deep Inside'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 230
-      y: 849
-      raio: 13
+      x: 345
+      y: 1274
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1050
-      y: 835
-      raio: 13
+      x: 1576
+      y: 1254
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1008
-      y: 911
-      raio: 13
+      x: 1513
+      y: 1367
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 719
-      y: 284
-      raio: 13
+      x: 1079
+      y: 426
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1399
-      y: 238
-      raio: 13
+      x: 2100
+      y: 357
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1512
-      y: 628
-      raio: 13
+      x: 2270
+      y: 943
+      raio: 20
   - id: triangulo
     label: ▲
     circulo:
-      x: 1072
-      y: 736
-      raio: 13
+      x: 1609
+      y: 1104
+      raio: 20
   - id: estrela
     label: ★
     circulo:
-      x: 1331
-      y: 778
-      raio: 13
+      x: 1998
+      y: 1169
+      raio: 20
   referencias:
   - escalada: Buda
     ids:
@@ -88,87 +88,87 @@ mapas:
     setor: 'Bloco: Deep Inside'
     escalada: Sidarta sds
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 250
-      y: 407
-      raio: 13
+      x: 375
+      y: 610
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 565
-      y: 225
-      raio: 13
+      x: 848
+      y: 338
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 874
-      y: 197
-      raio: 13
+      x: 1312
+      y: 296
+      raio: 20
   - id: D
     label: D
     circulo:
-      x: 1211
-      y: 307
-      raio: 13
+      x: 1819
+      y: 461
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 67
-      y: 779
-      raio: 13
+      x: 101
+      y: 1171
+      raio: 20
   - id: triangulo
     label: ▲
     circulo:
-      x: 328
-      y: 692
-      raio: 13
+      x: 492
+      y: 1038
+      raio: 20
   - id: estrela
     label: ★
     circulo:
-      x: 519
-      y: 657
-      raio: 13
+      x: 779
+      y: 986
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 474
-      y: 748
-      raio: 13
+      x: 712
+      y: 1123
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 474
-      y: 789
-      raio: 13
+      x: 712
+      y: 1184
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 662
-      y: 778
-      raio: 13
+      x: 994
+      y: 1168
+      raio: 20
   - id: '5'
     label: '5'
     circulo:
-      x: 701
-      y: 752
-      raio: 13
+      x: 1053
+      y: 1130
+      raio: 20
   - id: '6'
     label: '6'
     circulo:
-      x: 764
-      y: 605
-      raio: 13
+      x: 1147
+      y: 908
+      raio: 20
   - id: '7'
     label: '7'
     circulo:
-      x: 1201
-      y: 693
-      raio: 13
+      x: 1803
+      y: 1041
+      raio: 20
   referencias:
   - escalada: Arestides
     ids:
@@ -244,45 +244,45 @@ mapas:
     setor: 'Bloco: Deep Inside'
     escalada: Deep Inside
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 512
-      y: 776
-      raio: 14
+      x: 768
+      y: 1166
+      raio: 21
   - id: '2'
     label: '2'
     circulo:
-      x: 612
-      y: 791
-      raio: 13
+      x: 918
+      y: 1187
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1215
-      y: 745
-      raio: 13
+      x: 1824
+      y: 1118
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 555
-      y: 263
-      raio: 13
+      x: 833
+      y: 395
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 703
-      y: 163
-      raio: 13
+      x: 1054
+      y: 245
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 849
-      y: 99
-      raio: 13
+      x: 1275
+      y: 149
+      raio: 20
   referencias:
   - escalada: Promocinha
     ids:

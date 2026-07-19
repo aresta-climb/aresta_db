@@ -132,9 +132,9 @@ croquis:
   nome: Ouroboulder
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
-  checksum_sha256_croqui: 86f35615bda57d2907271311be71a5f3d6a5b03a630a23f1ec95247ba3810e92
+  checksum_sha256_croqui: 33b2983a26a8a49b51980db06efbb3c59ef0dd9b438d283ce366907bbcd66c32
   checksum_sha256_thumbnail: 5b0b8c71c7b5ef828d33cb18ce7d7e0f04668f27b9cee4458c05e2ee772ac4c9
-  timestamp_update: '2026-07-19T17:30:16Z'
+  timestamp_update: '2026-07-19T19:58:29Z'
   localizacao:
     latitude: -203677334
     longitude: -435075136

@@ -2,57 +2,57 @@
 nome: 'Bloco: Salão dos Ossos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 374
-      y: 790
-      raio: 13
+      x: 561
+      y: 1185
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 331
-      y: 660
-      raio: 13
+      x: 497
+      y: 990
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 610
-      y: 848
-      raio: 13
+      x: 916
+      y: 1272
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 730
-      y: 726
-      raio: 13
+      x: 1095
+      y: 1090
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
-      x: 838
-      y: 818
-      raio: 13
+      x: 1256
+      y: 1229
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 259
-      y: 272
-      raio: 13
+      x: 389
+      y: 408
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 404
-      y: 132
-      raio: 13
+      x: 606
+      y: 198
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 1520
-      y: 366
-      raio: 13
+      x: 2282
+      y: 550
+      raio: 19
   referencias:
   - escalada: Dolinha
     ids:

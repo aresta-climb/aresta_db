@@ -62,15 +62,21 @@ def comprimir_imagem(caminho_imagem, quality=85, max_area=4194304):
         # Obter os bytes comprimidos
         img_bytes, w, h = comprimir_imagem_para_bytes(caminho_imagem, quality, max_area)
         
-        # Salvar temporariamente
         temp_path = caminho_imagem.with_suffix('.tmp.webp')
         with open(temp_path, 'wb') as f:
             f.write(img_bytes)
             
         size_novo = os.path.getsize(temp_path)
         
-        # Substitui o arquivo original (renomeando para garantir atomicidade se possivel, ou substituindo)
-        os.replace(temp_path, caminho_imagem)
+        # Se o original não era webp, mudar a extensão final para .webp
+        caminho_final = caminho_imagem.with_suffix('.webp')
+        os.replace(temp_path, caminho_final)
+        
+        # Se mudamos a extensão, apagar o original
+        if caminho_final != caminho_imagem:
+            try: os.remove(caminho_imagem)
+            except: pass
+            
         print(f"  Otimizada: {caminho_imagem.name} ({size_original/1024:.1f}KB -> {size_novo/1024:.1f}KB)")
         return True
     except Exception as e:
@@ -78,7 +84,7 @@ def comprimir_imagem(caminho_imagem, quality=85, max_area=4194304):
         return False
 
 def processar_diretorio(diretorio, quality, max_area, recursivo):
-    """Percorre o diretório buscando por arquivos .webp para otimizar."""
+    """Percorre o diretório buscando por arquivos de imagem para otimizar."""
     arquivos = []
     if recursivo:
         # Busca recursiva ignorando 'raw_pdf_contents'
@@ -87,10 +93,11 @@ def processar_diretorio(diretorio, quality, max_area, recursivo):
                 dirs.remove('raw_pdf_contents') # Não desce nessa pasta
             
             for f in files:
-                if f.endswith('.webp') and not f.endswith('.tmp.webp'):
+                if f.lower().endswith(('.webp', '.png', '.jpg', '.jpeg')) and not f.endswith('.tmp.webp'):
                     arquivos.append(Path(root) / f)
     else:
-        arquivos = [p for p in Path(diretorio).glob("*.webp") if not p.name.endswith('.tmp.webp')]
+        for ext in ("*.webp", "*.png", "*.jpg", "*.jpeg"):
+            arquivos.extend([p for p in Path(diretorio).glob(ext) if not p.name.endswith('.tmp.webp')])
     
     if not arquivos:
         print(f"Nenhum arquivo WebP encontrado em {diretorio}")

@@ -2,27 +2,27 @@
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 707
-      y: 1013
-      raio: 13
+      x: 1062
+      y: 1520
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 973
-      y: 895
-      raio: 13
+      x: 1461
+      y: 1342
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1409
-      y: 1133
-      raio: 13
+      x: 2116
+      y: 1702
+      raio: 20
   referencias:
   - escalada: Briga de Galo
     ids:
@@ -34,45 +34,45 @@ mapas:
     ids:
     - '3'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 80
-      y: 401
-      raio: 13
+      x: 121
+      y: 602
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 415
-      y: 346
-      raio: 13
+      x: 623
+      y: 519
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 1071
-      y: 339
-      raio: 13
+      x: 1608
+      y: 510
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 202
-      y: 834
-      raio: 13
+      x: 303
+      y: 1251
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 722
-      y: 940
-      raio: 13
+      x: 1084
+      y: 1412
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 615
-      y: 796
-      raio: 13
+      x: 923
+      y: 1196
+      raio: 19
   referencias:
   - escalada: Afrodisíaco
     ids:
@@ -94,21 +94,21 @@ mapas:
     - '3'
     - C
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 394
-      y: 779
-      raio: 13
+      x: 591
+      y: 1168
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 955
-      y: 817
-      raio: 13
+      x: 1434
+      y: 1227
+      raio: 20
   referencias:
   - escalada: Psicótico
     ids:

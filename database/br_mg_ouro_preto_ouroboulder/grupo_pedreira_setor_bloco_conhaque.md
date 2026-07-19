@@ -7,56 +7,103 @@ mapas:
     ids:
     - '1'
     - A
+    - ★_A
   - escalada: '006'
     ids:
     - '1'
     - A
+    - ▲_A
   - escalada: '007'
     ids:
     - '1'
     - B
+    - ★_B
   - escalada: '008'
     ids:
     - '1'
     - C
+    - ▲_B
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 866
+      y: 1505
+      raio: 20
+  - id: ★_A
+    label: ★
+    circulo:
+      x: 554
+      y: 721
+      raio: 20
+  - id: ★_B
+    label: ★
+    circulo:
+      x: 1266
+      y: 824
+      raio: 20
+  - id: ▲_A
+    label: ▲
+    circulo:
+      x: 961
+      y: 658
+      raio: 20
+  - id: ▲_B
+    label: ▲
+    circulo:
+      x: 1256
+      y: 1118
+      raio: 20
+  - id: A
+    label: A
+    circulo:
+      x: 787
+      y: 127
+      raio: 20
+  - id: B
+    label: B
+    circulo:
+      x: 1606
+      y: 308
+      raio: 20
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 20
-      y: 1023
-      raio: 13
+      x: 30
+      y: 1538
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 523
-      y: 1035
-      raio: 13
+      x: 786
+      y: 1554
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 693
-      y: 1003
-      raio: 13
+      x: 1040
+      y: 1505
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 1283
-      y: 973
-      raio: 13
+      x: 1926
+      y: 1461
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 359
-      y: 184
-      raio: 13
+      x: 539
+      y: 277
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1034
-      y: 26
-      raio: 13
+      x: 1552
+      y: 39
+      raio: 19
   referencias:
   - escalada: Aderência
     ids:

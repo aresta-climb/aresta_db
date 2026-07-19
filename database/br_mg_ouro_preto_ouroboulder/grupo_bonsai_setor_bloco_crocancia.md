@@ -2,67 +2,67 @@
 nome: 'Bloco: Crocância'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1383
-      y: 806
-      raio: 13
+      x: 2077
+      y: 1209
+      raio: 20
   referencias:
   - escalada: Beija-Flor
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1232
-      y: 750
-      raio: 13
+      x: 1849
+      y: 1125
+      raio: 19
   referencias:
   - escalada: Tarântula
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 1561
-      y: 433
-      raio: 13
+      x: 2343
+      y: 650
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 647
-      y: 366
-      raio: 13
+      x: 972
+      y: 549
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 1293
-      y: 558
-      raio: 13
+      x: 1941
+      y: 837
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 436
-      y: 720
-      raio: 13
+      x: 655
+      y: 1081
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 114
-      y: 757
-      raio: 13
+      x: 171
+      y: 1136
+      raio: 19
   referencias:
   - escalada: Porém
     ids:
@@ -83,45 +83,45 @@ mapas:
     grupo: Bonsai
     setor: 'Bloco: Crocância'
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 538
-      y: 705
-      raio: 13
+      x: 808
+      y: 1058
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 980
-      y: 781
-      raio: 13
+      x: 1471
+      y: 1174
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 1105
-      y: 855
-      raio: 13
+      x: 1659
+      y: 1282
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 1417
-      y: 699
-      raio: 13
+      x: 2127
+      y: 1048
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 799
-      y: 177
-      raio: 13
+      x: 1199
+      y: 266
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1346
-      y: 123
-      raio: 13
+      x: 2020
+      y: 184
+      raio: 19
   referencias:
   - escalada: Lodo
     ids:

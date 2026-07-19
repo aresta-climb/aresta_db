@@ -2,45 +2,45 @@
 nome: 'Bloco: Red Bull'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 843
-      y: 78
-      raio: 13
+      x: 1264
+      y: 117
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1137
-      y: 513
-      raio: 13
+      x: 1706
+      y: 769
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 503
-      y: 937
-      raio: 13
+      x: 754
+      y: 1407
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1038
-      y: 835
-      raio: 13
+      x: 1557
+      y: 1252
+      raio: 20
   - id: ▲
     label: ▲
     circulo:
-      x: 345
-      y: 448
-      raio: 13
+      x: 519
+      y: 672
+      raio: 20
   - id: ★
     label: ★
     circulo:
-      x: 737
-      y: 380
-      raio: 13
+      x: 1106
+      y: 570
+      raio: 20
   referencias:
   - escalada: Flying Horse
     ids:

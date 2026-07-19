@@ -2,39 +2,39 @@
 nome: 'Bloco: Pedra Queimada'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 1509
-      y: 280
-      raio: 13
+      x: 2265
+      y: 421
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 684
-      y: 308
-      raio: 13
+      x: 1027
+      y: 462
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 514
-      y: 780
-      raio: 13
+      x: 772
+      y: 1171
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1108
-      y: 604
-      raio: 13
+      x: 1662
+      y: 907
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1313
-      y: 761
-      raio: 13
+      x: 1971
+      y: 1142
+      raio: 20
   referencias:
   - escalada: México
     ids:

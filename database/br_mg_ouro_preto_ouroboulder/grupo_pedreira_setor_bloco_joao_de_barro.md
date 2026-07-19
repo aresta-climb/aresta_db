@@ -2,27 +2,27 @@
 nome: 'Bloco: João de Barro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 84
-      y: 257
-      raio: 13
+      x: 126
+      y: 386
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 718
-      y: 266
-      raio: 13
+      x: 1077
+      y: 399
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 1226
-      y: 1034
-      raio: 13
+      x: 1839
+      y: 1551
+      raio: 20
   referencias:
   - escalada: Porra Nenhuma
     ids:
@@ -33,39 +33,39 @@ mapas:
     - '1'
     - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1296
-      y: 923
-      raio: 13
+      x: 1946
+      y: 1385
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 377
-      y: 81
-      raio: 13
+      x: 566
+      y: 122
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 541
-      y: 634
-      raio: 13
+      x: 813
+      y: 953
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 260
-      y: 663
-      raio: 13
+      x: 390
+      y: 995
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 175
-      y: 607
-      raio: 14
+      x: 262
+      y: 911
+      raio: 20
   referencias:
   - ids:
     - '1'
@@ -86,33 +86,33 @@ mapas:
     setor: 'Bloco: João de Barro'
     escalada: No Montê
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 462
-      y: 882
-      raio: 13
+      x: 694
+      y: 1324
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 503
-      y: 882
-      raio: 13
+      x: 755
+      y: 1324
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 631
-      y: 127
-      raio: 13
+      x: 948
+      y: 191
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1354
-      y: 97
-      raio: 13
+      x: 2033
+      y: 146
+      raio: 20
   referencias:
   - escalada: Bola 7
     ids:

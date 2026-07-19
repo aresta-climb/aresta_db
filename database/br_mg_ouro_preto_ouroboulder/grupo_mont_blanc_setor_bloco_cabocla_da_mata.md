@@ -2,33 +2,33 @@
 nome: 'Bloco: Cabocla da Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 389
-      y: 574
-      raio: 13
+      x: 584
+      y: 861
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1301
-      y: 598
-      raio: 13
+      x: 1953
+      y: 887
+      raio: 18
   - id: '1'
     label: '1'
     circulo:
-      x: 1154
-      y: 966
-      raio: 13
+      x: 1732
+      y: 1449
+      raio: 18
   - id: '2'
     label: '2'
     circulo:
-      x: 984
-      y: 954
-      raio: 13
+      x: 1477
+      y: 1433
+      raio: 18
   referencias:
   - escalada: Cabocla da Mata
     ids:

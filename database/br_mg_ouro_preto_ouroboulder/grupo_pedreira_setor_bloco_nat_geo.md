@@ -9,21 +9,21 @@ mapas:
   - escalada: Discovery Kids
     ids:
     - '2'
-  largura_mapa: 1920
-  altura_mapa: 1440
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 778
-      y: 654
-      raio: 12
+      x: 479
+      y: 1530
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1806
-      y: 1034
-      raio: 12
+      x: 2225
+      y: 1275
+      raio: 19
 escaladas:
 - boulder:
     nome: Nat Geo

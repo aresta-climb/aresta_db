@@ -2,33 +2,33 @@
 nome: 'Bloco: Sonar'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 641
-      y: 243
-      raio: 13
+      x: 962
+      y: 366
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 949
-      y: 345
-      raio: 13
+      x: 1425
+      y: 517
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 1461
-      y: 667
-      raio: 13
+      x: 2193
+      y: 1001
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 552
-      y: 940
-      raio: 13
+      x: 828
+      y: 1411
+      raio: 19
   referencias:
   - escalada: Braúna
     ids:

@@ -2,41 +2,41 @@
 nome: 'Bloco: Meia-Parede'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 819
-      y: 807
-      raio: 13
+      x: 1229
+      y: 1212
+      raio: 20
   referencias:
   - escalada: Tatuagens do Ofício
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 832
-      y: 969
-      raio: 13
+      x: 1249
+      y: 1456
+      raio: 20
   - id: 1A
     label: A
     circulo:
-      x: 188
-      y: 447
-      raio: 13
+      x: 282
+      y: 671
+      raio: 20
   - id: 1B
     label: B
     circulo:
-      x: 1162
-      y: 447
-      raio: 13
+      x: 1744
+      y: 671
+      raio: 20
   referencias:
   - escalada: Rastaman
     ids:
@@ -47,27 +47,27 @@ mapas:
     - 1B
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 312
-      y: 1059
-      raio: 13
+      x: 469
+      y: 1589
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 696
-      y: 237
-      raio: 13
+      x: 1045
+      y: 357
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 949
-      y: 112
-      raio: 13
+      x: 1425
+      y: 168
+      raio: 20
   referencias:
   - escalada: Aresta do Lenine
     ids:
@@ -80,21 +80,21 @@ mapas:
     grupo: Pedreira
     setor: 'Bloco: Meia-Parede'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1050
-      y: 928
-      raio: 13
+      x: 1577
+      y: 1393
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1206
-      y: 884
-      raio: 13
+      x: 1811
+      y: 1326
+      raio: 20
   referencias:
   - escalada: Jardim de Orquídeas
     ids:

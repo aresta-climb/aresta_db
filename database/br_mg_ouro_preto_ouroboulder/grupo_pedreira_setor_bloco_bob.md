@@ -2,33 +2,33 @@
 nome: 'Bloco: Bob'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 400
-      y: 191
-      raio: 13
+      x: 600
+      y: 286
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 598
-      y: 198
-      raio: 13
+      x: 898
+      y: 297
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 777
-      y: 798
-      raio: 13
+      x: 1167
+      y: 1198
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 995
-      y: 731
-      raio: 13
+      x: 1494
+      y: 1097
+      raio: 20
   referencias:
   - escalada: Albino
     ids:
@@ -42,45 +42,45 @@ mapas:
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 601
-      y: 146
-      raio: 13
+      x: 902
+      y: 219
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 902
-      y: 109
-      raio: 13
+      x: 1354
+      y: 164
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1088
-      y: 180
-      raio: 13
+      x: 1633
+      y: 270
+      raio: 20
   - id: D
     label: D
     circulo:
-      x: 1231
-      y: 318
-      raio: 13
+      x: 1848
+      y: 478
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 701
-      y: 1005
-      raio: 13
+      x: 1052
+      y: 1510
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1064
-      y: 776
-      raio: 13
+      x: 1597
+      y: 1164
+      raio: 20
   referencias:
   - escalada: Albino
     ids:

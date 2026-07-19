@@ -2,81 +2,81 @@
 nome: 'Bloco: Hora da Janta'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 410
-      y: 1048
-      raio: 13
+      x: 615
+      y: 1572
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 507
-      y: 1072
-      raio: 13
+      x: 761
+      y: 1608
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 750
-      y: 758
-      raio: 13
+      x: 1126
+      y: 1137
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 1033
-      y: 784
-      raio: 13
+      x: 1550
+      y: 1176
+      raio: 20
   - id: '5'
     label: '5'
     circulo:
-      x: 1341
-      y: 879
-      raio: 13
+      x: 2013
+      y: 1319
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 289
-      y: 449
-      raio: 13
+      x: 434
+      y: 674
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 443
-      y: 277
-      raio: 13
+      x: 665
+      y: 416
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 789
-      y: 23
-      raio: 13
+      x: 1184
+      y: 34
+      raio: 20
   - id: D
     label: D
     circulo:
-      x: 911
-      y: 42
-      raio: 13
+      x: 1367
+      y: 63
+      raio: 20
   - id: E
     label: E
     circulo:
-      x: 1162
-      y: 138
-      raio: 13
+      x: 1744
+      y: 207
+      raio: 20
   - id: triangulo
     label: ▲
     circulo:
-      x: 622
-      y: 376
-      raio: 13
+      x: 934
+      y: 564
+      raio: 20
   - id: estrela
     label: ★
     circulo:
-      x: 713
-      y: 544
-      raio: 13
+      x: 1070
+      y: 816
+      raio: 20
   referencias:
   - escalada: Aranha
     ids:

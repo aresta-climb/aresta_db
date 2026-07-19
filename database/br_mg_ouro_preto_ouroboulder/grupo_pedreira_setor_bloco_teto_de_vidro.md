@@ -2,51 +2,51 @@
 nome: 'Bloco: Teto de Vidro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 691
-      y: 312
-      raio: 13
+      x: 1037
+      y: 468
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1091
-      y: 740
-      raio: 13
+      x: 1637
+      y: 1111
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 433
-      y: 840
-      raio: 13
+      x: 651
+      y: 1262
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1021
-      y: 726
-      raio: 13
+      x: 1532
+      y: 1090
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 917
-      y: 688
-      raio: 13
+      x: 1377
+      y: 1033
+      raio: 19
   - id: ▲
     label: ▲
     circulo:
-      x: 957
-      y: 737
-      raio: 13
+      x: 1436
+      y: 1106
+      raio: 19
   - id: ★
     label: ★
     circulo:
-      x: 995
-      y: 663
-      raio: 13
+      x: 1494
+      y: 995
+      raio: 19
   referencias:
   - escalada: Buena Onda
     ids:
@@ -71,45 +71,45 @@ mapas:
     - '3'
     - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 1001
-      y: 297
-      raio: 13
+      x: 1502
+      y: 446
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1172
-      y: 401
-      raio: 13
+      x: 1759
+      y: 602
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 532
-      y: 892
-      raio: 13
+      x: 799
+      y: 1339
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 470
-      y: 750
-      raio: 13
+      x: 705
+      y: 1125
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 849
-      y: 892
-      raio: 13
+      x: 1275
+      y: 1339
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 1253
-      y: 984
-      raio: 13
+      x: 1881
+      y: 1476
+      raio: 20
   referencias:
   - escalada: Teto de Vidro
     ids:

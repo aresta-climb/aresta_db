@@ -2,21 +2,21 @@
 nome: 'Bloco: Tô de Boa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 551
-      y: 725
-      raio: 13
+      x: 826
+      y: 1088
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 904
-      y: 939
-      raio: 13
+      x: 1358
+      y: 1410
+      raio: 20
   referencias:
   - escalada: NBA
     ids:
@@ -25,57 +25,57 @@ mapas:
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 147
-      y: 434
-      raio: 13
+      x: 221
+      y: 651
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 346
-      y: 332
-      raio: 13
+      x: 520
+      y: 498
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 644
-      y: 300
-      raio: 13
+      x: 966
+      y: 451
+      raio: 20
   - id: D
     label: D
     circulo:
-      x: 1006
-      y: 376
-      raio: 13
+      x: 1511
+      y: 565
+      raio: 20
   - id: E
     label: E
     circulo:
-      x: 1212
-      y: 448
-      raio: 13
+      x: 1819
+      y: 672
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 597
-      y: 774
-      raio: 13
+      x: 896
+      y: 1161
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 642
-      y: 763
-      raio: 13
+      x: 965
+      y: 1145
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1335
-      y: 650
-      raio: 13
+      x: 2004
+      y: 976
+      raio: 20
   referencias:
   - escalada: Tô na Esquiva
     ids:

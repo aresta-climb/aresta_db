@@ -2,21 +2,21 @@
 nome: 'Bloco: Entretidos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 704
-      y: 715
-      raio: 13
+      x: 1057
+      y: 1072
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1171
-      y: 787
-      raio: 13
+      x: 1757
+      y: 1182
+      raio: 19
   referencias:
   - escalada: Ianque
     ids:
@@ -25,33 +25,33 @@ mapas:
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1103
-      y: 598
-      raio: 13
+      x: 1656
+      y: 897
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 471
-      y: 705
-      raio: 13
+      x: 707
+      y: 1058
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 151
-      y: 738
-      raio: 13
+      x: 227
+      y: 1107
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 712
-      y: 725
-      raio: 13
+      x: 1069
+      y: 1088
+      raio: 20
   referencias:
   - escalada: Garoto Andrada
     ids:
@@ -66,27 +66,27 @@ mapas:
     ids:
     - '4'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 190
-      y: 1019
-      raio: 13
+      x: 285
+      y: 1528
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 877
-      y: 814
-      raio: 13
+      x: 1316
+      y: 1221
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 514
-      y: 941
-      raio: 13
+      x: 771
+      y: 1412
+      raio: 20
   referencias:
   - escalada: Helicoidal
     ids:
@@ -98,21 +98,21 @@ mapas:
     ids:
     - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 355
-      y: 944
-      raio: 13
+      x: 534
+      y: 1417
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 766
-      y: 888
-      raio: 13
+      x: 1149
+      y: 1334
+      raio: 20
   referencias:
   - escalada: Brígida
     ids:

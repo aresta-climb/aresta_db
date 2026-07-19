@@ -2,45 +2,45 @@
 nome: 'Bloco: Sauna'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 615
-      y: 128
-      raio: 13
+      x: 922
+      y: 192
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1071
-      y: 228
-      raio: 13
+      x: 1608
+      y: 342
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1256
-      y: 260
-      raio: 13
+      x: 1885
+      y: 391
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 871
-      y: 918
-      raio: 13
+      x: 1306
+      y: 1377
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 954
-      y: 903
-      raio: 13
+      x: 1431
+      y: 1354
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1071
-      y: 841
-      raio: 13
+      x: 1606
+      y: 1262
+      raio: 20
   referencias:
   - escalada: Sauna Seca
     ids:

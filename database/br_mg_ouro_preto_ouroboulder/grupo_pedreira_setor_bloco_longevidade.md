@@ -2,51 +2,51 @@
 nome: 'Bloco: Longevidade'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 160
-      y: 753
-      raio: 13
+      x: 241
+      y: 1128
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 17
-      y: 867
-      raio: 13
+      x: 28
+      y: 1299
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 1108
-      y: 809
-      raio: 13
+      x: 1661
+      y: 1210
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 1445
-      y: 300
-      raio: 13
+      x: 2166
+      y: 450
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 621
-      y: 373
-      raio: 13
+      x: 932
+      y: 560
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 319
-      y: 624
-      raio: 13
+      x: 479
+      y: 935
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 959
-      y: 720
-      raio: 13
+      x: 1474
+      y: 1037
+      raio: 19
   referencias:
   - escalada: Areia nos Olhos
     ids:
@@ -69,57 +69,57 @@ mapas:
     - '4'
     - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 55
-      y: 282
-      raio: 13
+      x: 83
+      y: 423
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 515
-      y: 227
-      raio: 13
+      x: 773
+      y: 341
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 855
-      y: 282
-      raio: 13
+      x: 1283
+      y: 423
+      raio: 19
   - id: D
     label: D
     circulo:
-      x: 1563
-      y: 768
-      raio: 13
+      x: 2346
+      y: 1153
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 529
-      y: 728
-      raio: 13
+      x: 794
+      y: 1092
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1046
-      y: 840
-      raio: 13
+      x: 1570
+      y: 1260
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 1231
-      y: 929
-      raio: 13
+      x: 1847
+      y: 1394
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 1381
-      y: 847
-      raio: 13
+      x: 2073
+      y: 1271
+      raio: 19
   referencias:
   - escalada: Fala Vida
     ids:

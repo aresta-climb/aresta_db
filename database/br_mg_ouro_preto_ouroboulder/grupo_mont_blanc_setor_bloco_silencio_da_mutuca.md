@@ -2,33 +2,33 @@
 nome: 'Bloco: Silêncio da Mutuca'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 694
-      y: 1109
-      raio: 13
+      x: 1042
+      y: 1665
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 814
-      y: 1099
-      raio: 13
+      x: 1222
+      y: 1650
+      raio: 20
   - id: A
     label: A
     circulo:
-      x: 200
-      y: 372
-      raio: 13
+      x: 300
+      y: 558
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 359
-      y: 103
-      raio: 13
+      x: 539
+      y: 154
+      raio: 20
   referencias:
   - escalada: Transição
     ids:

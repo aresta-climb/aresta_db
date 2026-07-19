@@ -2,39 +2,39 @@
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 368
-      y: 411
-      raio: 13
+      x: 552
+      y: 616
+      raio: 20
   - id: ★
     label: ★
     circulo:
-      x: 689
-      y: 613
-      raio: 13
+      x: 1034
+      y: 920
+      raio: 20
   - id: ▲
     label: ▲
     circulo:
-      x: 767
-      y: 803
-      raio: 13
+      x: 1151
+      y: 1204
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 600
-      y: 958
-      raio: 13
+      x: 901
+      y: 1438
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1042
-      y: 863
-      raio: 13
+      x: 1563
+      y: 1295
+      raio: 20
   referencias:
   - escalada: Mata-Mata
     ids:
@@ -51,27 +51,27 @@ mapas:
     - A
     - ★
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 501
-      y: 815
-      raio: 13
+      x: 752
+      y: 1223
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 937
-      y: 740
-      raio: 13
+      x: 1406
+      y: 1111
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 1242
-      y: 927
-      raio: 13
+      x: 1863
+      y: 1392
+      raio: 20
   referencias:
   - escalada: Sem as Mãos
     ids:
@@ -83,21 +83,21 @@ mapas:
     ids:
     - '3'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 1110
-      y: 742
-      raio: 13
+      x: 1666
+      y: 1113
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1386
-      y: 723
-      raio: 13
+      x: 2080
+      y: 1084
+      raio: 20
   referencias:
   - escalada: Batentes
     ids:
@@ -106,21 +106,21 @@ mapas:
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 442
-      y: 788
-      raio: 13
+      x: 663
+      y: 1185
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 963
-      y: 891
-      raio: 13
+      x: 1446
+      y: 1339
+      raio: 20
   referencias:
   - escalada: Cocal é Gueto
     ids:

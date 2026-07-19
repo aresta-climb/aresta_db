@@ -2,27 +2,27 @@
 nome: 'Bloco: Chicletes'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 557
-      y: 783
-      raio: 13
+      x: 836
+      y: 1176
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 625
-      y: 817
-      raio: 13
+      x: 939
+      y: 1226
+      raio: 20
   - id: 3/1A
     label: '3'
     circulo:
-      x: 957
-      y: 947
-      raio: 13
+      x: 1437
+      y: 1420
+      raio: 20
   referencias:
   - escalada: Trident
     ids:
@@ -36,27 +36,27 @@ mapas:
     setor: 'Bloco: Chicletes'
     escalada: Babaloo
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 569
-      y: 199
-      raio: 13
+      x: 854
+      y: 298
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 1562
-      y: 640
-      raio: 13
+      x: 2344
+      y: 960
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 613
-      y: 1007
-      raio: 13
+      x: 920
+      y: 1511
+      raio: 20
   referencias:
   - escalada: Babaloo
     ids:

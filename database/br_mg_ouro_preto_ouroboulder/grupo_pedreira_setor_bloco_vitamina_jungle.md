@@ -9,30 +9,30 @@ mapas:
   - escalada: Vitamina Jungle
     ids:
     - '2'
-  - escalada: '8'
+  - escalada: '010'
     ids:
     - '3'
-  largura_mapa: 1920
-  altura_mapa: 1440
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 121
-      y: 946
-      raio: 21
+      x: 146
+      y: 1158
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 829
-      y: 1037
-      raio: 20
+      x: 1015
+      y: 1270
+      raio: 18
   - id: '3'
     label: '3'
     circulo:
-      x: 1337
-      y: 1034
-      raio: 20
+      x: 1641
+      y: 1267
+      raio: 18
 escaladas:
 - boulder:
     nome: '009'
@@ -41,7 +41,7 @@ escaladas:
     nome: Vitamina Jungle
     dificuldade: V7
 - boulder:
-    nome: '8'
+    nome: '010'
     dificuldade: V3
 ---
 

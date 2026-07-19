@@ -2,33 +2,33 @@
 nome: 'Bloco: O Pequeno'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 712
-      y: 66
-      raio: 13
+      x: 1069
+      y: 99
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 458
-      y: 715
-      raio: 13
+      x: 688
+      y: 1073
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 1050
-      y: 980
-      raio: 13
+      x: 1576
+      y: 1470
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 298
-      y: 78
-      raio: 13
+      x: 447
+      y: 117
+      raio: 20
   referencias:
   - escalada: Toe de Ouro
     ids:
@@ -47,21 +47,21 @@ mapas:
     grupo: Mont Blanc
     setor: 'Bloco: O Pequeno'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 523
-      y: 1026
-      raio: 13
+      x: 785
+      y: 1540
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1021
-      y: 923
-      raio: 13
+      x: 1533
+      y: 1386
+      raio: 19
   referencias:
   - escalada: Jardim de Inverno
     ids:

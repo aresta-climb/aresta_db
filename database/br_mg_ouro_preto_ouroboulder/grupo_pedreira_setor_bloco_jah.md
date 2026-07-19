@@ -2,33 +2,33 @@
 nome: 'Bloco: Jah'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_jah_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 578
-      y: 336
-      raio: 13
+      x: 867
+      y: 505
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1013
-      y: 310
-      raio: 13
+      x: 1520
+      y: 466
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 647
-      y: 756
-      raio: 13
+      x: 971
+      y: 1135
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1070
-      y: 779
-      raio: 13
+      x: 1606
+      y: 1169
+      raio: 19
   referencias:
   - escalada: De Jah
     ids:

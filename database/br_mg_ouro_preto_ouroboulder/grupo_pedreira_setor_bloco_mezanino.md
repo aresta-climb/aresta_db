@@ -2,21 +2,21 @@
 nome: 'Bloco: Mezanino'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 363
-      y: 824
-      raio: 13
+      x: 546
+      y: 1237
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 1025
-      y: 992
-      raio: 13
+      x: 1538
+      y: 1488
+      raio: 20
   referencias:
   - escalada: Mezanino
     ids:
@@ -25,15 +25,15 @@ mapas:
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 659
-      y: 956
-      raio: 13
+      x: 987
+      y: 1435
+      raio: 20
   referencias:
   - escalada: Mesa
     ids:

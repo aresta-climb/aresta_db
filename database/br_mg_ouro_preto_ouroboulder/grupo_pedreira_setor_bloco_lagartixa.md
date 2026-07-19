@@ -2,57 +2,57 @@
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 694
-      y: 889
-      raio: 13
+      x: 1042
+      y: 1334
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 699
-      y: 755
-      raio: 13
+      x: 1049
+      y: 1132
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 892
-      y: 715
-      raio: 13
+      x: 1339
+      y: 1072
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 909
-      y: 827
-      raio: 13
+      x: 1365
+      y: 1241
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
-      x: 1108
-      y: 789
-      raio: 13
+      x: 1664
+      y: 1184
+      raio: 19
   - id: '6'
     label: '6'
     circulo:
-      x: 1183
-      y: 815
-      raio: 13
+      x: 1775
+      y: 1223
+      raio: 19
   - id: A
     label: A
     circulo:
-      x: 849
-      y: 310
-      raio: 13
+      x: 1275
+      y: 465
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 1465
-      y: 152
-      raio: 13
+      x: 2198
+      y: 228
+      raio: 19
   referencias:
   - escalada: Last Samurai
     ids:
@@ -81,63 +81,63 @@ mapas:
     - '6'
     - B
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 29
-      y: 316
-      raio: 13
+      x: 44
+      y: 474
+      raio: 20
   - id: B
     label: B
     circulo:
-      x: 579
-      y: 246
-      raio: 13
+      x: 868
+      y: 369
+      raio: 20
   - id: C
     label: C
     circulo:
-      x: 1502
-      y: 399
-      raio: 13
+      x: 2254
+      y: 598
+      raio: 20
   - id: '1'
     label: '1'
     circulo:
-      x: 281
-      y: 882
-      raio: 13
+      x: 422
+      y: 1323
+      raio: 20
   - id: '2'
     label: '2'
     circulo:
-      x: 239
-      y: 769
-      raio: 13
+      x: 359
+      y: 1154
+      raio: 20
   - id: '3'
     label: '3'
     circulo:
-      x: 531
-      y: 846
-      raio: 13
+      x: 797
+      y: 1269
+      raio: 20
   - id: '4'
     label: '4'
     circulo:
-      x: 653
-      y: 864
-      raio: 13
+      x: 980
+      y: 1296
+      raio: 20
   - id: '5'
     label: '5'
     circulo:
-      x: 979
-      y: 720
-      raio: 13
+      x: 1469
+      y: 1080
+      raio: 20
   - id: '6'
     label: '6'
     circulo:
-      x: 967
-      y: 873
-      raio: 13
+      x: 1451
+      y: 1310
+      raio: 20
   referencias:
   - escalada: Doce de Leite
     ids:
@@ -184,75 +184,75 @@ mapas:
     - '6'
     - C
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp
-  largura_mapa: 1576
-  altura_mapa: 1182
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 33
-      y: 242
-      raio: 13
+      x: 50
+      y: 363
+      raio: 19
   - id: B
     label: B
     circulo:
-      x: 608
-      y: 201
-      raio: 13
+      x: 912
+      y: 302
+      raio: 19
   - id: C
     label: C
     circulo:
-      x: 1549
-      y: 392
-      raio: 13
+      x: 2323
+      y: 589
+      raio: 19
   - id: D
     label: D
     circulo:
-      x: 1405
-      y: 806
-      raio: 13
+      x: 2108
+      y: 1209
+      raio: 19
   - id: '1'
     label: '1'
     circulo:
-      x: 358
-      y: 770
-      raio: 13
+      x: 538
+      y: 1156
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 395
-      y: 977
-      raio: 13
+      x: 593
+      y: 1466
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 771
-      y: 647
-      raio: 13
+      x: 1157
+      y: 972
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
-      x: 791
-      y: 954
-      raio: 13
+      x: 1186
+      y: 1431
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
-      x: 845
-      y: 932
-      raio: 13
+      x: 1268
+      y: 1398
+      raio: 19
   - id: '6'
     label: '6'
     circulo:
-      x: 973
-      y: 883
-      raio: 13
+      x: 1460
+      y: 1324
+      raio: 19
   - id: '7'
     label: '7'
     circulo:
-      x: 1176
-      y: 829
-      raio: 13
+      x: 1764
+      y: 1244
+      raio: 19
   referencias:
   - escalada: Guerreiro
     ids:

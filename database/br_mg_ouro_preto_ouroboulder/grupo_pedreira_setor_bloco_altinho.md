@@ -16,33 +16,33 @@ mapas:
   - escalada: Altinho
     ids:
     - '2'
-  largura_mapa: 1920
-  altura_mapa: 1440
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - id: A
     label: A
     circulo:
-      x: 376
-      y: 453
-      raio: 15
+      x: 464
+      y: 558
+      raio: 18
   - id: B
     label: B
     circulo:
-      x: 670
-      y: 465
-      raio: 15
+      x: 825
+      y: 573
+      raio: 18
   - id: '1'
     label: '1'
     circulo:
-      x: 1042
-      y: 1080
-      raio: 15
+      x: 1283
+      y: 1330
+      raio: 18
   - id: '2'
     label: '2'
     circulo:
-      x: 1442
-      y: 874
-      raio: 15
+      x: 1775
+      y: 1076
+      raio: 18
 escaladas:
 - boulder:
     nome: Cadena

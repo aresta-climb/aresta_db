@@ -74,6 +74,27 @@ class TestComprimirImagens(unittest.TestCase):
         teve_alteracao = comprimir_imagem(file_path, quality=80, max_area=10000)
         
         self.assertTrue(teve_alteracao)
+        self.assertFalse(file_path.exists(), "Original jpg should have been deleted")
+        
+        webp_path = file_path.with_suffix('.webp')
+        self.assertTrue(webp_path.exists(), "Webp file should have been created")
+        
+        with Image.open(webp_path) as img:
+            self.assertEqual(img.format, "WEBP")
+            self.assertEqual(img.width, 100)
+            self.assertEqual(img.height, 100)
+
+    def test_comprimir_imagem_preserva_extensao_webp(self):
+        # Criar imagem local de 200x200 (area 40000) ja como .webp
+        file_path = self.test_dir_path / "teste.webp"
+        with open(file_path, 'wb') as f:
+            img = Image.new('RGB', (200, 200), color="blue")
+            img.save(f, format='WEBP')
+            
+        # Comprimir para max_area 10000
+        teve_alteracao = comprimir_imagem(file_path, quality=80, max_area=10000)
+        
+        self.assertTrue(teve_alteracao)
         self.assertTrue(file_path.exists())
         
         with Image.open(file_path) as img:
