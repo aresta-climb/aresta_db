@@ -3297,6 +3297,20 @@
                 - **x**: 1474
                 - **y**: 1037
                 - **raio**: 19
+            - **[7]**:
+              - **id**: ★
+              - **label**: ★
+              - **circulo**:
+                - **x**: 1725
+                - **y**: 1065
+                - **raio**: 20
+            - **[8]**:
+              - **id**: ▲
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 2297
+                - **y**: 818
+                - **raio**: 19
           - **referencias**:
             - **[0]**:
               - **escalada**: Areia nos Olhos
@@ -3313,11 +3327,13 @@
               - **ids**:
                 - 3
                 - B
+                - ★
             - **[3]**:
               - **escalada**: De Olho na Vida
               - **ids**:
                 - 3
                 - C
+                - ▲
             - **[4]**:
               - **escalada**: A Vaca e o Frango
               - **ids**:
@@ -7705,7 +7721,7 @@
     - **checksum_sha256**: b2300c002604310e104e90492e05485a145358291c73adb66cd1672a19b632e0
   - **[70]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp)
-    - **checksum_sha256**: a987d672d6bb7081b6b97c199e7fcf346cc24c424c2393fd7bfb2080ab6eb635
+    - **checksum_sha256**: 38318f46414c7077a94dad23ead285c6ec679cd9cbddf2379ba5a2a011fcdae3
   - **[71]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
     - **checksum_sha256**: 474739d4d07d23c465748243ff517c96404cc480bda9d9085745da0886aef74c

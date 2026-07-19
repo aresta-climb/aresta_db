@@ -790,7 +790,7 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.md
   checksum_sha256: 644ac12245cff960d7fe14287ac173f25e5a7ef24519f2b0236efec969564b64
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
-  checksum_sha256: 33b2983a26a8a49b51980db06efbb3c59ef0dd9b438d283ce366907bbcd66c32
+  checksum_sha256: 82c0f08d76a91930acaf0e5b5c8aab1ec9ad5f42287825504ec3659aaf1d04b4
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder.webp
   checksum_sha256: 5b0b8c71c7b5ef828d33cb18ce7d7e0f04668f27b9cee4458c05e2ee772ac4c9
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/a_artista_e_a_arte_p0_i0.webp
@@ -934,7 +934,7 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp
   checksum_sha256: b2300c002604310e104e90492e05485a145358291c73adb66cd1672a19b632e0
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp
-  checksum_sha256: a987d672d6bb7081b6b97c199e7fcf346cc24c424c2393fd7bfb2080ab6eb635
+  checksum_sha256: 38318f46414c7077a94dad23ead285c6ec679cd9cbddf2379ba5a2a011fcdae3
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
   checksum_sha256: 474739d4d07d23c465748243ff517c96404cc480bda9d9085745da0886aef74c
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
@@ -1016,9 +1016,9 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/sobre_ouro_preto_p1_i1.webp
   checksum_sha256: db70f068ad17cac698cf815163b5a909c7284c3f2bd3c5998fbbe28d9db29082
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.yaml
-  checksum_sha256: 3c5e00bd4067c6326b6eff7e0bc69cfc8f2c57f5fd166ab095a52850e1ee719e
+  checksum_sha256: 8e98b000d9ceb57f099cc438aa7f85ebf29d7284d4b041a6a57b89579775d211
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.md
-  checksum_sha256: 5bf20a63962b60493f1b8730512700b132afde010adaa1a6c154b43073be07ff
+  checksum_sha256: 123490bbb30206e4fbb7b04ef3468314149b1b4657f0da56e4c92efe93bb0f6b
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
   checksum_sha256: ab79a9e06b1538e6fd6b0118b4a9436b1512792741693a1507bebeb9c22179cb
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder_sunset.webp
@@ -1458,6 +1458,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 63b4ce60d1e31cd19672799b5ecea05f094771de732bae13d6d3355659fdbade
+  checksum_sha256: 538d3760395741930bea3863222203a7022c7d184d718280c1d3eb8a22dc1088
 - caminho_relativo: indice.yaml
-  checksum_sha256: f05808771648b140a4de111d59e38d6b94779a54f54f9d36775be0279389a40e
+  checksum_sha256: 6b5c168a4bb49aad5d494d2870a3f18ddbb33edec5525fbb7107e67334f0f1c8

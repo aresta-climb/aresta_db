@@ -47,6 +47,18 @@ mapas:
       x: 1474
       y: 1037
       raio: 19
+  - id: ★
+    label: ★
+    circulo:
+      x: 1725
+      y: 1065
+      raio: 20
+  - id: ▲
+    label: ▲
+    circulo:
+      x: 2297
+      y: 818
+      raio: 19
   referencias:
   - escalada: Areia nos Olhos
     ids:
@@ -60,10 +72,12 @@ mapas:
     ids:
     - '3'
     - B
+    - ★
   - escalada: De Olho na Vida
     ids:
     - '3'
     - C
+    - ▲
   - escalada: A Vaca e o Frango
     ids:
     - '4'
