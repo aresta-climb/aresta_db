@@ -1,3 +1,3 @@
 # CROQUI 2025 OUROBOULDER
 
-![SIME MINAS GERAIS - BRASIL](imagens/capa_p0.webp)
+![SIME MINAS GERAIS - BRASIL](imagens/capa_p0_i0.webp)

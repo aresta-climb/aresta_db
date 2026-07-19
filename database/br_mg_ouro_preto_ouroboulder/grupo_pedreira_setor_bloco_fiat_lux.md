@@ -34,3 +34,4 @@ escaladas:
     descricao: (vira pela aresta atrás do bloco)
 ---
 
+![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)

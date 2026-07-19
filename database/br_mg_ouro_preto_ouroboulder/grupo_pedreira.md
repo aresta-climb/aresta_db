@@ -312,32 +312,40 @@ mapas:
   - ids:
     - eletron
     grupo: Pedreira
-    setor: 'Bloco: Elétron'
+    setor: 'Bloco: Eléctron'
+  - ids:
+    - nat_geo
+    grupo: Pedreira
+    setor: 'Bloco: Nat Geo'
 setores:
-- caminho: grupo_pedreira_setor_bloco_travessia.md
-- caminho: grupo_pedreira_setor_bloco_jah.md
-- caminho: grupo_pedreira_setor_bloco_sauna.md
-- caminho: grupo_pedreira_setor_bloco_joao_de_barro.md
-- caminho: grupo_pedreira_setor_bloco_mata_mata.md
-- caminho: grupo_pedreira_setor_bloco_bob.md
-- caminho: grupo_pedreira_setor_bloco_red_bull.md
-- caminho: grupo_pedreira_setor_bloco_lagartixa.md
-- caminho: grupo_pedreira_setor_bloco_entretidos.md
-- caminho: grupo_pedreira_setor_bloco_fiat_lux.md
-- caminho: grupo_pedreira_setor_bloco_teto_de_vidro.md
-- caminho: grupo_pedreira_setor_bloco_to_de_boa.md
-- caminho: grupo_pedreira_setor_bloco_pedra_queimada.md
-- caminho: grupo_pedreira_setor_bloco_hora_da_janta.md
-- caminho: grupo_pedreira_setor_bloco_mezanino.md
-- caminho: grupo_pedreira_setor_bloco_chicletes.md
-- caminho: grupo_pedreira_setor_bloco_longevidade.md
-- caminho: grupo_pedreira_setor_bloco_sonar.md
-- caminho: grupo_pedreira_setor_bloco_meia_parede.md
-- caminho: grupo_pedreira_setor_bloco_nave_mae.md
 - caminho: grupo_pedreira_setor_bloco_abaulados.md
-- caminho: grupo_pedreira_setor_bloco_deep_inside.md
+- caminho: grupo_pedreira_setor_bloco_altinho.md
+- caminho: grupo_pedreira_setor_bloco_bob.md
+- caminho: grupo_pedreira_setor_bloco_chicletes.md
 - caminho: grupo_pedreira_setor_bloco_complexo.md
 - caminho: grupo_pedreira_setor_bloco_conhaque.md
-- caminho: grupo_pedreira_setor_bloco_eletron.md
+- caminho: grupo_pedreira_setor_bloco_deep_inside.md
+- caminho: grupo_pedreira_setor_bloco_electron.md
+- caminho: grupo_pedreira_setor_bloco_entretidos.md
+- caminho: grupo_pedreira_setor_bloco_fiat_lux.md
+- caminho: grupo_pedreira_setor_bloco_hora_da_janta.md
+- caminho: grupo_pedreira_setor_bloco_jah.md
+- caminho: grupo_pedreira_setor_bloco_joao_de_barro.md
+- caminho: grupo_pedreira_setor_bloco_lagartixa.md
+- caminho: grupo_pedreira_setor_bloco_longevidade.md
+- caminho: grupo_pedreira_setor_bloco_mata_mata.md
+- caminho: grupo_pedreira_setor_bloco_meia_parede.md
+- caminho: grupo_pedreira_setor_bloco_mezanino.md
+- caminho: grupo_pedreira_setor_bloco_nat_geo.md
+- caminho: grupo_pedreira_setor_bloco_nave_mae.md
+- caminho: grupo_pedreira_setor_bloco_pedra_queimada.md
+- caminho: grupo_pedreira_setor_bloco_red_bull.md
+- caminho: grupo_pedreira_setor_bloco_sauna.md
+- caminho: grupo_pedreira_setor_bloco_sonar.md
+- caminho: grupo_pedreira_setor_bloco_teto_de_vidro.md
+- caminho: grupo_pedreira_setor_bloco_to_de_boa.md
+- caminho: grupo_pedreira_setor_bloco_travessia.md
+- caminho: grupo_pedreira_setor_bloco_veia_doida.md
+- caminho: grupo_pedreira_setor_bloco_vitamina_jungle.md
 ---
 

@@ -249,13 +249,25 @@ def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_
             # Limitar zoom para evitar imagens gigantescas (max ~432 DPI)
             max_zoom = min(max_zoom, 6.0) 
 
+            # Limitar zoom de forma dinâmica para evitar resolução insana
+            if img_bbox.width > 0 and img_bbox.height > 0:
+                max_width_px = img_bbox.width * max_zoom
+                max_height_px = img_bbox.height * max_zoom
+                if max(max_width_px, max_height_px) > 4000:
+                    max_zoom = 4000.0 / max(img_bbox.width, img_bbox.height)
+
             # Nome base para os arquivos deste grupo
             base_name = f"p{local_index}_i{g_idx}"
             final_webp_path = output_image_dir / f"{base_name}.webp"
 
             # Renderizar o grupo usando o bbox rotacionado
             mat = pymupdf.Matrix(max_zoom, max_zoom)
-            pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
+            try:
+                pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
+            except Exception as e:
+                print(f"  Erro crítico ao renderizar {base_name}: {e}. Tentando zoom menor.")
+                mat = pymupdf.Matrix(1.5, 1.5)
+                pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
             
             img_pil = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
             
@@ -265,7 +277,16 @@ def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_
                 img_pil.thumbnail((max_app_dim, max_app_dim), Image.Resampling.LANCZOS)
             
             # Salvar WebP
-            img_pil.save(final_webp_path, "WEBP", quality=85)
+            try:
+                img_pil.save(final_webp_path, "WEBP", quality=85)
+            except Exception as e:
+                print(f"  Aviso: Falha ao salvar WebP {base_name} (Tamanho: {img_pil.size}): {e}. Tentando PNG...")
+                try:
+                    png_path = final_webp_path.with_suffix(".png")
+                    img_pil.save(png_path, "PNG")
+                    print(f"  Salvo como PNG: {png_path.name}")
+                except Exception as e2:
+                    print(f"  Erro crítico ao salvar imagem {base_name}: {e2}")
             
             # 3. Extrair os componentes originais (raw) deste grupo para referência (em WebP)
             for sub_idx, info in enumerate(group['infos']):
@@ -398,6 +419,8 @@ def main():
         for _ in repartir_pdf(pdf_path, partes_json, output_path, args.incluir_paginas, args.apenas_extrair):
             pass
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         print(f"Error processing: {e}")
 
 if __name__ == "__main__":

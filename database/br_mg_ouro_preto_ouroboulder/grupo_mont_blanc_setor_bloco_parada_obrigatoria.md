@@ -52,7 +52,7 @@ mapas:
     ids:
     - '2'
     - C
-- caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
+- caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p2.webp
   largura_mapa: 1575
   altura_mapa: 1182
   pontos_de_interesse:
@@ -108,3 +108,4 @@ escaladas:
     dificuldade: V1
 ---
 
+![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)

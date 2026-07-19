@@ -1,6 +1,6 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 12/07/2026 15:45:32
+Relatório gerado em: 19/07/2026 14:30:18
 
 | Croqui | Publicado (23/48) | Revisado Manual (23/48) | Revisado Circ (23/48) | Desenho Extraível (24/8/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ Relatório gerado em: 12/07/2026 15:45:32
 | br_mg_montes_claros_vieiras | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/1) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_montes_claros_zuculim | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ouro_preto_andorinhas | ✅ | ✅ | ✅ | ⚠️ | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_ouro_preto_ouroboulder | ✅ | ✅ | ✅ | ✅ | ✅ (41/41) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_ouro_preto_ouroboulder | ✅ | ✅ | ✅ | ✅ | ✅ (46/46) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ✅ | ⚠️ | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_paraisopolis_pedra_da_divisa | ✅ | ✅ | ✅ | ✅ (não) | ✅ (5/5) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_gruta | ❌ | ❌ | ❌ | ⚠️ | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |

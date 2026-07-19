@@ -107,11 +107,16 @@ def finalizar_mapas(pico_path):
                 if 'box' in pt and ('xmin' in pt['box'] or 'ymin' in pt['box']):
                     raise ValueError(f"Erro: Formato legado 'xmin/ymin' detectado no POI '{pt.get('id')}' do mapa {json_file.name}. Por favor migre para o formato de centro (x, y, comprimento, largura).")
 
-                if 'circular' in pt:
+                if 'circulo' in pt or 'circular' in pt:
+                    if 'circular' in pt:
+                        pt['circulo'] = pt.pop('circular')
                     novos_pontos.append(pt)
-                elif 'box' in pt:
-                    box = pt['box']
+                elif any(k in pt for k in ['retangulo', 'quadrado', 'box']):
+                    box_key = next((k for k in ['retangulo', 'quadrado', 'box'] if k in pt), None)
+                    box = pt[box_key]
                     if all(k in box for k in ['x', 'y', 'comprimento', 'largura']):
+                        if box_key == 'box':
+                            pt['retangulo'] = pt.pop('box')
                         # Limpeza de campos legados
                         if 'angulo' in box:
                             if 'angulo_graus_x100' not in box:

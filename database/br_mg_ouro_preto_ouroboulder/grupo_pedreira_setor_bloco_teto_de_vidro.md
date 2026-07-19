@@ -159,3 +159,4 @@ escaladas:
     dificuldade: V1
 ---
 
+![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)

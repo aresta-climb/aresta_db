@@ -28,7 +28,7 @@ Com a criação da Área de Proteção Ambiental (APA) Cachoeira das Andorinhas,
 
 Após o encerramento das atividades mineradoras, a antiga pedreira foi gradualmente transformada em um espaço de convivência e prática esportiva. A partir de meados dos anos 2000, o local se tornou um dos principais pontos de escalada no estilo boulder da região e do Brasil, atraindo escaladores de todo o mundo, especialmente devido à proximidade com Belo Horizonte e à facilidade de acesso.
 
-A escalada no Morro São Sebastião representa um exemplo de uso sustentável de áreas degradadas, promovendo a valorização ambiental e social do espaço. A atividade contribui para o turismo local, incentiva a conservação e aproxima as pessoas da natureza, despertando o interesse pela geologia e pela proteção ambiental. Ressalta-se, no entanto, a importância dessa prática continuar sendo realizada com responsabilidade, respeitando os princípios do mínimo impacto e contribuindo para a preservação da região.
+A escalada no Morro São Sebastião representa um exemplo de uso sustentável de áreas degradadas, promovendo a valorização ambiental e social do espaço. A atividade contribui para o turismo local, incentiva a conservação e aproxima as pessoas da natureza, despertando o interesse pela geologia e pela proteção ambiental. Ressalta-se, no entanto, a importância dessa prática continuar sendo realizada com responsabilidade, respeitando os princípios do mínimo impacto e contribuindo para a preservação da vegetação e fauna locais.
 
 ## Um Espaço de Memória e Convivência
 

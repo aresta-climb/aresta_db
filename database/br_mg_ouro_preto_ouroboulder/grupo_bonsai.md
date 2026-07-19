@@ -85,5 +85,6 @@ setores:
 - caminho: grupo_bonsai_setor_bloco_dali_goiabada.md
 - caminho: grupo_bonsai_setor_bloco_seg_samambaia.md
 - caminho: grupo_bonsai_setor_bloco_pedra.md
+- caminho: grupo_bonsai_setor_bloco_prodigio.md
 ---
 

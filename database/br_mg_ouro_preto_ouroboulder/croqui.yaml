@@ -1,6 +1,6 @@
 id: br_mg_ouro_preto_ouroboulder
 nome: Ouroboulder
-caminho_thumbnail: imagens/capa_p0.webp
+caminho_thumbnail: imagens/capa_p0_i0.webp
 status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Ouroboulder (PNMA)
@@ -8,8 +8,7 @@ picos:
   localizacao:
     latitude: -203677334
     longitude: -435075136
-  url_google_maps: 
-    https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
+  url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
   setores_ou_grupos:
   - grupo:
       caminho: grupo_pedreira.md
@@ -28,14 +27,14 @@ botoes:
   destino:
     secao_textual:
       caminho: apoio.md
-- texto: O Evento
+- texto: Introdução
   destino:
     secao_textual:
-      caminho: o_evento.md
-- texto: A Cidade
+      caminho: introducao.md
+- texto: Sobre Ouro Preto
   destino:
     secao_textual:
-      caminho: a_cidade.md
+      caminho: sobre_ouro_preto.md
 - texto: Parque Municipal das Andorinhas
   destino:
     secao_textual:
@@ -43,7 +42,7 @@ botoes:
 - texto: Regras e Boa Convivência
   destino:
     secao_textual:
-      caminho: regras_e_boa_convivencia.md
+      caminho: regras_para_boa_convivencia.md
 - texto: Geologia e História
   destino:
     secao_textual:
@@ -52,6 +51,10 @@ botoes:
   destino:
     secao_textual:
       caminho: agradecimentos.md
+- texto: A Artista e a Arte
+  destino:
+    secao_textual:
+      caminho: a_artista_e_a_arte.md
 - texto: Créditos
   destino:
     secao_textual:

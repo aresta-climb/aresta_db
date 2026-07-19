@@ -1,7 +1,7 @@
 ---
 nome: 'Bloco: Longevidade'
 mapas:
-- caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp
+- caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp
   largura_mapa: 1576
   altura_mapa: 1182
   pontos_de_interesse:
@@ -41,6 +41,12 @@ mapas:
       x: 319
       y: 624
       raio: 13
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 959
+      y: 720
+      raio: 13
   referencias:
   - escalada: Areia nos Olhos
     ids:
@@ -58,6 +64,10 @@ mapas:
     ids:
     - '3'
     - C
+  - escalada: A Vaca e o Frango
+    ids:
+    - '4'
+    - A
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
   largura_mapa: 1576
   altura_mapa: 1182
@@ -156,6 +166,9 @@ escaladas:
 - boulder:
     nome: De Olho na Vida
     dificuldade: V5
+- boulder:
+    nome: A Vaca e o Frango
+    dificuldade: V2
 - boulder:
     nome: Fala Vida
     dificuldade: V3

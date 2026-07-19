@@ -126,7 +126,7 @@ mapas:
       y: 954
       raio: 13
   referencias:
-  - escalada: '005'
+  - escalada: '011'
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp
@@ -145,8 +145,8 @@ mapas:
       x: 511
       y: 955
       raio: 13
-  - id: '4'
-    label: '4'
+  - id: '3'
+    label: '3'
     circulo:
       x: 907
       y: 948
@@ -174,10 +174,11 @@ mapas:
     - A
   - escalada: Super Bonder
     ids:
-    - '4'
+    - '3'
     - B
   - escalada: Tec Bond
     ids:
+    - '2'
     - B
     grupo: Mont Blanc
     setor: 'Bloco: Mont Blanc'
@@ -213,7 +214,7 @@ escaladas:
     nome: Colibri
     dificuldade: V10
 - boulder:
-    nome: '005'
+    nome: '011'
     dificuldade: V2
 - boulder:
     nome: Raízes do Brasil
@@ -228,4 +229,3 @@ escaladas:
     nome: Super Bonder
     dificuldade: V6
 ---
-

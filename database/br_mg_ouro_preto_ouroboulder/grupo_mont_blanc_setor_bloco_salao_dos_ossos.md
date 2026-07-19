@@ -58,11 +58,11 @@ mapas:
     ids:
     - '1'
     - B
-  - escalada: '006'
+  - escalada: '012'
     ids:
     - '2'
     - A
-  - escalada: '007'
+  - escalada: '013'
     ids:
     - '3'
     - A
@@ -87,10 +87,10 @@ escaladas:
     nome: Dolinha
     dificuldade: V8
 - boulder:
-    nome: '006'
+    nome: '012'
     dificuldade: V1
 - boulder:
-    nome: '007'
+    nome: '013'
     dificuldade: V3
 - boulder:
     nome: Salão dos Ossos

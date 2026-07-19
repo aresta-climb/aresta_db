@@ -467,7 +467,7 @@ mapas:
       y: 943
       raio: 13
   referencias:
-  - escalada: Novos Baianos
+  - escalada: Pico do Baiano
     ids:
     - A
     - '1'
@@ -581,7 +581,7 @@ escaladas:
     nome: '003'
     dificuldade: V5
 - boulder:
-    nome: Novos Baianos
+    nome: Pico do Baiano
     dificuldade: V11
 - boulder:
     nome: De Inverno

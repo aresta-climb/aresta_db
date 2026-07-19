@@ -1,6 +1,6 @@
 id: br_mg_ouro_preto_ouroboulder
 nome: Ouroboulder
-caminho_thumbnail: imagens/capa_p0.webp
+caminho_thumbnail: imagens/capa_p0_i0.webp
 status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Ouroboulder (PNMA)
@@ -325,210 +325,1480 @@ picos:
           - ids:
             - eletron
             grupo: Pedreira
-            setor: 'Bloco: Elétron'
+            setor: 'Bloco: Eléctron'
+          - ids:
+            - nat_geo
+            grupo: Pedreira
+            setor: 'Bloco: Nat Geo'
         setores:
         - conteudo:
-            nome: 'Bloco: Travessia'
+            nome: 'Bloco: Abaulados'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 828
+                  y: 851
+                  raio: 13
+              referencias:
+              - escalada: Abaulados
+                ids:
+                - '1'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 574
+                  y: 824
+                  raio: 13
+              referencias:
+              - escalada: '004'
+                ids:
+                - '1'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
               - id: A
                 label: A
                 circulo:
-                  x: 488
-                  y: 341
+                  x: 203
+                  y: 333
                   raio: 13
               - id: B
                 label: B
                 circulo:
-                  x: 692
-                  y: 138
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1281
-                  y: 87
+                  x: 949
+                  y: 109
                   raio: 13
               - id: '1'
                 label: '1'
                 circulo:
-                  x: 116
-                  y: 659
+                  x: 824
+                  y: 788
                   raio: 13
               - id: '2'
                 label: '2'
                 circulo:
-                  x: 179
-                  y: 743
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 415
-                  y: 840
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 711
-                  y: 812
-                  raio: 13
-              - id: '5'
-                label: '5'
-                circulo:
-                  x: 1183
-                  y: 840
-                  raio: 13
-              - id: '6'
-                label: '6'
-                circulo:
-                  x: 1361
-                  y: 753
+                  x: 722
+                  y: 985
                   raio: 13
               referencias:
-              - escalada: Travessia ext
+              - escalada: Jardim Secreto
                 ids:
                 - '1'
-                - C
-              - escalada: Travessia
-                ids:
-                - '2'
-                - C
-              - escalada: Enjambrado
-                ids:
-                - '3'
                 - A
-              - escalada: Face Vertical
+              - escalada: Papo Reto
                 ids:
-                - '4'
+                - '1'
                 - B
-              - escalada: Será
-                ids:
-                - '5'
-                - C
-              - escalada: Bem-vindo ao Climb
-                ids:
-                - '6'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 9
-                  y: 285
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 554
-                  y: 241
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1207
-                  y: 326
-                  raio: 13
-              - id: D
-                label: D
-                circulo:
-                  x: 1397
-                  y: 305
-                  raio: 13
-              - id: E
-                label: E
-                circulo:
-                  x: 1521
-                  y: 431
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 41
-                  y: 576
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 588
-                  y: 858
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1281
-                  y: 835
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 1389
-                  y: 766
-                  raio: 13
-              - id: '5'
-                label: '5'
-                circulo:
-                  x: 1492
-                  y: 751
-                  raio: 13
-              referencias:
-              - escalada: Travessia ext
-                ids:
-                - '1'
-                - E
-              - escalada: Travessia
-                ids:
-                - '2'
-                - E
-              - escalada: Enjambrado
-                ids:
-                - '3'
-                - C
-              - escalada: Face Vertical
-                ids:
-                - '4'
-                - D
-              - escalada: Será
-                ids:
-                - '5'
-                - E
-              - escalada: Monodedo
-                ids:
-                - '2'
-                - A
-              - escalada: Movimentos Eróticos
+              - escalada: Papo Reto sds
                 ids:
                 - '2'
                 - B
             escaladas:
             - boulder:
-                nome: Travessia ext
-                dificuldade: V2
-            - boulder:
-                nome: Travessia
-                dificuldade: V1
-            - boulder:
-                nome: Enjambrado
+                nome: Abaulados
                 dificuldade: V3
             - boulder:
-                nome: Face Vertical
-                dificuldade: V1
+                nome: '004'
+                dificuldade: V4
             - boulder:
-                nome: Será
-                dificuldade: V1
+                nome: Jardim Secreto
+                dificuldade: V11
             - boulder:
-                nome: Bem-vindo ao Climb
+                nome: Papo Reto
+                dificuldade: V11
+            - boulder:
+                nome: Papo Reto sds
+                dificuldade: V12
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Altinho'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp
+              referencias:
+              - escalada: Cadena
+                ids:
+                - 1A
+                - '1'
+                - A
+              - escalada: Atento
+                ids:
+                - 1B
+                - '1'
+                - B
+              - escalada: Altinho
+                ids:
+                - '2'
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 376
+                  y: 453
+                  raio: 15
+              - id: B
+                label: B
+                circulo:
+                  x: 670
+                  y: 465
+                  raio: 15
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 1042
+                  y: 1080
+                  raio: 15
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1442
+                  y: 874
+                  raio: 15
+            escaladas:
+            - boulder:
+                nome: Cadena
+                dificuldade: V5
+            - boulder:
+                nome: Atento
+                dificuldade: V2
+            - boulder:
+                nome: Altinho
                 dificuldade: V0
+            descricao: '| ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *Imagem Adicional* |'
+        - conteudo:
+            nome: 'Bloco: Bob'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 400
+                  y: 191
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 598
+                  y: 198
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 777
+                  y: 798
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 995
+                  y: 731
+                  raio: 13
+              referencias:
+              - escalada: Albino
+                ids:
+                - '1'
+                - A
+              - escalada: Encardido
+                ids:
+                - '1'
+                - B
+              - escalada: Bob
+                ids:
+                - '2'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 601
+                  y: 146
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 902
+                  y: 109
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1088
+                  y: 180
+                  raio: 13
+              - id: D
+                label: D
+                circulo:
+                  x: 1231
+                  y: 318
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 701
+                  y: 1005
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1064
+                  y: 776
+                  raio: 13
+              referencias:
+              - escalada: Albino
+                ids:
+                - '2'
+                - C
+              - escalada: Encardido
+                ids:
+                - '2'
+                - D
+              - escalada: Reto
+                ids:
+                - '1'
+                - A
+              - escalada: Dor nas Costas
+                ids:
+                - '1'
+                - B
+            escaladas:
             - boulder:
-                nome: Monodedo
+                nome: Albino
+                dificuldade: V4
+            - boulder:
+                nome: Encardido
+                dificuldade: V4
+            - boulder:
+                nome: Bob
                 dificuldade: V1
             - boulder:
-                nome: Movimentos Eróticos
+                nome: Reto
+                dificuldade: V2
+            - boulder:
+                nome: Dor nas Costas
+                dificuldade: V3
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Chicletes'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 557
+                  y: 783
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 625
+                  y: 817
+                  raio: 13
+              - id: 3/1A
+                label: '3'
+                circulo:
+                  x: 957
+                  y: 947
+                  raio: 13
+              referencias:
+              - escalada: Trident
+                ids:
+                - '1'
+              - escalada: Big-Big
+                ids:
+                - '2'
+              - ids:
+                - 3/1A
+                grupo: Pedreira
+                setor: 'Bloco: Chicletes'
+                escalada: Babaloo
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 569
+                  y: 199
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1562
+                  y: 640
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 613
+                  y: 1007
+                  raio: 13
+              referencias:
+              - escalada: Babaloo
+                ids:
+                - '1'
+                - A
+              - escalada: Chicletes
+                ids:
+                - '1'
+                - B
+            escaladas:
+            - boulder:
+                nome: Trident
+                dificuldade: V10
+            - boulder:
+                nome: Big-Big
+                dificuldade: V9
+            - boulder:
+                nome: Babaloo
+                dificuldade: V7
+            - boulder:
+                nome: Chicletes
+                dificuldade: V11
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Complexo'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
+              largura_mapa: 2048
+              altura_mapa: 1536
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 114
+                  y: 1352
+                  raio: 16
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 517
+                  y: 1312
+                  raio: 16
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1189
+                  y: 1366
+                  raio: 16
+              - id: A
+                label: A
+                circulo:
+                  x: 1036
+                  y: 38
+                  raio: 16
+              - id: B
+                label: B
+                circulo:
+                  x: 1548
+                  y: 152
+                  raio: 17
+              referencias:
+              - escalada: Talhadeira
+                ids:
+                - '1'
+              - escalada: Complexo
+                ids:
+                - '2'
+                - A
+              - escalada: Ajoelhou, Tem que Rezar
+                ids:
+                - '2'
+                - B
+              - escalada: Descomplicado
+                ids:
+                - '3'
+                - B
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 655
+                  y: 233
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 887
+                  y: 109
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 965
+                  y: 931
+                  raio: 13
+              referencias:
+              - escalada: Talhadeira
+                ids:
+                - '1'
+                - B
+              - escalada: Sofá
+                ids:
+                - '1'
+                - A
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p2.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 491
+                  y: 868
+                  raio: 14
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 703
+                  y: 878
+                  raio: 14
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 967
+                  y: 867
+                  raio: 14
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1053
+                  y: 846
+                  raio: 14
+              referencias:
+              - escalada: Porosíssimo
+                ids:
+                - '1'
+              - escalada: Poroso
+                ids:
+                - '2'
+              - escalada: Não Poroso
+                ids:
+                - '3'
+              - escalada: Triangular
+                ids:
+                - '4'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p3.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 426
+                  y: 736
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1442
+                  y: 934
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1208
+                  y: 809
+                  raio: 13
+              referencias:
+              - escalada: Boulder de Raiz
+                ids:
+                - '1'
+              - escalada: Travessia Ouro Preto-Bocaina
+                ids:
+                - '2'
+              - escalada: Perereca
+                ids:
+                - '3'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 412
+                  y: 956
+                  raio: 13
+              referencias:
+              - escalada: Respira
+                ids:
+                - '1'
+            escaladas:
+            - boulder:
+                nome: Talhadeira
+                dificuldade: V4
+            - boulder:
+                nome: Complexo
+                dificuldade: V5
+            - boulder:
+                nome: Ajoelhou, Tem que Rezar
+                dificuldade: V5
+            - boulder:
+                nome: Descomplicado
+                dificuldade: V3
+            - boulder:
+                nome: Sofá
+                dificuldade: V3
+            - boulder:
+                nome: Porosíssimo
+                dificuldade: V3
+            - boulder:
+                nome: Poroso
+                dificuldade: V2
+            - boulder:
+                nome: Não Poroso
+                dificuldade: V3
+            - boulder:
+                nome: Triangular
+                dificuldade: V5
+            - boulder:
+                nome: Boulder de Raiz
+                dificuldade: V2
+            - boulder:
+                nome: Travessia Ouro Preto-Bocaina
+                dificuldade: V4
+            - boulder:
+                nome: Perereca
+                dificuldade: V4
+            - boulder:
+                nome: Respira
+                dificuldade: V6
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Conhaque'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp
+              referencias:
+              - escalada: '005'
+                ids:
+                - '1'
+                - A
+              - escalada: '006'
+                ids:
+                - '1'
+                - A
+              - escalada: '007'
+                ids:
+                - '1'
+                - B
+              - escalada: '008'
+                ids:
+                - '1'
+                - C
+              largura_mapa: 1920
+              altura_mapa: 1440
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 20
+                  y: 1023
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 523
+                  y: 1035
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 693
+                  y: 1003
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1283
+                  y: 973
+                  raio: 13
+              - id: A
+                label: A
+                circulo:
+                  x: 359
+                  y: 184
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1034
+                  y: 26
+                  raio: 13
+              referencias:
+              - escalada: Aderência
+                ids:
+                - '1'
+                - A
+              - escalada: Dreher
+                ids:
+                - '2'
+                - A
+              - escalada: Yoga
+                ids:
+                - '3'
+                - A
+              - escalada: Conhaque
+                ids:
+                - '3'
+                - B
+              - escalada: Conhaque Presidente
+                ids:
+                - '4'
+              largura_mapa: 1920
+              altura_mapa: 1440
+            escaladas:
+            - boulder:
+                nome: '005'
+                dificuldade: V1
+                destaque: true
+            - boulder:
+                nome: '006'
+                dificuldade: V2
+            - boulder:
+                nome: '007'
+                dificuldade: V3
+                destaque: true
+            - boulder:
+                nome: '008'
+                dificuldade: V4
+            - boulder:
+                nome: Aderência
+                dificuldade: VB
+            - boulder:
+                nome: Dreher
+                dificuldade: V3
+            - boulder:
+                nome: Yoga
+                dificuldade: V4
+            - boulder:
+                nome: Conhaque
+                dificuldade: V4_BARRA_V5
+            - boulder:
+                nome: Conhaque Presidente
+                dificuldade: V6
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Deep Inside'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 230
+                  y: 849
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1050
+                  y: 835
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1008
+                  y: 911
+                  raio: 13
+              - id: A
+                label: A
+                circulo:
+                  x: 719
+                  y: 284
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1399
+                  y: 238
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1512
+                  y: 628
+                  raio: 13
+              - id: triangulo
+                label: ▲
+                circulo:
+                  x: 1072
+                  y: 736
+                  raio: 13
+              - id: estrela
+                label: ★
+                circulo:
+                  x: 1331
+                  y: 778
+                  raio: 13
+              referencias:
+              - escalada: Buda
+                ids:
+                - '1'
+                - A
+              - escalada: Arestides
+                ids:
+                - '1'
+                - B
+              - escalada: Arestides ext
+                ids:
+                - '1'
+                - C
+              - escalada: Nataraja
+                ids:
+                - '2'
+                - triangulo
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+              - escalada: Sidarta
+                ids:
+                - '2'
+                - estrela
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+              - ids:
+                - '3'
+                - estrela
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+                escalada: Sidarta sds
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 250
+                  y: 407
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 565
+                  y: 225
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 874
+                  y: 197
+                  raio: 13
+              - id: D
+                label: D
+                circulo:
+                  x: 1211
+                  y: 307
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 67
+                  y: 779
+                  raio: 13
+              - id: triangulo
+                label: ▲
+                circulo:
+                  x: 328
+                  y: 692
+                  raio: 13
+              - id: estrela
+                label: ★
+                circulo:
+                  x: 519
+                  y: 657
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 474
+                  y: 748
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 474
+                  y: 789
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 662
+                  y: 778
+                  raio: 13
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 701
+                  y: 752
+                  raio: 13
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 764
+                  y: 605
+                  raio: 13
+              - id: '7'
+                label: '7'
+                circulo:
+                  x: 1201
+                  y: 693
+                  raio: 13
+              referencias:
+              - escalada: Arestides
+                ids:
+                - '1'
+                - B
+              - escalada: Canindé
+                ids:
+                - '4'
+                - C
+              - escalada: Canindé de Cima
+                ids:
+                - '5'
+                - C
+              - escalada: Cara de Boi
+                ids:
+                - '6'
+                - B
+              - escalada: Cara de Vaca
+                ids:
+                - '6'
+                - C
+              - escalada: Promoção
+                ids:
+                - '7'
+                - D
+              - escalada: Invertides
+                ids:
+                - '7'
+                - A
+                - triangulo
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+              - escalada: Arestides ext
+                ids:
+                - '1'
+                - triangulo
+                - D
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+              - escalada: Nataraja
+                ids:
+                - '2'
+                - triangulo
+                - A
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+              - ids:
+                - '2'
+                - estrela
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+                escalada: Sidarta
+              - ids:
+                - '3'
+                - estrela
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+                escalada: Sidarta sds
+              - ids:
+                - '4'
+                - triangulo
+                - A
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+                escalada: Deep Inside ext
+              - ids:
+                - '4'
+                - estrela
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+                escalada: Deep Inside
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 512
+                  y: 776
+                  raio: 14
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 612
+                  y: 791
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1215
+                  y: 745
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 555
+                  y: 263
+                  raio: 13
+              - id: A
+                label: A
+                circulo:
+                  x: 703
+                  y: 163
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 849
+                  y: 99
+                  raio: 13
+              referencias:
+              - escalada: Promocinha
+                ids:
+                - '1'
+                - A
+              - escalada: Bolinho de Chuva
+                ids:
+                - '3'
+                - C
+              - escalada: Promoção
+                ids:
+                - '2'
+                - B
+                grupo: Pedreira
+                setor: 'Bloco: Deep Inside'
+            escaladas:
+            - boulder:
+                nome: Buda
+                dificuldade: V3
+            - boulder:
+                nome: Arestides
+                dificuldade: V5
+            - boulder:
+                nome: Arestides ext
+                dificuldade: V7
+            - boulder:
+                nome: Nataraja
+                dificuldade: V6
+            - boulder:
+                nome: Sidarta
+                dificuldade: V5
+            - boulder:
+                nome: Sidarta sds
+                dificuldade: V9
+            - boulder:
+                nome: Deep Inside ext
+                dificuldade: V11
+            - boulder:
+                nome: Deep Inside
+                dificuldade: V10
+            - boulder:
+                nome: Canindé
+                dificuldade: V10
+            - boulder:
+                nome: Canindé de Cima
+                dificuldade: V9
+            - boulder:
+                nome: Cara de Boi
+                dificuldade: V2
+            - boulder:
+                nome: Cara de Vaca
+                dificuldade: V1
+            - boulder:
+                nome: Invertides
+                dificuldade: V8
+            - boulder:
+                nome: Promoção
+                dificuldade: V4
+            - boulder:
+                nome: Promocinha
+                dificuldade: V7
+            - boulder:
+                nome: Bolinho de Chuva
+                dificuldade: VB
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Eléctron'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_electron_p0_i0.webp
+              referencias:
+              - escalada: Quark
+                ids:
+                - '1'
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 970
+                  y: 1111
+                  raio: 20
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_electron_p1_i0.webp
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 30
+                  y: 572
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1107
+                  y: 868
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1520
+                  y: 845
+                  raio: 13
+              - id: A
+                label: A
+                circulo:
+                  x: 52
+                  y: 90
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 939
+                  y: 173
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1410
+                  y: 166
+                  raio: 13
+              referencias:
+              - escalada: Neutron (1B)
+                ids:
+                - '1'
+                - B
+              - escalada: Elétron
+                ids:
+                - '2'
+                - B
+              - escalada: Via Láctea
+                ids:
+                - '3'
+                - A
+              - escalada: Neutron (3B)
+                ids:
+                - '3'
+                - B
+              - escalada: Positron
+                ids:
+                - '3'
+                - C
+            escaladas:
+            - boulder:
+                nome: Quark
+                dificuldade: V1
+            - boulder:
+                nome: Neutron (1B)
+                dificuldade: V3_BARRA_V4
+            - boulder:
+                nome: Elétron
+                dificuldade: V3
+            - boulder:
+                nome: Via Láctea
+                dificuldade: V6
+            - boulder:
+                nome: Neutron (3B)
+                dificuldade: V4
+            - boulder:
+                nome: Positron
+                dificuldade: V3
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Entretidos'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 704
+                  y: 715
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1171
+                  y: 787
+                  raio: 13
+              referencias:
+              - escalada: Ianque
+                ids:
+                - '1'
+              - escalada: Apache
+                ids:
+                - '2'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 1103
+                  y: 598
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 471
+                  y: 705
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 151
+                  y: 738
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 712
+                  y: 725
+                  raio: 13
+              referencias:
+              - escalada: Garoto Andrada
+                ids:
+                - '1'
+              - escalada: Embalados pelo Vovô
+                ids:
+                - '2'
+              - escalada: Pressão no Vovô
+                ids:
+                - '3'
+              - escalada: Pressão dos Barbosa
+                ids:
+                - '4'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 190
+                  y: 1019
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 877
+                  y: 814
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 514
+                  y: 941
+                  raio: 13
+              referencias:
+              - escalada: Helicoidal
+                ids:
+                - '1'
+              - escalada: Em Busca do Equilíbrio
+                ids:
+                - '2'
+              - escalada: Em Busca do Equilíbrio sds
+                ids:
+                - '3'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 355
+                  y: 944
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 766
+                  y: 888
+                  raio: 13
+              referencias:
+              - escalada: Brígida
+                ids:
+                - '1'
+              - escalada: Carranca
+                ids:
+                - '2'
+            escaladas:
+            - boulder:
+                nome: Ianque
+                dificuldade: V2
+            - boulder:
+                nome: Apache
+                dificuldade: V2
+            - boulder:
+                nome: Garoto Andrada
+                dificuldade: V3
+            - boulder:
+                nome: Embalados pelo Vovô
+                dificuldade: V7
+            - boulder:
+                nome: Pressão no Vovô
+                dificuldade: V9
+            - boulder:
+                nome: Pressão dos Barbosa
+                dificuldade: V6_BARRA_V7
+            - boulder:
+                nome: Helicoidal
+                dificuldade: V6
+            - boulder:
+                nome: Em Busca do Equilíbrio
+                dificuldade: V7
+            - boulder:
+                nome: Em Busca do Equilíbrio sds
+                dificuldade: V10
+                descricao: (sai nas agarras do Pressão no Vovô)
+            - boulder:
+                nome: Brígida
+                dificuldade: V6
+            - boulder:
+                nome: Carranca
+                dificuldade: V3
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Fiat Lux'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 912
+                  y: 819
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 783
+                  y: 819
+                  raio: 13
+              referencias:
+              - escalada: Fiat Lux
+                ids:
+                - '1'
+              - escalada: Frita Crux
+                ids:
+                - '2'
+            escaladas:
+            - boulder:
+                nome: Fiat Lux
+                dificuldade: V11
+            - boulder:
+                nome: Frita Crux
+                dificuldade: V4
+                descricao: (vira pela aresta atrás do bloco)
+            descricao: '| ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalada Noturna* |'
+        - conteudo:
+            nome: 'Bloco: Hora da Janta'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 410
+                  y: 1048
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 507
+                  y: 1072
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 750
+                  y: 758
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1033
+                  y: 784
+                  raio: 13
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 1341
+                  y: 879
+                  raio: 13
+              - id: A
+                label: A
+                circulo:
+                  x: 289
+                  y: 449
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 443
+                  y: 277
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 789
+                  y: 23
+                  raio: 13
+              - id: D
+                label: D
+                circulo:
+                  x: 911
+                  y: 42
+                  raio: 13
+              - id: E
+                label: E
+                circulo:
+                  x: 1162
+                  y: 138
+                  raio: 13
+              - id: triangulo
+                label: ▲
+                circulo:
+                  x: 622
+                  y: 376
+                  raio: 13
+              - id: estrela
+                label: ★
+                circulo:
+                  x: 713
+                  y: 544
+                  raio: 13
+              referencias:
+              - escalada: Aranha
+                ids:
+                - '1'
+              - escalada: Desafio do Superman
+                ids:
+                - '2'
+                - A
+              - escalada: Hora da Janta
+                ids:
+                - '2'
+                - B
+              - escalada: Voo do Superman
+                ids:
+                - '3'
+                - C
+              - escalada: Conha Conha
+                ids:
+                - '4'
+                - D
+              - escalada: Maconhaque
+                ids:
+                - '4'
+                - E
+              - escalada: Tapa na Pantera
+                ids:
+                - '5'
+              - ids:
+                - '2'
+                - C
+                - triangulo
+                grupo: Pedreira
+                setor: 'Bloco: Hora da Janta'
+                escalada: Larica
+              - ids:
+                - '2'
+                - estrela
+                - C
+                grupo: Pedreira
+                setor: 'Bloco: Hora da Janta'
+                escalada: Sobremesa
+            escaladas:
+            - boulder:
+                nome: Aranha
+                dificuldade: V2
+            - boulder:
+                nome: Desafio do Superman
+                dificuldade: V3
+            - boulder:
+                nome: Hora da Janta
+                dificuldade: V3
+            - boulder:
+                nome: Larica
+                dificuldade: V3
+            - boulder:
+                nome: Sobremesa
+                dificuldade: V6
+            - boulder:
+                nome: Voo do Superman
+                dificuldade: INDEFINIDO
+            - boulder:
+                nome: Conha Conha
+                dificuldade: V5
+            - boulder:
+                nome: Maconhaque
+                dificuldade: V5
+            - boulder:
+                nome: Tapa na Pantera
                 dificuldade: V1
             descricao: ''
         - conteudo:
@@ -585,81 +1855,6 @@ picos:
             - boulder:
                 nome: Invertido
                 dificuldade: V2
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Sauna'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 615
-                  y: 128
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1071
-                  y: 228
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1256
-                  y: 260
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 871
-                  y: 918
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 954
-                  y: 903
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1071
-                  y: 841
-                  raio: 13
-              referencias:
-              - escalada: Sauna Seca
-                ids:
-                - '1'
-                - A
-              - escalada: Sauna Úmida
-                ids:
-                - '2'
-                - B
-              - escalada: Sauna Mista
-                ids:
-                - '3'
-                - A
-              - escalada: Sauna a Vapor
-                ids:
-                - '3'
-                - C
-            escaladas:
-            - boulder:
-                nome: Sauna Seca
-                dificuldade: V4
-            - boulder:
-                nome: Sauna Úmida
-                dificuldade: V4
-            - boulder:
-                nome: Sauna Mista
-                dificuldade: V5
-            - boulder:
-                nome: Sauna a Vapor
-                dificuldade: V6
-                descricao: (não usa a face direita da linha)
             descricao: ''
         - conteudo:
             nome: 'Bloco: João de Barro'
@@ -816,383 +2011,6 @@ picos:
             - boulder:
                 nome: João de Barro
                 dificuldade: V4
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Mata-Mata'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 368
-                  y: 411
-                  raio: 13
-              - id: ★
-                label: ★
-                circulo:
-                  x: 689
-                  y: 613
-                  raio: 13
-              - id: ▲
-                label: ▲
-                circulo:
-                  x: 767
-                  y: 803
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 600
-                  y: 958
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1042
-                  y: 863
-                  raio: 13
-              referencias:
-              - escalada: Mata-Mata
-                ids:
-                - '1'
-                - A
-              - escalada: Mata-Mata ext
-                ids:
-                - '2'
-                - A
-                - ▲
-              - escalada: '001'
-                ids:
-                - '2'
-                - A
-                - ★
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 501
-                  y: 815
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 937
-                  y: 740
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1242
-                  y: 927
-                  raio: 13
-              referencias:
-              - escalada: Sem as Mãos
-                ids:
-                - '1'
-              - escalada: Ética
-                ids:
-                - '2'
-              - escalada: Risada
-                ids:
-                - '3'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 1110
-                  y: 742
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1386
-                  y: 723
-                  raio: 13
-              referencias:
-              - escalada: Batentes
-                ids:
-                - '1'
-              - escalada: Regletes
-                ids:
-                - '2'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 442
-                  y: 788
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 963
-                  y: 891
-                  raio: 13
-              referencias:
-              - escalada: Cocal é Gueto
-                ids:
-                - '1'
-              - escalada: '002'
-                ids:
-                - '2'
-            escaladas:
-            - boulder:
-                nome: Mata-Mata
-                dificuldade: V2
-            - boulder:
-                nome: Mata-Mata ext
-                dificuldade: V3
-            - boulder:
-                nome: '001'
-                dificuldade: V3
-            - boulder:
-                nome: Sem as Mãos
-                dificuldade: V0
-            - boulder:
-                nome: Ética
-                dificuldade: V0
-            - boulder:
-                nome: Risada
-                dificuldade: V0
-            - boulder:
-                nome: Batentes
-                dificuldade: V1
-            - boulder:
-                nome: Regletes
-                dificuldade: V2
-            - boulder:
-                nome: Cocal é Gueto
-                dificuldade: V3
-            - boulder:
-                nome: '002'
-                dificuldade: V2
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Bob'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 400
-                  y: 191
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 598
-                  y: 198
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 777
-                  y: 798
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 995
-                  y: 731
-                  raio: 13
-              referencias:
-              - escalada: Albino
-                ids:
-                - '1'
-                - A
-              - escalada: Encardido
-                ids:
-                - '1'
-                - B
-              - escalada: Bob
-                ids:
-                - '2'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 601
-                  y: 146
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 902
-                  y: 109
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1088
-                  y: 180
-                  raio: 13
-              - id: D
-                label: D
-                circulo:
-                  x: 1231
-                  y: 318
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 701
-                  y: 1005
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1064
-                  y: 776
-                  raio: 13
-              referencias:
-              - escalada: Albino
-                ids:
-                - '2'
-                - C
-              - escalada: Encardido
-                ids:
-                - '2'
-                - D
-              - escalada: Reto
-                ids:
-                - '1'
-                - A
-              - escalada: Dor nas Costas
-                ids:
-                - '1'
-                - B
-            escaladas:
-            - boulder:
-                nome: Albino
-                dificuldade: V4
-            - boulder:
-                nome: Encardido
-                dificuldade: V4
-            - boulder:
-                nome: Bob
-                dificuldade: V1
-            - boulder:
-                nome: Reto
-                dificuldade: V2
-            - boulder:
-                nome: Dor nas Costas
-                dificuldade: V3
-            - boulder:
-                nome: Albino
-                dificuldade: V4
-            - boulder:
-                nome: Encardido
-                dificuldade: V4
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Red Bull'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 843
-                  y: 78
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1137
-                  y: 513
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 503
-                  y: 937
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1038
-                  y: 835
-                  raio: 13
-              - id: ▲
-                label: ▲
-                circulo:
-                  x: 345
-                  y: 448
-                  raio: 13
-              - id: ★
-                label: ★
-                circulo:
-                  x: 737
-                  y: 380
-                  raio: 13
-              referencias:
-              - escalada: Flying Horse
-                ids:
-                - '1'
-                - A
-                - ▲
-              - escalada: Pingado
-                ids:
-                - '1'
-                - A
-                - ★
-              - escalada: Expresso
-                ids:
-                - '1'
-                - B
-              - escalada: Macchiato
-                ids:
-                - '2'
-                - A
-                - ▲
-              - escalada: Red Bull
-                ids:
-                - '2'
-                - A
-                - ★
-              - escalada: Mad Dog
-                ids:
-                - '2'
-                - B
-            escaladas:
-            - boulder:
-                nome: Flying Horse
-                dificuldade: V2
-            - boulder:
-                nome: Pingado
-                dificuldade: V3
-            - boulder:
-                nome: Expresso
-                dificuldade: V7
-            - boulder:
-                nome: Macchiato
-                dificuldade: V6
-            - boulder:
-                nome: Red Bull
-                dificuldade: V6
-            - boulder:
-                nome: Mad Dog
-                dificuldade: V1
             descricao: ''
         - conteudo:
             nome: 'Bloco: Lagartixa'
@@ -1581,902 +2399,26 @@ picos:
             - boulder:
                 nome: Chapeuzinho Vermelho
                 dificuldade: V13
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Entretidos'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 704
-                  y: 715
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1171
-                  y: 787
-                  raio: 13
-              referencias:
-              - escalada: Ianque
-                ids:
-                - '1'
-              - escalada: Apache
-                ids:
-                - '2'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 1103
-                  y: 598
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 471
-                  y: 705
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 151
-                  y: 738
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 712
-                  y: 725
-                  raio: 13
-              referencias:
-              - escalada: Garoto Andrada
-                ids:
-                - '1'
-              - escalada: Embalados pelo Vovô
-                ids:
-                - '2'
-              - escalada: Pressão no Vovô
-                ids:
-                - '3'
-              - escalada: Pressão dos Barbosa
-                ids:
-                - '4'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 190
-                  y: 1019
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 877
-                  y: 814
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 514
-                  y: 941
-                  raio: 13
-              referencias:
-              - escalada: Helicoidal
-                ids:
-                - '1'
-              - escalada: Em Busca do Equilíbrio
-                ids:
-                - '2'
-              - escalada: Em Busca do Equilíbrio sds
-                ids:
-                - '3'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 355
-                  y: 944
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 766
-                  y: 888
-                  raio: 13
-              referencias:
-              - escalada: Brígida
-                ids:
-                - '1'
-              - escalada: Carranca
-                ids:
-                - '2'
-            escaladas:
-            - boulder:
-                nome: Ianque
-                dificuldade: V2
-            - boulder:
-                nome: Apache
-                dificuldade: V2
-            - boulder:
-                nome: Garoto Andrada
-                dificuldade: V3
-            - boulder:
-                nome: Embalados pelo Vovô
-                dificuldade: V7
-            - boulder:
-                nome: Pressão no Vovô
-                dificuldade: V9
-            - boulder:
-                nome: Pressão dos Barbosa
-                dificuldade: V6_BARRA_V7
-            - boulder:
-                nome: Helicoidal
-                dificuldade: V6
-            - boulder:
-                nome: Em Busca do Equilíbrio
-                dificuldade: V7
-            - boulder:
-                nome: Em Busca do Equilíbrio sds
-                dificuldade: V10
-                descricao: (sai nas agarras do Pressão no Vovô)
-            - boulder:
-                nome: Brígida
-                dificuldade: V6
-            - boulder:
-                nome: Carranca
-                dificuldade: V3
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Fiat Lux'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 912
-                  y: 819
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 783
-                  y: 819
-                  raio: 13
-              referencias:
-              - escalada: Fiat Lux
-                ids:
-                - '1'
-              - escalada: Frita Crux
-                ids:
-                - '2'
-            escaladas:
-            - boulder:
-                nome: Fiat Lux
-                dificuldade: V11
-            - boulder:
-                nome: Frita Crux
-                dificuldade: V4
-                descricao: (vira pela aresta atrás do bloco)
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Teto de Vidro'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 691
-                  y: 312
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1091
-                  y: 740
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 433
-                  y: 840
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1021
-                  y: 726
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 917
-                  y: 688
-                  raio: 13
-              - id: ▲
-                label: ▲
-                circulo:
-                  x: 957
-                  y: 737
-                  raio: 13
-              - id: ★
-                label: ★
-                circulo:
-                  x: 995
-                  y: 663
-                  raio: 13
-              referencias:
-              - escalada: Buena Onda
-                ids:
-                - '1'
-                - A
-              - escalada: Teto de Vidro
-                ids:
-                - '1'
-                - B
-                - ▲
-              - escalada: Gringo de Vidro
-                ids:
-                - '1'
-                - B
-                - ★
-              - escalada: Teto Quebrado
-                ids:
-                - '2'
-                - B
-              - escalada: Gringo
-                ids:
-                - '3'
-                - A
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 1001
-                  y: 297
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1172
-                  y: 401
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 532
-                  y: 892
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 470
-                  y: 750
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 849
-                  y: 892
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 1253
-                  y: 984
-                  raio: 13
-              referencias:
-              - escalada: Teto de Vidro
-                ids:
-                - '1'
-                - A
-              - escalada: Teto Quebrado
-                ids:
-                - '2'
-                - A
-              - escalada: Manobra
-                ids:
-                - '3'
-                - A
-              - escalada: Casquinha
-                ids:
-                - '4'
-                - A
-              - escalada: Wafer
-                ids:
-                - '4'
-                - B
-            escaladas:
-            - boulder:
-                nome: Buena Onda
-                dificuldade: V11
-            - boulder:
-                nome: Teto de Vidro
-                dificuldade: V9
-            - boulder:
-                nome: Gringo de Vidro
-                dificuldade: V7
-            - boulder:
-                nome: Teto Quebrado
-                dificuldade: V4
-            - boulder:
-                nome: Gringo
-                dificuldade: V10
-            - boulder:
-                nome: Manobra
-                dificuldade: V5
-                descricao: (dinâmico para a agarra indicada)
-            - boulder:
-                nome: Casquinha
-                dificuldade: V2
-            - boulder:
-                nome: Wafer
-                dificuldade: V1
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Tô de Boa'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 551
-                  y: 725
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 904
-                  y: 939
-                  raio: 13
-              referencias:
-              - escalada: NBA
-                ids:
-                - '1'
-              - escalada: Pedra Única
-                ids:
-                - '2'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 147
-                  y: 434
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 346
-                  y: 332
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 644
-                  y: 300
-                  raio: 13
-              - id: D
-                label: D
-                circulo:
-                  x: 1006
-                  y: 376
-                  raio: 13
-              - id: E
-                label: E
-                circulo:
-                  x: 1212
-                  y: 448
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 597
-                  y: 774
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 642
-                  y: 763
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1335
-                  y: 650
-                  raio: 13
-              referencias:
-              - escalada: Tô na Esquiva
-                ids:
-                - '1'
-                - A
-              - escalada: Tô Legal
-                ids:
-                - '1'
-                - B
-              - escalada: Tô Calmo
-                ids:
-                - '2'
-                - C
-              - escalada: Tô de Boa
-                ids:
-                - '2'
-                - D
-              - escalada: Jaguatirica
-                ids:
-                - '2'
-                - E
-              - escalada: Tô Suave
-                ids:
-                - '3'
-            escaladas:
-            - boulder:
-                nome: NBA
-                dificuldade: V6
-                descricao: (dinâmico de 2 regletes para a borda)
-            - boulder:
-                nome: Pedra Única
-                dificuldade: V4
-            - boulder:
-                nome: Tô na Esquiva
-                dificuldade: V6
-            - boulder:
-                nome: Tô Legal
-                dificuldade: V3
-            - boulder:
-                nome: Tô Calmo
-                dificuldade: V5
-            - boulder:
-                nome: Tô de Boa
-                dificuldade: V5
-            - boulder:
-                nome: Jaguatirica
-                dificuldade: V6
-            - boulder:
-                nome: Tô Suave
-                dificuldade: V4_BARRA_V5
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Pedra Queimada'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 1509
-                  y: 280
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 684
-                  y: 308
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 390
-                  y: 816
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 706
-                  y: 857
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 514
-                  y: 780
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 766
-                  y: 799
-                  raio: 13
-              - id: '5'
-                label: '5'
-                circulo:
-                  x: 1108
-                  y: 604
-                  raio: 13
-              - id: '6'
-                label: '6'
-                circulo:
-                  x: 1313
-                  y: 761
-                  raio: 13
-              referencias:
-              - escalada: Flap
-                ids:
-                - '1'
-              - escalada: Alfândega
-                ids:
-                - '2'
-              - escalada: México
-                ids:
-                - '3'
-              - escalada: Passaporte
-                ids:
-                - '4'
-              - escalada: Dinamite
-                ids:
-                - '5'
-                - A
-              - escalada: Pedra Queimada
-                ids:
-                - '5'
-                - B
-              - escalada: Dinamite sds
-                ids:
-                - '6'
-                - A
-              - escalada: Pedra Queimada sds
-                ids:
-                - '6'
-                - B
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 633
-                  y: 731
-                  raio: 13
-              referencias:
-              - escalada: Identidade
-                ids:
-                - '1'
-            escaladas:
-            - boulder:
-                nome: Flap
-                dificuldade: V5
-            - boulder:
-                nome: Alfândega
-                dificuldade: V9
-            - boulder:
-                nome: México
-                dificuldade: V9
-                descricao: (começa em duas agarras invertidas no teto)
-            - boulder:
-                nome: Passaporte
-                dificuldade: V6
-            - boulder:
-                nome: Dinamite
-                dificuldade: V2
-            - boulder:
-                nome: Pedra Queimada
-                dificuldade: V8
-            - boulder:
-                nome: Dinamite sds
-                dificuldade: V5_BARRA_V6
-            - boulder:
-                nome: Pedra Queimada sds
-                dificuldade: V9
-            - boulder:
-                nome: Identidade
-                dificuldade: V0
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Hora da Janta'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 410
-                  y: 1048
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 507
-                  y: 1072
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 750
-                  y: 758
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 1033
-                  y: 784
-                  raio: 13
-              - id: '5'
-                label: '5'
-                circulo:
-                  x: 1341
-                  y: 879
-                  raio: 13
-              - id: A
-                label: A
-                circulo:
-                  x: 289
-                  y: 449
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 443
-                  y: 277
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 789
-                  y: 23
-                  raio: 13
-              - id: D
-                label: D
-                circulo:
-                  x: 911
-                  y: 42
-                  raio: 13
-              - id: E
-                label: E
-                circulo:
-                  x: 1162
-                  y: 138
-                  raio: 13
-              - id: triangulo
-                label: ▲
-                circulo:
-                  x: 622
-                  y: 376
-                  raio: 13
-              - id: estrela
-                label: ★
-                circulo:
-                  x: 713
-                  y: 544
-                  raio: 13
-              referencias:
-              - escalada: Aranha
-                ids:
-                - '1'
-              - escalada: Desafio do Superman
-                ids:
-                - '2'
-                - A
-              - escalada: Hora da Janta
-                ids:
-                - '2'
-                - B
-              - escalada: Voo do Superman
-                ids:
-                - '3'
-                - C
-              - escalada: Conha Conha
-                ids:
-                - '4'
-                - D
-              - escalada: Maconhaque
-                ids:
-                - '4'
-                - E
-              - escalada: Tapa na Pantera
-                ids:
-                - '5'
-              - ids:
-                - '2'
-                - C
-                - triangulo
-                grupo: Pedreira
-                setor: 'Bloco: Hora da Janta'
-                escalada: Larica
-              - ids:
-                - '2'
-                - estrela
-                - C
-                grupo: Pedreira
-                setor: 'Bloco: Hora da Janta'
-                escalada: Sobremesa
-            escaladas:
-            - boulder:
-                nome: Aranha
-                dificuldade: V2
-            - boulder:
-                nome: Desafio do Superman
-                dificuldade: V3
-            - boulder:
-                nome: Hora da Janta
-                dificuldade: V3
-            - boulder:
-                nome: Larica
-                dificuldade: V3
-            - boulder:
-                nome: Sobremesa
-                dificuldade: V6
-            - boulder:
-                nome: Voo do Superman
-                dificuldade: INDEFINIDO
-            - boulder:
-                nome: Conha Conha
-                dificuldade: V5
-            - boulder:
-                nome: Maconhaque
-                dificuldade: V5
-            - boulder:
-                nome: Tapa na Pantera
-                dificuldade: V1
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Mezanino'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 363
-                  y: 824
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1025
-                  y: 992
-                  raio: 13
-              referencias:
-              - escalada: Mezanino
-                ids:
-                - '1'
-              - escalada: Mesa
-                ids:
-                - '2'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 659
-                  y: 956
-                  raio: 13
-              referencias:
-              - escalada: Mesa
-                ids:
-                - '1'
-            escaladas:
-            - boulder:
-                nome: Mezanino
-                dificuldade: V7
-            - boulder:
-                nome: Mesa
-                dificuldade: V5
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Chicletes'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 557
-                  y: 783
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 625
-                  y: 817
-                  raio: 13
-              - id: 3/1A
-                label: '3'
-                circulo:
-                  x: 957
-                  y: 947
-                  raio: 13
-              referencias:
-              - escalada: Trident
-                ids:
-                - '1'
-              - escalada: Big-Big
-                ids:
-                - '2'
-              - ids:
-                - 3/1A
-                grupo: Pedreira
-                setor: 'Bloco: Chicletes'
-                escalada: Babaloo
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 569
-                  y: 199
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1562
-                  y: 640
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 613
-                  y: 1007
-                  raio: 13
-              referencias:
-              - escalada: Babaloo
-                ids:
-                - '1'
-                - A
-              - escalada: Chicletes
-                ids:
-                - '1'
-                - B
-            escaladas:
-            - boulder:
-                nome: Trident
-                dificuldade: V10
-            - boulder:
-                nome: Big-Big
-                dificuldade: V9
-            - boulder:
-                nome: Babaloo
-                dificuldade: V7
-            - boulder:
-                nome: Chicletes
-                dificuldade: V11
-            descricao: ''
+            descricao: '| ![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalada 1* |
+
+
+              | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalada 2* |'
         - conteudo:
             nome: 'Bloco: Longevidade'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp
-              largura_mapa: 1576
-              altura_mapa: 1182
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp
+              largura_mapa: 1919
+              altura_mapa: 1440
               pontos_de_interesse:
               - id: '1'
                 label: '1'
@@ -2514,6 +2456,12 @@ picos:
                   x: 319
                   y: 624
                   raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 959
+                  y: 720
+                  raio: 13
               referencias:
               - escalada: Areia nos Olhos
                 ids:
@@ -2531,6 +2479,10 @@ picos:
                 ids:
                 - '3'
                 - C
+              - escalada: A Vaca e o Frango
+                ids:
+                - '4'
+                - A
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
               largura_mapa: 1576
               altura_mapa: 1182
@@ -2630,6 +2582,9 @@ picos:
                 nome: De Olho na Vida
                 dificuldade: V5
             - boulder:
+                nome: A Vaca e o Frango
+                dificuldade: V2
+            - boulder:
                 nome: Fala Vida
                 dificuldade: V3
             - boulder:
@@ -2655,59 +2610,166 @@ picos:
                 dificuldade: V10
             descricao: ''
         - conteudo:
-            nome: 'Bloco: Sonar'
+            nome: 'Bloco: Mata-Mata'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
-              largura_mapa: 1575
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
+              largura_mapa: 1576
               altura_mapa: 1182
               pontos_de_interesse:
               - id: A
                 label: A
                 circulo:
-                  x: 641
-                  y: 243
+                  x: 368
+                  y: 411
                   raio: 13
-              - id: B
-                label: B
+              - id: ★
+                label: ★
                 circulo:
-                  x: 949
-                  y: 345
+                  x: 689
+                  y: 613
                   raio: 13
-              - id: C
-                label: C
+              - id: ▲
+                label: ▲
                 circulo:
-                  x: 1461
-                  y: 667
+                  x: 767
+                  y: 803
                   raio: 13
               - id: '1'
                 label: '1'
                 circulo:
-                  x: 552
-                  y: 940
+                  x: 600
+                  y: 958
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1042
+                  y: 863
                   raio: 13
               referencias:
-              - escalada: Braúna
+              - escalada: Mata-Mata
                 ids:
                 - '1'
                 - A
-              - escalada: Sonar
+              - escalada: Mata-Mata ext
+                ids:
+                - '2'
+                - A
+                - ▲
+              - escalada: '001'
+                ids:
+                - '2'
+                - A
+                - ★
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 501
+                  y: 815
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 937
+                  y: 740
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1242
+                  y: 927
+                  raio: 13
+              referencias:
+              - escalada: Sem as Mãos
                 ids:
                 - '1'
-                - B
-              - escalada: Periscópio
+              - escalada: Ética
+                ids:
+                - '2'
+              - escalada: Risada
+                ids:
+                - '3'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 1110
+                  y: 742
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1386
+                  y: 723
+                  raio: 13
+              referencias:
+              - escalada: Batentes
                 ids:
                 - '1'
-                - C
+              - escalada: Regletes
+                ids:
+                - '2'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 442
+                  y: 788
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 963
+                  y: 891
+                  raio: 13
+              referencias:
+              - escalada: Cocal é Gueto
+                ids:
+                - '1'
+              - escalada: '002'
+                ids:
+                - '2'
             escaladas:
             - boulder:
-                nome: Braúna
-                dificuldade: V7
+                nome: Mata-Mata
+                dificuldade: V2
             - boulder:
-                nome: Sonar
-                dificuldade: V4
+                nome: Mata-Mata ext
+                dificuldade: V3
             - boulder:
-                nome: Periscópio
-                dificuldade: V5
+                nome: '001'
+                dificuldade: V3
+            - boulder:
+                nome: Sem as Mãos
+                dificuldade: V0
+            - boulder:
+                nome: Ética
+                dificuldade: V0
+            - boulder:
+                nome: Risada
+                dificuldade: V0
+            - boulder:
+                nome: Batentes
+                dificuldade: V1
+            - boulder:
+                nome: Regletes
+                dificuldade: V2
+            - boulder:
+                nome: Cocal é Gueto
+                dificuldade: V3
+            - boulder:
+                nome: '002'
+                dificuldade: V2
             descricao: ''
         - conteudo:
             nome: 'Bloco: Meia-Parede'
@@ -2836,6 +2898,93 @@ picos:
                 nome: Jardim Suspenso
                 dificuldade: V6
             descricao: ''
+        - conteudo:
+            nome: 'Bloco: Mezanino'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 363
+                  y: 824
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1025
+                  y: 992
+                  raio: 13
+              referencias:
+              - escalada: Mezanino
+                ids:
+                - '1'
+              - escalada: Mesa
+                ids:
+                - '2'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 659
+                  y: 956
+                  raio: 13
+              referencias:
+              - escalada: Mesa
+                ids:
+                - '1'
+            escaladas:
+            - boulder:
+                nome: Mezanino
+                dificuldade: V7
+            - boulder:
+                nome: Mesa
+                dificuldade: V5
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Nat Geo'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp
+              referencias:
+              - escalada: Nat Geo
+                ids:
+                - '1'
+              - escalada: Discovery Kids
+                ids:
+                - '2'
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 778
+                  y: 654
+                  raio: 12
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1806
+                  y: 1034
+                  raio: 12
+            escaladas:
+            - boulder:
+                nome: Nat Geo
+                dificuldade: V7
+            - boulder:
+                nome: Discovery Kids
+                dificuldade: V3
+            descricao: '| ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalada Noturna* |'
         - conteudo:
             nome: 'Bloco: Nave-Mãe'
             mapas:
@@ -3305,7 +3454,7 @@ picos:
                   y: 943
                   raio: 13
               referencias:
-              - escalada: Novos Baianos
+              - escalada: Pico do Baiano
                 ids:
                 - A
                 - '1'
@@ -3419,7 +3568,7 @@ picos:
                 nome: '003'
                 dificuldade: V5
             - boulder:
-                nome: Novos Baianos
+                nome: Pico do Baiano
                 dificuldade: V11
             - boulder:
                 nome: De Inverno
@@ -3438,815 +3587,875 @@ picos:
                 dificuldade: V2
             descricao: ''
         - conteudo:
-            nome: 'Bloco: Abaulados'
+            nome: 'Bloco: Pedra Queimada'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 828
-                  y: 851
-                  raio: 13
-              referencias:
-              - escalada: Abaulados
-                ids:
-                - '1'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 574
-                  y: 824
-                  raio: 13
-              referencias:
-              - escalada: '004'
-                ids:
-                - '1'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
               - id: A
                 label: A
                 circulo:
-                  x: 203
-                  y: 333
+                  x: 1509
+                  y: 280
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 684
+                  y: 308
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 514
+                  y: 780
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1108
+                  y: 604
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1313
+                  y: 761
+                  raio: 13
+              referencias:
+              - escalada: México
+                ids:
+                - '1'
+              - escalada: Dinamite
+                ids:
+                - '2'
+                - A
+              - escalada: Pedra Queimada
+                ids:
+                - '2'
+                - B
+              - escalada: Dinamite sds
+                ids:
+                - '3'
+                - A
+              - escalada: Pedra Queimada sds
+                ids:
+                - '3'
+                - B
+            escaladas:
+            - boulder:
+                nome: México
+                dificuldade: V9
+            - boulder:
+                nome: Dinamite
+                dificuldade: V2
+            - boulder:
+                nome: Pedra Queimada
+                dificuldade: V8
+            - boulder:
+                nome: Dinamite sds
+                dificuldade: V5_BARRA_V6
+            - boulder:
+                nome: Pedra Queimada sds
+                dificuldade: V9
+            descricao: '| ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalada Pedra Queimada* |'
+        - conteudo:
+            nome: 'Bloco: Red Bull'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 843
+                  y: 78
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1137
+                  y: 513
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 503
+                  y: 937
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 1038
+                  y: 835
+                  raio: 13
+              - id: ▲
+                label: ▲
+                circulo:
+                  x: 345
+                  y: 448
+                  raio: 13
+              - id: ★
+                label: ★
+                circulo:
+                  x: 737
+                  y: 380
+                  raio: 13
+              referencias:
+              - escalada: Flying Horse
+                ids:
+                - '1'
+                - A
+                - ▲
+              - escalada: Pingado
+                ids:
+                - '1'
+                - A
+                - ★
+              - escalada: Expresso
+                ids:
+                - '1'
+                - B
+              - escalada: Macchiato
+                ids:
+                - '2'
+                - A
+                - ▲
+              - escalada: Red Bull
+                ids:
+                - '2'
+                - A
+                - ★
+              - escalada: Mad Dog
+                ids:
+                - '2'
+                - B
+            escaladas:
+            - boulder:
+                nome: Flying Horse
+                dificuldade: V2
+            - boulder:
+                nome: Pingado
+                dificuldade: V3
+            - boulder:
+                nome: Expresso
+                dificuldade: V7
+            - boulder:
+                nome: Macchiato
+                dificuldade: V6
+            - boulder:
+                nome: Red Bull
+                dificuldade: V6
+            - boulder:
+                nome: Mad Dog
+                dificuldade: V1
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Sauna'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 615
+                  y: 128
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1071
+                  y: 228
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1256
+                  y: 260
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 871
+                  y: 918
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 954
+                  y: 903
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1071
+                  y: 841
+                  raio: 13
+              referencias:
+              - escalada: Sauna Seca
+                ids:
+                - '1'
+                - A
+              - escalada: Sauna Úmida
+                ids:
+                - '2'
+                - B
+              - escalada: Sauna Mista
+                ids:
+                - '3'
+                - A
+              - escalada: Sauna a Vapor
+                ids:
+                - '3'
+                - C
+            escaladas:
+            - boulder:
+                nome: Sauna Seca
+                dificuldade: V4
+            - boulder:
+                nome: Sauna Úmida
+                dificuldade: V4
+            - boulder:
+                nome: Sauna Mista
+                dificuldade: V5
+            - boulder:
+                nome: Sauna a Vapor
+                dificuldade: V6
+                descricao: (não usa a face direita da linha)
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Sonar'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_sonar_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 641
+                  y: 243
                   raio: 13
               - id: B
                 label: B
                 circulo:
                   x: 949
-                  y: 109
+                  y: 345
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1461
+                  y: 667
                   raio: 13
               - id: '1'
                 label: '1'
                 circulo:
-                  x: 824
-                  y: 788
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 722
-                  y: 985
+                  x: 552
+                  y: 940
                   raio: 13
               referencias:
-              - escalada: Jardim Secreto
+              - escalada: Braúna
                 ids:
                 - '1'
                 - A
-              - escalada: Papo Reto
+              - escalada: Sonar
                 ids:
                 - '1'
                 - B
-              - escalada: Papo Reto sds
+              - escalada: Periscópio
                 ids:
-                - '2'
-                - B
+                - '1'
+                - C
             escaladas:
             - boulder:
-                nome: Abaulados
-                dificuldade: V3
+                nome: Braúna
+                dificuldade: V7
             - boulder:
-                nome: '004'
+                nome: Sonar
                 dificuldade: V4
             - boulder:
-                nome: Jardim Secreto
-                dificuldade: V11
-            - boulder:
-                nome: Papo Reto
-                dificuldade: V11
-            - boulder:
-                nome: Papo Reto sds
-                dificuldade: V12
+                nome: Periscópio
+                dificuldade: V5
             descricao: ''
         - conteudo:
-            nome: 'Bloco: Deep Inside'
+            nome: 'Bloco: Teto de Vidro'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 691
+                  y: 312
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 1091
+                  y: 740
+                  raio: 13
               - id: '1'
                 label: '1'
                 circulo:
-                  x: 230
-                  y: 849
+                  x: 433
+                  y: 840
                   raio: 13
               - id: '2'
                 label: '2'
                 circulo:
-                  x: 1050
-                  y: 835
+                  x: 1021
+                  y: 726
                   raio: 13
               - id: '3'
                 label: '3'
                 circulo:
-                  x: 1008
-                  y: 911
+                  x: 917
+                  y: 688
                   raio: 13
-              - id: A
-                label: A
-                circulo:
-                  x: 719
-                  y: 284
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1399
-                  y: 238
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1512
-                  y: 628
-                  raio: 13
-              - id: triangulo
+              - id: ▲
                 label: ▲
                 circulo:
-                  x: 1072
-                  y: 736
+                  x: 957
+                  y: 737
                   raio: 13
-              - id: estrela
+              - id: ★
                 label: ★
                 circulo:
-                  x: 1331
-                  y: 778
+                  x: 995
+                  y: 663
                   raio: 13
               referencias:
-              - escalada: Buda
+              - escalada: Buena Onda
                 ids:
                 - '1'
                 - A
-              - escalada: Arestides
+              - escalada: Teto de Vidro
                 ids:
                 - '1'
                 - B
-              - escalada: Arestides ext
+                - ▲
+              - escalada: Gringo de Vidro
                 ids:
                 - '1'
-                - C
-              - escalada: Nataraja
+                - B
+                - ★
+              - escalada: Teto Quebrado
                 ids:
                 - '2'
-                - triangulo
                 - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-              - escalada: Sidarta
+              - escalada: Gringo
                 ids:
-                - '2'
-                - estrela
-                - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-              - ids:
                 - '3'
-                - estrela
-                - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-                escalada: Sidarta sds
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
+                - A
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
               - id: A
                 label: A
                 circulo:
-                  x: 250
-                  y: 407
+                  x: 1001
+                  y: 297
                   raio: 13
               - id: B
                 label: B
                 circulo:
-                  x: 565
-                  y: 225
+                  x: 1172
+                  y: 401
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 532
+                  y: 892
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 470
+                  y: 750
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 849
+                  y: 892
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1253
+                  y: 984
+                  raio: 13
+              referencias:
+              - escalada: Teto de Vidro
+                ids:
+                - '1'
+                - A
+              - escalada: Teto Quebrado
+                ids:
+                - '2'
+                - A
+              - escalada: Manobra
+                ids:
+                - '3'
+                - A
+              - escalada: Casquinha
+                ids:
+                - '4'
+                - A
+              - escalada: Wafer
+                ids:
+                - '4'
+                - B
+            escaladas:
+            - boulder:
+                nome: Buena Onda
+                dificuldade: V11
+            - boulder:
+                nome: Teto de Vidro
+                dificuldade: V9
+            - boulder:
+                nome: Gringo de Vidro
+                dificuldade: V7
+            - boulder:
+                nome: Teto Quebrado
+                dificuldade: V4
+            - boulder:
+                nome: Gringo
+                dificuldade: V10
+            - boulder:
+                nome: Manobra
+                dificuldade: V5
+                descricao: (dinâmico para a agarra indicada)
+            - boulder:
+                nome: Casquinha
+                dificuldade: V2
+            - boulder:
+                nome: Wafer
+                dificuldade: V1
+            descricao: '| ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *Fotos* |'
+        - conteudo:
+            nome: 'Bloco: Tô de Boa'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
+              largura_mapa: 1576
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 551
+                  y: 725
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 904
+                  y: 939
+                  raio: 13
+              referencias:
+              - escalada: NBA
+                ids:
+                - '1'
+              - escalada: Pedra Única
+                ids:
+                - '2'
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 147
+                  y: 434
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 346
+                  y: 332
                   raio: 13
               - id: C
                 label: C
                 circulo:
-                  x: 874
-                  y: 197
+                  x: 644
+                  y: 300
                   raio: 13
               - id: D
                 label: D
                 circulo:
-                  x: 1211
-                  y: 307
+                  x: 1006
+                  y: 376
+                  raio: 13
+              - id: E
+                label: E
+                circulo:
+                  x: 1212
+                  y: 448
                   raio: 13
               - id: '1'
                 label: '1'
                 circulo:
-                  x: 67
-                  y: 779
-                  raio: 13
-              - id: triangulo
-                label: ▲
-                circulo:
-                  x: 328
-                  y: 692
-                  raio: 13
-              - id: estrela
-                label: ★
-                circulo:
-                  x: 519
-                  y: 657
+                  x: 597
+                  y: 774
                   raio: 13
               - id: '2'
                 label: '2'
                 circulo:
-                  x: 474
-                  y: 748
+                  x: 642
+                  y: 763
                   raio: 13
               - id: '3'
                 label: '3'
                 circulo:
-                  x: 474
-                  y: 789
+                  x: 1335
+                  y: 650
+                  raio: 13
+              referencias:
+              - escalada: Tô na Esquiva
+                ids:
+                - '1'
+                - A
+              - escalada: Tô Legal
+                ids:
+                - '1'
+                - B
+              - escalada: Tô Calmo
+                ids:
+                - '2'
+                - C
+              - escalada: Tô de Boa
+                ids:
+                - '2'
+                - D
+              - escalada: Jaguatirica
+                ids:
+                - '2'
+                - E
+              - escalada: Tô Suave
+                ids:
+                - '3'
+            escaladas:
+            - boulder:
+                nome: NBA
+                dificuldade: V6
+                descricao: (dinâmico de 2 regletes para a borda)
+            - boulder:
+                nome: Pedra Única
+                dificuldade: V4
+            - boulder:
+                nome: Tô na Esquiva
+                dificuldade: V6
+            - boulder:
+                nome: Tô Legal
+                dificuldade: V3
+            - boulder:
+                nome: Tô Calmo
+                dificuldade: V5
+            - boulder:
+                nome: Tô de Boa
+                dificuldade: V5
+            - boulder:
+                nome: Jaguatirica
+                dificuldade: V6
+            - boulder:
+                nome: Tô Suave
+                dificuldade: V4_BARRA_V5
+            descricao: '| ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
+              |
+
+              | :--: |
+
+              | *Escalador no Bloco Tô de Boa* |'
+        - conteudo:
+            nome: 'Bloco: Travessia'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
+              largura_mapa: 1575
+              altura_mapa: 1182
+              pontos_de_interesse:
+              - id: A
+                label: A
+                circulo:
+                  x: 488
+                  y: 341
+                  raio: 13
+              - id: B
+                label: B
+                circulo:
+                  x: 692
+                  y: 138
+                  raio: 13
+              - id: C
+                label: C
+                circulo:
+                  x: 1281
+                  y: 87
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 116
+                  y: 659
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 179
+                  y: 743
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 415
+                  y: 840
                   raio: 13
               - id: '4'
                 label: '4'
                 circulo:
-                  x: 662
-                  y: 778
+                  x: 711
+                  y: 812
                   raio: 13
               - id: '5'
                 label: '5'
                 circulo:
-                  x: 701
-                  y: 752
+                  x: 1183
+                  y: 840
                   raio: 13
               - id: '6'
                 label: '6'
                 circulo:
-                  x: 764
-                  y: 605
-                  raio: 13
-              - id: '7'
-                label: '7'
-                circulo:
-                  x: 1201
-                  y: 693
+                  x: 1361
+                  y: 753
                   raio: 13
               referencias:
-              - escalada: Arestides
+              - escalada: Travessia ext
                 ids:
                 - '1'
-                - B
-              - escalada: Canindé
+                - C
+              - escalada: Travessia
+                ids:
+                - '2'
+                - C
+              - escalada: Enjambrado
+                ids:
+                - '3'
+                - A
+              - escalada: Face Vertical
                 ids:
                 - '4'
-                - C
-              - escalada: Canindé de Cima
+                - B
+              - escalada: Será
                 ids:
                 - '5'
                 - C
-              - escalada: Cara de Boi
+              - escalada: Bem-vindo ao Climb
                 ids:
                 - '6'
-                - B
-              - escalada: Cara de Vaca
-                ids:
-                - '6'
-                - C
-              - escalada: Promoção
-                ids:
-                - '7'
-                - D
-              - escalada: Invertides
-                ids:
-                - '7'
-                - A
-                - triangulo
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-              - escalada: Arestides ext
-                ids:
-                - '1'
-                - triangulo
-                - D
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-              - escalada: Nataraja
-                ids:
-                - '2'
-                - triangulo
-                - A
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-              - ids:
-                - '2'
-                - estrela
-                - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-                escalada: Sidarta
-              - ids:
-                - '3'
-                - estrela
-                - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-                escalada: Sidarta sds
-              - ids:
-                - '4'
-                - triangulo
-                - A
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-                escalada: Deep Inside ext
-              - ids:
-                - '4'
-                - estrela
-                - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
-                escalada: Deep Inside
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - id: A
+                label: A
                 circulo:
-                  x: 512
-                  y: 776
-                  raio: 14
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 612
-                  y: 791
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1215
-                  y: 745
+                  x: 9
+                  y: 285
                   raio: 13
               - id: B
                 label: B
                 circulo:
-                  x: 555
-                  y: 263
-                  raio: 13
-              - id: A
-                label: A
-                circulo:
-                  x: 703
-                  y: 163
+                  x: 554
+                  y: 241
                   raio: 13
               - id: C
                 label: C
                 circulo:
-                  x: 849
-                  y: 99
+                  x: 1207
+                  y: 326
+                  raio: 13
+              - id: D
+                label: D
+                circulo:
+                  x: 1397
+                  y: 305
+                  raio: 13
+              - id: E
+                label: E
+                circulo:
+                  x: 1521
+                  y: 431
+                  raio: 13
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 41
+                  y: 576
+                  raio: 13
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 588
+                  y: 858
+                  raio: 13
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1281
+                  y: 835
+                  raio: 13
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1389
+                  y: 766
+                  raio: 13
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 1492
+                  y: 751
                   raio: 13
               referencias:
-              - escalada: Promocinha
+              - escalada: Travessia ext
                 ids:
                 - '1'
-                - A
-              - escalada: Bolinho de Chuva
+                - E
+              - escalada: Travessia
+                ids:
+                - '2'
+                - E
+              - escalada: Enjambrado
                 ids:
                 - '3'
                 - C
-              - escalada: Promoção
+              - escalada: Face Vertical
+                ids:
+                - '4'
+                - D
+              - escalada: Será
+                ids:
+                - '5'
+                - E
+              - escalada: Monodedo
+                ids:
+                - '2'
+                - A
+              - escalada: Movimentos Eróticos
                 ids:
                 - '2'
                 - B
-                grupo: Pedreira
-                setor: 'Bloco: Deep Inside'
             escaladas:
             - boulder:
-                nome: Buda
-                dificuldade: V3
-            - boulder:
-                nome: Arestides
-                dificuldade: V5
-            - boulder:
-                nome: Arestides ext
-                dificuldade: V7
-            - boulder:
-                nome: Nataraja
-                dificuldade: V6
-            - boulder:
-                nome: Sidarta
-                dificuldade: V5
-            - boulder:
-                nome: Sidarta sds
-                dificuldade: V9
-            - boulder:
-                nome: Deep Inside ext
-                dificuldade: V11
-            - boulder:
-                nome: Deep Inside
-                dificuldade: V10
-            - boulder:
-                nome: Canindé
-                dificuldade: V10
-            - boulder:
-                nome: Canindé de Cima
-                dificuldade: V9
-            - boulder:
-                nome: Cara de Boi
+                nome: Travessia ext
                 dificuldade: V2
             - boulder:
-                nome: Cara de Vaca
+                nome: Travessia
                 dificuldade: V1
             - boulder:
-                nome: Invertides
-                dificuldade: V8
+                nome: Enjambrado
+                dificuldade: V3
             - boulder:
-                nome: Promoção
+                nome: Face Vertical
+                dificuldade: V1
+            - boulder:
+                nome: Será
+                dificuldade: V1
+            - boulder:
+                nome: Bem-vindo ao Climb
+                dificuldade: V0
+            - boulder:
+                nome: Monodedo
+                dificuldade: V1
+            - boulder:
+                nome: Movimentos Eróticos
+                dificuldade: V1
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Véia Doida'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 1165
+                  y: 1111
+                  raio: 13
+              referencias:
+              - escalada: Véia Doida
+                ids:
+                - '1'
+            escaladas:
+            - boulder:
+                nome: Véia Doida
                 dificuldade: V4
+            descricao: ''
+        - conteudo:
+            nome: 'Bloco: Vitamina Jungle'
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp
+              referencias:
+              - escalada: '009'
+                ids:
+                - '1'
+              - escalada: Vitamina Jungle
+                ids:
+                - '2'
+              - escalada: '8'
+                ids:
+                - '3'
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 121
+                  y: 946
+                  raio: 21
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 829
+                  y: 1037
+                  raio: 20
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1337
+                  y: 1034
+                  raio: 20
+            escaladas:
             - boulder:
-                nome: Promocinha
+                nome: '009'
+                dificuldade: V3
+            - boulder:
+                nome: Vitamina Jungle
                 dificuldade: V7
             - boulder:
-                nome: Bolinho de Chuva
-                dificuldade: VB
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Complexo'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p0.webp
-              largura_mapa: 2048
-              altura_mapa: 1536
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 114
-                  y: 1352
-                  raio: 16
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 517
-                  y: 1312
-                  raio: 16
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1189
-                  y: 1366
-                  raio: 16
-              - id: A
-                label: A
-                circulo:
-                  x: 1036
-                  y: 38
-                  raio: 16
-              - id: B
-                label: B
-                circulo:
-                  x: 1548
-                  y: 152
-                  raio: 17
-              referencias:
-              - escalada: Talhadeira
-                ids:
-                - '1'
-              - escalada: Complexo
-                ids:
-                - '2'
-                - A
-              - escalada: Ajoelhou, Tem que Rezar
-                ids:
-                - '2'
-                - B
-              - escalada: Descomplicado
-                ids:
-                - '3'
-                - B
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p1.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: A
-                label: A
-                circulo:
-                  x: 655
-                  y: 233
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 887
-                  y: 109
-                  raio: 13
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 965
-                  y: 931
-                  raio: 13
-              referencias:
-              - escalada: Talhadeira
-                ids:
-                - '1'
-                - B
-              - escalada: Sofá
-                ids:
-                - '1'
-                - A
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p2.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 491
-                  y: 868
-                  raio: 14
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 703
-                  y: 878
-                  raio: 14
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 967
-                  y: 867
-                  raio: 14
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 1053
-                  y: 846
-                  raio: 14
-              referencias:
-              - escalada: Porosíssimo
-                ids:
-                - '1'
-              - escalada: Poroso
-                ids:
-                - '2'
-              - escalada: Não Poroso
-                ids:
-                - '3'
-              - escalada: Triangular
-                ids:
-                - '4'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p3.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 426
-                  y: 736
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1442
-                  y: 934
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1208
-                  y: 809
-                  raio: 13
-              referencias:
-              - escalada: Boulder de Raiz
-                ids:
-                - '1'
-              - escalada: Travessia Ouro Preto-Bocaina
-                ids:
-                - '2'
-              - escalada: Perereca
-                ids:
-                - '3'
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 412
-                  y: 956
-                  raio: 13
-              referencias:
-              - escalada: Respira
-                ids:
-                - '1'
-            escaladas:
-            - boulder:
-                nome: Talhadeira
-                dificuldade: V4
-            - boulder:
-                nome: Complexo
-                dificuldade: V5
-            - boulder:
-                nome: Ajoelhou, Tem que Rezar
-                dificuldade: V5
-            - boulder:
-                nome: Descomplicado
-                dificuldade: V3
-            - boulder:
-                nome: Sofá
-                dificuldade: V3
-            - boulder:
-                nome: Porosíssimo
-                dificuldade: V3
-            - boulder:
-                nome: Poroso
-                dificuldade: V2
-            - boulder:
-                nome: Não Poroso
-                dificuldade: V3
-            - boulder:
-                nome: Triangular
-                dificuldade: V5
-            - boulder:
-                nome: Boulder de Raiz
-                dificuldade: V2
-            - boulder:
-                nome: Travessia Ouro Preto-Bocaina
-                dificuldade: V4
-            - boulder:
-                nome: Perereca
-                dificuldade: V4
-            - boulder:
-                nome: Respira
-                dificuldade: V6
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Conhaque'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 20
-                  y: 1023
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 523
-                  y: 1035
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 693
-                  y: 1003
-                  raio: 13
-              - id: '4'
-                label: '4'
-                circulo:
-                  x: 1283
-                  y: 973
-                  raio: 13
-              - id: A
-                label: A
-                circulo:
-                  x: 359
-                  y: 184
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 1034
-                  y: 26
-                  raio: 13
-              referencias:
-              - escalada: Aderência
-                ids:
-                - '1'
-                - A
-              - escalada: Dreher
-                ids:
-                - '2'
-                - A
-              - escalada: Yoga
-                ids:
-                - '3'
-                - A
-              - escalada: Conhaque
-                ids:
-                - '3'
-                - B
-              - escalada: Conhaque Presidente
-                ids:
-                - '4'
-            escaladas:
-            - boulder:
-                nome: Aderência
-                dificuldade: VB
-            - boulder:
-                nome: Dreher
-                dificuldade: V3
-            - boulder:
-                nome: Yoga
-                dificuldade: V4
-            - boulder:
-                nome: Conhaque
-                dificuldade: V4_BARRA_V5
-            - boulder:
-                nome: Conhaque Presidente
-                dificuldade: V6
-            descricao: ''
-        - conteudo:
-            nome: 'Bloco: Elétron'
-            mapas:
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_eletron_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 30
-                  y: 572
-                  raio: 13
-              - id: '2'
-                label: '2'
-                circulo:
-                  x: 1107
-                  y: 868
-                  raio: 13
-              - id: '3'
-                label: '3'
-                circulo:
-                  x: 1520
-                  y: 845
-                  raio: 13
-              - id: A
-                label: A
-                circulo:
-                  x: 52
-                  y: 90
-                  raio: 13
-              - id: B
-                label: B
-                circulo:
-                  x: 939
-                  y: 173
-                  raio: 13
-              - id: C
-                label: C
-                circulo:
-                  x: 1410
-                  y: 166
-                  raio: 13
-              referencias:
-              - escalada: Neutron
-                ids:
-                - '1'
-                - B
-              - escalada: Elétron
-                ids:
-                - '2'
-                - B
-              - escalada: Via Láctea
-                ids:
-                - '3'
-                - A
-              - escalada: Neutron
-                ids:
-                - '3'
-                - B
-              - escalada: Positron
-                ids:
-                - '3'
-                - C
-            escaladas:
-            - boulder:
-                nome: Neutron
-                dificuldade: V3_BARRA_V4
-            - boulder:
-                nome: Elétron
-                dificuldade: V3
-            - boulder:
-                nome: Via Láctea
-                dificuldade: V6
-            - boulder:
-                nome: Neutron
-                dificuldade: V4
-            - boulder:
-                nome: Positron
+                nome: '8'
                 dificuldade: V3
             descricao: ''
         descricao: ''
@@ -4479,7 +4688,7 @@ picos:
                   y: 954
                   raio: 13
               referencias:
-              - escalada: '005'
+              - escalada: '011'
                 ids:
                 - '1'
             - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp
@@ -4498,8 +4707,8 @@ picos:
                   x: 511
                   y: 955
                   raio: 13
-              - id: '4'
-                label: '4'
+              - id: '3'
+                label: '3'
                 circulo:
                   x: 907
                   y: 948
@@ -4527,10 +4736,11 @@ picos:
                 - A
               - escalada: Super Bonder
                 ids:
-                - '4'
+                - '3'
                 - B
               - escalada: Tec Bond
                 ids:
+                - '2'
                 - B
                 grupo: Mont Blanc
                 setor: 'Bloco: Mont Blanc'
@@ -4566,7 +4776,7 @@ picos:
                 nome: Colibri
                 dificuldade: V10
             - boulder:
-                nome: '005'
+                nome: '011'
                 dificuldade: V2
             - boulder:
                 nome: Raízes do Brasil
@@ -4635,7 +4845,7 @@ picos:
                 ids:
                 - '2'
                 - C
-            - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
+            - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p2.webp
               largura_mapa: 1575
               altura_mapa: 1182
               pontos_de_interesse:
@@ -4689,7 +4899,12 @@ picos:
             - boulder:
                 nome: Fulano
                 dificuldade: V1
-            descricao: ''
+            descricao: '| ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
+              |
+
+              | :--: |
+
+              | *parada obrigatória* |'
         - conteudo:
             nome: 'Bloco: Salão dos Ossos'
             mapas:
@@ -4750,11 +4965,11 @@ picos:
                 ids:
                 - '1'
                 - B
-              - escalada: '006'
+              - escalada: '012'
                 ids:
                 - '2'
                 - A
-              - escalada: '007'
+              - escalada: '013'
                 ids:
                 - '3'
                 - A
@@ -4779,10 +4994,10 @@ picos:
                 nome: Dolinha
                 dificuldade: V8
             - boulder:
-                nome: '006'
+                nome: '012'
                 dificuldade: V1
             - boulder:
-                nome: '007'
+                nome: '013'
                 dificuldade: V3
             - boulder:
                 nome: Salão dos Ossos
@@ -5380,20 +5595,6 @@ picos:
         - conteudo:
             nome: 'Bloco: Mantra'
             mapas:
-            - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
-              largura_mapa: 1575
-              altura_mapa: 1182
-              pontos_de_interesse:
-              - id: '1'
-                label: '1'
-                circulo:
-                  x: 957
-                  y: 1039
-                  raio: 13
-              referencias:
-              - escalada: Prodígio
-                ids:
-                - '1'
             - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -5423,13 +5624,9 @@ picos:
               - escalada: Oráculo
                 ids:
                 - '2'
-                grupo: Bonsai
-                setor: 'Bloco: Mantra'
-              - escalada: 008
+              - escalada: '014'
                 ids:
                 - '3'
-                grupo: Bonsai
-                setor: 'Bloco: Mantra'
             - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p2.webp
               largura_mapa: 1575
               altura_mapa: 1182
@@ -5515,16 +5712,13 @@ picos:
                 - '2'
             escaladas:
             - boulder:
-                nome: Prodígio
-                dificuldade: V5
-            - boulder:
                 nome: Briga de Galo
                 dificuldade: V6
             - boulder:
                 nome: Oráculo
                 dificuldade: V9
             - boulder:
-                nome: 008
+                nome: '014'
                 dificuldade: V5
             - boulder:
                 nome: Afrodisíaco
@@ -5705,6 +5899,28 @@ picos:
                 nome: Semiárido
                 dificuldade: V5
             descricao: ''
+        - conteudo:
+            nome: Prodígio
+            escaladas:
+            - boulder:
+                nome: Prodígio
+                dificuldade: V5
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_prodigio_p0_i0.webp
+              largura_mapa: 1920
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 957
+                  y: 1039
+                  raio: 13
+              referencias:
+              - escalada: Prodígio
+                ids:
+                - '1'
+            descricao: ''
         descricao: ''
   mapas_gerais:
     conteudo:
@@ -5824,7 +6040,7 @@ botoes:
       conteudo: '# CROQUI 2025 OUROBOULDER
 
 
-        | ![SIME MINAS GERAIS - BRASIL](imagens/capa_p0.webp) |
+        | ![SIME MINAS GERAIS - BRASIL](imagens/capa_p0_i0.webp) |
 
         | :--: |
 
@@ -5835,53 +6051,51 @@ botoes:
       conteudo: '# APOIO
 
 
-        | ![Logos de apoiadores](imagens/apoio_p0.webp) |
+        | ![Logos de apoiadores](imagens/apoio_p0_i0.webp) |
 
         | :--: |
 
         | *Logos de apoiadores* |'
-- texto: O Evento
+- texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# O EVENTO
+      conteudo: '# OUROBOULDER 20 ANOS
 
 
-        ## História e Tradição
+        Em 2026, o OUROBOULDER celebra uma marca histórica: 20 anos de existência,
+        consolidando-se como um dos mais tradicionais encontros de escalada em boulder
+        do Brasil. Ao longo de duas décadas, o evento transformou-se em muito mais
+        do que um festival esportivo, tornando-se um espaço de integração, amizade,
+        cultura e valorização das montanhas e paisagens de Ouro Preto.
 
 
-        O OUROBOULDER é um tradicional encontro de escaladores que acontece anualmente
-        na histórica cidade de Ouro Preto, Minas Gerais. Em 2025, o evento celebra
-        sua 17ª edição, reunindo atletas e praticantes da escalada em boulder, aproveitando
-        a alta temporada e a excelente qualidade das formações rochosas da região.
+        Nascido da paixão pela escalada e do espírito de comunidade que caracteriza
+        os praticantes do esporte, o OUROBOULDER construiu uma trajetória marcada
+        por desafios, superação e momentos inesquecíveis. A cada edição, atletas,
+        iniciantes, famílias e amantes da natureza se reúnem para compartilhar experiências,
+        celebrar conquistas e fortalecer os laços que unem a comunidade da escalada.
 
 
-        Surgido em meados de 2006, ocorre atualmente nos setores de escalada localizados
-        no Parque Municipal das Andorinhas, como Pedreira, Bonsai, Mont Blanc e Sunset.
-        Desde 2024 passou ser organizado pela SIME, entidade representativa de montanhistas
-        e escaladores da Região dos Inconfidentes.
+        Realizado em um dos mais importantes patrimônios históricos e culturais do
+        país, o evento combina a beleza singular das formações rochosas da região
+        com a riqueza histórica de Ouro Preto, proporcionando uma experiência única
+        aos participantes. O ambiente descontraído, a convivência ao ar livre, as
+        atividades culturais, as ações de educação ambiental e o incentivo à prática
+        esportiva fazem parte da identidade que tornou o OUROBOULDER uma referência
+        nacional.
 
 
-        Ao longo dos anos, o evento tem atraído um público cativo e grandes nomes
-        do esporte, como o escalador espanhol Daniel Andrada, que participou da segunda
-        edição em 2007. O evento busca evoluir a cada edição, sempre mantendo o foco
-        na sustentabilidade e na conscientização ambiental, utilizando materiais biodegradáveis
-        e promovendo a preservação da fauna e flora local.
-
-
-        Além da escalada, o OUROBOULDER visa oferecer uma experiência completa aos
-        participantes, com tenda de apoio, croquis dos setores, desafios, sorteio
-        de brindes e outras atividades. É um evento que promove a união de pessoas
-        de diversos países e estados com o mesmo intuito: escalar e se conectar com
-        a natureza e a comunidade da escalada.'
-- texto: A Cidade
+        A edição comemorativa de 2026 serve para homenagear todos aqueles que ajudaram
+        a construir essa história.'
+- texto: Sobre Ouro Preto
   destino:
     secao_textual:
-      conteudo: '# A CIDADE
+      conteudo: '# Ouro Preto
 
 
         Ouro Preto é um tesouro histórico e cultural do Brasil, reconhecida como Patrimônio
         Cultural da Humanidade pela UNESCO em 1980. Sua origem remonta ao final do
-        século XVII, com a descoberta de ouro aluvião por bandeirantes paulistas,
+        século XVII, com a descoberta de ouro de aluvião por bandeirantes paulistas,
         o que impulsionou o desenvolvimento da região e a transformou em um dos principais
         centros econômicos do Brasil Colônia. Inicialmente conhecida como Vila Rica,
         a cidade foi elevada à categoria de vila em 1711 e tornou-se capital da Capitania
@@ -5900,11 +6114,51 @@ botoes:
 
 
         Além de sua importância histórica e arquitetônica, Ouro Preto oferece uma
-        rica vida cultural e turística. A cidade possui diversos museus, como o Museu
-        da Inconfidência e o Museu Casa dos Contos, que preservam a memória do Ciclo
-        do Ouro e da Inconfidência Mineira. O turismo é uma atividade econômica fundamental
-        para a cidade, que atrai visitantes de todo o mundo interessados em sua história,
-        art e paisagens montanhosas.'
+        rica vida cultural e turística, com diversos museus, teatro, festivais ao
+        ar livre, restaurantes, bares e inúmeras outras atividades que atraem visitantes
+        de todo o mundo interessados em sua história, arte e paisagens montanhosas.
+
+
+        | ![Igreja](imagens/sobre_ouro_preto_p0_i0.webp) |
+
+        | :--: |
+
+        | *Igreja* |
+
+
+        O OUROBOULDER é realizado dentro do Parque Natural Municipal das Andorinhas
+        (PNMA), e da Área de Proteção Ambiental da Cachoeira das Andorinhas (APA-Andorinhas),
+        refúgio ecológico de grande beleza cênica. Criado em 2005, abrange uma área
+        de mais de 550 hectares, caracterizada por formações rochosas impressionantes
+        e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o
+        Cerrado.
+
+
+        | ![Sapo](imagens/sobre_ouro_preto_p1_i0.webp) |
+
+        | :--: |
+
+        | *Sapo* |
+
+
+        Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas
+        bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente
+        do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro
+        dos limites do parque, adicionando um valor hídrico e ambiental significativo
+        à região.
+
+
+        | ![Planta](imagens/sobre_ouro_preto_p1_i1.webp) |
+
+        | :--: |
+
+        | *Planta* |
+
+
+        Além de sua importância natural, o Parque das Andorinhas também se destaca
+        por seu potencial para o geoturismo, com elementos abióticos que contam a
+        história geológica local. A paisagem de campos rupestres quartzíticos e cursos
+        d''água oferece um cenário único para estudos e apreciação da natureza.'
 - texto: Parque Municipal das Andorinhas
   destino:
     secao_textual:
@@ -5939,72 +6193,65 @@ botoes:
 - texto: Regras e Boa Convivência
   destino:
     secao_textual:
-      conteudo: '# REGRAS E BOA CONVIVÊNCIA
+      conteudo: '# REGRAS PARA BOA CONVIVÊNCIA
 
 
-        O OUROBOULDER adota os princípios internacionais do Leave No Trace (Não Deixe
-        Rastros), filosofia de uso responsável de áreas naturais que visa minimizar
-        o impacto humano no ambiente. Esses princípios devem ser rigorosamente seguidos
-        por todos os participantes.
+        O OUROBOULDER adota os princípios e valores fundamentais para os esportes
+        de montanha consagrados no texto da Declaração de Tirol.
 
 
-        1. Planeje e Prepare-se com Antecedência
-
-        O planejamento adequado reduz a necessidade de improvisações que podem gerar
-        impactos ambientais. Escaladores devem pesquisar as condições locais, verificar
-        regulamentações específicas e preparar os equipamentos adequados antes da
-        visita.
+        1. **Respeite a natureza** - Não retire plantas, pedras ou qualquer elemento
+        natural do ambiente. Evite abrir trilhas alternativas e utilize apenas os
+        acessos autorizados.
 
 
-        2. Viaje e Acampe em Superfícies Resistentes
-
-        Durante o deslocamento dentro do parque, utilize sempre trilhas já estabelecidas
-        e evite abrir novos caminhos. O pisoteio em áreas de vegetação sensível pode
-        causar danos permanentes, levando décadas para se recuperar. Importante: É
-        estritamente proibido acampar dentro do parque. Essa regra visa proteger os
-        ecossistemas noturnos e reduzir o impacto acumulado da presença humana. Durante
-        o evento é permitido acampar na área designada pela organização.
+        2. **Leve todo o seu lixo de volta** - Nada deve ser deixado na área de escalada.
+        Traga uma sacola para recolher seus resíduos e, sempre que possível, recolha
+        também o lixo encontrado pelo caminho.
 
 
-        3. Descarte Adequadamente os Resíduos
-
-        Todo resíduo gerado durante a escalada deve ser removido da área natural.
-        Isso inclui não apenas lixo comum, mas também restos orgânicos, como cascas
-        de frutas, que podem alterar o equilíbrio nutricional do solo e atrair fauna
-        inadequada.
+        3. **Preserve a fauna local** - Não alimente animais silvestres e mantenha
+        distância para evitar interferências em seu comportamento natural. Cães e
+        outros animais domésticos não são permitidos.
 
 
-        4. Deixe o que Encontrar
-
-        Evite remover ou alterar elementos naturais da área. Rochas, plantas, minerais
-        e demais componentes do ecossistema devem permanecer em seus locais originais.
-        A coleta de "souvenires" naturais pode parecer inofensiva, mas seu impacto
-        acumulado é significativo.
+        4. **Utilize os sanitários e estruturas disponibilizadas** - Evite qualquer
+        descarte inadequado de resíduos. Caso seja necessário utilizar áreas naturais,
+        siga as orientações da organização e dos gestores da Unidade de Conservação.
 
 
-        5. Minimize o Impacto das Fogueiras
-
-        Fogueiras são proibidas em todo o parque. Essa medida visa prevenir incêndios
-        florestais e proteger a vegetação local. Para aquecimento e preparo de alimentos,
-        utilize equipamentos portáteis apropriados.
+        5. **Respeite as áreas permitidas** - Alguns setores podem possuir restrições
+        de acesso para proteção ambiental. Siga sempre as orientações dos organizadores,
+        monitores e gestores da Unidade de Conservação.
 
 
-        6. Respeite a Vida Selvagem
-
-        Mantenha distância segura da fauna local e nunca alimente os animais silvestres.
-        A alimentação artificial altera o comportamento dos animais e pode torná-los
-        dependentes da presença humana, prejudicando sua sobrevivência.
+        6. **Mantenha o ambiente tranquilo** - Evite o uso excessivo de caixas de
+        som e ruídos que possam prejudicar a experiência dos demais participantes
+        e causar impactos à fauna local.
 
 
-        7. Seja Cordial com Outros Visitantes
-
-        O parque é frequentado por diversos grupos: escaladores, caminhantes, pesquisadores
-        e turistas. Mantenha níveis de ruído adequados e respeite o direito de todos
-        de desfrutarem o ambiente natural com tranquilidade.
+        7. **Compartilhe os blocos e respeite a fila** - Todos estão no setor para
+        se divertir. Revezar as tentativas, incentivar os colegas e manter uma postura
+        colaborativa fazem parte do espírito da escalada.
 
 
-        **ATENÇÃO: Assim como nas demais Unidades de Conservação - UC’s, é expressamente
-        proibido trazer animais domésticos para o PNMA!**'
+        8. **Valorize a diversidade e o espírito de comunidade** - O OUROBOULDER é
+        um espaço de inclusão, amizade e respeito mútuo. Não serão toleradas atitudes
+        discriminatórias, agressivas ou que comprometam a integridade física ou moral
+        de qualquer pessoa.
+
+
+        9. **Preserve o espírito do montanhismo** - Busque o desafio, a superação
+        e a aventura com honestidade, sem comprometer os valores que fazem da escalada
+        uma atividade única.
+
+
+        10. **Deixe o local melhor do que encontrou** - A melhor lembrança que podemos
+        deixar para os próximos 20 anos é um ambiente preservado. Seja um exemplo
+        de cuidado com a natureza e de respeito à comunidade da escalada.
+
+
+        > "As montanhas estão chamando, e eu preciso ir." — John Muir'
 - texto: Geologia e História
   destino:
     secao_textual:
@@ -6100,7 +6347,7 @@ botoes:
         as pessoas da natureza, despertando o interesse pela geologia e pela proteção
         ambiental. Ressalta-se, no entanto, a importância dessa prática continuar
         sendo realizada com responsabilidade, respeitando os princípios do mínimo
-        impacto e contribuindo para a preservação da região.
+        impacto e contribuindo para a preservação da vegetação e fauna locais.
 
 
         ## Um Espaço de Memória e Convivência
@@ -6123,53 +6370,75 @@ botoes:
 - texto: Agradecimentos
   destino:
     secao_textual:
-      conteudo: '# AGRADECIMENTOS
+      conteudo: "# AGRADECIMENTOS\n\nDuas décadas de história.\n\nMilhares de movimentos,\
+        \ incontáveis tentativas, amizades construídas sobre a rocha e um legado escrito\
+        \ coletivamente por pessoas apaixonadas pela escalada.\n\nAo longo desses\
+        \ 20 anos, o OUROBOULDER acompanhou o crescimento da escalada no Brasil, fortaleceu\
+        \ os laços entre diferentes gerações e reafirmou o compromisso da comunidade\
+        \ com a conservação das áreas naturais que tornam essa experiência possível,\
+        \ consolidando-se como um espaço de convivência, aprendizado, celebração e\
+        \ respeito à natureza.\n\nEsta edição comemorativa presta homenagem a todos\
+        \ aqueles que fizeram parte dessa caminhada: aos pioneiros que enxergaram\
+        \ potencial onde muitos viam apenas pedras; aos conquistadores de novas linhas;\
+        \ aos voluntários que dedicaram seu tempo e sua energia para manter vivo o\
+        \ evento; aos gestores das áreas que tornaram possível a prática responsável\
+        \ da escalada; aos patrocinadores e apoiadores; e a cada participante que,\
+        \ em algum momento destas duas décadas, contribuiu para fortalecer a comunidade\
+        \ da escalada em Ouro Preto.\n\nRegistramos também nosso agradecimento especial\
+        \ às pessoas que contribuíram diretamente para a elaboração deste croqui e\
+        \ para a realização desta edição comemorativa, dando continuidade ao trabalho\
+        \ coletivo que tornou possível preservar, organizar e compartilhar este patrimônio\
+        \ da escalada.\n\nQue este croqui seja mais do que um guia de blocos: que\
+        \ seja um registro vivo da memória construída por centenas de mãos e uma homenagem\
+        \ àqueles que fizeram do OUROBOULDER uma referência para a escalada brasileira.\
+        \ Que ele inspire as próximas gerações a continuar escrevendo essa história.\n\
+        \nObrigado por fazer parte destes 20 anos. Que venham os próximos 20.\n\n\
+        Diretoria da SIME  \nGestão 2026-27"
+- texto: A Artista e a Arte
+  destino:
+    secao_textual:
+      conteudo: '# A Artista e A Arte
 
 
-        Este croqui é uma realização da SIME, entidade representativa de montanhistas
-        e escaladores da Região dos Inconfidentes, e foi possibilitado por todos os
-        associados que acreditaram e apoiaram o montanhismo organizado a várias mãos.
+        | ![Pâm Bergamini](imagens/a_artista_e_a_arte_p0_i0.webp) |
+
+        | :--: |
+
+        | *Pâm Bergamini* |
 
 
-        Ele é fruto do trabalho de diversas pessoas, associadas ou não, que doaram
-        seu tempo e se dedicaram a fazê-lo para que todos possam ter a melhor experiência
-        possível quando estiverem escalando boulder em Ouro Preto.
+        Pâm Bergamini (1997, João Monlevade, MG) é multiartista independente e pesquisadora
+        em arte. Residente em Ouro Preto, MG, desenvolve uma produção atravessada
+        pelo corpo, pela memória, pela natureza e pelos processos artesanais, utilizando
+        tintas naturais extraídas da terra como parte de sua pesquisa poética e visual.
 
 
-        As informações nele contidas podem divergir de croquis anteriores, e foram
-        consideradas conforme as conhecemos atualmente, com dúvidas sendo sanadas
-        no site 9a.nu, especialmente para conferência da graduação atual das linhas.
-        Apesar de revisado por grande parte das pessoas que abriram as linhas e continuam
-        escalando conosco atualmente, não está livre de erros. Portanto, se você tiver
-        alguma crítica ou sugestão, envie-nos um email e teremos o prazer de realizar
-        correções e incluir novas linhas em versões posteriores.
+        | ![Arte Ouro Boulder 20 Anos](imagens/a_artista_e_a_arte_p0_i1.webp) |
+
+        | :--: |
+
+        | *Arte Ouro Boulder 20 Anos* |
 
 
-        Agradecemos a todos que já participaram dessa estória, seja abrindo linhas,
-        construindo bases, fotografando, patrocinando ou apoiando de alguma forma
-        na realização do OuroBoulder, mas especialmente às seguintes pessoas que auxiliaram
-        de forma direta na realização desse trabalho: Lincoln “Mônika”, Mari Miranda,
-        Rodrigo “Mussula”, Artur “Cunha”, Nathan Monge, Gustavo Broglio, Inaê Magalhães,
-        Lídia Botelho, Pedro Rocha, Ana Carla, Lucas “Rino”, Jimi Maggi, Thainá Leão,
-        Lucas Gaião, Gabriel Amora, Gabriel Trópia, Júnior Conca, Thalita Barbosa,
-        Tomaz “Droza” e Pedro “Cisco”.
-
-
-        Diretoria da SIME
-
-        Gestão 2024-25'
+        Transita entre pintura, murais, fotografia, xilogravura, design e tatuagem,
+        desenvolvendo projetos que unem arte, identidade visual e território. É autora
+        da arte comemorativa dos 20 anos do evento Ouro Boulder, aplicada também na
+        camisa oficial, com uma paleta inspirada em sua pesquisa com tintas de terra
+        e na paisagem do Parque das Andorinhas. Moradora do bairro São Sebastião,
+        onde o evento acontece, estabelece em seu trabalho uma relação direta entre
+        criação, pertencimento e memória local.'
 - texto: Créditos
   destino:
     secao_textual:
       conteudo: '# CRÉDITOS
 
 
-        **Coordenação:**
+        **Arte Especial 20 Anos:**
 
-        Lincoln Turati
+        Pâmela Bergamini (@pambergaminii)
 
 
-        **Fotografia:**
+        **Fotografia documental:**
 
         Inaê Magalhães
 
@@ -6178,6 +6447,13 @@ botoes:
         Mariane Miranda
 
         Nathan Monge
+
+
+        **Fotografia esportiva:**
+
+        Gustavo Broglio (@gustavobroglio)
+
+        Gabriel Trindade (@gabriel.st.jpg)
 
 
         **Arte Gráfica:**
@@ -6192,6 +6468,10 @@ botoes:
         Artur Simões
 
         Rodrigo Figueiredo
+
+        Renato Utsch
+
+        Maria Luiza Machado Roman
 
 
         **Textos:**
@@ -6222,32 +6502,36 @@ botoes:
       conteudo: '# CONTATOS
 
 
-        | ![Logo SIME](imagens/contatos_p0.webp) |
+        | ![Logo SIME](imagens/contatos_p0_i0.webp) |
 
         | :--: |
 
         | *Logo SIME* |
 
 
-        *   **Instagram:** @sime.mg
+        - **Instagram:** [@sime.mg](https://www.instagram.com/sime.mg/)
 
-        *   **Email:** simeouropreto@gmail.com
+        - **Email:** simeouropreto@gmail.com
 
 
-        *   **Instagram:** @ouroboulder
+        - **Instagram:** [@ouroboulder](https://www.instagram.com/ouroboulder/)
 
-        *   **Email:** sime.ouroboulder@gmail.com'
+        - **Email:** sime.ouroboulder@gmail.com'
 ultima_migracao: 4
 publicar_croqui: true
 revisado_manualmente: true
 revisado_bounding_circle: true
 arquivos_externos:
-- caminho: imagens/apoio_p0.webp
-  checksum_sha256: 6d8f9f08b705a7df00cf14760c6902cbc8e9c5bc6d5547886757e6daec8d7e0b
-- caminho: imagens/capa_p0.webp
-  checksum_sha256: 5e5c6afd271c706569ffb501b83a79d04326f68efb80c8d9ea324761913ed7f3
-- caminho: imagens/contatos_p0.webp
-  checksum_sha256: 79305bc49e10c77807fc502fe2e08628f6e51ae6f94dccf0af5037eda158db69
+- caminho: imagens/a_artista_e_a_arte_p0_i0.webp
+  checksum_sha256: 080402976e534cab209c7a58b434216f0e4792ef4f58b287c2cf4b34372d78b3
+- caminho: imagens/a_artista_e_a_arte_p0_i1.webp
+  checksum_sha256: e3d2207be8db060dde3782c9465f282e7e51ce474eab6fff2f61ef7b96b86302
+- caminho: imagens/apoio_p0_i0.webp
+  checksum_sha256: 68844379c67541908cdc13fb340eb681aee7c9c89bff15e603c454395d14fb29
+- caminho: imagens/capa_p0_i0.webp
+  checksum_sha256: d98b731dee61159942f86c8c81abca3e1514de0dca3a4685977889e116c1a4e5
+- caminho: imagens/contatos_p0_i0.webp
+  checksum_sha256: 403bd49fcfc5f03f98d47f1c95d161bc83daffeb3c6ab5f051098ec7762bf994
 - caminho: imagens/grupo_bonsai_p1.webp
   checksum_sha256: a14ef5d2f611248af5a4a594b19c57674050633d2669c218a4b1b15296d36083
 - caminho: imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp
@@ -6262,16 +6546,10 @@ arquivos_externos:
   checksum_sha256: efc4d2f707613bd0d918e8e7d34d6e3efdb0825dc5c704ae50c48a2c4197f4ea
 - caminho: imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp
   checksum_sha256: 2320ffc7fe899f36fd76e628aecb0da7f28b9dc3ff9b89b86f5e3313d4a5f3a0
-- caminho: imagens/grupo_bonsai_setor_bloco_mantra_p0.webp
-  checksum_sha256: 74744bf4e4fa27814f9d069f9ff17e19fa31c7e0ae654b5a0ecf8315fc440aff
-- caminho: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp
-  checksum_sha256: f1635b5711c7fe973bd40f5f13d6ecd42a690f94e292a9f69e00d3e83b4136c9
-- caminho: imagens/grupo_bonsai_setor_bloco_mantra_p2.webp
-  checksum_sha256: 69571d1243dfd403c6742df12fb848a93bbe2dd2cfedfd6843f5e9d0dfaaacbb
-- caminho: imagens/grupo_bonsai_setor_bloco_mantra_p3.webp
-  checksum_sha256: 3923fed1745aa5190623382edd016a39cce9456e41ed3d44c2aa6db7960e2e4d
 - caminho: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
   checksum_sha256: f8a68900a5c9c847e1bccb2475e3047580e5a7adaeca0f5f734ac70bcf977770
+- caminho: imagens/grupo_bonsai_setor_bloco_prodigio_p0_i0.webp
+  checksum_sha256: de8679303a4cbea5bb5fd5b662065ae4aec6fd9b1991c4a89bae201f57ae8838
 - caminho: imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp
   checksum_sha256: 11ec8c6f7740ec18ef3c78264049b3f8f8afd9d57f8e5b1e0edc9e8b1c783765
 - caminho: imagens/grupo_mont_blanc_p1.webp
@@ -6294,8 +6572,8 @@ arquivos_externos:
   checksum_sha256: 3aceaccc3ada3e0f25838a77e9941624eb72fd4bb0437706f30307b073fd70d3
 - caminho: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp
   checksum_sha256: e20f8df48646ea870a6fb9bcf398b6c4c36254b3ac3e518599ff01c9deb65fa6
-- caminho: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp
-  checksum_sha256: 4a8cf6ffec86a12d468e2f616a4589499e8144b3fdbf13bb87a744b0c2f9f5ec
+- caminho: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp
+  checksum_sha256: 5eae4cb945afb6f51b0ffc3d125e2513e7f6c0574163a7212bfaab8f863bc096
 - caminho: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp
   checksum_sha256: d8ebf34257ba66f0e7da36125c883fcc5e5268489cad21da74df8b095ea2fc87
 - caminho: imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp
@@ -6308,6 +6586,10 @@ arquivos_externos:
   checksum_sha256: 2009799a71180648fd0efdc0933ae3aa2be446db998a2380b970e294cde59af2
 - caminho: imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp
   checksum_sha256: d4872bcb3abdb758faa7fcba22bd849986421844d9291bdc8213d25d08564f28
+- caminho: imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp
+  checksum_sha256: 962f05a6e62483d488e3f2cb67bcba2402fe9e0a7f141e06fda5b444a4f3c99c
+- caminho: imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp
+  checksum_sha256: fe4a493c099dea12523ab3ee2ec76f7efc03bcabce9d0e79a9693bdef8bdd035
 - caminho: imagens/grupo_pedreira_setor_bloco_bob_p0.webp
   checksum_sha256: 4d1a509cc1c5429ab343293ab82e4eb4e2b7c2cc56eeb2e5147241ecc280613e
 - caminho: imagens/grupo_pedreira_setor_bloco_bob_p1.webp
@@ -6326,16 +6608,20 @@ arquivos_externos:
   checksum_sha256: 5458c3865ffcdda7c1c9686abd9ef982a0bf5b071ebd0f588255c56380e5757b
 - caminho: imagens/grupo_pedreira_setor_bloco_complexo_p4.webp
   checksum_sha256: 995a76d40832456d0fae88cbc818d2d246d53ec51d91e2d1a83c0be924d1a554
-- caminho: imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp
-  checksum_sha256: 2c56acbeb9db67a74986b8720916e16566fad9b8745090bf1ed83b716fac3731
+- caminho: imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp
+  checksum_sha256: 521fc9299a20e85a0405ddbc179f23d3fb748e7690c270a1e05412d14d41bdcc
+- caminho: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
+  checksum_sha256: 10ca04fc4bd50b6b54a5e4545a3c2800fd9972071f417231a7229e134f39db8e
 - caminho: imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp
   checksum_sha256: 1fc2eda38c21e9f05feb024f24c0f7ac167a7830151aecb26d5b2e5ca45bc4f4
 - caminho: imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp
   checksum_sha256: e20ffa66c3d0758053760b34ff46d18a5ec4d429eb1e6bbc06157d6d913eca2b
 - caminho: imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp
   checksum_sha256: 6254e01551d00a53cc8f43502ff5aac644bceaa702ed82bd19a6b39d481a2c4b
-- caminho: imagens/grupo_pedreira_setor_bloco_eletron_p0.webp
-  checksum_sha256: e6055337b3dc0e4db8d43f3cef9d05b8818e89e633f09c76cb31e4dad2509a17
+- caminho: imagens/grupo_pedreira_setor_bloco_electron_p0_i0.webp
+  checksum_sha256: ced02271c67cb5c0f063fead38a1ead442ccbc85b1a3ff0c4f932b53633706f3
+- caminho: imagens/grupo_pedreira_setor_bloco_electron_p1_i0.webp
+  checksum_sha256: a289f67382aa7d02b09237eb46b8a8c9272934ae6085610704f2a5e23c81a846
 - caminho: imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp
   checksum_sha256: 96d26b1f7152357a42a87dbc3f8bae3c335f74fea501af590c542787f8c8a707
 - caminho: imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp
@@ -6346,6 +6632,8 @@ arquivos_externos:
   checksum_sha256: a704569eb9a131936886312bfc2f72bd856155b4bda9c80ad161f9b863832ca0
 - caminho: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
   checksum_sha256: 14cfdadbf0348a664799c417599689ba92e0a774a51bba5dc030f93d751f6041
+- caminho: imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp
+  checksum_sha256: 27bc5efec6c635d0395434f67f5f8f0f85a73cdf12ddcf719e2dc76ac946abd6
 - caminho: imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
   checksum_sha256: 665fb7db27c0bd562c6aea76d5d8a0b2e9776a1484a90e17cc0b71441fd85400
 - caminho: imagens/grupo_pedreira_setor_bloco_jah_p0.webp
@@ -6362,8 +6650,12 @@ arquivos_externos:
   checksum_sha256: c485d7fb367c3ae8dbf7daf94def0a216e2f3eeecf177047d7c4cad32795ed53
 - caminho: imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp
   checksum_sha256: 966b1a69e32547968ff41463986106891b371aad0c33c4c7f5f60525590003e5
-- caminho: imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp
-  checksum_sha256: 3708890364b2ad2165d865a65e916435809e1e2fc45bf2d153ac080f60d9dc7f
+- caminho: imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp
+  checksum_sha256: 1c86878493d87e83c99f3310f4b69761d1a6f0331b17488c9ec8271473006d65
+- caminho: imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp
+  checksum_sha256: b2300c002604310e104e90492e05485a145358291c73adb66cd1672a19b632e0
+- caminho: imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp
+  checksum_sha256: 2205718d9e7c88bc3039499955f7503d1b5bc494ef41267bdcb2eca4974f9ff1
 - caminho: imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp
   checksum_sha256: 2a3a2b61a19c76185053fac092a4cc7eaf6ae578b180919862fa1806390fa810
 - caminho: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp
@@ -6386,6 +6678,10 @@ arquivos_externos:
   checksum_sha256: e6c773b12d68b6d1ff9fc19e90f401056c18d987b0d018f57546b738f3762e0a
 - caminho: imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp
   checksum_sha256: 63177e8443d1986e854f4ee13081cbfb94d69c23c8b69450497384b1a027294b
+- caminho: imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp
+  checksum_sha256: 33c7bcd903423d1bfd72215489c48990eeeed523ab8ed586bec5d42adc674edd
+- caminho: imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp
+  checksum_sha256: 985d6e53f3ce7a2f630eb963c2c7bca136df5085569ac630ff6f15132ab9cdc9
 - caminho: imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp
   checksum_sha256: 0546853eb3c128c2985383a15d78714828610cad26bb9274b23d1bf38cadcc1e
 - caminho: imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp
@@ -6402,8 +6698,8 @@ arquivos_externos:
   checksum_sha256: 1a4638fdcbccd96aa565f2287b5d6c205dd39126dcd5f212bc3d857ac69929f0
 - caminho: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
   checksum_sha256: abf00a12c03c43290d8c88b6a321ddb0b374aeef558e0df4da9ebc4eaea432b3
-- caminho: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
-  checksum_sha256: 9dfd8f2972c6bf3a66f3cbcda5cafaaf27934fb467e7a7e3d5e14c899446803e
+- caminho: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp
+  checksum_sha256: ac8620d2bf24ab9cd5248de1fe91321bb68459dcc0120392f90a05ce96316039
 - caminho: imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp
   checksum_sha256: ae061410389a7f673cfa0c7ba313b6c3a9f7a0513f9d7b1742580f92192a0f28
 - caminho: imagens/grupo_pedreira_setor_bloco_sauna_p0.webp
@@ -6414,15 +6710,29 @@ arquivos_externos:
   checksum_sha256: 6d5682ed0fe6ab4df9741e4968ae4af7abc663dd9be1c82bdcbdd30db4a13b74
 - caminho: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp
   checksum_sha256: ba96339e2487ea2a46e098ca2876cb6fea30a0324279c785b9948d71dca5505b
+- caminho: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp
+  checksum_sha256: 193cc56b2a2bdb8c15970033e3ed8b07ea1d8fe9a0aa61761df9e39c4b5cbf07
 - caminho: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
   checksum_sha256: 610f8dae0714d29efeb737564dfa4c67c2a7c288ffba7b3cb4508f5a3eeac8a5
 - caminho: imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp
   checksum_sha256: bec0d24a587492b8b04f0306cc8f7e486bf902fcd64557b5cacc8b91ca212123
+- caminho: imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp
+  checksum_sha256: 9f3db820467d3c3050a15c662c4d81bd0eb7c0d1d7ddb173c2332ae60bf53a4f
 - caminho: imagens/grupo_pedreira_setor_bloco_travessia_p0.webp
   checksum_sha256: dfb43acf92c4a75f62c3228409595dd775c0f73de2a81b33d0108bfb3f1ef9a7
 - caminho: imagens/grupo_pedreira_setor_bloco_travessia_p1.webp
   checksum_sha256: 6770206b9b137b69e86952df89177b53461f20d9774b650d350dffc6ef6c651e
+- caminho: imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp
+  checksum_sha256: 59c77d166cce6212f49f259fdefa637a377c1b66447b9b04164d6bd3b684661f
+- caminho: imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp
+  checksum_sha256: 497fc6aac2449388eee8ddf3b29490123f4bf614a9cfa5532c91e854e6751f9e
 - caminho: imagens/mapas_gerais_p0.webp
   checksum_sha256: ffc99257fd391b719aefca787f76d302074a74d1947c90ee8fa274f60350de4a
 - caminho: imagens/mapas_gerais_p1.webp
   checksum_sha256: 0aafbc80dd60a558922c6cd0647475fb2ef99b0ae2155c678945f8f55409db84
+- caminho: imagens/sobre_ouro_preto_p0_i0.webp
+  checksum_sha256: 4c7b6cafeecf90e09ba678d90218a338404be9577bdfc7b180ddd4a04e66e93f
+- caminho: imagens/sobre_ouro_preto_p1_i0.webp
+  checksum_sha256: a6f5ab836f94633eb038869760e60ee03f73b69ef029b9adf29df92c02b4d875
+- caminho: imagens/sobre_ouro_preto_p1_i1.webp
+  checksum_sha256: db70f068ad17cac698cf815163b5a909c7284c3f2bd3c5998fbbe28d9db29082

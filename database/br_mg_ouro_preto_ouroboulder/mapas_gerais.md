@@ -109,4 +109,3 @@ mapas:
     - bonsai
     grupo: Bonsai
 ---
-

@@ -20,96 +20,45 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 390
-      y: 816
+      x: 514
+      y: 780
       raio: 13
   - id: '2'
     label: '2'
     circulo:
-      x: 706
-      y: 857
-      raio: 13
-  - id: '3'
-    label: '3'
-    circulo:
-      x: 514
-      y: 780
-      raio: 13
-  - id: '4'
-    label: '4'
-    circulo:
-      x: 766
-      y: 799
-      raio: 13
-  - id: '5'
-    label: '5'
-    circulo:
       x: 1108
       y: 604
       raio: 13
-  - id: '6'
-    label: '6'
+  - id: '3'
+    label: '3'
     circulo:
       x: 1313
       y: 761
       raio: 13
   referencias:
-  - escalada: Flap
-    ids:
-    - '1'
-  - escalada: Alfândega
-    ids:
-    - '2'
   - escalada: México
     ids:
-    - '3'
-  - escalada: Passaporte
-    ids:
-    - '4'
+    - '1'
   - escalada: Dinamite
     ids:
-    - '5'
+    - '2'
     - A
   - escalada: Pedra Queimada
     ids:
-    - '5'
+    - '2'
     - B
   - escalada: Dinamite sds
     ids:
-    - '6'
+    - '3'
     - A
   - escalada: Pedra Queimada sds
     ids:
-    - '6'
+    - '3'
     - B
-- caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp
-  largura_mapa: 1575
-  altura_mapa: 1182
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
-    circulo:
-      x: 633
-      y: 731
-      raio: 13
-  referencias:
-  - escalada: Identidade
-    ids:
-    - '1'
 escaladas:
-- boulder:
-    nome: Flap
-    dificuldade: V5
-- boulder:
-    nome: Alfândega
-    dificuldade: V9
 - boulder:
     nome: México
     dificuldade: V9
-    descricao: (começa em duas agarras invertidas no teto)
-- boulder:
-    nome: Passaporte
-    dificuldade: V6
 - boulder:
     nome: Dinamite
     dificuldade: V2
@@ -122,8 +71,6 @@ escaladas:
 - boulder:
     nome: Pedra Queimada sds
     dificuldade: V9
-- boulder:
-    nome: Identidade
-    dificuldade: V0
 ---
 
+![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)

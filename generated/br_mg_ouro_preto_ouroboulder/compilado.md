@@ -4,7 +4,7 @@
 
 - **id**: br_mg_ouro_preto_ouroboulder
 - **nome**: Ouroboulder
-- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
@@ -14,7 +14,7 @@
         - **conteudo**:
             # CROQUI 2025 OUROBOULDER
             
-            | ![SIME MINAS GERAIS - BRASIL](imagens/capa_p0.webp) |
+            | ![SIME MINAS GERAIS - BRASIL](imagens/capa_p0_i0.webp) |
             | :--: |
             | *SIME MINAS GERAIS - BRASIL* |
   - **[1]**:
@@ -24,37 +24,53 @@
         - **conteudo**:
             # APOIO
             
-            | ![Logos de apoiadores](imagens/apoio_p0.webp) |
+            | ![Logos de apoiadores](imagens/apoio_p0_i0.webp) |
             | :--: |
             | *Logos de apoiadores* |
   - **[2]**:
-    - **texto**: O Evento
+    - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            # O EVENTO
+            # OUROBOULDER 20 ANOS
             
-            ## História e Tradição
+            Em 2026, o OUROBOULDER celebra uma marca histórica: 20 anos de existência, consolidando-se como um dos mais tradicionais encontros de escalada em boulder do Brasil. Ao longo de duas décadas, o evento transformou-se em muito mais do que um festival esportivo, tornando-se um espaço de integração, amizade, cultura e valorização das montanhas e paisagens de Ouro Preto.
             
-            O OUROBOULDER é um tradicional encontro de escaladores que acontece anualmente na histórica cidade de Ouro Preto, Minas Gerais. Em 2025, o evento celebra sua 17ª edição, reunindo atletas e praticantes da escalada em boulder, aproveitando a alta temporada e a excelente qualidade das formações rochosas da região.
+            Nascido da paixão pela escalada e do espírito de comunidade que caracteriza os praticantes do esporte, o OUROBOULDER construiu uma trajetória marcada por desafios, superação e momentos inesquecíveis. A cada edição, atletas, iniciantes, famílias e amantes da natureza se reúnem para compartilhar experiências, celebrar conquistas e fortalecer os laços que unem a comunidade da escalada.
             
-            Surgido em meados de 2006, ocorre atualmente nos setores de escalada localizados no Parque Municipal das Andorinhas, como Pedreira, Bonsai, Mont Blanc e Sunset. Desde 2024 passou ser organizado pela SIME, entidade representativa de montanhistas e escaladores da Região dos Inconfidentes.
+            Realizado em um dos mais importantes patrimônios históricos e culturais do país, o evento combina a beleza singular das formações rochosas da região com a riqueza histórica de Ouro Preto, proporcionando uma experiência única aos participantes. O ambiente descontraído, a convivência ao ar livre, as atividades culturais, as ações de educação ambiental e o incentivo à prática esportiva fazem parte da identidade que tornou o OUROBOULDER uma referência nacional.
             
-            Ao longo dos anos, o evento tem atraído um público cativo e grandes nomes do esporte, como o escalador espanhol Daniel Andrada, que participou da segunda edição em 2007. O evento busca evoluir a cada edição, sempre mantendo o foco na sustentabilidade e na conscientização ambiental, utilizando materiais biodegradáveis e promovendo a preservação da fauna e flora local.
-            
-            Além da escalada, o OUROBOULDER visa oferecer uma experiência completa aos participantes, com tenda de apoio, croquis dos setores, desafios, sorteio de brindes e outras atividades. É um evento que promove a união de pessoas de diversos países e estados com o mesmo intuito: escalar e se conectar com a natureza e a comunidade da escalada.
+            A edição comemorativa de 2026 serve para homenagear todos aqueles que ajudaram a construir essa história.
   - **[3]**:
-    - **texto**: A Cidade
+    - **texto**: Sobre Ouro Preto
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            # A CIDADE
+            # Ouro Preto
             
-            Ouro Preto é um tesouro histórico e cultural do Brasil, reconhecida como Patrimônio Cultural da Humanidade pela UNESCO em 1980. Sua origem remonta ao final do século XVII, com a descoberta de ouro aluvião por bandeirantes paulistas, o que impulsionou o desenvolvimento da região e a transformou em um dos principais centros econômicos do Brasil Colônia. Inicialmente conhecida como Vila Rica, a cidade foi elevada à categoria de vila em 1711 e tornou-se capital da Capitania de Minas Gerais em 1720. Em 1823, após a Independência do Brasil, recebeu o título de Imperial Cidade de Ouro Preto.
+            Ouro Preto é um tesouro histórico e cultural do Brasil, reconhecida como Patrimônio Cultural da Humanidade pela UNESCO em 1980. Sua origem remonta ao final do século XVII, com a descoberta de ouro de aluvião por bandeirantes paulistas, o que impulsionou o desenvolvimento da região e a transformou em um dos principais centros econômicos do Brasil Colônia. Inicialmente conhecida como Vila Rica, a cidade foi elevada à categoria de vila em 1711 e tornou-se capital da Capitania de Minas Gerais em 1720. Em 1823, após a Independência do Brasil, recebeu o título de Imperial Cidade de Ouro Preto.
             
             A arquitetura de Ouro Preto é um dos seus maiores atrativos, com um conjunto homogêneo de construções barrocas que refletem a riqueza e o esplendor da época do ouro. As igrejas, muitas delas projetadas e adornadas por artistas renomados como Aleijadinho e Mestre Ataíde, são verdadeiras obras de arte, destacando-se pela riqueza de detalhes, adornos e o uso abundante de ouro em seu interior. Exemplos notáveis incluem a Basílica Nossa Senhora do Pilar, com mais de 400 quilos de ouro, e a Igreja de São Francisco de Assis, considerada uma das mais importantes obras coloniais do Brasil.
             
-            Além de sua importância histórica e arquitetônica, Ouro Preto oferece uma rica vida cultural e turística. A cidade possui diversos museus, como o Museu da Inconfidência e o Museu Casa dos Contos, que preservam a memória do Ciclo do Ouro e da Inconfidência Mineira. O turismo é uma atividade econômica fundamental para a cidade, que atrai visitantes de todo o mundo interessados em sua história, art e paisagens montanhosas.
+            Além de sua importância histórica e arquitetônica, Ouro Preto oferece uma rica vida cultural e turística, com diversos museus, teatro, festivais ao ar livre, restaurantes, bares e inúmeras outras atividades que atraem visitantes de todo o mundo interessados em sua história, arte e paisagens montanhosas.
+            
+            | ![Igreja](imagens/sobre_ouro_preto_p0_i0.webp) |
+            | :--: |
+            | *Igreja* |
+            
+            O OUROBOULDER é realizado dentro do Parque Natural Municipal das Andorinhas (PNMA), e da Área de Proteção Ambiental da Cachoeira das Andorinhas (APA-Andorinhas), refúgio ecológico de grande beleza cênica. Criado em 2005, abrange uma área de mais de 550 hectares, caracterizada por formações rochosas impressionantes e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o Cerrado.
+            
+            | ![Sapo](imagens/sobre_ouro_preto_p1_i0.webp) |
+            | :--: |
+            | *Sapo* |
+            
+            Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro dos limites do parque, adicionando um valor hídrico e ambiental significativo à região.
+            
+            | ![Planta](imagens/sobre_ouro_preto_p1_i1.webp) |
+            | :--: |
+            | *Planta* |
+            
+            Além de sua importância natural, o Parque das Andorinhas também se destaca por seu potencial para o geoturismo, com elementos abióticos que contam a história geológica local. A paisagem de campos rupestres quartzíticos e cursos d'água oferece um cenário único para estudos e apreciação da natureza.
   - **[4]**:
     - **texto**: Parque Municipal das Andorinhas
     - **destino**:
@@ -76,32 +92,31 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            # REGRAS E BOA CONVIVÊNCIA
+            # REGRAS PARA BOA CONVIVÊNCIA
             
-            O OUROBOULDER adota os princípios internacionais do Leave No Trace (Não Deixe Rastros), filosofia de uso responsável de áreas naturais que visa minimizar o impacto humano no ambiente. Esses princípios devem ser rigorosamente seguidos por todos os participantes.
+            O OUROBOULDER adota os princípios e valores fundamentais para os esportes de montanha consagrados no texto da Declaração de Tirol.
             
-            1. Planeje e Prepare-se com Antecedência
-            O planejamento adequado reduz a necessidade de improvisações que podem gerar impactos ambientais. Escaladores devem pesquisar as condições locais, verificar regulamentações específicas e preparar os equipamentos adequados antes da visita.
+            1. **Respeite a natureza** - Não retire plantas, pedras ou qualquer elemento natural do ambiente. Evite abrir trilhas alternativas e utilize apenas os acessos autorizados.
             
-            2. Viaje e Acampe em Superfícies Resistentes
-            Durante o deslocamento dentro do parque, utilize sempre trilhas já estabelecidas e evite abrir novos caminhos. O pisoteio em áreas de vegetação sensível pode causar danos permanentes, levando décadas para se recuperar. Importante: É estritamente proibido acampar dentro do parque. Essa regra visa proteger os ecossistemas noturnos e reduzir o impacto acumulado da presença humana. Durante o evento é permitido acampar na área designada pela organização.
+            2. **Leve todo o seu lixo de volta** - Nada deve ser deixado na área de escalada. Traga uma sacola para recolher seus resíduos e, sempre que possível, recolha também o lixo encontrado pelo caminho.
             
-            3. Descarte Adequadamente os Resíduos
-            Todo resíduo gerado durante a escalada deve ser removido da área natural. Isso inclui não apenas lixo comum, mas também restos orgânicos, como cascas de frutas, que podem alterar o equilíbrio nutricional do solo e atrair fauna inadequada.
+            3. **Preserve a fauna local** - Não alimente animais silvestres e mantenha distância para evitar interferências em seu comportamento natural. Cães e outros animais domésticos não são permitidos.
             
-            4. Deixe o que Encontrar
-            Evite remover ou alterar elementos naturais da área. Rochas, plantas, minerais e demais componentes do ecossistema devem permanecer em seus locais originais. A coleta de "souvenires" naturais pode parecer inofensiva, mas seu impacto acumulado é significativo.
+            4. **Utilize os sanitários e estruturas disponibilizadas** - Evite qualquer descarte inadequado de resíduos. Caso seja necessário utilizar áreas naturais, siga as orientações da organização e dos gestores da Unidade de Conservação.
             
-            5. Minimize o Impacto das Fogueiras
-            Fogueiras são proibidas em todo o parque. Essa medida visa prevenir incêndios florestais e proteger a vegetação local. Para aquecimento e preparo de alimentos, utilize equipamentos portáteis apropriados.
+            5. **Respeite as áreas permitidas** - Alguns setores podem possuir restrições de acesso para proteção ambiental. Siga sempre as orientações dos organizadores, monitores e gestores da Unidade de Conservação.
             
-            6. Respeite a Vida Selvagem
-            Mantenha distância segura da fauna local e nunca alimente os animais silvestres. A alimentação artificial altera o comportamento dos animais e pode torná-los dependentes da presença humana, prejudicando sua sobrevivência.
+            6. **Mantenha o ambiente tranquilo** - Evite o uso excessivo de caixas de som e ruídos que possam prejudicar a experiência dos demais participantes e causar impactos à fauna local.
             
-            7. Seja Cordial com Outros Visitantes
-            O parque é frequentado por diversos grupos: escaladores, caminhantes, pesquisadores e turistas. Mantenha níveis de ruído adequados e respeite o direito de todos de desfrutarem o ambiente natural com tranquilidade.
+            7. **Compartilhe os blocos e respeite a fila** - Todos estão no setor para se divertir. Revezar as tentativas, incentivar os colegas e manter uma postura colaborativa fazem parte do espírito da escalada.
             
-            **ATENÇÃO: Assim como nas demais Unidades de Conservação - UC’s, é expressamente proibido trazer animais domésticos para o PNMA!**
+            8. **Valorize a diversidade e o espírito de comunidade** - O OUROBOULDER é um espaço de inclusão, amizade e respeito mútuo. Não serão toleradas atitudes discriminatórias, agressivas ou que comprometam a integridade física ou moral de qualquer pessoa.
+            
+            9. **Preserve o espírito do montanhismo** - Busque o desafio, a superação e a aventura com honestidade, sem comprometer os valores que fazem da escalada uma atividade única.
+            
+            10. **Deixe o local melhor do que encontrou** - A melhor lembrança que podemos deixar para os próximos 20 anos é um ambiente preservado. Seja um exemplo de cuidado com a natureza e de respeito à comunidade da escalada.
+            
+            > "As montanhas estão chamando, e eu preciso ir." — John Muir
   - **[6]**:
     - **texto**: Geologia e História
     - **destino**:
@@ -137,7 +152,7 @@
             
             Após o encerramento das atividades mineradoras, a antiga pedreira foi gradualmente transformada em um espaço de convivência e prática esportiva. A partir de meados dos anos 2000, o local se tornou um dos principais pontos de escalada no estilo boulder da região e do Brasil, atraindo escaladores de todo o mundo, especialmente devido à proximidade com Belo Horizonte e à facilidade de acesso.
             
-            A escalada no Morro São Sebastião representa um exemplo de uso sustentável de áreas degradadas, promovendo a valorização ambiental e social do espaço. A atividade contribui para o turismo local, incentiva a conservação e aproxima as pessoas da natureza, despertando o interesse pela geologia e pela proteção ambiental. Ressalta-se, no entanto, a importância dessa prática continuar sendo realizada com responsabilidade, respeitando os princípios do mínimo impacto e contribuindo para a preservação da região.
+            A escalada no Morro São Sebastião representa um exemplo de uso sustentável de áreas degradadas, promovendo a valorização ambiental e social do espaço. A atividade contribui para o turismo local, incentiva a conservação e aproxima as pessoas da natureza, despertando o interesse pela geologia e pela proteção ambiental. Ressalta-se, no entanto, a importância dessa prática continuar sendo realizada com responsabilidade, respeitando os princípios do mínimo impacto e contribuindo para a preservação da vegetação e fauna locais.
             
             ## Um Espaço de Memória e Convivência
             
@@ -153,31 +168,59 @@
         - **conteudo**:
             # AGRADECIMENTOS
             
-            Este croqui é uma realização da SIME, entidade representativa de montanhistas e escaladores da Região dos Inconfidentes, e foi possibilitado por todos os associados que acreditaram e apoiaram o montanhismo organizado a várias mãos.
+            Duas décadas de história.
             
-            Ele é fruto do trabalho de diversas pessoas, associadas ou não, que doaram seu tempo e se dedicaram a fazê-lo para que todos possam ter a melhor experiência possível quando estiverem escalando boulder em Ouro Preto.
+            Milhares de movimentos, incontáveis tentativas, amizades construídas sobre a rocha e um legado escrito coletivamente por pessoas apaixonadas pela escalada.
             
-            As informações nele contidas podem divergir de croquis anteriores, e foram consideradas conforme as conhecemos atualmente, com dúvidas sendo sanadas no site 9a.nu, especialmente para conferência da graduação atual das linhas. Apesar de revisado por grande parte das pessoas que abriram as linhas e continuam escalando conosco atualmente, não está livre de erros. Portanto, se você tiver alguma crítica ou sugestão, envie-nos um email e teremos o prazer de realizar correções e incluir novas linhas em versões posteriores.
+            Ao longo desses 20 anos, o OUROBOULDER acompanhou o crescimento da escalada no Brasil, fortaleceu os laços entre diferentes gerações e reafirmou o compromisso da comunidade com a conservação das áreas naturais que tornam essa experiência possível, consolidando-se como um espaço de convivência, aprendizado, celebração e respeito à natureza.
             
-            Agradecemos a todos que já participaram dessa estória, seja abrindo linhas, construindo bases, fotografando, patrocinando ou apoiando de alguma forma na realização do OuroBoulder, mas especialmente às seguintes pessoas que auxiliaram de forma direta na realização desse trabalho: Lincoln “Mônika”, Mari Miranda, Rodrigo “Mussula”, Artur “Cunha”, Nathan Monge, Gustavo Broglio, Inaê Magalhães, Lídia Botelho, Pedro Rocha, Ana Carla, Lucas “Rino”, Jimi Maggi, Thainá Leão, Lucas Gaião, Gabriel Amora, Gabriel Trópia, Júnior Conca, Thalita Barbosa, Tomaz “Droza” e Pedro “Cisco”.
+            Esta edição comemorativa presta homenagem a todos aqueles que fizeram parte dessa caminhada: aos pioneiros que enxergaram potencial onde muitos viam apenas pedras; aos conquistadores de novas linhas; aos voluntários que dedicaram seu tempo e sua energia para manter vivo o evento; aos gestores das áreas que tornaram possível a prática responsável da escalada; aos patrocinadores e apoiadores; e a cada participante que, em algum momento destas duas décadas, contribuiu para fortalecer a comunidade da escalada em Ouro Preto.
             
-            Diretoria da SIME
-            Gestão 2024-25
+            Registramos também nosso agradecimento especial às pessoas que contribuíram diretamente para a elaboração deste croqui e para a realização desta edição comemorativa, dando continuidade ao trabalho coletivo que tornou possível preservar, organizar e compartilhar este patrimônio da escalada.
+            
+            Que este croqui seja mais do que um guia de blocos: que seja um registro vivo da memória construída por centenas de mãos e uma homenagem àqueles que fizeram do OUROBOULDER uma referência para a escalada brasileira. Que ele inspire as próximas gerações a continuar escrevendo essa história.
+            
+            Obrigado por fazer parte destes 20 anos. Que venham os próximos 20.
+            
+            Diretoria da SIME  
+            Gestão 2026-27
   - **[8]**:
+    - **texto**: A Artista e a Arte
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # A Artista e A Arte
+            
+            | ![Pâm Bergamini](imagens/a_artista_e_a_arte_p0_i0.webp) |
+            | :--: |
+            | *Pâm Bergamini* |
+            
+            Pâm Bergamini (1997, João Monlevade, MG) é multiartista independente e pesquisadora em arte. Residente em Ouro Preto, MG, desenvolve uma produção atravessada pelo corpo, pela memória, pela natureza e pelos processos artesanais, utilizando tintas naturais extraídas da terra como parte de sua pesquisa poética e visual.
+            
+            | ![Arte Ouro Boulder 20 Anos](imagens/a_artista_e_a_arte_p0_i1.webp) |
+            | :--: |
+            | *Arte Ouro Boulder 20 Anos* |
+            
+            Transita entre pintura, murais, fotografia, xilogravura, design e tatuagem, desenvolvendo projetos que unem arte, identidade visual e território. É autora da arte comemorativa dos 20 anos do evento Ouro Boulder, aplicada também na camisa oficial, com uma paleta inspirada em sua pesquisa com tintas de terra e na paisagem do Parque das Andorinhas. Moradora do bairro São Sebastião, onde o evento acontece, estabelece em seu trabalho uma relação direta entre criação, pertencimento e memória local.
+  - **[9]**:
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
             # CRÉDITOS
             
-            **Coordenação:**
-            Lincoln Turati
+            **Arte Especial 20 Anos:**
+            Pâmela Bergamini (@pambergaminii)
             
-            **Fotografia:**
+            **Fotografia documental:**
             Inaê Magalhães
             Lincoln Turati
             Mariane Miranda
             Nathan Monge
+            
+            **Fotografia esportiva:**
+            Gustavo Broglio (@gustavobroglio)
+            Gabriel Trindade (@gabriel.st.jpg)
             
             **Arte Gráfica:**
             Gustavo Broglio
@@ -186,6 +229,8 @@
             **Revisão:**
             Artur Simões
             Rodrigo Figueiredo
+            Renato Utsch
+            Maria Luiza Machado Roman
             
             **Textos:**
             Artur Simões
@@ -195,7 +240,7 @@
             **Mapas:**
             Ana Carla Favero
             Lucas Dorini
-  - **[9]**:
+  - **[10]**:
     - **texto**: Telefones Úteis
     - **destino**:
       - **secao_textual**:
@@ -212,22 +257,22 @@
                 Av. Américo Renê Gianetti, 555 - Saramenha, Ouro Preto - MG
             *   **Hospital Santa Casa Misericórdia - 24 horas**
                 Rua José Moringa, 620 - Bauxita, Ouro Preto - MG
-  - **[10]**:
+  - **[11]**:
     - **texto**: Contatos
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
             # CONTATOS
             
-            | ![Logo SIME](imagens/contatos_p0.webp) |
+            | ![Logo SIME](imagens/contatos_p0_i0.webp) |
             | :--: |
             | *Logo SIME* |
             
-            *   **Instagram:** @sime.mg
-            *   **Email:** simeouropreto@gmail.com
+            - **Instagram:** [@sime.mg](https://www.instagram.com/sime.mg/)
+            - **Email:** simeouropreto@gmail.com
             
-            *   **Instagram:** @ouroboulder
-            *   **Email:** sime.ouroboulder@gmail.com
+            - **Instagram:** [@ouroboulder](https://www.instagram.com/ouroboulder/)
+            - **Email:** sime.ouroboulder@gmail.com
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_manualmente**: True
@@ -607,113 +652,54 @@
         - **ids**:
           - eletron
         - **grupo**: Pedreira
-        - **setor**: Bloco: Elétron
+        - **setor**: Bloco: Eléctron
+      - **[26]**:
+        - **ids**:
+          - nat_geo
+        - **grupo**: Pedreira
+        - **setor**: Bloco: Nat Geo
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Bloco: Travessia
+      - **nome**: Bloco: Abaulados
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 488
-                - **y**: 341
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 692
-                - **y**: 138
-                - **raio**: 13
-            - **[2]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1281
-                - **y**: 87
-                - **raio**: 13
-            - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 116
-                - **y**: 659
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 179
-                - **y**: 743
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 415
-                - **y**: 840
-                - **raio**: 13
-            - **[6]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 711
-                - **y**: 812
-                - **raio**: 13
-            - **[7]**:
-              - **id**: 5
-              - **label**: 5
-              - **circulo**:
-                - **x**: 1183
-                - **y**: 840
-                - **raio**: 13
-            - **[8]**:
-              - **id**: 6
-              - **label**: 6
-              - **circulo**:
-                - **x**: 1361
-                - **y**: 753
+                - **x**: 828
+                - **y**: 851
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Travessia ext
+              - **escalada**: Abaulados
               - **ids**:
                 - 1
-                - C
-            - **[1]**:
-              - **escalada**: Travessia
-              - **ids**:
-                - 2
-                - C
-            - **[2]**:
-              - **escalada**: Enjambrado
-              - **ids**:
-                - 3
-                - A
-            - **[3]**:
-              - **escalada**: Face Vertical
-              - **ids**:
-                - 4
-                - B
-            - **[4]**:
-              - **escalada**: Será
-              - **ids**:
-                - 5
-                - C
-            - **[5]**:
-              - **escalada**: Bem-vindo ao Climb
-              - **ids**:
-                - 6
         - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 574
+                - **y**: 824
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: 004
+              - **ids**:
+                - 1
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
@@ -721,142 +707,1745 @@
               - **id**: A
               - **label**: A
               - **circulo**:
-                - **x**: 9
-                - **y**: 285
+                - **x**: 203
+                - **y**: 333
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circulo**:
-                - **x**: 554
-                - **y**: 241
+                - **x**: 949
+                - **y**: 109
                 - **raio**: 13
             - **[2]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1207
-                - **y**: 326
-                - **raio**: 13
-            - **[3]**:
-              - **id**: D
-              - **label**: D
-              - **circulo**:
-                - **x**: 1397
-                - **y**: 305
-                - **raio**: 13
-            - **[4]**:
-              - **id**: E
-              - **label**: E
-              - **circulo**:
-                - **x**: 1521
-                - **y**: 431
-                - **raio**: 13
-            - **[5]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 41
-                - **y**: 576
+                - **x**: 824
+                - **y**: 788
                 - **raio**: 13
-            - **[6]**:
+            - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 588
-                - **y**: 858
-                - **raio**: 13
-            - **[7]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1281
-                - **y**: 835
-                - **raio**: 13
-            - **[8]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 1389
-                - **y**: 766
-                - **raio**: 13
-            - **[9]**:
-              - **id**: 5
-              - **label**: 5
-              - **circulo**:
-                - **x**: 1492
-                - **y**: 751
+                - **x**: 722
+                - **y**: 985
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Travessia ext
+              - **escalada**: Jardim Secreto
               - **ids**:
                 - 1
-                - E
-            - **[1]**:
-              - **escalada**: Travessia
-              - **ids**:
-                - 2
-                - E
-            - **[2]**:
-              - **escalada**: Enjambrado
-              - **ids**:
-                - 3
-                - C
-            - **[3]**:
-              - **escalada**: Face Vertical
-              - **ids**:
-                - 4
-                - D
-            - **[4]**:
-              - **escalada**: Será
-              - **ids**:
-                - 5
-                - E
-            - **[5]**:
-              - **escalada**: Monodedo
-              - **ids**:
-                - 2
                 - A
-            - **[6]**:
-              - **escalada**: Movimentos Eróticos
+            - **[1]**:
+              - **escalada**: Papo Reto
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Papo Reto sds
               - **ids**:
                 - 2
                 - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Travessia ext
-            - **dificuldade**: V2
+            - **nome**: Abaulados
+            - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
-            - **nome**: Travessia
-            - **dificuldade**: V1
+            - **nome**: 004
+            - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
-            - **nome**: Enjambrado
+            - **nome**: Jardim Secreto
+            - **dificuldade**: V11
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Papo Reto
+            - **dificuldade**: V11
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Papo Reto sds
+            - **dificuldade**: V12
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp) |
+          | :--: |
+          | *Imagem Adicional* |
+      - **nome**: Bloco: Altinho
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cadena
+              - **ids**:
+                - 1A
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Atento
+              - **ids**:
+                - 1B
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Altinho
+              - **ids**:
+                - 2
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 376
+                - **y**: 453
+                - **raio**: 15
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 670
+                - **y**: 465
+                - **raio**: 15
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 1042
+                - **y**: 1080
+                - **raio**: 15
+            - **[3]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1442
+                - **y**: 874
+                - **raio**: 15
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Cadena
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Atento
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Altinho
+            - **dificuldade**: V0
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Bob
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 400
+                - **y**: 191
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 598
+                - **y**: 198
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 777
+                - **y**: 798
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 995
+                - **y**: 731
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Bob
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 601
+                - **y**: 146
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 902
+                - **y**: 109
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1088
+                - **y**: 180
+                - **raio**: 13
+            - **[3]**:
+              - **id**: D
+              - **label**: D
+              - **circulo**:
+                - **x**: 1231
+                - **y**: 318
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 701
+                - **y**: 1005
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1064
+                - **y**: 776
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Albino
+              - **ids**:
+                - 2
+                - C
+            - **[1]**:
+              - **escalada**: Encardido
+              - **ids**:
+                - 2
+                - D
+            - **[2]**:
+              - **escalada**: Reto
+              - **ids**:
+                - 1
+                - A
+            - **[3]**:
+              - **escalada**: Dor nas Costas
+              - **ids**:
+                - 1
+                - B
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Albino
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Encardido
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Bob
+            - **dificuldade**: V1
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Reto
+            - **dificuldade**: V2
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Dor nas Costas
+            - **dificuldade**: V3
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Chicletes
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 557
+                - **y**: 783
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 625
+                - **y**: 817
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3/1A
+              - **label**: 3
+              - **circulo**:
+                - **x**: 957
+                - **y**: 947
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Trident
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Big-Big
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **ids**:
+                - 3/1A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Chicletes
+              - **escalada**: Babaloo
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 569
+                - **y**: 199
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1562
+                - **y**: 640
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 613
+                - **y**: 1007
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Babaloo
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Chicletes
+              - **ids**:
+                - 1
+                - B
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Trident
+            - **dificuldade**: V10
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Big-Big
+            - **dificuldade**: V9
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Babaloo
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Chicletes
+            - **dificuldade**: V11
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Complexo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
+          - **largura_mapa**: 2048
+          - **altura_mapa**: 1536
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 114
+                - **y**: 1352
+                - **raio**: 16
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 517
+                - **y**: 1312
+                - **raio**: 16
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1189
+                - **y**: 1366
+                - **raio**: 16
+            - **[3]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 1036
+                - **y**: 38
+                - **raio**: 16
+            - **[4]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1548
+                - **y**: 152
+                - **raio**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Talhadeira
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Complexo
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Ajoelhou, Tem que Rezar
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Descomplicado
+              - **ids**:
+                - 3
+                - B
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 655
+                - **y**: 233
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 887
+                - **y**: 109
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 965
+                - **y**: 931
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Talhadeira
+              - **ids**:
+                - 1
+                - B
+            - **[1]**:
+              - **escalada**: Sofá
+              - **ids**:
+                - 1
+                - A
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 491
+                - **y**: 868
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 703
+                - **y**: 878
+                - **raio**: 14
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 967
+                - **y**: 867
+                - **raio**: 14
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1053
+                - **y**: 846
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Porosíssimo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Poroso
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Não Poroso
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Triangular
+              - **ids**:
+                - 4
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 426
+                - **y**: 736
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1442
+                - **y**: 934
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1208
+                - **y**: 809
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Boulder de Raiz
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Travessia Ouro Preto-Bocaina
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Perereca
+              - **ids**:
+                - 3
+        - **[4]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 412
+                - **y**: 956
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Respira
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Talhadeira
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Complexo
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Ajoelhou, Tem que Rezar
+            - **dificuldade**: V5
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Descomplicado
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Sofá
+            - **dificuldade**: V3
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Porosíssimo
+            - **dificuldade**: V3
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Poroso
+            - **dificuldade**: V2
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Não Poroso
+            - **dificuldade**: V3
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Triangular
+            - **dificuldade**: V5
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Boulder de Raiz
+            - **dificuldade**: V2
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Travessia Ouro Preto-Bocaina
+            - **dificuldade**: V4
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Perereca
+            - **dificuldade**: V4
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Respira
+            - **dificuldade**: V6
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Conhaque
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: 005
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: 006
+              - **ids**:
+                - 1
+                - A
+            - **[2]**:
+              - **escalada**: 007
+              - **ids**:
+                - 1
+                - B
+            - **[3]**:
+              - **escalada**: 008
+              - **ids**:
+                - 1
+                - C
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp)
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 20
+                - **y**: 1023
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 523
+                - **y**: 1035
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 693
+                - **y**: 1003
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1283
+                - **y**: 973
+                - **raio**: 13
+            - **[4]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 359
+                - **y**: 184
+                - **raio**: 13
+            - **[5]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1034
+                - **y**: 26
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aderência
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Dreher
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Yoga
+              - **ids**:
+                - 3
+                - A
+            - **[3]**:
+              - **escalada**: Conhaque
+              - **ids**:
+                - 3
+                - B
+            - **[4]**:
+              - **escalada**: Conhaque Presidente
+              - **ids**:
+                - 4
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: 005
+            - **dificuldade**: V1
+            - **destaque**: True
+        - **[1]**:
+          - **boulder**:
+            - **nome**: 006
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: 007
+            - **dificuldade**: V3
+            - **destaque**: True
+        - **[3]**:
+          - **boulder**:
+            - **nome**: 008
+            - **dificuldade**: V4
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Aderência
+            - **dificuldade**: VB
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Dreher
+            - **dificuldade**: V3
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Yoga
+            - **dificuldade**: V4
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Conhaque
+            - **dificuldade**: V4_BARRA_V5
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Conhaque Presidente
+            - **dificuldade**: V6
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Deep Inside
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 230
+                - **y**: 849
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1050
+                - **y**: 835
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1008
+                - **y**: 911
+                - **raio**: 13
+            - **[3]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 719
+                - **y**: 284
+                - **raio**: 13
+            - **[4]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1399
+                - **y**: 238
+                - **raio**: 13
+            - **[5]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1512
+                - **y**: 628
+                - **raio**: 13
+            - **[6]**:
+              - **id**: triangulo
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 1072
+                - **y**: 736
+                - **raio**: 13
+            - **[7]**:
+              - **id**: estrela
+              - **label**: ★
+              - **circulo**:
+                - **x**: 1331
+                - **y**: 778
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Buda
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Arestides
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Arestides ext
+              - **ids**:
+                - 1
+                - C
+            - **[3]**:
+              - **escalada**: Nataraja
+              - **ids**:
+                - 2
+                - triangulo
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[4]**:
+              - **escalada**: Sidarta
+              - **ids**:
+                - 2
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[5]**:
+              - **ids**:
+                - 3
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta sds
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 250
+                - **y**: 407
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 565
+                - **y**: 225
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 874
+                - **y**: 197
+                - **raio**: 13
+            - **[3]**:
+              - **id**: D
+              - **label**: D
+              - **circulo**:
+                - **x**: 1211
+                - **y**: 307
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 67
+                - **y**: 779
+                - **raio**: 13
+            - **[5]**:
+              - **id**: triangulo
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 328
+                - **y**: 692
+                - **raio**: 13
+            - **[6]**:
+              - **id**: estrela
+              - **label**: ★
+              - **circulo**:
+                - **x**: 519
+                - **y**: 657
+                - **raio**: 13
+            - **[7]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 474
+                - **y**: 748
+                - **raio**: 13
+            - **[8]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 474
+                - **y**: 789
+                - **raio**: 13
+            - **[9]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 662
+                - **y**: 778
+                - **raio**: 13
+            - **[10]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 701
+                - **y**: 752
+                - **raio**: 13
+            - **[11]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 764
+                - **y**: 605
+                - **raio**: 13
+            - **[12]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 1201
+                - **y**: 693
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Arestides
+              - **ids**:
+                - 1
+                - B
+            - **[1]**:
+              - **escalada**: Canindé
+              - **ids**:
+                - 4
+                - C
+            - **[2]**:
+              - **escalada**: Canindé de Cima
+              - **ids**:
+                - 5
+                - C
+            - **[3]**:
+              - **escalada**: Cara de Boi
+              - **ids**:
+                - 6
+                - B
+            - **[4]**:
+              - **escalada**: Cara de Vaca
+              - **ids**:
+                - 6
+                - C
+            - **[5]**:
+              - **escalada**: Promoção
+              - **ids**:
+                - 7
+                - D
+            - **[6]**:
+              - **escalada**: Invertides
+              - **ids**:
+                - 7
+                - A
+                - triangulo
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[7]**:
+              - **escalada**: Arestides ext
+              - **ids**:
+                - 1
+                - triangulo
+                - D
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[8]**:
+              - **escalada**: Nataraja
+              - **ids**:
+                - 2
+                - triangulo
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+            - **[9]**:
+              - **ids**:
+                - 2
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta
+            - **[10]**:
+              - **ids**:
+                - 3
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Sidarta sds
+            - **[11]**:
+              - **ids**:
+                - 4
+                - triangulo
+                - A
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Deep Inside ext
+            - **[12]**:
+              - **ids**:
+                - 4
+                - estrela
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+              - **escalada**: Deep Inside
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 512
+                - **y**: 776
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 612
+                - **y**: 791
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1215
+                - **y**: 745
+                - **raio**: 13
+            - **[3]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 555
+                - **y**: 263
+                - **raio**: 13
+            - **[4]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 703
+                - **y**: 163
+                - **raio**: 13
+            - **[5]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 849
+                - **y**: 99
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Promocinha
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Bolinho de Chuva
+              - **ids**:
+                - 3
+                - C
+            - **[2]**:
+              - **escalada**: Promoção
+              - **ids**:
+                - 2
+                - B
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Deep Inside
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Buda
+            - **dificuldade**: V3
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Arestides
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Arestides ext
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Nataraja
+            - **dificuldade**: V6
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Sidarta
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Sidarta sds
+            - **dificuldade**: V9
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Deep Inside ext
+            - **dificuldade**: V11
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Deep Inside
+            - **dificuldade**: V10
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Canindé
+            - **dificuldade**: V10
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Canindé de Cima
+            - **dificuldade**: V9
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Cara de Boi
+            - **dificuldade**: V2
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Cara de Vaca
+            - **dificuldade**: V1
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Invertides
+            - **dificuldade**: V8
+        - **[13]**:
+          - **boulder**:
+            - **nome**: Promoção
+            - **dificuldade**: V4
+        - **[14]**:
+          - **boulder**:
+            - **nome**: Promocinha
+            - **dificuldade**: V7
+        - **[15]**:
+          - **boulder**:
+            - **nome**: Bolinho de Chuva
+            - **dificuldade**: VB
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Eléctron
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_electron_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Quark
+              - **ids**:
+                - 1
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 970
+                - **y**: 1111
+                - **raio**: 20
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_electron_p1_i0.webp)
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 30
+                - **y**: 572
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1107
+                - **y**: 868
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1520
+                - **y**: 845
+                - **raio**: 13
+            - **[3]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 52
+                - **y**: 90
+                - **raio**: 13
+            - **[4]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 939
+                - **y**: 173
+                - **raio**: 13
+            - **[5]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1410
+                - **y**: 166
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Neutron (1B)
+              - **ids**:
+                - 1
+                - B
+            - **[1]**:
+              - **escalada**: Elétron
+              - **ids**:
+                - 2
+                - B
+            - **[2]**:
+              - **escalada**: Via Láctea
+              - **ids**:
+                - 3
+                - A
+            - **[3]**:
+              - **escalada**: Neutron (3B)
+              - **ids**:
+                - 3
+                - B
+            - **[4]**:
+              - **escalada**: Positron
+              - **ids**:
+                - 3
+                - C
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Quark
+            - **dificuldade**: V1
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Neutron (1B)
+            - **dificuldade**: V3_BARRA_V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Elétron
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
-            - **nome**: Face Vertical
-            - **dificuldade**: V1
+            - **nome**: Via Láctea
+            - **dificuldade**: V6
         - **[4]**:
           - **boulder**:
-            - **nome**: Será
-            - **dificuldade**: V1
+            - **nome**: Neutron (3B)
+            - **dificuldade**: V4
         - **[5]**:
           - **boulder**:
-            - **nome**: Bem-vindo ao Climb
-            - **dificuldade**: V0
+            - **nome**: Positron
+            - **dificuldade**: V3
+  - **[8]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Entretidos
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 704
+                - **y**: 715
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1171
+                - **y**: 787
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ianque
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Apache
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 1103
+                - **y**: 598
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 471
+                - **y**: 705
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 151
+                - **y**: 738
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 712
+                - **y**: 725
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Garoto Andrada
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Embalados pelo Vovô
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Pressão no Vovô
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Pressão dos Barbosa
+              - **ids**:
+                - 4
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 190
+                - **y**: 1019
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 877
+                - **y**: 814
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 514
+                - **y**: 941
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Helicoidal
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Em Busca do Equilíbrio
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Em Busca do Equilíbrio sds
+              - **ids**:
+                - 3
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 355
+                - **y**: 944
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 766
+                - **y**: 888
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Brígida
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Carranca
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Ianque
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Apache
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Garoto Andrada
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Embalados pelo Vovô
+            - **dificuldade**: V7
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Pressão no Vovô
+            - **dificuldade**: V9
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Pressão dos Barbosa
+            - **dificuldade**: V6_BARRA_V7
         - **[6]**:
           - **boulder**:
-            - **nome**: Monodedo
-            - **dificuldade**: V1
+            - **nome**: Helicoidal
+            - **dificuldade**: V6
         - **[7]**:
           - **boulder**:
-            - **nome**: Movimentos Eróticos
+            - **nome**: Em Busca do Equilíbrio
+            - **dificuldade**: V7
+        - **[8]**:
+          - **boulder**:
+            - **descricao**: (sai nas agarras do Pressão no Vovô)
+            - **nome**: Em Busca do Equilíbrio sds
+            - **dificuldade**: V10
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Brígida
+            - **dificuldade**: V6
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Carranca
+            - **dificuldade**: V3
+  - **[9]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp) |
+          | :--: |
+          | *Escalada Noturna* |
+      - **nome**: Bloco: Fiat Lux
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 912
+                - **y**: 819
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 783
+                - **y**: 819
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fiat Lux
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Frita Crux
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Fiat Lux
+            - **dificuldade**: V11
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: (vira pela aresta atrás do bloco)
+            - **nome**: Frita Crux
+            - **dificuldade**: V4
+  - **[10]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Hora da Janta
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 410
+                - **y**: 1048
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 507
+                - **y**: 1072
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 750
+                - **y**: 758
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1033
+                - **y**: 784
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 1341
+                - **y**: 879
+                - **raio**: 13
+            - **[5]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 289
+                - **y**: 449
+                - **raio**: 13
+            - **[6]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 443
+                - **y**: 277
+                - **raio**: 13
+            - **[7]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 789
+                - **y**: 23
+                - **raio**: 13
+            - **[8]**:
+              - **id**: D
+              - **label**: D
+              - **circulo**:
+                - **x**: 911
+                - **y**: 42
+                - **raio**: 13
+            - **[9]**:
+              - **id**: E
+              - **label**: E
+              - **circulo**:
+                - **x**: 1162
+                - **y**: 138
+                - **raio**: 13
+            - **[10]**:
+              - **id**: triangulo
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 622
+                - **y**: 376
+                - **raio**: 13
+            - **[11]**:
+              - **id**: estrela
+              - **label**: ★
+              - **circulo**:
+                - **x**: 713
+                - **y**: 544
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aranha
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Desafio do Superman
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Hora da Janta
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Voo do Superman
+              - **ids**:
+                - 3
+                - C
+            - **[4]**:
+              - **escalada**: Conha Conha
+              - **ids**:
+                - 4
+                - D
+            - **[5]**:
+              - **escalada**: Maconhaque
+              - **ids**:
+                - 4
+                - E
+            - **[6]**:
+              - **escalada**: Tapa na Pantera
+              - **ids**:
+                - 5
+            - **[7]**:
+              - **ids**:
+                - 2
+                - C
+                - triangulo
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Hora da Janta
+              - **escalada**: Larica
+            - **[8]**:
+              - **ids**:
+                - 2
+                - estrela
+                - C
+              - **grupo**: Pedreira
+              - **setor**: Bloco: Hora da Janta
+              - **escalada**: Sobremesa
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Aranha
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Desafio do Superman
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Hora da Janta
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Larica
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Sobremesa
+            - **dificuldade**: V6
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Voo do Superman
+            - **dificuldade**: INDEFINIDO
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Conha Conha
+            - **dificuldade**: V5
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Maconhaque
+            - **dificuldade**: V5
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Tapa na Pantera
             - **dificuldade**: V1
-  - **[1]**:
+  - **[11]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Jah
@@ -923,98 +2512,7 @@
           - **boulder**:
             - **nome**: Invertido
             - **dificuldade**: V2
-  - **[2]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Sauna
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 615
-                - **y**: 128
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1071
-                - **y**: 228
-                - **raio**: 13
-            - **[2]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1256
-                - **y**: 260
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 871
-                - **y**: 918
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 954
-                - **y**: 903
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1071
-                - **y**: 841
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Sauna Seca
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Sauna Úmida
-              - **ids**:
-                - 2
-                - B
-            - **[2]**:
-              - **escalada**: Sauna Mista
-              - **ids**:
-                - 3
-                - A
-            - **[3]**:
-              - **escalada**: Sauna a Vapor
-              - **ids**:
-                - 3
-                - C
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Sauna Seca
-            - **dificuldade**: V4
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Sauna Úmida
-            - **dificuldade**: V4
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Sauna Mista
-            - **dificuldade**: V5
-        - **[3]**:
-          - **boulder**:
-            - **descricao**: (não usa a face direita da linha)
-            - **nome**: Sauna a Vapor
-            - **dificuldade**: V6
-  - **[3]**:
+  - **[12]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: João de Barro
@@ -1202,470 +2700,16 @@
           - **boulder**:
             - **nome**: João de Barro
             - **dificuldade**: V4
-  - **[4]**:
+  - **[13]**:
     - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Mata-Mata
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 368
-                - **y**: 411
-                - **raio**: 13
-            - **[1]**:
-              - **id**: ★
-              - **label**: ★
-              - **circulo**:
-                - **x**: 689
-                - **y**: 613
-                - **raio**: 13
-            - **[2]**:
-              - **id**: ▲
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 767
-                - **y**: 803
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 600
-                - **y**: 958
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1042
-                - **y**: 863
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Mata-Mata
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Mata-Mata ext
-              - **ids**:
-                - 2
-                - A
-                - ▲
-            - **[2]**:
-              - **escalada**: 001
-              - **ids**:
-                - 2
-                - A
-                - ★
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 501
-                - **y**: 815
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 937
-                - **y**: 740
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1242
-                - **y**: 927
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Sem as Mãos
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Ética
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Risada
-              - **ids**:
-                - 3
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 1110
-                - **y**: 742
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1386
-                - **y**: 723
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Batentes
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Regletes
-              - **ids**:
-                - 2
-        - **[3]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 442
-                - **y**: 788
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 963
-                - **y**: 891
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Cocal é Gueto
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: 002
-              - **ids**:
-                - 2
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Mata-Mata
-            - **dificuldade**: V2
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Mata-Mata ext
-            - **dificuldade**: V3
-        - **[2]**:
-          - **boulder**:
-            - **nome**: 001
-            - **dificuldade**: V3
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Sem as Mãos
-            - **dificuldade**: V0
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Ética
-            - **dificuldade**: V0
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Risada
-            - **dificuldade**: V0
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Batentes
-            - **dificuldade**: V1
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Regletes
-            - **dificuldade**: V2
-        - **[8]**:
-          - **boulder**:
-            - **nome**: Cocal é Gueto
-            - **dificuldade**: V3
-        - **[9]**:
-          - **boulder**:
-            - **nome**: 002
-            - **dificuldade**: V2
-  - **[5]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Bob
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 400
-                - **y**: 191
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 598
-                - **y**: 198
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 777
-                - **y**: 798
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 995
-                - **y**: 731
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Albino
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Encardido
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Bob
-              - **ids**:
-                - 2
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 601
-                - **y**: 146
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 902
-                - **y**: 109
-                - **raio**: 13
-            - **[2]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1088
-                - **y**: 180
-                - **raio**: 13
-            - **[3]**:
-              - **id**: D
-              - **label**: D
-              - **circulo**:
-                - **x**: 1231
-                - **y**: 318
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 701
-                - **y**: 1005
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1064
-                - **y**: 776
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Albino
-              - **ids**:
-                - 2
-                - C
-            - **[1]**:
-              - **escalada**: Encardido
-              - **ids**:
-                - 2
-                - D
-            - **[2]**:
-              - **escalada**: Reto
-              - **ids**:
-                - 1
-                - A
-            - **[3]**:
-              - **escalada**: Dor nas Costas
-              - **ids**:
-                - 1
-                - B
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Albino
-            - **dificuldade**: V4
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Encardido
-            - **dificuldade**: V4
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Bob
-            - **dificuldade**: V1
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Reto
-            - **dificuldade**: V2
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Dor nas Costas
-            - **dificuldade**: V3
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Albino
-            - **dificuldade**: V4
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Encardido
-            - **dificuldade**: V4
-  - **[6]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Red Bull
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 843
-                - **y**: 78
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1137
-                - **y**: 513
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 503
-                - **y**: 937
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1038
-                - **y**: 835
-                - **raio**: 13
-            - **[4]**:
-              - **id**: ▲
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 345
-                - **y**: 448
-                - **raio**: 13
-            - **[5]**:
-              - **id**: ★
-              - **label**: ★
-              - **circulo**:
-                - **x**: 737
-                - **y**: 380
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Flying Horse
-              - **ids**:
-                - 1
-                - A
-                - ▲
-            - **[1]**:
-              - **escalada**: Pingado
-              - **ids**:
-                - 1
-                - A
-                - ★
-            - **[2]**:
-              - **escalada**: Expresso
-              - **ids**:
-                - 1
-                - B
-            - **[3]**:
-              - **escalada**: Macchiato
-              - **ids**:
-                - 2
-                - A
-                - ▲
-            - **[4]**:
-              - **escalada**: Red Bull
-              - **ids**:
-                - 2
-                - A
-                - ★
-            - **[5]**:
-              - **escalada**: Mad Dog
-              - **ids**:
-                - 2
-                - B
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Flying Horse
-            - **dificuldade**: V2
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Pingado
-            - **dificuldade**: V3
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Expresso
-            - **dificuldade**: V7
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Macchiato
-            - **dificuldade**: V6
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Red Bull
-            - **dificuldade**: V6
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Mad Dog
-            - **dificuldade**: V1
-  - **[7]**:
-    - **conteudo**:
-      - **descricao**: 
+      - **descricao**:
+          | ![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp) |
+          | :--: |
+          | *Escalada 1* |
+          
+          | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp) |
+          | :--: |
+          | *Escalada 2* |
       - **nome**: Bloco: Lagartixa
       - **mapas**:
         - **[0]**:
@@ -2140,1104 +3184,15 @@
           - **boulder**:
             - **nome**: Chapeuzinho Vermelho
             - **dificuldade**: V13
-  - **[8]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Entretidos
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 704
-                - **y**: 715
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1171
-                - **y**: 787
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Ianque
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Apache
-              - **ids**:
-                - 2
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 1103
-                - **y**: 598
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 471
-                - **y**: 705
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 151
-                - **y**: 738
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 712
-                - **y**: 725
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Garoto Andrada
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Embalados pelo Vovô
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Pressão no Vovô
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Pressão dos Barbosa
-              - **ids**:
-                - 4
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 190
-                - **y**: 1019
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 877
-                - **y**: 814
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 514
-                - **y**: 941
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Helicoidal
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Em Busca do Equilíbrio
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Em Busca do Equilíbrio sds
-              - **ids**:
-                - 3
-        - **[3]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 355
-                - **y**: 944
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 766
-                - **y**: 888
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Brígida
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Carranca
-              - **ids**:
-                - 2
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Ianque
-            - **dificuldade**: V2
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Apache
-            - **dificuldade**: V2
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Garoto Andrada
-            - **dificuldade**: V3
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Embalados pelo Vovô
-            - **dificuldade**: V7
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Pressão no Vovô
-            - **dificuldade**: V9
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Pressão dos Barbosa
-            - **dificuldade**: V6_BARRA_V7
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Helicoidal
-            - **dificuldade**: V6
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Em Busca do Equilíbrio
-            - **dificuldade**: V7
-        - **[8]**:
-          - **boulder**:
-            - **descricao**: (sai nas agarras do Pressão no Vovô)
-            - **nome**: Em Busca do Equilíbrio sds
-            - **dificuldade**: V10
-        - **[9]**:
-          - **boulder**:
-            - **nome**: Brígida
-            - **dificuldade**: V6
-        - **[10]**:
-          - **boulder**:
-            - **nome**: Carranca
-            - **dificuldade**: V3
-  - **[9]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Fiat Lux
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 912
-                - **y**: 819
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 783
-                - **y**: 819
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Fiat Lux
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Frita Crux
-              - **ids**:
-                - 2
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Fiat Lux
-            - **dificuldade**: V11
-        - **[1]**:
-          - **boulder**:
-            - **descricao**: (vira pela aresta atrás do bloco)
-            - **nome**: Frita Crux
-            - **dificuldade**: V4
-  - **[10]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Teto de Vidro
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 691
-                - **y**: 312
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1091
-                - **y**: 740
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 433
-                - **y**: 840
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1021
-                - **y**: 726
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 917
-                - **y**: 688
-                - **raio**: 13
-            - **[5]**:
-              - **id**: ▲
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 957
-                - **y**: 737
-                - **raio**: 13
-            - **[6]**:
-              - **id**: ★
-              - **label**: ★
-              - **circulo**:
-                - **x**: 995
-                - **y**: 663
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Buena Onda
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Teto de Vidro
-              - **ids**:
-                - 1
-                - B
-                - ▲
-            - **[2]**:
-              - **escalada**: Gringo de Vidro
-              - **ids**:
-                - 1
-                - B
-                - ★
-            - **[3]**:
-              - **escalada**: Teto Quebrado
-              - **ids**:
-                - 2
-                - B
-            - **[4]**:
-              - **escalada**: Gringo
-              - **ids**:
-                - 3
-                - A
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 1001
-                - **y**: 297
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1172
-                - **y**: 401
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 532
-                - **y**: 892
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 470
-                - **y**: 750
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 849
-                - **y**: 892
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 1253
-                - **y**: 984
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Teto de Vidro
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Teto Quebrado
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Manobra
-              - **ids**:
-                - 3
-                - A
-            - **[3]**:
-              - **escalada**: Casquinha
-              - **ids**:
-                - 4
-                - A
-            - **[4]**:
-              - **escalada**: Wafer
-              - **ids**:
-                - 4
-                - B
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Buena Onda
-            - **dificuldade**: V11
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Teto de Vidro
-            - **dificuldade**: V9
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Gringo de Vidro
-            - **dificuldade**: V7
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Teto Quebrado
-            - **dificuldade**: V4
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Gringo
-            - **dificuldade**: V10
-        - **[5]**:
-          - **boulder**:
-            - **descricao**: (dinâmico para a agarra indicada)
-            - **nome**: Manobra
-            - **dificuldade**: V5
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Casquinha
-            - **dificuldade**: V2
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Wafer
-            - **dificuldade**: V1
-  - **[11]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Tô de Boa
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 551
-                - **y**: 725
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 904
-                - **y**: 939
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: NBA
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Pedra Única
-              - **ids**:
-                - 2
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 147
-                - **y**: 434
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 346
-                - **y**: 332
-                - **raio**: 13
-            - **[2]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 644
-                - **y**: 300
-                - **raio**: 13
-            - **[3]**:
-              - **id**: D
-              - **label**: D
-              - **circulo**:
-                - **x**: 1006
-                - **y**: 376
-                - **raio**: 13
-            - **[4]**:
-              - **id**: E
-              - **label**: E
-              - **circulo**:
-                - **x**: 1212
-                - **y**: 448
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 597
-                - **y**: 774
-                - **raio**: 13
-            - **[6]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 642
-                - **y**: 763
-                - **raio**: 13
-            - **[7]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1335
-                - **y**: 650
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Tô na Esquiva
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Tô Legal
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Tô Calmo
-              - **ids**:
-                - 2
-                - C
-            - **[3]**:
-              - **escalada**: Tô de Boa
-              - **ids**:
-                - 2
-                - D
-            - **[4]**:
-              - **escalada**: Jaguatirica
-              - **ids**:
-                - 2
-                - E
-            - **[5]**:
-              - **escalada**: Tô Suave
-              - **ids**:
-                - 3
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **descricao**: (dinâmico de 2 regletes para a borda)
-            - **nome**: NBA
-            - **dificuldade**: V6
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Pedra Única
-            - **dificuldade**: V4
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Tô na Esquiva
-            - **dificuldade**: V6
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Tô Legal
-            - **dificuldade**: V3
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Tô Calmo
-            - **dificuldade**: V5
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Tô de Boa
-            - **dificuldade**: V5
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Jaguatirica
-            - **dificuldade**: V6
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Tô Suave
-            - **dificuldade**: V4_BARRA_V5
-  - **[12]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Pedra Queimada
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 1509
-                - **y**: 280
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 684
-                - **y**: 308
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 390
-                - **y**: 816
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 706
-                - **y**: 857
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 514
-                - **y**: 780
-                - **raio**: 13
-            - **[5]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 766
-                - **y**: 799
-                - **raio**: 13
-            - **[6]**:
-              - **id**: 5
-              - **label**: 5
-              - **circulo**:
-                - **x**: 1108
-                - **y**: 604
-                - **raio**: 13
-            - **[7]**:
-              - **id**: 6
-              - **label**: 6
-              - **circulo**:
-                - **x**: 1313
-                - **y**: 761
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Flap
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Alfândega
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: México
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Passaporte
-              - **ids**:
-                - 4
-            - **[4]**:
-              - **escalada**: Dinamite
-              - **ids**:
-                - 5
-                - A
-            - **[5]**:
-              - **escalada**: Pedra Queimada
-              - **ids**:
-                - 5
-                - B
-            - **[6]**:
-              - **escalada**: Dinamite sds
-              - **ids**:
-                - 6
-                - A
-            - **[7]**:
-              - **escalada**: Pedra Queimada sds
-              - **ids**:
-                - 6
-                - B
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 633
-                - **y**: 731
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Identidade
-              - **ids**:
-                - 1
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Flap
-            - **dificuldade**: V5
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Alfândega
-            - **dificuldade**: V9
-        - **[2]**:
-          - **boulder**:
-            - **descricao**: (começa em duas agarras invertidas no teto)
-            - **nome**: México
-            - **dificuldade**: V9
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Passaporte
-            - **dificuldade**: V6
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Dinamite
-            - **dificuldade**: V2
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Pedra Queimada
-            - **dificuldade**: V8
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Dinamite sds
-            - **dificuldade**: V5_BARRA_V6
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Pedra Queimada sds
-            - **dificuldade**: V9
-        - **[8]**:
-          - **boulder**:
-            - **nome**: Identidade
-            - **dificuldade**: V0
-  - **[13]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Hora da Janta
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 410
-                - **y**: 1048
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 507
-                - **y**: 1072
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 750
-                - **y**: 758
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 1033
-                - **y**: 784
-                - **raio**: 13
-            - **[4]**:
-              - **id**: 5
-              - **label**: 5
-              - **circulo**:
-                - **x**: 1341
-                - **y**: 879
-                - **raio**: 13
-            - **[5]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 289
-                - **y**: 449
-                - **raio**: 13
-            - **[6]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 443
-                - **y**: 277
-                - **raio**: 13
-            - **[7]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 789
-                - **y**: 23
-                - **raio**: 13
-            - **[8]**:
-              - **id**: D
-              - **label**: D
-              - **circulo**:
-                - **x**: 911
-                - **y**: 42
-                - **raio**: 13
-            - **[9]**:
-              - **id**: E
-              - **label**: E
-              - **circulo**:
-                - **x**: 1162
-                - **y**: 138
-                - **raio**: 13
-            - **[10]**:
-              - **id**: triangulo
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 622
-                - **y**: 376
-                - **raio**: 13
-            - **[11]**:
-              - **id**: estrela
-              - **label**: ★
-              - **circulo**:
-                - **x**: 713
-                - **y**: 544
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Aranha
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Desafio do Superman
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Hora da Janta
-              - **ids**:
-                - 2
-                - B
-            - **[3]**:
-              - **escalada**: Voo do Superman
-              - **ids**:
-                - 3
-                - C
-            - **[4]**:
-              - **escalada**: Conha Conha
-              - **ids**:
-                - 4
-                - D
-            - **[5]**:
-              - **escalada**: Maconhaque
-              - **ids**:
-                - 4
-                - E
-            - **[6]**:
-              - **escalada**: Tapa na Pantera
-              - **ids**:
-                - 5
-            - **[7]**:
-              - **ids**:
-                - 2
-                - C
-                - triangulo
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Hora da Janta
-              - **escalada**: Larica
-            - **[8]**:
-              - **ids**:
-                - 2
-                - estrela
-                - C
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Hora da Janta
-              - **escalada**: Sobremesa
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Aranha
-            - **dificuldade**: V2
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Desafio do Superman
-            - **dificuldade**: V3
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Hora da Janta
-            - **dificuldade**: V3
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Larica
-            - **dificuldade**: V3
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Sobremesa
-            - **dificuldade**: V6
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Voo do Superman
-            - **dificuldade**: INDEFINIDO
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Conha Conha
-            - **dificuldade**: V5
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Maconhaque
-            - **dificuldade**: V5
-        - **[8]**:
-          - **boulder**:
-            - **nome**: Tapa na Pantera
-            - **dificuldade**: V1
   - **[14]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Mezanino
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 363
-                - **y**: 824
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1025
-                - **y**: 992
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Mezanino
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Mesa
-              - **ids**:
-                - 2
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 659
-                - **y**: 956
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Mesa
-              - **ids**:
-                - 1
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Mezanino
-            - **dificuldade**: V7
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Mesa
-            - **dificuldade**: V5
-  - **[15]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Chicletes
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 557
-                - **y**: 783
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 625
-                - **y**: 817
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3/1A
-              - **label**: 3
-              - **circulo**:
-                - **x**: 957
-                - **y**: 947
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Trident
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Big-Big
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **ids**:
-                - 3/1A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Chicletes
-              - **escalada**: Babaloo
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 569
-                - **y**: 199
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1562
-                - **y**: 640
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 613
-                - **y**: 1007
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Babaloo
-              - **ids**:
-                - 1
-                - A
-            - **[1]**:
-              - **escalada**: Chicletes
-              - **ids**:
-                - 1
-                - B
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Trident
-            - **dificuldade**: V10
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Big-Big
-            - **dificuldade**: V9
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Babaloo
-            - **dificuldade**: V7
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Chicletes
-            - **dificuldade**: V11
-  - **[16]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Longevidade
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp)
-          - **largura_mapa**: 1576
-          - **altura_mapa**: 1182
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp)
+          - **largura_mapa**: 1919
+          - **altura_mapa**: 1440
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
@@ -3281,6 +3236,13 @@
                 - **x**: 319
                 - **y**: 624
                 - **raio**: 13
+            - **[6]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 959
+                - **y**: 720
+                - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Areia nos Olhos
@@ -3302,6 +3264,11 @@
               - **ids**:
                 - 3
                 - C
+            - **[4]**:
+              - **escalada**: A Vaca e o Frango
+              - **ids**:
+                - 4
+                - A
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
           - **largura_mapa**: 1576
@@ -3423,104 +3390,240 @@
             - **dificuldade**: V5
         - **[4]**:
           - **boulder**:
+            - **nome**: A Vaca e o Frango
+            - **dificuldade**: V2
+        - **[5]**:
+          - **boulder**:
             - **nome**: Fala Vida
             - **dificuldade**: V3
-        - **[5]**:
+        - **[6]**:
           - **boulder**:
             - **nome**: Vida Curta
             - **dificuldade**: V2
-        - **[6]**:
+        - **[7]**:
           - **boulder**:
             - **nome**: Sem Vida
             - **dificuldade**: V3
-        - **[7]**:
+        - **[8]**:
           - **boulder**:
             - **nome**: Arenito
             - **dificuldade**: V5
-        - **[8]**:
+        - **[9]**:
           - **boulder**:
             - **nome**: Vida Longa
             - **dificuldade**: V8
-        - **[9]**:
+        - **[10]**:
           - **boulder**:
             - **nome**: Longevidade
             - **dificuldade**: V7
-        - **[10]**:
+        - **[11]**:
           - **boulder**:
             - **nome**: Guerreiro Jedi
             - **dificuldade**: V11
-        - **[11]**:
+        - **[12]**:
           - **boulder**:
             - **nome**: Jedi
             - **dificuldade**: V10
-  - **[17]**:
+  - **[15]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Bloco: Sonar
+      - **nome**: Bloco: Mata-Mata
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
-          - **largura_mapa**: 1575
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
+          - **largura_mapa**: 1576
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: A
               - **label**: A
               - **circulo**:
-                - **x**: 641
-                - **y**: 243
+                - **x**: 368
+                - **y**: 411
                 - **raio**: 13
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: ★
+              - **label**: ★
               - **circulo**:
-                - **x**: 949
-                - **y**: 345
+                - **x**: 689
+                - **y**: 613
                 - **raio**: 13
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: ▲
+              - **label**: ▲
               - **circulo**:
-                - **x**: 1461
-                - **y**: 667
+                - **x**: 767
+                - **y**: 803
                 - **raio**: 13
             - **[3]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 552
-                - **y**: 940
+                - **x**: 600
+                - **y**: 958
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1042
+                - **y**: 863
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Braúna
+              - **escalada**: Mata-Mata
               - **ids**:
                 - 1
                 - A
             - **[1]**:
-              - **escalada**: Sonar
+              - **escalada**: Mata-Mata ext
               - **ids**:
-                - 1
-                - B
+                - 2
+                - A
+                - ▲
             - **[2]**:
-              - **escalada**: Periscópio
+              - **escalada**: 001
+              - **ids**:
+                - 2
+                - A
+                - ★
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 501
+                - **y**: 815
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 937
+                - **y**: 740
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1242
+                - **y**: 927
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sem as Mãos
               - **ids**:
                 - 1
-                - C
+            - **[1]**:
+              - **escalada**: Ética
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Risada
+              - **ids**:
+                - 3
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 1110
+                - **y**: 742
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1386
+                - **y**: 723
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Batentes
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Regletes
+              - **ids**:
+                - 2
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 442
+                - **y**: 788
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 963
+                - **y**: 891
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cocal é Gueto
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: 002
+              - **ids**:
+                - 2
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Braúna
-            - **dificuldade**: V7
+            - **nome**: Mata-Mata
+            - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
-            - **nome**: Sonar
-            - **dificuldade**: V4
+            - **nome**: Mata-Mata ext
+            - **dificuldade**: V3
         - **[2]**:
           - **boulder**:
-            - **nome**: Periscópio
-            - **dificuldade**: V5
-  - **[18]**:
+            - **nome**: 001
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Sem as Mãos
+            - **dificuldade**: V0
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Ética
+            - **dificuldade**: V0
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Risada
+            - **dificuldade**: V0
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Batentes
+            - **dificuldade**: V1
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Regletes
+            - **dificuldade**: V2
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Cocal é Gueto
+            - **dificuldade**: V3
+        - **[9]**:
+          - **boulder**:
+            - **nome**: 002
+            - **dificuldade**: V2
+  - **[16]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Meia-Parede
@@ -3675,6 +3778,110 @@
           - **boulder**:
             - **nome**: Jardim Suspenso
             - **dificuldade**: V6
+  - **[17]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Mezanino
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 363
+                - **y**: 824
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1025
+                - **y**: 992
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mezanino
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mesa
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 659
+                - **y**: 956
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mesa
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Mezanino
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Mesa
+            - **dificuldade**: V5
+  - **[18]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp) |
+          | :--: |
+          | *Escalada Noturna* |
+      - **nome**: Bloco: Nat Geo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Nat Geo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Discovery Kids
+              - **ids**:
+                - 2
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 778
+                - **y**: 654
+                - **raio**: 12
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1806
+                - **y**: 1034
+                - **raio**: 12
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Nat Geo
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Discovery Kids
+            - **dificuldade**: V3
   - **[19]**:
     - **conteudo**:
       - **descricao**: 
@@ -4234,7 +4441,7 @@
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Novos Baianos
+              - **escalada**: Pico do Baiano
               - **ids**:
                 - A
                 - 1
@@ -4376,7 +4583,7 @@
             - **dificuldade**: V5
         - **[19]**:
           - **boulder**:
-            - **nome**: Novos Baianos
+            - **nome**: Pico do Baiano
             - **dificuldade**: V11
         - **[20]**:
           - **boulder**:
@@ -4400,45 +4607,14 @@
             - **dificuldade**: V2
   - **[20]**:
     - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Abaulados
+      - **descricao**:
+          | ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp) |
+          | :--: |
+          | *Escalada Pedra Queimada* |
+      - **nome**: Bloco: Pedra Queimada
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 828
-                - **y**: 851
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Abaulados
-              - **ids**:
-                - 1
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 574
-                - **y**: 824
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: 004
-              - **ids**:
-                - 1
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
@@ -4446,175 +4622,588 @@
               - **id**: A
               - **label**: A
               - **circulo**:
-                - **x**: 203
-                - **y**: 333
+                - **x**: 1509
+                - **y**: 280
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 684
+                - **y**: 308
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 514
+                - **y**: 780
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1108
+                - **y**: 604
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1313
+                - **y**: 761
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: México
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Dinamite
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Pedra Queimada
+              - **ids**:
+                - 2
+                - B
+            - **[3]**:
+              - **escalada**: Dinamite sds
+              - **ids**:
+                - 3
+                - A
+            - **[4]**:
+              - **escalada**: Pedra Queimada sds
+              - **ids**:
+                - 3
+                - B
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: México
+            - **dificuldade**: V9
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Dinamite
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Pedra Queimada
+            - **dificuldade**: V8
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Dinamite sds
+            - **dificuldade**: V5_BARRA_V6
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Pedra Queimada sds
+            - **dificuldade**: V9
+  - **[21]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Red Bull
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 843
+                - **y**: 78
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1137
+                - **y**: 513
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 503
+                - **y**: 937
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1038
+                - **y**: 835
+                - **raio**: 13
+            - **[4]**:
+              - **id**: ▲
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 345
+                - **y**: 448
+                - **raio**: 13
+            - **[5]**:
+              - **id**: ★
+              - **label**: ★
+              - **circulo**:
+                - **x**: 737
+                - **y**: 380
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Flying Horse
+              - **ids**:
+                - 1
+                - A
+                - ▲
+            - **[1]**:
+              - **escalada**: Pingado
+              - **ids**:
+                - 1
+                - A
+                - ★
+            - **[2]**:
+              - **escalada**: Expresso
+              - **ids**:
+                - 1
+                - B
+            - **[3]**:
+              - **escalada**: Macchiato
+              - **ids**:
+                - 2
+                - A
+                - ▲
+            - **[4]**:
+              - **escalada**: Red Bull
+              - **ids**:
+                - 2
+                - A
+                - ★
+            - **[5]**:
+              - **escalada**: Mad Dog
+              - **ids**:
+                - 2
+                - B
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Flying Horse
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pingado
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Expresso
+            - **dificuldade**: V7
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Macchiato
+            - **dificuldade**: V6
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Red Bull
+            - **dificuldade**: V6
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Mad Dog
+            - **dificuldade**: V1
+  - **[22]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Sauna
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
+          - **largura_mapa**: 1576
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 615
+                - **y**: 128
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1071
+                - **y**: 228
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1256
+                - **y**: 260
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 871
+                - **y**: 918
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 954
+                - **y**: 903
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1071
+                - **y**: 841
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Sauna Seca
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Sauna Úmida
+              - **ids**:
+                - 2
+                - B
+            - **[2]**:
+              - **escalada**: Sauna Mista
+              - **ids**:
+                - 3
+                - A
+            - **[3]**:
+              - **escalada**: Sauna a Vapor
+              - **ids**:
+                - 3
+                - C
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Sauna Seca
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Sauna Úmida
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Sauna Mista
+            - **dificuldade**: V5
+        - **[3]**:
+          - **boulder**:
+            - **descricao**: (não usa a face direita da linha)
+            - **nome**: Sauna a Vapor
+            - **dificuldade**: V6
+  - **[23]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Sonar
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 641
+                - **y**: 243
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circulo**:
                 - **x**: 949
-                - **y**: 109
+                - **y**: 345
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1461
+                - **y**: 667
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 552
+                - **y**: 940
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Braúna
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Sonar
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Periscópio
+              - **ids**:
+                - 1
+                - C
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Braúna
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Sonar
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Periscópio
+            - **dificuldade**: V5
+  - **[24]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp) |
+          | :--: |
+          | *Fotos* |
+      - **nome**: Bloco: Teto de Vidro
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 691
+                - **y**: 312
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1091
+                - **y**: 740
                 - **raio**: 13
             - **[2]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 824
-                - **y**: 788
+                - **x**: 433
+                - **y**: 840
                 - **raio**: 13
             - **[3]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 722
-                - **y**: 985
+                - **x**: 1021
+                - **y**: 726
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 917
+                - **y**: 688
+                - **raio**: 13
+            - **[5]**:
+              - **id**: ▲
+              - **label**: ▲
+              - **circulo**:
+                - **x**: 957
+                - **y**: 737
+                - **raio**: 13
+            - **[6]**:
+              - **id**: ★
+              - **label**: ★
+              - **circulo**:
+                - **x**: 995
+                - **y**: 663
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Jardim Secreto
+              - **escalada**: Buena Onda
               - **ids**:
                 - 1
                 - A
             - **[1]**:
-              - **escalada**: Papo Reto
+              - **escalada**: Teto de Vidro
               - **ids**:
                 - 1
                 - B
+                - ▲
             - **[2]**:
-              - **escalada**: Papo Reto sds
+              - **escalada**: Gringo de Vidro
+              - **ids**:
+                - 1
+                - B
+                - ★
+            - **[3]**:
+              - **escalada**: Teto Quebrado
               - **ids**:
                 - 2
+                - B
+            - **[4]**:
+              - **escalada**: Gringo
+              - **ids**:
+                - 3
+                - A
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 1001
+                - **y**: 297
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 1172
+                - **y**: 401
+                - **raio**: 13
+            - **[2]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 532
+                - **y**: 892
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 470
+                - **y**: 750
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 849
+                - **y**: 892
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1253
+                - **y**: 984
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Teto de Vidro
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Teto Quebrado
+              - **ids**:
+                - 2
+                - A
+            - **[2]**:
+              - **escalada**: Manobra
+              - **ids**:
+                - 3
+                - A
+            - **[3]**:
+              - **escalada**: Casquinha
+              - **ids**:
+                - 4
+                - A
+            - **[4]**:
+              - **escalada**: Wafer
+              - **ids**:
+                - 4
                 - B
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Abaulados
-            - **dificuldade**: V3
+            - **nome**: Buena Onda
+            - **dificuldade**: V11
         - **[1]**:
           - **boulder**:
-            - **nome**: 004
-            - **dificuldade**: V4
+            - **nome**: Teto de Vidro
+            - **dificuldade**: V9
         - **[2]**:
           - **boulder**:
-            - **nome**: Jardim Secreto
-            - **dificuldade**: V11
+            - **nome**: Gringo de Vidro
+            - **dificuldade**: V7
         - **[3]**:
           - **boulder**:
-            - **nome**: Papo Reto
-            - **dificuldade**: V11
+            - **nome**: Teto Quebrado
+            - **dificuldade**: V4
         - **[4]**:
           - **boulder**:
-            - **nome**: Papo Reto sds
-            - **dificuldade**: V12
-  - **[21]**:
+            - **nome**: Gringo
+            - **dificuldade**: V10
+        - **[5]**:
+          - **boulder**:
+            - **descricao**: (dinâmico para a agarra indicada)
+            - **nome**: Manobra
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Casquinha
+            - **dificuldade**: V2
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Wafer
+            - **dificuldade**: V1
+  - **[25]**:
     - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Deep Inside
+      - **descricao**:
+          | ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp) |
+          | :--: |
+          | *Escalador no Bloco Tô de Boa* |
+      - **nome**: Bloco: Tô de Boa
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
-          - **largura_mapa**: 1575
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
+          - **largura_mapa**: 1576
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 230
-                - **y**: 849
+                - **x**: 551
+                - **y**: 725
                 - **raio**: 13
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 1050
-                - **y**: 835
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1008
-                - **y**: 911
-                - **raio**: 13
-            - **[3]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 719
-                - **y**: 284
-                - **raio**: 13
-            - **[4]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1399
-                - **y**: 238
-                - **raio**: 13
-            - **[5]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1512
-                - **y**: 628
-                - **raio**: 13
-            - **[6]**:
-              - **id**: triangulo
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 1072
-                - **y**: 736
-                - **raio**: 13
-            - **[7]**:
-              - **id**: estrela
-              - **label**: ★
-              - **circulo**:
-                - **x**: 1331
-                - **y**: 778
+                - **x**: 904
+                - **y**: 939
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Buda
+              - **escalada**: NBA
               - **ids**:
                 - 1
-                - A
             - **[1]**:
-              - **escalada**: Arestides
-              - **ids**:
-                - 1
-                - B
-            - **[2]**:
-              - **escalada**: Arestides ext
-              - **ids**:
-                - 1
-                - C
-            - **[3]**:
-              - **escalada**: Nataraja
+              - **escalada**: Pedra Única
               - **ids**:
                 - 2
-                - triangulo
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-            - **[4]**:
-              - **escalada**: Sidarta
-              - **ids**:
-                - 2
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-            - **[5]**:
-              - **ids**:
-                - 3
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-              - **escalada**: Sidarta sds
         - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
@@ -4622,767 +5211,452 @@
               - **id**: A
               - **label**: A
               - **circulo**:
-                - **x**: 250
-                - **y**: 407
+                - **x**: 147
+                - **y**: 434
                 - **raio**: 13
             - **[1]**:
               - **id**: B
               - **label**: B
               - **circulo**:
-                - **x**: 565
-                - **y**: 225
+                - **x**: 346
+                - **y**: 332
                 - **raio**: 13
             - **[2]**:
               - **id**: C
               - **label**: C
               - **circulo**:
-                - **x**: 874
-                - **y**: 197
+                - **x**: 644
+                - **y**: 300
                 - **raio**: 13
             - **[3]**:
               - **id**: D
               - **label**: D
               - **circulo**:
-                - **x**: 1211
-                - **y**: 307
+                - **x**: 1006
+                - **y**: 376
                 - **raio**: 13
             - **[4]**:
+              - **id**: E
+              - **label**: E
+              - **circulo**:
+                - **x**: 1212
+                - **y**: 448
+                - **raio**: 13
+            - **[5]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 67
-                - **y**: 779
-                - **raio**: 13
-            - **[5]**:
-              - **id**: triangulo
-              - **label**: ▲
-              - **circulo**:
-                - **x**: 328
-                - **y**: 692
+                - **x**: 597
+                - **y**: 774
                 - **raio**: 13
             - **[6]**:
-              - **id**: estrela
-              - **label**: ★
-              - **circulo**:
-                - **x**: 519
-                - **y**: 657
-                - **raio**: 13
-            - **[7]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 474
-                - **y**: 748
+                - **x**: 642
+                - **y**: 763
                 - **raio**: 13
-            - **[8]**:
+            - **[7]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
-                - **x**: 474
-                - **y**: 789
+                - **x**: 1335
+                - **y**: 650
                 - **raio**: 13
-            - **[9]**:
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Tô na Esquiva
+              - **ids**:
+                - 1
+                - A
+            - **[1]**:
+              - **escalada**: Tô Legal
+              - **ids**:
+                - 1
+                - B
+            - **[2]**:
+              - **escalada**: Tô Calmo
+              - **ids**:
+                - 2
+                - C
+            - **[3]**:
+              - **escalada**: Tô de Boa
+              - **ids**:
+                - 2
+                - D
+            - **[4]**:
+              - **escalada**: Jaguatirica
+              - **ids**:
+                - 2
+                - E
+            - **[5]**:
+              - **escalada**: Tô Suave
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: (dinâmico de 2 regletes para a borda)
+            - **nome**: NBA
+            - **dificuldade**: V6
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pedra Única
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Tô na Esquiva
+            - **dificuldade**: V6
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Tô Legal
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Tô Calmo
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Tô de Boa
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Jaguatirica
+            - **dificuldade**: V6
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Tô Suave
+            - **dificuldade**: V4_BARRA_V5
+  - **[26]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Bloco: Travessia
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 488
+                - **y**: 341
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 692
+                - **y**: 138
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1281
+                - **y**: 87
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 116
+                - **y**: 659
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 179
+                - **y**: 743
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 415
+                - **y**: 840
+                - **raio**: 13
+            - **[6]**:
               - **id**: 4
               - **label**: 4
               - **circulo**:
-                - **x**: 662
-                - **y**: 778
+                - **x**: 711
+                - **y**: 812
                 - **raio**: 13
-            - **[10]**:
+            - **[7]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
-                - **x**: 701
-                - **y**: 752
+                - **x**: 1183
+                - **y**: 840
                 - **raio**: 13
-            - **[11]**:
+            - **[8]**:
               - **id**: 6
               - **label**: 6
               - **circulo**:
-                - **x**: 764
-                - **y**: 605
-                - **raio**: 13
-            - **[12]**:
-              - **id**: 7
-              - **label**: 7
-              - **circulo**:
-                - **x**: 1201
-                - **y**: 693
+                - **x**: 1361
+                - **y**: 753
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Arestides
+              - **escalada**: Travessia ext
               - **ids**:
                 - 1
-                - B
+                - C
             - **[1]**:
-              - **escalada**: Canindé
+              - **escalada**: Travessia
               - **ids**:
-                - 4
+                - 2
                 - C
             - **[2]**:
-              - **escalada**: Canindé de Cima
+              - **escalada**: Enjambrado
+              - **ids**:
+                - 3
+                - A
+            - **[3]**:
+              - **escalada**: Face Vertical
+              - **ids**:
+                - 4
+                - B
+            - **[4]**:
+              - **escalada**: Será
               - **ids**:
                 - 5
                 - C
-            - **[3]**:
-              - **escalada**: Cara de Boi
-              - **ids**:
-                - 6
-                - B
-            - **[4]**:
-              - **escalada**: Cara de Vaca
-              - **ids**:
-                - 6
-                - C
             - **[5]**:
-              - **escalada**: Promoção
+              - **escalada**: Bem-vindo ao Climb
               - **ids**:
-                - 7
-                - D
+                - 6
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
+          - **largura_mapa**: 1575
+          - **altura_mapa**: 1182
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: A
+              - **label**: A
+              - **circulo**:
+                - **x**: 9
+                - **y**: 285
+                - **raio**: 13
+            - **[1]**:
+              - **id**: B
+              - **label**: B
+              - **circulo**:
+                - **x**: 554
+                - **y**: 241
+                - **raio**: 13
+            - **[2]**:
+              - **id**: C
+              - **label**: C
+              - **circulo**:
+                - **x**: 1207
+                - **y**: 326
+                - **raio**: 13
+            - **[3]**:
+              - **id**: D
+              - **label**: D
+              - **circulo**:
+                - **x**: 1397
+                - **y**: 305
+                - **raio**: 13
+            - **[4]**:
+              - **id**: E
+              - **label**: E
+              - **circulo**:
+                - **x**: 1521
+                - **y**: 431
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 41
+                - **y**: 576
+                - **raio**: 13
             - **[6]**:
-              - **escalada**: Invertides
-              - **ids**:
-                - 7
-                - A
-                - triangulo
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 588
+                - **y**: 858
+                - **raio**: 13
             - **[7]**:
-              - **escalada**: Arestides ext
-              - **ids**:
-                - 1
-                - triangulo
-                - D
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1281
+                - **y**: 835
+                - **raio**: 13
             - **[8]**:
-              - **escalada**: Nataraja
-              - **ids**:
-                - 2
-                - triangulo
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1389
+                - **y**: 766
+                - **raio**: 13
             - **[9]**:
-              - **ids**:
-                - 2
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-              - **escalada**: Sidarta
-            - **[10]**:
-              - **ids**:
-                - 3
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-              - **escalada**: Sidarta sds
-            - **[11]**:
-              - **ids**:
-                - 4
-                - triangulo
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-              - **escalada**: Deep Inside ext
-            - **[12]**:
-              - **ids**:
-                - 4
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
-              - **escalada**: Deep Inside
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 5
+              - **label**: 5
               - **circulo**:
-                - **x**: 512
-                - **y**: 776
-                - **raio**: 14
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 612
-                - **y**: 791
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1215
-                - **y**: 745
-                - **raio**: 13
-            - **[3]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 555
-                - **y**: 263
-                - **raio**: 13
-            - **[4]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 703
-                - **y**: 163
-                - **raio**: 13
-            - **[5]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 849
-                - **y**: 99
+                - **x**: 1492
+                - **y**: 751
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Promocinha
+              - **escalada**: Travessia ext
               - **ids**:
                 - 1
-                - A
+                - E
             - **[1]**:
-              - **escalada**: Bolinho de Chuva
+              - **escalada**: Travessia
+              - **ids**:
+                - 2
+                - E
+            - **[2]**:
+              - **escalada**: Enjambrado
               - **ids**:
                 - 3
                 - C
-            - **[2]**:
-              - **escalada**: Promoção
+            - **[3]**:
+              - **escalada**: Face Vertical
+              - **ids**:
+                - 4
+                - D
+            - **[4]**:
+              - **escalada**: Será
+              - **ids**:
+                - 5
+                - E
+            - **[5]**:
+              - **escalada**: Monodedo
+              - **ids**:
+                - 2
+                - A
+            - **[6]**:
+              - **escalada**: Movimentos Eróticos
               - **ids**:
                 - 2
                 - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Buda
-            - **dificuldade**: V3
+            - **nome**: Travessia ext
+            - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
-            - **nome**: Arestides
-            - **dificuldade**: V5
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Arestides ext
-            - **dificuldade**: V7
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Nataraja
-            - **dificuldade**: V6
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Sidarta
-            - **dificuldade**: V5
-        - **[5]**:
-          - **boulder**:
-            - **nome**: Sidarta sds
-            - **dificuldade**: V9
-        - **[6]**:
-          - **boulder**:
-            - **nome**: Deep Inside ext
-            - **dificuldade**: V11
-        - **[7]**:
-          - **boulder**:
-            - **nome**: Deep Inside
-            - **dificuldade**: V10
-        - **[8]**:
-          - **boulder**:
-            - **nome**: Canindé
-            - **dificuldade**: V10
-        - **[9]**:
-          - **boulder**:
-            - **nome**: Canindé de Cima
-            - **dificuldade**: V9
-        - **[10]**:
-          - **boulder**:
-            - **nome**: Cara de Boi
-            - **dificuldade**: V2
-        - **[11]**:
-          - **boulder**:
-            - **nome**: Cara de Vaca
+            - **nome**: Travessia
             - **dificuldade**: V1
-        - **[12]**:
-          - **boulder**:
-            - **nome**: Invertides
-            - **dificuldade**: V8
-        - **[13]**:
-          - **boulder**:
-            - **nome**: Promoção
-            - **dificuldade**: V4
-        - **[14]**:
-          - **boulder**:
-            - **nome**: Promocinha
-            - **dificuldade**: V7
-        - **[15]**:
-          - **boulder**:
-            - **nome**: Bolinho de Chuva
-            - **dificuldade**: VB
-  - **[22]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Bloco: Complexo
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
-          - **largura_mapa**: 2048
-          - **altura_mapa**: 1536
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 114
-                - **y**: 1352
-                - **raio**: 16
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 517
-                - **y**: 1312
-                - **raio**: 16
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1189
-                - **y**: 1366
-                - **raio**: 16
-            - **[3]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 1036
-                - **y**: 38
-                - **raio**: 16
-            - **[4]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1548
-                - **y**: 152
-                - **raio**: 17
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Talhadeira
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Complexo
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Ajoelhou, Tem que Rezar
-              - **ids**:
-                - 2
-                - B
-            - **[3]**:
-              - **escalada**: Descomplicado
-              - **ids**:
-                - 3
-                - B
-        - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 655
-                - **y**: 233
-                - **raio**: 13
-            - **[1]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 887
-                - **y**: 109
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 965
-                - **y**: 931
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Talhadeira
-              - **ids**:
-                - 1
-                - B
-            - **[1]**:
-              - **escalada**: Sofá
-              - **ids**:
-                - 1
-                - A
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 491
-                - **y**: 868
-                - **raio**: 14
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 703
-                - **y**: 878
-                - **raio**: 14
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 967
-                - **y**: 867
-                - **raio**: 14
-            - **[3]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 1053
-                - **y**: 846
-                - **raio**: 14
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Porosíssimo
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Poroso
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Não Poroso
-              - **ids**:
-                - 3
-            - **[3]**:
-              - **escalada**: Triangular
-              - **ids**:
-                - 4
-        - **[3]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 426
-                - **y**: 736
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1442
-                - **y**: 934
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1208
-                - **y**: 809
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Boulder de Raiz
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Travessia Ouro Preto-Bocaina
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Perereca
-              - **ids**:
-                - 3
-        - **[4]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 412
-                - **y**: 956
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Respira
-              - **ids**:
-                - 1
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Talhadeira
-            - **dificuldade**: V4
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Complexo
-            - **dificuldade**: V5
         - **[2]**:
           - **boulder**:
-            - **nome**: Ajoelhou, Tem que Rezar
-            - **dificuldade**: V5
+            - **nome**: Enjambrado
+            - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
-            - **nome**: Descomplicado
-            - **dificuldade**: V3
+            - **nome**: Face Vertical
+            - **dificuldade**: V1
         - **[4]**:
           - **boulder**:
-            - **nome**: Sofá
-            - **dificuldade**: V3
+            - **nome**: Será
+            - **dificuldade**: V1
         - **[5]**:
           - **boulder**:
-            - **nome**: Porosíssimo
-            - **dificuldade**: V3
+            - **nome**: Bem-vindo ao Climb
+            - **dificuldade**: V0
         - **[6]**:
           - **boulder**:
-            - **nome**: Poroso
-            - **dificuldade**: V2
+            - **nome**: Monodedo
+            - **dificuldade**: V1
         - **[7]**:
           - **boulder**:
-            - **nome**: Não Poroso
-            - **dificuldade**: V3
-        - **[8]**:
-          - **boulder**:
-            - **nome**: Triangular
-            - **dificuldade**: V5
-        - **[9]**:
-          - **boulder**:
-            - **nome**: Boulder de Raiz
-            - **dificuldade**: V2
-        - **[10]**:
-          - **boulder**:
-            - **nome**: Travessia Ouro Preto-Bocaina
-            - **dificuldade**: V4
-        - **[11]**:
-          - **boulder**:
-            - **nome**: Perereca
-            - **dificuldade**: V4
-        - **[12]**:
-          - **boulder**:
-            - **nome**: Respira
-            - **dificuldade**: V6
-  - **[23]**:
+            - **nome**: Movimentos Eróticos
+            - **dificuldade**: V1
+  - **[27]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Bloco: Conhaque
+      - **nome**: Bloco: Véia Doida
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp)
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 20
-                - **y**: 1023
-                - **raio**: 13
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 523
-                - **y**: 1035
-                - **raio**: 13
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 693
-                - **y**: 1003
-                - **raio**: 13
-            - **[3]**:
-              - **id**: 4
-              - **label**: 4
-              - **circulo**:
-                - **x**: 1283
-                - **y**: 973
-                - **raio**: 13
-            - **[4]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 359
-                - **y**: 184
-                - **raio**: 13
-            - **[5]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 1034
-                - **y**: 26
+                - **x**: 1165
+                - **y**: 1111
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: Aderência
+              - **escalada**: Véia Doida
               - **ids**:
                 - 1
-                - A
-            - **[1]**:
-              - **escalada**: Dreher
-              - **ids**:
-                - 2
-                - A
-            - **[2]**:
-              - **escalada**: Yoga
-              - **ids**:
-                - 3
-                - A
-            - **[3]**:
-              - **escalada**: Conhaque
-              - **ids**:
-                - 3
-                - B
-            - **[4]**:
-              - **escalada**: Conhaque Presidente
-              - **ids**:
-                - 4
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Aderência
-            - **dificuldade**: VB
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Dreher
-            - **dificuldade**: V3
-        - **[2]**:
-          - **boulder**:
-            - **nome**: Yoga
+            - **nome**: Véia Doida
             - **dificuldade**: V4
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Conhaque
-            - **dificuldade**: V4_BARRA_V5
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Conhaque Presidente
-            - **dificuldade**: V6
-  - **[24]**:
+  - **[28]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Bloco: Elétron
+      - **nome**: Bloco: Vitamina Jungle
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_eletron_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: 009
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Vitamina Jungle
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: 8
+              - **ids**:
+                - 3
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
           - **pontos_de_interesse**:
             - **[0]**:
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 30
-                - **y**: 572
-                - **raio**: 13
+                - **x**: 121
+                - **y**: 946
+                - **raio**: 21
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 1107
-                - **y**: 868
-                - **raio**: 13
+                - **x**: 829
+                - **y**: 1037
+                - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
-                - **x**: 1520
-                - **y**: 845
-                - **raio**: 13
-            - **[3]**:
-              - **id**: A
-              - **label**: A
-              - **circulo**:
-                - **x**: 52
-                - **y**: 90
-                - **raio**: 13
-            - **[4]**:
-              - **id**: B
-              - **label**: B
-              - **circulo**:
-                - **x**: 939
-                - **y**: 173
-                - **raio**: 13
-            - **[5]**:
-              - **id**: C
-              - **label**: C
-              - **circulo**:
-                - **x**: 1410
-                - **y**: 166
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Neutron
-              - **ids**:
-                - 1
-                - B
-            - **[1]**:
-              - **escalada**: Elétron
-              - **ids**:
-                - 2
-                - B
-            - **[2]**:
-              - **escalada**: Via Láctea
-              - **ids**:
-                - 3
-                - A
-            - **[3]**:
-              - **escalada**: Neutron
-              - **ids**:
-                - 3
-                - B
-            - **[4]**:
-              - **escalada**: Positron
-              - **ids**:
-                - 3
-                - C
+                - **x**: 1337
+                - **y**: 1034
+                - **raio**: 20
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Neutron
-            - **dificuldade**: V3_BARRA_V4
+            - **nome**: 009
+            - **dificuldade**: V3
         - **[1]**:
           - **boulder**:
-            - **nome**: Elétron
-            - **dificuldade**: V3
+            - **nome**: Vitamina Jungle
+            - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
-            - **nome**: Via Láctea
-            - **dificuldade**: V6
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Neutron
-            - **dificuldade**: V4
-        - **[4]**:
-          - **boulder**:
-            - **nome**: Positron
+            - **nome**: 8
             - **dificuldade**: V3
 
 
@@ -5662,7 +5936,7 @@
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
-              - **escalada**: 005
+              - **escalada**: 011
               - **ids**:
                 - 1
         - **[3]**:
@@ -5685,8 +5959,8 @@
                 - **y**: 955
                 - **raio**: 13
             - **[2]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: 3
+              - **label**: 3
               - **circulo**:
                 - **x**: 907
                 - **y**: 948
@@ -5719,11 +5993,12 @@
             - **[2]**:
               - **escalada**: Super Bonder
               - **ids**:
-                - 4
+                - 3
                 - B
             - **[3]**:
               - **escalada**: Tec Bond
               - **ids**:
+                - 2
                 - B
               - **grupo**: Mont Blanc
               - **setor**: Bloco: Mont Blanc
@@ -5770,7 +6045,7 @@
             - **dificuldade**: V10
         - **[10]**:
           - **boulder**:
-            - **nome**: 005
+            - **nome**: 011
             - **dificuldade**: V2
         - **[11]**:
           - **boulder**:
@@ -5790,7 +6065,10 @@
             - **dificuldade**: V6
   - **[1]**:
     - **conteudo**:
-      - **descricao**: 
+      - **descricao**:
+          | ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp) |
+          | :--: |
+          | *parada obrigatória* |
       - **nome**: Bloco: Parada Obrigatória
       - **mapas**:
         - **[0]**:
@@ -5855,7 +6133,7 @@
                 - 2
                 - C
         - **[1]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p2.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
@@ -5995,12 +6273,12 @@
                 - 1
                 - B
             - **[1]**:
-              - **escalada**: 006
+              - **escalada**: 012
               - **ids**:
                 - 2
                 - A
             - **[2]**:
-              - **escalada**: 007
+              - **escalada**: 013
               - **ids**:
                 - 3
                 - A
@@ -6031,11 +6309,11 @@
             - **dificuldade**: V8
         - **[1]**:
           - **boulder**:
-            - **nome**: 006
+            - **nome**: 012
             - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
-            - **nome**: 007
+            - **nome**: 013
             - **dificuldade**: V3
         - **[3]**:
           - **boulder**:
@@ -6765,23 +7043,6 @@
       - **nome**: Bloco: Mantra
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p0.webp)
-          - **largura_mapa**: 1575
-          - **altura_mapa**: 1182
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 957
-                - **y**: 1039
-                - **raio**: 13
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Prodígio
-              - **ids**:
-                - 1
-        - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
@@ -6816,15 +7077,11 @@
               - **escalada**: Oráculo
               - **ids**:
                 - 2
-              - **grupo**: Bonsai
-              - **setor**: Bloco: Mantra
             - **[2]**:
-              - **escalada**: 008
+              - **escalada**: 014
               - **ids**:
                 - 3
-              - **grupo**: Bonsai
-              - **setor**: Bloco: Mantra
-        - **[2]**:
+        - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
@@ -6896,7 +7153,7 @@
               - **ids**:
                 - 3
                 - C
-        - **[3]**:
+        - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
           - **largura_mapa**: 1575
           - **altura_mapa**: 1182
@@ -6927,45 +7184,41 @@
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Prodígio
-            - **dificuldade**: V5
-        - **[1]**:
-          - **boulder**:
             - **nome**: Briga de Galo
             - **dificuldade**: V6
-        - **[2]**:
+        - **[1]**:
           - **boulder**:
             - **nome**: Oráculo
             - **dificuldade**: V9
-        - **[3]**:
+        - **[2]**:
           - **boulder**:
-            - **nome**: 008
+            - **nome**: 014
             - **dificuldade**: V5
-        - **[4]**:
+        - **[3]**:
           - **boulder**:
             - **nome**: Afrodisíaco
             - **dificuldade**: V9
-        - **[5]**:
+        - **[4]**:
           - **boulder**:
             - **nome**: Lava Pés
             - **dificuldade**: V7
-        - **[6]**:
+        - **[5]**:
           - **boulder**:
             - **nome**: Mantra
             - **dificuldade**: V8
-        - **[7]**:
+        - **[6]**:
           - **boulder**:
             - **nome**: Samadhi
             - **dificuldade**: V10
-        - **[8]**:
+        - **[7]**:
           - **boulder**:
             - **nome**: Tantra
             - **dificuldade**: V7
-        - **[9]**:
+        - **[8]**:
           - **boulder**:
             - **nome**: Psicótico
             - **dificuldade**: V3
-        - **[10]**:
+        - **[9]**:
           - **boulder**:
             - **nome**: Popeye
             - **dificuldade**: V2
@@ -7161,286 +7414,358 @@
           - **boulder**:
             - **nome**: Semiárido
             - **dificuldade**: V5
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Prodígio
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Prodígio
+            - **dificuldade**: V5
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_prodigio_p0_i0.webp)
+          - **largura_mapa**: 1920
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 957
+                - **y**: 1039
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Prodígio
+              - **ids**:
+                - 1
 
 
 ## Arquivos Externos
 
 - **arquivos_externos**:
   - **[0]**:
-    - **caminho**: ![caminho](imagens/apoio_p0.webp)
-    - **checksum_sha256**: 6d8f9f08b705a7df00cf14760c6902cbc8e9c5bc6d5547886757e6daec8d7e0b
+    - **caminho**: ![caminho](imagens/a_artista_e_a_arte_p0_i0.webp)
+    - **checksum_sha256**: 080402976e534cab209c7a58b434216f0e4792ef4f58b287c2cf4b34372d78b3
   - **[1]**:
-    - **caminho**: ![caminho](imagens/capa_p0.webp)
-    - **checksum_sha256**: 5e5c6afd271c706569ffb501b83a79d04326f68efb80c8d9ea324761913ed7f3
+    - **caminho**: ![caminho](imagens/a_artista_e_a_arte_p0_i1.webp)
+    - **checksum_sha256**: e3d2207be8db060dde3782c9465f282e7e51ce474eab6fff2f61ef7b96b86302
   - **[2]**:
-    - **caminho**: ![caminho](imagens/contatos_p0.webp)
-    - **checksum_sha256**: 79305bc49e10c77807fc502fe2e08628f6e51ae6f94dccf0af5037eda158db69
+    - **caminho**: ![caminho](imagens/apoio_p0_i0.webp)
+    - **checksum_sha256**: 68844379c67541908cdc13fb340eb681aee7c9c89bff15e603c454395d14fb29
   - **[3]**:
+    - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
+    - **checksum_sha256**: d98b731dee61159942f86c8c81abca3e1514de0dca3a4685977889e116c1a4e5
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/contatos_p0_i0.webp)
+    - **checksum_sha256**: 403bd49fcfc5f03f98d47f1c95d161bc83daffeb3c6ab5f051098ec7762bf994
+  - **[5]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_p1.webp)
     - **checksum_sha256**: a14ef5d2f611248af5a4a594b19c57674050633d2669c218a4b1b15296d36083
-  - **[4]**:
+  - **[6]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp)
     - **checksum_sha256**: d6092c9f10385b6b9961ddcb0cf292dae15ed1d42a2828e77bcb2e01793efd22
-  - **[5]**:
+  - **[7]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp)
     - **checksum_sha256**: 5fd1fd0f37566daca66e6a0d95c645f30318d2de4af4d895e833522ef838e9f7
-  - **[6]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
     - **checksum_sha256**: b0442bfe78977458a4f76148ccb4fd42695f4e092065ec5efd342e528ef8ea90
-  - **[7]**:
+  - **[9]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp)
     - **checksum_sha256**: 82889fdcc4e031d980352ca2dd4e2556942e3da6b85d6f347011b1157866d2c3
-  - **[8]**:
+  - **[10]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
     - **checksum_sha256**: efc4d2f707613bd0d918e8e7d34d6e3efdb0825dc5c704ae50c48a2c4197f4ea
-  - **[9]**:
+  - **[11]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp)
     - **checksum_sha256**: 2320ffc7fe899f36fd76e628aecb0da7f28b9dc3ff9b89b86f5e3313d4a5f3a0
-  - **[10]**:
-    - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p0.webp)
-    - **checksum_sha256**: 74744bf4e4fa27814f9d069f9ff17e19fa31c7e0ae654b5a0ecf8315fc440aff
-  - **[11]**:
-    - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
-    - **checksum_sha256**: f1635b5711c7fe973bd40f5f13d6ecd42a690f94e292a9f69e00d3e83b4136c9
   - **[12]**:
-    - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
-    - **checksum_sha256**: 69571d1243dfd403c6742df12fb848a93bbe2dd2cfedfd6843f5e9d0dfaaacbb
-  - **[13]**:
-    - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
-    - **checksum_sha256**: 3923fed1745aa5190623382edd016a39cce9456e41ed3d44c2aa6db7960e2e4d
-  - **[14]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_pedra_p0.webp)
     - **checksum_sha256**: f8a68900a5c9c847e1bccb2475e3047580e5a7adaeca0f5f734ac70bcf977770
-  - **[15]**:
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_prodigio_p0_i0.webp)
+    - **checksum_sha256**: de8679303a4cbea5bb5fd5b662065ae4aec6fd9b1991c4a89bae201f57ae8838
+  - **[14]**:
     - **caminho**: ![caminho](imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp)
     - **checksum_sha256**: 11ec8c6f7740ec18ef3c78264049b3f8f8afd9d57f8e5b1e0edc9e8b1c783765
-  - **[16]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_p1.webp)
     - **checksum_sha256**: 51ce83771d303cc419f49e28b6138dacbff49aa630d59900999ff44239d47cdb
-  - **[17]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp)
     - **checksum_sha256**: ec03717286a5e25d42a1b207fff69c2048c5f83d3f3571074b18ad33990a31c3
-  - **[18]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp)
     - **checksum_sha256**: 956653cecb30fa4affd5f41b95b981ee6b6601b50a63f9e4f749f4a1b75c7c8b
-  - **[19]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp)
     - **checksum_sha256**: 887dadd51be8112138ce944fb0c370135fd87288c3152482fa6d0cba2e8358c1
-  - **[20]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
     - **checksum_sha256**: 32c7d185f2d5157c088b0c56f4414ffc57c12ab02c29b9bde910565f927b62de
-  - **[21]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp)
     - **checksum_sha256**: 09424ec73cf0f5bb6fec4292fd399e7acdf4613c6a905d7a74b7297c9998be49
-  - **[22]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp)
     - **checksum_sha256**: 4fba2a28535b36fad5e40d825cfea71cebb39007ac08c5975ef5d42e3f7069fa
-  - **[23]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp)
     - **checksum_sha256**: 5b3446f4a9aea91cc170964e32a6e869fd9ee79cb9453ff2a50aace7570bb949
-  - **[24]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
     - **checksum_sha256**: 3aceaccc3ada3e0f25838a77e9941624eb72fd4bb0437706f30307b073fd70d3
-  - **[25]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp)
     - **checksum_sha256**: e20f8df48646ea870a6fb9bcf398b6c4c36254b3ac3e518599ff01c9deb65fa6
+  - **[25]**:
+    - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
+    - **checksum_sha256**: 5eae4cb945afb6f51b0ffc3d125e2513e7f6c0574163a7212bfaab8f863bc096
   - **[26]**:
-    - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1.webp)
-    - **checksum_sha256**: 4a8cf6ffec86a12d468e2f616a4589499e8144b3fdbf13bb87a744b0c2f9f5ec
-  - **[27]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp)
     - **checksum_sha256**: d8ebf34257ba66f0e7da36125c883fcc5e5268489cad21da74df8b095ea2fc87
-  - **[28]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp)
     - **checksum_sha256**: 7934cd4abbbeaa13cce81fa965510fbb693d0691024e81d509f8f3f46a0fd855
-  - **[29]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_p1.webp)
     - **checksum_sha256**: 7884e0ef5187518312602c7a9c82e929af7727408e37c1ee16eef141288d8ee1
-  - **[30]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
     - **checksum_sha256**: cc1b9cd38d39d8302c8582cb89cfa8a5a7a6c522e9ce4f932b4b7235dd71130a
-  - **[31]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
     - **checksum_sha256**: 2009799a71180648fd0efdc0933ae3aa2be446db998a2380b970e294cde59af2
-  - **[32]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
     - **checksum_sha256**: d4872bcb3abdb758faa7fcba22bd849986421844d9291bdc8213d25d08564f28
+  - **[32]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp)
+    - **checksum_sha256**: 962f05a6e62483d488e3f2cb67bcba2402fe9e0a7f141e06fda5b444a4f3c99c
   - **[33]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
+    - **checksum_sha256**: fe4a493c099dea12523ab3ee2ec76f7efc03bcabce9d0e79a9693bdef8bdd035
+  - **[34]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
     - **checksum_sha256**: 4d1a509cc1c5429ab343293ab82e4eb4e2b7c2cc56eeb2e5147241ecc280613e
-  - **[34]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
     - **checksum_sha256**: 05b877c8226e674f985860a1c894198c9855a7cb3e14c042861844d4f31aee23
-  - **[35]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
     - **checksum_sha256**: f56c167996d9a9fa99bb037c58ebce80946688ceb6dfe6465683d1b3888dfc53
-  - **[36]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
     - **checksum_sha256**: fd1a85437fed0c96602cbc7678492de16232577b9ac399099da5ae43b0531598
-  - **[37]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
     - **checksum_sha256**: 3705b0ab80bb006a4bfc1bed6883afa6ef1c9f1cbb5eec08c188f0c04ec909a3
-  - **[38]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
     - **checksum_sha256**: a740add85a1ffbb2d6298f6e2a0890193b3946bd624862adc574c1ee3519e3ee
-  - **[39]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
     - **checksum_sha256**: 81ef4426af8acdf37777a53e4267ba9e0bb5edd44d34f5a5b2a4a754045d773e
-  - **[40]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
     - **checksum_sha256**: 5458c3865ffcdda7c1c9686abd9ef982a0bf5b071ebd0f588255c56380e5757b
-  - **[41]**:
+  - **[42]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
     - **checksum_sha256**: 995a76d40832456d0fae88cbc818d2d246d53ec51d91e2d1a83c0be924d1a554
-  - **[42]**:
-    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_conhaque_p0.webp)
-    - **checksum_sha256**: 2c56acbeb9db67a74986b8720916e16566fad9b8745090bf1ed83b716fac3731
   - **[43]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp)
+    - **checksum_sha256**: 521fc9299a20e85a0405ddbc179f23d3fb748e7690c270a1e05412d14d41bdcc
+  - **[44]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp)
+    - **checksum_sha256**: 10ca04fc4bd50b6b54a5e4545a3c2800fd9972071f417231a7229e134f39db8e
+  - **[45]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
     - **checksum_sha256**: 1fc2eda38c21e9f05feb024f24c0f7ac167a7830151aecb26d5b2e5ca45bc4f4
-  - **[44]**:
+  - **[46]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
     - **checksum_sha256**: e20ffa66c3d0758053760b34ff46d18a5ec4d429eb1e6bbc06157d6d913eca2b
-  - **[45]**:
+  - **[47]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
     - **checksum_sha256**: 6254e01551d00a53cc8f43502ff5aac644bceaa702ed82bd19a6b39d481a2c4b
-  - **[46]**:
-    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_eletron_p0.webp)
-    - **checksum_sha256**: e6055337b3dc0e4db8d43f3cef9d05b8818e89e633f09c76cb31e4dad2509a17
-  - **[47]**:
+  - **[48]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_electron_p0_i0.webp)
+    - **checksum_sha256**: ced02271c67cb5c0f063fead38a1ead442ccbc85b1a3ff0c4f932b53633706f3
+  - **[49]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_electron_p1_i0.webp)
+    - **checksum_sha256**: a289f67382aa7d02b09237eb46b8a8c9272934ae6085610704f2a5e23c81a846
+  - **[50]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
     - **checksum_sha256**: 96d26b1f7152357a42a87dbc3f8bae3c335f74fea501af590c542787f8c8a707
-  - **[48]**:
+  - **[51]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
     - **checksum_sha256**: eebee3a072d3bfeda120563abfc12050461422331f9e366ec9bce3db9ed4121c
-  - **[49]**:
+  - **[52]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
     - **checksum_sha256**: 78561da415455212d303c725f2985f1e5d17aeb5fd9363e0190654b3b094fe83
-  - **[50]**:
+  - **[53]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
     - **checksum_sha256**: a704569eb9a131936886312bfc2f72bd856155b4bda9c80ad161f9b863832ca0
-  - **[51]**:
+  - **[54]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
     - **checksum_sha256**: 14cfdadbf0348a664799c417599689ba92e0a774a51bba5dc030f93d751f6041
-  - **[52]**:
+  - **[55]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
+    - **checksum_sha256**: 27bc5efec6c635d0395434f67f5f8f0f85a73cdf12ddcf719e2dc76ac946abd6
+  - **[56]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
     - **checksum_sha256**: 665fb7db27c0bd562c6aea76d5d8a0b2e9776a1484a90e17cc0b71441fd85400
-  - **[53]**:
+  - **[57]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_jah_p0.webp)
     - **checksum_sha256**: 05067fb4a4b2a855646baf19644cfdb1dfdde0a80dd418072f5736457c7dfb5c
-  - **[54]**:
+  - **[58]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp)
     - **checksum_sha256**: 93c64e3da13482b6d44545cad93b199943e8d2ab26e55802da40b8ec2a795f7d
-  - **[55]**:
+  - **[59]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
     - **checksum_sha256**: 34c6010e8f57bebdf057351f56052911992acd31bfce1fb1161f224cf797ec89
-  - **[56]**:
+  - **[60]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
     - **checksum_sha256**: efc980db901ff96ed2153105875522107543da66620ebbac1269ccace4b582a9
-  - **[57]**:
+  - **[61]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp)
     - **checksum_sha256**: a2c2c15415492c0c2c473089419d42663c48043aa3610b6f7f142ffa6ed93f22
-  - **[58]**:
+  - **[62]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
     - **checksum_sha256**: c485d7fb367c3ae8dbf7daf94def0a216e2f3eeecf177047d7c4cad32795ed53
-  - **[59]**:
+  - **[63]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
     - **checksum_sha256**: 966b1a69e32547968ff41463986106891b371aad0c33c4c7f5f60525590003e5
-  - **[60]**:
-    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p0.webp)
-    - **checksum_sha256**: 3708890364b2ad2165d865a65e916435809e1e2fc45bf2d153ac080f60d9dc7f
-  - **[61]**:
+  - **[64]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
+    - **checksum_sha256**: 1c86878493d87e83c99f3310f4b69761d1a6f0331b17488c9ec8271473006d65
+  - **[65]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp)
+    - **checksum_sha256**: b2300c002604310e104e90492e05485a145358291c73adb66cd1672a19b632e0
+  - **[66]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp)
+    - **checksum_sha256**: 2205718d9e7c88bc3039499955f7503d1b5bc494ef41267bdcb2eca4974f9ff1
+  - **[67]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
     - **checksum_sha256**: 2a3a2b61a19c76185053fac092a4cc7eaf6ae578b180919862fa1806390fa810
-  - **[62]**:
+  - **[68]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
     - **checksum_sha256**: 788233f821d14417b0ea90356be6e49eecb880e295f631927a0394bf68f8b976
-  - **[63]**:
+  - **[69]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
     - **checksum_sha256**: 4c6d72939a94aad243fd35b092fd258bf45dfa7dfe615901614fa99596776ef1
-  - **[64]**:
+  - **[70]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
     - **checksum_sha256**: 656d7410a42c96240f5b444f58ada705f51084b65fa8069017329d3282b3463f
-  - **[65]**:
+  - **[71]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
     - **checksum_sha256**: e59b915a788ac6d4c76429cf842ec6223e36999fcd8f8b8a47b57e6c10dd2e4d
-  - **[66]**:
+  - **[72]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp)
     - **checksum_sha256**: debeb836451cbf844b1adb768d7752f10ec433c01a0cc86fa24a748024178dfa
-  - **[67]**:
+  - **[73]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
     - **checksum_sha256**: ed894f6a75d948d31cdb12048a9871225d616527cb6d72ddc82803a8cb80bf87
-  - **[68]**:
+  - **[74]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
     - **checksum_sha256**: 2f7279367ca6f7bdadaf3a6ced9e266b304c07ed70dce3c06d90111f5bb604b7
-  - **[69]**:
+  - **[75]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
     - **checksum_sha256**: 6562aff8cbaf0e1581ffb3009fcde7ddcd7eecd925cf0026c9135b7f55948306
-  - **[70]**:
+  - **[76]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
     - **checksum_sha256**: e6c773b12d68b6d1ff9fc19e90f401056c18d987b0d018f57546b738f3762e0a
-  - **[71]**:
+  - **[77]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
     - **checksum_sha256**: 63177e8443d1986e854f4ee13081cbfb94d69c23c8b69450497384b1a027294b
-  - **[72]**:
+  - **[78]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp)
+    - **checksum_sha256**: 33c7bcd903423d1bfd72215489c48990eeeed523ab8ed586bec5d42adc674edd
+  - **[79]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
+    - **checksum_sha256**: 985d6e53f3ce7a2f630eb963c2c7bca136df5085569ac630ff6f15132ab9cdc9
+  - **[80]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp)
     - **checksum_sha256**: 0546853eb3c128c2985383a15d78714828610cad26bb9274b23d1bf38cadcc1e
-  - **[73]**:
+  - **[81]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
     - **checksum_sha256**: 573a6fbab60a9db74e74bd94467922161f733b11db4c4313b3c109b3cac20344
-  - **[74]**:
+  - **[82]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
     - **checksum_sha256**: 3c8e45bc275dddbfd1c90c875183bab51e28fcd92f90b2d979158dd1503a63b3
-  - **[75]**:
+  - **[83]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
     - **checksum_sha256**: ec171156e3437126b3b86705ed307a4dc8b70c962aab5b48329c13a1714ff98a
-  - **[76]**:
+  - **[84]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
     - **checksum_sha256**: ecd5220a56e71a81bcd8fb69f2515ccf4ea0108b307a0b8ef101a6177ca4e35b
-  - **[77]**:
+  - **[85]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
     - **checksum_sha256**: be140bc793e08d119d428fc77ed4272f6610848c96e92144e7fe8c93ad1a68bd
-  - **[78]**:
+  - **[86]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
     - **checksum_sha256**: 1a4638fdcbccd96aa565f2287b5d6c205dd39126dcd5f212bc3d857ac69929f0
-  - **[79]**:
+  - **[87]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
     - **checksum_sha256**: abf00a12c03c43290d8c88b6a321ddb0b374aeef558e0df4da9ebc4eaea432b3
-  - **[80]**:
-    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1.webp)
-    - **checksum_sha256**: 9dfd8f2972c6bf3a66f3cbcda5cafaaf27934fb467e7a7e3d5e14c899446803e
-  - **[81]**:
+  - **[88]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
+    - **checksum_sha256**: ac8620d2bf24ab9cd5248de1fe91321bb68459dcc0120392f90a05ce96316039
+  - **[89]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
     - **checksum_sha256**: ae061410389a7f673cfa0c7ba313b6c3a9f7a0513f9d7b1742580f92192a0f28
-  - **[82]**:
+  - **[90]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
     - **checksum_sha256**: 1ff210c8970c39ce7d6890cde25e89680e3a84b59e9dc0054b61c7a6c035eaaa
-  - **[83]**:
+  - **[91]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
     - **checksum_sha256**: 90f734b9280098259f5f9b802e8dd2c6925440b915cc7667fd6880839a644679
-  - **[84]**:
+  - **[92]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
     - **checksum_sha256**: 6d5682ed0fe6ab4df9741e4968ae4af7abc663dd9be1c82bdcbdd30db4a13b74
-  - **[85]**:
+  - **[93]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
     - **checksum_sha256**: ba96339e2487ea2a46e098ca2876cb6fea30a0324279c785b9948d71dca5505b
-  - **[86]**:
+  - **[94]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
+    - **checksum_sha256**: 193cc56b2a2bdb8c15970033e3ed8b07ea1d8fe9a0aa61761df9e39c4b5cbf07
+  - **[95]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
     - **checksum_sha256**: 610f8dae0714d29efeb737564dfa4c67c2a7c288ffba7b3cb4508f5a3eeac8a5
-  - **[87]**:
+  - **[96]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
     - **checksum_sha256**: bec0d24a587492b8b04f0306cc8f7e486bf902fcd64557b5cacc8b91ca212123
-  - **[88]**:
+  - **[97]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
+    - **checksum_sha256**: 9f3db820467d3c3050a15c662c4d81bd0eb7c0d1d7ddb173c2332ae60bf53a4f
+  - **[98]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
     - **checksum_sha256**: dfb43acf92c4a75f62c3228409595dd775c0f73de2a81b33d0108bfb3f1ef9a7
-  - **[89]**:
+  - **[99]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
     - **checksum_sha256**: 6770206b9b137b69e86952df89177b53461f20d9774b650d350dffc6ef6c651e
-  - **[90]**:
+  - **[100]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp)
+    - **checksum_sha256**: 59c77d166cce6212f49f259fdefa637a377c1b66447b9b04164d6bd3b684661f
+  - **[101]**:
+    - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp)
+    - **checksum_sha256**: 497fc6aac2449388eee8ddf3b29490123f4bf614a9cfa5532c91e854e6751f9e
+  - **[102]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: ffc99257fd391b719aefca787f76d302074a74d1947c90ee8fa274f60350de4a
-  - **[91]**:
+  - **[103]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
     - **checksum_sha256**: 0aafbc80dd60a558922c6cd0647475fb2ef99b0ae2155c678945f8f55409db84
+  - **[104]**:
+    - **caminho**: ![caminho](imagens/sobre_ouro_preto_p0_i0.webp)
+    - **checksum_sha256**: 4c7b6cafeecf90e09ba678d90218a338404be9577bdfc7b180ddd4a04e66e93f
+  - **[105]**:
+    - **caminho**: ![caminho](imagens/sobre_ouro_preto_p1_i0.webp)
+    - **checksum_sha256**: a6f5ab836f94633eb038869760e60ee03f73b69ef029b9adf29df92c02b4d875
+  - **[106]**:
+    - **caminho**: ![caminho](imagens/sobre_ouro_preto_p1_i1.webp)
+    - **checksum_sha256**: db70f068ad17cac698cf815163b5a909c7284c3f2bd3c5998fbbe28d9db29082
 
 

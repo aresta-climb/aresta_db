@@ -114,11 +114,5 @@ escaladas:
 - boulder:
     nome: Dor nas Costas
     dificuldade: V3
-- boulder:
-    nome: Albino
-    dificuldade: V4
-- boulder:
-    nome: Encardido
-    dificuldade: V4
 ---
 
