@@ -87,9 +87,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo
     da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: fa6fe76360f952a962ca7979b933a0d88e935f7d969b7aee0116cd760a133623
+  checksum_sha256_croqui: 5332beaf99dbeb3c4973f862e51e545f04a0951fd49b194638a6295d96656463
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-07-19T21:39:57Z'
+  timestamp_update: '2026-07-19T22:03:30Z'
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas

@@ -532,7 +532,7 @@ arquivos:
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.md
   checksum_sha256: 97284ab4642b73dac5afe0e962d9037a9759940c78d16ece29e6a1734ad40101
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: fa6fe76360f952a962ca7979b933a0d88e935f7d969b7aee0116cd760a133623
+  checksum_sha256: 5332beaf99dbeb3c4973f862e51e545f04a0951fd49b194638a6295d96656463
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -590,9 +590,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: e77b623f9a897a1e4f347277474a10ddcc4da89b855ab277a9b2a82d6291d255
+  checksum_sha256: 3bfc01b539e0c390a479c1754060ad7e616dcceea642981f74eb017fef4ba6f0
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 139e5e9ea077c1055e3051a521cb5927fb0d3e0507944158f85a9ba6d99019ae
+  checksum_sha256: a60da704f0f1760fb2e3b989c02945d164a183c060de383a1fae28fa62ca1845
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
   checksum_sha256: 69d14fb568a25f51c43edb0589b91d6ac9f677a934830b234e36a8d9d8f664fd
 - caminho_relativo: thumbnails/br_mg_ipatinga_ipaba_vale_verde.webp
@@ -1458,6 +1458,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 882b3b0a6347980dafa32012863fd026d1ae08ff6be5efe220f2f0baf56f16e1
+  checksum_sha256: 63b4ce60d1e31cd19672799b5ecea05f094771de732bae13d6d3355659fdbade
 - caminho_relativo: indice.yaml
-  checksum_sha256: 42c2c4a7f6a8ae24d847c66311439c02abd802782737907813a873cfec88aed8
+  checksum_sha256: f05808771648b140a4de111d59e38d6b94779a54f54f9d36775be0279389a40e

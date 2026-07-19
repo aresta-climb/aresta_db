@@ -1006,7 +1006,6 @@ picos:
             - Berbari
             - Ró
             data_abertura: '2011'
-            descricao: 'CUIDADO: Colmeia de abelha na base da via!'
         - via_esportiva:
             nome: Aranha Gato
             dificuldade: BR_6_BARRA_6SUP

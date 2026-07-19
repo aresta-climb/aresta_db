@@ -1364,7 +1364,6 @@
       - **data_abertura**: 2011
   - **[5]**:
     - **via_esportiva**:
-      - **descricao**: CUIDADO: Colmeia de abelha na base da via!
       - **nome**: Queijo Suíço
       - **dificuldade**: BR_7A_BARRA_7B
       - **quantidade_protecoes_intermediarias**: 3
