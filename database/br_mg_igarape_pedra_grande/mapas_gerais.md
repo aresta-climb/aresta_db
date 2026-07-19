@@ -202,4 +202,3 @@ mapas:
     setor: Setor Trad
     escalada: Me Leve ao Cume
 ---
-

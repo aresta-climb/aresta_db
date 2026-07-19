@@ -532,7 +532,7 @@ arquivos:
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.md
   checksum_sha256: 97284ab4642b73dac5afe0e962d9037a9759940c78d16ece29e6a1734ad40101
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: a4c1f45bf47fc6ba3df670b13705ba11960e150c12366974f46028170a5ffc45
+  checksum_sha256: fa6fe76360f952a962ca7979b933a0d88e935f7d969b7aee0116cd760a133623
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -552,9 +552,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_estacionamento_p1.webp
   checksum_sha256: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_familia_i_p0.webp
-  checksum_sha256: 6bdd83988c397b97a71fbdfafd750dfefaedc313fa2ac737f4f6f8913c5e1845
+  checksum_sha256: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_familia_i_p1.webp
-  checksum_sha256: 34ba6540f609b3296b1d175c15593faba7044e3f802db4ba60504210ae611d0d
+  checksum_sha256: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_familia_ii_p0.webp
   checksum_sha256: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_familia_ii_p1.webp
@@ -590,9 +590,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: eea9a46f76d2a0ae5601f9a276478a417374f988322260b42b38e6b278cf574c
+  checksum_sha256: e77b623f9a897a1e4f347277474a10ddcc4da89b855ab277a9b2a82d6291d255
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: bb8da7efaaaf34717e635469496dd9bfa493401ff77ab95422c7cca8a88b399d
+  checksum_sha256: 139e5e9ea077c1055e3051a521cb5927fb0d3e0507944158f85a9ba6d99019ae
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
   checksum_sha256: 69d14fb568a25f51c43edb0589b91d6ac9f677a934830b234e36a8d9d8f664fd
 - caminho_relativo: thumbnails/br_mg_ipatinga_ipaba_vale_verde.webp
@@ -1458,6 +1458,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: fbaef3288dcd738de23cdeddab377228a3830bceb28d8c1e36a9dd44711ec2a3
+  checksum_sha256: 882b3b0a6347980dafa32012863fd026d1ae08ff6be5efe220f2f0baf56f16e1
 - caminho_relativo: indice.yaml
-  checksum_sha256: 7924224d6b7169caca2c2306a01c67c53c0a6fe55151b3f47eb5caf6cfad3e52
+  checksum_sha256: 42c2c4a7f6a8ae24d847c66311439c02abd802782737907813a873cfec88aed8

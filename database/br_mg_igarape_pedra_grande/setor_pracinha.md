@@ -47,14 +47,14 @@ mapas:
       x: 768
       y: 663
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 805
       y: 663
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 962
       y: 526
@@ -82,11 +82,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Pracinha
     escalada: People crazy
   - ids:
-    - 09
+    - '09'
     setor: Setor Trad
     escalada: Aresta Daniel
 - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
@@ -158,14 +158,14 @@ mapas:
       x: 409
       y: 915
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 481
       y: 1037
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 1007
       y: 1164
@@ -181,11 +181,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Pracinha
     escalada: People crazy
   - ids:
-    - 09
+    - '09'
     setor: Setor Trad
     escalada: Aresta Daniel
 escaladas:

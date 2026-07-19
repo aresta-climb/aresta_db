@@ -35,8 +35,8 @@ mapas:
       x: 778
       y: 706
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 905
       y: 377
@@ -53,8 +53,8 @@ mapas:
       x: 980
       y: 809
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 1043
       y: 849
@@ -172,11 +172,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - 08
+    - '08'
     setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
-    - 09
+    - '09'
     setor: Setor Estacionamento
     escalada: 101 Dalmatas
 - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
@@ -243,14 +243,14 @@ mapas:
       x: 625
       y: 558
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 614
       y: 610
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 606
       y: 671
@@ -350,11 +350,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - 08
+    - '08'
     setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
-    - 09
+    - '09'
     setor: Setor Estacionamento
     escalada: 101 Dalmatas
 escaladas:

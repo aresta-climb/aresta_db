@@ -2,123 +2,123 @@
 nome: Setor Família I
 mapas:
 - caminho_imagem_mapa: imagens/setor_familia_i_p0.webp
-  largura_mapa: 2048
-  altura_mapa: 1154
+  largura_mapa: 2304
+  altura_mapa: 1300
   pontos_de_interesse:
   - id: '01'
     label: '01'
     circulo:
-      x: 708
-      y: 226
-      raio: 15
+      x: 794
+      y: 257
+      raio: 17
   - id: '02'
     label: '02'
     circulo:
-      x: 652
-      y: 248
-      raio: 15
+      x: 731
+      y: 281
+      raio: 17
   - id: '03'
     label: '03'
     circulo:
-      x: 590
-      y: 289
-      raio: 15
+      x: 661
+      y: 328
+      raio: 17
   - id: '04'
     label: '04'
     circulo:
-      x: 545
-      y: 342
-      raio: 15
+      x: 611
+      y: 387
+      raio: 17
   - id: '05'
     label: '05'
     circulo:
-      x: 501
-      y: 385
-      raio: 15
+      x: 562
+      y: 437
+      raio: 17
   - id: '06'
     label: '06'
     circulo:
-      x: 470
-      y: 446
-      raio: 15
+      x: 526
+      y: 503
+      raio: 17
   - id: '07'
     label: '07'
     circulo:
-      x: 515
-      y: 549
-      raio: 15
-  - id: 08
-    label: 08
+      x: 578
+      y: 619
+      raio: 17
+  - id: '08'
+    label: '08'
     circulo:
-      x: 548
-      y: 647
-      raio: 15
-  - id: 09
-    label: 09
+      x: 614
+      y: 729
+      raio: 17
+  - id: '09'
+    label: '09'
     circulo:
-      x: 828
-      y: 1077
-      raio: 15
+      x: 929
+      y: 1212
+      raio: 17
   - id: '10'
     label: '10'
     circulo:
-      x: 918
-      y: 1098
-      raio: 15
+      x: 1030
+      y: 1236
+      raio: 18
   - id: '11'
     label: '11'
     circulo:
-      x: 997
-      y: 1106
-      raio: 15
+      x: 1119
+      y: 1245
+      raio: 18
   - id: '12'
     label: '12'
     circulo:
-      x: 1110
-      y: 1105
-      raio: 16
+      x: 1245
+      y: 1244
+      raio: 19
   - id: '13'
     label: '13'
     circulo:
-      x: 1200
-      y: 1128
-      raio: 15
+      x: 1347
+      y: 1269
+      raio: 18
   - id: '14'
     label: '14'
     circulo:
-      x: 1361
-      y: 1090
-      raio: 16
+      x: 1527
+      y: 1227
+      raio: 19
   - id: '15'
     label: '15'
     circulo:
-      x: 1437
-      y: 1040
-      raio: 16
+      x: 1613
+      y: 1170
+      raio: 19
   - id: '16'
     label: '16'
     circulo:
-      x: 1593
-      y: 812
-      raio: 16
+      x: 1787
+      y: 915
+      raio: 19
   - id: '17'
     label: '17'
     circulo:
-      x: 1663
-      y: 728
-      raio: 16
+      x: 1866
+      y: 820
+      raio: 19
   - id: '18'
     label: '18'
     circulo:
-      x: 1717
-      y: 681
-      raio: 15
+      x: 1927
+      y: 768
+      raio: 18
   - id: '19'
     label: '19'
     circulo:
-      x: 1752
-      y: 627
-      raio: 15
+      x: 1967
+      y: 707
+      raio: 18
   referencias:
   - escalada: Florestinha
     ids:
@@ -172,131 +172,131 @@ mapas:
     ids:
     - '19'
   - ids:
-    - 08
+    - '08'
     setor: Setor Família I
     escalada: Chapas Onorixicas
   - ids:
-    - 09
+    - '09'
     setor: Setor Família I
     escalada: Tora Flex
 - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1154
+  largura_mapa: 1121
+  altura_mapa: 1440
   pontos_de_interesse:
   - id: '19'
     label: '19'
     circulo:
-      x: 514
-      y: 146
-      raio: 17
+      x: 523
+      y: 133
+      raio: 19
   - id: '18'
     label: '18'
     circulo:
-      x: 552
-      y: 189
-      raio: 17
+      x: 562
+      y: 177
+      raio: 19
   - id: '17'
     label: '17'
     circulo:
-      x: 628
-      y: 269
-      raio: 17
+      x: 638
+      y: 257
+      raio: 19
   - id: '16'
     label: '16'
     circulo:
-      x: 761
-      y: 425
-      raio: 17
+      x: 771
+      y: 414
+      raio: 19
   - id: '15'
     label: '15'
     circulo:
-      x: 820
-      y: 516
-      raio: 17
+      x: 830
+      y: 505
+      raio: 19
   - id: '14'
     label: '14'
     circulo:
-      x: 910
-      y: 632
-      raio: 17
+      x: 920
+      y: 620
+      raio: 19
   - id: '13'
     label: '13'
     circulo:
-      x: 928
-      y: 782
-      raio: 17
+      x: 937
+      y: 770
+      raio: 19
   - id: '12'
     label: '12'
     circulo:
-      x: 930
-      y: 916
-      raio: 17
+      x: 940
+      y: 904
+      raio: 19
   - id: '11'
     label: '11'
     circulo:
-      x: 904
-      y: 999
-      raio: 17
+      x: 914
+      y: 986
+      raio: 19
   - id: '10'
     label: '10'
     circulo:
-      x: 845
-      y: 1083
-      raio: 17
+      x: 855
+      y: 1071
+      raio: 18
   - id: '01'
     label: '01'
     circulo:
-      x: 230
-      y: 1150
-      raio: 17
-  - id: 09
-    label: 09
-    circulo:
-      x: 813
-      y: 1144
+      x: 241
+      y: 1138
       raio: 18
+  - id: '09'
+    label: '09'
+    circulo:
+      x: 823
+      y: 1132
+      raio: 19
   - id: '02'
     label: '02'
     circulo:
-      x: 276
-      y: 1174
-      raio: 18
+      x: 287
+      y: 1162
+      raio: 19
   - id: '03'
     label: '03'
     circulo:
-      x: 319
-      y: 1207
-      raio: 18
+      x: 330
+      y: 1195
+      raio: 19
   - id: '04'
     label: '04'
     circulo:
-      x: 402
-      y: 1243
-      raio: 18
+      x: 412
+      y: 1231
+      raio: 19
   - id: '05'
     label: '05'
     circulo:
-      x: 425
-      y: 1289
-      raio: 18
-  - id: 08
-    label: 08
+      x: 436
+      y: 1277
+      raio: 19
+  - id: '08'
+    label: '08'
     circulo:
-      x: 627
-      y: 1281
-      raio: 18
+      x: 637
+      y: 1268
+      raio: 19
   - id: '06'
     label: '06'
     circulo:
-      x: 467
-      y: 1316
-      raio: 18
+      x: 477
+      y: 1304
+      raio: 19
   - id: '07'
     label: '07'
     circulo:
-      x: 577
-      y: 1311
-      raio: 18
+      x: 587
+      y: 1299
+      raio: 19
   referencias:
   - escalada: Florestinha
     ids:
@@ -350,11 +350,11 @@ mapas:
     ids:
     - '19'
   - ids:
-    - 08
+    - '08'
     setor: Setor Família I
     escalada: Chapas Onorixicas
   - ids:
-    - 09
+    - '09'
     setor: Setor Família I
     escalada: Tora Flex
 escaladas:

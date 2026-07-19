@@ -16,6 +16,8 @@ def test_converter_para_webp(tmp_path):
     with patch("scripts.repartir_pdf.Image.open") as mock_pil_open:
         mock_pil = MagicMock()
         mock_pil.size = (1000, 800)
+        mock_pil.width = 1000
+        mock_pil.height = 800
         mock_pil_open.return_value.__enter__.return_value = mock_pil
         
         converter_para_webp(pasta_destino, imagem_origem)
@@ -146,6 +148,8 @@ def test_extrair_imagens_agrupamento(tmp_path):
         
         mock_pil = MagicMock()
         mock_pil.size = (1000, 500)
+        mock_pil.width = 1000
+        mock_pil.height = 500
         def mock_save(path, *args, **kwargs):
             Path(path).parent.mkdir(parents=True, exist_ok=True)
             Path(path).write_bytes(b"fake_webp")
@@ -163,9 +167,9 @@ def test_extrair_imagens_agrupamento(tmp_path):
         # Deve ter chamado get_pixmap para o grupo unido
         assert mock_page.get_pixmap.call_count >= 1
         
-        # Deve ter criado os arquivos raw dos componentes (agora sempre WebP)
-        assert (output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_0.webp").exists()
-        assert (output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_1.webp").exists()
+        # Deve ter criado os arquivos raw dos componentes em PNG (conforme o mock)
+        assert (output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_0.png").exists()
+        assert (output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_1.png").exists()
 
 def test_apenas_extrair(tmp_path):
     import pymupdf
@@ -189,6 +193,8 @@ def test_apenas_extrair(tmp_path):
         
         mock_pil = MagicMock()
         mock_pil.size = (500, 500)
+        mock_pil.width = 500
+        mock_pil.height = 500
         def mock_save(path, *args, **kwargs):
             Path(path).parent.mkdir(parents=True, exist_ok=True)
             Path(path).write_bytes(b"fake_webp")
@@ -218,12 +224,14 @@ def test_limite_resolucao_2048(tmp_path):
         mock_page.get_image_info.return_value = [{"bbox": (0, 0, 100, 100), "width": 3000, "height": 3000, "xref": 40}]
         
         mock_pix = MagicMock()
-        mock_pix.width = 3000
-        mock_pix.height = 3000
+        mock_pix.width = 4000
+        mock_pix.height = 2000
         mock_page.get_pixmap.return_value = mock_pix
         
         mock_pil = MagicMock()
-        mock_pil.size = (3000, 3000)
+        mock_pil.size = (4000, 2000)
+        mock_pil.width = 4000
+        mock_pil.height = 2000
         def mock_save(path, *args, **kwargs):
             Path(path).parent.mkdir(parents=True, exist_ok=True)
             Path(path).write_bytes(b"fake_webp")
@@ -236,10 +244,14 @@ def test_limite_resolucao_2048(tmp_path):
         
         extrair_imagens_da_parte(mock_doc, [0], "setor_a", output_path)
         
-        # Deve ter chamado thumbnail para redimensionar para 2048
+        # Deve ter chamado thumbnail para redimensionar por área max de 2048*2048
         mock_pil.thumbnail.assert_called_once()
         args = mock_pil.thumbnail.call_args[0]
-        assert args[0] == (2048, 2048)
+        # (2048*2048) / (4000*2000) = 4194304 / 8000000 = 0.524288
+        # sqrt(0.524288) = 0.724077
+        # 4000 * 0.724077 = 2896
+        # 2000 * 0.724077 = 1448
+        assert args[0] == (2896, 1448)
 
 def test_extrair_imagens_da_parte_base(tmp_path):
     import pymupdf
@@ -260,6 +272,8 @@ def test_extrair_imagens_da_parte_base(tmp_path):
         
         mock_pil = MagicMock()
         mock_pil.size = (100, 100)
+        mock_pil.width = 100
+        mock_pil.height = 100
         def mock_save(path, *args, **kwargs):
             Path(path).parent.mkdir(parents=True, exist_ok=True)
             Path(path).write_bytes(b"fake_webp")
@@ -296,8 +310,15 @@ def test_extrair_componentes_raw(tmp_path):
         mock_pix = MagicMock()
         mock_page.get_pixmap.return_value = mock_pix
         
+        def mock_pix_save(path, *args, **kwargs):
+            Path(path).parent.mkdir(parents=True, exist_ok=True)
+            Path(path).write_bytes(b"fake_png")
+        mock_pix.save.side_effect = mock_pix_save
+        
         mock_pil = MagicMock()
         mock_pil.size = (1000, 500)
+        mock_pil.width = 1000
+        mock_pil.height = 500
         
         def mock_save(path, *args, **kwargs):
             Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -315,16 +336,19 @@ def test_extrair_componentes_raw(tmp_path):
         
         extrair_imagens_da_parte(mock_doc, [0], "setor_a", output_path)
         
-        # 1. Verifica se o componente com XREF foi salvo como .webp
-        raw_xref_path = output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_0.webp"
+        # 1. Verifica se o componente com XREF foi salvo como .jpeg (baseado no mock)
+        raw_xref_path = output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_0.jpeg"
         assert raw_xref_path.exists()
         
-        # 2. Verifica se o componente inline foi salvo como .webp
-        raw_inline_path = output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_1.webp"
+        # 2. Verifica se o componente inline foi salvo como .png
+        raw_inline_path = output_path / "raw_imagens" / "setor_a" / "raw_p0_i0_1.png"
         assert raw_inline_path.exists()
         
-        # Ambas as chamadas de save devem ter acontecido
-        assert mock_pil.save.call_count >= 2
+        # A imagem de grupo (webp) foi salva
+        assert mock_pil.save.call_count >= 1
+        
+        # O pixmap inline foi salvo
+        assert mock_pix.save.call_count >= 1
 
 def test_serializar_objeto_pymupdf_quad():
     import pymupdf

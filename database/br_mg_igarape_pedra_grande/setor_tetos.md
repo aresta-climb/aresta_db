@@ -47,14 +47,14 @@ mapas:
       x: 1091
       y: 1228
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 1112
       y: 1266
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 1140
       y: 1313
@@ -92,11 +92,11 @@ mapas:
     - '01'
     setor: Setor Trad
   - ids:
-    - 08
+    - '08'
     setor: Setor dos Tetos
     escalada: Lilith
   - ids:
-    - 09
+    - '09'
     setor: Setor dos Tetos
     escalada: Deu Brasil
 escaladas:

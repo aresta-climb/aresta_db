@@ -77,8 +77,8 @@ mapas:
       x: 404
       y: 1096
       raio: 14
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 448
       y: 1157
@@ -113,8 +113,8 @@ mapas:
       x: 1110
       y: 628
       raio: 15
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 468
       y: 730
@@ -272,10 +272,10 @@ mapas:
     - e
   - escalada: Absoluta Inconsequência
     ids:
-    - 08
+    - '08'
   - escalada: Inconsequência Moderada
     ids:
-    - 09
+    - '09'
   - escalada: Mentiras Sinceras
     ids:
     - '10'

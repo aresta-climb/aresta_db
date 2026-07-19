@@ -47,14 +47,14 @@ mapas:
       x: 643
       y: 428
       raio: 15
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 649
       y: 772
       raio: 15
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 707
       y: 815
@@ -190,11 +190,11 @@ mapas:
     ids:
     - '21'
   - ids:
-    - 08
+    - '08'
     setor: Setor Igarameca
     escalada: I Like This
   - ids:
-    - 09
+    - '09'
     setor: Setor Igarameca
     escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
@@ -243,14 +243,14 @@ mapas:
       x: 529
       y: 648
       raio: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 486
       y: 680
       raio: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 460
       y: 744
@@ -377,11 +377,11 @@ mapas:
     ids:
     - '20'
   - ids:
-    - 08
+    - '08'
     setor: Setor Igarameca
     escalada: I Like This
   - ids:
-    - 09
+    - '09'
     setor: Setor Igarameca
     escalada: Igarameca
 - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp

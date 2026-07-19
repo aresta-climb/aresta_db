@@ -28,10 +28,14 @@ def converter_para_webp(pasta_destino_path, imagem_origem_path):
     """Converte uma imagem para WebP com redimensionamento inteligente."""
     imagem_destino_path = pasta_destino_path / f"{imagem_origem_path.stem}.webp"
     with Image.open(imagem_origem_path) as pil_img:
-        # Redimensionar se exceder 2048px no lado maior
-        max_dim = 2048
-        if max(pil_img.size) > max_dim:
-            pil_img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+        # Redimensionar se exceder max_area
+        max_area = 2048 * 2048
+        area = pil_img.width * pil_img.height
+        if area > max_area:
+            scale = (max_area / area) ** 0.5
+            new_width = int(pil_img.width * scale)
+            new_height = int(pil_img.height * scale)
+            pil_img.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
         
         pil_img.save(imagem_destino_path, "WEBP", quality=85)
 
@@ -271,47 +275,37 @@ def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_
             
             img_pil = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
             
-            # Aplicar o limite de 2048 pixels do maior lado para o aplicativo
-            max_app_dim = 2048
-            if max(img_pil.size) > max_app_dim:
-                img_pil.thumbnail((max_app_dim, max_app_dim), Image.Resampling.LANCZOS)
+            # Aplicar o limite de área para o aplicativo
+            max_area = 2048 * 2048
+            area = img_pil.width * img_pil.height
+            if area > max_area:
+                scale = (max_area / area) ** 0.5
+                new_width = int(img_pil.width * scale)
+                new_height = int(img_pil.height * scale)
+                img_pil.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
             
             # Salvar WebP
-            try:
-                img_pil.save(final_webp_path, "WEBP", quality=85)
-            except Exception as e:
-                print(f"  Aviso: Falha ao salvar WebP {base_name} (Tamanho: {img_pil.size}): {e}. Tentando PNG...")
-                try:
-                    png_path = final_webp_path.with_suffix(".png")
-                    img_pil.save(png_path, "PNG")
-                    print(f"  Salvo como PNG: {png_path.name}")
-                except Exception as e2:
-                    print(f"  Erro crítico ao salvar imagem {base_name}: {e2}")
+            img_pil.save(final_webp_path, "WEBP", quality=85)
             
-            # 3. Extrair os componentes originais (raw) deste grupo para referência (em WebP)
+            # 3. Extrair os componentes originais (raw) deste grupo para referência
             for sub_idx, info in enumerate(group['infos']):
                 xref = info.get("xref", 0)
                 sub_rect_rotated = group['rects'][sub_idx]
                 sub_name = f"raw_{base_name}_{sub_idx}"
-                raw_webp_path = raw_image_dir / f"{sub_name}.webp"
                 
                 try:
                     if xref > 0:
                         img_data = doc.extract_image(xref)
                         if img_data:
-                            with Image.open(io.BytesIO(img_data["image"])) as pil_img:
-                                # Preservar transparência se houver
-                                if pil_img.mode in ("RGBA", "P"):
-                                    pil_img = pil_img.convert("RGBA")
-                                else:
-                                    pil_img = pil_img.convert("RGB")
-                                pil_img.save(raw_webp_path, "WEBP", quality=80)
+                            ext = img_data.get("ext", "png")
+                            raw_file_path = raw_image_dir / f"{sub_name}.{ext}"
+                            raw_file_path.write_bytes(img_data["image"])
                     else:
                         # Se for imagem inline, renderizamos o recorte individual
                         sub_mat = pymupdf.Matrix(max_zoom, max_zoom)
                         sub_pix = page.get_pixmap(matrix=sub_mat, clip=sub_rect_rotated, colorspace=pymupdf.csRGB)
-                        with Image.frombytes("RGB", [sub_pix.width, sub_pix.height], sub_pix.samples) as pil_img:
-                            pil_img.save(raw_webp_path, "WEBP", quality=80)
+                        raw_file_path = raw_image_dir / f"{sub_name}.png"
+                        sub_pix.save(str(raw_file_path))
                 except Exception as e:
                     print(f"  Aviso: Erro ao extrair componente raw {sub_idx} do grupo {base_name}: {e}")
 
