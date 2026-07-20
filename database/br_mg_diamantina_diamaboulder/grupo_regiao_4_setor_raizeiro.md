@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 48
+    circulo:
+      x: 50
       y: 514
-      comprimento: 25
-      largura: 25
+      raio: 16
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 148
-      y: 186
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 149
+      y: 184
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
+    circulo:
       x: 867
-      y: 971
-      comprimento: 22
-      largura: 24
+      y: 975
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 149
-      y: 144
-      comprimento: 22
-      largura: 24
+      y: 145
+      raio: 15
   - id: '3'
     label: '3'
-    retangulo:
-      x: 866
-      y: 1010
-      comprimento: 21
-      largura: 24
+    circulo:
+      x: 867
+      y: 1012
+      raio: 15
   - id: 3_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 844
       y: 300
-      comprimento: 20
-      largura: 25
+      raio: 16
   - id: '4'
     label: '4'
-    retangulo:
-      x: 864
-      y: 1050
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 866
+      y: 1048
+      raio: 15
   - id: 4_fim
     label: '4'
-    retangulo:
+    circulo:
       x: 1072
       y: 468
-      comprimento: 25
-      largura: 25
+      raio: 15
   referencias:
   - escalada: Parteira
     ids:

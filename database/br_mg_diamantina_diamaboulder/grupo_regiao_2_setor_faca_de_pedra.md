@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 362
-      y: 752
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 361
+      y: 753
+      raio: 16
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 541
-      y: 198
-      comprimento: 24
-      largura: 29
+    circulo:
+      x: 540
+      y: 202
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 488
+    circulo:
+      x: 489
       y: 854
-      comprimento: 25
-      largura: 24
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 540
-      y: 160
-      comprimento: 20
-      largura: 21
+      y: 163
+      raio: 16
   - id: '3'
     label: '3'
-    retangulo:
+    circulo:
       x: 784
-      y: 960
-      comprimento: 25
-      largura: 24
+      y: 962
+      raio: 16
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 539
+    circulo:
+      x: 540
       y: 122
-      comprimento: 22
-      largura: 24
+      raio: 16
   - id: '4'
     label: '4'
-    retangulo:
+    circulo:
       x: 996
-      y: 904
-      comprimento: 25
-      largura: 25
+      y: 905
+      raio: 15
   - id: 4_fim
     label: '4'
-    retangulo:
-      x: 539
-      y: 80
-      comprimento: 18
-      largura: 23
+    circulo:
+      x: 540
+      y: 81
+      raio: 16
   referencias:
   - escalada: Colher de Pedra
     ids:

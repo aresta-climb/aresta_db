@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 718
+    circulo:
+      x: 719
       y: 960
-      comprimento: 27
-      largura: 26
+      raio: 16
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 720
+    circulo:
+      x: 722
       y: 265
-      comprimento: 25
-      largura: 22
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
+    circulo:
       x: 690
-      y: 562
-      comprimento: 21
-      largura: 23
+      y: 565
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 722
-      y: 224
-      comprimento: 27
-      largura: 25
+    circulo:
+      x: 723
+      y: 226
+      raio: 15
   referencias:
   - escalada: Iceberg
     ids:

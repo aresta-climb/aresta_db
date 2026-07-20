@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 110
+    circulo:
+      x: 109
       y: 932
-      comprimento: 25
-      largura: 25
+      raio: 16
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 398
-      y: 14
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 400
+      y: 16
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 973
-      y: 994
-      comprimento: 24
-      largura: 26
+    circulo:
+      x: 972
+      y: 995
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 523
-      y: 30
-      comprimento: 32
-      largura: 31
+    circulo:
+      x: 524
+      y: 33
+      raio: 16
   referencias:
   - escalada: Silicato
     ids:

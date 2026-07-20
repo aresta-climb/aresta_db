@@ -7,116 +7,100 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 138
-      y: 722
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 137
+      y: 721
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 758
-      y: 20
-      comprimento: 25
-      largura: 29
+    circulo:
+      x: 761
+      y: 23
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
+    circulo:
       x: 136
       y: 760
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 208
-      y: 20
-      comprimento: 26
-      largura: 29
+      y: 21
+      raio: 16
   - id: '3'
     label: '3'
-    retangulo:
-      x: 1211
-      y: 584
-      comprimento: 22
-      largura: 24
+    circulo:
+      x: 1212
+      y: 586
+      raio: 16
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 799
-      y: 22
-      comprimento: 30
-      largura: 29
+    circulo:
+      x: 800
+      y: 23
+      raio: 16
   - id: '4'
     label: '4'
-    retangulo:
+    circulo:
       x: 828
       y: 674
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 4_fim
     label: '4'
-    retangulo:
-      x: 837
-      y: 20
-      comprimento: 30
-      largura: 29
+    circulo:
+      x: 838
+      y: 23
+      raio: 16
   - id: '5'
     label: '5'
-    retangulo:
-      x: 987
+    circulo:
+      x: 986
       y: 678
-      comprimento: 18
-      largura: 20
+      raio: 15
   - id: 5_fim
     label: '5'
-    retangulo:
-      x: 877
-      y: 20
-      comprimento: 30
-      largura: 29
+    circulo:
+      x: 878
+      y: 23
+      raio: 15
   - id: '6'
     label: '6'
-    retangulo:
-      x: 134
-      y: 800
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 135
+      y: 797
+      raio: 15
   - id: 6_fim
     label: '6'
-    retangulo:
+    circulo:
       x: 1212
-      y: 622
-      comprimento: 20
-      largura: 22
+      y: 623
+      raio: 16
   - id: '7'
     label: '7'
-    retangulo:
-      x: 1209
-      y: 656
-      comprimento: 24
-      largura: 29
+    circulo:
+      x: 1213
+      y: 660
+      raio: 16
   - id: 7_fim
     label: '7'
-    retangulo:
-      x: 244
+    circulo:
+      x: 246
       y: 21
-      comprimento: 21
-      largura: 24
+      raio: 16
   - id: '8'
     label: '8'
-    retangulo:
-      x: 1212
+    circulo:
+      x: 1213
       y: 698
-      comprimento: 25
-      largura: 25
+      raio: 16
   - id: 8_fim
     label: '8'
-    retangulo:
-      x: 696
-      y: 605
-      comprimento: 22
-      largura: 24
+    circulo:
+      x: 699
+      y: 606
+      raio: 15
   referencias:
   - escalada: Consciência
     ids:

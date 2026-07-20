@@ -7,74 +7,64 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 209
-      y: 822
-      comprimento: 22
-      largura: 25
+    circulo:
+      x: 211
+      y: 824
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 558
-      y: 858
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 560
+      y: 861
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
-      x: 76
-      y: 711
-      comprimento: 26
-      largura: 26
+    circulo:
+      x: 77
+      y: 712
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 557
-      y: 898
-      comprimento: 24
-      largura: 24
+    circulo:
+      x: 559
+      y: 899
+      raio: 15
   - id: '3'
     label: '3'
-    retangulo:
-      x: 172
-      y: 816
-      comprimento: 21
-      largura: 25
+    circulo:
+      x: 173
+      y: 819
+      raio: 15
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 713
-      y: 842
-      comprimento: 24
-      largura: 25
+    circulo:
+      x: 714
+      y: 846
+      raio: 15
   - id: '4'
     label: '4'
-    retangulo:
+    circulo:
       x: 77
-      y: 672
-      comprimento: 24
-      largura: 27
+      y: 674
+      raio: 15
   - id: 4_fim
     label: '4'
-    retangulo:
-      x: 714
+    circulo:
+      x: 715
       y: 886
-      comprimento: 21
-      largura: 22
+      raio: 15
   - id: '5'
     label: '5'
-    retangulo:
-      x: 804
-      y: 804
-      comprimento: 23
-      largura: 24
+    circulo:
+      x: 805
+      y: 805
+      raio: 15
   - id: 5_fim
     label: '5'
-    retangulo:
-      x: 1004
-      y: 186
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 1005
+      y: 187
+      raio: 16
   referencias:
   - escalada: Pedra na Canela
     ids:

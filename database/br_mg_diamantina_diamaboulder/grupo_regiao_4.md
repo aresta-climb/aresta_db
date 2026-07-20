@@ -7,8 +7,6 @@ setores:
 - caminho: grupo_regiao_4_setor_piseiro.md
 - caminho: grupo_regiao_4_setor_raizeiro.md
 - caminho: grupo_regiao_4_setor_tijuco_preto.md
-mapas:
-- caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
 ---
 
 # Região 4

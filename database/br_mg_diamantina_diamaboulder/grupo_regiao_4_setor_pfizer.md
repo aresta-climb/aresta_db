@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
+    circulo:
       x: 326
-      y: 592
-      comprimento: 25
-      largura: 25
+      y: 594
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 276
-      y: 276
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 275
+      y: 278
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
-      x: 548
-      y: 602
-      comprimento: 25
-      largura: 29
+    circulo:
+      x: 547
+      y: 603
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 550
-      y: 290
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 552
+      y: 292
+      raio: 15
   - id: '3'
     label: '3'
-    retangulo:
-      x: 888
+    circulo:
+      x: 889
       y: 624
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 3_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 872
       y: 218
-      comprimento: 23
-      largura: 23
+      raio: 15
   referencias:
   - escalada: Pfizer
     ids:

@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 560
-      y: 625
-      comprimento: 24
-      largura: 30
+    circulo:
+      x: 561
+      y: 626
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 512
-      y: 14
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 513
+      y: 15
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 946
-      y: 750
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 945
+      y: 749
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 852
+    circulo:
+      x: 850
       y: 368
-      comprimento: 27
-      largura: 27
+      raio: 16
   referencias:
   - escalada: Calça Nova
     ids:

@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
+    circulo:
       x: 297
-      y: 1050
-      comprimento: 30
-      largura: 35
+      y: 1053
+      raio: 16
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 330
-      y: 250
-      comprimento: 29
-      largura: 31
+    circulo:
+      x: 331
+      y: 251
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 634
-      y: 944
-      comprimento: 28
-      largura: 35
+    circulo:
+      x: 636
+      y: 945
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 456
-      y: 270
-      comprimento: 31
-      largura: 35
+    circulo:
+      x: 457
+      y: 272
+      raio: 16
   - id: '3'
     label: '3'
-    retangulo:
-      x: 906
-      y: 804
-      comprimento: 27
-      largura: 30
+    circulo:
+      x: 905
+      y: 805
+      raio: 15
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 702
-      y: 314
-      comprimento: 29
-      largura: 35
+    circulo:
+      x: 703
+      y: 315
+      raio: 16
   referencias:
   - escalada: Velho Chico
     ids:

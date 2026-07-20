@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 666
+    circulo:
+      x: 667
       y: 730
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 888
-      y: 336
-      comprimento: 21
-      largura: 24
+    circulo:
+      x: 887
+      y: 337
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
-      x: 570
-      y: 744
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 572
+      y: 745
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 560
-      y: 236
-      comprimento: 25
-      largura: 25
+      y: 237
+      raio: 15
   referencias:
   - escalada: Boulder do Kbeca
     ids:

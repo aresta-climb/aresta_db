@@ -7,8 +7,6 @@ setores:
 - caminho: grupo_regiao_2_setor_primavera_nos_dentes.md
 - caminho: grupo_regiao_2_setor_flor_da_montanha.md
 - caminho: grupo_regiao_2_setor_velho_chico.md
-mapas:
-- caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
 ---
 
 # Região 2

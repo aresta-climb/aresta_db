@@ -7,18 +7,16 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 942
-      y: 803
-      comprimento: 25
-      largura: 30
+    circulo:
+      x: 944
+      y: 801
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 852
-      y: 194
-      comprimento: 29
-      largura: 33
+      y: 193
+      raio: 16
   referencias:
   - escalada: Serra do Groove
     ids:

@@ -6,8 +6,6 @@ setores:
 - caminho: grupo_regiao_3_setor_que_raio_de_reglete.md
 - caminho: grupo_regiao_3_setor_iceberg.md
 - caminho: grupo_regiao_3_setor_silicose.md
-mapas:
-- caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
 ---
 
 # Região 3

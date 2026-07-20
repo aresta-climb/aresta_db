@@ -82,6 +82,14 @@ croquis:
   checksum_sha256_croqui: e5cc92cff8a0605219dc7418524a78b6040bf0d2914fea50229fdced77483cce
   checksum_sha256_thumbnail: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
   timestamp_update: '2026-07-20T02:09:15Z'
+- id: br_mg_diamantina_diamaboulder
+  nome: Diamaboulder (Cerrado Groove)
+  descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG,
+    com blocos de quartzito de alta qualidade.
+  caminho_relativo: br_mg_diamantina_diamaboulder/compilado.binarypb
+  checksum_sha256_croqui: cb499af8ec04c2b5f5e5437ecc8a76ae8197ccfd204dd3c31733cc2fa44e0bc4
+  checksum_sha256_thumbnail: e4949482a525177c4c86644c29d5d3d840c617994b759fe639817c383053bddb
+  timestamp_update: '2026-07-20T02:46:12Z'
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
   descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo

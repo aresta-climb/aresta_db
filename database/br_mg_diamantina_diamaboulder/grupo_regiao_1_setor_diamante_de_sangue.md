@@ -7,18 +7,16 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 605
-      y: 1047
-      comprimento: 28
-      largura: 32
+    circulo:
+      x: 606
+      y: 1045
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 988
-      y: 112
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 990
+      y: 111
+      raio: 16
   referencias:
   - escalada: Diamante de Sangue
     ids:

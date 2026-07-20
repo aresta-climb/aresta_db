@@ -7,60 +7,52 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
+    circulo:
       x: 962
-      y: 720
-      comprimento: 24
-      largura: 27
+      y: 722
+      raio: 17
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 928
+    circulo:
+      x: 931
       y: 439
-      comprimento: 28
-      largura: 32
+      raio: 17
   - id: '2'
     label: '2'
-    retangulo:
-      x: 704
-      y: 744
-      comprimento: 25
-      largura: 27
+    circulo:
+      x: 705
+      y: 746
+      raio: 17
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 929
-      y: 396
-      comprimento: 28
-      largura: 33
+    circulo:
+      x: 931
+      y: 397
+      raio: 17
   - id: '3'
     label: '3'
-    retangulo:
-      x: 704
-      y: 784
-      comprimento: 24
-      largura: 31
+    circulo:
+      x: 705
+      y: 786
+      raio: 18
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 686
-      y: 206
-      comprimento: 28
-      largura: 33
+    circulo:
+      x: 685
+      y: 203
+      raio: 17
   - id: '4'
     label: '4'
-    retangulo:
+    circulo:
       x: 227
       y: 864
-      comprimento: 28
-      largura: 33
+      raio: 17
   - id: 4_fim
     label: '4'
-    retangulo:
-      x: 411
-      y: 116
-      comprimento: 28
-      largura: 33
+    circulo:
+      x: 414
+      y: 115
+      raio: 17
   referencias:
   - escalada: Tijuco Preto
     ids:

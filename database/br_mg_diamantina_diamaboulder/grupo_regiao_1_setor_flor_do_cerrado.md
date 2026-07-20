@@ -7,18 +7,16 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 424
-      y: 860
-      comprimento: 25
-      largura: 30
+    circulo:
+      x: 426
+      y: 861
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 700
-      y: 175
-      comprimento: 27
-      largura: 32
+    circulo:
+      x: 701
+      y: 177
+      raio: 16
   referencias:
   - escalada: Flor do Cerrado
     ids:

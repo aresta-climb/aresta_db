@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P0)
     label: '1'
-    retangulo:
+    circulo:
       x: 540
-      y: 702
-      comprimento: 25
-      largura: 25
+      y: 703
+      raio: 15
   - id: 1 (P0)_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 600
-      y: 172
-      comprimento: 25
-      largura: 25
+      y: 174
+      raio: 15
   - id: 2 (P0)
     label: '2'
-    retangulo:
+    circulo:
       x: 842
-      y: 856
-      comprimento: 25
-      largura: 25
+      y: 858
+      raio: 15
   - id: 2 (P0)_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 600
-      y: 134
-      comprimento: 25
-      largura: 25
+      y: 136
+      raio: 15
   - id: 3 (P0)
     label: '3'
-    retangulo:
-      x: 844
-      y: 892
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 842
+      y: 894
+      raio: 15
   - id: 3 (P0)_fim
     label: '3'
-    retangulo:
-      x: 852
+    circulo:
+      x: 854
       y: 342
-      comprimento: 25
-      largura: 25
+      raio: 15
   referencias:
   - escalada: Navio Pirata
     ids:
@@ -66,60 +60,52 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P1)
     label: '1'
-    retangulo:
-      x: 320
-      y: 846
-      comprimento: 23
-      largura: 29
+    circulo:
+      x: 321
+      y: 849
+      raio: 15
   - id: 1 (P1)_fim
     label: '1'
-    retangulo:
-      x: 264
-      y: 630
-      comprimento: 24
-      largura: 29
+    circulo:
+      x: 266
+      y: 633
+      raio: 15
   - id: 2 (P1)
     label: '2'
-    retangulo:
-      x: 319
-      y: 888
-      comprimento: 24
-      largura: 25
+    circulo:
+      x: 320
+      y: 887
+      raio: 15
   - id: 2 (P1)_fim
     label: '2'
-    retangulo:
-      x: 386
-      y: 448
-      comprimento: 24
-      largura: 25
+    circulo:
+      x: 387
+      y: 450
+      raio: 15
   - id: 3 (P1)
     label: '3'
-    retangulo:
-      x: 318
-      y: 923
-      comprimento: 23
-      largura: 26
+    circulo:
+      x: 320
+      y: 925
+      raio: 15
   - id: 3 (P1)_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 636
-      y: 215
-      comprimento: 25
-      largura: 26
+      y: 218
+      raio: 15
   - id: 4 (P1)
     label: '4'
-    retangulo:
-      x: 922
-      y: 898
-      comprimento: 23
-      largura: 27
+    circulo:
+      x: 923
+      y: 902
+      raio: 15
   - id: 4 (P1)_fim
     label: '4'
-    retangulo:
-      x: 1010
-      y: 266
-      comprimento: 21
-      largura: 27
+    circulo:
+      x: 1011
+      y: 268
+      raio: 15
   referencias:
   - escalada: Serra a Vista
     ids:
@@ -143,32 +129,28 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P2)
     label: '1'
-    retangulo:
-      x: 754
-      y: 992
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 756
+      y: 995
+      raio: 16
   - id: 1 (P2)_fim
     label: '1'
-    retangulo:
-      x: 568
-      y: 280
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 569
+      y: 282
+      raio: 16
   - id: 2 (P2)
     label: '2'
-    retangulo:
-      x: 144
-      y: 808
-      comprimento: 27
-      largura: 30
+    circulo:
+      x: 142
+      y: 810
+      raio: 16
   - id: 2 (P2)_fim
     label: '2'
-    retangulo:
-      x: 350
-      y: 608
-      comprimento: 31
-      largura: 33
+    circulo:
+      x: 349
+      y: 609
+      raio: 16
   referencias:
   - escalada: Papagaio de Pirata
     ids:

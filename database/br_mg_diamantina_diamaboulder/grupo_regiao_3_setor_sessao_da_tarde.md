@@ -7,158 +7,136 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P1)
     label: '1'
-    retangulo:
+    circulo:
       x: 633
       y: 621
-      comprimento: 18
-      largura: 22
+      raio: 15
   - id: 1 (P1)_fim
     label: '1'
-    retangulo:
-      x: 765
-      y: 245
-      comprimento: 30
-      largura: 30
+    circulo:
+      x: 763
+      y: 243
+      raio: 16
   - id: 2 (P1) / 5 (P2)
     label: '2'
-    retangulo:
-      x: 888
+    circulo:
+      x: 889
       y: 602
-      comprimento: 21
-      largura: 25
+      raio: 15
   - id: 2 (P1) / 5 (P2)_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 973
       y: 410
-      comprimento: 22
-      largura: 24
+      raio: 15
   - id: 3 (P1)
     label: '3'
-    retangulo:
-      x: 792
-      y: 702
-      comprimento: 21
-      largura: 22
+    circulo:
+      x: 793
+      y: 704
+      raio: 15
   - id: 3 (P1)_fim
     label: '3'
-    retangulo:
-      x: 456
+    circulo:
+      x: 457
       y: 266
-      comprimento: 20
-      largura: 22
+      raio: 16
   - id: 4 (P1)
     label: '4'
-    retangulo:
+    circulo:
       x: 632
       y: 661
-      comprimento: 21
-      largura: 20
+      raio: 16
   - id: 4 (P1)_fim
     label: '4'
-    retangulo:
-      x: 456
-      y: 226
-      comprimento: 21
-      largura: 23
+    circulo:
+      x: 457
+      y: 228
+      raio: 16
   - id: 5 (P1) / 4 (P2)
     label: '5'
-    retangulo:
+    circulo:
       x: 792
-      y: 742
-      comprimento: 23
-      largura: 22
+      y: 743
+      raio: 15
   - id: 5 (P1) / 4 (P2)_fim
     label: '5'
-    retangulo:
-      x: 971
-      y: 372
-      comprimento: 22
-      largura: 24
+    circulo:
+      x: 972
+      y: 373
+      raio: 16
   - id: 6 (P1)
     label: '6'
-    retangulo:
-      x: 792
-      y: 782
-      comprimento: 21
-      largura: 22
+    circulo:
+      x: 793
+      y: 781
+      raio: 16
   - id: 6 (P1)_fim
     label: '6'
-    retangulo:
+    circulo:
       x: 304
-      y: 348
-      comprimento: 27
-      largura: 27
+      y: 349
+      raio: 16
   - id: 7 (P1) / 3 (P2)
     label: '7'
-    retangulo:
-      x: 914
-      y: 708
-      comprimento: 25
-      largura: 23
+    circulo:
+      x: 916
+      y: 706
+      raio: 15
   - id: 7 (P1) / 3 (P2)_fim
     label: '7'
-    retangulo:
+    circulo:
       x: 920
-      y: 347
-      comprimento: 30
-      largura: 30
+      y: 348
+      raio: 16
   - id: 8 (P1) / 1 (P2)
     label: '8'
-    retangulo:
-      x: 790
-      y: 818
-      comprimento: 21
-      largura: 21
+    circulo:
+      x: 791
+      y: 821
+      raio: 15
   - id: 8 (P1) / 1 (P2)_fim
     label: '8'
-    retangulo:
+    circulo:
       x: 919
       y: 310
-      comprimento: 22
-      largura: 22
+      raio: 16
   - id: 9 (P1) / 2 (P2)
     label: '9'
-    retangulo:
+    circulo:
       x: 856
       y: 583
-      comprimento: 21
-      largura: 20
+      raio: 15
   - id: 9 (P1) / 2 (P2)_fim
     label: '9'
-    retangulo:
-      x: 918
-      y: 268
-      comprimento: 20
-      largura: 22
+    circulo:
+      x: 919
+      y: 271
+      raio: 16
   - id: 10 (P1)
     label: '10'
-    retangulo:
-      x: 790
+    circulo:
+      x: 791
       y: 858
-      comprimento: 25
-      largura: 25
+      raio: 16
   - id: 10 (P1)_fim
     label: '10'
-    retangulo:
-      x: 762
+    circulo:
+      x: 763
       y: 204
-      comprimento: 33
-      largura: 25
+      raio: 15
   - id: 11 (P1)
     label: '11'
-    retangulo:
-      x: 630
+    circulo:
+      x: 631
       y: 700
-      comprimento: 25
-      largura: 23
+      raio: 16
   - id: 11 (P1)_fim
     label: '11'
-    retangulo:
-      x: 302
-      y: 310
-      comprimento: 27
-      largura: 25
+    circulo:
+      x: 304
+      y: 311
+      raio: 16
   referencias:
   - escalada: Super Cine
     ids:
@@ -184,164 +162,172 @@ mapas:
     ids:
     - 11 (P1)
     - 11 (P1)_fim
+  - ids:
+    - 2 (P1) / 5 (P2)
+    - 2 (P1) / 5 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Espetacular
+  - ids:
+    - 5 (P1) / 4 (P2)
+    - 5 (P1) / 4 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Esporte Espetacular
+  - ids:
+    - 7 (P1) / 3 (P2)_fim
+    - 7 (P1) / 3 (P2)
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Globo Curral
+  - ids:
+    - 8 (P1) / 1 (P2)
+    - 8 (P1) / 1 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Manual
+  - ids:
+    - 9 (P1) / 2 (P2)
+    - 9 (P1) / 2 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Altas Horas
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 964
   pontos_de_interesse:
   - id: 8 (P1) / 1 (P2)
     label: '1'
-    retangulo:
+    circulo:
       x: 266
-      y: 758
-      comprimento: 21
-      largura: 27
+      y: 759
+      raio: 15
   - id: 8 (P1) / 1 (P2)_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 208
       y: 278
-      comprimento: 23
-      largura: 25
+      raio: 16
   - id: 9 (P1) / 2 (P2)
     label: '2'
-    retangulo:
-      x: 246
-      y: 641
-      comprimento: 23
-      largura: 24
+    circulo:
+      x: 247
+      y: 642
+      raio: 15
   - id: 9 (P1) / 2 (P2)_fim
     label: '2'
-    retangulo:
-      x: 206
-      y: 238
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 207
+      y: 239
+      raio: 16
   - id: 7 (P1) / 3 (P2)
     label: '3'
-    retangulo:
-      x: 419
+    circulo:
+      x: 420
       y: 778
-      comprimento: 26
-      largura: 28
+      raio: 16
   - id: 7 (P1) / 3 (P2)_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 206
-      y: 198
-      comprimento: 24
-      largura: 24
+      y: 200
+      raio: 16
   - id: 5 (P1) / 4 (P2)
     label: '4'
-    retangulo:
-      x: 265
-      y: 798
-      comprimento: 22
-      largura: 23
+    circulo:
+      x: 266
+      y: 797
+      raio: 16
   - id: 5 (P1) / 4 (P2)_fim
     label: '4'
-    retangulo:
-      x: 430
-      y: 248
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 432
+      y: 249
+      raio: 16
   - id: 2 (P1) / 5 (P2)
     label: '5'
-    retangulo:
-      x: 206
-      y: 644
-      comprimento: 19
-      largura: 21
+    circulo:
+      x: 207
+      y: 645
+      raio: 16
   - id: 2 (P1) / 5 (P2)_fim
     label: '5'
-    retangulo:
-      x: 430
+    circulo:
+      x: 431
       y: 209
-      comprimento: 24
-      largura: 24
+      raio: 15
   - id: 6 (P2)
     label: '6'
-    retangulo:
-      x: 544
-      y: 728
-      comprimento: 22
-      largura: 24
+    circulo:
+      x: 545
+      y: 730
+      raio: 15
   - id: 6 (P2)_fim
     label: '6'
-    retangulo:
-      x: 430
-      y: 167
-      comprimento: 21
-      largura: 24
+    circulo:
+      x: 431
+      y: 170
+      raio: 16
   - id: 7 (P2)
     label: '7'
-    retangulo:
-      x: 545
-      y: 765
-      comprimento: 24
-      largura: 28
+    circulo:
+      x: 546
+      y: 768
+      raio: 16
   - id: 7 (P2)_fim
     label: '7'
-    retangulo:
+    circulo:
       x: 848
-      y: 181
-      comprimento: 22
-      largura: 24
+      y: 183
+      raio: 15
   - id: 8 (P2)
     label: '8'
-    retangulo:
-      x: 420
-      y: 814
-      comprimento: 25
-      largura: 26
+    circulo:
+      x: 421
+      y: 815
+      raio: 15
   - id: 8 (P2)_fim
     label: '8'
-    retangulo:
+    circulo:
       x: 848
-      y: 144
-      comprimento: 18
-      largura: 21
+      y: 145
+      raio: 16
   - id: 9 (P2)
     label: '9'
-    retangulo:
-      x: 419
-      y: 852
-      comprimento: 26
-      largura: 25
+    circulo:
+      x: 421
+      y: 853
+      raio: 15
   - id: 9 (P2)_fim
     label: '9'
-    retangulo:
-      x: 429
-      y: 129
-      comprimento: 24
-      largura: 24
+    circulo:
+      x: 430
+      y: 131
+      raio: 15
   - id: 10 (P2)
     label: '10'
-    retangulo:
-      x: 544
-      y: 804
-      comprimento: 31
-      largura: 25
+    circulo:
+      x: 546
+      y: 806
+      raio: 16
   - id: 10 (P2)_fim
     label: '10'
-    retangulo:
+    circulo:
       x: 206
-      y: 160
-      comprimento: 25
-      largura: 22
+      y: 162
+      raio: 16
   - id: 11 (P2)
     label: '11'
-    retangulo:
-      x: 420
-      y: 890
-      comprimento: 29
-      largura: 26
+    circulo:
+      x: 421
+      y: 891
+      raio: 16
   - id: 11 (P2)_fim
     label: '11'
-    retangulo:
-      x: 202
-      y: 125
-      comprimento: 23
-      largura: 22
+    circulo:
+      x: 204
+      y: 124
+      raio: 16
   referencias:
   - escalada: Sessão da Tarde
     ids:
@@ -367,6 +353,36 @@ mapas:
     ids:
     - 11 (P2)
     - 11 (P2)_fim
+  - ids:
+    - 8 (P1) / 1 (P2)_fim
+    - 8 (P1) / 1 (P2)
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Manual
+  - ids:
+    - 9 (P1) / 2 (P2)
+    - 9 (P1) / 2 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Altas Horas
+  - ids:
+    - 7 (P1) / 3 (P2)
+    - 7 (P1) / 3 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Globo Curral
+  - ids:
+    - 5 (P1) / 4 (P2)
+    - 5 (P1) / 4 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Esporte Espetacular
+  - ids:
+    - 2 (P1) / 5 (P2)
+    - 2 (P1) / 5 (P2)_fim
+    grupo: Região 3
+    setor: Sessão da Tarde
+    escalada: Espetacular
 escaladas:
 - boulder:
     nome: Super Cine

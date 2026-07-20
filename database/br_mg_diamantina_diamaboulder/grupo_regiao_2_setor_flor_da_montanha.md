@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 332
-      y: 565
-      comprimento: 22
-      largura: 24
+    circulo:
+      x: 334
+      y: 566
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 554
-      y: 122
-      comprimento: 23
-      largura: 24
+      y: 121
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 330
+    circulo:
+      x: 333
       y: 602
-      comprimento: 22
-      largura: 23
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 106
-      y: 14
-      comprimento: 28
-      largura: 25
+      y: 16
+      raio: 16
   referencias:
   - escalada: Fina Flor
     ids:

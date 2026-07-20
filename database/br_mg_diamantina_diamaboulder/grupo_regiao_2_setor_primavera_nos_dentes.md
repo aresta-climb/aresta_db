@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P0)
     label: '1'
-    retangulo:
-      x: 450
-      y: 652
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 451
+      y: 651
+      raio: 15
   - id: 1 (P0)_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 240
-      y: 362
-      comprimento: 25
-      largura: 25
+      y: 365
+      raio: 15
   - id: 2 (P0)
     label: '2'
-    retangulo:
+    circulo:
       x: 854
       y: 604
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 2 (P0)_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 732
-      y: 300
-      comprimento: 25
-      largura: 25
+      y: 301
+      raio: 15
   - id: 3 (P0)
     label: '3'
-    retangulo:
-      x: 854
+    circulo:
+      x: 853
       y: 644
-      comprimento: 18
-      largura: 20
+      raio: 14
   - id: 3 (P0)_fim
     label: '3'
-    retangulo:
-      x: 930
-      y: 274
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 931
+      y: 276
+      raio: 15
   referencias:
   - escalada: Monobloco
     ids:
@@ -66,60 +60,52 @@ mapas:
   pontos_de_interesse:
   - id: 1 (P1)
     label: '1'
-    retangulo:
-      x: 593
-      y: 606
-      comprimento: 20
-      largura: 24
+    circulo:
+      x: 595
+      y: 608
+      raio: 14
   - id: 1 (P1)_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 892
       y: 182
-      comprimento: 27
-      largura: 30
+      raio: 14
   - id: 2 (P1)
     label: '2'
-    retangulo:
+    circulo:
       x: 650
       y: 583
-      comprimento: 21
-      largura: 26
+      raio: 14
   - id: 2 (P1)_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 892
-      y: 144
-      comprimento: 21
-      largura: 25
+      y: 145
+      raio: 15
   - id: 3 (P1)
     label: '3'
-    retangulo:
-      x: 910
-      y: 532
-      comprimento: 19
-      largura: 21
+    circulo:
+      x: 911
+      y: 535
+      raio: 14
   - id: 3 (P1)_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 892
-      y: 108
-      comprimento: 25
-      largura: 24
+      y: 110
+      raio: 15
   - id: 4 (P1/P2)
     label: '4'
-    retangulo:
-      x: 594
-      y: 644
-      comprimento: 19
-      largura: 23
+    circulo:
+      x: 595
+      y: 643
+      raio: 14
   - id: 5 (P1/P2)
     label: '5'
-    retangulo:
+    circulo:
       x: 910
-      y: 568
-      comprimento: 21
-      largura: 24
+      y: 570
+      raio: 14
   referencias:
   - escalada: Primavera nos Dentes
     ids:
@@ -133,38 +119,57 @@ mapas:
     ids:
     - 3 (P1)
     - 3 (P1)_fim
+  - ids:
+    - 4 (P1/P2)
+    grupo: Região 2
+    setor: Primavera nos Dentes
+    escalada: Sangue Latino
+  - ids:
+    - 5 (P1/P2)
+    grupo: Região 2
+    setor: Primavera nos Dentes
+    escalada: Joelho de Porco
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p2_i0.webp
   largura_mapa: 1240
   altura_mapa: 1030
   pontos_de_interesse:
   - id: 4 (P1/P2)
     label: '4'
-    retangulo:
-      x: 422
-      y: 736
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 420
+      y: 735
+      raio: 15
   - id: 4 (P1/P2)_fim
     label: '4'
-    retangulo:
-      x: 562
+    circulo:
+      x: 561
       y: 106
-      comprimento: 25
-      largura: 25
+      raio: 15
   - id: 5 (P1/P2)
     label: '5'
-    retangulo:
-      x: 466
-      y: 650
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 465
+      y: 649
+      raio: 15
   - id: 5 (P1/P2)_fim
     label: '5'
-    retangulo:
-      x: 560
+    circulo:
+      x: 561
       y: 68
-      comprimento: 25
-      largura: 25
+      raio: 16
+  referencias:
+  - ids:
+    - 4 (P1/P2)
+    - 4 (P1/P2)_fim
+    grupo: Região 2
+    setor: Primavera nos Dentes
+    escalada: Sangue Latino
+  - ids:
+    - 5 (P1/P2)
+    - 5 (P1/P2)_fim
+    grupo: Região 2
+    setor: Primavera nos Dentes
+    escalada: Joelho de Porco
 escaladas:
 - boulder:
     nome: Monobloco

@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    retangulo:
-      x: 202
-      y: 744
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 200
+      y: 745
+      raio: 15
   - id: 01_fim
     label: '1'
-    retangulo:
-      x: 420
+    circulo:
+      x: 419
       y: 288
-      comprimento: 30
-      largura: 29
+      raio: 16
   - id: '02'
     label: '2'
-    retangulo:
-      x: 549
-      y: 808
-      comprimento: 28
-      largura: 29
+    circulo:
+      x: 550
+      y: 812
+      raio: 15
   - id: 02_fim
     label: '2'
-    retangulo:
-      x: 418
-      y: 248
-      comprimento: 33
-      largura: 35
+    circulo:
+      x: 419
+      y: 249
+      raio: 16
   - id: '03'
     label: '3'
-    retangulo:
-      x: 686
-      y: 754
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 685
+      y: 755
+      raio: 15
   - id: 03_fim
     label: '3'
-    retangulo:
+    circulo:
       x: 718
       y: 277
-      comprimento: 28
-      largura: 28
+      raio: 16
   referencias:
   - escalada: Menos Porco Mais Aranha
     ids:
@@ -60,87 +54,67 @@ mapas:
     ids:
     - '03'
     - 03_fim
-  - escalada: Pocilga
-    ids:
-    - '01'
-    - 01_fim
-  - escalada: Porco Aranha
-    ids:
-    - '02'
-    - 02_fim
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 1055
   pontos_de_interesse:
   - id: '01'
     label: '1'
-    retangulo:
-      x: 438
-      y: 668
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 440
+      y: 669
+      raio: 14
   - id: 01_fim
     label: '1'
-    retangulo:
-      x: 434
-      y: 159
-      comprimento: 21
-      largura: 24
+    circulo:
+      x: 432
+      y: 160
+      raio: 15
   - id: '02'
     label: '2'
-    retangulo:
-      x: 706
-      y: 800
-      comprimento: 30
-      largura: 33
+    circulo:
+      x: 708
+      y: 801
+      raio: 15
   - id: 02_fim
     label: '2'
-    retangulo:
+    circulo:
       x: 668
-      y: 73
-      comprimento: 28
-      largura: 28
+      y: 75
+      raio: 15
   - id: '03'
     label: '3'
-    retangulo:
-      x: 780
-      y: 839
-      comprimento: 27
-      largura: 28
+    circulo:
+      x: 779
+      y: 840
+      raio: 16
   - id: 03_fim
     label: '3'
-    retangulo:
-      x: 1007
-      y: 352
-      comprimento: 20
-      largura: 25
+    circulo:
+      x: 1006
+      y: 353
+      raio: 16
   - id: '04'
     label: '4'
-    retangulo:
+    circulo:
       x: 1138
-      y: 833
-      comprimento: 24
-      largura: 24
+      y: 832
+      raio: 15
   - id: 04_fim
     label: '4'
-    retangulo:
+    circulo:
       x: 1004
-      y: 314
-      comprimento: 24
-      largura: 24
+      y: 316
+      raio: 16
   referencias:
   - escalada: Menos Porco Mais Aranha
     ids:
-    - '01'
-    - 01_fim
-  - escalada: Javaporco
-    ids:
-    - '02'
-    - 02_fim
-  - escalada: Chiqueirinho
-    ids:
     - '03'
     - 03_fim
+  - escalada: Javaporco
+    ids:
+    - '04'
+    - 04_fim
   - escalada: Pocilga
     ids:
     - '01'

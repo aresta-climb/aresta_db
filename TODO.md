@@ -71,6 +71,10 @@ Precisa de MUITO trabalho no croqui de Cambotas pra fazer sentido dele.
 
 - Mapas gerais são como chegar, não mapas gerais
 
+# Diamaboulder
+
+- Primeiro mapa geral é como chegar, não mapas gerais
+
 # TODOs do Linter
 
 - Adicionar verificação de Linter para emitir warnings caso o

@@ -7,32 +7,28 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 544
-      y: 838
-      comprimento: 25
-      largura: 25
+    circulo:
+      x: 545
+      y: 840
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
+    circulo:
       x: 766
       y: 204
-      comprimento: 23
-      largura: 25
+      raio: 15
   - id: '2'
     label: '2'
-    retangulo:
+    circulo:
       x: 584
       y: 672
-      comprimento: 25
-      largura: 29
+      raio: 15
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 765
+    circulo:
+      x: 766
       y: 166
-      comprimento: 22
-      largura: 23
+      raio: 15
   referencias:
   - escalada: Desenfreado
     ids:

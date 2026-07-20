@@ -7,46 +7,40 @@ mapas:
   pontos_de_interesse:
   - id: '1'
     label: '1'
-    retangulo:
-      x: 554
-      y: 724
-      comprimento: 23
-      largura: 25
+    circulo:
+      x: 555
+      y: 726
+      raio: 15
   - id: 1_fim
     label: '1'
-    retangulo:
-      x: 601
-      y: 244
-      comprimento: 20
-      largura: 24
+    circulo:
+      x: 602
+      y: 246
+      raio: 16
   - id: '2'
     label: '2'
-    retangulo:
-      x: 552
+    circulo:
+      x: 553
       y: 762
-      comprimento: 27
-      largura: 27
+      raio: 16
   - id: 2_fim
     label: '2'
-    retangulo:
-      x: 724
-      y: 313
-      comprimento: 25
-      largura: 26
+    circulo:
+      x: 725
+      y: 315
+      raio: 15
   - id: '3'
     label: '3'
-    retangulo:
-      x: 862
-      y: 908
-      comprimento: 21
-      largura: 25
+    circulo:
+      x: 863
+      y: 909
+      raio: 15
   - id: 3_fim
     label: '3'
-    retangulo:
-      x: 724
-      y: 274
-      comprimento: 26
-      largura: 25
+    circulo:
+      x: 725
+      y: 277
+      raio: 15
   referencias:
   - escalada: Maozeiro
     ids:
