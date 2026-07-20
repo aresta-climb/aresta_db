@@ -5,7 +5,7 @@ descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polo
   \ em diversos setores com graduações que vão do 4º ao 10º grau.\n"
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
-status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Bocaina Park
   setores_ou_grupos:

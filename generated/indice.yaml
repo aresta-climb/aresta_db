@@ -4,18 +4,18 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: 53e8882d81b0d0b725d99c56666b90704785deb0b5cea3eff461e7b40acf197d
+  checksum_sha256_croqui: 5604f47cf7c64f54bb2e982e7f3a83e5177cf91ed81f98c3fbdb829ff525a3db
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-07-12T03:02:38Z'
+  timestamp_update: '2026-07-20T02:47:24Z'
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
     \ de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque,\
     \ distribuídas em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256_croqui: 6f9e7f348dd7dd5ef56bfd5d27421865eaa285e0584105e42fc2a4b66eea2fcb
+  checksum_sha256_croqui: 321cebeec3df8277b145f75a62d3ce91874cb0d8eae7e3622d515f7491a5882d
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
-  timestamp_update: '2026-07-08T02:35:36Z'
+  timestamp_update: '2026-07-20T02:51:02Z'
 - id: br_mg_arcos_bombonera
   nome: Arcos - Bombonera
   descricao: Afloramento de calcário situado em Pains, Minas Gerais, com diversos

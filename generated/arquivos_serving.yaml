@@ -1,6 +1,6 @@
 arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256: 53e8882d81b0d0b725d99c56666b90704785deb0b5cea3eff461e7b40acf197d
+  checksum_sha256: 5604f47cf7c64f54bb2e982e7f3a83e5177cf91ed81f98c3fbdb829ff525a3db
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_boulders.webp
   checksum_sha256: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/capa_p0.webp
@@ -54,11 +54,11 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/setor_pressao_enrustida_p0.webp
   checksum_sha256: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.yaml
-  checksum_sha256: b205d6d7d07673411218f6e9bef3be525f4429c812500cd9611d933df7324e49
+  checksum_sha256: 034984dbfee3bd13a11a2b1e80d2d3d0a9c436ab4bf9e4df7c71b025a96ffeb4
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
-  checksum_sha256: 17a04a67d920cad5b84e13b9be194cac62088a004ba46722d2080a989dc6a470
+  checksum_sha256: 77e8413cc4822c0d34b1a2582743f957231a5bd134c275f963273e4fd132f39c
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256: 6f9e7f348dd7dd5ef56bfd5d27421865eaa285e0584105e42fc2a4b66eea2fcb
+  checksum_sha256: 321cebeec3df8277b145f75a62d3ce91874cb0d8eae7e3622d515f7491a5882d
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
   checksum_sha256: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/capa_p0.webp
@@ -192,9 +192,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/setor_udao_p2.webp
   checksum_sha256: 179b635c8bcd811edaa32ae6d1adb9f2773231537704bdca908afa69d71c4dc6
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.yaml
-  checksum_sha256: 5e1a02fb4dfef2a6b842291857c877ec9ca5b35e17c91375939b5ab65286e304
+  checksum_sha256: c8717129879e39aaa96279220e98a1e7ad1fe8f7cd9b17d9253214ff5cebcb84
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
-  checksum_sha256: 706a34a995dab28348ab781c19103834dcfc731c7b55082a90f163abcff4cc15
+  checksum_sha256: 95a572fe61e67020fe67d42091b5a013375645db4b1b444dbeef23094429e276
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
   checksum_sha256: 72a9faf84dbdcea731f6e70543a5646e359e611c2b088580c78fb731a388e450
 - caminho_relativo: thumbnails/br_mg_arcos_bombonera.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 8e95ad3a1881b1ef0f3cbfdb64e8e12588cb6564cafe39ce3be2941a45af938e
+  checksum_sha256: 3e65327611029f7d8da1d1874b0a3157d9673242ccdf439d9608faaa5859800f
 - caminho_relativo: indice.yaml
-  checksum_sha256: 79165d3bcbfbacec3d784607483ea00a26f72bf4a4f38c2b604618054c81917d
+  checksum_sha256: 2d4da8ae83c2dc79f4f8ee2ae15f947908e9cb6f452e4ca530cb283855f45233

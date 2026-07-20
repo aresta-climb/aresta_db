@@ -214,6 +214,7 @@ mapas:
   - escalada: Permissão Concebida
     ids:
     - '19'
+    setor: Tetos
 escaladas:
 - via_esportiva:
     nome: Carapuça
@@ -382,16 +383,6 @@ escaladas:
     - Aluísio
     data_abertura: '2006'
     descricao: Falta topo.
-- via_esportiva:
-    nome: Permissão Concebida
-    dificuldade: BR_8A
-    extensao: 8
-    quantidade_protecoes_intermediarias: 4
-    quantidade_protecoes_parada: 2
-    conquistadores:
-    - Diego Leonardo
-    - Gustavo Maneira
-    data_abertura: '2009'
 ---
 
 # Setor Bem-vindo
