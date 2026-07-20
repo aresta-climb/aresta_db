@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 19/07/2026 23:51:04
+Relatório gerado em: 19/07/2026 23:53:13
 
-| Croqui | Publicado (25/48) | Revisado Manual (25/48) | Revisado Circ (25/48) | Desenho Extraível (27/5/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
+| Croqui | Publicado (25/48) | Revisado Manual (25/48) | Revisado Circ (25/48) | Desenho Extraível (30/2/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -28,9 +28,9 @@ Relatório gerado em: 19/07/2026 23:51:04
 | br_mg_montes_claros_tia_tina | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/7) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_montes_claros_vieiras | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/1) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_montes_claros_zuculim | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_ouro_preto_andorinhas | ✅ | ✅ | ✅ | ⚠️ | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_ouro_preto_andorinhas | ✅ | ✅ | ✅ | ✅ | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ouro_preto_ouroboulder | ✅ | ✅ | ✅ | ✅ | ✅ (46/46) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ✅ | ⚠️ | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ✅ | ✅ | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_paraisopolis_pedra_da_divisa | ✅ | ✅ | ✅ | ✅ (não) | ✅ (5/5) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_gruta | ❌ | ❌ | ❌ | ⚠️ | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_pedra_do_carapuca | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
@@ -42,7 +42,7 @@ Relatório gerado em: 19/07/2026 23:51:04
 | br_mg_sacramento_vo_gusta | ✅ | ✅ | ✅ | ✅ (não) | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_santa_luzia_bigorna_ou_lapa_da_zumba | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
 | br_mg_santa_luzia_morro_do_carrapato_setor_covide | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
-| br_mg_santa_luzia_santuario | ✅ | ✅ | ✅ | ⚠️ | ✅ (3/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_santa_luzia_santuario | ✅ | ✅ | ✅ | ✅ | ✅ (3/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_santana_do_paraiso | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
 | br_mg_santana_do_paraiso_boulders | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
 | br_mg_santana_do_riacho_rio_de_pedras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |

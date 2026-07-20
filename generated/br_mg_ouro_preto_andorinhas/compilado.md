@@ -8,7 +8,7 @@
   - ATM 2018
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_pedra_branca_p0_i0.webp)
 - **revisado_manualmente**: True
-- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True

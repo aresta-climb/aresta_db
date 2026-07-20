@@ -47,14 +47,14 @@ mapas:
       x: 799
       y: 867
       raio: 33
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 899
       y: 965
       raio: 33
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 931
       y: 1077
@@ -119,10 +119,10 @@ mapas:
     - '07'
   - escalada: BERBARIDADE MÁXIMA
     ids:
-    - 08
+    - '08'
   - escalada: SANTA INQUISIÇÃO
     ids:
-    - 09
+    - '09'
   - escalada: TIRANOS DE PLANTÃO
     ids:
     - '10'

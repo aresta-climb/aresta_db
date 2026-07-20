@@ -47,14 +47,14 @@ mapas:
       x: 248
       y: 713
       raio: 35
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 229
       y: 839
       raio: 35
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 231
       y: 979
@@ -125,10 +125,10 @@ mapas:
     - '07'
   - escalada: RINS DE PEDRA
     ids:
-    - 08
+    - '08'
   - escalada: PAGADOR DE PROMESSA
     ids:
-    - 09
+    - '09'
   - escalada: BIBI CORAGEM
     ids:
     - '10'

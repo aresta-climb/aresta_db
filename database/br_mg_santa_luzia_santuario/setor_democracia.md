@@ -47,14 +47,14 @@ mapas:
       x: 1134
       y: 696
       raio: 29
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     circulo:
       x: 1191
       y: 823
       raio: 29
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     circulo:
       x: 1238
       y: 945
@@ -119,10 +119,10 @@ mapas:
     - '07'
   - escalada: BUFFALO BILL
     ids:
-    - 08
+    - '08'
   - escalada: HANIBALL
     ids:
-    - 09
+    - '09'
   - escalada: DEMOCRACIA
     ids:
     - '10'

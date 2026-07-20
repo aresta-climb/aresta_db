@@ -8,7 +8,7 @@
   - OuroBoulder 2020
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
 - **revisado_manualmente**: True
-- **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
+- **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
     - **texto**: Capa

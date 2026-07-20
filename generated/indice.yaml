@@ -133,9 +133,9 @@ croquis:
   nome: Parque Natural Municipal das Andorinhas
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.binarypb
-  checksum_sha256_croqui: 19ff47b8e2b6302b4ef463c7b92dd016af0b5da59f0d833c7d6038f5ee95960f
+  checksum_sha256_croqui: 073198093ec899a54324a74a3f3f4715f0808c63a10040ac0c714e3de86f55df
   checksum_sha256_thumbnail: f6fd316f2dd6ae610fac6ee9137a0b4c2ab388860175d167b03b7bae36efbac0
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-20T02:51:56Z'
 - id: br_mg_ouro_preto_ouroboulder
   nome: Ouroboulder
   descricao: ''
@@ -150,9 +150,9 @@ croquis:
   nome: OuroBoulder Sunset
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256_croqui: ab79a9e06b1538e6fd6b0118b4a9436b1512792741693a1507bebeb9c22179cb
+  checksum_sha256_croqui: 0c1295831f73928ef6be94edce6359574b5c56e296f3d13338b289aee294dc15
   checksum_sha256_thumbnail: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-20T02:52:47Z'
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
   descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
@@ -199,9 +199,9 @@ croquis:
   nome: Santuário de Santa Luzia
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
-  checksum_sha256_croqui: aa011f7a26cb10cf77e571bb8f999d8c1699f480f380c5a347230a4688a2e682
+  checksum_sha256_croqui: 68d63167ba74edaad191e09f2c65a41b58fd36348305461733abd6cd0a3c8018
   checksum_sha256_thumbnail: cd072d8437c4155c6b8fcebbaaaa568e742daa5ed12c64a6c63ccbdfc1b9a951
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-07-20T02:53:11Z'
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''
