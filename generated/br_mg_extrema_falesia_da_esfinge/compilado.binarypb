@@ -39,7 +39,7 @@ Taj Mahola	08RAndr√© MoralesR
 Jorge LimaRTicoZŒÀ
 Apertadinha(<0BUCamalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compat√≠veis; Nuts (1 a 5, 10) ou compat√≠veisRZ√© RicardoR
 Jorge LimajFOBSERVA√á√ïES: Aten√ß√£o com estic√£o do final da fenda at√© a parada.j)
-!imagens/setor_headwall_p0_i0.webpÔêZ»
+!imagens/setor_headwall_p0_i1.webpﬁÿ	Z»
 ≈¬
 Roca MasterJ÷| ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp) |
 | :--: |
@@ -148,8 +148,8 @@ Jorge LimaRAndr√© MoralesRFelipe PimentajgObs: Utilizar clip stick ou rebite n
 '
 imagens/mapas_gerais_p0_i0.webp⁄ÿ	:[
 imagens/capa_p0_i0.webp@56daa5170fca8f755403b22fe482288fca9d7d317292ec940dec00a16440bf7f:e
-!imagens/codigo_conduta_p0_i0.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8:e
-!imagens/codigo_conduta_p0_i1.webp@e37d30b764e3aa0e04670abc9b73fb366f3eda2786f4f2ecbed4a03efeabb8a3:b
+!imagens/codigo_conduta_p0_i1.webp@e37d30b764e3aa0e04670abc9b73fb366f3eda2786f4f2ecbed4a03efeabb8a3:e
+!imagens/codigo_conduta_p0_i2.webp@c2280334134c3208a7f7ba2b9a0d35be7bd79e9926cfedbe09867cd69297e10a:b
 imagens/localizacao_p0_i0.webp@682aaffcc19993518c1175f378d3321c77706e0566c52cae1712d643ac0c529a:b
 imagens/localizacao_p0_i1.webp@9bedb23ef6c41f73b33d1e34f7663a69d943e39e69b471976702f77fc145a436:c
 imagens/mapas_gerais_p0_i0.webp@04ba556969a5b160698e288349eb30e883df184c2275f81f89c21da3a3710c1b:g
@@ -162,9 +162,9 @@ $imagens/setor_ecumenico_p0_i0_2.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f31
 "imagens/setor_ecumenico_p3_i0.webp@fd9f7dbbccd2377224134e3a35dc31b4aee1dd17e6944ec53a7726512c864a91:f
 "imagens/setor_ecumenico_p4_i0.webp@91e93a4e46b4143c9912d77db140d862b68522c4d839066e4524dffe77bb6b62:f
 "imagens/setor_ecumenico_p5_i0.webp@67d258d1e3dadae21f3654cb7fa4f43772f6ae41348e1f17524bf9ecefe8be21:f
-"imagens/setor_ecumenico_p6_i0.webp@719b073d4341cea9e664640f2982d5b417ed3513ff2e0dd7e12951a1bccb0e5a:e
-!imagens/setor_headwall_p0_i0.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8:g
+"imagens/setor_ecumenico_p6_i0.webp@719b073d4341cea9e664640f2982d5b417ed3513ff2e0dd7e12951a1bccb0e5a:g
 #imagens/setor_headwall_p0_i0_2.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8:e
+!imagens/setor_headwall_p0_i1.webp@e3a7b24b5fea10cec11216896539211e3481265aa81a217ff3f0f4e9f979c677:e
 !imagens/setor_headwall_p1_i0.webp@591e7ed464778b86cc6896ad88241d129ca5e5fc30e73cd8bbbe5a587e2de616:e
 !imagens/setor_headwall_p2_i0.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8:e
 !imagens/setor_headwall_p3_i0.webp@bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8:e
@@ -293,23 +293,20 @@ De Belo Horizonte (MG), o acesso √© feito pela BR-381, em um percurso de mais de
 - Proibido levar cachorro/animais.
 - Antes de ir embora certificar-se de ter pago a taxa de visita a propriedade na casa sede do s√≠tio.
 
-| ![Sede do S√≠tio](imagens/codigo_conduta_p0_i0.webp) |
+| ![Sede do S√≠tio](imagens/codigo_conduta_p0_i1.webp) |
 | :--: |
 | *Sede do S√≠tio* |
 
-| ![Trilha de Acesso](imagens/codigo_conduta_p0_i1.webp) |
+| ![Trilha de Acesso](imagens/codigo_conduta_p0_i2.webp) |
 | :--: |
-| *Trilha de Acesso* |r¢
-Pr√≥ximas Vers√µesã
-àÖ# EM BREVE
-NOVOS SETORES
-PR√ìXIMA VERS√ÉO 2.0
-
-| ![Apoio e Pr√≥ximas Vers√µes](imagens/proximas_versoes_p0_i0.webp) |
+| *Trilha de Acesso* |rÁ
+Apoio›
+⁄◊| ![Apoio e Pr√≥ximas Vers√µes](imagens/proximas_versoes_p0_i0.webp) |
 | :--: |
 | *Apoio e Pr√≥ximas Vers√µes* |
 
 # APOIO
+
 - Budah Marketing Digital
 - Seralts Solu√ß√µes em Altura
 - JGariglio

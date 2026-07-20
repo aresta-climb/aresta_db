@@ -8,108 +8,131 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 480
-      y: 25
-      comprimento: 30
-      largura: 30
+      x: 364
+      y: 14
+      comprimento: 33
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 275
-      y: 25
-      comprimento: 30
-      largura: 30
+      x: 208
+      y: 14
+      comprimento: 36
+      largura: 22
   - id: '3'
     label: '3'
     retangulo:
-      x: 480
-      y: 70
-      comprimento: 30
-      largura: 30
+      x: 364
+      y: 42
+      comprimento: 35
+      largura: 22
   - id: '4'
     label: '4'
     retangulo:
-      x: 275
-      y: 70
-      comprimento: 30
-      largura: 30
+      x: 208
+      y: 42
+      comprimento: 35
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 480
-      y: 115
-      comprimento: 30
-      largura: 30
+      x: 365
+      y: 69
+      comprimento: 36
+      largura: 24
   - id: '6'
     label: '6'
     retangulo:
-      x: 275
-      y: 115
-      comprimento: 30
-      largura: 30
+      x: 209
+      y: 70
+      comprimento: 34
+      largura: 23
   - id: '7'
     label: '7'
     retangulo:
-      x: 105
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 84
+      y: 416
+      comprimento: 35
+      largura: 23
   - id: '8'
     label: '8'
     retangulo:
-      x: 35
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 28
+      y: 398
+      comprimento: 33
+      largura: 25
+  - id: 6_b
+    label: '6'
+    retangulo:
+      x: 150
+      y: 442
+      comprimento: 34
+      largura: 23
+  - id: 5_b
+    label: '5'
+    retangulo:
+      x: 150
+      y: 470
+      comprimento: 35
+      largura: 25
+  - id: 4_b
+    label: '4'
+    retangulo:
+      x: 268
+      y: 486
+      comprimento: 33
+      largura: 24
+  - id: 3_b
+    label: '3'
+    retangulo:
+      x: 266
+      y: 516
+      comprimento: 35
+      largura: 25
+  - id: 2_b
+    label: '2'
+    retangulo:
+      x: 388
+      y: 486
+      comprimento: 37
+      largura: 26
+  - id: 1_b
+    label: '1'
+    retangulo:
+      x: 389
+      y: 517
+      comprimento: 36
+      largura: 26
   referencias:
   - escalada: La Furia
     ids:
     - '1'
+    - 1_b
   - escalada: La Discordia
     ids:
     - '2'
+    - 2_b
   - escalada: La Paloma
     ids:
     - '3'
+    - 3_b
   - escalada: La Discrepância
     ids:
     - '4'
+    - 4_b
   - escalada: La Fuerza
     ids:
     - '5'
+    - 5_b
   - escalada: La Sinceridad
     ids:
     - '6'
+    - 6_b
   - escalada: Rei da Cápsula
     ids:
     - '7'
   - escalada: Choffer
     ids:
-    - '8'
-  - escalada: Bem Vindo
-    ids:
-    - '1'
-  - escalada: Bem Vindo a Conceição
-    ids:
-    - '2'
-  - escalada: Bem Vindo aos Clássicos
-    ids:
-    - '3'
-  - escalada: Né Possível
-    ids:
-    - '4'
-  - escalada: Malditos
-    ids:
-    - '5'
-  - escalada: Guardião
-    ids:
-    - '6'
-  - escalada: Deixa Rolar
-    ids:
-    - '7'
-  - escalada: La Resistência
-    ids:
-    - '8'
     - '8'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p1.webp
   largura_mapa: 759
@@ -118,95 +141,122 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 750
-      y: 215
-      comprimento: 19
-      largura: 30
+      x: 582
+      y: 126
+      comprimento: 34
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 750
-      y: 265
-      comprimento: 19
-      largura: 30
+      x: 582
+      y: 154
+      comprimento: 35
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 570
-      y: 25
-      comprimento: 30
-      largura: 30
+      x: 434
+      y: 12
+      comprimento: 33
+      largura: 23
   - id: '4'
     label: '4'
     retangulo:
-      x: 750
-      y: 555
-      comprimento: 19
-      largura: 30
+      x: 577
+      y: 444
+      comprimento: 34
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 570
-      y: 65
-      comprimento: 30
-      largura: 30
+      x: 434
+      y: 37
+      comprimento: 34
+      largura: 22
   - id: '6'
     label: '6'
     retangulo:
-      x: 570
-      y: 105
-      comprimento: 30
-      largura: 30
+      x: 434
+      y: 64
+      comprimento: 35
+      largura: 23
   - id: '7'
     label: '7'
     retangulo:
-      x: 570
-      y: 145
-      comprimento: 30
-      largura: 30
+      x: 434
+      y: 90
+      comprimento: 36
+      largura: 24
+  - id: 1_b
+    label: '1'
+    retangulo:
+      x: 740
+      y: 336
+      comprimento: 35
+      largura: 23
+  - id: 2_b
+    label: '2'
+    retangulo:
+      x: 739
+      y: 402
+      comprimento: 34
+      largura: 24
+  - id: 3_b
+    label: '3'
+    retangulo:
+      x: 738
+      y: 429
+      comprimento: 35
+      largura: 24
+  - id: 5_b
+    label: '5'
+    retangulo:
+      x: 444
+      y: 396
+      comprimento: 33
+      largura: 23
+  - id: 6_b
+    label: '6'
+    retangulo:
+      x: 482
+      y: 268
+      comprimento: 37
+      largura: 23
+  - id: 7_b
+    label: '7'
+    retangulo:
+      x: 214
+      y: 442
+      comprimento: 37
+      largura: 23
   referencias:
-  - escalada: La Furia
-    ids:
-    - '1'
-  - escalada: La Discordia
-    ids:
-    - '2'
-  - escalada: La Paloma
-    ids:
-    - '3'
-  - escalada: La Discrepância
-    ids:
-    - '4'
-  - escalada: La Fuerza
-    ids:
-    - '5'
-  - escalada: La Sinceridad
-    ids:
-    - '6'
-  - escalada: Rei da Cápsula
-    ids:
-    - '7'
   - escalada: Bem Vindo
     ids:
     - '1'
+    - 1_b
   - escalada: Bem Vindo a Conceição
     ids:
     - '2'
+    - 2_b
   - escalada: Bem Vindo aos Clássicos
     ids:
     - '3'
+    - 3_b
   - escalada: Né Possível
     ids:
     - '4'
   - escalada: Malditos
     ids:
     - '5'
+    - 5_b
   - escalada: Guardião
     ids:
     - '6'
+    - 6_b
   - escalada: Deixa Rolar
     ids:
     - '7'
+    - 7_b
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p2.webp
   largura_mapa: 760
   altura_mapa: 551
@@ -214,43 +264,58 @@ mapas:
   - id: '8'
     label: '8'
     retangulo:
-      x: 748
-      y: 500
-      comprimento: 25
-      largura: 30
+      x: 736
+      y: 399
+      comprimento: 32
+      largura: 22
   - id: '9'
     label: '9'
     retangulo:
-      x: 565
-      y: 545
-      comprimento: 30
-      largura: 30
+      x: 426
+      y: 406
+      comprimento: 33
+      largura: 22
   - id: '10'
     label: '10'
     retangulo:
-      x: 290
-      y: 545
-      comprimento: 30
-      largura: 30
+      x: 215
+      y: 464
+      comprimento: 34
+      largura: 25
+  - id: 10_f
+    label: '10'
+    retangulo:
+      x: 543
+      y: 166
+      comprimento: 34
+      largura: 23
+  - id: 9_f
+    label: '9'
+    retangulo:
+      x: 201
+      y: 54
+      comprimento: 34
+      largura: 23
+  - id: 8_f
+    label: '8'
+    retangulo:
+      x: 202
+      y: 20
+      comprimento: 33
+      largura: 24
   referencias:
-  - escalada: Choffer
-    ids:
-    - '8'
   - escalada: La Resistência
     ids:
     - '8'
-    - '8'
+    - 8_f
   - escalada: Maldito La Furia
     ids:
     - '9'
-    - '9'
-  - escalada: (sem nome)
+    - 9_f
+  - escalada: (sem nome 20)
     ids:
     - '10'
-    - '10'
-  - escalada: Travessia da Fúria
-    ids:
-    - '10'
+    - 10_f
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p3.webp
   largura_mapa: 761
   altura_mapa: 548
@@ -258,15 +323,11 @@ mapas:
   - id: '10'
     label: '10'
     retangulo:
-      x: 650
-      y: 435
-      comprimento: 30
-      largura: 30
+      x: 656
+      y: 366
+      comprimento: 35
+      largura: 25
   referencias:
-  - escalada: (sem nome)
-    ids:
-    - '10'
-    - '10'
   - escalada: Travessia da Fúria
     ids:
     - '10'
@@ -323,7 +384,7 @@ escaladas:
     nome: Maldito La Furia
     dificuldade: V8
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 20)
 - boulder:
     nome: Travessia da Fúria
     dificuldade: V5

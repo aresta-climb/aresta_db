@@ -11,7 +11,7 @@ creditos:
 - Nayara Meireles
 - Alexandre Fei
 caminho_thumbnail: imagens/capa_p0.webp
-status_desenho_extraivel: TEM_DESENHO_MAS_NAO_EXTRAIDO
+status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Conceição do Mato Dentro
   url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1HoFEc0r-nrO6aur5x8pNNyp6eR1KmJs&usp=sharing
@@ -40,3 +40,6 @@ botoes:
     secao_textual:
       caminho: secao_rupestre.md
 ultima_migracao: 4
+revisado_manualmente: true
+revisado_bounding_circle: true
+publicar_croqui: true

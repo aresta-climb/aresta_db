@@ -8,59 +8,59 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 130
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 92
+      y: 434
+      comprimento: 32
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 220
-      y: 385
-      comprimento: 30
-      largura: 30
+      x: 156
+      y: 340
+      comprimento: 33
+      largura: 22
   - id: '3'
     label: '3'
     retangulo:
-      x: 315
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 224
+      y: 456
+      comprimento: 32
+      largura: 21
   - id: '4'
     label: '4'
     retangulo:
-      x: 415
-      y: 440
-      comprimento: 30
-      largura: 30
+      x: 298
+      y: 399
+      comprimento: 33
+      largura: 22
   - id: '5'
     label: '5'
     retangulo:
-      x: 460
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 329
+      y: 522
+      comprimento: 34
+      largura: 25
   - id: '6'
     label: '6'
     retangulo:
-      x: 360
-      y: 275
-      comprimento: 30
-      largura: 30
+      x: 364
+      y: 256
+      comprimento: 32
+      largura: 26
   - id: '7'
     label: '7'
     retangulo:
-      x: 750
-      y: 500
-      comprimento: 30
-      largura: 30
+      x: 562
+      y: 476
+      comprimento: 33
+      largura: 25
   - id: '8'
     label: '8'
     retangulo:
-      x: 760
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 616
+      y: 490
+      comprimento: 33
+      largura: 25
   referencias:
   - escalada: Lágrimas de Jah
     ids:
@@ -93,22 +93,22 @@ mapas:
   - id: '9'
     label: '9'
     retangulo:
-      x: 460
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 342
+      y: 422
+      comprimento: 33
+      largura: 23
   - id: '10'
     label: '10'
     retangulo:
-      x: 600
-      y: 530
-      comprimento: 30
-      largura: 30
+      x: 445
+      y: 466
+      comprimento: 34
+      largura: 25
   referencias:
   - escalada: Mescladinho
     ids:
     - '9'
-  - escalada: (sem nome)
+  - escalada: (sem nome 17)
     ids:
     - '10'
 escaladas:
@@ -140,7 +140,7 @@ escaladas:
     nome: Mescladinho
     dificuldade: V7
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 17)
     dificuldade: V3
 ---
 

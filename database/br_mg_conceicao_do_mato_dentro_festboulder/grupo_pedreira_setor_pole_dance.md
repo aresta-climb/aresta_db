@@ -8,59 +8,59 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 160
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 114
+      y: 382
+      comprimento: 35
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 210
-      y: 545
-      comprimento: 30
-      largura: 30
+      x: 154
+      y: 424
+      comprimento: 35
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 290
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 217
+      y: 382
+      comprimento: 34
+      largura: 23
   - id: '4'
     label: '4'
     retangulo:
-      x: 260
-      y: 555
-      comprimento: 30
-      largura: 30
+      x: 188
+      y: 465
+      comprimento: 33
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 240
-      y: 285
-      comprimento: 30
-      largura: 30
+      x: 280
+      y: 284
+      comprimento: 35
+      largura: 23
   - id: '6'
     label: '6'
     retangulo:
-      x: 420
-      y: 555
-      comprimento: 30
-      largura: 30
+      x: 308
+      y: 488
+      comprimento: 34
+      largura: 23
   - id: '7'
     label: '7'
     retangulo:
-      x: 630
-      y: 560
-      comprimento: 30
-      largura: 30
+      x: 468
+      y: 526
+      comprimento: 35
+      largura: 23
   - id: '8'
     label: '8'
     retangulo:
-      x: 750
-      y: 560
-      comprimento: 30
-      largura: 30
+      x: 559
+      y: 512
+      comprimento: 34
+      largura: 23
   referencias:
   - escalada: Fuck Beach
     ids:
@@ -86,39 +86,6 @@ mapas:
   - escalada: Siga-me os Bons SDS
     ids:
     - '8'
-  - escalada: Repense
-    ids:
-    - '1'
-  - escalada: Vamo Nessa
-    ids:
-    - '2'
-  - escalada: Vem que Tem
-    ids:
-    - '3'
-  - escalada: Pense Bem
-    ids:
-    - '4'
-  - escalada: Conclusão
-    ids:
-    - '5'
-  - escalada: Siga-me os Bons
-    ids:
-    - '1'
-  - escalada: Siga-me os Bons SDS
-    ids:
-    - '2'
-  - escalada: Conceicion
-    ids:
-    - '3'
-  - escalada: Tô Concê
-    ids:
-    - '4'
-  - escalada: Rocktrip
-    ids:
-    - '5'
-  - escalada: Rocklands
-    ids:
-    - '6'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p1.webp
   largura_mapa: 757
   altura_mapa: 530
@@ -126,54 +93,39 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 380
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 283
+      y: 383
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 430
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 322
+      y: 388
+      comprimento: 33
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 520
-      y: 415
-      comprimento: 30
-      largura: 30
+      x: 390
+      y: 334
+      comprimento: 36
+      largura: 25
   - id: '4'
     label: '4'
     retangulo:
-      x: 720
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 540
+      y: 377
+      comprimento: 35
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 760
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 581
+      y: 372
+      comprimento: 34
+      largura: 25
   referencias:
-  - escalada: Fuck Beach
-    ids:
-    - '1'
-  - escalada: Incrível Fuck Beach
-    ids:
-    - '2'
-  - escalada: Incrível Pole Dance
-    ids:
-    - '3'
-  - escalada: Incrível
-    ids:
-    - '4'
-  - escalada: Pole Dance
-    ids:
-    - '5'
   - escalada: Repense
     ids:
     - '1'
@@ -187,21 +139,6 @@ mapas:
     ids:
     - '4'
   - escalada: Conclusão
-    ids:
-    - '5'
-  - escalada: Siga-me os Bons
-    ids:
-    - '1'
-  - escalada: Siga-me os Bons SDS
-    ids:
-    - '2'
-  - escalada: Conceicion
-    ids:
-    - '3'
-  - escalada: Tô Concê
-    ids:
-    - '4'
-  - escalada: Rocktrip
     ids:
     - '5'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p2.webp
@@ -211,79 +148,46 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 240
-      y: 285
-      comprimento: 30
-      largura: 30
+      x: 172
+      y: 282
+      comprimento: 33
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 180
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 134
+      y: 406
+      comprimento: 33
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 405
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 296
+      y: 442
+      comprimento: 32
+      largura: 21
   - id: '4'
     label: '4'
     retangulo:
-      x: 545
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 409
+      y: 486
+      comprimento: 32
+      largura: 24
   - id: '5'
     label: '5'
     retangulo:
-      x: 685
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 515
+      y: 405
+      comprimento: 34
+      largura: 22
   - id: '6'
     label: '6'
     retangulo:
-      x: 755
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 574
+      y: 404
+      comprimento: 33
+      largura: 23
   referencias:
-  - escalada: Fuck Beach
-    ids:
-    - '1'
-  - escalada: Incrível Fuck Beach
-    ids:
-    - '2'
-  - escalada: Incrível Pole Dance
-    ids:
-    - '3'
-  - escalada: Incrível
-    ids:
-    - '4'
-  - escalada: Pole Dance
-    ids:
-    - '5'
-  - escalada: Pole Dance SDS
-    ids:
-    - '6'
-  - escalada: Repense
-    ids:
-    - '1'
-  - escalada: Vamo Nessa
-    ids:
-    - '2'
-  - escalada: Vem que Tem
-    ids:
-    - '3'
-  - escalada: Pense Bem
-    ids:
-    - '4'
-  - escalada: Conclusão
-    ids:
-    - '5'
   - escalada: Siga-me os Bons
     ids:
     - '1'
@@ -324,9 +228,6 @@ escaladas:
 - boulder:
     nome: De la Rocha
     dificuldade: V7
-- boulder:
-    nome: Siga-me os Bons SDS
-    dificuldade: V4
 - boulder:
     nome: Repense
     dificuldade: INDEFINIDO

@@ -141,27 +141,24 @@
             - Proibido levar cachorro/animais.
             - Antes de ir embora certificar-se de ter pago a taxa de visita a propriedade na casa sede do sítio.
             
-            | ![Sede do Sítio](imagens/codigo_conduta_p0_i0.webp) |
+            | ![Sede do Sítio](imagens/codigo_conduta_p0_i1.webp) |
             | :--: |
             | *Sede do Sítio* |
             
-            | ![Trilha de Acesso](imagens/codigo_conduta_p0_i1.webp) |
+            | ![Trilha de Acesso](imagens/codigo_conduta_p0_i2.webp) |
             | :--: |
             | *Trilha de Acesso* |
   - **[5]**:
-    - **texto**: Próximas Versões
+    - **texto**: Apoio
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            # EM BREVE
-            NOVOS SETORES
-            PRÓXIMA VERSÃO 2.0
-            
             | ![Apoio e Próximas Versões](imagens/proximas_versoes_p0_i0.webp) |
             | :--: |
             | *Apoio e Próximas Versões* |
             
             # APOIO
+            
             - Budah Marketing Digital
             - Seralts Soluções em Altura
             - JGariglio
@@ -200,9 +197,9 @@
 - **nome**: Headwall
 - **mapas**:
   - **[0]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_headwall_p0_i0.webp)
-    - **largura_mapa**: 367
-    - **altura_mapa**: 144
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_headwall_p0_i1.webp)
+    - **largura_mapa**: 862
+    - **altura_mapa**: 1240
     - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
@@ -511,11 +508,11 @@
     - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
     - **checksum_sha256**: 56daa5170fca8f755403b22fe482288fca9d7d317292ec940dec00a16440bf7f
   - **[1]**:
-    - **caminho**: ![caminho](imagens/codigo_conduta_p0_i0.webp)
-    - **checksum_sha256**: bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8
-  - **[2]**:
     - **caminho**: ![caminho](imagens/codigo_conduta_p0_i1.webp)
     - **checksum_sha256**: e37d30b764e3aa0e04670abc9b73fb366f3eda2786f4f2ecbed4a03efeabb8a3
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/codigo_conduta_p0_i2.webp)
+    - **checksum_sha256**: c2280334134c3208a7f7ba2b9a0d35be7bd79e9926cfedbe09867cd69297e10a
   - **[3]**:
     - **caminho**: ![caminho](imagens/localizacao_p0_i0.webp)
     - **checksum_sha256**: 682aaffcc19993518c1175f378d3321c77706e0566c52cae1712d643ac0c529a
@@ -556,11 +553,11 @@
     - **caminho**: ![caminho](imagens/setor_ecumenico_p6_i0.webp)
     - **checksum_sha256**: 719b073d4341cea9e664640f2982d5b417ed3513ff2e0dd7e12951a1bccb0e5a
   - **[16]**:
-    - **caminho**: ![caminho](imagens/setor_headwall_p0_i0.webp)
-    - **checksum_sha256**: bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8
-  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_headwall_p0_i0_2.webp)
     - **checksum_sha256**: bb940d368c3a5760303e3b7ea86b550c1656a2f311b57071be80821d00e9b4c8
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/setor_headwall_p0_i1.webp)
+    - **checksum_sha256**: e3a7b24b5fea10cec11216896539211e3481265aa81a217ff3f0f4e9f979c677
   - **[18]**:
     - **caminho**: ![caminho](imagens/setor_headwall_p1_i0.webp)
     - **checksum_sha256**: 591e7ed464778b86cc6896ad88241d129ca5e5fc30e73cd8bbbe5a587e2de616

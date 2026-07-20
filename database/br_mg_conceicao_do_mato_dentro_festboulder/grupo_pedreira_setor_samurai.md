@@ -8,31 +8,31 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 425
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 318
+      y: 484
+      comprimento: 34
+      largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 380
-      y: 365
-      comprimento: 30
-      largura: 30
+      x: 286
+      y: 342
+      comprimento: 32
+      largura: 25
   - id: '3'
     label: '3'
     retangulo:
-      x: 680
-      y: 500
-      comprimento: 30
-      largura: 30
+      x: 708
+      y: 469
+      comprimento: 34
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 100
-      y: 290
-      comprimento: 30
-      largura: 30
+      x: 72
+      y: 284
+      comprimento: 34
+      largura: 24
   referencias:
   - escalada: Purgatório
     ids:
@@ -46,9 +46,6 @@ mapas:
   - escalada: Purgatório do Samurai
     ids:
     - '4'
-  - escalada: Ouro Branco
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p1.webp
   largura_mapa: 436
   altura_mapa: 568
@@ -56,14 +53,11 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 160
-      y: 510
-      comprimento: 30
-      largura: 30
+      x: 168
+      y: 450
+      comprimento: 33
+      largura: 22
   referencias:
-  - escalada: Purgatório
-    ids:
-    - '1'
   - escalada: Ouro Branco
     ids:
     - '1'

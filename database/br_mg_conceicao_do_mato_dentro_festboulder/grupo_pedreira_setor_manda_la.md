@@ -8,17 +8,17 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 180
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 186
+      y: 530
+      comprimento: 36
+      largura: 25
   - id: '2'
     label: '2'
     retangulo:
       x: 260
-      y: 425
-      comprimento: 30
-      largura: 30
+      y: 417
+      comprimento: 35
+      largura: 24
   referencias:
   - escalada: Amand-lá
     ids:

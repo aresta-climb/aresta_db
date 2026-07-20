@@ -8,24 +8,24 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 290
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 214
+      y: 369
+      comprimento: 33
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 420
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 313
+      y: 378
+      comprimento: 32
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 610
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 456
+      y: 372
+      comprimento: 35
+      largura: 25
   referencias:
   - escalada: Campo Minado
     ids:

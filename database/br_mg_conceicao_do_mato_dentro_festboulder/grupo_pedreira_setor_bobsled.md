@@ -8,31 +8,31 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 140
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 96
+      y: 420
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 70
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 42
+      y: 393
+      comprimento: 35
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 290
-      y: 465
-      comprimento: 30
-      largura: 30
+      x: 211
+      y: 345
+      comprimento: 34
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 645
-      y: 415
-      comprimento: 30
-      largura: 30
+      x: 477
+      y: 258
+      comprimento: 34
+      largura: 25
   referencias:
   - escalada: Eterna Juventude
     ids:

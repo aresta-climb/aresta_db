@@ -8,17 +8,17 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 450
-      y: 255
-      comprimento: 30
-      largura: 30
+      x: 348
+      y: 279
+      comprimento: 37
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 590
-      y: 255
-      comprimento: 30
-      largura: 30
+      x: 444
+      y: 260
+      comprimento: 36
+      largura: 25
   referencias:
   - escalada: X-Tudo
     ids:
@@ -26,12 +26,6 @@ mapas:
   - escalada: Pão com Ovo
     ids:
     - '2'
-  - escalada: Nossa Senhora de Conceição
-    ids:
-    - '1'
-  - escalada: Kansas
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp
   largura_mapa: 758
   altura_mapa: 424
@@ -39,18 +33,12 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 380
-      y: 405
-      comprimento: 30
-      largura: 30
+      x: 288
+      y: 350
+      comprimento: 36
+      largura: 24
   referencias:
-  - escalada: X-Tudo
-    ids:
-    - '1'
   - escalada: Nossa Senhora de Conceição
-    ids:
-    - '1'
-  - escalada: Kansas
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp
@@ -60,17 +48,11 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 430
-      y: 410
-      comprimento: 30
-      largura: 30
+      x: 322
+      y: 341
+      comprimento: 35
+      largura: 24
   referencias:
-  - escalada: X-Tudo
-    ids:
-    - '1'
-  - escalada: Nossa Senhora de Conceição
-    ids:
-    - '1'
   - escalada: Kansas
     ids:
     - '1'

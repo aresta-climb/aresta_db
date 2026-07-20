@@ -384,7 +384,7 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.md
   checksum_sha256: e03f8eafe7fd8f2d88e804225b05f86977dd32daee20b9098c68f23503e5e5cc
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
-  checksum_sha256: 5bb8d3f3ac3a334addc37f202053e7489a94322f7f3db51bd47dd99bdaf6a8b9
+  checksum_sha256: e5cc92cff8a0605219dc7418524a78b6040bf0d2914fea50229fdced77483cce
 - caminho_relativo: thumbnails/br_mg_conceicao_do_mato_dentro_festboulder.webp
   checksum_sha256: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/imagens/capa_p0.webp
@@ -528,9 +528,9 @@ arquivos:
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/imagens/secao_rupestre_p0_i0.webp
   checksum_sha256: 390c4ae0ca91d29bfac8ae77757e3b0bc333dca5fbc0b5051c2ba50b985c1f62
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.yaml
-  checksum_sha256: dfa9d0fb015743c098bd4e01b8269df8651c24f89d3196fd19eb353f83576a11
+  checksum_sha256: d1285cae969f7cd9b70f09aad0114b41790df0ed56955ee653c6d0bf96d3cc91
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.md
-  checksum_sha256: 97284ab4642b73dac5afe0e962d9037a9759940c78d16ece29e6a1734ad40101
+  checksum_sha256: e718cdac630a17be7c03644d5c495facc325d65e5bd7c4e07cf75baaf6b56380
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 5332beaf99dbeb3c4973f862e51e545f04a0951fd49b194638a6295d96656463
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -1458,6 +1458,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 538d3760395741930bea3863222203a7022c7d184d718280c1d3eb8a22dc1088
+  checksum_sha256: bbb57292eadd80ea91ad30d51665ed93d22d84f2a7d5adb710301073d64f24c9
 - caminho_relativo: indice.yaml
-  checksum_sha256: 6b5c168a4bb49aad5d494d2870a3f18ddbb33edec5525fbb7107e67334f0f1c8
+  checksum_sha256: f3b0cdadd30ecdf2e39956830cb7e3ff395037a76f146266dfe92da2b21c6c2d

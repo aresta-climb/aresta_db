@@ -8,18 +8,12 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 640
-      y: 430
-      comprimento: 30
-      largura: 30
+      x: 490
+      y: 431
+      comprimento: 33
+      largura: 24
   referencias:
   - escalada: Jubileu
-    ids:
-    - '1'
-  - escalada: Eu Te Disse
-    ids:
-    - '1'
-  - escalada: (sem nome)
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jubileu_p1.webp
@@ -29,18 +23,12 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 585
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 441
+      y: 506
+      comprimento: 34
+      largura: 23
   referencias:
-  - escalada: Jubileu
-    ids:
-    - '1'
   - escalada: Eu Te Disse
-    ids:
-    - '1'
-  - escalada: (sem nome)
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jubileu_p2.webp
@@ -50,28 +38,22 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 185
-      y: 415
-      comprimento: 30
-      largura: 30
+      x: 132
+      y: 421
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 610
-      y: 505
-      comprimento: 30
-      largura: 30
+      x: 450
+      y: 437
+      comprimento: 33
+      largura: 26
   referencias:
-  - escalada: Jubileu
+  - escalada: (sem nome 18)
     ids:
     - '1'
-  - escalada: Eu Te Disse
-    ids:
-    - '1'
-  - escalada: (sem nome)
-    ids:
-    - '1'
-  - escalada: (sem nome)
+  - escalada: (sem nome 19)
     ids:
     - '2'
 escaladas:
@@ -82,10 +64,10 @@ escaladas:
     nome: Eu Te Disse
     dificuldade: V5
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 18)
     dificuldade: V2
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 19)
     dificuldade: V2
 ---
 

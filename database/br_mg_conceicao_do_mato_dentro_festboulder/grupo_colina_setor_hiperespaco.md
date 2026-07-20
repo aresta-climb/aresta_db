@@ -8,45 +8,45 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 48
-      y: 430
-      comprimento: 35
-      largura: 30
+      x: 59
+      y: 443
+      comprimento: 36
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 82
-      y: 430
-      comprimento: 35
-      largura: 30
+      x: 112
+      y: 443
+      comprimento: 33
+      largura: 26
   - id: '3'
     label: '3'
     retangulo:
-      x: 262
-      y: 515
-      comprimento: 35
-      largura: 30
+      x: 197
+      y: 469
+      comprimento: 36
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 382
-      y: 440
-      comprimento: 35
-      largura: 30
+      x: 286
+      y: 426
+      comprimento: 36
+      largura: 25
   - id: '5'
     label: '5'
     retangulo:
-      x: 592
-      y: 515
-      comprimento: 35
-      largura: 30
+      x: 446
+      y: 478
+      comprimento: 36
+      largura: 25
   - id: '6'
     label: '6'
     retangulo:
-      x: 751
-      y: 455
-      comprimento: 12
-      largura: 30
+      x: 734
+      y: 454
+      comprimento: 34
+      largura: 25
   referencias:
   - escalada: Solstício
     ids:

@@ -8,16 +8,16 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 268
-      y: 228
-      comprimento: 25
+      x: 262
+      y: 226
+      comprimento: 35
       largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 508
-      y: 268
-      comprimento: 25
+      x: 385
+      y: 250
+      comprimento: 34
       largura: 25
   referencias:
   - escalada: Bloody Hell

@@ -8,10 +8,10 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 180
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 175
+      y: 442
+      comprimento: 34
+      largura: 25
   referencias:
   - escalada: Aresta do Cabeça
     ids:

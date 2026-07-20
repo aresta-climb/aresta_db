@@ -8,24 +8,24 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 190
-      y: 325
-      comprimento: 30
-      largura: 30
+      x: 139
+      y: 292
+      comprimento: 36
+      largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 390
-      y: 325
-      comprimento: 30
-      largura: 30
+      x: 284
+      y: 320
+      comprimento: 36
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 550
-      y: 325
-      comprimento: 30
-      largura: 30
+      x: 409
+      y: 321
+      comprimento: 34
+      largura: 24
   referencias:
   - escalada: Trofeuzinho
     ids:

@@ -8,28 +8,22 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 150
-      y: 500
-      comprimento: 30
-      largura: 30
+      x: 111
+      y: 485
+      comprimento: 34
+      largura: 26
   - id: '2'
     label: '2'
     retangulo:
-      x: 220
-      y: 545
-      comprimento: 30
-      largura: 30
+      x: 166
+      y: 503
+      comprimento: 32
+      largura: 24
   referencias:
   - escalada: Hueco Fontaine
     ids:
     - '1'
   - escalada: Pitt Bull
-    ids:
-    - '2'
-  - escalada: Trabalhador Brasileiro
-    ids:
-    - '1'
-  - escalada: Trabalho Árduo
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p1.webp
@@ -39,31 +33,25 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 320
-      y: 550
-      comprimento: 30
-      largura: 30
+      x: 244
+      y: 544
+      comprimento: 34
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 465
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 348
+      y: 426
+      comprimento: 33
+      largura: 23
   - id: '3'
     label: '3'
     retangulo:
-      x: 420
-      y: 340
-      comprimento: 30
-      largura: 30
+      x: 310
+      y: 196
+      comprimento: 34
+      largura: 23
   referencias:
-  - escalada: Hueco Fontaine
-    ids:
-    - '1'
-  - escalada: Pitt Bull
-    ids:
-    - '2'
   - escalada: Trabalhador Brasileiro
     ids:
     - '1'

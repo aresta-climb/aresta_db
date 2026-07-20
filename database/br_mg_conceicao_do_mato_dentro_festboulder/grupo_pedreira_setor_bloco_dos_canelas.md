@@ -8,17 +8,17 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 280
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 206
+      y: 378
+      comprimento: 33
+      largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 620
-      y: 415
-      comprimento: 30
-      largura: 30
+      x: 446
+      y: 334
+      comprimento: 33
+      largura: 23
   referencias:
   - escalada: Canelas as Ar
     ids:

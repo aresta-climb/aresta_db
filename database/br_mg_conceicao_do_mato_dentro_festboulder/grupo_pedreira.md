@@ -8,107 +8,107 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 282
-      y: 252
-      comprimento: 25
+      x: 304
+      y: 238
+      comprimento: 35
       largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 202
-      y: 252
-      comprimento: 25
-      largura: 25
+      x: 212
+      y: 241
+      comprimento: 35
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 138
-      y: 312
-      comprimento: 25
+      x: 144
+      y: 308
+      comprimento: 36
       largura: 25
   - id: '4'
     label: '4'
     retangulo:
       x: 118
-      y: 262
-      comprimento: 25
-      largura: 25
+      y: 256
+      comprimento: 35
+      largura: 26
   - id: '5'
     label: '5'
     retangulo:
-      x: 232
-      y: 318
-      comprimento: 25
+      x: 264
+      y: 316
+      comprimento: 35
       largura: 25
   - id: '6'
     label: '6'
     retangulo:
-      x: 482
-      y: 418
-      comprimento: 25
+      x: 342
+      y: 404
+      comprimento: 35
       largura: 25
   - id: '7'
     label: '7'
     retangulo:
-      x: 348
-      y: 348
-      comprimento: 25
-      largura: 25
+      x: 230
+      y: 345
+      comprimento: 37
+      largura: 26
   - id: '8'
     label: '8'
     retangulo:
-      x: 268
-      y: 342
-      comprimento: 25
-      largura: 25
+      x: 181
+      y: 337
+      comprimento: 36
+      largura: 26
   - id: '9'
     label: '9'
     retangulo:
-      x: 538
-      y: 422
-      comprimento: 25
+      x: 384
+      y: 406
+      comprimento: 35
       largura: 25
   - id: '10'
     label: '10'
     retangulo:
       x: 98
-      y: 408
-      comprimento: 25
-      largura: 25
+      y: 399
+      comprimento: 35
+      largura: 26
   - id: '11'
     label: '11'
     retangulo:
-      x: 278
-      y: 402
-      comprimento: 25
+      x: 186
+      y: 390
+      comprimento: 36
       largura: 25
   - id: '12'
     label: '12'
     retangulo:
-      x: 62
-      y: 222
-      comprimento: 25
+      x: 64
+      y: 214
+      comprimento: 34
       largura: 25
   - id: '13'
     label: '13'
     retangulo:
-      x: 438
-      y: 332
-      comprimento: 25
-      largura: 25
+      x: 466
+      y: 322
+      comprimento: 35
+      largura: 24
   - id: '14'
     label: '14'
     retangulo:
-      x: 492
-      y: 358
-      comprimento: 25
+      x: 506
+      y: 350
+      comprimento: 35
       largura: 25
   - id: '15'
     label: '15'
     retangulo:
-      x: 402
-      y: 312
-      comprimento: 25
+      x: 398
+      y: 304
+      comprimento: 35
       largura: 25
   referencias:
   - setor: Preguiça

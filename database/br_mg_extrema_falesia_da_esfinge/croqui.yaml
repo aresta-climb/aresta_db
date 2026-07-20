@@ -8,6 +8,8 @@ picos:
 - nome: Falésia da Esfinge
   estado: MG
   url_google_maps: https://goo.gl/maps/rGeBpLYkDVM2
+  mapas_gerais:
+    caminho: mapas_gerais.md
   setores_ou_grupos:
   - setor:
       caminho: setor_headwall.md
@@ -15,8 +17,6 @@ picos:
       caminho: setor_roca_master.md
   - setor:
       caminho: setor_ecumenico.md
-  mapas_gerais:
-    caminho: mapas_gerais.md
 botoes:
 - texto: Capa
   destino:
@@ -38,8 +38,8 @@ botoes:
   destino:
     secao_textual:
       caminho: codigo_conduta.md
-- texto: Próximas Versões
+- texto: Apoio 
   destino:
     secao_textual:
-      caminho: proximas_versoes.md
+      caminho: apoio.md
 ultima_migracao: 4

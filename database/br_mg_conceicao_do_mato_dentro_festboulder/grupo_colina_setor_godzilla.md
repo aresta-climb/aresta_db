@@ -8,24 +8,24 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 415
-      y: 520
-      comprimento: 30
-      largura: 30
+      x: 412
+      y: 486
+      comprimento: 33
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 515
-      y: 435
-      comprimento: 30
-      largura: 30
+      x: 512
+      y: 432
+      comprimento: 35
+      largura: 25
   - id: '3'
     label: '3'
     retangulo:
-      x: 575
-      y: 480
-      comprimento: 30
-      largura: 30
+      x: 570
+      y: 456
+      comprimento: 35
+      largura: 25
   referencias:
   - escalada: King Kong
     ids:
@@ -36,21 +36,6 @@ mapas:
   - escalada: Chimpanzé
     ids:
     - '3'
-  - escalada: Macaco Prego
-    ids:
-    - '1'
-  - escalada: Rolamento
-    ids:
-    - '2'
-  - escalada: Godzilla
-    ids:
-    - '3'
-  - escalada: Enxada
-    ids:
-    - '1'
-  - escalada: Obra de Arte
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p1.webp
   largura_mapa: 757
   altura_mapa: 528
@@ -58,34 +43,25 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 330
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 242
+      y: 428
+      comprimento: 35
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 480
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 356
+      y: 410
+      comprimento: 35
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 630
-      y: 440
-      comprimento: 30
-      largura: 30
+      x: 466
+      y: 347
+      comprimento: 35
+      largura: 24
   referencias:
-  - escalada: King Kong
-    ids:
-    - '1'
-  - escalada: Gorilaz
-    ids:
-    - '2'
-  - escalada: Chimpanzé
-    ids:
-    - '3'
   - escalada: Macaco Prego
     ids:
     - '1'
@@ -95,12 +71,6 @@ mapas:
   - escalada: Godzilla
     ids:
     - '3'
-  - escalada: Enxada
-    ids:
-    - '1'
-  - escalada: Obra de Arte
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p2.webp
   largura_mapa: 755
   altura_mapa: 531
@@ -108,30 +78,18 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 370
-      y: 510
-      comprimento: 30
-      largura: 30
+      x: 347
+      y: 480
+      comprimento: 36
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 430
-      y: 480
-      comprimento: 30
-      largura: 30
+      x: 406
+      y: 462
+      comprimento: 35
+      largura: 23
   referencias:
-  - escalada: King Kong
-    ids:
-    - '1'
-  - escalada: Gorilaz
-    ids:
-    - '2'
-  - escalada: Macaco Prego
-    ids:
-    - '1'
-  - escalada: Rolamento
-    ids:
-    - '2'
   - escalada: Enxada
     ids:
     - '1'

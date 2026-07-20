@@ -8,40 +8,40 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 150
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 112
+      y: 321
+      comprimento: 33
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 265
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 198
+      y: 314
+      comprimento: 33
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 435
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 328
+      y: 369
+      comprimento: 33
+      largura: 26
   - id: '4'
     label: '4'
     retangulo:
-      x: 750
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 565
+      y: 488
+      comprimento: 32
+      largura: 25
   - id: '5'
     label: '5'
     retangulo:
-      x: 770
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 631
+      y: 484
+      comprimento: 32
+      largura: 23
   referencias:
-  - escalada: (sem nome)
+  - escalada: (sem nome 21)
     ids:
     - '1'
   - escalada: Mãos de Tesoura
@@ -58,7 +58,7 @@ mapas:
     - '5'
 escaladas:
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 21)
 - boulder:
     nome: Mãos de Tesoura
     dificuldade: V4

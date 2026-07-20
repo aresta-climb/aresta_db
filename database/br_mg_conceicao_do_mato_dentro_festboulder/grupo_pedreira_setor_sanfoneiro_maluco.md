@@ -8,24 +8,24 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 395
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 297
+      y: 427
+      comprimento: 34
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 630
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 475
+      y: 341
+      comprimento: 34
+      largura: 22
   - id: '3'
     label: '3'
     retangulo:
-      x: 230
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 174
+      y: 370
+      comprimento: 33
+      largura: 24
   referencias:
   - escalada: Sanfoneiro Maluco
     ids:
@@ -36,15 +36,6 @@ mapas:
   - escalada: Chapeleiro Maluco
     ids:
     - '3'
-  - escalada: Webb da Paraíba
-    ids:
-    - '1'
-  - escalada: Efeito Dominó
-    ids:
-    - '1'
-  - escalada: Zuzuzela
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p1.webp
   largura_mapa: 439
   altura_mapa: 564
@@ -52,18 +43,12 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 155
-      y: 430
-      comprimento: 30
-      largura: 30
+      x: 162
+      y: 432
+      comprimento: 33
+      largura: 25
   referencias:
-  - escalada: Sanfoneiro Maluco
-    ids:
-    - '1'
   - escalada: Webb da Paraíba
-    ids:
-    - '1'
-  - escalada: Efeito Dominó
     ids:
     - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp
@@ -73,27 +58,18 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 260
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 210
+      y: 480
+      comprimento: 33
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 420
-      y: 495
-      comprimento: 30
-      largura: 30
+      x: 334
+      y: 432
+      comprimento: 33
+      largura: 25
   referencias:
-  - escalada: Sanfoneiro Maluco
-    ids:
-    - '1'
-  - escalada: Inacreditável
-    ids:
-    - '2'
-  - escalada: Webb da Paraíba
-    ids:
-    - '1'
   - escalada: Efeito Dominó
     ids:
     - '1'

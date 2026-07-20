@@ -112,7 +112,7 @@ mapas:
   - escalada: Abaulados
     ids:
     - '3'
-  - escalada: Simba
+  - escalada: Simba (2o)
     ids:
     - '4'
   - escalada: Capitão Caverna
@@ -163,7 +163,7 @@ mapas:
   - escalada: Trinca Carangueijo
     ids:
     - '3'
-  - escalada: Natural
+  - escalada: Natural (V6)
     ids:
     - '4'
 escaladas:
@@ -192,7 +192,7 @@ escaladas:
     nome: Abaulados
     dificuldade: V3
 - boulder:
-    nome: Simba
+    nome: Simba (2o)
     dificuldade: V8
 - boulder:
     nome: Capitão Caverna
@@ -210,7 +210,7 @@ escaladas:
     nome: Trinca Carangueijo
     dificuldade: V8
 - boulder:
-    nome: Natural
+    nome: Natural (V6)
     dificuldade: V6
 ---
 

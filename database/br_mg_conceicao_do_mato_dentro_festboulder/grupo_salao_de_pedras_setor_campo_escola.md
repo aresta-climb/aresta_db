@@ -113,19 +113,19 @@ mapas:
       comprimento: 34
       largura: 24
   referencias:
-  - escalada: (sem nome)
+  - escalada: (sem nome 25)
     ids:
     - '1'
-  - escalada: (sem nome)
+  - escalada: (sem nome 26)
     ids:
     - '2'
-  - escalada: (sem nome)
+  - escalada: (sem nome 27)
     ids:
     - '3'
-  - escalada: (sem nome)
+  - escalada: (sem nome 28)
     ids:
     - '4'
-  - escalada: (sem nome)
+  - escalada: (sem nome 29)
     ids:
     - '5'
   - escalada: Das Meninas
@@ -151,19 +151,19 @@ escaladas:
     nome: Casé
     dificuldade: V3
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 25)
     dificuldade: V0
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 26)
     dificuldade: V1
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 27)
     dificuldade: V1
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 28)
     dificuldade: V1
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 29)
     dificuldade: V1
 - boulder:
     nome: Das Meninas

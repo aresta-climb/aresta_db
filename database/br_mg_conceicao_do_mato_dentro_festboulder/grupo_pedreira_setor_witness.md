@@ -8,24 +8,24 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 340
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 258
+      y: 438
+      comprimento: 32
+      largura: 22
   - id: '2'
     label: '2'
     retangulo:
-      x: 400
-      y: 555
-      comprimento: 30
-      largura: 30
+      x: 306
+      y: 473
+      comprimento: 33
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 575
-      y: 500
-      comprimento: 30
-      largura: 30
+      x: 432
+      y: 314
+      comprimento: 33
+      largura: 24
   referencias:
   - escalada: Mandarim
     ids:
@@ -36,9 +36,6 @@ mapas:
   - escalada: Witness the Weakness
     ids:
     - '3'
-  - escalada: Picasso
-    ids:
-    - '1'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p1.webp
   largura_mapa: 442
   altura_mapa: 581
@@ -46,14 +43,11 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 215
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 218
+      y: 510
+      comprimento: 33
+      largura: 23
   referencias:
-  - escalada: Mandarim
-    ids:
-    - '1'
   - escalada: Picasso
     ids:
     - '1'

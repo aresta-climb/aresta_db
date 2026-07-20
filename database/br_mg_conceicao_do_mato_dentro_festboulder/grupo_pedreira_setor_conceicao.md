@@ -8,28 +8,22 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 260
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 196
+      y: 370
+      comprimento: 35
+      largura: 25
   - id: '2'
     label: '2'
     retangulo:
-      x: 550
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 414
+      y: 376
+      comprimento: 33
+      largura: 24
   referencias:
   - escalada: Conceição do Mato Dentro
     ids:
     - '1'
-  - escalada: (sem nome)
-    ids:
-    - '2'
-  - escalada: Tobogã
-    ids:
-    - '1'
-  - escalada: No Dab
+  - escalada: (sem nome 15)
     ids:
     - '2'
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_conceicao_p1.webp
@@ -39,38 +33,32 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 365
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 268
+      y: 489
+      comprimento: 33
+      largura: 22
   - id: '2'
     label: '2'
     retangulo:
-      x: 600
-      y: 540
-      comprimento: 30
-      largura: 30
+      x: 448
+      y: 508
+      comprimento: 33
+      largura: 25
   - id: '3'
     label: '3'
     retangulo:
-      x: 760
-      y: 535
-      comprimento: 30
-      largura: 30
+      x: 598
+      y: 497
+      comprimento: 35
+      largura: 24
   referencias:
-  - escalada: Conceição do Mato Dentro
-    ids:
-    - '1'
-  - escalada: (sem nome)
-    ids:
-    - '2'
   - escalada: Tobogã
     ids:
     - '1'
   - escalada: No Dab
     ids:
     - '2'
-  - escalada: (sem nome)
+  - escalada: (sem nome 16)
     ids:
     - '3'
 escaladas:
@@ -78,7 +66,7 @@ escaladas:
     nome: Conceição do Mato Dentro
     dificuldade: V4
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 15)
     dificuldade: V2
 - boulder:
     nome: Tobogã
@@ -87,7 +75,7 @@ escaladas:
     nome: No Dab
     dificuldade: V7
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 16)
     dificuldade: V2
 ---
 

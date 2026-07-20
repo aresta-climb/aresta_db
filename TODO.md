@@ -45,40 +45,6 @@ Tarefas ainda a fazer na database.
 
 Precisa de MUITO trabalho no croqui de Cambotas pra fazer sentido dele.
 
-## Ouroboulder
-
-- A imagem que está como primeira imagem do bloco Mantra no setor Bonsai na
-  verdade é o bloco Prodígio, que não está marcado no mapa.
-  - grupo_bonsai_setor_bloco_mantra_p1.webp
-  - grupo_bonsai_setor_bloco_seg_samambaia_p0.webp
-  - grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp
-  - grupo_pedreira_setor_bloco_complexo_p3.webp
-  - grupo_pedreira_setor_bloco_deep_inside_p1.webp
-  - grupo_pedreira_setor_bloco_entretidos_p3.webp
-  - grupo_pedreira_setor_bloco_fiat_lux_p0.webp
-  - grupo_pedreira_setor_bloco_hora_da_janta_p0.webp
-  - grupo_pedreira_setor_bloco_jah_p0.webp
-  - grupo_pedreira_setor_bloco_joao_de_barro_p0.webp
-  - grupo_pedreira_setor_bloco_joao_de_barro_p1.webp
-  - grupo_pedreira_setor_bloco_joao_de_barro_p2.webp
-  - grupo_pedreira_setor_bloco_lagartixa_p2.webp
-  - grupo_pedreira_setor_bloco_longevidade_p1.webp
-  - grupo_pedreira_setor_bloco_mata_mata_p3.webp
-  - grupo_pedreira_setor_bloco_meia_parede_p0.webp
-  - grupo_pedreira_setor_bloco_meia_parede_p1.webp
-  - grupo_pedreira_setor_bloco_meia_parede_p3.webp
-  - grupo_pedreira_setor_bloco_mezanino_p0.webp
-  - grupo_pedreira_setor_bloco_mezanino_p1.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p0.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p2.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p3.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p4.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p5.webp
-  - grupo_pedreira_setor_bloco_nave_mae_p6.webp
-  - grupo_pedreira_setor_bloco_pedra_queimada_p0.webp
-  - grupo_pedreira_setor_bloco_sauna_p0.webp
-  - grupo_pedreira_setor_bloco_to_de_boa_p1.webp
-
 # Bocaina boulder
 
 - 1 Pressão Enrustida - Qual é qual? Eita setor confuso.

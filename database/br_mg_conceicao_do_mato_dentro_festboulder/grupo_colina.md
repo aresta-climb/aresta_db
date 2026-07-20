@@ -8,38 +8,38 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 542
-      y: 362
+      x: 564
+      y: 364
       comprimento: 35
-      largura: 35
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 638
-      y: 222
-      comprimento: 35
-      largura: 35
+      x: 658
+      y: 210
+      comprimento: 33
+      largura: 24
   - id: '3'
     label: '3'
     retangulo:
-      x: 438
-      y: 262
-      comprimento: 35
-      largura: 35
+      x: 456
+      y: 253
+      comprimento: 33
+      largura: 26
   - id: '4'
     label: '4'
     retangulo:
-      x: 38
-      y: 162
+      x: 46
+      y: 156
       comprimento: 35
-      largura: 35
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 708
-      y: 442
-      comprimento: 34
-      largura: 35
+      x: 698
+      y: 430
+      comprimento: 35
+      largura: 23
   referencias:
   - setor: Choquito
     ids:

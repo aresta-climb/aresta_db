@@ -17,6 +17,6 @@ titulo: Código de Conduta
 - Proibido levar cachorro/animais.
 - Antes de ir embora certificar-se de ter pago a taxa de visita a propriedade na casa sede do sítio.
 
-![Sede do Sítio](imagens/codigo_conduta_p0_i0.webp)
+![Sede do Sítio](imagens/codigo_conduta_p0_i1.webp)
 
-![Trilha de Acesso](imagens/codigo_conduta_p0_i1.webp)
+![Trilha de Acesso](imagens/codigo_conduta_p0_i2.webp)

@@ -1,7 +1,7 @@
 ---
 nome: Headwall
 mapas:
-- caminho_imagem_mapa: imagens/setor_headwall_p0_i0.webp
+- caminho_imagem_mapa: imagens/setor_headwall_p0_i1.webp
   largura_mapa: 367
   altura_mapa: 144
   pontos_de_interesse: []

@@ -8,38 +8,38 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 250
-      y: 350
-      comprimento: 30
-      largura: 30
+      x: 242
+      y: 346
+      comprimento: 33
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 360
-      y: 470
-      comprimento: 30
-      largura: 30
+      x: 272
+      y: 373
+      comprimento: 34
+      largura: 22
   - id: '3'
     label: '3'
     retangulo:
-      x: 420
-      y: 420
-      comprimento: 30
-      largura: 30
+      x: 317
+      y: 368
+      comprimento: 32
+      largura: 24
   - id: '4'
     label: '4'
     retangulo:
-      x: 720
-      y: 500
-      comprimento: 30
-      largura: 30
+      x: 546
+      y: 424
+      comprimento: 35
+      largura: 23
   - id: '5'
     label: '5'
     retangulo:
-      x: 755
-      y: 490
-      comprimento: 30
-      largura: 30
+      x: 646
+      y: 414
+      comprimento: 35
+      largura: 25
   referencias:
   - escalada: Paradise
     ids:
@@ -47,7 +47,7 @@ mapas:
   - escalada: Quebra Costela
     ids:
     - '2'
-  - escalada: (sem nome)
+  - escalada: (sem nome 1)
     ids:
     - '3'
   - escalada: Choquito
@@ -56,12 +56,6 @@ mapas:
   - escalada: Jungle
     ids:
     - '5'
-  - escalada: (sem nome)
-    ids:
-    - '1'
-  - escalada: (sem nome)
-    ids:
-    - '2'
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p1.webp
   largura_mapa: 755
   altura_mapa: 531
@@ -69,28 +63,22 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 320
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 304
+      y: 331
+      comprimento: 33
+      largura: 24
   - id: '2'
     label: '2'
     retangulo:
-      x: 500
-      y: 525
-      comprimento: 30
-      largura: 30
+      x: 484
+      y: 336
+      comprimento: 34
+      largura: 25
   referencias:
-  - escalada: Paradise
+  - escalada: (sem nome 2)
     ids:
     - '1'
-  - escalada: Quebra Costela
-    ids:
-    - '2'
-  - escalada: (sem nome)
-    ids:
-    - '1'
-  - escalada: (sem nome)
+  - escalada: (sem nome 3)
     ids:
     - '2'
 escaladas:
@@ -101,7 +89,7 @@ escaladas:
     nome: Quebra Costela
     dificuldade: V3
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 1)
 - boulder:
     nome: Choquito
     dificuldade: V3
@@ -109,10 +97,10 @@ escaladas:
     nome: Jungle
     dificuldade: V5
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 2)
     dificuldade: V0
 - boulder:
-    nome: (sem nome)
+    nome: (sem nome 3)
     dificuldade: V3
 ---
 

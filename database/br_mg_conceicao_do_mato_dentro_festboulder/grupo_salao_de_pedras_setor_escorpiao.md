@@ -63,24 +63,18 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 230
-      y: 350
-      comprimento: 30
-      largura: 30
+      x: 226
+      y: 358
+      comprimento: 33
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 390
-      y: 255
-      comprimento: 30
-      largura: 30
+      x: 292
+      y: 253
+      comprimento: 35
+      largura: 24
   referencias:
-  - escalada: Super Foot Hook
-    ids:
-    - '1'
-  - escalada: Foot Hook
-    ids:
-    - '2'
   - escalada: Insaciável
     ids:
     - '1'

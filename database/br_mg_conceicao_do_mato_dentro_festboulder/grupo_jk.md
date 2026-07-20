@@ -8,17 +8,17 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 302
-      y: 222
-      comprimento: 25
-      largura: 25
+      x: 162
+      y: 202
+      comprimento: 33
+      largura: 23
   - id: '2'
     label: '2'
     retangulo:
-      x: 458
-      y: 112
-      comprimento: 25
-      largura: 25
+      x: 248
+      y: 108
+      comprimento: 33
+      largura: 24
   referencias:
   - setor: Mufasa
     ids:

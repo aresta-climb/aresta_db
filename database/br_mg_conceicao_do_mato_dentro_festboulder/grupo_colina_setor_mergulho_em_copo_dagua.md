@@ -8,10 +8,10 @@ mapas:
   - id: '1'
     label: '1'
     retangulo:
-      x: 280
-      y: 515
-      comprimento: 30
-      largura: 30
+      x: 203
+      y: 462
+      comprimento: 34
+      largura: 24
   referencias:
   - escalada: Mergulho em Copo d'Água
     ids:
