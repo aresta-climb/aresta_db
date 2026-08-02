@@ -87,5 +87,12 @@ def test_tela_de_abertura_tem_icone_configurado(qtbot):
     qtbot.addWidget(abertura)
     assert not abertura.windowIcon().isNull()
 
+def test_application_version_is_set(qtbot):
+    """Garante que a constante VERSION do módulo version é setada no QApplication."""
+    from editor.core.version import VERSION
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        assert controlador.app.applicationVersion() == VERSION
+
 
 

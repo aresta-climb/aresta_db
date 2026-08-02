@@ -170,11 +170,14 @@ class LocalRepoWorkspace(EditorWorkspace):
         # No modo local, invocamos a compilação local de forma explícita, sem o wrapper que commita
         # is_producao=False gera HTMLs que apontam para imagens e assets locais
         
+        caminho_compilado = self.obter_caminho_compilado().parent
+        caminho_base = self.obter_caminho_database()
+        
         with capturar_saida() as out:
             try:
                 deploy(
-                    output_dir=self.obter_caminho_compilado().parent,
-                    target_path=str(self.obter_caminho_database()),
+                    output_dir=caminho_compilado,
+                    target_paths=[caminho_base],
                     force_thumbnails=True,
                     gerar_arquivos_de_debug=True,
                     is_producao=False

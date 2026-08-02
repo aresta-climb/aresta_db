@@ -94,8 +94,9 @@ def test_cloudflare_purger_success():
         assert req.headers["Authorization"] == "Bearer fake-token"
         assert req.json() == {
             "files": [
-                "https://cdn.aresta.app/v1/indice.binarypb",
-                "https://cdn.aresta.app/v1/arquivos_serving.yaml"
+                "https://serving.arestaclimb.com/v1/indice.binarypb",
+                "https://serving.arestaclimb.com/v1/indice.yaml",
+                "https://serving.arestaclimb.com/v1/arquivos_serving.yaml"
             ]
         }
 

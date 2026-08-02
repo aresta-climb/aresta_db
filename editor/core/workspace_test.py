@@ -98,7 +98,7 @@ def test_local_repo_workspace_processar(mock_run, mock_deploy, tmp_paths):
     # Verifica argumentos do deploy
     args = mock_deploy.call_args[1]
     assert args["output_dir"] == ws.obter_caminho_compilado().parent
-    assert args["target_path"] == str(ws.obter_caminho_database())
+    assert args["target_paths"] == [ws.obter_caminho_database()]
     assert args["is_producao"] is False
     
     assert resultado == tmp_paths

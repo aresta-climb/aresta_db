@@ -17,16 +17,16 @@ class DeployGeneratedTest(unittest.TestCase):
             "picos": [
                 {
                     "escaladas": [
-                        {"nome": "Via Normal"},
-                        {"nome": "Fenda do Desespero"},
+                        {"tradicional": {"nome": "Via Normal"}},
+                        {"tradicional": {"nome": "Fenda do Desespero"}},
                     ]
                 },
                 {
                     "faces": [
                         {
                             "escaladas": [
-                                {"nome": "Via Normal"}, # Duplicado!
-                                {"nome": "Teto do Macaco"}
+                                {"tradicional": {"nome": "Via Normal"}}, # Duplicado!
+                                {"tradicional": {"nome": "Teto do Macaco"}}
                             ]
                         }
                     ]
