@@ -57,3 +57,10 @@ O sistema SHALL esconder os wrappers e mensagens marcadas com `MensagemFormatoUi
 - **WHEN** o usuário adiciona um novo elemento que contém um `oneof` sem nenhuma opção marcada com `[(aresta.oneof_default) = true]`
 - **THEN** o sistema SHALL exibir um diálogo para que o usuário escolha qual das opções do `oneof` deseja criar.
 
+### Requirement: Suporte Visual para Formatos Quadrados
+O sistema do editor SHALL renderizar os campos da mensagem `BoundingQuadrado` perfeitamente em modo inline, mantendo a responsividade e estilo da árvore de propriedades sem a necessidade de lógicas especiais para cada formato visual.
+
+#### Scenario: Visualização do BoundingQuadrado
+- **WHEN** um Ponto de Interesse contiver a marcação de `quadrado`
+- **THEN** o editor exibirá as propriedades relativas (`x`, `y`, `lado`) de forma inline abaixo do nó expansível do ponto de interesse.
+
