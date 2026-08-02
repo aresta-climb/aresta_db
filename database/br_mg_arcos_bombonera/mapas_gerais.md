@@ -92,4 +92,3 @@ mapas:
     ids:
     - Setor_Esquerda
 ---
-
