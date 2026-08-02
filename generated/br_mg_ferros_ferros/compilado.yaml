@@ -18,12 +18,230 @@ picos:
         - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp
           largura_mapa: 992
           altura_mapa: 624
+          pontos_de_interesse:
+          - id: Via_1
+            label: 1 - Pé na Chapa (II E1 - 15m)
+            retangulo:
+              x: 185
+              y: 30
+              comprimento: 325
+              largura: 26
+              angulo_graus_x100: 0
+          - id: Via_2
+            label: 2 - Desenferrujando (II E1 - 15m)
+            retangulo:
+              x: 202
+              y: 58
+              comprimento: 360
+              largura: 23
+              angulo_graus_x100: 0
+          - id: Via_3
+            label: 3 - Ferrugem (Isup E1 - 30m)
+            retangulo:
+              x: 183
+              y: 88
+              comprimento: 320
+              largura: 23
+              angulo_graus_x100: 0
+          - id: Via_4
+            label: 4 - A Ferro Quente (II - 25m - Solo)
+            retangulo:
+              x: 211
+              y: 116
+              comprimento: 385
+              largura: 27
+              angulo_graus_x100: 0
+          - id: Num_1
+            label: '1'
+            circulo:
+              x: 300
+              y: 340
+              raio: 15
+          - id: Num_2
+            label: '2'
+            circulo:
+              x: 395
+              y: 360
+              raio: 15
+          - id: Num_3
+            label: '3'
+            circulo:
+              x: 614
+              y: 402
+              raio: 15
+          - id: Num_4
+            label: '4'
+            circulo:
+              x: 750
+              y: 390
+              raio: 15
+          - id: P1_15m
+            label: P1 15m
+            retangulo:
+              x: 405
+              y: 160
+              comprimento: 110
+              largura: 40
+              angulo_graus_x100: 0
+          - id: P1_30m
+            label: P1 30m
+            retangulo:
+              x: 670
+              y: 160
+              comprimento: 110
+              largura: 40
+              angulo_graus_x100: 0
+          - id: PP
+            label: PP
+            retangulo:
+              x: 640
+              y: 180
+              comprimento: 25
+              largura: 20
+              angulo_graus_x100: 0
+          - id: Trilha_Vale_Roncador
+            label: Trilha Para o Vale do Roncador
+            retangulo:
+              x: 124
+              y: 225
+              comprimento: 150
+              largura: 90
+              angulo_graus_x100: 0
+          - id: Cachoeira
+            label: Cachoeira
+            retangulo:
+              x: 895
+              y: 336
+              comprimento: 115
+              largura: 31
+              angulo_graus_x100: 0
+          - id: Estrada_Terra
+            label: Estrada de terra
+            retangulo:
+              x: 488
+              y: 457
+              comprimento: 120
+              largura: 60
+              angulo_graus_x100: 0
+          - id: Pequena_Casa
+            label: Pequena casa sem uso
+            retangulo:
+              x: 698
+              y: 535
+              comprimento: 150
+              largura: 60
+              angulo_graus_x100: 0
+          - id: Para_Retiro
+            label: Para o Retiro das Águas
+            retangulo:
+              x: 900
+              y: 521
+              comprimento: 150
+              largura: 60
+              angulo_graus_x100: 0
+          - id: Legenda_Titulo
+            label: LEGENDA
+            retangulo:
+              x: 117
+              y: 396
+              comprimento: 120
+              largura: 25
+              angulo_graus_x100: 0
+          - id: Leg_Vegetacao
+            label: Vegetação
+            retangulo:
+              x: 140
+              y: 433
+              comprimento: 145
+              largura: 28
+              angulo_graus_x100: 0
+          - id: Leg_Grampo
+            label: Grampo de 1/2
+            retangulo:
+              x: 176
+              y: 462
+              comprimento: 167
+              largura: 27
+              angulo_graus_x100: 0
+          - id: Leg_Fenda
+            label: Fenda / Fissura
+            retangulo:
+              x: 178
+              y: 492
+              comprimento: 173
+              largura: 23
+              angulo_graus_x100: 0
+          - id: Leg_Parada
+            label: Parada
+            retangulo:
+              x: 134
+              y: 522
+              comprimento: 85
+              largura: 27
+              angulo_graus_x100: 0
+          referencias:
+          - ids:
+            - Via_1
+            escalada: Pé na Chapa
+          - ids:
+            - Via_2
+            escalada: Desenferrujando
+          - ids:
+            - Via_3
+            escalada: Ferrugem
+          - ids:
+            - Via_4
+            escalada: A Ferro Quente
         - caminho_imagem_mapa: imagens/setor_cachoeira_p1_i1.webp
           largura_mapa: 1558
           altura_mapa: 989
+          pontos_de_interesse:
+          - id: Titulo
+            label: Subsetor Cachoeira - Direita
+            retangulo:
+              x: 470
+              y: 87
+              comprimento: 900
+              largura: 65
+              angulo_graus_x100: 0
+          - id: Num_3
+            label: '3'
+            circulo:
+              x: 386
+              y: 853
+              raio: 40
+          - id: Num_4
+            label: '4'
+            circulo:
+              x: 1285
+              y: 925
+              raio: 40
+          referencias: []
         - caminho_imagem_mapa: imagens/setor_cachoeira_p1_i3.webp
           largura_mapa: 1400
           altura_mapa: 872
+          pontos_de_interesse:
+          - id: Subsetor_Cachoeira_Esquerda
+            label: Subsetor Cachoeira - Esquerda
+            retangulo:
+              x: 540
+              y: 72
+              comprimento: 1070
+              largura: 85
+              angulo_graus_x100: 0
+          - id: '02'
+            label: '2'
+            circulo:
+              x: 1045
+              y: 816
+              raio: 30
+          - id: '01'
+            label: '1'
+            circulo:
+              x: 576
+              y: 835
+              raio: 30
+          referencias: []
         escaladas:
         - via_esportiva:
             nome: Pé na Chapa
@@ -103,6 +321,12 @@ picos:
             nome: Extrema Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
+              referencias:
+              - escalada: Solamente
+              - escalada: Nesse Mato Tem Cachorro
+              - escalada: Vr. Cachorro Louco
+              - escalada: Libera Liberou
+              - escalada: Dez Mil e Uma Noites
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp
             escaladas:
             - via_multiplas_enfiadas:
@@ -216,6 +440,26 @@ picos:
             nome: Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
+              referencias:
+              - escalada: Cordada 171
+              - escalada: Inês é Morta
+              - escalada: Sempre Viva
+              - escalada: Fissurim
+              - escalada: Zé Marta
+              - escalada: Bolinha
+              - escalada: Testa de Ferro
+              - escalada: Ferro na Boneca
+              - escalada: Maria Diz Graça
+              - escalada: Zé Mangueira
+              - escalada: Sherlock Holmes
+              - escalada: Professor Moriarty
+              - escalada: Que Qui Ocê Foi Fazê Nu Mato?
+              - escalada: O Psicopata de Ferros
+              - escalada: Vr. Caçadora de Micuim
+              - escalada: Frio na Barriga
+              - escalada: Pescoço de Minhoca
+              - escalada: Grampos de Ferros
+              - escalada: Prateado
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p2_i0.webp
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p3_i0.webp
             escaladas:
@@ -506,49 +750,25 @@ picos:
             nome: Parede das Aderências – Face Central
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p1_i0.webp
+              referencias:
+              - escalada: O Psicopata de Ferros
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
-            escaladas:
-            - via_movel:
-                nome: O Psicopata de Ferros
-                dificuldade: BR_6
-                exposicao: E2
-                extensao: 70
-                conquistadores:
-                - Tonico Magalhães
-                - Luciano Bender
-                data_abertura: '2011-06-25'
-                descricao: Via mista.
             descricao: ''
         - conteudo:
             nome: Parede das Aderências – Setor de Cima
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p0_i1.webp
+              referencias:
+              - escalada: Solamente
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
-            escaladas:
-            - via_esportiva:
-                nome: Solamente
-                dificuldade: BR_2
-                extensao: 120
-                conquistadores:
-                - Tonico Magalhães
-                data_abertura: '2010-06-03'
-                descricao: ESCALADA SOLO. Via conquistada em solo integral.
             descricao: ''
         - conteudo:
             nome: Parede das Aderências – Extrema Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
+              referencias:
+              - escalada: Ferro na Boneca
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
-            escaladas:
-            - via_esportiva:
-                nome: Ferro na Boneca
-                dificuldade: BR_7A
-                extensao: 20
-                conquistadores:
-                - Tonico Magalhães
-                - Luciano Bender
-                data_abertura: '2011-06-25'
-                descricao: Via curta e explosiva.
             descricao: ''
         descricao: '# A Parede das Aderências
 
@@ -599,12 +819,255 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
               largura_mapa: 1024
               altura_mapa: 602
+              pontos_de_interesse:
+              - id: Estrada
+                label: Estrada
+                retangulo:
+                  x: 468
+                  y: 110
+                  comprimento: 71
+                  largura: 17
+              - id: Corrego
+                label: Córrego
+                retangulo:
+                  x: 240
+                  y: 180
+                  comprimento: 70
+                  largura: 25
+              - id: Rio_Tanque
+                label: Rio Tanque
+                retangulo:
+                  x: 145
+                  y: 285
+                  comprimento: 108
+                  largura: 20
+                  angulo_graus_x100: -5400
+              - id: Trilha
+                label: Trilha
+                retangulo:
+                  x: 370
+                  y: 286
+                  comprimento: 65
+                  largura: 18
+                  angulo_graus_x100: -104
+              - id: Aderencias_Extrema_Esquerda
+                label: Aderências - Extrema Esquerda
+                retangulo:
+                  x: 680
+                  y: 350
+                  comprimento: 200
+                  largura: 40
+              - id: Escala_20m
+                label: 20m
+                retangulo:
+                  x: 390
+                  y: 424
+                  comprimento: 50
+                  largura: 25
+              - id: Subsetor_Cachoeira
+                label: Subsetor Cachoeira
+                retangulo:
+                  x: 140
+                  y: 497
+                  comprimento: 185
+                  largura: 30
+              - id: Setor_Classicas_Curtas
+                label: Setor Clássicas Curtas
+                retangulo:
+                  x: 510
+                  y: 505
+                  comprimento: 220
+                  largura: 30
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 540
+                  y: 360
+                  raio: 14
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 596
+                  y: 420
+                  raio: 14
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 653
+                  y: 468
+                  raio: 14
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 705
+                  y: 538
+                  raio: 14
+              referencias:
+              - escalada: A Medalha de Lúcia
+              - escalada: Águas de Março
+              - escalada: Vou Dançar o Xaxaxá
+              - escalada: Casas da Banha
+              - escalada: Ferradura
+              - escalada: Ferrolho
+              - escalada: Cambal a Quatro
+              - escalada: El Bigodón
+              - escalada: Testa de Aço
+              - escalada: Me Ferrei
+              - escalada: Amor Profano
+              - escalada: Deu Tilt
+              - escalada: Ferroada
+              - escalada: Scarface
+              - escalada: Se Meu Fusca Falasse
+              - escalada: Couro de Lobisomem
+              - escalada: Enferrujados
+              - escalada: Rastro de Cobra
+              - escalada: Entrando no Ferro
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
               largura_mapa: 2048
               altura_mapa: 1229
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 72
+                  y: 712
+                  raio: 17
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 130
+                  y: 740
+                  raio: 17
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 182
+                  y: 782
+                  raio: 17
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 350
+                  y: 834
+                  raio: 17
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 658
+                  y: 965
+                  raio: 17
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 782
+                  y: 950
+                  raio: 17
+              - id: '7'
+                label: '7'
+                circulo:
+                  x: 998
+                  y: 1053
+                  raio: 17
+              - id: '8'
+                label: '8'
+                circulo:
+                  x: 1157
+                  y: 1068
+                  raio: 17
+              - id: '9'
+                label: '9'
+                circulo:
+                  x: 1271
+                  y: 1074
+                  raio: 17
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 1316
+                  y: 1074
+                  raio: 17
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 1360
+                  y: 1062
+                  raio: 17
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 1536
+                  y: 1039
+                  raio: 17
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 1658
+                  y: 1041
+                  raio: 17
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 1710
+                  y: 1041
+                  raio: 17
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 1805
+                  y: 1063
+                  raio: 17
+              - id: '16'
+                label: '16'
+                circulo:
+                  x: 1845
+                  y: 1063
+                  raio: 17
+              - id: '17'
+                label: '17'
+                circulo:
+                  x: 1885
+                  y: 1063
+                  raio: 17
+              - id: '18'
+                label: '18'
+                circulo:
+                  x: 1968
+                  y: 1055
+                  raio: 17
+              - id: '19'
+                label: '19'
+                circulo:
+                  x: 2040
+                  y: 1044
+                  raio: 17
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp
               largura_mapa: 869
               altura_mapa: 1210
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 106
+                  y: 1083
+                  raio: 20
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 208
+                  y: 1100
+                  raio: 20
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 492
+                  y: 1135
+                  raio: 20
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 804
+                  y: 1175
+                  raio: 20
             escaladas:
             - via_esportiva:
                 nome: A Medalha de Lúcia
@@ -783,18 +1246,239 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp
               largura_mapa: 1024
               altura_mapa: 615
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 610
+                  y: 365
+                  raio: 12
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 630
+                  y: 415
+                  raio: 12
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 650
+                  y: 455
+                  raio: 12
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 680
+                  y: 490
+                  raio: 12
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 655
+                  y: 560
+                  raio: 12
+              - id: Extrema_Esquerda
+                label: Aderências Extrema Esquerda
+                retangulo:
+                  x: 490
+                  y: 35
+                  comprimento: 140
+                  largura: 30
+              - id: Porteira
+                label: Porteira
+                retangulo:
+                  x: 520
+                  y: 110
+                  comprimento: 70
+                  largura: 20
+              - id: Esquerda_1
+                label: Aderências - Esquerda 1
+                retangulo:
+                  x: 680
+                  y: 170
+                  comprimento: 180
+                  largura: 20
+              - id: Subsetor_Cachoeira
+                label: Subsetor Cachoeira
+                retangulo:
+                  x: 160
+                  y: 210
+                  comprimento: 150
+                  largura: 20
+              - id: Setor_Classicas_Curtas
+                label: Setor Clássicas Curtas
+                retangulo:
+                  x: 350
+                  y: 215
+                  comprimento: 120
+                  largura: 30
+              - id: Corrego
+                label: Córrego
+                retangulo:
+                  x: 550
+                  y: 270
+                  comprimento: 60
+                  largura: 20
+              - id: Trilha
+                label: Trilha
+                retangulo:
+                  x: 610
+                  y: 260
+                  comprimento: 50
+                  largura: 20
+              - id: Esquerda_2
+                label: Aderências - Esquerda 2
+                retangulo:
+                  x: 830
+                  y: 265
+                  comprimento: 180
+                  largura: 20
+              - id: Face_Central
+                label: Aderências Face Central
+                retangulo:
+                  x: 890
+                  y: 450
+                  comprimento: 100
+                  largura: 30
+              - id: Parede_Principal_Direita
+                label: Parede Principal - Direita
+                retangulo:
+                  x: 540
+                  y: 475
+                  comprimento: 180
+                  largura: 20
+              - id: Parede_Principal_Central
+                label: Parede Principal - Central
+                retangulo:
+                  x: 680
+                  y: 600
+                  comprimento: 190
+                  largura: 20
+              - id: Parede_Principal_Direita_Grande
+                label: Parede Principal - Direita
+                retangulo:
+                  x: 200
+                  y: 370
+                  comprimento: 300
+                  largura: 40
+              referencias:
+              - escalada: Macambúzio
+              - escalada: Pente Frio
+              - escalada: El Barrigón
+              - escalada: Lobos do Caraça
+              - escalada: O Tempo e o Vento
+              - escalada: O Burro e o Capacete
+              - escalada: Tá Bão
+              - escalada: Amor meu Grande amor
+              - escalada: Rapidinha no Escurinho
+              - escalada: Pelanca
+              - escalada: Flor da Pele
+              - escalada: Alma Nova
+              - escalada: Pele Vermelha
+              - escalada: Pelinha
+              - escalada: Cutícula
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p2_i0.webp
               largura_mapa: 2048
               altura_mapa: 1283
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 340
+                  y: 855
+                  raio: 15
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 470
+                  y: 870
+                  raio: 15
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 550
+                  y: 890
+                  raio: 15
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 620
+                  y: 920
+                  raio: 15
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 725
+                  y: 990
+                  raio: 15
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 805
+                  y: 1065
+                  raio: 15
+              - id: '7'
+                label: '7'
+                circulo:
+                  x: 935
+                  y: 1010
+                  raio: 15
+              - id: '8'
+                label: '8'
+                circulo:
+                  x: 1055
+                  y: 1020
+                  raio: 15
+              - id: '9'
+                label: '9'
+                circulo:
+                  x: 1155
+                  y: 1210
+                  raio: 15
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 1220
+                  y: 1210
+                  raio: 15
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 1330
+                  y: 1210
+                  raio: 15
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 1390
+                  y: 1220
+                  raio: 15
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 1455
+                  y: 1230
+                  raio: 15
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 1510
+                  y: 1240
+                  raio: 15
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 1605
+                  y: 1245
+                  raio: 15
+              - id: Valeu_Papito
+                label: Valeu Papito
+                retangulo:
+                  x: 250
+                  y: 600
+                  comprimento: 150
+                  largura: 40
             escaladas:
-            - via_esportiva:
-                nome: Macambúzio
-                dificuldade: BR_3SUP
-                extensao: 80
-                conquistadores:
-                - Pedro Bugim
-                - Jeferson Costa
-                data_abertura: '2017-03-01'
             - via_esportiva:
                 nome: Pente Frio
                 dificuldade: BR_4
@@ -893,9 +1577,279 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
               largura_mapa: 2048
               altura_mapa: 1268
+              pontos_de_interesse:
+              - id: Aderencias_Esquerda_2
+                label: Aderências - Esquerda 2
+                retangulo:
+                  x: 1091
+                  y: 38
+                  comprimento: 324
+                  largura: 24
+              - id: Estrada
+                label: Estrada
+                retangulo:
+                  x: 615
+                  y: 102
+                  comprimento: 104
+                  largura: 25
+              - id: Parede_Principal_Direita
+                label: Parede Principal - Direita
+                retangulo:
+                  x: 605
+                  y: 378
+                  comprimento: 334
+                  largura: 23
+              - id: Corrego
+                label: Córrego
+                retangulo:
+                  x: 895
+                  y: 370
+                  comprimento: 106
+                  largura: 25
+              - id: Trilha
+                label: Trilha
+                retangulo:
+                  x: 1115
+                  y: 375
+                  comprimento: 82
+                  largura: 23
+              - id: Aderencias_Central
+                label: Aderências - Central
+                retangulo:
+                  x: 1395
+                  y: 374
+                  comprimento: 271
+                  largura: 23
+              - id: Aderencias_Setor_De_Cima
+                label: Aderências - Setor de Cima
+                retangulo:
+                  x: 1720
+                  y: 415
+                  comprimento: 320
+                  largura: 65
+              - id: Parede_Principal_Central
+                label: Parede Principal - Central
+                retangulo:
+                  x: 955
+                  y: 950
+                  comprimento: 374
+                  largura: 31
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 946
+                  y: 477
+                  raio: 15
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 994
+                  y: 564
+                  raio: 18
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 1068
+                  y: 642
+                  raio: 17
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 1212
+                  y: 810
+                  raio: 14
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 1446
+                  y: 1104
+                  raio: 16
+              referencias:
+              - escalada: Ferro no Judas
+              - escalada: Marcado a Ferro
+              - escalada: Rolam as Pedras
+              - escalada: Tromba D’Água
+              - escalada: Ferro Velho
+              - escalada: Pum Medonho
+              - escalada: Pr. Chapado
+              - escalada: Dona Flor e Suas Duas Marretas
+              - escalada: Pé de Pano
+              - escalada: CDF
+              - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+              - escalada: Hilda Furacão
+              - escalada: Iron Men
+              - escalada: Cordão do Bola Preta
+              - escalada: Rainha da Base
+              - escalada: A Ferro e Fogo
+              - escalada: Chuva Ácida
+              - escalada: A Decadência da Bufa
+              - escalada: Tatu do Jeca
+              - escalada: Jeca Tatu
+              - escalada: Valeu Papito
+              - escalada: Macambúzio
             - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
               largura_mapa: 2048
               altura_mapa: 1225
+              pontos_de_interesse:
+              - id: Parede_Principal_Setor_De_Cima
+                label: Parede Principal Setor de Cima
+                retangulo:
+                  x: 235
+                  y: 268
+                  comprimento: 195
+                  largura: 65
+              - id: Noite_De_Sao_Joao
+                label: '"Noite de São João"'
+                retangulo:
+                  x: 125
+                  y: 482
+                  comprimento: 214
+                  largura: 25
+              - id: Pente_Frio
+                label: '"Pente Frio"'
+                retangulo:
+                  x: 1935
+                  y: 655
+                  comprimento: 134
+                  largura: 25
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 135
+                  y: 745
+                  raio: 17
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 287
+                  y: 754
+                  raio: 17
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 367
+                  y: 766
+                  raio: 17
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 469
+                  y: 764
+                  raio: 17
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 579
+                  y: 790
+                  raio: 17
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 665
+                  y: 768
+                  raio: 17
+              - id: '7'
+                label: '7'
+                circulo:
+                  x: 737
+                  y: 792
+                  raio: 17
+              - id: '8'
+                label: '8'
+                circulo:
+                  x: 807
+                  y: 851
+                  raio: 17
+              - id: '9'
+                label: '9'
+                circulo:
+                  x: 890
+                  y: 888
+                  raio: 17
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 975
+                  y: 912
+                  raio: 17
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 1060
+                  y: 910
+                  raio: 17
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 1150
+                  y: 942
+                  raio: 17
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 1262
+                  y: 967
+                  raio: 17
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 1350
+                  y: 985
+                  raio: 17
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 1413
+                  y: 967
+                  raio: 17
+              - id: '16'
+                label: '16'
+                circulo:
+                  x: 1480
+                  y: 962
+                  raio: 17
+              - id: '17'
+                label: '17'
+                circulo:
+                  x: 1519
+                  y: 1010
+                  raio: 17
+              - id: '18'
+                label: '18'
+                circulo:
+                  x: 1574
+                  y: 1072
+                  raio: 17
+              - id: '19'
+                label: '19'
+                circulo:
+                  x: 1631
+                  y: 1126
+                  raio: 17
+              - id: '20'
+                label: '20'
+                circulo:
+                  x: 1754
+                  y: 1174
+                  raio: 17
+              - id: '21'
+                label: '21'
+                circulo:
+                  x: 1829
+                  y: 1194
+                  raio: 17
+              - id: '22'
+                label: '22'
+                circulo:
+                  x: 1894
+                  y: 1200
+                  raio: 17
+              - id: '23'
+                label: '23'
+                circulo:
+                  x: 1998
+                  y: 1201
+                  raio: 17
             escaladas:
             - via_esportiva:
                 nome: Ferro no Judas
@@ -1009,9 +1963,169 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
               largura_mapa: 2048
               altura_mapa: 1268
+              pontos_de_interesse:
+              - id: Trilha
+                label: Trilha
+                retangulo:
+                  x: 750
+                  y: 219
+                  comprimento: 80
+                  largura: 26
+                  angulo_graus_x100: 143
+              - id: Bambuzal
+                label: Bambuzal
+                retangulo:
+                  x: 870
+                  y: 343
+                  comprimento: 131
+                  largura: 24
+              - id: Parede Principal - Central
+                label: Parede Principal - Central
+                retangulo:
+                  x: 382
+                  y: 393
+                  comprimento: 376
+                  largura: 30
+                  angulo_graus_x100: 46
+              - id: Corrego
+                label: Córrego
+                retangulo:
+                  x: 1278
+                  y: 384
+                  comprimento: 108
+                  largura: 25
+                  angulo_graus_x100: 318
+              - id: Rio_de_pedras_seco
+                label: Rio de pedras seco
+                retangulo:
+                  x: 980
+                  y: 480
+                  comprimento: 160
+                  largura: 60
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 860
+                  y: 705
+                  raio: 18
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 918
+                  y: 812
+                  raio: 18
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 895
+                  y: 922
+                  raio: 18
+              - id: Laje_de_pedra
+                label: Laje de pedra
+                retangulo:
+                  x: 1348
+                  y: 879
+                  comprimento: 182
+                  largura: 24
+              - id: Parede_Principal_Setor_de_Cima_Seta
+                label: Parede Principal - Setor de Cima
+                retangulo:
+                  x: 550
+                  y: 908
+                  comprimento: 578
+                  largura: 36
+                  angulo_graus_x100: 21
+              - id: Parede_Principal_Setor_de_Cima_Titulo
+                label: Parede Principal - Setor de Cima
+                retangulo:
+                  x: 605
+                  y: 1082
+                  comprimento: 1110
+                  largura: 66
+                  angulo_graus_x100: 0
+              - id: Esquema_de_Trilhas
+                label: Esquema de Trilhas
+                retangulo:
+                  x: 385
+                  y: 1156
+                  comprimento: 700
+                  largura: 68
+                  angulo_graus_x100: 0
+              - id: Parede_Principal_Classicas_Longas
+                label: Parede Principal - Clássicas Longas
+                retangulo:
+                  x: 1382
+                  y: 1177
+                  comprimento: 509
+                  largura: 30
+                  angulo_graus_x100: 23
+              referencias:
+              - escalada: Um Momento no Tempo
+              - escalada: Noite de São João
             - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp
               largura_mapa: 2048
               altura_mapa: 1261
+              pontos_de_interesse:
+              - id: Titulo_Principal
+                label: Parede Principal - Setor de Cima
+                retangulo:
+                  x: 610
+                  y: 72
+                  comprimento: 1150
+                  largura: 86
+                  angulo_graus_x100: 0
+              - id: Subtitulo
+                label: Ferros / MG
+                retangulo:
+                  x: 264
+                  y: 147
+                  comprimento: 430
+                  largura: 70
+                  angulo_graus_x100: 0
+              - id: Classicas_Longas
+                label: Clássicas Longas
+                retangulo:
+                  x: 174
+                  y: 841
+                  comprimento: 270
+                  largura: 135
+                  angulo_graus_x100: 0
+              - id: A_Francesa
+                label: '"À Francesa"'
+                retangulo:
+                  x: 556
+                  y: 946
+                  comprimento: 269
+                  largura: 52
+                  angulo_graus_x100: 0
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 885
+                  y: 1050
+                  raio: 35
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 870
+                  y: 1225
+                  raio: 35
+              - id: Ferro_no_Judas
+                label: '"Ferro no Judas"'
+                retangulo:
+                  x: 1498
+                  y: 1177
+                  comprimento: 210
+                  largura: 95
+                  angulo_graus_x100: 0
+              - id: Setor_Central
+                label: Setor Central
+                retangulo:
+                  x: 1806
+                  y: 1146
+                  comprimento: 220
+                  largura: 125
+                  angulo_graus_x100: 0
             escaladas:
             - via_esportiva:
                 nome: Um Momento no Tempo
@@ -1035,9 +2149,253 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
               largura_mapa: 1024
               altura_mapa: 649
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 495
+                  y: 260
+                  raio: 12
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 650
+                  y: 420
+                  raio: 12
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 685
+                  y: 510
+                  raio: 12
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 725
+                  y: 555
+                  raio: 12
+              - id: Setor_Central
+                label: Parede Principal Central
+                retangulo:
+                  x: 280
+                  y: 120
+                  comprimento: 150
+                  largura: 40
+              - id: Setor_Aderencias
+                label: Parede das Aderências Extrema Direita
+                retangulo:
+                  x: 890
+                  y: 130
+                  comprimento: 160
+                  largura: 40
+              - id: Setor_Classicas_Longas
+                label: Parede Principal Clássicas Longas
+                retangulo:
+                  x: 550
+                  y: 455
+                  comprimento: 140
+                  largura: 40
+              - id: Estrada
+                label: Estrada
+                retangulo:
+                  x: 560
+                  y: 75
+                  comprimento: 60
+                  largura: 20
+              - id: Corrego
+                label: Córrego
+                retangulo:
+                  x: 740
+                  y: 175
+                  comprimento: 70
+                  largura: 20
+              - id: Trilha
+                label: Trilha
+                retangulo:
+                  x: 695
+                  y: 220
+                  comprimento: 50
+                  largura: 20
+              referencias:
+              - escalada: Quarto 304
+              - escalada: O Nome da Rosa
+              - escalada: O Retorno de Jedi
+              - escalada: Ih, Ferrou!
+              - escalada: Jardim do Éden
+              - escalada: A Dois Passos do Paraíso
+              - escalada: Conquista do Paraíso
+              - escalada: Purgatório
+              - escalada: Arco de Ferros
+              - escalada: Conrado Ferro
+              - escalada: Quem com Ferro Fere
+              - escalada: Tanto Bate Até Que Fura
+              - escalada: Trem de Ferro
+              - escalada: Up Ester
+              - escalada: Até Que a Vida Nos Separe
+              - escalada: Vr. Pilhado
+              - escalada: Pr. CEM
+              - escalada: Vr. SEM
+              - escalada: Engatilhados
+              - escalada: Trio Elétrico
+              - escalada: Eu Não Sou de Ferro
+              - escalada: Rio de Mão Dupla
+              - escalada: Grand Finale
+              - escalada: À Francesa
+              - escalada: Atalho dos Duendes
             - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
               largura_mapa: 1603
               altura_mapa: 952
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 40
+                  y: 480
+                  raio: 12
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 100
+                  y: 657
+                  raio: 12
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 238
+                  y: 646
+                  raio: 12
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 325
+                  y: 630
+                  raio: 12
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 448
+                  y: 678
+                  raio: 12
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 515
+                  y: 650
+                  raio: 12
+              - id: '7'
+                label: '7'
+                circulo:
+                  x: 550
+                  y: 640
+                  raio: 12
+              - id: '8'
+                label: '8'
+                circulo:
+                  x: 595
+                  y: 600
+                  raio: 12
+              - id: '9'
+                label: '9'
+                circulo:
+                  x: 630
+                  y: 590
+                  raio: 12
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 660
+                  y: 580
+                  raio: 12
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 740
+                  y: 575
+                  raio: 12
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 831
+                  y: 361
+                  raio: 12
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 785
+                  y: 555
+                  raio: 12
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 855
+                  y: 595
+                  raio: 12
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 885
+                  y: 630
+                  raio: 12
+              - id: '16'
+                label: '16'
+                circulo:
+                  x: 914
+                  y: 690
+                  raio: 12
+              - id: '17'
+                label: '17'
+                circulo:
+                  x: 975
+                  y: 755
+                  raio: 12
+              - id: '18'
+                label: '18'
+                circulo:
+                  x: 977
+                  y: 235
+                  raio: 12
+              - id: '19'
+                label: '19'
+                circulo:
+                  x: 990
+                  y: 803
+                  raio: 12
+              - id: '20'
+                label: '20'
+                circulo:
+                  x: 1047
+                  y: 834
+                  raio: 12
+              - id: '21'
+                label: '21'
+                circulo:
+                  x: 1157
+                  y: 842
+                  raio: 12
+              - id: '22'
+                label: '22'
+                circulo:
+                  x: 1312
+                  y: 764
+                  raio: 12
+              - id: '23'
+                label: '23'
+                circulo:
+                  x: 1258
+                  y: 354
+                  raio: 12
+              - id: '24'
+                label: '24'
+                circulo:
+                  x: 1476
+                  y: 714
+                  raio: 12
+              - id: '25'
+                label: '25'
+                circulo:
+                  x: 1351
+                  y: 725
+                  raio: 12
             escaladas:
             - via_esportiva:
                 nome: Quarto 304
@@ -1183,9 +2541,124 @@ picos:
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
           largura_mapa: 765
           altura_mapa: 567
+          pontos_de_interesse:
+          - id: Setor_Esportivas_Lado_Esquerdo
+            label: Setor Esportivas (Lado Esquerdo)
+            retangulo:
+              x: 382
+              y: 44
+              comprimento: 585
+              largura: 45
+          - id: '01'
+            label: '1'
+            circulo:
+              x: 210
+              y: 526
+              raio: 12
+          - id: '02'
+            label: '2'
+            circulo:
+              x: 364
+              y: 415
+              raio: 13
+          - id: '03'
+            label: '3'
+            circulo:
+              x: 415
+              y: 398
+              raio: 13
+          - id: '04'
+            label: '4'
+            circulo:
+              x: 483
+              y: 245
+              raio: 13
+          - id: '05'
+            label: '5'
+            circulo:
+              x: 517
+              y: 538
+              raio: 12
+          - id: '06'
+            label: '6'
+            circulo:
+              x: 564
+              y: 538
+              raio: 12
+          - id: '07'
+            label: '7'
+            circulo:
+              x: 605
+              y: 538
+              raio: 12
+          - id: 08
+            label: '8'
+            circulo:
+              x: 576
+              y: 348
+              raio: 12
+          referencias:
+          - escalada: Diedro da Rabada
+          - escalada: Mestre Sala
+          - escalada: Porta-Bandeira
+          - escalada: Gangorra
+          - escalada: Jabá com Jerimum
+          - escalada: Bruxa Albano
+          - escalada: Vomitão em Ferros
+          - escalada: Iron Slow
+          - escalada: Bicho de Pé
+          - escalada: Os Três Mosqueteiros
+          - escalada: Nó de Porco
+          - escalada: Ícaro
+          - escalada: Champinha
+          - escalada: Falcatrua
         - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
           largura_mapa: 568
           altura_mapa: 487
+          pontos_de_interesse:
+          - id: Setor_Esportivas_Lado_Direito
+            label: Setor Esportivas (Lado Direito)
+            retangulo:
+              x: 260
+              y: 35
+              comprimento: 520
+              largura: 42
+          - id: 09
+            label: '9'
+            circulo:
+              x: 76
+              y: 443
+              raio: 13
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 140
+              y: 466
+              raio: 15
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 214
+              y: 469
+              raio: 15
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 350
+              y: 472
+              raio: 15
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 437
+              y: 354
+              raio: 16
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 504
+              y: 450
+              raio: 17
         escaladas:
         - via_esportiva:
             nome: Diedro da Rabada
@@ -1361,6 +2834,43 @@ picos:
         - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp
           largura_mapa: 659
           altura_mapa: 418
+          pontos_de_interesse:
+          - id: Parede_dos_Solos
+            label: Parede dos Solos
+            retangulo:
+              x: 160
+              y: 40
+              comprimento: 310
+              largura: 40
+          - id: '01'
+            label: '1'
+            circulo:
+              x: 40
+              y: 295
+              raio: 15
+          - id: '02'
+            label: '2'
+            circulo:
+              x: 140
+              y: 352
+              raio: 15
+          - id: '03'
+            label: '3'
+            circulo:
+              x: 284
+              y: 390
+              raio: 15
+          - id: '04'
+            label: '4'
+            circulo:
+              x: 514
+              y: 387
+              raio: 15
+          referencias:
+          - escalada: Caipora
+          - escalada: Iaci
+          - escalada: Boitatá
+          - escalada: Maracujá
         escaladas:
         - via_esportiva:
             nome: Caipora
@@ -1421,9 +2931,61 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp
               largura_mapa: 640
               altura_mapa: 346
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 145
+                  y: 320
+                  raio: 9
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 221
+                  y: 316
+                  raio: 9
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 301
+                  y: 310
+                  raio: 9
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 428
+                  y: 306
+                  raio: 9
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 501
+                  y: 306
+                  raio: 9
+              - id: '6'
+                label: '6'
+                circulo:
+                  x: 538
+                  y: 306
+                  raio: 9
+              - id: arvore
+                label: Árvore fora de escala!
+                retangulo:
+                  x: 368
+                  y: 334
+                  comprimento: 129
+                  largura: 17
+              referencias:
+              - escalada: Fissura Lapada na Rachada
+              - escalada: Fissura Sopa de Pedra
+              - escalada: Até o Osso
+              - escalada: Diedro Caboclo D’Água
+              - escalada: Balangandã
+              - escalada: Pé de Chinelo
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp
               largura_mapa: 1455
               altura_mapa: 73
+              pontos_de_interesse: []
             escaladas:
             - via_movel:
                 nome: Fissura Lapada na Rachada
@@ -1456,9 +3018,47 @@ picos:
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp
               largura_mapa: 850
               altura_mapa: 510
+              pontos_de_interesse:
+              - id: '1'
+                label: '1'
+                circulo:
+                  x: 238
+                  y: 442
+                  raio: 14
+              - id: '2'
+                label: '2'
+                circulo:
+                  x: 382
+                  y: 390
+                  raio: 14
+              - id: '3'
+                label: '3'
+                circulo:
+                  x: 471
+                  y: 372
+                  raio: 14
+              - id: '4'
+                label: '4'
+                circulo:
+                  x: 535
+                  y: 338
+                  raio: 14
+              - id: '5'
+                label: '5'
+                circulo:
+                  x: 627
+                  y: 334
+                  raio: 14
+              referencias:
+              - escalada: Queima de Arquivo
+              - escalada: Aquidaban
+              - escalada: Tempestade
+              - escalada: Chuva de Verão
+              - escalada: Brumas de Inverno
             - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp
               largura_mapa: 883
               altura_mapa: 671
+              pontos_de_interesse: []
             escaladas:
             - via_esportiva:
                 nome: Queima de Arquivo
@@ -1498,6 +3098,22 @@ picos:
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
           largura_mapa: 2048
           altura_mapa: 1268
+          pontos_de_interesse:
+          - id: Parede_da_Agua_Limpa_Ferros_MG
+            label: Parede da Água Limpa - Ferros / MG
+            retangulo:
+              x: 365
+              y: 63
+              comprimento: 705
+              largura: 55
+          - id: '01'
+            label: '1'
+            circulo:
+              x: 818
+              y: 1040
+              raio: 30
+          referencias:
+          - escalada: Pr. Dama de Ferros
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
         escaladas:
         - via_multiplas_enfiadas:
@@ -1557,6 +3173,22 @@ picos:
         - caminho_imagem_mapa: imagens/setor_parede_da_cenibra_p0_i1.webp
           largura_mapa: 960
           altura_mapa: 720
+          pontos_de_interesse:
+          - id: Parede_da_CENIBRA
+            label: Parede da CENIBRA
+            retangulo:
+              x: 194
+              y: 43
+              comprimento: 311
+              largura: 34
+          - id: '01'
+            label: '1'
+            circulo:
+              x: 599
+              y: 584
+              raio: 17
+          referencias:
+          - escalada: Pr. Pellé 70
         escaladas:
         - via_movel:
             nome: Pr. Pellé 70
@@ -1590,8 +3222,17 @@ picos:
               localizada à direita de uma pequena cachoeira que despenca da parede.
               Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido
               por friends pequenos e médios. Segue em grampos pela extensão da fissura,
-              ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA'
-        descricao: '| ![Outras Vias](imagens/setor_outras_vias_p0.webp) |
+              ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
+
+              '
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_outras_vias_p0.webp
+          referencias:
+          - escalada: Amazonita
+          - escalada: Fissura Cachoeira Quente
+          largura_mapa: 1241
+          altura_mapa: 1754
+        descricao: '| ![Outras Vias](imagens/setor_outras_vias_p0_2.webp) |
 
           | :--: |
 
@@ -1602,10 +3243,521 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i1.webp
         largura_mapa: 1559
         altura_mapa: 1899
+        pontos_de_interesse:
+        - id: Titulo
+          label: Mapa (sem escala) de BH para a Fazenda Retiro das Águas
+          retangulo:
+            x: 770
+            y: 101
+            comprimento: 1405
+            largura: 66
+            angulo_graus_x100: 0
+        - id: Subtitulo
+          label: Ferros / MG
+          retangulo:
+            x: 785
+            y: 168
+            comprimento: 278
+            largura: 52
+            angulo_graus_x100: 0
+        - id: Info_Total
+          label: '(Total: Aprox. 190 Km / Ferros até a fazenda: 11Km)'
+          retangulo:
+            x: 792
+            y: 238
+            comprimento: 1177
+            largura: 61
+            angulo_graus_x100: 0
+        - id: Guanhaes
+          label: Guanhães
+          retangulo:
+            x: 763
+            y: 466
+            comprimento: 132
+            largura: 32
+            angulo_graus_x100: 0
+        - id: 7Km
+          label: 7Km
+          retangulo:
+            x: 808
+            y: 551
+            comprimento: 66
+            largura: 35
+            angulo_graus_x100: 0
+        - id: Ferros
+          label: Ferros
+          retangulo:
+            x: 1122
+            y: 556
+            comprimento: 85
+            largura: 33
+            angulo_graus_x100: 0
+        - id: Trevo_de_Ferros
+          label: Trevo de Ferros
+          retangulo:
+            x: 488
+            y: 594
+            comprimento: 193
+            largura: 29
+            angulo_graus_x100: 0
+        - id: Bar_Parada_Certa
+          label: Bar Parada Certa
+          retangulo:
+            x: 294
+            y: 735
+            comprimento: 150
+            largura: 70
+            angulo_graus_x100: 0
+        - id: Povoado_Mendonca
+          label: Povoado Mendonça
+          retangulo:
+            x: 1267
+            y: 833
+            comprimento: 140
+            largura: 64
+            angulo_graus_x100: 0
+        - id: Rio_Tanque
+          label: Rio Tanque
+          retangulo:
+            x: 770
+            y: 857
+            comprimento: 144
+            largura: 31
+            angulo_graus_x100: 0
+        - id: 20Km
+          label: 20Km
+          retangulo:
+            x: 368
+            y: 868
+            comprimento: 80
+            largura: 33
+            angulo_graus_x100: 0
+        - id: Sta_Maria_de_Itabira
+          label: Sta Maria de Itabira
+          retangulo:
+            x: 152
+            y: 910
+            comprimento: 130
+            largura: 70
+            angulo_graus_x100: 0
+        - id: Ponte_de_Concreto
+          label: Ponte de Concreto
+          retangulo:
+            x: 1279
+            y: 1032
+            comprimento: 233
+            largura: 28
+            angulo_graus_x100: 0
+        - id: Itabira
+          label: Itabira
+          retangulo:
+            x: 84
+            y: 1036
+            comprimento: 85
+            largura: 29
+            angulo_graus_x100: 0
+        - id: Fazenda_Porto
+          label: Fazenda Porto (Casa antiga azul e branca)
+          retangulo:
+            x: 860
+            y: 1145
+            comprimento: 380
+            largura: 70
+            angulo_graus_x100: 0
+        - id: Vitoria
+          label: Vitória
+          retangulo:
+            x: 529
+            y: 1302
+            comprimento: 90
+            largura: 30
+            angulo_graus_x100: 0
+        - id: Trevo_de_Itabira
+          label: Trevo de Itabira
+          retangulo:
+            x: 108
+            y: 1318
+            comprimento: 195
+            largura: 28
+            angulo_graus_x100: 0
+        - id: Ponte_de_Madeira
+          label: Ponte de Madeira
+          retangulo:
+            x: 1371
+            y: 1336
+            comprimento: 224
+            largura: 28
+            angulo_graus_x100: 0
+        - id: Galpao
+          label: Galpão
+          retangulo:
+            x: 1198
+            y: 1438
+            comprimento: 94
+            largura: 32
+            angulo_graus_x100: 0
+        - id: Esmeralda_de_Ferros
+          label: Esmeralda de Ferros
+          retangulo:
+            x: 984
+            y: 1454
+            comprimento: 254
+            largura: 29
+            angulo_graus_x100: 0
+        - id: Porteira_Superior
+          label: Porteira
+          retangulo:
+            x: 1442
+            y: 1560
+            comprimento: 101
+            largura: 25
+            angulo_graus_x100: 0
+        - id: Ribeirao
+          label: Ribeirão
+          retangulo:
+            x: 1200
+            y: 1625
+            comprimento: 105
+            largura: 28
+            angulo_graus_x100: 0
+        - id: Curral_Preto
+          label: Curral Preto e casa azul...
+          retangulo:
+            x: 1439
+            y: 1720
+            comprimento: 152
+            largura: 65
+            angulo_graus_x100: 0
+        - id: Porteira_Inferior
+          label: Porteira
+          retangulo:
+            x: 1244
+            y: 1712
+            comprimento: 103
+            largura: 28
+            angulo_graus_x100: 0
+        - id: Belo_Horizonte
+          label: Belo Horizonte
+          retangulo:
+            x: 160
+            y: 1718
+            comprimento: 188
+            largura: 27
+            angulo_graus_x100: 0
+        - id: Voce_chegou
+          label: Você chegou!!!
+          retangulo:
+            x: 1410
+            y: 1780
+            comprimento: 251
+            largura: 31
+            angulo_graus_x100: 0
       - caminho_imagem_mapa: imagens/mapas_gerais_p2_i1.webp
       - caminho_imagem_mapa: imagens/mapas_gerais_p3_i0.webp
         largura_mapa: 2048
         altura_mapa: 1379
+        pontos_de_interesse:
+        - id: Titulo
+          label: Esquema de Trilhas e Setores de Escalada
+          retangulo:
+            x: 1164
+            y: 70
+            comprimento: 1441
+            largura: 82
+        - id: Subtitulo
+          label: Vale do Roncador e Adjacências
+          retangulo:
+            x: 848
+            y: 170
+            comprimento: 833
+            largura: 64
+        - id: B_mapa
+          label: B
+          retangulo:
+            x: 623
+            y: 495
+            comprimento: 30
+            largura: 35
+        - id: C_mapa
+          label: C
+          retangulo:
+            x: 766
+            y: 621
+            comprimento: 30
+            largura: 35
+        - id: D_mapa
+          label: D
+          retangulo:
+            x: 1026
+            y: 462
+            comprimento: 30
+            largura: 35
+        - id: E_mapa
+          label: E
+          retangulo:
+            x: 1233
+            y: 674
+            comprimento: 30
+            largura: 35
+        - id: F_mapa
+          label: F
+          retangulo:
+            x: 1561
+            y: 946
+            comprimento: 30
+            largura: 35
+        - id: G_mapa
+          label: G
+          retangulo:
+            x: 1618
+            y: 1038
+            comprimento: 30
+            largura: 35
+        - id: I_mapa
+          label: I
+          retangulo:
+            x: 810
+            y: 530
+            comprimento: 30
+            largura: 35
+        - id: II_mapa
+          label: II
+          retangulo:
+            x: 1060
+            y: 418
+            comprimento: 30
+            largura: 35
+        - id: III_mapa
+          label: III
+          retangulo:
+            x: 1182
+            y: 524
+            comprimento: 40
+            largura: 35
+        - id: IV_mapa
+          label: IV
+          retangulo:
+            x: 1342
+            y: 640
+            comprimento: 40
+            largura: 35
+        - id: V_mapa
+          label: V
+          retangulo:
+            x: 1407
+            y: 611
+            comprimento: 30
+            largura: 35
+        - id: VI_mapa
+          label: VI
+          retangulo:
+            x: 1740
+            y: 992
+            comprimento: 45
+            largura: 40
+        - id: VII_mapa
+          label: VII
+          retangulo:
+            x: 1030
+            y: 534
+            comprimento: 50
+            largura: 37
+        - id: VIII_mapa
+          label: VIII
+          retangulo:
+            x: 1136
+            y: 667
+            comprimento: 57
+            largura: 36
+        - id: IX_mapa
+          label: IX
+          retangulo:
+            x: 1259
+            y: 850
+            comprimento: 40
+            largura: 37
+        - id: X_mapa
+          label: X
+          retangulo:
+            x: 1338
+            y: 1010
+            comprimento: 35
+            largura: 36
+        - id: XI_mapa
+          label: XI
+          retangulo:
+            x: 1490
+            y: 1186
+            comprimento: 40
+            largura: 36
+        - id: Legenda_Titulo
+          label: Legenda
+          retangulo:
+            x: 98
+            y: 900
+            comprimento: 141
+            largura: 43
+        - id: Leg_Trilhas
+          label: Trilhas
+          retangulo:
+            x: 151
+            y: 977
+            comprimento: 122
+            largura: 36
+        - id: Leg_Estrada
+          label: Estrada de Terra
+          retangulo:
+            x: 197
+            y: 1017
+            comprimento: 312
+            largura: 34
+        - id: Leg_A
+          label: A - Fazenda Retiro das Águas
+          retangulo:
+            x: 266
+            y: 1056
+            comprimento: 461
+            largura: 46
+        - id: Leg_B
+          label: B - Praia do Rio Tanque
+          retangulo:
+            x: 222
+            y: 1098
+            comprimento: 367
+            largura: 39
+        - id: Leg_C
+          label: C - Cachoeira
+          retangulo:
+            x: 145
+            y: 1136
+            comprimento: 214
+            largura: 35
+        - id: Leg_D
+          label: D - 1ª travessia do córrego
+          retangulo:
+            x: 244
+            y: 1176
+            comprimento: 414
+            largura: 41
+        - id: Leg_E
+          label: E - 2ª travessia do córrego
+          retangulo:
+            x: 244
+            y: 1217
+            comprimento: 412
+            largura: 38
+        - id: Leg_F
+          label: F - Pasto
+          retangulo:
+            x: 109
+            y: 1256
+            comprimento: 144
+            largura: 36
+        - id: Leg_G
+          label: G - Tronqueira
+          retangulo:
+            x: 151
+            y: 1298
+            comprimento: 226
+            largura: 39
+        - id: Leg_I
+          label: I - Subsetor Cachoeira
+          retangulo:
+            x: 704
+            y: 873
+            comprimento: 345
+            largura: 34
+        - id: Leg_II
+          label: II - P. das Aderências - Extrema Esquerda
+          retangulo:
+            x: 846
+            y: 913
+            comprimento: 634
+            largura: 37
+        - id: Leg_III
+          label: III - P. das Aderências - Esquerda 1 e 2
+          retangulo:
+            x: 824
+            y: 954
+            comprimento: 586
+            largura: 37
+        - id: Leg_IV
+          label: IV - Parede das Aderências - Central
+          retangulo:
+            x: 808
+            y: 992
+            comprimento: 555
+            largura: 34
+        - id: Leg_V
+          label: V - Parede das Aderências - Setor de Cima
+          retangulo:
+            x: 856
+            y: 1032
+            comprimento: 652
+            largura: 37
+        - id: Leg_VI
+          label: VI - P. das Aderências - Direita
+          retangulo:
+            x: 762
+            y: 1072
+            comprimento: 463
+            largura: 35
+        - id: Leg_VII
+          label: VII - P. Principal - Setor Clássicas Curtas
+          retangulo:
+            x: 842
+            y: 1112
+            comprimento: 621
+            largura: 37
+        - id: Leg_VIII
+          label: VIII - Parede Principal - Extrema Direita
+          retangulo:
+            x: 828
+            y: 1152
+            comprimento: 597
+            largura: 38
+        - id: Leg_IX
+          label: IX - Parede Principal - Central
+          retangulo:
+            x: 758
+            y: 1192
+            comprimento: 455
+            largura: 37
+        - id: Leg_X
+          label: X - Parede Principal - Setor de Cima
+          retangulo:
+            x: 806
+            y: 1232
+            comprimento: 553
+            largura: 37
+        - id: Leg_XI
+          label: XI - P. Principal - Clássicas Longas
+          retangulo:
+            x: 797
+            y: 1273
+            comprimento: 538
+            largura: 40
+        - id: Leg_XII
+          label: XII - Parede dos Solos
+          retangulo:
+            x: 701
+            y: 1312
+            comprimento: 344
+            largura: 35
+        - id: Leg_XIII
+          label: XIII - Setor Esportivas
+          retangulo:
+            x: 698
+            y: 1352
+            comprimento: 340
+            largura: 38
+        - id: Escala
+          label: 200m
+          retangulo:
+            x: 1750
+            y: 624
+            comprimento: 96
+            largura: 41
 botoes:
 - texto: Capa
   destino:
@@ -2136,6 +4288,8 @@ arquivos_externos:
 - caminho: imagens/setor_cachoeira_p2_i1.webp
   checksum_sha256: e06864d6d76979a2fa81146286c6a3aa40f8e207dd22e307a44a17b6ecd42352
 - caminho: imagens/setor_outras_vias_p0.webp
+  checksum_sha256: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
+- caminho: imagens/setor_outras_vias_p0_2.webp
   checksum_sha256: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
 - caminho: imagens/setor_parede_da_agua_limpa_p0_i1.webp
   checksum_sha256: 0f837bd9c66b5aa34c5761b152fa647fe3a7ecfe3d50878f74dae8fc8db6fbc6

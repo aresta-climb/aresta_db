@@ -233,14 +233,263 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p0_i1.webp)
     - **largura_mapa**: 992
     - **altura_mapa**: 624
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Via_1
+        - **label**: 1 - Pé na Chapa (II E1 - 15m)
+        - **retangulo**:
+          - **x**: 185
+          - **y**: 30
+          - **comprimento**: 325
+          - **largura**: 26
+          - **angulo_graus_x100**: 0
+      - **[1]**:
+        - **id**: Via_2
+        - **label**: 2 - Desenferrujando (II E1 - 15m)
+        - **retangulo**:
+          - **x**: 202
+          - **y**: 58
+          - **comprimento**: 360
+          - **largura**: 23
+          - **angulo_graus_x100**: 0
+      - **[2]**:
+        - **id**: Via_3
+        - **label**: 3 - Ferrugem (Isup E1 - 30m)
+        - **retangulo**:
+          - **x**: 183
+          - **y**: 88
+          - **comprimento**: 320
+          - **largura**: 23
+          - **angulo_graus_x100**: 0
+      - **[3]**:
+        - **id**: Via_4
+        - **label**: 4 - A Ferro Quente (II - 25m - Solo)
+        - **retangulo**:
+          - **x**: 211
+          - **y**: 116
+          - **comprimento**: 385
+          - **largura**: 27
+          - **angulo_graus_x100**: 0
+      - **[4]**:
+        - **id**: Num_1
+        - **label**: 1
+        - **circulo**:
+          - **x**: 300
+          - **y**: 340
+          - **raio**: 15
+      - **[5]**:
+        - **id**: Num_2
+        - **label**: 2
+        - **circulo**:
+          - **x**: 395
+          - **y**: 360
+          - **raio**: 15
+      - **[6]**:
+        - **id**: Num_3
+        - **label**: 3
+        - **circulo**:
+          - **x**: 614
+          - **y**: 402
+          - **raio**: 15
+      - **[7]**:
+        - **id**: Num_4
+        - **label**: 4
+        - **circulo**:
+          - **x**: 750
+          - **y**: 390
+          - **raio**: 15
+      - **[8]**:
+        - **id**: P1_15m
+        - **label**: P1 15m
+        - **retangulo**:
+          - **x**: 405
+          - **y**: 160
+          - **comprimento**: 110
+          - **largura**: 40
+          - **angulo_graus_x100**: 0
+      - **[9]**:
+        - **id**: P1_30m
+        - **label**: P1 30m
+        - **retangulo**:
+          - **x**: 670
+          - **y**: 160
+          - **comprimento**: 110
+          - **largura**: 40
+          - **angulo_graus_x100**: 0
+      - **[10]**:
+        - **id**: PP
+        - **label**: PP
+        - **retangulo**:
+          - **x**: 640
+          - **y**: 180
+          - **comprimento**: 25
+          - **largura**: 20
+          - **angulo_graus_x100**: 0
+      - **[11]**:
+        - **id**: Trilha_Vale_Roncador
+        - **label**: Trilha Para o Vale do Roncador
+        - **retangulo**:
+          - **x**: 124
+          - **y**: 225
+          - **comprimento**: 150
+          - **largura**: 90
+          - **angulo_graus_x100**: 0
+      - **[12]**:
+        - **id**: Cachoeira
+        - **label**: Cachoeira
+        - **retangulo**:
+          - **x**: 895
+          - **y**: 336
+          - **comprimento**: 115
+          - **largura**: 31
+          - **angulo_graus_x100**: 0
+      - **[13]**:
+        - **id**: Estrada_Terra
+        - **label**: Estrada de terra
+        - **retangulo**:
+          - **x**: 488
+          - **y**: 457
+          - **comprimento**: 120
+          - **largura**: 60
+          - **angulo_graus_x100**: 0
+      - **[14]**:
+        - **id**: Pequena_Casa
+        - **label**: Pequena casa sem uso
+        - **retangulo**:
+          - **x**: 698
+          - **y**: 535
+          - **comprimento**: 150
+          - **largura**: 60
+          - **angulo_graus_x100**: 0
+      - **[15]**:
+        - **id**: Para_Retiro
+        - **label**: Para o Retiro das Águas
+        - **retangulo**:
+          - **x**: 900
+          - **y**: 521
+          - **comprimento**: 150
+          - **largura**: 60
+          - **angulo_graus_x100**: 0
+      - **[16]**:
+        - **id**: Legenda_Titulo
+        - **label**: LEGENDA
+        - **retangulo**:
+          - **x**: 117
+          - **y**: 396
+          - **comprimento**: 120
+          - **largura**: 25
+          - **angulo_graus_x100**: 0
+      - **[17]**:
+        - **id**: Leg_Vegetacao
+        - **label**: Vegetação
+        - **retangulo**:
+          - **x**: 140
+          - **y**: 433
+          - **comprimento**: 145
+          - **largura**: 28
+          - **angulo_graus_x100**: 0
+      - **[18]**:
+        - **id**: Leg_Grampo
+        - **label**: Grampo de 1/2
+        - **retangulo**:
+          - **x**: 176
+          - **y**: 462
+          - **comprimento**: 167
+          - **largura**: 27
+          - **angulo_graus_x100**: 0
+      - **[19]**:
+        - **id**: Leg_Fenda
+        - **label**: Fenda / Fissura
+        - **retangulo**:
+          - **x**: 178
+          - **y**: 492
+          - **comprimento**: 173
+          - **largura**: 23
+          - **angulo_graus_x100**: 0
+      - **[20]**:
+        - **id**: Leg_Parada
+        - **label**: Parada
+        - **retangulo**:
+          - **x**: 134
+          - **y**: 522
+          - **comprimento**: 85
+          - **largura**: 27
+          - **angulo_graus_x100**: 0
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - Via_1
+        - **escalada**: Pé na Chapa
+      - **[1]**:
+        - **ids**:
+          - Via_2
+        - **escalada**: Desenferrujando
+      - **[2]**:
+        - **ids**:
+          - Via_3
+        - **escalada**: Ferrugem
+      - **[3]**:
+        - **ids**:
+          - Via_4
+        - **escalada**: A Ferro Quente
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i1.webp)
     - **largura_mapa**: 1558
     - **altura_mapa**: 989
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Titulo
+        - **label**: Subsetor Cachoeira - Direita
+        - **retangulo**:
+          - **x**: 470
+          - **y**: 87
+          - **comprimento**: 900
+          - **largura**: 65
+          - **angulo_graus_x100**: 0
+      - **[1]**:
+        - **id**: Num_3
+        - **label**: 3
+        - **circulo**:
+          - **x**: 386
+          - **y**: 853
+          - **raio**: 40
+      - **[2]**:
+        - **id**: Num_4
+        - **label**: 4
+        - **circulo**:
+          - **x**: 1285
+          - **y**: 925
+          - **raio**: 40
+    - **referencias**: []
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i3.webp)
     - **largura_mapa**: 1400
     - **altura_mapa**: 872
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Subsetor_Cachoeira_Esquerda
+        - **label**: Subsetor Cachoeira - Esquerda
+        - **retangulo**:
+          - **x**: 540
+          - **y**: 72
+          - **comprimento**: 1070
+          - **largura**: 85
+          - **angulo_graus_x100**: 0
+      - **[1]**:
+        - **id**: 02
+        - **label**: 2
+        - **circulo**:
+          - **x**: 1045
+          - **y**: 816
+          - **raio**: 30
+      - **[2]**:
+        - **id**: 01
+        - **label**: 1
+        - **circulo**:
+          - **x**: 576
+          - **y**: 835
+          - **raio**: 30
+    - **referencias**: []
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -328,6 +577,17 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solamente
+            - **[1]**:
+              - **escalada**: Nesse Mato Tem Cachorro
+            - **[2]**:
+              - **escalada**: Vr. Cachorro Louco
+            - **[3]**:
+              - **escalada**: Libera Liberou
+            - **[4]**:
+              - **escalada**: Dez Mil e Uma Noites
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp)
       - **escaladas**:
@@ -405,6 +665,45 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cordada 171
+            - **[1]**:
+              - **escalada**: Inês é Morta
+            - **[2]**:
+              - **escalada**: Sempre Viva
+            - **[3]**:
+              - **escalada**: Fissurim
+            - **[4]**:
+              - **escalada**: Zé Marta
+            - **[5]**:
+              - **escalada**: Bolinha
+            - **[6]**:
+              - **escalada**: Testa de Ferro
+            - **[7]**:
+              - **escalada**: Ferro na Boneca
+            - **[8]**:
+              - **escalada**: Maria Diz Graça
+            - **[9]**:
+              - **escalada**: Zé Mangueira
+            - **[10]**:
+              - **escalada**: Sherlock Holmes
+            - **[11]**:
+              - **escalada**: Professor Moriarty
+            - **[12]**:
+              - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+            - **[13]**:
+              - **escalada**: O Psicopata de Ferros
+            - **[14]**:
+              - **escalada**: Vr. Caçadora de Micuim
+            - **[15]**:
+              - **escalada**: Frio na Barriga
+            - **[16]**:
+              - **escalada**: Pescoço de Minhoca
+            - **[17]**:
+              - **escalada**: Grampos de Ferros
+            - **[18]**:
+              - **escalada**: Prateado
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p2_i0.webp)
         - **[2]**:
@@ -631,20 +930,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p1_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: O Psicopata de Ferros
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
-      - **escaladas**:
-        - **[0]**:
-          - **via_movel**:
-            - **descricao**: Via mista.
-            - **nome**: O Psicopata de Ferros
-            - **dificuldade**: BR_6
-            - **exposicao**: E2
-            - **extensao**: 70
-            - **conquistadores**:
-              - Tonico Magalhães
-              - Luciano Bender
-            - **data_abertura**: 2011-06-25
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -652,18 +942,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p0_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solamente
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
-      - **escaladas**:
-        - **[0]**:
-          - **via_esportiva**:
-            - **descricao**: ESCALADA SOLO. Via conquistada em solo integral.
-            - **nome**: Solamente
-            - **dificuldade**: BR_2
-            - **extensao**: 120
-            - **conquistadores**:
-              - Tonico Magalhães
-            - **data_abertura**: 2010-06-03
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -671,19 +954,11 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ferro na Boneca
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
-      - **escaladas**:
-        - **[0]**:
-          - **via_esportiva**:
-            - **descricao**: Via curta e explosiva.
-            - **nome**: Ferro na Boneca
-            - **dificuldade**: BR_7A
-            - **extensao**: 20
-            - **conquistadores**:
-              - Tonico Magalhães
-              - Luciano Bender
-            - **data_abertura**: 2011-06-25
 
 
 ## Parte: grupo_principal
@@ -712,14 +987,311 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp)
           - **largura_mapa**: 1024
           - **altura_mapa**: 602
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: Estrada
+              - **label**: Estrada
+              - **retangulo**:
+                - **x**: 468
+                - **y**: 110
+                - **comprimento**: 71
+                - **largura**: 17
+            - **[1]**:
+              - **id**: Corrego
+              - **label**: Córrego
+              - **retangulo**:
+                - **x**: 240
+                - **y**: 180
+                - **comprimento**: 70
+                - **largura**: 25
+            - **[2]**:
+              - **id**: Rio_Tanque
+              - **label**: Rio Tanque
+              - **retangulo**:
+                - **x**: 145
+                - **y**: 285
+                - **comprimento**: 108
+                - **largura**: 20
+                - **angulo_graus_x100**: -5400
+            - **[3]**:
+              - **id**: Trilha
+              - **label**: Trilha
+              - **retangulo**:
+                - **x**: 370
+                - **y**: 286
+                - **comprimento**: 65
+                - **largura**: 18
+                - **angulo_graus_x100**: -104
+            - **[4]**:
+              - **id**: Aderencias_Extrema_Esquerda
+              - **label**: Aderências - Extrema Esquerda
+              - **retangulo**:
+                - **x**: 680
+                - **y**: 350
+                - **comprimento**: 200
+                - **largura**: 40
+            - **[5]**:
+              - **id**: Escala_20m
+              - **label**: 20m
+              - **retangulo**:
+                - **x**: 390
+                - **y**: 424
+                - **comprimento**: 50
+                - **largura**: 25
+            - **[6]**:
+              - **id**: Subsetor_Cachoeira
+              - **label**: Subsetor Cachoeira
+              - **retangulo**:
+                - **x**: 140
+                - **y**: 497
+                - **comprimento**: 185
+                - **largura**: 30
+            - **[7]**:
+              - **id**: Setor_Classicas_Curtas
+              - **label**: Setor Clássicas Curtas
+              - **retangulo**:
+                - **x**: 510
+                - **y**: 505
+                - **comprimento**: 220
+                - **largura**: 30
+            - **[8]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 540
+                - **y**: 360
+                - **raio**: 14
+            - **[9]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 596
+                - **y**: 420
+                - **raio**: 14
+            - **[10]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 653
+                - **y**: 468
+                - **raio**: 14
+            - **[11]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 705
+                - **y**: 538
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: A Medalha de Lúcia
+            - **[1]**:
+              - **escalada**: Águas de Março
+            - **[2]**:
+              - **escalada**: Vou Dançar o Xaxaxá
+            - **[3]**:
+              - **escalada**: Casas da Banha
+            - **[4]**:
+              - **escalada**: Ferradura
+            - **[5]**:
+              - **escalada**: Ferrolho
+            - **[6]**:
+              - **escalada**: Cambal a Quatro
+            - **[7]**:
+              - **escalada**: El Bigodón
+            - **[8]**:
+              - **escalada**: Testa de Aço
+            - **[9]**:
+              - **escalada**: Me Ferrei
+            - **[10]**:
+              - **escalada**: Amor Profano
+            - **[11]**:
+              - **escalada**: Deu Tilt
+            - **[12]**:
+              - **escalada**: Ferroada
+            - **[13]**:
+              - **escalada**: Scarface
+            - **[14]**:
+              - **escalada**: Se Meu Fusca Falasse
+            - **[15]**:
+              - **escalada**: Couro de Lobisomem
+            - **[16]**:
+              - **escalada**: Enferrujados
+            - **[17]**:
+              - **escalada**: Rastro de Cobra
+            - **[18]**:
+              - **escalada**: Entrando no Ferro
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1229
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 72
+                - **y**: 712
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 130
+                - **y**: 740
+                - **raio**: 17
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 182
+                - **y**: 782
+                - **raio**: 17
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 350
+                - **y**: 834
+                - **raio**: 17
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 658
+                - **y**: 965
+                - **raio**: 17
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 782
+                - **y**: 950
+                - **raio**: 17
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 998
+                - **y**: 1053
+                - **raio**: 17
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 1157
+                - **y**: 1068
+                - **raio**: 17
+            - **[8]**:
+              - **id**: 9
+              - **label**: 9
+              - **circulo**:
+                - **x**: 1271
+                - **y**: 1074
+                - **raio**: 17
+            - **[9]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 1316
+                - **y**: 1074
+                - **raio**: 17
+            - **[10]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 1360
+                - **y**: 1062
+                - **raio**: 17
+            - **[11]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 1536
+                - **y**: 1039
+                - **raio**: 17
+            - **[12]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 1658
+                - **y**: 1041
+                - **raio**: 17
+            - **[13]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 1710
+                - **y**: 1041
+                - **raio**: 17
+            - **[14]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 1805
+                - **y**: 1063
+                - **raio**: 17
+            - **[15]**:
+              - **id**: 16
+              - **label**: 16
+              - **circulo**:
+                - **x**: 1845
+                - **y**: 1063
+                - **raio**: 17
+            - **[16]**:
+              - **id**: 17
+              - **label**: 17
+              - **circulo**:
+                - **x**: 1885
+                - **y**: 1063
+                - **raio**: 17
+            - **[17]**:
+              - **id**: 18
+              - **label**: 18
+              - **circulo**:
+                - **x**: 1968
+                - **y**: 1055
+                - **raio**: 17
+            - **[18]**:
+              - **id**: 19
+              - **label**: 19
+              - **circulo**:
+                - **x**: 2040
+                - **y**: 1044
+                - **raio**: 17
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp)
           - **largura_mapa**: 869
           - **altura_mapa**: 1210
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 106
+                - **y**: 1083
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 208
+                - **y**: 1100
+                - **raio**: 20
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 492
+                - **y**: 1135
+                - **raio**: 20
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 804
+                - **y**: 1175
+                - **raio**: 20
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -912,21 +1484,289 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p1_i1.webp)
           - **largura_mapa**: 1024
           - **altura_mapa**: 615
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 610
+                - **y**: 365
+                - **raio**: 12
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 630
+                - **y**: 415
+                - **raio**: 12
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 650
+                - **y**: 455
+                - **raio**: 12
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 680
+                - **y**: 490
+                - **raio**: 12
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 655
+                - **y**: 560
+                - **raio**: 12
+            - **[5]**:
+              - **id**: Extrema_Esquerda
+              - **label**: Aderências Extrema Esquerda
+              - **retangulo**:
+                - **x**: 490
+                - **y**: 35
+                - **comprimento**: 140
+                - **largura**: 30
+            - **[6]**:
+              - **id**: Porteira
+              - **label**: Porteira
+              - **retangulo**:
+                - **x**: 520
+                - **y**: 110
+                - **comprimento**: 70
+                - **largura**: 20
+            - **[7]**:
+              - **id**: Esquerda_1
+              - **label**: Aderências - Esquerda 1
+              - **retangulo**:
+                - **x**: 680
+                - **y**: 170
+                - **comprimento**: 180
+                - **largura**: 20
+            - **[8]**:
+              - **id**: Subsetor_Cachoeira
+              - **label**: Subsetor Cachoeira
+              - **retangulo**:
+                - **x**: 160
+                - **y**: 210
+                - **comprimento**: 150
+                - **largura**: 20
+            - **[9]**:
+              - **id**: Setor_Classicas_Curtas
+              - **label**: Setor Clássicas Curtas
+              - **retangulo**:
+                - **x**: 350
+                - **y**: 215
+                - **comprimento**: 120
+                - **largura**: 30
+            - **[10]**:
+              - **id**: Corrego
+              - **label**: Córrego
+              - **retangulo**:
+                - **x**: 550
+                - **y**: 270
+                - **comprimento**: 60
+                - **largura**: 20
+            - **[11]**:
+              - **id**: Trilha
+              - **label**: Trilha
+              - **retangulo**:
+                - **x**: 610
+                - **y**: 260
+                - **comprimento**: 50
+                - **largura**: 20
+            - **[12]**:
+              - **id**: Esquerda_2
+              - **label**: Aderências - Esquerda 2
+              - **retangulo**:
+                - **x**: 830
+                - **y**: 265
+                - **comprimento**: 180
+                - **largura**: 20
+            - **[13]**:
+              - **id**: Face_Central
+              - **label**: Aderências Face Central
+              - **retangulo**:
+                - **x**: 890
+                - **y**: 450
+                - **comprimento**: 100
+                - **largura**: 30
+            - **[14]**:
+              - **id**: Parede_Principal_Direita
+              - **label**: Parede Principal - Direita
+              - **retangulo**:
+                - **x**: 540
+                - **y**: 475
+                - **comprimento**: 180
+                - **largura**: 20
+            - **[15]**:
+              - **id**: Parede_Principal_Central
+              - **label**: Parede Principal - Central
+              - **retangulo**:
+                - **x**: 680
+                - **y**: 600
+                - **comprimento**: 190
+                - **largura**: 20
+            - **[16]**:
+              - **id**: Parede_Principal_Direita_Grande
+              - **label**: Parede Principal - Direita
+              - **retangulo**:
+                - **x**: 200
+                - **y**: 370
+                - **comprimento**: 300
+                - **largura**: 40
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Macambúzio
+            - **[1]**:
+              - **escalada**: Pente Frio
+            - **[2]**:
+              - **escalada**: El Barrigón
+            - **[3]**:
+              - **escalada**: Lobos do Caraça
+            - **[4]**:
+              - **escalada**: O Tempo e o Vento
+            - **[5]**:
+              - **escalada**: O Burro e o Capacete
+            - **[6]**:
+              - **escalada**: Tá Bão
+            - **[7]**:
+              - **escalada**: Amor meu Grande amor
+            - **[8]**:
+              - **escalada**: Rapidinha no Escurinho
+            - **[9]**:
+              - **escalada**: Pelanca
+            - **[10]**:
+              - **escalada**: Flor da Pele
+            - **[11]**:
+              - **escalada**: Alma Nova
+            - **[12]**:
+              - **escalada**: Pele Vermelha
+            - **[13]**:
+              - **escalada**: Pelinha
+            - **[14]**:
+              - **escalada**: Cutícula
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p2_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1283
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 340
+                - **y**: 855
+                - **raio**: 15
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 470
+                - **y**: 870
+                - **raio**: 15
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 550
+                - **y**: 890
+                - **raio**: 15
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 620
+                - **y**: 920
+                - **raio**: 15
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 725
+                - **y**: 990
+                - **raio**: 15
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 805
+                - **y**: 1065
+                - **raio**: 15
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 935
+                - **y**: 1010
+                - **raio**: 15
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 1055
+                - **y**: 1020
+                - **raio**: 15
+            - **[8]**:
+              - **id**: 9
+              - **label**: 9
+              - **circulo**:
+                - **x**: 1155
+                - **y**: 1210
+                - **raio**: 15
+            - **[9]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 1220
+                - **y**: 1210
+                - **raio**: 15
+            - **[10]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 1330
+                - **y**: 1210
+                - **raio**: 15
+            - **[11]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 1390
+                - **y**: 1220
+                - **raio**: 15
+            - **[12]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 1455
+                - **y**: 1230
+                - **raio**: 15
+            - **[13]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 1510
+                - **y**: 1240
+                - **raio**: 15
+            - **[14]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 1605
+                - **y**: 1245
+                - **raio**: 15
+            - **[15]**:
+              - **id**: Valeu_Papito
+              - **label**: Valeu Papito
+              - **retangulo**:
+                - **x**: 250
+                - **y**: 600
+                - **comprimento**: 150
+                - **largura**: 40
       - **escaladas**:
         - **[0]**:
-          - **via_esportiva**:
-            - **nome**: Macambúzio
-            - **dificuldade**: BR_3SUP
-            - **extensao**: 80
-            - **conquistadores**:
-              - Pedro Bugim
-              - Jeferson Costa
-            - **data_abertura**: 2017-03-01
-        - **[1]**:
           - **via_esportiva**:
             - **nome**: Pente Frio
             - **dificuldade**: BR_4
@@ -936,7 +1776,7 @@
               - Tonico Magalhães
               - Jeferson Costa
             - **data_abertura**: 2015-04-05
-        - **[2]**:
+        - **[1]**:
           - **via_esportiva**:
             - **nome**: El Barrigón
             - **dificuldade**: BR_4
@@ -945,7 +1785,7 @@
               - Tonico Magalhães
               - Fábio Cotta
             - **data_abertura**: 2006-10-15
-        - **[3]**:
+        - **[2]**:
           - **via_esportiva**:
             - **nome**: Lobos do Caraça
             - **dificuldade**: BR_4
@@ -954,7 +1794,7 @@
               - Tonico Magalhães
               - Fábio Cotta
             - **data_abertura**: 2006-10-29
-        - **[4]**:
+        - **[3]**:
           - **via_esportiva**:
             - **nome**: O Tempo e o Vento
             - **dificuldade**: BR_3
@@ -964,7 +1804,7 @@
               - Pedro Bugim
               - Maria Fernanda Patrício
             - **data_abertura**: 2014-03-01
-        - **[5]**:
+        - **[4]**:
           - **via_esportiva**:
             - **nome**: O Burro e o Capacete
             - **dificuldade**: BR_3SUP
@@ -973,54 +1813,54 @@
               - Tonico Magalhães
               - Glesse Gripp
             - **data_abertura**: 2011-05-15
-        - **[6]**:
+        - **[5]**:
           - **via_esportiva**:
             - **nome**: Tá Bão
             - **dificuldade**: BR_4SUP
             - **exposicao**: E1
             - **extensao**: 35
-        - **[7]**:
+        - **[6]**:
           - **via_movel**:
             - **nome**: Amor meu Grande amor
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 45
-        - **[8]**:
+        - **[7]**:
           - **via_movel**:
             - **nome**: Rapidinha no Escurinho
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 50
-        - **[9]**:
+        - **[8]**:
           - **via_esportiva**:
             - **nome**: Pelanca
             - **dificuldade**: BR_5
             - **exposicao**: E1
             - **extensao**: 45
-        - **[10]**:
+        - **[9]**:
           - **via_esportiva**:
             - **nome**: Flor da Pele
             - **dificuldade**: BR_3SUP
             - **exposicao**: E1
             - **extensao**: 35
-        - **[11]**:
+        - **[10]**:
           - **via_esportiva**:
             - **nome**: Alma Nova
             - **dificuldade**: BR_3SUP
             - **extensao**: 25
-        - **[12]**:
+        - **[11]**:
           - **via_esportiva**:
             - **nome**: Pele Vermelha
             - **dificuldade**: BR_4
             - **exposicao**: E1
             - **extensao**: 45
-        - **[13]**:
+        - **[12]**:
           - **via_esportiva**:
             - **nome**: Pelinha
             - **dificuldade**: BR_2
             - **exposicao**: E3
             - **extensao**: 20
-        - **[14]**:
+        - **[13]**:
           - **via_esportiva**:
             - **nome**: Cutícula
             - **dificuldade**: BR_2
@@ -1038,10 +1878,341 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p1_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1268
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: Aderencias_Esquerda_2
+              - **label**: Aderências - Esquerda 2
+              - **retangulo**:
+                - **x**: 1091
+                - **y**: 38
+                - **comprimento**: 324
+                - **largura**: 24
+            - **[1]**:
+              - **id**: Estrada
+              - **label**: Estrada
+              - **retangulo**:
+                - **x**: 615
+                - **y**: 102
+                - **comprimento**: 104
+                - **largura**: 25
+            - **[2]**:
+              - **id**: Parede_Principal_Direita
+              - **label**: Parede Principal - Direita
+              - **retangulo**:
+                - **x**: 605
+                - **y**: 378
+                - **comprimento**: 334
+                - **largura**: 23
+            - **[3]**:
+              - **id**: Corrego
+              - **label**: Córrego
+              - **retangulo**:
+                - **x**: 895
+                - **y**: 370
+                - **comprimento**: 106
+                - **largura**: 25
+            - **[4]**:
+              - **id**: Trilha
+              - **label**: Trilha
+              - **retangulo**:
+                - **x**: 1115
+                - **y**: 375
+                - **comprimento**: 82
+                - **largura**: 23
+            - **[5]**:
+              - **id**: Aderencias_Central
+              - **label**: Aderências - Central
+              - **retangulo**:
+                - **x**: 1395
+                - **y**: 374
+                - **comprimento**: 271
+                - **largura**: 23
+            - **[6]**:
+              - **id**: Aderencias_Setor_De_Cima
+              - **label**: Aderências - Setor de Cima
+              - **retangulo**:
+                - **x**: 1720
+                - **y**: 415
+                - **comprimento**: 320
+                - **largura**: 65
+            - **[7]**:
+              - **id**: Parede_Principal_Central
+              - **label**: Parede Principal - Central
+              - **retangulo**:
+                - **x**: 955
+                - **y**: 950
+                - **comprimento**: 374
+                - **largura**: 31
+            - **[8]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 946
+                - **y**: 477
+                - **raio**: 15
+            - **[9]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 994
+                - **y**: 564
+                - **raio**: 18
+            - **[10]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1068
+                - **y**: 642
+                - **raio**: 17
+            - **[11]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 1212
+                - **y**: 810
+                - **raio**: 14
+            - **[12]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 1446
+                - **y**: 1104
+                - **raio**: 16
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ferro no Judas
+            - **[1]**:
+              - **escalada**: Marcado a Ferro
+            - **[2]**:
+              - **escalada**: Rolam as Pedras
+            - **[3]**:
+              - **escalada**: Tromba D’Água
+            - **[4]**:
+              - **escalada**: Ferro Velho
+            - **[5]**:
+              - **escalada**: Pum Medonho
+            - **[6]**:
+              - **escalada**: Pr. Chapado
+            - **[7]**:
+              - **escalada**: Dona Flor e Suas Duas Marretas
+            - **[8]**:
+              - **escalada**: Pé de Pano
+            - **[9]**:
+              - **escalada**: CDF
+            - **[10]**:
+              - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+            - **[11]**:
+              - **escalada**: Hilda Furacão
+            - **[12]**:
+              - **escalada**: Iron Men
+            - **[13]**:
+              - **escalada**: Cordão do Bola Preta
+            - **[14]**:
+              - **escalada**: Rainha da Base
+            - **[15]**:
+              - **escalada**: A Ferro e Fogo
+            - **[16]**:
+              - **escalada**: Chuva Ácida
+            - **[17]**:
+              - **escalada**: A Decadência da Bufa
+            - **[18]**:
+              - **escalada**: Tatu do Jeca
+            - **[19]**:
+              - **escalada**: Jeca Tatu
+            - **[20]**:
+              - **escalada**: Valeu Papito
+            - **[21]**:
+              - **escalada**: Macambúzio
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p2_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1225
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: Parede_Principal_Setor_De_Cima
+              - **label**: Parede Principal Setor de Cima
+              - **retangulo**:
+                - **x**: 235
+                - **y**: 268
+                - **comprimento**: 195
+                - **largura**: 65
+            - **[1]**:
+              - **id**: Noite_De_Sao_Joao
+              - **label**: "Noite de São João"
+              - **retangulo**:
+                - **x**: 125
+                - **y**: 482
+                - **comprimento**: 214
+                - **largura**: 25
+            - **[2]**:
+              - **id**: Pente_Frio
+              - **label**: "Pente Frio"
+              - **retangulo**:
+                - **x**: 1935
+                - **y**: 655
+                - **comprimento**: 134
+                - **largura**: 25
+            - **[3]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 135
+                - **y**: 745
+                - **raio**: 17
+            - **[4]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 287
+                - **y**: 754
+                - **raio**: 17
+            - **[5]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 367
+                - **y**: 766
+                - **raio**: 17
+            - **[6]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 469
+                - **y**: 764
+                - **raio**: 17
+            - **[7]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 579
+                - **y**: 790
+                - **raio**: 17
+            - **[8]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 665
+                - **y**: 768
+                - **raio**: 17
+            - **[9]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 737
+                - **y**: 792
+                - **raio**: 17
+            - **[10]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 807
+                - **y**: 851
+                - **raio**: 17
+            - **[11]**:
+              - **id**: 9
+              - **label**: 9
+              - **circulo**:
+                - **x**: 890
+                - **y**: 888
+                - **raio**: 17
+            - **[12]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 975
+                - **y**: 912
+                - **raio**: 17
+            - **[13]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 1060
+                - **y**: 910
+                - **raio**: 17
+            - **[14]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 1150
+                - **y**: 942
+                - **raio**: 17
+            - **[15]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 1262
+                - **y**: 967
+                - **raio**: 17
+            - **[16]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 1350
+                - **y**: 985
+                - **raio**: 17
+            - **[17]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 1413
+                - **y**: 967
+                - **raio**: 17
+            - **[18]**:
+              - **id**: 16
+              - **label**: 16
+              - **circulo**:
+                - **x**: 1480
+                - **y**: 962
+                - **raio**: 17
+            - **[19]**:
+              - **id**: 17
+              - **label**: 17
+              - **circulo**:
+                - **x**: 1519
+                - **y**: 1010
+                - **raio**: 17
+            - **[20]**:
+              - **id**: 18
+              - **label**: 18
+              - **circulo**:
+                - **x**: 1574
+                - **y**: 1072
+                - **raio**: 17
+            - **[21]**:
+              - **id**: 19
+              - **label**: 19
+              - **circulo**:
+                - **x**: 1631
+                - **y**: 1126
+                - **raio**: 17
+            - **[22]**:
+              - **id**: 20
+              - **label**: 20
+              - **circulo**:
+                - **x**: 1754
+                - **y**: 1174
+                - **raio**: 17
+            - **[23]**:
+              - **id**: 21
+              - **label**: 21
+              - **circulo**:
+                - **x**: 1829
+                - **y**: 1194
+                - **raio**: 17
+            - **[24]**:
+              - **id**: 22
+              - **label**: 22
+              - **circulo**:
+                - **x**: 1894
+                - **y**: 1200
+                - **raio**: 17
+            - **[25]**:
+              - **id**: 23
+              - **label**: 23
+              - **circulo**:
+                - **x**: 1998
+                - **y**: 1201
+                - **raio**: 17
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -1177,10 +2348,193 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1268
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: Trilha
+              - **label**: Trilha
+              - **retangulo**:
+                - **x**: 750
+                - **y**: 219
+                - **comprimento**: 80
+                - **largura**: 26
+                - **angulo_graus_x100**: 143
+            - **[1]**:
+              - **id**: Bambuzal
+              - **label**: Bambuzal
+              - **retangulo**:
+                - **x**: 870
+                - **y**: 343
+                - **comprimento**: 131
+                - **largura**: 24
+            - **[2]**:
+              - **id**: Parede Principal - Central
+              - **label**: Parede Principal - Central
+              - **retangulo**:
+                - **x**: 382
+                - **y**: 393
+                - **comprimento**: 376
+                - **largura**: 30
+                - **angulo_graus_x100**: 46
+            - **[3]**:
+              - **id**: Corrego
+              - **label**: Córrego
+              - **retangulo**:
+                - **x**: 1278
+                - **y**: 384
+                - **comprimento**: 108
+                - **largura**: 25
+                - **angulo_graus_x100**: 318
+            - **[4]**:
+              - **id**: Rio_de_pedras_seco
+              - **label**: Rio de pedras seco
+              - **retangulo**:
+                - **x**: 980
+                - **y**: 480
+                - **comprimento**: 160
+                - **largura**: 60
+            - **[5]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 860
+                - **y**: 705
+                - **raio**: 18
+            - **[6]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 918
+                - **y**: 812
+                - **raio**: 18
+            - **[7]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 895
+                - **y**: 922
+                - **raio**: 18
+            - **[8]**:
+              - **id**: Laje_de_pedra
+              - **label**: Laje de pedra
+              - **retangulo**:
+                - **x**: 1348
+                - **y**: 879
+                - **comprimento**: 182
+                - **largura**: 24
+            - **[9]**:
+              - **id**: Parede_Principal_Setor_de_Cima_Seta
+              - **label**: Parede Principal - Setor de Cima
+              - **retangulo**:
+                - **x**: 550
+                - **y**: 908
+                - **comprimento**: 578
+                - **largura**: 36
+                - **angulo_graus_x100**: 21
+            - **[10]**:
+              - **id**: Parede_Principal_Setor_de_Cima_Titulo
+              - **label**: Parede Principal - Setor de Cima
+              - **retangulo**:
+                - **x**: 605
+                - **y**: 1082
+                - **comprimento**: 1110
+                - **largura**: 66
+                - **angulo_graus_x100**: 0
+            - **[11]**:
+              - **id**: Esquema_de_Trilhas
+              - **label**: Esquema de Trilhas
+              - **retangulo**:
+                - **x**: 385
+                - **y**: 1156
+                - **comprimento**: 700
+                - **largura**: 68
+                - **angulo_graus_x100**: 0
+            - **[12]**:
+              - **id**: Parede_Principal_Classicas_Longas
+              - **label**: Parede Principal - Clássicas Longas
+              - **retangulo**:
+                - **x**: 1382
+                - **y**: 1177
+                - **comprimento**: 509
+                - **largura**: 30
+                - **angulo_graus_x100**: 23
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Um Momento no Tempo
+            - **[1]**:
+              - **escalada**: Noite de São João
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p2_i0.webp)
           - **largura_mapa**: 2048
           - **altura_mapa**: 1261
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: Titulo_Principal
+              - **label**: Parede Principal - Setor de Cima
+              - **retangulo**:
+                - **x**: 610
+                - **y**: 72
+                - **comprimento**: 1150
+                - **largura**: 86
+                - **angulo_graus_x100**: 0
+            - **[1]**:
+              - **id**: Subtitulo
+              - **label**: Ferros / MG
+              - **retangulo**:
+                - **x**: 264
+                - **y**: 147
+                - **comprimento**: 430
+                - **largura**: 70
+                - **angulo_graus_x100**: 0
+            - **[2]**:
+              - **id**: Classicas_Longas
+              - **label**: Clássicas Longas
+              - **retangulo**:
+                - **x**: 174
+                - **y**: 841
+                - **comprimento**: 270
+                - **largura**: 135
+                - **angulo_graus_x100**: 0
+            - **[3]**:
+              - **id**: A_Francesa
+              - **label**: "À Francesa"
+              - **retangulo**:
+                - **x**: 556
+                - **y**: 946
+                - **comprimento**: 269
+                - **largura**: 52
+                - **angulo_graus_x100**: 0
+            - **[4]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 885
+                - **y**: 1050
+                - **raio**: 35
+            - **[5]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 870
+                - **y**: 1225
+                - **raio**: 35
+            - **[6]**:
+              - **id**: Ferro_no_Judas
+              - **label**: "Ferro no Judas"
+              - **retangulo**:
+                - **x**: 1498
+                - **y**: 1177
+                - **comprimento**: 210
+                - **largura**: 95
+                - **angulo_graus_x100**: 0
+            - **[7]**:
+              - **id**: Setor_Central
+              - **label**: Setor Central
+              - **retangulo**:
+                - **x**: 1806
+                - **y**: 1146
+                - **comprimento**: 220
+                - **largura**: 125
+                - **angulo_graus_x100**: 0
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -1206,10 +2560,314 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p1_i1.webp)
           - **largura_mapa**: 1024
           - **altura_mapa**: 649
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 495
+                - **y**: 260
+                - **raio**: 12
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 650
+                - **y**: 420
+                - **raio**: 12
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 685
+                - **y**: 510
+                - **raio**: 12
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 725
+                - **y**: 555
+                - **raio**: 12
+            - **[4]**:
+              - **id**: Setor_Central
+              - **label**: Parede Principal Central
+              - **retangulo**:
+                - **x**: 280
+                - **y**: 120
+                - **comprimento**: 150
+                - **largura**: 40
+            - **[5]**:
+              - **id**: Setor_Aderencias
+              - **label**: Parede das Aderências Extrema Direita
+              - **retangulo**:
+                - **x**: 890
+                - **y**: 130
+                - **comprimento**: 160
+                - **largura**: 40
+            - **[6]**:
+              - **id**: Setor_Classicas_Longas
+              - **label**: Parede Principal Clássicas Longas
+              - **retangulo**:
+                - **x**: 550
+                - **y**: 455
+                - **comprimento**: 140
+                - **largura**: 40
+            - **[7]**:
+              - **id**: Estrada
+              - **label**: Estrada
+              - **retangulo**:
+                - **x**: 560
+                - **y**: 75
+                - **comprimento**: 60
+                - **largura**: 20
+            - **[8]**:
+              - **id**: Corrego
+              - **label**: Córrego
+              - **retangulo**:
+                - **x**: 740
+                - **y**: 175
+                - **comprimento**: 70
+                - **largura**: 20
+            - **[9]**:
+              - **id**: Trilha
+              - **label**: Trilha
+              - **retangulo**:
+                - **x**: 695
+                - **y**: 220
+                - **comprimento**: 50
+                - **largura**: 20
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Quarto 304
+            - **[1]**:
+              - **escalada**: O Nome da Rosa
+            - **[2]**:
+              - **escalada**: O Retorno de Jedi
+            - **[3]**:
+              - **escalada**: Ih, Ferrou!
+            - **[4]**:
+              - **escalada**: Jardim do Éden
+            - **[5]**:
+              - **escalada**: A Dois Passos do Paraíso
+            - **[6]**:
+              - **escalada**: Conquista do Paraíso
+            - **[7]**:
+              - **escalada**: Purgatório
+            - **[8]**:
+              - **escalada**: Arco de Ferros
+            - **[9]**:
+              - **escalada**: Conrado Ferro
+            - **[10]**:
+              - **escalada**: Quem com Ferro Fere
+            - **[11]**:
+              - **escalada**: Tanto Bate Até Que Fura
+            - **[12]**:
+              - **escalada**: Trem de Ferro
+            - **[13]**:
+              - **escalada**: Up Ester
+            - **[14]**:
+              - **escalada**: Até Que a Vida Nos Separe
+            - **[15]**:
+              - **escalada**: Vr. Pilhado
+            - **[16]**:
+              - **escalada**: Pr. CEM
+            - **[17]**:
+              - **escalada**: Vr. SEM
+            - **[18]**:
+              - **escalada**: Engatilhados
+            - **[19]**:
+              - **escalada**: Trio Elétrico
+            - **[20]**:
+              - **escalada**: Eu Não Sou de Ferro
+            - **[21]**:
+              - **escalada**: Rio de Mão Dupla
+            - **[22]**:
+              - **escalada**: Grand Finale
+            - **[23]**:
+              - **escalada**: À Francesa
+            - **[24]**:
+              - **escalada**: Atalho dos Duendes
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p2_i0.webp)
           - **largura_mapa**: 1603
           - **altura_mapa**: 952
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 40
+                - **y**: 480
+                - **raio**: 12
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 100
+                - **y**: 657
+                - **raio**: 12
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 238
+                - **y**: 646
+                - **raio**: 12
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 325
+                - **y**: 630
+                - **raio**: 12
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 448
+                - **y**: 678
+                - **raio**: 12
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 515
+                - **y**: 650
+                - **raio**: 12
+            - **[6]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 550
+                - **y**: 640
+                - **raio**: 12
+            - **[7]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 595
+                - **y**: 600
+                - **raio**: 12
+            - **[8]**:
+              - **id**: 9
+              - **label**: 9
+              - **circulo**:
+                - **x**: 630
+                - **y**: 590
+                - **raio**: 12
+            - **[9]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 660
+                - **y**: 580
+                - **raio**: 12
+            - **[10]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 740
+                - **y**: 575
+                - **raio**: 12
+            - **[11]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 831
+                - **y**: 361
+                - **raio**: 12
+            - **[12]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 785
+                - **y**: 555
+                - **raio**: 12
+            - **[13]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 855
+                - **y**: 595
+                - **raio**: 12
+            - **[14]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 885
+                - **y**: 630
+                - **raio**: 12
+            - **[15]**:
+              - **id**: 16
+              - **label**: 16
+              - **circulo**:
+                - **x**: 914
+                - **y**: 690
+                - **raio**: 12
+            - **[16]**:
+              - **id**: 17
+              - **label**: 17
+              - **circulo**:
+                - **x**: 975
+                - **y**: 755
+                - **raio**: 12
+            - **[17]**:
+              - **id**: 18
+              - **label**: 18
+              - **circulo**:
+                - **x**: 977
+                - **y**: 235
+                - **raio**: 12
+            - **[18]**:
+              - **id**: 19
+              - **label**: 19
+              - **circulo**:
+                - **x**: 990
+                - **y**: 803
+                - **raio**: 12
+            - **[19]**:
+              - **id**: 20
+              - **label**: 20
+              - **circulo**:
+                - **x**: 1047
+                - **y**: 834
+                - **raio**: 12
+            - **[20]**:
+              - **id**: 21
+              - **label**: 21
+              - **circulo**:
+                - **x**: 1157
+                - **y**: 842
+                - **raio**: 12
+            - **[21]**:
+              - **id**: 22
+              - **label**: 22
+              - **circulo**:
+                - **x**: 1312
+                - **y**: 764
+                - **raio**: 12
+            - **[22]**:
+              - **id**: 23
+              - **label**: 23
+              - **circulo**:
+                - **x**: 1258
+                - **y**: 354
+                - **raio**: 12
+            - **[23]**:
+              - **id**: 24
+              - **label**: 24
+              - **circulo**:
+                - **x**: 1476
+                - **y**: 714
+                - **raio**: 12
+            - **[24]**:
+              - **id**: 25
+              - **label**: 25
+              - **circulo**:
+                - **x**: 1351
+                - **y**: 725
+                - **raio**: 12
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -1380,10 +3038,155 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p1_i1.webp)
     - **largura_mapa**: 765
     - **altura_mapa**: 567
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Setor_Esportivas_Lado_Esquerdo
+        - **label**: Setor Esportivas (Lado Esquerdo)
+        - **retangulo**:
+          - **x**: 382
+          - **y**: 44
+          - **comprimento**: 585
+          - **largura**: 45
+      - **[1]**:
+        - **id**: 01
+        - **label**: 1
+        - **circulo**:
+          - **x**: 210
+          - **y**: 526
+          - **raio**: 12
+      - **[2]**:
+        - **id**: 02
+        - **label**: 2
+        - **circulo**:
+          - **x**: 364
+          - **y**: 415
+          - **raio**: 13
+      - **[3]**:
+        - **id**: 03
+        - **label**: 3
+        - **circulo**:
+          - **x**: 415
+          - **y**: 398
+          - **raio**: 13
+      - **[4]**:
+        - **id**: 04
+        - **label**: 4
+        - **circulo**:
+          - **x**: 483
+          - **y**: 245
+          - **raio**: 13
+      - **[5]**:
+        - **id**: 05
+        - **label**: 5
+        - **circulo**:
+          - **x**: 517
+          - **y**: 538
+          - **raio**: 12
+      - **[6]**:
+        - **id**: 06
+        - **label**: 6
+        - **circulo**:
+          - **x**: 564
+          - **y**: 538
+          - **raio**: 12
+      - **[7]**:
+        - **id**: 07
+        - **label**: 7
+        - **circulo**:
+          - **x**: 605
+          - **y**: 538
+          - **raio**: 12
+      - **[8]**:
+        - **id**: 08
+        - **label**: 8
+        - **circulo**:
+          - **x**: 576
+          - **y**: 348
+          - **raio**: 12
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Diedro da Rabada
+      - **[1]**:
+        - **escalada**: Mestre Sala
+      - **[2]**:
+        - **escalada**: Porta-Bandeira
+      - **[3]**:
+        - **escalada**: Gangorra
+      - **[4]**:
+        - **escalada**: Jabá com Jerimum
+      - **[5]**:
+        - **escalada**: Bruxa Albano
+      - **[6]**:
+        - **escalada**: Vomitão em Ferros
+      - **[7]**:
+        - **escalada**: Iron Slow
+      - **[8]**:
+        - **escalada**: Bicho de Pé
+      - **[9]**:
+        - **escalada**: Os Três Mosqueteiros
+      - **[10]**:
+        - **escalada**: Nó de Porco
+      - **[11]**:
+        - **escalada**: Ícaro
+      - **[12]**:
+        - **escalada**: Champinha
+      - **[13]**:
+        - **escalada**: Falcatrua
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p3_i1.webp)
     - **largura_mapa**: 568
     - **altura_mapa**: 487
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Setor_Esportivas_Lado_Direito
+        - **label**: Setor Esportivas (Lado Direito)
+        - **retangulo**:
+          - **x**: 260
+          - **y**: 35
+          - **comprimento**: 520
+          - **largura**: 42
+      - **[1]**:
+        - **id**: 09
+        - **label**: 9
+        - **circulo**:
+          - **x**: 76
+          - **y**: 443
+          - **raio**: 13
+      - **[2]**:
+        - **id**: 10
+        - **label**: 10
+        - **circulo**:
+          - **x**: 140
+          - **y**: 466
+          - **raio**: 15
+      - **[3]**:
+        - **id**: 11
+        - **label**: 11
+        - **circulo**:
+          - **x**: 214
+          - **y**: 469
+          - **raio**: 15
+      - **[4]**:
+        - **id**: 12
+        - **label**: 12
+        - **circulo**:
+          - **x**: 350
+          - **y**: 472
+          - **raio**: 15
+      - **[5]**:
+        - **id**: 13
+        - **label**: 13
+        - **circulo**:
+          - **x**: 437
+          - **y**: 354
+          - **raio**: 16
+      - **[6]**:
+        - **id**: 14
+        - **label**: 14
+        - **circulo**:
+          - **x**: 504
+          - **y**: 450
+          - **raio**: 17
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1544,6 +3347,52 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_dos_solos_p0_i1.webp)
     - **largura_mapa**: 659
     - **altura_mapa**: 418
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Parede_dos_Solos
+        - **label**: Parede dos Solos
+        - **retangulo**:
+          - **x**: 160
+          - **y**: 40
+          - **comprimento**: 310
+          - **largura**: 40
+      - **[1]**:
+        - **id**: 01
+        - **label**: 1
+        - **circulo**:
+          - **x**: 40
+          - **y**: 295
+          - **raio**: 15
+      - **[2]**:
+        - **id**: 02
+        - **label**: 2
+        - **circulo**:
+          - **x**: 140
+          - **y**: 352
+          - **raio**: 15
+      - **[3]**:
+        - **id**: 03
+        - **label**: 3
+        - **circulo**:
+          - **x**: 284
+          - **y**: 390
+          - **raio**: 15
+      - **[4]**:
+        - **id**: 04
+        - **label**: 4
+        - **circulo**:
+          - **x**: 514
+          - **y**: 387
+          - **raio**: 15
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Caipora
+      - **[1]**:
+        - **escalada**: Iaci
+      - **[2]**:
+        - **escalada**: Boitatá
+      - **[3]**:
+        - **escalada**: Maracujá
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -1610,10 +3459,75 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
           - **largura_mapa**: 640
           - **altura_mapa**: 346
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 145
+                - **y**: 320
+                - **raio**: 9
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 221
+                - **y**: 316
+                - **raio**: 9
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 301
+                - **y**: 310
+                - **raio**: 9
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 428
+                - **y**: 306
+                - **raio**: 9
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 501
+                - **y**: 306
+                - **raio**: 9
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 538
+                - **y**: 306
+                - **raio**: 9
+            - **[6]**:
+              - **id**: arvore
+              - **label**: Árvore fora de escala!
+              - **retangulo**:
+                - **x**: 368
+                - **y**: 334
+                - **comprimento**: 129
+                - **largura**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fissura Lapada na Rachada
+            - **[1]**:
+              - **escalada**: Fissura Sopa de Pedra
+            - **[2]**:
+              - **escalada**: Até o Osso
+            - **[3]**:
+              - **escalada**: Diedro Caboclo D’Água
+            - **[4]**:
+              - **escalada**: Balangandã
+            - **[5]**:
+              - **escalada**: Pé de Chinelo
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i3.webp)
           - **largura_mapa**: 1455
           - **altura_mapa**: 73
+          - **pontos_de_interesse**: []
       - **escaladas**:
         - **[0]**:
           - **via_movel**:
@@ -1657,10 +3571,58 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)
           - **largura_mapa**: 850
           - **altura_mapa**: 510
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 238
+                - **y**: 442
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 382
+                - **y**: 390
+                - **raio**: 14
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 471
+                - **y**: 372
+                - **raio**: 14
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 535
+                - **y**: 338
+                - **raio**: 14
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 627
+                - **y**: 334
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Queima de Arquivo
+            - **[1]**:
+              - **escalada**: Aquidaban
+            - **[2]**:
+              - **escalada**: Tempestade
+            - **[3]**:
+              - **escalada**: Chuva de Verão
+            - **[4]**:
+              - **escalada**: Brumas de Inverno
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7.webp)
           - **largura_mapa**: 883
           - **altura_mapa**: 671
+          - **pontos_de_interesse**: []
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:
@@ -1700,6 +3662,25 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_cenibra_p0_i1.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 720
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Parede_da_CENIBRA
+        - **label**: Parede da CENIBRA
+        - **retangulo**:
+          - **x**: 194
+          - **y**: 43
+          - **comprimento**: 311
+          - **largura**: 34
+      - **[1]**:
+        - **id**: 01
+        - **label**: 1
+        - **circulo**:
+          - **x**: 599
+          - **y**: 584
+          - **raio**: 17
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pr. Pellé 70
 - **escaladas**:
   - **[0]**:
     - **via_movel**:
@@ -1726,6 +3707,25 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
     - **largura_mapa**: 2048
     - **altura_mapa**: 1268
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: Parede_da_Agua_Limpa_Ferros_MG
+        - **label**: Parede da Água Limpa - Ferros / MG
+        - **retangulo**:
+          - **x**: 365
+          - **y**: 63
+          - **comprimento**: 705
+          - **largura**: 55
+      - **[1]**:
+        - **id**: 01
+        - **label**: 1
+        - **circulo**:
+          - **x**: 818
+          - **y**: 1040
+          - **raio**: 30
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Pr. Dama de Ferros
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p2_i1.webp)
 - **escaladas**:
@@ -1757,7 +3757,7 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
-    | ![Outras Vias](imagens/setor_outras_vias_p0.webp) |
+    | ![Outras Vias](imagens/setor_outras_vias_p0_2.webp) |
     | :--: |
     | *Outras Vias* |
 - **nome**: Outras Vias
@@ -1774,7 +3774,9 @@
       - **data_abertura**: 2013-07-19
   - **[1]**:
     - **via_movel**:
-      - **descricao**: Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
+      - **descricao**:
+          Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
+          
       - **nome**: Fissura Cachoeira Quente
       - **dificuldade**: BR_6
       - **extensao**: 50
@@ -1782,6 +3784,16 @@
         - Tonico Magalhães
         - Luciando Bender
       - **data_abertura**: 2013-07-21
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outras_vias_p0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Amazonita
+      - **[1]**:
+        - **escalada**: Fissura Cachoeira Quente
+    - **largura_mapa**: 1241
+    - **altura_mapa**: 1754
 
 
 ## Arquivos Externos
@@ -1890,24 +3902,27 @@
     - **caminho**: ![caminho](imagens/setor_outras_vias_p0.webp)
     - **checksum_sha256**: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
   - **[34]**:
+    - **caminho**: ![caminho](imagens/setor_outras_vias_p0_2.webp)
+    - **checksum_sha256**: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p0_i1.webp)
     - **checksum_sha256**: 0f837bd9c66b5aa34c5761b152fa647fe3a7ecfe3d50878f74dae8fc8db6fbc6
-  - **[35]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
     - **checksum_sha256**: 60767c9fcbb88a1aa8d0194bd0478e45a38de0c66d97054d112be820829a8082
-  - **[36]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_cenibra_p0_i1.webp)
     - **checksum_sha256**: 1780fe8ffacd1a0760bb890068c8c7da7d21060fdebb8a0058d5ca1edcfcac62
-  - **[37]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_parede_dos_solos_p0_i1.webp)
     - **checksum_sha256**: 365a16ae8387a063799f065a6c03fd4badec89a7846401f6ab6a7c30d40453aa
-  - **[38]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p0_i1.webp)
     - **checksum_sha256**: e38fbaa410dbe871f0fccf4f4314c82d9cbf05d51f564a5f7390bcbdff8f8b7e
-  - **[39]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p1_i1.webp)
     - **checksum_sha256**: 380655eb9ea0a8f9fcebe663c83da60b192044f80b39a25034f434f02559131b
-  - **[40]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p3_i1.webp)
     - **checksum_sha256**: 5ae2cded1fa59f0b827952a65222a3aa1043cadb687d39e8afc3d41a22ffaf01
 

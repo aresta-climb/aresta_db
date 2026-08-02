@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 19/07/2026 23:53:13
+Relatório gerado em: 21/07/2026 22:26:36
 
-| Croqui | Publicado (25/48) | Revisado Manual (25/48) | Revisado Circ (25/48) | Desenho Extraível (30/2/16) | Pontos de Interesse (23/48) | Thumbnail (34/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (35/48) | Conteúdo PDF (36/48) | partes.json (48/48) | PDF Original (48/48) |
+| Croqui | Publicado (25/48) | Revisado Manual (25/48) | Revisado Circ (25/48) | Desenho Extraível (30/2/16) | Pontos de Interesse (23/48) | Thumbnail (35/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | croqui.yaml (36/48) | Conteúdo PDF (37/48) | partes.json (48/48) | PDF Original (48/48) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -17,7 +17,7 @@ Relatório gerado em: 19/07/2026 23:53:13
 | br_mg_conceicao_do_mato_dentro_festboulder | ✅ | ✅ | ✅ | ✅ | ✅ (36/36) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/21) | ❌ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (12/21) | ❌ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_ipatinga_ipaba_vale_verde | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_januaria_salao_encantado | ✅ | ✅ | ✅ | ✅ (não) | ✅ (7/7) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -40,7 +40,7 @@ Relatório gerado em: 19/07/2026 23:53:13
 | br_mg_pocos_de_caldas_veu | ❌ | ❌ | ❌ | ❌ | ❌ (0/7) | ✅ | ✅ (1/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_sabara_pedra_rachada_setor_horizonte | ✅ | ✅ | ✅ | ✅ | ✅ (11/11) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_sacramento_vo_gusta | ✅ | ✅ | ✅ | ✅ (não) | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_santa_luzia_bigorna_ou_lapa_da_zumba | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
+| br_mg_santa_luzia_bigorna_ou_lapa_da_zumba | ❌ | ❌ | ❌ | ❌ | ❌ (0/1) | ✅ | ❌ (0/1) | ❌ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_santa_luzia_morro_do_carrapato_setor_covide | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |
 | br_mg_santa_luzia_santuario | ✅ | ✅ | ✅ | ✅ | ✅ (3/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_santana_do_paraiso | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ❌ | ❌ | ✅ | ✅ |

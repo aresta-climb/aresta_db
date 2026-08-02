@@ -1,0 +1,9 @@
+id: br_mg_santa_luzia_bigorna_ou_lapa_da_zumba
+nome: Bigorna ou Lapa da Zumba
+caminho_thumbnail: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp
+ultima_migracao: 4
+picos:
+  - nome: "Santa Luzia"
+    setores_ou_grupos:
+      - setor:
+          caminho: "setor_bigorna_ou_lapa_da_zumba.md"

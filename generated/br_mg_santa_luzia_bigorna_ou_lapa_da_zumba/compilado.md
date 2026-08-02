@@ -1,0 +1,337 @@
+# Croqui: Bigorna ou Lapa da Zumba
+
+## Informações Gerais
+
+- **id**: br_mg_santa_luzia_bigorna_ou_lapa_da_zumba
+- **nome**: Bigorna ou Lapa da Zumba
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp)
+- **ultima_migracao**: 4
+- **botoes**: []
+
+
+## Parte: setor_bigorna_ou_lapa_da_zumba
+
+### Setor (Pico: Santa Luzia)
+
+- **descricao**:
+    # Setor Bigorna ou Lapa da Zumba
+    
+    | ![Mapa do Setor Bigorna ou Lapa da Zumba](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp) |
+    | :--: |
+    | *Mapa do Setor Bigorna ou Lapa da Zumba* |
+- **escaladas**:
+  - **[0]**:
+    - **via_esportiva**:
+      - **nome**: Xeque Mate
+      - **dificuldade**: BR_6_BARRA_6SUP
+  - **[1]**:
+    - **via_esportiva**:
+      - **nome**: Caminho das Formigas
+      - **dificuldade**: BR_5
+  - **[2]**:
+    - **via_esportiva**:
+      - **nome**: Camelos Hidrofóbicos
+      - **dificuldade**: BR_4
+  - **[3]**:
+    - **via_esportiva**:
+      - **nome**: Urtigas Assassinas
+      - **dificuldade**: BR_4
+  - **[4]**:
+    - **via_esportiva**:
+      - **nome**: Só as Cachorras
+      - **dificuldade**: BR_7B
+  - **[5]**:
+    - **via_esportiva**:
+      - **nome**: Lança Chamas
+      - **dificuldade**: BR_8A
+  - **[6]**:
+    - **via_esportiva**:
+      - **nome**: Ataque das Cachorras
+      - **dificuldade**: BR_6SUP
+  - **[7]**:
+    - **via_esportiva**:
+      - **nome**: Wilham Thor
+      - **dificuldade**: BR_6
+  - **[8]**:
+    - **via_esportiva**:
+      - **nome**: Linha do Tempo
+      - **dificuldade**: BR_7A
+  - **[9]**:
+    - **via_esportiva**:
+      - **nome**: Ilusão de Ótica
+      - **dificuldade**: BR_6SUP
+  - **[10]**:
+    - **via_movel**:
+      - **nome**: Fendazinha
+      - **dificuldade**: BR_7A
+  - **[11]**:
+    - **via_esportiva**:
+      - **nome**: Complicada e Perfeitinha
+      - **dificuldade**: BR_7A
+  - **[12]**:
+    - **via_esportiva**:
+      - **nome**: Cabana do Pai Tomaz
+      - **dificuldade**: BR_6
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Davi e Golias
+      - **dificuldade**: BR_5
+  - **[14]**:
+    - **via_esportiva**:
+      - **nome**: De Olho no Buraco
+      - **dificuldade**: BR_5
+  - **[15]**:
+    - **via_esportiva**:
+      - **nome**: Meu Casamento é um Perrengue
+      - **dificuldade**: BR_7A
+  - **[16]**:
+    - **via_esportiva**:
+      - **nome**: Canaleta Mãe Diná
+      - **dificuldade**: BR_6
+  - **[17]**:
+    - **via_movel**:
+      - **nome**: Só o Zói
+      - **dificuldade**: BR_4
+  - **[18]**:
+    - **via_esportiva**:
+      - **nome**: O Susto
+      - **dificuldade**: BR_7A
+  - **[19]**:
+    - **via_esportiva**:
+      - **nome**: Tortuosa Sempre
+      - **dificuldade**: BR_7A
+  - **[20]**:
+    - **via_esportiva**:
+      - **nome**: Tensão do Cliff
+      - **dificuldade**: BR_6SUP
+  - **[21]**:
+    - **via_esportiva**:
+      - **nome**: Tira o Pé Daí
+      - **dificuldade**: BR_7A
+  - **[22]**:
+    - **via_esportiva**:
+      - **nome**: A Procura de Pai Mei
+      - **dificuldade**: BR_6SUP
+  - **[23]**:
+    - **via_esportiva**:
+      - **nome**: Encontro com Pai Mei
+      - **dificuldade**: BR_6
+  - **[24]**:
+    - **via_movel**:
+      - **nome**: Movimentos Fluidos
+      - **dificuldade**: BR_5SUP
+  - **[25]**:
+    - **via_movel**:
+      - **nome**: Lechimeiafobia
+      - **dificuldade**: BR_5
+  - **[26]**:
+    - **via_esportiva**:
+      - **nome**: Taxidermia Hipofágica
+      - **dificuldade**: BR_6
+  - **[27]**:
+    - **via_esportiva**:
+      - **nome**: Amarra a Gaia
+      - **dificuldade**: BR_5SUP
+  - **[28]**:
+    - **via_esportiva**:
+      - **nome**: Disova Bernéstica
+      - **dificuldade**: BR_5SUP
+  - **[29]**:
+    - **via_esportiva**:
+      - **nome**: Diga não ao Braz
+      - **dificuldade**: BR_5
+  - **[30]**:
+    - **via_esportiva**:
+      - **nome**: 21 Tec Tec
+      - **dificuldade**: BR_5
+  - **[31]**:
+    - **via_esportiva**:
+      - **nome**: Kill Bill
+      - **dificuldade**: BR_6SUP
+  - **[32]**:
+    - **via_esportiva**:
+      - **nome**: É Assim que se Faz
+      - **dificuldade**: BR_5
+  - **[33]**:
+    - **via_esportiva**:
+      - **nome**: Despedida de um Amigo
+      - **dificuldade**: BR_6_BARRA_6SUP
+  - **[34]**:
+    - **via_esportiva**:
+      - **nome**: Tricam é o Cara
+      - **dificuldade**: BR_7A
+  - **[35]**:
+    - **via_esportiva**:
+      - **nome**: Não Puxa Não
+      - **dificuldade**: BR_5
+  - **[36]**:
+    - **via_movel**:
+      - **nome**: HellBoy
+      - **dificuldade**: BR_6_BARRA_6SUP
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp)
+    - **referencias**:
+      - **[0]**:
+        - **escalada**: Xeque Mate
+        - **ids**:
+          - 1
+      - **[1]**:
+        - **escalada**: Caminho das Formigas
+        - **ids**:
+          - 2
+      - **[2]**:
+        - **escalada**: Camelos Hidrofóbicos
+        - **ids**:
+          - 3
+      - **[3]**:
+        - **escalada**: Urtigas Assassinas
+        - **ids**:
+          - 4
+      - **[4]**:
+        - **escalada**: Só as Cachorras
+        - **ids**:
+          - 5
+      - **[5]**:
+        - **escalada**: Lança Chamas
+        - **ids**:
+          - 6
+      - **[6]**:
+        - **escalada**: Ataque das Cachorras
+        - **ids**:
+          - 7
+      - **[7]**:
+        - **escalada**: Wilham Thor
+        - **ids**:
+          - 8
+      - **[8]**:
+        - **escalada**: Linha do Tempo
+        - **ids**:
+          - 9
+      - **[9]**:
+        - **escalada**: Ilusão de Ótica
+        - **ids**:
+          - 10
+      - **[10]**:
+        - **escalada**: Fendazinha
+        - **ids**:
+          - 11
+      - **[11]**:
+        - **escalada**: Complicada e Perfeitinha
+        - **ids**:
+          - 12
+      - **[12]**:
+        - **escalada**: Cabana do Pai Tomaz
+        - **ids**:
+          - 13
+      - **[13]**:
+        - **escalada**: Davi e Golias
+        - **ids**:
+          - 14
+      - **[14]**:
+        - **escalada**: De Olho no Buraco
+        - **ids**:
+          - 15
+      - **[15]**:
+        - **escalada**: Meu Casamento é um Perrengue
+        - **ids**:
+          - 16
+      - **[16]**:
+        - **escalada**: Canaleta Mãe Diná
+        - **ids**:
+          - 17
+      - **[17]**:
+        - **escalada**: Só o Zói
+        - **ids**:
+          - 18
+      - **[18]**:
+        - **escalada**: O Susto
+        - **ids**:
+          - 19
+      - **[19]**:
+        - **escalada**: Tortuosa Sempre
+        - **ids**:
+          - 20
+      - **[20]**:
+        - **escalada**: Tensão do Cliff
+        - **ids**:
+          - 21
+      - **[21]**:
+        - **escalada**: Tira o Pé Daí
+        - **ids**:
+          - 22
+      - **[22]**:
+        - **escalada**: A Procura de Pai Mei
+        - **ids**:
+          - 23
+      - **[23]**:
+        - **escalada**: Encontro com Pai Mei
+        - **ids**:
+          - 24
+      - **[24]**:
+        - **escalada**: Movimentos Fluidos
+        - **ids**:
+          - 25
+      - **[25]**:
+        - **escalada**: Lechimeiafobia
+        - **ids**:
+          - 26
+      - **[26]**:
+        - **escalada**: Taxidermia Hipofágica
+        - **ids**:
+          - 27
+      - **[27]**:
+        - **escalada**: Amarra a Gaia
+        - **ids**:
+          - 28
+      - **[28]**:
+        - **escalada**: Disova Bernéstica
+        - **ids**:
+          - 29
+      - **[29]**:
+        - **escalada**: Diga não ao Braz
+        - **ids**:
+          - 30
+      - **[30]**:
+        - **escalada**: 21 Tec Tec
+        - **ids**:
+          - 31
+      - **[31]**:
+        - **escalada**: Kill Bill
+        - **ids**:
+          - 32
+      - **[32]**:
+        - **escalada**: É Assim que se Faz
+        - **ids**:
+          - 33
+      - **[33]**:
+        - **escalada**: Despedida de um Amigo
+        - **ids**:
+          - 34
+      - **[34]**:
+        - **escalada**: Tricam é o Cara
+        - **ids**:
+          - 35
+      - **[35]**:
+        - **escalada**: Não Puxa Não
+        - **ids**:
+          - 36
+      - **[36]**:
+        - **escalada**: HellBoy
+        - **ids**:
+          - 37
+    - **largura_mapa**: 1676
+    - **altura_mapa**: 1446
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp)
+    - **checksum_sha256**: 87d9ec8e12cd74357c545d4a29cd5b778cc1304d8739f78bdd552befbe2aa59c
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp)
+    - **checksum_sha256**: 87d9ec8e12cd74357c545d4a29cd5b778cc1304d8739f78bdd552befbe2aa59c
+
+
