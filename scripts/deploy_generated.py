@@ -651,13 +651,15 @@ def passo_c_gerar_indice(
     return indice
 
 
-def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
+def deploy(output_dir: Path, target_paths: list[str] = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
 
     print(f"Diretorio de saida : {GENERATED_DIR}")
-    if target_path:
-        print(f"Alvo específico    : {target_path}")
+    if target_paths:
+        if isinstance(target_paths, str):
+            target_paths = [target_paths]
+        print(f"Alvos específicos  : {target_paths}")
     
     print(f"Arquivos de debug (.md/.yaml) : {'Sim' if gerar_arquivos_de_debug else 'Não'}")
     print()
@@ -669,29 +671,30 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
     a_compilar = []
     a_preservar = []
 
-    if target_path:
-        # Resolve o caminho do alvo para comparação
-        target_abs = Path(target_path).resolve()
-        # Se o caminho não existe como está, tenta prefixar com database/
-        if not target_abs.exists() and not Path(target_path).is_absolute():
-            target_abs = (ROOT_DIR / "database" / target_path).resolve()
+    if target_paths:
+        target_abs_list = []
+        for t in target_paths:
+            t_abs = Path(t).resolve()
+            if not t_abs.exists() and not Path(t).is_absolute():
+                t_abs = (ROOT_DIR / "database" / t).resolve()
+            target_abs_list.append(t_abs)
 
-        encontrado_no_db = False
         for d, data in todos_croquis:
-            if d.resolve() == target_abs:
+            d_res = d.resolve()
+            if d_res in target_abs_list:
                 a_compilar.append((d, data))
-                encontrado_no_db = True
+                target_abs_list.remove(d_res)
             else:
                 a_preservar.append((d, data))
         
-        if not encontrado_no_db:
-            # Tenta carregar como croqui externo
-            data = carregar_um_croqui(target_abs)
+        # Sobraram alvos que não estão no database oficial, tentar carregar como externos
+        for t_abs in target_abs_list:
+            data = carregar_um_croqui(t_abs)
             if data:
                 print(f"  Alvo externo identificado: {data['id']}")
-                a_compilar.append((target_abs, data))
+                a_compilar.append((t_abs, data))
             else:
-                raise RuntimeError(f"Alvo '{target_path}' não encontrado ou não é um croqui válido (falta croqui.yaml com 'id').")
+                raise RuntimeError(f"Alvo '{t_abs}' não encontrado ou não é um croqui válido (falta croqui.yaml com 'id').")
     else:
         if not todos_croquis:
             print("Nenhum croqui encontrado em database/. Nada a fazer.")
@@ -702,7 +705,7 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
     dados_anteriores = carregar_dados_anteriores(GENERATED_DIR / "indice.binarypb")
 
     # 4. Preparar pasta gerada (limpa tudo se não houver alvo específico)
-    preparar_generated(limpar=(target_path is None))
+    preparar_generated(limpar=(not target_paths))
 
     # 5. Compilar os selecionados
     compilados_novos, erros = passo_a_compilar_croquis(a_compilar, force_thumbnails=force_thumbnails, gerar_arquivos_de_debug=gerar_arquivos_de_debug, verbose=verbose)
@@ -719,7 +722,7 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
     compilados_preservados = []
     preservados_metadados = []
 
-    if target_path:
+    if target_paths:
         # Em deploy seletivo, preservamos tudo que já estava no índice e não é o alvo novo
         ids_novos = {c[0] for c in compilados_novos}
         for croqui_id, resumo in dados_anteriores.items():
@@ -746,10 +749,10 @@ def deploy(output_dir: Path, target_path: str = None, force_thumbnails: bool = F
     if not compilados_finais_para_checksum and not preservados_metadados:
         print("Aviso: Nenhum croqui encontrado para compilar ou preservar.")
         # Se for deploy total, talvez seja erro. Se for específico, avisamos.
-        if not target_path:
+        if not target_paths:
             return
         else:
-            raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_path}")
+            raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_paths}")
 
     checksums = passo_b_calcular_checksums(compilados_finais_para_checksum, verbose=verbose)
     indice = passo_c_gerar_indice(
@@ -845,10 +848,11 @@ def create_parser():
         description="Compila todos os croquis (ou um específico) e gera o indice."
     )
     parser.add_argument(
-        "croqui_caminho",
-        nargs="?",
+        "--target",
+        "-t",
+        nargs="+",
         default=None,
-        help="Caminho opcional para um croqui específico (ex: database/meu_croqui). Se omitido, processa todos.",
+        help="Caminhos para croquis específicos (ex: database/meu_croqui). Se omitido, processa todos.",
     )
     parser.add_argument(
         "--output-dir",
@@ -901,7 +905,7 @@ if __name__ == "__main__":
     try:
         deploy(
             output_dir, 
-            target_path=args.croqui_caminho, 
+            target_paths=args.target, 
             force_thumbnails=args.force_thumbnails,
             gerar_arquivos_de_debug=args.arquivos_de_debug,
             is_producao=args.producao,

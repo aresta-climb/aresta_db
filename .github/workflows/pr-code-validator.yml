@@ -1,0 +1,28 @@
+name: Validador de Código (Unit Tests)
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'database/**'
+      - '**.md'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+          
+      - name: Run Pytest
+        run: PYTHONPATH=. pytest -n 4

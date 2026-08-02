@@ -36,7 +36,7 @@ Corpo do arquivo.
         "caminho_imagem_mapa": "imagens/mapa.webp",
         "dimensoes_imagem": {"largura": 500, "altura": 500},
         "pontos_de_interesse": [
-            {"id": "1", "label": "Via Teste", "box": {"x": 50, "y": 50, "comprimento": 50, "largura": 50}}
+            {"id": "1", "label": "Via Teste", "retangulo": {"x": 50, "y": 50, "comprimento": 50, "largura": 50}}
         ]
     }
     json_file = raw_mapas_dir / "mapa.json"
@@ -54,8 +54,8 @@ Corpo do arquivo.
     
     poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
     assert poi1["id"] == "1"
-    assert poi1["box"]["x"] == 50
-    assert poi1["box"]["y"] == 50
+    assert poi1["retangulo"]["x"] == 50
+    assert poi1["retangulo"]["y"] == 50
 
 def test_finalizacao_error_on_legacy_format(tmp_path):
     pico_path = tmp_path / "pico_erro"
@@ -115,7 +115,7 @@ mapas:
         "caminho_imagem_mapa": "imagens/mapas_gerais/p0.webp",
         "dimensoes_imagem": {"largura": 1024, "altura": 768},
         "pontos_de_interesse": [
-            {"id": "Setor_A", "label": "Setor A", "box": {"x": 100, "y": 100, "comprimento": 50, "largura": 50}}
+            {"id": "Setor_A", "label": "Setor A", "retangulo": {"x": 100, "y": 100, "comprimento": 50, "largura": 50}}
         ]
     }
     json_file = raw_mapas_dir / "p0.json"
@@ -130,4 +130,4 @@ mapas:
     
     poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
     assert poi1["id"] == "Setor_A"
-    assert poi1["box"]["x"] == 100
+    assert poi1["retangulo"]["x"] == 100

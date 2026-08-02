@@ -1,0 +1,52 @@
+name: Integrador de Pull Requests
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  integrate:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_APP_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+          
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: database/**
+          dir_names: true
+          dir_names_max_depth: 2
+          
+      - name: Run Deploy Generated
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          PYTHONPATH=. python scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
+          
+      - name: Commit and Push
+        run: |
+          git config user.name "Aresta Bot Integrador"
+          git config user.email "bot@aresta.climb"
+          git add generated/
+          git commit -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
+          git push
+          
+      - name: Auto Merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_APP_TOKEN }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} --merge --auto
