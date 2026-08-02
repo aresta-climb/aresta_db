@@ -63,12 +63,14 @@ mapas:
   - escalada: La Cucaracha
     ids:
     - '1'
-  - escalada: (via inacabada) Bem Vindo ao Bosque
+  - escalada: (via inacabada 1) Bem Vindo ao Bosque
     ids:
     - '2'
-  - escalada: (via inacabada)
+    setor: Setor Bosque
+  - escalada: (via inacabada 2)
     ids:
     - '3'
+    setor: Setor Bosque
   - escalada: Malandro é Malandro
     ids:
     - '4'
@@ -107,9 +109,10 @@ mapas:
   - escalada: La Cucaracha
     ids:
     - '1'
-  - escalada: (via inacabada) Bem Vindo ao Bosque
+  - escalada: (via inacabada 1) Bem Vindo ao Bosque
     ids:
     - '2'
+    setor: Setor Bosque
 - caminho_imagem_mapa: imagens/setor_bosque_p1_i1.webp
   largura_mapa: 916
   altura_mapa: 1155
@@ -133,9 +136,10 @@ mapas:
       y: 1092
       raio: 15
   referencias:
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 2)
     ids:
     - '3'
+    setor: Setor Bosque
   - escalada: Malandro é Malandro
     ids:
     - '4'
@@ -191,11 +195,11 @@ escaladas:
     quantidade_protecoes_parada: 2
     data_abertura: '2021'
 - via_esportiva:
-    nome: (via inacabada) Bem Vindo ao Bosque
+    nome: (via inacabada 1) Bem Vindo ao Bosque
     dificuldade: INDEFINIDO
     data_abertura: '2020'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: (via inacabada 2)
     dificuldade: INDEFINIDO
     data_abertura: '2020'
 - via_esportiva:

@@ -78,12 +78,14 @@ mapas:
   - escalada: La Mano de Dios
     ids:
     - '2'
-  - escalada: Projeto (sem nome)
+  - escalada: Projeto (sem nome 1)
     ids:
     - '3'
-  - escalada: Projeto (sem nome)
+    setor: Setor Bombonera
+  - escalada: Projeto (sem nome 2)
     ids:
     - '4'
+    setor: Setor Bombonera
   - escalada: Barra Brava
     ids:
     - '5'
@@ -99,9 +101,10 @@ mapas:
   - escalada: Boca Junior (variante)
     ids:
     - 8-9
-  - escalada: (via inacabada) Superclassicos
+  - escalada: (via inacabada 3) Superclassicos
     ids:
     - '10'
+    setor: Setor Bombonera
   - escalada: San Lourenzo
     ids:
     - '11'
@@ -122,12 +125,12 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 - via_esportiva:
-    nome: Projeto (sem nome)
+    nome: Projeto (sem nome 1)
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
 - via_esportiva:
-    nome: Projeto (sem nome)
+    nome: Projeto (sem nome 2)
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
@@ -166,7 +169,7 @@ escaladas:
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
-    nome: (via inacabada) Superclassicos
+    nome: (via inacabada 3) Superclassicos
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 1
 - via_esportiva:

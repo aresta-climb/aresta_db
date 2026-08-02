@@ -63,18 +63,21 @@ mapas:
   - escalada: Gado impresso (com abelha)
     ids:
     - '3'
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 4)
     ids:
     - '4'
+    setor: Setor Esquerda
   - escalada: Jaratataca
     ids:
     - '5'
-  - escalada: (sem nome)
+  - escalada: (sem nome 3)
     ids:
     - '6'
-  - escalada: (via inacabada)
+    setor: Setor Esquerda
+  - escalada: (via inacabada 5)
     ids:
     - '7'
+    setor: Setor Esquerda
   - escalada: Teoria dos jogos
     ids:
     - '8'
@@ -150,18 +153,21 @@ mapas:
       y: 1104
       raio: 15
   referencias:
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 4)
     ids:
     - '4'
+    setor: Setor Esquerda
   - escalada: Jaratataca
     ids:
     - '5'
-  - escalada: (sem nome)
+  - escalada: (sem nome 3)
     ids:
     - '6'
-  - escalada: (via inacabada)
+    setor: Setor Esquerda
+  - escalada: (via inacabada 5)
     ids:
     - '7'
+    setor: Setor Esquerda
   - escalada: Teoria dos jogos
     ids:
     - '8'
@@ -187,7 +193,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     data_abertura: '2022'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: (via inacabada 4)
     dificuldade: INDEFINIDO
     quantidade_protecoes_parada: 2
     data_abertura: '2022'
@@ -199,13 +205,13 @@ escaladas:
     quantidade_protecoes_parada: 2
     data_abertura: '2022'
 - via_esportiva:
-    nome: (sem nome)
+    nome: (sem nome 3)
     dificuldade: BR_8C_BARRA_9A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     data_abertura: '2022'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: (via inacabada 5)
     dificuldade: INDEFINIDO
     data_abertura: '2022'
 - via_esportiva:
