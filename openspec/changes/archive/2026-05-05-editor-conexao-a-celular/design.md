@@ -1,6 +1,6 @@
 ## Contexto
 
-O Aresta Editor precisa de um mecanismo de visualização rápida em dispositivos móveis. Atualmente, os croquis são compilados localmente, mas não há um canal de distribuição imediato para o aplicativo móvel durante a edição experimental. A solução proposta utiliza um servidor web local e QR Codes para facilitar a conexão entre o PC do autor e seu celular.
+O Editor Aresta precisa de um mecanismo de visualização rápida em dispositivos móveis. Atualmente, os croquis são compilados localmente, mas não há um canal de distribuição imediato para o aplicativo móvel durante a edição experimental. A solução proposta utiliza um servidor web local e QR Codes para facilitar a conexão entre o PC do autor e seu celular.
 
 ## Objetivos / Não-Objetivos
 

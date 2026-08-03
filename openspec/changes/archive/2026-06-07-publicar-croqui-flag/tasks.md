@@ -6,7 +6,7 @@
 - [x] 1.4 Adicionar o parâmetro `is_producao: bool = True` na função `deploy()` e passá-lo para os passos sequenciais se necessário em `scripts/deploy_generated.py`.
 - [x] 1.5 Modificar `passo_c_gerar_indice` para filtrar `compilados` de forma que apenas aqueles onde `croqui_data.get('publicar_croqui', False) == True` sejam inclusos quando `is_producao` for `True`.
 
-## 2. Compatibilidade no Aresta Editor
+## 2. Compatibilidade no Editor Aresta
 
 - [x] 2.1 Atualizar o componente local do editor (`editor/core/croqui_experimental.py`) para invocar a função `deploy()` contendo o argumento explícito `is_producao=False`.
 

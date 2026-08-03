@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor manipula um estado central (`Croqui` em Protobuf) através de três abas distintas: Dados (formulários dinâmicos baseados no proto), Imagens (sistema de arquivos) e Mapas (visões gráficas e markdown). Atualmente, a edição muta os dados diretamente. Não há suporte para Undo/Redo (Desfazer/Refazer). Widgets nativos do Qt (como `QLineEdit` e `QTextEdit`) possuem pilhas de histórico locais, mas elas são desconectadas da árvore de dados estruturados e falham em suportar operações estruturais (ex: deletar um nó).
+O Editor Aresta manipula um estado central (`Croqui` em Protobuf) através de três abas distintas: Dados (formulários dinâmicos baseados no proto), Imagens (sistema de arquivos) e Mapas (visões gráficas e markdown). Atualmente, a edição muta os dados diretamente. Não há suporte para Undo/Redo (Desfazer/Refazer). Widgets nativos do Qt (como `QLineEdit` e `QTextEdit`) possuem pilhas de histórico locais, mas elas são desconectadas da árvore de dados estruturados e falham em suportar operações estruturais (ex: deletar um nó).
 
 ## Goals / Non-Goals
 

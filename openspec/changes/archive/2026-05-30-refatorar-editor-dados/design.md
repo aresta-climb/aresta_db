@@ -1,6 +1,6 @@
 ## Context
 
-Atualmente, o Aresta Editor exibe uma representação 1:1 de cada campo do Protobuf `Croqui` na árvore de navegação do lado esquerdo. Quando o usuário seleciona um campo, apenas esse campo individual é exibido e pode ser editado na área do formulário à direita. Essa abordagem torna a edição muito granular, poluindo a visualização da árvore com campos primitivos e forçando o usuário a clicar constantemente para preencher dados correlacionados de uma mesma entidade (ex: um Pico ou um Setor).
+Atualmente, o Editor Aresta exibe uma representação 1:1 de cada campo do Protobuf `Croqui` na árvore de navegação do lado esquerdo. Quando o usuário seleciona um campo, apenas esse campo individual é exibido e pode ser editado na área do formulário à direita. Essa abordagem torna a edição muito granular, poluindo a visualização da árvore com campos primitivos e forçando o usuário a clicar constantemente para preencher dados correlacionados de uma mesma entidade (ex: um Pico ou um Setor).
 
 ## Goals / Non-Goals
 

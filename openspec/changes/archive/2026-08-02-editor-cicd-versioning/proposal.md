@@ -14,7 +14,7 @@ Acabar com a compilação manual do editor na máquina dos desenvolvedores e gar
 
 ### New Capabilities
 - `editor-cicd-pipeline`: A esteira de integração e entrega contínua (GitHub Actions) responsável por gerenciar versões e compilar o editor.
-- `editor-versioning-module`: O arquivo ou módulo Python que expõe passivamente os atributos de versão compilada para o código-fonte do Aresta Editor.
+- `editor-versioning-module`: O arquivo ou módulo Python que expõe passivamente os atributos de versão compilada para o código-fonte do Editor Aresta.
 
 ### Modified Capabilities
 

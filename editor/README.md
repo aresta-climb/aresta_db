@@ -1,6 +1,6 @@
-# Aresta Editor
+# Editor Aresta
 
-O módulo `editor` implementa a interface gráfica principal do Aresta Editor.
+O módulo `editor` implementa a interface gráfica principal do Editor Aresta.
 Para garantir estabilidade, testabilidade e separação de responsabilidades (evitando loops infinitos e bugs de estado na UI), adotamos uma arquitetura MVC (Model-View-Controller) rigorosa orientada a comandos de histórico.
 
 ## Estrutura de Diretórios

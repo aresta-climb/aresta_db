@@ -5,7 +5,7 @@
 
 ## 2. Gerenciamento de Arquivos Locais
 
-- [x] 2.1 Criar utilitário no Aresta Editor para inicializar e gerenciar a pasta `croquis_experimentais` no storage local.
+- [x] 2.1 Criar utilitário no Editor Aresta para inicializar e gerenciar a pasta `croquis_experimentais` no storage local.
 - [x] 2.2 Criar função para criar o diretório e sub-diretórios (`database/`, `compilado/`) a partir dos metadados de um croqui experimental.
 
 ## 3. Controle de Versão

@@ -4,7 +4,7 @@
 TBD - created by archiving change migrar-dados-mvc. Update Purpose after archive.
 ## Requirements
 ### Requirement: Estrutura de Diretórios MVC
-O módulo `editor` do Aresta Editor DEVE implementar uma estrutura estrita baseada no padrão Model-View-Controller orientada a Comandos. O código de interface antiga que não adere a este padrão DEVE ser movido para um diretório de isolamento legado.
+O módulo `editor` do Editor Aresta DEVE implementar uma estrutura estrita baseada no padrão Model-View-Controller orientada a Comandos. O código de interface antiga que não adere a este padrão DEVE ser movido para um diretório de isolamento legado.
 
 #### Scenario: Organização do Código Fonte
 - **WHEN** um agente ou desenvolvedor adicionar ou modificar código para a aba de Dados

@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor atualmente gera formulários e visualizações para editar os dados de croqui baseado nas definições do `croqui.proto`. Para tornar o editor genérico e customizável, precisamos injetar opções nas mensagens e nos campos do protobuf. A equipe optou por usar custom options do Protobuf, estendendo `FieldOptions` e `MessageOptions`.
+O Editor Aresta atualmente gera formulários e visualizações para editar os dados de croqui baseado nas definições do `croqui.proto`. Para tornar o editor genérico e customizável, precisamos injetar opções nas mensagens e nos campos do protobuf. A equipe optou por usar custom options do Protobuf, estendendo `FieldOptions` e `MessageOptions`.
 
 ## Goals / Non-Goals
 
@@ -10,7 +10,7 @@ O Aresta Editor atualmente gera formulários e visualizações para editar os da
 - Garantir que as opções estejam corretas quanto à tipagem e numeração dos IDs de extensão.
 
 **Non-Goals:**
-- Implementar a lógica de leitura e processamento dessas opções no Aresta Editor (isso é escopo de desenvolvimento do próprio editor e não desta change do Protobuf).
+- Implementar a lógica de leitura e processamento dessas opções no Editor Aresta (isso é escopo de desenvolvimento do próprio editor e não desta change do Protobuf).
 
 ## Decisions
 

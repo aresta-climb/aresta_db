@@ -1,6 +1,6 @@
 ## Context
 
-O padrão MVC foi adotado para a camada de interface do Aresta Editor. Atualmente, a pasta `editor/views/` contém classes que quebram esse padrão ao realizar operações de banco de dados, storage direto e orquestração de workers (ex: `area_principal.py`, `tela_de_carregamento.py`, `dialogo_conexao_celular.py`, `dialogo_busca_croqui.py`).
+O padrão MVC foi adotado para a camada de interface do Editor Aresta. Atualmente, a pasta `editor/views/` contém classes que quebram esse padrão ao realizar operações de banco de dados, storage direto e orquestração de workers (ex: `area_principal.py`, `tela_de_carregamento.py`, `dialogo_conexao_celular.py`, `dialogo_busca_croqui.py`).
 
 ## Goals / Non-Goals
 

@@ -1,6 +1,6 @@
 ## Context
 
-O histórico de comandos `QUndoStack` do `Aresta Editor` hoje é gerido de modo que os comandos protobuf (no `WidgetEditorDados`) recebem uma string de caminho (path) para restaurarem o nó da árvore ativo ao serem desfeitos/refeitos. No entanto, se o usuário trocar de aba global (ex: de Dados para Mapas), o *undo* não trocará automaticamente para a aba "Dados" para mostrar o resultado da ação. Adicionalmente, os comandos do editor de Mapas (ex: `CmdMoverPonto`) não informam seu contexto e a tela não volta para o mapa quando desfeitos.
+O histórico de comandos `QUndoStack` do `Editor Aresta` hoje é gerido de modo que os comandos protobuf (no `WidgetEditorDados`) recebem uma string de caminho (path) para restaurarem o nó da árvore ativo ao serem desfeitos/refeitos. No entanto, se o usuário trocar de aba global (ex: de Dados para Mapas), o *undo* não trocará automaticamente para a aba "Dados" para mostrar o resultado da ação. Adicionalmente, os comandos do editor de Mapas (ex: `CmdMoverPonto`) não informam seu contexto e a tela não volta para o mapa quando desfeitos.
 
 ## Goals / Non-Goals
 

@@ -7,7 +7,7 @@ Atualmente, qualquer croqui no repositório é incluído no índice compilado e 
 - Adição de um campo booleano `publicar_croqui` à mensagem `Croqui` do Protobuf (`croqui.proto`).
 - O script `deploy_generated.py` passa a aceitar a flag `--producao` (ativada por padrão).
 - O índice (`indice.binarypb` e `.yaml`) só incluirá croquis onde `publicar_croqui` for `true`, desde que o deploy tenha rodado com `--producao`.
-- No ambiente do editor (Aresta Editor), as builds locais rodarão com `--no-producao` para garantir que o croqui em desenvolvimento esteja acessível no preview, independentemente da flag de publicação.
+- No ambiente do editor (Editor Aresta), as builds locais rodarão com `--no-producao` para garantir que o croqui em desenvolvimento esteja acessível no preview, independentemente da flag de publicação.
 - Criação de um script de migração (one-off) que varre todos os `croqui.yaml` do database e seta `publicar_croqui: true` se possuírem `revisado_manualmente: true`.
 
 ## Capabilities

@@ -72,7 +72,7 @@ class GerenciadorCroquiExperimental:
         tree = index.write_tree()
         
         # Assinatura (usando autor generico já que é só local)
-        autor = pygit2.Signature("Aresta Editor", "editor@aresta.local")
+        autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
         
         repo.create_commit(
             "HEAD", # nome da referência a ser atualizada
@@ -127,7 +127,7 @@ class GerenciadorCroquiExperimental:
             index.write()
             
             tree = index.write_tree()
-            autor = pygit2.Signature("Aresta Editor", "editor@aresta.local")
+            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
             head = repo.head.target
             repo.create_commit(
                 "HEAD",
@@ -182,7 +182,7 @@ class GerenciadorCroquiExperimental:
             index.write()
             
             tree = index.write_tree()
-            autor = pygit2.Signature("Aresta Editor", "editor@aresta.local")
+            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
             
             # O criar_croqui já criou o primeiro commit. 
             # Este será o segundo commit (Importação).
@@ -250,7 +250,7 @@ class GerenciadorCroquiExperimental:
                 index = repo.index
                 index.write()
                 tree = index.write_tree()
-                autor = pygit2.Signature("Aresta Editor", "editor@aresta.local")
+                autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
                 repo.create_commit("HEAD", autor, autor, "Inicialização automática após importação", tree, [])
             else:
                 repo = pygit2.Repository(str(caminho_raiz))
@@ -270,7 +270,7 @@ class GerenciadorCroquiExperimental:
             index.write()
             
             tree = index.write_tree()
-            autor = pygit2.Signature("Aresta Editor", "editor@aresta.local")
+            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
             
             # Pega o head atual para ser o pai do novo commit
             head = repo.head.target

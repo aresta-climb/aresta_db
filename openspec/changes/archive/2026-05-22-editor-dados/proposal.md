@@ -1,6 +1,6 @@
 ## Why
 
-O editor de dados é o coração do Aresta Editor, permitindo que os autores modifiquem a estrutura do croqui (`croqui.proto`) através de uma interface rica, amigável e validada visualmente. Sem essa interface, a modificação exigiria a edição manual de arquivos textuais de forma complexa e propensa a erros, anulando as vantagens do aplicativo desktop.
+O editor de dados é o coração do Editor Aresta, permitindo que os autores modifiquem a estrutura do croqui (`croqui.proto`) através de uma interface rica, amigável e validada visualmente. Sem essa interface, a modificação exigiria a edição manual de arquivos textuais de forma complexa e propensa a erros, anulando as vantagens do aplicativo desktop.
 
 ## What Changes
 

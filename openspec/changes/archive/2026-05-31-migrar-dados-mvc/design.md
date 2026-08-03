@@ -1,6 +1,6 @@
 ## Context
 
-A aba de Dados do Aresta Editor (liderada pelo `WidgetEditorDados`) atualmente mistura a lógica de interface do usuário, a estruturação dos dados (Protobuf) e a geração de comandos de histórico (`QUndoCommand`). Esse acoplamento causa fragilidade (risco de loops de eventos), torna a inclusão de testes complexa e dificulta a evolução do código. A refatoração MVC (Model-View-Controller) visa isolar as responsabilidades de forma definitiva e serve como projeto-piloto para uma futura migração de outras abas mais complexas como Mapas e Imagens.
+A aba de Dados do Editor Aresta (liderada pelo `WidgetEditorDados`) atualmente mistura a lógica de interface do usuário, a estruturação dos dados (Protobuf) e a geração de comandos de histórico (`QUndoCommand`). Esse acoplamento causa fragilidade (risco de loops de eventos), torna a inclusão de testes complexa e dificulta a evolução do código. A refatoração MVC (Model-View-Controller) visa isolar as responsabilidades de forma definitiva e serve como projeto-piloto para uma futura migração de outras abas mais complexas como Mapas e Imagens.
 
 ## Goals / Non-Goals
 
@@ -29,4 +29,4 @@ A aba de Dados do Aresta Editor (liderada pelo `WidgetEditorDados`) atualmente m
 - **[Risco] Mover as views antigas para `legacy_views` pode gerar dependências circulares ou quebrar importações de terceiros.**
   - **Mitigação**: O commit da migração de pastas cuidará estritamente das importações no `area_principal.py` (o orquestrador) e nos arquivos do módulo. Testes rigorosos de carga de sistema devem ser realizados.
 - **[Risco] A curva de aprendizado da barreira de encapsulamento em Python pode confundir contribuidores.**
-  - **Mitigação**: Adição obrigatória dos arquivos `README.md` descritivos servirá como um manifesto de "como programar no Aresta Editor" em cada pasta do MVC.
+  - **Mitigação**: Adição obrigatória dos arquivos `README.md` descritivos servirá como um manifesto de "como programar no Editor Aresta" em cada pasta do MVC.

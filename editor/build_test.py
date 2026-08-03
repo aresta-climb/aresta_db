@@ -34,7 +34,7 @@ def test_executar_build_configura_icone_corretamente():
             assert argumentos_passados[idx + 1] == caminho_esperado
             
             # 4. Verifica se o nome do executável está correto
-            assert "ArestaEditor" in argumentos_passados
+            assert "EditorAresta" in argumentos_passados
 
 def test_executar_build_falha_se_main_nao_existe():
     """Valida se o build interrompe se o main.py sumir."""

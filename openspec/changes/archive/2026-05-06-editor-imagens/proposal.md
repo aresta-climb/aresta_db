@@ -1,6 +1,6 @@
 ## Why
 
-Atualmente, o script `scripts/editar_imagens.py` funciona apenas de forma independente, o que fragmenta a experiência do usuário ao editar um croqui no aplicativo Aresta Editor. Integrar esta funcionalidade diretamente na área principal do editor (aba "Imagens") aumentará a produtividade e centralizará as ferramentas de edição.
+Atualmente, o script `scripts/editar_imagens.py` funciona apenas de forma independente, o que fragmenta a experiência do usuário ao editar um croqui no aplicativo Editor Aresta. Integrar esta funcionalidade diretamente na área principal do editor (aba "Imagens") aumentará a produtividade e centralizará as ferramentas de edição.
 
 ## What Changes
 

@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor permite que usuários criem e editem croquis ("croquis experimentais") localmente e os enviem ao repositório principal `aresta-climb/aresta_db` via Pull Request. A implementação original tinha falhas de separação de responsabilidades (MVC) e de permissões de Git/GitHub (tentava interagir com o repositório base independentemente do usuário ter um fork ou não). Adicionalmente, estamos adequando o fluxo aos **Princípios Inegociáveis de Desenvolvimento** para garantir TDD e cobertura 100%.
+O Editor Aresta permite que usuários criem e editem croquis ("croquis experimentais") localmente e os enviem ao repositório principal `aresta-climb/aresta_db` via Pull Request. A implementação original tinha falhas de separação de responsabilidades (MVC) e de permissões de Git/GitHub (tentava interagir com o repositório base independentemente do usuário ter um fork ou não). Adicionalmente, estamos adequando o fluxo aos **Princípios Inegociáveis de Desenvolvimento** para garantir TDD e cobertura 100%.
 
 ## Goals / Non-Goals
 

@@ -1,6 +1,6 @@
 ## Contexto
 
-Atualmente, o `scripts/editar_mapas.py` é um aplicativo PyQt6 completo que gerencia sua própria janela, carregamento de arquivos e lógica de edição. Para integrá-lo ao Aresta Editor, precisamos desacoplar a lógica de interface (Widgets/GraphicsItems) da lógica de aplicação (MainWindow) e da lógica de dados (manipulação de YAML).
+Atualmente, o `scripts/editar_mapas.py` é um aplicativo PyQt6 completo que gerencia sua própria janela, carregamento de arquivos e lógica de edição. Para integrá-lo ao Editor Aresta, precisamos desacoplar a lógica de interface (Widgets/GraphicsItems) da lógica de aplicação (MainWindow) e da lógica de dados (manipulação de YAML).
 
 ## Objetivos / Não-Objetivos
 

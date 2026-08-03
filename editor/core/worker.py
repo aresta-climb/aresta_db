@@ -296,7 +296,7 @@ class TarefaPublicacao(QThread):
                 repo.create_commit(
                     'refs/heads/' + nome_branch,
                     autor, autor,
-                    f"Atualização do croqui {self.id_croqui} via Aresta Editor",
+                    f"Atualização do croqui {self.id_croqui} via Editor Aresta",
                     tree,
                     [repo.head.peel().id]
                 )

@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor é atualmente compilado manualmente a partir de scripts locais e distribuído informalmente para a equipe. Isso resulta em incerteza quanto ao estado real do código no momento em que um binário é gerado, e propicia a distribuição de versões sem um controle rígido de histórico (tags Git). A ausência dessa fundação impede a futura implantação de lógicas como o bloqueio da ferramenta quando desatualizada.
+O Editor Aresta é atualmente compilado manualmente a partir de scripts locais e distribuído informalmente para a equipe. Isso resulta em incerteza quanto ao estado real do código no momento em que um binário é gerado, e propicia a distribuição de versões sem um controle rígido de histórico (tags Git). A ausência dessa fundação impede a futura implantação de lógicas como o bloqueio da ferramenta quando desatualizada.
 
 ## Goals / Non-Goals
 

@@ -22,7 +22,7 @@ def executar_build(force_icon_generation=False):
         str(ARQUIVO_MAIN),
         "--onefile",
         "--windowed",
-        "--name", "ArestaEditor",
+        "--name", "EditorAresta",
         "--clean",
         "--noconfirm",
         "--collect-all", "pygit2",
@@ -103,7 +103,7 @@ def executar_testes():
     sys.exit(resultado)
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Script de build e testes do Aresta Editor")
+    parser = argparse.ArgumentParser(description="Script de build e testes do Editor Aresta")
     parser.add_argument(
         "modo", 
         choices=["test", "dist"], 

@@ -30,7 +30,7 @@ O sistema DEVE prover indicativos visuais de que o aplicativo está rodando em m
 
 #### Scenario: App window displays Local Mode
 - **WHEN** a `JanelaPrincipal` for carregada utilizando o `LocalRepoWorkspace`
-- **THEN** o título da janela ou a barra superior deve exibir claramente a tag "Local Mode" (ex: `Aresta Editor - [Local Mode] - Nome do Croqui`)
+- **THEN** o título da janela ou a barra superior deve exibir claramente a tag "Local Mode" (ex: `Editor Aresta - [Local Mode] - Nome do Croqui`)
 
 #### Scenario: Publish button is disabled
 - **WHEN** a `JanelaPrincipal` for carregada utilizando o `LocalRepoWorkspace`

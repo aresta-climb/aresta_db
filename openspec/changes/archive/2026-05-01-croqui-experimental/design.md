@@ -1,6 +1,6 @@
 ## Context
 
-Atualmente o Aresta lida com croquis dentro do repositório `aresta_db` estruturado e versionado via Git. Para permitir que o Aresta Editor (desktop) funcione como uma ferramenta local e offline, os croquis criados pelo usuário não devem impactar diretamente a base do repositório antes de estarem prontos. A proposta estabelece um formato de "Croqui Experimental", salvo no local storage do usuário e auto-contido.
+Atualmente o Aresta lida com croquis dentro do repositório `aresta_db` estruturado e versionado via Git. Para permitir que o Editor Aresta (desktop) funcione como uma ferramenta local e offline, os croquis criados pelo usuário não devem impactar diretamente a base do repositório antes de estarem prontos. A proposta estabelece um formato de "Croqui Experimental", salvo no local storage do usuário e auto-contido.
 
 ## Goals / Non-Goals
 

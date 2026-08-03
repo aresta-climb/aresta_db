@@ -10,7 +10,7 @@
 
 ## 3. Interface Gráfica Inicial (PyQt6)
 
-- [ ] 3.1 Criar classe da janela principal (`QMainWindow`) com tamanho padrão e título "Aresta Editor"
+- [ ] 3.1 Criar classe da janela principal (`QMainWindow`) com tamanho padrão e título "Editor Aresta"
 - [ ] 3.2 Implementar o layout esquerdo com os botões "Novo croqui", "Importar croqui experimental" e "Editar croqui oficial"
 - [ ] 3.3 Implementar a visão direita para lista de "Croquis experimentais" vazia, com títulos e listagem inicial
 - [ ] 3.4 Conectar inicialização da GUI ao arquivo principal de execução (`main.py` ou similar)

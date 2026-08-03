@@ -1,6 +1,6 @@
 ## Why
 
-O fluxo atual de criação de Pull Requests no Aresta Editor apresenta erros (como HTTP 500 no GitHub) devido a problemas com o mapeamento de permissões e tentativas de push direto no repositório base. Além disso, a implementação atual em `legacy_views/area_principal.py` é bloqueante de forma incorreta e não segue um padrão de separação de responsabilidades (MVC). Implementar este fluxo corretamente é o passo final crítico para fechar o ciclo de desenvolvimento do editor. 
+O fluxo atual de criação de Pull Requests no Editor Aresta apresenta erros (como HTTP 500 no GitHub) devido a problemas com o mapeamento de permissões e tentativas de push direto no repositório base. Além disso, a implementação atual em `legacy_views/area_principal.py` é bloqueante de forma incorreta e não segue um padrão de separação de responsabilidades (MVC). Implementar este fluxo corretamente é o passo final crítico para fechar o ciclo de desenvolvimento do editor. 
 
 Adicionalmente, esta refatoração tem o objetivo explícito de alinhar o código com os **Princípios Inegociáveis de Desenvolvimento** (PRINCIPIOS.md), aplicando TDD (Test-Driven Development), focando primeiramente em testes de integração, assegurando 100% de cobertura de testes unitários para a nova lógica, além de padronizar a documentação (docstrings) inteiramente em português.
 

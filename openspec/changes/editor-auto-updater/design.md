@@ -25,11 +25,11 @@ A arquitetura de distribuição atual baseia-se num executável `--onefile` gera
 
 2. **Auto-Install via Cópia Segura e Atalho**
    - *Rationale*: Evitar a "Síndrome da Pasta Downloads".
-   - *Abordagem*: A biblioteca injeta validação de path. Estando fora do canônico (`%LOCALAPPDATA%\ArestaEditor`), copia seu binário para o destino, salva `cleanup_folder.txt`, cria um atalho (`.lnk`) e reinicia. Isso será extensivamente testado com pastas temporárias (`tempfile`).
+   - *Abordagem*: A biblioteca injeta validação de path. Estando fora do canônico (`%LOCALAPPDATA%\EditorAresta`), copia seu binário para o destino, salva `cleanup_folder.txt`, cria um atalho (`.lnk`) e reinicia. Isso será extensivamente testado com pastas temporárias (`tempfile`).
 
 3. **Lixeira Estrita (Hardcoded Name)**
    - *Rationale*: Eliminar vulnerabilidade de apagamento acidental.
-   - *Abordagem*: A varredura atuará sob regra absoluta, adicionando sempre `ArestaEditor.old.exe` ao caminho.
+   - *Abordagem*: A varredura atuará sob regra absoluta, adicionando sempre `EditorAresta.old.exe` ao caminho.
 
 4. **Pré-Auth e Keyring Independente**
    - *Rationale*: Não instanciar Auth/Qt no momento rústico do Boot.

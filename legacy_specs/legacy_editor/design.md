@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor é uma aplicação desktop para edição de croquis de escalada, projetada para uso por contribuidores que não possuem ambiente de desenvolvimento. O aplicativo empacota o código em um executável fácil de instalar e usar.
+O Editor Aresta é uma aplicação desktop para edição de croquis de escalada, projetada para uso por contribuidores que não possuem ambiente de desenvolvimento. O aplicativo empacota o código em um executável fácil de instalar e usar.
 
 Nesta primeira etapa da implementação, o objetivo é criar a fundação da aplicação desktop usando a biblioteca PyQt6 para a interface gráfica e o PyInstaller para empacotar tudo em binários auto-suficientes. A aplicação deve realizar a inicialização criando uma pasta em diretório local para armazenar os dados e o repositório clonado via git. Em seguida, deve exibir uma tela inicial dividida em duas partes: botões para abrir novos croquis ("Novo croqui", "Importar croqui experimental", "Editar croqui oficial") e uma lista de croquis experimentais recentes para continuar a edição.
 

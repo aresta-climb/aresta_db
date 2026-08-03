@@ -24,7 +24,7 @@
 - [x] 4.1 Adicionar o job de build rodando no runner `windows-latest`.
 - [x] 4.2 Executar o setup do Python, instalar dependências e o PyInstaller.
 - [x] 4.3 Rodar a suite de testes (`pytest`) como step obrigatório do pipeline antes de gerar o binário, quebrando o CI caso a cobertura não seja adequada ou existam falhas.
-- [x] 4.4 Executar o comando do PyInstaller (ex: apontando para `editor/ArestaEditor.spec`) gerando o binário `--onefile`.
+- [x] 4.4 Executar o comando do PyInstaller (ex: apontando para `editor/EditorAresta.spec`) gerando o binário `--onefile`.
 
 ## 5. GitHub Actions: Release e Ciclo -dev
 

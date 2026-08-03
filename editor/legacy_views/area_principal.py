@@ -320,7 +320,7 @@ class JanelaPrincipal(QMainWindow):
     def atualizar_titulo(self):
         """Atualiza o título da janela baseado no workspace, nome do croqui e estado de modificação."""
         versao = QCoreApplication.applicationVersion()
-        titulo_base = f"Aresta Editor v{versao}" if versao else "Aresta Editor"
+        titulo_base = f"Editor Aresta v{versao}" if versao else "Editor Aresta"
         
         if self.workspace:
             tag = self.workspace.obter_tag_titulo()

@@ -6,7 +6,7 @@ from PyQt6.QtGui import QUndoStack, QUndoCommand
 
 class GerenciadorHistorico(QObject):
     """
-    Gerenciador global da pilha de desfazer/refazer (Undo/Redo) do Aresta Editor.
+    Gerenciador global da pilha de desfazer/refazer (Undo/Redo) do Editor Aresta.
     Utiliza o QUndoStack do PyQt6 sob o capô para manter o histórico unificado
     e emite sinais reativos para sincronização eficiente da UI.
     """

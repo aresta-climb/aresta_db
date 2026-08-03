@@ -1,10 +1,10 @@
 ## Why
 
-Atualmente, não existe uma maneira declarativa de definir como cada campo do protobuf `croqui.proto` deve ser apresentado no Aresta Editor (como labels de interface, tipos de conteúdo MIME, etc.). Esta mudança adicionará metadados via custom field/message options no protobuf, permitindo que a UI de edição de croquis seja gerada ou adaptada automaticamente de acordo com as especificações de cada campo.
+Atualmente, não existe uma maneira declarativa de definir como cada campo do protobuf `croqui.proto` deve ser apresentado no Editor Aresta (como labels de interface, tipos de conteúdo MIME, etc.). Esta mudança adicionará metadados via custom field/message options no protobuf, permitindo que a UI de edição de croquis seja gerada ou adaptada automaticamente de acordo com as especificações de cada campo.
 
 ## What Changes
 
-- Adiciona a option `ui_label` para personalizar o nome do campo exibido no aplicativo Aresta Editor.
+- Adiciona a option `ui_label` para personalizar o nome do campo exibido no aplicativo Editor Aresta.
 - Adiciona a option `conteudo` (enum: 'caminho' ou 'inline') para especificar onde o conteúdo de bytes ou string reside.
 - Adiciona a option `mime_type` para tipar os dados (ex: `text/markdown`, `text/markdown-yaml`, `application/protobuf`, `text/protobuf`).
 - Adiciona a option `mensagem` que define o tipo da mensagem para dados seralizados (como text/markdown-yaml ou text/protobuf).
@@ -22,4 +22,4 @@ Atualmente, não existe uma maneira declarativa de definir como cada campo do pr
 ## Impact
 
 - `aresta_api/proto/croqui.proto` será alterado para definir e utilizar as novas opções do protobuf.
-- O Aresta Editor deverá ser capaz de ler essas extensões (options) para gerar a UI.
+- O Editor Aresta deverá ser capaz de ler essas extensões (options) para gerar a UI.

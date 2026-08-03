@@ -1,6 +1,6 @@
 # Walkthrough - Editor Icons & Visual Identity
 
-Este documento resume as melhorias realizadas na identidade visual e na infraestrutura de ícones do Aresta Editor, garantindo uma experiência de usuário premium e uma distribuição profissional no Windows.
+Este documento resume as melhorias realizadas na identidade visual e na infraestrutura de ícones do Editor Aresta, garantindo uma experiência de usuário premium e uma distribuição profissional no Windows.
 
 ## Mudanças Realizadas
 
@@ -26,7 +26,7 @@ Este documento resume as melhorias realizadas na identidade visual e na infraest
 - Cobertura de build, visual e lógica de sincronização.
 
 ### Verificação Visual (Compilação)
-- O executável `ArestaEditor.exe` agora exibe o logo de montanha verde musgo em todas as resoluções do Windows.
+- O executável `EditorAresta.exe` agora exibe o logo de montanha verde musgo em todas as resoluções do Windows.
 - A Taskbar exibe o ícone correto durante a execução.
 
 ---

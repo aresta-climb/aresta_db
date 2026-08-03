@@ -1,6 +1,6 @@
 ## Why
 
-Atualmente, qualquer modificação feita pelo usuário na interface gráfica do Aresta Editor muta diretamente a estrutura de dados (`Croqui` em Protobuf). Isso impede que ações sejam revertidas (o famoso `Ctrl+Z`), resultando em uma péssima experiência de usuário onde um erro acidental (como deletar um setor inteiro) causa perda irreversível de trabalho. Precisamos de um esquema de Undo/Redo robusto e global para proteger os usuários contra erros de operação e melhorar o fluxo de edição de dados e de gráficos simultaneamente.
+Atualmente, qualquer modificação feita pelo usuário na interface gráfica do Editor Aresta muta diretamente a estrutura de dados (`Croqui` em Protobuf). Isso impede que ações sejam revertidas (o famoso `Ctrl+Z`), resultando em uma péssima experiência de usuário onde um erro acidental (como deletar um setor inteiro) causa perda irreversível de trabalho. Precisamos de um esquema de Undo/Redo robusto e global para proteger os usuários contra erros de operação e melhorar o fluxo de edição de dados e de gráficos simultaneamente.
 
 ## What Changes
 

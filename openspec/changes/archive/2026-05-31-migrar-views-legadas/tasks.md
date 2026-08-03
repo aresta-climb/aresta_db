@@ -22,4 +22,4 @@
 ## 4. Validação
 
 - [x] 4.1 Executar os testes localmente (`pytest`) para confirmar que nenhum import foi quebrado.
-- [x] 4.2 Executar o aplicativo Aresta Editor para validar que as telas continuam renderizando perfeitamente nas posições originais.
+- [x] 4.2 Executar o aplicativo Editor Aresta para validar que as telas continuam renderizando perfeitamente nas posições originais.

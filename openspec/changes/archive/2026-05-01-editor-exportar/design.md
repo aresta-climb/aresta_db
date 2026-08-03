@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor permite que usuários criem croquis experimentais locais. Para facilitar o compartilhamento desses croquis, é necessário um formato de arquivo portátil. O formato escolhido é o `.croqui`, que é um ZIP ofuscado. Atualmente, a funcionalidade de exportação está quebrada e a de importação incompleta.
+O Editor Aresta permite que usuários criem croquis experimentais locais. Para facilitar o compartilhamento desses croquis, é necessário um formato de arquivo portátil. O formato escolhido é o `.croqui`, que é um ZIP ofuscado. Atualmente, a funcionalidade de exportação está quebrada e a de importação incompleta.
 
 ## Goals / Non-Goals
 

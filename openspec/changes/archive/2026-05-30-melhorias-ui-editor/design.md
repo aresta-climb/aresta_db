@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor de Dados apresenta uma interface funcional, mas com oportunidade de polimento de usabilidade. A árvore de navegação possui um espaçamento horizontal excessivo que desperdiça tela. O gerenciamento de coleções repetidas exige que o usuário role formulários longos para encontrar os botões de controle de lista. Há também campos invisíveis (como marcadores de controle) sendo renderizados desnecessariamente nos formulários, e campos de entrada simples se estendem sem limites pela tela inteira.
+O Editor Aresta de Dados apresenta uma interface funcional, mas com oportunidade de polimento de usabilidade. A árvore de navegação possui um espaçamento horizontal excessivo que desperdiça tela. O gerenciamento de coleções repetidas exige que o usuário role formulários longos para encontrar os botões de controle de lista. Há também campos invisíveis (como marcadores de controle) sendo renderizados desnecessariamente nos formulários, e campos de entrada simples se estendem sem limites pela tela inteira.
 
 ## Goals / Non-Goals
 

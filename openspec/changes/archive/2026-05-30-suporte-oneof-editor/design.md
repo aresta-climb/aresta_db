@@ -1,6 +1,6 @@
 ## Context
 
-Atualmente, o Aresta Editor possui regras específicas acopladas para tratar wrappers de arquivo e sub-elementos com `oneof` (ex. `SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `ArquivoMarkdown`). Com a atualização do `croqui.proto`, o enum de formato `ONEOF_CONTEUDO` foi substituído pelo formato mais abrangente `ONEOF`, e novas opções customizadas de campo como `oneof_default` e `titulo_na_ui` foram adicionadas para flexibilizar a interface. O editor precisa ser adaptado de forma genérica para suportar estas novas regras.
+Atualmente, o Editor Aresta possui regras específicas acopladas para tratar wrappers de arquivo e sub-elementos com `oneof` (ex. `SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `ArquivoMarkdown`). Com a atualização do `croqui.proto`, o enum de formato `ONEOF_CONTEUDO` foi substituído pelo formato mais abrangente `ONEOF`, e novas opções customizadas de campo como `oneof_default` e `titulo_na_ui` foram adicionadas para flexibilizar a interface. O editor precisa ser adaptado de forma genérica para suportar estas novas regras.
 
 ## Goals / Non-Goals
 

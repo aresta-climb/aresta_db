@@ -1,6 +1,6 @@
 ## Context
 
-Atualmente o aplicativo Aresta Editor tem o `WidgetEditorMapas` implementado como um componente fortemente acoplado aos arquivos `.md` e ao seu próprio pipeline de undo/redo. Este design diverge da arquitetura principal do MVC do `aresta_db`, causando redundância de código e impossibilitando uma experiência contínua entre editar dados de formulário e posições no mapa para o usuário. 
+Atualmente o aplicativo Editor Aresta tem o `WidgetEditorMapas` implementado como um componente fortemente acoplado aos arquivos `.md` e ao seu próprio pipeline de undo/redo. Este design diverge da arquitetura principal do MVC do `aresta_db`, causando redundância de código e impossibilitando uma experiência contínua entre editar dados de formulário e posições no mapa para o usuário. 
 A arquitetura MVC já está estabelecida para o resto do aplicativo. Portanto, a intenção é portar o componente de edição visual para o padrão existente sem quebrar os recursos de mapeamento.
 
 ## Goals / Non-Goals

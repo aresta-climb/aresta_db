@@ -1,6 +1,6 @@
 ## Why
 
-Atualmente, a edição de pontos de interesse em mapas é realizada através de um script independente (`scripts/editar_mapas.py`). Integrar esta funcionalidade diretamente na janela principal do Aresta Editor proporciona uma experiência de usuário mais fluida e profissional, eliminando a necessidade de alternar entre diferentes janelas ou scripts para realizar tarefas comuns de edição de croquis.
+Atualmente, a edição de pontos de interesse em mapas é realizada através de um script independente (`scripts/editar_mapas.py`). Integrar esta funcionalidade diretamente na janela principal do Editor Aresta proporciona uma experiência de usuário mais fluida e profissional, eliminando a necessidade de alternar entre diferentes janelas ou scripts para realizar tarefas comuns de edição de croquis.
 
 ## What Changes
 

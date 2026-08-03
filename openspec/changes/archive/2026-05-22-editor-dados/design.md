@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor precisa de uma interface gráfica amigável para edição do `croqui.proto`. Atualmente, a manipulação do protobuf diretamente não é viável para os usuários finais. A proposta é criar um "Editor de Dados" que seja acessado via a barra lateral ("Dados") e que ofereça duas visões integradas: uma árvore de navegação de nós do protobuf à esquerda e um formulário de edição/ferramenta especializada à direita.
+O Editor Aresta precisa de uma interface gráfica amigável para edição do `croqui.proto`. Atualmente, a manipulação do protobuf diretamente não é viável para os usuários finais. A proposta é criar um "Editor de Dados" que seja acessado via a barra lateral ("Dados") e que ofereça duas visões integradas: uma árvore de navegação de nós do protobuf à esquerda e um formulário de edição/ferramenta especializada à direita.
 
 ## Goals / Non-Goals
 

@@ -1,6 +1,6 @@
 ## Why
 
-Para garantir integridade de dados ao longo do tempo. Quando usuários deixam o Aresta Editor aberto por longos períodos (dias seguidos), eles contornam qualquer mecanismo futuro de auto-update acionado na inicialização do aplicativo (boot). Isso cria uma brecha perigosa onde croquis podem ser publicados com esquemas estruturais desatualizados caso um release tenha sido feito durante o tempo de uso da pessoa. Inserir uma trava rígida (hard block) imediatamente antes do fluxo de publicação impede que dados corrompidos ou defasados entrem no banco de dados.
+Para garantir integridade de dados ao longo do tempo. Quando usuários deixam o Editor Aresta aberto por longos períodos (dias seguidos), eles contornam qualquer mecanismo futuro de auto-update acionado na inicialização do aplicativo (boot). Isso cria uma brecha perigosa onde croquis podem ser publicados com esquemas estruturais desatualizados caso um release tenha sido feito durante o tempo de uso da pessoa. Inserir uma trava rígida (hard block) imediatamente antes do fluxo de publicação impede que dados corrompidos ou defasados entrem no banco de dados.
 
 ## What Changes
 

@@ -6,8 +6,8 @@
 ## 2. Auto-Install e Lixeira Segura (TDD)
 
 - [ ] 2.1 Criar `lib/auto_updater/installer_test.py` definindo os cenários (Red): Execução fora da pasta canônica (precisa copiar), dentro da canônica, falha de permissão.
-- [ ] 2.2 Implementar `lib/auto_updater/installer.py` (Green e Refactor): Comparar paths, copiar via `shutil.copy2` para `%LOCALAPPDATA%\ArestaEditor`, criar atalho `.lnk` de forma nativa e segura, salvar `cleanup_folder.txt`. Alcançar 100% de cobertura via mocks (os/shutil).
-- [ ] 2.3 Criar `lib/auto_updater/cleaner_test.py` (Red): testar a leitura de `cleanup_folder.txt`, checagem de existência do binário obsoleto e matching estrito de `ArestaEditor.old.exe`.
+- [ ] 2.2 Implementar `lib/auto_updater/installer.py` (Green e Refactor): Comparar paths, copiar via `shutil.copy2` para `%LOCALAPPDATA%\EditorAresta`, criar atalho `.lnk` de forma nativa e segura, salvar `cleanup_folder.txt`. Alcançar 100% de cobertura via mocks (os/shutil).
+- [ ] 2.3 Criar `lib/auto_updater/cleaner_test.py` (Red): testar a leitura de `cleanup_folder.txt`, checagem de existência do binário obsoleto e matching estrito de `EditorAresta.old.exe`.
 - [ ] 2.4 Implementar `lib/auto_updater/cleaner.py` (Green e Refactor) para remover especificamente e com segurança o lixo. 100% coverage.
 
 ## 3. Request Desacoplado de API (TDD)
@@ -19,7 +19,7 @@
 ## 4. O Rename Trick Final (TDD)
 
 - [ ] 4.1 Criar `lib/auto_updater/rename_trick_test.py` (Red): testes que simulam o streaming de HTTP e a dança atômica do Windows de renomeação.
-- [ ] 4.2 Implementar `lib/auto_updater/rename_trick.py` (Green e Refactor): Baixar binário como `ArestaEditor.new`, orquestrar `os.rename(atual, atual + ".old.exe")`, renomear `.new` para o original, disparar `subprocess.Popen` e dar `sys.exit()`. 100% coverage.
+- [ ] 4.2 Implementar `lib/auto_updater/rename_trick.py` (Green e Refactor): Baixar binário como `EditorAresta.new`, orquestrar `os.rename(atual, atual + ".old.exe")`, renomear `.new` para o original, disparar `subprocess.Popen` e dar `sys.exit()`. 100% coverage.
 
 ## 5. Testes de Integração e Hook no Boot
 

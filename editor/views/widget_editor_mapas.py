@@ -1,6 +1,6 @@
 # Copyright (C) 2026 ARESTA
 #
-# Este arquivo faz parte do Aresta Editor.
+# Este arquivo faz parte do Editor Aresta.
 # Componentes visuais para edição de mapas.
 
 import math

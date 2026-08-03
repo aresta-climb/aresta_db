@@ -25,4 +25,4 @@ O repositório `aresta_db` transcende um mero banco de dados: ele é a fonte da 
 
 3. **Promoção Forte do Link Customizado e do Auto-Updater**
    - *Rationale*: Reduzir a fricção cognitiva das dolorosas versões de software (v1.0, v2.1).
-   - *Abordagem*: Centralizar o redirecionamento num domínio bonito (`arestaclimb.com/download-editor`). Mais importante: imprimir na documentação a regra de ouro construída na Fase 3: *"Baixe apenas uma vez. Deixe o Aresta Editor atualizar a si mesmo para sempre."*
+   - *Abordagem*: Centralizar o redirecionamento num domínio bonito (`arestaclimb.com/download-editor`). Mais importante: imprimir na documentação a regra de ouro construída na Fase 3: *"Baixe apenas uma vez. Deixe o Editor Aresta atualizar a si mesmo para sempre."*

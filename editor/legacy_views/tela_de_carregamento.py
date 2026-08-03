@@ -51,9 +51,15 @@ class DialogoProgressoLog(QDialog):
         layout.addWidget(self.btn_fechar)
         
     def adicionar_log(self, texto):
-        self.log_view.appendPlainText(texto)
-        self.log_view.verticalScrollBar().setValue(self.log_view.verticalScrollBar().maximum())
-        QApplication.processEvents()
+        if getattr(self, '_in_log', False):
+            return
+        self._in_log = True
+        try:
+            self.log_view.appendPlainText(texto)
+            self.log_view.verticalScrollBar().setValue(self.log_view.verticalScrollBar().maximum())
+            QApplication.processEvents()
+        finally:
+            self._in_log = False
 
 class DialogoNovoCroqui(QDialog):
     """

@@ -1,7 +1,7 @@
 ## 1. Preparação (Recursos Visuais)
 
 - [x] 1.1 Copiar os arquivos `logo_splash.png` e `logo_app.png` de `../aresta_app/frontend/assets/` para um novo diretório `editor/recursos/` no repositório local do `aresta_db`.
-- [x] 1.2 Atualizar as configurações de build do PyInstaller (`editor/ArestaEditor.spec` ou script correspondente) para incluir a nova pasta `editor/recursos/` nos artefatos `datas` empacotados.
+- [x] 1.2 Atualizar as configurações de build do PyInstaller (`editor/EditorAresta.spec` ou script correspondente) para incluir a nova pasta `editor/recursos/` nos artefatos `datas` empacotados.
 
 ## 2. Testes (TDD)
 

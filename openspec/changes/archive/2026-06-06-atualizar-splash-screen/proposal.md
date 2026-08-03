@@ -22,4 +22,4 @@ A tela de abertura atual utiliza um ícone genérico e não permite movimentaç�
 
 - Código modificado: `editor/views/tela_de_abertura.py`, `editor/main.py`.
 - Adição ou uso de novos assets visuais de forma oficial no projeto (arte do aresta_app).
-- O processo de build / bundle (`ArestaEditor.spec` e/ou `build.py`) precisará ser modificado para incluir a nova pasta de recursos na geração do executável.
+- O processo de build / bundle (`EditorAresta.spec` e/ou `build.py`) precisará ser modificado para incluir a nova pasta de recursos na geração do executável.

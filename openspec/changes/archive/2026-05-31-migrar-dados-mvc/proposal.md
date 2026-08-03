@@ -14,7 +14,7 @@ A arquitetura atual da aba de Dados (como o `WidgetEditorDados`) acopla fortemen
 ## Capabilities
 
 ### New Capabilities
-- `arquitetura-mvc`: Base arquitetural MVC orientada a comandos para o Aresta Editor, definindo regras estritas de encapsulamento, separação de pastas (`models`, `views`, `controllers`, `commands`) e testes estruturais.
+- `arquitetura-mvc`: Base arquitetural MVC orientada a comandos para o Editor Aresta, definindo regras estritas de encapsulamento, separação de pastas (`models`, `views`, `controllers`, `commands`) e testes estruturais.
 
 ### Modified Capabilities
 - `undo-redo-protobuf`: Modifica a forma como os comandos de undo/redo são acionados e estruturados. Passarão a operar sob as regras de encapsulamento da nova camada `commands/` e coordenados pelos `controllers/`, em vez de serem gerenciados diretamente pelas views atuais.

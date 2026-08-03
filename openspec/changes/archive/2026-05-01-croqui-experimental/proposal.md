@@ -1,6 +1,6 @@
 ## Why
 
-A criação do formato de Croqui Experimental permite que autores locais editem croquis de escalada no Aresta Editor de maneira contínua, garantindo controle de versão local e a facilidade de portabilidade entre máquinas (importação/exportação). Isso resolve a necessidade de editar croquis fora do repositório principal do GitHub da base de dados, permitindo a criação e edição independente e local de dados de forma padronizada.
+A criação do formato de Croqui Experimental permite que autores locais editem croquis de escalada no Editor Aresta de maneira contínua, garantindo controle de versão local e a facilidade de portabilidade entre máquinas (importação/exportação). Isso resolve a necessidade de editar croquis fora do repositório principal do GitHub da base de dados, permitindo a criação e edição independente e local de dados de forma padronizada.
 
 ## What Changes
 
@@ -20,6 +20,6 @@ A criação do formato de Croqui Experimental permite que autores locais editem 
 
 ## Impact
 
-- Sistema de gerenciamento de arquivos locais do Aresta Editor.
+- Sistema de gerenciamento de arquivos locais do Editor Aresta.
 - Processos de compilação e descompilação de croquis deverão suportar a nova estrutura e referências relativas para as imagens.
 - Interface de importação/exportação do aplicativo.

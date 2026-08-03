@@ -1,6 +1,6 @@
 ## Por Que
 
-Atualmente, os autores que editam croquis experimentais no Aresta Editor não têm uma forma simples de visualizar as alterações em tempo real no aplicativo Aresta em seus dispositivos móveis. A conexão a celular permite que o autor visualize o croqui que está editando diretamente no dispositivo físico, garantindo que a renderização e os mapas estejam corretos antes da publicação oficial.
+Atualmente, os autores que editam croquis experimentais no Editor Aresta não têm uma forma simples de visualizar as alterações em tempo real no aplicativo Aresta em seus dispositivos móveis. A conexão a celular permite que o autor visualize o croqui que está editando diretamente no dispositivo físico, garantindo que a renderização e os mapas estejam corretos antes da publicação oficial.
 
 ## O Que Muda
 

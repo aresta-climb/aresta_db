@@ -1,5 +1,5 @@
 ## Purpose
-Define os requisitos e o comportamento do editor de imagens integrado do Aresta Editor.
+Define os requisitos e o comportamento do editor de imagens integrado do Editor Aresta.
 ## Requirements
 ### Requirement: Integração do Editor de Imagens
 O sistema SHALL fornecer um editor de imagens integrado para processamento em lote (crop, rotação e máscaras), acessível de forma isolada ou embutido na área principal quando acionado via a visão de árvore de dados.

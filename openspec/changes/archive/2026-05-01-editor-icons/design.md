@@ -1,6 +1,6 @@
 ## Context
 
-O Aresta Editor busca uma estética premium. Os ícones atuais são simplórios e não transmitem a qualidade desejada. A biblioteca `QtAwesome` é o padrão de mercado para aplicações PyQt/PySide que necessitam de ícones vetoriais modernos e customizáveis.
+O Editor Aresta busca uma estética premium. Os ícones atuais são simplórios e não transmitem a qualidade desejada. A biblioteca `QtAwesome` é o padrão de mercado para aplicações PyQt/PySide que necessitam de ícones vetoriais modernos e customizáveis.
 
 ## Goals / Non-Goals
 

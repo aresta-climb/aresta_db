@@ -16,7 +16,7 @@ A `TelaDeAbertura` atual do Editor Aresta usa uma janela sem bordas (`FramelessW
 - **Metodologia de Testes:** O desenvolvimento seguirá Test-Driven Development (TDD). Testes baseados em `QTest` serão adicionados simulando os eventos de `mousePress` e `mouseMove` para atestar a correção do drag-and-drop da tela antes da implementação do código de arrasto em si.
 - **Eventos de Mouse:** A `TelaDeAbertura` reimplementará `mousePressEvent` e `mouseMoveEvent`. Salvaremos a posição de referência no clique (`self._drag_pos = event.globalPosition().toPoint() - self.frameGeometry().topLeft()`). No `mouseMoveEvent`, usaremos a variação dessa posição para reposicionar a janela através de `self.move(event.globalPosition().toPoint() - self._drag_pos)`.
 - **Recursos Visuais:** Atualizaremos a configuração visual do QLabel responsável por renderizar a imagem, alterando o caminho fonte para os novos recursos copiados para a pasta local `editor/recursos/`.
-- **Bundle e Build:** Os novos recursos de imagem serão explicitamente incluídos nos parâmetros de compilação do PyInstaller (via `ArestaEditor.spec` ou no script de build), garantindo que sejam empacotados junto com os binários.
+- **Bundle e Build:** Os novos recursos de imagem serão explicitamente incluídos nos parâmetros de compilação do PyInstaller (via `EditorAresta.spec` ou no script de build), garantindo que sejam empacotados junto com os binários.
 
 ## Risks / Trade-offs
 

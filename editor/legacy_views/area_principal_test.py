@@ -661,7 +661,7 @@ def test_atualizar_titulo_mantem_workspace_tag(mock_carregar, qtbot):
     janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
     
     janela.atualizar_titulo()
-    assert "Aresta Editor" in janela.windowTitle()
+    assert "Editor Aresta" in janela.windowTitle()
     assert "[Local Mode]" in janela.windowTitle()
     assert "Croqui Teste" in janela.windowTitle()
     janela.close()
@@ -678,7 +678,7 @@ def test_atualizar_titulo_dirty_state(mock_carregar, qtbot):
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     
     janela.atualizar_titulo()
-    assert "Aresta Editor" in janela.windowTitle()
+    assert "Editor Aresta" in janela.windowTitle()
     assert "[Local Mode]" in janela.windowTitle()
     assert "Croqui Teste *" in janela.windowTitle()
     
@@ -810,7 +810,7 @@ def test_atualizar_titulo_mostra_versao_do_app_seguro(mock_carregar, mock_versio
     janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
     
     janela.atualizar_titulo()
-    assert janela.windowTitle() == "Aresta Editor v1.2.3-test - Meu Croqui"
+    assert janela.windowTitle() == "Editor Aresta v1.2.3-test - Meu Croqui"
     janela.close()
 @patch("editor.legacy_views.area_principal.QCoreApplication.applicationVersion", return_value="1.2.3-test")
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
@@ -828,4 +828,4 @@ def test_atualizar_titulo_mostra_versao_do_app(mock_carregar, mock_version, qtbo
     janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
     
     janela.atualizar_titulo()
-    assert janela.windowTitle() == "Aresta Editor v1.2.3-test - Meu Croqui"
+    assert janela.windowTitle() == "Editor Aresta v1.2.3-test - Meu Croqui"
