@@ -52,9 +52,33 @@ jobs:
         run: |
           PYTHONPATH=. python serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
           
-      - name: Upload Artifacts
-        if: always() && steps.changed-files.outputs.any_changed == 'true'
-        uses: actions/upload-artifact@v7
-        with:
-          name: croquis-validados
-          path: saida_croquis/*.croqui
+      - name: Upload para Cloudflare R2
+        if: success() && steps.changed-files.outputs.any_changed == 'true'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          AWS_REGION: auto
+          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+        run: |
+          COMMENT_BODY="📦 **Validação Concluída!** O(s) croqui(s) compilado(s) estão prontos para testes direto no app:\n"
+          
+          for file in saida_croquis/*.croqui; do
+            if [ -f "$file" ]; then
+              UUID=$(uuidgen)
+              NEW_NAME="pr-${UUID}.croqui"
+              aws s3 cp "$file" "s3://aresta-serving/pr-artifacts/$NEW_NAME" --endpoint-url $R2_ENDPOINT_URL
+              URL="https://serving.arestaclimb.com/pr-artifacts/$NEW_NAME"
+              COMMENT_BODY="$COMMENT_BODY\n- 🧗 [Baixar $NEW_NAME]($URL)"
+            fi
+          done
+          
+          echo -e "$COMMENT_BODY" > pr_comment.txt
+
+      - name: Comentar Link na PR
+        if: success() && steps.changed-files.outputs.any_changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          if [ -f pr_comment.txt ]; then
+            gh pr comment ${{ github.event.pull_request.number }} --body-file pr_comment.txt
+          fi
