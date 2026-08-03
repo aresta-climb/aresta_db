@@ -16,3 +16,4 @@ uvicorn
 httpx
 graphviz
 moto
+pytest-mock

@@ -60,6 +60,9 @@ jobs:
         env:
           PYTHONPATH: .
 
+      - name: Install Graphviz
+        run: choco install graphviz
+
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
