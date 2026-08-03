@@ -66,7 +66,7 @@ jobs:
             if [ -f "$file" ]; then
               UUID=$(uuidgen)
               NEW_NAME="pr-${UUID}.croqui"
-              aws s3 cp "$file" "s3://aresta-serving/pr-artifacts/$NEW_NAME" --endpoint-url $R2_ENDPOINT_URL
+              aws s3 cp "$file" "s3://aresta-serving/pr-artifacts/$NEW_NAME" --endpoint-url $R2_ENDPOINT_URL --content-disposition "attachment" --content-type "application/octet-stream"
               URL="https://serving.arestaclimb.com/pr-artifacts/$NEW_NAME"
               COMMENT_BODY="$COMMENT_BODY\n- 🧗 [Baixar $NEW_NAME]($URL)"
             fi
