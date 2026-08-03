@@ -196,7 +196,7 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
   checksum_sha256: 95a572fe61e67020fe67d42091b5a013375645db4b1b444dbeef23094429e276
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256: 72a9faf84dbdcea731f6e70543a5646e359e611c2b088580c78fb731a388e450
+  checksum_sha256: 84f48b030205459605a421d1468662194fe2f1d6e6908b26429208044a767656
 - caminho_relativo: thumbnails/br_mg_arcos_bombonera.webp
   checksum_sha256: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
 - caminho_relativo: br_mg_arcos_bombonera/imagens/capa_p0.webp
@@ -228,9 +228,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_bombonera/imagens/setor_esquerda_p2_i0.webp
   checksum_sha256: 05c24e3cac4c06f65055600fa9b9b68edcaacd8bf98160880e6e0eabaa1aaa0c
 - caminho_relativo: br_mg_arcos_bombonera/compilado.yaml
-  checksum_sha256: f10de12ecb7f7deebbdd13d5fe593b631898aff159cfb456181afe3d62d11961
+  checksum_sha256: 21310b72ef845984cf6542488c1422e7ceab684f718bd1218ec85588d1f2623e
 - caminho_relativo: br_mg_arcos_bombonera/compilado.md
-  checksum_sha256: 0af818d4fe6ff34e07b78475b90f5d09b283f4cd8620232a9cdee9505d87bf40
+  checksum_sha256: cb8f06268a13574e1184859f22f836fafd5ec2f6b40171175a651156fa20921b
 - caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
   checksum_sha256: 24fb341ebfba5fb980a1a56909cac7ec5ad80c4e25dd5e24c047c38a9fba3bf5
 - caminho_relativo: thumbnails/br_mg_arcos_corumba.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: dd4604cb45ceb6285a29a14b43f73bf919b046354282d8527f547128e229a87b
+  checksum_sha256: 6e614c505b7095211017a9e34329b32a7633abb98d9e833b1052350647e3f0d6
 - caminho_relativo: indice.yaml
-  checksum_sha256: 1ada2d2c5c74cefed3e1fe6e5d386ee6763cea6db96ab13a70eaf2561bc8c45f
+  checksum_sha256: 44a112af3cdfe0633f2264945c5ae105fb8698763f9d459fbd133d0680dce549

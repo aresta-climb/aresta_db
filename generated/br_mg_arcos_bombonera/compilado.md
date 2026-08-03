@@ -152,21 +152,24 @@
         - **ids**:
           - 3
       - **[3]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 4)
         - **ids**:
           - 4
+        - **setor**: Setor Esquerda
       - **[4]**:
         - **escalada**: Jaratataca
         - **ids**:
           - 5
       - **[5]**:
-        - **escalada**: (sem nome)
+        - **escalada**: (sem nome 3)
         - **ids**:
           - 6
+        - **setor**: Setor Esquerda
       - **[6]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 5)
         - **ids**:
           - 7
+        - **setor**: Setor Esquerda
       - **[7]**:
         - **escalada**: Teoria dos jogos
         - **ids**:
@@ -258,21 +261,24 @@
           - **raio**: 15
     - **referencias**:
       - **[0]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 4)
         - **ids**:
           - 4
+        - **setor**: Setor Esquerda
       - **[1]**:
         - **escalada**: Jaratataca
         - **ids**:
           - 5
       - **[2]**:
-        - **escalada**: (sem nome)
+        - **escalada**: (sem nome 3)
         - **ids**:
           - 6
+        - **setor**: Setor Esquerda
       - **[3]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 5)
         - **ids**:
           - 7
+        - **setor**: Setor Esquerda
       - **[4]**:
         - **escalada**: Teoria dos jogos
         - **ids**:
@@ -303,7 +309,7 @@
       - **data_abertura**: 2022
   - **[3]**:
     - **via_esportiva**:
-      - **nome**: (via inacabada)
+      - **nome**: (via inacabada 4)
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2022
@@ -317,14 +323,14 @@
       - **data_abertura**: 2022
   - **[5]**:
     - **via_esportiva**:
-      - **nome**: (sem nome)
+      - **nome**: (sem nome 3)
       - **dificuldade**: BR_8C_BARRA_9A
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2022
   - **[6]**:
     - **via_esportiva**:
-      - **nome**: (via inacabada)
+      - **nome**: (via inacabada 5)
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2022
   - **[7]**:
@@ -443,13 +449,15 @@
         - **ids**:
           - 2
       - **[2]**:
-        - **escalada**: Projeto (sem nome)
+        - **escalada**: Projeto (sem nome 1)
         - **ids**:
           - 3
+        - **setor**: Setor Bombonera
       - **[3]**:
-        - **escalada**: Projeto (sem nome)
+        - **escalada**: Projeto (sem nome 2)
         - **ids**:
           - 4
+        - **setor**: Setor Bombonera
       - **[4]**:
         - **escalada**: Barra Brava
         - **ids**:
@@ -471,9 +479,10 @@
         - **ids**:
           - 8-9
       - **[9]**:
-        - **escalada**: (via inacabada) Superclassicos
+        - **escalada**: (via inacabada 3) Superclassicos
         - **ids**:
           - 10
+        - **setor**: Setor Bombonera
       - **[10]**:
         - **escalada**: San Lourenzo
         - **ids**:
@@ -499,13 +508,13 @@
       - **quantidade_protecoes_parada**: 2
   - **[2]**:
     - **via_esportiva**:
-      - **nome**: Projeto (sem nome)
+      - **nome**: Projeto (sem nome 1)
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
     - **via_esportiva**:
-      - **nome**: Projeto (sem nome)
+      - **nome**: Projeto (sem nome 2)
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
@@ -550,7 +559,7 @@
       - **quantidade_protecoes_parada**: 2
   - **[9]**:
     - **via_esportiva**:
-      - **nome**: (via inacabada) Superclassicos
+      - **nome**: (via inacabada 3) Superclassicos
       - **dificuldade**: INDEFINIDO
       - **quantidade_protecoes_intermediarias**: 1
   - **[10]**:
@@ -651,13 +660,15 @@
         - **ids**:
           - 1
       - **[1]**:
-        - **escalada**: (via inacabada) Bem Vindo ao Bosque
+        - **escalada**: (via inacabada 1) Bem Vindo ao Bosque
         - **ids**:
           - 2
+        - **setor**: Setor Bosque
       - **[2]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 2)
         - **ids**:
           - 3
+        - **setor**: Setor Bosque
       - **[3]**:
         - **escalada**: Malandro é Malandro
         - **ids**:
@@ -707,9 +718,10 @@
         - **ids**:
           - 1
       - **[1]**:
-        - **escalada**: (via inacabada) Bem Vindo ao Bosque
+        - **escalada**: (via inacabada 1) Bem Vindo ao Bosque
         - **ids**:
           - 2
+        - **setor**: Setor Bosque
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bosque_p1_i1.webp)
     - **largura_mapa**: 916
@@ -738,9 +750,10 @@
           - **raio**: 15
     - **referencias**:
       - **[0]**:
-        - **escalada**: (via inacabada)
+        - **escalada**: (via inacabada 2)
         - **ids**:
           - 3
+        - **setor**: Setor Bosque
       - **[1]**:
         - **escalada**: Malandro é Malandro
         - **ids**:
@@ -809,12 +822,12 @@
       - **data_abertura**: 2021
   - **[1]**:
     - **via_esportiva**:
-      - **nome**: (via inacabada) Bem Vindo ao Bosque
+      - **nome**: (via inacabada 1) Bem Vindo ao Bosque
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2020
   - **[2]**:
     - **via_esportiva**:
-      - **nome**: (via inacabada)
+      - **nome**: (via inacabada 2)
       - **dificuldade**: INDEFINIDO
       - **data_abertura**: 2020
   - **[3]**:

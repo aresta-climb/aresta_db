@@ -21,9 +21,9 @@ croquis:
   descricao: Afloramento de calcário situado em Pains, Minas Gerais, com diversos
     setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256_croqui: 72a9faf84dbdcea731f6e70543a5646e359e611c2b088580c78fb731a388e450
+  checksum_sha256_croqui: 84f48b030205459605a421d1468662194fe2f1d6e6908b26429208044a767656
   checksum_sha256_thumbnail: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-08-03T05:16:03Z'
 - id: br_mg_arcos_corumba
   nome: Arcos - Corumbá
   descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais,
