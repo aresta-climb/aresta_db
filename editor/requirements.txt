@@ -11,3 +11,4 @@ qtawesome
 qrcode
 pillow
 ruamel.yaml
+pytest-xdist

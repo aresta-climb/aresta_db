@@ -101,8 +101,32 @@ class TestPublishController(unittest.TestCase):
         dados_salvos = salvar_meta_mock.call_args[0][0]
         self.assertEqual(dados_salvos["pull_request_url"], "https://github.com/fake/pr/1")
         
-        # Verifica se o dialogo foi aberto
-        dialog_mock_class.assert_called_once_with("https://github.com/fake/pr/1", self.parent_mock)
+        # Verifica se o dialogo foi aberto com a mensagem de criacao
+        dialog_mock_class.assert_called_once_with(
+            "https://github.com/fake/pr/1", 
+            self.parent_mock, 
+            titulo="Sucesso", 
+            mensagem_personalizada="Pull Request publicada com sucesso!"
+        )
+
+    @patch("editor.controllers.publish_controller.DialogoSucessoPR")
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    @patch("editor.controllers.publish_controller.PublishController._salvar_meta_experimental")
+    def test_on_sucesso_deve_exibir_dialogo_sucesso_para_atualizacao(self, salvar_meta_mock, ler_meta_mock, dialog_mock_class):
+        """Ao receber 'atualizado', deve ler a URL original do YAML e usar msg de atualizacao."""
+        ler_meta_mock.return_value = {"pull_request_url": "https://github.com/fake/pr/existente"}
+        self.controller.croqui_data = {"id": "meu_croqui"}
+    
+        self.controller._on_sucesso("atualizado", "atualizado", "atualizado")
+    
+        salvar_meta_mock.assert_not_called()
+    
+        dialog_mock_class.assert_called_once_with(
+            "https://github.com/fake/pr/existente", 
+            self.parent_mock, 
+            titulo="Sucesso", 
+            mensagem_personalizada="Pull Request atualizado com sucesso!"
+        )
         dialog_mock = dialog_mock_class.return_value
         dialog_mock.exec.assert_called_once()
 

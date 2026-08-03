@@ -9,8 +9,17 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
       - uses: actions/checkout@v7
         with:
+          token: ${{ steps.app-token.outputs.token }}
           submodules: true
           sparse-checkout: |
             database

@@ -256,6 +256,13 @@ class TestWorker(unittest.TestCase):
             
             mock_repo = MagicMock()
             mock_pygit2.Repository.return_value = mock_repo
+            mock_repo.branches.local = {"minha_branch": MagicMock()}
+            
+            mock_repo.index.conflicts = None
+            mock_commit_base = MagicMock()
+            mock_branch_remote = MagicMock()
+            mock_branch_remote.peel.return_value = mock_commit_base
+            mock_repo.branches.remote = {"upstream/main": mock_branch_remote, "origin/minha_branch": MagicMock()}
             
             # Simulamos que write_tree() retorna um hash idêntico ao da HEAD atual
             mock_repo.index.write_tree.return_value = "mesmo_hash_123"
@@ -273,11 +280,183 @@ class TestWorker(unittest.TestCase):
             tarefa.run()
             
             # Deve emitir aviso informando que não houve mudanças
-            tarefa.aviso.emit.assert_called_once_with("Nenhuma alteração foi detectada no croqui. O Pull Request já está atualizado!")
+            tarefa.aviso.emit.assert_called_once_with("Nenhuma alteração foi detectada no croqui.\nO Pull Request já está atualizado!")
             
             # E não deve criar um novo commit nem tentar push
             mock_repo.create_commit.assert_not_called()
             mock_repo.remotes["origin"].push.assert_not_called()
+
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_modo_atualizacao_faz_merge_da_main_limpo(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se em modo de atualização a tarefa faz merge da main local sem conflitos e cria o commit."""
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        caminho_database = Path("/fake/repo/database/teste")
+        
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=caminho_database, 
+            id_croqui="teste", dados_pr=None,
+            modo_atualizacao=True, pr_branch="minha_branch"
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_repo.branches.local = {"minha_branch": MagicMock()}
+        
+        mock_repo.index.conflicts = None
+        
+        mock_commit_base = MagicMock()
+        mock_commit_base.id = "commit_main_id"
+        
+        mock_branch_remote = MagicMock()
+        mock_branch_remote.peel.return_value = mock_commit_base
+        mock_repo.branches.remote = {"upstream/main": mock_branch_remote, "origin/minha_branch": MagicMock()}
+        
+        mock_repo.index.write_tree.return_value = "novo_hash_123"
+        mock_head_commit = MagicMock()
+        mock_head_commit.tree_id = "velho_hash_123"
+        mock_head_commit.id = "head_commit_id"
+        mock_repo.head.peel.return_value = mock_head_commit
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        mock_repo.merge.assert_called_once_with("commit_main_id")
+        self.assertEqual(mock_repo.create_commit.call_count, 2)
+        args = mock_repo.create_commit.call_args_list[0][0]
+        self.assertEqual(args[5], ["head_commit_id", "commit_main_id"])
+        mock_repo.state_cleanup.assert_called_once()
+
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_modo_atualizacao_aborta_com_conflitos(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se a tarefa aborta a atualização quando há conflitos com a main."""
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        caminho_database = Path("/fake/repo/database/teste")
+        
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=caminho_database, 
+            id_croqui="teste", dados_pr=None,
+            modo_atualizacao=True, pr_branch="minha_branch"
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_repo.branches.local = {"minha_branch": MagicMock()}
+        
+        # Simula conflito
+        mock_repo.index.conflicts = ["conflito1"]
+        
+        mock_commit_base = MagicMock()
+        mock_commit_base.id = "commit_main_id"
+        mock_branch_remote = MagicMock()
+        mock_branch_remote.peel.return_value = mock_commit_base
+        mock_repo.branches.remote = {"upstream/main": mock_branch_remote, "origin/minha_branch": MagicMock()}
+        
+        mock_head_target = MagicMock()
+        mock_repo.head.target = mock_head_target
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        mock_repo.merge.assert_called_once_with("commit_main_id")
+        mock_repo.reset.assert_called_once_with(mock_head_target, mock_pygit2.GIT_RESET_HARD)
+        mock_repo.state_cleanup.assert_called_once()
+        
+        tarefa.erro.emit.assert_called_once()
+        self.assertIn("conflitos com a branch main", tarefa.erro.emit.call_args[0][0])
+
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_modo_atualizacao_faz_merge_mas_sem_alteracoes_no_croqui(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se o worker faz o push do merge da main mesmo que o croqui em si não tenha alterações."""
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        caminho_database = Path("/fake/repo/database/teste")
+        
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=caminho_database, 
+            id_croqui="teste", dados_pr=None,
+            modo_atualizacao=True, pr_branch="minha_branch"
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_repo.branches.local = {"minha_branch": MagicMock()}
+        
+        mock_repo.index.conflicts = None
+        
+        mock_commit_base = MagicMock()
+        mock_commit_base.id = "commit_main_id"
+        mock_branch_remote = MagicMock()
+        mock_branch_remote.peel.return_value = mock_commit_base
+        mock_repo.branches.remote = {"upstream/main": mock_branch_remote, "origin/minha_branch": MagicMock()}
+        
+        # Simular que a tree NÃO mudou na checagem final (passo 4), 
+        # mas que o merge criou um commit (tree inicial difere da origin).
+        # Para simplificar o mock e não precisar lidar com chamadas múltiplas 
+        # retornando coisas diferentes no mock_repo.index.write_tree, 
+        # vamos usar o call_count ou side_effect.
+        def write_tree_side_effect():
+            # A primeira chamada é logo após o merge. Vamos simular que o merge gerou um novo hash
+            # A segunda chamada é depois de add_all do croqui. Simulamos que hash NÃO muda.
+            write_tree_side_effect.calls += 1
+            if write_tree_side_effect.calls == 1:
+                return "hash_do_merge_123"
+            return "hash_do_merge_123"
+        write_tree_side_effect.calls = 0
+        mock_repo.index.write_tree.side_effect = write_tree_side_effect
+        
+        mock_head_commit = MagicMock()
+        mock_head_commit.tree_id = "velho_hash_123" # Diferente do hash_do_merge_123, então cria commit de merge
+        mock_head_commit.id = "head_commit_id"
+        
+        # E a segunda chamada de repo.head.peel() será a checagem do passo 4. 
+        # O head peel precisa retornar o mesmo tree_id que o write_tree() retornou agora.
+        def head_peel_side_effect():
+            head_peel_side_effect.calls += 1
+            m = MagicMock()
+            if head_peel_side_effect.calls == 1:
+                m.tree_id = "velho_hash_123"
+                m.id = "head_commit_id"
+            else:
+                m.tree_id = "hash_do_merge_123" # head_commit foi atualizado pelo merge
+                m.id = "novo_merge_commit_id"
+            return m
+        head_peel_side_effect.calls = 0
+        mock_repo.head.peel.side_effect = head_peel_side_effect
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.aviso = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        mock_repo.merge.assert_called_once_with("commit_main_id")
+        # Deve ter chamado create_commit APENAS UMA VEZ (para o merge), e não duas (para o croqui)
+        self.assertEqual(mock_repo.create_commit.call_count, 1)
+        # E deve ter tentado fazer o push, ao invés de abortar no aviso
+        mock_repo.remotes["origin"].push.assert_called_once()
+        tarefa.sucesso.emit.assert_called_once()
+        tarefa.aviso.emit.assert_not_called()
 
 if __name__ == "__main__":
     unittest.main()

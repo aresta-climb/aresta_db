@@ -14,11 +14,27 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
+          submodules: recursive
+          sparse-checkout: |
+            editor
+            scripts
+            serving
+            migracoes
+            aresta_api
+            pytest.ini
 
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -43,7 +59,6 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r editor/requirements.txt
-          pip install pyinstaller pytest pytest-xdist
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 3

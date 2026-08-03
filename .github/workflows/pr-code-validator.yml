@@ -11,9 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v7
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
         with:
-          submodules: true
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Checkout Repo
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          submodules: recursive
+          sparse-checkout: |
+            editor
+            scripts
+            serving
+            migracoes
+            aresta_api
+            pytest.ini
       
       - name: Setup Python
         uses: actions/setup-python@v7
