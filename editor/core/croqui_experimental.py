@@ -257,7 +257,7 @@ class GerenciadorCroquiExperimental:
             
             deploy(
                 output_dir=caminho_compilado,
-                target_path=str(caminho_database),
+                target_paths=[caminho_database],
                 force_thumbnails=True,
                 gerar_arquivos_de_debug=True,
                 is_producao=False

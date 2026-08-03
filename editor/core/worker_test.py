@@ -51,7 +51,7 @@ class TestWorker(unittest.TestCase):
         mock_sync_class.return_value.configurar_remotes.assert_called_once_with(mock_g)
         mock_sync_class.return_value.fazer_fetch.assert_called_once()
         mock_repo.create_branch.assert_called_once()
-        mock_repo.index.write_tree.assert_called_once()
+        self.assertEqual(mock_repo.index.write_tree.call_count, 2)
         mock_repo.remotes["origin"].push.assert_called_once()
         
         mock_sync_class.return_value.criar_pull_request.assert_called_once()
@@ -86,6 +86,12 @@ class TestWorker(unittest.TestCase):
         # Simulando git status SEM arquivo modificado
         mock_repo.status.return_value = {}
         
+        # Simulando que a arvore não mudou (tree hash idêntico)
+        mock_repo.index.write_tree.return_value = "mesmo_hash_123"
+        mock_head_commit = MagicMock()
+        mock_head_commit.tree_id = "mesmo_hash_123"
+        mock_repo.head.peel.return_value = mock_head_commit
+        tarefa.aviso = MagicMock()
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
         
@@ -93,9 +99,9 @@ class TestWorker(unittest.TestCase):
         
         # O commit não deve ser feito
         mock_repo.create_commit.assert_not_called()
-        # O erro deve ser emitido com a mensagem apropriada
-        tarefa.erro.emit.assert_called_once()
-        self.assertIn("Nenhuma mudança", tarefa.erro.emit.call_args[0][0])
+        # O erro (ou aviso) deve ser emitido com a mensagem apropriada
+        tarefa.aviso.emit.assert_called_once()
+        self.assertIn("Nenhuma alteração", tarefa.aviso.emit.call_args[0][0])
 
     @patch("editor.core.worker.github.Github")
     @patch("editor.core.worker.pygit2")

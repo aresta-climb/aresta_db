@@ -42,6 +42,13 @@ class ControladorAplicativo:
         storage = GerenciadorCaminhos()
         caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
+        
+        try:
+            from editor.core.version import VERSION
+            self.app.setApplicationVersion(VERSION)
+        except ImportError:
+            pass
+            
         self.abertura = TelaDeAbertura()
         self.janela_principal = None
         self.tela_carregamento = None
@@ -131,6 +138,12 @@ def main():
             try:
                 app.setWindowIcon(QIcon(str(caminho_logo_app)))
             except Exception:
+                pass
+                
+            try:
+                from editor.core.version import VERSION
+                app.setApplicationVersion(VERSION)
+            except ImportError:
                 pass
             
             from editor.core.workspace import LocalRepoWorkspace

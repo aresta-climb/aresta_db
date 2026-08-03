@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import (
     QLabel, QStyle, QMessageBox, QDialog, QLineEdit, QTextEdit, QPushButton, QFormLayout,
     QApplication
 )
-from PyQt6.QtCore import Qt, QSize, pyqtSignal, QTimer
+from PyQt6.QtCore import Qt, QSize, pyqtSignal, QTimer, QCoreApplication
 from PyQt6.QtGui import QAction, QIcon, QFont, QKeySequence
 from pathlib import Path
 import yaml
@@ -158,7 +158,7 @@ class JanelaPrincipal(QMainWindow):
         self.historico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
         
-        self.setWindowTitle("Aresta Editor")
+        self.atualizar_titulo()
         self.resize(1200, 800)
         
         # Componentes do Painel de Saída de Compilação
@@ -319,7 +319,8 @@ class JanelaPrincipal(QMainWindow):
 
     def atualizar_titulo(self):
         """Atualiza o título da janela baseado no workspace, nome do croqui e estado de modificação."""
-        titulo_base = "Aresta Editor"
+        versao = QCoreApplication.applicationVersion()
+        titulo_base = f"Aresta Editor v{versao}" if versao else "Aresta Editor"
         
         if self.workspace:
             tag = self.workspace.obter_tag_titulo()
