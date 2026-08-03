@@ -63,6 +63,111 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(args_emit[0], "https://github.com/fake/pr/1")
         # Os outros 2 argumentos são dinâmicos (nome da branch e owner do pr)
 
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_nova_pr_owner_sem_fork(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se o pr_owner é aresta-climb quando não houver fork."""
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        caminho_database = Path("/fake/repo/database/teste")
+
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=caminho_database, 
+            id_croqui="teste", dados_pr={"titulo": "T", "descricao": "D"},
+            modo_atualizacao=False
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        
+        # Simula repo da org aresta-climb
+        mock_repo.remotes = {"origin": MagicMock(url="https://github.com/aresta-climb/aresta_db.git")}
+        mock_repo.status.return_value = {"arquivo.txt": 256}
+        
+        mock_g = mock_github_class.return_value
+        mock_g.get_user.return_value.login = "usuario_aleatorio"
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        args_emit = tarefa.sucesso.emit.call_args[0]
+        self.assertEqual(args_emit[2], "aresta-climb")
+
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_nova_pr_owner_com_fork(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se o pr_owner é o user login quando houver fork."""
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        caminho_database = Path("/fake/repo/database/teste")
+
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=caminho_database, 
+            id_croqui="teste", dados_pr={"titulo": "T", "descricao": "D"},
+            modo_atualizacao=False
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        
+        # Simula repo de um fork
+        mock_repo.remotes = {"origin": MagicMock(url="https://github.com/usuario_aleatorio/aresta_db.git")}
+        mock_repo.status.return_value = {"arquivo.txt": 256}
+        
+        mock_g = mock_github_class.return_value
+        mock_g.get_user.return_value.login = "usuario_aleatorio"
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        args_emit = tarefa.sucesso.emit.call_args[0]
+        self.assertEqual(args_emit[2], "usuario_aleatorio")
+
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.pygit2")
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    def test_tarefa_publicacao_nova_branch_timestamp_completo(self, mock_sync_class, mock_pygit2, mock_github_class):
+        """Testa se a nova branch gerada tem formato YYYYMMDD_HHMMSS."""
+        import re
+        storage_mock = MagicMock()
+        storage_mock.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        
+        tarefa = TarefaPublicacao(
+            token="fake", storage=storage_mock, 
+            caminho_database_croqui=Path("/fake/repo/database/teste"), 
+            id_croqui="meucroqui", dados_pr={"titulo": "T", "descricao": "D"},
+            modo_atualizacao=False
+        )
+        
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_repo.remotes = {"origin": MagicMock(url="https://github.com/a/b.git")}
+        mock_repo.status.return_value = {"arquivo.txt": 256}
+        
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.status = MagicMock()
+        
+        tarefa.run()
+        
+        args_emit = tarefa.sucesso.emit.call_args[0]
+        nome_branch = args_emit[1]
+        # edicao_meucroqui_YYYYMMDD_HHMMSS -> tamanho e regex
+        self.assertTrue(re.match(r"^edicao_meucroqui_\d{8}_\d{6}$", nome_branch), f"Nome da branch inválido: {nome_branch}")
+
     @patch("editor.core.worker.shutil")
     @patch("editor.core.worker.github.Github")
     @patch("editor.core.worker.pygit2")
