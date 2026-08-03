@@ -65,7 +65,8 @@ class DialogoBuscaCroqui(QDialog):
 
     def carregar_indice(self):
         """
-        Carrega os croquis a partir do indice.binarypb no storage.
+        Carrega a lista de todos os croquis disponíveis a partir da pasta database no storage.
+        Lê o nome de cada croqui diretamente de seu respectivo croqui.yaml, ignorando a flag de publicação.
         """
         if not self.storage:
             return
@@ -74,22 +75,37 @@ class DialogoBuscaCroqui(QDialog):
         if not caminho_repo:
             return
             
-        caminho_indice = caminho_repo / "generated" / "indice.binarypb"
-        if not caminho_indice.is_file():
-            print(f"[AVISO] Arquivo de índice não encontrado em: {caminho_indice}")
+        caminho_database = caminho_repo / "database"
+        if not caminho_database.is_dir():
+            print(f"[AVISO] Pasta database não encontrada em: {caminho_database}")
             return
             
+        import yaml
+        
         try:
-            indice = Indice()
-            with open(caminho_indice, "rb") as f:
-                indice.ParseFromString(f.read())
-                
             self.lista_croquis.clear()
-            for resumo in indice.croquis:
-                texto = f"{resumo.nome} ({resumo.id})"
+            
+            pastas = sorted([p for p in caminho_database.iterdir() if p.is_dir()])
+            
+            for pasta in pastas:
+                id_croqui = pasta.name
+                nome = id_croqui
+                
+                croqui_yaml = pasta / "croqui.yaml"
+                if croqui_yaml.is_file():
+                    try:
+                        with open(croqui_yaml, "r", encoding="utf-8") as f:
+                            dados = yaml.safe_load(f)
+                            if isinstance(dados, dict) and "nome" in dados:
+                                nome = dados["nome"]
+                    except Exception:
+                        pass
+                        
+                texto = f"{nome} ({id_croqui})"
                 self.lista_croquis.addItem(texto)
+                
         except Exception as e:
-            print(f"[ERRO] Falha ao carregar índice: {e}")
+            print(f"[ERRO] Falha ao listar croquis de database: {e}")
 
     def filtrar_lista(self, texto):
         """
