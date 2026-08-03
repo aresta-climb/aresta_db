@@ -45,8 +45,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: |
             requirements.txt
-            editor/requirements.txt 
-            serving/requirements-serving.txt
+            editor/requirements.txt
 
       - name: Configurar Git
         run: |
@@ -80,7 +79,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('requirements.txt', 'editor/requirements.txt', 'serving/requirements-serving.txt') }}
+          key: ${{ runner.os }}-venv-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
 
       - name: Preparar Virtualenv
         run: |
@@ -92,7 +91,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -r editor/requirements.txt
-          pip install -r serving/requirements-serving.txt
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 3

@@ -1,4 +1,0 @@
-boto3>=1.34,<2.0
-requests>=2.31,<3.0
-pyyaml>=6.0,<7.0
-requests-mock>=1.12,<2.0
