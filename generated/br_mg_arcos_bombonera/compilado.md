@@ -6,7 +6,7 @@
 - **id**: br_mg_arcos_bombonera
 - **nome**: Arcos - Bombonera
 - **creditos**:
-  - alexsandro martins
+  - Alexsandro Martins
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
