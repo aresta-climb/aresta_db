@@ -106,7 +106,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ github.event.inputs.new_version }}
-          files: dist/ArestaEditor.exe
+          files: editor/dist/ArestaEditor.exe
           name: Aresta Editor v${{ github.event.inputs.new_version }}
           draft: false
           prerelease: false
