@@ -27,9 +27,6 @@ jobs:
             generated/arquivos_serving.yaml
             migracoes
 
-      - name: Setup Fast Boto3
-        run: pip install boto3 --break-system-packages
-
       - name: Executar Update Serving
         run: python3 serving/update_serving.py
         env:
