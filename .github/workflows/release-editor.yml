@@ -1,4 +1,4 @@
-name: Lançamento Aresta Editor
+name: Lançamento Editor Aresta
 
 on:
   workflow_dispatch:
@@ -112,10 +112,10 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
         run: |
-          aws s3 cp editor/dist/ArestaEditor.exe s3://aresta-serving/editor/ArestaEditor.exe --endpoint-url $R2_ENDPOINT_URL --content-disposition "attachment" --content-type "application/x-msdownload"
+          aws s3 cp editor/dist/EditorAresta.exe s3://aresta-serving/editor/EditorAresta.exe --endpoint-url $R2_ENDPOINT_URL --content-disposition "attachment" --content-type "application/x-msdownload"
           
           echo "Limpando cache do Cloudflare para o executável..."
           curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
                -H "Authorization: Bearer $CLOUDFLARE_CACHE_PURGE_API_TOKEN" \
                -H "Content-Type: application/json" \
-               -d '{ "files": ["https://serving.arestaclimb.com/editor/ArestaEditor.exe"] }'
+               -d '{ "files": ["https://serving.arestaclimb.com/editor/EditorAresta.exe"] }'
