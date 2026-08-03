@@ -56,8 +56,8 @@ jobs:
       - name: Injetar Versão Oficial
         run: |
           python editor/release_tools/bump_version.py editor/core/version.py ${{ github.event.inputs.new_version }}
-          git commit -am "chore: Lançar versão ${{ github.event.inputs.new_version }}"
-          git tag v${{ github.event.inputs.new_version }}
+          git commit -am "chore: Lançar versão ${{ github.event.inputs.new_version }} do Editor Aresta"
+          git tag editor-v${{ github.event.inputs.new_version }}
         env:
           PYTHONPATH: .
 
@@ -93,7 +93,7 @@ jobs:
       - name: Injetar Ciclo de Desenvolvimento
         run: |
           python editor/release_tools/bump_version.py editor/core/version.py ${{ steps.next_dev.outputs.version }}
-          git commit -am "chore: iniciar ciclo de desenvolvimento"
+          git commit -am "chore: iniciar ciclo de desenvolvimento do Editor Aresta"
         env:
           PYTHONPATH: .
 
@@ -102,11 +102,20 @@ jobs:
           git push origin main
           git push origin v${{ github.event.inputs.new_version }}
 
-      - name: Upload Release
-        uses: softprops/action-gh-release@v3
-        with:
-          tag_name: v${{ github.event.inputs.new_version }}
-          files: editor/dist/ArestaEditor.exe
-          name: Aresta Editor v${{ github.event.inputs.new_version }}
-          draft: false
-          prerelease: false
+      - name: Publicar no Cloudflare R2 e Limpar Cache
+        shell: bash
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          AWS_REGION: auto
+          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+        run: |
+          aws s3 cp editor/dist/ArestaEditor.exe s3://aresta-serving/editor/ArestaEditor.exe --endpoint-url $R2_ENDPOINT_URL --content-disposition "attachment" --content-type "application/x-msdownload"
+          
+          echo "Limpando cache do Cloudflare para o executável..."
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
+               -H "Authorization: Bearer $CLOUDFLARE_CACHE_PURGE_API_TOKEN" \
+               -H "Content-Type: application/json" \
+               -d '{ "files": ["https://serving.arestaclimb.com/editor/ArestaEditor.exe"] }'
