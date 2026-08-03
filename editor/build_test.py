@@ -18,8 +18,7 @@ def test_executar_build_configura_icone_corretamente():
                 mock_img.height = 16
                 mock_img.resize.return_value = mock_img
                 mock_image_open.return_value = mock_img
-                
-                executar_build()
+                executar_build(force_icon_generation=True)
             
             # 1. Verifica se tentou redimensionar a imagem para as 6 resoluções
             assert mock_img.resize.call_count == 6
@@ -42,3 +41,30 @@ def test_executar_build_falha_se_main_nao_existe():
     with patch("pathlib.Path.exists", return_value=False):
         with pytest.raises(FileNotFoundError):
             executar_build()
+
+def test_executar_build_pula_geracao_se_icone_existe():
+    """Valida se pula a geração de imagem se o logo.ico já existir."""
+    with patch("PyInstaller.__main__.run"):
+        with patch("PIL.Image.open") as mock_image_open:
+            # path.exists retorna True para main.py e para logo.ico
+            with patch("pathlib.Path.exists", return_value=True):
+                executar_build(force_icon_generation=False)
+                
+            mock_image_open.assert_not_called()
+
+def test_executar_build_forca_geracao_se_flag_passada():
+    """Valida se força a geração de imagem mesmo se o logo.ico existir se flag for verdadeira."""
+    with patch("PyInstaller.__main__.run"):
+        with patch("PIL.Image.open") as mock_image_open:
+            with patch("pathlib.Path.exists", return_value=True):
+                mock_img = MagicMock()
+                mock_img.mode = 'RGBA'
+                mock_img.width = 16
+                mock_img.height = 16
+                mock_img.resize.return_value = mock_img
+                mock_image_open.return_value = mock_img
+                
+                executar_build(force_icon_generation=True)
+                
+            # open deve ter sido chamado, forçando a geração do ícone
+            assert mock_image_open.call_count == 1

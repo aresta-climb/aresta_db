@@ -78,7 +78,7 @@ jobs:
 
       - name: Build PyInstaller
         run: |
-          pyinstaller editor/ArestaEditor.spec --onefile --clean
+          python editor/build.py dist
 
       - name: Calcular próxima versão -dev
         id: next_dev
