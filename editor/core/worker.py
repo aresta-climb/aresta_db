@@ -211,7 +211,7 @@ class TarefaPublicacao(QThread):
                 repo.state_cleanup()
             else:
                 # 2. Criar Nova Branch a partir de upstream/main
-                nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%H%M%S')}"
+                nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
                 sync.fazer_checkout_main_upstream()
                 commit_base = repo.lookup_reference('refs/heads/main').peel()
                 branch = repo.create_branch(nome_branch, commit_base)
@@ -317,6 +317,8 @@ class TarefaPublicacao(QThread):
                 )
                 html_url = pr.html_url
                 pr_owner = g.get_user().login
+                if "aresta-climb/aresta_db" in repo.remotes["origin"].url:
+                    pr_owner = "aresta-climb"
             else:
                 self.status.emit("Atualizando Pull Request (Push completo)...")
                 # Se for atualização, não precisa de nova PR na API, apenas confirmamos os dados
