@@ -227,3 +227,12 @@ def test_delta_deploy_with_compilado_only(deployer):
             with patch.object(deployer.purger, 'purge_manifests'):
                 deployer.execute()
                 mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/compilado.binarypb", "generated/indice.binarypb"], check=True)
+
+def test_aws_cmd_env_metadata_disabled(deployer):
+    with patch('subprocess.run') as mock_run:
+        deployer._aws_cmd("cp", "a", "b")
+        
+        mock_run.assert_called_once()
+        kwargs = mock_run.call_args[1]
+        assert "env" in kwargs
+        assert kwargs["env"].get("AWS_EC2_METADATA_DISABLED") == "true"

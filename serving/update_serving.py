@@ -76,7 +76,11 @@ class Deployer:
         cmd = ["aws", "s3"] + list(args)
         if self.endpoint:
             cmd.extend(["--endpoint-url", self.endpoint])
-        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL)
+        
+        env = os.environ.copy()
+        env["AWS_EC2_METADATA_DISABLED"] = "true"
+        
+        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, env=env)
 
     def _get_remote_manifest(self) -> dict:
         key = f"{self.db_version}/arquivos_serving.yaml"
