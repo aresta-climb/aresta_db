@@ -25,6 +25,7 @@ jobs:
           sparse-checkout: |
             serving/requirements-serving.txt
             serving/update_serving.py
+            generated/arquivos_serving.yaml
             migracoes
 
       - name: Set up Python

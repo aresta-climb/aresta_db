@@ -9,12 +9,6 @@ from botocore.config import Config
 from concurrent.futures import ThreadPoolExecutor
 
 def get_db_version() -> str:
-    # Garante que a pasta migracoes esteja presente localmente (útil em git blobless clone)
-    try:
-        subprocess.run(["git", "checkout", "HEAD", "--", "migracoes/"], check=True, capture_output=True)
-    except subprocess.CalledProcessError:
-        pass
-        
     base_dir = Path(__file__).resolve().parent.parent / "migracoes"
     max_num = 0
     if base_dir.exists():
@@ -83,12 +77,6 @@ class Deployer:
 
     def _get_local_manifest(self) -> dict:
         path = self.generated_dir / "arquivos_serving.yaml"
-        # Em blobless clone, precisamos forçar o download primeiro
-        try:
-            subprocess.run(["git", "checkout", "HEAD", "--", "generated/arquivos_serving.yaml"], check=True, capture_output=True)
-        except subprocess.CalledProcessError:
-            pass
-
         if not path.exists():
             raise FileNotFoundError(f"Manifesto local não encontrado: {path}")
         return yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -134,7 +122,7 @@ class Deployer:
             print("=== FALLBACK FULL DEPLOY ===")
             print(f"Manifesto remoto {self.db_version}/arquivos_serving.yaml não encontrado.")
             print("Executando: git checkout HEAD -- generated/")
-            subprocess.run(["git", "checkout", "HEAD", "--", "generated/"], check=True)
+            subprocess.run(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"], check=True)
             
             paths = [a["caminho_relativo"] for a in local_manifest["arquivos"]]
             paths.append("arquivos_serving.yaml")
