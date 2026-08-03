@@ -196,7 +196,7 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
   checksum_sha256: 95a572fe61e67020fe67d42091b5a013375645db4b1b444dbeef23094429e276
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256: 591f1ae70c68425ec717c6ac08d40ff718b98d2141812a66f6dc250cd3912dc4
+  checksum_sha256: aef39f3ff6227e8d268bed348cc4a888ddd7294f97adbfcd42b6888230c12205
 - caminho_relativo: thumbnails/br_mg_arcos_bombonera.webp
   checksum_sha256: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
 - caminho_relativo: br_mg_arcos_bombonera/imagens/capa_p0.webp
@@ -228,9 +228,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_bombonera/imagens/setor_esquerda_p2_i0.webp
   checksum_sha256: 05c24e3cac4c06f65055600fa9b9b68edcaacd8bf98160880e6e0eabaa1aaa0c
 - caminho_relativo: br_mg_arcos_bombonera/compilado.yaml
-  checksum_sha256: 733bf28ad8102b1b30831cf0b7a1646a32443f4e7ebd45a67c4a515d47c61d80
+  checksum_sha256: 603c80a40081798dc67fce147d68d513973dec9d6bdbe6921bd6414abc5b9a20
 - caminho_relativo: br_mg_arcos_bombonera/compilado.md
-  checksum_sha256: 0a8381fb315d3c7627362d3d74e2141138b94b759cc9e3743001ffb127c85990
+  checksum_sha256: 59fd403c710bda8ac03213b6c7903f8170fdd2d2799c899fef1777dc664022dd
 - caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
   checksum_sha256: 24fb341ebfba5fb980a1a56909cac7ec5ad80c4e25dd5e24c047c38a9fba3bf5
 - caminho_relativo: thumbnails/br_mg_arcos_corumba.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 47e7dda070c00b2206a46a91d439e135a2c3e90f66be25bb5d5f74bd081f8dc0
+  checksum_sha256: 9b22bcd2ff5cf3c335109df5f6c0bc935fa3e21d6045bf5791ac3498ca3dfbde
 - caminho_relativo: indice.yaml
-  checksum_sha256: 920f575a82180d6482ddc7de80ce1b96b3f8d0f3be82c6853fd4393153e04f57
+  checksum_sha256: 9ab745c6a1bae1da557901c787925fc483ca05d599010410f20b11d8f659050d
