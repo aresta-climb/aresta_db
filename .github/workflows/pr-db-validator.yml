@@ -53,8 +53,16 @@ jobs:
           PYTHONPATH=. python serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
           
       - name: Upload Artifacts
+        id: artifact-upload
         if: always() && steps.changed-files.outputs.any_changed == 'true'
         uses: actions/upload-artifact@v7
         with:
-          name: croquis-validados
+          name: arquivo-croqui-compilado
           path: saida_croquis/*.croqui
+
+      - name: Comentar Link na PR
+        if: always() && steps.changed-files.outputs.any_changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --body "📦 **Validação Concluída!** O arquivo \`.croqui\` foi compilado com sucesso e está pronto para testes. [Baixe o croqui experimental aqui](${{ steps.artifact-upload.outputs.artifact-url }})"
