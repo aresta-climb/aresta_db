@@ -178,7 +178,7 @@ class Deployer:
                 
             checkout_paths.sort()
             print(f"Baixando {len(checkout_paths)} blobs pontuais via git checkout...")
-            subprocess.run(["git", "checkout", "HEAD", "--"] + checkout_paths, check=True)
+            subprocess.run(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--"] + checkout_paths, check=True)
             
             self._upload_files_parallel(to_upload)
             self._delete_files_bulk(sorted(deleted))
