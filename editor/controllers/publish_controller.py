@@ -11,13 +11,14 @@ class DialogoSucessoPR(QDialog):
         super().__init__(parent)
         self.pr_url = pr_url
         self.setWindowTitle(titulo)
-        self.setFixedSize(350, 150)
+        self.setMinimumSize(400, 160)
         
         layout = QVBoxLayout(self)
         layout.setSpacing(15)
         layout.setContentsMargins(20, 20, 20, 20)
         
         self.label_mensagem = QLabel(mensagem_personalizada)
+        self.label_mensagem.setWordWrap(True)
         self.label_mensagem.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_mensagem.setStyleSheet("font-size: 14px; font-weight: bold; color: #28a745;")
         layout.addWidget(self.label_mensagem)
@@ -168,13 +169,19 @@ class PublishController:
 
     def _on_sucesso(self, pr_url, pr_branch, pr_owner):
         """Callback acionado pelo sucesso do worker."""
-        meta = self._ler_meta_experimental()
-        meta["pull_request_url"] = pr_url
-        meta["pull_request_branch"] = pr_branch
-        meta["pull_request_fork_owner"] = pr_owner
-        self._salvar_meta_experimental(meta)
+        if pr_url and pr_url != "atualizado":
+            meta = self._ler_meta_experimental()
+            meta["pull_request_url"] = pr_url
+            meta["pull_request_branch"] = pr_branch
+            meta["pull_request_fork_owner"] = pr_owner
+            self._salvar_meta_experimental(meta)
+            mensagem = "Pull Request publicada com sucesso!"
+        else:
+            meta = self._ler_meta_experimental()
+            pr_url = meta.get("pull_request_url", "")
+            mensagem = "Pull Request atualizado com sucesso!"
 
-        dialogo = DialogoSucessoPR(pr_url, self.parent)
+        dialogo = DialogoSucessoPR(pr_url, self.parent, titulo="Sucesso", mensagem_personalizada=mensagem)
         dialogo.exec()
         
     def _on_erro(self, erro):

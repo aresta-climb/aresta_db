@@ -153,6 +153,8 @@ class TarefaPublicacao(QThread):
             self.status.emit("Iniciando publicação...")
             self.progresso.emit(5)
             
+            merge_realizado = False
+            
             g = github.Github(auth=github.Auth.Token(self.token))
             sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=self.token)
             
@@ -175,11 +177,38 @@ class TarefaPublicacao(QThread):
                 
                 if nome_branch in repo.branches.local:
                     branch = repo.branches.local[nome_branch]
+                    remote_branch = repo.branches.remote[f"origin/{nome_branch}"]
+                    # Descarta commits locais não enviados e sincroniza com o remoto
+                    branch.set_target(remote_branch.target)
                 else:
                     remote_branch = repo.branches.remote[f"origin/{nome_branch}"]
                     branch = repo.branches.local.create(nome_branch, repo[remote_branch.target])
                 
                 repo.checkout(branch)
+                
+                self.status.emit("Sincronizando Pull Request com a main...")
+                commit_base = repo.branches.remote["upstream/main"].peel()
+                repo.merge(commit_base.id)
+                
+                if repo.index.conflicts is not None:
+                    repo.reset(repo.head.target, pygit2.GIT_RESET_HARD)
+                    repo.state_cleanup()
+                    raise Exception("Há conflitos com a branch main. Por favor, resolva-os atualizando a branch do PR pelo GitHub antes de publicar aqui.")
+                
+                tree_id = repo.index.write_tree()
+                head_commit = repo.head.peel()
+                
+                if tree_id != head_commit.tree_id:
+                    autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
+                    repo.create_commit(
+                        'HEAD',
+                        autor, autor,
+                        f"Merge branch 'main' into {nome_branch}",
+                        tree_id,
+                        [head_commit.id, commit_base.id]
+                    )
+                    merge_realizado = True
+                repo.state_cleanup()
             else:
                 # 2. Criar Nova Branch a partir de upstream/main
                 nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%H%M%S')}"
@@ -254,20 +283,23 @@ class TarefaPublicacao(QThread):
             head_commit = repo.head.peel()
             
             if tree_id == head_commit.tree_id:
-                self.aviso.emit("Nenhuma alteração foi detectada no croqui. O Pull Request já está atualizado!")
-                return
-            
-            self.status.emit("Enviando para o GitHub...")
-            tree = index.write_tree()
-            autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
-            
-            repo.create_commit(
-                'refs/heads/' + nome_branch,
-                autor, autor,
-                f"Atualização do croqui {self.id_croqui} via Aresta Editor",
-                tree,
-                [repo.head.peel().id]
-            )
+                if not merge_realizado:
+                    self.aviso.emit("Nenhuma alteração foi detectada no croqui.\nO Pull Request já está atualizado!")
+                    return
+                else:
+                    self.status.emit("Enviando merge para o GitHub...")
+            else:
+                self.status.emit("Enviando para o GitHub...")
+                tree = index.write_tree()
+                autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
+                
+                repo.create_commit(
+                    'refs/heads/' + nome_branch,
+                    autor, autor,
+                    f"Atualização do croqui {self.id_croqui} via Aresta Editor",
+                    tree,
+                    [repo.head.peel().id]
+                )
             
             # Push
             remoto = repo.remotes["origin"]

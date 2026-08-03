@@ -19,6 +19,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          submodules: recursive
+          sparse-checkout: |
+            editor
+            scripts
+            serving
+            migracoes
+            aresta_api
+            pytest.ini
 
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -43,7 +51,6 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r editor/requirements.txt
-          pip install pyinstaller pytest pytest-xdist
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 3
