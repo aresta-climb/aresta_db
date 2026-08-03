@@ -35,13 +35,17 @@ jobs:
             migracoes
             aresta_api
             pytest.ini
+            *.py
+            *.txt
 
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
           python-version: '3.13'
           cache: 'pip'
-          cache-dependency-path: 'editor/requirements.txt'
+          cache-dependency-path: |
+            editor/requirements.txt 
+            requirements.txt
 
       - name: Configurar Git
         run: |
@@ -59,6 +63,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r editor/requirements.txt
+          pip install -r requirements.txt
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 3
