@@ -1,10 +1,11 @@
 import os
 import pytest
-import subprocess
+import boto3
 import urllib.error
 import json
 from pathlib import Path
-from unittest.mock import patch, call, MagicMock
+from unittest.mock import patch, MagicMock
+from moto import mock_aws
 
 # Como estamos fazendo TDD, importaremos a classe principal
 # que será implementada em update_serving.py
@@ -49,12 +50,31 @@ def test_load_arquivos_serving():
     assert parsed["arquivos"][1]["checksum_sha256"] == "hashB"
 
 @pytest.fixture
-def deployer(tmp_path):
+def aws_credentials():
+    os.environ["AWS_ACCESS_KEY_ID"] = "testing"
+    os.environ["AWS_SECRET_ACCESS_KEY"] = "testing"
+    os.environ["AWS_SECURITY_TOKEN"] = "testing"
+    os.environ["AWS_SESSION_TOKEN"] = "testing"
+    os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
+    os.environ["R2_BUCKET"] = "aresta"
+    if "R2_ENDPOINT_URL" in os.environ:
+        del os.environ["R2_ENDPOINT_URL"]
+
+@pytest.fixture
+def mock_s3(aws_credentials):
+    with mock_aws():
+        s3 = boto3.client("s3", region_name="us-east-1")
+        s3.create_bucket(Bucket="aresta")
+        yield s3
+
+@pytest.fixture
+def deployer(tmp_path, aws_credentials, mock_s3):
     gen_dir = tmp_path / "generated"
     gen_dir.mkdir()
     
     with patch('update_serving.get_db_version', return_value="v1"):
         d = Deployer(generated_dir=gen_dir)
+        d.s3 = mock_s3
         return d
 
 def test_cloudflare_purger_success():
@@ -101,28 +121,7 @@ def test_cloudflare_purger_http_error():
         with pytest.raises(urllib.error.HTTPError):
             purger.purge_manifests("v1")
 
-def setup_mock_aws_cmd(mock_aws_cmd_func, remote_manifest_data=None):
-    uploaded = set()
-    deleted = set()
-    def side_effect(*args):
-        cmd_type = args[0]
-        if cmd_type == "cp":
-            src = args[1]
-            dest = args[2]
-            if dest == "temp_remote_manifest.yaml":
-                if remote_manifest_data is None:
-                    raise subprocess.CalledProcessError(1, ["aws"])
-                with open(dest, "w", encoding="utf-8") as f:
-                    f.write(remote_manifest_data)
-            else:
-                uploaded.add(dest)
-        elif cmd_type == "rm":
-            deleted.add(args[1])
-            
-    mock_aws_cmd_func.side_effect = side_effect
-    return uploaded, deleted
-
-def test_full_deploy_fallback(deployer, tmp_path):
+def test_full_deploy_fallback(deployer, tmp_path, mock_s3):
     local_arquivos = {
         "indice.binarypb": "hash1",
         "pico/compilado.binarypb": "hash2"
@@ -137,27 +136,31 @@ def test_full_deploy_fallback(deployer, tmp_path):
     (deployer.generated_dir / "pico").mkdir()
     (deployer.generated_dir / "pico/compilado.binarypb").write_bytes(b"content2")
 
-    with patch.object(deployer, '_aws_cmd') as mock_aws:
-        uploaded, _ = setup_mock_aws_cmd(mock_aws, None) # None = Sem manifesto remoto
-        with patch('subprocess.run') as mock_run:
-            with patch.object(deployer.purger, 'purge_manifests'):
-                deployer.execute()
-                
-                # Checa se o fallback checkout foi chamado
-                mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"], check=True)
-                
-                # Valida S3
-                assert f"s3://{deployer.bucket}/v1/arquivos_serving.yaml" in uploaded
-                assert f"s3://{deployer.bucket}/v1/indice.binarypb" in uploaded
-                assert f"s3://{deployer.bucket}/v1/pico/compilado.binarypb" in uploaded
+    with patch('subprocess.run') as mock_run:
+        with patch.object(deployer.purger, 'purge_manifests'):
+            deployer.execute()
+            
+            # Checa se o fallback checkout foi chamado
+            mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"], check=True)
+            
+            # Valida S3
+            objs = mock_s3.list_objects_v2(Bucket="aresta").get("Contents", [])
+            keys = {o["Key"] for o in objs}
+            assert "v1/arquivos_serving.yaml" in keys
+            assert "v1/indice.binarypb" in keys
+            assert "v1/pico/compilado.binarypb" in keys
 
-def test_delta_deploy(deployer, tmp_path):
+def test_delta_deploy(deployer, tmp_path, mock_s3):
     remoto_arquivos = {
         "indice.binarypb": "hash_old",
         "mantido.png": "hash_same",
         "deletado.txt": "hash_del"
     }
-    remote_data = criar_manifesto(remoto_arquivos)
+    mock_s3.put_object(
+        Bucket="aresta", 
+        Key="v1/arquivos_serving.yaml", 
+        Body=criar_manifesto(remoto_arquivos).encode("utf-8")
+    )
 
     local_arquivos = {
         "indice.binarypb": "hash_new",     # Modificado
@@ -171,68 +174,53 @@ def test_delta_deploy(deployer, tmp_path):
     (deployer.generated_dir / "novo_pico").mkdir()
     (deployer.generated_dir / "novo_pico/compilado.binarypb").write_bytes(b"new2")
 
-    with patch.object(deployer, '_aws_cmd') as mock_aws:
-        uploaded, deleted = setup_mock_aws_cmd(mock_aws, remote_data)
-        with patch('subprocess.run') as mock_run:
-            with patch.object(deployer.purger, 'purge_manifests'):
-                deployer.execute()
-                
-                mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/indice.binarypb", "generated/novo_pico/compilado.binarypb"], check=True)
-                
-                assert f"s3://{deployer.bucket}/v1/indice.binarypb" in uploaded
-                assert f"s3://{deployer.bucket}/v1/novo_pico/compilado.binarypb" in uploaded
-                assert f"s3://{deployer.bucket}/v1/arquivos_serving.yaml" in uploaded
-                
-                assert f"s3://{deployer.bucket}/v1/deletado.txt" in deleted
-
-def test_delta_deploy_no_changes(deployer, capsys):
-    arquivos = {"indice.binarypb": "same", "compilado.binarypb": "same"}
-    data = criar_manifesto(arquivos)
-    (deployer.generated_dir / "arquivos_serving.yaml").write_text(data, encoding="utf-8")
-    
-    with patch.object(deployer, '_aws_cmd') as mock_aws:
-        setup_mock_aws_cmd(mock_aws, data)
-        with patch('subprocess.run') as mock_run:
+    with patch('subprocess.run') as mock_run:
+        with patch.object(deployer.purger, 'purge_manifests'):
             deployer.execute()
             
+            mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/indice.binarypb", "generated/novo_pico/compilado.binarypb"], check=True)
+            
+            objs = mock_s3.list_objects_v2(Bucket="aresta").get("Contents", [])
+            keys = {o["Key"] for o in objs}
+            assert "v1/indice.binarypb" in keys
+            assert "v1/novo_pico/compilado.binarypb" in keys
+            assert "v1/arquivos_serving.yaml" in keys
+            assert "v1/deletado.txt" not in keys
+
+def test_delta_deploy_no_changes(deployer, capsys, mock_s3):
+    arquivos = {"indice.binarypb": "same", "compilado.binarypb": "same"}
+    data = criar_manifesto(arquivos).encode("utf-8")
+    mock_s3.put_object(Bucket="aresta", Key="v1/arquivos_serving.yaml", Body=data)
+    (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(data)
+    
+    with patch('subprocess.run') as mock_run:
+        deployer.execute()
+        
     out, _ = capsys.readouterr()
     assert "Nenhum arquivo modificado. Deploy pulado." in out
 
-def test_delta_deploy_with_indice_in_modified(deployer):
+def test_delta_deploy_with_indice_in_modified(deployer, mock_s3):
     remoto = {"indice.binarypb": "old"}
-    remote_data = criar_manifesto(remoto)
+    mock_s3.put_object(Bucket="aresta", Key="v1/arquivos_serving.yaml", Body=criar_manifesto(remoto).encode("utf-8"))
     
     local = {"indice.binarypb": "new"}
     (deployer.generated_dir / "arquivos_serving.yaml").write_text(criar_manifesto(local), encoding="utf-8")
     (deployer.generated_dir / "indice.binarypb").write_bytes(b"content")
     
-    with patch.object(deployer, '_aws_cmd') as mock_aws:
-        setup_mock_aws_cmd(mock_aws, remote_data)
-        with patch('subprocess.run') as mock_run:
-            with patch.object(deployer.purger, 'purge_manifests'):
-                deployer.execute()
-                mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/indice.binarypb"], check=True)
+    with patch('subprocess.run') as mock_run:
+        with patch.object(deployer.purger, 'purge_manifests'):
+            deployer.execute()
+            mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/indice.binarypb"], check=True)
 
-def test_delta_deploy_with_compilado_only(deployer):
+def test_delta_deploy_with_compilado_only(deployer, mock_s3):
     remoto = {"indice.binarypb": "same", "compilado.binarypb": "old"}
-    remote_data = criar_manifesto(remoto)
+    mock_s3.put_object(Bucket="aresta", Key="v1/arquivos_serving.yaml", Body=criar_manifesto(remoto).encode("utf-8"))
     
     local = {"indice.binarypb": "same", "compilado.binarypb": "new"}
     (deployer.generated_dir / "arquivos_serving.yaml").write_text(criar_manifesto(local), encoding="utf-8")
     (deployer.generated_dir / "compilado.binarypb").write_bytes(b"content")
     
-    with patch.object(deployer, '_aws_cmd') as mock_aws:
-        setup_mock_aws_cmd(mock_aws, remote_data)
-        with patch('subprocess.run') as mock_run:
-            with patch.object(deployer.purger, 'purge_manifests'):
-                deployer.execute()
-                mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/compilado.binarypb", "generated/indice.binarypb"], check=True)
-
-def test_aws_cmd_env_metadata_disabled(deployer):
     with patch('subprocess.run') as mock_run:
-        deployer._aws_cmd("cp", "a", "b")
-        
-        mock_run.assert_called_once()
-        kwargs = mock_run.call_args[1]
-        assert "env" in kwargs
-        assert kwargs["env"].get("AWS_EC2_METADATA_DISABLED") == "true"
+        with patch.object(deployer.purger, 'purge_manifests'):
+            deployer.execute()
+            mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/compilado.binarypb", "generated/indice.binarypb"], check=True)

@@ -3,6 +3,9 @@ import urllib.request
 import urllib.error
 import json
 import subprocess
+import boto3
+from botocore.exceptions import ClientError
+from botocore.config import Config
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 
@@ -68,33 +71,26 @@ class Deployer:
     def __init__(self, generated_dir: Path = None):
         self.generated_dir = generated_dir or (Path(__file__).resolve().parent.parent / "generated")
         self.db_version = get_db_version()
-        self.bucket = os.environ.get("R2_BUCKET")
-        self.endpoint = os.environ.get("R2_ENDPOINT_URL")
+        self.bucket = os.environ.get("R2_BUCKET", "aresta")
         self.purger = CloudflarePurger()
-
-    def _aws_cmd(self, *args):
-        cmd = ["aws", "s3"] + list(args)
-        if self.endpoint:
-            cmd.extend(["--endpoint-url", self.endpoint])
         
-        env = os.environ.copy()
-        env["AWS_EC2_METADATA_DISABLED"] = "true"
-        
-        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, env=env)
+        boto_config = Config(max_pool_connections=50)
+        endpoint = os.environ.get("R2_ENDPOINT_URL")
+        if endpoint:
+            self.s3 = boto3.client("s3", endpoint_url=endpoint, config=boto_config)
+        else:
+            self.s3 = boto3.client("s3", config=boto_config)
 
     def _get_remote_manifest(self) -> dict:
         key = f"{self.db_version}/arquivos_serving.yaml"
-        temp_file = "temp_remote_manifest.yaml"
         try:
-            self._aws_cmd("cp", f"s3://{self.bucket}/{key}", temp_file)
-            with open(temp_file, "r", encoding="utf-8") as f:
-                data = f.read()
-            os.remove(temp_file)
+            resp = self.s3.get_object(Bucket=self.bucket, Key=key)
+            data = resp['Body'].read().decode("utf-8")
             return load_arquivos_serving(data)
-        except subprocess.CalledProcessError:
-            if os.path.exists(temp_file):
-                os.remove(temp_file)
-            return None
+        except ClientError as e:
+            if e.response['Error']['Code'] == 'NoSuchKey':
+                return None
+            raise e
 
     def _get_local_manifest(self) -> dict:
         path = self.generated_dir / "arquivos_serving.yaml"
@@ -114,23 +110,25 @@ class Deployer:
         elif rel_path.endswith(".md"): content_type = "text/markdown; charset=utf-8"
         elif rel_path.endswith(".yaml") or rel_path.endswith(".yml"): content_type = "text/yaml; charset=utf-8"
             
-        args = ["cp", str(local_path), f"s3://{self.bucket}/{remote_key}", "--content-type", content_type]
-        self._aws_cmd(*args)
+        self.s3.upload_file(
+            str(local_path), 
+            self.bucket, 
+            remote_key,
+            ExtraArgs={'ContentType': content_type}
+        )
 
     def _upload_files_parallel(self, files: list[str]):
         if not files: return
         with ThreadPoolExecutor(max_workers=50) as executor:
             list(executor.map(self._upload_file, files))
 
-    def _delete_file(self, rel_path: str):
-        remote_key = f"{self.db_version}/{rel_path}"
-        print(f"Deleting: s3://{self.bucket}/{remote_key}")
-        self._aws_cmd("rm", f"s3://{self.bucket}/{remote_key}")
-
-    def _delete_files_bulk(self, files: list[str]):
-        if not files: return
-        with ThreadPoolExecutor(max_workers=50) as executor:
-            list(executor.map(self._delete_file, files))
+    def _delete_files_bulk(self, rel_paths: list[str]):
+        if not rel_paths: return
+        print(f"Deleting {len(rel_paths)} objects via bulk API...")
+        objects = [{'Key': f"{self.db_version}/{p}"} for p in rel_paths]
+        for i in range(0, len(objects), 1000):
+            chunk = objects[i:i+1000]
+            self.s3.delete_objects(Bucket=self.bucket, Delete={'Objects': chunk})
 
     def execute(self):
         print(f"Iniciando deploy para banco de dados {self.db_version}")
