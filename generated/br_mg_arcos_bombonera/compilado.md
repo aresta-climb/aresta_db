@@ -2,7 +2,7 @@
 
 ## Informações Gerais
 
-- **descricao**: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com diversos setores de escalada esportiva.
+- **descricao**: Afloramento de calcário situado em Pains, Minas Gerais, com diversos setores de escalada esportiva.
 - **id**: br_mg_arcos_bombonera
 - **nome**: Arcos - Bombonera
 - **creditos**:
