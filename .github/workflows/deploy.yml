@@ -23,7 +23,6 @@ jobs:
           filter: 'blob:none'
           submodules: false
           sparse-checkout: |
-            .
             generated
             serving
             migracoes
