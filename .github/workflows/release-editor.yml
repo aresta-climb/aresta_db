@@ -83,6 +83,7 @@ jobs:
 
       - name: Calcular próxima versão -dev
         id: next_dev
+        shell: bash
         run: |
           NEXT_VER=$(python editor/release_tools/calculate_next_dev.py ${{ github.event.inputs.new_version }})
           echo "version=$NEXT_VER" >> $GITHUB_OUTPUT
