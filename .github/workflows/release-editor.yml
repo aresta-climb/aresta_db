@@ -61,8 +61,19 @@ jobs:
         env:
           PYTHONPATH: .
 
-      - name: Setup Graphviz (Cached)
-        uses: ts-graphviz/setup-graphviz@v2
+      - name: Cache Graphviz
+        id: cache-graphviz
+        uses: actions/cache@v6
+        with:
+          path: C:\Program Files\Graphviz
+          key: ${{ runner.os }}-graphviz-choco
+
+      - name: Install Graphviz
+        if: steps.cache-graphviz.outputs.cache-hit != 'true'
+        run: choco install graphviz --no-progress
+
+      - name: Add Graphviz to PATH
+        run: echo "C:\Program Files\Graphviz\bin" >> $GITHUB_PATH
 
       - name: Cache Virtualenv
         id: cache-venv
