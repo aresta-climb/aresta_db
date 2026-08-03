@@ -35,20 +35,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: serving/requirements-serving.txt
 
-      - name: Cache Virtualenv
-        id: cache-venv
-        uses: actions/cache@v6
-        with:
-          path: venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('serving/requirements-serving.txt') }}
-
-      - name: Preparar Virtualenv
-        run: |
-          python -m venv venv
-          echo "${{ github.workspace }}/venv/bin" >> $GITHUB_PATH
-
       - name: Install Dependencies
-        if: steps.cache-venv.outputs.cache-hit != 'true'
         run: pip install -r serving/requirements-serving.txt
 
 
