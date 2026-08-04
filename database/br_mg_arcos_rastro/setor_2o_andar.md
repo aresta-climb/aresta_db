@@ -61,15 +61,15 @@ mapas:
       y: 209
       comprimento: 20
       largura: 16
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 556
       y: 106
       comprimento: 22
       largura: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 612
       y: 60
@@ -231,11 +231,11 @@ mapas:
     - Setor_Jardim_Suspenso
     setor: Jardim Suspenso
   - ids:
-    - 08
+    - '08'
     setor: 2º Andar
     escalada: Gardneria Angustata
   - ids:
-    - 09
+    - '09'
     setor: 2º Andar
     escalada: Vai e Volta e Vai
 escaladas:

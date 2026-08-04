@@ -75,8 +75,8 @@ mapas:
       y: 652
       comprimento: 22
       largura: 20
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 139
       y: 436
@@ -105,7 +105,7 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Toca dos Gatos
     escalada: Nem C/ Chuva a Gente Para
   - ids:

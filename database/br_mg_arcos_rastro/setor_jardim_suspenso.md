@@ -68,15 +68,15 @@ mapas:
       y: 434
       comprimento: 23
       largura: 21
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 562
       y: 463
       comprimento: 23
       largura: 20
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 633
       y: 441
@@ -105,11 +105,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Jardim Suspenso
     escalada: Corte Profundo
   - ids:
-    - 09
+    - '09'
     setor: Jardim Suspenso
     escalada: Avenida Paulista
   - ids:

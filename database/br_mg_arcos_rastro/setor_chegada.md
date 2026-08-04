@@ -89,15 +89,15 @@ mapas:
       y: 380
       comprimento: 20
       largura: 17
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 462
       y: 346
       comprimento: 20
       largura: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 543
       y: 372
@@ -136,7 +136,7 @@ mapas:
     ids:
     - '10'
   - ids:
-    - 09
+    - '09'
     setor: Setor Chegada
     escalada: Linha de Frente
   - ids:

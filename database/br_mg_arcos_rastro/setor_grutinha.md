@@ -75,15 +75,15 @@ mapas:
       y: 574
       comprimento: 20
       largura: 15
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 632
       y: 584
       comprimento: 21
       largura: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 672
       y: 597
@@ -112,11 +112,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Grutinha
     escalada: Respeite os Mais Velhos
   - ids:
-    - 09
+    - '09'
     setor: Setor Grutinha
     escalada: Quem Ama Implanta
   - ids:
