@@ -82,4 +82,15 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          gh pr merge ${{ steps.pr-info.outputs.pr_number }} --merge --auto --delete-branch
+          # O GitHub precisa de alguns segundos após o 'git push' para recalcular o estado do PR.
+          # Adicionamos um loop de retry para evitar o erro "Pull Request is not mergeable"
+          for i in {1..5}; do
+            if gh pr merge ${{ steps.pr-info.outputs.pr_number }} --merge --auto --delete-branch; then
+              echo "Merge realizado com sucesso!"
+              exit 0
+            fi
+            echo "Aguardando o GitHub processar o PR... Tentativa $i de 5"
+            sleep 5
+          done
+          echo "Falha ao realizar o merge após várias tentativas. Pode haver um conflito real."
+          exit 1
