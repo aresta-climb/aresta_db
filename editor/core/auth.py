@@ -95,11 +95,11 @@ class GerenciadorAutenticacao:
         Salva o token de acesso no keyring do sistema operacional.
         """
         import keyring
-        keyring.set_password("aresta_editor", "github_token", token)
+        keyring.set_password("editor_aresta", "github_token", token)
 
     def recuperar_token(self) -> Optional[str]:
         """
         Recupera o token de acesso do keyring.
         """
         import keyring
-        return keyring.get_password("aresta_editor", "github_token")
+        return keyring.get_password("editor_aresta", "github_token")

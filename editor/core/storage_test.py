@@ -12,14 +12,14 @@ class TestStorage(unittest.TestCase):
         gerenciador = GerenciadorCaminhos()
         caminho = gerenciador.obter_diretorio_base()
         
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/aresta_editor")
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/editor_aresta")
 
     @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
     def test_obter_caminho_lixeira(self, mock_writable_location):
         mock_writable_location.return_value = "C:/fake/appdata"
         gerenciador = GerenciadorCaminhos()
         caminho = gerenciador.obter_caminho_lixeira()
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/aresta_editor/.trash_interna")
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/editor_aresta/.trash_interna")
 
     @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
     @patch("editor.core.storage.Path.mkdir")

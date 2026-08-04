@@ -62,8 +62,6 @@ from pathlib import Path
 from PIL import Image, ImageFilter, ImageEnhance, ImageDraw
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-
-import build
 from aresta_api.proto.generated import indice_pb2
 from scripts.preparar_submissao_lib import (
     corrigir_database,
@@ -895,12 +893,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
-
-    try:
-        build.generate_protos()
-    except Exception as e:
-        print(f"Erro ao gerar protos: {e}")
-        sys.exit(1)
 
     try:
         deploy(

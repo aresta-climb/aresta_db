@@ -8,7 +8,7 @@ class GerenciadorCaminhos:
     """
     
     def __init__(self):
-        self.nome_app = "aresta_editor"
+        self.nome_app = "editor_aresta"
         
     def obter_diretorio_base(self) -> Path:
         """

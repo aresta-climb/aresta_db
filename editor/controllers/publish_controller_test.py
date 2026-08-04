@@ -15,6 +15,7 @@ class TestPublishController(unittest.TestCase):
 
         # Configura o histórico como limpo por padrão
         self.historico_mock.obter_pilha().isClean.return_value = True
+        self.auth_mock.recuperar_token.return_value = "fake_token"
 
         self.controller = PublishController(
             workspace=self.workspace_mock,
@@ -65,7 +66,8 @@ class TestPublishController(unittest.TestCase):
     @patch("editor.controllers.publish_controller.QProgressDialog")
     @patch("editor.controllers.publish_controller.PublishDialog")
     @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
-    def test_deve_pular_dialogo_se_pr_ja_existe_e_esta_aberta(self, ler_meta_mock, dialog_mock_class, progress_mock):
+    @patch("editor.controllers.publish_controller.github.Github")
+    def test_deve_pular_dialogo_se_pr_ja_existe_e_esta_aberta(self, github_mock_class, ler_meta_mock, dialog_mock_class, progress_mock):
         """Se o croqui já tem PR aberta, não deve pedir título de novo, vai atualizar silenciosamente."""
         ler_meta_mock.return_value = {
             "pull_request_branch": "editor/meu_croqui",
@@ -74,6 +76,11 @@ class TestPublishController(unittest.TestCase):
         self.controller.croqui_data = {
             "id": "meu_croqui"
         }
+        
+        mock_g = github_mock_class.return_value
+        mock_repo = mock_g.get_repo.return_value
+        mock_pr = mock_repo.get_pull.return_value
+        mock_pr.state = "open"
         
         with patch("editor.controllers.publish_controller.TarefaPublicacao") as tarefa_mock_class:
             tarefa_mock = tarefa_mock_class.return_value
@@ -85,6 +92,47 @@ class TestPublishController(unittest.TestCase):
             # A tarefa deve ser iniciada com modo atualização
             args, kwargs = tarefa_mock_class.call_args
             self.assertTrue(kwargs.get("modo_atualizacao", False))
+            tarefa_mock.start.assert_called_once()
+
+    @patch("editor.controllers.publish_controller.QProgressDialog")
+    @patch("editor.controllers.publish_controller.PublishDialog")
+    @patch("editor.controllers.publish_controller.PublishController._ler_meta_experimental")
+    @patch("editor.controllers.publish_controller.PublishController._salvar_meta_experimental")
+    @patch("editor.controllers.publish_controller.github.Github")
+    def test_deve_abrir_dialogo_se_pr_fechado_ou_merged(self, github_mock_class, salvar_meta_mock, ler_meta_mock, dialog_mock_class, progress_mock):
+        """Se o PR já existe mas foi fechado ou merged, deve pedir título para novo PR e limpar o meta antigo."""
+        ler_meta_mock.return_value = {
+            "pull_request_branch": "editor/meu_croqui",
+            "pull_request_url": "https://github.com/aresta-climb/aresta_db/pull/1",
+            "pull_request_fork_owner": "renato"
+        }
+        self.controller.croqui_data = {
+            "id": "meu_croqui"
+        }
+        
+        mock_g = github_mock_class.return_value
+        mock_repo = mock_g.get_repo.return_value
+        mock_pr = mock_repo.get_pull.return_value
+        mock_pr.state = "closed"
+        
+        dialog_mock = dialog_mock_class.return_value
+        dialog_mock.exec.return_value = 1  # Accepted
+        dialog_mock.obter_dados.return_value = {"titulo": "Test", "descricao": "Desc"}
+
+        with patch("editor.controllers.publish_controller.TarefaPublicacao") as tarefa_mock_class:
+            tarefa_mock = tarefa_mock_class.return_value
+            self.controller.iniciar_publicacao()
+
+            # Deve limpar meta
+            salvar_meta_mock.assert_called_once_with({})
+            
+            dialog_mock_class.assert_called_once()
+            dialog_mock.exec.assert_called_once()
+            tarefa_mock_class.assert_called_once()
+            
+            # A tarefa deve ser iniciada com modo atualização FALSO
+            args, kwargs = tarefa_mock_class.call_args
+            self.assertFalse(kwargs.get("modo_atualizacao", True))
             tarefa_mock.start.assert_called_once()
 
     @patch("editor.controllers.publish_controller.DialogoSucessoPR")

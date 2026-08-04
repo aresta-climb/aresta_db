@@ -26,6 +26,6 @@ A aplicação DEVE apresentar três botões distintos para iniciar a edição de
 A aplicação DEVE escanear a pasta de croquis experimentais no disco local do usuário e exibi-los em uma lista na Página Inicial.
 
 #### Scenario: Exibição de Croquis Experimentais
-- **WHEN** a Página Inicial for renderizada e existirem pastas de croquis experimentais em `%appdata%/aresta_editor/croquis_experimentais`
+- **WHEN** a Página Inicial for renderizada e existirem pastas de croquis experimentais em `%appdata%/editor_aresta/croquis_experimentais`
 - **THEN** a interface DEVE listar cada croqui encontrado mostrando seu timestamp ou nome legível e data de última modificação
 - **THEN** ao clicar duas vezes (double-click) em um croqui da lista, a aplicação DEVE abrir o espaço do Editor para este croqui (mock/placeholder para esta fase).
