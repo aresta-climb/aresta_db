@@ -475,12 +475,10 @@ picos:
             - boulder:
                 nome: Altinho
                 dificuldade: V0
-            descricao: '| ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp) |
               | :--: |
-
-              | *Imagem Adicional* |'
+              | *Imagem Adicional* |
         - conteudo:
             nome: 'Bloco: Bob'
             mapas:
@@ -1693,12 +1691,10 @@ picos:
                 nome: Frita Crux
                 dificuldade: V4
                 descricao: (vira pela aresta atrás do bloco)
-            descricao: '| ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp) |
               | :--: |
-
-              | *Escalada Noturna* |'
+              | *Escalada Noturna* |
         - conteudo:
             nome: 'Bloco: Hora da Janta'
             mapas:
@@ -2446,20 +2442,14 @@ picos:
             - boulder:
                 nome: Chapeuzinho Vermelho
                 dificuldade: V13
-            descricao: '| ![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
-              |
-
+            descricao: |-
+              | ![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp) |
               | :--: |
-
               | *Escalada 1* |
 
-
-              | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp)
-              |
-
+              | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp) |
               | :--: |
-
-              | *Escalada 2* |'
+              | *Escalada 2* |
         - conteudo:
             nome: 'Bloco: Longevidade'
             mapas:
@@ -3040,12 +3030,10 @@ picos:
             - boulder:
                 nome: Discovery Kids
                 dificuldade: V3
-            descricao: '| ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp) |
               | :--: |
-
-              | *Escalada Noturna* |'
+              | *Escalada Noturna* |
         - conteudo:
             nome: 'Bloco: Nave-Mãe'
             mapas:
@@ -3714,12 +3702,10 @@ picos:
             - boulder:
                 nome: Pedra Queimada sds
                 dificuldade: V9
-            descricao: '| ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp) |
               | :--: |
-
-              | *Escalada Pedra Queimada* |'
+              | *Escalada Pedra Queimada* |
         - conteudo:
             nome: 'Bloco: Red Bull'
             mapas:
@@ -4101,12 +4087,10 @@ picos:
             - boulder:
                 nome: Wafer
                 dificuldade: V1
-            descricao: '| ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp) |
               | :--: |
-
-              | *Fotos* |'
+              | *Fotos* |
         - conteudo:
             nome: 'Bloco: Tô de Boa'
             mapas:
@@ -4235,12 +4219,10 @@ picos:
             - boulder:
                 nome: Tô Suave
                 dificuldade: V4_BARRA_V5
-            descricao: '| ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
-              |
-
+            descricao: |-
+              | ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp) |
               | :--: |
-
-              | *Escalador no Bloco Tô de Boa* |'
+              | *Escalador no Bloco Tô de Boa* |
         - conteudo:
             nome: 'Bloco: Travessia'
             mapas:
@@ -4954,12 +4936,10 @@ picos:
             - boulder:
                 nome: Fulano
                 dificuldade: V1
-            descricao: '| ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
-              |
-
+            descricao: |-
+              | ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp) |
               | :--: |
-
-              | *parada obrigatória* |'
+              | *parada obrigatória* |
         - conteudo:
             nome: 'Bloco: Salão dos Ossos'
             mapas:
@@ -6092,336 +6072,150 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# CROQUI 2025 OUROBOULDER
-
+      conteudo: |-
+        # CROQUI 2025 OUROBOULDER
 
         | ![SIME MINAS GERAIS - BRASIL](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
-        | *SIME MINAS GERAIS - BRASIL* |'
+        | *SIME MINAS GERAIS - BRASIL* |
 - texto: Apoio
   destino:
     secao_textual:
-      conteudo: '# APOIO
-
+      conteudo: |-
+        # APOIO
 
         | ![Logos de apoiadores](imagens/apoio_p0_i0.webp) |
-
         | :--: |
-
-        | *Logos de apoiadores* |'
+        | *Logos de apoiadores* |
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# OUROBOULDER 20 ANOS
+      conteudo: |-
+        # OUROBOULDER 20 ANOS
 
+        Em 2026, o OUROBOULDER celebra uma marca histórica: 20 anos de existência, consolidando-se como um dos mais tradicionais encontros de escalada em boulder do Brasil. Ao longo de duas décadas, o evento transformou-se em muito mais do que um festival esportivo, tornando-se um espaço de integração, amizade, cultura e valorização das montanhas e paisagens de Ouro Preto.
 
-        Em 2026, o OUROBOULDER celebra uma marca histórica: 20 anos de existência,
-        consolidando-se como um dos mais tradicionais encontros de escalada em boulder
-        do Brasil. Ao longo de duas décadas, o evento transformou-se em muito mais
-        do que um festival esportivo, tornando-se um espaço de integração, amizade,
-        cultura e valorização das montanhas e paisagens de Ouro Preto.
+        Nascido da paixão pela escalada e do espírito de comunidade que caracteriza os praticantes do esporte, o OUROBOULDER construiu uma trajetória marcada por desafios, superação e momentos inesquecíveis. A cada edição, atletas, iniciantes, famílias e amantes da natureza se reúnem para compartilhar experiências, celebrar conquistas e fortalecer os laços que unem a comunidade da escalada.
 
+        Realizado em um dos mais importantes patrimônios históricos e culturais do país, o evento combina a beleza singular das formações rochosas da região com a riqueza histórica de Ouro Preto, proporcionando uma experiência única aos participantes. O ambiente descontraído, a convivência ao ar livre, as atividades culturais, as ações de educação ambiental e o incentivo à prática esportiva fazem parte da identidade que tornou o OUROBOULDER uma referência nacional.
 
-        Nascido da paixão pela escalada e do espírito de comunidade que caracteriza
-        os praticantes do esporte, o OUROBOULDER construiu uma trajetória marcada
-        por desafios, superação e momentos inesquecíveis. A cada edição, atletas,
-        iniciantes, famílias e amantes da natureza se reúnem para compartilhar experiências,
-        celebrar conquistas e fortalecer os laços que unem a comunidade da escalada.
-
-
-        Realizado em um dos mais importantes patrimônios históricos e culturais do
-        país, o evento combina a beleza singular das formações rochosas da região
-        com a riqueza histórica de Ouro Preto, proporcionando uma experiência única
-        aos participantes. O ambiente descontraído, a convivência ao ar livre, as
-        atividades culturais, as ações de educação ambiental e o incentivo à prática
-        esportiva fazem parte da identidade que tornou o OUROBOULDER uma referência
-        nacional.
-
-
-        A edição comemorativa de 2026 serve para homenagear todos aqueles que ajudaram
-        a construir essa história.'
+        A edição comemorativa de 2026 serve para homenagear todos aqueles que ajudaram a construir essa história.
 - texto: Sobre Ouro Preto
   destino:
     secao_textual:
-      conteudo: '# Ouro Preto
+      conteudo: |-
+        # Ouro Preto
 
+        Ouro Preto é um tesouro histórico e cultural do Brasil, reconhecida como Patrimônio Cultural da Humanidade pela UNESCO em 1980. Sua origem remonta ao final do século XVII, com a descoberta de ouro de aluvião por bandeirantes paulistas, o que impulsionou o desenvolvimento da região e a transformou em um dos principais centros econômicos do Brasil Colônia. Inicialmente conhecida como Vila Rica, a cidade foi elevada à categoria de vila em 1711 e tornou-se capital da Capitania de Minas Gerais em 1720. Em 1823, após a Independência do Brasil, recebeu o título de Imperial Cidade de Ouro Preto.
 
-        Ouro Preto é um tesouro histórico e cultural do Brasil, reconhecida como Patrimônio
-        Cultural da Humanidade pela UNESCO em 1980. Sua origem remonta ao final do
-        século XVII, com a descoberta de ouro de aluvião por bandeirantes paulistas,
-        o que impulsionou o desenvolvimento da região e a transformou em um dos principais
-        centros econômicos do Brasil Colônia. Inicialmente conhecida como Vila Rica,
-        a cidade foi elevada à categoria de vila em 1711 e tornou-se capital da Capitania
-        de Minas Gerais em 1720. Em 1823, após a Independência do Brasil, recebeu
-        o título de Imperial Cidade de Ouro Preto.
+        A arquitetura de Ouro Preto é um dos seus maiores atrativos, com um conjunto homogêneo de construções barrocas que refletem a riqueza e o esplendor da época do ouro. As igrejas, muitas delas projetadas e adornadas por artistas renomados como Aleijadinho e Mestre Ataíde, são verdadeiras obras de arte, destacando-se pela riqueza de detalhes, adornos e o uso abundante de ouro em seu interior. Exemplos notáveis incluem a Basílica Nossa Senhora do Pilar, com mais de 400 quilos de ouro, e a Igreja de São Francisco de Assis, considerada uma das mais importantes obras coloniais do Brasil.
 
-
-        A arquitetura de Ouro Preto é um dos seus maiores atrativos, com um conjunto
-        homogêneo de construções barrocas que refletem a riqueza e o esplendor da
-        época do ouro. As igrejas, muitas delas projetadas e adornadas por artistas
-        renomados como Aleijadinho e Mestre Ataíde, são verdadeiras obras de arte,
-        destacando-se pela riqueza de detalhes, adornos e o uso abundante de ouro
-        em seu interior. Exemplos notáveis incluem a Basílica Nossa Senhora do Pilar,
-        com mais de 400 quilos de ouro, e a Igreja de São Francisco de Assis, considerada
-        uma das mais importantes obras coloniais do Brasil.
-
-
-        Além de sua importância histórica e arquitetônica, Ouro Preto oferece uma
-        rica vida cultural e turística, com diversos museus, teatro, festivais ao
-        ar livre, restaurantes, bares e inúmeras outras atividades que atraem visitantes
-        de todo o mundo interessados em sua história, arte e paisagens montanhosas.
-
+        Além de sua importância histórica e arquitetônica, Ouro Preto oferece uma rica vida cultural e turística, com diversos museus, teatro, festivais ao ar livre, restaurantes, bares e inúmeras outras atividades que atraem visitantes de todo o mundo interessados em sua história, arte e paisagens montanhosas.
 
         | ![Igreja](imagens/sobre_ouro_preto_p0_i0.webp) |
-
         | :--: |
-
         | *Igreja* |
 
-
-        O OUROBOULDER é realizado dentro do Parque Natural Municipal das Andorinhas
-        (PNMA), e da Área de Proteção Ambiental da Cachoeira das Andorinhas (APA-Andorinhas),
-        refúgio ecológico de grande beleza cênica. Criado em 2005, abrange uma área
-        de mais de 550 hectares, caracterizada por formações rochosas impressionantes
-        e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o
-        Cerrado.
-
+        O OUROBOULDER é realizado dentro do Parque Natural Municipal das Andorinhas (PNMA), e da Área de Proteção Ambiental da Cachoeira das Andorinhas (APA-Andorinhas), refúgio ecológico de grande beleza cênica. Criado em 2005, abrange uma área de mais de 550 hectares, caracterizada por formações rochosas impressionantes e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o Cerrado.
 
         | ![Sapo](imagens/sobre_ouro_preto_p1_i0.webp) |
-
         | :--: |
-
         | *Sapo* |
 
-
-        Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas
-        bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente
-        do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro
-        dos limites do parque, adicionando um valor hídrico e ambiental significativo
-        à região.
-
+        Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro dos limites do parque, adicionando um valor hídrico e ambiental significativo à região.
 
         | ![Planta](imagens/sobre_ouro_preto_p1_i1.webp) |
-
         | :--: |
-
         | *Planta* |
 
-
-        Além de sua importância natural, o Parque das Andorinhas também se destaca
-        por seu potencial para o geoturismo, com elementos abióticos que contam a
-        história geológica local. A paisagem de campos rupestres quartzíticos e cursos
-        d''água oferece um cenário único para estudos e apreciação da natureza.'
+        Além de sua importância natural, o Parque das Andorinhas também se destaca por seu potencial para o geoturismo, com elementos abióticos que contam a história geológica local. A paisagem de campos rupestres quartzíticos e cursos d'água oferece um cenário único para estudos e apreciação da natureza.
 - texto: Parque Municipal das Andorinhas
   destino:
     secao_textual:
-      conteudo: '# PARQUE MUNICIPAL DAS ANDORINHAS
-
+      conteudo: |-
+        # PARQUE MUNICIPAL DAS ANDORINHAS
 
         | ![mapa unidade de conservação](imagens/mapas_gerais_p0.webp) |
-
         | :--: |
-
         | *mapa unidade de conservação* |
 
+        O Parque Municipal Natural das Andorinhas (PNMA), localizado em Ouro Preto, é um refúgio ecológico de grande beleza cênica. Criado em 2005, o parque abrange uma área de mais de 550 hectares, caracterizada por formações rochosas impressionantes e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o Cerrado.
 
-        O Parque Municipal Natural das Andorinhas (PNMA), localizado em Ouro Preto,
-        é um refúgio ecológico de grande beleza cênica. Criado em 2005, o parque abrange
-        uma área de mais de 550 hectares, caracterizada por formações rochosas impressionantes
-        e uma rica biodiversidade, marcando a transição entre a Mata Atlântica e o
-        Cerrado.
+        Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro dos limites do parque, adicionando um valor hídrico e ambiental significativo à região.
 
-
-        Um dos grandes atrativos do PNMA é a presença de diversas cachoeiras e trilhas
-        bem sinalizadas, que convidam os visitantes à prática do ecoturismo. A nascente
-        do Rio das Velhas, um dos mais importantes de Minas Gerais, encontra-se dentro
-        dos limites do parque, adicionando um valor hídrico e ambiental significativo
-        à região.
-
-
-        Além de sua importância natural, o Parque das Andorinhas também se destaca
-        por seu potencial para o geoturismo, com elementos abióticos que contam a
-        história geológica local. A paisagem de campos rupestres quartzíticos e cursos
-        d''água oferece um cenário único para estudos e apreciação da natureza.'
+        Além de sua importância natural, o Parque das Andorinhas também se destaca por seu potencial para o geoturismo, com elementos abióticos que contam a história geológica local. A paisagem de campos rupestres quartzíticos e cursos d'água oferece um cenário único para estudos e apreciação da natureza.
 - texto: Regras e Boa Convivência
   destino:
     secao_textual:
-      conteudo: '# REGRAS PARA BOA CONVIVÊNCIA
+      conteudo: |-
+        # REGRAS PARA BOA CONVIVÊNCIA
 
+        O OUROBOULDER adota os princípios e valores fundamentais para os esportes de montanha consagrados no texto da Declaração de Tirol.
 
-        O OUROBOULDER adota os princípios e valores fundamentais para os esportes
-        de montanha consagrados no texto da Declaração de Tirol.
+        1. **Respeite a natureza** - Não retire plantas, pedras ou qualquer elemento natural do ambiente. Evite abrir trilhas alternativas e utilize apenas os acessos autorizados.
 
+        2. **Leve todo o seu lixo de volta** - Nada deve ser deixado na área de escalada. Traga uma sacola para recolher seus resíduos e, sempre que possível, recolha também o lixo encontrado pelo caminho.
 
-        1. **Respeite a natureza** - Não retire plantas, pedras ou qualquer elemento
-        natural do ambiente. Evite abrir trilhas alternativas e utilize apenas os
-        acessos autorizados.
+        3. **Preserve a fauna local** - Não alimente animais silvestres e mantenha distância para evitar interferências em seu comportamento natural. Cães e outros animais domésticos não são permitidos.
 
+        4. **Utilize os sanitários e estruturas disponibilizadas** - Evite qualquer descarte inadequado de resíduos. Caso seja necessário utilizar áreas naturais, siga as orientações da organização e dos gestores da Unidade de Conservação.
 
-        2. **Leve todo o seu lixo de volta** - Nada deve ser deixado na área de escalada.
-        Traga uma sacola para recolher seus resíduos e, sempre que possível, recolha
-        também o lixo encontrado pelo caminho.
+        5. **Respeite as áreas permitidas** - Alguns setores podem possuir restrições de acesso para proteção ambiental. Siga sempre as orientações dos organizadores, monitores e gestores da Unidade de Conservação.
 
+        6. **Mantenha o ambiente tranquilo** - Evite o uso excessivo de caixas de som e ruídos que possam prejudicar a experiência dos demais participantes e causar impactos à fauna local.
 
-        3. **Preserve a fauna local** - Não alimente animais silvestres e mantenha
-        distância para evitar interferências em seu comportamento natural. Cães e
-        outros animais domésticos não são permitidos.
+        7. **Compartilhe os blocos e respeite a fila** - Todos estão no setor para se divertir. Revezar as tentativas, incentivar os colegas e manter uma postura colaborativa fazem parte do espírito da escalada.
 
+        8. **Valorize a diversidade e o espírito de comunidade** - O OUROBOULDER é um espaço de inclusão, amizade e respeito mútuo. Não serão toleradas atitudes discriminatórias, agressivas ou que comprometam a integridade física ou moral de qualquer pessoa.
 
-        4. **Utilize os sanitários e estruturas disponibilizadas** - Evite qualquer
-        descarte inadequado de resíduos. Caso seja necessário utilizar áreas naturais,
-        siga as orientações da organização e dos gestores da Unidade de Conservação.
+        9. **Preserve o espírito do montanhismo** - Busque o desafio, a superação e a aventura com honestidade, sem comprometer os valores que fazem da escalada uma atividade única.
 
+        10. **Deixe o local melhor do que encontrou** - A melhor lembrança que podemos deixar para os próximos 20 anos é um ambiente preservado. Seja um exemplo de cuidado com a natureza e de respeito à comunidade da escalada.
 
-        5. **Respeite as áreas permitidas** - Alguns setores podem possuir restrições
-        de acesso para proteção ambiental. Siga sempre as orientações dos organizadores,
-        monitores e gestores da Unidade de Conservação.
-
-
-        6. **Mantenha o ambiente tranquilo** - Evite o uso excessivo de caixas de
-        som e ruídos que possam prejudicar a experiência dos demais participantes
-        e causar impactos à fauna local.
-
-
-        7. **Compartilhe os blocos e respeite a fila** - Todos estão no setor para
-        se divertir. Revezar as tentativas, incentivar os colegas e manter uma postura
-        colaborativa fazem parte do espírito da escalada.
-
-
-        8. **Valorize a diversidade e o espírito de comunidade** - O OUROBOULDER é
-        um espaço de inclusão, amizade e respeito mútuo. Não serão toleradas atitudes
-        discriminatórias, agressivas ou que comprometam a integridade física ou moral
-        de qualquer pessoa.
-
-
-        9. **Preserve o espírito do montanhismo** - Busque o desafio, a superação
-        e a aventura com honestidade, sem comprometer os valores que fazem da escalada
-        uma atividade única.
-
-
-        10. **Deixe o local melhor do que encontrou** - A melhor lembrança que podemos
-        deixar para os próximos 20 anos é um ambiente preservado. Seja um exemplo
-        de cuidado com a natureza e de respeito à comunidade da escalada.
-
-
-        > "As montanhas estão chamando, e eu preciso ir." — John Muir'
+        > "As montanhas estão chamando, e eu preciso ir." — John Muir
 - texto: Geologia e História
   destino:
     secao_textual:
-      conteudo: '# A Pedreira do Morro São Sebastião: Geologia, História e Revalorização
-        Social
-
+      conteudo: |-
+        # A Pedreira do Morro São Sebastião: Geologia, História e Revalorização Social
 
         Por Artur Simões e Gabriel Amora
 
-
         ## A Paisagem Forjada ao longo de Bilhões de Anos
 
+        Os setores de escalada acessados pelo Morro São Sebastião em Ouro Preto (MG) são localizados na área do Parque Natural Municipal da Andorinhas. É um espaço que reúne um passado geológico complexo, uma história de exploração mineral intensa e uma recente transformação social e ambiental.
 
-        Os setores de escalada acessados pelo Morro São Sebastião em Ouro Preto (MG)
-        são localizados na área do Parque Natural Municipal da Andorinhas. É um espaço
-        que reúne um passado geológico complexo, uma história de exploração mineral
-        intensa e uma recente transformação social e ambiental.
+        As rochas que formam a pedreira do Morro São Sebastião pertencem à Formação Moeda, unidade geológica registrada no Quadrilátero Ferrífero. Há aproximadamente 2,5 bilhões de anos, a crosta terrestre dessa região foi alongada e fragmentada por grandes falhas, formando depressões chamadas bacias rifte.
 
+        Ao longo de milhões de anos, essas bacias foram preenchidas por sedimentos trazidos por rios e leques aluviais. Esses sedimentos, inicialmente arenosos, passaram por processos de compactação, acumulando um volume significativo de material ao ponto de atingir condições de temperatura e pressão que favoreceram a cimentação e recristalização mineral, etapas da litificação: nome dado ao conjunto de processos que permitem a “transformação” de sedimentos em rochas sedimentares.
 
-        As rochas que formam a pedreira do Morro São Sebastião pertencem à Formação
-        Moeda, unidade geológica registrada no Quadrilátero Ferrífero. Há aproximadamente
-        2,5 bilhões de anos, a crosta terrestre dessa região foi alongada e fragmentada
-        por grandes falhas, formando depressões chamadas bacias rifte.
+        Esses processos deram origem a uma série de rochas sedimentares, dentre elas, arenitos que posteriormente passaram por processos de metamorfismo que resultaram nos quartzitos que observamos hoje.
 
+        Dois eventos tectônicos são descritos na literatura como os principais processos responsáveis pelo metamorfismo observado na região do QF: A Orogênese Transamazônica, que ocorreu entre 2,2 e 2,0 bilhões de anos (Renger & Chemale Jr., 1989; Noce et al., 2007), e a Orogênese Brasiliana, ocorrida entre 650 e 500 milhões de anos (Alkmim & Marshak, 1998; Noce et al., 2007).
 
-        Ao longo de milhões de anos, essas bacias foram preenchidas por sedimentos
-        trazidos por rios e leques aluviais. Esses sedimentos, inicialmente arenosos,
-        passaram por processos de compactação, acumulando um volume significativo
-        de material ao ponto de atingir condições de temperatura e pressão que favoreceram
-        a cimentação e recristalização mineral, etapas da litificação: nome dado ao
-        conjunto de processos que permitem a “transformação” de sedimentos em rochas
-        sedimentares.
+        Os processos metamórficos deformam as rochas, conferindo-lhes planos naturais denominados foliações. Essas estruturas são responsáveis pela inclinação dos blocos que observamos, por exemplo, na área da Pedreira – os famosos “tetos ouropretanos” representados na logo do evento.
 
-
-        Esses processos deram origem a uma série de rochas sedimentares, dentre elas,
-        arenitos que posteriormente passaram por processos de metamorfismo que resultaram
-        nos quartzitos que observamos hoje.
-
-
-        Dois eventos tectônicos são descritos na literatura como os principais processos
-        responsáveis pelo metamorfismo observado na região do QF: A Orogênese Transamazônica,
-        que ocorreu entre 2,2 e 2,0 bilhões de anos (Renger & Chemale Jr., 1989; Noce
-        et al., 2007), e a Orogênese Brasiliana, ocorrida entre 650 e 500 milhões
-        de anos (Alkmim & Marshak, 1998; Noce et al., 2007).
-
-
-        Os processos metamórficos deformam as rochas, conferindo-lhes planos naturais
-        denominados foliações. Essas estruturas são responsáveis pela inclinação dos
-        blocos que observamos, por exemplo, na área da Pedreira – os famosos “tetos
-        ouropretanos” representados na logo do evento.
-
-
-        Pela mesma razão é comum que os blocos, em sua grande maioria compostos por
-        afloramentos naturais, apresentem agarras em posições similares uma vez que
-        essas mesmas foliações são também planos naturais por onde normalmente as
-        agarras são formadas. Também por isso o quartzito da região se destaca pela
-        formação de placas, muito valorizadas como revestimento ornamental e amplamente
-        exploradas pela mineração local na segunda metade do século XX.
-
+        Pela mesma razão é comum que os blocos, em sua grande maioria compostos por afloramentos naturais, apresentem agarras em posições similares uma vez que essas mesmas foliações são também planos naturais por onde normalmente as agarras são formadas. Também por isso o quartzito da região se destaca pela formação de placas, muito valorizadas como revestimento ornamental e amplamente exploradas pela mineração local na segunda metade do século XX.
 
         ## A Exploração Mineral e Seus Impactos
 
+        Durante muitos anos, o quartzito do Morro São Sebastião foi amplamente explorado como rocha ornamental, sendo utilizado na construção civil, especialmente para revestimentos e calçamentos. A extração mineral foi uma importante fonte de renda para as comunidades locais, mas também trouxe consequências ambientais. O desmatamento, a degradação do solo e o assoreamento do Rio das Velhas, um dos principais rios da região, foram alguns dos impactos diretos causados pela mineração desordenada.
 
-        Durante muitos anos, o quartzito do Morro São Sebastião foi amplamente explorado
-        como rocha ornamental, sendo utilizado na construção civil, especialmente
-        para revestimentos e calçamentos. A extração mineral foi uma importante fonte
-        de renda para as comunidades locais, mas também trouxe consequências ambientais.
-        O desmatamento, a degradação do solo e o assoreamento do Rio das Velhas, um
-        dos principais rios da região, foram alguns dos impactos diretos causados
-        pela mineração desordenada.
-
-
-        Com a criação da Área de Proteção Ambiental (APA) Cachoeira das Andorinhas,
-        a extração mineral foi progressivamente restringida, o que gerou tensões sociais.
-        Muitas famílias que dependiam da atividade se viram obrigadas a buscar novas
-        formas de sustento, e surgiram movimentos comunitários reivindicando alternativas
-        econômicas viáveis.
-
+        Com a criação da Área de Proteção Ambiental (APA) Cachoeira das Andorinhas, a extração mineral foi progressivamente restringida, o que gerou tensões sociais. Muitas famílias que dependiam da atividade se viram obrigadas a buscar novas formas de sustento, e surgiram movimentos comunitários reivindicando alternativas econômicas viáveis.
 
         ## A Ressignificação da Pedreira: Esporte e Sustentabilidade
 
+        Após o encerramento das atividades mineradoras, a antiga pedreira foi gradualmente transformada em um espaço de convivência e prática esportiva. A partir de meados dos anos 2000, o local se tornou um dos principais pontos de escalada no estilo boulder da região e do Brasil, atraindo escaladores de todo o mundo, especialmente devido à proximidade com Belo Horizonte e à facilidade de acesso.
 
-        Após o encerramento das atividades mineradoras, a antiga pedreira foi gradualmente
-        transformada em um espaço de convivência e prática esportiva. A partir de
-        meados dos anos 2000, o local se tornou um dos principais pontos de escalada
-        no estilo boulder da região e do Brasil, atraindo escaladores de todo o mundo,
-        especialmente devido à proximidade com Belo Horizonte e à facilidade de acesso.
-
-
-        A escalada no Morro São Sebastião representa um exemplo de uso sustentável
-        de áreas degradadas, promovendo a valorização ambiental e social do espaço.
-        A atividade contribui para o turismo local, incentiva a conservação e aproxima
-        as pessoas da natureza, despertando o interesse pela geologia e pela proteção
-        ambiental. Ressalta-se, no entanto, a importância dessa prática continuar
-        sendo realizada com responsabilidade, respeitando os princípios do mínimo
-        impacto e contribuindo para a preservação da vegetação e fauna locais.
-
+        A escalada no Morro São Sebastião representa um exemplo de uso sustentável de áreas degradadas, promovendo a valorização ambiental e social do espaço. A atividade contribui para o turismo local, incentiva a conservação e aproxima as pessoas da natureza, despertando o interesse pela geologia e pela proteção ambiental. Ressalta-se, no entanto, a importância dessa prática continuar sendo realizada com responsabilidade, respeitando os princípios do mínimo impacto e contribuindo para a preservação da vegetação e fauna locais.
 
         ## Um Espaço de Memória e Convivência
 
+        A história do Morro São Sebastião é marcada por transformações profundas. De uma área formada por processos geológicos de bilhões de anos, a um espaço de intensa exploração mineral, o local passou por um ciclo de degradação e hoje se destaca como um exemplo de reaproveitamento positivo. A escalada trouxe uma nova identidade para a antiga pedreira, integrando o esporte, a educação ambiental e o lazer de forma harmônica com a natureza.
 
-        A história do Morro São Sebastião é marcada por transformações profundas.
-        De uma área formada por processos geológicos de bilhões de anos, a um espaço
-        de intensa exploração mineral, o local passou por um ciclo de degradação e
-        hoje se destaca como um exemplo de reaproveitamento positivo. A escalada trouxe
-        uma nova identidade para a antiga pedreira, integrando o esporte, a educação
-        ambiental e o lazer de forma harmônica com a natureza.
+        Os autores são geólogos formados pela Universidade Federal de Ouro Preto (UFOP). Ambos tiveram a pedreira como uma segunda casa em Ouro Preto, espaço que proporcionou encontros, experiências e memórias clássicas!
 
-
-        Os autores são geólogos formados pela Universidade Federal de Ouro Preto (UFOP).
-        Ambos tiveram a pedreira como uma segunda casa em Ouro Preto, espaço que proporcionou
-        encontros, experiências e memórias clássicas!
-
-
-        **Viva a escalada ouropretana!**'
+        **Viva a escalada ouropretana!**
 - texto: Agradecimentos
   destino:
     secao_textual:
@@ -6452,126 +6246,88 @@ botoes:
 - texto: A Artista e a Arte
   destino:
     secao_textual:
-      conteudo: '# A Artista e A Arte
-
+      conteudo: |-
+        # A Artista e A Arte
 
         | ![Pâm Bergamini](imagens/a_artista_e_a_arte_p0_i0.webp) |
-
         | :--: |
-
         | *Pâm Bergamini* |
 
-
-        Pâm Bergamini (1997, João Monlevade, MG) é multiartista independente e pesquisadora
-        em arte. Residente em Ouro Preto, MG, desenvolve uma produção atravessada
-        pelo corpo, pela memória, pela natureza e pelos processos artesanais, utilizando
-        tintas naturais extraídas da terra como parte de sua pesquisa poética e visual.
-
+        Pâm Bergamini (1997, João Monlevade, MG) é multiartista independente e pesquisadora em arte. Residente em Ouro Preto, MG, desenvolve uma produção atravessada pelo corpo, pela memória, pela natureza e pelos processos artesanais, utilizando tintas naturais extraídas da terra como parte de sua pesquisa poética e visual.
 
         | ![Arte Ouro Boulder 20 Anos](imagens/a_artista_e_a_arte_p0_i1.webp) |
-
         | :--: |
-
         | *Arte Ouro Boulder 20 Anos* |
 
-
-        Transita entre pintura, murais, fotografia, xilogravura, design e tatuagem,
-        desenvolvendo projetos que unem arte, identidade visual e território. É autora
-        da arte comemorativa dos 20 anos do evento Ouro Boulder, aplicada também na
-        camisa oficial, com uma paleta inspirada em sua pesquisa com tintas de terra
-        e na paisagem do Parque das Andorinhas. Moradora do bairro São Sebastião,
-        onde o evento acontece, estabelece em seu trabalho uma relação direta entre
-        criação, pertencimento e memória local.'
+        Transita entre pintura, murais, fotografia, xilogravura, design e tatuagem, desenvolvendo projetos que unem arte, identidade visual e território. É autora da arte comemorativa dos 20 anos do evento Ouro Boulder, aplicada também na camisa oficial, com uma paleta inspirada em sua pesquisa com tintas de terra e na paisagem do Parque das Andorinhas. Moradora do bairro São Sebastião, onde o evento acontece, estabelece em seu trabalho uma relação direta entre criação, pertencimento e memória local.
 - texto: Créditos
   destino:
     secao_textual:
-      conteudo: '# CRÉDITOS
-
+      conteudo: |-
+        # CRÉDITOS
 
         **Arte Especial 20 Anos:**
-
         Pâmela Bergamini (@pambergaminii)
 
-
         **Fotografia documental:**
-
         Inaê Magalhães
-
         Lincoln Turati
-
         Mariane Miranda
-
         Nathan Monge
 
-
         **Fotografia esportiva:**
-
         Gustavo Broglio (@gustavobroglio)
-
         Gabriel Trindade (@gabriel.st.jpg)
 
-
         **Arte Gráfica:**
-
         Gustavo Broglio
-
         Lincoln Turati
-
 
         **Revisão:**
-
         Artur Simões
-
         Rodrigo Figueiredo
-
         Renato Utsch
-
         Maria Luiza Machado Roman
 
-
         **Textos:**
-
         Artur Simões
-
         Gabriel Amora
-
         Lincoln Turati
 
-
         **Mapas:**
-
         Ana Carla Favero
-
-        Lucas Dorini'
+        Lucas Dorini
 - texto: Telefones Úteis
   destino:
     secao_textual:
-      conteudo: "# TELEFONES ÚTEIS\n\n*   **POLÍCIA MILITAR:** 190\n*   **SAMU:**\
-        \ 192\n*   **BOMBEIROS:** 193\n\n## ATENDIMENTO MÉDICO\n\n*   **Unidade de\
-        \ Pronto Atendimento (UPA) - 24 horas**\n    Av. Américo Renê Gianetti, 555\
-        \ - Saramenha, Ouro Preto - MG\n*   **Hospital Santa Casa Misericórdia - 24\
-        \ horas**\n    Rua José Moringa, 620 - Bauxita, Ouro Preto - MG"
+      conteudo: |-
+        # TELEFONES ÚTEIS
+
+        *   **POLÍCIA MILITAR:** 190
+        *   **SAMU:** 192
+        *   **BOMBEIROS:** 193
+
+        ## ATENDIMENTO MÉDICO
+
+        *   **Unidade de Pronto Atendimento (UPA) - 24 horas**
+            Av. Américo Renê Gianetti, 555 - Saramenha, Ouro Preto - MG
+        *   **Hospital Santa Casa Misericórdia - 24 horas**
+            Rua José Moringa, 620 - Bauxita, Ouro Preto - MG
 - texto: Contatos
   destino:
     secao_textual:
-      conteudo: '# CONTATOS
-
+      conteudo: |-
+        # CONTATOS
 
         | ![Logo SIME](imagens/contatos_p0_i0.webp) |
-
         | :--: |
-
         | *Logo SIME* |
 
-
         - **Instagram:** [@sime.mg](https://www.instagram.com/sime.mg/)
-
         - **Email:** simeouropreto@gmail.com
 
-
         - **Instagram:** [@ouroboulder](https://www.instagram.com/ouroboulder/)
-
-        - **Email:** sime.ouroboulder@gmail.com'
+        - **Email:** sime.ouroboulder@gmail.com
 ultima_migracao: 4
 publicar_croqui: true
 revisado_manualmente: true

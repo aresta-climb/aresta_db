@@ -194,12 +194,10 @@ picos:
         - via_esportiva:
             nome: Independence Day
             dificuldade: BR_5
-        descricao: '# Setor de Cima
+        descricao: |-
+          # Setor de Cima
 
-
-          O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas
-          em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente
-          Sudoeste.'
+          O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.
   - setor:
       conteudo:
         nome: Setor de Baixo
@@ -328,12 +326,10 @@ picos:
         - via_esportiva:
             nome: Maldita Obsessão
             dificuldade: BR_7B
-        descricao: '# Setor de Baixo
+        descricao: |-
+          # Setor de Baixo
 
-
-          O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte
-          e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial
-          (A0).'
+          O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

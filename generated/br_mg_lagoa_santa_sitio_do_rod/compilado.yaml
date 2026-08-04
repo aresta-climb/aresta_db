@@ -245,25 +245,17 @@ picos:
             nome: '?'
             dificuldade: BR_6
             descricao: Via inacabada. Cuidado abelhas!
-        descricao: '# Setor G1
+        descricao: |-
+          # Setor G1
 
-
-          | ![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp)
-          |
-
+          | ![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp) |
           | :--: |
+          | *Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos* |
 
-          | *Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos*
-          |
-
-
-          O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio
-          e prestar muita atenção quanto a presença de abelhas.
-
+          O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
 
           **Boulders:**
-
-          Boulders clássicos entre V0 e V4.'
+          Boulders clássicos entre V0 e V4.
   - setor:
       conteudo:
         nome: G2
@@ -614,22 +606,16 @@ picos:
             - Thiago "Vá"
             - Thiago "Tato"
             descricao: Via de equilibrio
-        descricao: '# Setor G2
+        descricao: |-
+          # Setor G2
 
-
-          | ![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp)
-          |
-
+          | ![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp) |
           | :--: |
-
           | *Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos* |
 
-
           **Travessias:**
-
           * C: Boas opções de travessias, muito legais.
-
-          * D: Boas opções de travessias, muito legais.'
+          * D: Boas opções de travessias, muito legais.
   - setor:
       conteudo:
         nome: G3
@@ -1431,18 +1417,14 @@ picos:
             - Thiago "Vá"
             - GROTS
             descricao: Boa para iniciantes
-        descricao: '# Setor G3
+        descricao: |-
+          # Setor G3
 
-
-          O setor G3 é o maior setor do Sítio do Rod, com vias que variam do 3º ao
-          10º grau.
-
+          O setor G3 é o maior setor do Sítio do Rod, com vias que variam do 3º ao 10º grau.
 
           **Boulders e travessias:**
-
           * Boulders e travessias nas colunas desse setor.
-
-          * Boulder tetinho: V3 a V8.'
+          * Boulder tetinho: V3 a V8.
   mapas_gerais:
     conteudo:
       mapas:
@@ -1485,580 +1467,325 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escaladas SÍTIO do ROD
-
+      conteudo: |-
+        # Guia de Escaladas SÍTIO do ROD
         ## Minas Gerais / Brasil
 
-
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
         Escalador: Rodrigo Tinoco
-
         Foto: Diego Lara
-
-        Marcus Rufino'
+        Marcus Rufino
 - texto: Aviso
   destino:
     secao_textual:
-      conteudo: '# AVISO:
+      conteudo: |-
+        # AVISO:
 
+        A escalada em rocha é um esporte que envolve riscos. Praticá-la implica em assumir a possibilidade de ocorrência de acidente grave ou mesmo a morte.
 
-        A escalada em rocha é um esporte que envolve riscos. Praticá-la implica em
-        assumir a possibilidade de ocorrência de acidente grave ou mesmo a morte.
+        As informações contidas neste guia, vem para auxiliar, informar e ajudar na segurança do esporte, estas informações são destinadas a escaladores que já possuem bom nível de conhecimento das técnicas de escalada em rocha e domínio de uso dos equipamentos de segurança.
 
+        Lembrando que acidentes acontecem tanto com escaladores inexperientes quanto com os experientes, por isso é importantíssimo que todos sigam as regras de segurança do **Sítio do ROD**.
 
-        As informações contidas neste guia, vem para auxiliar, informar e ajudar na
-        segurança do esporte, estas informações são destinadas a escaladores que já
-        possuem bom nível de conhecimento das técnicas de escalada em rocha e domínio
-        de uso dos equipamentos de segurança.
+        Se você ainda não sabe escalar ou escala e não domina bem as técnicas verticais de uso de equipamentos, é fundamental o acompanhamento de um instrutor de escalada profissional qualificado.
 
-
-        Lembrando que acidentes acontecem tanto com escaladores inexperientes quanto
-        com os experientes, por isso é importantíssimo que todos sigam as regras de
-        segurança do **Sítio do ROD**.
-
-
-        Se você ainda não sabe escalar ou escala e não domina bem as técnicas verticais
-        de uso de equipamentos, é fundamental o acompanhamento de um instrutor de
-        escalada profissional qualificado.
-
-
-        Existem cursos básicos, avançados, auto resgate, reciclagem de conhecimento
-        das técnicas verticais e primeiros socorros.
-
+        Existem cursos básicos, avançados, auto resgate, reciclagem de conhecimento das técnicas verticais e primeiros socorros.
 
         Sua segurança é sua responsabilidade, respeite seus limites e seja prudente.
 
-
         | ![blogdeescalada.com](imagens/aviso_p0.webp) |
-
         | :--: |
-
-        | *blogdeescalada.com* |'
+        | *blogdeescalada.com* |
 - texto: Créditos
   destino:
     secao_textual:
-      conteudo: 'Copyright© 2017 Marcus Vinicius de Souza
-
+      conteudo: |-
+        Copyright© 2017 Marcus Vinicius de Souza
 
         **Desenho dos mapas:**
-
         Frederico Moreira
-
         Lívia Lages
-
         Thiago Rodrigues
-
         Marcus Vinicius
-
 
         **Design:**
-
         Natalia De Marco
 
-
         **Textos:**
-
         Marcus Vinicius
-
         Paula Souza
 
-
         **Revisão:**
-
         Marcus Vinicius
 
-
-        | ![O escalador Francês **Louis Gerald** escalando a clássica **"Atretas do
-        climb"**. Foto **Portugal Braga**](imagens/pagina_2_imagem_0.webp) |
-
+        | ![O escalador Francês **Louis Gerald** escalando a clássica **"Atretas do climb"**. Foto **Portugal Braga**](imagens/pagina_2_imagem_0.webp) |
         | :--: |
-
-        | *O escalador Francês **Louis Gerald** escalando a clássica **"Atretas do
-        climb"**. Foto **Portugal Braga*** |'
+        | *O escalador Francês **Louis Gerald** escalando a clássica **"Atretas do climb"**. Foto **Portugal Braga*** |
 - texto: Agradecimentos
   destino:
     secao_textual:
-      conteudo: '# Agradecimentos
+      conteudo: |-
+        # Agradecimentos
 
-
-        | ![Felipe Belisário atento na segurança enquanto Marcela Romanelli escala
-        a via "Sublime Obsessão". Foto: Marcus "Rufino"](imagens/pagina_3_imagem_0.webp)
-        |
-
+        | ![Felipe Belisário atento na segurança enquanto Marcela Romanelli escala a via "Sublime Obsessão". Foto: Marcus "Rufino"](imagens/pagina_3_imagem_0.webp) |
         | :--: |
-
-        | *Felipe Belisário atento na segurança enquanto Marcela Romanelli escala
-        a via "Sublime Obsessão". Foto: Marcus "Rufino"* |
-
+        | *Felipe Belisário atento na segurança enquanto Marcela Romanelli escala a via "Sublime Obsessão". Foto: Marcus "Rufino"* |
 
         * André Portugal
-
         * Diana Barbosa
-
         * Diego Lara
-
         * Felipe Belisário
-
         * Frederico Moreira
-
         * Frederico Gualberto
-
         * Gabriel Fernandes
-
         * Gustavo Vianna
-
         * Luiz Francisco Fernandes
-
         * Marcela Romanelli
-
         * Paula Gualberto
-
         * Rodrigo Gualberto
-
         * Rodrigo "Tinoco"
-
-        * Tiago "Vá"'
+        * Tiago "Vá"
 - texto: A Escalada
   destino:
     secao_textual:
-      conteudo: '# A Escalada
+      conteudo: |-
+        # A Escalada
 
-
-        | ![O Sítio do Rod é perfeito para iniciar crianças na escalada e vivências
-        em ambientes naturais. Foto: Portugal Braga](imagens/pagina_5_imagem_0.webp)
-        |
-
+        | ![O Sítio do Rod é perfeito para iniciar crianças na escalada e vivências em ambientes naturais. Foto: Portugal Braga](imagens/pagina_5_imagem_0.webp) |
         | :--: |
+        | *O Sítio do Rod é perfeito para iniciar crianças na escalada e vivências em ambientes naturais. Foto: Portugal Braga* |
 
-        | *O Sítio do Rod é perfeito para iniciar crianças na escalada e vivências
-        em ambientes naturais. Foto: Portugal Braga* |
+        Este é um esporte fascinante, bonito para se ver e incrivelmente prazeroso de se praticar.
 
+        Para muitos uma filosofia de vida, um estilo, uma devoção a este esporte que uni força e concentração, técnica e resistência, domínio de técnicas específicas e uso de equipamentos, além de proporcionar um intimo contato com a natureza.
 
-        Este é um esporte fascinante, bonito para se ver e incrivelmente prazeroso
-        de se praticar.
-
-
-        Para muitos uma filosofia de vida, um estilo, uma devoção a este esporte que
-        uni força e concentração, técnica e resistência, domínio de técnicas específicas
-        e uso de equipamentos, além de proporcionar um intimo contato com a natureza.
-
-
-        Dividido em estilos e modalidades a escalada é pessoal, superação dos próprios
-        limites, aliado a busca da essência deste esporte e o prazer que ele pode
-        proporcionar.
-
+        Dividido em estilos e modalidades a escalada é pessoal, superação dos próprios limites, aliado a busca da essência deste esporte e o prazer que ele pode proporcionar.
 
         Que possamos encontrar este fluxo e sentir está essência...
 
-
         Boas escaladas...
 
-
-        Marcus Vinicius'
+        Marcus Vinicius
 - texto: Regras e Código de Conduta
   destino:
     secao_textual:
-      conteudo: '# Regras e Conduta
+      conteudo: |-
+        # Regras e Conduta
 
-
-        | ![Marcus "Rufino" escalando a via "Fósseis do velho mundo", uma ótima opção
-        para quem gosta de escalar vias com proteções móveis. Foto: Elton Soares](imagens/pagina_6_imagem_0.webp)
-        |
-
+        | ![Marcus "Rufino" escalando a via "Fósseis do velho mundo", uma ótima opção para quem gosta de escalar vias com proteções móveis. Foto: Elton Soares](imagens/pagina_6_imagem_0.webp) |
         | :--: |
-
-        | *Marcus "Rufino" escalando a via "Fósseis do velho mundo", uma ótima opção
-        para quem gosta de escalar vias com proteções móveis. Foto: Elton Soares*
-        |
-
+        | *Marcus "Rufino" escalando a via "Fósseis do velho mundo", uma ótima opção para quem gosta de escalar vias com proteções móveis. Foto: Elton Soares* |
 
         ### Regras de Segurança do Sítio Do Rod:
 
-
         * Muita atenção com a segurança sua e de seu parceiro
-
-        * É importante conferir seus equipamentos e de seu parceiro antes de começar
-        a escalar
-
+        * É importante conferir seus equipamentos e de seu parceiro antes de começar a escalar
         * Use Capacete
-
         * Muito cuidado com Abelhas, Cobras e Aranhas
 
-
-        Somente pratique escalada se já tiver o domínio de uso dos equipamentos ou
-        acompanhado por um instrutor qualificado.
-
+        Somente pratique escalada se já tiver o domínio de uso dos equipamentos ou acompanhado por um instrutor qualificado.
 
         ### Código de conduta do visitante:
 
-
         * Respeite os animais e o ambiente a sua volta
-
         * Proibido a retirada de plantas e pedras
-
         * Traga seu lixo de volta
-
         * É proibido o uso de aparelhos sonoros
-
         * Use os banheiros do camping
-
-        * É necessário autorização para entrar nas Cavernas'
+        * É necessário autorização para entrar nas Cavernas
 - texto: O Sítio do Rod e Hospedagem
   destino:
     secao_textual:
-      conteudo: '# O Sítio do Rod:
+      conteudo: |-
+        # O Sítio do Rod:
 
+        O Sítio está Localizado na região que é considerada um dos berços da escalada esportiva em Minas Gerais. Desde a abertura de suas primeiras vias, na segunda metade da década de 90, se destaca como um importante Campo Escola de escalada na região.
+        Desde então o Sítio do Rod foi e continua sendo palco de inúmeras histórias de escaladores que por aqui passam e desfrutaram desse pequeno reduto da escalada esportiva mineira.
 
-        O Sítio está Localizado na região que é considerada um dos berços da escalada
-        esportiva em Minas Gerais. Desde a abertura de suas primeiras vias, na segunda
-        metade da década de 90, se destaca como um importante Campo Escola de escalada
-        na região.
+        Fica localizado a apenas 50 km do centro de Belo Horizonte e 16 km do Aeroporto Internacional de Confins.
+        Possui hoje cerca de 70 vias de escalada entre esportivas e móveis com graduações que vão do 4° ao 10° grau, com qualidade e variedade de estilos e algumas vias se mantém secas mesmo nos dias mais chuvosos.
+        É muito fácil o acesso aos setores de escalada, são cerca de cinco minutos de caminhada do estacionamento até a base da Rocha, com isso também se torna perfeito para as Crianças terem seus primeiros contatos com a escalada e vivências em ambiente de natureza.
 
-        Desde então o Sítio do Rod foi e continua sendo palco de inúmeras histórias
-        de escaladores que por aqui passam e desfrutaram desse pequeno reduto da escalada
-        esportiva mineira.
-
-
-        Fica localizado a apenas 50 km do centro de Belo Horizonte e 16 km do Aeroporto
-        Internacional de Confins.
-
-        Possui hoje cerca de 70 vias de escalada entre esportivas e móveis com graduações
-        que vão do 4° ao 10° grau, com qualidade e variedade de estilos e algumas
-        vias se mantém secas mesmo nos dias mais chuvosos.
-
-        É muito fácil o acesso aos setores de escalada, são cerca de cinco minutos
-        de caminhada do estacionamento até a base da Rocha, com isso também se torna
-        perfeito para as Crianças terem seus primeiros contatos com a escalada e vivências
-        em ambiente de natureza.
-
-
-        A proximidade com outras áreas de escalada como a Lapa do Seu Antão, as Grutas
-        da Lapinha e do Baú e Serra do Cipó, formando assim o maior circuito de escalada
-        em Calcário do Brasil, atraindo escaladores de todas as partes do país e do
-        mundo inteiro.
-
+        A proximidade com outras áreas de escalada como a Lapa do Seu Antão, as Grutas da Lapinha e do Baú e Serra do Cipó, formando assim o maior circuito de escalada em Calcário do Brasil, atraindo escaladores de todas as partes do país e do mundo inteiro.
 
         | ![**LUGAR PRA DORMIR**](imagens/pagina_7_imagem_0.webp) |
-
         | :--: |
-
         | ***LUGAR PRA DORMIR*** |
-
         Container Hostel & Camping
-
         TEL 31. 99312-3748
-
         Rua Nossa Senhora do Rosário, 333 - Lapinha - Lagoa Santa - MG
 
-
         * Vestiários masculino e feminino
-
         * Cozinha de uso coletivo com geladeira
-
         * Churrasqueira
-
         * Fogão a gás
-
         * Lanchonete
-
         * Cervejas artesanais
-
         * Fogão a lenha
-
-        * Banheiros'
+        * Banheiros
 - texto: Parque Estadual do Sumidouro
   destino:
     secao_textual:
-      conteudo: '# Parque Estadual do Sumidouro
+      conteudo: |-
+        # Parque Estadual do Sumidouro
 
-
-        | ![Escaladores Dimitri e Bernado durante o curso básico de escalada em rocha.
-        Foto: Marcus "Rufino"](imagens/pagina_8_imagem_0.webp) |
-
+        | ![Escaladores Dimitri e Bernado durante o curso básico de escalada em rocha. Foto: Marcus "Rufino"](imagens/pagina_8_imagem_0.webp) |
         | :--: |
+        | *Escaladores Dimitri e Bernado durante o curso básico de escalada em rocha. Foto: Marcus "Rufino"* |
 
-        | *Escaladores Dimitri e Bernado durante o curso básico de escalada em rocha.
-        Foto: Marcus "Rufino"* |
+        Caracterizado como Unidade de Proteção Integral, O Parque tem o objetivo principal de promover a preservação ambiental e cultural, possibilitando atividades de pesquisa, conservação, educação ambiental e turismo.
 
-
-        Caracterizado como Unidade de Proteção Integral, O Parque tem o objetivo principal
-        de promover a preservação ambiental e cultural, possibilitando atividades
-        de pesquisa, conservação, educação ambiental e turismo.
-
-
-        A unidade recebeu este nome devido a sua lagoa, que possui um ponto de drenagem
-        das águas da bacia típica dos terrenos calcários. Trata-se de uma abertura
-        natural para uma rede de galerias, por meio da qual um curso d''água penetra
-        no subsolo denominado "sumidouro", termo que vem da palavra indígena "Anhanhonhacanhuva",
-        que significa "água parada que some no buraco da terra".
-
+        A unidade recebeu este nome devido a sua lagoa, que possui um ponto de drenagem das águas da bacia típica dos terrenos calcários. Trata-se de uma abertura natural para uma rede de galerias, por meio da qual um curso d'água penetra no subsolo denominado "sumidouro", termo que vem da palavra indígena "Anhanhonhacanhuva", que significa "água parada que some no buraco da terra".
 
         **Algumas das atividades oferecidas pelo Parque:**
 
-
-        Visita a Gruta da Lapinha, com acompanhamento de um guia especializado, onde
-        turistas entre crianças e adultos podem conhecer um pouco do fantástico mundo
-        das cavernas e seus arredores, com direito a entrada no Museu Peter Lund;
-        Circuito Lapinha; Trilha Sumidouro; Escalada; Trilha da Travessia.
-
+        Visita a Gruta da Lapinha, com acompanhamento de um guia especializado, onde turistas entre crianças e adultos podem conhecer um pouco do fantástico mundo das cavernas e seus arredores, com direito a entrada no Museu Peter Lund; Circuito Lapinha; Trilha Sumidouro; Escalada; Trilha da Travessia.
 
         Mais informações: www.pesumidouro.blogspot.com
-
-        Telefone: (31) 3689 8592'
+        Telefone: (31) 3689 8592
 - texto: APA Carste Lagoa Santa
   destino:
     secao_textual:
-      conteudo: '# APA Carste Lagoa Santa:
+      conteudo: |-
+        # APA Carste Lagoa Santa:
 
+        O **Sítio do Rod** fica na Lapinha em Lagoa Santa MG, que é uma das regiões brasileiras mais importantes em termos de paisagens cárstica carbonática e da história das ciências naturais do Brasil.
 
-        O **Sítio do Rod** fica na Lapinha em Lagoa Santa MG, que é uma das regiões
-        brasileiras mais importantes em termos de paisagens cárstica carbonática e
-        da história das ciências naturais do Brasil.
+        Nesta região foram encontrados grande quantidade de fósseis de animais extintos da megafauna como Preguiças gigantes, Tigres dentes-de-sabre, bem como vestígios de fosseis humanos, o padrão morfológico definido como Homem de Lagoa santa esta fauna extinta viveu na região nos períodos entre 13,5 a 9,5 mil anos atrás.
 
+        Grande parte destas descobertas se deve ao trabalho do naturalista dinamarquês Peter Wilhelm Lund e outros estudiosos que por aqui passaram e outros que ainda estudam sobre a região nos dias atuais.
 
-        Nesta região foram encontrados grande quantidade de fósseis de animais extintos
-        da megafauna como Preguiças gigantes, Tigres dentes-de-sabre, bem como vestígios
-        de fosseis humanos, o padrão morfológico definido como Homem de Lagoa santa
-        esta fauna extinta viveu na região nos períodos entre 13,5 a 9,5 mil anos
-        atrás.
-
-
-        Grande parte destas descobertas se deve ao trabalho do naturalista dinamarquês
-        Peter Wilhelm Lund e outros estudiosos que por aqui passaram e outros que
-        ainda estudam sobre a região nos dias atuais.
-
-
-        | ![Setor G1, tem ótimas vias e boulder. Porem é necessário manter o silêncio
-        e prestar muita atenção quanto a presença de abelhas. Foto: Jean Carlos](imagens/pagina_9_imagem_0.webp)
-        |
-
+        | ![Setor G1, tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas. Foto: Jean Carlos](imagens/pagina_9_imagem_0.webp) |
         | :--: |
-
-        | *Setor G1, tem ótimas vias e boulder. Porem é necessário manter o silêncio
-        e prestar muita atenção quanto a presença de abelhas. Foto: Jean Carlos* |'
+        | *Setor G1, tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas. Foto: Jean Carlos* |
 - texto: Comércio Local
   destino:
     secao_textual:
-      conteudo: '# Comércio local:
-
+      conteudo: |-
+        # Comércio local:
 
         * **Bar da Neri:**
-
-        Serve bebidas, tira gostos e almoço. Este é o bar tem mais de 20 anos e fica
-        a 200 metros da entrada do Sítio é o mais clássico para os escaladores, onde
-        a Senhora Neri faz questão de receber muito bem! funciona de terça a domingo
-        das 11:00 as 22:00
-
+        Serve bebidas, tira gostos e almoço. Este é o bar tem mais de 20 anos e fica a 200 metros da entrada do Sítio é o mais clássico para os escaladores, onde a Senhora Neri faz questão de receber muito bem! funciona de terça a domingo das 11:00 as 22:00
 
         * **Casa da Jacque:**
-
-        Oferece almoço, produtos artesanais, aluguel de cavalos, UBER. Funciona de
-        segunda a sexta para almoço e jantar, aos fins de semana com reservas.
-
+        Oferece almoço, produtos artesanais, aluguel de cavalos, UBER. Funciona de segunda a sexta para almoço e jantar, aos fins de semana com reservas.
         Endereço: Rua São Vicente de Paula 181
 
-
-        * **Mercado Caminho da Roça:** Alimentos e produtos de higiene - R. Guillermina
-        Pereira de Freitas 830.
-
+        * **Mercado Caminho da Roça:** Alimentos e produtos de higiene - R. Guillermina Pereira de Freitas 830.
         Ter a Dom. de 7:00 as 18:00
 
-
-        * **Restaurante Gruta da Lapinha:** Pratos a la carte - R. do Rosario 831
-        Ter. a Dom. 11:00 as 16:00.
-
+        * **Restaurante Gruta da Lapinha:** Pratos a la carte - R. do Rosario 831 Ter. a Dom. 11:00 as 16:00.
 
         * **Tocaias Bar: PF e bebidas** - R. do Engenho 35
-
         Quin a Ter. de 10:00 as 20:00
 
-
         * **Tele Marmitex da Adriana:** Tel. 31. 99525.8869
-
         Sábados e Domingos
 
-
-        * **Distribuidora Hudson:** Churrasquinhos, porções e bebidas - R Gulhermina
-        Pereira de Freitas 866
-
+        * **Distribuidora Hudson:** Churrasquinhos, porções e bebidas - R Gulhermina Pereira de Freitas 866
         Ter. a Dom. de 10:00 as 22:00 Tel 31.3689.8078
 
-
         * **Vila Real:** Padaria, Farmacia, Açougue e Horti Fruti
-
         Av São Sebastião 1650 Seg. a Sab. de 7:00 as 19:30
 
-
-        | ![Escaladora **Luciana dos Anjos** na via **"Cactos Talidomida"**, esta
-        é uma ótima opção para crianças e iniciantes. Foto: **Jean Carlos**](imagens/pagina_10_imagem_0.webp)
-        |
-
+        | ![Escaladora **Luciana dos Anjos** na via **"Cactos Talidomida"**, esta é uma ótima opção para crianças e iniciantes. Foto: **Jean Carlos**](imagens/pagina_10_imagem_0.webp) |
         | :--: |
-
-        | *Escaladora **Luciana dos Anjos** na via **"Cactos Talidomida"**, esta é
-        uma ótima opção para crianças e iniciantes. Foto: **Jean Carlos*** |'
+        | *Escaladora **Luciana dos Anjos** na via **"Cactos Talidomida"**, esta é uma ótima opção para crianças e iniciantes. Foto: **Jean Carlos*** |
 - texto: Telefones Úteis
   destino:
     secao_textual:
-      conteudo: '# Telefones úteis:
-
+      conteudo: |-
+        # Telefones úteis:
 
         **Telefone de emergências : 190**
 
+        **Polícia Militar de Pedro Leopoldo** - Rua Goianazes, nº 246 - Pedro Leopoldo MG - Telefone : (31) 3661-2601
 
-        **Polícia Militar de Pedro Leopoldo** - Rua Goianazes, nº 246 - Pedro Leopoldo
-        MG - Telefone : (31) 3661-2601
+        **Centro Integrado de Operações da Polícia Militar Belo Horizonte** - Rua da Bahia, nº 2115 - Funcionários - Belo Horizonte MG - Telefone : (31) 3071-2554
 
+        **Corpo de Bombeiros Militar de Minas Gerais** - Avenida Amazonas, nº 3155 - Barroca - Belo Horizonte MG Telefone: (31) 3379-3641
 
-        **Centro Integrado de Operações da Polícia Militar Belo Horizonte** - Rua
-        da Bahia, nº 2115 - Funcionários - Belo Horizonte MG - Telefone : (31) 3071-2554
-
-
-        **Corpo de Bombeiros Militar de Minas Gerais** - Avenida Amazonas, nº 3155
-        - Barroca - Belo Horizonte MG Telefone: (31) 3379-3641
-
-
-        **1º Batalhão de Operações em Desastres do Corpo de Bombeiros Comunitários**
-        – Ribeirão das Neves MG
-
-        Rua Maria Das Neves Figueiredo Carlos, nº 53, Sevilha A, 1ª SEÇÃO - Telefone
-        : (31) 3161-5040
-
+        **1º Batalhão de Operações em Desastres do Corpo de Bombeiros Comunitários** – Ribeirão das Neves MG
+        Rua Maria Das Neves Figueiredo Carlos, nº 53, Sevilha A, 1ª SEÇÃO - Telefone : (31) 3161-5040
 
         **Hospitais 24h**
 
+        **Pronto Atendimento e Hospital Municipal de Pedro Leopoldo** - Rua Progresso, nº 985 - Centro - Pedro Leopoldo MG - Telefone : (31) 3660-2122
 
-        **Pronto Atendimento e Hospital Municipal de Pedro Leopoldo** - Rua Progresso,
-        nº 985 - Centro - Pedro Leopoldo MG - Telefone : (31) 3660-2122
-
-
-        **Hospital João XXIII** - Avenida Prof. Alfredo Balena, nº 400 - Santa Efigênia
-        - Belo Horizonte MG
-
+        **Hospital João XXIII** - Avenida Prof. Alfredo Balena, nº 400 - Santa Efigênia - Belo Horizonte MG
         Telefone: (31) 3239-9200
 
-
-        **Hospital Belo Horizonte** - Avenida Pres. Antônio Carlos, nº 1694 - Cachoeirinha
-        - Belo Horizonte MG
-
+        **Hospital Belo Horizonte** - Avenida Pres. Antônio Carlos, nº 1694 - Cachoeirinha - Belo Horizonte MG
         Telefone: (31) 3449-7000
 
-
-        **Hospital Mater Dei** - Rua Mato Grosso, nº 1100 - Santo Agostinho - Belo
-        Horizonte MG - Telefone : (31) 3292-6000
-
+        **Hospital Mater Dei** - Rua Mato Grosso, nº 1100 - Santo Agostinho - Belo Horizonte MG - Telefone : (31) 3292-6000
 
         | ![**Refúgio do Salto**](imagens/pagina_11_imagem_0.webp) |
-
         | :--: |
-
         | ***Refúgio do Salto*** |
-
         HOSPEDAGEM DE MONTANHA
-
         Contato: 31 - 995141433 | Marcus "Rufino"
-
         marcusbemmaisvertical@yahoo.com.br
-
-        refugiodosalto.com.br'
+        refugiodosalto.com.br
 - texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# Como chegar:
-
+      conteudo: |-
+        # Como chegar:
 
         R. Nossa Sra. do Rosário, 333 - Lapinha, Lagoa Santa - MG.
 
-
         **Distâncias:**
-
         * Belo Horizonte (centro) 50 km
-
         * Rio de Janeiro - 494 km
-
         * São Paulo - 630 km
-
         * Brasília - 710 km
 
-
         **De ônibus:**
-
-        Saindo da Rodoviária de Belo Horizonte: Pegar o ônibus 5782 até Rodoviária
-        de Lagoa Santa, lá linhas 3003/3004 e descer no ponto mais próximo da Igreja
-        Nossa Sra. do Rosário, a 100m do Sítio do Rod.
-
+        Saindo da Rodoviária de Belo Horizonte: Pegar o ônibus 5782 até Rodoviária de Lagoa Santa, lá linhas 3003/3004 e descer no ponto mais próximo da Igreja Nossa Sra. do Rosário, a 100m do Sítio do Rod.
 
         **Saindo do Aeroporto:**
-
-        Pegar sentido Lagoa Santa, seguir para a Lapinha o Sítio está a 1 km da Gruta
-        da Lapinha.
-
+        Pegar sentido Lagoa Santa, seguir para a Lapinha o Sítio está a 1 km da Gruta da Lapinha.
 
         | ![Mapa Como Chegar](imagens/pagina_12_imagem_0.webp) |
-
         | :--: |
-
-        | *Mapa Como Chegar* |'
+        | *Mapa Como Chegar* |
 - texto: Como usar este guia
   destino:
     secao_textual:
-      conteudo: '# Como usar este guia:
+      conteudo: |-
+        # Como usar este guia:
 
-
-        * Este Guia vem com a finalidade de facilitar, informar e divulgar as vias
-        de escalada no Sítio do Rod.
-
-        * Nele as vias vem divididas em circuitos de cores, cada cor corresponde a
-        uma graduação.
-
-        * Traz também informações rápidas sobre o estilo da escala da via seja ela
-        esportiva ou móvel.
-
+        * Este Guia vem com a finalidade de facilitar, informar e divulgar as vias de escalada no Sítio do Rod.
+        * Nele as vias vem divididas em circuitos de cores, cada cor corresponde a uma graduação.
+        * Traz também informações rápidas sobre o estilo da escala da via seja ela esportiva ou móvel.
 
         **Legenda:**
-
         * 4º e 5º grau: Amarelo
-
         * 6º grau: Verde
-
         * 7º grau: Azul
-
         * 8º grau: Roxo
-
         * 9º grau: Vermelho
-
         * 10º grau: Preto
-
         * V: Variante
-
         * B: Boulders
-
         * T: Travessias
-
         * o: Vias Fixas
-
         * +: Vias Móveis
 
-
         | ![Como usar guia](imagens/como_usar_guia_p0.webp) |
-
         | :--: |
-
-        | *Como usar guia* |'
+        | *Como usar guia* |
 - texto: Contra Capa
   destino:
     secao_textual:
-      conteudo: '| ![Contra capa](imagens/contra_capa_p0.webp) |
-
+      conteudo: |-
+        | ![Contra capa](imagens/contra_capa_p0.webp) |
         | :--: |
-
-        | *Contra capa* |'
+        | *Contra capa* |
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

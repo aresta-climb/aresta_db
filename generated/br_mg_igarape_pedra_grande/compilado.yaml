@@ -1,10 +1,10 @@
 id: br_mg_igarape_pedra_grande
 nome: Igarameca - Complexo Pedra Grande
-descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo
-  da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
+descricao: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra
+  Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
 creditos:
 - Equipe Igarameca
-- alexsandro
+- Alexsandro
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
@@ -578,13 +578,10 @@ picos:
             - Berbari
             - Chinha
             data_abertura: '2006'
-        descricao: '# Setor Estacionamento
+        descricao: |-
+          # Setor Estacionamento
 
-
-          O setor fica na lateral da estrada, ao lado do estacionamento da trilha
-          para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham
-          as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e
-          o lado direito sombra até 10h.'
+          O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
   - setor:
       conteudo:
         nome: Setor Família I
@@ -1138,11 +1135,10 @@ picos:
             - Fran
             data_abertura: '2013'
             descricao: Termina no mesmo tope que a via Pau Oco.
-        descricao: '# Setor Família I
+        descricao: |-
+          # Setor Família I
 
-
-          O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra
-          o dia todo (varia de acordo com a estação).'
+          O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
   - setor:
       conteudo:
         nome: Setor Família II
@@ -1467,10 +1463,10 @@ picos:
             - Berbari
             - Ró
             data_abertura: '2009'
-        descricao: '# Setor Família II
+        descricao: |-
+          # Setor Família II
 
-
-          Sombra após 14h (varia de acordo com a estação).'
+          Sombra após 14h (varia de acordo com a estação).
   - setor:
       conteudo:
         nome: Setor Micos
@@ -1691,18 +1687,13 @@ picos:
             - Berbari
             - Chinha
             data_abertura: '2011'
-        descricao: '# Setor Micos
-
+        descricao: |-
+          # Setor Micos
 
           Sombra até 11h e após 15h.
-
-          Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete
-          ao escalar e nas bases das vias.
-
+          Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
           Escalar com a corda passada na primeira proteção nas vias esportivas.
-
-          Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho.
-          A rocha fica logo a direita.'
+          Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho. A rocha fica logo a direita.
   - setor:
       conteudo:
         nome: Setor Totem
@@ -1840,10 +1831,10 @@ picos:
             - Alex
             - Ruy
             data_abertura: '2005'
-        descricao: '# Setor Totem
+        descricao: |-
+          # Setor Totem
 
-
-          Sombra até 10h e após 16h.'
+          Sombra até 10h e após 16h.
   - setor:
       conteudo:
         nome: Setor Igarameca
@@ -2510,10 +2501,10 @@ picos:
             - Bunitinho
             - Marcão
             data_abertura: '2022'
-        descricao: '# Setor Igarameca
+        descricao: |-
+          # Setor Igarameca
 
-
-          Sombra após 12h (varia de acordo com a estação).'
+          Sombra após 12h (varia de acordo com a estação).
   - setor:
       conteudo:
         nome: Setor Pracinha
@@ -2787,17 +2778,14 @@ picos:
             - Berbari
             - Toninho
             data_abertura: '2022'
-        descricao: '# Setor Pracinha
-
+        descricao: |-
+          # Setor Pracinha
 
           | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
-
           | :--: |
-
           | *Setor pracinha* |
 
-
-          Sombra o dia todo (varia de acordo com a estação).'
+          Sombra o dia todo (varia de acordo com a estação).
   - setor:
       conteudo:
         nome: Setor dos Tetos
@@ -2993,17 +2981,14 @@ picos:
             - Alex
             - Tonin
             data_abertura: '2006'
-        descricao: '# Setor dos Tetos
-
+        descricao: |-
+          # Setor dos Tetos
 
           | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
-
           | :--: |
-
           | *Setor dos Tetos* |
 
-
-          Sombra após 14h.'
+          Sombra após 14h.
   - setor:
       conteudo:
         nome: Setor Trad
@@ -3482,16 +3467,12 @@ picos:
         - via_movel:
             nome: Marimbondos Me Mordam
             dificuldade: INDEFINIDO
-        descricao: '# Setor Trad
+        descricao: |-
+          # Setor Trad
 
+          Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
 
-          Este setor engloba as vias tradicionais e de proteção móvel do Complexo
-          Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas
-          conforme o catálogo for sendo refinado.
-
-
-          Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo
-          Pedra Grande.'
+          Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
   mapas_gerais:
     conteudo:
       mapas:
@@ -3700,319 +3681,170 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # Igarameca Climb
 
-
-        | ![Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande](imagens/capa_p0.webp)
-        |
-
+        | ![Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande](imagens/capa_p0.webp) |
         | :--: |
-
         | *Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande* |
-
 
         **CROQUI 2024 - ESCALADAS ESPORTIVA - PEDRA GRANDE**
 
-
-        Alexsandro'
+        Alexsandro
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # Introdução
 
-
-        Este croqui é apenas um auxílio de consulta a localização, não serve como
-        instruções a prática da escalada.
-
-        Não nos responsabilizamos pelas informações aqui contidas, são apenas ponto
-        de vista.
-
+        Este croqui é apenas um auxílio de consulta a localização, não serve como instruções a prática da escalada.
+        Não nos responsabilizamos pelas informações aqui contidas, são apenas ponto de vista.
 
         ## ATENÇÃO
 
+        Os nomes das vias, seus respectivos conquistadores e a graduação sugerida para cada uma delas são resultados de uma pesquisa oral conduzida entre os escaladores que frequentam o pico, e com base em registros fragmentados sobre o tema.
 
-        Os nomes das vias, seus respectivos conquistadores e a graduação sugerida
-        para cada uma delas são resultados de uma pesquisa oral conduzida entre os
-        escaladores que frequentam o pico, e com base em registros fragmentados sobre
-        o tema.
+        O resultado desse trabalho pode eventualmente conter erros, os quais peço que não sejam entendidos como desrespeito.
 
-
-        O resultado desse trabalho pode eventualmente conter erros, os quais peço
-        que não sejam entendidos como desrespeito.
-
-
-        O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro
-        da maneira mais exata possível.
-
+        O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro da maneira mais exata possível.
 
         ## OBSERVAÇÕES
 
+        Como algumas vias são de conquistadores(as) desconhecidos(as) foi utilizado apelido + (*) para identificá-las.
 
-        Como algumas vias são de conquistadores(as) desconhecidos(as) foi utilizado
-        apelido + (*) para identificá-las.
+        Caso encontre algum engano nos dados citados neste croqui, peço que me envie a correção.
 
-
-        Caso encontre algum engano nos dados citados neste croqui, peço que me envie
-        a correção.
-
-
-        Terei satisfação em atendê-lo, pois todos os envolvidos com a escalada tem
-        a ganhar com o aprimoramento desse trabalho.
-
+        Terei satisfação em atendê-lo, pois todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse trabalho.
 
         [@igarameca](https://www.instagram.com/igarameca)
 
+        Muito obrigado aos conquistadores e conquistadoras das linhas (rotas) de escalada, **GRATIDÃO** a vocês sempre!!!
 
-        Muito obrigado aos conquistadores e conquistadoras das linhas (rotas) de escalada,
-        **GRATIDÃO** a vocês sempre!!!
+        Obrigado a todas as pessoas que contribuíram para o desenvolvimento desse excepcional parque natural de escaladas.
 
-
-        Obrigado a todas as pessoas que contribuíram para o desenvolvimento desse
-        excepcional parque natural de escaladas.
-
-
-        Obrigado em especial ao **Bruno Berbari** e **Warleson Campos (Bunitin)**
-        na captação e catalogação das vias.
-
+        Obrigado em especial ao **Bruno Berbari** e **Warleson Campos (Bunitin)** na captação e catalogação das vias.
 
         > Organização, Revisão e Graduação sugerida das vias: **Equipe Igarameca**
-
         > arte/desenhos/produção: **alexsandro**
-
-        > 1ª versão - Junho/2024 (vias esportivas) 24 páginas'
+        > 1ª versão - Junho/2024 (vias esportivas) 24 páginas
 - texto: Recomendações e Regras
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # SEJA CONSCIENTE!
 
-
         - **UTILIZE APENAS AS TRILHAS PRINCIPAIS;**
-
-        - **As grutas não são banheiros!** Faça suas necessidades fisiológicas em
-        casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou
-        terra;
-
-        - **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados
-        (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de
-        bala...);
-
-        - Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se
-        que eles estão em seu habitat natural e precisam ser respeitados;
-
-        - Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta
-        forma, você os protege de doenças silvestres e vice-versa;
-
+        - **As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra;
+        - **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...);
+        - Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados;
+        - Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice-versa;
         - Fogueiras além de provocar queimadas, danificam o local;
-
-        - Estacione de maneira adequada e no local adequado a fim de não atrapalhar
-        o fluxo de outros veículos e/ou caminhões;
-
+        - Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos e/ou caminhões;
         - Utilize equipamentos de segurança e verifique seu estado de conservação;
-
         - Cuidado com pedras soltas principalmente em setores e vias novas;
-
         - Antes de conquistar uma via de escalada entre em contato com a Equipe Igarameca.
 
-
-        [@igarameca](https://www.instagram.com/igarameca)'
+        [@igarameca](https://www.instagram.com/igarameca)
 - texto: História de Igarapé
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # História de Igarapé - MG
 
+        Igarapé localiza-se na Região Metropolitana de Belo Horizonte, é um município brasileiro do estado de Minas Gerais. Seu nome que vem do tupi-guarani, e significa "caminho da canoa", enquanto cidade teve suas bases iniciais de ocupação do território no "garimpo de ouro" no distrito de São Joaquim de Bicas e posteriormente na agropecuária. Certamente centenas de anos antes, por aqui já existiam fazendas e diversas famílias com residências fixas.
 
-        Igarapé localiza-se na Região Metropolitana de Belo Horizonte, é um município
-        brasileiro do estado de Minas Gerais. Seu nome que vem do tupi-guarani, e
-        significa "caminho da canoa", enquanto cidade teve suas bases iniciais de
-        ocupação do território no "garimpo de ouro" no distrito de São Joaquim de
-        Bicas e posteriormente na agropecuária. Certamente centenas de anos antes,
-        por aqui já existiam fazendas e diversas famílias com residências fixas.
+        Com base em documentos podemos afirmar que por volta de 1830, já existia muita gente vivendo no próprio local que seria mais tarde o Barreiro (nesta época, o Barreiro nem era propriamente um povoado, era um simples aglomerado de pequenas e velhas fazendas mais ou menos perto umas das outras) e, posteriormente, denominada cidade de Igarapé.
 
-
-        Com base em documentos podemos afirmar que por volta de 1830, já existia muita
-        gente vivendo no próprio local que seria mais tarde o Barreiro (nesta época,
-        o Barreiro nem era propriamente um povoado, era um simples aglomerado de pequenas
-        e velhas fazendas mais ou menos perto umas das outras) e, posteriormente,
-        denominada cidade de Igarapé.
-
-
-        Portanto, a ideia de que a origem da cidade remonta a estas antigas fazendas
-        existentes, não pode ser tomada como o marco da fundação de Igarapé, afinal,
-        em tempos mais longínquos viviam os povos indígenas, verdadeiros habitantes
-        originários da região, bem como de todo o continente.
-
+        Portanto, a ideia de que a origem da cidade remonta a estas antigas fazendas existentes, não pode ser tomada como o marco da fundação de Igarapé, afinal, em tempos mais longínquos viviam os povos indígenas, verdadeiros habitantes originários da região, bem como de todo o continente.
 
         | ![Vista de Igarapé](imagens/historia_p0.webp) |
-
         | :--: |
-
         | *Vista de Igarapé* |
 
-
-        [@igarameca](https://www.instagram.com/igarameca)'
+        [@igarameca](https://www.instagram.com/igarameca)
 - texto: Sobre o Complexo Pedra Grande
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # COMPLEXO PEDRA GRANDE
 
+        A Pedra Grande, um marco histórico e geográfico de Igarapé, tem sido uma referência importante para viajantes ao longo dos anos. No século XX, a mineração de ferro ameaçou a integridade da Serra do Itatiaiuçu, o que levou à criação da Área de Proteção Especial (APE) e, posteriormente, da Área de Proteção Ambiental (APA) Municipal de Igarapé, visando preservar os mananciais de abastecimento humano.
 
-        A Pedra Grande, um marco histórico e geográfico de Igarapé, tem sido uma referência
-        importante para viajantes ao longo dos anos. No século XX, a mineração de
-        ferro ameaçou a integridade da Serra do Itatiaiuçu, o que levou à criação
-        da Área de Proteção Especial (APE) e, posteriormente, da Área de Proteção
-        Ambiental (APA) Municipal de Igarapé, visando preservar os mananciais de abastecimento
-        humano.
+        A Pedra Grande possui características escultóricas naturais que atraem visitantes, oferece belezas naturais, como matas e fontes d'água, que aumentam o turismo e promovem atividades de aventura na região. No entanto, a visitação descontrolada tem causado depredação e poluição. Esta atitude é repudiada por escaladores que frequentam o local e se empenham em recolher seus próprios lixos e os de visitantes descuidados.
 
+        O município de Igarapé decretou o tombamento sob proteção Municipal do bem cultural denominado "Conjunto Natural e Paisagístico da Pedra Grande" que também é cartograficamente importante, situada na Serra do Itatiaiuçu, compondo a zona limítrofe entre Igarapé, Itatiaiuçu e Mateus Leme. A área tem significância econômica devido às jazidas de ferro e manganês, sendo notável por sua beleza cênica e valor didático.
 
-        A Pedra Grande possui características escultóricas naturais que atraem visitantes,
-        oferece belezas naturais, como matas e fontes d''água, que aumentam o turismo
-        e promovem atividades de aventura na região. No entanto, a visitação descontrolada
-        tem causado depredação e poluição. Esta atitude é repudiada por escaladores
-        que frequentam o local e se empenham em recolher seus próprios lixos e os
-        de visitantes descuidados.
+        O bem natural tem importância regional estratégica por ser berço de nascentes responsáveis pela recarga hídrica de um dos aquíferos que abastecem a região metropolitana de Belo Horizonte. A área faz parte do Quadrilátero Ferrífero, uma província geológica conhecida por seus depósitos e minas de ferro, manganês, ouro, calcário e bauxita, recursos naturais amplamente explorados pelas mineradoras que se instalaram na região.
 
-
-        O município de Igarapé decretou o tombamento sob proteção Municipal do bem
-        cultural denominado "Conjunto Natural e Paisagístico da Pedra Grande" que
-        também é cartograficamente importante, situada na Serra do Itatiaiuçu, compondo
-        a zona limítrofe entre Igarapé, Itatiaiuçu e Mateus Leme. A área tem significância
-        econômica devido às jazidas de ferro e manganês, sendo notável por sua beleza
-        cênica e valor didático.
-
-
-        O bem natural tem importância regional estratégica por ser berço de nascentes
-        responsáveis pela recarga hídrica de um dos aquíferos que abastecem a região
-        metropolitana de Belo Horizonte. A área faz parte do Quadrilátero Ferrífero,
-        uma província geológica conhecida por seus depósitos e minas de ferro, manganês,
-        ouro, calcário e bauxita, recursos naturais amplamente explorados pelas mineradoras
-        que se instalaram na região.
-
-
-        [@igarameca](https://www.instagram.com/igarameca)'
+        [@igarameca](https://www.instagram.com/igarameca)
 - texto: Sobre o Igarameca
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # IGARAMECA
 
+        Não se sabe ao certo quando começou a escada na região, estudos em andamento apontam entre as décadas de 80/90. Há três anos, um grupo de escaladores de Belo Horizonte se reuniu com a ideia de transformar o Complexo da Pedra Grande em um dos principais picos de escalada da região. Foi assim que nasceu o @igarameca, numa prosa após um dia de muito climbing no pé da pedra.
 
-        Não se sabe ao certo quando começou a escada na região, estudos em andamento
-        apontam entre as décadas de 80/90. Há três anos, um grupo de escaladores de
-        Belo Horizonte se reuniu com a ideia de transformar o Complexo da Pedra Grande
-        em um dos principais picos de escalada da região. Foi assim que nasceu o @igarameca,
-        numa prosa após um dia de muito climbing no pé da pedra.
+        Esse sonho tem se tornado realidade dia após dia, com muito trabalho, dedicação e claro, muita escalada boa. Atualmente o complexo possui mais de 150 vias esportivas e 500 boulders, além de rotas tradicionais e móveis, todas esculpidas na rocha única de Itabirito.
 
-
-        Esse sonho tem se tornado realidade dia após dia, com muito trabalho, dedicação
-        e claro, muita escalada boa. Atualmente o complexo possui mais de 150 vias
-        esportivas e 500 boulders, além de rotas tradicionais e móveis, todas esculpidas
-        na rocha única de Itabirito.
-
-
-        Os croquis são os "mapas" que guiam os praticantes da escalada no local, sendo
-        um facilitador para a pratica do esporte e acreditamos resultar em um ganho
-        a todos. E para que cada vez mais escaladores possam usufruir e desbravar
-        o potencial do local, inicialmente estamos lançando este **CROQUI DOS SETORES
-        E VIAS DE ESCALADAS ESPORTIVA** catalogadas no complexo da Pedra Grande em
-        Igarapé/MG, atualizações serão adicionadas no decorrer do projeto... "e as
-        vias trad, móvel e os boulders!?". C A L M A turma, anos e anos de desenvolvimento,
-        muita informação a receber e em breve teremos um livro gigante repleto de
-        informações e detalhes!!! Vamoooo!!!
-
+        Os croquis são os "mapas" que guiam os praticantes da escalada no local, sendo um facilitador para a pratica do esporte e acreditamos resultar em um ganho a todos. E para que cada vez mais escaladores possam usufruir e desbravar o potencial do local, inicialmente estamos lançando este **CROQUI DOS SETORES E VIAS DE ESCALADAS ESPORTIVA** catalogadas no complexo da Pedra Grande em Igarapé/MG, atualizações serão adicionadas no decorrer do projeto... "e as vias trad, móvel e os boulders!?". C A L M A turma, anos e anos de desenvolvimento, muita informação a receber e em breve teremos um livro gigante repleto de informações e detalhes!!! Vamoooo!!!
 
         | ![Anotações e croquis iniciais](imagens/igarameca_info_p0.webp) |
-
         | :--: |
-
         | *Anotações e croquis iniciais* |
 
-
-        [@igarameca](https://www.instagram.com/igarameca)'
+        [@igarameca](https://www.instagram.com/igarameca)
 - texto: Patrocinadores
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
 
         # Patrocinadores
 
-
         Essas marcas apoiam a escalada na região e o croqui de Igarameca 2024:
 
-
-        | ![Marcas que apoiam a escalada na região](imagens/patrocinadores_p0.webp)
-        |
-
+        | ![Marcas que apoiam a escalada na região](imagens/patrocinadores_p0.webp) |
         | :--: |
-
         | *Marcas que apoiam a escalada na região* |
 
-
         - JGariglio
-
         - Grupo Abaco
-
         - Cíclica
-
         - Dinamic Boulder
-
         - Grimpi Aventura
-
         - Bolinha Plotagens
-
         - Valverde Consultoria Online
-
         - La Plata
-
         - Aprender
-
         - Cajumel Terapias
-
         - Abrigo Base
-
         - Heringer Fitness
-
         - Mandala Climb
-
         - AET (Associação de Escalada Tradicional MG)
-
         - Cadena Ouro Preto
-
         - Igarameca Climb
 
-
-        [@igarameca](https://www.instagram.com/igarameca)'
+        [@igarameca](https://www.instagram.com/igarameca)
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

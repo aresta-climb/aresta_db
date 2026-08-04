@@ -105,63 +105,38 @@ picos:
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
             extensao: 15
-        descricao: '# Setor de Esquerda
-
+        descricao: |-
+          # Setor de Esquerda
 
           Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"
-
-          é composto por uma bela parede de coloração clara, amarela e avermelhada
-          que se
-
-          caracteriza com concreções e cristais coloridos, a parede é relativamente
-          baixa
-
-          com vias até 15 metros. Destaque para a via "Inimigos do Estado, 6º sup",
-          a primeira
-
+          é composto por uma bela parede de coloração clara, amarela e avermelhada que se
+          caracteriza com concreções e cristais coloridos, a parede é relativamente baixa
+          com vias até 15 metros. Destaque para a via "Inimigos do Estado, 6º sup", a primeira
           via do setor.
 
-
           O sol tem maior incidência no setor, então dê preferência para escalar
-
           nele nas horas mais amenas do dia.
-
 
           O setor é ideal para grupos de até 8 pessoas.
 
-
           Por ser um setor com vias de graduação baixa e estar ao lado do setor "Panelinhas"
-
           é ideal para os iniciantes.
 
-
           | ![Setor de Esquerda](imagens/setor_de_esquerda_p0_i1.webp) |
-
           | :--: |
-
           | *Setor de Esquerda* |
 
-
           | ![Milicianos 5º](imagens/setor_de_esquerda_p1_i0.webp) |
-
           | :--: |
-
           | *Milicianos 5º* |
 
-
           | ![Inimigos do Estado 6º sup](imagens/setor_de_esquerda_p1_i2.webp) |
-
           | :--: |
-
           | *Inimigos do Estado 6º sup* |
 
-
-          | ![Vista do Top da "Inimigos do Estado" 6º sup](imagens/setor_de_esquerda_p1_i1.webp)
-          |
-
+          | ![Vista do Top da "Inimigos do Estado" 6º sup](imagens/setor_de_esquerda_p1_i1.webp) |
           | :--: |
-
-          | *Vista do Top da "Inimigos do Estado" 6º sup* |'
+          | *Vista do Top da "Inimigos do Estado" 6º sup* |
   - setor:
       conteudo:
         nome: Setor Panelinha
@@ -235,54 +210,34 @@ picos:
             nome: Corda de Violão
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 4
-        descricao: '# Setor Panelinha
-
+        descricao: |-
+          # Setor Panelinha
 
           O "Panelinha" é composto por paredes escuras em formas circulares que lembram
-
           "panelas" e teve como objetivo principal nas conquistas, aumentar a possibilidade
-
-          para os iniciantes por serem paredes curtas, verticais e com grande variedades
-          de
-
+          para os iniciantes por serem paredes curtas, verticais e com grande variedades de
           agarras mas que exigem movimentos de escalada bem interessantes.
 
-
-          O setor tem ótima ventilação e tem mais sombra durante as horas fortes do
-          sol que
-
+          O setor tem ótima ventilação e tem mais sombra durante as horas fortes do sol que
           o setor abaixo (Setor de Esquerda).
 
-
           É possível dar a volta na pedra e ter acesso ao top das vias, para
-
           alguns instrutores esta é uma facilidade na aplicação de ensino de procedimentos
-
           de ancoragem e desmontagem de vias.
-
 
           Vista panorâmica do pico e da cidade.
 
-
           | ![Setor Panelinha](imagens/setor_panelinha_p0_i1.webp) |
-
           | :--: |
-
           | *Setor Panelinha* |
 
-
           | ![Caipora - 5º](imagens/setor_panelinha_p1_i1.webp) |
-
           | :--: |
-
           | *Caipora - 5º* |
 
-
           | ![Vista do Mirante](imagens/setor_panelinha_p1_i0.webp) |
-
           | :--: |
-
-          | *Vista do Mirante* |'
+          | *Vista do Mirante* |
   - setor:
       conteudo:
         nome: Setor 7 Paralelo
@@ -547,68 +502,41 @@ picos:
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
             extensao: 15
-        descricao: '# Setor 7 Paralelo
-
+        descricao: |-
+          # Setor 7 Paralelo
 
           Setor com grande concentração de vias, predomínio de vias de sétimo grau,
-
           com altura média entre 15 e 25 metros.
 
-
           Vias fortes com possibilidades de escalada
-
-          bem variada, que exigem bom repertório de movimentos e resistência. O início
-          do
-
-          setor é mais amplo e tem bases limpas, mas em direção às escadas que dão
-          acesso
-
-          ao setor "Sentinela" deve-se tomar cuidado para evitar acidentes, pois este
-          trecho
-
+          bem variada, que exigem bom repertório de movimentos e resistência. O início do
+          setor é mais amplo e tem bases limpas, mas em direção às escadas que dão acesso
+          ao setor "Sentinela" deve-se tomar cuidado para evitar acidentes, pois este trecho
           é bastante íngreme.
-
 
           Atenção para a base de algumas vias no final do setor.
 
-
-          Também no final do setor, a maioria das vias é indicado sair com a primeira
-          proteção clipada.
-
+          Também no final do setor, a maioria das vias é indicado sair com a primeira proteção clipada.
 
           | ![Brenfestival 7a](imagens/setor_7_paralelo_p0_i1.webp) |
-
           | :--: |
-
           | *Brenfestival 7a* |
 
-
           | ![Classe Social 8c/9a](imagens/setor_7_paralelo_p0_i2.webp) |
-
           | :--: |
-
           | *Classe Social 8c/9a* |
 
-
           | ![Até mas amigos 6º sup](imagens/setor_7_paralelo_p1_i0.webp) |
-
           | :--: |
-
           | *Até mas amigos 6º sup* |
 
-
           | ![Eu sei o meu ofício 7a](imagens/setor_7_paralelo_p1_i1.webp) |
-
           | :--: |
-
           | *Eu sei o meu ofício 7a* |
 
-
           | ![Mais Fotos](imagens/setor_7_paralelo_p2_i0.webp) |
-
           | :--: |
-
-          | *Mais Fotos* |'
+          | *Mais Fotos* |
   - setor:
       conteudo:
         nome: Setor Sentinela
@@ -723,53 +651,34 @@ picos:
             nome: Vitamina M
             dificuldade: BR_5
             protecoes_moveis: Móvel. Rapel da chapa com cordelete.
-        descricao: '# Setor Sentinela
-
+        descricao: |-
+          # Setor Sentinela
 
           Setor um pouco mais afastado, localizado após subir as escadas do setor
-
           "7 Paralelo". Setor com grande incidência do sol entre 11:00 e 15:00 hrs.
-
 
           Do setor é possível acessar a passagem para o mirante do cume da Sinuosa.
 
-
           Parede bonita, de
-
-          cor amarelada, com excelente variação de agarras e característica esportiva.
-          Apesar
-
+          cor amarelada, com excelente variação de agarras e característica esportiva. Apesar
           de serem mais baixas, as vias deste setor são exigentes devido a leve negatividade
-
           da pedra.
 
-
           | ![Setor Sentinela](imagens/setor_sentinela_p0_i1.webp) |
-
           | :--: |
-
           | *Setor Sentinela* |
 
-
           | ![Foto 2](imagens/setor_sentinela_p1_i0.webp) |
-
           | :--: |
-
           | *Foto 2* |
 
-
           | ![Foto 3](imagens/setor_sentinela_p1_i1.webp) |
-
           | :--: |
-
           | *Foto 3* |
 
-
           | ![Mais fotos](imagens/setor_sentinela_p2_i0.webp) |
-
           | :--: |
-
-          | *Mais fotos* |'
+          | *Mais fotos* |
   - setor:
       conteudo:
         nome: Setor Death Horse
@@ -924,47 +833,29 @@ picos:
             nome: Araticum
             quantidade_protecoes_intermediarias: 14
             descricao: Projeto (Sem F/A).
-        descricao: '# Setor Death Horse
-
+        descricao: |-
+          # Setor Death Horse
 
           Setor que fica logo na entrada. Parede extensa, alta e com trechos muito
-
-          negativos. A beleza da formação da parede impressiona pelas cores, formas
-          curiosas
-
-          e pela magnitude do teto. A base do setor é limpa, ampla e comporta grupos
-          maiores,
-
-          também é ótimo para colocação de redes por estar na sombra durante o dia
-          inteiro,
-
+          negativos. A beleza da formação da parede impressiona pelas cores, formas curiosas
+          e pela magnitude do teto. A base do setor é limpa, ampla e comporta grupos maiores,
+          também é ótimo para colocação de redes por estar na sombra durante o dia inteiro,
           local bem arejado.
 
-
           Na chuva é possível escalar algumas vias. Setor ainda pouco explorado,
-
           apesar do enorme potencial para vias de alta graduação.
 
-
           | ![Setor Death Horse](imagens/setor_death_horse_p0_i1.webp) |
-
           | :--: |
-
           | *Setor Death Horse* |
 
-
           | ![Sabbath Blood Sabbath 9a](imagens/setor_death_horse_p1_i0.webp) |
-
           | :--: |
-
           | *Sabbath Blood Sabbath 9a* |
 
-
           | ![Mais fotos](imagens/setor_death_horse_p1_i1.webp) |
-
           | :--: |
-
-          | *Mais fotos* |'
+          | *Mais fotos* |
   - setor:
       conteudo:
         nome: Setor Gameleira
@@ -1047,44 +938,28 @@ picos:
             nome: Girassol
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        descricao: '# Setor Gameleira
-
+        descricao: |-
+          # Setor Gameleira
 
           Conta com poucas vias e mesmo assim abriga um dos maiores desafios do pico
-
-          até o momento, a "Sou Fria 9a". Via em uma aresta muito negativa, de encaixe
-          e técnica.
-
-          Impressiona pela beleza da linha e pelo crux que é uma problema de boulder
-          especulado
-
+          até o momento, a "Sou Fria 9a". Via em uma aresta muito negativa, de encaixe e técnica.
+          Impressiona pela beleza da linha e pelo crux que é uma problema de boulder especulado
           em V4/5.
 
-
           A via "Mordida de Égua 5º" é muito repetida por iniciantes e faz parte
-
           das vias mais elogiadas da Sinuosa.
 
-
           | ![Setor Gameleira](imagens/setor_gameleira_p0_i1.webp) |
-
           | :--: |
-
           | *Setor Gameleira* |
 
-
           | ![Sou Fria 9a](imagens/setor_gameleira_p1_i0.webp) |
-
           | :--: |
-
           | *Sou Fria 9a* |
 
-
           | ![Sou Fria 9a Foto 2](imagens/setor_gameleira_p1_i1.webp) |
-
           | :--: |
-
-          | *Sou Fria 9a Foto 2* |'
+          | *Sou Fria 9a Foto 2* |
   - setor:
       conteudo:
         nome: Setor Vale das Sombras
@@ -1516,54 +1391,33 @@ picos:
             nome: Velhos Novatos
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 5
-        descricao: '# Setor Vale das Sombras
+        descricao: |-
+          # Setor Vale das Sombras
 
-
-          Setor com maior concentração de vias, predominância de vias mais altas e
-          verticais
-
-          com saídas ou lances curtos em negativo, algumas vias de resistência e outras
-          de
-
+          Setor com maior concentração de vias, predominância de vias mais altas e verticais
+          com saídas ou lances curtos em negativo, algumas vias de resistência e outras de
           crux, ou seja, garantia de escalada diferenciada o dia todo.
 
-
           O vale é o setor com
+          maior espaço para vários grupos, bom para armar redes e dar aquela pausa no climb.
 
-          maior espaço para vários grupos, bom para armar redes e dar aquela pausa
-          no climb.
-
-
-          Pela manhã é bom para escalar até as 10h e após as 15h o sol é mais brando
-          na parte
-
+          Pela manhã é bom para escalar até as 10h e após as 15h o sol é mais brando na parte
           mais alta das vias.
 
-
           O setor é o segundo a ser aberto pelos precursores da Sinuosa
-
           na década de 90.
 
-
           | ![Vale das Sombras](imagens/setor_vale_das_sombras_p2_i0.webp) |
-
           | :--: |
-
           | *Vale das Sombras* |
 
-
           | ![Tiu Marreteiro 8a](imagens/setor_vale_das_sombras_p2_i1.webp) |
-
           | :--: |
-
           | *Tiu Marreteiro 8a* |
 
-
           | ![Fotos](imagens/setor_vale_das_sombras_p3_i0.webp) |
-
           | :--: |
-
-          | *Fotos* |'
+          | *Fotos* |
   - setor:
       conteudo:
         nome: Setor Imigrantes
@@ -1811,14 +1665,12 @@ picos:
             nome: De Menor
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 4
-        descricao: '# Setor Vale Zela
-
+        descricao: |-
+          # Setor Vale Zela
 
           | ![Vale Zela](imagens/setor_vale_zela_p0_i1.webp) |
-
           | :--: |
-
-          | *Vale Zela* |'
+          | *Vale Zela* |
   - setor:
       conteudo:
         nome: Setor Macaúbas
@@ -1889,14 +1741,12 @@ picos:
             nome: Anfitriões do Dia
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        descricao: '# Setor Macaúbas
-
+        descricao: |-
+          # Setor Macaúbas
 
           | ![Setor Macaúbas](imagens/setor_macaubas_p0_i1.webp) |
-
           | :--: |
-
-          | *Setor Macaúbas* |'
+          | *Setor Macaúbas* |
   - setor:
       conteudo:
         nome: Setor Primórdios
@@ -2063,61 +1913,37 @@ picos:
             nome: Não Deu Bigode
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
-        descricao: '# Setor Primórdios
-
+        descricao: |-
+          # Setor Primórdios
 
           Setor onde tudo começou na década de 90, parede com grande concentração
-
-          de vias e de características bem diferentes. As vias possuem ótimas base
-          e bastante
-
-          espaço para grupos, bom para armar redes e descansar, pois o setor possui
-          sombra
-
+          de vias e de características bem diferentes. As vias possuem ótimas base e bastante
+          espaço para grupos, bom para armar redes e descansar, pois o setor possui sombra
           o dia todo.
 
-
           | ![De volta às origens 8a](imagens/setor_primordios_p0_i1.webp) |
-
           | :--: |
-
           | *De volta às origens 8a* |
 
-
-          | ![De volta às origens 8a foto 2](imagens/setor_primordios_p0_i2.webp)
-          |
-
+          | ![De volta às origens 8a foto 2](imagens/setor_primordios_p0_i2.webp) |
           | :--: |
-
           | *De volta às origens 8a foto 2* |
 
-
           | ![Chaminé Retinida 6º sup](imagens/setor_primordios_p1_i0.webp) |
-
           | :--: |
-
           | *Chaminé Retinida 6º sup* |
 
-
           | ![Foto 4](imagens/setor_primordios_p1_i1.webp) |
-
           | :--: |
-
           | *Foto 4* |
 
-
           | ![Foto 5](imagens/setor_primordios_p1_i2.webp) |
-
           | :--: |
-
           | *Foto 5* |
 
-
           | ![Mais Fotos](imagens/setor_primordios_p2_i0.webp) |
-
           | :--: |
-
-          | *Mais Fotos* |'
+          | *Mais Fotos* |
   - setor:
       conteudo:
         nome: Setor 4 Picos
@@ -2200,14 +2026,12 @@ picos:
         - via_esportiva:
             nome: ???
             dificuldade: PROJETO
-        descricao: '# Setor 4 Picos
-
+        descricao: |-
+          # Setor 4 Picos
 
           | ![4 Picos](imagens/setor_4_picos_p0_i1.webp) |
-
           | :--: |
-
-          | *4 Picos* |'
+          | *4 Picos* |
   - grupo:
       conteudo:
         nome: Vale Oculto
@@ -2307,15 +2131,12 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor de Cara
+            descricao: |-
+              # Setor Vale Oculto - Sub Setor de Cara
 
-
-              | ![Sub Setor de Cara](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp)
-              |
-
+              | ![Sub Setor de Cara](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp) |
               | :--: |
-
-              | *Sub Setor de Cara* |'
+              | *Sub Setor de Cara* |
         - conteudo:
             nome: Sub Setor Laranja
             mapas:
@@ -2517,15 +2338,12 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor Laranja
+            descricao: |-
+              # Setor Vale Oculto - Sub Setor Laranja
 
-
-              | ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp)
-              |
-
+              | ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp) |
               | :--: |
-
-              | *Sub Setor Laranja* |'
+              | *Sub Setor Laranja* |
         - conteudo:
             nome: Sub Setor Anfiteatro
             mapas:
@@ -2763,61 +2581,38 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor Anfiteatro
+            descricao: |-
+              # Setor Vale Oculto - Sub Setor Anfiteatro
 
-
-              | ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp)
-              |
-
+              | ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp) |
               | :--: |
-
-              | *Sub Setor Anfiteatro* |'
-        descricao: '# Vale Oculto Sinuosa
-
+              | *Sub Setor Anfiteatro* |
+        descricao: |-
+          # Vale Oculto Sinuosa
 
           | ![Capa Vale Oculto](imagens/setor_vale_oculto_p0_i0.webp) |
-
           | :--: |
-
           | *Capa Vale Oculto* |
 
+          A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
 
-          A área recém descoberta por escaladores locais em 2018, o local deu origem
-          a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
-
-
-          O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso
-          está ilustrado neste croqui.
-
+          O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso está ilustrado neste croqui.
 
           Já foram conquistadas **33 vias** e ainda existem algumas possibilidades.
 
-
-          Os três sub-setores tem características bem diferentes: negativos constantes
-          e arestas, vias como **"Face Oculta 7a"**, **"Negativos 6º SUP"**, **"Quebrando
-          o Silêncio 8b"**, **"Recepção Venenosa 7a"** e **"Dono do Pico 7c"** já
-          são a candidatas a vias clássicas da Sinuosa.
-
+          Os três sub-setores tem características bem diferentes: negativos constantes e arestas, vias como **"Face Oculta 7a"**, **"Negativos 6º SUP"**, **"Quebrando o Silêncio 8b"**, **"Recepção Venenosa 7a"** e **"Dono do Pico 7c"** já são a candidatas a vias clássicas da Sinuosa.
 
           | ![Escalador no Vale Oculto](imagens/setor_vale_oculto_p1_i0.webp) |
-
           | :--: |
-
           | *Escalador no Vale Oculto* |
-
 
           # Trilha de Acesso Vale Oculto
 
-
           | ![Mapa de Acesso Vale Oculto](imagens/setor_vale_oculto_p2_i0.webp) |
-
           | :--: |
-
           | *Mapa de Acesso Vale Oculto* |
 
-
-          O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das
-          proximidades do Shopping Sete Lagoas.'
+          O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das proximidades do Shopping Sete Lagoas.
   mapas_gerais:
     conteudo:
       mapas:
@@ -2978,223 +2773,128 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Croqui Sinuosa - Sete Lagoas, MG
-
+      conteudo: |-
+        # Croqui Sinuosa - Sete Lagoas, MG
 
         | ![Capa](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
-        Este é o croqui da Sinuosa, localizada em Sete Lagoas, MG.'
+        Este é o croqui da Sinuosa, localizada em Sete Lagoas, MG.
 - texto: Regras e Segurança
   destino:
     secao_textual:
-      conteudo: '# Regras e Segurança
-
+      conteudo: |-
+        # Regras e Segurança
 
         **LEIA**
 
-
         - FIQUE ATENTO QUANTO À SEGURANÇA.
-
         - ASSINE O TERMO DE RESPONSABILIDADE.
-
         - ANDE SOMENTE PELAS TRILHAS EXISTENTES.
-
         - ATENÇÃO QUANTO À VIAS INACABADAS.
-
         - NUNCA FAÇA FOGUEIRAS.
-
         - EVITE AGLOMERAÇÕES E ALGAZARRAS.
-
         - LEVE O SEU LIXO E SE O SEU AMIGO DEIXAR, LEVE O DELE TAMBÉM.
-
         - ATENÇÃO À ABELHAS E ANIMAIS PEÇONHENTOS.
-
-        - MENORES DEVEM ESTAR ACOMPANHADOS DE UM RESPONSÁVEL LEGAL.'
+        - MENORES DEVEM ESTAR ACOMPANHADOS DE UM RESPONSÁVEL LEGAL.
 - texto: Turismo e Equipamentos
   destino:
     secao_textual:
-      conteudo: '# Informações ao Turista
-
+      conteudo: |-
+        # Informações ao Turista
 
         ## Melhor Época
-
-        Na Sinuosa o melhor período de visitação é entre os meses de maio a setembro.
-        O clima da região se torna perfeito para a prática.
-
+        Na Sinuosa o melhor período de visitação é entre os meses de maio a setembro. O clima da região se torna perfeito para a prática.
 
         ## Onde Ficar
-
-        A cidade de Sete Lagoas/MG conta com variadas opções de hospedagem, como:
-        hotéis, pousadas e hostel. A cidade ainda não tem abrigo para escaladores.
-
+        A cidade de Sete Lagoas/MG conta com variadas opções de hospedagem, como: hotéis, pousadas e hostel. A cidade ainda não tem abrigo para escaladores.
 
         ## Alimentação
-
-        Supermercado e restaurante bem ao lado do acesso do pico, no Shopping Sete
-        Lagoas.
-
+        Supermercado e restaurante bem ao lado do acesso do pico, no Shopping Sete Lagoas.
 
         ---
-
 
         ## Lugares para Visitar
-
         - **Serra Santa Helena:** Ótima opção para passeios com a família e amigos.
-
-        - **Gruta Rei do Mato:** Monumento Estadual Natural, uma das mais importantes
-        grutas do Brasil, com pinturas rupestres e formações únicas encontradas somente
-        aqui e na Espanha.
-
-        - **Lagoas da Cidade:** Grande importância cultural, conhecidas como "A cidade
-        dos Lagos Encantados".
-
+        - **Gruta Rei do Mato:** Monumento Estadual Natural, uma das mais importantes grutas do Brasil, com pinturas rupestres e formações únicas encontradas somente aqui e na Espanha.
+        - **Lagoas da Cidade:** Grande importância cultural, conhecidas como "A cidade dos Lagos Encantados".
         - **Museu do Ferroviário:** Da antiga Estação do Brasil.
-
-        - **Museu Municipal:** Conta a história da cidade desde a época dos tropeiros
-        de Fernão Dias.
-
+        - **Museu Municipal:** Conta a história da cidade desde a época dos tropeiros de Fernão Dias.
         - **Museu de Mineralogia:** Um dos mais sofisticados do país.
 
-
         ---
-
 
         ## Equipamento Sugerido
-
         - Kit esportivo.
-
         - Corda de 60m é suficiente, mas a de 70m facilita nas poucas vias mais altas.
-
         - Para quem curte escalada em móvel, há algumas possibilidades na Sinuosa.
 
-
         ## Tipo de Rocha
-
         Calcário
-
 
         ---
 
-
         ## Áreas de Escalada Próximos à Sete Lagoas
-
         - **Gruta do Baú:** 48 km
-
         - **Gruta da Lapinha:** 55 km
-
         - **Lapa do Seu Antão:** 51 km
-
         - **Sítio do Rod:** 58 km
-
         - **Serra do Cipó:** 112 km
-
-        - **Pedra Rachada:** 102 km'
+        - **Pedra Rachada:** 102 km
 - texto: Curiosidades
   destino:
     secao_textual:
-      conteudo: '# Curiosidades sobre o local
+      conteudo: |-
+        # Curiosidades sobre o local
 
+        A área de escalada está situada na **Fazenda Arizona**, propriedade privada localizada no meio urbano da cidade de Sete Lagoas, Minas Gerais. A área está inserida a meia encosta da **APA Serra de Santa Helena** (Latitude: 19°27'38.39"S Longitude: 44°16'42.95"O), onde há a presença de Metacalcarenitos e afloramentos calcários, tendo como cobertura vegetal a floresta estacional semidecidual e a parte baixa recoberta por sedimentos onde predomina a vegetação característica do Cerrado.
 
-        A área de escalada está situada na **Fazenda Arizona**, propriedade privada
-        localizada no meio urbano da cidade de Sete Lagoas, Minas Gerais. A área está
-        inserida a meia encosta da **APA Serra de Santa Helena** (Latitude: 19°27''38.39"S
-        Longitude: 44°16''42.95"O), onde há a presença de Metacalcarenitos e afloramentos
-        calcários, tendo como cobertura vegetal a floresta estacional semidecidual
-        e a parte baixa recoberta por sedimentos onde predomina a vegetação característica
-        do Cerrado.
+        Em 1937, na primeira edição do livro "As Grutas de Minas Gerais" do antigo IBGE, a área em questão é denominada de **"Lapa Arizona"**, onde são descritas várias informações do afloramento.
 
+        O nome **"Sinuosa"** foi dado por escaladores locais em meados da década de 90 devido à curiosa forma da árvore que fica no Setor Primórdios. As primeiras vias do pico foram conquistadas há mais de 20 anos, mas só em 2013 o pico voltou a ser desenvolvido com abertura de novas vias.
 
-        Em 1937, na primeira edição do livro "As Grutas de Minas Gerais" do antigo
-        IBGE, a área em questão é denominada de **"Lapa Arizona"**, onde são descritas
-        várias informações do afloramento.
-
-
-        O nome **"Sinuosa"** foi dado por escaladores locais em meados da década de
-        90 devido à curiosa forma da árvore que fica no Setor Primórdios. As primeiras
-        vias do pico foram conquistadas há mais de 20 anos, mas só em 2013 o pico
-        voltou a ser desenvolvido com abertura de novas vias.
-
-
-        Existe um tipo de **caverna vertical** explorada por espeleólogos com mais
-        de 100 metros de profundidade, com vários salões em seu decorrer, formações
-        impressionantes de "esponjas calcárias", entre outras curiosidades sobre o
-        terreno "karst".'
+        Existe um tipo de **caverna vertical** explorada por espeleólogos com mais de 100 metros de profundidade, com vários salões em seu decorrer, formações impressionantes de "esponjas calcárias", entre outras curiosidades sobre o terreno "karst".
 - texto: Considerações Finais
   destino:
     secao_textual:
-      conteudo: '# Considerações Finais
-
+      conteudo: |-
+        # Considerações Finais
 
         | ![Considerações Finais](imagens/consideracoes_finais_p0_i0.webp) |
-
         | :--: |
-
         | *Considerações Finais* |
 
+        A área de escalada esportiva **"Sinuosa"** apresenta baixos índices de degradação ambiental relacionados à prática do esporte. Entre os aspectos ambientais analisados, a abertura de trilhas e novos setores é o que apresenta um maior coeficiente de intervenção, devido ao fato da supressão de vegetação e exposição do solo.
 
-        A área de escalada esportiva **"Sinuosa"** apresenta baixos índices de degradação
-        ambiental relacionados à prática do esporte. Entre os aspectos ambientais
-        analisados, a abertura de trilhas e novos setores é o que apresenta um maior
-        coeficiente de intervenção, devido ao fato da supressão de vegetação e exposição
-        do solo.
+        Conclui-se ainda que a área apresenta grande potencial para aberturas de novos setores, sendo feita uma estimativa da possibilidade de chegar a **mais de 150 vias**. É importante ressaltar que a presença de escaladores no local contribui de forma positiva, inibindo a presença de caçadores, vândalos e a depredação da fauna, flora e do patrimônio espeleológico.
 
-
-        Conclui-se ainda que a área apresenta grande potencial para aberturas de novos
-        setores, sendo feita uma estimativa da possibilidade de chegar a **mais de
-        150 vias**. É importante ressaltar que a presença de escaladores no local
-        contribui de forma positiva, inibindo a presença de caçadores, vândalos e
-        a depredação da fauna, flora e do patrimônio espeleológico.
-
-
-        Além da área mencionada, existem outros locais de destaque no cenário nacional
-        para a prática da escalada na cidade de Sete Lagoas, sendo eles: a **"Área
-        de Escalada Gruta Rei do Mato"**, localizada no Monumento Natural Estadual
-        Gruta Rei do Mato, e a **"Área de Escalada Esportiva Roxane"**, localizada
-        em propriedade particular na zona rural do município. Porém, em ambas a prática
-        da escalada está proibida. Devido a este fato, a possibilidade de novos trabalhos
-        envolvendo a questão ambiental e a prática do esporte se mostra promissora.'
+        Além da área mencionada, existem outros locais de destaque no cenário nacional para a prática da escalada na cidade de Sete Lagoas, sendo eles: a **"Área de Escalada Gruta Rei do Mato"**, localizada no Monumento Natural Estadual Gruta Rei do Mato, e a **"Área de Escalada Esportiva Roxane"**, localizada em propriedade particular na zona rural do município. Porém, em ambas a prática da escalada está proibida. Devido a este fato, a possibilidade de novos trabalhos envolvendo a questão ambiental e a prática do esporte se mostra promissora.
 - texto: Ficha Técnica
   destino:
     secao_textual:
-      conteudo: '# FICHA TÉCNICA
-
+      conteudo: |-
+        # FICHA TÉCNICA
 
         | ![Ficha Técnica](imagens/ficha_tecnica_p0_i0.webp) |
-
         | :--: |
-
         | *Ficha Técnica* |
-
 
         **APOIO:** JGARILIO
 
-
         **COLABORADORES:** GE7
 
-
-        **CROQUI:** JEAN CARLOS, LUCIANA DOS ANJOS, YURI VIEIRA, HUGO AGUIAR, HENRIQUE
-        BARCELOS, RICARDO "ANIMAL", TADEU RASSI, MICHEL ÂNGELO e CARLOS SOUZA.
-
+        **CROQUI:** JEAN CARLOS, LUCIANA DOS ANJOS, YURI VIEIRA, HUGO AGUIAR, HENRIQUE BARCELOS, RICARDO "ANIMAL", TADEU RASSI, MICHEL ÂNGELO e CARLOS SOUZA.
 
         **FOTOS:** JEAN CARLOS, LUCIANA DOS ANJOS.
 
-
         **EDIÇÃO:** JEAN CARLOS
 
-
         **REDES SOCIAIS:**
-
         - Facebook: [facebook.com/ge7escalada](https://facebook.com/ge7escalada)
-
         - Instagram: [@sinuosaclimb](https://instagram.com/sinuosaclimb)
 
-
-        **EDIÇÃO:** 2019-1'
+        **EDIÇÃO:** 2019-1
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

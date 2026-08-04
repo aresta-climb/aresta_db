@@ -355,17 +355,14 @@ picos:
             dificuldade: PROJETO
             data_abertura: '2020-10-01'
             quantidade_protecoes_intermediarias: 3
-        descricao: '# Setor Pataxós
-
+        descricao: |-
+          # Setor Pataxós
 
           Sombra a partir de 11h (varia de acordo com a sessão).
 
-
           | ![Escaladora](imagens/setor_pataxos_p1_i0.webp) |
-
           | :--: |
-
-          | *Escaladora* |'
+          | *Escaladora* |
   - setor:
       conteudo:
         nome: Setor Cataguás
@@ -404,15 +401,13 @@ picos:
         - via_movel:
             nome: sem nome (via mixta)
             data_abertura: '2008-01-01'
-        descricao: '# Setor Cataguás
-
+        descricao: |-
+          # Setor Cataguás
 
           > [!WARNING]
-
           > **O ACESSO A ESTE SETOR ESTÁ PROIBIDO POR HORA.**
 
-
-          Sombra a partir de 11h (varia de acordo com a estação).'
+          Sombra a partir de 11h (varia de acordo com a estação).
   - setor:
       conteudo:
         nome: Setor Xavante
@@ -519,17 +514,14 @@ picos:
             data_abertura: '2022-07-25'
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
-        descricao: '# Setor Xavante
-
+        descricao: |-
+          # Setor Xavante
 
           Sombra o dia todo (varia de acordo com a estação).
 
-
           | ![Escalador na sombra](imagens/setor_xavante_p1_i0.webp) |
-
           | :--: |
-
-          | *Escalador na sombra* |'
+          | *Escalador na sombra* |
   - setor:
       conteudo:
         nome: Setor Yanomami
@@ -865,17 +857,14 @@ picos:
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 11
             quantidade_protecoes_parada: 2
-        descricao: '# Setor Yanomami
-
+        descricao: |-
+          # Setor Yanomami
 
           Sombra até as 14h30 (varia de acordo com a estação).
 
-
           | ![Parede Yanomami](imagens/setor_yanomami_p1_i0.webp) |
-
           | :--: |
-
-          | *Parede Yanomami* |'
+          | *Parede Yanomami* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -939,143 +928,82 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# afloramento CORUMBÁ
-
+      conteudo: |-
+        # afloramento CORUMBÁ
 
         entre Arcos e Pains - MG - Brasil
 
-
         **CROQUI - JUNHO - 2023**
 
-
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
-        desenvolvido por alexsandro'
+        desenvolvido por alexsandro
 - texto: Atenção e Regras
   destino:
     secao_textual:
-      conteudo: '# Atenção e Observações
+      conteudo: |-
+        # Atenção e Observações
 
-
-        Este croqui é apenas um auxílio de consulta a localização, não serve como
-        instruções a prática da escalada. Não nos responsabilizamos pelas informações
-        aqui contidas, são apenas ponto de vista.
-
+        Este croqui é apenas um auxílio de consulta a localização, não serve como instruções a prática da escalada. Não nos responsabilizamos pelas informações aqui contidas, são apenas ponto de vista.
 
         ## Atenção
 
-
-        Os nomes das vias, seus respectivos conquistadores e a graduação sugerida
-        para cada uma delas são resultados de uma pesquisa oral conduzida entre os
-        escaladores que frequentam o pico, uma vez que não foi encontrado nenhum registro
-        prévio sobre o tema (exceto os guias anteriores). O resultado desse trabalho
-        pode eventualmente conter erros, os quais peço que não sejam entendidos como
-        desrespeito. O objetivo é documentar e divulgar a prática da escalada no centro-oeste
-        mineiro da maneira mais exata possível.
-
+        Os nomes das vias, seus respectivos conquistadores e a graduação sugerida para cada uma delas são resultados de uma pesquisa oral conduzida entre os escaladores que frequentam o pico, uma vez que não foi encontrado nenhum registro prévio sobre o tema (exceto os guias anteriores). O resultado desse trabalho pode eventualmente conter erros, os quais peço que não sejam entendidos como desrespeito. O objetivo é documentar e divulgar a prática da escalada no centro-oeste mineiro da maneira mais exata possível.
 
         ## Observação
 
-
-        Como algumas vias são de conquistadores desconhecidos foi utilizado apelido
-        + (*) para identificá-las. Caso encontre algum engano nos dados citados neste
-        croqui, peço que me envie a correção. Tereis satisfação em atendê-lo, pois
-        todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse
-        trabalho.
-
+        Como algumas vias são de conquistadores desconhecidos foi utilizado apelido + (*) para identificá-las. Caso encontre algum engano nos dados citados neste croqui, peço que me envie a correção. Tereis satisfação em atendê-lo, pois todos os envolvidos com a escalada tem a ganhar com o aprimoramento desse trabalho.
 
         Muito obrigado aos conquistadores e conquistadoras, **GRATIDÃO** a vocês sempre!!!
 
-
-        **Arte/Organização/Produção:** alexsandro martins / 7ª versão / atualização
-        2023 / Revisão e graduação sugerida das vias: Grupo de Trabalho
-
+        **Arte/Organização/Produção:** alexsandro martins / 7ª versão / atualização 2023 / Revisão e graduação sugerida das vias: Grupo de Trabalho
 
         ---
-
 
         # Seja Consciente!
 
-
         - **UTILIZE APENAS AS TRILHAS PRINCIPAIS;**
-
-        - **As grutas NÃO são banheiros!** Faça suas necessidades fisiológicas em
-        casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou
-        terra;
-
-        - **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados
-        (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de
-        bala...);
-
-        - Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se
-        que eles estão em seu habitat natural e precisam ser respeitados;
-
-        - **Animais domésticos (ex. cães)** não devem ser trazidos a este local, desta
-        forma, você os protege de doenças silvestres e vice versa;
-
+        - **As grutas NÃO são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra;
+        - **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...);
+        - Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados;
+        - **Animais domésticos (ex. cães)** não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa;
         - **Fogueiras** além de provocar queimadas, danificam o local;
-
-        - **Estacione de maneira adequada** e no local adequado a fim de não atrapalhar
-        o fluxo de outros veículos;
-
+        - **Estacione de maneira adequada** e no local adequado a fim de não atrapalhar o fluxo de outros veículos;
         - Utilize equipamentos de segurança e verifique seu estado de conservação;
-
         - Cuidado com pedras soltas principalmente em setores e vias novas;
-
-        - Antes de conquistar uma via de escalada entre em contato com o GT.'
+        - Antes de conquistar uma via de escalada entre em contato com o GT.
 - texto: Parcerias e Contato
   destino:
     secao_textual:
-      conteudo: '# Parcerias e Contato
+      conteudo: |-
+        # Parcerias e Contato
 
-
-        Parcerias na atualização do ano de 2023 dos croquis dos Afloramentos, Setores
-        e Vias de Escaladas Esportiva em Arcos, Pains e Região - MG.
-
+        Parcerias na atualização do ano de 2023 dos croquis dos Afloramentos, Setores e Vias de Escaladas Esportiva em Arcos, Pains e Região - MG.
 
         ## Realização e Apoio
 
-
         | ![Logos de Parcerias](imagens/parcerias_e_contato_p0.webp) |
-
         | :--: |
-
         | *Logos de Parcerias* |
 
-
         - **Abrigo Base**
-
         - **Macaco Galo**
-
         - **Kmon Escalada**
-
         - **Quero Escalar**
-
         - **Meka Coffee Bar**
-
         - **Borges Café**
-
-        - **Brand''s re Soul**
-
+        - **Brand's re Soul**
         - **100 Betas Ginásio de Escalada**
-
 
         ---
 
-
         ### Para contribuir com esse trabalho e a próxima atualização:
 
-
         - **Instagram:** [@abrigobase](https://www.instagram.com/abrigobase)
-
         - **E-mail:** abrigobase@gmail.com
-
-        - **Contribuição/Parceria PIX:** 37 99918-3634'
+        - **Contribuição/Parceria PIX:** 37 99918-3634
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

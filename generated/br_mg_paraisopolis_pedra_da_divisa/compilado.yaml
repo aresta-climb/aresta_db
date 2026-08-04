@@ -1,12 +1,8 @@
 id: br_mg_paraisopolis_pedra_da_divisa
 nome: Pedra da Divisa - Face MG
-descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
-  MG.
-
-  Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
-  Questão de Tempo e Hospício.
-
-  '
+descricao: |
+  Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
+  Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
 revisado_manualmente: true
 revisado_bounding_circle: true
 status_desenho_extraivel: NAO_TEM_DESENHO
@@ -285,26 +281,17 @@ picos:
             - Eliseu Frechou
             - Leonard Moreira
             data_abertura: 2021-03
-        descricao: '| ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp)
-          |
-
+        descricao: |-
+          | ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp) |
           | :--: |
-
           | *Leonard Moreira na via Zé Sereno, 7b* |
 
-
-          | ![Charlie Alves na via Corisco, 6ºsup](imagens/setor_cangaco_p2_i0.webp)
-          |
-
+          | ![Charlie Alves na via Corisco, 6ºsup](imagens/setor_cangaco_p2_i0.webp) |
           | :--: |
-
           | *Charlie Alves na via Corisco, 6ºsup* |
 
-
-          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para
-          as vias
-
-          esportivas, você vai precisar de 15 costuras.'
+          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
+          esportivas, você vai precisar de 15 costuras.
   - setor:
       conteudo:
         nome: Setor Ditados
@@ -470,26 +457,17 @@ picos:
             - Ana Fujita
             - Eliseu Frechou
             data_abertura: '2018'
-        descricao: '| ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp)
-          |
-
+        descricao: |-
+          | ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp) |
           | :--: |
-
           | *Ana Fujita na via Boa noite Cinderela, 6ºsup* |
 
-
-          | ![Ana Fujita na via Mais vale um na mão... 7a](imagens/setor_ditados_p0_i0_2.webp)
-          |
-
+          | ![Ana Fujita na via Mais vale um na mão... 7a](imagens/setor_ditados_p0_i0_2.webp) |
           | :--: |
-
           | *Ana Fujita na via Mais vale um na mão... 7a* |
 
-
-          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para
-          as vias
-
-          esportivas, você vai precisar de 15 costuras.'
+          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
+          esportivas, você vai precisar de 15 costuras.
   - setor:
       conteudo:
         nome: Setor Cervejas
@@ -755,16 +733,12 @@ picos:
             conquistadores:
             - Antônio Calvo
             - Ingo Moller
-        descricao: '| ![Eliseu Frechou na via Black, 6ºsup](imagens/setor_cervejas_p1_i0.webp)
-          |
-
+        descricao: |-
+          | ![Eliseu Frechou na via Black, 6ºsup](imagens/setor_cervejas_p1_i0.webp) |
           | :--: |
-
           | *Eliseu Frechou na via Black, 6ºsup* |
 
-
-          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para
-          as vias esportivas, você vai precisar de 10 costuras.'
+          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
   - setor:
       conteudo:
         nome: Setor Questão de Tempo
@@ -857,24 +831,16 @@ picos:
             - Alexandre "Jesus" Loureiro
             - Samuel Moreira
             data_abertura: '2020'
-        descricao: '| ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp)
-          |
-
+        descricao: |-
+          | ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp) |
           | :--: |
-
           | *Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup* |
 
-
-          | ![Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup](imagens/setor_questao_de_tempo_p1_i0.webp)
-          |
-
+          | ![Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup](imagens/setor_questao_de_tempo_p1_i0.webp) |
           | :--: |
-
           | *Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup* |
 
-
-          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para
-          as vias esportivas, você vai precisar de 10 costuras.'
+          **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
   - setor:
       conteudo:
         nome: Setor Hospício
@@ -1125,228 +1091,122 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Pedra da Divisa - Face MG
-
+      conteudo: |-
+        # Pedra da Divisa - Face MG
 
         v.03.21
 
-
         | ![Pedra da Divisa - Face MG](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
-        | *Pedra da Divisa - Face MG* |'
+        | *Pedra da Divisa - Face MG* |
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# Pedra da Divisa face MG
+      conteudo: |-
+        # Pedra da Divisa face MG
 
+        Seja bem-vindo à face mineira da Pedra da Divisa. Desejamos que você curta ao máximo este lugar e aproveite as escaladas antigas e recém abertas desta montanha.
 
-        Seja bem-vindo à face mineira da Pedra da Divisa. Desejamos que você curta
-        ao máximo este lugar e aproveite as escaladas antigas e recém abertas desta
-        montanha.
+        As primeiras vias desta face, foram abertas nos anos 90. Após um longo período de esquecimento com raríssimas incursões, em janeiro de 2018, após permissão dos novos proprietários, resolvemos (Ana e Eliseu) dar um empurrão para o desenvolvimento destas paredes, o que em tempos de pandemia, se transformou rapidamente num dos points mais frequentados e populares da região.
 
+        Com o importante suporte dos nossos patrocinadores DEUTER, SOLO, SBI Outdoor. ROCX e SIMOND, mais o apoio da BONIER e ÂNCORA, pudemos em um curto espaço de tempo abrir as primeiras rotas esportivas nessas lindas paredes coloridas. No primeiro momento, estabelecemos o padrão de ancoragens, espaço entre vias e sistemas proteção, abrindo o caminho para a comunidade contribuir na abertura de novas linhas e na manutenção das já existentes, mantendo nossa comunidade motivada e diluindo o tráfego nas falésias e setores mais freqüentados da nossa região.
 
-        As primeiras vias desta face, foram abertas nos anos 90. Após um longo período
-        de esquecimento com raríssimas incursões, em janeiro de 2018, após permissão
-        dos novos proprietários, resolvemos (Ana e Eliseu) dar um empurrão para o
-        desenvolvimento destas paredes, o que em tempos de pandemia, se transformou
-        rapidamente num dos points mais frequentados e populares da região.
+        Na segunda fase de desenvolvimento, Carlos "Charlie" Alves, Antônio "Tonhão" Calvo e Leonard "Leo" Moreira contribuiram na abertura de mais de uma dezena de novas vias.
 
-
-        Com o importante suporte dos nossos patrocinadores DEUTER, SOLO, SBI Outdoor.
-        ROCX e SIMOND, mais o apoio da BONIER e ÂNCORA, pudemos em um curto espaço
-        de tempo abrir as primeiras rotas esportivas nessas lindas paredes coloridas.
-        No primeiro momento, estabelecemos o padrão de ancoragens, espaço entre vias
-        e sistemas proteção, abrindo o caminho para a comunidade contribuir na abertura
-        de novas linhas e na manutenção das já existentes, mantendo nossa comunidade
-        motivada e diluindo o tráfego nas falésias e setores mais freqüentados da
-        nossa região.
-
-
-        Na segunda fase de desenvolvimento, Carlos "Charlie" Alves, Antônio "Tonhão"
-        Calvo e Leonard "Leo" Moreira contribuiram na abertura de mais de uma dezena
-        de novas vias.
-
-
-        Este lugar, assim como outros, requer um bom entrosamento com os proprietários
-        para que a porteira continue aberta para todos nós. Pedimos que você respeite
-        as regras e ajude a fiscalizá-las.
-
+        Este lugar, assim como outros, requer um bom entrosamento com os proprietários para que a porteira continue aberta para todos nós. Pedimos que você respeite as regras e ajude a fiscalizá-las.
 
         ## AQUI É PROIBIDO:
 
-
-        - Entrar com o carro no bananal. Estacione no pasto, antes da porteira de
-        arame;
-
+        - Entrar com o carro no bananal. Estacione no pasto, antes da porteira de arame;
         - Coletar bananas dos pés;
-
         - Trazer animais;
-
         - Fazer barulho em demasia;
-
         - Acender qualquer tipo de fogo ou fogareiro;
-
         - Acampar ou permanecer na área após as 18h00.
 
-
         | ![Solo e Âncora logos](imagens/introducao_p0_i0.webp) |
-
         | :--: |
-
         | *Solo e Âncora logos* |
-
 
         ---
 
-
-        | ![Ana Fujita na via Primogênito, 7a, Setor Cangaço](imagens/introducao_p1_i0.webp)
-        |
-
+        | ![Ana Fujita na via Primogênito, 7a, Setor Cangaço](imagens/introducao_p1_i0.webp) |
         | :--: |
-
         | *Ana Fujita na via Primogênito, 7a, Setor Cangaço* |
 
-
         Ana Fujita
-
         **Primogênito**, 7a
-
-        Setor Cangaço'
+        Setor Cangaço
 - texto: Regras
   destino:
     secao_textual:
-      conteudo: '# AS REGRAS DESTE LOCAL
-
+      conteudo: |-
+        # AS REGRAS DESTE LOCAL
 
         - Seja cordial com as pessoas que cruzar;
-
         - Feche as porteiras que abrir;
-
         - Estacione no pasto antes do bananal. Não estacione no bananal!
-
         - Não faça barulho nem grite. Curta o silêncio e os sons do lugar;
+        - Não deixe sujeira ou equipamentos de escalada (costuras, lonas, papel) nas paredes nem no chão;
+        - Diminua o impacto visual. Limpe o excesso de magnésio e não faça marcas nas agarrras. Use uma escova de plástico para limpeza;
+        - As vias possuem apenas proteções em parabolts de 3/8" e chapeletas. Este é o padrão do lugar. Se for abrir uma via, use este tipo de ancoragem e facilite o rapel nas bases com chapeletas rapeláveis ou malhas rápidas;
+        - Respeite as linhas já existentes. Não cruze e muito menos estenda vias sem antes consultar os conquistadores das já existentes. Se sua nova linha terá agarras ou proteções que possam ser compartilhadas com outras já existentes, você está forçando um adensamento desnecessário em um lugar com muita rocha livre. Olhe ao redor, procure uma linha independente e crie algo novo.
 
-        - Não deixe sujeira ou equipamentos de escalada (costuras, lonas, papel) nas
-        paredes nem no chão;
+        As atualizações do croqui desta área, assim como as demais, será publicado no Manual de Escaladas e da Pedra do Baú e Sul de Minas. Você encontra este Manual facilmente nas lojas de montanhismo. Entre uma edição e outra, o site www.eliseufrechou.com.br informará notícias relevantes desta área e outras da região.
 
-        - Diminua o impacto visual. Limpe o excesso de magnésio e não faça marcas
-        nas agarrras. Use uma escova de plástico para limpeza;
-
-        - As vias possuem apenas proteções em parabolts de 3/8" e chapeletas. Este
-        é o padrão do lugar. Se for abrir uma via, use este tipo de ancoragem e facilite
-        o rapel nas bases com chapeletas rapeláveis ou malhas rápidas;
-
-        - Respeite as linhas já existentes. Não cruze e muito menos estenda vias sem
-        antes consultar os conquistadores das já existentes. Se sua nova linha terá
-        agarras ou proteções que possam ser compartilhadas com outras já existentes,
-        você está forçando um adensamento desnecessário em um lugar com muita rocha
-        livre. Olhe ao redor, procure uma linha independente e crie algo novo.
-
-
-        As atualizações do croqui desta área, assim como as demais, será publicado
-        no Manual de Escaladas e da Pedra do Baú e Sul de Minas. Você encontra este
-        Manual facilmente nas lojas de montanhismo. Entre uma edição e outra, o site
-        www.eliseufrechou.com.br informará notícias relevantes desta área e outras
-        da região.
-
-
-        Para finalizar, lembre-se de que sua segurança é de sua inteira responsabilidade.
-        Escalar é um esporte perigoso e pode ocasionar acidentes e morte. Escale com
-        todos os equipamentos de segurança e use capacete.
-
-        Não crie situações de risco para você ou outras pessoas e nem escale em vias
-        com proteções escassas ou móveis se você não domina essa técnica.
-
+        Para finalizar, lembre-se de que sua segurança é de sua inteira responsabilidade. Escalar é um esporte perigoso e pode ocasionar acidentes e morte. Escale com todos os equipamentos de segurança e use capacete.
+        Não crie situações de risco para você ou outras pessoas e nem escale em vias com proteções escassas ou móveis se você não domina essa técnica.
 
         Esperamos que você se divirta tanto quanto nós.
 
-
         Ana Fujita + Eliseu Frechou
-
         São Bento do Sapucaí, julho de 2021
 
-
         | ![Rocx e Deuter logos](imagens/regras_p0_i0.webp) |
-
         | :--: |
-
-        | *Rocx e Deuter logos* |'
+        | *Rocx e Deuter logos* |
 - texto: Como Chegar e Aproximação
   destino:
     secao_textual:
-      conteudo: '# COMO CHEGAR
+      conteudo: |-
+        # COMO CHEGAR
 
-
-        Partindo do trevo de entrada de São Bento do Sapucaí, zere o odômetro do seu
-        carro e siga em direção Sul de Minas/Paraisópolis. No bairro Córrego da Foice,
-        a exatos 5km do trevo, entre a esquerda, na estrada de terra.
-
+        Partindo do trevo de entrada de São Bento do Sapucaí, zere o odômetro do seu carro e siga em direção Sul de Minas/Paraisópolis. No bairro Córrego da Foice, a exatos 5km do trevo, entre a esquerda, na estrada de terra.
 
         Siga pela estrada principal até a marca de 9,8km, onde você deve virar a esquerda.
 
+        Após a porteira dos 12,8km a estrada fica bem ruim, e caso seu carro seja baixo, melhor andar a pé o último quilômetro até a entrada do bananal.
 
-        Após a porteira dos 12,8km a estrada fica bem ruim, e caso seu carro seja
-        baixo, melhor andar a pé o último quilômetro até a entrada do bananal.
-
-
-        Estacione seu carro no pasto antes do bananal. Não tente entrar no bananal,
-        pois pode prejudicar o acesso dos carros do proprietário da plantação.
-
+        Estacione seu carro no pasto antes do bananal. Não tente entrar no bananal, pois pode prejudicar o acesso dos carros do proprietário da plantação.
 
         | ![Mapa de Acesso](imagens/como_chegar_e_aproximacao_p0_i0.webp) |
-
         | :--: |
-
         | *Mapa de Acesso* |
-
 
         # APROXIMAÇÃO
 
-
         Após estacionar o carro, passe a porteira de arame e siga a pé pelo bananal.
 
+        Mantenha-se sempre reto nas bifurcações, com a parede a sua direita, até onde termina a plantação de bananas e começa uma floresta. Neste ponto há uma trilha a direita, que segue até o setor Cangaço.
 
-        Mantenha-se sempre reto nas bifurcações, com a parede a sua direita, até onde
-        termina a plantação de bananas e começa uma floresta. Neste ponto há uma trilha
-        a direita, que segue até o setor Cangaço.
+        Procure pelas plaquinhas metálicas de identificação das vias que em geral, estão abaixo da altura da cintura e oriente-se por elas para encontrar as demais vias.
 
-
-        Procure pelas plaquinhas metálicas de identificação das vias que em geral,
-        estão abaixo da altura da cintura e oriente-se por elas para encontrar as
-        demais vias.
-
-
-        | ![Plaquinha de identificação da via](imagens/como_chegar_e_aproximacao_p1_i0.webp)
-        |
-
+        | ![Plaquinha de identificação da via](imagens/como_chegar_e_aproximacao_p1_i0.webp) |
         | :--: |
-
         | *Plaquinha de identificação da via* |
-
 
         # ANIMAIS SELVAGENS
 
+        Cuidado com animais selvagens neste setor. Além de uma irara que mora no platô acima do setor Cervejas, lobos-guará e javaporcos não são raros perto do anoitecer, e como qualquer porco selvagem, irá atacar caso se sinta encurralado. Portanto se avistar um deles, dê meia-volta ou suba numa árvore.
 
-        Cuidado com animais selvagens neste setor. Além de uma irara que mora no platô
-        acima do setor Cervejas, lobos-guará e javaporcos não são raros perto do anoitecer,
-        e como qualquer porco selvagem, irá atacar caso se sinta encurralado. Portanto
-        se avistar um deles, dê meia-volta ou suba numa árvore.
-
-
-        No passado já foram avistadas cobras venenosas, mas hoje é bastante raro cruzar
-        com alguma. A Santa Casa de São Bento do Sapucaí possui soro anti-ofídico
-        para tratar eventuais acidentes com animais peçonhentos.'
+        No passado já foram avistadas cobras venenosas, mas hoje é bastante raro cruzar com alguma. A Santa Casa de São Bento do Sapucaí possui soro anti-ofídico para tratar eventuais acidentes com animais peçonhentos.
 - texto: Contracapa
   destino:
     secao_textual:
-      conteudo: '| ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp)
-        |
-
+      conteudo: |-
+        | ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp) |
         | :--: |
-
-        | *Foto de escalada na contracapa* |'
+        | *Foto de escalada na contracapa* |
 ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:

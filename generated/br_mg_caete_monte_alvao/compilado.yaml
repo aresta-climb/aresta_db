@@ -1,10 +1,7 @@
 id: br_mg_caete_monte_alvao
 nome: Monte Alvão - Caeté
-descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-  mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-  em quartzito de alta qualidade.
-
-  '
+descricao: |
+  O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
 creditos:
 - Gabriel Franco Ferreira
 caminho_thumbnail: imagens/mapas_gerais_p0.webp
@@ -223,10 +220,10 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        descricao: '# Vale Gaules
+        descricao: |-
+          # Vale Gaules
 
-
-          O setor Vale Gaules está localizado no Alto Monte Alvão.'
+          O setor Vale Gaules está localizado no Alto Monte Alvão.
   - grupo:
       conteudo:
         nome: Caverna, Mirante e Ground Control
@@ -778,11 +775,10 @@ picos:
                 quantidade_costuras_intermediarias: 10
                 quantidade_equipamentos_parada: 2
             descricao: ''
-        descricao: '# Caverna, Mirante e Ground Control
+        descricao: |-
+          # Caverna, Mirante e Ground Control
 
-
-          Este grupo engloba os setores localizados na parte central do Alto Monte
-          Alvão.'
+          Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
   - grupo:
       conteudo:
         nome: Parede do Ladrão e Forno da Onça
@@ -1038,10 +1034,10 @@ picos:
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
             descricao: ''
-        descricao: '# Parede do Ladrão e Forno da Onça
+        descricao: |-
+          # Parede do Ladrão e Forno da Onça
 
-
-          Estes setores estão localizados lado a lado no Alto Monte Alvão.'
+          Estes setores estão localizados lado a lado no Alto Monte Alvão.
   - grupo:
       conteudo:
         nome: Curto e Grosso, Malibu e Terra do Nunca
@@ -1196,10 +1192,10 @@ picos:
                 - Jg
                 - Ana Gonzalez Sanchez
             descricao: ''
-        descricao: '# Curto e Grosso, Malibu e Terra do Nunca
+        descricao: |-
+          # Curto e Grosso, Malibu e Terra do Nunca
 
-
-          Estes setores estão localizados na parte sul do Alto Monte Alvão.'
+          Estes setores estão localizados na parte sul do Alto Monte Alvão.
   mapas_gerais:
     conteudo:
       mapas:

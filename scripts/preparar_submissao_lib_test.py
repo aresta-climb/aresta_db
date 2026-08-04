@@ -380,3 +380,20 @@ def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     mapas_gerais = pico["mapas_gerais"]
     assert "mapas" in mapas_gerais["conteudo"]
     assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"
+
+def test_yaml_dump_preserva_aspas_em_strings_numericas():
+    import yaml
+    
+    # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
+    # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
+    dados = {
+        "id": "08",
+        "label": "09",
+        "normal": "texto",
+        "octal_valido": "07"
+    }
+    yaml_gerado = yaml.dump(dados, sort_keys=False)
+    
+    # As aspas simples ou duplas devem existir no YAML dump
+    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, f"YAML não preservou aspas em '08':\n{yaml_gerado}"
+    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, f"YAML não preservou aspas em '09':\n{yaml_gerado}"

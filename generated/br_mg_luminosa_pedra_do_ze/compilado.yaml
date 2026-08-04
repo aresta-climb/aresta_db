@@ -228,47 +228,30 @@ picos:
             nome: Mathilda Meu Amor
             dificuldade: PROJETO
             descricao: Projeto
-        descricao: '# Setor Principal
+        descricao: |-
+          # Setor Principal
 
+          O Setor Principal da Pedra do Zé oferece uma grande variedade de vias, desde móveis clássicas até esportivas de alta dificuldade.
 
-          O Setor Principal da Pedra do Zé oferece uma grande variedade de vias, desde
-          móveis clássicas até esportivas de alta dificuldade.
-
-
-          | ![Croqui Geral do Setor Principal](imagens/setor_principal_p0_i0_2.webp)
-          |
-
+          | ![Croqui Geral do Setor Principal](imagens/setor_principal_p0_i0_2.webp) |
           | :--: |
-
           | *Croqui Geral do Setor Principal* |
 
-
           | ![Detalhe Esquerda](imagens/setor_principal_p1_i0.webp) |
-
           | :--: |
-
           | *Detalhe Esquerda* |
 
-
           | ![Detalhe Meio](imagens/setor_principal_p3_i1.webp) |
-
           | :--: |
-
           | *Detalhe Meio* |
 
-
           | ![Detalhe Direita](imagens/setor_principal_p4_i1.webp) |
-
           | :--: |
-
           | *Detalhe Direita* |
 
-
           | ![Totem](imagens/setor_principal_p5_i1.webp) |
-
           | :--: |
-
-          | *Totem* |'
+          | *Totem* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -282,165 +265,95 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escalada Pedra do Zé
-
+      conteudo: |-
+        # Guia de Escalada Pedra do Zé
 
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
         **Bairro dos Bentos-Lúcios - Luminosa - MG**
-
-        **2020**'
+        **2020**
 - texto: Agradecimentos
   destino:
     secao_textual:
-      conteudo: '# Agradecimentos
+      conteudo: |-
+        # Agradecimentos
 
-
-        | ![Linha da via "Homem Curado" - Croqui ref. nº 18](imagens/agradecimentos_p0_i0.webp)
-        |
-
+        | ![Linha da via "Homem Curado" - Croqui ref. nº 18](imagens/agradecimentos_p0_i0.webp) |
         | :--: |
-
         | *Linha da via "Homem Curado" - Croqui ref. nº 18* |
 
-
-        Um agradecimento póstumo ao Sr. José Luis, antigo proprietário que liberou
-        inicialmente o acesso ao setor de escalada. Agradeço à viúva e atual proprietária,
-        Dona Rose, por continuar permitindo o acesso. Um agradecimento aos amigos
-        escaladores que contribuíram para que de alguma maneira o setor virasse realidade.
-        A todos o meu obrigado! Bito Meyer, Diego Serrano (Kri), Rodrigo (Braga),
-        Fernando Aranha, Karina Filgueiras, Paula Manso, Renato (Mineiro), Edu Felício,
-        Marcio Rosa, Claudia Faria, Antero Macedo, Débora Abe, Luiz Coslope (pelo
-        acesso às imagens do drone), Azeite e Dionísio, e a todos que não foram citados
-        nessa lista!
-
+        Um agradecimento póstumo ao Sr. José Luis, antigo proprietário que liberou inicialmente o acesso ao setor de escalada. Agradeço à viúva e atual proprietária, Dona Rose, por continuar permitindo o acesso. Um agradecimento aos amigos escaladores que contribuíram para que de alguma maneira o setor virasse realidade. A todos o meu obrigado! Bito Meyer, Diego Serrano (Kri), Rodrigo (Braga), Fernando Aranha, Karina Filgueiras, Paula Manso, Renato (Mineiro), Edu Felício, Marcio Rosa, Claudia Faria, Antero Macedo, Débora Abe, Luiz Coslope (pelo acesso às imagens do drone), Azeite e Dionísio, e a todos que não foram citados nessa lista!
 
         Como diria John Muir: "As montanhas estão chamando e eu preciso ir".
 
-
         Boas escaladas!
-
 
         **Bruno Matta (Kbeça)**
 
-
         | ![Escalador](imagens/agradecimentos_p1_i0.webp) |
-
         | :--: |
-
         | *Escalador* |
 
-
         > [!IMPORTANT]
-
         > **ATENÇÃO!**
-
         > ESTA É UMA ÁREA PARTICULAR
-
-        > RESPEITE AS REGRAS!'
+        > RESPEITE AS REGRAS!
 - texto: Orientações aos Escaladores
   destino:
     secao_textual:
-      conteudo: '# Orientações aos Escaladores
-
+      conteudo: |-
+        # Orientações aos Escaladores
 
         | ![Fundo](imagens/orientacoes_aos_escaladores_p0_i0.webp) |
-
         | :--: |
-
         | *Fundo* |
 
-
         ## Segurança
-
-        A escalada é um esporte que expõe ao risco de acidentes, e a ajuda externa
-        pode não estar disponível. Com isto em mente, a escolha de realizar esta atividade
-        é sua responsabilidade. Você é responsável por sua própria segurança. As ações
-        individuais não devem colocar em risco as pessoas ao seu redor, nem o meio
-        ambiente, por isso atente-se a essas questões.
-
+        A escalada é um esporte que expõe ao risco de acidentes, e a ajuda externa pode não estar disponível. Com isto em mente, a escolha de realizar esta atividade é sua responsabilidade. Você é responsável por sua própria segurança. As ações individuais não devem colocar em risco as pessoas ao seu redor, nem o meio ambiente, por isso atente-se a essas questões.
 
         ## Marimbondos, Vespas e Abelhas
-
-        Por ser um setor novo de escalada, recomenda-se levar inseticida (p.e: alcance)
-        para retirada de marimbondos e vespas; No caso de abelhas não utilize o veneno
-        e baixe do ponto de onde estiver o mais rápido possível. Existe um enxame
-        mapeado no cume do totem, na face oposta da via nº 20 "Se meu fusca escalasse".
-
+        Por ser um setor novo de escalada, recomenda-se levar inseticida (p.e: alcance) para retirada de marimbondos e vespas; No caso de abelhas não utilize o veneno e baixe do ponto de onde estiver o mais rápido possível. Existe um enxame mapeado no cume do totem, na face oposta da via nº 20 "Se meu fusca escalasse".
 
         ## Meio Ambiente
-
-        A liberdade de acesso às montanhas e falésias deve ser usufruída de maneira
-        responsável e é um direito fundamental. Devemos sempre praticar nossas atividades
-        de maneira ambientalmente sensível e ser pró-ativos na preservação da natureza.
-        Respeite as restrições e regulamentos de acesso acordados pelos escaladores
-        locais com os proprietários.
-
+        A liberdade de acesso às montanhas e falésias deve ser usufruída de maneira responsável e é um direito fundamental. Devemos sempre praticar nossas atividades de maneira ambientalmente sensível e ser pró-ativos na preservação da natureza. Respeite as restrições e regulamentos de acesso acordados pelos escaladores locais com os proprietários.
 
         ## Conquista
-
-        A conquista de uma via é um ato criativo. Deve ser feito com um estilo tão
-        bom quanto as tradições do local e mostrar responsabilidade para com a comunidade
-        local de escalada e as necessidades dos futuros escaladores.
-
+        A conquista de uma via é um ato criativo. Deve ser feito com um estilo tão bom quanto as tradições do local e mostrar responsabilidade para com a comunidade local de escalada e as necessidades dos futuros escaladores.
 
         ---
-
-        *Textos extraídos da Declaração do Tyrol (Ética em ambientes de montanha)
-        que pode ser encontrada na íntegra aqui: https://www.theuiaa.org/declarations/tyrol-declaration/.'
+        *Textos extraídos da Declaração do Tyrol (Ética em ambientes de montanha) que pode ser encontrada na íntegra aqui: https://www.theuiaa.org/declarations/tyrol-declaration/.
 - texto: Localização & Acesso
   destino:
     secao_textual:
-      conteudo: '# Localização & Acesso
-
+      conteudo: |-
+        # Localização & Acesso
 
         ## Acesso Experimental
-
-        Trata-se de um setor novo e, portanto, a proprietária nunca experimentou um
-        fluxo de pessoas frequentando sua área. Deste modo, obedeça as regras do setor,
-        seja cordial com os moradores locais e tente minimizar o impacto da sua visita.
-
+        Trata-se de um setor novo e, portanto, a proprietária nunca experimentou um fluxo de pessoas frequentando sua área. Deste modo, obedeça as regras do setor, seja cordial com os moradores locais e tente minimizar o impacto da sua visita.
 
         ## Estacionamento
-
-        O espaço para estacionamento é restrito (aprox. 06 carros, dependendo da disposição).
-        Existe uma zona de estacionamento que está sinalizada, à esquerda, onde está
-        localizada a caixinha para a contribuição da taxa de estacionamento. Caso
-        não existam vagas, retornar na estrada e estacionar de modo a não bloquear
-        a passagem.'
+        O espaço para estacionamento é restrito (aprox. 06 carros, dependendo da disposição). Existe uma zona de estacionamento que está sinalizada, à esquerda, onde está localizada a caixinha para a contribuição da taxa de estacionamento. Caso não existam vagas, retornar na estrada e estacionar de modo a não bloquear a passagem.
 - texto: Créditos
   destino:
     secao_textual:
-      conteudo: '# Créditos
-
+      conteudo: |-
+        # Créditos
 
         **Guia de Escalada Pedra do Zé**
-
         **Edição 01 / 2020**
-
         **Atualização: Agosto 2020**
 
-
         ## Realização, Textos e Fotos
-
         **Bruno Matta (Kbeça)**
-
         brunommatta@gmail.com
 
-
         ## Arte Gráfica e Diagramação
-
         **Débora Abe**
-
         deboraabe.projetos@gmail.com
 
-
-        Dê preferência ao arquivo digital. Não imprima.'
+        Dê preferência ao arquivo digital. Não imprima.
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/agradecimentos_p0_i0.webp

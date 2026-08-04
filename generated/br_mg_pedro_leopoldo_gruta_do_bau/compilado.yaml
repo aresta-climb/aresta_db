@@ -100,8 +100,8 @@ picos:
               y: 536
               comprimento: 27
               largura: 29
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 561
               y: 560
@@ -114,8 +114,8 @@ picos:
               y: 560
               comprimento: 33
               largura: 31
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 516
               y: 572
@@ -348,10 +348,10 @@ picos:
             - '07'
           - escalada: Caretas por Acaso
             ids:
-            - 08
+            - '08'
           - escalada: Pop Rock
             ids:
-            - 09
+            - '09'
           - escalada: A Despedida
             ids:
             - '11'
@@ -764,14 +764,12 @@ picos:
             conquistadores:
             - Christian Costa
             - Marcus Rufino
-        descricao: '# Setor Entrada Inferior
+        descricao: |-
+          # Setor Entrada Inferior
 
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.
 
-          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro
-          setor que fica na chegada ao maciço.
-
-
-          **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’'
+          **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’
   - setor:
       conteudo:
         nome: Setor Entrada Superior
@@ -1032,8 +1030,8 @@ picos:
               y: 901
               comprimento: 28
               largura: 28
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 154
               y: 914
@@ -1046,8 +1044,8 @@ picos:
               y: 908
               comprimento: 28
               largura: 27
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 122
               y: 926
@@ -1214,11 +1212,11 @@ picos:
             - Entrada_inferior_2
             setor: Setor Entrada Inferior
           - ids:
-            - 08
+            - '08'
             setor: Setor Entrada Superior
             escalada: O Basilisco de Slytherin
           - ids:
-            - 09
+            - '09'
             setor: Setor Entrada Superior
             escalada: Disparada
         escaladas:
@@ -1537,11 +1535,10 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Roberto Lincoln
-        descricao: '# Setor Entrada Superior
+        descricao: |-
+          # Setor Entrada Superior
 
-
-          **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no
-          setor entrada, parte inferior. Só subir a direita margeando a parede amarela.'
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.
   - setor:
       conteudo:
         nome: Setor 2º Andar
@@ -1753,8 +1750,8 @@ picos:
               y: 616
               comprimento: 27
               largura: 25
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 284
               y: 666
@@ -1767,8 +1764,8 @@ picos:
               y: 658
               comprimento: 31
               largura: 25
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 362
               y: 672
@@ -1899,10 +1896,10 @@ picos:
             - '07'
           - escalada: Neverland
             ids:
-            - 08
+            - '08'
           - escalada: Mestre Splinter
             ids:
-            - 09
+            - '09'
           - escalada: Enigma da Esfinge
             ids:
             - '10'
@@ -2373,16 +2370,12 @@ picos:
             - Igor Andrade
             - Iule Ornelas
             - Samuel Lucas
-        descricao: '# Setor 2º Andar
+        descricao: |-
+          # Setor 2º Andar
 
+          **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras” a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para direita, subindo em direção ao segundo andar. O acesso é por uma ponte com dois troncos de madeira.
 
-          **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras”
-          a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para
-          direita, subindo em direção ao segundo andar. O acesso é por uma ponte com
-          dois troncos de madeira.
-
-
-          **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’'
+          **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’
   - setor:
       conteudo:
         nome: Setor Fechadura
@@ -2433,15 +2426,15 @@ picos:
               y: 541
               comprimento: 27
               largura: 24
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 32
               y: 622
               comprimento: 28
               largura: 23
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 167
               y: 677
@@ -2568,11 +2561,11 @@ picos:
             ids:
             - '16'
           - ids:
-            - 08
+            - '08'
             setor: Setor Fechadura
             escalada: Primeira Batida
           - ids:
-            - 09
+            - '09'
             setor: Setor Fechadura
             escalada: Menino de Toca
           - ids:
@@ -2701,21 +2694,14 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Eustáquio e Helon
-        descricao: '# Setor Fechadura
+        descricao: |-
+          # Setor Fechadura
 
+          **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”. A trilha segue pela esquerda, por fora da gruta.
 
-          **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda
-          margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”.
-          A trilha segue pela esquerda, por fora da gruta.
+          **Acesso secundário:** Contornando o maciço pela direita a partir do Setor Pasto e subindo em direção a pedra. Por este caminho chegará à base da via “Primeira Batida”.
 
-
-          **Acesso secundário:** Contornando o maciço pela direita a partir do Setor
-          Pasto e subindo em direção a pedra. Por este caminho chegará à base da via
-          “Primeira Batida”.
-
-
-          Lembrando que o acesso a gruta só é permitido com o acompanhamento de um
-          guia da fazenda.'
+          Lembrando que o acesso a gruta só é permitido com o acompanhamento de um guia da fazenda.
   - setor:
       conteudo:
         nome: Setor Pasto
@@ -2846,23 +2832,16 @@ picos:
             - Fabinho
             - Half
             - Tinoco
-        descricao: '# Setor Pasto
+        descricao: |-
+          # Setor Pasto
 
-
-          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor
-          que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar
-          a trilha que desce a esquerda.
-
+          **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
 
           **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
 
-
-          | ![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp)
-          |
-
+          | ![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp) |
           | :--: |
-
-          | *Alisson Tavares - Via Rolha de Algodão* |'
+          | *Alisson Tavares - Via Rolha de Algodão* |
   - setor:
       conteudo:
         nome: Setor Sentinela e Vale do Joga
@@ -2920,8 +2899,8 @@ picos:
               y: 357
               comprimento: 30
               largura: 26
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 738
               y: 390
@@ -2934,8 +2913,8 @@ picos:
               y: 450
               comprimento: 32
               largura: 27
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 700
               y: 473
@@ -3175,11 +3154,11 @@ picos:
             ids:
             - '28'
           - ids:
-            - 08
+            - '08'
             setor: Setor Sentinela e Vale do Joga
             escalada: Contagem Regressiva
           - ids:
-            - 09
+            - '09'
             setor: Setor Sentinela e Vale do Joga
             escalada: Woodstock
           - ids:
@@ -3418,16 +3397,12 @@ picos:
             - Iule Ornelas
             - Márcio Vasconcelos
             - Samuel Lucas
-        descricao: '# Setor Sentinela e Vale do Joga
+        descricao: |-
+          # Setor Sentinela e Vale do Joga
 
+          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Depois de passar pela base das vias “Retorno de Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da via “Sentinela”.
 
-          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita,
-          em direção ao banheiro. Depois de passar pela base das vias “Retorno de
-          Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da
-          via “Sentinela”.
-
-
-          **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’'
+          **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’
   - setor:
       conteudo:
         nome: Setor Vale dos Espinhos
@@ -3499,8 +3474,8 @@ picos:
               y: 396
               comprimento: 33
               largura: 27
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 399
               y: 410
@@ -3520,8 +3495,8 @@ picos:
               y: 450
               comprimento: 33
               largura: 27
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 380
               y: 445
@@ -3816,11 +3791,11 @@ picos:
             ids:
             - '37'
           - ids:
-            - 08
+            - '08'
             setor: Setor Vale dos Espinhos
             escalada: Tá Esperando o quê?
           - ids:
-            - 09
+            - '09'
             setor: Setor Vale dos Espinhos
             escalada: Quem Sabe ano que Vem
           - ids:
@@ -4114,16 +4089,12 @@ picos:
             conquistadores:
             - Dy Oliveira
             - Marco Durães
-        descricao: '# Setor Vale dos Espinhos
+        descricao: |-
+          # Setor Vale dos Espinhos
 
+          **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.
 
-          **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma
-          pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta
-          para preservar os espeleotemas.
-
-
-          **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’
-          -43º59.426’'
+          **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’
   - setor:
       conteudo:
         nome: Setor Escola
@@ -4239,17 +4210,12 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - GT Baú 2021
-        descricao: '# Setor Escola
+        descricao: |-
+          # Setor Escola
 
+          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.
 
-          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do
-          Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda
-          antes do portão de metal e subir um pequeno morro.
-
-
-          Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência
-          de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar
-          as aulas.'
+          Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar as aulas.
   - setor:
       conteudo:
         nome: Setor Geriatria
@@ -4342,8 +4308,8 @@ picos:
               y: 416
               comprimento: 32
               largura: 27
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 647
               y: 422
@@ -4370,8 +4336,8 @@ picos:
               y: 485
               comprimento: 38
               largura: 28
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 617
               y: 526
@@ -4505,11 +4471,11 @@ picos:
             ids:
             - '23'
           - ids:
-            - 08
+            - '08'
             setor: Setor Geriatria
             escalada: Tira o Andador e Vai
           - ids:
-            - 09
+            - '09'
             setor: Setor Geriatria
             escalada: Rupestre
           - ids:
@@ -4701,15 +4667,12 @@ picos:
             conquistadores:
             - Roberto Lincoln
             - André Braga
-        descricao: '# Setor Geriatria
+        descricao: |-
+          # Setor Geriatria
 
+          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.
 
-          **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da
-          Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita
-          antes do portão de metal.
-
-
-          **Acesso secundário:** pela trilha do Setor Onda de Calcário.'
+          **Acesso secundário:** pela trilha do Setor Onda de Calcário.
   - setor:
       conteudo:
         nome: Setor Mr. Bean
@@ -4725,15 +4688,15 @@ picos:
               y: 158
               comprimento: 30
               largura: 25
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 707
               y: 164
               comprimento: 32
               largura: 30
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 752
               y: 218
@@ -5031,11 +4994,11 @@ picos:
             ids:
             - '31'
           - ids:
-            - 08
+            - '08'
             setor: Setor Mr. Bean
             escalada: Fenda Gerações
           - ids:
-            - 09
+            - '09'
             setor: Setor Mr. Bean
             escalada: Encontros Temporais
           - ids:
@@ -5261,26 +5224,16 @@ picos:
             conquistadores:
             - Alberto Melo
             - Gabriel Lousada
-        descricao: '# Setor Mr. Bean
+        descricao: |-
+          # Setor Mr. Bean
 
+          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.
 
-          **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita,
-          em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada
-          a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar
-          à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.
-
-
-          O nome do setor é uma homenagem ao escalador Leandro Ianotta, que perdeu
-          a vida fazendo o que mais amava no Fitz Roy na Patagônia argentina. Leandro,
-          que era conhecido por Mr. Bean era um apaixonado pelo Baú e seus primeiros
-          passos na carreira de escalador profissional passaram pela gruta do Baú.
-
+          O nome do setor é uma homenagem ao escalador Leandro Ianotta, que perdeu a vida fazendo o que mais amava no Fitz Roy na Patagônia argentina. Leandro, que era conhecido por Mr. Bean era um apaixonado pelo Baú e seus primeiros passos na carreira de escalador profissional passaram pela gruta do Baú.
 
           **Coordenadas do setor Mr. Bean:** -20º35.832’ -46º20.498’
 
-
-          Membros do GT Baú 2020: Márcio, Wilson, Roberto Lincoln, André “Dedé”, Otto
-          e Michele “Joaninha”.'
+          Membros do GT Baú 2020: Márcio, Wilson, Roberto Lincoln, André “Dedé”, Otto e Michele “Joaninha”.
   - setor:
       conteudo:
         nome: Setor Vale do Cinema
@@ -5303,15 +5256,15 @@ picos:
               y: 414
               comprimento: 37
               largura: 36
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 134
               y: 450
               comprimento: 38
               largura: 35
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 262
               y: 479
@@ -5435,11 +5388,11 @@ picos:
             - Setor_Sentinela
             setor: Setor Sentinela e Vale do Joga
           - ids:
-            - 08
+            - '08'
             setor: Setor Vale do Cinema
             escalada: Navio Fantasma
           - ids:
-            - 09
+            - '09'
             setor: Setor Vale do Cinema
             escalada: Pata Afiada
         escaladas:
@@ -5565,16 +5518,12 @@ picos:
             conquistadores:
             - Marco Durães
             - Roberto Lincoln
-        descricao: '# Setor Vale do Cinema
+        descricao: |-
+          # Setor Vale do Cinema
 
+          **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.
 
-          **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário
-          pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda,
-          passando próximo de alguns blocos de rocha. Passar pelo portão de metal
-          e subir um pequeno morro. O setor estará à esquerda.
-
-
-          **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’'
+          **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’
   - setor:
       conteudo:
         nome: Setor Onda de Calcário
@@ -5653,15 +5602,15 @@ picos:
               y: 510
               comprimento: 31
               largura: 29
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 355
               y: 603
               comprimento: 30
               largura: 28
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 390
               y: 636
@@ -5752,11 +5701,11 @@ picos:
             - Setores_Sentinela_e_Geriatria
             setor: Setor Geriatria
           - ids:
-            - 08
+            - '08'
             setor: Setor Onda de Calcário
             escalada: Rayovac
           - ids:
-            - 09
+            - '09'
             setor: Setor Onda de Calcário
             escalada: O Corpo Ainda é Pouco
         escaladas:
@@ -5896,15 +5845,12 @@ picos:
             - Iule Ornelas
             - Igor Andrade
             - Samuel Lucas
-        descricao: '# Setor Onda de Calcário
+        descricao: |-
+          # Setor Onda de Calcário
 
+          **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.
 
-          **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita.
-          Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso
-          ao setor.
-
-
-          **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578'
+          **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578
   - setor:
       conteudo:
         nome: Setor Vale da Onça
@@ -6109,8 +6055,8 @@ picos:
               y: 896
               comprimento: 39
               largura: 24
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 558
               y: 908
@@ -6123,8 +6069,8 @@ picos:
               y: 966
               comprimento: 42
               largura: 31
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 596
               y: 1015
@@ -6312,11 +6258,11 @@ picos:
             - Setores_Mr_Bean_e_Geriatria
             setor: Setor Geriatria
           - ids:
-            - 08
+            - '08'
             setor: Setor Vale da Onça
             escalada: Retorno de Borges
           - ids:
-            - 09
+            - '09'
             setor: Setor Vale da Onça
             escalada: 3º Pecado Capital
         escaladas:
@@ -6643,12 +6589,10 @@ picos:
             conquistadores:
             - Marcelo Novais
             - Átila Cunha
-        descricao: '# Setor Vale da Onça
+        descricao: |-
+          # Setor Vale da Onça
 
-
-          **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria,
-          passar pelo portão de metal e seguir as placas em direção ao setor. Cerca
-          de 15 minutos de caminhada a partir do setor entrada.'
+          **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.
   mapas_gerais:
     conteudo:
       mapas:
@@ -6827,394 +6771,215 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# GUIA DE ESCALADA GRUTA DO BAÚ
-
+      conteudo: |-
+        # GUIA DE ESCALADA GRUTA DO BAÚ
 
         **PEDRO LEOPOLDO – MG**
-
         **5ª Edição - Agosto/2025**
-
 
         **CHRISTIAN COSTA**
 
-
         | ![Capa](imagens/capa_p0_i15.webp) |
-
         | :--: |
-
-        | *Capa* |'
+        | *Capa* |
 - texto: Aviso
   destino:
     secao_textual:
-      conteudo: '# AVISO
+      conteudo: |-
+        # AVISO
 
+        A escalada é um esporte de risco, manuais e guias não substituem instrução e supervisão profissional. Somente com equipamentos de qualidade e instrução adequada se consegue minimizar os riscos do esporte.
 
-        A escalada é um esporte de risco, manuais e guias não substituem instrução
-        e supervisão profissional. Somente com equipamentos de qualidade e instrução
-        adequada se consegue minimizar os riscos do esporte.
+        Se você ainda não sabe escalar procure uma escola com instrutores qualificados. Evite aprender na base dos erros e acertos, pois acidentes em escalada são potencialmente graves sendo fundamental a instrução profissional para perfeita compreensão das diversas técnicas de segurança.
 
+        As informações contidas neste guia servem apenas para indicar os locais mais frequentados e suas principais vias de escalada, não assegurando a integridade física das proteções fixas das vias indicadas. Os autores também não se responsabilizam pela utilização ou má interpretação das informações contidas neste guia.
 
-        Se você ainda não sabe escalar procure uma escola com instrutores qualificados.
-        Evite aprender na base dos erros e acertos, pois acidentes em escalada são
-        potencialmente graves sendo fundamental a instrução profissional para perfeita
-        compreensão das diversas técnicas de segurança.
+        Esteja avisado que alguns dos dados contidos no guia são subjetivos (como o grau de dificuldade por exemplo), e a utilização deste guia implica que você está ciente que, morte ou acidentes graves são riscos inerentes da escalada em rocha, assumindo assim toda a responsabilidade pelos seus atos.
 
+        A utilização de capacete é recomendável durante toda a permanência nas áreas de escalada.
 
-        As informações contidas neste guia servem apenas para indicar os locais mais
-        frequentados e suas principais vias de escalada, não assegurando a integridade
-        física das proteções fixas das vias indicadas. Os autores também não se responsabilizam
-        pela utilização ou má interpretação das informações contidas neste guia.
-
-
-        Esteja avisado que alguns dos dados contidos no guia são subjetivos (como
-        o grau de dificuldade por exemplo), e a utilização deste guia implica que
-        você está ciente que, morte ou acidentes graves são riscos inerentes da escalada
-        em rocha, assumindo assim toda a responsabilidade pelos seus atos.
-
-
-        A utilização de capacete é recomendável durante toda a permanência nas áreas
-        de escalada.
-
-
-        Este guia foi feito por escaladores e não tem qualquer objetivo financeiro.
-        Como qualquer trabalho está sujeito a erros e acertos. Qualquer dúvida, sugestão
-        ou elogio são muito bem vindos.
-
+        Este guia foi feito por escaladores e não tem qualquer objetivo financeiro. Como qualquer trabalho está sujeito a erros e acertos. Qualquer dúvida, sugestão ou elogio são muito bem vindos.
 
         Lembre-se sempre:
 
+        **A SEGURANÇA deve ser sempre o aspecto mais importante em toda e qualquer atividade de escalada**
 
-        **A SEGURANÇA deve ser sempre o aspecto mais importante em toda e qualquer
-        atividade de escalada**
-
-
-        **VOCÊ É O MAIOR RESPONSÁVEL POR SUA SEGURANÇA, RESPEITE OS SEUS LIMITES E
-        SEJA PRUDENTE.**'
+        **VOCÊ É O MAIOR RESPONSÁVEL POR SUA SEGURANÇA, RESPEITE OS SEUS LIMITES E SEJA PRUDENTE.**
 - texto: História
   destino:
     secao_textual:
-      conteudo: '# História
+      conteudo: |-
+        # História
 
-
-        O maciço do Baú está localizado no município de Pedro Leopoldo a cerca de
-        50 km de Belo Horizonte. O local está dentro dos limites da APA Carste de
-        Lagoa Santa em uma propriedade particular, abrigando inúmeras cavernas e formações
-        rochosas. Os espeleólogos encontraram nestas cavernas vários fósseis além
-        de diversos espeleotemas de rara beleza.
-
+        O maciço do Baú está localizado no município de Pedro Leopoldo a cerca de 50 km de Belo Horizonte. O local está dentro dos limites da APA Carste de Lagoa Santa em uma propriedade particular, abrigando inúmeras cavernas e formações rochosas. Os espeleólogos encontraram nestas cavernas vários fósseis além de diversos espeleotemas de rara beleza.
 
         | ![Maciço do Baú](imagens/historia_p0_i6.webp) |
-
         | :--: |
-
         | *Maciço do Baú* |
 
+        O nome de Gruta do Baú advém da formação rochosa presente no maciço que se assemelha a uma fechadura.
 
-        O nome de Gruta do Baú advém da formação rochosa presente no maciço que se
-        assemelha a uma fechadura.
-
-
-        O Baú começou a ser frequentado pelos escaladores na década de noventa, quando
-        Roberto Lincoln e Rômulo Brandão, ambos recém formados em um curso de escalada,
-        visitaram o local e perceberam o potencial deste, abrindo lá suas primeiras
-        vias de escalada, hoje as clássicas “Retorno de Pitú” e “Sentinela”.
-
+        O Baú começou a ser frequentado pelos escaladores na década de noventa, quando Roberto Lincoln e Rômulo Brandão, ambos recém formados em um curso de escalada, visitaram o local e perceberam o potencial deste, abrindo lá suas primeiras vias de escalada, hoje as clássicas “Retorno de Pitú” e “Sentinela”.
 
         | ![Poliana Lisboa – Via Arcanjo Gabriel](imagens/historia_p0_i7.webp) |
-
         | :--: |
-
         | *Poliana Lisboa – Via Arcanjo Gabriel* |
 
+        No princípio seus conhecimentos sobre conquistas e grampeações eram poucos, porém eles superaram esta falta de conhecimento e equipamentos adequados com uma boa dose de criatividade, conquistando diversas vias.
 
-        No princípio seus conhecimentos sobre conquistas e grampeações eram poucos,
-        porém eles superaram esta falta de conhecimento e equipamentos adequados com
-        uma boa dose de criatividade, conquistando diversas vias.
-
-
-        O proprietário atual é o empresário José Celso, um apaixonado pela natureza
-        e por todo o complexo do Baú que preza pela boa convivência e faz de tudo
-        para que os escaladores se sintam em casa ao frequentarem sua fazenda. Chegado
-        a uma boa prosa, os encontros com ele sempre são recheados de boas histórias
-        e risadas.'
+        O proprietário atual é o empresário José Celso, um apaixonado pela natureza e por todo o complexo do Baú que preza pela boa convivência e faz de tudo para que os escaladores se sintam em casa ao frequentarem sua fazenda. Chegado a uma boa prosa, os encontros com ele sempre são recheados de boas histórias e risadas.
 - texto: Acesso
   destino:
     secao_textual:
-      conteudo: '# Acesso
+      conteudo: |-
+        # Acesso
 
+        O Baú está localizado no município de Pedro Leopoldo, no distrito de Lagoa de Santo Antônio, há cerca de 50 km de Belo Horizonte.
 
-        O Baú está localizado no município de Pedro Leopoldo, no distrito de Lagoa
-        de Santo Antônio, há cerca de 50 km de Belo Horizonte.
+        Na saída de Belo Horizonte para o Aeroporto internacional de Confins (MG-010) entrar no trevo para a cidade de Pedro Leopoldo, seguindo pela MG 424. Após passar por Pedro Leopoldo continuar na rodovia em direção a Matozinhos e virar à direita no trevo da correia transportadora de minério que atravessa a estrada até o distrito de Lagoa de Santo Antônio.
 
+        Seguir em direção ao distrito de Fidalgo, passando próximo a uma lagoa e chegando até a Rua Pacífico Rodrigues.
 
-        Na saída de Belo Horizonte para o Aeroporto internacional de Confins (MG-010)
-        entrar no trevo para a cidade de Pedro Leopoldo, seguindo pela MG 424. Após
-        passar por Pedro Leopoldo continuar na rodovia em direção a Matozinhos e virar
-        à direita no trevo da correia transportadora de minério que atravessa a estrada
-        até o distrito de Lagoa de Santo Antônio.
-
-
-        Seguir em direção ao distrito de Fidalgo, passando próximo a uma lagoa e chegando
-        até a Rua Pacífico Rodrigues.
-
-
-        **Coordenadas geográficas da entrada:** -19º33''12.5 -43º59''23.4
-
+        **Coordenadas geográficas da entrada:** -19º33'12.5 -43º59'23.4
 
         | ![Vista da saída na MG 424](imagens/acesso_p0_i6.webp) |
-
         | :--: |
-
         | *Vista da saída na MG 424* |
 
-
         | ![Trajeto até entrada do Baú](imagens/acesso_p0_i8.webp) |
-
         | :--: |
-
         | *Trajeto até entrada do Baú* |
 
-
         | ![Vista da entrada da Fazenda](imagens/acesso_p0_i10.webp) |
-
         | :--: |
-
-        | *Vista da entrada da Fazenda* |'
+        | *Vista da entrada da Fazenda* |
 - texto: Regras de Visitação
   destino:
     secao_textual:
-      conteudo: '# Regras de Visitação
+      conteudo: |-
+        # Regras de Visitação
 
+        Como todas as áreas de escalada, os princípios do mínimo impacto devem ser observados e a segurança é responsabilidade única e exclusiva de cada um.
 
-        Como todas as áreas de escalada, os princípios do mínimo impacto devem ser
-        observados e a segurança é responsabilidade única e exclusiva de cada um.
-
-
-        A área de escalada no Baú é uma área particular, pertencente ao Sr. José Celso.
-        Para que continue aberta a escalada é fundamental observarmos algumas regras
-        de visitação:
-
+        A área de escalada no Baú é uma área particular, pertencente ao Sr. José Celso. Para que continue aberta a escalada é fundamental observarmos algumas regras de visitação:
 
         - Taxa de visitação: R$ 25,00 (Vinte e cinco reais);
+        - **Obrigatório a utilização de Capacete e cada visitante deve portar o seu próprio equipamento.**
+        - **Obrigatório que o praticante faça parte do grupo de whatsapp de informações do Baú, para que tenha ciência das regras e condutas para o local, bem como informes pertinentes da área.**
 
-        - **Obrigatório a utilização de Capacete e cada visitante deve portar o seu
-        próprio equipamento.**
-
-        - **Obrigatório que o praticante faça parte do grupo de whatsapp de informações
-        do Baú, para que tenha ciência das regras e condutas para o local, bem como
-        informes pertinentes da área.**
-
-
-        | ![Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar](imagens/regras_visitacao_p0_i6.webp)
-        |
-
+        | ![Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar](imagens/regras_visitacao_p0_i6.webp) |
         | :--: |
-
-        | *Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar*
-        |
-
+        | *Larissa Correa dando segurança para Bruno Lapertosa no setor Segundo Andar* |
 
         - Horário de funcionamento: 08:00 às 18:00, todos os dias da semana para escalada;
-
         - Deixar qualquer portão, porteira ou colchete fechado;
-
         - É proibido retirar qualquer objeto do sítio (pedras, mudas, flores, etc...);
-
         - Se manter sempre nas trilhas demarcadas;
-
-        - Não fazer qualquer modificação ou conquista de vias sem comunicar o grupo
-        de trabalho responsável pelo local;
-
+        - Não fazer qualquer modificação ou conquista de vias sem comunicar o grupo de trabalho responsável pelo local;
 
         | ![Marina Rocha - Via Fusca Azul](imagens/regras_visitacao_p0_i7.webp) |
-
         | :--: |
-
         | *Marina Rocha - Via Fusca Azul* |
 
+        **OBSERVAÇÃO:** A quantidade de proteções expressa no guia conta as proteções da via mais o Top com 1 ou 2 proteções. Por exemplo, se está expresso 6 + 2 no campo proteções, são 6 chapeletas ou grampos + o top rope.
 
-        **OBSERVAÇÃO:** A quantidade de proteções expressa no guia conta as proteções
-        da via mais o Top com 1 ou 2 proteções. Por exemplo, se está expresso 6 +
-        2 no campo proteções, são 6 chapeletas ou grampos + o top rope.
+        **OBSERVAÇÃO 2:** As vias com proteções móveis ou mistas estão assinaladas de vermelho no guia. O grupo de trabalho vem duplicando os top ropes dessas vias e colocando os nomes nas bases.
 
+        **OBSERVAÇÃO 3:** Alguns locais tem Topropes montados baixos para cursos de escalada. Marcados em amarelo nos croquis.
 
-        **OBSERVAÇÃO 2:** As vias com proteções móveis ou mistas estão assinaladas
-        de vermelho no guia. O grupo de trabalho vem duplicando os top ropes dessas
-        vias e colocando os nomes nas bases.
-
-
-        **OBSERVAÇÃO 3:** Alguns locais tem Topropes montados baixos para cursos de
-        escalada. Marcados em amarelo nos croquis.
-
-
-        **É expressamente proibido a entrada na gruta sem o acompanhamento de um guia
-        da fazenda.**'
+        **É expressamente proibido a entrada na gruta sem o acompanhamento de um guia da fazenda.**
 - texto: Opções de Hospedagem
   destino:
     secao_textual:
-      conteudo: '# Opções de Hospedagem
-
+      conteudo: |-
+        # Opções de Hospedagem
 
         ### Casa ou quartos para alugar na própria Gruta do Baú
 
-
-        | ![Casa ou quartos para alugar na própria Gruta do Baú](imagens/opcoes_hospedagem_p0_i6.webp)
-        |
-
+        | ![Casa ou quartos para alugar na própria Gruta do Baú](imagens/opcoes_hospedagem_p0_i6.webp) |
         | :--: |
-
         | *Casa ou quartos para alugar na própria Gruta do Baú* |
 
-
-        O complexo da fazenda conta com uma casa que pode ser alugada por um grupo
-        ou somente os quartos isoladamente. Fica bem ao lado da entrada e conta ainda
-        com uma piscina privativa e deck panorâmico.
-
+        O complexo da fazenda conta com uma casa que pode ser alugada por um grupo ou somente os quartos isoladamente. Fica bem ao lado da entrada e conta ainda com uma piscina privativa e deck panorâmico.
         **CONTATOS**
-
         Instagram: @grutadobau
-
         WhatsApp - José Celso: (31) 98771-1655
-
 
         ### Rupestre da Lapa
 
-
         | ![Rupestre da Lapa](imagens/opcoes_hospedagem_p0_i7.webp) |
-
         | :--: |
-
         | *Rupestre da Lapa* |
 
-
-        Abrigo de escalada – Hospedagem com ou sem refeições, estacionamento, área
-        de camping, quartos coletivos, duplos e suítes. Serve café da manhã, almoço,
-        lanche e jantar mediante agendamento.
-
+        Abrigo de escalada – Hospedagem com ou sem refeições, estacionamento, área de camping, quartos coletivos, duplos e suítes. Serve café da manhã, almoço, lanche e jantar mediante agendamento.
         **CONTATOS**
-
         Instagram: @hospedagemrupestredalapa
-
         WhatsApp - Helon ou Denise: (31) 99807-8392
-
 
         ### Escalarte
 
-
         | ![Escalarte](imagens/opcoes_hospedagem_p0_i8.webp) |
-
         | :--: |
-
         | *Escalarte* |
 
-
-        Refúgio de escalada – Hospedagem a menos de 1 km da Gruta da Lapinha e 13
-        km da Gruta do Baú. Oferece quartos coletivos, duplos e suítes.
-
+        Refúgio de escalada – Hospedagem a menos de 1 km da Gruta da Lapinha e 13 km da Gruta do Baú. Oferece quartos coletivos, duplos e suítes.
 
         | ![Hospedagem](imagens/opcoes_hospedagem_p0_i9.webp) |
-
         | :--: |
-
         | *Hospedagem* |
-
         **CONTATOS**
-
         Instagram: @escalar_te
-
-        WhatsApp – André Braga (Dedé): (31) 99831-3107'
+        WhatsApp – André Braga (Dedé): (31) 99831-3107
 - texto: Outras atrações
   destino:
     secao_textual:
-      conteudo: '# Outras atrações e comodidades da Gruta do Baú
+      conteudo: |-
+        # Outras atrações e comodidades da Gruta do Baú
 
+        A área de escalada da Gruta do Baú se localiza dentro da Fazenda Gruta do Baú, que por si só, já é uma atração à parte. A Fazenda conta com diversas outras atrações e comodidades, se tornando um passeio para toda a família. Podemos destacar:
 
-        A área de escalada da Gruta do Baú se localiza dentro da Fazenda Gruta do
-        Baú, que por si só, já é uma atração à parte. A Fazenda conta com diversas
-        outras atrações e comodidades, se tornando um passeio para toda a família.
-        Podemos destacar:
-
-
-        | ![Restaurante com café da manhã, almoço e petiscos](imagens/outras_atracoes_p0_i10.webp)
-        |
-
+        | ![Restaurante com café da manhã, almoço e petiscos](imagens/outras_atracoes_p0_i10.webp) |
         | :--: |
-
         | *Restaurante com café da manhã, almoço e petiscos* |
 
-
         | ![Bike Park com 18 km de trilhas](imagens/outras_atracoes_p0_i7.webp) |
-
         | :--: |
-
         | *Bike Park com 18 km de trilhas* |
 
-
         | ![Alimentação para os animais](imagens/outras_atracoes_p0_i6.webp) |
-
         | :--: |
-
         | *Alimentação para os animais* |
 
-
         | ![Recreação infantil](imagens/outras_atracoes_p0_i9.webp) |
-
         | :--: |
-
         | *Recreação infantil* |
 
-
         | ![Parquinho](imagens/outras_atracoes_p0_i8.webp) |
-
         | :--: |
-
-        | *Parquinho* |'
+        | *Parquinho* |
 - texto: Manutenção
   destino:
     secao_textual:
-      conteudo: '# Manutenção e conquista de novas vias
+      conteudo: |-
+        # Manutenção e conquista de novas vias
 
+        A grande maioria das vias do maciço do Baú são da década de 90, quase todas atingindo os 20 anos desde a conquista... Devido a idade das vias muitas proteções se deterioraram com o tempo e não se encontram em condições de utilização. Com o intuito de proporcionar uma escalada de qualidade e sobretudo segura, um pequeno grupo de escaladores locais está realizando de maneira gradativa a substituição das proteções e duplicando os top ropes.
 
-        A grande maioria das vias do maciço do Baú são da década de 90, quase todas
-        atingindo os 20 anos desde a conquista... Devido a idade das vias muitas proteções
-        se deterioraram com o tempo e não se encontram em condições de utilização.
-        Com o intuito de proporcionar uma escalada de qualidade e sobretudo segura,
-        um pequeno grupo de escaladores locais está realizando de maneira gradativa
-        a substituição das proteções e duplicando os top ropes.
+        Foi criado um grupo de trabalho em 2020 com o intuito de intermediar a abertura de novas vias junto ao proprietário. A abertura se dará de forma lenta e gradual, para diminuir os impactos gerados na área.
 
-
-        Foi criado um grupo de trabalho em 2020 com o intuito de intermediar a abertura
-        de novas vias junto ao proprietário. A abertura se dará de forma lenta e gradual,
-        para diminuir os impactos gerados na área.
-
-
-        O GT Baú vem variando os membros ao longo do tempo e em agosto de 2025 é composto
-        pelos escaladores: André Braga, Christian Costa, Igor Andrade, Iule Ornelas,
-        Marcelo Novais, Márcio Vasconcelos, Roberto Lincoln, Sandro Almeida e Wilson
-        Souza “Professor”.
-
+        O GT Baú vem variando os membros ao longo do tempo e em agosto de 2025 é composto pelos escaladores: André Braga, Christian Costa, Igor Andrade, Iule Ornelas, Marcelo Novais, Márcio Vasconcelos, Roberto Lincoln, Sandro Almeida e Wilson Souza “Professor”.
 
         | ![Manutenção na Rayovac](imagens/manutencao_p0_i6.webp) |
-
         | :--: |
-
         | *Manutenção na Rayovac* |
 
-
-        | ![Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem](imagens/manutencao_p0_i12.webp)
-        |
-
+        | ![Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem](imagens/manutencao_p0_i12.webp) |
         | :--: |
-
-        | *Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem*
-        |
-
+        | *Mariana Costa ajudando a colocar o nome na via aberta em sua homenagem* |
 
         | ![Manutencao na Sentinela 1](imagens/manutencao_p0_i8.webp) |
-
         | :--: |
-
-        | *Manutencao na Sentinela 1* |'
+        | *Manutencao na Sentinela 1* |
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

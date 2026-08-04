@@ -43,9 +43,9 @@ picos:
                 tipo_parede: NEGATIVO
                 descricao: Saída nos pockets mais baixos da face negativa, seguindo
                   por regletes e pockets até finalizar no positivo de abaulados.
-            descricao: '# Bloco: Diamante de Sangue
-
-              ## Região 1'
+            descricao: |-
+              # Bloco: Diamante de Sangue
+              ## Região 1
         - conteudo:
             nome: Chiqueirinho
             mapas:
@@ -187,12 +187,11 @@ picos:
             - boulder:
                 nome: Porco Aranha
                 dificuldade: V2
-            descricao: '# Bloco: Chiqueirinho
-
+            descricao: |-
+              # Bloco: Chiqueirinho
               ## Região 1
 
-
-              O bloco Chiqueirinho possui várias linhas em diferentes faces.'
+              O bloco Chiqueirinho possui várias linhas em diferentes faces.
         - conteudo:
             nome: Bloco do Kbeca
             mapas:
@@ -240,9 +239,9 @@ picos:
             - boulder:
                 nome: Projeto
                 dificuldade: INDEFINIDO
-            descricao: '# Bloco: Bloco do Kbeca
-
-              ## Região 1'
+            descricao: |-
+              # Bloco: Bloco do Kbeca
+              ## Região 1
         - conteudo:
             nome: Flor do Cerrado
             mapas:
@@ -271,9 +270,9 @@ picos:
             - boulder:
                 nome: Flor do Cerrado
                 dificuldade: V5
-            descricao: '# Bloco: Flor do Cerrado
-
-              ## Região 1'
+            descricao: |-
+              # Bloco: Flor do Cerrado
+              ## Região 1
         - conteudo:
             nome: Joelho Sem Freio
             mapas:
@@ -324,13 +323,13 @@ picos:
                 dificuldade: V3
                 descricao: Saída com a mão direita na aresta em meia altura e a mão
                   esquerda em abaulado invertido no teto.
-            descricao: '# Bloco: Joelho Sem Freio
+            descricao: |-
+              # Bloco: Joelho Sem Freio
+              ## Região 1
+        descricao: |-
+          # Região 1
 
-              ## Região 1'
-        descricao: '# Região 1
-
-
-          A Região 1 compreende os primeiros blocos do setor Cerrado Groove.'
+          A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
   - grupo:
       conteudo:
         nome: Região 2
@@ -502,9 +501,9 @@ picos:
                 descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho
                   inverso do caldeirão, finalizando por agarrões na face vertical
                   do bloco.
-            descricao: '# Bloco: Panela do Diabo
-
-              ## Região 2'
+            descricao: |-
+              # Bloco: Panela do Diabo
+              ## Região 2
         - conteudo:
             nome: Faca de Pedra
             mapas:
@@ -590,9 +589,9 @@ picos:
             - boulder:
                 nome: Faca de Pedra
                 dificuldade: V7
-            descricao: '# Bloco: Faca de Pedra
-
-              ## Região 2'
+            descricao: |-
+              # Bloco: Faca de Pedra
+              ## Região 2
         - conteudo:
             nome: Serra do Groove
             mapas:
@@ -621,9 +620,9 @@ picos:
             - boulder:
                 nome: Serra do Groove
                 dificuldade: V3
-            descricao: '# Bloco: Serra do Groove
-
-              ## Região 2'
+            descricao: |-
+              # Bloco: Serra do Groove
+              ## Região 2
         - conteudo:
             nome: Primavera nos Dentes
             mapas:
@@ -843,13 +842,11 @@ picos:
                 descricao: Saída com as mãos em copos idênticos quase ao final do
                   abrigo, seguindo por movimentos espremidos rumo à face externa do
                   bloco.
-            descricao: '# Bloco: Primavera nos Dentes
-
+            descricao: |-
+              # Bloco: Primavera nos Dentes
               ## Região 2
 
-
-              O bloco Primavera nos Dentes é um dos principais do setor, com linhas
-              de alta dificuldade.'
+              O bloco Primavera nos Dentes é um dos principais do setor, com linhas de alta dificuldade.
         - conteudo:
             nome: Flor da Montanha
             mapas:
@@ -897,9 +894,9 @@ picos:
             - boulder:
                 nome: Flor da Montanha
                 dificuldade: V6
-            descricao: '# Bloco: Flor da Montanha
-
-              ## Região 2'
+            descricao: |-
+              # Bloco: Flor da Montanha
+              ## Região 2
         - conteudo:
             nome: Velho Chico
             mapas:
@@ -966,13 +963,13 @@ picos:
             - boulder:
                 nome: Frango D'Água
                 dificuldade: V3
-            descricao: '# Bloco: Velho Chico
+            descricao: |-
+              # Bloco: Velho Chico
+              ## Região 2
+        descricao: |-
+          # Região 2
 
-              ## Região 2'
-        descricao: '# Região 2
-
-
-          A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.'
+          A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.
   - grupo:
       conteudo:
         nome: Região 3
@@ -1024,9 +1021,9 @@ picos:
             - boulder:
                 nome: Tela Quente
                 dificuldade: V3
-            descricao: '# Bloco: Cenas Fortes
-
-              ## Região 3'
+            descricao: |-
+              # Bloco: Cenas Fortes
+              ## Região 3
         - conteudo:
             nome: Sessão da Tarde
             mapas:
@@ -1480,13 +1477,11 @@ picos:
                 nome: Digital
                 dificuldade: V9_BARRA_V10
                 descricao: Extensão do Analógico.
-            descricao: '# Bloco: Sessão da Tarde
-
+            descricao: |-
+              # Bloco: Sessão da Tarde
               ## Região 3
 
-
-              O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras
-              variadas e muita técnica.'
+              O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras variadas e muita técnica.
         - conteudo:
             nome: Que Raio de Reglete
             mapas:
@@ -1534,9 +1529,9 @@ picos:
             - boulder:
                 nome: Que Raio de Reglete
                 dificuldade: V3
-            descricao: '# Bloco: Que Raio de Reglete
-
-              ## Região 3'
+            descricao: |-
+              # Bloco: Que Raio de Reglete
+              ## Região 3
         - conteudo:
             nome: Iceberg
             mapas:
@@ -1588,9 +1583,9 @@ picos:
                 dificuldade: V5
                 descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta
                   e mão direita no abaulado alto mais à direita.
-            descricao: '# Bloco: Iceberg
-
-              ## Região 3'
+            descricao: |-
+              # Bloco: Iceberg
+              ## Região 3
         - conteudo:
             nome: Silicose
             mapas:
@@ -1638,14 +1633,13 @@ picos:
             - boulder:
                 nome: Silicose
                 dificuldade: V7
-            descricao: '# Bloco: Silicose
+            descricao: |-
+              # Bloco: Silicose
+              ## Região 3
+        descricao: |-
+          # Região 3
 
-              ## Região 3'
-        descricao: '# Região 3
-
-
-          A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg
-          e Silicose.'
+          A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.
   - grupo:
       conteudo:
         nome: Região 4
@@ -1840,13 +1834,11 @@ picos:
             - boulder:
                 nome: Desce a Serra
                 dificuldade: V3
-            descricao: '# Bloco: Navio Pirata
-
+            descricao: |-
+              # Bloco: Navio Pirata
               ## Região 4
 
-
-              O bloco Navio Pirata é um grande bloco com diversas linhas em várias
-              faces.'
+              O bloco Navio Pirata é um grande bloco com diversas linhas em várias faces.
         - conteudo:
             nome: Pfizer
             mapas:
@@ -1913,9 +1905,9 @@ picos:
             - boulder:
                 nome: Rosa
                 dificuldade: V0
-            descricao: '# Bloco: Pfizer
-
-              ## Região 4'
+            descricao: |-
+              # Bloco: Pfizer
+              ## Região 4
         - conteudo:
             nome: Pedra na Canela
             mapas:
@@ -2020,9 +2012,9 @@ picos:
             - boulder:
                 nome: Ofurô
                 dificuldade: V7_BARRA_V8
-            descricao: '# Bloco: Pedra na Canela
-
-              ## Região 4'
+            descricao: |-
+              # Bloco: Pedra na Canela
+              ## Região 4
         - conteudo:
             nome: Piseiro
             mapas:
@@ -2089,9 +2081,9 @@ picos:
             - boulder:
                 nome: Expresso 22
                 dificuldade: V0
-            descricao: '# Bloco: Piseiro
-
-              ## Região 4'
+            descricao: |-
+              # Bloco: Piseiro
+              ## Região 4
         - conteudo:
             nome: Raizeiro
             mapas:
@@ -2177,9 +2169,9 @@ picos:
             - boulder:
                 nome: Garrafada
                 dificuldade: V3
-            descricao: '# Bloco: Raizeiro
-
-              ## Região 4'
+            descricao: |-
+              # Bloco: Raizeiro
+              ## Região 4
         - conteudo:
             nome: Tijuco Preto
             mapas:
@@ -2265,14 +2257,13 @@ picos:
             - boulder:
                 nome: Toque no Curralinho
                 dificuldade: V3
-            descricao: '# Bloco: Tijuco Preto
+            descricao: |-
+              # Bloco: Tijuco Preto
+              ## Região 4
+        descricao: |-
+          # Região 4
 
-              ## Região 4'
-        descricao: '# Região 4
-
-
-          A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata
-          e outros blocos.'
+          A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.
   mapas_gerais:
     conteudo:
       mapas:
@@ -2325,16 +2316,13 @@ botoes:
 - texto: Informações
   destino:
     secao_textual:
-      conteudo: '# Diamaboulder
-
+      conteudo: |-
+        # Diamaboulder
         ## Cerrado Groove
 
-
         | ![Diamaboulder - Cerrado Groove](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
-        | *Diamaboulder - Cerrado Groove* |'
+        | *Diamaboulder - Cerrado Groove* |
 ultima_migracao: 4
 revisado_manualmente: true
 revisado_bounding_circle: true

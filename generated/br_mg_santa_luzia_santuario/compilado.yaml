@@ -258,15 +258,12 @@ picos:
             - via_esportiva:
                 nome: P2
                 dificuldade: PROJETO
-        descricao: '# Setor Clube da Luta
+        descricao: |-
+          # Setor Clube da Luta
 
-
-          | ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp)
-          |
-
+          | ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp) |
           | :--: |
-
-          | *Escaladora Júlia Lima na via Rins de Pedra* |'
+          | *Escaladora Júlia Lima na via Rins de Pedra* |
   - setor:
       conteudo:
         nome: Setor Santa Línea
@@ -571,53 +568,32 @@ picos:
             - via_esportiva:
                 nome: P3
                 dificuldade: BR_9C
-        descricao: '# Setor Santa Línea
+        descricao: |-
+          # Setor Santa Línea
 
-
-          | ![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp)
-          |
-
+          | ![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp) |
           | :--: |
-
           | *Escalador Felipe Alvares na via Santa Linea* |
-
 
           ## Conexões e Variantes
 
-
-          Este setor possui diversas conexões entre as vias, permitindo combinar diferentes
-          partes (P1, P2, P3...) de vias adjacentes.
-
+          Este setor possui diversas conexões entre as vias, permitindo combinar diferentes partes (P1, P2, P3...) de vias adjacentes.
 
           | N° | De (Via / Segmento) | Para (Via / Segmento) | Grau |
-
           |---|---|---|---|
-
           | 7.1 | ÓPANGARÉ P1 | SANTA KLAUSS P2 | PROJETO |
-
           | 7.2 | ÓPANGARÉ P1 | SANTA KLAUSS P3 | PROJETO |
-
           | 11.1 | SANTO GRAU P2 | TIRANOS DE PLANTÃO P3 | PROJETO |
-
           | 11.2 | SANTO GRAU P2 | TIRANOS DE PLANTÃO P4 | PROJETO |
-
           | 11.3 | SANTO GRAU P2 | TIRANOS DE PLANTÃO P5 | PROJETO |
-
           | 13.1 | SÓ OS LOUCOS SABEM P2 | AVE MARIA P3 | PROJETO |
-
           | 13.2 | SÓ OS LOUCOS SABEM P2 | CHÁ NA CARTOLINA P3 | 9c |
-
           | 13.3 | SÓ OS LOUCOS SABEM P2 | SANTA LINEA P2 | PROJETO |
-
           | 13.4 | SÓ OS LOUCOS SABEM P2 | SANTA LINEA P3 | PROJETO |
-
           | 14.1 | CHÁ NA CARTOLINA P2 | AVE MARIA P3 | 9c |
-
           | 14.2 | CHÁ NA CARTOLINA P2 | SANTA LINEA P2 | 10b |
-
           | 14.3 | CHÁ NA CARTOLINA P2 | SANTA LINEA P3 | PROJETO |
-
-          | 15.1 | AVE MARIA P2 | CHÁ NA CARTOLINA P3 | 9b |'
+          | 15.1 | AVE MARIA P2 | CHÁ NA CARTOLINA P3 | 9b |
   - setor:
       conteudo:
         nome: Setor Democracia
@@ -867,15 +843,12 @@ picos:
                 dificuldade: BR_8B
         - via_esportiva:
             nome: VIA INACABADA 2
-        descricao: '# Setor Democracia
+        descricao: |-
+          # Setor Democracia
 
-
-          | ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp)
-          |
-
+          | ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp) |
           | :--: |
-
-          | *Escalador Lucas Rocha na via Buffalo Bill* |'
+          | *Escalador Lucas Rocha na via Buffalo Bill* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -918,171 +891,108 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escalada Santuário
-
+      conteudo: |-
+        # Guia de Escalada Santuário
 
         Edição Dezembro/2024 - Versão 2
 
-
         Produção:
-
         - Felipe Alvares
-
         - Júlia Lima
-
         - Lucas Rocha
 
-
         | ![Capa do Guia de Escalada Santuário](imagens/capa_p0.webp) |
-
         | :--: |
-
-        | *Capa do Guia de Escalada Santuário* |'
+        | *Capa do Guia de Escalada Santuário* |
 - texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# Como Chegar
-
+      conteudo: |-
+        # Como Chegar
 
         ## Coordenadas
-
-        - **Bar do Sr. João:** [R. Santo Antônio - Ribeirão da Mata, Santa Luzia -
-        MG](https://www.google.com.br/maps/place/Bar+do+Sr.+Jo%C3%A3o/@-19.7032219,-43.8773559,15z/data=!4m15!1m8!3m7!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!2sBar+do+Sr.+Jo%C3%A3o!8m2!3d-19.7032219!4d-43.8773559!10e5!16s%2Fg%2F11jkp0_0jc!3m5!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!8m2!3d-19.7032219!4d-43.8773559!16s%2Fg%2F11jkp0_0jc?entry=ttu)
-
-        - **Santuário:** [19°42''25.0"S, 43°52''17.3"W](https://www.google.com.br/maps/place/C%C3%A2nion+Ribeir%C3%A3o+da+Mata/@-19.7047782,-43.8847028,15.09z/data=!4m14!1m7!3m6!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!2sBar+do+Sr.+Jo%C3%A3o!8m2!3d-19.7032219!4d-43.8773559!16s%2Fg%2F11jkp0_0jc!3m5!1s0xa6874a22e9ebd5:0x9b1dc0f7515349e0!8m2!3d-19.7069444!4d-43.871488!16s%2Fg%2F11hzhqzrz1?entry=ttu)
-
+        - **Bar do Sr. João:** [R. Santo Antônio - Ribeirão da Mata, Santa Luzia - MG](https://www.google.com.br/maps/place/Bar+do+Sr.+Jo%C3%A3o/@-19.7032219,-43.8773559,15z/data=!4m15!1m8!3m7!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!2sBar+do+Sr.+Jo%C3%A3o!8m2!3d-19.7032219!4d-43.8773559!10e5!16s%2Fg%2F11jkp0_0jc!3m5!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!8m2!3d-19.7032219!4d-43.8773559!16s%2Fg%2F11jkp0_0jc?entry=ttu)
+        - **Santuário:** [19°42'25.0"S, 43°52'17.3"W](https://www.google.com.br/maps/place/C%C3%A2nion+Ribeir%C3%A3o+da+Mata/@-19.7047782,-43.8847028,15.09z/data=!4m14!1m7!3m6!1s0xa67d2f3991c267:0x7ba831ba35ec1a3b!2sBar+do+Sr.+Jo%C3%A3o!8m2!3d-19.7032219!4d-43.8773559!16s%2Fg%2F11jkp0_0jc!3m5!1s0xa6874a22e9ebd5:0x9b1dc0f7515349e0!8m2!3d-19.7069444!4d-43.871488!16s%2Fg%2F11hzhqzrz1?entry=ttu)
 
         ## Distâncias
-
         - Belo Horizonte (centro) - 33 km
-
         - Confins - 24 km
 
-
         ## Descrição do Acesso
-
-        Estacione o carro perto do **Bar do Sr. João**, e faça o restante da trilha
-        a pé. Desça a rua principal até encontrar a linha de trem, e comece uma trilha
-        rápida de 900 m. O Santuário encontra-se à direita da linha de trem.
-
+        Estacione o carro perto do **Bar do Sr. João**, e faça o restante da trilha a pé. Desça a rua principal até encontrar a linha de trem, e comece uma trilha rápida de 900 m. O Santuário encontra-se à direita da linha de trem.
 
         | ![Mapa de acesso](imagens/como_chegar_p0_i1.webp) |
-
         | :--: |
-
         | *Mapa de acesso* |
 
-
         | ![Trilha pela linha de trem](imagens/como_chegar_p0_i2.webp) |
-
         | :--: |
-
         | *Trilha pela linha de trem* |
 
-
-        | ![Sinalização no cruzamento ferroviário](imagens/como_chegar_p0_i0.webp)
-        |
-
+        | ![Sinalização no cruzamento ferroviário](imagens/como_chegar_p0_i0.webp) |
         | :--: |
-
-        | *Sinalização no cruzamento ferroviário* |'
+        | *Sinalização no cruzamento ferroviário* |
 - texto: Comércio Local
   destino:
     secao_textual:
-      conteudo: '# Comércio Local
-
+      conteudo: |-
+        # Comércio Local
 
         ## Bar do Sr. João
 
-
         **Endereço:** Rua Santo Antônio - Ribeirão da Mata, Santa Luzia - MG
 
-
         **Recomendações:**
-
         - Pastel frito na hora
-
         - Sucos e açaí
-
         - Refrigerantes e cerveja
-
         - Almoço (necessita agendar com antecedência)
 
-
         | ![Fachada do Bar do Sr. João](imagens/comercio_local_p0_i2.webp) |
-
         | :--: |
-
         | *Fachada do Bar do Sr. João* |
 
-
         | ![Pastel de feira](imagens/comercio_local_p0_i1.webp) |
-
         | :--: |
-
         | *Pastel de feira* |
 
-
         | ![Sr. João no balcão](imagens/comercio_local_p0_i0.webp) |
-
         | :--: |
-
-        | *Sr. João no balcão* |'
+        | *Sr. João no balcão* |
 - texto: Informações Gerais
   destino:
     secao_textual:
-      conteudo: '# Informações Gerais
+      conteudo: |-
+        # Informações Gerais
 
-
-        Dentro do domo do Santuário não chove, e só bate sol no início da manhã, por
-        isso é um local perfeito para escalada durante todo o ano.
-
+        Dentro do domo do Santuário não chove, e só bate sol no início da manhã, por isso é um local perfeito para escalada durante todo o ano.
 
         | ![Vista do domo do Santuário](imagens/informacoes_p0_i0.webp) |
-
         | :--: |
-
         | *Vista do domo do Santuário* |
 
-
         ## Regras de Conduta
-
         - **Respeite o local:** Ele é sagrado para a comunidade.
-
         - **Lixo:** Leve o seu lixo ao sair. Respeite a fauna e flora do lugar.
-
         - **Preservação:** Não escreva nas pedras.
-
-        - **Segurança:** Somente pratique escalada se tiver o domínio da técnica e
-        do uso dos equipamentos.
-
+        - **Segurança:** Somente pratique escalada se tiver o domínio da técnica e do uso dos equipamentos.
 
         | ![Logos de apoiadores](imagens/informacoes_p0.webp) |
-
         | :--: |
-
-        | *Logos de apoiadores* |'
+        | *Logos de apoiadores* |
 - texto: Como Usar Este Guia
   destino:
     secao_textual:
-      conteudo: '# Como Usar Este Guia
+      conteudo: |-
+        # Como Usar Este Guia
 
+        Este Guia tem a função de informar, facilitar e divulgar as vias de escalada do Santuário.
 
-        Este Guia tem a função de informar, facilitar e divulgar as vias de escalada
-        do Santuário.
+        Todas as vias possuem placas de identificação em sua base. As vias são divididas em partes (P1, P2, P3, P4, P5), cada uma tem um grau que é cumulativo com a parte anterior.
 
-
-        Todas as vias possuem placas de identificação em sua base. As vias são divididas
-        em partes (P1, P2, P3, P4, P5), cada uma tem um grau que é cumulativo com
-        a parte anterior.
-
-
-        | ![Instruções sobre a estrutura do guia](imagens/como_usar_este_guia_p0.webp)
-        |
-
+        | ![Instruções sobre a estrutura do guia](imagens/como_usar_este_guia_p0.webp) |
         | :--: |
-
-        | *Instruções sobre a estrutura do guia* |'
+        | *Instruções sobre a estrutura do guia* |
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

@@ -217,12 +217,10 @@ picos:
                 descricao: Boulder de movimentação específica. As duas mão começam
                   juntas em uma agarra invertida muito boa na fenda horizontal e escala
                   reto.
-            descricao: '# Bloco A
+            descricao: |-
+              # Bloco A
 
-
-              Dica: Para queda ficar mais segura, posicione alguns crash como “calço”
-              por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam
-              a base. A queda dos boulders é bem neste ponto.'
+              Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
         - conteudo:
             nome: Conjunto Pôr do sol - Bloco B
             mapas:
@@ -509,10 +507,10 @@ picos:
             dificuldade: V4
             descricao: Boulder clássico pela aresta do bloco, saindo com as mãos juntas
               no agarrão na parte baixa.
-        descricao: '# Brinquedos
+        descricao: |-
+          # Brinquedos
 
-
-          Foto: Eric Dornellas - Escaladora: Lívia Gonçalves'
+          Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
   - setor:
       conteudo:
         nome: Beija Flor
@@ -840,12 +838,10 @@ picos:
             descricao: Saída com a mão esquerda na laca lateral e a mão direita no
               batente baixo, indo para a direita até um movimento forte em um batente
               liso.
-        descricao: '# Moctezuma
+        descricao: |-
+          # Moctezuma
 
-
-          OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações
-          com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém
-          se lembre da linha, entrar em contato para alteração do croqui.'
+          OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
   - setor:
       conteudo:
         nome: Moléstia
@@ -1040,12 +1036,10 @@ picos:
             nome: Vertigem
             dificuldade: V5
             descricao: Boulder clássico.
-        descricao: '# Outros Blocos
+        descricao: |-
+          # Outros Blocos
 
-
-          AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem
-          óbvia e alta, porém esse modulo não parece ser sólido e não foi testado
-          por meio de rapel até o momento.'
+          AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
   mapas_gerais:
     conteudo:
       mapas:
@@ -1092,73 +1086,44 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
         # SETOR HORIZONTE
-
         # PEDRA RACHADA BOULDERING
 
-
-        | ![Foto: Eric Dornellas - Escalador: João Francischetto](imagens/capa_p0_i1.webp)
-        |
-
+        | ![Foto: Eric Dornellas - Escalador: João Francischetto](imagens/capa_p0_i1.webp) |
         | :--: |
-
-        | *Foto: Eric Dornellas - Escalador: João Francischetto* |'
+        | *Foto: Eric Dornellas - Escalador: João Francischetto* |
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
         # SETOR HORIZONTE
 
-
-        | ![Foto: Eric Dornellas - Escalador: Davi Oliveira](imagens/introducao_p0_i0.webp)
-        |
-
+        | ![Foto: Eric Dornellas - Escalador: Davi Oliveira](imagens/introducao_p0_i0.webp) |
         | :--: |
-
         | *Foto: Eric Dornellas - Escalador: Davi Oliveira* |
 
-
-        Todos os boulders neste guia estavam, no momento da abertura das linhas, sem
-        resquícios de escalada, sendo todas as ascensões consideradas como “novas”.
-        Caso quaisquer linhas apresentadas já tenham sido escaladas anteriormente
-        e sejam reconhecidas, pedimos que contate algum dos responsáveis:
-
+        Todos os boulders neste guia estavam, no momento da abertura das linhas, sem resquícios de escalada, sendo todas as ascensões consideradas como “novas”. Caso quaisquer linhas apresentadas já tenham sido escaladas anteriormente e sejam reconhecidas, pedimos que contate algum dos responsáveis:
 
         @davi.oliverna
-
-        @jpfrancischetto'
+        @jpfrancischetto
 - texto: Aviso
   destino:
     secao_textual:
-      conteudo: '---
-
+      conteudo: |-
         ---
-
+        ---
         # AVISO
 
-
         | ![Aviso](imagens/aviso_p0_i0.webp) |
-
         | :--: |
-
         | *Aviso* |
 
-
-        Os blocos do setor Horizonte ainda não foram moldados para a atividade de
-        escalada, de modo que muitos blocos ainda apresentam agarras quebradiças e
-        pontos de atenção. Nós tentamos avaliar todas as possibilidades e remover
-        agarras que não oferecem segurança, mas com a atividade de escalada intensa,
-        novos betas são tirados e novas agarras utilizadas, bem como mais força é
-        aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada
-        no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta
-        estar firme e boa para utilização. Segurança sempre em primeiro lugar!'
+        Os blocos do setor Horizonte ainda não foram moldados para a atividade de escalada, de modo que muitos blocos ainda apresentam agarras quebradiças e pontos de atenção. Nós tentamos avaliar todas as possibilidades e remover agarras que não oferecem segurança, mas com a atividade de escalada intensa, novos betas são tirados e novas agarras utilizadas, bem como mais força é aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta estar firme e boa para utilização. Segurança sempre em primeiro lugar!
 ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:

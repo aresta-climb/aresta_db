@@ -370,16 +370,12 @@ picos:
             dificuldade: PROJETO
             descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar
               na base
-        descricao: 'Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado
-          ao caminhar nas trilhas altas e pedras soltas.
+        descricao: |-
+          Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
 
-
-          | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp)
-          |
-
+          | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp) |
           | :--: |
-
-          | *Escalador na via Pelas Mãos do Senhor* |'
+          | *Escalador na via Pelas Mãos do Senhor* |
   - setor:
       conteudo:
         nome: Setor do Platô
@@ -462,15 +458,12 @@ picos:
             dificuldade: BR_7A
             descricao: Ultima via da parede. Se quiser fazer a via a partir da base
               tem que descer até o platô mais baixo.
-        descricao: 'Para chegar até o setor é necessário fazer uma escalaminhada.
-          Cuidado com pedras soltas.
-
+        descricao: |-
+          Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
 
           | ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp) |
-
           | :--: |
-
-          | *Escalador na via Visitante Oculto* |'
+          | *Escalador na via Visitante Oculto* |
   - setor:
       conteudo:
         nome: Setor da Claraboia
@@ -521,17 +514,12 @@ picos:
             dificuldade: BR_7A
             descricao: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau
               positivo para chegar ao grampo.
-        descricao: 'ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada
-          cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida
-          é fazer um rapel a partir do top da via Cordadinha.
+        descricao: |-
+          ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
 
-
-          | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp)
-          |
-
+          | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp) |
           | :--: |
-
-          | *Escalador na via Calazar Certo* |'
+          | *Escalador na via Calazar Certo* |
   - setor:
       conteudo:
         nome: Setor do Sertão
@@ -672,16 +660,12 @@ picos:
             nome: Insolação
             dificuldade: BR_7A
             descricao: Via oposições em fendas. Protegida com chapeletas.
-        descricao: 'Setor com sol quase o dia todo. Horário ideal para escalar aqui
-          é bem cedo pela manhã e a partir das 15 horas.
+        descricao: |-
+          Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
 
-
-          | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp)
-          |
-
+          | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp) |
           | :--: |
-
-          | *Conquista da via Dazão e o Pé de Feijão* |'
+          | *Conquista da via Dazão e o Pé de Feijão* |
   - setor:
       conteudo:
         nome: Setor do Mocó
@@ -849,16 +833,12 @@ picos:
             nome: Bicho Morto
             dificuldade: BR_6SUP
             descricao: Última via da parede.
-        descricao: 'Setor localizado em outro bloco de rocha. Para chegar no setor
-          é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor
-          fica a direta do bloco da claraboia.
-
+        descricao: |-
+          Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
 
           | ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp) |
-
           | :--: |
-
-          | *Escaladores no setor do mocó* |'
+          | *Escaladores no setor do mocó* |
   - setor:
       conteudo:
         nome: Setor do Abrigo
@@ -959,17 +939,12 @@ picos:
             nome: Tardia
             dificuldade: BR_7A
             descricao: Ultima via da parede.
-        descricao: 'O setor fica localizado acima da claraboia. Para chegar até o
-          Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão.
-          É necessário escalar um pequeno bloco de rocha para chegar ao setor.
+        descricao: |-
+          O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
 
-
-          | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp)
-          |
-
+          | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp) |
           | :--: |
-
-          | *Escalador na via Estrela no Coco* |'
+          | *Escalador na via Estrela no Coco* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -1056,69 +1031,37 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '| ![Salão Encantado](imagens/capa_p0_i0.webp) |
-
+      conteudo: |-
+        | ![Salão Encantado](imagens/capa_p0_i0.webp) |
         | :--: |
-
-        | *Salão Encantado* |'
+        | *Salão Encantado* |
 - texto: Informações
   destino:
     secao_textual:
-      conteudo: '# CROQUI DO SALÃO ENCANTADO – JANUÁRIA MG
-
+      conteudo: |-
+        # CROQUI DO SALÃO ENCANTADO – JANUÁRIA MG
 
         | ![AENMG](imagens/infos_p0_i1.webp) |
-
         | :--: |
-
         | *AENMG* |
 
-
         | ![EQUILÍBRIO NATURAL](imagens/infos_p0_i0.webp) |
-
         | :--: |
-
         | *EQUILÍBRIO NATURAL* |
 
-
         ## Importante!!
-
         A região do Salão Encantado é foco do **mosquito palha**.
-
         **É extremamente necessário o uso de repelentes para evitar a ação do mosquito.**
-
         Aconselhável o uso de roupas compridas (blusa longa e calça).
 
-
-        O local possui temperaturas um pouco elevadas em horários próximos ao meio
-        dia. Aconselha-se levar muita água para não desidratar.
-
+        O local possui temperaturas um pouco elevadas em horários próximos ao meio dia. Aconselha-se levar muita água para não desidratar.
 
         ## Como chegar
+        **De carro.** Em Montes Claros siga para o Distrito Industrial (Av. João 23) até a fábrica de cimento. Passe em frente a fábrica e continue na estrada (BR 135) seguindo para Januária. A primeira cidade é Mirabela, continue seguindo a BR 135 passando por Japonvar seguindo até a cidade de Lontra e logo depois a cidade de Januária. A distância de Lontra até a ponte sobre o rio são Francisco são exatamente 40 km. Depois de passar sobre a ponte, aproximadamente 10 km depois chegará no posto da policia rodoviária, logo depois será o trevo de januária, vire a esquerda no trevo. Chegará a um segundo trevo (chapada gaúcha) continue seguindo reto até um terceiro trevo que fica próximo ao aeroporto. Vire a esquerda no terceiro trevo no sentido para Barreiro em uma estrada de terra. Siga na estrada aproximadamente 5 km depois do trevo e vire a esquerda em um aglomerado rochoso.
 
-        **De carro.** Em Montes Claros siga para o Distrito Industrial (Av. João 23)
-        até a fábrica de cimento. Passe em frente a fábrica e continue na estrada
-        (BR 135) seguindo para Januária. A primeira cidade é Mirabela, continue seguindo
-        a BR 135 passando por Japonvar seguindo até a cidade de Lontra e logo depois
-        a cidade de Januária. A distância de Lontra até a ponte sobre o rio são Francisco
-        são exatamente 40 km. Depois de passar sobre a ponte, aproximadamente 10 km
-        depois chegará no posto da policia rodoviária, logo depois será o trevo de
-        januária, vire a esquerda no trevo. Chegará a um segundo trevo (chapada gaúcha)
-        continue seguindo reto até um terceiro trevo que fica próximo ao aeroporto.
-        Vire a esquerda no terceiro trevo no sentido para Barreiro em uma estrada
-        de terra. Siga na estrada aproximadamente 5 km depois do trevo e vire a esquerda
-        em um aglomerado rochoso.
+        **De Ônibus.** Chegando na rodoviária de Januária (aproximadamente 10 km do salão encantado), seguir em direção à comunidade de Barreiro próximo ao aeroporto. De Montes Claros, procurar na rodoviária pela empresa Transnorte. Até o dia 01 de outubro de 2012 o horário de saída do ônibus é as 05:00 horas (cinco horas da manhã).
 
-
-        **De Ônibus.** Chegando na rodoviária de Januária (aproximadamente 10 km do
-        salão encantado), seguir em direção à comunidade de Barreiro próximo ao aeroporto.
-        De Montes Claros, procurar na rodoviária pela empresa Transnorte. Até o dia
-        01 de outubro de 2012 o horário de saída do ônibus é as 05:00 horas (cinco
-        horas da manhã).
-
-
-        **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro
-        ou de ônibus para Januária.'
+        **De Avião.** Desembarcar no aeroporto de Montes Claros e seguir de carro ou de ônibus para Januária.
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

@@ -18,6 +18,24 @@ import re
 import shutil
 import yaml
 import sys
+
+# ===========================================================================
+# PYAML CONFIGURATION
+# ===========================================================================
+# O PyYAML 1.1 interpreta '08' e '09' como strings automaticamente porque não são octais válidos.
+# Porém, ao fazer o dump, ele decide remover as aspas por achar que são strings seguras.
+# Para manter a formatação visual (e compatibilidade com YAML 1.2), forçamos as aspas
+# em qualquer string que seja composta puramente de dígitos.
+def _str_representer(dumper, data):
+    if '\n' in data:
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
+    if data.isdigit():
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style="'")
+    return dumper.represent_scalar('tag:yaml.org,2002:str', data)
+
+yaml.add_representer(str, _str_representer)
+yaml.add_representer(str, _str_representer, Dumper=yaml.SafeDumper)
+
 from pathlib import Path
 import json
 from google.protobuf import json_format

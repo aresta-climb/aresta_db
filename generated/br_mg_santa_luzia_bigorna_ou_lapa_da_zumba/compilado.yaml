@@ -235,15 +235,12 @@ picos:
             - '37'
           largura_mapa: 1676
           altura_mapa: 1446
-        descricao: '# Setor Bigorna ou Lapa da Zumba
+        descricao: |-
+          # Setor Bigorna ou Lapa da Zumba
 
-
-          | ![Mapa do Setor Bigorna ou Lapa da Zumba](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp)
-          |
-
+          | ![Mapa do Setor Bigorna ou Lapa da Zumba](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp) |
           | :--: |
-
-          | *Mapa do Setor Bigorna ou Lapa da Zumba* |'
+          | *Mapa do Setor Bigorna ou Lapa da Zumba* |
 botoes: []
 arquivos_externos:
 - caminho: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp

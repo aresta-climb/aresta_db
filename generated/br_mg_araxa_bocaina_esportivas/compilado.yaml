@@ -584,26 +584,17 @@ picos:
             conquistadores:
             - Alexandre FEI
             data_abertura: '2013'
-        descricao: '# Setor Ensolarado
-
+        descricao: |-
+          # Setor Ensolarado
 
           | ![Setor Ensolarado](imagens/setor_ensolarado_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Ensolarado* |
 
-
-          O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado
-          por vias de graduação variada, do 5º ao 9b.
-
+          O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado por vias de graduação variada, do 5º ao 9b.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Garganta
@@ -1200,26 +1191,17 @@ picos:
             conquistadores:
             - Alex
             data_abertura: '2013'
-        descricao: '# Setor Garganta
-
+        descricao: |-
+          # Setor Garganta
 
           | ![Setor Garganta](imagens/setor_garganta_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Garganta* |
 
-
-          O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande
-          concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
-
+          O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Tapa na Cara
@@ -1308,26 +1290,17 @@ picos:
             - Daiex
             - Paulo
             data_abertura: '2013'
-        descricao: '# Setor Tapa na Cara
-
+        descricao: |-
+          # Setor Tapa na Cara
 
           | ![Setor Tapa na Cara](imagens/setor_tapa_na_cara_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Tapa na Cara* |
 
-
-          Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º
-          grau.
-
+          Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º grau.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Terceiro Andar
@@ -1702,26 +1675,17 @@ picos:
             nome: Trimura do Hotel
             dificuldade: PROJETO
             descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
-        descricao: '# Setor Terceiro Andar
-
+        descricao: |-
+          # Setor Terceiro Andar
 
           | ![Setor Terceiro Andar](imagens/setor_terceiro_andar_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Terceiro Andar* |
 
-
-          O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo
-          projetos e vias de 9º grau consolidado.
-
+          O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Paulistas
@@ -2041,26 +2005,17 @@ picos:
             - Deigo Leonardo
             - Daiex de Almeida
             data_abertura: '2014'
-        descricao: '# Setor Paulistas
-
+        descricao: |-
+          # Setor Paulistas
 
           | ![Setor Paulistas](imagens/setor_paulistas_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Paulistas* |
 
-
-          O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque
-          para a "Cortina de Fumaça" (9c).
-
+          O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Mezanino
@@ -2443,26 +2398,17 @@ picos:
             dificuldade: BR_10C
             descricao: Primeiro crux da Egocentrismo com o segundo crux da Universo
               Paralelo.
-        descricao: '# Setor Mezanino
-
+        descricao: |-
+          # Setor Mezanino
 
           | ![Setor Mezanino](imagens/setor_mezanino_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Mezanino* |
 
-
-          O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau)
-          e caminhos extremamente difíceis ultrapassando o 10º grau.
-
+          O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Shana Crazy
@@ -2648,26 +2594,17 @@ picos:
             conquistadores:
             - Diego Leonardo
             data_abertura: '2011'
-        descricao: '# Setor Shana Crazy
-
+        descricao: |-
+          # Setor Shana Crazy
 
           | ![Setor Shana Crazy](imagens/setor_shana_crazy_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Shana Crazy* |
 
-
-          O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º
-          grau.
-
+          O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º grau.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Tsunami
@@ -3136,26 +3073,17 @@ picos:
             - Diego
             - Lucas Ramos
             data_abertura: '2006'
-        descricao: '# Setor Tsunami
-
+        descricao: |-
+          # Setor Tsunami
 
           | ![Setor Tsunami](imagens/setor_tsunami_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Tsunami* |
 
-
-          O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras
-          que chegam ao 10º grau.
-
+          O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras que chegam ao 10º grau.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Udão
@@ -3413,26 +3341,17 @@ picos:
             conquistadores:
             - Gustavo
             data_abertura: '2016'
-        descricao: '# Setor Udão
-
+        descricao: |-
+          # Setor Udão
 
           | ![Setor Udão](imagens/setor_udao_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Udão* |
 
-
-          O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de
-          vias de 6º sup.
-
+          O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de vias de 6º sup.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Tereza
@@ -3569,25 +3488,17 @@ picos:
             conquistadores:
             - Lucas Ramos
             data_abertura: '2006'
-        descricao: '# Setor Tereza
-
+        descricao: |-
+          # Setor Tereza
 
           | ![Setor Tereza](imagens/setor_tereza_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Tereza* |
-
 
           Setor com vias acessíveis de 5º grau e desafios técnicos de até 7º grau.
 
-
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Bem-vindo
@@ -3974,20 +3885,13 @@ picos:
             - Aluísio
             data_abertura: '2006'
             descricao: Falta topo.
-        descricao: '# Setor Bem-vindo
+        descricao: |-
+          # Setor Bem-vindo
 
-
-          O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias
-          que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e
-          "Excalibur" (45m).
-
+          O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Tetos
@@ -4758,27 +4662,17 @@ picos:
             - Daiex
             - Saulo
             data_abertura: '2017'
-        descricao: '# Setor Tetos
-
+        descricao: |-
+          # Setor Tetos
 
           | ![Setor Tetos](imagens/setor_tetos_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Tetos* |
 
-
-          O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos
-          tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários
-          projetos promissores.
-
+          O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários projetos promissores.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Segundo Andar
@@ -5001,26 +4895,17 @@ picos:
             conquistadores:
             - Alexandre Fei
             data_abertura: '2017'
-        descricao: '# Setor Segundo Andar
-
+        descricao: |-
+          # Setor Segundo Andar
 
           | ![Setor Segundo Andar](imagens/setor_segundo_andar_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Segundo Andar* |
 
-
-          O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura
-          pop, variando de 6º a 9º grau.
-
+          O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura pop, variando de 6º a 9º grau.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   - setor:
       conteudo:
         nome: Pirados de Rocha
@@ -5165,26 +5050,17 @@ picos:
             - Diego
             - Vitu
             data_abertura: '2017'
-        descricao: '# Setor Pirados de Rocha
-
+        descricao: |-
+          # Setor Pirados de Rocha
 
           | ![Setor Pirados de Rocha](imagens/setor_pirados_de_rocha_p0_i0.webp) |
-
           | :--: |
-
           | *Setor Pirados de Rocha* |
 
-
-          Setor com várias vias de projeto e nomes inspirados no cenário político
-          brasileiro de 2017.
-
+          Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
 
           > [!TIP]
-
-          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades
-          fisiológicas nas trilhas e base de vias. Avisar a administração sobre a
-          abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE
-          ESCALADA.**'
+          > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
   mapas_gerais:
     conteudo:
       mapas:
@@ -5331,17 +5207,14 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Bocaina Park - Araxá, MG
-
+      conteudo: |-
+        # Bocaina Park - Araxá, MG
 
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
-        ## Croqui 220 Vias'
+        ## Croqui 220 Vias
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

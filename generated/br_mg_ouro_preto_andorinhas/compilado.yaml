@@ -181,19 +181,16 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        descricao: '# Setor Pedra do Arco
-
+        descricao: |-
+          # Setor Pedra do Arco
 
           Setor com vias de 12m até 17m.
 
-
           Tempo de aproximação: 20min.
-
 
           Características: Escalada vertical e negativa.
 
-
-          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.'
+          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
   - setor:
       conteudo:
         nome: Campo Escola
@@ -346,19 +343,16 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Rodrigo 'Mussula'
-        descricao: '# Setor Campo Escola
-
+        descricao: |-
+          # Setor Campo Escola
 
           Setor com vias de 8m até 10m.
 
-
           Tempo de aproximação: 25min.
-
 
           Características: Escalada positiva.
 
-
-          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.'
+          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
   - setor:
       conteudo:
         nome: Tchau Querida
@@ -495,19 +489,16 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        descricao: '# Setor Tchau Querida
-
+        descricao: |-
+          # Setor Tchau Querida
 
           Setor com vias de 11m até 12m.
 
-
           Tempo de aproximação: 10min.
-
 
           Características: Escalada vertical e negativa.
 
-
-          Recomendações: Uso de capacete.'
+          Recomendações: Uso de capacete.
   - setor:
       conteudo:
         nome: Pedra Branca
@@ -842,19 +833,16 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        descricao: '# Setor Pedra Branca
-
+        descricao: |-
+          # Setor Pedra Branca
 
           Setor com vias de 9m até 12m.
 
-
           Tempo de aproximação: 25min.
-
 
           Características: Escalada vertical.
 
-
-          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.'
+          Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
   mapas_gerais:
     conteudo:
       mapas:

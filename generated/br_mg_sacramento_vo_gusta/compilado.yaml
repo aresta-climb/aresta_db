@@ -227,14 +227,12 @@ picos:
             dificuldade: BR_5SUP_BARRA_6
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
-        descricao: '# Setor Quintal
-
+        descricao: |-
+          # Setor Quintal
 
           | ![Setor Quintal](imagens/setor_quintal_p0_i0_2.webp) |
-
           | :--: |
-
-          | *Setor Quintal* |'
+          | *Setor Quintal* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -302,29 +300,22 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Pico da Vó Gusta
-
+      conteudo: |-
+        # Pico da Vó Gusta
 
         | ![Pico da Vó Gusta](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
         | *Pico da Vó Gusta* |
-
 
         ## Observações
 
-
         Pico da Vó Gusta localizado em Sacramento, MG, próximo a Rifaina.
-
 
         ## Apoio
 
-
         Pico da Vó Gusta
 
-
-        Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.'
+        Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
 ultima_migracao: 4
 publicar_croqui: true
 arquivos_externos:

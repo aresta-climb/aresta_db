@@ -414,42 +414,26 @@ picos:
             quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
             extensao: 15
-        descricao: '# 1° Andar
+        descricao: |-
+          # 1° Andar
 
+          O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.
 
-          O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande
-          concentração de vias de alta dificuldade técnica.
-
-
-          | ![Poul na Extensão do Vale do Verde](imagens/setor_1_andar_p1_i2.webp)
-          |
-
+          | ![Poul na Extensão do Vale do Verde](imagens/setor_1_andar_p1_i2.webp) |
           | :--: |
-
           | *Poul na Extensão do Vale do Verde* |
 
-
           | ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp) |
-
           | :--: |
-
           | *Vista do 1° Andar* |
 
-
-          | ![Emília escalando a Vale do Verde](imagens/setor_1_andar_p1_i4.webp)
-          |
-
+          | ![Emília escalando a Vale do Verde](imagens/setor_1_andar_p1_i4.webp) |
           | :--: |
-
           | *Emília escalando a Vale do Verde* |
 
-
-          | ![João TG nos trabalhos de conquista](imagens/setor_1_andar_p1_i5.webp)
-          |
-
+          | ![João TG nos trabalhos de conquista](imagens/setor_1_andar_p1_i5.webp) |
           | :--: |
-
-          | *João TG nos trabalhos de conquista* |'
+          | *João TG nos trabalhos de conquista* |
   - setor:
       conteudo:
         nome: 2° Andar
@@ -585,11 +569,10 @@ picos:
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 10
             quantidade_protecoes_parada: 2
-        descricao: '# 2° Andar
+        descricao: |-
+          # 2° Andar
 
-
-          O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos
-          projetos aguardando a primeira ascensão.'
+          O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
   mapas_gerais:
     conteudo:
       mapas:
@@ -642,291 +625,134 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escalada Vale Verde
-
+      conteudo: |-
+        # Guia de Escalada Vale Verde
 
         | ![Capa do Guia de Escalada Vale Verde](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa do Guia de Escalada Vale Verde* |
 
-
         **Vale do Aço**
-
         **Minas Gerais - Brasil**
-
         **2ª Edição**
-
-        **1.0 - 2024**'
+        **1.0 - 2024**
 - texto: Betas
   destino:
     secao_textual:
-      conteudo: '# Se liga nos betas!
+      conteudo: |-
+        # Se liga nos betas!
 
+        Esse croqui foi idealizado por Renato Miranda (Toba), Gustavo Soares (Poul) e João Santana (TG) junto a toda equipe da AMEVA, nosso objetivo é compartilhar e manter atualizado as informações sobre a escalada na Falésia do Vale Verde.
 
-        Esse croqui foi idealizado por Renato Miranda (Toba), Gustavo Soares (Poul)
-        e João Santana (TG) junto a toda equipe da AMEVA, nosso objetivo é compartilhar
-        e manter atualizado as informações sobre a escalada na Falésia do Vale Verde.
+        Esse guia de escalada está em constante atualização, não nos responsabilizamos pela má utilização do guia ou algum erro de informação. Você é o único responsável pela sua segurança na escalada, utilize esse guia com sabedoria! Qualquer informação que esteja em desacordo favor informar a AMEVA para correção e atualização.
 
-
-        Esse guia de escalada está em constante atualização, não nos responsabilizamos
-        pela má utilização do guia ou algum erro de informação. Você é o único responsável
-        pela sua segurança na escalada, utilize esse guia com sabedoria! Qualquer
-        informação que esteja em desacordo favor informar a AMEVA para correção e
-        atualização.
-
-
-        A Falésia do Vale Verde está em área particular e seu uso é acordado entre
-        a AMEVA e o proprietário, seja consciente e gentil com os moradores locais,
-        cuide do seu lixo (inclusive o micro-lixo), evite fazer fogueiras, evite a
-        utilização de aparelhos de som e cuide da nossa fauna e flora local. Na dúvida
-        utilize o bom senso!
-
+        A Falésia do Vale Verde está em área particular e seu uso é acordado entre a AMEVA e o proprietário, seja consciente e gentil com os moradores locais, cuide do seu lixo (inclusive o micro-lixo), evite fazer fogueiras, evite a utilização de aparelhos de som e cuide da nossa fauna e flora local. Na dúvida utilize o bom senso!
 
         @associacao.ameva
 
-
         | ![Apoios](imagens/betas_p0.webp) |
-
         | :--: |
-
-        | *Apoios* |'
+        | *Apoios* |
 - texto: Localização
   destino:
     secao_textual:
-      conteudo: '# Localização
-
+      conteudo: |-
+        # Localização
 
         No Google Maps procure por **"Setor de Escalada Vale Verde"**.
 
-
-        Saindo de Ipatinga siga por 21,1 KM no sentido IPABA pela BR-458 até o **Ponto
-        Caipira** (Direta da estrada), do outro lado da pista há uma bifurcação de
-        estrada de chão, atravesse a pista e siga a direita. Continue na estrada principal
-        até uma bifurcação, mantenha-se a esquerda pela estrada principal, cruze a
-        pequena ponte de ferro (COPASA) sobre o córrego. Continue pela estrada principal
-        até o campo de futebol. Estacione nos arredores do Campo de Futebol e siga
-        por trilha até o setor.
-
+        Saindo de Ipatinga siga por 21,1 KM no sentido IPABA pela BR-458 até o **Ponto Caipira** (Direta da estrada), do outro lado da pista há uma bifurcação de estrada de chão, atravesse a pista e siga a direita. Continue na estrada principal até uma bifurcação, mantenha-se a esquerda pela estrada principal, cruze a pequena ponte de ferro (COPASA) sobre o córrego. Continue pela estrada principal até o campo de futebol. Estacione nos arredores do Campo de Futebol e siga por trilha até o setor.
 
         | ![Fachada do Ponto Caipira](imagens/localizacao_p0_i9.webp) |
-
         | :--: |
-
         | *Fachada do Ponto Caipira* |
 
-
-        | ![Bifurcação a direita logo em frente ao Ponto Caipira](imagens/localizacao_p0_i10.webp)
-        |
-
+        | ![Bifurcação a direita logo em frente ao Ponto Caipira](imagens/localizacao_p0_i10.webp) |
         | :--: |
-
         | *Bifurcação a direita logo em frente ao Ponto Caipira* |
 
-
-        | ![Trajeto do Ponto Caipira ao Estacionamento](imagens/localizacao_p0_i11.webp)
-        |
-
+        | ![Trajeto do Ponto Caipira ao Estacionamento](imagens/localizacao_p0_i11.webp) |
         | :--: |
-
         | *Trajeto do Ponto Caipira ao Estacionamento* |
 
-
         | ![Local do Estacionamento](imagens/localizacao_p0_i12.webp) |
-
         | :--: |
-
-        | *Local do Estacionamento* |'
+        | *Local do Estacionamento* |
 - texto: História
   destino:
     secao_textual:
-      conteudo: '# História
+      conteudo: |-
+        # História
 
+        Durante suas idas e vindas no Espírito Santo para Ipatinga, Poul sempre passava pela BR 458 buscando novas possibilidades de setores no Vale do Aço, onde de longe se avista a falésia do Vale Verde, destacada na paisagem pelo afloramento rochoso de face amarelada e bem próximo estrada. Em dezembro de 2014, Poul e Antônia já vieram preparados para o período de Natal com a furadeira na mala, que Papai Noel que nada, quem daria o presente de natal a toda a comunidade de escalada do Vale do Aço era esse querido casal.
 
-        Durante suas idas e vindas no Espírito Santo para Ipatinga, Poul sempre passava
-        pela BR 458 buscando novas possibilidades de setores no Vale do Aço, onde
-        de longe se avista a falésia do Vale Verde, destacada na paisagem pelo afloramento
-        rochoso de face amarelada e bem próximo estrada. Em dezembro de 2014, Poul
-        e Antônia já vieram preparados para o período de Natal com a furadeira na
-        mala, que Papai Noel que nada, quem daria o presente de natal a toda a comunidade
-        de escalada do Vale do Aço era esse querido casal.
+        No dia 20 de dezembro de 2014 a primeira via foi furada na falésia do Vale Verde, foi a via “HoHoHo”, um 4/5° grau localizado na parte superior do 1° Andar. Essa via serviu para dar acesso a parte superior da falésia, onde foi instalado o rapel e abriu-se a primeira parte da da clássica “Ragnarok (9°)”.
 
+        Poul e Antônia voltam três dias depois, só que agora com uma contratação de peso: Léo Madeira, Tinelson e Danilinho. Nesse dia deixaram mais duas vias, “Presentim” e “Pedra no Saco”.
 
-        No dia 20 de dezembro de 2014 a primeira via foi furada na falésia do Vale
-        Verde, foi a via “HoHoHo”, um 4/5° grau localizado na parte superior do 1°
-        Andar. Essa via serviu para dar acesso a parte superior da falésia, onde foi
-        instalado o rapel e abriu-se a primeira parte da da clássica “Ragnarok (9°)”.
+        Depois disso ficaram 3 longos anos sem mais nenhuma conquista na falésia, Poul ainda morava no Espírito Santo e seu projeto da falésia ficou adormecido. Em 2017 quando Poul volta a morar no Vale do Aço ele se junta ao João TG e aí sim desenvolve a maioria das vias furadas no Vale Verde. Outros conquistadores também deixaram suas vias na falésia, como João Paulo Vieira (Queixão), Vitor Oliveira (Slot) e Josué Falcim.
 
+        O setor do Vale Verde tem uma particularidade que torna as conquistas ainda mais desafiadoras, algumas agarras comumente são quebradiças e exigem ser coladas para serem utilizadas. Esse foi uma escola para os conquistadores aprenderem a conquistar vias em rochas quebradiças e na arte de colar agarras.
 
-        Poul e Antônia voltam três dias depois, só que agora com uma contratação de
-        peso: Léo Madeira, Tinelson e Danilinho. Nesse dia deixaram mais duas vias,
-        “Presentim” e “Pedra no Saco”.
-
-
-        Depois disso ficaram 3 longos anos sem mais nenhuma conquista na falésia,
-        Poul ainda morava no Espírito Santo e seu projeto da falésia ficou adormecido.
-        Em 2017 quando Poul volta a morar no Vale do Aço ele se junta ao João TG e
-        aí sim desenvolve a maioria das vias furadas no Vale Verde. Outros conquistadores
-        também deixaram suas vias na falésia, como João Paulo Vieira (Queixão), Vitor
-        Oliveira (Slot) e Josué Falcim.
-
-
-        O setor do Vale Verde tem uma particularidade que torna as conquistas ainda
-        mais desafiadoras, algumas agarras comumente são quebradiças e exigem ser
-        coladas para serem utilizadas. Esse foi uma escola para os conquistadores
-        aprenderem a conquistar vias em rochas quebradiças e na arte de colar agarras.
-
-
-        Durante esse período foram conquistadas as vias de entrada no setor 1° Andar
-        e depois foi realizado um evento de inauguração da falésia, onde vieram diversos
-        escaladores a falésia e também foi encadenado o primeiro 9° do setor. Logo
-        após veio a trágica pandemia e o setor ficou um bom tempo sendo muito pouco
-        frequentado. Em 2022 restauramos os acessos ao setor e agora continuamos escrevendo
-        essa história com a abertura da ATM 2024 e atualização do croqui.'
+        Durante esse período foram conquistadas as vias de entrada no setor 1° Andar e depois foi realizado um evento de inauguração da falésia, onde vieram diversos escaladores a falésia e também foi encadenado o primeiro 9° do setor. Logo após veio a trágica pandemia e o setor ficou um bom tempo sendo muito pouco frequentado. Em 2022 restauramos os acessos ao setor e agora continuamos escrevendo essa história com a abertura da ATM 2024 e atualização do croqui.
 - texto: Geologia
   destino:
     secao_textual:
-      conteudo: '# Mas que rocha é essa?
+      conteudo: |-
+        # Mas que rocha é essa?
 
+        As rochas do Vale Verde são chamadas **Granada - Biotita Tonalito**, são correspondentes a um magmatismo sintéctonico de idade Neoproterozoíca (1000 a 570 milhões de anos) denominadas de Tonalito Bom Jesus do Galho (CPRM, Folha Dom Cavati – 2014).
 
-        As rochas do Vale Verde são chamadas **Granada - Biotita Tonalito**, são correspondentes
-        a um magmatismo sintéctonico de idade Neoproterozoíca (1000 a 570 milhões
-        de anos) denominadas de Tonalito Bom Jesus do Galho (CPRM, Folha Dom Cavati
-        – 2014).
+        De forma simplificada essas rochas seriam um tipo de Granitoíde (um tipo de rocha ígnea que se cristaliza no interior da crosta), rico em minerais como a Granada, Biotita, Plagioclásio, Cianita e outros minerais ricos em sílica. Essas rochas após cristalizadas passaram posteriormente por processos de metamorfismo (aumento de pressão e temperatura que promovem alterações na sua composição mineral e estrutura) sendo esse fato evidenciado pelas foliações identificadas nas rochas do Vale Verde.
 
-
-        De forma simplificada essas rochas seriam um tipo de Granitoíde (um tipo de
-        rocha ígnea que se cristaliza no interior da crosta), rico em minerais como
-        a Granada, Biotita, Plagioclásio, Cianita e outros minerais ricos em sílica.
-        Essas rochas após cristalizadas passaram posteriormente por processos de metamorfismo
-        (aumento de pressão e temperatura que promovem alterações na sua composição
-        mineral e estrutura) sendo esse fato evidenciado pelas foliações identificadas
-        nas rochas do Vale Verde.
-
-
-        | ![Vista da face dos blocos de Boulder no Vale Verde](imagens/geologia_p0_i5.webp)
-        |
-
+        | ![Vista da face dos blocos de Boulder no Vale Verde](imagens/geologia_p0_i5.webp) |
         | :--: |
-
         | *Vista da face dos blocos de Boulder no Vale Verde* |
 
-
         | ![Cristais de Granada Piropo](imagens/geologia_p0_i4.webp) |
-
         | :--: |
-
         | *Cristais de Granada Piropo* |
 
+        Os registros nessas rochas contam um pouco da história da formação de um supercontinente chamado Gondwana, que ocorreu aproximadamente à 750 e 600 Milhões de anos atrás, durante a colisão do que hoje seriam os continentes da América do Sul, Antártida, África, Índia e Oceania. Durante esse episódio de colisões de placas tectônicas foi gerado uma enorme cordilheira de montanhas, correspondente ao que seria hoje o Himalaia.
 
-        Os registros nessas rochas contam um pouco da história da formação de um supercontinente
-        chamado Gondwana, que ocorreu aproximadamente à 750 e 600 Milhões de anos
-        atrás, durante a colisão do que hoje seriam os continentes da América do Sul,
-        Antártida, África, Índia e Oceania. Durante esse episódio de colisões de placas
-        tectônicas foi gerado uma enorme cordilheira de montanhas, correspondente
-        ao que seria hoje o Himalaia.
+        Os Granitos/Tonalito são formados no interior dessa cordilheira, a partir de processos de fusão de rochas, migração e resfriamento de magmas no interior da crosta terrestre. Quando placas tectônicas colidem, as mais densas e espessas são subductadas até porções profundas da crosta, que se fundem como resultado da alta pressão e temperatura, gerando um extenso volume de magmas. Esses magmas caso consigam ascender e romper toda a crosta terrestre acabam sendo expelidos na forma de erupções vulcânicas, se não conseguirem acabam se cristalizando no interior da crosta, formando diversos tipos de rochas ígneas intrusivas como por exemplo os Granitos e os Tonalitos.
 
-
-        Os Granitos/Tonalito são formados no interior dessa cordilheira, a partir
-        de processos de fusão de rochas, migração e resfriamento de magmas no interior
-        da crosta terrestre. Quando placas tectônicas colidem, as mais densas e espessas
-        são subductadas até porções profundas da crosta, que se fundem como resultado
-        da alta pressão e temperatura, gerando um extenso volume de magmas. Esses
-        magmas caso consigam ascender e romper toda a crosta terrestre acabam sendo
-        expelidos na forma de erupções vulcânicas, se não conseguirem acabam se cristalizando
-        no interior da crosta, formando diversos tipos de rochas ígneas intrusivas
-        como por exemplo os Granitos e os Tonalitos.
-
-
-        | ![Modelo Esquemático da Subducção de Placas](imagens/geologia_p1_i0.webp)
-        |
-
+        | ![Modelo Esquemático da Subducção de Placas](imagens/geologia_p1_i0.webp) |
         | :--: |
-
         | *Modelo Esquemático da Subducção de Placas* |
 
-
-        | ![Reconstrução Paleogeográfica do Gondwana](imagens/geologia_p1_i6.webp)
-        |
-
+        | ![Reconstrução Paleogeográfica do Gondwana](imagens/geologia_p1_i6.webp) |
         | :--: |
-
         | *Reconstrução Paleogeográfica do Gondwana* |
 
-
-        Depois que esse magma se cristalizou no interior da crosta foi só aguardar
-        cerca de 600 milhões de ano até a natureza fazer o seu papel, erodindo aproximadamente
-        entre 6 e 7km de quilômetros de rocha e expondo a base dessa cordilheira,
-        repleta de lindos monólitos de granitos e tonalitos sedentos por um escalador.
-
+        Depois que esse magma se cristalizou no interior da crosta foi só aguardar cerca de 600 milhões de ano até a natureza fazer o seu papel, erodindo aproximadamente entre 6 e 7km de quilômetros de rocha e expondo a base dessa cordilheira, repleta de lindos monólitos de granitos e tonalitos sedentos por um escalador.
 
         # É boa para escalar?
 
+        O Tonalito do Vale Verde apresenta uma boa condição para a escalada, são conhecidos por ser uma rocha abrasiva sobretudo por causa de sua granulação grossa e composição rica em granadas, quazto e feldspato. Devido sua exposição em falésia é comum encontrarmos agarras quebradiças, por isso a equipe de conquista sempre se atenta em colar as agarras que estão frágeis, aumentando a segurança na escalada e preservando as agarras cruciais para a realização da via. Se identificar alguma agarra com esse risco favor comunicar imediatamente a AMEVA para a tomada das devidas providências.
 
-        O Tonalito do Vale Verde apresenta uma boa condição para a escalada, são conhecidos
-        por ser uma rocha abrasiva sobretudo por causa de sua granulação grossa e
-        composição rica em granadas, quazto e feldspato. Devido sua exposição em falésia
-        é comum encontrarmos agarras quebradiças, por isso a equipe de conquista sempre
-        se atenta em colar as agarras que estão frágeis, aumentando a segurança na
-        escalada e preservando as agarras cruciais para a realização da via. Se identificar
-        alguma agarra com esse risco favor comunicar imediatamente a AMEVA para a
-        tomada das devidas providências.
-
-
-        As vias são majoritariamente verticais ou levemente negativas, com bastante
-        regletes potentes, abaulados e oposições clássicas. Devido a abrasão da rocha
-        os pés funcionam até mesmo nos pequenos cristais, tornando a escalada no Vale
-        Verde bastante técnica e exigente em relação ao equilíbrio e força de regletes.'
+        As vias são majoritariamente verticais ou levemente negativas, com bastante regletes potentes, abaulados e oposições clássicas. Devido a abrasão da rocha os pés funcionam até mesmo nos pequenos cristais, tornando a escalada no Vale Verde bastante técnica e exigente em relação ao equilíbrio e força de regletes.
 - texto: Os Betas de Ouro
   destino:
     secao_textual:
-      conteudo: '# Os Betas de Ouro
+      conteudo: |-
+        # Os Betas de Ouro
 
+        A Falésia do Vale Verde tem uma posição privilegiada com sua face voltada para a posição Sudeste, tem sombra em todo o setor na parte da manhã, e como a vegetação recobre boa parte das vias na parte da tarde a diversas opções de vias nas sombras.
 
-        A Falésia do Vale Verde tem uma posição privilegiada com sua face voltada
-        para a posição Sudeste, tem sombra em todo o setor na parte da manhã, e como
-        a vegetação recobre boa parte das vias na parte da tarde a diversas opções
-        de vias nas sombras.
+        Há presença moderada de pernilongos e mosquitos sobretudo durante o período chuvoso, mais exclusivamente na parte da manhã e final da tarde. É recomendável levar repelentes e realizar a queima (controlada) de caixas de ovos na base das vias para espantar os pernilongos. Lembre-se da responsabilidade ao realizar essa queima das caixas, tomando TODOS OS CUIDADOS NECESSÁRIOS para não ocasionar um incêndio e levando todo o restante não queimado embora. A área é propriedade particular e a continuidade das atividades de escalada no local dependem do nosso comportamento comunitário, seja educado com todos e respeitem as regras.
 
+        O clima no Vale do Aço de forma geral é considerado quente e úmido, podendo atingir temperaturas elevadas durante o verão com período chuvoso de Outubro e Abril, com maior intensidade entre Novembro e Março. Como a falésia do Vale Verde é bastante exposta ao tempo, após chuvas intensas ou longos periodos chuvosos é necessário um periódo moderado para que as vias sequem e se tornem aptas a escalada novamente.
 
-        Há presença moderada de pernilongos e mosquitos sobretudo durante o período
-        chuvoso, mais exclusivamente na parte da manhã e final da tarde. É recomendável
-        levar repelentes e realizar a queima (controlada) de caixas de ovos na base
-        das vias para espantar os pernilongos. Lembre-se da responsabilidade ao realizar
-        essa queima das caixas, tomando TODOS OS CUIDADOS NECESSÁRIOS para não ocasionar
-        um incêndio e levando todo o restante não queimado embora. A área é propriedade
-        particular e a continuidade das atividades de escalada no local dependem do
-        nosso comportamento comunitário, seja educado com todos e respeitem as regras.
-
-
-        O clima no Vale do Aço de forma geral é considerado quente e úmido, podendo
-        atingir temperaturas elevadas durante o verão com período chuvoso de Outubro
-        e Abril, com maior intensidade entre Novembro e Março. Como a falésia do Vale
-        Verde é bastante exposta ao tempo, após chuvas intensas ou longos periodos
-        chuvosos é necessário um periódo moderado para que as vias sequem e se tornem
-        aptas a escalada novamente.
-
-
-        Ao final da escalada se quiser comemorar a cadena sugerimos o bar no campo
-        de futebol ou o Ponto Caipira na entrada da BR, se for a Ipatinga indicamos
-        o nosso grande templo, a TG Rock Climb Bar, lá é certeza de uma boa prosa,
-        música boa e cerveja gelada.
-
+        Ao final da escalada se quiser comemorar a cadena sugerimos o bar no campo de futebol ou o Ponto Caipira na entrada da BR, se for a Ipatinga indicamos o nosso grande templo, a TG Rock Climb Bar, lá é certeza de uma boa prosa, música boa e cerveja gelada.
 
         Segue abaixo dois contatos de hospitais na região que possuem soro antiofídico:
 
-
         **CORONEL FABRICIANO**
-
-        Hospital Unimed Vale do Aço - Av. Rubens Siqueira Maia, nº 2030 - Santa Terezinha
-        – Tel: (31) 2109-8668
-
+        Hospital Unimed Vale do Aço - Av. Rubens Siqueira Maia, nº 2030 - Santa Terezinha – Tel: (31) 2109-8668
 
         **IPATINGA**
-
-        Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL:
-        (31) 3829-9000'
+        Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL: (31) 3829-9000
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

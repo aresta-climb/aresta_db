@@ -58,11 +58,10 @@ picos:
         - via_esportiva:
             nome: Ratazana
             dificuldade: BR_7A
-        descricao: '# Setor Vieiras
+        descricao: |-
+          # Setor Vieiras
 
-
-          O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que
-          variam do 5° ao 9b.'
+          O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.
   mapas_gerais:
     conteudo:
       mapas:

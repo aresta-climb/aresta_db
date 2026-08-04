@@ -74,14 +74,14 @@ picos:
               y: 760
               comprimento: 30
               largura: 30
-          - id: 08
+          - id: '08'
             label: '8'
             retangulo:
               x: 260
               y: 265
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 345
@@ -217,11 +217,11 @@ picos:
             - '07'
           - escalada: Mad Max P2
             ids:
-            - 08
-            - 08
+            - '08'
+            - '08'
           - escalada: Além da Cúpula do Trovão
             ids:
-            - 09
+            - '09'
           - escalada: Perestroika P1
             ids:
             - '10'
@@ -376,14 +376,14 @@ picos:
               y: 675
               comprimento: 30
               largura: 30
-          - id: 08
+          - id: '08'
             label: '8'
             retangulo:
               x: 600
               y: 740
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 665
@@ -499,10 +499,10 @@ picos:
             - '07'
           - escalada: Pau Mandado
             ids:
-            - 08
+            - '08'
           - escalada: Imperatriz
             ids:
-            - 09
+            - '09'
           - escalada: Casamento de Viúva
             ids:
             - '10'
@@ -651,14 +651,14 @@ picos:
               y: 610
               comprimento: 30
               largura: 30
-          - id: 08
+          - id: '08'
             label: '8'
             retangulo:
               x: 910
               y: 615
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 875
@@ -759,10 +759,10 @@ picos:
             - '07'
           - escalada: Kira
             ids:
-            - 08
+            - '08'
           - escalada: JucaTatuKira
             ids:
-            - 09
+            - '09'
           - escalada: Free Willy
             ids:
             - '10'
@@ -903,14 +903,14 @@ picos:
               y: 725
               comprimento: 30
               largura: 30
-          - id: 08
+          - id: '08'
             label: '8'
             retangulo:
               x: 375
               y: 725
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 230
@@ -1160,10 +1160,10 @@ picos:
             - '07'
           - escalada: Esqueleto
             ids:
-            - 08
+            - '08'
           - escalada: Brinco de Caveira
             ids:
-            - 09
+            - '09'
           - escalada: Bruce Lee (Projeto)
             ids:
             - '10'
@@ -1439,7 +1439,7 @@ picos:
               y: 815
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 920
@@ -1615,8 +1615,8 @@ picos:
             - 08_base
           - escalada: Ext. Soco Inglês P1
             ids:
-            - 09
-            - 09
+            - '09'
+            - '09'
           - escalada: Ex. Soco Inglês P2 (Projeto)
             ids:
             - '10'
@@ -1825,7 +1825,7 @@ picos:
               y: 695
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 810
@@ -1980,7 +1980,7 @@ picos:
             - 08_base
           - escalada: Triplo X
             ids:
-            - 09
+            - '09'
           - escalada: Além do Horizonte
             ids:
             - 10_base
@@ -2211,14 +2211,14 @@ picos:
               y: 550
               comprimento: 30
               largura: 30
-          - id: 08
+          - id: '08'
             label: '8'
             retangulo:
               x: 405
               y: 395
               comprimento: 30
               largura: 30
-          - id: 09
+          - id: '09'
             label: '9'
             retangulo:
               x: 255
@@ -2298,10 +2298,10 @@ picos:
             - 07_base
           - escalada: Tomahawk
             ids:
-            - 08
+            - '08'
           - escalada: Souza Paiol
             ids:
-            - 09
+            - '09'
           - escalada: Marlboro
             ids:
             - '10'
@@ -2527,124 +2527,71 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escalada da Gruta de Passa Vinte - MG
+      conteudo: |-
+        # Guia de Escalada da Gruta de Passa Vinte - MG
 
-
-        | ![Felipe Camargo Via Cavalo de Tróia. Foto: Fábio Moreira](imagens/capa_p0.webp)
-        |
-
+        | ![Felipe Camargo Via Cavalo de Tróia. Foto: Fábio Moreira](imagens/capa_p0.webp) |
         | :--: |
-
         | *Felipe Camargo Via Cavalo de Tróia. Foto: Fábio Moreira* |
 
-
         Jobson Pereira & Juliano Magalhães
-
-        Março 2023'
+        Março 2023
 - texto: Advertência
   destino:
     secao_textual:
-      conteudo: '# ADVERTÊNCIA
-
+      conteudo: |-
+        # ADVERTÊNCIA
 
         - Sua segurança é sua responsabilidade, respeite seus limites e seja prudente.
-
-        - As informações contidas nesse croqui servem apenas para indicar as vias
-        de escalada, não assegurando a integridade física das proteções fixas das
-        rotas indicadas.
-
-        - Os autores não se responsabilizam pela utilização ou má interpretação das
-        informações contidas nessa publicação.
-
-        - A utilização de capacete é recomendável durante toda a permanência no setor
-        acampamento.
-
-        - Atenção para as serpentes! Recomenda-se o uso de perneiras ou galochas na
-        trilha.
-
-        - Proteja e respeite a natureza. Não retire nada, leve todo seu lixo de volta
-        e não faça fogueira.
-
-        - Respeite o silêncio. Evite levar equipamentos sonoros para os locais de
-        escalada.
-
-        - O acesso aos setores de escalada é feito através de propriedade particular.
-        Dessa forma, tenha cuidado com os animais no pasto, feche todas as porteiras
-        que abrir e cuidado ao estacionar seu veículo para não fechar o trânsito.'
+        - As informações contidas nesse croqui servem apenas para indicar as vias de escalada, não assegurando a integridade física das proteções fixas das rotas indicadas.
+        - Os autores não se responsabilizam pela utilização ou má interpretação das informações contidas nessa publicação.
+        - A utilização de capacete é recomendável durante toda a permanência no setor acampamento.
+        - Atenção para as serpentes! Recomenda-se o uso de perneiras ou galochas na trilha.
+        - Proteja e respeite a natureza. Não retire nada, leve todo seu lixo de volta e não faça fogueira.
+        - Respeite o silêncio. Evite levar equipamentos sonoros para os locais de escalada.
+        - O acesso aos setores de escalada é feito através de propriedade particular. Dessa forma, tenha cuidado com os animais no pasto, feche todas as porteiras que abrir e cuidado ao estacionar seu veículo para não fechar o trânsito.
 - texto: Apresentação
   destino:
     secao_textual:
-      conteudo: '# APRESENTAÇÃO
+      conteudo: |-
+        # APRESENTAÇÃO
 
-
-        | ![Juliano Magalhães na Via Pau Mandado. Foto: Jobson Pereira](imagens/lista_de_setores_p0.webp)
-        |
-
+        | ![Juliano Magalhães na Via Pau Mandado. Foto: Jobson Pereira](imagens/lista_de_setores_p0.webp) |
         | :--: |
-
         | *Juliano Magalhães na Via Pau Mandado. Foto: Jobson Pereira* |
 
+        A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da escalada esportiva em Novembro de 2008, quando um grupo de amigos iniciaram as primeiras conquistas no local. Desde então, os trabalhos de abertura de novas vias se tornaram incessantes pela qualidade da rocha, negatividade das vias abrigadas das chuvas e acesso relativamente tranquilo, com uma caminhada de 20 a 30 minutos.
 
-        A Gruta de Passa Vinte começou a se tornar um destinos dos amantes da escalada
-        esportiva em Novembro de 2008, quando um grupo de amigos iniciaram as primeiras
-        conquistas no local. Desde então, os trabalhos de abertura de novas vias se
-        tornaram incessantes pela qualidade da rocha, negatividade das vias abrigadas
-        das chuvas e acesso relativamente tranquilo, com uma caminhada de 20 a 30
-        minutos.
+        Atualmente, o setor possui aproximadamente 150 vias, com graduações que vão do IV a 11c, além de vários projetos de alto grau de dificuldade. Dentre essas rotas, há uma diversidade de estilos de escalada que tornam o local completo com vias verticais, negativas, positivas e tetos. A rocha predominante é o gnaisse que proporcionada uma diversidade de formações de agarras.
 
-
-        Atualmente, o setor possui aproximadamente 150 vias, com graduações que vão
-        do IV a 11c, além de vários projetos de alto grau de dificuldade. Dentre essas
-        rotas, há uma diversidade de estilos de escalada que tornam o local completo
-        com vias verticais, negativas, positivas e tetos. A rocha predominante é o
-        gnaisse que proporcionada uma diversidade de formações de agarras.
-
-
-        No inverno o sol demora um pouco mais para sair da parede, ficando no positivo
-        central até por volta de 11h e no setor vertical da chegada até 13h. Já no
-        verão, o sol sai do positivo central por volta das 9h e no vertical da chegada
-        por volta das 11h. Assim, planeje os horários e setores da sua escalada se
-        quer fugir do sol.'
+        No inverno o sol demora um pouco mais para sair da parede, ficando no positivo central até por volta de 11h e no setor vertical da chegada até 13h. Já no verão, o sol sai do positivo central por volta das 9h e no vertical da chegada por volta das 11h. Assim, planeje os horários e setores da sua escalada se quer fugir do sol.
 - texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# COMO CHEGAR
+      conteudo: |-
+        # COMO CHEGAR
 
-
-        Coordenada geográfica e link do Google Maps da entrada da estrada de terra
-        que dá acesso ao setor de escalada, que está a aproximadamente a 2,5 km do
-        centro da cidade de Passa Vinte - MG.
-
+        Coordenada geográfica e link do Google Maps da entrada da estrada de terra que dá acesso ao setor de escalada, que está a aproximadamente a 2,5 km do centro da cidade de Passa Vinte - MG.
 
         Coordenadas: -22.192972, -44.236583
 
-
         [https://goo.gl/maps/GV6WQ7tfJhWc2RxP7](https://goo.gl/maps/GV6WQ7tfJhWc2RxP7)
 
-
-        Ao chegar nesse ponto do link acima seguir por aproximadamente 1 km na estrada
-        de terra até a placa indicativa de acesso a trilha da Gruta de Passa Vinte.'
+        Ao chegar nesse ponto do link acima seguir por aproximadamente 1 km na estrada de terra até a placa indicativa de acesso a trilha da Gruta de Passa Vinte.
 - texto: Contatos
   destino:
     secao_textual:
-      conteudo: '# CONTATOS
+      conteudo: |-
+        # CONTATOS
 
-
-        | ![Gruta de Passa Vinte. Foto: Jobson Pereira](imagens/contatos_p0.webp)
-        |
-
+        | ![Gruta de Passa Vinte. Foto: Jobson Pereira](imagens/contatos_p0.webp) |
         | :--: |
-
         | *Gruta de Passa Vinte. Foto: Jobson Pereira* |
 
-
         - Jobson Pereira - Instagram: [@jobson_pereira1967](https://www.instagram.com/jobson_pereira1967)
-
         - Juliano Magalhães - Instagram: [@jzmagalhaes](https://www.instagram.com/jzmagalhaes)
-
         - Instagram: [@escalada_itatiaia](https://www.instagram.com/escalada_itatiaia)
-
-        - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)'
+        - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

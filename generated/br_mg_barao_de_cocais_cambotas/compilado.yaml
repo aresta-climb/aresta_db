@@ -78,19 +78,14 @@ picos:
             - Gustavo Vianna
             descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado.
               Tem um teto espetacular na parte final da via. Muito bonita!
-        descricao: '# Setor Caverninha
+        descricao: |-
+          # Setor Caverninha
 
+          O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".
 
-          O setor Caverninha possui algumas das vias mais desafiadoras e interessantes
-          do complexo, incluindo a via "O doce e o amargo".
-
-
-          | ![Via ''O doce e o amargo'', número 3](imagens/setor_caverninha_p0_i1.webp)
-          |
-
+          | ![Via 'O doce e o amargo', número 3](imagens/setor_caverninha_p0_i1.webp) |
           | :--: |
-
-          | *Via ''O doce e o amargo'', número 3* |'
+          | *Via 'O doce e o amargo', número 3* |
   - setor:
       conteudo:
         nome: Torres
@@ -126,16 +121,13 @@ picos:
             descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas
               também feitas com proteções móveis. Segue um sistema de chaminés de
               tamanhos variados.
-        descricao: '# Setor Torres
-
+        descricao: |-
+          # Setor Torres
 
           O setor Torres possui paredes positivas com vias longas.
 
-
           **Dicas de Segurança:**
-
-          Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via
-          Homens Verdes.'
+          Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via Homens Verdes.
   - setor:
       conteudo:
         nome: Felinas
@@ -367,11 +359,10 @@ picos:
             - Gustavo Piancastelli
             descricao: Linda via que corta o arco em grande teto protegido com chapeletas.
             comprimento_total: 150
-        descricao: '# Setor Arco
+        descricao: |-
+          # Setor Arco
 
-
-          O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas,
-          com linhas que desafiam o escalador em tetos e fendas impressionantes.'
+          O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
   - setor:
       conteudo:
         nome: Aresta
@@ -476,18 +467,14 @@ picos:
             - Gustavo Vianna
             - Gustavo Piancastelli
             descricao: Fenda em diagonal que une as duas vias anteriores. Peças médias.
-        descricao: '# Setor Aresta
+        descricao: |-
+          # Setor Aresta
 
-
-          O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de
-          200 metros que é um marco na escalada mineira.
-
+          O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.
 
           | ![Aresta Eletrizante](imagens/setor_aresta_p3.webp) |
-
           | :--: |
-
-          | *Aresta Eletrizante* |'
+          | *Aresta Eletrizante* |
   - setor:
       conteudo:
         nome: Polegar
@@ -519,18 +506,14 @@ picos:
             conquistadores:
             - Gustavo Piancastelli
             descricao: Projeto na grande chaminé entre o Polegar e a parede principal.
-        descricao: '# Setor Polegar
+        descricao: |-
+          # Setor Polegar
 
-
-          O setor Polegar apresenta vias que exploram as arestas e chaminés desta
-          formação característica.
-
+          O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.
 
           | ![Visão do Polegar](imagens/setor_polegar_p0.webp) |
-
           | :--: |
-
-          | *Visão do Polegar* |'
+          | *Visão do Polegar* |
   - setor:
       conteudo:
         nome: Totem
@@ -559,17 +542,14 @@ picos:
             descricao: Linda via. Escalada bastante estética em aresta negativa. Proporciona
               belas imagens. Top equipado com mosquetões de aço para desequipagem
               da via.
-        descricao: '# Setor Totem
-
+        descricao: |-
+          # Setor Totem
 
           O setor Totem é uma formação isolada com vias técnicas e estéticas.
 
-
           | ![Visão do Totem](imagens/setor_totem_p0.webp) |
-
           | :--: |
-
-          | *Visão do Totem* |'
+          | *Visão do Totem* |
   - setor:
       conteudo:
         nome: Enigma da Esfinge
@@ -590,11 +570,10 @@ picos:
               1 clif talon, 1 par estribo.'
             descricao: Via técnica com trechos em artificial.
             comprimento_total: 80
-        descricao: '# Setor Enigma da Esfinge
+        descricao: |-
+          # Setor Enigma da Esfinge
 
-
-          O setor é composto pela via homônima, uma linha desafiadora que combina
-          escalada livre técnica com trechos de artificial.'
+          O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
   - setor:
       conteudo:
         nome: Jardim da Fantasia
@@ -620,11 +599,10 @@ picos:
             descricao: Via longa com 5 enfiadas, alternando entre escalada livre e
               móvel.
             comprimento_total: 180
-        descricao: '# Setor Jardim da Fantasia
+        descricao: |-
+          # Setor Jardim da Fantasia
 
-
-          O setor Jardim da Fantasia é composto pela via de 180 metros que percorre
-          uma linha impressionante na parede.'
+          O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
   mapas_gerais:
     conteudo:
       mapas:
@@ -635,28 +613,21 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# CAMBOTAS
-
+      conteudo: |-
+        # CAMBOTAS
 
         ## Serra de Ita-marãen ou Serra do Garimpo
-
         ### Canela de Ema Adventure Park
 
-
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
-
 
         **Croquiteca edição 07/2019**
 
+        **GPS:** 19º53'5290'' 43º32'1188''
 
-        **GPS:** 19º53''5290'''' 43º32''1188''''
-
-
-        **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado'
+        **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado
 - texto: Principais Vias I
   destino:
     secao_textual:
@@ -667,46 +638,32 @@ botoes:
 - texto: Principais Vias II
   destino:
     secao_textual:
-      conteudo: '# Principais Vias da Serra da Cambota (Mapa Geral)
+      conteudo: |-
+        # Principais Vias da Serra da Cambota (Mapa Geral)
 
-
-        Este mapa ilustra a localização das principais vias em relação às paredes
-        e setores da Serra da Cambota.
-
+        Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
 
         | ![Mapa Geral de Vias](imagens/setor_principais_vias_2_p0.webp) |
-
         | :--: |
-
-        | *Mapa Geral de Vias* |'
+        | *Mapa Geral de Vias* |
 - texto: Contato
   destino:
     secao_textual:
-      conteudo: '# Contato
-
+      conteudo: |-
+        # Contato
 
         **Canela de Ema Adventure Park**
 
-
         | ![Logo](imagens/contato_p0.webp) |
-
         | :--: |
-
         | *Logo* |
 
-
         - **Telefone (Park):** (31) 99662-2006
-
         - **WhatsApp:** (31) 99642-2006
-
         - **Website:** [www.canelaema.com.br](http://www.canelaema.com.br)
-
         - **E-mail:** comercial@canelaema.com.br
-
-        - **GPS:** 19º53''5290'''' 43º32''1188''''
-
-        - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262),
-        KM 2,5, Caeté - MG, CEP 34800-000'
+        - **GPS:** 19º53'5290'' 43º32'1188''
+        - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0.webp

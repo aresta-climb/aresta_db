@@ -383,18 +383,14 @@ picos:
         - via_esportiva:
             nome: Variante do Judas
             dificuldade: BR_4
-        descricao: '# Croqui 01 da Pedra Branca
+        descricao: |-
+          # Croqui 01 da Pedra Branca
 
-
-          Considere uma ou duas costuras a mais, pois pode ter erro na contagem das
-          proteções.
-
+          Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
 
           **Autores:** Mauricio Juntolli, Danilo Stehling.
-
           **Atualizado em:** 2010.
-
-          **Fonte:** http://www.escaladacaete.eu5.org'
+          **Fonte:** http://www.escaladacaete.eu5.org
   - setor:
       conteudo:
         nome: Croqui 02 da Pedra Branca
@@ -452,15 +448,15 @@ picos:
               y: 464
               comprimento: 24
               largura: 23
-          - id: 08
-            label: 08
+          - id: '08'
+            label: '08'
             retangulo:
               x: 471
               y: 465
               comprimento: 26
               largura: 24
-          - id: 09
-            label: 09
+          - id: '09'
+            label: '09'
             retangulo:
               x: 514
               y: 465
@@ -529,11 +525,11 @@ picos:
             ids:
             - '13'
           - ids:
-            - 08
+            - '08'
             setor: Croqui 02 da Pedra Branca
             escalada: Barbarela
           - ids:
-            - 09
+            - '09'
             setor: Croqui 02 da Pedra Branca
             escalada: Ciganos Molhados
         escaladas:
@@ -577,48 +573,35 @@ picos:
             nome: Parede Preta
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 4
-        descricao: '# Croqui 02 da Pedra Branca
-
+        descricao: |-
+          # Croqui 02 da Pedra Branca
 
           O resto da grampeação da via Parede Preta esta no croqui 01 da Pedra Branca.
 
-
-          Considere uma ou duas costuras a mais, pois pode ter erro na contagem das
-          proteções.
-
+          Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
 
           **Autores:** Mauricio Juntolli, Danilo Stehling.
-
           **Atualizado em:** 2010.
-
-          **Fonte:** http://www.escaladacaete.eu5.org'
+          **Fonte:** http://www.escaladacaete.eu5.org
 botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Capa
-
+      conteudo: |-
+        # Capa
 
         | ![Pedra Branca](imagens/pagina_0_imagem_0.webp) |
-
         | :--: |
-
         | *Pedra Branca* |
 
-
         **Pedra Branca**
-
         Caeté - MG
 
-
         **Autores:**
-
         Mauricio Juntolli
-
         Danilo Stehling
 
-
-        Atualizado em: 2010'
+        Atualizado em: 2010
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

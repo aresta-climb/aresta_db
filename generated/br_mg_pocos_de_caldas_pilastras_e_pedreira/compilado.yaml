@@ -93,19 +93,14 @@ picos:
         - via_esportiva:
             nome: Stuart Little
             dificuldade: BR_5
-        descricao: '| ![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp)
-          |
-
+        descricao: |-
+          | ![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp) |
           | :--: |
-
           | *Escalador na via Normal da primeira Pilastra* |
 
-
           Setor clássico com escalada em pilastras de pedra.
-
           Atenção: Abelhas em todas as faces da Segunda Pilastra.
-
-          Terceira Pilastra possui projetos inacabados devido às abelhas.'
+          Terceira Pilastra possui projetos inacabados devido às abelhas.
   - setor:
       conteudo:
         nome: A Pedreira
@@ -132,33 +127,21 @@ picos:
         - via_esportiva:
             nome: Pe pra fora
             dificuldade: BR_6SUP
-        descricao: '| ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp)
-          |
-
+        descricao: |-
+          | ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp) |
           | :--: |
-
           | *Mapa de acesso à Pedreira* |
 
-
           | ![Escalador na via Europa](imagens/setor_a_pedreira_p1_i1.webp) |
-
           | :--: |
-
           | *Escalador na via Europa* |
-
 
           Próximo a estes setores possui uma pedreira com algumas vias também.
 
-
           Como chegar:
+          Siga em direção as Pilastras porém ao invés de entrar à direita após o reservatório continue em frente, passe dois redutores de velocidade e quando encontrar o terceiro olhe a sua esquerda e avistará a pedreira.
 
-          Siga em direção as Pilastras porém ao invés de entrar à direita após o reservatório
-          continue em frente, passe dois redutores de velocidade e quando encontrar
-          o terceiro olhe a sua esquerda e avistará a pedreira.
-
-
-          Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem
-          variar de acordo com a técnica e a estatura do escalador.'
+          Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
 caminho_thumbnail: imagens/capa_p0_i1.webp
 botoes:
 - texto: Capa
@@ -200,56 +183,35 @@ botoes:
 - texto: Como chegar
   destino:
     secao_textual:
-      conteudo: '# Como chegar:
-
+      conteudo: |-
+        # Como chegar:
 
         ## Coordenadas Pilastras
-
         -21.796521, -46.591156
 
-
         ## Coordenadas Estacionamento
-
         Av. Buenos Aires, 452 - Jardim Novo Mundo
-
         Poços de Caldas - MG, 37701-367 - -21.793883, -46.589829
-
 
         ## Mapa saindo do Parque Municipal de Poços de Caldas
 
-
         | ![Mapa de acesso](imagens/como_chegar_p0_i1.webp) |
-
         | :--: |
-
         | *Mapa de acesso* |
 
+        Suba a rua a esquerda do parque Country Club (Rua Francisco Jesualdi) ao final dela encontrará a caixa d´água do bairro como da foto a seguir:
 
-        Suba a rua a esquerda do parque Country Club (Rua Francisco Jesualdi) ao final
-        dela encontrará a caixa d´água do bairro como da foto a seguir:
-
-
-        | ![Caixa d''água](imagens/como_chegar_p1_i1.webp) |
-
+        | ![Caixa d'água](imagens/como_chegar_p1_i1.webp) |
         | :--: |
+        | *Caixa d'água* |
 
-        | *Caixa d''água* |
-
-
-        Vire a primeira a direita logo após o reservatório (Av. Buenos Aires) e estacione
-        próximo ao número 452 quase ao final da rua:
-
+        Vire a primeira a direita logo após o reservatório (Av. Buenos Aires) e estacione próximo ao número 452 quase ao final da rua:
 
         | ![Estacionamento e início da trilha](imagens/como_chegar_p1_i2.webp) |
-
         | :--: |
-
         | *Estacionamento e início da trilha* |
 
-
-        A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer
-        o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire
-        à esquerda novamente e já encontrara o primeiro setor, o Vale.'
+        A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire à esquerda novamente e já encontrara o primeiro setor, o Vale.
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0_i1.webp

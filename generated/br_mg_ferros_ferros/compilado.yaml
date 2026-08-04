@@ -1,11 +1,8 @@
 id: br_mg_ferros_ferros
 nome: Ferros
-descricao: 'Guia de escaladas de Ferros, Minas Gerais.
-
-  Um dos maiores polos de escalada em granito do Brasil, com centenas de vias que
-  variam de curtas esportivas a longas paredes de mais de 200 metros.
-
-  '
+descricao: |
+  Guia de escaladas de Ferros, Minas Gerais.
+  Um dos maiores polos de escalada em granito do Brasil, com centenas de vias que variam de curtas esportivas a longas paredes de mais de 200 metros.
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Ferros
@@ -291,28 +288,16 @@ picos:
               proteções fixas. A descida é feita por trilha ao lado direito da falésia,
               ou pela via “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue
               a linha natural da pedra até o topo.
-        descricao: '| ![Maria Fernanda na conquista da “Pé na Chapa”](imagens/setor_cachoeira_p2_i1.webp)
-          |
-
+        descricao: |-
+          | ![Maria Fernanda na conquista da “Pé na Chapa”](imagens/setor_cachoeira_p2_i1.webp) |
           | :--: |
-
           | *Maria Fernanda na conquista da “Pé na Chapa”* |
 
+          O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
 
-          O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas
-          quatro vias, ideais para os primeiros contatos com a escalada em rocha,
-          em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
+          A base destas vias fica a dez minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
 
-
-          A base destas vias fica a dez minutos da sede da fazenda Retiro das Águas,
-          na lateral direita da estrada de terra, ainda acessível por automóveis,
-          logo após uma pequena casa sem uso no lado esquerdo da mesma.
-
-
-          Este setor, apesar de curto e com lances simples, por ficar no sol o dia
-          quase todo, apresenta uma parede bastante quente (como indica o nome de
-          duas das vias), sendo ideal para escaladas pela parte inicial da manhã,
-          ou ao final da tarde.'
+          Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
   - grupo:
       conteudo:
         nome: Parede das Aderências
@@ -399,43 +384,20 @@ picos:
                   a rocha mostra-se mais friável. Após a parada dupla, seguem-se mais
                   três lances fáceis até o final da via. A parada dupla é uma boa
                   opção para o top-rope envolvendo a sequência de lances de VI.
-            descricao: '| ![Gustavo “Xaxá” Carrozzino próximo às bases do setor](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i1.webp)
-              |
-
+            descricao: |-
+              | ![Gustavo “Xaxá” Carrozzino próximo às bases do setor](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i1.webp) |
               | :--: |
-
               | *Gustavo “Xaxá” Carrozzino próximo às bases do setor* |
 
+              Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
 
-              Este é o primeiro setor da Parede das Aderências, um pouco isolado do
-              resto da parede, por localizar-se quase na borda inicial do Vale do
-              Roncador e por possuir muita vegetação ao seu redor.
+              Para acessar as bases das vias neste setor, é necessário pegar a trilha do Vale do Roncador, que se inicia um pouco depois do Subsetor Cachoeira, subindo em diagonal para a direita da estrada de terra.
 
+              Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção ao fazer este procedimento, primeiro para não causar lesões, e em segundo lugar, para não causar danos à estrutura da cerca. Existe um bom espaço que possibilita a passagem por baixo da cerca, sem grandes esforços.
 
-              Para acessar as bases das vias neste setor, é necessário pegar a trilha
-              do Vale do Roncador, que se inicia um pouco depois do Subsetor Cachoeira,
-              subindo em diagonal para a direita da estrada de terra.
+              Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou” e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
 
-
-              Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego
-              e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção
-              ao fazer este procedimento, primeiro para não causar lesões, e em segundo
-              lugar, para não causar danos à estrutura da cerca. Existe um bom espaço
-              que possibilita a passagem por baixo da cerca, sem grandes esforços.
-
-
-              Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até
-              juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem
-              Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou”
-              e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
-
-
-              Em geral, são vias de baixa graduação, boas para treinar o psicológico
-              gradualmente, uma vez que as vias variam seu grau de exposição, possuindo
-              vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção
-              é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui
-              lances de VI grau, exigindo maior atenção e habilidade por parte do
-              escalador.'
+              Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
         - conteudo:
             nome: Esquerda
             mapas:
@@ -708,44 +670,20 @@ picos:
                 descricao: Via que conta com 19 grampos de ½ e três paradas duplas.
                   Homenageia o falecido garanhão Mangalarga-marchador Prateado, que
                   fez história na fazenda.
-            descricao: '| ![Pedro Bugim na conquista da “O Psicopata de Ferros”](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp)
-              |
-
+            descricao: |-
+              | ![Pedro Bugim na conquista da “O Psicopata de Ferros”](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp) |
               | :--: |
-
               | *Pedro Bugim na conquista da “O Psicopata de Ferros”* |
 
+              O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
 
-              O Setor Esquerdo da Parede das Aderências é dividido em duas partes
-              (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação,
-              possuindo vias de 20 até 140 metros de extensão, predominantemente em
-              aderência.
+              Apesar do setor ser predominantemente de aderência, três vias destoam das demais, sendo quase que completamente em móvel (“Fissurim”, “O Psicopata de Ferros” e “Vr. Caçadora de Micuim”), seguindo por bonitas fendas, proporcionando ao escalador um bom treino desta técnica.
 
+              O acesso às bases é feito pela trilha principal do Vale do Roncador. Após a primeira travessia do córrego, anda-se aproximadamente 100 metros até encontrar – à esquerda - a entrada da picada que leva às bases das primeiras vias neste setor (“Cordada 171”, “Inês é Morta” e “Sempre Viva”), logo antes de passar por uma porteira. Esta trilha, apesar de pouco visível, está marcada com um totem de pedra em seu início.
 
-              Apesar do setor ser predominantemente de aderência, três vias destoam
-              das demais, sendo quase que completamente em móvel (“Fissurim”, “O Psicopata
-              de Ferros” e “Vr. Caçadora de Micuim”), seguindo por bonitas fendas,
-              proporcionando ao escalador um bom treino desta técnica.
+              Para as demais vias da parte esquerda deste setor, basta continuar por poucos metros na trilha principal, uma vez que as bases saem quase diretamente desta trilha.
 
-
-              O acesso às bases é feito pela trilha principal do Vale do Roncador.
-              Após a primeira travessia do córrego, anda-se aproximadamente 100 metros
-              até encontrar – à esquerda - a entrada da picada que leva às bases das
-              primeiras vias neste setor (“Cordada 171”, “Inês é Morta” e “Sempre
-              Viva”), logo antes de passar por uma porteira. Esta trilha, apesar de
-              pouco visível, está marcada com um totem de pedra em seu início.
-
-
-              Para as demais vias da parte esquerda deste setor, basta continuar por
-              poucos metros na trilha principal, uma vez que as bases saem quase diretamente
-              desta trilha.
-
-
-              Para acessar as bases do setor da direita, segue-se por aproximadamente
-              80 metros na trilha principal até encontrar a picada que sobe à esquerda.
-              Desta picada, pode-se costear a parede, seguindo por cima ou para baixo,
-              com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço
-              de Minhoca”.'
+              Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metros na trilha principal até encontrar a picada que sobe à esquerda. Desta picada, pode-se costear a parede, seguindo por cima ou para baixo, com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço de Minhoca”.
         - conteudo:
             nome: Parede das Aderências – Face Central
             mapas:
@@ -770,45 +708,22 @@ picos:
               - escalada: Ferro na Boneca
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
             descricao: ''
-        descricao: '# A Parede das Aderências
+        descricao: |-
+          # A Parede das Aderências
 
+          Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
 
-          Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede
-          das Aderências, de dimensões mais reduzidas do que a Parede Principal e
-          com vias predominantemente em aderência - como o próprio nome sugere – variando
-          de 20 a 230 metros de extensão.
+          As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”, paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico. Os graus específicos mais frequentes ficam entre IV e V (crux), havendo uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O Psicopata de Ferros”).
 
+          Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho do vale.
 
-          As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”,
-          paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico.
-          Os graus específicos mais frequentes ficam entre IV e V (crux), havendo
-          uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O
-          Psicopata de Ferros”).
+          Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
 
-
-          Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata
-          de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup
-          – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup
-          – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho
-          do vale.
-
-
-          Este setor é imperdível para aqueles que apreciam a técnica de aderência,
-          bem como aos que estão necessitando de treino na referida. Apesar das poucas
-          agarras, a aderência da pedra é impressionante, conferindo muita confiança
-          ao escalador.
-
-
-          | ![Tonico, na conquista da “Solamente” - solo integral](imagens/grupo_aderencias_p0_i1.webp)
-          |
-
+          | ![Tonico, na conquista da “Solamente” - solo integral](imagens/grupo_aderencias_p0_i1.webp) |
           | :--: |
-
           | *Tonico, na conquista da “Solamente” - solo integral* |
 
-
-          Curiosamente, algumas destas vias possuem também proteções mistas, ou seja,
-          intercalando grampos fixos e materiais móveis.'
+          Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
   - grupo:
       conteudo:
         nome: Parede Principal (Paredes de Aço)
@@ -1229,17 +1144,12 @@ picos:
                 - Tonico Magalhães
                 - Luciano Bender
                 data_abertura: '2011-06-22'
-            descricao: '| ![Rodrigo Magalhães guiando a “Couro de Lobisomem”](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
-              |
-
+            descricao: |-
+              | ![Rodrigo Magalhães guiando a “Couro de Lobisomem”](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp) |
               | :--: |
-
               | *Rodrigo Magalhães guiando a “Couro de Lobisomem”* |
 
-
-              Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas
-              Curtas, que se estende do início da Parede Principal até uma língua
-              de mato que o separa do núcleo da parede.'
+              Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede.
         - conteudo:
             nome: Parede Principal – Direita
             mapas:
@@ -1565,12 +1475,10 @@ picos:
                 dificuldade: BR_2
                 exposicao: E3
                 extensao: 18
-            descricao: '| ![Larissa Lopez na “Flor da Pele”](imagens/grupo_principal_setor_direita_p7_i0.webp)
-              |
-
+            descricao: |-
+              | ![Larissa Lopez na “Flor da Pele”](imagens/grupo_principal_setor_direita_p7_i0.webp) |
               | :--: |
-
-              | *Larissa Lopez na “Flor da Pele”* |'
+              | *Larissa Lopez na “Flor da Pele”* |
         - conteudo:
             nome: Parede Principal – Setor Central
             mapas:
@@ -1951,12 +1859,10 @@ picos:
                 nome: Macambúzio
                 dificuldade: BR_3SUP
                 extensao: 80
-            descricao: '| ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp)
-              |
-
+            descricao: |-
+              | ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp) |
               | :--: |
-
-              | *Escaladores na “Cordão do Bola Preta”* |'
+              | *Escaladores na “Cordão do Bola Preta”* |
         - conteudo:
             nome: Parede Principal – Setor de Cima
             mapas:
@@ -2137,12 +2043,10 @@ picos:
                 dificuldade: BR_3SUP
                 exposicao: E2
                 extensao: 120
-            descricao: '| ![Vista da Parede Principal – Setor de Cima](imagens/grupo_principal_setor_setor_de_cima_p0_i4.webp)
-              |
-
+            descricao: |-
+              | ![Vista da Parede Principal – Setor de Cima](imagens/grupo_principal_setor_setor_de_cima_p0_i4.webp) |
               | :--: |
-
-              | *Vista da Parede Principal – Setor de Cima* |'
+              | *Vista da Parede Principal – Setor de Cima* |
         - conteudo:
             nome: Parede Principal – Setor Clássicas Longas
             mapas:
@@ -2516,24 +2420,16 @@ picos:
                 nome: Atalho dos Duendes
                 dificuldade: BR_3
                 extensao: 70
-            descricao: '| ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
-              |
-
+            descricao: |-
+              | ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp) |
               | :--: |
-
-              | *Laura Petroni e João Pedro na P1 da “Trio Elétrico”* |'
-        descricao: '| ![A Parede Principal, vista do topo da Parede das Aderências
-          – Central](imagens/grupo_principal_p0_i1.webp) |
-
+              | *Laura Petroni e João Pedro na P1 da “Trio Elétrico”* |
+        descricao: |-
+          | ![A Parede Principal, vista do topo da Parede das Aderências – Central](imagens/grupo_principal_p0_i1.webp) |
           | :--: |
+          | *A Parede Principal, vista do topo da Parede das Aderências – Central* |
 
-          | *A Parede Principal, vista do topo da Parede das Aderências – Central*
-          |
-
-
-          Com vias entre 18 e 220 metros, a Parede Principal é uma das principais
-          atrações para os escaladores que visitam Ferros. Esta parede colossal possui
-          cerca de dois quilômetros de extensão.'
+          Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão.
   - setor:
       conteudo:
         nome: Setor Vias Esportivas
@@ -2591,7 +2487,7 @@ picos:
               x: 605
               y: 538
               raio: 12
-          - id: 08
+          - id: '08'
             label: '8'
             circulo:
               x: 576
@@ -2623,7 +2519,7 @@ picos:
               y: 35
               comprimento: 520
               largura: 42
-          - id: 09
+          - id: '09'
             label: '9'
             circulo:
               x: 76
@@ -2798,35 +2694,19 @@ picos:
             - Valdinei Lima
             data_abertura: '2008-02-06'
             descricao: Via atlética cujo crux é o último lance.
-        descricao: '| ![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp)
-          |
-
+        descricao: |-
+          | ![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp) |
           | :--: |
-
           | *Visão geral do Setor das Vias Esportivas* |
-
-          | ![Tonico martelando a “Bruxa Albano”](imagens/setor_vias_esportivas_p2_i3.webp)
-          |
-
+          | ![Tonico martelando a “Bruxa Albano”](imagens/setor_vias_esportivas_p2_i3.webp) |
           | :--: |
-
           | *Tonico martelando a “Bruxa Albano”* |
 
+          Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
 
-          Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito
-          fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca
-          de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias
-          de chuva moderada, pois um grande teto as protege.
+          Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
 
-
-          Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira,
-          Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com
-          destaque para os dois últimos, em função da quantidade: dez e nove vias,
-          respectivamente.
-
-
-          Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa),
-          “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).'
+          Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
   - setor:
       conteudo:
         nome: Parede dos Solos
@@ -3080,17 +2960,14 @@ picos:
                 nome: Brumas de Inverno
                 dificuldade: BR_4
                 extensao: 10
-            descricao: '| ![Juliano Magalhães escalando da Face das Esportivas](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp)
-              |
-
+            descricao: |-
+              | ![Juliano Magalhães escalando da Face das Esportivas](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp) |
               | :--: |
-
-              | *Juliano Magalhães escalando da Face das Esportivas* |'
-        descricao: '| ![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp) |
-
+              | *Juliano Magalhães escalando da Face das Esportivas* |
+        descricao: |-
+          | ![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp) |
           | :--: |
-
-          | *Pedra do Neri* |'
+          | *Pedra do Neri* |
   - setor:
       conteudo:
         nome: Parede da Água Limpa
@@ -3145,27 +3022,14 @@ picos:
               é possível rapelar de chapas com argola, colocadas a cada 25 metros.
               Rapel possível com corda de 60m, sendo recomendado a utilização de duas
               cordas de 60.
-        descricao: '| ![Vivianne Sawczuk na conquista da “Dama de Ferros”](imagens/setor_parede_da_agua_limpa_p0_i1.webp)
-          |
-
+        descricao: |-
+          | ![Vivianne Sawczuk na conquista da “Dama de Ferros”](imagens/setor_parede_da_agua_limpa_p0_i1.webp) |
           | :--: |
-
           | *Vivianne Sawczuk na conquista da “Dama de Ferros”* |
 
+          As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar lá, deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estrada adentra ao mágico vale.
 
-          As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca
-          de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas
-          do guia). Para se chegar lá, deve-se ir para o encontro dos rios Santo Antonio
-          e Tanque, conhecido ponto turístico de Ferros, seguindo-se a estrada que
-          acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede.
-          De lá uma rápida estrada adentra ao mágico vale.
-
-
-          O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos
-          que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira
-          do local e possui mais de 400 metros. Um projeto, que visa aproveitar a
-          máxima extensão da parede, já foi iniciado em meio a uma grande extensão
-          de paredes intocadas.'
+          O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
   - setor:
       conteudo:
         nome: Parede da CENIBRA
@@ -3218,13 +3082,8 @@ picos:
             - Tonico Magalhães
             - Luciando Bender
             data_abertura: '2013-07-21'
-            descricao: 'Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica
-              localizada à direita de uma pequena cachoeira que despenca da parede.
-              Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido
-              por friends pequenos e médios. Segue em grampos pela extensão da fissura,
-              ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
-
-              '
+            descricao: |
+              Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2". ESTILO: MISTA
         mapas:
         - caminho_imagem_mapa: imagens/setor_outras_vias_p0.webp
           referencias:
@@ -3232,11 +3091,10 @@ picos:
           - escalada: Fissura Cachoeira Quente
           largura_mapa: 1241
           altura_mapa: 1754
-        descricao: '| ![Outras Vias](imagens/setor_outras_vias_p0_2.webp) |
-
+        descricao: |-
+          | ![Outras Vias](imagens/setor_outras_vias_p0_2.webp) |
           | :--: |
-
-          | *Outras Vias* |'
+          | *Outras Vias* |
   mapas_gerais:
     conteudo:
       mapas:
@@ -3762,463 +3620,197 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escaladas – Ferros / MG
-
+      conteudo: |-
+        # Guia de Escaladas – Ferros / MG
 
         | ![Capa](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
         **Autores:**
-
         - Pedro Bugim Ruel Vergnano
-
         - Antonio Carlos Magalhães
-
         - Celso José Ferreira Gomes
 
-
-        **Ano:** 2018'
+        **Ano:** 2018
 - texto: Apresentação
   destino:
     secao_textual:
-      conteudo: '# Apresentação
+      conteudo: |-
+        # Apresentação
 
+        Esse guia apresenta as primeiras 166 vias de escalada implantadas no município mineiro de Ferros, ao longo dos últimos doze anos. Chama a atenção ao fato de que mais da metade dessas vias foi o resultado das conquistas dos últimos seis anos, o que nos mostra um notável incremento das atividades na área. Não obstante, o potencial para novas conquistas nos pontos já regularmente frequentados ainda permanece muito elevado, no Vale do Roncador e nas inúmeras paredes vizinhas.
 
-        Esse guia apresenta as primeiras 166 vias de escalada implantadas no município
-        mineiro de Ferros, ao longo dos últimos doze anos. Chama a atenção ao fato
-        de que mais da metade dessas vias foi o resultado das conquistas dos últimos
-        seis anos, o que nos mostra um notável incremento das atividades na área.
-        Não obstante, o potencial para novas conquistas nos pontos já regularmente
-        frequentados ainda permanece muito elevado, no Vale do Roncador e nas inúmeras
-        paredes vizinhas.
+        O **Vale do Roncador** é a área com paredes que mais se destaca na região. Dominado pelo córrego homônimo, tributário do rio Tanque, é ladeado por paredes rochosas muito próximas entre si. Na margem esquerda do córrego, ou seja, à direita de quem entra no vale, subindo o curso de água, situa-se a Parede Principal (Paredes de Aço). No lado oposto, a Parede das Aderências. No momento retratado por esse guia, o Vale do Roncador concentra mais de 140 vias de escalada!
 
+        Apresentando vias clássicas em agarras e aderências, vias esportivas e atléticas, vias com proteção fixa, móvel e mista, além da paisagem notável cortada pelo rio Tanque, o **Complexo de Ferros** é altamente recomendado a todos os tipos de escaladores, desde os iniciantes até os mais experientes, desde os de estilo eclético e que queiram simplesmente praticar o esporte em geral ou se aprimorar na variedade de estilos, até os de estilo mais específico e que, igualmente, queiram se dedicar ao seu estilo predileto ou nele se aprimorar.
 
-        O **Vale do Roncador** é a área com paredes que mais se destaca na região.
-        Dominado pelo córrego homônimo, tributário do rio Tanque, é ladeado por paredes
-        rochosas muito próximas entre si. Na margem esquerda do córrego, ou seja,
-        à direita de quem entra no vale, subindo o curso de água, situa-se a Parede
-        Principal (Paredes de Aço). No lado oposto, a Parede das Aderências. No momento
-        retratado por esse guia, o Vale do Roncador concentra mais de 140 vias de
-        escalada!
-
-
-        Apresentando vias clássicas em agarras e aderências, vias esportivas e atléticas,
-        vias com proteção fixa, móvel e mista, além da paisagem notável cortada pelo
-        rio Tanque, o **Complexo de Ferros** é altamente recomendado a todos os tipos
-        de escaladores, desde os iniciantes até os mais experientes, desde os de estilo
-        eclético e que queiram simplesmente praticar o esporte em geral ou se aprimorar
-        na variedade de estilos, até os de estilo mais específico e que, igualmente,
-        queiram se dedicar ao seu estilo predileto ou nele se aprimorar.
-
-
-        Assim, pela variedade e quantidade de vias existentes, pela segura e confortável
-        proteção fixa implantada, pela excelente qualidade da rocha, o mineiríssimo
-        granitóide Borrachudo, e pela facilidade de acesso às áreas de escalada, **Ferros
-        apresenta-se hoje como o mais completo polo de escaladas em granito de Minas
-        Gerais.**
-
+        Assim, pela variedade e quantidade de vias existentes, pela segura e confortável proteção fixa implantada, pela excelente qualidade da rocha, o mineiríssimo granitóide Borrachudo, e pela facilidade de acesso às áreas de escalada, **Ferros apresenta-se hoje como o mais completo polo de escaladas em granito de Minas Gerais.**
 
         *Os autores, fevereiro de 2015*
 
-
         ---
-
 
         # ATENÇÃO!
 
+        Escalada é um esporte de risco! Esse guia não capacita o leitor a praticar o montanhismo de forma segura. Para tal, procure instrutores qualificados, de preferência federados e/ou guias de um clube oficial de montanhismo. Lembre-se: Você é responsável pelos seus próprios atos.
 
-        Escalada é um esporte de risco! Esse guia não capacita o leitor a praticar
-        o montanhismo de forma segura. Para tal, procure instrutores qualificados,
-        de preferência federados e/ou guias de um clube oficial de montanhismo. Lembre-se:
-        Você é responsável pelos seus próprios atos.
+        O montanhismo é um esporte de liberdade e tudo o que não precisamos é levar as regras e leis da cidade para a montanha. Mas isto só é possível porque o montanhista que se define como tal segue dois princípios básicos: proteger as montanhas e respeitar os outros que as frequentam.
 
-
-        O montanhismo é um esporte de liberdade e tudo o que não precisamos é levar
-        as regras e leis da cidade para a montanha. Mas isto só é possível porque
-        o montanhista que se define como tal segue dois princípios básicos: proteger
-        as montanhas e respeitar os outros que as frequentam.
-
-
-        Consulte sempre o código de ética vigente no local em que pretende praticar
-        o montanhismo e pense antes de cada ato na montanha, refletindo assim os nossos
-        ideais no esporte através dos tempos. Não deprede a vegetação, priorize as
-        proteções móveis às fixas, evite a equipagem de vias de parede (vindo de cima)
-        ou a abertura de vias/variantes que interfiram no traçado de outras existentes
-        e seja sempre cortês com os montanhistas, moradores e usuários da região.
-
+        Consulte sempre o código de ética vigente no local em que pretende praticar o montanhismo e pense antes de cada ato na montanha, refletindo assim os nossos ideais no esporte através dos tempos. Não deprede a vegetação, priorize as proteções móveis às fixas, evite a equipagem de vias de parede (vindo de cima) ou a abertura de vias/variantes que interfiram no traçado de outras existentes e seja sempre cortês com os montanhistas, moradores e usuários da região.
 
         ## Links Úteis
 
-
         - **CBME** (Confederação Brasileira de Montanhismo e Escalada): http://www.cbme.org.br
-
         - **CEM** (Centro Excursionista Mineiro): http://www.sitedocem.org.br
-
         - **Tonico** (Site pessoal do Tonico Magalhães): http://www.tonicomagalhaes.com.br
-
         - **FEMEMG** (Federação de Montanhismo e Escalada de Minas Gerais): http://www.fememg.org
-
         - **FEMERJ** (Federação de Montanhismo do Estado do Rio de Janeiro): http://www.femerj.org
-
         - **FEMESP** (Federação de Montanhismo do Estado de São Paulo): http://www.femesp.org
-
         - **FEPAM** (Federação Paranaense de Montanhismo): http://www.fepampr.org.br
-
         - **ACE** (Associação Capixaba de Escalada): http://www.ace-es.org.br/
-
         - **FGM** (Federação Gaúcha de Montanhismo): http://www.fgm.org.br
-
         - **FEMECE** (Federação de Montanhismo e Escalada do Estado do Ceará): http://www.femece.org.br
-
 
         ---
 
-
         # Agradecimentos
 
+        A **todos os meus parceiros de conquista em Ferros**, pelos momentos incríveis que passamos na parede e por todas as experiências e aventuras vividas.
 
-        A **todos os meus parceiros de conquista em Ferros**, pelos momentos incríveis
-        que passamos na parede e por todas as experiências e aventuras vividas.
+        Agradecimentos ao amigo **Celso Ferreira Gomes**, pela elaboração do esboço do guia oficial de Ferros, postado no site do Tonico, com informações valiosas para que este presente guia fosse formulado, pela contribuição de dados e pelo minucioso trabalho de revisão.
 
+        Agradecimentos especiais ao amigo **Tonico Magalhães, e à esposa Nádia Moreira**, grande escalador e conquistador, por vossa hospitalidade ímpar nas investidas às paredes de Ferros e pela contribuição com dados precisos e preciosos para a criação deste guia.
 
-        Agradecimentos ao amigo **Celso Ferreira Gomes**, pela elaboração do esboço
-        do guia oficial de Ferros, postado no site do Tonico, com informações valiosas
-        para que este presente guia fosse formulado, pela contribuição de dados e
-        pelo minucioso trabalho de revisão.
-
-
-        Agradecimentos especiais ao amigo **Tonico Magalhães, e à esposa Nádia Moreira**,
-        grande escalador e conquistador, por vossa hospitalidade ímpar nas investidas
-        às paredes de Ferros e pela contribuição com dados precisos e preciosos para
-        a criação deste guia.
-
-
-        Ao Celso e ao Tonico, meu muito obrigado pelo convite para participar deste
-        projeto que, embora muito trabalhoso, está sendo também muito gratificante!
-
+        Ao Celso e ao Tonico, meu muito obrigado pelo convite para participar deste projeto que, embora muito trabalhoso, está sendo também muito gratificante!
 
         *Pedro Bugim*
 
-
-        Ao **Centro Excursionista Mineiro**, por tão bem congregar o povo da montanha
-        de Minas Gerais;
-
+        Ao **Centro Excursionista Mineiro**, por tão bem congregar o povo da montanha de Minas Gerais;
 
         Ao **Tonico**, amigo de fé e parceiro de mais de cem conquistas;
 
+        Ao amigo **Pedro Bugim**, uma pessoa verdadeiramente incansável na batalha de executar, e bem, o que se propõe a fazer;
 
-        Ao amigo **Pedro Bugim**, uma pessoa verdadeiramente incansável na batalha
-        de executar, e bem, o que se propõe a fazer;
+        Aos escaladores e escaladoras com quem já tive a satisfação de escalar em Ferros, especialmente no Vale do Roncador;
 
+        E às pessoas que, animadas por esse guia, nos venham a dar a satisfação da presença.
 
-        Aos escaladores e escaladoras com quem já tive a satisfação de escalar em
-        Ferros, especialmente no Vale do Roncador;
-
-
-        E às pessoas que, animadas por esse guia, nos venham a dar a satisfação da
-        presença.
-
-
-        *Celso Ferreira Gomes*'
+        *Celso Ferreira Gomes*
 - texto: Sobre Ferros e História
   destino:
     secao_textual:
-      conteudo: '# Sobre Ferros
+      conteudo: |-
+        # Sobre Ferros
 
+        **Ferros** é um município brasileiro localizado no Centro-Leste do Estado de Minas Gerais. Sua localização global está situada a 19°13'58 sul e 43°01'20 oeste. A população, de acordo com o censo do IBGE de 2010, é de 10.725 habitantes, sendo dividida meio-a-meio entre a zona urbana e a rural. Dista cerca de 180 km da Capital, Belo Horizonte, no sentido nordeste (saída para Vitória - ES) seguindo pelo percurso: BR 381, MG 434-129 e BR120.
 
-        **Ferros** é um município brasileiro localizado no Centro-Leste do Estado
-        de Minas Gerais. Sua localização global está situada a 19°13''58 sul e 43°01''20
-        oeste. A população, de acordo com o censo do IBGE de 2010, é de 10.725 habitantes,
-        sendo dividida meio-a-meio entre a zona urbana e a rural. Dista cerca de 180
-        km da Capital, Belo Horizonte, no sentido nordeste (saída para Vitória - ES)
-        seguindo pelo percurso: BR 381, MG 434-129 e BR120.
+        A principal atividade econômica do município é a pecuária leiteira e de corte. Em férteis pastagens desenvolvidas nas baixas a médias encostas, o gado girolando produz o leite que é utilizado para fazer principalmente o famoso queijo do Tipo Sêrro e os requeijões negros, típicos da grande bacia leiteira do Leste do Espinhaço.
 
-
-        A principal atividade econômica do município é a pecuária leiteira e de corte.
-        Em férteis pastagens desenvolvidas nas baixas a médias encostas, o gado girolando
-        produz o leite que é utilizado para fazer principalmente o famoso queijo do
-        Tipo Sêrro e os requeijões negros, típicos da grande bacia leiteira do Leste
-        do Espinhaço.
-
-
-        Ferros também é portadora de fantásticas jazidas de água marinha. O garimpo
-        subterrâneo dessas gemas é uma atividade secular na região.
-
+        Ferros também é portadora de fantásticas jazidas de água marinha. O garimpo subterrâneo dessas gemas é uma atividade secular na região.
 
         ## História
 
+        A região de Ferros era chamada no final do século XVIII por **Sertão Proibido**. Isto se devia ao controle da coroa portuguesa na Estrada-Real entre Diamantina e Ouro Preto que proibia o desvio da produção de ouro e diamantes pelo vale do Rio Doce visando escapar do pagamento do Quinto. A estrada que acompanha a fazenda e o Rio Tanque, onde estão as escaladas, foi então um ramo alternativo e clandestino da Estrada-Real naquela época.
 
-        A região de Ferros era chamada no final do século XVIII por **Sertão Proibido**.
-        Isto se devia ao controle da coroa portuguesa na Estrada-Real entre Diamantina
-        e Ouro Preto que proibia o desvio da produção de ouro e diamantes pelo vale
-        do Rio Doce visando escapar do pagamento do Quinto. A estrada que acompanha
-        a fazenda e o Rio Tanque, onde estão as escaladas, foi então um ramo alternativo
-        e clandestino da Estrada-Real naquela época.
-
-
-        | ![Nova Matriz de Santana – Ferros / MG](imagens/sobre_ferros_e_historia_p0_i1.webp)
-        |
-
+        | ![Nova Matriz de Santana – Ferros / MG](imagens/sobre_ferros_e_historia_p0_i1.webp) |
         | :--: |
-
         | *Nova Matriz de Santana – Ferros / MG* |
 
+        Sob a denominação de Santana dos Ferros, surgiu um povoado em função das explorações de ouro e diamantes desenvolvidas às margens do rio Santo Antônio, no último quartel do século XVIII, tendo como fundadores Pedro Fernandes Alves e José Ferreira Santiago, que ali teriam se fixado com o objetivo de minerar. Segundo o cônego Raimundo Trindade e o historiador Waldemar Barbosa, o povoado, em fins do século XIX, prosperou em razão do incremento das atividades de lavoura e pecuária, sendo elevado à vila, com a criação, por lei de 1884, do município, emancipando-se do município de Itabira. A elevação da vila à categoria de Cidade ocorreu dois anos depois. O nome atual, Ferros, foi adotado em 1923, e pode decorrer do processo de mineração então adotado, que, para a retirada do cascalho aurífero do fundo do rio Santo Antônio, compreendia o emprego de ganchos especiais de ferro. Os desbravadores, ao se espalharem pelas profundezas para abrir novas picadas, deixavam suas ferramentas guardadas e, na volta, as recolhiam, tornando o local um depósito de ferros.
 
-        Sob a denominação de Santana dos Ferros, surgiu um povoado em função das explorações
-        de ouro e diamantes desenvolvidas às margens do rio Santo Antônio, no último
-        quartel do século XVIII, tendo como fundadores Pedro Fernandes Alves e José
-        Ferreira Santiago, que ali teriam se fixado com o objetivo de minerar. Segundo
-        o cônego Raimundo Trindade e o historiador Waldemar Barbosa, o povoado, em
-        fins do século XIX, prosperou em razão do incremento das atividades de lavoura
-        e pecuária, sendo elevado à vila, com a criação, por lei de 1884, do município,
-        emancipando-se do município de Itabira. A elevação da vila à categoria de
-        Cidade ocorreu dois anos depois. O nome atual, Ferros, foi adotado em 1923,
-        e pode decorrer do processo de mineração então adotado, que, para a retirada
-        do cascalho aurífero do fundo do rio Santo Antônio, compreendia o emprego
-        de ganchos especiais de ferro. Os desbravadores, ao se espalharem pelas profundezas
-        para abrir novas picadas, deixavam suas ferramentas guardadas e, na volta,
-        as recolhiam, tornando o local um depósito de ferros.
+        Medida em que delas precisavam, recorriam ao depósito, dizendo: "Vamos aos Ferros!". Por outro lado, nós acreditamos que a origem do nome Ferros possa estar relacionada com os estreitos, porém contínuos, filetes de minério de ferro compacto que cortam diversos locais do município e que foram pré-historicamente e historicamente utilizados como material para machados arqueológicos (já encontrados nas áreas das escaladas) ou como primorosa pedra de amolar para foices e facões. Ao longo do tempo, Ferros incorporou ao seu território um grande número de distritos, assim chamados: Esmeralda de Ferros, Cubas, Sete Cachoeiras, Borba Gato, Santa Rita do Rio do Peixe e Santo Antônio. O município possui seu acervo arquitetônico bem preservado e conserva prédios remanescentes de seus primeiros tempos, como as capelas de São José e Nossa Senhora do Rosário e o sobrado da Praça Monsenhor Alípio, que funcionou como Casa de Câmara e Cadeia, passando depois a Fórum e Coletoria, e que atualmente funciona como Casa de Câmara, Biblioteca Municipal, Agência de Passagens e Associação dos Comerciantes.
 
+        A área das fazendas Retiro das Águas e Roncador, onde estão as escaladas, foi palco de ocupação tupi-guarani pré-histórica com datação de cerâmica confirmada em 670 anos, isto é, cerca de 160 anos antes do descobrimento do Brasil, remontando à idade Média Européia. Muito tempo depois disso, sabe-se ainda que em meados a fins do século XIX as últimas tribos botocudas rebeladas que habitavam Ferros e todo o Vale do Rio Doce foram expulsas e mortas pelas forças imperiais e teriam sido vistas pela última vez nos Vales do Roncador e Água Limpa.
 
-        Medida em que delas precisavam, recorriam ao depósito, dizendo: "Vamos aos
-        Ferros!". Por outro lado, nós acreditamos que a origem do nome Ferros possa
-        estar relacionada com os estreitos, porém contínuos, filetes de minério de
-        ferro compacto que cortam diversos locais do município e que foram pré-historicamente
-        e historicamente utilizados como material para machados arqueológicos (já
-        encontrados nas áreas das escaladas) ou como primorosa pedra de amolar para
-        foices e facões. Ao longo do tempo, Ferros incorporou ao seu território um
-        grande número de distritos, assim chamados: Esmeralda de Ferros, Cubas, Sete
-        Cachoeiras, Borba Gato, Santa Rita do Rio do Peixe e Santo Antônio. O município
-        possui seu acervo arquitetônico bem preservado e conserva prédios remanescentes
-        de seus primeiros tempos, como as capelas de São José e Nossa Senhora do Rosário
-        e o sobrado da Praça Monsenhor Alípio, que funcionou como Casa de Câmara e
-        Cadeia, passando depois a Fórum e Coletoria, e que atualmente funciona como
-        Casa de Câmara, Biblioteca Municipal, Agência de Passagens e Associação dos
-        Comerciantes.
-
-
-        A área das fazendas Retiro das Águas e Roncador, onde estão as escaladas,
-        foi palco de ocupação tupi-guarani pré-histórica com datação de cerâmica confirmada
-        em 670 anos, isto é, cerca de 160 anos antes do descobrimento do Brasil, remontando
-        à idade Média Européia. Muito tempo depois disso, sabe-se ainda que em meados
-        a fins do século XIX as últimas tribos botocudas rebeladas que habitavam Ferros
-        e todo o Vale do Rio Doce foram expulsas e mortas pelas forças imperiais e
-        teriam sido vistas pela última vez nos Vales do Roncador e Água Limpa.
-
-
-        Ferros se notabiliza em diversas personalidades importantes. Podemos destacar
-        o romancista Roberto Drummond, da mesma família do famoso poeta modernista
-        Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão
-        e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.'
+        Ferros se notabiliza em diversas personalidades importantes. Podemos destacar o romancista Roberto Drummond, da mesma família do famoso poeta modernista Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.
 - texto: Geografia e Logística
   destino:
     secao_textual:
-      conteudo: '# Geografia
+      conteudo: |-
+        # Geografia
 
+        Ferros possui uma expressiva área de 1090 km², englobando a sede e os seis distritos que possui. Sua altitude máxima é 1260 m na Serra dos Cocais e a altitude mínima é de cerca de 400 m no encontro dos rios Tanque e Santo Antônio. O clima é quente e úmido com inverno seco e verão chuvoso. A temperatura média anual é de 21°C, com temperaturas mais elevadas entre os meses de agosto a março, sendo a máxima 38°C e a mínima 8°C. O período com maior incidência de chuvas é de outubro a março, com média anual de 1200 mm. O município tem muitas serras, ramificações da Cordilheira do Espinhaço: Santana, Rosário, Caçu, Ferreiros, Taquaral, Sapé, Cuité, Bolívia, Cocais, Cumeeiras e outras.
 
-        Ferros possui uma expressiva área de 1090 km², englobando a sede e os seis
-        distritos que possui. Sua altitude máxima é 1260 m na Serra dos Cocais e a
-        altitude mínima é de cerca de 400 m no encontro dos rios Tanque e Santo Antônio.
-        O clima é quente e úmido com inverno seco e verão chuvoso. A temperatura média
-        anual é de 21°C, com temperaturas mais elevadas entre os meses de agosto a
-        março, sendo a máxima 38°C e a mínima 8°C. O período com maior incidência
-        de chuvas é de outubro a março, com média anual de 1200 mm. O município tem
-        muitas serras, ramificações da Cordilheira do Espinhaço: Santana, Rosário,
-        Caçu, Ferreiros, Taquaral, Sapé, Cuité, Bolívia, Cocais, Cumeeiras e outras.
-
-
-        Segundo dados da Companhia Energética de Minas Gerais (Cemig), a temperatura
-        mínima registrada em Ferros foi de 3,6ºC, ocorrida no dia 17 de julho de 2000.
-        Já a máxima foi de 38,2ºC, registrada nos dias 16 de novembro de 1985 e 24
-        de setembro de 1994. O maior acumulado de chuva registrado na cidade em 24
-        horas foi de 186,0 mm, em 20 de fevereiro de 1990.
-
+        Segundo dados da Companhia Energética de Minas Gerais (Cemig), a temperatura mínima registrada em Ferros foi de 3,6ºC, ocorrida no dia 17 de julho de 2000. Já a máxima foi de 38,2ºC, registrada nos dias 16 de novembro de 1985 e 24 de setembro de 1994. O maior acumulado de chuva registrado na cidade em 24 horas foi de 186,0 mm, em 20 de fevereiro de 1990.
 
         ## Vegetação Predominante
 
+        O município de Ferros apresenta cerca de 60% de sua superfície coberta por matas e formações naturais, localizadas preferencialmente em encostas e topos de morros e 5% de área ocupada por reflorestamento de eucalipto, notadamente da Cenibra. Por ter uma topografia acidentada em geral, as férteis baixadas junto aos rios normalmente foram ocupadas pelas habitações e pelas plantações há séculos, inclusive pelas populações pré-históricas que lá existiram e plantavam mandioca, milho, feijão, inhame e batata-doce.
 
-        O município de Ferros apresenta cerca de 60% de sua superfície coberta por
-        matas e formações naturais, localizadas preferencialmente em encostas e topos
-        de morros e 5% de área ocupada por reflorestamento de eucalipto, notadamente
-        da Cenibra. Por ter uma topografia acidentada em geral, as férteis baixadas
-        junto aos rios normalmente foram ocupadas pelas habitações e pelas plantações
-        há séculos, inclusive pelas populações pré-históricas que lá existiram e plantavam
-        mandioca, milho, feijão, inhame e batata-doce.
-
-
-        Apresenta normalmente uma floresta estacional semi-caduca típica das altas
-        porções da bacia do Rio Doce, podendo ser considerada como uma mata atlântica
-        com leves influências da caatinga e dos cerrados. As matas da região, normalmente
-        de porte médio, possuem expressivas quantidades de braúna, vinhático, garapa,
-        jatobá, angico, ipê felpudo, grão-de-galo, sucupira, peroba, moreira, jacaré,
-        etc. É muito comum nas matas de Ferros a presença de jaboticabeiras e diversos
-        tipos de mandiocas e abacaxis nativos.
-
+        Apresenta normalmente uma floresta estacional semi-caduca típica das altas porções da bacia do Rio Doce, podendo ser considerada como uma mata atlântica com leves influências da caatinga e dos cerrados. As matas da região, normalmente de porte médio, possuem expressivas quantidades de braúna, vinhático, garapa, jatobá, angico, ipê felpudo, grão-de-galo, sucupira, peroba, moreira, jacaré, etc. É muito comum nas matas de Ferros a presença de jaboticabeiras e diversos tipos de mandiocas e abacaxis nativos.
 
         ## Fauna
 
-
-        Em função da bem preservada cobertura florestal de Ferros e da baixíssima
-        densidade populacional, a presença da fauna é consideravelmente rica. Têm
-        sido relatadas observações de diversos felinos, incluindo onças e gatos mouriscos
-        em várias regiões do município, inclusive no Vale do Roncador onde estão as
-        escaladas. Ao longo dos principais rios podem ser encontrados bandos de capivara.
-        Diversos macacos têm sido vistos, inclusive enormes grupos de grigós no vale
-        das escaladas. Outros relatos envolvem lobo guará, raposas, tatu, paca, veado,
-        lontra, porcos do mato, jacu, sagüi-de-cara-branca, etc. Nos rios a fauna
-        é também abundante tendo sido descritos piaus, traíras, bagres, etc. No rio
-        Tanque, que banha a fazenda onde estão as escaladas, pesquisas indicaram uma
-        espécie endêmica chamada de Cachara, um tipo de surubim pequeno com uma cabeça
-        enorme.
-
+        Em função da bem preservada cobertura florestal de Ferros e da baixíssima densidade populacional, a presença da fauna é consideravelmente rica. Têm sido relatadas observações de diversos felinos, incluindo onças e gatos mouriscos em várias regiões do município, inclusive no Vale do Roncador onde estão as escaladas. Ao longo dos principais rios podem ser encontrados bandos de capivara. Diversos macacos têm sido vistos, inclusive enormes grupos de grigós no vale das escaladas. Outros relatos envolvem lobo guará, raposas, tatu, paca, veado, lontra, porcos do mato, jacu, sagüi-de-cara-branca, etc. Nos rios a fauna é também abundante tendo sido descritos piaus, traíras, bagres, etc. No rio Tanque, que banha a fazenda onde estão as escaladas, pesquisas indicaram uma espécie endêmica chamada de Cachara, um tipo de surubim pequeno com uma cabeça enorme.
 
         ## Hidrografia
 
+        A rede fluvial do município é densa, rica em pequenos e médios cursos de água, favorecendo assim uma maior divisão de propriedades e fartura hídrica.
 
-        A rede fluvial do município é densa, rica em pequenos e médios cursos de água,
-        favorecendo assim uma maior divisão de propriedades e fartura hídrica.
-
-
-        | ![O Rio Tanque e a praia em sua margem](imagens/geografia_e_logistica_p1_i1.webp)
-        |
-
+        | ![O Rio Tanque e a praia em sua margem](imagens/geografia_e_logistica_p1_i1.webp) |
         | :--: |
-
         | *O Rio Tanque e a praia em sua margem* |
 
+        O principal rio é o Santo Antônio, que corta a sede, e correndo para o leste, depois de um percurso de 283 km, vai despejar suas águas no rio Doce já no Vale do Aço. No município de Ferros, o rio Santo Antônio ainda recebe as águas do rio Tanque e rio do Peixe. Faz parte da bacia hidrográfica do rio Doce e tem suas abundantes nascentes principais localizadas na Serra do Espinhaço nos subsetores Serra do Cipó e Serra do Itambé.
 
-        O principal rio é o Santo Antônio, que corta a sede, e correndo para o leste,
-        depois de um percurso de 283 km, vai despejar suas águas no rio Doce já no
-        Vale do Aço. No município de Ferros, o rio Santo Antônio ainda recebe as águas
-        do rio Tanque e rio do Peixe. Faz parte da bacia hidrográfica do rio Doce
-        e tem suas abundantes nascentes principais localizadas na Serra do Espinhaço
-        nos subsetores Serra do Cipó e Serra do Itambé.
+        As sub bacias dos rios Santo Antônio e Tanque são consideradas as de melhor qualidade de água de todo o vale do Rio Doce, não tendo sido afetadas pelo acidente da Samarco de 2016.
 
-
-        As sub bacias dos rios Santo Antônio e Tanque são consideradas as de melhor
-        qualidade de água de todo o vale do Rio Doce, não tendo sido afetadas pelo
-        acidente da Samarco de 2016.
-
-
-        O córrego Roncador que domina o vale das escaladas, pode ser considerado uma
-        manancial de altíssima capacidade. Do vale das escaladas, com uma área de
-        apenas 2,5 quilômetros quadrados, escorre uma surpreendente vazão média de
-        cerca de 50 litros por segundo. A razão disso é que o **eixo do vale é coincidente
-        com uma importante falha geológica, ainda ativa**, por onde ascende tão rico
-        aquífero. É farta a água para consumo nas escaladas e para o banho refrescante
-        ao final.
-
+        O córrego Roncador que domina o vale das escaladas, pode ser considerado uma manancial de altíssima capacidade. Do vale das escaladas, com uma área de apenas 2,5 quilômetros quadrados, escorre uma surpreendente vazão média de cerca de 50 litros por segundo. A razão disso é que o **eixo do vale é coincidente com uma importante falha geológica, ainda ativa**, por onde ascende tão rico aquífero. É farta a água para consumo nas escaladas e para o banho refrescante ao final.
 
         ## Área das Escaladas
 
+        O complexo de vias de escalada de Ferros situa-se nas **Fazendas Roncador** e **Retiro das Águas**, de propriedade do montanhista (detentor de mais de 480 conquistas em sua carreira e conquistador da maioria das vias em Ferros) Antonio Carlos Magalhães (Tonico).
 
-        O complexo de vias de escalada de Ferros situa-se nas **Fazendas Roncador**
-        e **Retiro das Águas**, de propriedade do montanhista (detentor de mais de
-        480 conquistas em sua carreira e conquistador da maioria das vias em Ferros)
-        Antonio Carlos Magalhães (Tonico).
+        As escaladas em Ferros foram iniciadas após a pioneira conquista da via “Iron Men” (4º V – 130 metros), pelo Tonico, seu filho Juliano Magalhães e Marcos Leiras, em 26 de fevereiro de 2006, na chamada Parede Principal, a qual se tornaria a parede com maior concentração de vias longas do local.
 
+        Além de relativa proximidade ao centro de Belo Horizonte (aproximadamente 3 horas de carro), este polo de escaladas impressiona pelo enorme potencial, com paredes de todos os estilos e tamanhos, apresentando vias longas, curtas, de aderência, agarras, negativos, fendas, proteções fixas e móveis, graduações das mais simplórias até vias complexas de alta graduação, etc.
 
-        As escaladas em Ferros foram iniciadas após a pioneira conquista da via “Iron
-        Men” (4º V – 130 metros), pelo Tonico, seu filho Juliano Magalhães e Marcos
-        Leiras, em 26 de fevereiro de 2006, na chamada Parede Principal, a qual se
-        tornaria a parede com maior concentração de vias longas do local.
+        Nos diversos setores da região, é possível fazer escaladas curtas para treinar lances sejam atléticos, ou de puro equilíbrio, ou entrar em vias longas, com mais de quatro enfiadas de corda, testando assim o psicológico e a resistência do escalador.
 
+        Além das inúmeras possibilidades de escalada, a região conta com agradável rio Tanque, com suas águas cálidas (26 a 28 graus) para banho após as atividades, bem como locais estratégicos de camping, como as próprias praias à beira rio.
 
-        Além de relativa proximidade ao centro de Belo Horizonte (aproximadamente
-        3 horas de carro), este polo de escaladas impressiona pelo enorme potencial,
-        com paredes de todos os estilos e tamanhos, apresentando vias longas, curtas,
-        de aderência, agarras, negativos, fendas, proteções fixas e móveis, graduações
-        das mais simplórias até vias complexas de alta graduação, etc.
-
-
-        Nos diversos setores da região, é possível fazer escaladas curtas para treinar
-        lances sejam atléticos, ou de puro equilíbrio, ou entrar em vias longas, com
-        mais de quatro enfiadas de corda, testando assim o psicológico e a resistência
-        do escalador.
-
-
-        Além das inúmeras possibilidades de escalada, a região conta com agradável
-        rio Tanque, com suas águas cálidas (26 a 28 graus) para banho após as atividades,
-        bem como locais estratégicos de camping, como as próprias praias à beira rio.
-
-
-        Água potável é encontrada em abundância, notadamente ao longo de todo o vale
-        do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas
-        de água fresca bem próximo às bases.'
+        Água potável é encontrada em abundância, notadamente ao longo de todo o vale do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas de água fresca bem próximo às bases.
 - texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# Como Chegar
-
+      conteudo: |-
+        # Como Chegar
 
         **De Carro:**
 
-
-        Saindo de BH, pegue a BR-262 em direção à Vitória. Vire à esquerda no trevo
-        entre Vitória e Itabira, direção Itabira. Mais adiante, no trevo entre Itabira
-        e Santa Maria do Itabira, pegue à direita, em direção a esta última cidade.
-        No antigo bar “Parada Certa”, que fica a cerca de 20 km de Santa Maria do
-        Itabira, pode-se seguir pelo asfalto em direção ao trevo de Ferros, ou pegar
-        um caminho mais curto, com mais estrada de terra, evitando passar pela cidade.
-        Do centro de Ferros até a área de escaladas, siga o mapa na próxima página.
-        O trajeto total possui cerca de 190 quilômetros, feitos em aproximadamente
-        3 horas.
-
+        Saindo de BH, pegue a BR-262 em direção à Vitória. Vire à esquerda no trevo entre Vitória e Itabira, direção Itabira. Mais adiante, no trevo entre Itabira e Santa Maria do Itabira, pegue à direita, em direção a esta última cidade. No antigo bar “Parada Certa”, que fica a cerca de 20 km de Santa Maria do Itabira, pode-se seguir pelo asfalto em direção ao trevo de Ferros, ou pegar um caminho mais curto, com mais estrada de terra, evitando passar pela cidade. Do centro de Ferros até a área de escaladas, siga o mapa na próxima página. O trajeto total possui cerca de 190 quilômetros, feitos em aproximadamente 3 horas.
 
         **De ônibus:**
 
+        Pegar o ônibus da viação SARITUR, na rodoviária de BH, com destino a Ferros (valor em março de 2018: R$60). A viagem dura em torno de quatro horas.
 
-        Pegar o ônibus da viação SARITUR, na rodoviária de BH, com destino a Ferros
-        (valor em março de 2018: R$60). A viagem dura em torno de quatro horas.
-
-
-        Chegando em Ferros, é fácil conseguir um táxi com corrida combinada, por aproximadamente
-        R$50,00, para percorrer os 11 Km do centro da cidade à área propícia para
-        camping, próxima à base das escaladas. Lembre-se de combinar com o taxista
-        a corrida de retorno!
-
+        Chegando em Ferros, é fácil conseguir um táxi com corrida combinada, por aproximadamente R$50,00, para percorrer os 11 Km do centro da cidade à área propícia para camping, próxima à base das escaladas. Lembre-se de combinar com o taxista a corrida de retorno!
 
         | ![Mapa de BH para Ferros](imagens/como_chegar_p0_i0.webp) |
-
         | :--: |
-
-        | *Mapa de BH para Ferros* |'
+        | *Mapa de BH para Ferros* |
 - texto: Guia na Web
   destino:
     secao_textual:
-      conteudo: '# GUIA DE FERROS NA WEB
+      conteudo: |-
+        # GUIA DE FERROS NA WEB
 
-
-        Para ficar sempre com o guia atualizado, utilize os endereços abaixo, ou o
-        leitor de código QR de seu smartphone.
-
+        Para ficar sempre com o guia atualizado, utilize os endereços abaixo, ou o leitor de código QR de seu smartphone.
 
         **Guia de Ferros Atualizado na Web (PDF)**
-
         [http://www.grupounicad.com.br/pedro/Guia_Ferros.pdf](http://www.grupounicad.com.br/pedro/Guia_Ferros.pdf)
 
-
         | ![QR Code PDF](imagens/guia_na_web_p0_i0.webp) |
-
         | :--: |
-
         | *QR Code PDF* |
 
-
         **Mapa das Áreas de Escalada de Ferros (Google)**
-
         [http://zip.net/bnl28l](http://zip.net/bnl28l)
 
-
         | ![QR Code Google Maps](imagens/guia_na_web_p0_i1.webp) |
-
         | :--: |
-
-        | *QR Code Google Maps* |'
+        | *QR Code Google Maps* |
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/como_chegar_p0_i0.webp

@@ -341,15 +341,12 @@ picos:
             - boulder:
                 nome: Saidex
                 dificuldade: V1
-            descricao: '# Setor Ônibus
+            descricao: |-
+              # Setor Ônibus
 
+              O setor Ônibus possui dois blocos principais com diversas linhas de boulder.
 
-              O setor Ônibus possui dois blocos principais com diversas linhas de
-              boulder.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Super Herói
             mapas:
@@ -411,14 +408,12 @@ picos:
             - boulder:
                 nome: Heroína
                 dificuldade: V3
-            descricao: '# Setor Super Herói
-
+            descricao: |-
+              # Setor Super Herói
 
               O setor Super Herói possui linhas clássicas em um bloco bem característico.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Caverninha
             mapas:
@@ -633,14 +628,12 @@ picos:
             - boulder:
                 nome: Natural (V6)
                 dificuldade: V6
-            descricao: '# Setor Caverninha
-
+            descricao: |-
+              # Setor Caverninha
 
               O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Campo Escola
             mapas:
@@ -811,15 +804,12 @@ picos:
             - boulder:
                 nome: Das Meninas
                 dificuldade: V3
-            descricao: '# Setor Campo Escola
+            descricao: |-
+              # Setor Campo Escola
 
+              O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.
 
-              O setor Campo Escola é ideal para iniciantes e para quem busca linhas
-              de boulder mais acessíveis.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Escorpião
             mapas:
@@ -925,15 +915,12 @@ picos:
             - boulder:
                 nome: Sicronismo
                 dificuldade: V8
-            descricao: '# Setor Escorpião
+            descricao: |-
+              # Setor Escorpião
 
+              O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.
 
-              O setor Escorpião apresenta boulders com movimentos técnicos e agarras
-              específicas.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Troféu
             mapas:
@@ -982,14 +969,12 @@ picos:
             - boulder:
                 nome: Dreads de Goiás
                 dificuldade: V7
-            descricao: '# Setor Troféu
-
+            descricao: |-
+              # Setor Troféu
 
               O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: X-Tudo
             mapas:
@@ -1061,15 +1046,12 @@ picos:
             - boulder:
                 nome: Kansas
                 dificuldade: V3
-            descricao: '# Setor X-Tudo
+            descricao: |-
+              # Setor X-Tudo
 
+              O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.
 
-              O setor X-Tudo possui blocos interessantes com linhas de dificuldade
-              intermediária.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Domínio Digital
             mapas:
@@ -1118,20 +1100,16 @@ picos:
             - boulder:
                 nome: (sem nome 31)
                 dificuldade: V0
-            descricao: '# Setor Domínio Digital
+            descricao: |-
+              # Setor Domínio Digital
 
+              O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.
 
-              O setor Domínio Digital possui um bloco com um arco natural e linhas
-              de baixa dificuldade.
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+        descricao: |-
+          # Grupo Salão de Pedras
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
-        descricao: '# Grupo Salão de Pedras
-
-
-          O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato
-          Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.'
+          O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.
   - grupo:
       conteudo:
         nome: Colina
@@ -1296,26 +1274,18 @@ picos:
             - boulder:
                 nome: (sem nome 3)
                 dificuldade: V3
-            descricao: '# Setor Choquito
-
+            descricao: |-
+              # Setor Choquito
 
               O setor Choquito possui blocos com linhas variadas.
 
-
               > [!CAUTION]
-
               > **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
-
-              > | ![Pintura Rupestre](imagens/grupo_colina_setor_choquito_p0_i1.webp)
-              |
-
+              > | ![Pintura Rupestre](imagens/grupo_colina_setor_choquito_p0_i1.webp) |
               | :--: |
-
               | *Pintura Rupestre* |
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Godzilla
             mapas:
@@ -1439,15 +1409,12 @@ picos:
             - boulder:
                 nome: Obra de Arte
                 dificuldade: V9
-            descricao: '# Setor Godzilla
+            descricao: |-
+              # Setor Godzilla
 
+              O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.
 
-              O setor Godzilla possui blocos imponentes com linhas de alta qualidade
-              e dificuldade.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Show Time
             mapas:
@@ -1583,15 +1550,12 @@ picos:
             - boulder:
                 nome: Meia Lua
                 dificuldade: V3
-            descricao: '# Setor Show Time
+            descricao: |-
+              # Setor Show Time
 
+              O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.
 
-              O setor Show Time possui blocos isolados com linhas de diversas dificuldades
-              e visuais incríveis.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Hiperespaço
             mapas:
@@ -1679,15 +1643,12 @@ picos:
             - boulder:
                 nome: Jardins Suspensos
                 dificuldade: V5
-            descricao: '# Setor Hiperespaço
+            descricao: |-
+              # Setor Hiperespaço
 
+              O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.
 
-              O setor Hiperespaço apresenta um bloco imponente com linhas de alta
-              graduação e movimentos atléticos.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Mergulho em Copo d'Água
             mapas:
@@ -1710,20 +1671,16 @@ picos:
             - boulder:
                 nome: Mergulho em Copo d'Água
                 dificuldade: V4
-            descricao: '# Setor Mergulho em Copo d''Água
+            descricao: |-
+              # Setor Mergulho em Copo d'Água
 
+              O setor Mergulho em Copo d'Água possui um bloco isolado com uma linha clássica.
 
-              O setor Mergulho em Copo d''Água possui um bloco isolado com uma linha
-              clássica.
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+        descricao: |-
+          # Grupo Colina
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
-        descricao: '# Grupo Colina
-
-
-          A Colina abriga diversos setores com abordagens e estilos diferentes, de
-          blocos clássicos a novas linhas.'
+          A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.
   - grupo:
       conteudo:
         nome: JK
@@ -1786,20 +1743,16 @@ picos:
             - boulder:
                 nome: Mufasa
                 dificuldade: V10
-            descricao: '# Setor Mufasa
+            descricao: |-
+              # Setor Mufasa
 
+              O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.
 
-              O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade
-              e movimentos icônicos.
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+        descricao: |-
+          # Grupo JK
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
-        descricao: '# Grupo JK
-
-
-          O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e
-          acesso facilitado.'
+          O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.
   - grupo:
       conteudo:
         nome: Pedreira
@@ -2119,15 +2072,12 @@ picos:
             - boulder:
                 nome: Carlos Drummond
                 dificuldade: V7
-            descricao: '# Setor Preguiça
+            descricao: |-
+              # Setor Preguiça
 
+              O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.
 
-              O setor Preguiça possui blocos com linhas de alta dificuldade e boulders
-              atléticos.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Manda Lá
             mapas:
@@ -2163,14 +2113,12 @@ picos:
             - boulder:
                 nome: Manda Lá
                 dificuldade: V8
-            descricao: '# Setor Manda Lá
-
+            descricao: |-
+              # Setor Manda Lá
 
               O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Trabalhador
             mapas:
@@ -2250,15 +2198,12 @@ picos:
             - boulder:
                 nome: Estamos Trabalhando
                 dificuldade: V8
-            descricao: '# Setor Trabalhador
+            descricao: |-
+              # Setor Trabalhador
 
+              O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.
 
-              O setor Trabalhador oferece linhas com regates e batidas, exigindo força
-              e técnica.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Sanfoneiro Maluco
             mapas:
@@ -2356,15 +2301,12 @@ picos:
             - boulder:
                 nome: Zuzuzela
                 dificuldade: V6
-            descricao: '# Setor Sanfoneiro Maluco
+            descricao: |-
+              # Setor Sanfoneiro Maluco
 
+              O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.
 
-              O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo
-              movimentos precisos e força.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Samurai
             mapas:
@@ -2444,15 +2386,12 @@ picos:
             - boulder:
                 nome: Ouro Branco
                 dificuldade: V7
-            descricao: '# Setor Samurai
+            descricao: |-
+              # Setor Samurai
 
+              O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.
 
-              O setor Samurai possui boulders negativos com agarras pequenas e movimentos
-              potentes.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Bomba Atômica
             mapas:
@@ -2724,15 +2663,12 @@ picos:
             - boulder:
                 nome: (sem nome 14)
                 dificuldade: V1
-            descricao: '# Setor Bomba Atômica
+            descricao: |-
+              # Setor Bomba Atômica
 
+              O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.
 
-              O setor Bomba Atômica possui blocos variados com predominância de negativos
-              e tetos, oferecendo linhas técnicas e de força.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Jubileu
             mapas:
@@ -2804,15 +2740,12 @@ picos:
             - boulder:
                 nome: (sem nome 19)
                 dificuldade: V2
-            descricao: '# Setor Jubileu
+            descricao: |-
+              # Setor Jubileu
 
+              O setor Jubileu possui blocos interessantes com linhas de dificuldade intermediária.
 
-              O setor Jubileu possui blocos interessantes com linhas de dificuldade
-              intermediária.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Conceição
             mapas:
@@ -2892,14 +2825,12 @@ picos:
             - boulder:
                 nome: (sem nome 16)
                 dificuldade: V2
-            descricao: '# Setor Conceição
-
+            descricao: |-
+              # Setor Conceição
 
               O setor Conceição apresenta blocos com agarras boas e linhas de técnica.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Bobsled
             mapas:
@@ -2961,15 +2892,12 @@ picos:
             - boulder:
                 nome: Bobsled
                 dificuldade: V7
-            descricao: '# Setor Bobsled
+            descricao: |-
+              # Setor Bobsled
 
+              O setor Bobsled possui um bloco com linhas atléticas e passagens de força.
 
-              O setor Bobsled possui um bloco com linhas atléticas e passagens de
-              força.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Aresta do Cabeça
             mapas:
@@ -2992,15 +2920,12 @@ picos:
             - boulder:
                 nome: Aresta do Cabeça
                 dificuldade: V6
-            descricao: '# Setor Aresta do Cabeça
+            descricao: |-
+              # Setor Aresta do Cabeça
 
+              O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.
 
-              O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de
-              aresta, exigindo equilíbrio e técnica.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Equinócio
             mapas:
@@ -3049,15 +2974,12 @@ picos:
             - boulder:
                 nome: Costela de Adão
                 dificuldade: V2
-            descricao: '# Setor Equinócio
+            descricao: |-
+              # Setor Equinócio
 
+              O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.
 
-              O setor Equinócio possui um bloco com linhas interessantes e agarras
-              variadas.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Witness
             mapas:
@@ -3124,15 +3046,12 @@ picos:
             - boulder:
                 nome: Picasso
                 dificuldade: V5
-            descricao: '# Setor Witness
+            descricao: |-
+              # Setor Witness
 
+              O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.
 
-              O setor Witness possui blocos imponentes com linhas de altíssima dificuldade,
-              incluindo boulders de nível mundial.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: La Fúria
             mapas:
@@ -3523,15 +3442,12 @@ picos:
             - boulder:
                 nome: Travessia da Fúria
                 dificuldade: V5
-            descricao: '# Setor La Fúria
+            descricao: |-
+              # Setor La Fúria
 
+              O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.
 
-              O setor La Fúria possui blocos com abundância de agarras e linhas de
-              diversas dificuldades, incluindo boulders de alta performance.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Jah
             mapas:
@@ -3676,15 +3592,12 @@ picos:
             - boulder:
                 nome: (sem nome 17)
                 dificuldade: V3
-            descricao: '# Setor Jah
+            descricao: |-
+              # Setor Jah
 
+              O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.
 
-              O setor Jah possui blocos com linhas atléticas e movimentos fluidos
-              em rocha de boa qualidade.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Pole Dance
             mapas:
@@ -3948,15 +3861,12 @@ picos:
             - boulder:
                 nome: Rocklands
                 dificuldade: V4
-            descricao: '# Setor Pole Dance
+            descricao: |-
+              # Setor Pole Dance
 
+              O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.
 
-              O setor Pole Dance possui blocos com abundância de agarras horizontais
-              e verticais, permitindo movimentos dinâmicos e técnicos.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Rock and Roll
             mapas:
@@ -4018,14 +3928,12 @@ picos:
             - boulder:
                 nome: Go Johnny Go
                 dificuldade: V3
-            descricao: '# Setor Rock and Roll
-
+            descricao: |-
+              # Setor Rock and Roll
 
               O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Bloco dos Canelas
             mapas:
@@ -4061,15 +3969,12 @@ picos:
             - boulder:
                 nome: Canelas ao Vento
                 dificuldade: V7
-            descricao: '# Setor Bloco dos Canelas
+            descricao: |-
+              # Setor Bloco dos Canelas
 
+              O setor Bloco dos Canelas possui um bloco com linhas interessantes em um ambiente agradável.
 
-              O setor Bloco dos Canelas possui um bloco com linhas interessantes em
-              um ambiente agradável.
-
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
         - conteudo:
             nome: Mãos de Sebo
             mapas:
@@ -4143,20 +4048,16 @@ picos:
             - boulder:
                 nome: Mãozinha
                 dificuldade: V2
-            descricao: '# Setor Mãos de Sebo
+            descricao: |-
+              # Setor Mãos de Sebo
 
+              O setor Mãos de Sebo possui um bloco com linhas que exigem técnica e controle de agarras.
 
-              O setor Mãos de Sebo possui um bloco com linhas que exigem técnica e
-              controle de agarras.
+              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
+        descricao: |-
+          # Grupo Pedreira
 
-
-              Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se
-              antes de fazer uma possível primeira ascensão.'
-        descricao: '# Grupo Pedreira
-
-
-          A Pedreira é o grupo com maior número de setores e linhas, apresentando
-          desafios para todos os níveis.'
+          A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.
   mapas_gerais:
     conteudo:
       mapas:
@@ -4227,102 +4128,60 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Croqui Fest Boulder 2023
-
+      conteudo: |-
+        # Croqui Fest Boulder 2023
 
         | ![Capa do Croqui Fest Boulder 2023](imagens/capa_p0.webp) |
-
         | :--: |
-
         | *Capa do Croqui Fest Boulder 2023* |
-
 
         **Conceição do Mato Dentro - 2023**
 
-
         **Elaborado por:**
-
         - Gabriel Vargas Mendonça
-
         - Carlos Oliveira
-
         - Filipe Madeira
-
         - Alexandre Vasconcelos Levy
-
         - Nayara Meireles
-
         - Alexandre Fei
 
-
         **Estrutura do Evento:**
-
         - Sorteio
-
         - Show ao Vivo
-
         - Camping
-
         - Praça de Alimentação
 
-
-        **Instagram:** @cmd_festboulder'
+        **Instagram:** @cmd_festboulder
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# Introdução
-
+      conteudo: |-
+        # Introdução
 
         ## Conceição do Mato Dentro/MG
 
-
-        Considerada a “capital mineira do ecoturismo” – por abrigar inúmeras belezas
-        naturais – CONCEIÇÃO DO MATO DENTRO encontra-se na região central de MINAS
-        GERAIS, na vertente oriental da SERRA DO CIPÓ da CORDILHEIRA DO ESPINHAÇO.
-        Nacionalmente reconhecida como um dos melhores lugares para a prática de escalada
-        em “Boulder”, o local conta com inúmeras linhas já abertas, com nível de dificuldade
-        variando entre V0 a V13, além de diversos projetos que ainda não tiveram SUA
-        PRIMEIRA Ascensão.
-
+        Considerada a “capital mineira do ecoturismo” – por abrigar inúmeras belezas naturais – CONCEIÇÃO DO MATO DENTRO encontra-se na região central de MINAS GERAIS, na vertente oriental da SERRA DO CIPÓ da CORDILHEIRA DO ESPINHAÇO. Nacionalmente reconhecida como um dos melhores lugares para a prática de escalada em “Boulder”, o local conta com inúmeras linhas já abertas, com nível de dificuldade variando entre V0 a V13, além de diversos projetos que ainda não tiveram SUA PRIMEIRA Ascensão.
 
         ## O Festival
 
+        Grande parte dos festivais de escalada no Brasil ocorrem entre os meses de junho a agosto (épocas de estiagem, sem ocorrência de chuvas), e CONCEIÇÃO DO MATO DENTRO não fica de fora desta programação. OUTROS FESTIVAIS OCORREM NA MESMA ÉPOCA, EM OURO PRETO, SABARÁ E MILHO VERDE. Desta forma, tem-se o circuito perfeito, que consideramos o circuito ESTRADA REAL de Boulder.
 
-        Grande parte dos festivais de escalada no Brasil ocorrem entre os meses de
-        junho a agosto (épocas de estiagem, sem ocorrência de chuvas), e CONCEIÇÃO
-        DO MATO DENTRO não fica de fora desta programação. OUTROS FESTIVAIS OCORREM
-        NA MESMA ÉPOCA, EM OURO PRETO, SABARÁ E MILHO VERDE. Desta forma, tem-se o
-        circuito perfeito, que consideramos o circuito ESTRADA REAL de Boulder.
+        O principal objetivo deste projeto é atrair e propiciar muita escalada e diversão a todos os participantes, em UM dos picos mais promissores do Brasil para a prática de escalada em “Boulder”.
 
-
-        O principal objetivo deste projeto é atrair e propiciar muita escalada e diversão
-        a todos os participantes, em UM dos picos mais promissores do Brasil para
-        a prática de escalada em “Boulder”.
-
-
-        Boulder é uma das modalidades da escalada em rocha, praticada sem o uso de
-        equipamentos convencionais, como cordas e mosquetões. O boulder consiste em
-        escalar blocos de pedras, onde os movimentos apresentam dificuldade técnica
-        e exigem força.'
+        Boulder é uma das modalidades da escalada em rocha, praticada sem o uso de equipamentos convencionais, como cordas e mosquetões. O boulder consiste em escalar blocos de pedras, onde os movimentos apresentam dificuldade técnica e exigem força.
 - texto: Pintura Rupestre
   destino:
     secao_textual:
-      conteudo: '# Pintura Rupestre
-
+      conteudo: |-
+        # Pintura Rupestre
 
         | ![Pinturas Rupestres](imagens/secao_rupestre_p0_i0.webp) |
-
         | :--: |
-
         | *Pinturas Rupestres* |
-
 
         **PINTURA RUPESTRE, NÃO ESCALE NESSE LOCAL.**
 
-
-        Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes
-        de fazer uma possível primeira ascensão em blocos próximos, respeitando sempre
-        as áreas de preservação.'
+        Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão em blocos próximos, respeitando sempre as áreas de preservação.
 ultima_migracao: 4
 revisado_manualmente: true
 revisado_bounding_circle: true

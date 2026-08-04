@@ -187,22 +187,17 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Setor Tia Tina
-
+      conteudo: |-
+        # Setor Tia Tina
 
         | ![Capa](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
         | *Capa* |
 
-
         **Croqui - Abril 2015**
-
         **Montes Claros - MG**
 
-
-        AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS'
+        AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp

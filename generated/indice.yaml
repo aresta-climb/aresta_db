@@ -49,11 +49,8 @@ croquis:
   timestamp_update: '2026-08-04T12:53:17Z'
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-    em quartzito de alta qualidade.
-
-    '
+  descricao: |
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 5db215ebbd753d36da867b04cba632d39317bdd0ce22718caa5159c2b9c21450
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -92,12 +89,12 @@ croquis:
   timestamp_update: '2026-07-20T02:46:12Z'
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
-  descricao: Este croqui documenta e divulga a prática da escalada esportiva no Complexo
-    da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
+  descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
+    Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 5332beaf99dbeb3c4973f862e51e545f04a0951fd49b194638a6295d96656463
+  checksum_sha256_croqui: b20b012741ddd338d3c8c225f8d81e8ed134223a40f34bb6a15733444666d373
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-07-19T22:03:30Z'
+  timestamp_update: '2026-08-04T21:54:07Z'
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
@@ -155,13 +152,9 @@ croquis:
   timestamp_update: '2026-07-20T02:52:47Z'
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
-  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
-    MG.
-
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
-    Questão de Tempo e Hospício.
-
-    '
+  descricao: |
+    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256_croqui: 2d5cde20e83308dde8b6f977df7a386376819a7a706cb9f0e7d62d7caea6edbb
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd

@@ -82,47 +82,30 @@ picos:
             protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis;
               Nuts (1 a 5, 10) ou compatíveis
             descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
-        descricao: '| ![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp)
-          |
-
+        descricao: |-
+          | ![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp) |
           | :--: |
-
           | *Vista do Setor Headwall* |
 
-
           | ![Arthropoda](imagens/setor_headwall_p1_i0.webp) |
-
           | :--: |
-
           | *Arthropoda* |
 
-
           | ![Atratus Death](imagens/setor_headwall_p2_i0.webp) |
-
           | :--: |
-
           | *Atratus Death* |
 
-
           | ![Fenda do Café](imagens/setor_headwall_p3_i0.webp) |
-
           | :--: |
-
           | *Fenda do Café* |
 
-
           | ![Taj Mahola](imagens/setor_headwall_p4_i0.webp) |
-
           | :--: |
-
           | *Taj Mahola* |
 
-
           | ![Apertadinha](imagens/setor_headwall_p5_i0.webp) |
-
           | :--: |
-
-          | *Apertadinha* |'
+          | *Apertadinha* |
   - setor:
       conteudo:
         nome: Roca Master
@@ -208,61 +191,38 @@ picos:
             - Jorge Lima
             protecoes_moveis: Camalot (5 e 6) ou compatíveis.
             descricao: 'Obs: Importante a utilização de algumas costuras longas.'
-        descricao: '| ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp)
-          |
-
+        descricao: |-
+          | ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp) |
           | :--: |
-
           | *Vista do Setor Roca Master* |
 
-
           | ![Cão Castrado](imagens/setor_roca_master_p1_i0.webp) |
-
           | :--: |
-
           | *Cão Castrado* |
 
-
           | ![The Nois](imagens/setor_roca_master_p2_i0.webp) |
-
           | :--: |
-
           | *The Nois* |
 
-
           | ![Alicate](imagens/setor_roca_master_p3_i0.webp) |
-
           | :--: |
-
           | *Alicate* |
 
-
           | ![Bebezão](imagens/setor_roca_master_p4_i0.webp) |
-
           | :--: |
-
           | *Bebezão* |
 
-
           | ![A mão que balança o B](imagens/setor_roca_master_p5_i0.webp) |
-
           | :--: |
-
           | *A mão que balança o B* |
 
-
           | ![Darth Helmet](imagens/setor_roca_master_p6_i0.webp) |
-
           | :--: |
-
           | *Darth Helmet* |
 
-
           | ![Tico Skywalker](imagens/setor_roca_master_p7_i0.webp) |
-
           | :--: |
-
-          | *Tico Skywalker* |'
+          | *Tico Skywalker* |
   - setor:
       conteudo:
         nome: Ecumênico
@@ -329,332 +289,188 @@ picos:
             conquistadores:
             - André Morales
             - Kaio Lupone
-        descricao: '| ![Vista do Setor Ecumênico](imagens/setor_ecumenico_p0_i0_2.webp)
-          |
-
+        descricao: |-
+          | ![Vista do Setor Ecumênico](imagens/setor_ecumenico_p0_i0_2.webp) |
           | :--: |
-
           | *Vista do Setor Ecumênico* |
 
-
           | ![Dízimo](imagens/setor_ecumenico_p1_i0.webp) |
-
           | :--: |
-
           | *Dízimo* |
 
-
           | ![Cura G](imagens/setor_ecumenico_p2_i0.webp) |
-
           | :--: |
-
           | *Cura G* |
 
-
           | ![Show da Fé](imagens/setor_ecumenico_p3_i0.webp) |
-
           | :--: |
-
           | *Show da Fé* |
 
-
           | ![Ministério do Climb](imagens/setor_ecumenico_p4_i0.webp) |
-
           | :--: |
-
           | *Ministério do Climb* |
 
-
-          | ![Pequenas Igrejas Grandes Negócios](imagens/setor_ecumenico_p5_i0.webp)
-          |
-
+          | ![Pequenas Igrejas Grandes Negócios](imagens/setor_ecumenico_p5_i0.webp) |
           | :--: |
-
           | *Pequenas Igrejas Grandes Negócios* |
 
-
           | ![Meninos de Gesso](imagens/setor_ecumenico_p6_i0.webp) |
-
           | :--: |
-
           | *Meninos de Gesso* |
 
-
           ## Projetos
-
           - El Ninõ (projeto)
-
-          - Univervia (projeto)'
+          - Univervia (projeto)
 botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '| ![Falesia da Esfinge](imagens/capa_p0_i0.webp) |
-
+      conteudo: |-
+        | ![Falesia da Esfinge](imagens/capa_p0_i0.webp) |
         | :--: |
-
-        | *Falesia da Esfinge* |'
+        | *Falesia da Esfinge* |
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# INTRODUÇÃO
+      conteudo: |-
+        # INTRODUÇÃO
 
+        É com grande entusiasmo que apresentamos a primeira edição do croqui de escalada da falésia da Esfinge, uma parceria com os proprietários do Sítio Boa Esperança e com os montanhistas e escaladores de Extrema, São Bernardo do Campo, Atibaia, Piracaia, Itatiba e Bragança Paulista.
 
-        É com grande entusiasmo que apresentamos a primeira edição do croqui de escalada
-        da falésia da Esfinge, uma parceria com os proprietários do Sítio Boa Esperança
-        e com os montanhistas e escaladores de Extrema, São Bernardo do Campo, Atibaia,
-        Piracaia, Itatiba e Bragança Paulista.
+        De fácil acesso a falésia da Esfinge faz parte de um complexo de rochas granitoides denominado de rota das pedras, um belíssimo vale localizado a aproximadamente 5 km da rodovia Fernão Dias, no município mineiro de Extrema. De propriedade particular a falésia da Esfinge situa-se próximo a Pedra do Índio, local bem conhecido e aberto apenas para visitação dos belíssimos blocos de pedra e seus grafismos rupestres, sendo proibida a prática de escalada no local.
 
+        Com mais de 20 vias e alguns projetos a serem concluídos, a falésia conta com 4 setores de diferentes estilos com graduações variadas.
 
-        De fácil acesso a falésia da Esfinge faz parte de um complexo de rochas granitoides
-        denominado de rota das pedras, um belíssimo vale localizado a aproximadamente
-        5 km da rodovia Fernão Dias, no município mineiro de Extrema. De propriedade
-        particular a falésia da Esfinge situa-se próximo a Pedra do Índio, local bem
-        conhecido e aberto apenas para visitação dos belíssimos blocos de pedra e
-        seus grafismos rupestres, sendo proibida a prática de escalada no local.
+        O croqui descreve detalhes das vias, como gradação sugerida, equipamentos necessários para ascensão, nome da via e seus conquistadores. Trás ainda um traçado colorido das linhas para facilitar sua identificação na falésia.
 
+        No intuito de promover o mínimo impacto possível, o deslocamento para os setores ocorre apenas por uma trilha de acesso, como descrito no croqui e placa de sinalização afixada no estacionamento da propriedade.
 
-        Com mais de 20 vias e alguns projetos a serem concluídos, a falésia conta
-        com 4 setores de diferentes estilos com graduações variadas.
-
-
-        O croqui descreve detalhes das vias, como gradação sugerida, equipamentos
-        necessários para ascensão, nome da via e seus conquistadores. Trás ainda um
-        traçado colorido das linhas para facilitar sua identificação na falésia.
-
-
-        No intuito de promover o mínimo impacto possível, o deslocamento para os setores
-        ocorre apenas por uma trilha de acesso, como descrito no croqui e placa de
-        sinalização afixada no estacionamento da propriedade.
-
-
-        Esperamos que todos apreciem e nos ajudem a preservar mais um incrível local
-        de escalada no Brasil, seguindo sempre as normas de segurança, a preservação
-        ambiental, os princípios da ética e do respeito mútuo entre todos os frequentadores.
-
+        Esperamos que todos apreciem e nos ajudem a preservar mais um incrível local de escalada no Brasil, seguindo sempre as normas de segurança, a preservação ambiental, os princípios da ética e do respeito mútuo entre todos os frequentadores.
 
         # PARTICIPAÇÃO
 
-
-        Aline Tavares, André Morales, Anthony Hirata, Bruno Tebet, Diogo Baker, Diogo
-        Souza, Eduarda Lima, Eduardo Bettin, Felipe Pimenta, Francisco Ferreira, Fernando
-        Lenzini, Fidelis Lenzini, Jefte Medeiros, José Ricardo, João Carlos (Biskui),
-        Jorge Lima, Juvenil Lino, Kaio Lupone, Henrique Cintra, Leandro Schincariol,
-        Leo Cassiano, Lorena Sério, Marcelo Sanches, Nelson de Santis, Orlando Ferreira
-        (Tico), Tácio Philip, Thomaz Liza.
-
+        Aline Tavares, André Morales, Anthony Hirata, Bruno Tebet, Diogo Baker, Diogo Souza, Eduarda Lima, Eduardo Bettin, Felipe Pimenta, Francisco Ferreira, Fernando Lenzini, Fidelis Lenzini, Jefte Medeiros, José Ricardo, João Carlos (Biskui), Jorge Lima, Juvenil Lino, Kaio Lupone, Henrique Cintra, Leandro Schincariol, Leo Cassiano, Lorena Sério, Marcelo Sanches, Nelson de Santis, Orlando Ferreira (Tico), Tácio Philip, Thomaz Liza.
 
         **CROQUI**
-
         Versão 1.0
 
-
         **DIAGRAMAÇÃO**
-
         André Morales
-
         Diogo Baker
 
-
         **VETORES**
-
         Diogo Souza
-
         Jorge Lima
-
 
         **IMAGENS**
-
         André Morales
-
         Marcelo Sanches
 
-
         **REVISÃO**
-
         Jorge Lima
 
-
         **CONTATO**
-
-        falesiadaesfinge@gmail.com'
+        falesiadaesfinge@gmail.com
 - texto: Segurança
   destino:
     secao_textual:
-      conteudo: '# AVISO
+      conteudo: |-
+        # AVISO
 
+        Não faça uso deste croqui de escalada sem ler e concordar com os termos descritos abaixo.
 
-        Não faça uso deste croqui de escalada sem ler e concordar com os termos descritos
-        abaixo.
+        A escalada é um esporte que exige treinamento prévio, quando realizada sem conhecimento técnico adequado, pode resultar em ferimentos graves, paralisia e/ou morte. Portanto este croqui não autoriza, sob qualquer hipótese, a prática de escalada sem a orientação ou treinamento realizado por um profissional credenciado e reconhecido pela comunidade.
 
-
-        A escalada é um esporte que exige treinamento prévio, quando realizada sem
-        conhecimento técnico adequado, pode resultar em ferimentos graves, paralisia
-        e/ou morte. Portanto este croqui não autoriza, sob qualquer hipótese, a prática
-        de escalada sem a orientação ou treinamento realizado por um profissional
-        credenciado e reconhecido pela comunidade.
-
-
-        Este croqui serve apenas como um material de referência para os escaladores
-        que já possuem habilidades no esporte. Se você não possui treinamento adequado,
-        não faça uso deste croqui. Este croqui não é dedicado a escaladores inexperientes,
-        sem conhecimento e/ou domínio das técnicas de escalada.
-
+        Este croqui serve apenas como um material de referência para os escaladores que já possuem habilidades no esporte. Se você não possui treinamento adequado, não faça uso deste croqui. Este croqui não é dedicado a escaladores inexperientes, sem conhecimento e/ou domínio das técnicas de escalada.
 
         Por se tratar de um novo local é imprescindível o uso de capacete.
 
-
         # SEGURANÇA
 
-
         | ![Segurança](imagens/seguranca_p0_i0.webp) |
-
         | :--: |
-
         | *Segurança* |
-
 
         **Antes de começar a escalar verifique:**
 
-
         1 - Verifique se os mosquetões do freio de segurança estão fechados e travados.
-
         2 - Verifique se o freio de segurança está montado corretamente.
-
         3 - Verifique se a cadeirinha está ajustada e afivelada corretamente.
-
-        4 - Verifique se o nó de escalada está correto e passando nas alças das pernas
-        e cintura da cadeirinha.
-
+        4 - Verifique se o nó de escalada está correto e passando nas alças das pernas e cintura da cadeirinha.
         5 - Faça o nó arremate na ponta da corda.
-
         6 - Utilize sempre capacete.
-
 
         # TELEFONES ÚTEIS
 
-
         SAMU: 192
-
         Corpo de bombeiros: 193
-
         Pronto socorro municipal: (35) 3435-3374
-
         Hospital São Lucas: (35) 3100-9550
-
-        Informações turísticas: (35) 3435-3711'
+        Informações turísticas: (35) 3435-3711
 - texto: Localização
   destino:
     secao_textual:
-      conteudo: '# LOCALIZAÇÃO
-
+      conteudo: |-
+        # LOCALIZAÇÃO
 
         | ![Vista da Falésia](imagens/localizacao_p0_i0.webp) |
-
         | :--: |
-
         | *Vista da Falésia* |
 
-
         **Nome da propriedade:** Sítio Boa Esperança
-
         **Endereço:** Bairro Vargem (Fazenda Matão Pedra do índio) Extrema/MG
 
+        A falésia fica localizada em Extrema/MG na divisa com o Estado de São Paulo. Para quem vem de São Paulo, parte do percurso é feito pela Rodovia Presidente Dutra (BR-116) e parte pela Rodovia Fernão Dias (BR-381), passando por Atibaia (SP) e com pedágios em pelo menos dois pontos, em Mairiporã (SP) e Vargem (SP).
 
-        A falésia fica localizada em Extrema/MG na divisa com o Estado de São Paulo.
-        Para quem vem de São Paulo, parte do percurso é feito pela Rodovia Presidente
-        Dutra (BR-116) e parte pela Rodovia Fernão Dias (BR-381), passando por Atibaia
-        (SP) e com pedágios em pelo menos dois pontos, em Mairiporã (SP) e Vargem
-        (SP).
-
-
-        De Belo Horizonte (MG), o acesso é feito pela BR-381, em um percurso de mais
-        de 450 km e seis pedágios. Quem chega da região de Campinas (SP), precisa
-        superar quase 105 km de pista e 3 pedágios, seguindo até Atibaia (SP) para
-        acessar a Fernão Dias no sentido BH.
-
+        De Belo Horizonte (MG), o acesso é feito pela BR-381, em um percurso de mais de 450 km e seis pedágios. Quem chega da região de Campinas (SP), precisa superar quase 105 km de pista e 3 pedágios, seguindo até Atibaia (SP) para acessar a Fernão Dias no sentido BH.
 
         # LINKS PARA GPS
 
-
         | ![Mapa de localização](imagens/localizacao_p0_i1.webp) |
-
         | :--: |
-
         | *Mapa de localização* |
 
-
-        [Waze](https://waze.com/ul/h6gzn0gr6k) | [Google Maps](https://goo.gl/maps/rGeBpLYkDVM2)'
+        [Waze](https://waze.com/ul/h6gzn0gr6k) | [Google Maps](https://goo.gl/maps/rGeBpLYkDVM2)
 - texto: Código de Conduta
   destino:
     secao_textual:
-      conteudo: '# CÓDIGO DE CONDUTA DO VISITANTE
+      conteudo: |-
+        # CÓDIGO DE CONDUTA DO VISITANTE
 
-
-        - Cada veículo deverá pagar **R$ 10,00** por dia para estacionar e utilizar
-        o local. (escalador ou não)
-
+        - Cada veículo deverá pagar **R$ 10,00** por dia para estacionar e utilizar o local. (escalador ou não)
         - Proibido acampar na falésia.
-
         - Proibido escalar a noite na falésia.
-
         - Proibido fazer fogueiras.
-
         - Trazer sempre de volta todo o lixo.
-
-        - Não deixar veículos na estrada próximo à cerca. Para acessar os setores,
-        deve-se entrar no estacionamento da propriedade.
-
-        - Não fazer algazarra (gritar, xingar ou atirar objetos) e nem assustar os
-        animais do sítio.
-
-        - Tente evitar, mas caso desejem fazer necessidades fisiológicas, enterrar
-        os dejetos e o papel higiênico. Em breve teremos banheiros próximo ao estacionamento.
-
-        - Não mexer nas costuras, malhas-rápidas e materiais que estão na falésia,
-        pois estes pertencem aos conquistadores.
-
+        - Não deixar veículos na estrada próximo à cerca. Para acessar os setores, deve-se entrar no estacionamento da propriedade.
+        - Não fazer algazarra (gritar, xingar ou atirar objetos) e nem assustar os animais do sítio.
+        - Tente evitar, mas caso desejem fazer necessidades fisiológicas, enterrar os dejetos e o papel higiênico. Em breve teremos banheiros próximo ao estacionamento.
+        - Não mexer nas costuras, malhas-rápidas e materiais que estão na falésia, pois estes pertencem aos conquistadores.
         - Proibido conquistar sem autorização dos conquistadores locais.
-
         - Proibido levar cachorro/animais.
-
-        - Antes de ir embora certificar-se de ter pago a taxa de visita a propriedade
-        na casa sede do sítio.
-
+        - Antes de ir embora certificar-se de ter pago a taxa de visita a propriedade na casa sede do sítio.
 
         | ![Sede do Sítio](imagens/codigo_conduta_p0_i1.webp) |
-
         | :--: |
-
         | *Sede do Sítio* |
 
-
         | ![Trilha de Acesso](imagens/codigo_conduta_p0_i2.webp) |
-
         | :--: |
-
-        | *Trilha de Acesso* |'
+        | *Trilha de Acesso* |
 - texto: Apoio
   destino:
     secao_textual:
-      conteudo: '| ![Apoio e Próximas Versões](imagens/proximas_versoes_p0_i0.webp)
-        |
-
+      conteudo: |-
+        | ![Apoio e Próximas Versões](imagens/proximas_versoes_p0_i0.webp) |
         | :--: |
-
         | *Apoio e Próximas Versões* |
-
 
         # APOIO
 
-
         - Budah Marketing Digital
-
         - Seralts Soluções em Altura
-
         - JGariglio
-
-        - Prefeitura de Extrema'
+        - Prefeitura de Extrema
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
