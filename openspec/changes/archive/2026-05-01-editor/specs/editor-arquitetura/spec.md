@@ -5,13 +5,13 @@ A aplicação DEVE inicializar e garantir a infraestrutura de pastas locais.
 O executável principal DEVE utilizar o PyQt6 para sua interface gráfica, e o script de inicialização (`main.py`) DEVE iniciar o loop de aplicação do Qt (`QApplication`).
 
 #### Scenario: Primeiro uso - Inicialização do repositório
-- **WHEN** a aplicação for aberta e a pasta local `%appdata%/aresta_editor` não existir
-- **THEN** a aplicação DEVE criar a pasta `%appdata%/aresta_editor`
-- **THEN** a aplicação DEVE realizar o clone do repositório oficial na pasta `%appdata%/aresta_editor/base_repo`
-- **THEN** a aplicação DEVE criar a pasta `%appdata%/aresta_editor/croquis_experimentais`
+- **WHEN** a aplicação for aberta e a pasta local `%appdata%/editor_aresta` não existir
+- **THEN** a aplicação DEVE criar a pasta `%appdata%/editor_aresta`
+- **THEN** a aplicação DEVE realizar o clone do repositório oficial na pasta `%appdata%/editor_aresta/base_repo`
+- **THEN** a aplicação DEVE criar a pasta `%appdata%/editor_aresta/croquis_experimentais`
 
 #### Scenario: Inicialização subsequente
-- **WHEN** a aplicação for aberta e a pasta local `%appdata%/aresta_editor/base_repo` já existir
+- **WHEN** a aplicação for aberta e a pasta local `%appdata%/editor_aresta/base_repo` já existir
 - **THEN** a aplicação DEVE acessar a pasta sem efetuar um novo clone
 
 ### Requirement: Formato da Janela Principal

@@ -519,7 +519,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
@@ -548,6 +548,19 @@ def test_poi_snapping_to_integers():
     
     assert snapped_valor_circ.x() == 10.0
     assert snapped_valor_circ.y() == 20.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
     
 
     # Test ItemBoundingQuadrado
@@ -727,7 +740,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
@@ -756,6 +769,19 @@ def test_poi_snapping_to_integers():
     
     assert snapped_valor_circ.x() == 10.0
     assert snapped_valor_circ.y() == 20.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
     
 
     # Test ItemBoundingQuadrado

@@ -37,7 +37,7 @@ Para lidar com repositórios privados da organização `aresta-climb`:
 - **Tratamento de Erros**: Se ocorrer um erro fatal, a `TelaDeAbertura` é ocultada antes da exibição do `QMessageBox`, garantindo que a janela de erro não fique presa atrás da Splash Screen.
 
 ### 5. Storage
-O repositório local é armazenado em `%APPDATA%\aresta_editor\aresta_db` (no Windows), mantendo a nomenclatura original do projeto.
+O repositório local é armazenado em `%APPDATA%\editor_aresta\aresta_db` (no Windows), mantendo a nomenclatura original do projeto.
 
 ## Riscos / Trade-offs
 

@@ -57,14 +57,14 @@ class TestAuth(unittest.TestCase):
     @patch("keyring.set_password")
     def test_salvar_token(self, mock_set):
         self.auth.salvar_token("token123")
-        mock_set.assert_called_with("aresta_editor", "github_token", "token123")
+        mock_set.assert_called_with("editor_aresta", "github_token", "token123")
 
     @patch("keyring.get_password")
     def test_recuperar_token(self, mock_get):
         mock_get.return_value = "token123"
         token = self.auth.recuperar_token()
         self.assertEqual(token, "token123")
-        mock_get.assert_called_with("aresta_editor", "github_token")
+        mock_get.assert_called_with("editor_aresta", "github_token")
 
     @patch("github.Github")
     def test_validar_token_sucesso(self, mock_github):

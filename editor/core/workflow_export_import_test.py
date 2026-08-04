@@ -9,7 +9,7 @@ from editor.core.croqui_format import ler_croqui, empacotar_croqui
 @pytest.fixture
 def storage_temp(tmp_path):
     storage = GerenciadorCaminhos()
-    storage.obter_diretorio_base = lambda: tmp_path / "aresta_editor"
+    storage.obter_diretorio_base = lambda: tmp_path / "editor_aresta"
     storage.inicializar_diretorios()
     return storage
 
