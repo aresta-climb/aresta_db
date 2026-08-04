@@ -44,9 +44,9 @@ croquis:
   nome: Afloramento Rastro
   descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
   caminho_relativo: br_mg_arcos_rastro/compilado.binarypb
-  checksum_sha256_croqui: 4f4643d863301f8254ba2cc3fef6440a2326c750d760ce274bd3dbcb884670dc
+  checksum_sha256_croqui: 1974a9e6dc70e280ea833d9694c0fa7734bb32d328dbbd7421051ed48c5abbd5
   checksum_sha256_thumbnail: cd2a88b34c86579c7cf631e5773abb272835706f5b45e49bb0f1e362bca7ce39
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-08-04T12:53:17Z'
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
   descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
