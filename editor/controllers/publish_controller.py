@@ -4,6 +4,7 @@ from PyQt6.QtGui import QDesktopServices
 from editor.views.publish_dialog import PublishDialog
 from editor.core.worker import TarefaPublicacao
 from editor.views.estilo import Icones
+import github
 
 class DialogoSucessoPR(QDialog):
     """Diálogo de sucesso com botão customizado para abrir no GitHub."""
@@ -107,11 +108,40 @@ class PublishController:
         """
         meta = self._ler_meta_experimental()
         pr_branch = meta.get("pull_request_branch")
+        pr_url = meta.get("pull_request_url")
         
+        pr_aberto = False
         if pr_branch:
+            pr_aberto = True
+            if pr_url:
+                try:
+                    import github
+                    partes = pr_url.split("/")
+                    if "pull" in partes:
+                        pr_number = int(partes[-1])
+                        token = self.auth.recuperar_token()
+                        if token:
+                            g = github.Github(auth=github.Auth.Token(token))
+                            idx_pull = partes.index("pull")
+                            repo_name = f"{partes[idx_pull-2]}/{partes[idx_pull-1]}"
+                            repo = g.get_repo(repo_name)
+                            pr = repo.get_pull(pr_number)
+                            if pr.state != "open":
+                                pr_aberto = False
+                except Exception as e:
+                    print(f"[AVISO] Erro ao verificar status do PR: {e}")
+        
+        if pr_aberto:
             # Fluxo Silencioso de Atualização
             self._iniciar_worker(dados_pr=None, modo_atualizacao=True)
         else:
+            if pr_branch:
+                # O PR foi fechado/merged. Limpar os dados antigos do meta
+                meta.pop("pull_request_branch", None)
+                meta.pop("pull_request_url", None)
+                meta.pop("pull_request_fork_owner", None)
+                self._salvar_meta_experimental(meta)
+                
             # Fluxo Novo PR
             titulo_sugerido = self.croqui_data.get("nome", self.workspace.caminho_raiz.name) if self.croqui_data else self.workspace.caminho_raiz.name
             dialogo = PublishDialog(titulo_padrao=titulo_sugerido, parent=self.parent)
