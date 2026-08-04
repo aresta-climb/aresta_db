@@ -54,15 +54,15 @@ mapas:
       y: 432
       comprimento: 25
       largura: 25
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 490
       y: 391
       comprimento: 25
       largura: 22
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 534
       y: 366
@@ -254,11 +254,11 @@ mapas:
     - Setor_Conexao
     setor: 2º Andar
   - ids:
-    - 08
+    - '08'
     setor: 3º Andar
     escalada: Iara
   - ids:
-    - 09
+    - '09'
     setor: 3º Andar
     escalada: Come Hamburguer
 escaladas:

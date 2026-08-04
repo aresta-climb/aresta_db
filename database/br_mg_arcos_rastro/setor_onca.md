@@ -82,15 +82,15 @@ mapas:
       y: 882
       comprimento: 14
       largura: 19
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 456
       y: 764
       comprimento: 14
       largura: 16
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 466
       y: 746
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - 08
+    - '08'
     setor: Setor Onça
     escalada: Estica e Clipa
   - ids:
-    - 09
+    - '09'
     setor: Setor Onça
     escalada: Pai Bravo
   - ids:

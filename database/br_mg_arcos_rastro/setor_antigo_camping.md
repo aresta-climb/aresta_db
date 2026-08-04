@@ -75,15 +75,15 @@ mapas:
       y: 790
       comprimento: 20
       largura: 15
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 466
       y: 771
       comprimento: 21
       largura: 16
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 458
       y: 748

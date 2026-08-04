@@ -75,14 +75,14 @@ mapas:
       y: 891
       comprimento: 14
       largura: 14
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 344
       y: 824
       comprimento: 13
       largura: 13
-  - id: 09
+  - id: '09'
     label: '9'
     retangulo:
       x: 336
@@ -235,11 +235,11 @@ mapas:
     ids:
     - '22'
   - ids:
-    - 08
+    - '08'
     setor: Setor Leão de Judah
     escalada: Efeito Moral
   - ids:
-    - 09
+    - '09'
     setor: Setor Leão de Judah
     escalada: Risco de Discórdia
   - ids:

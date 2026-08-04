@@ -75,15 +75,15 @@ mapas:
       y: 768
       comprimento: 22
       largura: 20
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 365
       y: 793
       comprimento: 24
       largura: 20
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 308
       y: 810
@@ -312,11 +312,11 @@ mapas:
     ids:
     - '29'
   - ids:
-    - 08
+    - '08'
     setor: Setor Vale das Sombras
     escalada: Uso Capial
   - ids:
-    - 09
+    - '09'
     setor: Setor Vale das Sombras
     escalada: Clara Morena
   - ids:

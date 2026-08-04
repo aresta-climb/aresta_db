@@ -82,14 +82,14 @@ mapas:
       y: 310
       comprimento: 14
       largura: 16
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 242
       y: 287
       comprimento: 14
       largura: 14
-  - id: 09
+  - id: '09'
     label: '9'
     retangulo:
       x: 257
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - 08
+    - '08'
     setor: Setor Savassinha
     escalada: Curupira
   - ids:
-    - 09
+    - '09'
     setor: Setor Savassinha
     escalada: Só Beleza
   - ids:

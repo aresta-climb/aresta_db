@@ -68,15 +68,15 @@ mapas:
       y: 540
       comprimento: 22
       largura: 18
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 553
       y: 534
       comprimento: 22
       largura: 17
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 514
       y: 574
@@ -131,11 +131,11 @@ mapas:
     - Setor_Jardim_Suspenso
     setor: Jardim Suspenso
   - ids:
-    - 08
+    - '08'
     setor: 1º Andar
     escalada: Curte o Planeta que Você Vive
   - ids:
-    - 09
+    - '09'
     setor: 1º Andar
     escalada: Subaco da Zen
 escaladas:

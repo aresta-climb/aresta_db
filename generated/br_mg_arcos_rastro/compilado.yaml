@@ -5089,6 +5089,8 @@ botoes:
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
+creditos:
+- Alexsandro
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 0fd5eb026d2e6f88a6b36ab06f5c286247b289e58fdc41ef1418c6db101a515d

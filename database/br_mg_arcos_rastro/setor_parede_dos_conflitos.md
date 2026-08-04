@@ -82,14 +82,14 @@ mapas:
       y: 563
       comprimento: 19
       largura: 24
-  - id: 08
+  - id: '08'
     label: '8'
     retangulo:
       x: 277
       y: 530
       comprimento: 20
       largura: 22
-  - id: 09
+  - id: '09'
     label: '9'
     retangulo:
       x: 279
@@ -149,11 +149,11 @@ mapas:
     ids:
     - '12'
   - ids:
-    - 08
+    - '08'
     setor: Setor Parede dos Conflitos
     escalada: Guerra dos Côcos
   - ids:
-    - 09
+    - '09'
     setor: Setor Parede dos Conflitos
     escalada: Guerrilha do Araguaia
   - ids:
