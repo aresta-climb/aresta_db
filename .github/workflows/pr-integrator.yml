@@ -3,10 +3,15 @@ name: Integrador de Pull Requests
 on:
   pull_request_review:
     types: [submitted]
+  issue_comment:
+    types: [created]
 
 jobs:
   integrate:
-    if: github.event.review.state == 'approved'
+    # Só roda se for um review 'approved' OU se for um comentário '/approve' (apenas de administradores/colaboradores)
+    if: >-
+      (github.event_name == 'pull_request_review' && github.event.review.state == 'approved') ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '/approve') && contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association))
     runs-on: ubuntu-latest
     steps:
       - name: Generate Github App Token
@@ -17,13 +22,25 @@ jobs:
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
 
+      - name: Fetch PR Info
+        id: pr-info
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          # Pega o número do PR independente de qual evento acionou
+          PR_NUMBER="${{ github.event.pull_request.number || github.event.issue.number }}"
+          # Usa o GH CLI para pegar o nome da branch do PR
+          BRANCH=$(gh pr view $PR_NUMBER --repo ${{ github.repository }} --json headRefName -q .headRefName)
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+
       - name: Checkout Repository
         uses: actions/checkout@v7
         with:
           token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
           submodules: recursive
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ steps.pr-info.outputs.branch }}
           
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -59,4 +76,4 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          gh pr merge ${{ github.event.pull_request.number }} --merge --auto
+          gh pr merge ${{ steps.pr-info.outputs.pr_number }} --merge --auto
