@@ -68,15 +68,15 @@ mapas:
       y: 598
       comprimento: 22
       largura: 19
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 443
       y: 638
       comprimento: 22
       largura: 18
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 475
       y: 646
@@ -119,11 +119,11 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Antigo Camping
     escalada: Xuxa Preta de Pains
   - ids:
-    - 09
+    - '09'
     setor: Setor Antigo Camping
     escalada: Brenfa Móvel
   - ids:

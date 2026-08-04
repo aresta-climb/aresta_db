@@ -89,8 +89,8 @@ mapas:
       y: 225
       comprimento: 22
       largura: 18
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 82
       y: 190
@@ -119,7 +119,7 @@ mapas:
     ids:
     - '07'
   - ids:
-    - 08
+    - '08'
     setor: Setor Intermediário
     escalada: Delicinha
   - ids:

@@ -87,6 +87,8 @@
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
+- **creditos**:
+  - Alexsandro
 
 
 ## Parte: setor_zona_leste
