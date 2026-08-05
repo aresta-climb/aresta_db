@@ -33,6 +33,8 @@ def integracao(tmp_path, qtbot):
     
     # Limpeza
     servidor.parar()
+    if servidor.thread and servidor.thread.is_alive():
+        servidor.thread.join(timeout=3.0)
 
 def test_status_deve_mudar_para_conectado_ao_receber_get_real(qtbot, integracao):
     """
