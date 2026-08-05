@@ -75,10 +75,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_fenda
@@ -108,10 +104,6 @@
 - **precomputados**:
   - **total_escaladas**: 3
   - **total_esportivas**: 3
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_do_buraco
@@ -161,10 +153,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_da_frente
@@ -215,10 +203,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_passagem
@@ -240,10 +224,6 @@
 - **precomputados**:
   - **total_escaladas**: 1
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_arvore_da_vida
@@ -259,12 +239,6 @@
     - **altura_mapa**: 1100
 - **escaladas**: []
 - **precomputados**:
-  - **total_escaladas**: 0
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_planeta_dos_macacos
@@ -306,10 +280,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

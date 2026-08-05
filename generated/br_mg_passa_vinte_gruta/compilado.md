@@ -459,10 +459,6 @@
 - **precomputados**:
   - **total_escaladas**: 20
   - **total_esportivas**: 20
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_sunshine_e_teto_preto
@@ -805,10 +801,6 @@
 - **precomputados**:
   - **total_escaladas**: 19
   - **total_esportivas**: 19
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_positivo_central
@@ -1124,10 +1116,6 @@
 - **precomputados**:
   - **total_escaladas**: 18
   - **total_esportivas**: 18
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_negativo_central
@@ -1727,10 +1715,6 @@
 - **precomputados**:
   - **total_escaladas**: 32
   - **total_esportivas**: 32
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_arquibancada
@@ -2248,10 +2232,6 @@
 - **precomputados**:
   - **total_escaladas**: 27
   - **total_esportivas**: 27
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_genesis
@@ -2677,10 +2657,6 @@
 - **precomputados**:
   - **total_escaladas**: 23
   - **total_esportivas**: 23
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_acampamento
@@ -3012,10 +2988,6 @@
 - **precomputados**:
   - **total_escaladas**: 15
   - **total_esportivas**: 15
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

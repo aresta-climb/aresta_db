@@ -349,11 +349,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 16
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 16
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Super Herói
             mapas:
@@ -423,11 +419,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Caverninha
             mapas:
@@ -650,11 +642,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 15
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 15
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Campo Escola
             mapas:
@@ -833,11 +821,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 12
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 12
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Escorpião
             mapas:
@@ -951,11 +935,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 7
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 7
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Troféu
             mapas:
@@ -1012,11 +992,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 3
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 3
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: X-Tudo
             mapas:
@@ -1096,11 +1072,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Domínio Digital
             mapas:
@@ -1157,22 +1129,14 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 3
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 3
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         descricao: |-
           # Grupo Salão de Pedras
 
           O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.
         precomputados:
           total_escaladas: 64
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 64
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - grupo:
       conteudo:
         nome: Colina
@@ -1351,11 +1315,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 7
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 7
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Godzilla
             mapas:
@@ -1487,11 +1447,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 8
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 8
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Show Time
             mapas:
@@ -1635,11 +1591,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 7
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 7
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Hiperespaço
             mapas:
@@ -1735,11 +1687,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 6
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 6
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Mergulho em Copo d'Água
             mapas:
@@ -1770,22 +1718,14 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 1
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 1
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         descricao: |-
           # Grupo Colina
 
           A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.
         precomputados:
           total_escaladas: 29
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 29
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - grupo:
       conteudo:
         nome: JK
@@ -1856,22 +1796,14 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 2
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 2
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         descricao: |-
           # Grupo JK
 
           O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.
         precomputados:
           total_escaladas: 2
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 2
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - grupo:
       conteudo:
         nome: Pedreira
@@ -2199,11 +2131,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 10
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 10
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Manda Lá
             mapas:
@@ -2247,11 +2175,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 2
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 2
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Trabalhador
             mapas:
@@ -2339,11 +2263,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Sanfoneiro Maluco
             mapas:
@@ -2449,11 +2369,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 6
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 6
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Samurai
             mapas:
@@ -2541,11 +2457,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Bomba Atômica
             mapas:
@@ -2825,11 +2737,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 19
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 19
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Jubileu
             mapas:
@@ -2909,11 +2817,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Conceição
             mapas:
@@ -3001,11 +2905,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Bobsled
             mapas:
@@ -3075,11 +2975,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Aresta do Cabeça
             mapas:
@@ -3110,11 +3006,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 1
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 1
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Equinócio
             mapas:
@@ -3171,11 +3063,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 3
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 3
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Witness
             mapas:
@@ -3250,11 +3138,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: La Fúria
             mapas:
@@ -3653,11 +3537,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 19
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 19
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Jah
             mapas:
@@ -3810,11 +3690,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 10
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 10
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Pole Dance
             mapas:
@@ -4086,11 +3962,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 18
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 18
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Rock and Roll
             mapas:
@@ -4160,11 +4032,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Bloco dos Canelas
             mapas:
@@ -4208,11 +4076,7 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 2
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 2
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Mãos de Sebo
             mapas:
@@ -4294,22 +4158,14 @@ picos:
               Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         descricao: |-
           # Grupo Pedreira
 
           A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.
         precomputados:
           total_escaladas: 126
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 126
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -4380,11 +4236,7 @@ picos:
     total_escaladas: 221
     total_setores: 32
     total_grupos: 4
-    total_esportivas: 0
-    total_moveis: 0
     total_boulders: 221
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

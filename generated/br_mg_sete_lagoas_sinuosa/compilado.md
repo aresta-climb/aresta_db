@@ -296,10 +296,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_panelinha
@@ -423,10 +419,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 3
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_7_paralelo
@@ -788,10 +780,6 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 15
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_sentinela
@@ -966,10 +954,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_death_horse
@@ -1187,10 +1171,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_gameleira
@@ -1319,10 +1299,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_das_sombras
@@ -1886,10 +1862,6 @@
 - **precomputados**:
   - **total_escaladas**: 30
   - **total_esportivas**: 28
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_imigrantes
@@ -2061,10 +2033,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_zela
@@ -2214,10 +2182,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_macaubas
@@ -2315,10 +2279,6 @@
 - **precomputados**:
   - **total_escaladas**: 3
   - **total_esportivas**: 3
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_primordios
@@ -2560,10 +2520,6 @@
 - **precomputados**:
   - **total_escaladas**: 12
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_4_picos
@@ -2676,10 +2632,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: grupo_vale_oculto
@@ -2838,10 +2790,6 @@
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_esportivas**: 5
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -3094,10 +3042,6 @@
       - **precomputados**:
         - **total_escaladas**: 12
         - **total_esportivas**: 12
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -3394,17 +3338,9 @@
       - **precomputados**:
         - **total_escaladas**: 15
         - **total_esportivas**: 15
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 32
   - **total_esportivas**: 32
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

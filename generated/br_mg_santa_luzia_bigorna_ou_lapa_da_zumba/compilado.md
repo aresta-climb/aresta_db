@@ -325,10 +325,6 @@
 - **precomputados**:
   - **total_escaladas**: 37
   - **total_esportivas**: 32
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

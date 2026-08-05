@@ -641,10 +641,6 @@
 - **precomputados**:
   - **total_escaladas**: 14
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_g2
@@ -1073,10 +1069,6 @@
 - **precomputados**:
   - **total_escaladas**: 21
   - **total_esportivas**: 17
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_g3
@@ -2030,10 +2022,6 @@
 - **precomputados**:
   - **total_escaladas**: 50
   - **total_esportivas**: 45
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

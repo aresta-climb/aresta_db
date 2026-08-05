@@ -344,10 +344,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bombonera
@@ -587,10 +583,6 @@
 - **precomputados**:
   - **total_escaladas**: 12
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bosque
@@ -893,10 +885,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -97,10 +97,6 @@
 - **precomputados**:
   - **total_escaladas**: 1
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_caverninha
@@ -164,10 +160,7 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_torres
@@ -219,11 +212,7 @@
         - Luis Monteiro
 - **precomputados**:
   - **total_escaladas**: 4
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 3
-  - **total_highlines**: 0
 
 
 ## Parte: setor_felinas
@@ -333,10 +322,7 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_fendas
@@ -402,10 +388,7 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 2
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 2
-  - **total_highlines**: 0
 
 
 ## Parte: setor_arco
@@ -488,11 +471,7 @@
       - **comprimento_total**: 150
 - **precomputados**:
   - **total_escaladas**: 6
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 4
-  - **total_highlines**: 0
 
 
 ## Parte: setor_aresta
@@ -608,10 +587,7 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 2
-  - **total_highlines**: 0
 
 
 ## Parte: setor_polegar
@@ -661,10 +637,7 @@
 - **precomputados**:
   - **total_escaladas**: 3
   - **total_esportivas**: 2
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_totem
@@ -708,10 +681,6 @@
 - **precomputados**:
   - **total_escaladas**: 2
   - **total_esportivas**: 2
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_enigma_da_esfinge
@@ -743,11 +712,7 @@
       - **comprimento_total**: 80
 - **precomputados**:
   - **total_escaladas**: 1
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_jardim_da_fantasia
@@ -783,11 +748,7 @@
       - **comprimento_total**: 180
 - **precomputados**:
   - **total_escaladas**: 1
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

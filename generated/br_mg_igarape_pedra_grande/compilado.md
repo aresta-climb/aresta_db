@@ -842,10 +842,6 @@
 - **precomputados**:
   - **total_escaladas**: 19
   - **total_esportivas**: 19
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_familia_i
@@ -1507,10 +1503,6 @@
 - **precomputados**:
   - **total_escaladas**: 19
   - **total_esportivas**: 19
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_familia_ii
@@ -1903,10 +1895,6 @@
 - **precomputados**:
   - **total_escaladas**: 11
   - **total_esportivas**: 11
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_micos
@@ -2179,10 +2167,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_totem
@@ -2353,10 +2337,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_igarameca
@@ -3150,10 +3130,7 @@
 - **precomputados**:
   - **total_escaladas**: 21
   - **total_esportivas**: 20
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_pracinha
@@ -3490,10 +3467,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tetos
@@ -3734,10 +3707,7 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 2
-  - **total_highlines**: 0
 
 
 ## Parte: setor_trad
@@ -4347,11 +4317,6 @@
       - **dificuldade**: INDEFINIDO
 - **precomputados**:
   - **total_escaladas**: 42
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

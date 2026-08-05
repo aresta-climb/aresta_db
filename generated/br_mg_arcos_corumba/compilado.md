@@ -522,10 +522,6 @@
 - **precomputados**:
   - **total_escaladas**: 23
   - **total_esportivas**: 22
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_cataguas
@@ -586,10 +582,6 @@
 - **precomputados**:
   - **total_escaladas**: 3
   - **total_esportivas**: 2
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_xavante
@@ -731,10 +723,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_yanomami
@@ -1149,10 +1137,6 @@
 - **precomputados**:
   - **total_escaladas**: 21
   - **total_esportivas**: 21
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

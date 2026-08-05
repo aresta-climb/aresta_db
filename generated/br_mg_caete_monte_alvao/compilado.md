@@ -270,10 +270,6 @@
 - **precomputados**:
   - **total_escaladas**: 11
   - **total_esportivas**: 10
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_parede_do_ladrao_e_forno_da_onca
@@ -526,10 +522,7 @@
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_esportivas**: 5
-        - **total_moveis**: 0
-        - **total_boulders**: 0
         - **total_multiplas_enfiadas**: 1
-        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -591,17 +584,10 @@
       - **precomputados**:
         - **total_escaladas**: 7
         - **total_esportivas**: 7
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 13
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_caverna_bin_laden_mirante_da_cruz_e_ground_control
@@ -1025,10 +1011,7 @@
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_esportivas**: 4
-        - **total_moveis**: 0
-        - **total_boulders**: 0
         - **total_multiplas_enfiadas**: 2
-        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -1091,10 +1074,6 @@
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_esportivas**: 6
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -1271,17 +1250,11 @@
       - **precomputados**:
         - **total_escaladas**: 12
         - **total_esportivas**: 5
-        - **total_moveis**: 0
-        - **total_boulders**: 0
         - **total_multiplas_enfiadas**: 4
-        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 24
   - **total_esportivas**: 15
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 6
-  - **total_highlines**: 0
 
 
 ## Parte: setor_curto_e_grosso_malibu_e_terra_do_nunca
@@ -1403,10 +1376,6 @@
       - **precomputados**:
         - **total_escaladas**: 1
         - **total_esportivas**: 1
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -1455,10 +1424,6 @@
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_esportivas**: 4
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -1486,17 +1451,9 @@
       - **precomputados**:
         - **total_escaladas**: 2
         - **total_esportivas**: 2
-        - **total_moveis**: 0
-        - **total_boulders**: 0
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -137,10 +137,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_as_pilastras
@@ -227,10 +223,6 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 14
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_a_pedreira
@@ -286,10 +278,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

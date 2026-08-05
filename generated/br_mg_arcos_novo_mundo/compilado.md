@@ -150,10 +150,6 @@
 - **precomputados**:
   - **total_escaladas**: 2
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_aristoteles
@@ -469,10 +465,6 @@
 - **precomputados**:
   - **total_escaladas**: 14
   - **total_esportivas**: 13
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_corredor_polones
@@ -633,10 +625,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_barceloneta
@@ -848,10 +836,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

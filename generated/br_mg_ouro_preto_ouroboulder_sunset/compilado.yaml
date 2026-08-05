@@ -138,11 +138,7 @@ picos:
             descricao: '# Bloco Aleijadinho'
             precomputados:
               total_escaladas: 1
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 1
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Capitão Jack
             escaladas:
@@ -236,11 +232,7 @@ picos:
             descricao: '# Bloco Capitão Jack'
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Jahngada
             escaladas:
@@ -331,11 +323,7 @@ picos:
             descricao: '# Bloco Jahngada'
             precomputados:
               total_escaladas: 4
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 4
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Planetário
             escaladas:
@@ -469,11 +457,7 @@ picos:
             descricao: '# Bloco Planetário'
             precomputados:
               total_escaladas: 6
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 6
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Free Solo
             escaladas:
@@ -579,11 +563,7 @@ picos:
             descricao: '# Bloco Free Solo'
             precomputados:
               total_escaladas: 6
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 6
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Carrapicho
             escaladas:
@@ -661,11 +641,7 @@ picos:
             descricao: '# Bloco Carrapicho'
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Sunset
             escaladas:
@@ -750,11 +726,7 @@ picos:
             descricao: '# Bloco Sunset'
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         - conteudo:
             nome: Camaroa
             escaladas:
@@ -837,11 +809,7 @@ picos:
             descricao: '# Bloco Camaroa'
             precomputados:
               total_escaladas: 5
-              total_esportivas: 0
-              total_moveis: 0
               total_boulders: 5
-              total_multiplas_enfiadas: 0
-              total_highlines: 0
         descricao: |-
           # Grupo Sunset
 
@@ -850,11 +818,7 @@ picos:
           Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.
         precomputados:
           total_escaladas: 36
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 36
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -877,11 +841,7 @@ picos:
     total_escaladas: 36
     total_setores: 8
     total_grupos: 1
-    total_esportivas: 0
-    total_moveis: 0
     total_boulders: 36
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

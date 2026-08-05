@@ -167,11 +167,7 @@
       - **dificuldade**: V3
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_caverninha
@@ -378,11 +374,7 @@
       - **dificuldade**: V5
 - **precomputados**:
   - **total_escaladas**: 11
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 11
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_exquadrilha
@@ -481,11 +473,7 @@
       - **dificuldade**: V6
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 5
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_canil
@@ -610,11 +598,7 @@
       - **dificuldade**: V6
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_do_guerreiro
@@ -751,11 +735,7 @@
       - **dificuldade**: V4
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_do_cabelin
@@ -1009,11 +989,7 @@
       - **dificuldade**: V10
 - **precomputados**:
   - **total_escaladas**: 14
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 14
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_consciencia_limpa
@@ -1118,11 +1094,7 @@
       - **dificuldade**: V2
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 5
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_haiti
@@ -1236,11 +1208,7 @@
       - **dificuldade**: V5
 - **precomputados**:
   - **total_escaladas**: 6
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 6
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_achados_e_perdidos
@@ -1323,11 +1291,7 @@
       - **dificuldade**: V3
 - **precomputados**:
   - **total_escaladas**: 4
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 4
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_do_rock_bocaina
@@ -1394,11 +1358,7 @@
       - **dificuldade**: V3
 - **precomputados**:
   - **total_escaladas**: 3
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 3
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_45
@@ -1852,11 +1812,7 @@
       - **dificuldade**: V11
 - **precomputados**:
   - **total_escaladas**: 23
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 23
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_essencia
@@ -2005,11 +1961,7 @@
       - **dificuldade**: V0
 - **precomputados**:
   - **total_escaladas**: 9
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 9
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

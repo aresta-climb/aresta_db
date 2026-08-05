@@ -113,11 +113,7 @@
       - **dificuldade**: V1
 - **precomputados**:
   - **total_escaladas**: 12
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 12
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_da_pressao
@@ -165,11 +161,7 @@
       - **dificuldade**: V4
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_gaveta
@@ -206,11 +198,7 @@
       - **dificuldade**: V6
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 5
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_ditinho
@@ -255,11 +243,7 @@
       - **dificuldade**: V4
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_angular
@@ -309,11 +293,7 @@
       - **dificuldade**: V3_BARRA_V4
 - **precomputados**:
   - **total_escaladas**: 8
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 8
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_high
@@ -350,11 +330,7 @@
       - **dificuldade**: V2_BARRA_V3
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 5
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bloco_sala_de_estar
@@ -379,11 +355,7 @@
       - **dificuldade**: V1
 - **precomputados**:
   - **total_escaladas**: 2
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 2
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

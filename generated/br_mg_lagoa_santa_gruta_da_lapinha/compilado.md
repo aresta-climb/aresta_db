@@ -194,10 +194,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 3
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_2
@@ -257,10 +253,6 @@
 - **precomputados**:
   - **total_escaladas**: 2
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_3
@@ -801,10 +793,6 @@
 - **precomputados**:
   - **total_escaladas**: 26
   - **total_esportivas**: 18
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_4
@@ -1283,10 +1271,6 @@
 - **precomputados**:
   - **total_escaladas**: 17
   - **total_esportivas**: 14
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_5
@@ -1496,10 +1480,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_6
@@ -1813,10 +1793,6 @@
 - **precomputados**:
   - **total_escaladas**: 14
   - **total_esportivas**: 11
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_7
@@ -2058,10 +2034,6 @@
 - **precomputados**:
   - **total_escaladas**: 11
   - **total_esportivas**: 10
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_8
@@ -2597,10 +2569,6 @@
 - **precomputados**:
   - **total_escaladas**: 23
   - **total_esportivas**: 20
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_9
@@ -2970,10 +2938,6 @@
 - **precomputados**:
   - **total_escaladas**: 13
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_10
@@ -3139,10 +3103,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

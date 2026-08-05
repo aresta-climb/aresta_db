@@ -33,10 +33,6 @@ picos:
         precomputados:
           total_escaladas: 1
           total_esportivas: 1
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Caverninha
@@ -96,10 +92,7 @@ picos:
         precomputados:
           total_escaladas: 4
           total_esportivas: 1
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Torres
@@ -144,11 +137,7 @@ picos:
           Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via Homens Verdes.
         precomputados:
           total_escaladas: 4
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 3
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Felinas
@@ -252,10 +241,7 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 7
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Fendas
@@ -314,10 +300,7 @@ picos:
         precomputados:
           total_escaladas: 5
           total_esportivas: 2
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 2
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Arco
@@ -400,11 +383,7 @@ picos:
           O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
         precomputados:
           total_escaladas: 6
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 4
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Aresta
@@ -520,10 +499,7 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 4
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 2
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Polegar
@@ -566,10 +542,7 @@ picos:
         precomputados:
           total_escaladas: 3
           total_esportivas: 2
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Totem
@@ -609,10 +582,6 @@ picos:
         precomputados:
           total_escaladas: 2
           total_esportivas: 2
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Enigma da Esfinge
@@ -639,11 +608,7 @@ picos:
           O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
         precomputados:
           total_escaladas: 1
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Jardim da Fantasia
@@ -675,11 +640,7 @@ picos:
           O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
         precomputados:
           total_escaladas: 1
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -689,12 +650,8 @@ picos:
   precomputados:
     total_escaladas: 45
     total_setores: 11
-    total_grupos: 0
     total_esportivas: 19
-    total_moveis: 0
-    total_boulders: 0
     total_multiplas_enfiadas: 16
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

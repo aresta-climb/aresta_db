@@ -250,10 +250,6 @@
 - **precomputados**:
   - **total_escaladas**: 13
   - **total_esportivas**: 13
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_de_baixo
@@ -421,10 +417,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

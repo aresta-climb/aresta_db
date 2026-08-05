@@ -585,10 +585,6 @@ picos:
         precomputados:
           total_escaladas: 19
           total_esportivas: 19
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Família I
@@ -1149,10 +1145,6 @@ picos:
         precomputados:
           total_escaladas: 19
           total_esportivas: 19
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Família II
@@ -1484,10 +1476,6 @@ picos:
         precomputados:
           total_escaladas: 11
           total_esportivas: 11
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Micos
@@ -1718,10 +1706,6 @@ picos:
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Totem
@@ -1866,10 +1850,6 @@ picos:
         precomputados:
           total_escaladas: 4
           total_esportivas: 4
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Igarameca
@@ -2543,10 +2523,7 @@ picos:
         precomputados:
           total_escaladas: 21
           total_esportivas: 20
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 1
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Pracinha
@@ -2831,10 +2808,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor dos Tetos
@@ -3041,10 +3014,7 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 7
-          total_moveis: 0
-          total_boulders: 0
           total_multiplas_enfiadas: 2
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Trad
@@ -3531,11 +3501,6 @@ picos:
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
         precomputados:
           total_escaladas: 42
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -3743,12 +3708,8 @@ picos:
   precomputados:
     total_escaladas: 140
     total_setores: 9
-    total_grupos: 0
     total_esportivas: 95
-    total_moveis: 0
-    total_boulders: 0
     total_multiplas_enfiadas: 3
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

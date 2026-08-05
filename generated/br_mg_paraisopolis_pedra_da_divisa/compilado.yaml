@@ -295,10 +295,6 @@ picos:
         precomputados:
           total_escaladas: 13
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Ditados
@@ -478,10 +474,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 6
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Cervejas
@@ -756,10 +748,6 @@ picos:
         precomputados:
           total_escaladas: 14
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Questão de Tempo
@@ -865,10 +853,6 @@ picos:
         precomputados:
           total_escaladas: 3
           total_esportivas: 2
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Hospício
@@ -992,10 +976,6 @@ picos:
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -1124,12 +1104,7 @@ picos:
   precomputados:
     total_escaladas: 43
     total_setores: 5
-    total_grupos: 0
     total_esportivas: 29
-    total_moveis: 0
-    total_boulders: 0
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Capa

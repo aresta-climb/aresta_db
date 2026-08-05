@@ -265,10 +265,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 1
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_roca_master
@@ -401,10 +397,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_ecumenico
@@ -516,10 +508,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -447,10 +447,7 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 10
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 6
-  - **total_highlines**: 0
 
 
 ## Parte: setor_santa_linea
@@ -868,10 +865,7 @@
 - **precomputados**:
   - **total_escaladas**: 15
   - **total_esportivas**: 3
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 12
-  - **total_highlines**: 0
 
 
 ## Parte: setor_democracia
@@ -1198,10 +1192,7 @@
 - **precomputados**:
   - **total_escaladas**: 15
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 7
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

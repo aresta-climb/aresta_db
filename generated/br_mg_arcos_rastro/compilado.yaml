@@ -135,10 +135,6 @@ picos:
         precomputados:
           total_escaladas: 6
           total_esportivas: 6
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Chegada
@@ -382,10 +378,6 @@ picos:
         precomputados:
           total_escaladas: 13
           total_esportivas: 10
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Onça
@@ -907,10 +899,6 @@ picos:
         precomputados:
           total_escaladas: 26
           total_esportivas: 26
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Toca dos Gatos
@@ -1089,10 +1077,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Intermediário
@@ -1282,10 +1266,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale das Sombras
@@ -1783,10 +1763,6 @@ picos:
         precomputados:
           total_escaladas: 29
           total_esportivas: 29
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Parede dos Conflitos
@@ -2027,10 +2003,6 @@ picos:
         precomputados:
           total_escaladas: 12
           total_esportivas: 12
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Leão de Judah
@@ -2412,10 +2384,6 @@ picos:
         precomputados:
           total_escaladas: 22
           total_esportivas: 22
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Antigo Camping
@@ -2764,10 +2732,6 @@ picos:
         precomputados:
           total_escaladas: 19
           total_esportivas: 19
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Beco do Tiú
@@ -2979,10 +2943,6 @@ picos:
         precomputados:
           total_escaladas: 11
           total_esportivas: 9
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Savassinha
@@ -3228,10 +3188,6 @@ picos:
         precomputados:
           total_escaladas: 12
           total_esportivas: 12
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Grutinha
@@ -3429,10 +3385,6 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Mezanino
@@ -3586,10 +3538,6 @@ picos:
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: 1º Andar
@@ -3798,10 +3746,6 @@ picos:
         precomputados:
           total_escaladas: 11
           total_esportivas: 11
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: 2º Andar
@@ -4172,10 +4116,6 @@ picos:
         precomputados:
           total_escaladas: 21
           total_esportivas: 21
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Jardim Suspenso
@@ -4350,10 +4290,6 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: 3º Andar
@@ -4756,10 +4692,6 @@ picos:
         precomputados:
           total_escaladas: 24
           total_esportivas: 24
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -5062,12 +4994,7 @@ picos:
   precomputados:
     total_escaladas: 247
     total_setores: 17
-    total_grupos: 0
     total_esportivas: 242
-    total_moveis: 0
-    total_boulders: 0
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

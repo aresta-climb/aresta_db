@@ -163,10 +163,6 @@
       - **descricao_ancoragem**: Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
   - **total_highlines**: 5
 
 
@@ -702,10 +698,6 @@
 - **precomputados**:
   - **total_escaladas**: 21
   - **total_esportivas**: 21
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_garganta
@@ -1421,10 +1413,6 @@
 - **precomputados**:
   - **total_escaladas**: 28
   - **total_esportivas**: 28
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tapa_na_cara
@@ -1544,10 +1532,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_terceiro_andar
@@ -2001,10 +1985,6 @@
 - **precomputados**:
   - **total_escaladas**: 17
   - **total_esportivas**: 17
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_paulistas
@@ -2393,10 +2373,6 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 16
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mezanino
@@ -2861,10 +2837,6 @@
 - **precomputados**:
   - **total_escaladas**: 20
   - **total_esportivas**: 20
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_shana_crazy
@@ -3098,10 +3070,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tsunami
@@ -3663,10 +3631,6 @@
 - **precomputados**:
   - **total_escaladas**: 24
   - **total_esportivas**: 24
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_udao
@@ -3983,10 +3947,6 @@
 - **precomputados**:
   - **total_escaladas**: 13
   - **total_esportivas**: 13
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tereza
@@ -4163,10 +4123,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bem_vindo
@@ -4631,10 +4587,6 @@
 - **precomputados**:
   - **total_escaladas**: 18
   - **total_esportivas**: 18
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tetos
@@ -5552,10 +5504,6 @@
 - **precomputados**:
   - **total_escaladas**: 41
   - **total_esportivas**: 41
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_segundo_andar
@@ -5831,10 +5779,6 @@
 - **precomputados**:
   - **total_escaladas**: 11
   - **total_esportivas**: 11
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_pirados_de_rocha
@@ -6019,10 +5963,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -147,11 +147,7 @@
       - **dificuldade**: V3
 - **precomputados**:
   - **total_escaladas**: 5
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 5
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: grupo_conjunto_por_do_sol
@@ -315,11 +311,7 @@
             - **dificuldade**: V2
       - **precomputados**:
         - **total_escaladas**: 6
-        - **total_esportivas**: 0
-        - **total_moveis**: 0
         - **total_boulders**: 6
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco B
@@ -438,11 +430,7 @@
             - **dificuldade**: V0
       - **precomputados**:
         - **total_escaladas**: 7
-        - **total_esportivas**: 0
-        - **total_moveis**: 0
         - **total_boulders**: 7
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco C
@@ -499,18 +487,10 @@
             - **dificuldade**: V5
       - **precomputados**:
         - **total_escaladas**: 4
-        - **total_esportivas**: 0
-        - **total_moveis**: 0
         - **total_boulders**: 4
-        - **total_multiplas_enfiadas**: 0
-        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 17
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 17
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_brinquedos
@@ -678,11 +658,7 @@
       - **dificuldade**: V4
 - **precomputados**:
   - **total_escaladas**: 8
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 8
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_beija_flor
@@ -812,11 +788,7 @@
       - **dificuldade**: V8
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_bacurau
@@ -943,11 +915,7 @@
       - **dificuldade**: V1
 - **precomputados**:
   - **total_escaladas**: 6
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 6
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_moctezuma
@@ -1086,11 +1054,7 @@
       - **dificuldade**: V6
 - **precomputados**:
   - **total_escaladas**: 7
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 7
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_molestia
@@ -1163,11 +1127,7 @@
       - **dificuldade**: V4
 - **precomputados**:
   - **total_escaladas**: 3
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 3
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_outros_blocos
@@ -1339,11 +1299,7 @@
       - **dificuldade**: V5
 - **precomputados**:
   - **total_escaladas**: 8
-  - **total_esportivas**: 0
-  - **total_moveis**: 0
   - **total_boulders**: 8
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

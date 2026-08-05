@@ -231,10 +231,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 8
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_campo_escola
@@ -429,10 +425,6 @@
 - **precomputados**:
   - **total_escaladas**: 8
   - **total_esportivas**: 6
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_tchau_querida
@@ -608,10 +600,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_pedra_branca
@@ -1016,10 +1004,6 @@
 - **precomputados**:
   - **total_escaladas**: 20
   - **total_esportivas**: 15
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

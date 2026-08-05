@@ -326,10 +326,6 @@
 - **precomputados**:
   - **total_escaladas**: 12
   - **total_esportivas**: 12
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_da_pracinha
@@ -509,10 +505,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_do_plato
@@ -622,10 +614,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_da_claraboia
@@ -696,10 +684,6 @@
 - **precomputados**:
   - **total_escaladas**: 2
   - **total_esportivas**: 2
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_do_sertao
@@ -881,10 +865,6 @@
 - **precomputados**:
   - **total_escaladas**: 7
   - **total_esportivas**: 7
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_do_moco
@@ -1099,10 +1079,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_esportivas**: 9
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_do_abrigo
@@ -1236,10 +1212,6 @@
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_esportivas**: 5
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

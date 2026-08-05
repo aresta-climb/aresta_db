@@ -118,10 +118,6 @@ picos:
         precomputados:
           total_escaladas: 6
           total_esportivas: 3
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Mapa 2
@@ -167,10 +163,6 @@ picos:
         precomputados:
           total_escaladas: 2
           total_esportivas: 1
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Gruta - Mapa 3
@@ -628,10 +620,6 @@ picos:
         precomputados:
           total_escaladas: 26
           total_esportivas: 18
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Gruta - Mapa 4 (Sala de Aula)
@@ -1036,10 +1024,6 @@ picos:
         precomputados:
           total_escaladas: 17
           total_esportivas: 14
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Mapa 5
@@ -1217,10 +1201,6 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Vale Verde (Mapa 6)
@@ -1486,10 +1466,6 @@ picos:
         precomputados:
           total_escaladas: 14
           total_esportivas: 11
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Mapa 7
@@ -1693,10 +1669,6 @@ picos:
         precomputados:
           total_escaladas: 11
           total_esportivas: 10
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Túnel de Pedra (Mapa 8)
@@ -2152,10 +2124,6 @@ picos:
         precomputados:
           total_escaladas: 23
           total_esportivas: 20
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Savassinha (Mapa 9)
@@ -2469,10 +2437,6 @@ picos:
         precomputados:
           total_escaladas: 13
           total_esportivas: 12
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco Romano (Mapa 10)
@@ -2612,10 +2576,6 @@ picos:
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -2800,12 +2760,7 @@ picos:
   precomputados:
     total_escaladas: 128
     total_setores: 10
-    total_grupos: 0
     total_esportivas: 105
-    total_moveis: 0
-    total_boulders: 0
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

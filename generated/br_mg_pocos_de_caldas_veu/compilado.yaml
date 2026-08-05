@@ -62,11 +62,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 12
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 12
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco da Pressão
@@ -102,11 +98,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 7
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 7
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco Gaveta
@@ -133,11 +125,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 5
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 5
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco Ditinho
@@ -170,11 +158,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 7
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 7
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco Angular
@@ -211,11 +195,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 8
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 8
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco High
@@ -242,11 +222,7 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 5
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 5
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco Sala de Estar
@@ -264,20 +240,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 2
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 2
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   precomputados:
     total_escaladas: 46
     total_setores: 7
-    total_grupos: 0
-    total_esportivas: 0
-    total_moveis: 0
     total_boulders: 46
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: false
 revisado_bounding_circle: false

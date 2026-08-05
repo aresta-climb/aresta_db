@@ -1122,10 +1122,6 @@
 - **precomputados**:
   - **total_escaladas**: 39
   - **total_esportivas**: 30
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_entrada_superior
@@ -2031,10 +2027,6 @@
 - **precomputados**:
   - **total_escaladas**: 41
   - **total_esportivas**: 36
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_segundo_andar
@@ -3018,10 +3010,6 @@
 - **precomputados**:
   - **total_escaladas**: 45
   - **total_esportivas**: 41
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_fechadura
@@ -3409,10 +3397,6 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 11
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_pasto
@@ -3582,10 +3566,6 @@
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_sentinela_e_vale_do_joga
@@ -4248,10 +4228,7 @@
 - **precomputados**:
   - **total_escaladas**: 28
   - **total_esportivas**: 22
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_dos_espinhos
@@ -5068,10 +5045,7 @@
 - **precomputados**:
   - **total_escaladas**: 37
   - **total_esportivas**: 31
-  - **total_moveis**: 0
-  - **total_boulders**: 0
   - **total_multiplas_enfiadas**: 1
-  - **total_highlines**: 0
 
 
 ## Parte: setor_escola
@@ -5220,10 +5194,6 @@
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 4
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_geriatria
@@ -5764,10 +5734,6 @@
 - **precomputados**:
   - **total_escaladas**: 23
   - **total_esportivas**: 18
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_mr_bean
@@ -6433,10 +6399,6 @@
 - **precomputados**:
   - **total_escaladas**: 31
   - **total_esportivas**: 27
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_do_cinema
@@ -6779,10 +6741,6 @@
 - **precomputados**:
   - **total_escaladas**: 14
   - **total_esportivas**: 13
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_onda_de_calcario
@@ -7169,10 +7127,6 @@
 - **precomputados**:
   - **total_escaladas**: 16
   - **total_esportivas**: 16
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_da_onca
@@ -8043,10 +7997,6 @@
 - **precomputados**:
   - **total_escaladas**: 39
   - **total_esportivas**: 39
-  - **total_moveis**: 0
-  - **total_boulders**: 0
-  - **total_multiplas_enfiadas**: 0
-  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -44,10 +44,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Fenda
@@ -69,10 +65,6 @@ picos:
         precomputados:
           total_escaladas: 3
           total_esportivas: 3
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor do Buraco
@@ -109,10 +101,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor da Frente
@@ -150,10 +138,6 @@ picos:
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Passagem
@@ -169,10 +153,6 @@ picos:
         precomputados:
           total_escaladas: 1
           total_esportivas: 1
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Árvore da Vida
@@ -182,13 +162,7 @@ picos:
           altura_mapa: 1100
         escaladas: []
         descricao: ''
-        precomputados:
-          total_escaladas: 0
-          total_esportivas: 0
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
+        precomputados: {}
   - setor:
       conteudo:
         nome: Setor Planeta dos Macacos
@@ -219,10 +193,6 @@ picos:
         precomputados:
           total_escaladas: 6
           total_esportivas: 6
-          total_moveis: 0
-          total_boulders: 0
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -235,12 +205,7 @@ picos:
   precomputados:
     total_escaladas: 34
     total_setores: 7
-    total_grupos: 0
     total_esportivas: 34
-    total_moveis: 0
-    total_boulders: 0
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

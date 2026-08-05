@@ -105,11 +105,7 @@ picos:
         descricao: '# Setor Pressão Enrustida'
         precomputados:
           total_escaladas: 7
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 7
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Caverninha
@@ -288,11 +284,7 @@ picos:
         descricao: '# Setor Caverninha'
         precomputados:
           total_escaladas: 11
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 11
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Exquadrilha
@@ -375,11 +367,7 @@ picos:
         descricao: '# Setor Exquadrilha'
         precomputados:
           total_escaladas: 5
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 5
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Canil
@@ -484,11 +472,7 @@ picos:
         descricao: '# Setor Canil'
         precomputados:
           total_escaladas: 7
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 7
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco do Guerreiro
@@ -603,11 +587,7 @@ picos:
         descricao: '# Setor Bloco do Guerreiro'
         precomputados:
           total_escaladas: 7
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 7
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco do Cabelin
@@ -823,11 +803,7 @@ picos:
         descricao: '# Setor Bloco do Cabelin'
         precomputados:
           total_escaladas: 14
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 14
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Consciência Limpa
@@ -915,11 +891,7 @@ picos:
         descricao: '# Setor Consciência Limpa'
         precomputados:
           total_escaladas: 5
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 5
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Haiti
@@ -1016,11 +988,7 @@ picos:
         descricao: '# Setor Haiti'
         precomputados:
           total_escaladas: 6
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 6
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Achados e Perdidos
@@ -1090,11 +1058,7 @@ picos:
         descricao: '# Setor Achados e Perdidos'
         precomputados:
           total_escaladas: 4
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 4
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco do Rock Bocaina
@@ -1149,11 +1113,7 @@ picos:
         descricao: '# Setor Bloco do Rock Bocaina'
         precomputados:
           total_escaladas: 3
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 3
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Bloco 45º
@@ -1539,11 +1499,7 @@ picos:
         descricao: '# Setor Bloco 45º'
         precomputados:
           total_escaladas: 23
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 23
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   - setor:
       conteudo:
         nome: Essência
@@ -1661,11 +1617,7 @@ picos:
         descricao: '# Setor Essência'
         precomputados:
           total_escaladas: 9
-          total_esportivas: 0
-          total_moveis: 0
           total_boulders: 9
-          total_multiplas_enfiadas: 0
-          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -1779,12 +1731,7 @@ picos:
   precomputados:
     total_escaladas: 101
     total_setores: 12
-    total_grupos: 0
-    total_esportivas: 0
-    total_moveis: 0
     total_boulders: 101
-    total_multiplas_enfiadas: 0
-    total_highlines: 0
 botoes:
 - texto: Capa
   destino:
