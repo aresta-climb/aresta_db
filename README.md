@@ -30,12 +30,6 @@ Encontrou um grau errado, uma via nova, ou quer ajudar a melhorar as descriçõe
 
 👉 **[Leia o Guia de Contribuição](./CONTRIBUINDO.md)** para entender rapidamente como submeter correções, dados novos e conhecer nosso processo padrão de validação de autoria.
 
-## 🛠️ Para Desenvolvedores
-
-Se você é um programador, engenheiro de dados ou quer ajudar a converter PDFs antigos para a nossa base de dados, nós temos ferramentas automatizadas com Inteligência Artificial para facilitar esse trabalho!
-
-👉 **[Leia o Guia do Desenvolvedor](./GUIA_DO_DESENVOLVEDOR.md)** para instruções de como rodar nosso motor, configurar o ambiente Python e usar o nosso Editor Visual de Croquis.
-
 ## 👑 Para Autores de Croquis Originais
 
 Você é o criador, desenhista ou autor de um croqui histórico hospedado no Aresta? Gostaríamos muito de reconhecer o seu esforço e te dar o controle do seu trabalho! 
@@ -44,15 +38,20 @@ Convidamos você a reivindicar a autoria da sua obra no sistema. Ao se tornar o 
 
 👉 **[Leia o Guia para Autores](./AUTORES.md)** para entender como protegemos a sua obra e veja o passo a passo para reivindicar a sua autoria.
 
+## 🛠️ Para Desenvolvedores
+
+Se você é um programador, engenheiro de dados ou quer ajudar a converter PDFs antigos para a nossa base de dados, nós temos ferramentas automatizadas com Inteligência Artificial para facilitar esse trabalho!
+
+👉 **[Leia o Guia do Desenvolvedor](./GUIA_DO_DESENVOLVEDOR.md)** para instruções de como rodar nosso motor, configurar o ambiente Python e usar o nosso Editor Visual de Croquis.
 
 ---
 
 ## ⚖️ Licenciamento e Política de Direitos Autorais
 
-O ecossistema Aresta possui um modelo de licenciamento híbrido desenhado para proteger a base contra grandes corporações, mas ser absurdamente amigável para criadores de aplicativos open-source e desenvolvedores independentes:
+O ecossistema Aresta possui um modelo de licenciamento híbrido desenhado para proteger a base contra grandes corporações, mas ser absurdamente amigável para criadores de aplicativos abertos e desenvolvedores independentes:
 
+* O código da nossa API (`aresta_api`) é aberto sob a **Apache 2.0**.
 * O código-fonte do motor de processamento de dados (`aresta_db`) é livre sob a **GPLv3**.
-* O código da nossa API de acesso rápido (`aresta_api`) é aberto sob a **Apache 2.0**.
 * Os metadados estruturados de escalada (os "fatos" do banco de dados) são abertos sob a **ODbL 1.0**.
 * Textos longos em Markdown, PDFs históricos e Imagens são hospedados sob o princípio do **Uso Justo (Fair Use)** e pertencem estritamente aos seus autores originais.
 
