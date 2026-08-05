@@ -13,6 +13,7 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write
+      id-token: write
     steps:
       - name: Generate Github App Token
         id: app-token
@@ -102,6 +103,45 @@ jobs:
       - name: Build PyInstaller
         run: |
           python editor/build.py dist
+
+      - name: Build MSIX Package
+        shell: pwsh
+        run: |
+          $msixDir = "msix_staging"
+          New-Item -ItemType Directory -Force -Path $msixDir
+          
+          Copy-Item "editor\dist\EditorAresta.exe" -Destination $msixDir
+          Copy-Item "editor\msix\AppxManifest.xml" -Destination $msixDir
+          Copy-Item "editor\msix\Assets" -Destination "$msixDir\Assets" -Recurse
+          
+          $version = "${{ github.event.inputs.new_version }}"
+          if ($version -match "^\d+\.\d+\.\d+$") {
+              $version = "$version.0"
+          }
+          $manifestPath = "$msixDir\AppxManifest.xml"
+          (Get-Content $manifestPath) -replace 'Version="1\.0\.0\.0"', "Version=`"$version`"" | Set-Content $manifestPath
+          
+          $makeappx = (Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" | Sort-Object FullName -Descending | Select-Object -First 1).FullName
+          if (-not $makeappx) {
+              Write-Error "makeappx.exe not found"
+              exit 1
+          }
+          
+          & $makeappx pack /d $msixDir /p EditorAresta.msix
+
+      - name: Login to Azure (OIDC)
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_APPLICATION_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_DIRECTORY_TENANT_ID }}
+          allow-no-subscriptions: true
+
+      - name: Setup MS Store CLI
+        uses: microsoft/microsoft-store-apppublisher@v1.4
+
+      - name: Publish to MS Store
+        run: |
+          msstore publish EditorAresta.msix --store-id ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
 
       - name: Calcular próxima versão -dev
         id: next_dev
