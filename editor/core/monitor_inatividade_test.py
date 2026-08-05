@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import pytest
 from PyQt6.QtWidgets import QApplication, QWidget
 from PyQt6.QtCore import Qt, QEvent, QPointF, QPoint

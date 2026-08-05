@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_p0.webp

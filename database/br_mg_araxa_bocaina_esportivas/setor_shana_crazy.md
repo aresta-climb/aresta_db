@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Shana Crazy
 mapas:
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp

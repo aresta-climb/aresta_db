@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: Mantra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_mantra_p1.webp

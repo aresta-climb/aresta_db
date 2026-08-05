@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Pedra do Neri – Face das Aderências
 mapas:
   - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp

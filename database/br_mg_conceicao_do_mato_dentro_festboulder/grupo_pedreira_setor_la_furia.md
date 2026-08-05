@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: La Fúria
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p0.webp

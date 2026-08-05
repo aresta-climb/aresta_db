@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Trabalhador
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p0.webp

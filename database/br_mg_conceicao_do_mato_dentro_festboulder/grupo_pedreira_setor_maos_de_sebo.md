@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Mãos de Sebo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_maos_de_sebo_p0.webp

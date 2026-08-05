@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import pytest
 from editor.models.compilacao_log import CompilacaoLog
 

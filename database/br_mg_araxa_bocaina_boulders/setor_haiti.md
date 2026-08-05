@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Haiti
 mapas:
 - caminho_imagem_mapa: imagens/setor_haiti_p0.webp

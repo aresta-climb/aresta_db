@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 2° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp

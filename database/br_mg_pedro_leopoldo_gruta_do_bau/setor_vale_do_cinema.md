@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Vale do Cinema
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_do_cinema_p0_i6.webp

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Onda de Calcário
 mapas:
 - caminho_imagem_mapa: imagens/setor_onda_de_calcario_p0_i6.webp

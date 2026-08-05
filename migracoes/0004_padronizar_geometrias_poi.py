@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from pathlib import Path
 from scripts.finalizar_mapas import parse_md_com_frontmatter, salvar_md_com_frontmatter
 from editor.core.geometrias_poi import GeometriaPOI

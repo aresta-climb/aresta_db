@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Arquibancada
 mapas:
 - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp

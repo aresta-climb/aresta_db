@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: Véia Doida'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp

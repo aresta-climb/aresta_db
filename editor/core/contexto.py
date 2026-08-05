@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 class ContextoUIPath:
     """
     Classe utilitária para analisar strings globais de contexto de foco na UI.

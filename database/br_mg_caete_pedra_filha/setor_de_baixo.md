@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor de Baixo
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_baixo_p1.webp

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Família I
 mapas:
 - caminho_imagem_mapa: imagens/setor_familia_i_p0.webp

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor do Abrigo
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_abrigo_p0_i0.webp

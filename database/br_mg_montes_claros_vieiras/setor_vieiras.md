@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Vieiras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vieiras_p0_i0.webp
@@ -46,7 +49,8 @@ escaladas:
 - via_esportiva:
     nome: Ratazana
     dificuldade: BR_7A
----
+---
+
 
 # Setor Vieiras
 

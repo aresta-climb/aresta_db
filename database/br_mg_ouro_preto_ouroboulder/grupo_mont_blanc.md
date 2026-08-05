@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Mont Blanc
 localizacao_estacionamento:
   latitude: -203677334

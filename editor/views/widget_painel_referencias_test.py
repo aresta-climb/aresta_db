@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import pytest
 from editor.views.widget_painel_referencias import PainelReferencias
 from aresta_api.proto.generated import croqui_pb2

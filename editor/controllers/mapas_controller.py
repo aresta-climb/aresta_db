@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from pathlib import Path
 from PyQt6.QtGui import QUndoStack
 from editor.models.croqui_model import CroquiModel

@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor 4 - Setor da Caverna
 mapas:
 - caminho_imagem_mapa: imagens/setor_4_da_caverna_p0_i0.webp
@@ -24,5 +27,6 @@ escaladas:
 - via_esportiva:
     nome: Epinefrina 05
     dificuldade: PROJETO
----
+---
+
 

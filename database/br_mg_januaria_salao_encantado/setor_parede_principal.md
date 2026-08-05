@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Parede Principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_principal_p0_i0.webp

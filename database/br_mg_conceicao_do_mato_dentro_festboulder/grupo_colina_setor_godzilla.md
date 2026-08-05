@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Godzilla
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p0.webp

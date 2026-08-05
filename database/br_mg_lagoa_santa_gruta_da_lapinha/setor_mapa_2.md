@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Mapa 2
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_2_p0_i0.webp

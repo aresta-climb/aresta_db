@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtWidgets import (
     QMainWindow, QToolBar, QStackedWidget, QWidget, QVBoxLayout, QHBoxLayout, 
     QLabel, QStyle, QMessageBox, QDialog, QLineEdit, QTextEdit, QPushButton, QFormLayout,

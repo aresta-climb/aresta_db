@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Totem
 mapas:
 - caminho_imagem_mapa: imagens/setor_totem_p1.webp
@@ -22,7 +25,8 @@ escaladas:
     - Tatiana Mascarenhas
     descricao: Linda via. Escalada bastante estética em aresta negativa. Proporciona belas
       imagens. Top equipado com mosquetões de aço para desequipagem da via.
----
+---
+
 
 # Setor Totem
 

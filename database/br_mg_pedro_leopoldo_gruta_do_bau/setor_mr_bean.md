@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Mr. Bean
 mapas:
 - caminho_imagem_mapa: imagens/setor_mr_bean_p0_i6.webp

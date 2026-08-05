@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Pataxós
 mapas:
 - caminho_imagem_mapa: imagens/setor_pataxos_p0_i0.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import re
 
 with open("kmon_api/proto/croqui.proto", "r", encoding="utf-8") as f:

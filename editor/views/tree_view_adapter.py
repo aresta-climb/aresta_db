@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import re
 from PyQt6.QtCore import QAbstractItemModel, QModelIndex, Qt
 from PyQt6.QtGui import QFont

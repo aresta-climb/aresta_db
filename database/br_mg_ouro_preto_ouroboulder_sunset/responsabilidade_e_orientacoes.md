@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 # Responsabilidade e Orientações do Croqui OuroBoulder Sunset
 ---
 

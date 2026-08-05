@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Principais Vias I
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_1/p0.webp
@@ -208,7 +211,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     - Gustavo Piancastelli
----
+---
+
 
 # Principais Vias da Serra da Cambota, Caeté, MG.
 

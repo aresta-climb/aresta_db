@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor 4 Picos
 mapas:
 - caminho_imagem_mapa: imagens/setor_4_picos_p0_i0.webp

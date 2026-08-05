@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Questão de Tempo
 mapas:
 - caminho_imagem_mapa: imagens/setor_questao_de_tempo_p0_i0.webp

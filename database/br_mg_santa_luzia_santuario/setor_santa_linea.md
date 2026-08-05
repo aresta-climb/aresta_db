@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Santa Línea
 mapas:
 - caminho_imagem_mapa: imagens/setor_santa_linea_p1.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtCore import QStandardPaths
 from pathlib import Path
 import os

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Show Time
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p0.webp

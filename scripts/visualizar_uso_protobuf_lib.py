@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from typing import Dict, List, Set, Any
 from dataclasses import dataclass, field
 

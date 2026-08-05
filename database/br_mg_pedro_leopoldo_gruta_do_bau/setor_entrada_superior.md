@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Entrada Superior
 mapas:
 - caminho_imagem_mapa: imagens/setor_entrada_superior_p0_i6.webp

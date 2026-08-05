@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Bloco Romano (Mapa 10)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_10_p0_i0.webp

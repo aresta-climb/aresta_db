@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Tchau Querida
 mapas:
 - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp

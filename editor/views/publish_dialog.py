@@ -1,4 +1,7 @@
-from PyQt6.QtWidgets import QDialog, QVBoxLayout, QFormLayout, QLineEdit, QTextEdit, QHBoxLayout, QPushButton
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
+from PyQt6.QtWidgets import QDialog, QVBoxLayout, QFormLayout, QLineEdit, QTextEdit, QHBoxLayout, QPushButton, QLabel
 
 class PublishDialog(QDialog):
     """
@@ -20,6 +23,11 @@ class PublishDialog(QDialog):
         form.addRow("Título da PR:", self.edit_titulo)
         form.addRow("Descrição:", self.edit_descricao)
         layout.addLayout(form)
+        
+        texto_dco = QLabel("Ao publicar, você certifica que tem o direito de enviar este conteúdo<br>e concorda com o <a href='https://github.com/aresta-climb/aresta_db/blob/main/CONTRIBUTING.md'>Developer Certificate of Origin (DCO)</a>.")
+        texto_dco.setOpenExternalLinks(True)
+        texto_dco.setStyleSheet("color: #777; font-size: 11px;")
+        layout.addWidget(texto_dco)
         
         botoes = QHBoxLayout()
         self.btn_cancelar = QPushButton("Cancelar")

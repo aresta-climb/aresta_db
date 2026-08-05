@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Conjunto Pôr do sol - Bloco C
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_c_p0_i0.webp

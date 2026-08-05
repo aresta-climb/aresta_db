@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import sys
 from PyQt6.QtWidgets import QApplication, QPushButton
 from aresta_api.proto.generated.croqui_pb2 import Pico, ArquivoMapas, ColecaoDeMapas, Mapa

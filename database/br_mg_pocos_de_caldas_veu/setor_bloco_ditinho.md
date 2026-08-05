@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Bloco Ditinho
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_ditinho_p0_i0.webp
@@ -24,5 +27,6 @@ escaladas:
 - boulder:
     nome: 11 de Maio Direct
     dificuldade: V4
----
+---
+
 

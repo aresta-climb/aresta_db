@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor Principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_principal_p0_i0.webp
@@ -211,7 +214,8 @@ escaladas:
     nome: Mathilda Meu Amor
     dificuldade: PROJETO
     descricao: Projeto
----
+---
+
 
 # Setor Principal
 

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Gameleira
 mapas:
 - caminho_imagem_mapa: imagens/setor_gameleira_p0_i0.webp

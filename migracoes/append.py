@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 
 def test_migrar_inline_escaladas_in_croqui_yaml(tmp_path):
     db_path = tmp_path / "database" / "croqui_teste"

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtCore import QItemSelectionModel
 import pytest
 from PyQt6.QtWidgets import QApplication, QTreeView, QStackedWidget, QLineEdit, QFrame, QComboBox

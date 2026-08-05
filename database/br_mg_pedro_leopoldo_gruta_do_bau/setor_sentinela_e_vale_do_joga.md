@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Sentinela e Vale do Joga
 mapas:
 - caminho_imagem_mapa: imagens/setor_sentinela_e_vale_do_joga_p0_i6.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import unittest
 from unittest.mock import Mock, MagicMock
 from PyQt6.QtGui import QUndoStack

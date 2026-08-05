@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp

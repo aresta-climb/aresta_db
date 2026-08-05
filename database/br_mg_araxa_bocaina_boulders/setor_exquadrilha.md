@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Exquadrilha
 mapas:
 - caminho_imagem_mapa: imagens/setor_exquadrilha_p0.webp

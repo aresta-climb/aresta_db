@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: João de Barro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp

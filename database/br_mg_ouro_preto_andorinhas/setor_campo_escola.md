@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp

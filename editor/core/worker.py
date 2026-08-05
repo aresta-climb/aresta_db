@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtCore import QThread, pyqtSignal
 from pathlib import Path
 import traceback
@@ -203,7 +206,7 @@ class TarefaPublicacao(QThread):
                     repo.create_commit(
                         'HEAD',
                         autor, autor,
-                        f"Merge branch 'main' into {nome_branch}",
+                        f"Merge branch 'main' into {nome_branch}\n\nSigned-off-by: {autor.name} <{autor.email}>",
                         tree_id,
                         [head_commit.id, commit_base.id]
                     )
@@ -296,7 +299,7 @@ class TarefaPublicacao(QThread):
                 repo.create_commit(
                     'refs/heads/' + nome_branch,
                     autor, autor,
-                    f"Atualização do croqui {self.id_croqui} via Editor Aresta",
+                    f"Atualização do croqui {self.id_croqui} via Editor Aresta\n\nSigned-off-by: {autor.name} <{autor.email}>",
                     tree,
                     [repo.head.peel().id]
                 )

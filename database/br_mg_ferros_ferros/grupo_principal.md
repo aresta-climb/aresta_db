@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Parede Principal (Paredes de Aço)
 setores:
 - caminho: grupo_principal_setor_classicas_curtas.md

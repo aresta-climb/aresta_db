@@ -20,3 +20,17 @@ A documentação ou repositório da API (`aresta_api`) MUST deixar explícito qu
 #### Scenario: Informação da Licença da API
 - **WHEN** um desenvolvedor consulta a documentação/código da Aresta API
 - **THEN** ele é informado de que aquele componente está sob a licença Apache 2.0.
+
+### Requirement: Assinatura Automática no Editor Aresta
+Os commits gerados de forma automatizada pelo Aresta Editor (via `pygit2`) MUST incluir a tag `Signed-off-by: Nome <email>` no final da mensagem de commit.
+
+#### Scenario: Publicação via Editor
+- **WHEN** um usuário publica um croqui através da interface do Aresta Editor
+- **THEN** o commit gerado no GitHub inclui automaticamente a assinatura DCO com o nome e email do usuário autenticado.
+
+### Requirement: Consentimento Explícito do DCO na Interface
+A tela responsável pelo envio/publicação do Pull Request no Aresta Editor MUST exibir um texto claro informando que a ação de publicar implica no aceite do Developer Certificate of Origin (DCO).
+
+#### Scenario: Visualização do Aviso de Consentimento
+- **WHEN** o usuário acessa a tela de preenchimento das informações do Pull Request no Aresta Editor
+- **THEN** ele vê um texto informativo (ex: "Ao publicar, você concorda com o Developer Certificate of Origin...") visível próximo ao botão de confirmação.

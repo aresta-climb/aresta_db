@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp

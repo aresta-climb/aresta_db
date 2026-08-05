@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: Silêncio da Mutuca'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp

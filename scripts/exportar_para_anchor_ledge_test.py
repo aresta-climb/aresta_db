@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 """
 Testes unitários para o script de exportação Anchor Ledge.
 Seguindo TDD: Os testes falham inicialmente pois a implementação ainda não existe.

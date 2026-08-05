@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Vale Verde (Mapa 6)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp

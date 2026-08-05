@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import pytest
 from PyQt6.QtGui import QUndoCommand
 from editor.legacy_views.area_principal import JanelaPrincipal

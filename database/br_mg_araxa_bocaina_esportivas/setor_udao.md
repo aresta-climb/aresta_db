@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Udão
 mapas:
 - caminho_imagem_mapa: imagens/setor_udao_p1.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 """
 Módulo para conversão, formatação e validação das geometrias de pontos de interesse (POIs).
 

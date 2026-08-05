@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor 1 - ZUCULIN
 mapas:
 - caminho_imagem_mapa: imagens/setor_1_p0_i0.webp
@@ -21,5 +24,6 @@ escaladas:
 - via_esportiva:
     nome: Mamba Negra
     dificuldade: BR_8A
----
+---
+
 

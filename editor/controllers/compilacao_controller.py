@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 class CompilacaoController:
     """Controlador que faz a mediação entre a saída da compilação, o modelo de log e a view."""
     

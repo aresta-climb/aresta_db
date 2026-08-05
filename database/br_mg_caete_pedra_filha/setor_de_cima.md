@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_cima_p0.webp

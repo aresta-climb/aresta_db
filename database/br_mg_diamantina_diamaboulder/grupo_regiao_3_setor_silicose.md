@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Silicose
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_silicose_p0_i0.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import sys
 from pathlib import Path
 import shutil
@@ -78,7 +81,7 @@ class GerenciadorCroquiExperimental:
             "HEAD", # nome da referência a ser atualizada
             autor,
             autor,
-            "Commit inicial do croqui experimental",
+            f"Commit inicial do croqui experimental\n\nSigned-off-by: {autor.name} <{autor.email}>",
             tree,
             [] # Sem parents para o primeiro commit
         )
@@ -133,7 +136,7 @@ class GerenciadorCroquiExperimental:
                 "HEAD",
                 autor,
                 autor,
-                "Setup inicial: criação do croqui.yaml e compilação de sucesso",
+                f"Setup inicial: criação do croqui.yaml e compilação de sucesso\n\nSigned-off-by: {autor.name} <{autor.email}>",
                 tree,
                 [head]
             )
@@ -191,7 +194,7 @@ class GerenciadorCroquiExperimental:
                 "HEAD",
                 autor,
                 autor,
-                f"Importação do croqui oficial: {id_oficial}",
+                f"Importação do croqui oficial: {id_oficial}\n\nSigned-off-by: {autor.name} <{autor.email}>",
                 tree,
                 [head]
             )
@@ -251,7 +254,7 @@ class GerenciadorCroquiExperimental:
                 index.write()
                 tree = index.write_tree()
                 autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-                repo.create_commit("HEAD", autor, autor, "Inicialização automática após importação", tree, [])
+                repo.create_commit("HEAD", autor, autor, f"Inicialização automática após importação\n\nSigned-off-by: {autor.name} <{autor.email}>", tree, [])
             else:
                 repo = pygit2.Repository(str(caminho_raiz))
             
@@ -278,7 +281,7 @@ class GerenciadorCroquiExperimental:
                 "HEAD",
                 autor,
                 autor,
-                "Compilação do croqui experimental",
+                f"Compilação do croqui experimental\n\nSigned-off-by: {autor.name} <{autor.email}>",
                 tree,
                 [head]
             )

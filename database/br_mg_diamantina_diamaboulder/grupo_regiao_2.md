@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Região 2
 setores:
 - caminho: grupo_regiao_2_setor_panela_do_diabo.md

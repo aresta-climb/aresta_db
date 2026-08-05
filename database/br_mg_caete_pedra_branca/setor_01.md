@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Croqui 01 da Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/pagina_1_imagem_0.webp

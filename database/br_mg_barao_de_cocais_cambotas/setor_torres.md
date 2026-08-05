@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Torres
 mapas:
 - caminho_imagem_mapa: imagens/setor_torres_p2.webp
@@ -29,7 +32,8 @@ escaladas:
     - Luis Monteiro
     descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas 
       com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
----
+---
+
 # Setor Torres
 
 O setor Torres possui paredes positivas com vias longas.

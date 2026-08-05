@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor do Buraco
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_buraco_p0_i0.webp
@@ -27,5 +30,6 @@ escaladas:
 - via_esportiva:
     nome: Furadinha
     dificuldade: BR_7A
----
+---
+
 

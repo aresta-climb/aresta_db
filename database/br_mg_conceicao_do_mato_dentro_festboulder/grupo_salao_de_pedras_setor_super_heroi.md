@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Super Herói
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp

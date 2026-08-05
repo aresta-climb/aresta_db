@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Bloco Angular
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_angular_p0_i0.webp
@@ -28,5 +31,6 @@ escaladas:
 - boulder:
     nome: Estrangular
     dificuldade: V3_BARRA_V4
----
+---
+
 

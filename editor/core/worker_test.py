@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import unittest
 from unittest.mock import MagicMock, patch
 from pathlib import Path
@@ -437,6 +440,9 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(mock_repo.create_commit.call_count, 2)
         args = mock_repo.create_commit.call_args_list[0][0]
         self.assertEqual(args[5], ["head_commit_id", "commit_main_id"])
+        self.assertIn("Signed-off-by:", args[3])
+        args2 = mock_repo.create_commit.call_args_list[1][0]
+        self.assertIn("Signed-off-by:", args2[3])
         mock_repo.state_cleanup.assert_called_once()
 
     @patch("editor.core.worker.github.Github")
@@ -558,6 +564,8 @@ class TestWorker(unittest.TestCase):
         mock_repo.merge.assert_called_once_with("commit_main_id")
         # Deve ter chamado create_commit APENAS UMA VEZ (para o merge), e não duas (para o croqui)
         self.assertEqual(mock_repo.create_commit.call_count, 1)
+        args = mock_repo.create_commit.call_args_list[0][0]
+        self.assertIn("Signed-off-by:", args[3])
         # E deve ter tentado fazer o push, ao invés de abortar no aviso
         mock_repo.remotes["origin"].push.assert_called_once()
         tarefa.sucesso.emit.assert_called_once()

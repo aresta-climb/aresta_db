@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Terceiro Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp

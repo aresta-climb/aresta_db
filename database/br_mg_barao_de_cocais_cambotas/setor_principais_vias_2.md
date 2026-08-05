@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Principais Vias II
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_2/p0.webp
@@ -93,7 +96,8 @@ escaladas:
     nome: Bin Laden
 - via_esportiva:
     nome: Double Trouble
----
+---
+
 
 # Principais Vias da Serra da Cambota (Mapa Geral)
 

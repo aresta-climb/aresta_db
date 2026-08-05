@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Choquito
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p0.webp

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Curto e Grosso, Malibu e Terra do Nunca
 mapas:
 - caminho_imagem_mapa: imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp

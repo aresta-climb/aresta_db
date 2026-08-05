@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 # Copyright (C) 2026 ARESTA
 import unittest
 from unittest.mock import MagicMock

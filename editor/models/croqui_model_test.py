@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from unittest.mock import MagicMock
 from PyQt6.QtCore import QObject
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico

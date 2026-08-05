@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: O Vale
 mapas:
 - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
@@ -22,7 +25,8 @@ escaladas:
     dificuldade: BR_5
 - via_esportiva:
     nome: Inacabada
----
+---
+
 
 Escalada tranquila, com vias fáceis, boas para quem está iniciando e aprendendo a guiar. 
 A via número 1 inicia-se a direita da parede para quem está chegando no vale, ou a esquerda para quem vem das pilastras como na foto, caracterizada por dois “P´s” em sua primeira proteção.

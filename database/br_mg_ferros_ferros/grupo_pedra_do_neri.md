@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Pedra do Neri
 setores:
 - caminho: grupo_pedra_do_neri_setor_esportivas.md

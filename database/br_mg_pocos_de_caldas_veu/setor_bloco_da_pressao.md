@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Bloco da Pressão
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_da_pressao_p0_i0.webp
@@ -27,5 +30,6 @@ escaladas:
 - boulder:
     nome: Pressão alta
     dificuldade: V4
----
+---
+
 

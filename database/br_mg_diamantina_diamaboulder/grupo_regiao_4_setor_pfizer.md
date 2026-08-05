@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Pfizer
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp

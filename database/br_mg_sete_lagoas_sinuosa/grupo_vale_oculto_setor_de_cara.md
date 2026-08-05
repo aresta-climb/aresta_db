@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Sub Setor de Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_de_cara_p0_i0.webp

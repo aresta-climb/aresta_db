@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import unittest
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, ArquivoSetor, ArquivoGrupo
 from PyQt6.QtGui import QUndoStack

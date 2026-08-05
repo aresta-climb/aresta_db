@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Jardim da Fantasia
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_da_fantasia_p0.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import unittest
 from unittest.mock import patch, MagicMock
 from editor.core.auth import GerenciadorAutenticacao

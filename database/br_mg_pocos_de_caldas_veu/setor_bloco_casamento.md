@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Bloco Casamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_casamento_p0_i0.webp
@@ -40,5 +43,6 @@ escaladas:
 - boulder:
     nome: Dia dos namorados
     dificuldade: V1
----
+---
+
 

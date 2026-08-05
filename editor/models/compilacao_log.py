@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 class CompilacaoLog:
     """Modelo simples para armazenar o estado das saídas de compilação."""
     

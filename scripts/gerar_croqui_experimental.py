@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 """
 Biblioteca para geração e empacotamento de croquis experimentais fora do ambiente gráfico (headless).
 Segue estritamente os princípios do repositório (Tudo em Português).

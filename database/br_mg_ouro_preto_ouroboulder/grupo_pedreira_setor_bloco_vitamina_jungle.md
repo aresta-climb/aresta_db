@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: Vitamina Jungle'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp

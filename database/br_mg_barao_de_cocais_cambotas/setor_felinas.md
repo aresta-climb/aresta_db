@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Felinas
 mapas:
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
@@ -87,6 +90,7 @@ escaladas:
     - Carlos Diniz
     descricao: Top feito no final da 'davi e golias'. A via começa à direita do poço 
       d'água.
----
+---
+
 
 # Setor Felinas

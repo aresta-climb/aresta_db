@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Fendas
 mapas:
 - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
@@ -48,6 +51,7 @@ escaladas:
     descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da 
       parede principal. Grampos somente nas paradas.
     comprimento_total: 120
----
+---
+
 
 # Setor Fendas

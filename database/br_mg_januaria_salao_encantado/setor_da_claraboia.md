@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor da Claraboia
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_claraboia_p0.webp

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Subsetor Cachoeira
 mapas:
   - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp

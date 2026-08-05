@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: 'Bloco: Salão dos Ossos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp

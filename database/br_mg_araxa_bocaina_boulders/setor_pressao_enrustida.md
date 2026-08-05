@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Pressão Enrustida
 mapas:
 - caminho_imagem_mapa: imagens/setor_pressao_enrustida_p0.webp

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from pathlib import Path
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QProgressBar, QLineEdit, QPushButton, QHBoxLayout, QApplication
 from PyQt6.QtCore import Qt, QUrl, QSize

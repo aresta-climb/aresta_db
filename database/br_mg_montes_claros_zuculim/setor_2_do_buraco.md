@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor 2 - Setor do Buraco
 mapas:
 - caminho_imagem_mapa: imagens/setor_2_do_buraco_p0_i0.webp
@@ -30,5 +33,6 @@ escaladas:
 - via_esportiva:
     nome: Tempestade de Calcário
     dificuldade: PROJETO
----
+---
+
 

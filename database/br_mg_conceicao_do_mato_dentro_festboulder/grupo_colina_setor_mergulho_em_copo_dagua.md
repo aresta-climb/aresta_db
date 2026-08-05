@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Mergulho em Copo d'Água
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp

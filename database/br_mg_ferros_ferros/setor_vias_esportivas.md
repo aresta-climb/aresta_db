@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Vias Esportivas
 mapas:
   - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp

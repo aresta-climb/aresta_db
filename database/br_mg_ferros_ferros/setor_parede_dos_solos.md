@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Parede dos Solos
 mapas:
   - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp

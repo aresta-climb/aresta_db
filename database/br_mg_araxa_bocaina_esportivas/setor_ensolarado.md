@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Ensolarado
 mapas:
 - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp

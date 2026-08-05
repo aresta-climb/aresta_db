@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
@@ -19,7 +22,8 @@ escaladas:
 - via_esportiva:
     nome: Pe pra fora
     dificuldade: BR_6SUP
----
+---
+
 
 ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp)
 

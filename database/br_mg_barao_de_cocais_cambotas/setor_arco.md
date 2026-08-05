@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_arco_p2.webp
@@ -66,7 +69,8 @@ escaladas:
     - Gustavo Piancastelli
     descricao: Linda via que corta o arco em grande teto protegido com chapeletas.
     comprimento_total: 150
----
+---
+
 
 # Setor Arco
 

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from abc import ABC, abstractmethod
 from pathlib import Path
 import subprocess

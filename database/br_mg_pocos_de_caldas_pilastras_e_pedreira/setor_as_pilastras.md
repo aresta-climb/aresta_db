@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: As Pilastras
 mapas:
 - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
@@ -49,7 +52,8 @@ escaladas:
 - via_esportiva:
     nome: Stuart Little
     dificuldade: BR_5
----
+---
+
 
 ![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp)
 

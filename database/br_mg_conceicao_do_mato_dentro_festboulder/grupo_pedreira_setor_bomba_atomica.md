@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Bomba Atômica
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p0.webp

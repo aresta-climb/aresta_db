@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Acampamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_acampamento_p0.webp

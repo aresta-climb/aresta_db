@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from editor.models.readonly_proxy import _copia_segura
 from PyQt6.QtCore import QObject, pyqtSignal
 from google.protobuf.message import Message

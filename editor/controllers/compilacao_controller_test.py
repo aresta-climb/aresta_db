@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import pytest
 from unittest.mock import MagicMock
 from editor.controllers.compilacao_controller import CompilacaoController

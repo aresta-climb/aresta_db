@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QApplication
 from editor.core.atualizador_ui import AtualizadorUI
 

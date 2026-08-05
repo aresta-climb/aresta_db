@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 import os
 from pathlib import Path
 from PyQt6.QtWidgets import (

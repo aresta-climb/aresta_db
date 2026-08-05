@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
@@ -42,7 +45,8 @@ escaladas:
     - Gustavo Vianna
     descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem um teto
       espetacular na parte final da via. Muito bonita!
----
+---
+
 
 # Setor Caverninha
 

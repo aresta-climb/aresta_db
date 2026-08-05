@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Aresta
 mapas:
 - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
@@ -95,7 +98,8 @@ escaladas:
     - Gustavo Vianna
     - Gustavo Piancastelli
     descricao: Fenda em diagonal que une as duas vias anteriores. Peças médias.
----
+---
+
 # Setor Aresta
 
 O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.

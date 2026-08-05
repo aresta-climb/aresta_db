@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp

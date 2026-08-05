@@ -1,4 +1,7 @@
----
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
+
 nome: Setor 3 - ZUCULIN
 mapas:
 - caminho_imagem_mapa: imagens/setor_3_p0_i0.webp
@@ -19,5 +22,6 @@ escaladas:
 - via_esportiva:
     nome: Pérola Negra
     dificuldade: PROJETO
----
+---
+
 

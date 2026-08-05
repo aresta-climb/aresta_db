@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) Aresta Contributors
+
 from PyQt6.QtGui import QUndoCommand
 from google.protobuf.message import Message
 from editor.models.croqui_model import CroquiModel

@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 nome: Parede Principal – Direita
 mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp

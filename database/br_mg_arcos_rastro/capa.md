@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (c) Aresta Contributors
 titulo: afloramento Rastro
 localizacao: Arcos - MG - Brasil
 data: Junho 2023
