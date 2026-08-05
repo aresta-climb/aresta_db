@@ -895,7 +895,7 @@ def computar_precomputados_setor(setor_conteudo: dict):
         elif "highline" in e:
             total_highlines += 1
 
-    setor_conteudo["precomputados"] = {
+    precomputados = {
         "total_escaladas": total,
         "total_esportivas": total_esportivas,
         "total_moveis": total_moveis,
@@ -903,6 +903,7 @@ def computar_precomputados_setor(setor_conteudo: dict):
         "total_multiplas_enfiadas": total_multiplas_enfiadas,
         "total_highlines": total_highlines
     }
+    setor_conteudo["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
 def computar_precomputados_grupo(grupo_conteudo: dict):
     """Calcula precomputados para um grupo, somando dos setores já processados."""
@@ -923,7 +924,7 @@ def computar_precomputados_grupo(grupo_conteudo: dict):
         total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
         total_highlines += pre.get("total_highlines", 0)
         
-    grupo_conteudo["precomputados"] = {
+    precomputados = {
         "total_escaladas": total_escaladas,
         "total_esportivas": total_esportivas,
         "total_moveis": total_moveis,
@@ -931,6 +932,7 @@ def computar_precomputados_grupo(grupo_conteudo: dict):
         "total_multiplas_enfiadas": total_multiplas_enfiadas,
         "total_highlines": total_highlines
     }
+    grupo_conteudo["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
 def computar_precomputados_pico(pico: dict):
     """Calcula precomputados do pico, lendo diretamente dos setores e grupos filhos."""
@@ -963,7 +965,7 @@ def computar_precomputados_pico(pico: dict):
         total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
         total_highlines += pre.get("total_highlines", 0)
             
-    pico["precomputados"] = {
+    precomputados = {
         "total_escaladas": total_escaladas,
         "total_setores": total_setores,
         "total_grupos": total_grupos,
@@ -973,6 +975,7 @@ def computar_precomputados_pico(pico: dict):
         "total_multiplas_enfiadas": total_multiplas_enfiadas,
         "total_highlines": total_highlines
     }
+    pico["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
 def injetar_precomputados(croqui_data: dict):
     picos = croqui_data.get("picos", [])

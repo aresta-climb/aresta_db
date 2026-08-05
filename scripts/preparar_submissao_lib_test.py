@@ -692,6 +692,11 @@ def test_computar_precomputados_setor():
     assert setor["precomputados"]["total_moveis"] == 1
     assert setor["precomputados"]["total_highlines"] == 1
 
+def test_computar_precomputados_vazio():
+    setor = {"escaladas": []}
+    computar_precomputados_setor(setor)
+    assert len(setor["precomputados"]) == 0
+
 def test_computar_precomputados_grupo():
     grupo = {
         "setores": [
@@ -704,8 +709,8 @@ def test_computar_precomputados_grupo():
     assert grupo["precomputados"]["total_esportivas"] == 3
     assert grupo["precomputados"]["total_moveis"] == 1
     assert grupo["precomputados"]["total_boulders"] == 1
-    assert grupo["precomputados"]["total_multiplas_enfiadas"] == 0
-    assert grupo["precomputados"]["total_highlines"] == 0
+    assert "total_multiplas_enfiadas" not in grupo["precomputados"]
+    assert "total_highlines" not in grupo["precomputados"]
 
 def test_computar_precomputados_pico():
     pico = {
@@ -723,7 +728,7 @@ def test_computar_precomputados_pico():
     assert pico["precomputados"]["total_moveis"] == 1
     assert pico["precomputados"]["total_boulders"] == 1
     assert pico["precomputados"]["total_multiplas_enfiadas"] == 1
-    assert pico["precomputados"]["total_highlines"] == 0
+    assert "total_highlines" not in pico["precomputados"]
 
 def test_injetar_precomputados():
     croqui = {
