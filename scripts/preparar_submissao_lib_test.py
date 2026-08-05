@@ -679,16 +679,18 @@ def test_computar_precomputados_setor():
         "escaladas": [
             {"via_esportiva": {"nome": "Via 1"}},
             {"via_multiplas_enfiadas": {"nome": "Paredao", "enfiadas": [{}]}},
-            {"boulder": {"nome": "B1"}}
+            {"boulder": {"nome": "B1"}},
+            {"tradicional": {"nome": "Movel"}},
+            {"highline": {"nome": "Highline 1"}}
         ]
     }
     computar_precomputados_setor(setor)
-    assert setor["precomputados"]["total_escaladas"] == 3
+    assert setor["precomputados"]["total_escaladas"] == 5
     assert setor["precomputados"]["total_esportivas"] == 1
     assert setor["precomputados"]["total_multiplas_enfiadas"] == 1
     assert setor["precomputados"]["total_boulders"] == 1
-    assert setor["precomputados"]["total_moveis"] == 0
-    assert setor["precomputados"]["total_highlines"] == 0
+    assert setor["precomputados"]["total_moveis"] == 1
+    assert setor["precomputados"]["total_highlines"] == 1
 
 def test_computar_precomputados_grupo():
     grupo = {
