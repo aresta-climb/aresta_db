@@ -618,6 +618,11 @@ def corrigir_database(pico_path: Path):
     # 4. Limpeza de imagens órfãs
     limpar_arquivos_nao_utilizados(pico_path, croqui_data)
 
+    # 5. Garante comentário SPDX e Copyright em todos os arquivos
+    for file_path in pico_path.rglob("*"):
+        if file_path.is_file() and file_path.suffix in [".yaml", ".md"]:
+            garantir_comentarios_licenca(file_path)
+
 # ===========================================================================
 # FASE 2: COMPILAÇÃO DE ARTEFATOS (GENERATED)
 # ===========================================================================
@@ -971,3 +976,41 @@ if __name__ == "__main__":
     print("Este arquivo é uma biblioteca e não deve ser executado diretamente.")
     print("Use o script scripts/deploy_generated.py para processar os croquis.")
     sys.exit(1)
+
+def garantir_comentarios_licenca(file_path: Path):
+    """
+    Garante que as duas linhas de comentário de licença ODbL e Copyright
+    estejam presentes no topo do arquivo (YAML) ou no frontmatter (MD).
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            linhas = f.readlines()
+    except Exception as e:
+        print(f"Erro ao ler {file_path} para injetar SPDX: {e}")
+        return
+        
+    if not linhas:
+        return
+        
+    for linha in linhas:
+        if "SPDX-License-Identifier" in linha:
+            return
+            
+    comentarios = (
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 ARESTA Contributors\n"
+    )
+    
+    if file_path.suffix == ".yaml":
+        linhas.insert(0, comentarios)
+    elif file_path.suffix == ".md":
+        if linhas[0].strip() == "---":
+            linhas.insert(1, comentarios)
+        else:
+            return
+            
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.writelines(linhas)
+    except Exception as e:
+        print(f"Erro ao escrever {file_path} para injetar SPDX: {e}")
