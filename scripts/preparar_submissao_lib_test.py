@@ -446,3 +446,30 @@ def test_md_sem_frontmatter(tmp_path):
     with open(p, "r", encoding="utf-8") as f:
         texto = f.read()
     assert "SPDX-License-Identifier" not in texto
+
+def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
+    p = tmp_path / "croqui_corrige.yaml"
+    # YAML com licença errada e sem copyright, além de um comentário normal
+    p.write_text("# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Meu comentário"
+    assert "id: corrige" in "".join(linhas)
+
+def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
+    p = tmp_path / "pico_corrige.md"
+    # MD com licença errada e copyright errado no frontmatter
+    conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
+    p.write_text(conteudo, encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[3].strip() == "nome: Pico"
+    assert "copyright do ze" not in "".join(linhas).lower()
+

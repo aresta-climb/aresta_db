@@ -980,7 +980,7 @@ if __name__ == "__main__":
 def garantir_comentarios_licenca(file_path: Path):
     """
     Garante que as duas linhas de comentário de licença ODbL e Copyright
-    estejam presentes no topo do arquivo (YAML) ou no frontmatter (MD).
+    estejam presentes e corretas no topo do arquivo (YAML) ou no frontmatter (MD).
     """
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -992,9 +992,35 @@ def garantir_comentarios_licenca(file_path: Path):
     if not linhas:
         return
         
-    for linha in linhas:
-        if "SPDX-License-Identifier" in linha:
-            return
+    linhas_limpas = []
+    
+    if file_path.suffix == ".yaml":
+        for i, linha in enumerate(linhas):
+            if i < 15:
+                l_strip = linha.strip().lower()
+                if l_strip.startswith("#"):
+                    if "spdx-license-identifier" in l_strip or "copyright" in l_strip:
+                        continue
+            linhas_limpas.append(linha)
+            
+    elif file_path.suffix == ".md":
+        in_frontmatter = False
+        if linhas[0].strip() == "---":
+            in_frontmatter = True
+            
+        for i, linha in enumerate(linhas):
+            if in_frontmatter:
+                if i > 0 and linha.strip() == "---":
+                    in_frontmatter = False
+                
+                if in_frontmatter and i > 0:
+                    l_strip = linha.strip().lower()
+                    if l_strip.startswith("#"):
+                        if "spdx-license-identifier" in l_strip or "copyright" in l_strip:
+                            continue
+            linhas_limpas.append(linha)
+    else:
+        return
             
     comentarios = (
         "# SPDX-License-Identifier: ODbL-1.0\n"
@@ -1002,15 +1028,15 @@ def garantir_comentarios_licenca(file_path: Path):
     )
     
     if file_path.suffix == ".yaml":
-        linhas.insert(0, comentarios)
+        linhas_limpas.insert(0, comentarios)
     elif file_path.suffix == ".md":
-        if linhas[0].strip() == "---":
-            linhas.insert(1, comentarios)
+        if linhas_limpas[0].strip() == "---":
+            linhas_limpas.insert(1, comentarios)
         else:
             return
             
     try:
         with open(file_path, "w", encoding="utf-8") as f:
-            f.writelines(linhas)
+            f.writelines(linhas_limpas)
     except Exception as e:
         print(f"Erro ao escrever {file_path} para injetar SPDX: {e}")
