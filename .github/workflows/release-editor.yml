@@ -140,11 +140,8 @@ jobs:
         uses: microsoft/microsoft-store-apppublisher@v1.4
 
       - name: Publish to MS Store
-        env:
-          MSSTORE_TENANTID: ${{ secrets.AZURE_DIRECTORY_TENANT_ID }}
-          MSSTORE_CLIENTID: ${{ secrets.AZURE_APPLICATION_CLIENT_ID }}
-          MSSTORE_SELLERID: ${{ secrets.AZURE_SELLER_ID }}
         run: |
+          msstore reconfigure --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} --sellerId ${{ secrets.AZURE_SELLER_ID }} --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }}
           msstore publish EditorAresta.msix --store-id ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
 
       - name: Calcular próxima versão -dev
