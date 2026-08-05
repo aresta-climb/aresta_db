@@ -141,6 +141,7 @@ jobs:
 
       - name: Publish to MS Store
         run: |
+          msstore reconfigure --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} --sellerId ${{ secrets.AZURE_SELLER_ID }}
           msstore publish EditorAresta.msix --store-id ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
 
       - name: Calcular próxima versão -dev
