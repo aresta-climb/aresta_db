@@ -17,9 +17,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # Igarameca Climb
             
             | ![Capa do Croqui 2024 - Escaladas Esportivas - Pedra Grande](imagens/capa_p0.webp) |
@@ -34,9 +31,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # Introdução
             
             Este croqui é apenas um auxílio de consulta a localização, não serve como instruções a prática da escalada.
@@ -74,9 +68,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # SEJA CONSCIENTE!
             
             - **UTILIZE APENAS AS TRILHAS PRINCIPAIS;**
@@ -96,9 +87,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # História de Igarapé - MG
             
             Igarapé localiza-se na Região Metropolitana de Belo Horizonte, é um município brasileiro do estado de Minas Gerais. Seu nome que vem do tupi-guarani, e significa "caminho da canoa", enquanto cidade teve suas bases iniciais de ocupação do território no "garimpo de ouro" no distrito de São Joaquim de Bicas e posteriormente na agropecuária. Certamente centenas de anos antes, por aqui já existiam fazendas e diversas famílias com residências fixas.
@@ -117,9 +105,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # COMPLEXO PEDRA GRANDE
             
             A Pedra Grande, um marco histórico e geográfico de Igarapé, tem sido uma referência importante para viajantes ao longo dos anos. No século XX, a mineração de ferro ameaçou a integridade da Serra do Itatiaiuçu, o que levou à criação da Área de Proteção Especial (APE) e, posteriormente, da Área de Proteção Ambiental (APA) Municipal de Igarapé, visando preservar os mananciais de abastecimento humano.
@@ -136,9 +121,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # IGARAMECA
             
             Não se sabe ao certo quando começou a escada na região, estudos em andamento apontam entre as décadas de 80/90. Há três anos, um grupo de escaladores de Belo Horizonte se reuniu com a ideia de transformar o Complexo da Pedra Grande em um dos principais picos de escalada da região. Foi assim que nasceu o @igarameca, numa prosa após um dia de muito climbing no pé da pedra.
@@ -157,9 +139,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
-            
             # Patrocinadores
             
             Essas marcas apoiam a escalada na região e o croqui de Igarameca 2024:

@@ -1,6 +1,6 @@
 arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256: 5604f47cf7c64f54bb2e982e7f3a83e5177cf91ed81f98c3fbdb829ff525a3db
+  checksum_sha256: 1aff022920d13cdab5d20de46d3ac17c6836aafce63b3dea1c418232e9526e2a
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_boulders.webp
   checksum_sha256: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/capa_p0.webp
@@ -54,9 +54,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/setor_pressao_enrustida_p0.webp
   checksum_sha256: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.yaml
-  checksum_sha256: 2b6d4f46727881c50fba9a58b6d38be0ee6d69aceaa53fe4d2df9dd060c5d46f
+  checksum_sha256: dbcb3e7be2aa3f13fb27957af85fcc3c1983b1b2efb64b8eec3fa41a96b1559a
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
-  checksum_sha256: 77e8413cc4822c0d34b1a2582743f957231a5bd134c275f963273e4fd132f39c
+  checksum_sha256: 99b8c8a8cf87d2f96f653aa11c2ed9a3cfc99a9a2e733eba1f03bd947748cf17
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
   checksum_sha256: 321cebeec3df8277b145f75a62d3ce91874cb0d8eae7e3622d515f7491a5882d
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: afb2ff5831b58f77972441ae7947ee9e08c9d091eafcf64d90aaafc23303e3bf
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: b20b012741ddd338d3c8c225f8d81e8ed134223a40f34bb6a15733444666d373
+  checksum_sha256: f6948641413b53bd7a9bb75249f3c0f4819229ca58e2802ce74bdff1b3875984
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -660,9 +660,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: bedee0467098f4633311cf350ba9229783ad40c3c6197cfa7bb2078667cac3db
+  checksum_sha256: 829441e379ab58755ad4c581b37d0da1b8864dd50946a04627add50322c5e2d9
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 5db0223ae6957d2259428ccd331d17254b258c73c1c70ceff1c4f1fd4900ed00
+  checksum_sha256: 742b4827bb187958b6977ae9e0895615dcecfd9be7df65eed363f02753f404c7
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
   checksum_sha256: 69d14fb568a25f51c43edb0589b91d6ac9f677a934830b234e36a8d9d8f664fd
 - caminho_relativo: thumbnails/br_mg_ipatinga_ipaba_vale_verde.webp
@@ -1268,7 +1268,7 @@ arquivos:
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.md
   checksum_sha256: f19dbc8d53453c3f07686d34871bea143ea7d279cb32f164f81f84e3c0d329fc
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256: 87833d8ceee2107472816c0070cde10c7421470dd2ed5612d01bfe2681a0f8d9
+  checksum_sha256: 698d70d8ef2dac235d37e0a8938eb8ca3aafa92625386e5e0210d7505e3ffe0b
 - caminho_relativo: thumbnails/br_mg_sabara_pedra_rachada_setor_horizonte.webp
   checksum_sha256: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/imagens/aviso_p0_i0.webp
@@ -1332,9 +1332,9 @@ arquivos:
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/imagens/setor_outros_blocos_p4_i0.webp
   checksum_sha256: 3591c4fbeb69222c499cee37b74b2342169a5bdb507d986adc0688d054513e0b
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.yaml
-  checksum_sha256: 44971353511d6707b54cf873d8b8f8e23642095b28928cd0a9e2d1eeda9e66e0
+  checksum_sha256: 5fa520f07ff64753ec4d48ed33f7576c349bd27ec06e8b2386512fe8a3ea16da
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.md
-  checksum_sha256: cc630400130c7ddd04890272a5a8f07e0c31b7ba2fa885bf2c25d0b0beccd2f4
+  checksum_sha256: f221f6fb1cc5cd8f5a2fb72aa61ebce56a6d9be88f1203e39ee7c4956dda1627
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
   checksum_sha256: 4331253e32dc1afceef6080151ec62f8625939f26e41d1fcd131c0acad4a1253
 - caminho_relativo: thumbnails/br_mg_sacramento_vo_gusta.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: a18a8da9ae6e4ae267cf16b368f753ade032b8c4ebd0494cf0b9650b02c52956
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 3fe6976e20ae62240436f2b400458de8d474c1215e20f0a8ec1e267d98635d5e
+  checksum_sha256: ff688da3c74698367db68c2d22c922458b19c35de496c20eae7f0c5d75cff410
 - caminho_relativo: indice.yaml
-  checksum_sha256: 5f9a20cd31530445fe1cb611b1dd2e48e84814b371156d9c3005303064a24a89
+  checksum_sha256: e1841356454731a43accf486b0d8f9990403438934575941b1b2d9a5bae2904f

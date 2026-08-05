@@ -998,7 +998,7 @@ def garantir_comentarios_licenca(file_path: Path):
             
     comentarios = (
         "# SPDX-License-Identifier: ODbL-1.0\n"
-        "# Copyright (C) 2026 ARESTA Contributors\n"
+        "# Copyright (C) 2026 Aresta Contributors\n"
     )
     
     if file_path.suffix == ".yaml":

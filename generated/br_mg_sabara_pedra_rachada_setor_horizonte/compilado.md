@@ -14,8 +14,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
             # SETOR HORIZONTE
             # PEDRA RACHADA BOULDERING
             
@@ -27,8 +25,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
             # SETOR HORIZONTE
             
             | ![Foto: Eric Dornellas - Escalador: Davi Oliveira](imagens/introducao_p0_i0.webp) |
@@ -44,8 +40,6 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**:
-            ---
-            ---
             # AVISO
             
             | ![Aviso](imagens/aviso_p0_i0.webp) |

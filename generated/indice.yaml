@@ -4,9 +4,9 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: 5604f47cf7c64f54bb2e982e7f3a83e5177cf91ed81f98c3fbdb829ff525a3db
+  checksum_sha256_croqui: 1aff022920d13cdab5d20de46d3ac17c6836aafce63b3dea1c418232e9526e2a
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-07-20T02:47:24Z'
+  timestamp_update: '2026-08-05T03:42:07Z'
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
@@ -92,9 +92,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: b20b012741ddd338d3c8c225f8d81e8ed134223a40f34bb6a15733444666d373
+  checksum_sha256_croqui: f6948641413b53bd7a9bb75249f3c0f4819229ca58e2802ce74bdff1b3875984
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-08-04T21:54:07Z'
+  timestamp_update: '2026-08-05T03:42:07Z'
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
@@ -175,9 +175,9 @@ croquis:
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: 87833d8ceee2107472816c0070cde10c7421470dd2ed5612d01bfe2681a0f8d9
+  checksum_sha256_croqui: 698d70d8ef2dac235d37e0a8938eb8ca3aafa92625386e5e0210d7505e3ffe0b
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-07-07T02:48:12Z'
+  timestamp_update: '2026-08-05T03:42:07Z'
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
