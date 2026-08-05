@@ -136,13 +136,20 @@ jobs:
           tenant-id: ${{ secrets.AZURE_DIRECTORY_TENANT_ID }}
           allow-no-subscriptions: true
 
+      - name: Disponibilizar pacote MSIX no GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: EditorArestaClimb-Windows-MSIX
+          path: EditorAresta.msix
+          retention-days: 7
+
       - name: Setup MS Store CLI
         uses: microsoft/microsoft-store-apppublisher@v1.4
 
       - name: Publish to MS Store
         run: |
           msstore reconfigure --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} --sellerId ${{ secrets.AZURE_SELLER_ID }} --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }}
-          msstore publish EditorAresta.msix --appId ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
+        # msstore publish EditorAresta.msix --appId ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
 
       - name: Calcular próxima versão -dev
         id: next_dev
