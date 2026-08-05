@@ -476,6 +476,11 @@
       - **data_abertura**: 2021-03
 - **precomputados**:
   - **total_escaladas**: 13
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_ditados
@@ -687,6 +692,11 @@
       - **data_abertura**: 2018
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 6
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_cervejas
@@ -1012,6 +1022,11 @@
         - Ingo Moller
 - **precomputados**:
   - **total_escaladas**: 14
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_questao_de_tempo
@@ -1135,6 +1150,11 @@
       - **data_abertura**: 2020
 - **precomputados**:
   - **total_escaladas**: 3
+  - **total_esportivas**: 2
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_hospicio
@@ -1279,6 +1299,11 @@
       - **data_abertura**: 2020
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

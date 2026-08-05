@@ -193,6 +193,11 @@ picos:
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
         precomputados:
           total_escaladas: 9
+          total_esportivas: 8
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Campo Escola
@@ -357,6 +362,11 @@ picos:
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
         precomputados:
           total_escaladas: 8
+          total_esportivas: 6
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Tchau Querida
@@ -505,6 +515,11 @@ picos:
           Recomendações: Uso de capacete.
         precomputados:
           total_escaladas: 7
+          total_esportivas: 7
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Pedra Branca
@@ -851,6 +866,11 @@ picos:
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
         precomputados:
           total_escaladas: 20
+          total_esportivas: 15
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -950,6 +970,11 @@ picos:
     total_escaladas: 44
     total_setores: 4
     total_grupos: 0
+    total_esportivas: 36
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

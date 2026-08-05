@@ -325,6 +325,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 12
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_da_pracinha
@@ -503,6 +508,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_do_plato
@@ -611,6 +621,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_da_claraboia
@@ -680,6 +695,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 2
+  - **total_esportivas**: 2
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_do_sertao
@@ -860,6 +880,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_do_moco
@@ -1073,6 +1098,11 @@
       - **dificuldade**: BR_6SUP
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_do_abrigo
@@ -1205,6 +1235,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -295,6 +295,11 @@
       - **extensao**: 15
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_panelinha
@@ -417,6 +422,11 @@
       - **quantidade_protecoes_intermediarias**: 4
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 3
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_7_paralelo
@@ -777,6 +787,11 @@
       - **extensao**: 15
 - **precomputados**:
   - **total_escaladas**: 16
+  - **total_esportivas**: 15
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_sentinela
@@ -950,6 +965,11 @@
       - **protecoes_moveis**: Móvel. Rapel da chapa com cordelete.
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 6
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_death_horse
@@ -1166,6 +1186,11 @@
       - **quantidade_protecoes_intermediarias**: 14
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_gameleira
@@ -1293,6 +1318,11 @@
       - **quantidade_protecoes_intermediarias**: 6
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_das_sombras
@@ -1855,6 +1885,11 @@
       - **quantidade_protecoes_intermediarias**: 5
 - **precomputados**:
   - **total_escaladas**: 30
+  - **total_esportivas**: 28
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_imigrantes
@@ -2025,6 +2060,11 @@
       - **quantidade_protecoes_intermediarias**: 6
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_zela
@@ -2173,6 +2213,11 @@
       - **quantidade_protecoes_intermediarias**: 4
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_macaubas
@@ -2269,6 +2314,11 @@
       - **quantidade_protecoes_intermediarias**: 5
 - **precomputados**:
   - **total_escaladas**: 3
+  - **total_esportivas**: 3
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_primordios
@@ -2509,6 +2559,11 @@
       - **quantidade_protecoes_intermediarias**: 7
 - **precomputados**:
   - **total_escaladas**: 12
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_4_picos
@@ -2620,6 +2675,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: grupo_vale_oculto
@@ -2777,6 +2837,11 @@
             - **quantidade_protecoes_parada**: 1
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 5
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -3028,6 +3093,11 @@
             - **quantidade_protecoes_parada**: 1
       - **precomputados**:
         - **total_escaladas**: 12
+        - **total_esportivas**: 12
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -3323,8 +3393,18 @@
             - **quantidade_protecoes_parada**: 1
       - **precomputados**:
         - **total_escaladas**: 15
+        - **total_esportivas**: 15
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 32
+  - **total_esportivas**: 32
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

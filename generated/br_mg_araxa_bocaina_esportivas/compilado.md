@@ -163,6 +163,11 @@
       - **descricao_ancoragem**: Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 5
 
 
 ## Parte: setor_ensolarado
@@ -696,6 +701,11 @@
       - **data_abertura**: 2013
 - **precomputados**:
   - **total_escaladas**: 21
+  - **total_esportivas**: 21
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_garganta
@@ -1410,6 +1420,11 @@
       - **data_abertura**: 2013
 - **precomputados**:
   - **total_escaladas**: 28
+  - **total_esportivas**: 28
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_tapa_na_cara
@@ -1528,6 +1543,11 @@
       - **data_abertura**: 2013
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_terceiro_andar
@@ -1980,6 +2000,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 17
+  - **total_esportivas**: 17
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_paulistas
@@ -2367,6 +2392,11 @@
       - **data_abertura**: 2014
 - **precomputados**:
   - **total_escaladas**: 16
+  - **total_esportivas**: 16
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mezanino
@@ -2830,6 +2860,11 @@
       - **dificuldade**: BR_10C
 - **precomputados**:
   - **total_escaladas**: 20
+  - **total_esportivas**: 20
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_shana_crazy
@@ -3062,6 +3097,11 @@
       - **data_abertura**: 2011
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_tsunami
@@ -3622,6 +3662,11 @@
       - **data_abertura**: 2006
 - **precomputados**:
   - **total_escaladas**: 24
+  - **total_esportivas**: 24
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_udao
@@ -3937,6 +3982,11 @@
       - **data_abertura**: 2016
 - **precomputados**:
   - **total_escaladas**: 13
+  - **total_esportivas**: 13
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_tereza
@@ -4112,6 +4162,11 @@
       - **data_abertura**: 2006
 - **precomputados**:
   - **total_escaladas**: 6
+  - **total_esportivas**: 6
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_bem_vindo
@@ -4575,6 +4630,11 @@
       - **data_abertura**: 2006
 - **precomputados**:
   - **total_escaladas**: 18
+  - **total_esportivas**: 18
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_tetos
@@ -5491,6 +5551,11 @@
       - **data_abertura**: 2017
 - **precomputados**:
   - **total_escaladas**: 41
+  - **total_esportivas**: 41
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_segundo_andar
@@ -5765,6 +5830,11 @@
       - **data_abertura**: 2017
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 11
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_pirados_de_rocha
@@ -5948,6 +6018,11 @@
       - **data_abertura**: 2017
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

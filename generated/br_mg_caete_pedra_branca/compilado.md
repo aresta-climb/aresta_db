@@ -503,6 +503,11 @@
       - **dificuldade**: BR_4
 - **precomputados**:
   - **total_escaladas**: 27
+  - **total_esportivas**: 27
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_02
@@ -741,6 +746,11 @@
       - **quantidade_protecoes_intermediarias**: 4
 - **precomputados**:
   - **total_escaladas**: 13
+  - **total_esportivas**: 13
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

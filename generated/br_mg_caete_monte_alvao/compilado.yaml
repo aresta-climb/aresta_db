@@ -226,6 +226,11 @@ picos:
           O setor Vale Gaules está localizado no Alto Monte Alvão.
         precomputados:
           total_escaladas: 11
+          total_esportivas: 10
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Caverna, Mirante e Ground Control
@@ -576,6 +581,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 4
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 2
+              total_highlines: 0
         - conteudo:
             nome: Mirante da Cruz
             escaladas:
@@ -630,6 +640,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 6
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Ground Control
             escaladas:
@@ -783,12 +798,22 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 12
+              total_esportivas: 5
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 4
+              total_highlines: 0
         descricao: |-
           # Caverna, Mirante e Ground Control
 
           Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
         precomputados:
           total_escaladas: 24
+          total_esportivas: 15
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 6
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Parede do Ladrão e Forno da Onça
@@ -996,6 +1021,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 5
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 1
+              total_highlines: 0
         - conteudo:
             nome: Parede do Ladrão
             escaladas:
@@ -1048,12 +1078,22 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 7
+              total_esportivas: 7
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           # Parede do Ladrão e Forno da Onça
 
           Estes setores estão localizados lado a lado no Alto Monte Alvão.
         precomputados:
           total_escaladas: 13
+          total_esportivas: 12
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 1
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Curto e Grosso, Malibu e Terra do Nunca
@@ -1149,6 +1189,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 1
+              total_esportivas: 1
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Curto e Grosso
             escaladas:
@@ -1191,6 +1236,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 4
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Malibu
             escaladas:
@@ -1214,12 +1264,22 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 2
+              total_esportivas: 2
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           # Curto e Grosso, Malibu e Terra do Nunca
 
           Estes setores estão localizados na parte sul do Alto Monte Alvão.
         precomputados:
           total_escaladas: 7
+          total_esportivas: 7
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -1393,6 +1453,11 @@ picos:
     total_escaladas: 55
     total_setores: 9
     total_grupos: 3
+    total_esportivas: 44
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 7
+    total_highlines: 0
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

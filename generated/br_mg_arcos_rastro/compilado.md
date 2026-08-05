@@ -241,6 +241,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 6
+  - **total_esportivas**: 6
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_chegada
@@ -532,6 +537,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 13
+  - **total_esportivas**: 10
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_onca
@@ -1154,6 +1164,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 26
+  - **total_esportivas**: 26
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_toca_dos_gatos
@@ -1366,6 +1381,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_intermediario
@@ -1592,6 +1612,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_vale_das_sombras
@@ -2186,6 +2211,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 29
+  - **total_esportivas**: 29
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_parede_dos_conflitos
@@ -2473,6 +2503,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 12
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_leao_de_judah
@@ -2928,6 +2963,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 22
+  - **total_esportivas**: 22
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_antigo_camping
@@ -3343,6 +3383,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 19
+  - **total_esportivas**: 19
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_beco_do_tiu
@@ -3595,6 +3640,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_savassinha
@@ -3887,6 +3937,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 12
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_grutinha
@@ -4120,6 +4175,11 @@
       - **data_abertura**: 2017
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mezanino
@@ -4303,6 +4363,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_1o_andar
@@ -4552,6 +4617,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 11
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_2o_andar
@@ -4993,6 +5063,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 21
+  - **total_esportivas**: 21
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_jardim_suspenso
@@ -5202,6 +5277,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_3o_andar
@@ -5683,6 +5763,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 24
+  - **total_esportivas**: 24
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

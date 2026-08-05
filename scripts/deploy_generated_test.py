@@ -61,14 +61,24 @@ class DeployGeneratedTest(unittest.TestCase):
                     "precomputados": {
                         "total_escaladas": 10,
                         "total_setores": 2,
-                        "total_grupos": 1
+                        "total_grupos": 1,
+                        "total_esportivas": 5,
+                        "total_moveis": 3,
+                        "total_boulders": 2,
+                        "total_multiplas_enfiadas": 0,
+                        "total_highlines": 0
                     }
                 },
                 {
                     "precomputados": {
                         "total_escaladas": 5,
                         "total_setores": 1,
-                        "total_grupos": 0
+                        "total_grupos": 0,
+                        "total_esportivas": 0,
+                        "total_moveis": 0,
+                        "total_boulders": 0,
+                        "total_multiplas_enfiadas": 5,
+                        "total_highlines": 0
                     }
                 }
             ]
@@ -92,6 +102,11 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertEqual(resumo.precomputados.total_escaladas, 15)
             self.assertEqual(resumo.precomputados.total_setores, 3)
             self.assertEqual(resumo.precomputados.total_grupos, 1)
+            self.assertEqual(resumo.precomputados.total_esportivas, 5)
+            self.assertEqual(resumo.precomputados.total_moveis, 3)
+            self.assertEqual(resumo.precomputados.total_boulders, 2)
+            self.assertEqual(resumo.precomputados.total_multiplas_enfiadas, 5)
+            self.assertEqual(resumo.precomputados.total_highlines, 0)
 
 if __name__ == '__main__':
     unittest.main()

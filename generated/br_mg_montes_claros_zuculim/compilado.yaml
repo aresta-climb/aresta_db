@@ -33,6 +33,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 6
+          total_esportivas: 6
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 2 - Setor do Buraco
@@ -71,6 +76,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 9
+          total_esportivas: 9
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 3 - ZUCULIN
@@ -98,6 +108,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 5
+          total_esportivas: 5
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 4 - Setor da Caverna
@@ -130,6 +145,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 7
+          total_esportivas: 7
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -143,6 +163,11 @@ picos:
     total_escaladas: 27
     total_setores: 4
     total_grupos: 0
+    total_esportivas: 27
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 caminho_thumbnail: imagens/capa_p0.webp
 botoes:
 - texto: Capa

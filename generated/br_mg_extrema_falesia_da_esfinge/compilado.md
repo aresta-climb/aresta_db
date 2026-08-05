@@ -264,6 +264,11 @@
       - **protecoes_moveis**: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10) ou compatíveis
 - **precomputados**:
   - **total_escaladas**: 5
+  - **total_esportivas**: 1
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_roca_master
@@ -395,6 +400,11 @@
       - **protecoes_moveis**: Camalot (5 e 6) ou compatíveis.
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_ecumenico
@@ -505,6 +515,11 @@
         - Kaio Lupone
 - **precomputados**:
   - **total_escaladas**: 6
+  - **total_esportivas**: 5
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

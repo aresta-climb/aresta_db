@@ -436,6 +436,11 @@ picos:
           | *João TG nos trabalhos de conquista* |
         precomputados:
           total_escaladas: 24
+          total_esportivas: 24
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: 2° Andar
@@ -577,6 +582,11 @@ picos:
           O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
         precomputados:
           total_escaladas: 8
+          total_esportivas: 8
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -626,6 +636,11 @@ picos:
     total_escaladas: 32
     total_setores: 2
     total_grupos: 0
+    total_esportivas: 32
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO

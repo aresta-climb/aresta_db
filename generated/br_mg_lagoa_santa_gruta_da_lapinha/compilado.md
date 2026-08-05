@@ -193,6 +193,11 @@
       - **nome**: Projeto
 - **precomputados**:
   - **total_escaladas**: 6
+  - **total_esportivas**: 3
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_2
@@ -251,6 +256,11 @@
         - Daniel Fernandes "Salim"
 - **precomputados**:
   - **total_escaladas**: 2
+  - **total_esportivas**: 1
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_3
@@ -790,6 +800,11 @@
       - **data_abertura**: 1994
 - **precomputados**:
   - **total_escaladas**: 26
+  - **total_esportivas**: 18
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_4
@@ -1267,6 +1282,11 @@
       - **data_abertura**: 1997
 - **precomputados**:
   - **total_escaladas**: 17
+  - **total_esportivas**: 14
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_5
@@ -1475,6 +1495,11 @@
       - **data_abertura**: 1994
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_6
@@ -1787,6 +1812,11 @@
       - **data_abertura**: 1998
 - **precomputados**:
   - **total_escaladas**: 14
+  - **total_esportivas**: 11
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_7
@@ -2027,6 +2057,11 @@
       - **data_abertura**: 1993
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 10
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_8
@@ -2561,6 +2596,11 @@
       - **data_abertura**: 1998
 - **precomputados**:
   - **total_escaladas**: 23
+  - **total_esportivas**: 20
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_9
@@ -2929,6 +2969,11 @@
       - **data_abertura**: 1998
 - **precomputados**:
   - **total_escaladas**: 13
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_mapa_10
@@ -3093,6 +3138,11 @@
       - **data_abertura**: 1993
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

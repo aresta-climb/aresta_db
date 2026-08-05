@@ -772,6 +772,11 @@ picos:
           **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’
         precomputados:
           total_escaladas: 39
+          total_esportivas: 30
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Entrada Superior
@@ -1543,6 +1548,11 @@ picos:
           **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.
         precomputados:
           total_escaladas: 41
+          total_esportivas: 36
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 2º Andar
@@ -2382,6 +2392,11 @@ picos:
           **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’
         precomputados:
           total_escaladas: 45
+          total_esportivas: 41
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Fechadura
@@ -2710,6 +2725,11 @@ picos:
           Lembrando que o acesso a gruta só é permitido com o acompanhamento de um guia da fazenda.
         precomputados:
           total_escaladas: 16
+          total_esportivas: 11
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Pasto
@@ -2852,6 +2872,11 @@ picos:
           | *Alisson Tavares - Via Rolha de Algodão* |
         precomputados:
           total_escaladas: 6
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Sentinela e Vale do Joga
@@ -3415,6 +3440,11 @@ picos:
           **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’
         precomputados:
           total_escaladas: 28
+          total_esportivas: 22
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 1
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale dos Espinhos
@@ -4109,6 +4139,11 @@ picos:
           **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’
         precomputados:
           total_escaladas: 37
+          total_esportivas: 31
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 1
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Escola
@@ -4232,6 +4267,11 @@ picos:
           Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar as aulas.
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Geriatria
@@ -4691,6 +4731,11 @@ picos:
           **Acesso secundário:** pela trilha do Setor Onda de Calcário.
         precomputados:
           total_escaladas: 23
+          total_esportivas: 18
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Mr. Bean
@@ -5254,6 +5299,11 @@ picos:
           Membros do GT Baú 2020: Márcio, Wilson, Roberto Lincoln, André “Dedé”, Otto e Michele “Joaninha”.
         precomputados:
           total_escaladas: 31
+          total_esportivas: 27
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale do Cinema
@@ -5546,6 +5596,11 @@ picos:
           **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’
         precomputados:
           total_escaladas: 14
+          total_esportivas: 13
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Onda de Calcário
@@ -5875,6 +5930,11 @@ picos:
           **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578
         precomputados:
           total_escaladas: 16
+          total_esportivas: 16
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale da Onça
@@ -6619,6 +6679,11 @@ picos:
           **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.
         precomputados:
           total_escaladas: 39
+          total_esportivas: 39
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -6797,6 +6862,11 @@ picos:
     total_escaladas: 339
     total_setores: 13
     total_grupos: 0
+    total_esportivas: 292
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 2
+    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

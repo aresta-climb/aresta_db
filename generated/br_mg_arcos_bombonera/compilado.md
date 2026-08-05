@@ -343,6 +343,11 @@
       - **data_abertura**: 2022
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_bombonera
@@ -581,6 +586,11 @@
       - **data_abertura**: 2023
 - **precomputados**:
   - **total_escaladas**: 12
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_bosque
@@ -882,6 +892,11 @@
       - **data_abertura**: 2020
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 9
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

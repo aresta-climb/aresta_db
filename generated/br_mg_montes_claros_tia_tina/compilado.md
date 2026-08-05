@@ -74,6 +74,11 @@
       - **dificuldade**: BR_7B
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_fenda
@@ -102,6 +107,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 3
+  - **total_esportivas**: 3
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_do_buraco
@@ -150,6 +160,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_da_frente
@@ -199,6 +214,11 @@
       - **dificuldade**: BR_7B
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_passagem
@@ -219,6 +239,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 1
+  - **total_esportivas**: 1
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_arvore_da_vida
@@ -235,6 +260,11 @@
 - **escaladas**: []
 - **precomputados**:
   - **total_escaladas**: 0
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_planeta_dos_macacos
@@ -275,6 +305,11 @@
       - **dificuldade**: BR_6SUP_BARRA_7A
 - **precomputados**:
   - **total_escaladas**: 6
+  - **total_esportivas**: 6
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

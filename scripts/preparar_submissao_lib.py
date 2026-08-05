@@ -874,40 +874,104 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
 
 def computar_precomputados_setor(setor_conteudo: dict):
     """Calcula precomputados para um único setor."""
-    total = len(setor_conteudo.get("escaladas", []))
-    setor_conteudo["precomputados"] = {"total_escaladas": total}
+    escaladas = setor_conteudo.get("escaladas", [])
+    total = len(escaladas)
+    
+    total_esportivas = 0
+    total_moveis = 0
+    total_boulders = 0
+    total_multiplas_enfiadas = 0
+    total_highlines = 0
+
+    for e in escaladas:
+        if "via_esportiva" in e:
+            total_esportivas += 1
+        elif "tradicional" in e:
+            total_moveis += 1
+        elif "boulder" in e:
+            total_boulders += 1
+        elif "via_multiplas_enfiadas" in e:
+            total_multiplas_enfiadas += 1
+        elif "highline" in e:
+            total_highlines += 1
+
+    setor_conteudo["precomputados"] = {
+        "total_escaladas": total,
+        "total_esportivas": total_esportivas,
+        "total_moveis": total_moveis,
+        "total_boulders": total_boulders,
+        "total_multiplas_enfiadas": total_multiplas_enfiadas,
+        "total_highlines": total_highlines
+    }
 
 def computar_precomputados_grupo(grupo_conteudo: dict):
     """Calcula precomputados para um grupo, somando dos setores já processados."""
     total_escaladas = 0
+    total_esportivas = 0
+    total_moveis = 0
+    total_boulders = 0
+    total_multiplas_enfiadas = 0
+    total_highlines = 0
+
     for setor_ref in grupo_conteudo.get("setores", []):
         setor = setor_ref.get("conteudo", {})
-        total_escaladas += setor.get("precomputados", {}).get("total_escaladas", 0)
+        pre = setor.get("precomputados", {})
+        total_escaladas += pre.get("total_escaladas", 0)
+        total_esportivas += pre.get("total_esportivas", 0)
+        total_moveis += pre.get("total_moveis", 0)
+        total_boulders += pre.get("total_boulders", 0)
+        total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
+        total_highlines += pre.get("total_highlines", 0)
         
-    grupo_conteudo["precomputados"] = {"total_escaladas": total_escaladas}
+    grupo_conteudo["precomputados"] = {
+        "total_escaladas": total_escaladas,
+        "total_esportivas": total_esportivas,
+        "total_moveis": total_moveis,
+        "total_boulders": total_boulders,
+        "total_multiplas_enfiadas": total_multiplas_enfiadas,
+        "total_highlines": total_highlines
+    }
 
 def computar_precomputados_pico(pico: dict):
     """Calcula precomputados do pico, lendo diretamente dos setores e grupos filhos."""
     total_escaladas = 0
     total_setores = 0
     total_grupos = 0
+    total_esportivas = 0
+    total_moveis = 0
+    total_boulders = 0
+    total_multiplas_enfiadas = 0
+    total_highlines = 0
     
     for ref in pico.get("setores_ou_grupos", []):
         if "setor" in ref:
-            setor = ref["setor"].get("conteudo", {})
-            total_escaladas += setor.get("precomputados", {}).get("total_escaladas", 0)
+            node = ref["setor"].get("conteudo", {})
             total_setores += 1
             
         elif "grupo" in ref:
-            grupo = ref["grupo"].get("conteudo", {})
-            total_escaladas += grupo.get("precomputados", {}).get("total_escaladas", 0)
-            total_setores += len(grupo.get("setores", []))
+            node = ref["grupo"].get("conteudo", {})
+            total_setores += len(node.get("setores", []))
             total_grupos += 1
+        else:
+            continue
+            
+        pre = node.get("precomputados", {})
+        total_escaladas += pre.get("total_escaladas", 0)
+        total_esportivas += pre.get("total_esportivas", 0)
+        total_moveis += pre.get("total_moveis", 0)
+        total_boulders += pre.get("total_boulders", 0)
+        total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
+        total_highlines += pre.get("total_highlines", 0)
             
     pico["precomputados"] = {
         "total_escaladas": total_escaladas,
         "total_setores": total_setores,
-        "total_grupos": total_grupos
+        "total_grupos": total_grupos,
+        "total_esportivas": total_esportivas,
+        "total_moveis": total_moveis,
+        "total_boulders": total_boulders,
+        "total_multiplas_enfiadas": total_multiplas_enfiadas,
+        "total_highlines": total_highlines
     }
 
 def injetar_precomputados(croqui_data: dict):

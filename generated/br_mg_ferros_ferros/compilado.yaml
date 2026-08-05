@@ -300,6 +300,11 @@ picos:
           Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Parede das Aderências
@@ -402,6 +407,11 @@ picos:
               Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
             precomputados:
               total_escaladas: 5
+              total_esportivas: 4
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 1
+              total_highlines: 0
         - conteudo:
             nome: Esquerda
             mapas:
@@ -690,6 +700,11 @@ picos:
               Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metros na trilha principal até encontrar a picada que sobe à esquerda. Desta picada, pode-se costear a parede, seguindo por cima ou para baixo, com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço de Minhoca”.
             precomputados:
               total_escaladas: 19
+              total_esportivas: 8
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 9
+              total_highlines: 0
         - conteudo:
             nome: Parede das Aderências – Face Central
             mapas:
@@ -700,6 +715,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 0
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede das Aderências – Setor de Cima
             mapas:
@@ -710,6 +730,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 0
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede das Aderências – Extrema Direita
             mapas:
@@ -720,6 +745,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 0
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           # A Parede das Aderências
 
@@ -738,6 +768,11 @@ picos:
           Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
         precomputados:
           total_escaladas: 24
+          total_esportivas: 12
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 10
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Parede Principal (Paredes de Aço)
@@ -1166,6 +1201,11 @@ picos:
               Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede.
             precomputados:
               total_escaladas: 19
+              total_esportivas: 16
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede Principal – Direita
             mapas:
@@ -1497,6 +1537,11 @@ picos:
               | *Larissa Lopez na “Flor da Pele”* |
             precomputados:
               total_escaladas: 14
+              total_esportivas: 12
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede Principal – Setor Central
             mapas:
@@ -1883,6 +1928,11 @@ picos:
               | *Escaladores na “Cordão do Bola Preta”* |
             precomputados:
               total_escaladas: 22
+              total_esportivas: 18
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede Principal – Setor de Cima
             mapas:
@@ -2069,6 +2119,11 @@ picos:
               | *Vista da Parede Principal – Setor de Cima* |
             precomputados:
               total_escaladas: 2
+              total_esportivas: 2
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Parede Principal – Setor Clássicas Longas
             mapas:
@@ -2448,6 +2503,11 @@ picos:
               | *Laura Petroni e João Pedro na P1 da “Trio Elétrico”* |
             precomputados:
               total_escaladas: 25
+              total_esportivas: 20
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           | ![A Parede Principal, vista do topo da Parede das Aderências – Central](imagens/grupo_principal_p0_i1.webp) |
           | :--: |
@@ -2456,6 +2516,11 @@ picos:
           Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão.
         precomputados:
           total_escaladas: 82
+          total_esportivas: 68
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vias Esportivas
@@ -2735,6 +2800,11 @@ picos:
           Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
         precomputados:
           total_escaladas: 14
+          total_esportivas: 14
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Parede dos Solos
@@ -2831,6 +2901,11 @@ picos:
           com corda.
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Pedra do Neri
@@ -2924,6 +2999,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 3
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Pedra do Neri – Face das Aderências
             mapas:
@@ -2998,12 +3078,22 @@ picos:
               | *Juliano Magalhães escalando da Face das Esportivas* |
             precomputados:
               total_escaladas: 5
+              total_esportivas: 5
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           | ![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp) |
           | :--: |
           | *Pedra do Neri* |
         precomputados:
           total_escaladas: 11
+          total_esportivas: 8
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Parede da Água Limpa
@@ -3068,6 +3158,11 @@ picos:
           O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
         precomputados:
           total_escaladas: 1
+          total_esportivas: 0
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 1
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Parede da CENIBRA
@@ -3099,6 +3194,11 @@ picos:
         descricao: ''
         precomputados:
           total_escaladas: 1
+          total_esportivas: 0
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Outras Vias
@@ -3137,6 +3237,11 @@ picos:
           | *Outras Vias* |
         precomputados:
           total_escaladas: 2
+          total_esportivas: 1
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -3662,6 +3767,11 @@ picos:
     total_escaladas: 143
     total_setores: 18
     total_grupos: 3
+    total_esportivas: 111
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 11
+    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

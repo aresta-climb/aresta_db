@@ -535,6 +535,11 @@
       - **data_abertura**: 2010-02-16
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: grupo_aderencias
@@ -649,6 +654,11 @@
             - **data_abertura**: 2012-05-06
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 4
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 1
+        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -929,6 +939,11 @@
             - **data_abertura**: 2011-09-18
       - **precomputados**:
         - **total_escaladas**: 19
+        - **total_esportivas**: 8
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 9
+        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -943,6 +958,11 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
       - **precomputados**:
         - **total_escaladas**: 0
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -957,6 +977,11 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
       - **precomputados**:
         - **total_escaladas**: 0
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -971,8 +996,18 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
       - **precomputados**:
         - **total_escaladas**: 0
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 24
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 10
+  - **total_highlines**: 0
 
 
 ## Parte: grupo_principal
@@ -1488,6 +1523,11 @@
             - **data_abertura**: 2011-06-22
       - **precomputados**:
         - **total_escaladas**: 19
+        - **total_esportivas**: 16
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -1884,6 +1924,11 @@
             - **extensao**: 18
       - **precomputados**:
         - **total_escaladas**: 14
+        - **total_esportivas**: 12
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -2356,6 +2401,11 @@
             - **extensao**: 80
       - **precomputados**:
         - **total_escaladas**: 22
+        - **total_esportivas**: 18
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -2570,6 +2620,11 @@
             - **extensao**: 120
       - **precomputados**:
         - **total_escaladas**: 2
+        - **total_esportivas**: 2
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -3037,8 +3092,18 @@
             - **extensao**: 70
       - **precomputados**:
         - **total_escaladas**: 25
+        - **total_esportivas**: 20
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 82
+  - **total_esportivas**: 68
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_vias_esportivas
@@ -3362,6 +3427,11 @@
       - **data_abertura**: 2008-02-06
 - **precomputados**:
   - **total_escaladas**: 14
+  - **total_esportivas**: 14
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_parede_dos_solos
@@ -3468,6 +3538,11 @@
       - **data_abertura**: 2010-10-24
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: grupo_pedra_do_neri
@@ -3591,6 +3666,11 @@
             - **extensao**: 15
       - **precomputados**:
         - **total_escaladas**: 6
+        - **total_esportivas**: 3
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -3683,8 +3763,18 @@
             - **extensao**: 10
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 5
+        - **total_moveis**: 0
+        - **total_boulders**: 0
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_parede_da_cenibra
@@ -3725,6 +3815,11 @@
       - **extensao**: 100
 - **precomputados**:
   - **total_escaladas**: 1
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_parede_da_agua_limpa
@@ -3790,6 +3885,11 @@
       - **data_abertura**: 2015-09-06
 - **precomputados**:
   - **total_escaladas**: 1
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 1
+  - **total_highlines**: 0
 
 
 ## Parte: setor_outras_vias
@@ -3836,6 +3936,11 @@
     - **altura_mapa**: 1754
 - **precomputados**:
   - **total_escaladas**: 2
+  - **total_esportivas**: 1
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

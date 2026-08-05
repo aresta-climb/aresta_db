@@ -303,6 +303,11 @@
                 - 1
       - **precomputados**:
         - **total_escaladas**: 1
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 1
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
@@ -413,6 +418,11 @@
                 - x_b
       - **precomputados**:
         - **total_escaladas**: 4
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 4
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco Jahngada
@@ -521,6 +531,11 @@
                 - z
       - **precomputados**:
         - **total_escaladas**: 4
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 4
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[3]**:
     - **conteudo**:
       - **descricao**: # Bloco Planetário
@@ -681,6 +696,11 @@
                 - y_b
       - **precomputados**:
         - **total_escaladas**: 6
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 6
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[4]**:
     - **conteudo**:
       - **descricao**: # Bloco Free Solo
@@ -809,6 +829,11 @@
                 - 4
       - **precomputados**:
         - **total_escaladas**: 6
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 6
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[5]**:
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
@@ -904,6 +929,11 @@
                 - 5
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 5
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[6]**:
     - **conteudo**:
       - **descricao**: # Bloco Sunset
@@ -1007,6 +1037,11 @@
                 - 5
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 5
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
   - **[7]**:
     - **conteudo**:
       - **descricao**: # Bloco Camaroa
@@ -1107,8 +1142,18 @@
                 - 5
       - **precomputados**:
         - **total_escaladas**: 5
+        - **total_esportivas**: 0
+        - **total_moveis**: 0
+        - **total_boulders**: 5
+        - **total_multiplas_enfiadas**: 0
+        - **total_highlines**: 0
 - **precomputados**:
   - **total_escaladas**: 36
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 36
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

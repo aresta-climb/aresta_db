@@ -139,6 +139,11 @@ picos:
           | *Vista do Top da "Inimigos do Estado" 6º sup* |
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Panelinha
@@ -242,6 +247,11 @@ picos:
           | *Vista do Mirante* |
         precomputados:
           total_escaladas: 4
+          total_esportivas: 3
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 7 Paralelo
@@ -543,6 +553,11 @@ picos:
           | *Mais Fotos* |
         precomputados:
           total_escaladas: 16
+          total_esportivas: 15
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Sentinela
@@ -687,6 +702,11 @@ picos:
           | *Mais fotos* |
         precomputados:
           total_escaladas: 8
+          total_esportivas: 6
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Death Horse
@@ -866,6 +886,11 @@ picos:
           | *Mais fotos* |
         precomputados:
           total_escaladas: 9
+          total_esportivas: 9
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Gameleira
@@ -972,6 +997,11 @@ picos:
           | *Sou Fria 9a Foto 2* |
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale das Sombras
@@ -1432,6 +1462,11 @@ picos:
           | *Fotos* |
         precomputados:
           total_escaladas: 30
+          total_esportivas: 28
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Imigrantes
@@ -1569,6 +1604,11 @@ picos:
         descricao: '# Setor Imigrantes'
         precomputados:
           total_escaladas: 8
+          total_esportivas: 8
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Vale Zela
@@ -1689,6 +1729,11 @@ picos:
           | *Vale Zela* |
         precomputados:
           total_escaladas: 7
+          total_esportivas: 7
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Macaúbas
@@ -1767,6 +1812,11 @@ picos:
           | *Setor Macaúbas* |
         precomputados:
           total_escaladas: 3
+          total_esportivas: 3
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor Primórdios
@@ -1966,6 +2016,11 @@ picos:
           | *Mais Fotos* |
         precomputados:
           total_escaladas: 12
+          total_esportivas: 12
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor 4 Picos
@@ -2056,6 +2111,11 @@ picos:
           | *4 Picos* |
         precomputados:
           total_escaladas: 4
+          total_esportivas: 4
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Vale Oculto
@@ -2163,6 +2223,11 @@ picos:
               | *Sub Setor de Cara* |
             precomputados:
               total_escaladas: 5
+              total_esportivas: 5
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Sub Setor Laranja
             mapas:
@@ -2372,6 +2437,11 @@ picos:
               | *Sub Setor Laranja* |
             precomputados:
               total_escaladas: 12
+              total_esportivas: 12
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Sub Setor Anfiteatro
             mapas:
@@ -2617,6 +2687,11 @@ picos:
               | *Sub Setor Anfiteatro* |
             precomputados:
               total_escaladas: 15
+              total_esportivas: 15
+              total_moveis: 0
+              total_boulders: 0
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: |-
           # Vale Oculto Sinuosa
 
@@ -2645,6 +2720,11 @@ picos:
           O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das proximidades do Shopping Sete Lagoas.
         precomputados:
           total_escaladas: 32
+          total_esportivas: 32
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -2805,6 +2885,11 @@ picos:
     total_escaladas: 141
     total_setores: 15
     total_grupos: 1
+    total_esportivas: 135
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

@@ -422,6 +422,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 5
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 5
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Altinho'
             mapas:
@@ -483,6 +488,11 @@ picos:
               | *Imagem Adicional* |
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Bob'
             mapas:
@@ -602,6 +612,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 5
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 5
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Chicletes'
             mapas:
@@ -686,6 +701,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 4
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Complexo'
             mapas:
@@ -900,6 +920,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 13
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 13
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Conhaque'
             mapas:
@@ -1063,6 +1088,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 9
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 9
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Deep Inside'
             mapas:
@@ -1415,6 +1445,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 16
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 16
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Eléctron'
             mapas:
@@ -1515,6 +1550,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 6
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Entretidos'
             mapas:
@@ -1675,6 +1715,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 11
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 11
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Fiat Lux'
             mapas:
@@ -1715,6 +1760,11 @@ picos:
               | *Escalada Noturna* |
             precomputados:
               total_escaladas: 2
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 2
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Hora da Janta'
             mapas:
@@ -1866,6 +1916,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 9
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 9
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Jah'
             mapas:
@@ -1923,6 +1978,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: João de Barro'
             mapas:
@@ -2081,6 +2141,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 8
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 8
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Lagartixa'
             mapas:
@@ -2478,6 +2543,11 @@ picos:
               | *Escalada 2* |
             precomputados:
               total_escaladas: 26
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 26
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Longevidade'
             mapas:
@@ -2690,6 +2760,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 13
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 13
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Mata-Mata'
             mapas:
@@ -2854,6 +2929,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 10
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 10
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Meia-Parede'
             mapas:
@@ -2983,6 +3063,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 7
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 7
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Mezanino'
             mapas:
@@ -3033,6 +3118,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 2
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 2
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Nat Geo'
             mapas:
@@ -3072,6 +3162,11 @@ picos:
               | *Escalada Noturna* |
             precomputados:
               total_escaladas: 2
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 2
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Nave-Mãe'
             mapas:
@@ -3669,6 +3764,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 25
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 25
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Pedra Queimada'
             mapas:
@@ -3748,6 +3848,11 @@ picos:
               | *Escalada Pedra Queimada* |
             precomputados:
               total_escaladas: 5
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 5
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Red Bull'
             mapas:
@@ -3842,6 +3947,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 6
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 6
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Sauna'
             mapas:
@@ -3919,6 +4029,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 4
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Sonar'
             mapas:
@@ -3976,6 +4091,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Teto de Vidro'
             mapas:
@@ -4141,6 +4261,11 @@ picos:
               | *Fotos* |
             precomputados:
               total_escaladas: 8
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 8
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Tô de Boa'
             mapas:
@@ -4275,6 +4400,11 @@ picos:
               | *Escalador no Bloco Tô de Boa* |
             precomputados:
               total_escaladas: 8
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 8
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Travessia'
             mapas:
@@ -4481,6 +4611,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 8
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 8
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Véia Doida'
             mapas:
@@ -4505,6 +4640,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 1
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 1
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Vitamina Jungle'
             mapas:
@@ -4553,9 +4693,19 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: ''
         precomputados:
           total_escaladas: 225
+          total_esportivas: 0
+          total_moveis: 0
+          total_boulders: 225
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Mont Blanc
@@ -4890,6 +5040,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 15
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 15
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Parada Obrigatória'
             mapas:
@@ -5004,6 +5159,11 @@ picos:
               | *parada obrigatória* |
             precomputados:
               total_escaladas: 7
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 7
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Salão dos Ossos'
             mapas:
@@ -5113,6 +5273,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 7
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 7
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: O Pequeno'
             mapas:
@@ -5203,6 +5368,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 5
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 5
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Cabocla da Mata'
             mapas:
@@ -5253,6 +5423,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 2
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 2
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Silêncio da Mutuca'
             mapas:
@@ -5309,6 +5484,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Espreguiçadeira'
             mapas:
@@ -5365,9 +5545,19 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 3
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 3
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: ''
         precomputados:
           total_escaladas: 42
+          total_esportivas: 0
+          total_moveis: 0
+          total_boulders: 42
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - grupo:
       conteudo:
         nome: Bonsai
@@ -5520,6 +5710,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 4
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Crocância'
             mapas:
@@ -5707,6 +5902,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 11
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 11
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Mantra'
             mapas:
@@ -5859,6 +6059,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 10
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 10
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Dali Goiabada'
             mapas:
@@ -5883,6 +6088,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 1
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 1
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Seg-Samambaia'
             mapas:
@@ -5953,6 +6163,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 4
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: 'Bloco: Pedra'
             mapas:
@@ -6022,6 +6237,11 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 4
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 4
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         - conteudo:
             nome: Prodígio
             escaladas:
@@ -6046,9 +6266,19 @@ picos:
             descricao: ''
             precomputados:
               total_escaladas: 1
+              total_esportivas: 0
+              total_moveis: 0
+              total_boulders: 1
+              total_multiplas_enfiadas: 0
+              total_highlines: 0
         descricao: ''
         precomputados:
           total_escaladas: 35
+          total_esportivas: 0
+          total_moveis: 0
+          total_boulders: 35
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   mapas_gerais:
     conteudo:
       mapas:
@@ -6164,6 +6394,11 @@ picos:
     total_escaladas: 302
     total_setores: 43
     total_grupos: 3
+    total_esportivas: 0
+    total_moveis: 0
+    total_boulders: 302
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 botoes:
 - texto: Capa
   destino:

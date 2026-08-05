@@ -365,6 +365,11 @@
       - **dificuldade**: PROJETO
 - **precomputados**:
   - **total_escaladas**: 25
+  - **total_esportivas**: 12
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 1
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

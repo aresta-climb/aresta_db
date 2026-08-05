@@ -472,6 +472,199 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
     assert linhas[3].strip() == "nome: Pico"
     assert "copyright do ze" not in "".join(linhas).lower()
+from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
+
+def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
+    # Setup de arquivos falsos no tmp_path
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir()
+    
+    img_usada = pasta_img / "usada.jpg"
+    img_usada.write_text("dummy")
+    img_orfam = pasta_img / "orfam.png"
+    img_orfam.write_text("dummy")
+    
+    md_usado = tmp_path / "usado.md"
+    md_usado.write_text("dummy")
+    md_orfao = tmp_path / "orfao.md"
+    md_orfao.write_text("dummy")
+    
+    ignorado = tmp_path / "nao_deleta.txt"
+    ignorado.write_text("dummy")
+
+    croqui_data = {
+        "botoes": [
+            {
+                "destino": {
+                    "secao_textual": {
+                        "caminho": "usado.md"
+                    }
+                }
+            }
+        ],
+        "caminho_thumbnail": "imagens/usada.jpg",
+        "picos": []
+    }
+    
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert img_usada.exists(), "Imagem usada não deve ser deletada"
+    assert md_usado.exists(), "MD usado não deve ser deletado"
+    assert ignorado.exists(), "Arquivos com extensões ignoradas não devem ser deletados"
+    assert not img_orfam.exists(), "Imagem órfã deve ser deletada"
+    assert not md_orfao.exists(), "MD órfão deve ser deletado"
+
+def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
+    # Setup de arquivos falsos no tmp_path
+    mapa_geral_md = tmp_path / "mapas_gerais.md"
+    mapa_geral_md.write_text("dummy")
+    
+    # Adiciona mapas_gerais na lista de picos
+    croqui_data = {
+        "picos": [
+            {
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+
+def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
+    import yaml
+    from scripts.preparar_submissao_lib import compilar_croqui
+    
+    # 1. Cria a estrutura do pico fake
+    pico_path = tmp_path / "br_mg_fake"
+    pico_path.mkdir()
+    
+    # 2. Cria mapas_gerais.md
+    mapas_md = pico_path / "mapas_gerais.md"
+    mapas_md.write_text("---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8")
+    
+    # 3. Cria croqui.yaml
+    croqui_yaml = pico_path / "croqui.yaml"
+    croqui_data_in = {
+        "picos": [
+            {
+                "nome": "Fake",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data_in, f)
+        
+    # 4. Destinos
+    dest_yaml = tmp_path / "compilado.yaml"
+    dest_binarypb = tmp_path / "compilado.binarypb"
+    
+    # 5. Roda compilar_croqui
+    compilar_croqui(pico_path, dest_yaml, dest_binarypb)
+    
+    # 6. Verifica o yaml compilado
+    with open(dest_yaml, "r", encoding="utf-8") as f:
+        compilado = yaml.safe_load(f)
+        
+    pico = compilado["picos"][0]
+    mapas_gerais = pico["mapas_gerais"]
+    assert "mapas" in mapas_gerais["conteudo"]
+    assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"
+
+def test_yaml_dump_preserva_aspas_em_strings_numericas():
+    import yaml
+    
+    # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
+    # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
+    dados = {
+        "id": "08",
+        "label": "09",
+        "normal": "texto",
+        "octal_valido": "07"
+    }
+    yaml_gerado = yaml.dump(dados, sort_keys=False)
+    
+    # As aspas simples ou duplas devem existir no YAML dump
+    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, f"YAML não preservou aspas em '08':\n{yaml_gerado}"
+    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, f"YAML não preservou aspas em '09':\n{yaml_gerado}"
+
+from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+def test_yaml_sem_spdx(tmp_path):
+    p = tmp_path / "croqui_sem_spdx.yaml"
+    p.write_text("id: teste\nnome: Sem SPDX\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert "id: teste" in "".join(linhas)
+
+def test_yaml_com_spdx(tmp_path):
+    p = tmp_path / "croqui_com_spdx.yaml"
+    p.write_text("# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert texto.count("SPDX-License-Identifier") == 1
+
+def test_md_sem_spdx(tmp_path):
+    p = tmp_path / "pico_sem_spdx.md"
+    p.write_text("---\nnome: Pico\n---\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+
+def test_md_com_spdx(tmp_path):
+    p = tmp_path / "pico_com_spdx.md"
+    p.write_text("---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert texto.count("SPDX-License-Identifier") == 1
+
+def test_md_sem_frontmatter(tmp_path):
+    p = tmp_path / "pico_sem_frontmatter.md"
+    p.write_text("# Titulo\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert "SPDX-License-Identifier" not in texto
+
+def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
+    p = tmp_path / "croqui_corrige.yaml"
+    # YAML com licença errada e sem copyright, além de um comentário normal
+    p.write_text("# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Meu comentário"
+    assert "id: corrige" in "".join(linhas)
+
+def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
+    p = tmp_path / "pico_corrige.md"
+    # MD com licença errada e copyright errado no frontmatter
+    conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
+    p.write_text(conteudo, encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[3].strip() == "nome: Pico"
+    assert "copyright do ze" not in "".join(linhas).lower()
 
 
 from scripts.preparar_submissao_lib import (
@@ -491,29 +684,44 @@ def test_computar_precomputados_setor():
     }
     computar_precomputados_setor(setor)
     assert setor["precomputados"]["total_escaladas"] == 3
+    assert setor["precomputados"]["total_esportivas"] == 1
+    assert setor["precomputados"]["total_multiplas_enfiadas"] == 1
+    assert setor["precomputados"]["total_boulders"] == 1
+    assert setor["precomputados"]["total_moveis"] == 0
+    assert setor["precomputados"]["total_highlines"] == 0
 
 def test_computar_precomputados_grupo():
     grupo = {
         "setores": [
-            {"conteudo": {"precomputados": {"total_escaladas": 2}}},
-            {"conteudo": {"precomputados": {"total_escaladas": 3}}}
+            {"conteudo": {"precomputados": {"total_escaladas": 2, "total_esportivas": 2, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 0, "total_highlines": 0}}},
+            {"conteudo": {"precomputados": {"total_escaladas": 3, "total_esportivas": 1, "total_moveis": 1, "total_boulders": 1, "total_multiplas_enfiadas": 0, "total_highlines": 0}}}
         ]
     }
     computar_precomputados_grupo(grupo)
     assert grupo["precomputados"]["total_escaladas"] == 5
+    assert grupo["precomputados"]["total_esportivas"] == 3
+    assert grupo["precomputados"]["total_moveis"] == 1
+    assert grupo["precomputados"]["total_boulders"] == 1
+    assert grupo["precomputados"]["total_multiplas_enfiadas"] == 0
+    assert grupo["precomputados"]["total_highlines"] == 0
 
 def test_computar_precomputados_pico():
     pico = {
         "setores_ou_grupos": [
-            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 2}}}},
-            {"grupo": {"conteudo": {"precomputados": {"total_escaladas": 3}, "setores": [{}, {}]}}},
-            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 1}}}}
+            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 2, "total_esportivas": 2, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 0, "total_highlines": 0}}}},
+            {"grupo": {"conteudo": {"precomputados": {"total_escaladas": 3, "total_esportivas": 1, "total_moveis": 1, "total_boulders": 1, "total_multiplas_enfiadas": 0, "total_highlines": 0}, "setores": [{}, {}]}}},
+            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 1, "total_esportivas": 0, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 1, "total_highlines": 0}}}}
         ]
     }
     computar_precomputados_pico(pico)
     assert pico["precomputados"]["total_escaladas"] == 6
     assert pico["precomputados"]["total_setores"] == 4  # 2 standalone + 2 in grupo
     assert pico["precomputados"]["total_grupos"] == 1
+    assert pico["precomputados"]["total_esportivas"] == 3
+    assert pico["precomputados"]["total_moveis"] == 1
+    assert pico["precomputados"]["total_boulders"] == 1
+    assert pico["precomputados"]["total_multiplas_enfiadas"] == 1
+    assert pico["precomputados"]["total_highlines"] == 0
 
 def test_injetar_precomputados():
     croqui = {
@@ -543,8 +751,12 @@ def test_injetar_precomputados():
     injetar_precomputados(croqui)
     pico = croqui["picos"][0]
     assert pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_escaladas"] == 2
+    assert pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_esportivas"] == 2
     assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"]["precomputados"]["total_escaladas"] == 1
+    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"]["precomputados"]["total_boulders"] == 1
     assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["precomputados"]["total_escaladas"] == 1
     assert pico["precomputados"]["total_escaladas"] == 3
     assert pico["precomputados"]["total_setores"] == 2
     assert pico["precomputados"]["total_grupos"] == 1
+    assert pico["precomputados"]["total_esportivas"] == 2
+    assert pico["precomputados"]["total_boulders"] == 1

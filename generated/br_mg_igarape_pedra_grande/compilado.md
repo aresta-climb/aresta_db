@@ -841,6 +841,11 @@
       - **data_abertura**: 2006
 - **precomputados**:
   - **total_escaladas**: 19
+  - **total_esportivas**: 19
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_familia_i
@@ -1501,6 +1506,11 @@
       - **data_abertura**: 2013
 - **precomputados**:
   - **total_escaladas**: 19
+  - **total_esportivas**: 19
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_familia_ii
@@ -1892,6 +1902,11 @@
       - **data_abertura**: 2009
 - **precomputados**:
   - **total_escaladas**: 11
+  - **total_esportivas**: 11
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_micos
@@ -2163,6 +2178,11 @@
       - **data_abertura**: 2011
 - **precomputados**:
   - **total_escaladas**: 7
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_totem
@@ -2332,6 +2352,11 @@
       - **data_abertura**: 2005
 - **precomputados**:
   - **total_escaladas**: 4
+  - **total_esportivas**: 4
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_igarameca
@@ -3124,6 +3149,11 @@
       - **data_abertura**: 2022
 - **precomputados**:
   - **total_escaladas**: 21
+  - **total_esportivas**: 20
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 1
+  - **total_highlines**: 0
 
 
 ## Parte: setor_pracinha
@@ -3459,6 +3489,11 @@
       - **data_abertura**: 2022
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_tetos
@@ -3698,6 +3733,11 @@
       - **data_abertura**: 2006
 - **precomputados**:
   - **total_escaladas**: 9
+  - **total_esportivas**: 7
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 2
+  - **total_highlines**: 0
 
 
 ## Parte: setor_trad
@@ -4307,6 +4347,11 @@
       - **dificuldade**: INDEFINIDO
 - **precomputados**:
   - **total_escaladas**: 42
+  - **total_esportivas**: 0
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

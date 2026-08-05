@@ -200,6 +200,11 @@ picos:
           O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.
         precomputados:
           total_escaladas: 13
+          total_esportivas: 13
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: Setor de Baixo
@@ -334,10 +339,20 @@ picos:
           O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).
         precomputados:
           total_escaladas: 9
+          total_esportivas: 9
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   precomputados:
     total_escaladas: 22
     total_setores: 2
     total_grupos: 0
+    total_esportivas: 22
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

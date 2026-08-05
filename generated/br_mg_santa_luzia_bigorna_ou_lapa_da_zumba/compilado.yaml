@@ -243,10 +243,20 @@ picos:
           | *Mapa do Setor Bigorna ou Lapa da Zumba* |
         precomputados:
           total_escaladas: 37
+          total_esportivas: 32
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   precomputados:
     total_escaladas: 37
     total_setores: 1
     total_grupos: 0
+    total_esportivas: 32
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 botoes: []
 arquivos_externos:
 - caminho: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp

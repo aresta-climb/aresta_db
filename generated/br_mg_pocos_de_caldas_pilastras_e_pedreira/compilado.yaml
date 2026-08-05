@@ -41,6 +41,11 @@ picos:
           \ como na foto, caracterizada por dois “P´s” em sua primeira proteção."
         precomputados:
           total_escaladas: 6
+          total_esportivas: 6
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: As Pilastras
@@ -105,6 +110,11 @@ picos:
           Terceira Pilastra possui projetos inacabados devido às abelhas.
         precomputados:
           total_escaladas: 16
+          total_esportivas: 14
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   - setor:
       conteudo:
         nome: A Pedreira
@@ -148,10 +158,20 @@ picos:
           Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
         precomputados:
           total_escaladas: 5
+          total_esportivas: 5
+          total_moveis: 0
+          total_boulders: 0
+          total_multiplas_enfiadas: 0
+          total_highlines: 0
   precomputados:
     total_escaladas: 27
     total_setores: 3
     total_grupos: 0
+    total_esportivas: 25
+    total_moveis: 0
+    total_boulders: 0
+    total_multiplas_enfiadas: 0
+    total_highlines: 0
 caminho_thumbnail: imagens/capa_p0_i1.webp
 botoes:
 - texto: Capa

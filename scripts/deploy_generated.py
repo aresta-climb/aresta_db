@@ -586,15 +586,31 @@ def passo_c_gerar_indice(
         total_escaladas = 0
         total_setores = 0
         total_grupos = 0
+        total_esportivas = 0
+        total_moveis = 0
+        total_boulders = 0
+        total_multiplas_enfiadas = 0
+        total_highlines = 0
+
         for pico in picos:
             pre = pico.get("precomputados", {})
             total_escaladas += pre.get("total_escaladas", 0)
             total_setores += pre.get("total_setores", 0)
             total_grupos += pre.get("total_grupos", 0)
+            total_esportivas += pre.get("total_esportivas", 0)
+            total_moveis += pre.get("total_moveis", 0)
+            total_boulders += pre.get("total_boulders", 0)
+            total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
+            total_highlines += pre.get("total_highlines", 0)
             
         resumo.precomputados.total_escaladas = total_escaladas
         resumo.precomputados.total_setores = total_setores
         resumo.precomputados.total_grupos = total_grupos
+        resumo.precomputados.total_esportivas = total_esportivas
+        resumo.precomputados.total_moveis = total_moveis
+        resumo.precomputados.total_boulders = total_boulders
+        resumo.precomputados.total_multiplas_enfiadas = total_multiplas_enfiadas
+        resumo.precomputados.total_highlines = total_highlines
 
         if picos and "localizacao" in picos[0]:
             loc = picos[0]["localizacao"]
@@ -637,11 +653,23 @@ def passo_c_gerar_indice(
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
         }
         if resumo.HasField("precomputados"):
-            item_yaml["precomputados"] = {
+            pre_yaml = {
                 "total_escaladas": resumo.precomputados.total_escaladas,
                 "total_setores": resumo.precomputados.total_setores,
                 "total_grupos": resumo.precomputados.total_grupos,
             }
+            if resumo.precomputados.total_esportivas > 0:
+                pre_yaml["total_esportivas"] = resumo.precomputados.total_esportivas
+            if resumo.precomputados.total_moveis > 0:
+                pre_yaml["total_moveis"] = resumo.precomputados.total_moveis
+            if resumo.precomputados.total_boulders > 0:
+                pre_yaml["total_boulders"] = resumo.precomputados.total_boulders
+            if resumo.precomputados.total_multiplas_enfiadas > 0:
+                pre_yaml["total_multiplas_enfiadas"] = resumo.precomputados.total_multiplas_enfiadas
+            if resumo.precomputados.total_highlines > 0:
+                pre_yaml["total_highlines"] = resumo.precomputados.total_highlines
+                
+            item_yaml["precomputados"] = pre_yaml
         if resumo.HasField("localizacao"):
             item_yaml["localizacao"] = {
                 "latitude": resumo.localizacao.latitude,

@@ -87,6 +87,11 @@
       - **dificuldade**: BR_7A
 - **precomputados**:
   - **total_escaladas**: 14
+  - **total_esportivas**: 13
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos

@@ -660,6 +660,11 @@
       - **extensao**: 15
 - **precomputados**:
   - **total_escaladas**: 24
+  - **total_esportivas**: 24
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Parte: setor_2_andar
@@ -831,6 +836,11 @@
       - **quantidade_protecoes_parada**: 2
 - **precomputados**:
   - **total_escaladas**: 8
+  - **total_esportivas**: 8
+  - **total_moveis**: 0
+  - **total_boulders**: 0
+  - **total_multiplas_enfiadas**: 0
+  - **total_highlines**: 0
 
 
 ## Arquivos Externos
