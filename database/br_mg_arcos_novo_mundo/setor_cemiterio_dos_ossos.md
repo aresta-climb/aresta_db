@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Setor Cemitério dos Ossos
 mapas:
 - caminho_imagem_mapa: imagens/setor_cemiterio_dos_ossos_p0_i0.webp

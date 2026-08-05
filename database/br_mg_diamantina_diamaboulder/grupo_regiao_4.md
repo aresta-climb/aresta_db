@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Região 4
 setores:
 - caminho: grupo_regiao_4_setor_navio_pirata.md

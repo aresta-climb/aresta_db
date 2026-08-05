@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Parede das Aderências
 setores:
 - caminho: grupo_aderencias_setor_extrema_esquerda.md

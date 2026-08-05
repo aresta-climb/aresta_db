@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Setor do Mocó
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_moco_p0.webp

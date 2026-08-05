@@ -4,7 +4,7 @@
 O sistema DEVE, durante a compilação (especificamente ao final de `corrigir_database`), varrer todos os arquivos Markdown (`.md`) e YAML (`.yaml`) fonte e assegurar a existência das duas linhas de comentários referentes à licença ODbL e ao Copyright:
 ```yaml
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 ARESTA Contributors
+# Copyright (C) 2026 Aresta Contributors
 ```
 Isso deve ser feito de forma bruta (no nível de texto/string) para contornar o comportamento do parser `PyYAML`, que remove silenciosamente comentários originais durante os ciclos de leitura e escrita.
 

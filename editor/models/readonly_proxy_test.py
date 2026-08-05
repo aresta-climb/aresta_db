@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 
 import pytest
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico

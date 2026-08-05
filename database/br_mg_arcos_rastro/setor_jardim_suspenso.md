@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp

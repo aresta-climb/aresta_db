@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: 'Bloco: Mata-Mata'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp

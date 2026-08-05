@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Mufasa
 mapas:
 - caminho_imagem_mapa: imagens/grupo_jk_setor_mufasa_p0.webp

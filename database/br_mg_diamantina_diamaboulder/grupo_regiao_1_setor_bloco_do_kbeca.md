@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Bloco do Kbeca
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_bloco_do_kbeca_p0_i0.webp

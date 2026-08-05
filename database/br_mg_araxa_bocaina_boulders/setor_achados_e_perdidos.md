@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Achados e Perdidos
 mapas:
 - caminho_imagem_mapa: imagens/setor_achados_e_perdidos_p0.webp

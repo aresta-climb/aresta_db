@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 mapas:
 - caminho_imagem_mapa: imagens/pagina_14.webp
   largura_mapa: 1679

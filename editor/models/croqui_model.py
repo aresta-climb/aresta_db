@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 
 from editor.models.readonly_proxy import _copia_segura
 from PyQt6.QtCore import QObject, pyqtSignal

@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Região 1
 setores:
 - caminho: grupo_regiao_1_setor_diamante_de_sangue.md

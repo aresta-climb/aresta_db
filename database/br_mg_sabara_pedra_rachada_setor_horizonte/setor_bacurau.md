@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Bacurau
 mapas:
 - caminho_imagem_mapa: imagens/setor_bacurau_p0_i0.webp

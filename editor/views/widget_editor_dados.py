@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout, QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox, QCheckBox, QTextEdit, QTextBrowser, QMenu
 from PyQt6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel

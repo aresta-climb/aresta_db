@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Parede Principal – Setor Clássicas Longas
 mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp

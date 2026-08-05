@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Hiperespaço
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_hiperespaco_p0.webp

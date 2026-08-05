@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 
 def test_container_repeated_widget_undo_redo_sync(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico

@@ -15,7 +15,7 @@ Foi escolhida a seguinte heurística:
 3. Se não existir, insere as seguintes duas linhas:
    ```yaml
    # SPDX-License-Identifier: ODbL-1.0
-   # Copyright (c) Aresta Contributors
+   # Copyright (C) 2026 Aresta Contributors
    ```
 4. Em arquivos `.yaml`, insere no começo do arquivo.
 5. Em arquivos `.md`, se a primeira linha for `---` (frontmatter), insere na segunda linha, garantindo que o cabeçalho permaneça dentro do bloco YAML e não quebre a leitura.

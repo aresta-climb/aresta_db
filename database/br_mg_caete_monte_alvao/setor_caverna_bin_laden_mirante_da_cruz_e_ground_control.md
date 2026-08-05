@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Caverna, Mirante e Ground Control
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp

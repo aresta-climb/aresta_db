@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Parede Principal – Setor de Cima
 mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp

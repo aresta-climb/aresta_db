@@ -7,7 +7,7 @@ Para garantir que as licenças e copyrights estejam presentes em todos os croqui
 - A função `corrigir_database` no `scripts/preparar_submissao_lib.py` (ou `salvar_md_com_frontmatter`/`processar_croqui_yaml`) será atualizada para garantir que as seguintes linhas de comentários estejam sempre presentes:
   ```yaml
   # SPDX-License-Identifier: ODbL-1.0
-  # Copyright (c) Aresta Contributors
+  # Copyright (C) 2026 Aresta Contributors
   ```
 - **Injeção via Comentário**: A injeção não será feita como um campo do dicionário YAML (o que violaria o schema do Protobuf), mas sim estritamente como linhas de comentários inseridas diretamente no arquivo físico.
 - Adição de testes em TDD cobrindo cenários para garantir a presença dos comentários nos arquivos processados.

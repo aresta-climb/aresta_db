@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Gênesis
 mapas:
 - caminho_imagem_mapa: imagens/setor_genesis_p0.webp

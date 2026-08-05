@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Salão de Pedras
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_p0.webp

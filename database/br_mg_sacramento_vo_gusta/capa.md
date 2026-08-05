@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 id: br_mg_sacramento_vo_gusta
 nome: Pico da Vó Gusta
 caminho_thumbnail: raw_pdf_contents/imagens/capa/p0_i0.webp

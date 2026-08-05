@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (c) Aresta Contributors
+# Copyright (C) 2026 Aresta Contributors
 nome: Esquerda
 mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
