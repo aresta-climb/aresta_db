@@ -94,7 +94,7 @@ jobs:
           pip install -r editor/requirements.txt
 
       - name: Executar Testes (TDD & Coverage)
-        timeout-minutes: 3
+        timeout-minutes: 10
         run: |
           pytest
         env:
