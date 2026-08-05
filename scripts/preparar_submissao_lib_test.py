@@ -400,3 +400,49 @@ def test_yaml_dump_preserva_aspas_em_strings_numericas():
     # As aspas simples ou duplas devem existir no YAML dump
     assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, f"YAML não preservou aspas em '08':\n{yaml_gerado}"
     assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, f"YAML não preservou aspas em '09':\n{yaml_gerado}"
+
+from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+def test_yaml_sem_spdx(tmp_path):
+    p = tmp_path / "croqui_sem_spdx.yaml"
+    p.write_text("id: teste\nnome: Sem SPDX\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert "id: teste" in "".join(linhas)
+
+def test_yaml_com_spdx(tmp_path):
+    p = tmp_path / "croqui_com_spdx.yaml"
+    p.write_text("# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert texto.count("SPDX-License-Identifier") == 1
+
+def test_md_sem_spdx(tmp_path):
+    p = tmp_path / "pico_sem_spdx.md"
+    p.write_text("---\nnome: Pico\n---\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        linhas = f.readlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+
+def test_md_com_spdx(tmp_path):
+    p = tmp_path / "pico_com_spdx.md"
+    p.write_text("---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert texto.count("SPDX-License-Identifier") == 1
+
+def test_md_sem_frontmatter(tmp_path):
+    p = tmp_path / "pico_sem_frontmatter.md"
+    p.write_text("# Titulo\n\nTexto\n", encoding="utf-8")
+    garantir_comentarios_licenca(p)
+    with open(p, "r", encoding="utf-8") as f:
+        texto = f.read()
+    assert "SPDX-License-Identifier" not in texto
