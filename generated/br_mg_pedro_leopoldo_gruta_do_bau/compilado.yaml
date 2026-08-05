@@ -770,6 +770,8 @@ picos:
           **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.
 
           **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’
+        precomputados:
+          total_escaladas: 39
   - setor:
       conteudo:
         nome: Setor Entrada Superior
@@ -1539,6 +1541,8 @@ picos:
           # Setor Entrada Superior
 
           **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.
+        precomputados:
+          total_escaladas: 41
   - setor:
       conteudo:
         nome: Setor 2º Andar
@@ -2376,6 +2380,8 @@ picos:
           **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras” a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para direita, subindo em direção ao segundo andar. O acesso é por uma ponte com dois troncos de madeira.
 
           **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’
+        precomputados:
+          total_escaladas: 45
   - setor:
       conteudo:
         nome: Setor Fechadura
@@ -2702,6 +2708,8 @@ picos:
           **Acesso secundário:** Contornando o maciço pela direita a partir do Setor Pasto e subindo em direção a pedra. Por este caminho chegará à base da via “Primeira Batida”.
 
           Lembrando que o acesso a gruta só é permitido com o acompanhamento de um guia da fazenda.
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: Setor Pasto
@@ -2842,6 +2850,8 @@ picos:
           | ![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp) |
           | :--: |
           | *Alisson Tavares - Via Rolha de Algodão* |
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Setor Sentinela e Vale do Joga
@@ -3403,6 +3413,8 @@ picos:
           **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Depois de passar pela base das vias “Retorno de Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da via “Sentinela”.
 
           **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’
+        precomputados:
+          total_escaladas: 28
   - setor:
       conteudo:
         nome: Setor Vale dos Espinhos
@@ -4095,6 +4107,8 @@ picos:
           **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.
 
           **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’
+        precomputados:
+          total_escaladas: 37
   - setor:
       conteudo:
         nome: Setor Escola
@@ -4216,6 +4230,8 @@ picos:
           **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.
 
           Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar as aulas.
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Setor Geriatria
@@ -4673,6 +4689,8 @@ picos:
           **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.
 
           **Acesso secundário:** pela trilha do Setor Onda de Calcário.
+        precomputados:
+          total_escaladas: 23
   - setor:
       conteudo:
         nome: Setor Mr. Bean
@@ -5234,6 +5252,8 @@ picos:
           **Coordenadas do setor Mr. Bean:** -20º35.832’ -46º20.498’
 
           Membros do GT Baú 2020: Márcio, Wilson, Roberto Lincoln, André “Dedé”, Otto e Michele “Joaninha”.
+        precomputados:
+          total_escaladas: 31
   - setor:
       conteudo:
         nome: Setor Vale do Cinema
@@ -5524,6 +5544,8 @@ picos:
           **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.
 
           **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Setor Onda de Calcário
@@ -5851,6 +5873,8 @@ picos:
           **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.
 
           **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: Setor Vale da Onça
@@ -6593,6 +6617,8 @@ picos:
           # Setor Vale da Onça
 
           **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.
+        precomputados:
+          total_escaladas: 39
   mapas_gerais:
     conteudo:
       mapas:
@@ -6767,6 +6793,10 @@ picos:
         - setor: Setor Entrada Inferior
           ids:
           - Setor_Entrada
+  precomputados:
+    total_escaladas: 339
+    total_setores: 13
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

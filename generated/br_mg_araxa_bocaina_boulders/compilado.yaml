@@ -103,6 +103,8 @@ picos:
             descricao: Saída do Não Contava com minha astúcia fazendo travessia para
               esquerda virando no Maltodextrina.
         descricao: '# Setor Pressão Enrustida'
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Caverninha
@@ -279,6 +281,8 @@ picos:
             descricao: Saída sentado com a mão esquerda em batente de compressão e
               direita em reglete aberto acima da cabeça.
         descricao: '# Setor Caverninha'
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Exquadrilha
@@ -359,6 +363,8 @@ picos:
             dificuldade: V6
             descricao: Saída do exquadrilha e virando no Planet Hemp.
         descricao: '# Setor Exquadrilha'
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Canil
@@ -461,6 +467,8 @@ picos:
             descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
               no Prato.
         descricao: '# Setor Canil'
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Bloco do Guerreiro
@@ -573,6 +581,8 @@ picos:
             dificuldade: V4
             descricao: Saída em pé com as mãos em regletes investidos.
         descricao: '# Setor Bloco do Guerreiro'
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Bloco do Cabelin
@@ -786,6 +796,8 @@ picos:
               pequena na altura no quadril, virando reto e seguindo até o final do
               bloco.
         descricao: '# Setor Bloco do Cabelin'
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Consciência Limpa
@@ -871,6 +883,8 @@ picos:
             descricao: Saída agachado com mão direita em agarra lateral e esquerda
               na aresta.
         descricao: '# Setor Consciência Limpa'
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Haiti
@@ -965,6 +979,8 @@ picos:
             descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais
               e virando reto.
         descricao: '# Setor Haiti'
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Achados e Perdidos
@@ -1032,6 +1048,8 @@ picos:
             descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida
               e esquerda de balcão no equilibrio e segue pela esquerda.
         descricao: '# Setor Achados e Perdidos'
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Bloco do Rock Bocaina
@@ -1084,6 +1102,8 @@ picos:
             dificuldade: V3
             descricao: Saída da aresta a direita do bloco e vai arestando até o topo.
         descricao: '# Setor Bloco do Rock Bocaina'
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Bloco 45º
@@ -1467,6 +1487,8 @@ picos:
             dificuldade: V11
             descricao: Saída do sananga virando no indios.
         descricao: '# Setor Bloco 45º'
+        precomputados:
+          total_escaladas: 23
   - setor:
       conteudo:
         nome: Essência
@@ -1582,6 +1604,8 @@ picos:
             nome: Jardim de Infância
             dificuldade: V0
         descricao: '# Setor Essência'
+        precomputados:
+          total_escaladas: 9
   mapas_gerais:
     conteudo:
       mapas:
@@ -1692,6 +1716,10 @@ picos:
         - ids:
           - '12'
           setor: Essência
+  precomputados:
+    total_escaladas: 101
+    total_setores: 12
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

@@ -239,6 +239,8 @@
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_chegada
@@ -528,6 +530,8 @@
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_onca
@@ -1148,6 +1152,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 26
 
 
 ## Parte: setor_toca_dos_gatos
@@ -1358,6 +1364,8 @@
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_intermediario
@@ -1582,6 +1590,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_vale_das_sombras
@@ -2174,6 +2184,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 29
 
 
 ## Parte: setor_parede_dos_conflitos
@@ -2459,6 +2471,8 @@
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_leao_de_judah
@@ -2912,6 +2926,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 22
 
 
 ## Parte: setor_antigo_camping
@@ -3325,6 +3341,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 19
 
 
 ## Parte: setor_beco_do_tiu
@@ -3575,6 +3593,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_savassinha
@@ -3865,6 +3885,8 @@
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 2
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_grutinha
@@ -4096,6 +4118,8 @@
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2017
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_mezanino
@@ -4277,6 +4301,8 @@
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_1o_andar
@@ -4524,6 +4550,8 @@
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_2o_andar
@@ -4963,6 +4991,8 @@
       - **destaque**: True
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 21
 
 
 ## Parte: setor_jardim_suspenso
@@ -5170,6 +5200,8 @@
       - **dificuldade**: BR_7B_BARRA_7C
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_3o_andar
@@ -5649,6 +5681,8 @@
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 24
 
 
 ## Arquivos Externos

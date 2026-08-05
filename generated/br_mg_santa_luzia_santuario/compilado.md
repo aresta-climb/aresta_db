@@ -444,6 +444,8 @@
           - **via_esportiva**:
             - **nome**: P2
             - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_santa_linea
@@ -858,6 +860,8 @@
           - **via_esportiva**:
             - **nome**: P3
             - **dificuldade**: BR_9C
+- **precomputados**:
+  - **total_escaladas**: 15
 
 
 ## Parte: setor_democracia
@@ -1181,6 +1185,8 @@
   - **[14]**:
     - **via_esportiva**:
       - **nome**: VIA INACABADA 2
+- **precomputados**:
+  - **total_escaladas**: 15
 
 
 ## Arquivos Externos

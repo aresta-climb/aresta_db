@@ -501,6 +501,8 @@
     - **via_esportiva**:
       - **nome**: Variante do Judas
       - **dificuldade**: BR_4
+- **precomputados**:
+  - **total_escaladas**: 27
 
 
 ## Parte: setor_02
@@ -737,6 +739,8 @@
       - **nome**: Parede Preta
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Arquivos Externos

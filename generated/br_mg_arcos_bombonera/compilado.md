@@ -341,6 +341,8 @@
       - **quantidade_protecoes_parada**: 2
       - **destaque**: True
       - **data_abertura**: 2022
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_bombonera
@@ -577,6 +579,8 @@
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2023
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_bosque
@@ -876,6 +880,8 @@
       - **destaque**: True
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2020
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Arquivos Externos

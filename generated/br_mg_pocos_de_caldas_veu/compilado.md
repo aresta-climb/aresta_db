@@ -111,6 +111,8 @@
     - **boulder**:
       - **nome**: Dia dos namorados
       - **dificuldade**: V1
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_bloco_da_pressao
@@ -156,6 +158,8 @@
     - **boulder**:
       - **nome**: Pressão alta
       - **dificuldade**: V4
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_bloco_gaveta
@@ -190,6 +194,8 @@
     - **boulder**:
       - **nome**: Da gaveta ao Tumulto
       - **dificuldade**: V6
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_bloco_ditinho
@@ -232,6 +238,8 @@
     - **boulder**:
       - **nome**: 11 de Maio Direct
       - **dificuldade**: V4
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_bloco_angular
@@ -279,6 +287,8 @@
     - **boulder**:
       - **nome**: Estrangular
       - **dificuldade**: V3_BARRA_V4
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_bloco_high
@@ -313,6 +323,8 @@
     - **boulder**:
       - **nome**: HighBolinha
       - **dificuldade**: V2_BARRA_V3
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_bloco_sala_de_estar
@@ -335,6 +347,8 @@
     - **boulder**:
       - **nome**: Chá das cinco
       - **dificuldade**: V1
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Arquivos Externos

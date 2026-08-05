@@ -76,6 +76,8 @@
             - **nome**: Diamante de Sangue
             - **dificuldade**: V6_BARRA_V7
             - **tipo_parede**: NEGATIVO
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -251,6 +253,8 @@
           - **boulder**:
             - **nome**: Porco Aranha
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -311,6 +315,8 @@
           - **boulder**:
             - **nome**: Projeto
             - **dificuldade**: INDEFINIDO
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -348,6 +354,8 @@
           - **boulder**:
             - **nome**: Flor do Cerrado
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -410,6 +418,10 @@
             - **descricao**: Saída com a mão direita na aresta em meia altura e a mão esquerda em abaulado invertido no teto.
             - **nome**: Joelho Sem Freio
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 2
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: grupo_regiao_2
@@ -616,6 +628,8 @@
             - **descricao**: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso do caldeirão, finalizando por agarrões na face vertical do bloco.
             - **nome**: Coragem
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -722,6 +736,8 @@
           - **boulder**:
             - **nome**: Faca de Pedra
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -759,6 +775,8 @@
           - **boulder**:
             - **nome**: Serra do Groove
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -1009,6 +1027,8 @@
             - **descricao**: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por movimentos espremidos rumo à face externa do bloco.
             - **nome**: Joelho de Porco
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -1069,6 +1089,8 @@
           - **boulder**:
             - **nome**: Flor da Montanha
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[5]**:
     - **conteudo**:
       - **descricao**:
@@ -1152,6 +1174,10 @@
           - **boulder**:
             - **nome**: Frango D'Água
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 3
+- **precomputados**:
+  - **total_escaladas**: 25
 
 
 ## Parte: grupo_regiao_3
@@ -1224,6 +1250,8 @@
           - **boulder**:
             - **nome**: Tela Quente
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -1759,6 +1787,8 @@
             - **descricao**: Extensão do Analógico.
             - **nome**: Digital
             - **dificuldade**: V9_BARRA_V10
+      - **precomputados**:
+        - **total_escaladas**: 17
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -1819,6 +1849,8 @@
           - **boulder**:
             - **nome**: Que Raio de Reglete
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -1881,6 +1913,8 @@
             - **descricao**: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita no abaulado alto mais à direita.
             - **nome**: Frigobar
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -1941,6 +1975,10 @@
           - **boulder**:
             - **nome**: Silicose
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 2
+- **precomputados**:
+  - **total_escaladas**: 25
 
 
 ## Parte: grupo_regiao_4
@@ -2188,6 +2226,8 @@
           - **boulder**:
             - **nome**: Desce a Serra
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 9
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -2271,6 +2311,8 @@
           - **boulder**:
             - **nome**: Rosa
             - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -2400,6 +2442,8 @@
           - **boulder**:
             - **nome**: Ofurô
             - **dificuldade**: V7_BARRA_V8
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -2483,6 +2527,8 @@
           - **boulder**:
             - **nome**: Expresso 22
             - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -2589,6 +2635,8 @@
           - **boulder**:
             - **nome**: Garrafada
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[5]**:
     - **conteudo**:
       - **descricao**:
@@ -2695,6 +2743,10 @@
           - **boulder**:
             - **nome**: Toque no Curralinho
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
+- **precomputados**:
+  - **total_escaladas**: 28
 
 
 ## Arquivos Externos

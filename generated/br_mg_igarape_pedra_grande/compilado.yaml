@@ -582,6 +582,8 @@ picos:
           # Setor Estacionamento
 
           O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
+        precomputados:
+          total_escaladas: 19
   - setor:
       conteudo:
         nome: Setor Família I
@@ -1139,6 +1141,8 @@ picos:
           # Setor Família I
 
           O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 19
   - setor:
       conteudo:
         nome: Setor Família II
@@ -1467,6 +1471,8 @@ picos:
           # Setor Família II
 
           Sombra após 14h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Setor Micos
@@ -1694,6 +1700,8 @@ picos:
           Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
           Escalar com a corda passada na primeira proteção nas vias esportivas.
           Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho. A rocha fica logo a direita.
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Setor Totem
@@ -1835,6 +1843,8 @@ picos:
           # Setor Totem
 
           Sombra até 10h e após 16h.
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Setor Igarameca
@@ -2505,6 +2515,8 @@ picos:
           # Setor Igarameca
 
           Sombra após 12h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 21
   - setor:
       conteudo:
         nome: Setor Pracinha
@@ -2786,6 +2798,8 @@ picos:
           | *Setor pracinha* |
 
           Sombra o dia todo (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor dos Tetos
@@ -2989,6 +3003,8 @@ picos:
           | *Setor dos Tetos* |
 
           Sombra após 14h.
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor Trad
@@ -3473,6 +3489,8 @@ picos:
           Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
 
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
+        precomputados:
+          total_escaladas: 42
   mapas_gerais:
     conteudo:
       mapas:
@@ -3677,6 +3695,10 @@ picos:
           - Me_Leve
           setor: Setor Trad
           escalada: Me Leve ao Cume
+  precomputados:
+    total_escaladas: 140
+    total_setores: 9
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

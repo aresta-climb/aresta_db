@@ -228,6 +228,8 @@
       - **conquistadores**:
         - Fábio de Melo
         - Rodrigo 'Mussula'
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_campo_escola
@@ -419,6 +421,8 @@
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Rodrigo 'Mussula'
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_tchau_querida
@@ -591,6 +595,8 @@
       - **conquistadores**:
         - Fábio de Melo
         - Rodrigo 'Mussula'
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_pedra_branca
@@ -992,6 +998,8 @@
       - **conquistadores**:
         - Fábio de Melo
         - Marcelo Henriques
+- **precomputados**:
+  - **total_escaladas**: 20
 
 
 ## Arquivos Externos

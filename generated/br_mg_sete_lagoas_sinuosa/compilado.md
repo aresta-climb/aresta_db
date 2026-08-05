@@ -293,6 +293,8 @@
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
       - **extensao**: 15
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_panelinha
@@ -413,6 +415,8 @@
       - **nome**: Corda de Violão
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 4
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_7_paralelo
@@ -771,6 +775,8 @@
       - **dificuldade**: BR_7A
       - **quantidade_protecoes_intermediarias**: 7
       - **extensao**: 15
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_sentinela
@@ -942,6 +948,8 @@
       - **nome**: Vitamina M
       - **dificuldade**: BR_5
       - **protecoes_moveis**: Móvel. Rapel da chapa com cordelete.
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_death_horse
@@ -1156,6 +1164,8 @@
       - **descricao**: Projeto (Sem F/A).
       - **nome**: Araticum
       - **quantidade_protecoes_intermediarias**: 14
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_gameleira
@@ -1281,6 +1291,8 @@
       - **nome**: Girassol
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 6
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_vale_das_sombras
@@ -1841,6 +1853,8 @@
       - **nome**: Velhos Novatos
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 5
+- **precomputados**:
+  - **total_escaladas**: 30
 
 
 ## Parte: setor_imigrantes
@@ -2009,6 +2023,8 @@
       - **nome**: Escalada Eclética
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 6
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_vale_zela
@@ -2155,6 +2171,8 @@
       - **nome**: De Menor
       - **dificuldade**: BR_4
       - **quantidade_protecoes_intermediarias**: 4
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_macaubas
@@ -2249,6 +2267,8 @@
       - **nome**: Anfitriões do Dia
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 5
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_primordios
@@ -2487,6 +2507,8 @@
       - **nome**: Não Deu Bigode
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 7
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_4_picos
@@ -2596,6 +2618,8 @@
     - **via_esportiva**:
       - **nome**: ???
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: grupo_vale_oculto
@@ -2751,6 +2775,8 @@
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 3
             - **quantidade_protecoes_parada**: 1
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -3000,6 +3026,8 @@
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 1
+      - **precomputados**:
+        - **total_escaladas**: 12
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -3293,6 +3321,10 @@
             - **dificuldade**: BR_6SUP
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 1
+      - **precomputados**:
+        - **total_escaladas**: 15
+- **precomputados**:
+  - **total_escaladas**: 32
 
 
 ## Arquivos Externos

@@ -233,6 +233,8 @@ picos:
           | ![Setor Quintal](imagens/setor_quintal_p0_i0_2.webp) |
           | :--: |
           | *Setor Quintal* |
+        precomputados:
+          total_escaladas: 11
   mapas_gerais:
     conteudo:
       mapas:
@@ -296,6 +298,10 @@ picos:
         - setor: Setor Quintal
           ids:
           - Setor_Quintal
+  precomputados:
+    total_escaladas: 11
+    total_setores: 1
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

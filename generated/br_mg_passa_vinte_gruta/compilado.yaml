@@ -319,6 +319,8 @@ picos:
             nome: Macunaína
             dificuldade: BR_9B
         descricao: ''
+        precomputados:
+          total_escaladas: 20
   - setor:
       conteudo:
         nome: Sunshine & Teto Preto
@@ -594,6 +596,8 @@ picos:
             nome: Casamento da Imperatriz (Projeto)
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 19
   - setor:
       conteudo:
         nome: ”Positivo” Central
@@ -846,6 +850,8 @@ picos:
             nome: Sub-Zero
             dificuldade: BR_8C
         descricao: ''
+        precomputados:
+          total_escaladas: 18
   - setor:
       conteudo:
         nome: ”Negativo” Central
@@ -1333,6 +1339,8 @@ picos:
             nome: Ceci
             dificuldade: BR_6SUP
         descricao: ''
+        precomputados:
+          total_escaladas: 32
   - setor:
       conteudo:
         nome: Arquibancada
@@ -1754,6 +1762,8 @@ picos:
             nome: Face Oculta (Projeto)
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 27
   - setor:
       conteudo:
         nome: Gênesis
@@ -2098,6 +2108,8 @@ picos:
             nome: Sinairo P3
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 23
   - setor:
       conteudo:
         nome: Acampamento
@@ -2367,6 +2379,8 @@ picos:
             nome: Stinger
             dificuldade: BR_6SUP
         descricao: ''
+        precomputados:
+          total_escaladas: 15
   mapas_gerais:
     conteudo:
       mapas:
@@ -2523,6 +2537,10 @@ picos:
         - setor: Arquibancada
           ids:
           - B
+  precomputados:
+    total_escaladas: 154
+    total_setores: 7
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

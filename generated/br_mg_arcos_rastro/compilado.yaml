@@ -132,6 +132,8 @@ picos:
           # Setor Zona Leste
 
           Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Setor Chegada
@@ -372,6 +374,8 @@ picos:
 
           **Observações**:
           - OBS.I: Caixa de Abelha próxima às vias 07 e 08.
+        precomputados:
+          total_escaladas: 13
   - setor:
       conteudo:
         nome: Setor Onça
@@ -890,6 +894,8 @@ picos:
 
           **Observações**:
           - OBS.!: Caixa de Abelha Arapuã do lado direito da via 17.
+        precomputados:
+          total_escaladas: 26
   - setor:
       conteudo:
         nome: Setor Toca dos Gatos
@@ -1065,6 +1071,8 @@ picos:
           # Setor Toca dos Gatos
 
           Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Intermediário
@@ -1251,6 +1259,8 @@ picos:
           # Setor Intermediário
 
           Este setor possui sombra até as 13h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Vale das Sombras
@@ -1745,6 +1755,8 @@ picos:
           # Setor Vale das Sombras
 
           Este setor possui sombra o dia todo (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 29
   - setor:
       conteudo:
         nome: Setor Parede dos Conflitos
@@ -1982,6 +1994,8 @@ picos:
           # Setor Parede dos Conflitos
 
           Este setor possui sombra até as 13h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Setor Leão de Judah
@@ -2360,6 +2374,8 @@ picos:
           # Setor Leão de Judah
 
           Este setor possui sombra até as 12h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 22
   - setor:
       conteudo:
         nome: Setor Antigo Camping
@@ -2705,6 +2721,8 @@ picos:
           # Setor Antigo Camping
 
           Este setor possui sombra até as 13h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 19
   - setor:
       conteudo:
         nome: Setor Beco do Tiú
@@ -2913,6 +2931,8 @@ picos:
           # Setor Beco do Tiú
 
           Este setor possui sombra até as 13h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Setor Savassinha
@@ -3155,6 +3175,8 @@ picos:
           # Setor Savassinha
 
           Este setor possui sombra até as 12h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Setor Grutinha
@@ -3349,6 +3371,8 @@ picos:
           # Setor Grutinha
 
           Este setor possui sombra o dia todo (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor Mezanino
@@ -3499,6 +3523,8 @@ picos:
 
           **Observações**:
           - OBS.I: Caixa de abelha entre as vias 05 e 06.
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: 1º Andar
@@ -3704,6 +3730,8 @@ picos:
           # Setor 1º Andar
 
           Este setor possui sombra a partir das 13h (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: 2º Andar
@@ -4071,6 +4099,8 @@ picos:
           # Setor 2º Andar
 
           Este setor possui sombra o dia todo (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 21
   - setor:
       conteudo:
         nome: Jardim Suspenso
@@ -4242,6 +4272,8 @@ picos:
           # Setor Jardim Suspenso
 
           Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: 3º Andar
@@ -4641,6 +4673,8 @@ picos:
           # Setor 3º Andar
 
           Este setor possui sombra o dia todo (variando de acordo com a estação).
+        precomputados:
+          total_escaladas: 24
   mapas_gerais:
     conteudo:
       mapas:
@@ -4940,6 +4974,10 @@ picos:
         - setor: Setor Leão de Judah
           ids:
           - Setor_Leao_de_Judah
+  precomputados:
+    total_escaladas: 247
+    total_setores: 17
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

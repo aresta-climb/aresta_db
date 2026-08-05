@@ -298,6 +298,8 @@ picos:
           A base destas vias fica a dez minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
 
           Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
+        precomputados:
+          total_escaladas: 4
   - grupo:
       conteudo:
         nome: Parede das Aderências
@@ -398,6 +400,8 @@ picos:
               Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou” e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
 
               Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Esquerda
             mapas:
@@ -684,6 +688,8 @@ picos:
               Para as demais vias da parte esquerda deste setor, basta continuar por poucos metros na trilha principal, uma vez que as bases saem quase diretamente desta trilha.
 
               Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metros na trilha principal até encontrar a picada que sobe à esquerda. Desta picada, pode-se costear a parede, seguindo por cima ou para baixo, com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço de Minhoca”.
+            precomputados:
+              total_escaladas: 19
         - conteudo:
             nome: Parede das Aderências – Face Central
             mapas:
@@ -692,6 +698,8 @@ picos:
               - escalada: O Psicopata de Ferros
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
             descricao: ''
+            precomputados:
+              total_escaladas: 0
         - conteudo:
             nome: Parede das Aderências – Setor de Cima
             mapas:
@@ -700,6 +708,8 @@ picos:
               - escalada: Solamente
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
             descricao: ''
+            precomputados:
+              total_escaladas: 0
         - conteudo:
             nome: Parede das Aderências – Extrema Direita
             mapas:
@@ -708,6 +718,8 @@ picos:
               - escalada: Ferro na Boneca
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
             descricao: ''
+            precomputados:
+              total_escaladas: 0
         descricao: |-
           # A Parede das Aderências
 
@@ -724,6 +736,8 @@ picos:
           | *Tonico, na conquista da “Solamente” - solo integral* |
 
           Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
+        precomputados:
+          total_escaladas: 24
   - grupo:
       conteudo:
         nome: Parede Principal (Paredes de Aço)
@@ -1150,6 +1164,8 @@ picos:
               | *Rodrigo Magalhães guiando a “Couro de Lobisomem”* |
 
               Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede.
+            precomputados:
+              total_escaladas: 19
         - conteudo:
             nome: Parede Principal – Direita
             mapas:
@@ -1479,6 +1495,8 @@ picos:
               | ![Larissa Lopez na “Flor da Pele”](imagens/grupo_principal_setor_direita_p7_i0.webp) |
               | :--: |
               | *Larissa Lopez na “Flor da Pele”* |
+            precomputados:
+              total_escaladas: 14
         - conteudo:
             nome: Parede Principal – Setor Central
             mapas:
@@ -1863,6 +1881,8 @@ picos:
               | ![Escaladores na “Cordão do Bola Preta”](imagens/grupo_principal_setor_central_p11_i3.webp) |
               | :--: |
               | *Escaladores na “Cordão do Bola Preta”* |
+            precomputados:
+              total_escaladas: 22
         - conteudo:
             nome: Parede Principal – Setor de Cima
             mapas:
@@ -2047,6 +2067,8 @@ picos:
               | ![Vista da Parede Principal – Setor de Cima](imagens/grupo_principal_setor_setor_de_cima_p0_i4.webp) |
               | :--: |
               | *Vista da Parede Principal – Setor de Cima* |
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Parede Principal – Setor Clássicas Longas
             mapas:
@@ -2424,12 +2446,16 @@ picos:
               | ![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp) |
               | :--: |
               | *Laura Petroni e João Pedro na P1 da “Trio Elétrico”* |
+            precomputados:
+              total_escaladas: 25
         descricao: |-
           | ![A Parede Principal, vista do topo da Parede das Aderências – Central](imagens/grupo_principal_p0_i1.webp) |
           | :--: |
           | *A Parede Principal, vista do topo da Parede das Aderências – Central* |
 
           Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão.
+        precomputados:
+          total_escaladas: 82
   - setor:
       conteudo:
         nome: Setor Vias Esportivas
@@ -2707,6 +2733,8 @@ picos:
           Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
 
           Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Parede dos Solos
@@ -2801,6 +2829,8 @@ picos:
           mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe
           um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los
           com corda.
+        precomputados:
+          total_escaladas: 4
   - grupo:
       conteudo:
         nome: Pedra do Neri
@@ -2892,6 +2922,8 @@ picos:
                 dificuldade: BR_7A
                 extensao: 15
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Pedra do Neri – Face das Aderências
             mapas:
@@ -2964,10 +2996,14 @@ picos:
               | ![Juliano Magalhães escalando da Face das Esportivas](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i7_2.webp) |
               | :--: |
               | *Juliano Magalhães escalando da Face das Esportivas* |
+            precomputados:
+              total_escaladas: 5
         descricao: |-
           | ![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp) |
           | :--: |
           | *Pedra do Neri* |
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Parede da Água Limpa
@@ -3030,6 +3066,8 @@ picos:
           As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar lá, deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estrada adentra ao mágico vale.
 
           O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
+        precomputados:
+          total_escaladas: 1
   - setor:
       conteudo:
         nome: Parede da CENIBRA
@@ -3059,6 +3097,8 @@ picos:
             dificuldade: BR_3SUP
             extensao: 100
         descricao: ''
+        precomputados:
+          total_escaladas: 1
   - setor:
       conteudo:
         nome: Outras Vias
@@ -3095,6 +3135,8 @@ picos:
           | ![Outras Vias](imagens/setor_outras_vias_p0_2.webp) |
           | :--: |
           | *Outras Vias* |
+        precomputados:
+          total_escaladas: 2
   mapas_gerais:
     conteudo:
       mapas:
@@ -3616,6 +3658,10 @@ picos:
             y: 624
             comprimento: 96
             largura: 41
+  precomputados:
+    total_escaladas: 143
+    total_setores: 18
+    total_grupos: 3
 botoes:
 - texto: Capa
   destino:

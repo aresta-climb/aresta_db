@@ -134,6 +134,8 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Inacabada
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_as_pilastras
@@ -217,6 +219,8 @@
     - **via_esportiva**:
       - **nome**: Stuart Little
       - **dificuldade**: BR_5
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_a_pedreira
@@ -269,6 +273,8 @@
     - **via_esportiva**:
       - **nome**: Pe pra fora
       - **dificuldade**: BR_6SUP
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Arquivos Externos

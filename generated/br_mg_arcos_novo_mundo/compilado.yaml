@@ -75,6 +75,8 @@ picos:
           # Setor Cemitério dos Ossos
 
           Sombra de 7h as 13h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 2
   - setor:
       conteudo:
         nome: Setor Aristóteles
@@ -336,6 +338,8 @@ picos:
 
           Sombra de 7h as 13h (varia de acordo com a estação).
           Também conhecido como Setor Praça Aristóteles.
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Setor Corredor Polonês
@@ -467,6 +471,8 @@ picos:
           # Setor Corredor Polonês
 
           Sombra o dia todo (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Setor Barceloneta
@@ -640,6 +646,8 @@ picos:
           # Setor Barceloneta
 
           Sombra das 7h as 12h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 8
   mapas_gerais:
     conteudo:
       mapas:
@@ -691,6 +699,10 @@ picos:
         - setor: Setor Cemitério dos Ossos
           ids:
           - Setor_Cemiterio_Ossos
+  precomputados:
+    total_escaladas: 29
+    total_setores: 4
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

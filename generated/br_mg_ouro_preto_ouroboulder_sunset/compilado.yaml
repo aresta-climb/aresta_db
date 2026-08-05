@@ -136,6 +136,8 @@ picos:
                 ids:
                 - '1'
             descricao: '# Bloco Aleijadinho'
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: Capitão Jack
             escaladas:
@@ -227,6 +229,8 @@ picos:
                 - '3'
                 - x_b
             descricao: '# Bloco Capitão Jack'
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Jahngada
             escaladas:
@@ -315,6 +319,8 @@ picos:
                 - '4'
                 - z
             descricao: '# Bloco Jahngada'
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Planetário
             escaladas:
@@ -446,6 +452,8 @@ picos:
                 - 1_b
                 - y_b
             descricao: '# Bloco Planetário'
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Free Solo
             escaladas:
@@ -549,6 +557,8 @@ picos:
                 ids:
                 - '4'
             descricao: '# Bloco Free Solo'
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Carrapicho
             escaladas:
@@ -624,6 +634,8 @@ picos:
                 ids:
                 - '5'
             descricao: '# Bloco Carrapicho'
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Sunset
             escaladas:
@@ -706,6 +718,8 @@ picos:
                 ids:
                 - '5'
             descricao: '# Bloco Sunset'
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Camaroa
             escaladas:
@@ -786,12 +800,16 @@ picos:
                 ids:
                 - '5'
             descricao: '# Bloco Camaroa'
+            precomputados:
+              total_escaladas: 5
         descricao: |-
           # Grupo Sunset
 
           O local está localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso pôr-do-sol!
 
           Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.
+        precomputados:
+          total_escaladas: 36
   mapas_gerais:
     conteudo:
       mapas:
@@ -810,6 +828,10 @@ picos:
         - grupo: Sunset
           ids:
           - Setor_Sunset
+  precomputados:
+    total_escaladas: 36
+    total_setores: 8
+    total_grupos: 1
 botoes:
 - texto: Capa
   destino:

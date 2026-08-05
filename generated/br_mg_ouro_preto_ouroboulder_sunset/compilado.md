@@ -301,6 +301,8 @@
               - **escalada**: Aleijadinho
               - **ids**:
                 - 1
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
@@ -409,6 +411,8 @@
               - **ids**:
                 - 3
                 - x_b
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco Jahngada
@@ -515,6 +519,8 @@
               - **ids**:
                 - 4
                 - z
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[3]**:
     - **conteudo**:
       - **descricao**: # Bloco Planetário
@@ -673,6 +679,8 @@
               - **ids**:
                 - 1_b
                 - y_b
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[4]**:
     - **conteudo**:
       - **descricao**: # Bloco Free Solo
@@ -799,6 +807,8 @@
               - **escalada**: Walkmachine
               - **ids**:
                 - 4
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[5]**:
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
@@ -892,6 +902,8 @@
               - **escalada**: Dart Vader
               - **ids**:
                 - 5
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[6]**:
     - **conteudo**:
       - **descricao**: # Bloco Sunset
@@ -993,6 +1005,8 @@
               - **escalada**: Projeto Sunset
               - **ids**:
                 - 5
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[7]**:
     - **conteudo**:
       - **descricao**: # Bloco Camaroa
@@ -1091,6 +1105,10 @@
               - **escalada**: Camaroa
               - **ids**:
                 - 5
+      - **precomputados**:
+        - **total_escaladas**: 5
+- **precomputados**:
+  - **total_escaladas**: 36
 
 
 ## Arquivos Externos

@@ -322,6 +322,8 @@
           - 37
     - **largura_mapa**: 1676
     - **altura_mapa**: 1446
+- **precomputados**:
+  - **total_escaladas**: 37
 
 
 ## Arquivos Externos

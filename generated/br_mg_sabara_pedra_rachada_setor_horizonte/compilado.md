@@ -145,6 +145,8 @@
       - **descricao**: Começa com as duas mãos em um reglete e escala reto por regletes clássicos até o topo.
       - **nome**: Calliandra
       - **dificuldade**: V3
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: grupo_conjunto_por_do_sol
@@ -306,6 +308,8 @@
             - **descricao**: Boulder de movimentação específica. As duas mão começam juntas em uma agarra invertida muito boa na fenda horizontal e escala reto.
             - **nome**: Base aérea
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[1]**:
     - **conteudo**:
       - **descricao**: # Bloco B
@@ -422,6 +426,8 @@
             - **descricao**: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais baixa.
             - **nome**: Gostosinho
             - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[2]**:
     - **conteudo**:
       - **descricao**: # Bloco C
@@ -476,6 +482,10 @@
             - **descricao**: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda até a virada pelo final da aresta.
             - **nome**: Especularica
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 4
+- **precomputados**:
+  - **total_escaladas**: 17
 
 
 ## Parte: setor_brinquedos
@@ -641,6 +651,8 @@
       - **descricao**: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no agarrão na parte baixa.
       - **nome**: Aresta do sol
       - **dificuldade**: V4
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_beija_flor
@@ -768,6 +780,8 @@
       - **descricao**: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo do bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
       - **nome**: Bacurau
       - **dificuldade**: V8
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_bacurau
@@ -892,6 +906,8 @@
       - **descricao**: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar os blocos de baixo, tocando por toda a aresta.
       - **nome**: Mini Nave
       - **dificuldade**: V1
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_moctezuma
@@ -1028,6 +1044,8 @@
       - **descricao**: Saída com a mão esquerda na laca lateral e a mão direita no batente baixo, indo para a direita até um movimento forte em um batente liso.
       - **nome**: Herança de Ferro
       - **dificuldade**: V6
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_molestia
@@ -1098,6 +1116,8 @@
       - **descricao**: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com uma virada técnica.
       - **nome**: Caqui
       - **dificuldade**: V4
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_outros_blocos
@@ -1267,6 +1287,8 @@
       - **descricao**: Boulder clássico.
       - **nome**: Vertigem
       - **dificuldade**: V5
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Arquivos Externos

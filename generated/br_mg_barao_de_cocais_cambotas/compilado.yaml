@@ -30,6 +30,8 @@ picos:
             descricao: Via difícil, técnica. Agarras abauladas em local sombrio tornam
               essa via mais delicada. Ótima opção. Molha bastante no verão.
         descricao: '# Setor Chaminé'
+        precomputados:
+          total_escaladas: 1
   - setor:
       conteudo:
         nome: Caverninha
@@ -86,6 +88,8 @@ picos:
           | ![Via 'O doce e o amargo', número 3](imagens/setor_caverninha_p0_i1.webp) |
           | :--: |
           | *Via 'O doce e o amargo', número 3* |
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Torres
@@ -128,6 +132,8 @@ picos:
 
           **Dicas de Segurança:**
           Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via Homens Verdes.
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Felinas
@@ -228,6 +234,8 @@ picos:
             descricao: Top feito no final da 'davi e golias'. A via começa à direita
               do poço d'água.
         descricao: '# Setor Felinas'
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Fendas
@@ -283,6 +291,8 @@ picos:
               à direita da parede principal. Grampos somente nas paradas.
             comprimento_total: 120
         descricao: '# Setor Fendas'
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Arco
@@ -363,6 +373,8 @@ picos:
           # Setor Arco
 
           O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Aresta
@@ -475,6 +487,8 @@ picos:
           | ![Aresta Eletrizante](imagens/setor_aresta_p3.webp) |
           | :--: |
           | *Aresta Eletrizante* |
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Polegar
@@ -514,6 +528,8 @@ picos:
           | ![Visão do Polegar](imagens/setor_polegar_p0.webp) |
           | :--: |
           | *Visão do Polegar* |
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Totem
@@ -550,6 +566,8 @@ picos:
           | ![Visão do Totem](imagens/setor_totem_p0.webp) |
           | :--: |
           | *Visão do Totem* |
+        precomputados:
+          total_escaladas: 2
   - setor:
       conteudo:
         nome: Enigma da Esfinge
@@ -574,6 +592,8 @@ picos:
           # Setor Enigma da Esfinge
 
           O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
+        precomputados:
+          total_escaladas: 1
   - setor:
       conteudo:
         nome: Jardim da Fantasia
@@ -603,12 +623,18 @@ picos:
           # Setor Jardim da Fantasia
 
           O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
+        precomputados:
+          total_escaladas: 1
   mapas_gerais:
     conteudo:
       mapas:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
         largura_mapa: 1768
         altura_mapa: 605
+  precomputados:
+    total_escaladas: 45
+    total_setores: 11
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

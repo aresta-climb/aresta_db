@@ -247,6 +247,8 @@
     - **via_esportiva**:
       - **nome**: Independence Day
       - **dificuldade**: BR_5
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_de_baixo
@@ -411,6 +413,8 @@
     - **via_esportiva**:
       - **nome**: Maldita Obsessão
       - **dificuldade**: BR_7B
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Arquivos Externos

@@ -519,6 +519,8 @@
       - **dificuldade**: PROJETO
       - **data_abertura**: 2020-10-01
       - **quantidade_protecoes_intermediarias**: 3
+- **precomputados**:
+  - **total_escaladas**: 23
 
 
 ## Parte: setor_cataguas
@@ -576,6 +578,8 @@
     - **via_movel**:
       - **nome**: sem nome (via mixta)
       - **data_abertura**: 2008-01-01
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_xavante
@@ -714,6 +718,8 @@
       - **data_abertura**: 2022-07-25
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_yanomami
@@ -1125,6 +1131,8 @@
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 21
 
 
 ## Arquivos Externos

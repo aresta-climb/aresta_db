@@ -363,6 +363,8 @@
       - **descricao**: Projeto
       - **nome**: Mathilda Meu Amor
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 25
 
 
 ## Arquivos Externos

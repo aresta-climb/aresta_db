@@ -85,6 +85,8 @@
     - **via_esportiva**:
       - **nome**: Ratazana
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Arquivos Externos

@@ -84,6 +84,8 @@ picos:
             descricao: Começa com as duas mãos em um reglete e escala reto por regletes
               clássicos até o topo.
         descricao: ''
+        precomputados:
+          total_escaladas: 5
   - grupo:
       conteudo:
         nome: Conjunto pôr-do-sol
@@ -221,6 +223,8 @@ picos:
               # Bloco A
 
               Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Conjunto Pôr do sol - Bloco B
             mapas:
@@ -320,6 +324,8 @@ picos:
                 descricao: Sai das agarras grandes no lado direito do bloco e vira
                   reto, na parte mais baixa.
             descricao: '# Bloco B'
+            precomputados:
+              total_escaladas: 7
         - conteudo:
             nome: Conjunto Pôr do sol - Bloco C
             mapas:
@@ -368,7 +374,11 @@ picos:
                 descricao: Boulder pela face do bloco, saindo de agarras óbvias e
                   indo pra esquerda até a virada pelo final da aresta.
             descricao: '# Bloco C'
+            precomputados:
+              total_escaladas: 4
         descricao: '# Conjunto pôr-do-sol'
+        precomputados:
+          total_escaladas: 17
   - setor:
       conteudo:
         nome: Brinquedos
@@ -511,6 +521,8 @@ picos:
           # Brinquedos
 
           Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Beija Flor
@@ -620,6 +632,8 @@ picos:
               mais baixo do bloco e seguindo para a direita, finalizando no Beija
               Flor. Incrível!
         descricao: '# Beija Flor'
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Bacurau
@@ -725,6 +739,8 @@ picos:
             descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita,
               sem usar os blocos de baixo, tocando por toda a aresta.
         descricao: '# Bacurau'
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Moctezuma
@@ -842,6 +858,8 @@ picos:
           # Moctezuma
 
           OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Moléstia
@@ -899,6 +917,8 @@ picos:
             descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um
               abaolado com uma virada técnica.
         descricao: '# Moléstia'
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Outros Blocos
@@ -1040,6 +1060,8 @@ picos:
           # Outros Blocos
 
           AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
+        precomputados:
+          total_escaladas: 8
   mapas_gerais:
     conteudo:
       mapas:
@@ -1078,6 +1100,10 @@ picos:
         - setor: Moctezuma
           ids:
           - Sub-setor_Moctezuma
+  precomputados:
+    total_escaladas: 61
+    total_setores: 10
+    total_grupos: 1
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
 revisado_bounding_circle: true

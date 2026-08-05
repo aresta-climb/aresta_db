@@ -256,6 +256,8 @@ picos:
 
           **Boulders:**
           Boulders clássicos entre V0 e V4.
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: G2
@@ -616,6 +618,8 @@ picos:
           **Travessias:**
           * C: Boas opções de travessias, muito legais.
           * D: Boas opções de travessias, muito legais.
+        precomputados:
+          total_escaladas: 21
   - setor:
       conteudo:
         nome: G3
@@ -1425,6 +1429,8 @@ picos:
           **Boulders e travessias:**
           * Boulders e travessias nas colunas desse setor.
           * Boulder tetinho: V3 a V8.
+        precomputados:
+          total_escaladas: 50
   mapas_gerais:
     conteudo:
       mapas:
@@ -1463,6 +1469,10 @@ picos:
         - setor: G1
           ids:
           - G1
+  precomputados:
+    total_escaladas: 85
+    total_setores: 3
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

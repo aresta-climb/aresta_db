@@ -252,6 +252,8 @@ picos:
           | ![Totem](imagens/setor_principal_p5_i1.webp) |
           | :--: |
           | *Totem* |
+        precomputados:
+          total_escaladas: 25
   mapas_gerais:
     conteudo:
       mapas:
@@ -261,6 +263,10 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i7.webp
         largura_mapa: 741
         altura_mapa: 470
+  precomputados:
+    total_escaladas: 25
+    total_setores: 1
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

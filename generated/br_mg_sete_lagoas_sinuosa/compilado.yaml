@@ -137,6 +137,8 @@ picos:
           | ![Vista do Top da "Inimigos do Estado" 6º sup](imagens/setor_de_esquerda_p1_i1.webp) |
           | :--: |
           | *Vista do Top da "Inimigos do Estado" 6º sup* |
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Setor Panelinha
@@ -238,6 +240,8 @@ picos:
           | ![Vista do Mirante](imagens/setor_panelinha_p1_i0.webp) |
           | :--: |
           | *Vista do Mirante* |
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Setor 7 Paralelo
@@ -537,6 +541,8 @@ picos:
           | ![Mais Fotos](imagens/setor_7_paralelo_p2_i0.webp) |
           | :--: |
           | *Mais Fotos* |
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: Setor Sentinela
@@ -679,6 +685,8 @@ picos:
           | ![Mais fotos](imagens/setor_sentinela_p2_i0.webp) |
           | :--: |
           | *Mais fotos* |
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Death Horse
@@ -856,6 +864,8 @@ picos:
           | ![Mais fotos](imagens/setor_death_horse_p1_i1.webp) |
           | :--: |
           | *Mais fotos* |
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor Gameleira
@@ -960,6 +970,8 @@ picos:
           | ![Sou Fria 9a Foto 2](imagens/setor_gameleira_p1_i1.webp) |
           | :--: |
           | *Sou Fria 9a Foto 2* |
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Setor Vale das Sombras
@@ -1418,6 +1430,8 @@ picos:
           | ![Fotos](imagens/setor_vale_das_sombras_p3_i0.webp) |
           | :--: |
           | *Fotos* |
+        precomputados:
+          total_escaladas: 30
   - setor:
       conteudo:
         nome: Setor Imigrantes
@@ -1553,6 +1567,8 @@ picos:
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
         descricao: '# Setor Imigrantes'
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Vale Zela
@@ -1671,6 +1687,8 @@ picos:
           | ![Vale Zela](imagens/setor_vale_zela_p0_i1.webp) |
           | :--: |
           | *Vale Zela* |
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Setor Macaúbas
@@ -1747,6 +1765,8 @@ picos:
           | ![Setor Macaúbas](imagens/setor_macaubas_p0_i1.webp) |
           | :--: |
           | *Setor Macaúbas* |
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Setor Primórdios
@@ -1944,6 +1964,8 @@ picos:
           | ![Mais Fotos](imagens/setor_primordios_p2_i0.webp) |
           | :--: |
           | *Mais Fotos* |
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Setor 4 Picos
@@ -2032,6 +2054,8 @@ picos:
           | ![4 Picos](imagens/setor_4_picos_p0_i1.webp) |
           | :--: |
           | *4 Picos* |
+        precomputados:
+          total_escaladas: 4
   - grupo:
       conteudo:
         nome: Vale Oculto
@@ -2137,6 +2161,8 @@ picos:
               | ![Sub Setor de Cara](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp) |
               | :--: |
               | *Sub Setor de Cara* |
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Sub Setor Laranja
             mapas:
@@ -2344,6 +2370,8 @@ picos:
               | ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp) |
               | :--: |
               | *Sub Setor Laranja* |
+            precomputados:
+              total_escaladas: 12
         - conteudo:
             nome: Sub Setor Anfiteatro
             mapas:
@@ -2587,6 +2615,8 @@ picos:
               | ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp) |
               | :--: |
               | *Sub Setor Anfiteatro* |
+            precomputados:
+              total_escaladas: 15
         descricao: |-
           # Vale Oculto Sinuosa
 
@@ -2613,6 +2643,8 @@ picos:
           | *Mapa de Acesso Vale Oculto* |
 
           O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das proximidades do Shopping Sete Lagoas.
+        precomputados:
+          total_escaladas: 32
   mapas_gerais:
     conteudo:
       mapas:
@@ -2769,6 +2801,10 @@ picos:
         - setor: Setor Primórdios
           ids:
           - Setor_Primordios
+  precomputados:
+    total_escaladas: 141
+    total_setores: 15
+    total_grupos: 1
 botoes:
 - texto: Capa
   destino:

@@ -62,12 +62,18 @@ picos:
           # Setor Vieiras
 
           O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.
+        precomputados:
+          total_escaladas: 14
   mapas_gerais:
     conteudo:
       mapas:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
         largura_mapa: 930
         altura_mapa: 938
+  precomputados:
+    total_escaladas: 14
+    total_setores: 1
+    total_grupos: 0
 ultima_migracao: 4
 botoes: []
 arquivos_externos:

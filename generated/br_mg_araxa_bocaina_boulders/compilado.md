@@ -165,6 +165,8 @@
       - **descricao**: Saída do Não Contava com minha astúcia fazendo travessia para esquerda virando no Maltodextrina.
       - **nome**: Rapé
       - **dificuldade**: V3
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_caverninha
@@ -369,6 +371,8 @@
       - **descricao**: Saída sentado com a mão esquerda em batente de compressão e direita em reglete aberto acima da cabeça.
       - **nome**: Trabalho em Equipe
       - **dificuldade**: V5
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_exquadrilha
@@ -465,6 +469,8 @@
       - **descricao**: Saída do exquadrilha e virando no Planet Hemp.
       - **nome**: Cypress Hill
       - **dificuldade**: V6
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_canil
@@ -587,6 +593,8 @@
       - **descricao**: Saída do loboulder em travessia para esquerda virando no Sucrilhos no Prato.
       - **nome**: Savana
       - **dificuldade**: V6
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_bloco_do_guerreiro
@@ -721,6 +729,8 @@
       - **descricao**: Saída em pé com as mãos em regletes investidos.
       - **nome**: Colchão de Mola
       - **dificuldade**: V4
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_bloco_do_cabelin
@@ -972,6 +982,8 @@
       - **descricao**: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na altura no quadril, virando reto e seguindo até o final do bloco.
       - **nome**: La Qualitê
       - **dificuldade**: V10
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_consciencia_limpa
@@ -1074,6 +1086,8 @@
       - **descricao**: Saída agachado com mão direita em agarra lateral e esquerda na aresta.
       - **nome**: Mulheres Poderosas
       - **dificuldade**: V2
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_haiti
@@ -1185,6 +1199,8 @@
       - **descricao**: Mesma saída do Haíti seguindo pela aresta em regletes laterais e virando reto.
       - **nome**: Nem Lá, Nem Cá
       - **dificuldade**: V5
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_achados_e_perdidos
@@ -1265,6 +1281,8 @@
       - **descricao**: Saida em pé a direita do bloco com mão direita em pinça escorrida e esquerda de balcão no equilibrio e segue pela esquerda.
       - **nome**: Achados e Perdidos
       - **dificuldade**: V3
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_bloco_do_rock_bocaina
@@ -1329,6 +1347,8 @@
       - **descricao**: Saída da aresta a direita do bloco e vai arestando até o topo.
       - **nome**: Dedão de Aquiles
       - **dificuldade**: V3
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_bloco_45
@@ -1780,6 +1800,8 @@
       - **descricao**: Saída do sananga virando no indios.
       - **nome**: Ayuaska
       - **dificuldade**: V11
+- **precomputados**:
+  - **total_escaladas**: 23
 
 
 ## Parte: setor_essencia
@@ -1926,6 +1948,8 @@
     - **boulder**:
       - **nome**: Jardim de Infância
       - **dificuldade**: V0
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Arquivos Externos

@@ -489,6 +489,8 @@
           - **boulder**:
             - **nome**: Saidex
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 16
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -570,6 +572,8 @@
           - **boulder**:
             - **nome**: Heroína
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -839,6 +843,8 @@
           - **boulder**:
             - **nome**: Natural (V6)
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 15
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -1054,6 +1060,8 @@
           - **boulder**:
             - **nome**: Das Meninas
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 12
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -1189,6 +1197,8 @@
           - **boulder**:
             - **nome**: Sicronismo
             - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[5]**:
     - **conteudo**:
       - **descricao**:
@@ -1254,6 +1264,8 @@
           - **boulder**:
             - **nome**: Dreads de Goiás
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[6]**:
     - **conteudo**:
       - **descricao**:
@@ -1347,6 +1359,8 @@
           - **boulder**:
             - **nome**: Kansas
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[7]**:
     - **conteudo**:
       - **descricao**:
@@ -1412,6 +1426,10 @@
           - **boulder**:
             - **nome**: (sem nome 31)
             - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
+- **precomputados**:
+  - **total_escaladas**: 64
 
 
 ## Parte: grupo_colina
@@ -1631,6 +1649,8 @@
           - **boulder**:
             - **nome**: (sem nome 3)
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -1788,6 +1808,8 @@
           - **boulder**:
             - **nome**: Obra de Arte
             - **dificuldade**: V9
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -1959,6 +1981,8 @@
           - **boulder**:
             - **nome**: Meia Lua
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -2072,6 +2096,8 @@
           - **boulder**:
             - **nome**: Jardins Suspensos
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -2105,6 +2131,10 @@
           - **boulder**:
             - **nome**: Mergulho em Copo d'Água
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 1
+- **precomputados**:
+  - **total_escaladas**: 29
 
 
 ## Parte: grupo_jk
@@ -2193,6 +2223,10 @@
           - **boulder**:
             - **nome**: Mufasa
             - **dificuldade**: V10
+      - **precomputados**:
+        - **total_escaladas**: 2
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Parte: grupo_pedreira
@@ -2591,6 +2625,8 @@
           - **boulder**:
             - **nome**: Carlos Drummond
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 10
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -2640,6 +2676,8 @@
           - **boulder**:
             - **nome**: Manda Lá
             - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -2743,6 +2781,8 @@
           - **boulder**:
             - **nome**: Estamos Trabalhando
             - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -2868,6 +2908,8 @@
           - **boulder**:
             - **nome**: Zuzuzela
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -2971,6 +3013,8 @@
           - **boulder**:
             - **nome**: Ouro Branco
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[5]**:
     - **conteudo**:
       - **descricao**:
@@ -3310,6 +3354,8 @@
           - **boulder**:
             - **nome**: (sem nome 14)
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 19
   - **[6]**:
     - **conteudo**:
       - **descricao**:
@@ -3403,6 +3449,8 @@
           - **boulder**:
             - **nome**: (sem nome 19)
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[7]**:
     - **conteudo**:
       - **descricao**:
@@ -3506,6 +3554,8 @@
           - **boulder**:
             - **nome**: (sem nome 16)
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[8]**:
     - **conteudo**:
       - **descricao**:
@@ -3587,6 +3637,8 @@
           - **boulder**:
             - **nome**: Bobsled
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[9]**:
     - **conteudo**:
       - **descricao**:
@@ -3620,6 +3672,8 @@
           - **boulder**:
             - **nome**: Aresta do Cabeça
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[10]**:
     - **conteudo**:
       - **descricao**:
@@ -3685,6 +3739,8 @@
           - **boulder**:
             - **nome**: Costela de Adão
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[11]**:
     - **conteudo**:
       - **descricao**:
@@ -3772,6 +3828,8 @@
           - **boulder**:
             - **nome**: Picasso
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[12]**:
     - **conteudo**:
       - **descricao**:
@@ -4245,6 +4303,8 @@
           - **boulder**:
             - **nome**: Travessia da Fúria
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 19
   - **[13]**:
     - **conteudo**:
       - **descricao**:
@@ -4428,6 +4488,8 @@
           - **boulder**:
             - **nome**: (sem nome 17)
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 10
   - **[14]**:
     - **conteudo**:
       - **descricao**:
@@ -4757,6 +4819,8 @@
           - **boulder**:
             - **nome**: Rocklands
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 18
   - **[15]**:
     - **conteudo**:
       - **descricao**:
@@ -4838,6 +4902,8 @@
           - **boulder**:
             - **nome**: Go Johnny Go
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[16]**:
     - **conteudo**:
       - **descricao**:
@@ -4887,6 +4953,8 @@
           - **boulder**:
             - **nome**: Canelas ao Vento
             - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[17]**:
     - **conteudo**:
       - **descricao**:
@@ -4983,6 +5051,10 @@
           - **boulder**:
             - **nome**: Mãozinha
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 5
+- **precomputados**:
+  - **total_escaladas**: 126
 
 
 ## Arquivos Externos

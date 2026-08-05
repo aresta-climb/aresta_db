@@ -31,6 +31,8 @@ picos:
             nome: Mamba Negra
             dificuldade: BR_8A
         descricao: ''
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Setor 2 - Setor do Buraco
@@ -67,6 +69,8 @@ picos:
             nome: Tempestade de Calcário
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor 3 - ZUCULIN
@@ -92,6 +96,8 @@ picos:
             nome: Pérola Negra
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Setor 4 - Setor da Caverna
@@ -122,6 +128,8 @@ picos:
             nome: Epinefrina 05
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -131,6 +139,10 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 1455
         altura_mapa: 1164
+  precomputados:
+    total_escaladas: 27
+    total_setores: 4
+    total_grupos: 0
 caminho_thumbnail: imagens/capa_p0.webp
 botoes:
 - texto: Capa

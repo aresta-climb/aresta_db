@@ -258,6 +258,8 @@ picos:
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
         descricao: Sombra o dia todo (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor Bombonera
@@ -454,6 +456,8 @@ picos:
           | *Bombonera* |
 
           Sombra a partir das 12h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Setor Esquerda
@@ -679,6 +683,8 @@ picos:
             destaque: true
             data_abertura: '2022'
         descricao: Sombra o dia todo (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 8
   mapas_gerais:
     conteudo:
       mapas:
@@ -773,6 +779,10 @@ picos:
         - setor: Setor Esquerda
           ids:
           - Setor_Esquerda
+  precomputados:
+    total_escaladas: 29
+    total_setores: 3
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

@@ -46,6 +46,8 @@ picos:
             descricao: |-
               # Bloco: Diamante de Sangue
               ## Região 1
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: Chiqueirinho
             mapas:
@@ -192,6 +194,8 @@ picos:
               ## Região 1
 
               O bloco Chiqueirinho possui várias linhas em diferentes faces.
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Bloco do Kbeca
             mapas:
@@ -242,6 +246,8 @@ picos:
             descricao: |-
               # Bloco: Bloco do Kbeca
               ## Região 1
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Flor do Cerrado
             mapas:
@@ -273,6 +279,8 @@ picos:
             descricao: |-
               # Bloco: Flor do Cerrado
               ## Região 1
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: Joelho Sem Freio
             mapas:
@@ -326,10 +334,14 @@ picos:
             descricao: |-
               # Bloco: Joelho Sem Freio
               ## Região 1
+            precomputados:
+              total_escaladas: 2
         descricao: |-
           # Região 1
 
           A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
+        precomputados:
+          total_escaladas: 11
   - grupo:
       conteudo:
         nome: Região 2
@@ -504,6 +516,8 @@ picos:
             descricao: |-
               # Bloco: Panela do Diabo
               ## Região 2
+            precomputados:
+              total_escaladas: 7
         - conteudo:
             nome: Faca de Pedra
             mapas:
@@ -592,6 +606,8 @@ picos:
             descricao: |-
               # Bloco: Faca de Pedra
               ## Região 2
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Serra do Groove
             mapas:
@@ -623,6 +639,8 @@ picos:
             descricao: |-
               # Bloco: Serra do Groove
               ## Região 2
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: Primavera nos Dentes
             mapas:
@@ -847,6 +865,8 @@ picos:
               ## Região 2
 
               O bloco Primavera nos Dentes é um dos principais do setor, com linhas de alta dificuldade.
+            precomputados:
+              total_escaladas: 8
         - conteudo:
             nome: Flor da Montanha
             mapas:
@@ -897,6 +917,8 @@ picos:
             descricao: |-
               # Bloco: Flor da Montanha
               ## Região 2
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Velho Chico
             mapas:
@@ -966,10 +988,14 @@ picos:
             descricao: |-
               # Bloco: Velho Chico
               ## Região 2
+            precomputados:
+              total_escaladas: 3
         descricao: |-
           # Região 2
 
           A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.
+        precomputados:
+          total_escaladas: 25
   - grupo:
       conteudo:
         nome: Região 3
@@ -1024,6 +1050,8 @@ picos:
             descricao: |-
               # Bloco: Cenas Fortes
               ## Região 3
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Sessão da Tarde
             mapas:
@@ -1482,6 +1510,8 @@ picos:
               ## Região 3
 
               O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras variadas e muita técnica.
+            precomputados:
+              total_escaladas: 17
         - conteudo:
             nome: Que Raio de Reglete
             mapas:
@@ -1532,6 +1562,8 @@ picos:
             descricao: |-
               # Bloco: Que Raio de Reglete
               ## Região 3
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Iceberg
             mapas:
@@ -1586,6 +1618,8 @@ picos:
             descricao: |-
               # Bloco: Iceberg
               ## Região 3
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: Silicose
             mapas:
@@ -1636,10 +1670,14 @@ picos:
             descricao: |-
               # Bloco: Silicose
               ## Região 3
+            precomputados:
+              total_escaladas: 2
         descricao: |-
           # Região 3
 
           A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.
+        precomputados:
+          total_escaladas: 25
   - grupo:
       conteudo:
         nome: Região 4
@@ -1839,6 +1877,8 @@ picos:
               ## Região 4
 
               O bloco Navio Pirata é um grande bloco com diversas linhas em várias faces.
+            precomputados:
+              total_escaladas: 9
         - conteudo:
             nome: Pfizer
             mapas:
@@ -1908,6 +1948,8 @@ picos:
             descricao: |-
               # Bloco: Pfizer
               ## Região 4
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: Pedra na Canela
             mapas:
@@ -2015,6 +2057,8 @@ picos:
             descricao: |-
               # Bloco: Pedra na Canela
               ## Região 4
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: Piseiro
             mapas:
@@ -2084,6 +2128,8 @@ picos:
             descricao: |-
               # Bloco: Piseiro
               ## Região 4
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: Raizeiro
             mapas:
@@ -2172,6 +2218,8 @@ picos:
             descricao: |-
               # Bloco: Raizeiro
               ## Região 4
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Tijuco Preto
             mapas:
@@ -2260,10 +2308,14 @@ picos:
             descricao: |-
               # Bloco: Tijuco Preto
               ## Região 4
+            precomputados:
+              total_escaladas: 4
         descricao: |-
           # Região 4
 
           A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.
+        precomputados:
+          total_escaladas: 28
   mapas_gerais:
     conteudo:
       mapas:
@@ -2311,6 +2363,10 @@ picos:
           grupo: Região 4
         largura_mapa: 1223
         altura_mapa: 1251
+  precomputados:
+    total_escaladas: 89
+    total_setores: 22
+    total_grupos: 4
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Informações

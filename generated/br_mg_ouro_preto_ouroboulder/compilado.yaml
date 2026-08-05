@@ -420,6 +420,8 @@ picos:
                 nome: Papo Reto sds
                 dificuldade: V12
             descricao: ''
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: 'Bloco: Altinho'
             mapas:
@@ -479,6 +481,8 @@ picos:
               | ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp) |
               | :--: |
               | *Imagem Adicional* |
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: 'Bloco: Bob'
             mapas:
@@ -596,6 +600,8 @@ picos:
                 nome: Dor nas Costas
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: 'Bloco: Chicletes'
             mapas:
@@ -678,6 +684,8 @@ picos:
                 nome: Chicletes
                 dificuldade: V11
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: 'Bloco: Complexo'
             mapas:
@@ -890,6 +898,8 @@ picos:
                 nome: Respira
                 dificuldade: V6
             descricao: ''
+            precomputados:
+              total_escaladas: 13
         - conteudo:
             nome: 'Bloco: Conhaque'
             mapas:
@@ -1051,6 +1061,8 @@ picos:
                 nome: Conhaque Presidente
                 dificuldade: V6
             descricao: ''
+            precomputados:
+              total_escaladas: 9
         - conteudo:
             nome: 'Bloco: Deep Inside'
             mapas:
@@ -1401,6 +1413,8 @@ picos:
                 nome: Bolinho de Chuva
                 dificuldade: VB
             descricao: ''
+            precomputados:
+              total_escaladas: 16
         - conteudo:
             nome: 'Bloco: Eléctron'
             mapas:
@@ -1499,6 +1513,8 @@ picos:
                 nome: Positron
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: 'Bloco: Entretidos'
             mapas:
@@ -1657,6 +1673,8 @@ picos:
                 nome: Carranca
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 11
         - conteudo:
             nome: 'Bloco: Fiat Lux'
             mapas:
@@ -1695,6 +1713,8 @@ picos:
               | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp) |
               | :--: |
               | *Escalada Noturna* |
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: 'Bloco: Hora da Janta'
             mapas:
@@ -1844,6 +1864,8 @@ picos:
                 nome: Tapa na Pantera
                 dificuldade: V1
             descricao: ''
+            precomputados:
+              total_escaladas: 9
         - conteudo:
             nome: 'Bloco: Jah'
             mapas:
@@ -1899,6 +1921,8 @@ picos:
                 nome: Invertido
                 dificuldade: V2
             descricao: ''
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: 'Bloco: João de Barro'
             mapas:
@@ -2055,6 +2079,8 @@ picos:
                 nome: João de Barro
                 dificuldade: V4
             descricao: ''
+            precomputados:
+              total_escaladas: 8
         - conteudo:
             nome: 'Bloco: Lagartixa'
             mapas:
@@ -2450,6 +2476,8 @@ picos:
               | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp) |
               | :--: |
               | *Escalada 2* |
+            precomputados:
+              total_escaladas: 26
         - conteudo:
             nome: 'Bloco: Longevidade'
             mapas:
@@ -2660,6 +2688,8 @@ picos:
                 nome: Jedi
                 dificuldade: V10
             descricao: ''
+            precomputados:
+              total_escaladas: 13
         - conteudo:
             nome: 'Bloco: Mata-Mata'
             mapas:
@@ -2822,6 +2852,8 @@ picos:
                 nome: '002'
                 dificuldade: V2
             descricao: ''
+            precomputados:
+              total_escaladas: 10
         - conteudo:
             nome: 'Bloco: Meia-Parede'
             mapas:
@@ -2949,6 +2981,8 @@ picos:
                 nome: Jardim Suspenso
                 dificuldade: V6
             descricao: ''
+            precomputados:
+              total_escaladas: 7
         - conteudo:
             nome: 'Bloco: Mezanino'
             mapas:
@@ -2997,6 +3031,8 @@ picos:
                 nome: Mesa
                 dificuldade: V5
             descricao: ''
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: 'Bloco: Nat Geo'
             mapas:
@@ -3034,6 +3070,8 @@ picos:
               | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp) |
               | :--: |
               | *Escalada Noturna* |
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: 'Bloco: Nave-Mãe'
             mapas:
@@ -3629,6 +3667,8 @@ picos:
                 nome: Passível
                 dificuldade: V2
             descricao: ''
+            precomputados:
+              total_escaladas: 25
         - conteudo:
             nome: 'Bloco: Pedra Queimada'
             mapas:
@@ -3706,6 +3746,8 @@ picos:
               | ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp) |
               | :--: |
               | *Escalada Pedra Queimada* |
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: 'Bloco: Red Bull'
             mapas:
@@ -3798,6 +3840,8 @@ picos:
                 nome: Mad Dog
                 dificuldade: V1
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: 'Bloco: Sauna'
             mapas:
@@ -3873,6 +3917,8 @@ picos:
                 dificuldade: V6
                 descricao: (não usa a face direita da linha)
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: 'Bloco: Sonar'
             mapas:
@@ -3928,6 +3974,8 @@ picos:
                 nome: Periscópio
                 dificuldade: V5
             descricao: ''
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: 'Bloco: Teto de Vidro'
             mapas:
@@ -4091,6 +4139,8 @@ picos:
               | ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp) |
               | :--: |
               | *Fotos* |
+            precomputados:
+              total_escaladas: 8
         - conteudo:
             nome: 'Bloco: Tô de Boa'
             mapas:
@@ -4223,6 +4273,8 @@ picos:
               | ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp) |
               | :--: |
               | *Escalador no Bloco Tô de Boa* |
+            precomputados:
+              total_escaladas: 8
         - conteudo:
             nome: 'Bloco: Travessia'
             mapas:
@@ -4427,6 +4479,8 @@ picos:
                 nome: Movimentos Eróticos
                 dificuldade: V1
             descricao: ''
+            precomputados:
+              total_escaladas: 8
         - conteudo:
             nome: 'Bloco: Véia Doida'
             mapas:
@@ -4449,6 +4503,8 @@ picos:
                 nome: Véia Doida
                 dificuldade: V4
             descricao: ''
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: 'Bloco: Vitamina Jungle'
             mapas:
@@ -4495,7 +4551,11 @@ picos:
                 nome: '010'
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 3
         descricao: ''
+        precomputados:
+          total_escaladas: 225
   - grupo:
       conteudo:
         nome: Mont Blanc
@@ -4828,6 +4888,8 @@ picos:
                 nome: Super Bonder
                 dificuldade: V6
             descricao: ''
+            precomputados:
+              total_escaladas: 15
         - conteudo:
             nome: 'Bloco: Parada Obrigatória'
             mapas:
@@ -4940,6 +5002,8 @@ picos:
               | ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp) |
               | :--: |
               | *parada obrigatória* |
+            precomputados:
+              total_escaladas: 7
         - conteudo:
             nome: 'Bloco: Salão dos Ossos'
             mapas:
@@ -5047,6 +5111,8 @@ picos:
                 nome: Tutano
                 dificuldade: V10
             descricao: ''
+            precomputados:
+              total_escaladas: 7
         - conteudo:
             nome: 'Bloco: O Pequeno'
             mapas:
@@ -5135,6 +5201,8 @@ picos:
                 nome: O Pequeno
                 dificuldade: V8
             descricao: ''
+            precomputados:
+              total_escaladas: 5
         - conteudo:
             nome: 'Bloco: Cabocla da Mata'
             mapas:
@@ -5183,6 +5251,8 @@ picos:
                 nome: Caboclo das Sete Encruzilhadas
                 dificuldade: V5
             descricao: ''
+            precomputados:
+              total_escaladas: 2
         - conteudo:
             nome: 'Bloco: Silêncio da Mutuca'
             mapas:
@@ -5237,6 +5307,8 @@ picos:
                 nome: Íngreme
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 3
         - conteudo:
             nome: 'Bloco: Espreguiçadeira'
             mapas:
@@ -5291,7 +5363,11 @@ picos:
                 nome: Hard Core
                 dificuldade: V6_BARRA_V7
             descricao: ''
+            precomputados:
+              total_escaladas: 3
         descricao: ''
+        precomputados:
+          total_escaladas: 42
   - grupo:
       conteudo:
         nome: Bonsai
@@ -5442,6 +5518,8 @@ picos:
                 nome: Mancada
                 dificuldade: V3
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: 'Bloco: Crocância'
             mapas:
@@ -5627,6 +5705,8 @@ picos:
                 nome: Crocância Rouba Monte sds
                 dificuldade: V11
             descricao: ''
+            precomputados:
+              total_escaladas: 11
         - conteudo:
             nome: 'Bloco: Mantra'
             mapas:
@@ -5777,6 +5857,8 @@ picos:
                 nome: Popeye
                 dificuldade: V2
             descricao: ''
+            precomputados:
+              total_escaladas: 10
         - conteudo:
             nome: 'Bloco: Dali Goiabada'
             mapas:
@@ -5799,6 +5881,8 @@ picos:
                 nome: Dali Goiabada
                 dificuldade: V9
             descricao: ''
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: 'Bloco: Seg-Samambaia'
             mapas:
@@ -5867,6 +5951,8 @@ picos:
                 nome: Toca Toca
                 dificuldade: V4
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: 'Bloco: Pedra'
             mapas:
@@ -5934,6 +6020,8 @@ picos:
                 nome: Semiárido
                 dificuldade: V5
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Prodígio
             escaladas:
@@ -5956,7 +6044,11 @@ picos:
                 ids:
                 - '1'
             descricao: ''
+            precomputados:
+              total_escaladas: 1
         descricao: ''
+        precomputados:
+          total_escaladas: 35
   mapas_gerais:
     conteudo:
       mapas:
@@ -6068,6 +6160,10 @@ picos:
         - ids:
           - bonsai
           grupo: Bonsai
+  precomputados:
+    total_escaladas: 302
+    total_setores: 43
+    total_grupos: 3
 botoes:
 - texto: Capa
   destino:

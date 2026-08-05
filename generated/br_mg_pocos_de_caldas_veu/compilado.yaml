@@ -60,6 +60,8 @@ picos:
             nome: Dia dos namorados
             dificuldade: V1
         descricao: ''
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Bloco da Pressão
@@ -93,6 +95,8 @@ picos:
             nome: Pressão alta
             dificuldade: V4
         descricao: ''
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Bloco Gaveta
@@ -117,6 +121,8 @@ picos:
             nome: Da gaveta ao Tumulto
             dificuldade: V6
         descricao: ''
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Bloco Ditinho
@@ -147,6 +153,8 @@ picos:
             nome: 11 de Maio Direct
             dificuldade: V4
         descricao: ''
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Bloco Angular
@@ -181,6 +189,8 @@ picos:
             nome: Estrangular
             dificuldade: V3_BARRA_V4
         descricao: ''
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Bloco High
@@ -205,6 +215,8 @@ picos:
             nome: HighBolinha
             dificuldade: V2_BARRA_V3
         descricao: ''
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Bloco Sala de Estar
@@ -220,6 +232,12 @@ picos:
             nome: Chá das cinco
             dificuldade: V1
         descricao: ''
+        precomputados:
+          total_escaladas: 2
+  precomputados:
+    total_escaladas: 46
+    total_setores: 7
+    total_grupos: 0
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: false
 revisado_bounding_circle: false

@@ -872,6 +872,67 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
                             
     return erros
 
+def computar_precomputados_setor(setor_conteudo: dict):
+    """Calcula precomputados para um único setor."""
+    total = len(setor_conteudo.get("escaladas", []))
+    setor_conteudo["precomputados"] = {"total_escaladas": total}
+
+def computar_precomputados_grupo(grupo_conteudo: dict):
+    """Calcula precomputados para um grupo, somando dos setores já processados."""
+    total_escaladas = 0
+    for setor_ref in grupo_conteudo.get("setores", []):
+        setor = setor_ref.get("conteudo", {})
+        total_escaladas += setor.get("precomputados", {}).get("total_escaladas", 0)
+        
+    grupo_conteudo["precomputados"] = {"total_escaladas": total_escaladas}
+
+def computar_precomputados_pico(pico: dict):
+    """Calcula precomputados do pico, lendo diretamente dos setores e grupos filhos."""
+    total_escaladas = 0
+    total_setores = 0
+    total_grupos = 0
+    
+    for ref in pico.get("setores_ou_grupos", []):
+        if "setor" in ref:
+            setor = ref["setor"].get("conteudo", {})
+            total_escaladas += setor.get("precomputados", {}).get("total_escaladas", 0)
+            total_setores += 1
+            
+        elif "grupo" in ref:
+            grupo = ref["grupo"].get("conteudo", {})
+            total_escaladas += grupo.get("precomputados", {}).get("total_escaladas", 0)
+            total_setores += len(grupo.get("setores", []))
+            total_grupos += 1
+            
+    pico["precomputados"] = {
+        "total_escaladas": total_escaladas,
+        "total_setores": total_setores,
+        "total_grupos": total_grupos
+    }
+
+def injetar_precomputados(croqui_data: dict):
+    picos = croqui_data.get("picos", [])
+    
+    # 1º Passo: Todos os setores (avulsos ou dentro de grupos)
+    for pico in picos:
+        for ref in pico.get("setores_ou_grupos", []):
+            if "setor" in ref:
+                computar_precomputados_setor(ref["setor"].get("conteudo", {}))
+            elif "grupo" in ref:
+                grupo = ref["grupo"].get("conteudo", {})
+                for setor_ref in grupo.get("setores", []):
+                    computar_precomputados_setor(setor_ref.get("conteudo", {}))
+                    
+    # 2º Passo: Todos os grupos
+    for pico in picos:
+        for ref in pico.get("setores_ou_grupos", []):
+            if "grupo" in ref:
+                computar_precomputados_grupo(ref["grupo"].get("conteudo", {}))
+                
+    # 3º Passo: Todos os picos
+    for pico in picos:
+        computar_precomputados_pico(pico)
+
 def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path, dados_extras: dict = None):
     """Carrega os dados corrigidos, expande conteúdos e gera os arquivos .yaml e .binarypb de deploy."""
     croqui_yaml_path = pico_path / "croqui.yaml"
@@ -939,6 +1000,9 @@ def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path,
             print("  " + e)
         print("="*80 + "\n")
 
+    # 3.3. Injeta precomputados
+    injetar_precomputados(croqui_data)
+
     # 4. Injeta metadados extras (ex: checksums de imagens)
     if dados_extras:
         croqui_data.update(dados_extras)
@@ -971,6 +1035,8 @@ def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path,
     except Exception as e:
         print(f"Erro ao salvar binarypb para {pico_path.name}: {e}")
         raise
+
+    return croqui_data
 
 if __name__ == "__main__":
     print("Este arquivo é uma biblioteca e não deve ser executado diretamente.")

@@ -267,6 +267,8 @@
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Jg
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_parede_do_ladrao_e_forno_da_onca
@@ -516,6 +518,8 @@
               - Jg
             - **quantidade_costuras_intermediarias**: 12
             - **quantidade_equipamentos_parada**: 2
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -574,6 +578,10 @@
             - **extensao**: 28
             - **quantidade_protecoes_intermediarias**: 8
             - **quantidade_protecoes_parada**: 2
+      - **precomputados**:
+        - **total_escaladas**: 7
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_caverna_bin_laden_mirante_da_cruz_e_ground_control
@@ -994,6 +1002,8 @@
             - **conquistadores**:
               - Pablo Gonçalves
               - Fred Gonçalves
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -1053,6 +1063,8 @@
             - **quantidade_protecoes_parada**: 2
             - **conquistadores**:
               - jg
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -1226,6 +1238,10 @@
               - Jg
             - **quantidade_costuras_intermediarias**: 10
             - **quantidade_equipamentos_parada**: 2
+      - **precomputados**:
+        - **total_escaladas**: 12
+- **precomputados**:
+  - **total_escaladas**: 24
 
 
 ## Parte: setor_curto_e_grosso_malibu_e_terra_do_nunca
@@ -1344,6 +1360,8 @@
             - **conquistadores**:
               - Jg
               - Samuel Corleone
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -1389,6 +1407,8 @@
             - **conquistadores**:
               - Jg
               - Arthur King
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -1413,6 +1433,10 @@
             - **conquistadores**:
               - Jg
               - Ana Gonzalez Sanchez
+      - **precomputados**:
+        - **total_escaladas**: 2
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Arquivos Externos

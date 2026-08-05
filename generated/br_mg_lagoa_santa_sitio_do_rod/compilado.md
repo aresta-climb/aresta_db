@@ -638,6 +638,8 @@
       - **descricao**: Via inacabada. Cuidado abelhas!
       - **nome**: ?
       - **dificuldade**: BR_6
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_g2
@@ -1063,6 +1065,8 @@
       - **conquistadores**:
         - Thiago "Vá"
         - Thiago "Tato"
+- **precomputados**:
+  - **total_escaladas**: 21
 
 
 ## Parte: setor_g3
@@ -2013,6 +2017,8 @@
       - **conquistadores**:
         - Thiago "Vá"
         - GROTS
+- **precomputados**:
+  - **total_escaladas**: 50
 
 
 ## Arquivos Externos

@@ -533,6 +533,8 @@
         - Tonico Magalhães
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-02-16
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: grupo_aderencias
@@ -645,6 +647,8 @@
               - Celso Ferreira Gomes
               - Tonico Magalhães
             - **data_abertura**: 2012-05-06
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -923,6 +927,8 @@
               - Tonico Magalhães
               - Glesse Gripp
             - **data_abertura**: 2011-09-18
+      - **precomputados**:
+        - **total_escaladas**: 19
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -935,6 +941,8 @@
               - **escalada**: O Psicopata de Ferros
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
+      - **precomputados**:
+        - **total_escaladas**: 0
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -947,6 +955,8 @@
               - **escalada**: Solamente
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
+      - **precomputados**:
+        - **total_escaladas**: 0
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -959,6 +969,10 @@
               - **escalada**: Ferro na Boneca
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
+      - **precomputados**:
+        - **total_escaladas**: 0
+- **precomputados**:
+  - **total_escaladas**: 24
 
 
 ## Parte: grupo_principal
@@ -1472,6 +1486,8 @@
               - Tonico Magalhães
               - Luciano Bender
             - **data_abertura**: 2011-06-22
+      - **precomputados**:
+        - **total_escaladas**: 19
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -1866,6 +1882,8 @@
             - **dificuldade**: BR_2
             - **exposicao**: E3
             - **extensao**: 18
+      - **precomputados**:
+        - **total_escaladas**: 14
   - **[2]**:
     - **conteudo**:
       - **descricao**:
@@ -2336,6 +2354,8 @@
             - **nome**: Macambúzio
             - **dificuldade**: BR_3SUP
             - **extensao**: 80
+      - **precomputados**:
+        - **total_escaladas**: 22
   - **[3]**:
     - **conteudo**:
       - **descricao**:
@@ -2548,6 +2568,8 @@
             - **dificuldade**: BR_3SUP
             - **exposicao**: E2
             - **extensao**: 120
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[4]**:
     - **conteudo**:
       - **descricao**:
@@ -3013,6 +3035,10 @@
             - **nome**: Atalho dos Duendes
             - **dificuldade**: BR_3
             - **extensao**: 70
+      - **precomputados**:
+        - **total_escaladas**: 25
+- **precomputados**:
+  - **total_escaladas**: 82
 
 
 ## Parte: setor_vias_esportivas
@@ -3334,6 +3360,8 @@
         - Juliano Magalhães
         - Valdinei Lima
       - **data_abertura**: 2008-02-06
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_parede_dos_solos
@@ -3438,6 +3466,8 @@
         - Glesse Gripp
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-10-24
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: grupo_pedra_do_neri
@@ -3559,6 +3589,8 @@
             - **nome**: Pé de Chinelo
             - **dificuldade**: BR_7A
             - **extensao**: 15
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -3649,6 +3681,10 @@
             - **nome**: Brumas de Inverno
             - **dificuldade**: BR_4
             - **extensao**: 10
+      - **precomputados**:
+        - **total_escaladas**: 5
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_parede_da_cenibra
@@ -3687,6 +3723,8 @@
       - **nome**: Pr. Pellé 70
       - **dificuldade**: BR_3SUP
       - **extensao**: 100
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Parte: setor_parede_da_agua_limpa
@@ -3750,6 +3788,8 @@
         - Celso Ferreira Gomes
         - Tonico Magalhães
       - **data_abertura**: 2015-09-06
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Parte: setor_outras_vias
@@ -3794,6 +3834,8 @@
         - **escalada**: Fissura Cachoeira Quente
     - **largura_mapa**: 1241
     - **altura_mapa**: 1754
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Arquivos Externos

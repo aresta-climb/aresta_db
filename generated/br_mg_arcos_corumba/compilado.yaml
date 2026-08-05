@@ -363,6 +363,8 @@ picos:
           | ![Escaladora](imagens/setor_pataxos_p1_i0.webp) |
           | :--: |
           | *Escaladora* |
+        precomputados:
+          total_escaladas: 23
   - setor:
       conteudo:
         nome: Setor Cataguás
@@ -408,6 +410,8 @@ picos:
           > **O ACESSO A ESTE SETOR ESTÁ PROIBIDO POR HORA.**
 
           Sombra a partir de 11h (varia de acordo com a estação).
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Setor Xavante
@@ -522,6 +526,8 @@ picos:
           | ![Escalador na sombra](imagens/setor_xavante_p1_i0.webp) |
           | :--: |
           | *Escalador na sombra* |
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Setor Yanomami
@@ -865,6 +871,8 @@ picos:
           | ![Parede Yanomami](imagens/setor_yanomami_p1_i0.webp) |
           | :--: |
           | *Parede Yanomami* |
+        precomputados:
+          total_escaladas: 21
   mapas_gerais:
     conteudo:
       mapas:
@@ -924,6 +932,10 @@ picos:
         - setor: Setor Yanomami
           ids:
           - Setor_Yanomami
+  precomputados:
+    total_escaladas: 53
+    total_setores: 4
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

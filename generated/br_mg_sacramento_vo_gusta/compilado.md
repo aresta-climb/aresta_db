@@ -290,6 +290,8 @@
       - **dificuldade**: BR_5SUP_BARRA_6
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Arquivos Externos

@@ -41,6 +41,8 @@ picos:
             nome: Pica Pau
             dificuldade: BR_7B
         descricao: ATENÇÃO COM OS BURACOS NESTE SETOR!!! CUIDADO!!!
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Fenda
@@ -59,6 +61,8 @@ picos:
             nome: Produto da Parceria
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Setor do Buraco
@@ -92,6 +96,8 @@ picos:
             nome: Furadinha
             dificuldade: BR_7A
         descricao: ''
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor da Frente
@@ -126,6 +132,8 @@ picos:
             nome: Cascavel
             dificuldade: BR_7B
         descricao: ''
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Passagem
@@ -138,6 +146,8 @@ picos:
             nome: Via Só na Aresta
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 1
   - setor:
       conteudo:
         nome: Setor Árvore da Vida
@@ -147,6 +157,8 @@ picos:
           altura_mapa: 1100
         escaladas: []
         descricao: ''
+        precomputados:
+          total_escaladas: 0
   - setor:
       conteudo:
         nome: Setor Planeta dos Macacos
@@ -174,6 +186,8 @@ picos:
             nome: Monga
             dificuldade: BR_6SUP_BARRA_7A
         descricao: ''
+        precomputados:
+          total_escaladas: 6
   mapas_gerais:
     conteudo:
       mapas:
@@ -183,6 +197,10 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 2048
         altura_mapa: 1100
+  precomputados:
+    total_escaladas: 34
+    total_setores: 7
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

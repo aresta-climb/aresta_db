@@ -434,6 +434,8 @@ picos:
           | ![João TG nos trabalhos de conquista](imagens/setor_1_andar_p1_i5.webp) |
           | :--: |
           | *João TG nos trabalhos de conquista* |
+        precomputados:
+          total_escaladas: 24
   - setor:
       conteudo:
         nome: 2° Andar
@@ -573,6 +575,8 @@ picos:
           # 2° Andar
 
           O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
+        precomputados:
+          total_escaladas: 8
   mapas_gerais:
     conteudo:
       mapas:
@@ -618,6 +622,10 @@ picos:
         - setor: 1° Andar
           ids:
           - 1_Andar
+  precomputados:
+    total_escaladas: 32
+    total_setores: 2
+    total_grupos: 0
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO

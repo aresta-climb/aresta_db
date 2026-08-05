@@ -161,6 +161,8 @@
       - **data_abertura**: 2013
       - **descricao_acesso**: Lado estático: passar pela entrada da garganta e no início do setor ensolarado começar uma escalaminhada em direção às ancoragens. Lado móvel: Terceiro Andar ao chegar na base da via efeito colateral, derivar completamente à esquerda em direção às ancoragens.
       - **descricao_ancoragem**: Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_ensolarado
@@ -692,6 +694,8 @@
       - **conquistadores**:
         - Alexandre FEI
       - **data_abertura**: 2013
+- **precomputados**:
+  - **total_escaladas**: 21
 
 
 ## Parte: setor_garganta
@@ -1404,6 +1408,8 @@
       - **conquistadores**:
         - Alex
       - **data_abertura**: 2013
+- **precomputados**:
+  - **total_escaladas**: 28
 
 
 ## Parte: setor_tapa_na_cara
@@ -1520,6 +1526,8 @@
         - Daiex
         - Paulo
       - **data_abertura**: 2013
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_terceiro_andar
@@ -1970,6 +1978,8 @@
       - **descricao**: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
       - **nome**: Trimura do Hotel
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 17
 
 
 ## Parte: setor_paulistas
@@ -2355,6 +2365,8 @@
         - Deigo Leonardo
         - Daiex de Almeida
       - **data_abertura**: 2014
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_mezanino
@@ -2816,6 +2828,8 @@
       - **descricao**: Primeiro crux da Egocentrismo com o segundo crux da Universo Paralelo.
       - **nome**: Ego Paralelo
       - **dificuldade**: BR_10C
+- **precomputados**:
+  - **total_escaladas**: 20
 
 
 ## Parte: setor_shana_crazy
@@ -3046,6 +3060,8 @@
       - **conquistadores**:
         - Diego Leonardo
       - **data_abertura**: 2011
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_tsunami
@@ -3604,6 +3620,8 @@
         - Diego
         - Lucas Ramos
       - **data_abertura**: 2006
+- **precomputados**:
+  - **total_escaladas**: 24
 
 
 ## Parte: setor_udao
@@ -3917,6 +3935,8 @@
       - **conquistadores**:
         - Gustavo
       - **data_abertura**: 2016
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_tereza
@@ -4090,6 +4110,8 @@
       - **conquistadores**:
         - Lucas Ramos
       - **data_abertura**: 2006
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_bem_vindo
@@ -4551,6 +4573,8 @@
         - Geraldo Neto
         - Aluísio
       - **data_abertura**: 2006
+- **precomputados**:
+  - **total_escaladas**: 18
 
 
 ## Parte: setor_tetos
@@ -5465,6 +5489,8 @@
         - Daiex
         - Saulo
       - **data_abertura**: 2017
+- **precomputados**:
+  - **total_escaladas**: 41
 
 
 ## Parte: setor_segundo_andar
@@ -5737,6 +5763,8 @@
       - **conquistadores**:
         - Alexandre Fei
       - **data_abertura**: 2017
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_pirados_de_rocha
@@ -5918,6 +5946,8 @@
         - Diego
         - Vitu
       - **data_abertura**: 2017
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Arquivos Externos

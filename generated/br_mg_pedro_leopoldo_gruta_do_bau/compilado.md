@@ -1119,6 +1119,8 @@
       - **conquistadores**:
         - Christian Costa
         - Marcus Rufino
+- **precomputados**:
+  - **total_escaladas**: 39
 
 
 ## Parte: setor_entrada_superior
@@ -2021,6 +2023,8 @@
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Roberto Lincoln
+- **precomputados**:
+  - **total_escaladas**: 41
 
 
 ## Parte: setor_segundo_andar
@@ -3001,6 +3005,8 @@
         - Igor Andrade
         - Iule Ornelas
         - Samuel Lucas
+- **precomputados**:
+  - **total_escaladas**: 45
 
 
 ## Parte: setor_fechadura
@@ -3385,6 +3391,8 @@
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Eustáquio e Helon
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_pasto
@@ -3551,6 +3559,8 @@
         - Fabinho
         - Half
         - Tinoco
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_sentinela_e_vale_do_joga
@@ -4210,6 +4220,8 @@
         - Iule Ornelas
         - Márcio Vasconcelos
         - Samuel Lucas
+- **precomputados**:
+  - **total_escaladas**: 28
 
 
 ## Parte: setor_vale_dos_espinhos
@@ -5023,6 +5035,8 @@
       - **conquistadores**:
         - Dy Oliveira
         - Marco Durães
+- **precomputados**:
+  - **total_escaladas**: 37
 
 
 ## Parte: setor_escola
@@ -5168,6 +5182,8 @@
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - GT Baú 2021
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_geriatria
@@ -5705,6 +5721,8 @@
       - **conquistadores**:
         - Roberto Lincoln
         - André Braga
+- **precomputados**:
+  - **total_escaladas**: 23
 
 
 ## Parte: setor_mr_bean
@@ -6367,6 +6385,8 @@
       - **conquistadores**:
         - Alberto Melo
         - Gabriel Lousada
+- **precomputados**:
+  - **total_escaladas**: 31
 
 
 ## Parte: setor_vale_do_cinema
@@ -6706,6 +6726,8 @@
       - **conquistadores**:
         - Marco Durães
         - Roberto Lincoln
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_onda_de_calcario
@@ -7089,6 +7111,8 @@
         - Iule Ornelas
         - Igor Andrade
         - Samuel Lucas
+- **precomputados**:
+  - **total_escaladas**: 16
 
 
 ## Parte: setor_vale_da_onca
@@ -7956,6 +7980,8 @@
       - **conquistadores**:
         - Marcelo Novais
         - Átila Cunha
+- **precomputados**:
+  - **total_escaladas**: 39
 
 
 ## Arquivos Externos

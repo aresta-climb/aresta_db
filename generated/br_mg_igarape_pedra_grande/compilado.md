@@ -839,6 +839,8 @@
         - Berbari
         - Chinha
       - **data_abertura**: 2006
+- **precomputados**:
+  - **total_escaladas**: 19
 
 
 ## Parte: setor_familia_i
@@ -1497,6 +1499,8 @@
         - Toninho
         - Fran
       - **data_abertura**: 2013
+- **precomputados**:
+  - **total_escaladas**: 19
 
 
 ## Parte: setor_familia_ii
@@ -1886,6 +1890,8 @@
         - Berbari
         - Ró
       - **data_abertura**: 2009
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_micos
@@ -2155,6 +2161,8 @@
         - Berbari
         - Chinha
       - **data_abertura**: 2011
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_totem
@@ -2322,6 +2330,8 @@
         - Alex
         - Ruy
       - **data_abertura**: 2005
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_igarameca
@@ -3112,6 +3122,8 @@
         - Bunitinho
         - Marcão
       - **data_abertura**: 2022
+- **precomputados**:
+  - **total_escaladas**: 21
 
 
 ## Parte: setor_pracinha
@@ -3445,6 +3457,8 @@
         - Berbari
         - Toninho
       - **data_abertura**: 2022
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_tetos
@@ -3682,6 +3696,8 @@
         - Alex
         - Tonin
       - **data_abertura**: 2006
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_trad
@@ -4289,6 +4305,8 @@
     - **via_movel**:
       - **nome**: Marimbondos Me Mordam
       - **dificuldade**: INDEFINIDO
+- **precomputados**:
+  - **total_escaladas**: 42
 
 
 ## Arquivos Externos

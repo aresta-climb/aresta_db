@@ -94,6 +94,8 @@
       - **conquistadores**:
         - Alexandre 'paulista'
         - Alexandre Fei
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Parte: setor_caverninha
@@ -154,6 +156,8 @@
       - **conquistadores**:
         - Breno Araújo
         - Gustavo Vianna
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_torres
@@ -203,6 +207,8 @@
       - **conquistadores**:
         - Edgardo Abreu
         - Luis Monteiro
+- **precomputados**:
+  - **total_escaladas**: 4
 
 
 ## Parte: setor_felinas
@@ -309,6 +315,8 @@
       - **conquistadores**:
         - Gustavo Vianna
         - Carlos Diniz
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_fendas
@@ -371,6 +379,8 @@
         - Gustavo Piancastelli
         - Leonardo Tangari
       - **comprimento_total**: 120
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_arco
@@ -451,6 +461,8 @@
         - Gustavo Vianna
         - Gustavo Piancastelli
       - **comprimento_total**: 150
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_aresta
@@ -563,6 +575,8 @@
       - **conquistadores**:
         - Gustavo Vianna
         - Gustavo Piancastelli
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_polegar
@@ -609,6 +623,8 @@
       - **dificuldade**: INDEFINIDO
       - **conquistadores**:
         - Gustavo Piancastelli
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_totem
@@ -649,6 +665,8 @@
       - **conquistadores**:
         - Gustavo Vianna
         - Tatiana Mascarenhas
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Parte: setor_enigma_da_esfinge
@@ -678,6 +696,8 @@
       - **tipo_via_multiplas_enfiadas**: MISTA
       - **equipamento_recomendado**: 1 corda 60m, 10 costuras, 2 paradas. Opcional: 1 clif talon, 1 par estribo.
       - **comprimento_total**: 80
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Parte: setor_jardim_da_fantasia
@@ -711,6 +731,8 @@
         - Thunder
       - **data_abertura**: 2018-05
       - **comprimento_total**: 180
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Arquivos Externos

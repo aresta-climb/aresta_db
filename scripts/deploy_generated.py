@@ -459,7 +459,7 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
         # --- Fase 3: Compilação ---
         try:
             validar_sem_extensoes_vazadas(croqui_dir)
-            compilar_croqui(
+            croqui_data = compilar_croqui(
                 croqui_dir,
                 destino_yaml=dest_yaml,
                 destino_binarypb=dest_pb,
@@ -581,6 +581,21 @@ def passo_c_gerar_indice(
         resumo.checksum_sha256_croqui = new_checksum
 
         picos = croqui_data.get("picos", [])
+        
+        # Injeta estatísticas pré-computadas agregando todos os picos
+        total_escaladas = 0
+        total_setores = 0
+        total_grupos = 0
+        for pico in picos:
+            pre = pico.get("precomputados", {})
+            total_escaladas += pre.get("total_escaladas", 0)
+            total_setores += pre.get("total_setores", 0)
+            total_grupos += pre.get("total_grupos", 0)
+            
+        resumo.precomputados.total_escaladas = total_escaladas
+        resumo.precomputados.total_setores = total_setores
+        resumo.precomputados.total_grupos = total_grupos
+
         if picos and "localizacao" in picos[0]:
             loc = picos[0]["localizacao"]
             resumo.localizacao.latitude = loc.get("latitude", 0)
@@ -621,6 +636,12 @@ def passo_c_gerar_indice(
             "checksum_sha256_thumbnail": resumo.checksum_sha256_thumbnail,
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
         }
+        if resumo.HasField("precomputados"):
+            item_yaml["precomputados"] = {
+                "total_escaladas": resumo.precomputados.total_escaladas,
+                "total_setores": resumo.precomputados.total_setores,
+                "total_grupos": resumo.precomputados.total_grupos,
+            }
         if resumo.HasField("localizacao"):
             item_yaml["localizacao"] = {
                 "latitude": resumo.localizacao.latitude,

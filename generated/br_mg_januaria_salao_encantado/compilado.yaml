@@ -229,6 +229,8 @@ picos:
             nome: Uma Lágrima que Cai
             dificuldade: PROJETO
         descricao: ''
+        precomputados:
+          total_escaladas: 12
   - setor:
       conteudo:
         nome: Setor da Pracinha
@@ -376,6 +378,8 @@ picos:
           | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp) |
           | :--: |
           | *Escalador na via Pelas Mãos do Senhor* |
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Setor do Platô
@@ -464,6 +468,8 @@ picos:
           | ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp) |
           | :--: |
           | *Escalador na via Visitante Oculto* |
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Setor da Claraboia
@@ -520,6 +526,8 @@ picos:
           | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp) |
           | :--: |
           | *Escalador na via Calazar Certo* |
+        precomputados:
+          total_escaladas: 2
   - setor:
       conteudo:
         nome: Setor do Sertão
@@ -666,6 +674,8 @@ picos:
           | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp) |
           | :--: |
           | *Conquista da via Dazão e o Pé de Feijão* |
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Setor do Mocó
@@ -839,6 +849,8 @@ picos:
           | ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp) |
           | :--: |
           | *Escaladores no setor do mocó* |
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Setor do Abrigo
@@ -945,6 +957,8 @@ picos:
           | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp) |
           | :--: |
           | *Escalador na via Estrela no Coco* |
+        precomputados:
+          total_escaladas: 5
   mapas_gerais:
     conteudo:
       mapas:
@@ -1027,6 +1041,10 @@ picos:
         - setor: Setor da Pracinha
           ids:
           - Pracinha
+  precomputados:
+    total_escaladas: 45
+    total_setores: 7
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

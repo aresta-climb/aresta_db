@@ -147,6 +147,8 @@
       - **descricao**: via em móvel
       - **nome**: Dente de Aço
       - **dificuldade**: INDEFINIDO
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Parte: setor_aristoteles
@@ -459,6 +461,8 @@
     - **via_esportiva**:
       - **nome**: via inacabada
       - **dificuldade**: INDEFINIDO
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_corredor_polones
@@ -616,6 +620,8 @@
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
       - **data_abertura**: 2018
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_barceloneta
@@ -824,6 +830,8 @@
       - **nome**: Maldita Dependência
       - **dificuldade**: BR_7A
       - **data_abertura**: 2016
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Arquivos Externos

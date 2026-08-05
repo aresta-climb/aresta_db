@@ -262,6 +262,8 @@
         - Zé Ricardo
         - Jorge Lima
       - **protecoes_moveis**: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10) ou compatíveis
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_roca_master
@@ -391,6 +393,8 @@
         - Leandro Schin
         - Jorge Lima
       - **protecoes_moveis**: Camalot (5 e 6) ou compatíveis.
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_ecumenico
@@ -499,6 +503,8 @@
       - **conquistadores**:
         - André Morales
         - Kaio Lupone
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Arquivos Externos

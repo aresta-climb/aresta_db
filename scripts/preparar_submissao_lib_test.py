@@ -473,3 +473,78 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     assert linhas[3].strip() == "nome: Pico"
     assert "copyright do ze" not in "".join(linhas).lower()
 
+
+from scripts.preparar_submissao_lib import (
+    computar_precomputados_setor,
+    computar_precomputados_grupo,
+    computar_precomputados_pico,
+    injetar_precomputados
+)
+
+def test_computar_precomputados_setor():
+    setor = {
+        "escaladas": [
+            {"via_esportiva": {"nome": "Via 1"}},
+            {"via_multiplas_enfiadas": {"nome": "Paredao", "enfiadas": [{}]}},
+            {"boulder": {"nome": "B1"}}
+        ]
+    }
+    computar_precomputados_setor(setor)
+    assert setor["precomputados"]["total_escaladas"] == 3
+
+def test_computar_precomputados_grupo():
+    grupo = {
+        "setores": [
+            {"conteudo": {"precomputados": {"total_escaladas": 2}}},
+            {"conteudo": {"precomputados": {"total_escaladas": 3}}}
+        ]
+    }
+    computar_precomputados_grupo(grupo)
+    assert grupo["precomputados"]["total_escaladas"] == 5
+
+def test_computar_precomputados_pico():
+    pico = {
+        "setores_ou_grupos": [
+            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 2}}}},
+            {"grupo": {"conteudo": {"precomputados": {"total_escaladas": 3}, "setores": [{}, {}]}}},
+            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 1}}}}
+        ]
+    }
+    computar_precomputados_pico(pico)
+    assert pico["precomputados"]["total_escaladas"] == 6
+    assert pico["precomputados"]["total_setores"] == 4  # 2 standalone + 2 in grupo
+    assert pico["precomputados"]["total_grupos"] == 1
+
+def test_injetar_precomputados():
+    croqui = {
+        "picos": [
+            {
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "escaladas": [{"via_esportiva": {}}, {"via_esportiva": {}}]
+                            }
+                        }
+                    },
+                    {
+                        "grupo": {
+                            "conteudo": {
+                                "setores": [
+                                    {"conteudo": {"escaladas": [{"boulder": {}}]}}
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    injetar_precomputados(croqui)
+    pico = croqui["picos"][0]
+    assert pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_escaladas"] == 2
+    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"]["precomputados"]["total_escaladas"] == 1
+    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["precomputados"]["total_escaladas"] == 1
+    assert pico["precomputados"]["total_escaladas"] == 3
+    assert pico["precomputados"]["total_setores"] == 2
+    assert pico["precomputados"]["total_grupos"] == 1

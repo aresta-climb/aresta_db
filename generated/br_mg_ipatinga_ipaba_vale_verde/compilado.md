@@ -658,6 +658,8 @@
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 15
+- **precomputados**:
+  - **total_escaladas**: 24
 
 
 ## Parte: setor_2_andar
@@ -827,6 +829,8 @@
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Arquivos Externos

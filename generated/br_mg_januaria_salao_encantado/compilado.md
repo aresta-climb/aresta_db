@@ -323,6 +323,8 @@
     - **via_esportiva**:
       - **nome**: Uma Lágrima que Cai
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 12
 
 
 ## Parte: setor_da_pracinha
@@ -499,6 +501,8 @@
       - **descricao**: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base
       - **nome**: Uma Lágrima que Cai
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_do_plato
@@ -605,6 +609,8 @@
       - **descricao**: Ultima via da parede. Se quiser fazer a via a partir da base tem que descer até o platô mais baixo.
       - **nome**: Bestial Devastation
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_da_claraboia
@@ -672,6 +678,8 @@
       - **descricao**: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau positivo para chegar ao grampo.
       - **nome**: Cabeça de Rato
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Parte: setor_do_sertao
@@ -850,6 +858,8 @@
       - **descricao**: Via oposições em fendas. Protegida com chapeletas.
       - **nome**: Insolação
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Parte: setor_do_moco
@@ -1061,6 +1071,8 @@
       - **descricao**: Última via da parede.
       - **nome**: Bicho Morto
       - **dificuldade**: BR_6SUP
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_do_abrigo
@@ -1191,6 +1203,8 @@
       - **descricao**: Ultima via da parede.
       - **nome**: Tardia
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Arquivos Externos

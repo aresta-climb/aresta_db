@@ -224,6 +224,8 @@ picos:
           # Vale Gaules
 
           O setor Vale Gaules está localizado no Alto Monte Alvão.
+        precomputados:
+          total_escaladas: 11
   - grupo:
       conteudo:
         nome: Caverna, Mirante e Ground Control
@@ -572,6 +574,8 @@ picos:
                 - Fred Gonçalves
                 descricao: 10?
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Mirante da Cruz
             escaladas:
@@ -624,6 +628,8 @@ picos:
                 conquistadores:
                 - jg
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Ground Control
             escaladas:
@@ -775,10 +781,14 @@ picos:
                 quantidade_costuras_intermediarias: 10
                 quantidade_equipamentos_parada: 2
             descricao: ''
+            precomputados:
+              total_escaladas: 12
         descricao: |-
           # Caverna, Mirante e Ground Control
 
           Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
+        precomputados:
+          total_escaladas: 24
   - grupo:
       conteudo:
         nome: Parede do Ladrão e Forno da Onça
@@ -984,6 +994,8 @@ picos:
                 quantidade_costuras_intermediarias: 12
                 quantidade_equipamentos_parada: 2
             descricao: ''
+            precomputados:
+              total_escaladas: 6
         - conteudo:
             nome: Parede do Ladrão
             escaladas:
@@ -1034,10 +1046,14 @@ picos:
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
             descricao: ''
+            precomputados:
+              total_escaladas: 7
         descricao: |-
           # Parede do Ladrão e Forno da Onça
 
           Estes setores estão localizados lado a lado no Alto Monte Alvão.
+        precomputados:
+          total_escaladas: 13
   - grupo:
       conteudo:
         nome: Curto e Grosso, Malibu e Terra do Nunca
@@ -1131,6 +1147,8 @@ picos:
                 - Jg
                 - Samuel Corleone
             descricao: ''
+            precomputados:
+              total_escaladas: 1
         - conteudo:
             nome: Curto e Grosso
             escaladas:
@@ -1171,6 +1189,8 @@ picos:
                 - Jg
                 - Arthur King
             descricao: ''
+            precomputados:
+              total_escaladas: 4
         - conteudo:
             nome: Malibu
             escaladas:
@@ -1192,10 +1212,14 @@ picos:
                 - Jg
                 - Ana Gonzalez Sanchez
             descricao: ''
+            precomputados:
+              total_escaladas: 2
         descricao: |-
           # Curto e Grosso, Malibu e Terra do Nunca
 
           Estes setores estão localizados na parte sul do Alto Monte Alvão.
+        precomputados:
+          total_escaladas: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -1365,6 +1389,10 @@ picos:
           - curto_e_grosso
           - malibu
           grupo: Curto e Grosso, Malibu e Terra do Nunca
+  precomputados:
+    total_escaladas: 55
+    total_setores: 9
+    total_grupos: 3
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

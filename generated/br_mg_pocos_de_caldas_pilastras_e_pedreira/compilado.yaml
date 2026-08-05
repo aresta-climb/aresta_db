@@ -39,6 +39,8 @@ picos:
           \ e aprendendo a guiar. \nA via número 1 inicia-se a direita da parede para\
           \ quem está chegando no vale, ou a esquerda para quem vem das pilastras\
           \ como na foto, caracterizada por dois “P´s” em sua primeira proteção."
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: As Pilastras
@@ -101,6 +103,8 @@ picos:
           Setor clássico com escalada em pilastras de pedra.
           Atenção: Abelhas em todas as faces da Segunda Pilastra.
           Terceira Pilastra possui projetos inacabados devido às abelhas.
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: A Pedreira
@@ -142,6 +146,12 @@ picos:
           Siga em direção as Pilastras porém ao invés de entrar à direita após o reservatório continue em frente, passe dois redutores de velocidade e quando encontrar o terceiro olhe a sua esquerda e avistará a pedreira.
 
           Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
+        precomputados:
+          total_escaladas: 5
+  precomputados:
+    total_escaladas: 27
+    total_setores: 3
+    total_grupos: 0
 caminho_thumbnail: imagens/capa_p0_i1.webp
 botoes:
 - texto: Capa

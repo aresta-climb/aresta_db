@@ -141,6 +141,8 @@ picos:
               derivar completamente à esquerda em direção às ancoragens.'
             descricao_ancoragem: 'Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.'
         descricao: '# Highlines - Bocaina Park'
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Ensolarado
@@ -595,6 +597,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 21
   - setor:
       conteudo:
         nome: Garganta
@@ -1202,6 +1206,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 28
   - setor:
       conteudo:
         nome: Tapa na Cara
@@ -1301,6 +1307,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 4
   - setor:
       conteudo:
         nome: Terceiro Andar
@@ -1686,6 +1694,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 17
   - setor:
       conteudo:
         nome: Paulistas
@@ -2016,6 +2026,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: Mezanino
@@ -2409,6 +2421,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 20
   - setor:
       conteudo:
         nome: Shana Crazy
@@ -2605,6 +2619,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Tsunami
@@ -3084,6 +3100,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 24
   - setor:
       conteudo:
         nome: Udão
@@ -3352,6 +3370,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 13
   - setor:
       conteudo:
         nome: Tereza
@@ -3499,6 +3519,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Bem-vindo
@@ -3892,6 +3914,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 18
   - setor:
       conteudo:
         nome: Tetos
@@ -4673,6 +4697,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 41
   - setor:
       conteudo:
         nome: Segundo Andar
@@ -4906,6 +4932,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Pirados de Rocha
@@ -5061,6 +5089,8 @@ picos:
 
           > [!TIP]
           > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
+        precomputados:
+          total_escaladas: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -5203,6 +5233,10 @@ picos:
         - ids:
           - '13'
           setor: Pirados de Rocha
+  precomputados:
+    total_escaladas: 240
+    total_setores: 15
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

@@ -191,6 +191,8 @@
   - **[5]**:
     - **via_esportiva**:
       - **nome**: Projeto
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_mapa_2
@@ -247,6 +249,8 @@
       - **dificuldade**: BR_5
       - **conquistadores**:
         - Daniel Fernandes "Salim"
+- **precomputados**:
+  - **total_escaladas**: 2
 
 
 ## Parte: setor_mapa_3
@@ -784,6 +788,8 @@
         - Douglas
         - Bombom
       - **data_abertura**: 1994
+- **precomputados**:
+  - **total_escaladas**: 26
 
 
 ## Parte: setor_mapa_4
@@ -1259,6 +1265,8 @@
         - Eustáquio Macedo Melo Júnior
         - Emerson Alves Azeredo
       - **data_abertura**: 1997
+- **precomputados**:
+  - **total_escaladas**: 17
 
 
 ## Parte: setor_mapa_5
@@ -1465,6 +1473,8 @@
         - Eustáquio Júnior
         - Fabiano Fernandes
       - **data_abertura**: 1994
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_mapa_6
@@ -1775,6 +1785,8 @@
       - **conquistadores**:
         - Ricardo Jardim Leal
       - **data_abertura**: 1998
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_mapa_7
@@ -2013,6 +2025,8 @@
         - Antonio Carlos Magalhães
         - Emerson Alves Azeredo
       - **data_abertura**: 1993
+- **precomputados**:
+  - **total_escaladas**: 11
 
 
 ## Parte: setor_mapa_8
@@ -2545,6 +2559,8 @@
         - Ivo Ferreira Marcelino
         - Alexandre Magos
       - **data_abertura**: 1998
+- **precomputados**:
+  - **total_escaladas**: 23
 
 
 ## Parte: setor_mapa_9
@@ -2911,6 +2927,8 @@
       - **conquistadores**:
         - Roberto Lincoln de Freitas
       - **data_abertura**: 1998
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_mapa_10
@@ -3073,6 +3091,8 @@
         - Gilberto Torres
         - Emerson Alves Azeredo
       - **data_abertura**: 1993
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Arquivos Externos

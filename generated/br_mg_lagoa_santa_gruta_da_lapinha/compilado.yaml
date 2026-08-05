@@ -115,6 +115,8 @@ picos:
           # Setor Castelinho
 
           Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.
+        precomputados:
+          total_escaladas: 6
   - setor:
       conteudo:
         nome: Setor Mapa 2
@@ -157,6 +159,8 @@ picos:
             - Daniel Fernandes "Salim"
         descricao: "# Setor Mapa 2\n\nLocalizado próximo à entrada da gruta. \n**Atenção:**\
           \ \"Não entre em cavernas\"."
+        precomputados:
+          total_escaladas: 2
   - setor:
       conteudo:
         nome: Setor Gruta - Mapa 3
@@ -611,6 +615,8 @@ picos:
           # Setor Gruta - Mapa 3
 
           Parte interna e externa da gruta com vias esportivas e móveis.
+        precomputados:
+          total_escaladas: 26
   - setor:
       conteudo:
         nome: Setor Gruta - Mapa 4 (Sala de Aula)
@@ -1012,6 +1018,8 @@ picos:
           # Setor Gruta - Mapa 4 (Sala de Aula)
 
           Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
+        precomputados:
+          total_escaladas: 17
   - setor:
       conteudo:
         nome: Setor Mapa 5
@@ -1186,6 +1194,8 @@ picos:
 
           Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
           Confira a localização no mapa.
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Vale Verde (Mapa 6)
@@ -1448,6 +1458,8 @@ picos:
 
           Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
           O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Setor Mapa 7
@@ -1648,6 +1660,8 @@ picos:
           # Setor Mapa 7
 
           Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
+        precomputados:
+          total_escaladas: 11
   - setor:
       conteudo:
         nome: Setor Túnel de Pedra (Mapa 8)
@@ -2100,6 +2114,8 @@ picos:
 
           Vias localizadas na região do Túnel de Pedra.
           O setor possui uma grande concentração de vias esportivas de graduação variada.
+        precomputados:
+          total_escaladas: 23
   - setor:
       conteudo:
         nome: Savassinha (Mapa 9)
@@ -2410,6 +2426,8 @@ picos:
 
           Setor com vias de alto nível técnico e físico.
           Vias localizadas em uma das áreas mais frequentadas da Lapinha.
+        precomputados:
+          total_escaladas: 13
   - setor:
       conteudo:
         nome: Bloco Romano (Mapa 10)
@@ -2546,6 +2564,8 @@ picos:
 
           Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
           Possui vias predominantemente esportivas.
+        precomputados:
+          total_escaladas: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -2727,6 +2747,10 @@ picos:
           - Base_Rosa_dos_Ventos
           setor: Setor Mapa 7
           escalada: Rosa dos Ventos
+  precomputados:
+    total_escaladas: 128
+    total_setores: 10
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

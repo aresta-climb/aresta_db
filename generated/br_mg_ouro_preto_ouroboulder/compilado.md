@@ -768,6 +768,8 @@
           - **boulder**:
             - **nome**: Papo Reto sds
             - **dificuldade**: V12
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -839,6 +841,8 @@
           - **boulder**:
             - **nome**: Altinho
             - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -981,6 +985,8 @@
           - **boulder**:
             - **nome**: Dor nas Costas
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -1081,6 +1087,8 @@
           - **boulder**:
             - **nome**: Chicletes
             - **dificuldade**: V11
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -1342,6 +1350,8 @@
           - **boulder**:
             - **nome**: Respira
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 13
   - **[5]**:
     - **conteudo**:
       - **descricao**: 
@@ -1537,6 +1547,8 @@
           - **boulder**:
             - **nome**: Conhaque Presidente
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 9
   - **[6]**:
     - **conteudo**:
       - **descricao**: 
@@ -1956,6 +1968,8 @@
           - **boulder**:
             - **nome**: Bolinho de Chuva
             - **dificuldade**: VB
+      - **precomputados**:
+        - **total_escaladas**: 16
   - **[7]**:
     - **conteudo**:
       - **descricao**: 
@@ -2076,6 +2090,8 @@
           - **boulder**:
             - **nome**: Positron
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[8]**:
     - **conteudo**:
       - **descricao**: 
@@ -2272,6 +2288,8 @@
           - **boulder**:
             - **nome**: Carranca
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 11
   - **[9]**:
     - **conteudo**:
       - **descricao**:
@@ -2318,6 +2336,8 @@
             - **descricao**: (vira pela aresta atrás do bloco)
             - **nome**: Frita Crux
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[10]**:
     - **conteudo**:
       - **descricao**: 
@@ -2499,6 +2519,8 @@
           - **boulder**:
             - **nome**: Tapa na Pantera
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 9
   - **[11]**:
     - **conteudo**:
       - **descricao**: 
@@ -2566,6 +2588,8 @@
           - **boulder**:
             - **nome**: Invertido
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[12]**:
     - **conteudo**:
       - **descricao**: 
@@ -2754,6 +2778,8 @@
           - **boulder**:
             - **nome**: João de Barro
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[13]**:
     - **conteudo**:
       - **descricao**:
@@ -3238,6 +3264,8 @@
           - **boulder**:
             - **nome**: Chapeuzinho Vermelho
             - **dificuldade**: V13
+      - **precomputados**:
+        - **total_escaladas**: 26
   - **[14]**:
     - **conteudo**:
       - **descricao**: 
@@ -3494,6 +3522,8 @@
           - **boulder**:
             - **nome**: Jedi
             - **dificuldade**: V10
+      - **precomputados**:
+        - **total_escaladas**: 13
   - **[15]**:
     - **conteudo**:
       - **descricao**: 
@@ -3693,6 +3723,8 @@
           - **boulder**:
             - **nome**: 002
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 10
   - **[16]**:
     - **conteudo**:
       - **descricao**: 
@@ -3848,6 +3880,8 @@
           - **boulder**:
             - **nome**: Jardim Suspenso
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[17]**:
     - **conteudo**:
       - **descricao**: 
@@ -3907,6 +3941,8 @@
           - **boulder**:
             - **nome**: Mesa
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[18]**:
     - **conteudo**:
       - **descricao**:
@@ -3952,6 +3988,8 @@
           - **boulder**:
             - **nome**: Discovery Kids
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[19]**:
     - **conteudo**:
       - **descricao**: 
@@ -4668,6 +4706,8 @@
           - **boulder**:
             - **nome**: Passível
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 25
   - **[20]**:
     - **conteudo**:
       - **descricao**:
@@ -4762,6 +4802,8 @@
           - **boulder**:
             - **nome**: Pedra Queimada sds
             - **dificuldade**: V9
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[21]**:
     - **conteudo**:
       - **descricao**: 
@@ -4874,6 +4916,8 @@
           - **boulder**:
             - **nome**: Mad Dog
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 6
   - **[22]**:
     - **conteudo**:
       - **descricao**: 
@@ -4965,6 +5009,8 @@
             - **descricao**: (não usa a face direita da linha)
             - **nome**: Sauna a Vapor
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[23]**:
     - **conteudo**:
       - **descricao**: 
@@ -5032,6 +5078,8 @@
           - **boulder**:
             - **nome**: Periscópio
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[24]**:
     - **conteudo**:
       - **descricao**:
@@ -5229,6 +5277,8 @@
           - **boulder**:
             - **nome**: Wafer
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[25]**:
     - **conteudo**:
       - **descricao**:
@@ -5390,6 +5440,8 @@
           - **boulder**:
             - **nome**: Tô Suave
             - **dificuldade**: V4_BARRA_V5
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[26]**:
     - **conteudo**:
       - **descricao**: 
@@ -5637,6 +5689,8 @@
           - **boulder**:
             - **nome**: Movimentos Eróticos
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 8
   - **[27]**:
     - **conteudo**:
       - **descricao**: 
@@ -5664,6 +5718,8 @@
           - **boulder**:
             - **nome**: Véia Doida
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[28]**:
     - **conteudo**:
       - **descricao**: 
@@ -5721,6 +5777,10 @@
           - **boulder**:
             - **nome**: 010
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 3
+- **precomputados**:
+  - **total_escaladas**: 225
 
 
 ## Parte: grupo_mont_blanc
@@ -6126,6 +6186,8 @@
           - **boulder**:
             - **nome**: Super Bonder
             - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 15
   - **[1]**:
     - **conteudo**:
       - **descricao**:
@@ -6263,6 +6325,8 @@
           - **boulder**:
             - **nome**: Fulano
             - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -6394,6 +6458,8 @@
           - **boulder**:
             - **nome**: Tutano
             - **dificuldade**: V10
+      - **precomputados**:
+        - **total_escaladas**: 7
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -6501,6 +6567,8 @@
           - **boulder**:
             - **nome**: O Pequeno
             - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 5
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -6559,6 +6627,8 @@
           - **boulder**:
             - **nome**: Caboclo das Sete Encruzilhadas
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 2
   - **[5]**:
     - **conteudo**:
       - **descricao**: 
@@ -6625,6 +6695,8 @@
           - **boulder**:
             - **nome**: Íngreme
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 3
   - **[6]**:
     - **conteudo**:
       - **descricao**: 
@@ -6691,6 +6763,10 @@
           - **boulder**:
             - **nome**: Hard Core
             - **dificuldade**: V6_BARRA_V7
+      - **precomputados**:
+        - **total_escaladas**: 3
+- **precomputados**:
+  - **total_escaladas**: 42
 
 
 ## Parte: grupo_bonsai
@@ -6874,6 +6950,8 @@
           - **boulder**:
             - **nome**: Mancada
             - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
@@ -7100,6 +7178,8 @@
           - **boulder**:
             - **nome**: Crocância Rouba Monte sds
             - **dificuldade**: V11
+      - **precomputados**:
+        - **total_escaladas**: 11
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
@@ -7285,6 +7365,8 @@
           - **boulder**:
             - **nome**: Popeye
             - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 10
   - **[3]**:
     - **conteudo**:
       - **descricao**: 
@@ -7312,6 +7394,8 @@
           - **boulder**:
             - **nome**: Dali Goiabada
             - **dificuldade**: V9
+      - **precomputados**:
+        - **total_escaladas**: 1
   - **[4]**:
     - **conteudo**:
       - **descricao**: 
@@ -7395,6 +7479,8 @@
           - **boulder**:
             - **nome**: Toca Toca
             - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[5]**:
     - **conteudo**:
       - **descricao**: 
@@ -7477,6 +7563,8 @@
           - **boulder**:
             - **nome**: Semiárido
             - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 4
   - **[6]**:
     - **conteudo**:
       - **descricao**: 
@@ -7504,6 +7592,10 @@
               - **escalada**: Prodígio
               - **ids**:
                 - 1
+      - **precomputados**:
+        - **total_escaladas**: 1
+- **precomputados**:
+  - **total_escaladas**: 35
 
 
 ## Arquivos Externos

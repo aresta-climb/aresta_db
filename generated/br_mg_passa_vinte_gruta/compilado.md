@@ -456,6 +456,8 @@
     - **via_esportiva**:
       - **nome**: Macunaína
       - **dificuldade**: BR_9B
+- **precomputados**:
+  - **total_escaladas**: 20
 
 
 ## Parte: setor_sunshine_e_teto_preto
@@ -795,6 +797,8 @@
     - **via_esportiva**:
       - **nome**: Casamento da Imperatriz (Projeto)
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 19
 
 
 ## Parte: setor_positivo_central
@@ -1107,6 +1111,8 @@
     - **via_esportiva**:
       - **nome**: Sub-Zero
       - **dificuldade**: BR_8C
+- **precomputados**:
+  - **total_escaladas**: 18
 
 
 ## Parte: setor_negativo_central
@@ -1703,6 +1709,8 @@
     - **via_esportiva**:
       - **nome**: Ceci
       - **dificuldade**: BR_6SUP
+- **precomputados**:
+  - **total_escaladas**: 32
 
 
 ## Parte: setor_arquibancada
@@ -2217,6 +2225,8 @@
     - **via_esportiva**:
       - **nome**: Face Oculta (Projeto)
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 27
 
 
 ## Parte: setor_genesis
@@ -2639,6 +2649,8 @@
     - **via_esportiva**:
       - **nome**: Sinairo P3
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 23
 
 
 ## Parte: setor_acampamento
@@ -2967,6 +2979,8 @@
     - **via_esportiva**:
       - **nome**: Stinger
       - **dificuldade**: BR_6SUP
+- **precomputados**:
+  - **total_escaladas**: 15
 
 
 ## Arquivos Externos

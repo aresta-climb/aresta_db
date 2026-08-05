@@ -391,6 +391,8 @@ picos:
           **Autores:** Mauricio Juntolli, Danilo Stehling.
           **Atualizado em:** 2010.
           **Fonte:** http://www.escaladacaete.eu5.org
+        precomputados:
+          total_escaladas: 27
   - setor:
       conteudo:
         nome: Croqui 02 da Pedra Branca
@@ -583,6 +585,12 @@ picos:
           **Autores:** Mauricio Juntolli, Danilo Stehling.
           **Atualizado em:** 2010.
           **Fonte:** http://www.escaladacaete.eu5.org
+        precomputados:
+          total_escaladas: 13
+  precomputados:
+    total_escaladas: 40
+    total_setores: 2
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

@@ -191,6 +191,8 @@ picos:
           Características: Escalada vertical e negativa.
 
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+        precomputados:
+          total_escaladas: 9
   - setor:
       conteudo:
         nome: Campo Escola
@@ -353,6 +355,8 @@ picos:
           Características: Escalada positiva.
 
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Tchau Querida
@@ -499,6 +503,8 @@ picos:
           Características: Escalada vertical e negativa.
 
           Recomendações: Uso de capacete.
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Pedra Branca
@@ -843,6 +849,8 @@ picos:
           Características: Escalada vertical.
 
           Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
+        precomputados:
+          total_escaladas: 20
   mapas_gerais:
     conteudo:
       mapas:
@@ -938,6 +946,10 @@ picos:
         - setor: Pedra Branca
           ids:
           - Pedra_Branca
+  precomputados:
+    total_escaladas: 44
+    total_setores: 4
+    total_grupos: 0
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

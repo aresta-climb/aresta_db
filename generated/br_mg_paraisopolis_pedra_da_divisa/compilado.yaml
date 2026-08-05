@@ -292,6 +292,8 @@ picos:
 
           **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
           esportivas, você vai precisar de 15 costuras.
+        precomputados:
+          total_escaladas: 13
   - setor:
       conteudo:
         nome: Setor Ditados
@@ -468,6 +470,8 @@ picos:
 
           **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
           esportivas, você vai precisar de 15 costuras.
+        precomputados:
+          total_escaladas: 8
   - setor:
       conteudo:
         nome: Setor Cervejas
@@ -739,6 +743,8 @@ picos:
           | *Eliseu Frechou na via Black, 6ºsup* |
 
           **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
+        precomputados:
+          total_escaladas: 14
   - setor:
       conteudo:
         nome: Setor Questão de Tempo
@@ -841,6 +847,8 @@ picos:
           | *Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup* |
 
           **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
+        precomputados:
+          total_escaladas: 3
   - setor:
       conteudo:
         nome: Setor Hospício
@@ -961,6 +969,8 @@ picos:
             data_abertura: '2020'
         descricao: '**Equipamentos Necessários:** Corda de 60m é obrigatória para
           rapelar. Para as vias esportivas, você vai precisar de 12 costuras.'
+        precomputados:
+          total_escaladas: 5
   mapas_gerais:
     conteudo:
       mapas:
@@ -1086,6 +1096,10 @@ picos:
             y: 611
             comprimento: 82
             largura: 24
+  precomputados:
+    total_escaladas: 43
+    total_setores: 5
+    total_grupos: 0
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
 - texto: Capa

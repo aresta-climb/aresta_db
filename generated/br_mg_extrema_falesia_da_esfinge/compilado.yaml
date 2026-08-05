@@ -106,6 +106,8 @@ picos:
           | ![Apertadinha](imagens/setor_headwall_p5_i0.webp) |
           | :--: |
           | *Apertadinha* |
+        precomputados:
+          total_escaladas: 5
   - setor:
       conteudo:
         nome: Roca Master
@@ -223,6 +225,8 @@ picos:
           | ![Tico Skywalker](imagens/setor_roca_master_p7_i0.webp) |
           | :--: |
           | *Tico Skywalker* |
+        precomputados:
+          total_escaladas: 7
   - setor:
       conteudo:
         nome: Ecumênico
@@ -321,6 +325,12 @@ picos:
           ## Projetos
           - El Ninõ (projeto)
           - Univervia (projeto)
+        precomputados:
+          total_escaladas: 6
+  precomputados:
+    total_escaladas: 18
+    total_setores: 3
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

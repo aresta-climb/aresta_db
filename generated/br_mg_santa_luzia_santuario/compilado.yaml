@@ -264,6 +264,8 @@ picos:
           | ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp) |
           | :--: |
           | *Escaladora Júlia Lima na via Rins de Pedra* |
+        precomputados:
+          total_escaladas: 16
   - setor:
       conteudo:
         nome: Setor Santa Línea
@@ -594,6 +596,8 @@ picos:
           | 14.2 | CHÁ NA CARTOLINA P2 | SANTA LINEA P2 | 10b |
           | 14.3 | CHÁ NA CARTOLINA P2 | SANTA LINEA P3 | PROJETO |
           | 15.1 | AVE MARIA P2 | CHÁ NA CARTOLINA P3 | 9b |
+        precomputados:
+          total_escaladas: 15
   - setor:
       conteudo:
         nome: Setor Democracia
@@ -849,6 +853,8 @@ picos:
           | ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp) |
           | :--: |
           | *Escalador Lucas Rocha na via Buffalo Bill* |
+        precomputados:
+          total_escaladas: 15
   mapas_gerais:
     conteudo:
       mapas:
@@ -887,6 +893,10 @@ picos:
         - setor: Setor Democracia
           ids:
           - Setor_Democracia
+  precomputados:
+    total_escaladas: 46
+    total_setores: 3
+    total_grupos: 0
 botoes:
 - texto: Capa
   destino:

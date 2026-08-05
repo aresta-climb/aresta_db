@@ -474,6 +474,8 @@
         - Eliseu Frechou
         - Leonard Moreira
       - **data_abertura**: 2021-03
+- **precomputados**:
+  - **total_escaladas**: 13
 
 
 ## Parte: setor_ditados
@@ -683,6 +685,8 @@
         - Ana Fujita
         - Eliseu Frechou
       - **data_abertura**: 2018
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_cervejas
@@ -1006,6 +1010,8 @@
       - **conquistadores**:
         - Antônio Calvo
         - Ingo Moller
+- **precomputados**:
+  - **total_escaladas**: 14
 
 
 ## Parte: setor_questao_de_tempo
@@ -1127,6 +1133,8 @@
         - Alexandre "Jesus" Loureiro
         - Samuel Moreira
       - **data_abertura**: 2020
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_hospicio
@@ -1269,6 +1277,8 @@
         - Leonard Moreira
         - Michel Gonçalves
       - **data_abertura**: 2020
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Arquivos Externos

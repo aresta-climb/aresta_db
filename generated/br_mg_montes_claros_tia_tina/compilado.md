@@ -72,6 +72,8 @@
     - **via_esportiva**:
       - **nome**: Pica Pau
       - **dificuldade**: BR_7B
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_fenda
@@ -98,6 +100,8 @@
     - **via_esportiva**:
       - **nome**: Produto da Parceria
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 3
 
 
 ## Parte: setor_do_buraco
@@ -144,6 +148,8 @@
     - **via_esportiva**:
       - **nome**: Furadinha
       - **dificuldade**: BR_7A
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_da_frente
@@ -191,6 +197,8 @@
     - **via_esportiva**:
       - **nome**: Cascavel
       - **dificuldade**: BR_7B
+- **precomputados**:
+  - **total_escaladas**: 8
 
 
 ## Parte: setor_passagem
@@ -209,6 +217,8 @@
     - **via_esportiva**:
       - **nome**: Via Só na Aresta
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 1
 
 
 ## Parte: setor_arvore_da_vida
@@ -223,6 +233,8 @@
     - **largura_mapa**: 2048
     - **altura_mapa**: 1100
 - **escaladas**: []
+- **precomputados**:
+  - **total_escaladas**: 0
 
 
 ## Parte: setor_planeta_dos_macacos
@@ -261,6 +273,8 @@
     - **via_esportiva**:
       - **nome**: Monga
       - **dificuldade**: BR_6SUP_BARRA_7A
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Arquivos Externos

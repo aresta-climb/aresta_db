@@ -94,6 +94,8 @@
     - **via_esportiva**:
       - **nome**: Mamba Negra
       - **dificuldade**: BR_8A
+- **precomputados**:
+  - **total_escaladas**: 6
 
 
 ## Parte: setor_2_do_buraco
@@ -144,6 +146,8 @@
     - **via_esportiva**:
       - **nome**: Tempestade de Calcário
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 9
 
 
 ## Parte: setor_3
@@ -179,6 +183,8 @@
     - **via_esportiva**:
       - **nome**: Pérola Negra
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 5
 
 
 ## Parte: setor_4_da_caverna
@@ -221,6 +227,8 @@
     - **via_esportiva**:
       - **nome**: Epinefrina 05
       - **dificuldade**: PROJETO
+- **precomputados**:
+  - **total_escaladas**: 7
 
 
 ## Arquivos Externos
