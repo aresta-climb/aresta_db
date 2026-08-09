@@ -80,12 +80,14 @@ jobs:
         uses: actions/cache@v6
         with:
           path: venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
+          key: ${{ runner.os }}-venv-v2-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
 
       - name: Preparar Virtualenv
-        run: |
-          python -m venv venv
-          echo "${{ github.workspace }}\venv\Scripts" >> $GITHUB_PATH
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: python -m venv venv
+        
+      - name: Ativar Virtualenv no PATH
+        run: echo "${{ github.workspace }}\venv\Scripts" >> $GITHUB_PATH
 
       - name: Install Dependencies
         if: steps.cache-venv.outputs.cache-hit != 'true'
