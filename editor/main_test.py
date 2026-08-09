@@ -97,5 +97,22 @@ def test_application_version_is_set(qtbot):
         controlador = ControladorAplicativo()
         assert controlador.app.applicationVersion() == VERSION
 
-
+def test_main_impede_multiplas_instancias(qtbot):
+    with patch("editor.main.QSharedMemory") as MockSharedMemory:
+        with patch("editor.main.QMessageBox.warning") as mock_warning:
+            with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
+                mock_mem_inst = MockSharedMemory.return_value
+                # Simula que a criação falhou (outra instância já tem o lock)
+                mock_mem_inst.create.return_value = False
+                
+                from editor.main import main
+                with pytest.raises(SystemExit):
+                    main()
+                
+                # Verifica a chave usada
+                MockSharedMemory.assert_called_once_with("ArestaEditorSingleInstanceLock")
+                # Verifica se o aviso foi mostrado
+                mock_warning.assert_called_once()
+                # Verifica se a verificação de criação foi feita corretamente
+                mock_mem_inst.create.assert_called_once_with(1)
 

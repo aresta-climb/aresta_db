@@ -11,7 +11,7 @@ if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
 from PyQt6.QtWidgets import QApplication, QMessageBox, QDialog
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QSharedMemory
 from PyQt6.QtGui import QIcon
 from pathlib import Path
 
@@ -120,6 +120,21 @@ class ControladorAplicativo:
         return self.app.exec()
 
 def main():
+    # Garante a instância global do QApplication
+    app = QApplication.instance()
+    if not app:
+        app = QApplication(sys.argv)
+
+    # Previne múltiplas instâncias do editor
+    shared_mem = QSharedMemory("ArestaEditorSingleInstanceLock")
+    if shared_mem.attach():
+        pass
+    if not shared_mem.create(1):
+        QMessageBox.warning(None, "Aresta Editor", "O Aresta Editor já está em execução.")
+        sys.exit(0)
+    
+    app.shared_mem_lock = shared_mem
+
     # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
     # E é de fato um diretório que contém croqui.yaml
     if len(sys.argv) > 1 and "database" in sys.argv[1]:
@@ -127,10 +142,6 @@ def main():
         caminho_path = Path(caminho_str).resolve()
         
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
-            app = QApplication.instance()
-            if not app:
-                app = QApplication(sys.argv)
-                
             storage = GerenciadorCaminhos()
             caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
             if not caminho_logo_app.exists() and hasattr(storage, 'obter_caminho_recurso'):
