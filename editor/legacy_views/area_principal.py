@@ -425,6 +425,7 @@ class JanelaPrincipal(QMainWindow):
         self.acao_nav_historico = QAction(Icones.obter("historico"), "Histórico", self)
         self.acao_nav_historico.setToolTip("Histórico")
         self.acao_nav_historico.setCheckable(True)
+        self.acao_nav_historico.setVisible(False) # TODO: Habilitar quando for implementado
         self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(3))
         
         self.grupo_nav = [self.acao_nav_dados, self.acao_nav_imagens, self.acao_nav_mapas, self.acao_nav_historico]
