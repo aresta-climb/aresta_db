@@ -367,6 +367,7 @@ escaladas:
     - Berbari
     - Ró
     data_abertura: '2011'
+    destaque: true
 - via_esportiva:
     nome: Ação Total
     dificuldade: BR_7A
