@@ -80,7 +80,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
+          key: ${{ runner.os }}-venv-v2-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
 
       - name: Preparar Virtualenv
         if: steps.cache-venv.outputs.cache-hit != 'true'
