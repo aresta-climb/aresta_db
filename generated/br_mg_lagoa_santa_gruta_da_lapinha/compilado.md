@@ -2282,102 +2282,106 @@
         - **ids**:
           - 89
       - **[3]**:
+        - **escalada**: Ecos do Além
+        - **ids**:
+          - 90
+      - **[4]**:
         - **escalada**: Trombeta Acéfala
         - **ids**:
           - 91
-      - **[4]**:
+      - **[5]**:
         - **escalada**: Meio Cubanos
         - **ids**:
           - 92
-      - **[5]**:
+      - **[6]**:
         - **escalada**: Golpe Ninja
         - **ids**:
           - 93
-      - **[6]**:
+      - **[7]**:
         - **escalada**: Tripla Traição
         - **ids**:
           - 94
-      - **[7]**:
+      - **[8]**:
         - **escalada**: Noivado da Feiticeira
         - **ids**:
           - 95
-      - **[8]**:
+      - **[9]**:
         - **escalada**: Planeta dos Macacos
         - **ids**:
           - 96
-      - **[9]**:
+      - **[10]**:
         - **escalada**: Rota de colisão
         - **ids**:
           - 97
-      - **[10]**:
+      - **[11]**:
         - **escalada**: Projeto Daniel Salim
         - **ids**:
           - 98
-      - **[11]**:
+      - **[12]**:
         - **escalada**: Vale Perdido
         - **ids**:
           - 99
-      - **[12]**:
+      - **[13]**:
         - **escalada**: Consolo da Surucucu
         - **ids**:
           - 100
-      - **[13]**:
+      - **[14]**:
         - **escalada**: Santos e Hereges
         - **ids**:
           - 101
-      - **[14]**:
+      - **[15]**:
         - **escalada**: O Império Contra Ataca
         - **ids**:
           - 102
-      - **[15]**:
+      - **[16]**:
         - **escalada**: Jegue Voador
         - **ids**:
           - 103
-      - **[16]**:
+      - **[17]**:
         - **escalada**: Labirinto das Maritacas
         - **ids**:
           - 104
-      - **[17]**:
+      - **[18]**:
         - **escalada**: Tentações de Maria Madalena
         - **ids**:
           - 105
-      - **[18]**:
+      - **[19]**:
         - **escalada**: Sai do chão
         - **ids**:
           - 106
-      - **[19]**:
+      - **[20]**:
         - **escalada**: Ato Imperdoável
         - **ids**:
           - 107
-      - **[20]**:
+      - **[21]**:
         - **escalada**: Projeto Rodrigo do Paraná
         - **ids**:
           - 108
-      - **[21]**:
+      - **[22]**:
         - **escalada**: Pequena Criança
         - **ids**:
           - 109
-      - **[22]**:
+      - **[23]**:
         - **ids**:
           - 82
         - **setor**: Setor Mapa 7
         - **escalada**: Três dentro, três fora
-      - **[23]**:
+      - **[24]**:
         - **ids**:
           - 83
         - **setor**: Setor Mapa 7
         - **escalada**: Só para eles
-      - **[24]**:
+      - **[25]**:
         - **ids**:
           - 84
         - **setor**: Setor Mapa 7
         - **escalada**: Só para elas
-      - **[25]**:
+      - **[26]**:
         - **ids**:
           - 85
         - **setor**: Setor Mapa 7
         - **escalada**: Prestobarba
-      - **[26]**:
+      - **[27]**:
         - **ids**:
           - 86
         - **setor**: Setor Mapa 7

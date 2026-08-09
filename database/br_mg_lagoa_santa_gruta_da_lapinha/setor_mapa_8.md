@@ -206,6 +206,9 @@ mapas:
   - escalada: Bigode de Espinho
     ids:
     - '89'
+  - escalada: Ecos do Além
+    ids:
+    - '90'
   - escalada: Trombeta Acéfala
     ids:
     - '91'
