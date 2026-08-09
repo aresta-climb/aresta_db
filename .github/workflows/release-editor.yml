@@ -73,21 +73,21 @@ jobs:
         run: choco install graphviz --no-progress
 
       - name: Add Graphviz to PATH
-        run: echo "C:\Program Files\Graphviz\bin" >> $GITHUB_PATH
+        run: echo "C:\Program Files\Graphviz\bin" >> $env:GITHUB_PATH
 
       - name: Cache Virtualenv
         id: cache-venv
         uses: actions/cache@v6
         with:
           path: venv
-          key: ${{ runner.os }}-venv-v2-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
+          key: ${{ runner.os }}-venv-${{ hashFiles('requirements.txt', 'editor/requirements.txt') }}
 
       - name: Preparar Virtualenv
         if: steps.cache-venv.outputs.cache-hit != 'true'
         run: python -m venv venv
         
       - name: Ativar Virtualenv no PATH
-        run: echo "${{ github.workspace }}\venv\Scripts" >> $GITHUB_PATH
+        run: echo "${{ github.workspace }}\venv\Scripts" >> $env:GITHUB_PATH
 
       - name: Install Dependencies
         if: steps.cache-venv.outputs.cache-hit != 'true'
