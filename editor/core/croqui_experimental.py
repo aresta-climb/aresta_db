@@ -8,6 +8,7 @@ import os
 import zipfile
 import pygit2
 import yaml
+import uuid
 from datetime import datetime
 from google.protobuf.json_format import MessageToDict
 
@@ -35,8 +36,7 @@ class GerenciadorCroquiExperimental:
         """
         Cria uma nova estrutura de pastas para um croqui experimental (privado).
         """
-        prefixo = datetime.now().strftime("%Y%m%d%H%M%S")
-        nome_pasta = f"{prefixo}_{id_croqui}"
+        nome_pasta = uuid.uuid4().hex[:8]
         caminho_raiz = self.caminhos.obter_caminho_croquis_experimentais() / nome_pasta
         
         # Criar pastas básicas
@@ -338,9 +338,7 @@ class GerenciadorCroquiExperimental:
             
         pasta_dest = self.caminhos.obter_caminho_croquis_experimentais()
         
-        # Pega o timestamp atual para não dar colisão de nomes
-        ts = int(datetime.now().timestamp())
-        nome_pasta_extraida = f"{ts}_importado_{caminho_arquivo_croqui.stem}"
+        nome_pasta_extraida = uuid.uuid4().hex[:8]
         caminho_extracao = pasta_dest / nome_pasta_extraida
         
         caminho_extracao.mkdir(parents=True, exist_ok=False)
@@ -363,7 +361,7 @@ class GerenciadorCroquiExperimental:
             import time
             time.sleep(0.1)
                 
-            # Opcional: Ler o croqui.yaml dentro de database/ para renomear a pasta corretamente com o id real
+            # Opcional: Ler o croqui.yaml dentro de database/
             yaml_path = caminho_extracao / "database" / "croqui.yaml"
             real_id = None
             if yaml_path.is_file():
@@ -372,32 +370,10 @@ class GerenciadorCroquiExperimental:
                         dados = yaml.safe_load(f)
                         real_id = dados.get("id")
                 except Exception:
-                    # Se falhar a leitura, real_id continua None e não renomeia
                     pass
 
-            if real_id:
-                # Renomeia a pasta com o nome padronizado
-                novo_caminho = pasta_dest / f"{ts}_{real_id}"
-                
-                # Evitar colisões just in case
-                if not novo_caminho.exists():
-                    # No Windows, rename pode falhar por locks temporários do SO (ex: indexador de arquivos)
-                    import time
-                    for i in range(5):
-                        try:
-                            caminho_extracao.rename(novo_caminho)
-                            # Atualiza a referência do caminho para exclusão em caso de erro posterior
-                            caminho_extracao = novo_caminho
-                            break
-                        except PermissionError:
-                            if i == 4: raise
-                            time.sleep(0.2)
-                    
-                    # Compila após importar para garantir que o compilado está atualizado
-                    self.compilar_croqui(novo_caminho)
-                    return novo_caminho
-
-            # Se não renomeou, compila na pasta de extração mesmo
+            # Como a pasta é UUID, não precisamos renomear baseando no real_id.
+            # Basta compilar na pasta de extração.
             self.compilar_croqui(caminho_extracao)
             return caminho_extracao
         except Exception as e:
@@ -407,42 +383,17 @@ class GerenciadorCroquiExperimental:
 
     def renomear_pasta_croqui(self, caminho_raiz: Path, novo_id: str) -> Path:
         """
-        Renomeia a pasta de um croqui experimental, preservando o prefixo numérico (timestamp).
-        Retorna o novo Path.
+        Atualiza o diretório de compilação quando o ID do croqui muda, 
+        pois a pasta raiz agora é opaca (UUID) e não precisa ser renomeada fisicamente.
+        Retorna o mesmo Path raiz.
         """
         if not self.caminhos:
-            return caminho_raiz  # Sem storage, não renomeia
+            return caminho_raiz  # Sem storage, não faz nada
             
-        nome_antigo = caminho_raiz.name
-        partes = nome_antigo.split("_", 1)
-        
-        if len(partes) > 1 and partes[0].isdigit():
-            prefixo = partes[0]
-            novo_nome = f"{prefixo}_{novo_id}"
-        else:
-            # Se não houver prefixo claro, cria um novo
-            ts = datetime.now().strftime("%Y%m%d%H%M%S")
-            novo_nome = f"{ts}_{novo_id}"
-            
-        novo_caminho = caminho_raiz.parent / novo_nome
-        
-        # Move a pasta
-        import time
-        for i in range(5):
-            try:
-                caminho_raiz.rename(novo_caminho)
-                break
-            except PermissionError:
-                if i == 4:
-                    # Alternativa: tentar com shutil
-                    shutil.move(str(caminho_raiz), str(novo_caminho))
-                    break
-                time.sleep(0.2)
+        # Limpeza do compilado antigo para não gerar duplicação local.
+        # Ao apenas apagar a pasta compilado, forçamos a recompilação limpa na próxima vez.
+        caminho_compilado = caminho_raiz / "compilado"
+        if caminho_compilado.is_dir():
+            shutil.rmtree(caminho_compilado, ignore_errors=True)
                 
-        # Limpeza do compilado antigo para não gerar duplicação local
-        id_antigo = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_antigo
-        caminho_velho_compilado = novo_caminho / "compilado" / id_antigo
-        if caminho_velho_compilado.is_dir() and id_antigo != novo_id:
-            shutil.rmtree(caminho_velho_compilado, ignore_errors=True)
-                
-        return novo_caminho
+        return caminho_raiz

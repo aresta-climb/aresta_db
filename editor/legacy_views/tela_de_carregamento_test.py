@@ -5,7 +5,7 @@ import pytest
 from PyQt6.QtWidgets import QPushButton, QListWidget, QLabel, QDialog
 from PyQt6.QtWidgets import QMessageBox
 from PyQt6.QtCore import Qt
-from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
+from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento, WidgetItemHistorico, DialogoNovoCroqui
 from unittest.mock import MagicMock, patch
 from datetime import datetime
 import yaml
@@ -201,9 +201,9 @@ def test_tela_de_carregamento_verifica_exaustividade_dos_dados(qtbot, tmp_path):
     pasta_croqui.mkdir()
     (pasta_croqui / "database").mkdir()
     
-    # 1. database/croqui.yaml com o nome real
+    # 1. database/croqui.yaml com o nome real e ID lógico
     with open(pasta_croqui / "database" / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Pedra do Popeye"}, f)
+        yaml.dump({"nome": "Pedra do Popeye", "id": "br_mg_bh_popeye_logico"}, f)
         
     # 2. croqui_experimental.yaml com resumo e data fixa
     data_iso = "2026-05-01T14:30:00Z" # UTC
@@ -228,8 +228,10 @@ def test_tela_de_carregamento_verifica_exaustividade_dos_dados(qtbot, tmp_path):
     # Validar Resumo
     assert "Limpeza da base" in widget.label_resumo.text()
     
-    # Validar ID (deve ser o nome da pasta sem o prefixo timestamp)
-    assert "ID: brasil_mg_bh_popeye" in widget.lbl_id.text()
+    # Validar ID (Deve exibir o lógico do YAML e o físico da pasta)
+    # Como id_pasta é '20260501123000_brasil_mg_bh_popeye', esse é o físico
+    assert "ID: br_mg_bh_popeye_logico" in widget.lbl_id.text()
+    assert id_pasta in widget.lbl_id.text()
     
     # Validar Data (Última Edição formatada no fuso local)
     dt_local = datetime.fromisoformat(data_iso.replace("Z", "+00:00")).astimezone()
@@ -269,7 +271,25 @@ def test_tela_de_carregamento_ordenacao_historico(qtbot, tmp_path):
         ids_na_lista.append(widget.lbl_id.text().split(": ")[1])
         
     # A ordem esperada é: novo (15h), meio (12h), antigo (10h)
-    assert ids_na_lista == ["br_mg_novo", "br_mg_meio", "br_mg_antigo"]
+    assert ids_na_lista == ["20260501_br_mg_novo", "20260501_br_mg_meio", "20260501_br_mg_antigo"]
+
+def test_dialogo_novo_croqui_limite_id(qtbot):
+    """Verifica se o ID gerado é truncado para no máximo 100 caracteres para evitar WinError 123."""
+    dialog = DialogoNovoCroqui()
+    qtbot.addWidget(dialog)
+    
+    # Preenche com strings grandes que juntas ultrapassam 100 caracteres
+    dialog.edit_pais.setText("br")
+    dialog.edit_estado.setText("sp")
+    dialog.edit_cidade.setText("sao bento do sapucai")
+    
+    texto_pico_enorme = "pedra do bau queijo com suico sociedade da felicidade garndepedra do bau queijo"
+    dialog.edit_pico.setText(texto_pico_enorme)
+    
+    # O ID final deve ter exatos 100 caracteres e não terminar com '_'
+    id_gerado = dialog.edit_id.text()
+    assert len(id_gerado) <= 100
+    assert not id_gerado.endswith("_")
 
 def test_tela_de_carregamento_oficial_usa_log_dialog(qtbot):
     """Verifica se o DialogoProgressoLog é instanciado ao importar oficial."""

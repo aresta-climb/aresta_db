@@ -87,8 +87,10 @@ class DialogoNovoCroqui(QDialog):
         
         self.edit_pico = QLineEdit()
         self.edit_pico.setPlaceholderText("Ex: Pedra do Baú")
+        self.edit_pico.setMaxLength(60)
         self.edit_cidade = QLineEdit()
         self.edit_cidade.setPlaceholderText("Ex: São Bento do Sapucaí")
+        self.edit_cidade.setMaxLength(60)
         self.edit_estado = QLineEdit()
         self.edit_estado.setPlaceholderText("Ex: SP")
         self.edit_estado.setMaxLength(2)
@@ -165,6 +167,11 @@ class DialogoNovoCroqui(QDialog):
             
         # Geração do ID: <pais>_<estado>_<cidade>_<nome_pico_snake_case>
         id_gerado = f"{para_snake_case(pais)}_{para_snake_case(estado)}_{para_snake_case(cidade)}_{para_snake_case(pico)}"
+        
+        # Limita o ID gerado para evitar estourar limites do sistema de arquivos (WinError 123)
+        if len(id_gerado) > 100:
+            id_gerado = id_gerado[:100].rstrip("_")
+            
         self.edit_id.setText(id_gerado)
 
         
@@ -230,7 +237,14 @@ class WidgetItemHistorico(QWidget):
         footer_layout = QHBoxLayout()
         footer_layout.setSpacing(12)
         
-        self.lbl_id = QLabel(f"ID: {dados.get('id', 'N/A')}")
+        id_fisico = dados.get('id', 'N/A')
+        id_logico = dados.get('id_logico')
+        if id_logico:
+            texto_id = f"ID: {id_logico} (Pasta: {id_fisico})"
+        else:
+            texto_id = f"ID: {id_fisico}"
+            
+        self.lbl_id = QLabel(texto_id)
         self.lbl_id.setStyleSheet("color: #7f8c8d; font-size: 10px;")
         
         self.lbl_edicao = QLabel(f"Última Edição: {dados.get('edicao', 'N/A')}")
@@ -413,9 +427,7 @@ class TelaDeCarregamento(QDialog):
         
         for pasta in caminho_croquis.iterdir():
             if pasta.is_dir():
-                # Tenta pegar apenas a parte do ID (remover prefixo timestamp se existir)
-                partes = pasta.name.split("_", 1)
-                nome_pasta = partes[1] if len(partes) > 1 and partes[0].isdigit() else pasta.name
+                nome_pasta = pasta.name
                 nome_legivel = nome_pasta.replace("_", " ").title()
                 
                 # Tenta ler as datas e resumo do YAML de metadados experimentais
@@ -436,6 +448,8 @@ class TelaDeCarregamento(QDialog):
                             c_yml = yaml.safe_load(f)
                             if c_yml and "nome" in c_yml:
                                 dados_historico["nome"] = c_yml["nome"]
+                            if c_yml and "id" in c_yml:
+                                dados_historico["id_logico"] = c_yml["id"]
                     except Exception:
                         pass
 

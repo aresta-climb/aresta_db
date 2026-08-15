@@ -145,5 +145,46 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         self.gerenciador.criar_pull_request(mock_g, "minha_branch", "Titulo", "Corpo")
         mock_repo_base.create_pull.assert_called_with(title="Titulo", body="Corpo", head="minha_branch", base="main")
 
+    @patch("editor.core.sync.pygit2")
+    def test_clonar_sucesso(self, mock_pygit2):
+        """Verifica se o clone manual inicializa o repo, configura longpaths e faz checkout."""
+        mock_repo = MagicMock()
+        mock_repo.config = {}
+        mock_pygit2.init_repository.return_value = mock_repo
+        
+        mock_remote = MagicMock()
+        mock_repo.remotes.create.return_value = mock_remote
+        
+        mock_branch = MagicMock()
+        mock_branch.branch_name = "origin/main"
+        mock_branch.target = "fake_target"
+        mock_repo.branches.remote.get.side_effect = lambda name: mock_branch if name == "origin/main" else None
+        
+        mock_local_branch = MagicMock()
+        mock_repo.branches.local.create.return_value = mock_local_branch
+        
+        self.gerenciador.clonar("https://github.com/aresta-climb/aresta_db.git")
+        
+        # Valida init
+        mock_pygit2.init_repository.assert_called_once_with(str(self.caminho_fake), False)
+        # Valida longpaths
+        self.assertTrue(mock_repo.config.get('core.longpaths'))
+        # Valida remotes e fetch
+        mock_repo.remotes.create.assert_called_once_with("origin", "https://github.com/aresta-climb/aresta_db.git")
+        mock_remote.fetch.assert_called_once()
+        # Valida checkout
+        mock_repo.checkout.assert_called_once_with(mock_local_branch)
+
+    @patch("editor.core.sync.pygit2")
+    def test_clonar_falha_sem_branch(self, mock_pygit2):
+        """Verifica se lança RuntimeError quando não acha origin/main ou origin/master."""
+        mock_repo = MagicMock()
+        mock_repo.config = {}
+        mock_pygit2.init_repository.return_value = mock_repo
+        mock_repo.branches.remote.get.return_value = None
+        
+        with self.assertRaisesRegex(RuntimeError, "Não foi possível encontrar a branch main ou master"):
+            self.gerenciador.clonar("https://github.com/url_invalida.git")
+
 if __name__ == "__main__":
     unittest.main()

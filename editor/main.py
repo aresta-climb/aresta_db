@@ -41,6 +41,7 @@ class ControladorAplicativo:
         self.app = QApplication.instance()
         if not self.app:
             self.app = QApplication(sys.argv)
+        self.app.setApplicationName("EditorAresta")
             
         storage = GerenciadorCaminhos()
         caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
@@ -124,6 +125,7 @@ def main():
     app = QApplication.instance()
     if not app:
         app = QApplication(sys.argv)
+    app.setApplicationName("EditorAresta")
 
     # Previne múltiplas instâncias do editor
     shared_mem = QSharedMemory("ArestaEditorSingleInstanceLock")

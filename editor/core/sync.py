@@ -41,10 +41,31 @@ class GerenciadorSincronizacao:
 
     def clonar(self, url_repositorio: str, progresso_callback: Optional[Callable[[float], None]] = None):
         """
-        Clona um repositório para o caminho especificado.
+        Clona um repositório para o caminho especificado garantindo suporte a caminhos longos (core.longpaths).
         """
         callbacks = self._obter_callbacks(progresso_callback)
-        pygit2.clone_repository(url_repositorio, str(self.caminho_repo), callbacks=callbacks)
+        
+        # 1. Inicializa o repositório
+        repo = pygit2.init_repository(str(self.caminho_repo), False)
+        
+        # 2. Configura suporte a MAX_PATH no Windows
+        repo.config['core.longpaths'] = True
+        
+        # 3. Configura remote e faz fetch
+        remote = repo.remotes.create("origin", url_repositorio)
+        remote.fetch(callbacks=callbacks)
+        
+        # 4. Faz checkout da main
+        branch_remota = repo.branches.remote.get("origin/main")
+        if not branch_remota:
+            branch_remota = repo.branches.remote.get("origin/master")
+            
+        if branch_remota:
+            nome_local = branch_remota.branch_name.replace("origin/", "")
+            branch_local = repo.branches.local.create(nome_local, repo[branch_remota.target])
+            repo.checkout(branch_local)
+        else:
+            raise RuntimeError(f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}")
 
     def obter_url_clone(self, g: github.Github, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """

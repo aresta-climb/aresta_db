@@ -20,9 +20,9 @@ class GerenciadorCaminhos:
         appdata = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
         if not appdata:
             # Fallback caso writableLocation falhe
-            appdata = os.path.expanduser("~/.local/share")
+            appdata = os.path.expanduser("~/.local/share/EditorAresta")
             
-        return Path(appdata) / self.nome_app
+        return Path(appdata)
 
     def obter_caminho_recurso_interno(self, caminho_relativo: str) -> Path:
         """
@@ -46,9 +46,9 @@ class GerenciadorCaminhos:
 
     def obter_caminho_croquis_experimentais(self) -> Path:
         """
-        Retorna o caminho para a pasta de croquis experimentais.
+        Retorna o caminho para a pasta de croquis locais (experimentais).
         """
-        return self.obter_diretorio_base() / "croquis_experimentais"
+        return self.obter_diretorio_base() / "croquis"
 
     def obter_caminho_lixeira(self) -> Path:
         """

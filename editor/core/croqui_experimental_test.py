@@ -40,7 +40,7 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     
     # ENTÃO a pasta raiz deve existir dentro de croquis_experimentais
     assert caminho_croqui.parent == storage_temp.obter_caminho_croquis_experimentais()
-    assert "br_mg_teste" in caminho_croqui.name
+    assert len(caminho_croqui.name) == 8
     
     # E deve conter as subpastas database e compilado
     assert (caminho_croqui / "database").is_dir()
@@ -246,7 +246,7 @@ def test_importar_croqui_com_pasta_raiz_aninhada(gerenciador, tmp_path):
     # ENTÃO a estrutura deve ter sido achatada (database deve estar na raiz do destino)
     assert (caminho_final / "database" / "croqui.yaml").exists()
     assert not (caminho_final / "minha_pasta_extra").exists()
-    assert "pico_aninhado" in caminho_final.name
+    assert len(caminho_final.name) == 8
 
 def test_id_original_salvo_ao_criar_e_importar(gerenciador, storage_temp):
     """Verifica se o id_original é salvo no yaml ao criar novo ou importar de oficial."""
@@ -290,9 +290,8 @@ def test_renomear_pasta_croqui_sucesso(gerenciador, storage_temp):
     nova_pasta = gerenciador.renomear_pasta_croqui(pasta_antiga, novo_id)
     
     # Validações
-    assert not pasta_antiga.exists()
-    assert nova_pasta.exists()
-    assert nova_pasta.name == f"{timestamp}_{novo_id}"
+    assert pasta_antiga.exists() # Não muda o nome fisicamente
+    assert nova_pasta == pasta_antiga
     assert (nova_pasta / "teste.txt").read_text() == "ok"
     
 def test_renomear_pasta_croqui_sem_timestamp_prefixo(gerenciador, storage_temp):
@@ -303,12 +302,8 @@ def test_renomear_pasta_croqui_sem_timestamp_prefixo(gerenciador, storage_temp):
     
     nova_pasta = gerenciador.renomear_pasta_croqui(pasta_antiga, "novo_nome")
     
-    assert not pasta_antiga.exists()
-    assert nova_pasta.exists()
-    # Se não tinha timestamp, pode prefixar com a hora atual ou usar apenas o id,
-    # assumiremos que o novo método gere um prefixo novo para manter padrão
-    assert nova_pasta.name.endswith("_novo_nome")
-    assert nova_pasta.name.split("_")[0].isdigit()
+    assert pasta_antiga.exists()
+    assert nova_pasta == pasta_antiga
 
 def test_renomear_pasta_croqui_limpa_compilado_antigo(gerenciador, storage_temp):
     """Verifica se o conteúdo compilado com o ID antigo é apagado ao renomear o croqui."""
@@ -330,7 +325,7 @@ def test_renomear_pasta_croqui_limpa_compilado_antigo(gerenciador, storage_temp)
     
     # Verifica
     assert nova_pasta.exists()
-    assert not pasta_antiga.exists()
+    assert nova_pasta == pasta_antiga
     
     # O diretório 'br_mg_id_velho' NÃO deve existir mais dentro de 'compilado' do novo path
     compilado_velho = nova_pasta / "compilado" / old_id
