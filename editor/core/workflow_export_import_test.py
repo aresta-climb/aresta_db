@@ -48,8 +48,8 @@ def test_workflow_exportacao_importacao_ofuscada(gerenciador, storage_temp, tmp_
     assert caminho_importado.exists()
     assert caminho_importado != caminho_origem
     
-    # O ID deve ser o mesmo (lido do croqui.yaml)
-    assert id_origem in caminho_importado.name
+    # O nome da pasta deve ser um UUID de 8 caracteres
+    assert len(caminho_importado.name) == 8
     
     # Arquivos devem ser idênticos
     assert (caminho_importado / "database" / "info_extra.txt").read_text() == "segredo"
@@ -80,4 +80,4 @@ def test_fallback_importacao_zip_comum(gerenciador, storage_temp, tmp_path):
     # 3. VERIFICAR
     assert caminho_importado.exists()
     assert (caminho_importado / "database" / "croqui.yaml").exists()
-    assert "zip_comum" in caminho_importado.name
+    assert len(caminho_importado.name) == 8
