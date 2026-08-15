@@ -169,9 +169,9 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         mock_pygit2.init_repository.assert_called_once_with(str(self.caminho_fake), False)
         # Valida longpaths
         self.assertTrue(mock_repo.config.get('core.longpaths'))
-        # Valida remotes e fetch
+        # Valida remotes e fetch raso (shallow clone)
         mock_repo.remotes.create.assert_called_once_with("origin", "https://github.com/aresta-climb/aresta_db.git")
-        mock_remote.fetch.assert_called_once()
+        mock_remote.fetch.assert_called_once_with(callbacks=unittest.mock.ANY, depth=1)
         # Valida checkout
         mock_repo.checkout.assert_called_once_with(mock_local_branch)
 

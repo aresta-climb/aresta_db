@@ -51,9 +51,9 @@ class GerenciadorSincronizacao:
         # 2. Configura suporte a MAX_PATH no Windows
         repo.config['core.longpaths'] = True
         
-        # 3. Configura remote e faz fetch
+        # 3. Configura remote e faz fetch (clone raso para agilizar)
         remote = repo.remotes.create("origin", url_repositorio)
-        remote.fetch(callbacks=callbacks)
+        remote.fetch(callbacks=callbacks, depth=1)
         
         # 4. Faz checkout da main
         branch_remota = repo.branches.remote.get("origin/main")
