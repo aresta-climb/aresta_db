@@ -139,7 +139,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Disponibilizar pacote MSIX no GitHub
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: EditorArestaClimb-Windows-MSIX
           path: EditorAresta.msix
