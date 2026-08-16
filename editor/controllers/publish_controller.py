@@ -6,6 +6,7 @@ from PyQt6.QtCore import Qt, QUrl, QSize
 from PyQt6.QtGui import QDesktopServices
 from editor.views.publish_dialog import PublishDialog
 from editor.core.worker import TarefaPublicacao
+from editor.core.servico_loja import ServicoLoja
 from editor.views.estilo import Icones
 import github
 
@@ -55,12 +56,13 @@ class PublishController:
     Controlador responsável pelo fluxo de publicação (Pull Request) no GitHub.
     Gerencia as validações, interface de diálogo e acionamento dos workers de background.
     """
-    def __init__(self, workspace, auth, historico, storage, parent):
+    def __init__(self, workspace, auth, historico, storage, parent, servico_loja=None):
         self.workspace = workspace
         self.auth = auth
         self.historico = historico
         self.storage = storage
         self.parent = parent
+        self.servico_loja = servico_loja or ServicoLoja()
         self.croqui_data = getattr(parent, "croqui_data", None)
         self._worker_pr = None
 
@@ -85,9 +87,25 @@ class PublishController:
     def iniciar_publicacao(self):
         """
         Inicia o fluxo de publicação. 
-        Valida a autenticação e modificações não salvas antes de prosseguir.
+        Valida a versão da Store, autenticação e modificações não salvas antes de prosseguir.
         """
         if not self.workspace or not self.auth:
+            return
+
+        # Guarda de Publicação: Valida se há atualização na Microsoft Store
+        resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
+        if resultado_update.tem_atualizacao:
+            versao_txt = f" (versão {resultado_update.versao_disponivel})" if resultado_update.versao_disponivel else ""
+            resposta = QMessageBox.warning(
+                self.parent,
+                "Atualização Necessária",
+                f"Existe uma nova versão do Aresta Editor{versao_txt} disponível na Microsoft Store.\n\n"
+                "Para manter a integridade do banco de dados, é necessário atualizar o aplicativo antes de publicar alterações.\n\n"
+                "Deseja atualizar agora?",
+                QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel
+            )
+            if resposta == QMessageBox.StandardButton.Ok:
+                self.servico_loja.solicitar_instalacao_atualizacao(resultado_update)
             return
             
         if not self.historico.obter_pilha().isClean():

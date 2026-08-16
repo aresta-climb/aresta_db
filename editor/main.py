@@ -64,11 +64,21 @@ class ControladorAplicativo:
         self.tarefa.mostrar_progresso.connect(self.abertura.exibir_barra_progresso)
         self.tarefa.auth_requerida.connect(self.abertura.exibir_codigo_auth)
         self.tarefa.auth_concluida.connect(self.abertura.esconder_auth)
+        self.tarefa.atualizacao_disponivel.connect(self.ao_detectar_atualizacao)
         self.tarefa.sucesso.connect(self.executar_selecao)
         self.tarefa.erro.connect(self.mostrar_erro)
         
         self.abertura.show()
         self.tarefa.start()
+
+    def ao_detectar_atualizacao(self, resultado):
+        """
+        Exibe a notificação de atualização na Tela de Abertura e configura a ação de atualização.
+        """
+        self.abertura.exibir_aviso_atualizacao(
+            resultado,
+            callback_atualizar=lambda: self.tarefa.servico_loja.solicitar_instalacao_atualizacao(resultado)
+        )
 
     def executar_selecao(self):
         """

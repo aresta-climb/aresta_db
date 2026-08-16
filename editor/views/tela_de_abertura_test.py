@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import QApplication, QLineEdit, QPushButton
 from PyQt6.QtCore import Qt
 from unittest.mock import MagicMock, patch
 from editor.views.tela_de_abertura import TelaDeAbertura
+from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
 
 def test_tela_abertura_componentes_iniciais(qtbot):
     abertura = TelaDeAbertura()
@@ -14,6 +15,7 @@ def test_tela_abertura_componentes_iniciais(qtbot):
     assert abertura.label_status.text() == "Iniciando..."
     assert not abertura.progress_bar.isVisible()
     assert not abertura.auth_container.isVisible()
+    assert not abertura.update_container.isVisible()
 
 def test_tela_abertura_exibir_barra_progresso(qtbot):
     abertura = TelaDeAbertura()
@@ -91,6 +93,31 @@ def test_tela_abertura_logo_oficial(qtbot):
     pixmap = abertura.label_logo.pixmap()
     assert pixmap is not None
     assert not pixmap.isNull()
+
+def test_tela_abertura_exibir_aviso_atualizacao(qtbot):
+    abertura = TelaDeAbertura()
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    resultado = ResultadoAtualizacao(
+        status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL,
+        versao_disponivel="1.5.0.0",
+        mensagem="Nova versão disponível na Microsoft Store."
+    )
+
+    mock_callback = MagicMock()
+    abertura.exibir_aviso_atualizacao(resultado, callback_atualizar=mock_callback)
+
+    assert abertura.update_container.isVisible()
+    assert not abertura.label_status.isVisible()
+    assert "1.5.0.0" in abertura.label_update_info.text()
+
+    # Clica no botão de atualizar
+    qtbot.mouseClick(abertura.btn_atualizar_store, Qt.MouseButton.LeftButton)
+    mock_callback.assert_called_once()
+
+    abertura.esconder_aviso_atualizacao()
+    assert not abertura.update_container.isVisible()
 
 def test_tela_abertura_drag_and_drop(qtbot):
     abertura = TelaDeAbertura()

@@ -188,6 +188,64 @@ class TelaDeAbertura(QWidget):
         
         self.auth_container.hide()
         container_layout.addWidget(self.auth_container)
+        
+        # Widgets de Atualização da Loja (inicialmente ocultos)
+        self.update_container = QWidget()
+        self.update_layout = QVBoxLayout(self.update_container)
+        self.update_layout.setContentsMargins(0, 10, 0, 10)
+        self.update_layout.setSpacing(15)
+        
+        self.label_update_info = QLabel(
+            "Uma nova versão do Aresta Editor está disponível na Microsoft Store.\n\n"
+            "Para continuar, atualize o aplicativo."
+        )
+        self.label_update_info.setWordWrap(True)
+        self.label_update_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_update_info.setStyleSheet("color: #495057; font-size: 14px; line-height: 1.4;")
+        self.update_layout.addWidget(self.label_update_info)
+        
+        self.btn_atualizar_store = QPushButton(" Atualizar na Microsoft Store")
+        self.btn_atualizar_store.setFixedHeight(40)
+        self.btn_atualizar_store.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_atualizar_store.setStyleSheet("""
+            QPushButton {
+                background: #0078d4;
+                color: #ffffff;
+                border: none;
+                border-radius: 4px;
+                padding: 10px 16px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QPushButton:hover { background: #106ebe; }
+        """)
+        self.update_layout.addWidget(self.btn_atualizar_store, alignment=Qt.AlignmentFlag.AlignCenter)
+        
+        self.update_container.hide()
+        container_layout.addWidget(self.update_container)
+        self._callback_atualizar = None
+        self.btn_atualizar_store.clicked.connect(self._ao_clicar_atualizar)
+
+    def _ao_clicar_atualizar(self):
+        if callable(self._callback_atualizar):
+            self._callback_atualizar()
+
+    def exibir_aviso_atualizacao(self, resultado, callback_atualizar=None):
+        self._callback_atualizar = callback_atualizar
+        versao = resultado.versao_disponivel if resultado and resultado.versao_disponivel else ""
+        texto_versao = f" (versão {versao})" if versao else ""
+        self.label_update_info.setText(
+            f"Uma nova versão do Aresta Editor{texto_versao} está disponível na Microsoft Store.\n\n"
+            "Por favor, atualize o aplicativo para garantir a integridade dos dados."
+        )
+        self.label_status.hide()
+        self.progress_bar.hide()
+        self.auth_container.hide()
+        self.update_container.show()
+
+    def esconder_aviso_atualizacao(self):
+        self.update_container.hide()
+        self.label_status.show()
 
     def atualizar_status(self, texto: str):
         self.label_status.setText(texto)
@@ -227,3 +285,4 @@ class TelaDeAbertura(QWidget):
         if event.buttons() & Qt.MouseButton.LeftButton and hasattr(self, '_drag_pos'):
             self.move(event.globalPosition().toPoint() - self._drag_pos)
             event.accept()
+

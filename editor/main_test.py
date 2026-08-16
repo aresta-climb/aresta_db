@@ -34,9 +34,29 @@ def test_fluxo_inicializacao_passa_auth_para_janela(qtbot):
 
 def test_controlador_app_conecta_sinais_corretamente(qtbot):
     # Verificamos manualmente se os sinais usados no ControladorApp existem no TarefaInicializacao
-    sinais_necessarios = ["status", "progresso", "mostrar_progresso", "auth_requerida", "auth_concluida", "sucesso", "erro"]
+    sinais_necessarios = ["status", "progresso", "mostrar_progresso", "atualizacao_disponivel", "auth_requerida", "auth_concluida", "sucesso", "erro"]
     for sinal in sinais_necessarios:
         assert hasattr(TarefaInicializacao, sinal), f"O TarefaInicializacao não possui o sinal '{sinal}'"
+
+def test_controlador_app_ao_detectar_atualizacao(qtbot):
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        qtbot.addWidget(controlador.abertura)
+        controlador.abertura.exibir_aviso_atualizacao = MagicMock()
+        
+        mock_resultado = MagicMock()
+        controlador.ao_detectar_atualizacao(mock_resultado)
+        
+        controlador.abertura.exibir_aviso_atualizacao.assert_called_once()
+        args, kwargs = controlador.abertura.exibir_aviso_atualizacao.call_args
+        assert args[0] == mock_resultado
+        assert callable(kwargs.get("callback_atualizar"))
+        
+        # Testa a execução do callback
+        callback = kwargs.get("callback_atualizar")
+        controlador.tarefa.servico_loja = MagicMock()
+        callback()
+        controlador.tarefa.servico_loja.solicitar_instalacao_atualizacao.assert_called_once_with(mock_resultado)
 
 def test_fluxo_inicializacao_transicao(qtbot):
     with patch("editor.main.TarefaInicializacao") as MockTarefa:

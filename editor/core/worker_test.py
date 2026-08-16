@@ -571,5 +571,72 @@ class TestWorker(unittest.TestCase):
         tarefa.sucesso.emit.assert_called_once()
         tarefa.aviso.emit.assert_not_called()
 
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.GerenciadorAutenticacao")
+    @patch("editor.core.worker.ServicoLoja")
+    def test_tarefa_inicializacao_detecta_atualizacao_store(self, mock_servico_loja_class, mock_auth_class, mock_storage_class):
+        """Quando a Store tem atualização, TarefaInicializacao deve emitir atualizacao_disponivel e interromper."""
+        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        mock_servico = mock_servico_loja_class.return_value
+        res = ResultadoAtualizacao(
+            status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL,
+            versao_disponivel="1.5.0.0"
+        )
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = res
+
+        tarefa = TarefaInicializacao("test_client")
+        tarefa.atualizacao_disponivel = MagicMock()
+        tarefa.sucesso = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+
+        tarefa.run()
+
+        mock_servico.verificar_atualizacoes_disponiveis.assert_called_once()
+        tarefa.atualizacao_disponivel.emit.assert_called_once_with(res)
+        tarefa.sucesso.emit.assert_not_called()
+        # Não deve ter tentado autenticar
+        mock_auth_class.return_value.recuperar_token.assert_not_called()
+
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    @patch("editor.core.worker.github.Github")
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.GerenciadorAutenticacao")
+    @patch("editor.core.worker.ServicoLoja")
+    def test_tarefa_inicializacao_bypass_fora_da_store(self, mock_servico_loja_class, mock_auth_class, mock_storage_class, mock_github, mock_sync_class):
+        """Quando fora da Store (NAO_APLICAVEL), TarefaInicializacao deve seguir normalmente."""
+        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        mock_servico = mock_servico_loja_class.return_value
+        res = ResultadoAtualizacao(
+            status=StatusAtualizacao.NAO_APLICAVEL,
+            mensagem="Bypass ativo"
+        )
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = res
+
+        mock_auth = mock_auth_class.return_value
+        mock_auth.recuperar_token.return_value = "fake_token"
+        mock_auth.validar_token.return_value = True
+        mock_auth.usuario_logado = "usuario_teste"
+
+        mock_storage = mock_storage_class.return_value
+        caminho_repo = MagicMock()
+        caminho_repo.exists.return_value = True
+        caminho_repo.iterdir.return_value = ["dummy"]
+        mock_storage.obter_caminho_base_repo.return_value = caminho_repo
+
+        tarefa = TarefaInicializacao("test_client")
+        tarefa.atualizacao_disponivel = MagicMock()
+        tarefa.sucesso = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.mostrar_progresso = MagicMock()
+
+        tarefa.run()
+
+        mock_servico.verificar_atualizacoes_disponiveis.assert_called_once()
+        tarefa.atualizacao_disponivel.emit.assert_not_called()
+        mock_auth.recuperar_token.assert_called()
+        tarefa.sucesso.emit.assert_called_once()
+
 if __name__ == "__main__":
     unittest.main()

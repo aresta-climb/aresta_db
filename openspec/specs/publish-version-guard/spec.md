@@ -1,5 +1,9 @@
-## ADDED Requirements
+# publish-version-guard Specification
 
+## Purpose
+Garante que o Aresta Editor seja executado em versões sincronizadas com a Microsoft Store, prevenindo inconsistências de dados no banco de dados comunitário através de verificação no boot e guarda na publicação.
+
+## Requirements
 ### Requirement: Verificação de Atualização na Microsoft Store no Boot
 O sistema DEVE verificar se existem atualizações disponíveis na Microsoft Store durante o processo de inicialização do aplicativo (`TelaDeAbertura`).
 
@@ -18,9 +22,13 @@ O sistema DEVE validar a versão do editor junto à Microsoft Store antes de per
 - **WHEN** o usuário clica em "Publicar" e o aplicativo detecta que uma versão mais recente está disponível na Microsoft Store
 - **THEN** o sistema cancela a publicação, exibe diálogo explicativo e direciona o usuário para atualizar o aplicativo na Microsoft Store.
 
-### Requirement: Acionamento da Interface de Atualização da Loja
-O sistema DEVE permitir ao usuário acionar a atualização oficial da Microsoft Store (via API nativa `StoreContext` ou protocolo `ms-windows-store://`).
+### Requirement: Acionamento da Interface de Atualização da Loja (Estratégia Híbrida)
+O sistema DEVE permitir ao usuário acionar a atualização oficial da Microsoft Store, priorizando a interface in-app e recorrendo ao deep link como fallback.
 
-#### Scenario: Usuário clica em Atualizar
-- **WHEN** o usuário confirma o desejo de atualizar o aplicativo
-- **THEN** o sistema aciona a rotina de atualização da Microsoft Store e encerra o aplicativo de forma limpa para permitir que o Windows instale o novo pacote.
+#### Scenario: Atualização in-app bem-sucedida
+- **WHEN** o usuário clica em "Atualizar" e a API WinRT está acessível
+- **THEN** o sistema aciona `RequestDownloadAndInstallStorePackageUpdatesAsync`, exibindo a interface modal do Windows com progresso do download sobreposta ao app.
+
+#### Scenario: Fallback para deep link da Loja
+- **WHEN** a chamada in-app da API WinRT falha ou não está disponível
+- **THEN** o sistema abre a página do aplicativo na Microsoft Store via `ms-windows-store://pdp/?ProductId=...` e encerra a aplicação de forma limpa para permitir que a Loja conclua a instalação sem lock de arquivo.

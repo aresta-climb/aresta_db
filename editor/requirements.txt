@@ -12,3 +12,5 @@ qrcode
 pillow
 ruamel.yaml
 pytest-xdist
+winrt-Windows.Services.Store; sys_platform == 'win32'
+winrt-Windows.ApplicationModel; sys_platform == 'win32'

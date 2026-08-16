@@ -13,19 +13,22 @@ import github
 from editor.core.auth import GerenciadorAutenticacao
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
+from editor.core.servico_loja import ServicoLoja
 import github
 
 class TarefaInicializacao(QThread):
     """
     Thread responsável por coordenar a inicialização:
     1. Storage check
-    2. GitHub Auth (Token check ou Device Flow)
-    3. Git Sync (Clone ou Pull/Reset)
+    2. Microsoft Store Update check
+    3. GitHub Auth (Token check ou Device Flow)
+    4. Git Sync (Clone ou Pull/Reset)
     """
     
     progresso = pyqtSignal(int)
     mostrar_progresso = pyqtSignal(bool)
     status = pyqtSignal(str)
+    atualizacao_disponivel = pyqtSignal(object) # ResultadoAtualizacao
     auth_requerida = pyqtSignal(str) # user_code
     auth_concluida = pyqtSignal()
     sucesso = pyqtSignal()
@@ -36,6 +39,7 @@ class TarefaInicializacao(QThread):
         self.id_cliente = id_cliente
         self.storage = GerenciadorCaminhos()
         self.auth = GerenciadorAutenticacao(id_cliente)
+        self.servico_loja = ServicoLoja()
 
     def run(self):
         try:
@@ -47,7 +51,17 @@ class TarefaInicializacao(QThread):
             self.storage.inicializar_diretorios()
             self.progresso.emit(10)
 
-            # 2. Autenticação
+            # 2. Verificação de Atualização na Microsoft Store
+            self.status.emit("Verificando atualizações na Microsoft Store...")
+            resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
+            if resultado_update.tem_atualizacao:
+                print(f"[INFO] Atualização detectada na Microsoft Store: {resultado_update.versao_disponivel}")
+                self.atualizacao_disponivel.emit(resultado_update)
+                return
+
+            self.progresso.emit(20)
+
+            # 3. Autenticação
             self.status.emit("Verificando autenticação...")
             print("[INFO] Verificando token no keyring...")
             token = self.auth.recuperar_token()

@@ -10,15 +10,18 @@ Seguindo o **PRINCIPIOS.md**, toda a lógica será desenvolvida com **TDD**, **1
 
 ## What Changes
 
-- **Biblioteca `ServicoLoja` (Library-First)**: Criação de um módulo isolado (`editor/core/servico_loja.py`) responsável por interagir com as APIs da Microsoft Store (`Windows.Services.Store.StoreContext` via WinRT), detectar se a aplicação roda empacotada com identidade MSIX (*Package Identity*), checar updates de forma assíncrona e acionar a UI nativa de instalação ou o protocolo `ms-windows-store://`.
+- **Biblioteca `ServicoLoja` (Library-First)**: Criação de um módulo isolado (`editor/core/servico_loja.py`) responsável por interagir com as APIs da Microsoft Store (`Windows.Services.Store.StoreContext` via WinRT), detectar se a aplicação roda empacotada com identidade MSIX (*Package Identity*), checar updates de forma assíncrona e orquestrar a instalação.
+- **Estratégia Híbrida de Atualização**:
+  - **Via Principal (In-App)**: Executa `RequestDownloadAndInstallStorePackageUpdatesAsync` da API WinRT, apresentando a janela modal oficial do Windows com a barra de download sobreposta ao app.
+  - **Fallback Seguro (Deep Link)**: Caso a chamada WinRT falhe ou não esteja disponível, aciona o protocolo `ms-windows-store://pdp/?ProductId=...` e comanda o encerramento gracioso da aplicação (`QApplication.quit()`), garantindo que o usuário nunca fique bloqueado sem conseguir atualizar.
 - **Checagem de Atualização na Inicialização (`TelaDeAbertura` / `TarefaInicializacao`)**:
   - Durante o boot, uma etapa "Verificando atualizações na Microsoft Store..." é executada.
-  - Em ambiente de desenvolvimento local (sem identidade MSIX), a checagem é ignorada graciosamente (fallback aberto).
+  - Em ambiente de desenvolvimento local (sem identidade MSIX), a checagem é ignorada graciosamente (fallback aberto / bypass transparente).
   - Em ambiente de produção (MSIX), havendo atualização disponível/obrigatória, a `TelaDeAbertura` exibe aviso e botão para disparar o update na Store antes de liberar o editor.
 - **Guarda no `PublishController`**:
   - Antes de iniciar a publicação, verifica se o editor está defasado em relação à Loja. Se estiver, interrompe o fluxo e solicita que o usuário atualize o app.
 - **TDD Rigoroso e Mocks**:
-  - Todos os cenários (presença de identidade MSIX, ausência de pacote, update obrigatório, update opcional, erro de rede, clique em atualizar) serão cobertos por testes unitários com mocks completos, garantindo 100% de cobertura no CI.
+  - Todos os cenários (presença de identidade MSIX, ausência de pacote/dev, update obrigatório, update opcional, erro de rede, sucesso do in-app update, fallback para deep link) serão cobertos por testes unitários com mocks completos, garantindo 100% de cobertura no CI.
 
 ## Capabilities
 
@@ -32,5 +35,5 @@ Seguindo o **PRINCIPIOS.md**, toda a lógica será desenvolvida com **TDD**, **1
 ## Impact
 
 - Inicialização segura: impede que usuários iniciem trabalhos ou editem croquis em versões defasadas.
-- Experiência nativa do Windows: integração direta com o instalador e a interface oficial da Microsoft Store.
+- Experiência nativa do Windows: diálogo integrado com barra de progresso nativa do Windows Store, com fallback 100% resiliente para o app da Loja.
 - Zero impacto no ambiente de desenvolvimento: desenvolvedores rodando via Python local continuam com fluxo normal sem bloqueios.
