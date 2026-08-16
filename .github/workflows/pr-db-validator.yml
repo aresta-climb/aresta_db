@@ -26,18 +26,20 @@ jobs:
             editor
             serving
             scripts
+            requirements-deploy.txt
       
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10
         with:
-          python-version: '3.13'
-          cache: 'pip'
-          cache-dependency-path: |
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: |
             serving/requirements-pr_db_validator.txt
             requirements-deploy.txt
 
       - name: Install dependencies
-        run: pip install -r serving/requirements-pr_db_validator.txt
+        run: uv pip install --system -r serving/requirements-pr_db_validator.txt
           
       - name: Get changed files
         id: changed-files

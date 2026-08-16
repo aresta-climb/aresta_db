@@ -45,15 +45,16 @@ jobs:
           submodules: recursive
           ref: ${{ steps.pr-info.outputs.branch }}
           
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10
         with:
-          python-version: '3.13'
-          cache: 'pip'
-          cache-dependency-path: requirements-deploy.txt
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: requirements-deploy.txt
 
       - name: Install dependencies
-        run: pip install -r requirements-deploy.txt
+        run: uv pip install --system -r requirements-deploy.txt
           
       - name: Get changed files
         id: changed-files
