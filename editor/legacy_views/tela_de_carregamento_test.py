@@ -228,10 +228,8 @@ def test_tela_de_carregamento_verifica_exaustividade_dos_dados(qtbot, tmp_path):
     # Validar Resumo
     assert "Limpeza da base" in widget.label_resumo.text()
     
-    # Validar ID (Deve exibir o lógico do YAML e o físico da pasta)
-    # Como id_pasta é '20260501123000_brasil_mg_bh_popeye', esse é o físico
-    assert "ID: br_mg_bh_popeye_logico" in widget.lbl_id.text()
-    assert id_pasta in widget.lbl_id.text()
+    # Validar ID (Deve exibir o ID da pasta)
+    assert widget.lbl_id.text() == f"ID: {id_pasta}"
     
     # Validar Data (Última Edição formatada no fuso local)
     dt_local = datetime.fromisoformat(data_iso.replace("Z", "+00:00")).astimezone()

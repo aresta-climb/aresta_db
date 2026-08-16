@@ -237,12 +237,8 @@ class WidgetItemHistorico(QWidget):
         footer_layout = QHBoxLayout()
         footer_layout.setSpacing(12)
         
-        id_fisico = dados.get('id', 'N/A')
-        id_logico = dados.get('id_logico')
-        if id_logico:
-            texto_id = f"ID: {id_logico} (Pasta: {id_fisico})"
-        else:
-            texto_id = f"ID: {id_fisico}"
+        id_pasta = dados.get('id', 'N/A')
+        texto_id = f"ID: {id_pasta}"
             
         self.lbl_id = QLabel(texto_id)
         self.lbl_id.setStyleSheet("color: #7f8c8d; font-size: 10px;")
