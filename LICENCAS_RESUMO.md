@@ -5,7 +5,7 @@ Acreditamos que todo mundo deve conseguir entender o que pode e não pode fazer 
 Este é um **resumo prático e amigável (TL;DR)** do ecossistema de licenciamento do projeto. 
 
 > [!WARNING] 
-> Este documento tem caráter educativo. Em caso de disputas legais, os textos oficiais em inglês da GPLv3, Apache 2.0, ODbL e CC-BY-SA prevalecem.
+> Este documento tem caráter educativo. Em caso de disputas legais, os textos oficiais em inglês da GPLv3, Apache 2.0 e ODbL prevalecem.
 
 ---
 
@@ -57,7 +57,7 @@ Para proteger a autoria de contribuições literárias, descrições detalhadas 
 
 O ArestaDB cataloga dados, croquis e informações históricas para a preservação da memória da escalada e acesso da comunidade. Todo o nosso esforço é direcionado para creditar corretamente os autores originais. 
 
-Os metadados estruturados do projeto (arquivos `.yaml` e frontmatter YAM nos arquivos `.md`) operam sob a licença livre **ODbL 1.0**. No entanto, reconhecemos que todo o corpo de texto nos arquivos Markdown, além de materiais históricos em PDF e imagens, pertencem estritamente aos seus autores e não possuem licenciamento livre. Nós os catalogamos sob o princípio do **Uso Justo (Fair Use)** para fins educacionais e de arquivo histórico, sem fins lucrativos.
+Os metadados estruturados do projeto (arquivos `.yaml` e frontmatter YAML nos arquivos `.md`) operam sob a licença livre **ODbL 1.0**. No entanto, reconhecemos que todo o corpo de texto nos arquivos Markdown, além de materiais históricos em PDF e imagens, pertencem estritamente aos seus autores e não possuem licenciamento livre. Nós os catalogamos sob o princípio do **Uso Justo (Fair Use)** para fins educacionais e de arquivo histórico, sem fins lucrativos.
 
 Se você é o autor ou detentor dos direitos autorais de qualquer material, imagem, artigo ou PDF hospedado neste repositório e **não concorda com a sua exibição gratuita**, por favor tome uma das ações abaixo:
  * Envie um email para contato@arestaclimb.com pedindo a remoção do conteúdo
