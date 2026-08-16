@@ -1,3 +1,6 @@
+> **Status**: Proposta Cancelada / Não Implementada
+> **Motivo**: A distribuição e atualização do Aresta Editor passaram a ser gerenciadas nativamente via Windows Store, tornando o mecanismo customizado de auto-updater desnecessário.
+
 ## Why
 
 Para blindar o ciclo de vida e a distribuição do Editor Aresta no Windows. O processo de distribuição manual de executáveis é passível de falha humana, resultando em desenvolvedores usando versões defasadas espalhadas em diretórios aleatórios. Ao prover um mecanismo de auto-instalação e atualização silenciosa na inicialização, garantimos que 100% da equipe utilize o build mais recente em um ambiente canônico previsível.

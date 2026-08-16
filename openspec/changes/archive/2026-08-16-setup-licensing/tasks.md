@@ -24,5 +24,5 @@
 
 ## 5. Validação Automática de DCO no GitHub
 
-- [ ] 5.1 Acessar https://github.com/apps/dco e instalar o app no repositório `aresta_db` (Tarefa manual)
-- [ ] 5.2 Configurar regras de proteção de branch (Branch Protection Rules) no GitHub para exigir o status check do DCO antes do merge (Tarefa manual)
+- [x] 5.1 Acessar https://github.com/apps/dco e instalar o app no repositório `aresta_db` (Tarefa manual)
+- [x] 5.2 Configurar regras de proteção de branch (Branch Protection Rules) no GitHub para exigir o status check do DCO antes do merge (Tarefa manual)

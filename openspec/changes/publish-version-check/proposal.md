@@ -1,22 +1,36 @@
 ## Why
 
-Para garantir integridade de dados ao longo do tempo. Quando usuários deixam o Editor Aresta aberto por longos períodos (dias seguidos), eles contornam qualquer mecanismo futuro de auto-update acionado na inicialização do aplicativo (boot). Isso cria uma brecha perigosa onde croquis podem ser publicados com esquemas estruturais desatualizados caso um release tenha sido feito durante o tempo de uso da pessoa. Inserir uma trava rígida (hard block) imediatamente antes do fluxo de publicação impede que dados corrompidos ou defasados entrem no banco de dados.
+Com a migração da distribuição e empacotamento do Aresta Editor para o formato MSIX via **Microsoft Store**, a integridade dos dados e o ciclo de vida do aplicativo passam a ser gerenciados pela infraestrutura da plataforma Windows. 
+
+No entanto, usuários podem iniciar o editor com versões desatualizadas ou manter sessões abertas por dias enquanto uma nova versão do aplicativo com alterações no esquema de dados (Protobuf / YAML) é publicada na loja. Para evitar corrupção ou inconsistência no banco de dados comunitário, o editor deve checar ativamente na **Microsoft Store** se há atualizações disponíveis:
+1. **No Boot (Tela de Abertura)**: Antes de abrir a seleção de croquis ou área principal, o app verifica a disponibilidade de novas versões na Loja. Se houver atualização (especialmente obrigatória), exibe a interface de atualização nativa ou direciona para a Microsoft Store.
+2. **Na Publicação (Guarda no Publish)**: Como salvaguarda para sessões de longa duração, uma checagem rápida impede o envio de dados caso o editor tenha ficado desatualizado durante a sessão.
+
+Seguindo o **PRINCIPIOS.md**, toda a lógica será desenvolvida com **TDD**, **100% de cobertura de testes unitários**, abordagem **Library-First** e código 100% em **Português**.
 
 ## What Changes
 
-- **Guarda de Trânsito no Publish**: O `PublishController` (`iniciar_publicacao`) fará uma checagem mandatória da versão mais recente do repositório antes mesmo de checar modificações locais ou montar a Pull Request.
-- **Requisição Assíncrona via Token**: A chamada ao GitHub API (`GET /releases/latest`) será feita de forma assíncrona exibindo uma barra de progresso, e utilizará o token de autenticação (já presente em `self.auth`) para burlar limites de Rate Limiting.
-- **Hard Block & Restart**: Se o aplicativo constatar que está desatualizado, o processo de publicação é abortado instantaneamente. Um alerta forçará o usuário a reiniciar o editor (gatilho que iniciará o download automático assumido para a Fase 3).
+- **Biblioteca `ServicoLoja` (Library-First)**: Criação de um módulo isolado (`editor/core/servico_loja.py`) responsável por interagir com as APIs da Microsoft Store (`Windows.Services.Store.StoreContext` via WinRT), detectar se a aplicação roda empacotada com identidade MSIX (*Package Identity*), checar updates de forma assíncrona e acionar a UI nativa de instalação ou o protocolo `ms-windows-store://`.
+- **Checagem de Atualização na Inicialização (`TelaDeAbertura` / `TarefaInicializacao`)**:
+  - Durante o boot, uma etapa "Verificando atualizações na Microsoft Store..." é executada.
+  - Em ambiente de desenvolvimento local (sem identidade MSIX), a checagem é ignorada graciosamente (fallback aberto).
+  - Em ambiente de produção (MSIX), havendo atualização disponível/obrigatória, a `TelaDeAbertura` exibe aviso e botão para disparar o update na Store antes de liberar o editor.
+- **Guarda no `PublishController`**:
+  - Antes de iniciar a publicação, verifica se o editor está defasado em relação à Loja. Se estiver, interrompe o fluxo e solicita que o usuário atualize o app.
+- **TDD Rigoroso e Mocks**:
+  - Todos os cenários (presença de identidade MSIX, ausência de pacote, update obrigatório, update opcional, erro de rede, clique em atualizar) serão cobertos por testes unitários com mocks completos, garantindo 100% de cobertura no CI.
 
 ## Capabilities
 
 ### New Capabilities
-- `publish-version-guard`: Trava de segurança inserida no fluxo de publicação, responsável pela interface e regra de checagem.
+- `store-update-guard`: Verificação de versões e orquestração de atualizações via APIs da Microsoft Store (WinRT `StoreContext` e URI `ms-windows-store://`), tanto no boot quanto na publicação.
 
 ### Modified Capabilities
+- `editor-inicializacao`: Adiciona a etapa de checagem da Microsoft Store na `TarefaInicializacao` e interface na `TelaDeAbertura`.
+- `publicacao-croqui`: Adiciona validação de versão da loja no `PublishController`.
 
 ## Impact
 
-- Modificações focadas e encapsuladas na view de diálogo de publicação e no `PublishController`.
-- Fluxo de UX levemente estendido: todo publish exibirá por milissegundos uma tela de "Verificando versão...".
-- Usuários de longa-sessão serão abruptamente interrompidos e não terão opção de ignorar o update.
+- Inicialização segura: impede que usuários iniciem trabalhos ou editem croquis em versões defasadas.
+- Experiência nativa do Windows: integração direta com o instalador e a interface oficial da Microsoft Store.
+- Zero impacto no ambiente de desenvolvimento: desenvolvedores rodando via Python local continuam com fluxo normal sem bloqueios.

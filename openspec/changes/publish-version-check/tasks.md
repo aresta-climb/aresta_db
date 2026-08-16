@@ -1,24 +1,29 @@
 ## 1. Testes de Integração e TDD Inicial (Princípios III, IV e V)
 
-- [ ] 1.1 Criar testes de integração do fluxo de publicação definindo cenários de bloqueio por desatualização, sucesso e falha de rede.
-- [ ] 1.2 Criar arquivos de testes unitários (`_test.py`) para o Worker e Utilitários antes de sua implementação (TDD). 
-- [ ] 1.3 Assegurar 100% de cobertura de código (`unit test coverage`) cobrindo 100% dos fluxos e comportamentos da funcionalidade.
+- [ ] 1.1 Criar a suíte de testes unitários `editor/core/servico_loja_test.py` cobrindo:
+  - Detecção de identidade de pacote MSIX (presente vs ausente em ambiente dev).
+  - Consulta de atualizações na Microsoft Store com mock de `StoreContext` (sem updates, update opcional, update obrigatório, falha de rede/API).
+  - Ação de solicitar atualização nativa e abertura de protocolo `ms-windows-store://`.
+- [ ] 1.2 Criar os testes unitários em `editor/views/tela_de_abertura_test.py` cobrindo a interface visual de notificação de atualização da Store.
+- [ ] 1.3 Criar os testes unitários em `editor/controllers/publish_controller_test.py` cobrindo o bloqueio da publicação quando detectada versão defasada na Store.
+- [ ] 1.4 Assegurar 100% de cobertura de código (`unit test coverage`) em todas as novas rotinas e classes.
 
-## 2. Implementação do Worker de Checagem (QThread)
+## 2. Implementação da Biblioteca `ServicoLoja` (Library-First)
 
-- [ ] 2.1 Implementar a classe assíncrona `TarefaChecarVersao` (herdando de `QThread`) em `editor/core/worker.py` capaz de bater na rota `GET /repos/aresta-climb/aresta_db/releases/latest`, passando nos testes falhos.
-- [ ] 2.2 Configurar a injeção do header de Authorization com o Token retornado de `auth.recuperar_token()`, mitigando limits.
-- [ ] 2.3 Programar a comparação básica de SemVer pegando a key `tag_name` do retorno JSON da API contra a constante local presente no módulo `version`.
-- [ ] 2.4 Determinar e instanciar os 3 sinais fundamentais da thread: `versao_ok`, `desatualizado(str_nova_versao)` e `erro_rede`.
+- [ ] 2.1 Implementar a classe `ServicoLoja` em `editor/core/servico_loja.py` (passando nos testes do TDD).
+- [ ] 2.2 Implementar a detecção segura de identidade de pacote MSIX e fallback gracioso para ambiente de desenvolvimento local e CI.
+- [ ] 2.3 Implementar a consulta assíncrona na Microsoft Store via `StoreContext` (ou WinRT compatível).
+- [ ] 2.4 Implementar os métodos de acionamento da UI nativa de instalação de update da Store e abertura do protocolo `ms-windows-store://`.
 
-## 3. Bloqueio no PublishController
+## 3. Integração no Boot (`TarefaInicializacao` & `TelaDeAbertura`)
 
-- [ ] 3.1 Modificar o método `iniciar_publicacao` da classe `PublishController` instanciando primeiro uma `QProgressDialog` com aviso de "Verificando versão..." conectada ao worker recém criado.
-- [ ] 3.2 Conectar os callbacks. Somente o acionamento do callback `_on_versao_ok` invocará o miolo original da função, que continua com o build local e validações.
-- [ ] 3.3 Em caso de `erro_rede`, notificar na UI a falha mas conceder bypass (fallback aberto).
+- [ ] 3.1 Integrar o `ServicoLoja` na `TarefaInicializacao` em `editor/core/worker.py`, adicionando o passo de verificação da Microsoft Store.
+- [ ] 3.2 Implementar os sinais `atualizacao_disponivel` e `atualizacao_obrigatoria` na `TarefaInicializacao`.
+- [ ] 3.3 Adicionar componentes de UI na `TelaDeAbertura` para exibir aviso de nova versão disponível na Loja com botão "Atualizar na Microsoft Store".
+- [ ] 3.4 Conectar a ação do botão de atualização para disparar o instalador da Store / protocolo e fechar o aplicativo para a atualização do pacote MSIX.
 
-## 4. Hard Restart (Fechando o ciclo)
+## 4. Guarda no Publish (`PublishController`)
 
-- [ ] 4.1 Implementar uma função limpa (ex: `reiniciar_aplicativo()` via Utils/Core) que executa `subprocess.Popen([sys.executable])` e comanda `QApplication.quit()` imediatamente, guiada por testes (mocking `subprocess`).
-- [ ] 4.2 No callback `_on_desatualizado` instanciar uma janela Custom QMessageBox de Erro/Aviso.
-- [ ] 4.3 Popular esse aviso detalhando a obrigatoriedade da reinicialização devido a disparidade estrutural, oferecendo o botão "Reiniciar Editor".
+- [ ] 4.1 Modificar `iniciar_publicacao` no `PublishController` para consultar o `ServicoLoja` antes de prosseguir.
+- [ ] 4.2 Exibir diálogo informativo/crítico bloqueando a publicação se houver nova versão na Store, com botão de abrir a Microsoft Store.
+- [ ] 4.3 Garantir fallback aberto em caso de falha de conexão na checagem da Loja durante a publicação.
