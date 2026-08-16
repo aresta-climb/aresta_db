@@ -136,6 +136,22 @@ class PaginaMapas(PaginaBase):
                 self.editor.painel_referencias.mapas_controller = mapas_controller
             self.editor.configurar_lista_mapas()
 
+class PaginaBetas(PaginaBase):
+    def __init__(self, parent=None):
+        super().__init__("Betas", parent)
+        self.layout().removeWidget(self.label)
+        self.label.deleteLater()
+        self.layout().setContentsMargins(0, 0, 0, 0)
+        from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
+        self.painel = PainelCuradoria(parent=self)
+        self.layout().addWidget(self.painel)
+
+    def carregar_betas(self, caminho_db):
+        if caminho_db:
+            caminho_staging = Path(caminho_db) / "betas_pendentes.binarypb"
+            if caminho_staging.exists():
+                self.painel.carregar_staging(caminho_staging)
+
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent=None):
         super().__init__("Histórico", parent)
@@ -422,13 +438,18 @@ class JanelaPrincipal(QMainWindow):
         self.acao_nav_mapas.setCheckable(True)
         self.acao_nav_mapas.triggered.connect(lambda: self._trocar_pagina(2))
         
+        self.acao_nav_betas = QAction(Icones.obter("betas"), "Betas", self)
+        self.acao_nav_betas.setToolTip("Betas")
+        self.acao_nav_betas.setCheckable(True)
+        self.acao_nav_betas.triggered.connect(lambda: self._trocar_pagina(3))
+
         self.acao_nav_historico = QAction(Icones.obter("historico"), "Histórico", self)
         self.acao_nav_historico.setToolTip("Histórico")
         self.acao_nav_historico.setCheckable(True)
         self.acao_nav_historico.setVisible(False) # TODO: Habilitar quando for implementado
-        self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(3))
+        self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(4))
         
-        self.grupo_nav = [self.acao_nav_dados, self.acao_nav_imagens, self.acao_nav_mapas, self.acao_nav_historico]
+        self.grupo_nav = [self.acao_nav_dados, self.acao_nav_imagens, self.acao_nav_mapas, self.acao_nav_betas, self.acao_nav_historico]
         
         # Adiciona ações na toolbar lateral (setSpacing(4) cuidará do gap)
         self.toolbar_lateral.addActions(self.grupo_nav)
@@ -446,11 +467,13 @@ class JanelaPrincipal(QMainWindow):
         self.pagina_dados = PaginaDados(self)
         self.pagina_imagens = PaginaImagens(self)
         self.pagina_mapas = PaginaMapas(self)
+        self.pagina_betas = PaginaBetas(self)
         self.pagina_historico = PaginaHistorico(self)
         
         self.stack.addWidget(self.pagina_dados)
         self.stack.addWidget(self.pagina_imagens)
         self.stack.addWidget(self.pagina_mapas)
+        self.stack.addWidget(self.pagina_betas)
         self.stack.addWidget(self.pagina_historico)
         
         self.stack.setCurrentWidget(self.pagina_dados)
@@ -571,6 +594,7 @@ class JanelaPrincipal(QMainWindow):
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
                 self.pagina_imagens.carregar_imagens(caminho_db)
+                self.pagina_betas.carregar_betas(caminho_db)
                 
     def salvar_croqui(self, callback_sucesso=None):
         """Salva as alterações, compila e faz commit no git local se aplicável."""

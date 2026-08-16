@@ -767,3 +767,86 @@ def test_injetar_precomputados():
     assert pico["precomputados"]["total_grupos"] == 1
     assert pico["precomputados"]["total_esportivas"] == 2
     assert pico["precomputados"]["total_boulders"] == 1
+
+
+def test_compilar_croqui_com_betas(tmp_path):
+    """
+    Testa se o compilador de croqui serializa corretamente o bloco betas de uma escalada.
+    """
+    import yaml
+    from aresta_api.proto.generated import croqui_pb2, beta_pb2
+    from scripts.preparar_submissao_lib import compilar_croqui
+
+    pico_dir = tmp_path / "pico_teste"
+    pico_dir.mkdir()
+
+    # Cria setor com escalada contendo betas
+    setor_md = pico_dir / "setor_1.md"
+    setor_conteudo = """---
+nome: Setor Teste
+escaladas:
+  - via_esportiva:
+      nome: Via dos Betas
+    betas:
+      - url: https://www.youtube.com/watch?v=xyz123
+        titulo: Beta Completo
+        fonte: YOUTUBE
+        thumbnail_url: https://img.youtube.com/vi/xyz123/hqdefault.jpg
+        meta:
+          resumo_do_movimento: Agarre a reglete com a mão esquerda e faça o bote no bowl.
+          llm_confidence_score: 95
+          llm_reasoning: Nome e grau batem exatamente com a descrição do vídeo.
+        match_multiplas_fontes: true
+        match_nome_no_snippet: true
+---
+Descrição do setor de teste.
+"""
+    setor_md.write_text(setor_conteudo, encoding="utf-8")
+
+    # Cria croqui.yaml
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_data = {
+        "nome": "Croqui Teste Betas",
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "caminho": "setor_1.md"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_binarypb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
+
+    # Lê o binarypb gerado e valida o bloco betas
+    croqui_msg = croqui_pb2.Croqui()
+    with open(destino_binarypb, "rb") as f:
+        croqui_msg.ParseFromString(f.read())
+
+    setor = croqui_msg.picos[0].setores_ou_grupos[0].setor.conteudo
+    assert len(setor.escaladas) == 1
+    escalada = setor.escaladas[0]
+    assert escalada.via_esportiva.nome == "Via dos Betas"
+    assert len(escalada.betas) == 1
+
+    beta = escalada.betas[0]
+    assert beta.url == "https://www.youtube.com/watch?v=xyz123"
+    assert beta.titulo == "Beta Completo"
+    assert beta.fonte == beta_pb2.FonteMidia.YOUTUBE
+    assert beta.thumbnail_url == "https://img.youtube.com/vi/xyz123/hqdefault.jpg"
+    assert beta.meta.resumo_do_movimento == "Agarre a reglete com a mão esquerda e faça o bote no bowl."
+    assert beta.meta.llm_confidence_score == 95
+    assert beta.meta.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
+    assert beta.match_multiplas_fontes is True
+    assert beta.match_nome_no_snippet is True
+

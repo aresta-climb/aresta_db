@@ -26,6 +26,7 @@ class Icones:
         "dados": "fa5s.database",
         "imagens": "fa5s.images",
         "mapas": "fa5s.map-marked-alt",
+        "betas": "fa5s.video",
         "historico": "fa5s.history",
         "ciencia": "fa5s.flask",
         "lixeira": "fa5s.trash-alt",

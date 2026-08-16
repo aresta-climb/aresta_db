@@ -247,6 +247,25 @@ def check_pontos_de_interesse(croqui_path: Path) -> str:
     else:
         return f"❌ (0/{total})"
 
+def check_betas_pendentes(croqui_path: Path) -> str:
+    """
+    Verifica se o croqui possui betas pendentes de curadoria (betas_pendentes.binarypb).
+    Ter pendências é considerado não saudável (⚠️).
+    """
+    staging_file = croqui_path / "betas_pendentes.binarypb"
+    if not staging_file.exists():
+        return "✅"
+
+    try:
+        from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
+        pendentes = carregar_betas_pendentes(staging_file)
+        total = sum(len(e.candidatos) for e in pendentes.candidatos_por_escalada)
+        if total > 0:
+            return f"⚠️ ({total})"
+    except Exception:
+        pass
+    return "⚠️"
+
 def generate_report_table(report_data: list[dict]) -> str:
     """Gera a tabela Markdown a partir dos dados do relatório."""
     total_croquis = len(report_data)
@@ -264,6 +283,7 @@ def generate_report_table(report_data: list[dict]) -> str:
     a_raw_pdf_contents = sum(1 for d in report_data if d["Conteúdo PDF"] == "✅")
     a_partes_json = sum(1 for d in report_data if d["partes.json"] == "✅")
     a_raw_original_pdf = sum(1 for d in report_data if d["PDF Original"] == "✅")
+    a_betas_pendentes = sum(1 for d in report_data if d.get("Betas Pendentes") == "✅")
     
     c_nao_tem = sum(1 for d in report_data if d["Status Desenho"] == "✅ (não)")
     c_sim_extraido = sum(1 for d in report_data if d["Status Desenho"] == "✅")
@@ -281,6 +301,7 @@ def generate_report_table(report_data: list[dict]) -> str:
         f"Thumbnail ({a_thumbnail}/{total_croquis})",
         f"Coordenadas Picos ({a_coord_picos}/{total_croquis})",
         f"Mapas Gerais ({a_mapas_gerais}/{total_croquis})",
+        f"Betas Pendentes ({a_betas_pendentes}/{total_croquis})",
         f"croqui.yaml ({a_croqui_yaml}/{total_croquis})", 
         f"Conteúdo PDF ({a_raw_pdf_contents}/{total_croquis})", 
         f"partes.json ({a_partes_json}/{total_croquis})", 
@@ -302,6 +323,7 @@ def generate_report_table(report_data: list[dict]) -> str:
             data["Thumbnail"],
             data["Coordenadas Picos"],
             data["Mapas Gerais"],
+            data["Betas Pendentes"],
             data["croqui.yaml"],
             data["Conteúdo PDF"],
             data["partes.json"],
@@ -339,6 +361,7 @@ def main():
         coord_picos = check_pico_coordinates(croqui)
         mapas_gerais = "✅" if check_mapas_gerais_exists(croqui) else "❌"
         status_desenho = check_status_desenho_extraivel(croqui)
+        betas_status = check_betas_pendentes(croqui)
         
         report_data.append({
             "Nome": nome,
@@ -350,6 +373,7 @@ def main():
             "Thumbnail": thumbnail,
             "Coordenadas Picos": coord_picos,
             "Mapas Gerais": mapas_gerais,
+            "Betas Pendentes": betas_status,
             "croqui.yaml": yaml_present,
             "Conteúdo PDF": raw_contents,
             "partes.json": partes,

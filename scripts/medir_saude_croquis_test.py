@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Contributors
 
 import unittest
-from unittest.mock import patch, mock_open
+from unittest.mock import patch, mock_open, MagicMock
 from pathlib import Path
 import sys
 import os
@@ -99,6 +99,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "Thumbnail": "❌",
                 "Coordenadas Picos": "N/A",
                 "Mapas Gerais": "❌",
+                "Betas Pendentes": "✅",
                 "croqui.yaml": "❌",
                 "Conteúdo PDF": "❌",
                 "partes.json": "❌",
@@ -114,6 +115,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "Thumbnail": "❌",
                 "Coordenadas Picos": "N/A",
                 "Mapas Gerais": "❌",
+                "Betas Pendentes": "⚠️ (2)",
                 "croqui.yaml": "❌",
                 "Conteúdo PDF": "❌",
                 "partes.json": "❌",
@@ -121,20 +123,34 @@ class TestMedirSaudeCroquis(unittest.TestCase):
             }
         ]
         
+        # Preenche "Betas Pendentes" nos itens 1 e 2
+        report_data[0]["Betas Pendentes"] = "✅"
+        report_data[1]["Betas Pendentes"] = "✅"
+
         table = medir_saude_croquis.generate_report_table(report_data)
         
         # Verifica se o cabeçalho de Desenho Extraível está correto:
-        # ✅ = 1, ✅ (não) = 1 -> a_status_desenho = 2
-        # ⚠️ = 1 -> c_sim_mas_nao = 1
-        # ❌ = 1 -> c_unknown = 1
-        # Formato esperado: (2/1/1)
         self.assertIn("Desenho Extraível (2/1/1)", table)
-        
-        # Verifica se outras partes do cabeçalho estão corretas (ex: Revisado Manual (1/4))
         self.assertIn("Revisado Manual (1/4)", table)
-        
-        # Verifica se o cabeçalho Publicado está correto
         self.assertIn("Publicado (1/4)", table)
+        self.assertIn("Betas Pendentes (3/4)", table)
+
+    def test_check_betas_pendentes(self):
+        # Sem arquivo staging -> Saudável (✅)
+        with patch('pathlib.Path.exists', return_value=False):
+            self.assertEqual(medir_saude_croquis.check_betas_pendentes(Path("test")), "✅")
+
+        # Com arquivo staging e itens pendentes -> ⚠️
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('coleta_de_betas.inteligencia.avaliador.carregar_betas_pendentes') as mock_load:
+                mock_msg = MagicMock()
+                mock_esc = MagicMock()
+                mock_esc.candidatos = [1, 2, 3]
+                mock_msg.candidatos_por_escalada = [mock_esc]
+                mock_load.return_value = mock_msg
+
+                self.assertEqual(medir_saude_croquis.check_betas_pendentes(Path("test")), "⚠️ (3)")
 
 if __name__ == '__main__':
     unittest.main()
+

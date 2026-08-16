@@ -41,8 +41,8 @@ def generate_protos(force=False):
 # | 24      | 23.33s            | Lento devido ao overhead de spawn de processos no Windows.
 def run_tests(testmon=False, parallel=False):
     print("Running all unit and integration tests (core, scripts, editor, migrations)...")
-    # Adiciona as pastas de scripts, o submódulo aresta_api, o editor, as migrações e o teste do próprio build.py
-    test_paths = ["scripts", "aresta_api", "editor", "migracoes", "build_test.py"]
+    # Adiciona as pastas de scripts, o submódulo aresta_api, o editor, as migrações, a coleta_de_betas e o teste do próprio build.py
+    test_paths = ["scripts", "aresta_api", "editor", "migracoes", "coleta_de_betas", "build_test.py"]
     
     # Also run any tests in tests/ directory if it exists
     if (ROOT_DIR / "tests").exists():
