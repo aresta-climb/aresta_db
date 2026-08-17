@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 from pathlib import Path
@@ -74,7 +74,7 @@ class ItemBetaWidget(QFrame):
         self.label_titulo.setWordWrap(True)
         layout_cabecalho.addWidget(self.label_titulo, stretch=1)
 
-        score = self.midia.meta.llm_confidence_score
+        score = self.midia.resultado_llm.llm_confidence_score
         cor_score = "#28a745" if score >= 80 else ("#ffc107" if score >= 50 else "#dc3545")
         self.label_score = QLabel(f"Confiança: {score}%")
         self.label_score.setStyleSheet(f"""
@@ -94,20 +94,18 @@ class ItemBetaWidget(QFrame):
         layout_textos.addWidget(self.label_url)
 
         # Justificativa IA
-        self.label_reasoning = QLabel(self.midia.meta.llm_reasoning)
+        self.label_reasoning = QLabel(self.midia.resultado_llm.llm_reasoning)
         self.label_reasoning.setStyleSheet("color: #555555; font-size: 11px; font-style: italic;")
         self.label_reasoning.setWordWrap(True)
         layout_textos.addWidget(self.label_reasoning)
 
-        # Resumo do Crux / Movimentos
-        if self.midia.meta.resumo_do_movimento:
-            self.label_crux = QLabel(f"Beta: {self.midia.meta.resumo_do_movimento}")
-            self.label_crux.setStyleSheet("color: #222222; font-size: 11px; font-weight: 500;")
-            self.label_crux.setWordWrap(True)
-        else:
-            self.label_crux = QLabel("")
-            self.label_crux.hide()
-        layout_textos.addWidget(self.label_crux)
+        # Snippets coletados
+        if self.midia.snippets:
+            texto_snippets = " | ".join(self.midia.snippets)
+            self.label_snippets = QLabel(f"Trechos: {texto_snippets}")
+            self.label_snippets.setStyleSheet("color: #666666; font-size: 11px;")
+            self.label_snippets.setWordWrap(True)
+            layout_textos.addWidget(self.label_snippets)
 
         layout_principal.addLayout(layout_textos, stretch=1)
 
@@ -199,16 +197,25 @@ class PainelCuradoria(QWidget):
         for escalada_candidatos in pendentes.candidatos_por_escalada:
             nome_esc = escalada_candidatos.nome_escalada
             nome_setor = escalada_candidatos.nome_setor
+            nome_grupo = escalada_candidatos.nome_grupo
 
             # Grupo visual da escalada
-            grupo = QGroupBox(f"Escalada: {nome_esc} (Setor: {nome_setor})")
+            rotulo_grupo = f"Escalada: {nome_esc}"
+            if nome_grupo and nome_setor:
+                rotulo_grupo += f" ({nome_grupo} > {nome_setor})"
+            elif nome_setor:
+                rotulo_grupo += f" (Setor: {nome_setor})"
+            elif nome_grupo:
+                rotulo_grupo += f" (Grupo: {nome_grupo})"
+
+            grupo = QGroupBox(rotulo_grupo)
             layout_grupo = QVBoxLayout(grupo)
             layout_grupo.setSpacing(6)
 
             # Ordena por score decrescente
             candidatos_ordenados = sorted(
                 escalada_candidatos.candidatos,
-                key=lambda c: c.meta.llm_confidence_score,
+                key=lambda c: c.resultado_llm.llm_confidence_score,
                 reverse=True
             )
 
@@ -224,7 +231,7 @@ class PainelCuradoria(QWidget):
 
     def _aprovar_alta_confianca(self):
         for widget in self.itens_widgets:
-            if widget.midia.meta.llm_confidence_score >= 80:
+            if widget.midia.resultado_llm.llm_confidence_score >= 80:
                 widget.checkbox_aprovado.setChecked(True)
 
     def _desmarcar_todos(self):

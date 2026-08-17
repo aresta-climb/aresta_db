@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import pytest
@@ -37,6 +37,7 @@ def test_deduplicar_midias_mescla_informacoes():
     m1.thumbnail_url = "https://instagram.com/thumb1.jpg"
     m1.fonte = beta_pb2.FonteMidia.INSTAGRAM
     m1.match_nome_no_snippet = True
+    m1.snippets.append("Trecho do Vertex")
 
     # Item 2 do DuckDuckGo (mesma URL base)
     m2 = beta_pb2.MidiaBeta()
@@ -45,6 +46,7 @@ def test_deduplicar_midias_mescla_informacoes():
     m2.thumbnail_url = "" # Sem thumbnail
     m2.fonte = beta_pb2.FonteMidia.INSTAGRAM
     m2.match_nome_no_snippet = False
+    m2.snippets.append("Trecho do DuckDuckGo")
 
     # Item 3 do YouTube (URL diferente)
     m3 = beta_pb2.MidiaBeta()
@@ -53,6 +55,7 @@ def test_deduplicar_midias_mescla_informacoes():
     m3.thumbnail_url = "https://img.youtube.com/vi/vid999/hqdefault.jpg"
     m3.fonte = beta_pb2.FonteMidia.YOUTUBE
     m3.match_nome_no_snippet = True
+    m3.snippets.append("Descrição do YouTube")
 
     resultado = deduplicar_midias([[m1, m3], [m2]])
 
@@ -64,9 +67,13 @@ def test_deduplicar_midias_mescla_informacoes():
     assert instagram_item.thumbnail_url == "https://instagram.com/thumb1.jpg"
     assert instagram_item.match_multiplas_fontes is True
     assert instagram_item.match_nome_no_snippet is True
+    assert len(instagram_item.snippets) == 2
+    assert "Trecho do Vertex" in instagram_item.snippets
+    assert "Trecho do DuckDuckGo" in instagram_item.snippets
 
     # Valida item único do YouTube
     youtube_item = next(m for m in resultado if "youtube.com" in m.url)
     assert youtube_item.url == "https://youtube.com/watch?v=vid999"
     assert youtube_item.match_multiplas_fontes is False
     assert youtube_item.match_nome_no_snippet is True
+    assert len(youtube_item.snippets) == 1

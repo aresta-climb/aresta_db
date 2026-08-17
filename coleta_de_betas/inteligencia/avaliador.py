@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import json
@@ -16,11 +16,11 @@ def gerar_prompt_avaliacao(
 ) -> str:
     """
     Gera o prompt estruturado em português para o modelo LLM avaliar relevância
-    e extrair o resumo de movimentos dos vídeos/posts candidatos.
+    dos vídeos/posts candidatos, incluindo a thumbnail_url quando disponível.
     """
     prompt = f"""Você é um especialista em escalada em rocha brasileiro.
 Sua missão é avaliar postagens e vídeos coletados na internet para verificar se eles correspondem
-à escalada descrita abaixo, e extrair o resumo do beta (movimento chave/crux) caso exista.
+à escalada descrita abaixo.
 
 Escalada Alvo:
 - Nome da Via/Boulder: {nome_escalada}
@@ -28,22 +28,20 @@ Escalada Alvo:
 - Setor: {setor or 'Não informado'}
 - Pico/Região: {pico or 'Não informado'}
 
-Candidatos encontrados na busca:
+Candidatos encontrados na busca (com link, título e thumbnail):
 {json.dumps(candidatos, indent=2, ensure_ascii=False)}
 
 Para cada candidato, avalie:
 1. "score": Inteiro de 0 a 100 indicando a certeza de que a mídia mostra a via alvo.
-2. "justificativa": Explicação sucinta em português do porquê desta nota.
-3. "resumo_crux": Resumo claro em português dos movimentos chave, agarras ou sequência descrita (ou string vazia se não houver).
+2. "justificativa": Explicação sucinta em português do porquê desta nota (baseada em nome, setor, região e imagem/thumbnail).
 
-Responda OBRIGATORIAMENTE em formato JSON puro (uma lista de objetos com "url", "score", "justificativa", "resumo_crux"):
+Responda OBRIGATORIAMENTE em formato JSON puro (uma lista de objetos com "url", "score", "justificativa"):
 ```json
 [
   {{
     "url": "...",
     "score": 95,
-    "justificativa": "...",
-    "resumo_crux": "..."
+    "justificativa": "..."
   }}
 ]
 ```
@@ -87,7 +85,7 @@ def avaliar_candidatos(
 ) -> List[beta_pb2.MidiaBeta]:
     """
     Avalia em lote os candidatos de uma via usando o client LLM fornecido,
-    populando os metadados semânticos em cada MidiaBeta.
+    populando os metadados de score e raciocínio em cada MidiaBeta.
     """
     if not midias:
         return []
@@ -96,6 +94,8 @@ def avaliar_candidatos(
         {
             "url": m.url,
             "titulo": m.titulo,
+            "thumbnail_url": m.thumbnail_url,
+            "snippets": list(m.snippets),
             "match_multiplas_fontes": m.match_multiplas_fontes,
             "match_nome_no_snippet": m.match_nome_no_snippet
         }
@@ -112,9 +112,8 @@ def avaliar_candidatos(
         for m in midias:
             if m.url in mapa_avaliacoes:
                 dados_av = mapa_avaliacoes[m.url]
-                m.meta.llm_confidence_score = int(dados_av.get("score", 0))
-                m.meta.llm_reasoning = dados_av.get("justificativa", "")
-                m.meta.resumo_do_movimento = dados_av.get("resumo_crux", "")
+                m.resultado_llm.llm_confidence_score = int(dados_av.get("score", 0))
+                m.resultado_llm.llm_reasoning = dados_av.get("justificativa", "")
 
     return midias
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import duckduckgo_search
@@ -58,6 +58,9 @@ class ExtratorDuckDuckGo:
 
             texto_completo = f"{titulo} {body}".lower()
             midia.match_nome_no_snippet = termo_lower in texto_completo
+
+            if body:
+                midia.snippets.append(body)
 
             resultados.append(midia)
 

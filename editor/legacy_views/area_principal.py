@@ -441,6 +441,7 @@ class JanelaPrincipal(QMainWindow):
         self.acao_nav_betas = QAction(Icones.obter("betas"), "Betas", self)
         self.acao_nav_betas.setToolTip("Betas")
         self.acao_nav_betas.setCheckable(True)
+        self.acao_nav_betas.setVisible(False)
         self.acao_nav_betas.triggered.connect(lambda: self._trocar_pagina(3))
 
         self.acao_nav_historico = QAction(Icones.obter("historico"), "Histórico", self)

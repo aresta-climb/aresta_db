@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import os
@@ -21,12 +21,13 @@ def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> dict:
         d["match_multiplas_fontes"] = True
     if midia.match_nome_no_snippet:
         d["match_nome_no_snippet"] = True
+    if midia.snippets:
+        d["snippets"] = list(midia.snippets)
 
-    if midia.HasField("meta"):
-        d["meta"] = {
-            "resumo_do_movimento": midia.meta.resumo_do_movimento,
-            "llm_confidence_score": midia.meta.llm_confidence_score,
-            "llm_reasoning": midia.meta.llm_reasoning
+    if midia.HasField("resultado_llm"):
+        d["resultado_llm"] = {
+            "llm_confidence_score": midia.resultado_llm.llm_confidence_score,
+            "llm_reasoning": midia.resultado_llm.llm_reasoning
         }
     return d
 

@@ -5,7 +5,7 @@ O sistema SHALL isolar as mensagens e enums relacionados a mídias e betas em um
 
 #### Scenario: Definição das estruturas em beta.proto
 - **WHEN** o arquivo `beta.proto` é compilado
-- **THEN** ele MUST conter as mensagens `MidiaBeta` (com URL, título, fonte, thumbnail e flags de agregação) e `MetaBeta` (com resumo de movimento/crux, agarras, confiança e reasoning).
+- **THEN** ele MUST conter as mensagens `MidiaBeta` (com URL, título, fonte, thumbnail e flags de agregação) e `ResultadoLLMBeta` (com confiança e reasoning).
 - **THEN** ele MUST conter uma mensagem raiz `BetasPendentes` para serializar o arquivo intermediário `betas_pendentes.binarypb` agrupado por escalada.
 - **THEN** todos os enums introduzidos MUST estar encapsulados em mensagens próprias e iniciar com `INDEFINIDO = 0`.
 

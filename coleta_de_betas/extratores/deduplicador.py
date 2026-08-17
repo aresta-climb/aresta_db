@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import re
@@ -67,6 +67,10 @@ def deduplicar_midias(listas_de_midias: Iterable[List[beta_pb2.MidiaBeta]]) -> L
                 # Preserva título se o existente for vazio
                 if not existente.titulo and midia.titulo:
                     existente.titulo = midia.titulo
+                # Mescla snippets sem duplicar
+                for s in midia.snippets:
+                    if s and s not in existente.snippets:
+                        existente.snippets.append(s)
 
     # Aplica flag de múltiplas fontes
     for url_norm, midia_final in mapa_midias.items():

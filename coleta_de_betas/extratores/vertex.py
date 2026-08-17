@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import os
@@ -96,6 +96,9 @@ class ExtratorVertexSearch:
 
             texto_completo = f"{titulo} {snippet_text}".lower()
             midia.match_nome_no_snippet = termo_lower in texto_completo
+
+            if snippet_text:
+                midia.snippets.append(snippet_text)
 
             resultados.append(midia)
 

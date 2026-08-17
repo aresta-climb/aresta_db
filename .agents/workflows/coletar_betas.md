@@ -30,8 +30,8 @@ Este workflow atua como o orquestrador para descoberta, avaliação por intelig�
 2. Consolida os resultados brutos aplicando deduplicação normalizada com `coleta_de_betas.extratores.deduplicador.deduplicar_midias`.
 
 ### Fase 3: Avaliação Semântica por IA (Sub-agentes / Batch)
-1. Envia os snippets e títulos dos candidatos para a LLM através de `coleta_de_betas.inteligencia.avaliador.avaliar_candidatos`.
-2. A IA atribui um `llm_confidence_score` (0 a 100), uma justificativa (`llm_reasoning`) e extrai o resumo do crux (`resumo_do_movimento`).
+1. Envia os títulos, links, snippets e **URLs de thumbnail** dos candidatos para o modelo LLM através de `coleta_de_betas.inteligencia.avaliador.avaliar_candidatos`.
+2. A IA avalia a probabilidade de correspondência e atribui um `llm_confidence_score` (0 a 100) e uma justificativa (`llm_reasoning`), sem tentar extrair resumos forçados de crux.
 
 ### Fase 4: Geração do Arquivo de Staging
 1. Agrupa os candidatos por escalada na mensagem raiz `BetasPendentes`.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import os
@@ -82,10 +82,12 @@ class ExtratorYouTube:
             midia.titulo = titulo
             midia.thumbnail_url = thumb_url
             midia.fonte = beta_pb2.FonteMidia.YOUTUBE
-
             # Checa se o nome da escalada aparece no título ou na descrição
             texto_completo = f"{titulo} {descricao}".lower()
             midia.match_nome_no_snippet = termo_lower in texto_completo
+
+            if descricao:
+                midia.snippets.append(descricao)
 
             resultados.append(midia)
 

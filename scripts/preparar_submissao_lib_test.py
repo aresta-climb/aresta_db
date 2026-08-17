@@ -792,12 +792,13 @@ escaladas:
         titulo: Beta Completo
         fonte: YOUTUBE
         thumbnail_url: https://img.youtube.com/vi/xyz123/hqdefault.jpg
-        meta:
-          resumo_do_movimento: Agarre a reglete com a mão esquerda e faça o bote no bowl.
+        resultado_llm:
           llm_confidence_score: 95
           llm_reasoning: Nome e grau batem exatamente com a descrição do vídeo.
         match_multiplas_fontes: true
         match_nome_no_snippet: true
+        snippets:
+          - Descrição completa do beta
 ---
 Descrição do setor de teste.
 """
@@ -844,9 +845,10 @@ Descrição do setor de teste.
     assert beta.titulo == "Beta Completo"
     assert beta.fonte == beta_pb2.FonteMidia.YOUTUBE
     assert beta.thumbnail_url == "https://img.youtube.com/vi/xyz123/hqdefault.jpg"
-    assert beta.meta.resumo_do_movimento == "Agarre a reglete com a mão esquerda e faça o bote no bowl."
-    assert beta.meta.llm_confidence_score == 95
-    assert beta.meta.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
+    assert beta.resultado_llm.llm_confidence_score == 95
+    assert beta.resultado_llm.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
     assert beta.match_multiplas_fontes is True
     assert beta.match_nome_no_snippet is True
+    assert len(beta.snippets) == 1
+    assert beta.snippets[0] == "Descrição completa do beta"
 

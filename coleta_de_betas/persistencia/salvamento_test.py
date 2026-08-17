@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import pytest
@@ -32,11 +32,11 @@ Este é o texto descritivo do setor.
     m1.titulo = "Beta Fusca Azul"
     m1.fonte = beta_pb2.FonteMidia.YOUTUBE
     m1.thumbnail_url = "https://img.youtube.com/vi/123/hqdefault.jpg"
-    m1.meta.resumo_do_movimento = "Pegue a reglete"
-    m1.meta.llm_confidence_score = 95
-    m1.meta.llm_reasoning = "Perfeito"
+    m1.resultado_llm.llm_confidence_score = 95
+    m1.resultado_llm.llm_reasoning = "Perfeito"
     m1.match_multiplas_fontes = True
     m1.match_nome_no_snippet = True
+    m1.snippets.append("Crux na reglete")
 
     alterou = injetar_betas_no_markdown(arquivo_md, {"Fusca Azul": [m1]})
     assert alterou is True
@@ -57,7 +57,8 @@ Este é o texto descritivo do setor.
     assert len(esc1["betas"]) == 1
     assert esc1["betas"][0]["url"] == "https://youtube.com/watch?v=123"
     assert esc1["betas"][0]["fonte"] == "YOUTUBE"
-    assert esc1["betas"][0]["meta"]["llm_confidence_score"] == 95
+    assert esc1["betas"][0]["snippets"] == ["Crux na reglete"]
+    assert esc1["betas"][0]["resultado_llm"]["llm_confidence_score"] == 95
 
 
 def test_persistir_aprovacoes_e_limpar_staging(tmp_path):

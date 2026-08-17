@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
 import pytest
@@ -13,9 +13,8 @@ def test_item_beta_widget_renderiza_informacoes(qtbot):
     midia.fonte = beta_pb2.FonteMidia.YOUTUBE
     midia.match_multiplas_fontes = True
     midia.match_nome_no_snippet = True
-    midia.meta.llm_confidence_score = 95
-    midia.meta.llm_reasoning = "Perfeita correspondência"
-    midia.meta.resumo_do_movimento = "Pegue a reglete e bote no topo"
+    midia.resultado_llm.llm_confidence_score = 95
+    midia.resultado_llm.llm_reasoning = "Perfeita correspondência"
 
     widget = ItemBetaWidget(midia)
     qtbot.addWidget(widget)
@@ -23,7 +22,6 @@ def test_item_beta_widget_renderiza_informacoes(qtbot):
     assert "Mandando Fusca Azul V4" in widget.label_titulo.text()
     assert "95%" in widget.label_score.text()
     assert "Perfeita correspondência" in widget.label_reasoning.text()
-    assert "Pegue a reglete" in widget.label_crux.text()
     assert widget.checkbox_aprovado.isChecked() is False
 
     # Marca como aprovado
@@ -44,12 +42,12 @@ def test_painel_curadoria_carrega_staging(tmp_path, qtbot):
     m1 = escalada.candidatos.add()
     m1.url = "https://youtube.com/v1"
     m1.titulo = "Vídeo 1"
-    m1.meta.llm_confidence_score = 90
+    m1.resultado_llm.llm_confidence_score = 90
 
     m2 = escalada.candidatos.add()
     m2.url = "https://instagram.com/p/123"
     m2.titulo = "Post 2"
-    m2.meta.llm_confidence_score = 30
+    m2.resultado_llm.llm_confidence_score = 30
 
     with open(arquivo_pb, "wb") as f:
         f.write(msg.SerializeToString())
