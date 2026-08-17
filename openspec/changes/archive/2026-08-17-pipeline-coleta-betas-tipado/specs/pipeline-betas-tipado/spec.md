@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Extração Tipada de Vias do Croqui
-O sistema SHALL fornecer um comando e rotina em Python para extrair todas as vias e boulders de um croqui para um arquivo `vias_extraidas.yaml` validado e tipado pelo schema Protobuf `ViasExtraidasCroqui`.
+O sistema SHALL fornecer biblioteca e comando CLI em Python para extrair todas as vias e boulders de um croqui para um arquivo `vias_extraidas.yaml` validado e tipado pelo schema Protobuf `ViasExtraidasCroqui`.
 
 #### Scenario: Extração com sucesso a partir do banco de dados
 - **WHEN** o comando de extração de vias é executado para a pasta de um croqui válido
