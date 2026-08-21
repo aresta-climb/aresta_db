@@ -46,7 +46,14 @@ class CroquiModel(QObject):
 
     def _set_primitivo(self, msg, campo_nome, valor_novo):
         msg = self.__desembrulhar_proxy(msg)
-        setattr(msg, campo_nome, _copia_segura(valor_novo))
+        if valor_novo is None or valor_novo == "":
+            try:
+                msg.ClearField(campo_nome)
+            except ValueError:
+                # Campo já limpo ou não presente
+                pass
+        else:
+            setattr(msg, campo_nome, _copia_segura(valor_novo))
         self.dado_alterado.emit(msg, campo_nome)
 
     def _adicionar_repeated(self, msg, campo_nome, index, valor):

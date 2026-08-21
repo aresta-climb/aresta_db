@@ -1,8 +1,5 @@
-# editor-dados-formularios Specification
+## MODIFIED Requirements
 
-## Purpose
-TBD - created by archiving change editor-dados. Update Purpose after archive.
-## Requirements
 ### Requirement: Geração Dinâmica de Formulários
 O sistema SHALL criar e exibir formulários na área de edição principal contendo TODOS os campos da mensagem selecionada atualmente na árvore (exceto os marcados como invisíveis), renderizando os controles de edição diretamente e sem a exibição de botões de Adicionar ou Remover no cabeçalho dos cards.
 - **Cards de Campo**: Cada campo (primitivo ou sub-mensagem) SHALL ser renderizado dentro de um container do tipo Card (`QFrame` com borda fina e cantos arredondados) para demarcação visual clara.
@@ -26,47 +23,7 @@ O sistema SHALL criar e exibir formulários na área de edição principal conte
 - **WHEN** o usuário apaga todo o texto de um campo de string ou markdown
 - **THEN** o sistema SHALL remover o campo via `ClearField` no modelo do Protobuf e omiti-lo na serialização YAML.
 
-### Requirement: Documentação e Textos da Interface Guiados pelo Protobuf
-O sistema SHALL extrair dinamicamente a documentação de cada campo (explicações e descrições exibidas na UI) dos comentários presentes nos arquivos `.proto`. Da mesma forma, os rótulos (labels) dos campos SHALL ser extraídos dos nomes dos campos no protobuf ou de field/message options explicitamente definidos, de forma a não haver strings de documentação "hardcoded" na aplicação do editor.
-
-#### Scenario: Visualização da Documentação de um Campo
-- **WHEN** o formulário de um campo é exibido
-- **THEN** o sistema SHALL mostrar o comentário presente no arquivo `.proto` (referente àquele campo) como documentação associada a ele na tela.
-
-#### Scenario: Uso de Opções para Nomenclatura
-- **WHEN** um campo do protobuf contém uma opção customizada (ex: referente a UI label)
-- **THEN** o sistema SHALL priorizar essa string para o título/label do campo em vez do próprio identificador base do campo.
-
-### Requirement: Edição de Arquivos Externos e Nome de Arquivo na UI
-O sistema SHALL exibir um campo editável "Nome do arquivo:" no topo do formulário para qualquer mensagem correspondente a um arquivo externo (ex: `Setor`, `Grupo` ou `ArquivoMarkdown`).
-- **Comportamento**: A alteração desse campo SHALL atualizar o nome do arquivo mapeado em memória para o elemento. Para novos elementos inseridos na árvore, o sistema SHALL gerar automaticamente um nome de arquivo único e amigável com a extensão `.md` (ex: `setor_nome_do_setor.md`).
-
-#### Scenario: Visualização do Campo Nome do Arquivo
-- **WHEN** um formulário de um item salvo em arquivo externo é carregado
-- **THEN** o sistema SHALL exibir o campo "Nome do arquivo:" no topo do formulário contendo o nome atual do arquivo.
-
-#### Scenario: Inicialização de Nome para Novo Item
-- **WHEN** um novo setor ou grupo externo é adicionado à árvore de dados
-- **THEN** o sistema SHALL gerar automaticamente um nome de arquivo baseado no tipo e no nome do elemento com a extensão `.md`.
-
-### Requirement: Editor de Markdown Rico (Split-Pane)
-O sistema SHALL exibir um editor em painel dividido (split-pane) para campos do tipo string que possuam a opção `conteudo_markdown = true` no protobuf ou tipo mime `text/markdown`.
-- **Lado Esquerdo**: Editor de texto puro (`QTextEdit`) com fonte monoespaçada para edição direta do código markdown.
-- **Lado Direito**: Um visualizador rico (`QTextBrowser`) exibindo a pré-visualização formatada do markdown em tempo real.
-
-#### Scenario: Visualização do Editor Dividido
-- **WHEN** um campo configurado para markdown é exibido no formulário
-- **THEN** o sistema SHALL renderizá-lo usando o componente de painel dividido side-by-side.
-
-### Requirement: Pré-visualização com Resolução de Caminhos e Dimensionamento de Imagens
-A pré-visualização do markdown SHALL formatar e exibir imagens dinamicamente.
-- **Frontmatter**: O sistema SHALL ignorar o YAML frontmatter (linhas entre `---` e `---` no topo) ao renderizar o markdown no painel de pré-visualização.
-- **Caminhos de Imagens**: O sistema SHALL resolver caminhos de imagem relativos presentes no markdown (ex: `imagens/...`) a partir do diretório `database/` do croqui atual.
-- **Dimensionamento Responsivo**: O sistema SHALL redimensionar dinamicamente as imagens exibidas para que caibam perfeitamente na largura do painel do visualizador (sem ultrapassar a largura disponível e sem criar barras de rolagem horizontais).
-
-#### Scenario: Dimensionamento de Imagem no Visualizador
-- **WHEN** o visualizador rico renderiza o markdown ou sofre um redimensionamento de janela
-- **THEN** o sistema SHALL ajustar proporcionalmente as dimensões de cada imagem (`QTextImageFormat`) para caber na largura livre do viewport.
+## ADDED Requirements
 
 ### Requirement: Renderização de Booleanos Tri-State
 O sistema SHALL renderizar campos booleanos como um `QComboBox` contendo 3 opções: Indefinido/Não informado (índice 0), Sim/Verdadeiro (índice 1) e Não/Falso (índice 2).
@@ -94,5 +51,3 @@ O sistema SHALL renderizar números de ponto flutuante e coordenadas como `QLine
 #### Scenario: Limpeza de Coordenada GPS
 - **WHEN** o usuário apaga ambos os valores de Latitude e Longitude
 - **THEN** o sistema SHALL executar `ClearField` da submensagem de coordenada pai.
-
-

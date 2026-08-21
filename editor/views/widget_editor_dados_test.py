@@ -717,16 +717,20 @@ def test_formulario_primitivo_largura_maxima(qapp):
 
     # QLineEdit de campos primitivos curtos deve ter max-width <= 450
     line_edits = form.findChildren(QLineEdit)
-    # Exclui o QLineEdit que está dentro de um WidgetEditorMarkdown (que é largo)
+    # Exclui o QLineEdit interno de QSpinBox e de WidgetEditorMarkdown
     from editor.views.widget_editor_dados import WidgetEditorMarkdown
     editores_md = form.findChildren(WidgetEditorMarkdown)
     line_edits_md = []
     for md in editores_md:
         line_edits_md.extend(md.findChildren(QLineEdit))
 
-    primitivos = [le for le in line_edits if le not in line_edits_md]
+    primitivos = [
+        le for le in line_edits
+        if le not in line_edits_md and not isinstance(le.parent(), QSpinBox)
+    ]
     for le in primitivos:
         assert le.maximumWidth() <= 450, f"QLineEdit sem max-width controlada: {le.maximumWidth()}"
+
 
 
 def test_menu_contexto_adicionar_item_repeated(qapp):
@@ -1030,16 +1034,11 @@ def test_adicionar_setor_ou_grupo_mostra_form_proto_nao_markdown(qapp, monkeypat
         f"mas esta em {widget.stacked_widget.currentIndex()}"
     )
 
-    # O form padrao NAO deve conter um WidgetEditorMarkdown
+    # O form padrao deve conter o formulário proto com o campo nome do Setor
     container = widget.form_padrao.currentWidget()
-    has_markdown_editor = False
-    if container:
-        for child in container.findChildren(WidgetEditorMarkdown):
-            has_markdown_editor = True
-            break
-    assert not has_markdown_editor, (
-        "form_padrao nao deveria conter um WidgetEditorMarkdown apos adicionar SetorOuGrupo"
-    )
+    assert container is not None
+    line_edits = container.findChildren(QLineEdit)
+    assert any(le.property("protobuf_field") == "nome" for le in line_edits)
 
     # O node selecionado NAO deve ser um no virtual nem ter message=ArquivoMarkdown
     indexes = widget.tree_view.selectionModel().selectedIndexes()
@@ -1163,8 +1162,8 @@ def test_widget_formulario_padrao_on_campo_alterado(qapp):
     form = widget.form_padrao
     form.load_node(pico_node)
     
-    # Encontra QLineEdit do nome
-    line_edits = form.findChildren(QLineEdit)
+    # Encontra QLineEdit do nome no widget ativo
+    line_edits = form.currentWidget().findChildren(QLineEdit)
     edit_nome = next(le for le in line_edits if le.property("protobuf_field") == "nome")
     assert edit_nome.text() == "Pico Original"
     
@@ -1261,10 +1260,11 @@ def test_menu_contexto_mover_item_para_baixo(qapp):
 
 
 def test_widget_formulario_padrao_estrutura_campo_alterada(qapp):
+    """Garante que campos de formulário não possuem botões Adicionar/Remover e são editáveis diretamente."""
     from editor.views.widget_editor_dados import get_node_path, WidgetEditorDados, _get_id
     from editor.views.tree_view_adapter import ProtobufNode
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton
+    from PyQt6.QtWidgets import QPushButton, QComboBox, QLineEdit
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from PyQt6.QtGui import QUndoStack
@@ -1282,32 +1282,62 @@ def test_widget_formulario_padrao_estrutura_campo_alterada(qapp):
     assert container_info is not None
     layout, container, desc, msg = container_info
     
-    # Inicialmente setor.amigavel_a_criancas não está setado, então tem um "Adicionar"
-    btn_add = None
-    for widget_child in container.findChildren(QPushButton):
-        if widget_child.text() == "Adicionar":
-            btn_add = widget_child
-            break
-    assert btn_add is not None
+    # Não deve existir nenhum botão Adicionar ou Remover
+    botoes = [btn.text() for btn in container.findChildren(QPushButton)]
+    assert "Adicionar" not in botoes
+    assert "Remover" not in botoes
     
-    # Emula a adição (HasPresence) + signal emitido, como num undo/redo
-    setor.amigavel_a_criancas = True
-    model.oneof_alterado.emit(setor, "amigavel_a_criancas")
+    # Deve existir um QComboBox para o booleano
+    combos = container.findChildren(QComboBox)
+    assert len(combos) == 1
+    combo = combos[0]
+    assert combo.count() == 3
+    assert combo.currentIndex() == 0  # "Não informado"
     
-    # Processa eventos do Qt para que deleteLater() execute no layout
+    # Altera para "Adequado para crianças" (True)
+    combo.setCurrentIndex(1)
     qapp.processEvents()
+    assert setor.HasField("amigavel_a_criancas")
+    assert setor.amigavel_a_criancas is True
     
-    # O container do field foi recriado. "Adicionar" some, e "Remover" aparece
-    btn_add_novo = None
-    btn_remove_novo = None
-    for widget_child in container.findChildren(QPushButton):
-        if widget_child.text() == "Adicionar":
-            btn_add_novo = widget_child
-        elif widget_child.text() == "Remover":
-            btn_remove_novo = widget_child
-            
-    assert btn_add_novo is None, "Botão Adicionar ainda deveria existir após ser recriado?"
-    assert btn_remove_novo is not None, "Botão Remover deveria ter aparecido"
+    # Volta para "Não informado" (None)
+    combo.setCurrentIndex(0)
+    qapp.processEvents()
+    assert not setor.HasField("amigavel_a_criancas")
+
+
+def test_widget_formulario_submensagem_coordenada_sem_botoes(qapp):
+    """Garante que submensagens inline como Coordenada são renderizadas diretamente
+    sem botões Adicionar/Remover e são limpas quando os campos ficam vazios."""
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+    from editor.views.tree_view_adapter import ProtobufNode
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from PyQt6.QtWidgets import QPushButton, QLineEdit
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+
+    setor = Setor()
+    model = CroquiModel(setor)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+    
+    container_info = widget.form_padrao.field_containers.get((_get_id(setor), "localizacao_estacionamento"))
+    assert container_info is not None
+    layout, container, desc, msg = container_info
+    
+    # Não deve ter botões Adicionar/Remover
+    botoes = [btn.text() for btn in container.findChildren(QPushButton)]
+    assert "Adicionar" not in botoes
+    assert "Remover" not in botoes
+    
+    # Deve conter campos de entrada para Latitude e Longitude
+    line_edits = container.findChildren(QLineEdit)
+    assert len(line_edits) >= 2
+
 
 def test_widget_formulario_padrao_oneof_conteudo_renderizacao(qapp):
     """Garante que a renderizacao de uma mensagem ONEOF_CONTEUDO via _render_message_fields
@@ -1333,7 +1363,9 @@ def test_widget_formulario_padrao_oneof_conteudo_renderizacao(qapp):
     form._render_message_fields(arq_setor, layout)
     
     comboboxes = container.findChildren(QComboBox)
-    assert len(comboboxes) == 0, "Nao deveria existir combobox para ONEOF_CONTEUDO"
+    oneof_combos = [cb for cb in comboboxes if cb.property("protobuf_oneof") == "tipo_conteudo"]
+    assert len(oneof_combos) == 0, "Nao deveria existir combobox de seleção para ONEOF_CONTEUDO"
+    assert any(le.property("protobuf_field") == "nome" for le in container.findChildren(QLineEdit))
 
 def test_on_campo_alterado_spinbox_typeerror_regression(qapp):
     """Garante que _on_campo_alterado não quebra com TypeError ao atualizar
@@ -1733,3 +1765,189 @@ def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
     edit_filename = next((le for le in line_edits if le.property("protobuf_field") == "__filename__"), None)
     assert edit_filename is not None
     assert edit_filename.text() == "mapas_gerais_novo.md"
+
+
+def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path, qapp):
+    """Garante que campos vazios não aparecem no YAML salvo e campos preenchidos aparecem,
+    sem presença de botões Adicionar/Remover nos cards de campos."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, Setor, Coordenada
+    from editor.views.tree_view_adapter import ProtobufNode
+    from PyQt6.QtWidgets import QPushButton, QLineEdit, QComboBox
+    import yaml
+    
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Teste"
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.nome = "Setor Completo"
+    sg.setor.conteudo.amigavel_a_criancas = True
+    # sinal_de_celular e amigavel_a_bebes não estão definidos (ausentes)
+    # localizacao_estacionamento não está definida (ausente)
+    
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+    
+    node = ProtobufNode(name="Setor", message=sg.setor.conteudo, descriptor=Setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    # 1. Valida que nenhum botão [Adicionar] ou [Remover] de card individual foi renderizado
+    botoes = [btn.text() for btn in form.findChildren(QPushButton)]
+    assert "Adicionar" not in botoes, f"Botão 'Adicionar' não deveria existir nos cards: {botoes}"
+    assert "Remover" not in botoes, f"Botão 'Remover' não deveria existir nos cards: {botoes}"
+    
+    # 2. Salva no disco via extrair_arquivos_e_serializar e lê o arquivo YAML
+    model.extrair_arquivos_e_serializar(tmp_path)
+    arquivo_setor = tmp_path / "setor_setor_completo.md"
+    assert arquivo_setor.exists()
+    
+    with open(arquivo_setor, "r", encoding="utf-8") as f:
+        conteudo_md = f.read()
+    
+    # Extrai o frontmatter YAML
+    partes = conteudo_md.split("---")
+    assert len(partes) >= 3
+    dados_yaml = yaml.safe_load(partes[1])
+    
+    assert dados_yaml["nome"] == "Setor Completo"
+    assert dados_yaml["amigavel_a_criancas"] is True
+    assert "sinal_de_celular" not in dados_yaml
+    assert "amigavel_a_bebes" not in dados_yaml
+    assert "localizacao_estacionamento" not in dados_yaml
+
+
+def test_formulario_inteiro_vazio_e_step_by_vira_zero(qapp):
+    """Garante que campos de inteiros são exibidos como vazios quando ausentes,
+    e que ao clicar para cima/baixo eles inicializam com 0 e gravam a alteração."""
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.views.protobuf_widget_factory import SpinBoxVazio
+    from editor.views.tree_view_adapter import ProtobufNode
+    
+    setor = Setor()
+    pilha = QUndoStack()
+    model = CroquiModel(setor)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+    
+    node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    # Encontra o spinbox da latitude da localização do estacionamento
+    spins = form.findChildren(SpinBoxVazio)
+    spin_lat = next(s for s in spins if s.property("protobuf_field") == "latitude")
+    
+    # 1. Campo inicialmente vazio (texto vazio)
+    assert not setor.localizacao_estacionamento.HasField("latitude")
+    assert spin_lat.text() == ""
+    assert spin_lat.value() == spin_lat.VALOR_NULO
+    
+    # 2. Clicar para cima (stepBy 1) transforma em 0
+    spin_lat.stepBy(1)
+    qapp.processEvents()
+    assert spin_lat.value() == 0
+    assert spin_lat.text() == "0"
+    assert setor.localizacao_estacionamento.HasField("latitude")
+    assert setor.localizacao_estacionamento.latitude == 0
+    
+    # 3. Undo restaura para vazio
+    pilha.undo()
+    qapp.processEvents()
+    assert not setor.localizacao_estacionamento.HasField("latitude")
+    assert spin_lat.text() == ""
+    assert spin_lat.value() == spin_lat.VALOR_NULO
+
+
+def test_booleano_selecionar_nao_informado_permanece_nao_informado(qapp):
+    """Garante que selecionar a opção 'Não informado' em um booleano tri-state
+    mantém o valor como 'Não informado' (ausente/None) e não muda para 'Não' (False)."""
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.views.tree_view_adapter import ProtobufNode
+    from PyQt6.QtWidgets import QComboBox
+    
+    setor = Setor()
+    setor.sinal_de_celular = False  # Usuário tinha 'Não'
+    pilha = QUndoStack()
+    model = CroquiModel(setor)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+    
+    node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    combo = next(cb for cb in form.findChildren(QComboBox) if cb.property("protobuf_field") == "sinal_de_celular")
+    assert combo.currentIndex() == 2  # "Sem sinal"
+    
+    # 1. Seleciona "Não informado" (índice 0) a partir de "Não"
+    combo.setCurrentIndex(0)
+    qapp.processEvents()
+    
+    assert not setor.HasField("sinal_de_celular")
+    assert combo.currentIndex() == 0
+    assert combo.currentData() is None
+    assert combo.currentText() == "Não informado"
+    
+    # 2. Seleciona "Sim" (índice 1)
+    combo.setCurrentIndex(1)
+    qapp.processEvents()
+    
+    assert setor.HasField("sinal_de_celular")
+    assert setor.sinal_de_celular is True
+    assert combo.currentIndex() == 1
+    assert combo.currentData() is True
+    assert combo.currentText() == "Possui sinal"
+    
+    # 3. Seleciona "Não informado" (índice 0) a partir de "Sim"
+    combo.setCurrentIndex(0)
+    qapp.processEvents()
+    
+    assert not setor.HasField("sinal_de_celular")
+    assert combo.currentIndex() == 0
+    assert combo.currentData() is None
+    assert combo.currentText() == "Não informado"
+
+
+def test_formulario_inteiro_apagar_com_backspace_limpa_campo_no_modelo(qapp):
+    """Garante que no formulário, ao apagar o valor de um inteiro com backspace e perder o foco,
+    o campo tem sua presença limpa no Protobuf e a UI permanece vazia."""
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.protobuf_widget_factory import SpinBoxVazio
+    from PyQt6.QtGui import QFocusEvent
+    from PyQt6.QtCore import QEvent
+    from PyQt6.QtWidgets import QApplication
+    
+    setor = Setor()
+    setor.indice_mapa_padrao = 5
+    pilha = QUndoStack()
+    model = CroquiModel(setor)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+    
+    node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    spin = next(s for s in form.findChildren(SpinBoxVazio) if s.property("protobuf_field") == "indice_mapa_padrao")
+    assert spin.value() == 5
+    assert spin.text() == "5"
+    assert setor.HasField("indice_mapa_padrao")
+    
+    # Simula o usuário apagando o conteúdo
+    spin.lineEdit().setText("")
+    
+    # Simula a perda de foco (focusOutEvent)
+    event = QFocusEvent(QEvent.Type.FocusOut)
+    QApplication.sendEvent(spin, event)
+    qapp.processEvents()
+    
+    assert not setor.HasField("indice_mapa_padrao")
+    assert spin.value() == SpinBoxVazio.VALOR_NULO
+    assert spin.text() == ""
+
+
+
+
+

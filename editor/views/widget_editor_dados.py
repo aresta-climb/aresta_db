@@ -9,7 +9,7 @@ from aresta_api.proto.generated import croqui_pb2
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.widget_editor_mapas import WidgetEditorMapas
-from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
+from editor.views.protobuf_widget_factory import ProtobufWidgetFactory, ComboBoxSemScroll
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
 from PyQt6.QtWidgets import QInputDialog
@@ -218,9 +218,22 @@ class WidgetEditorMarkdown(QWidget):
         from editor.views.widget_editor_dados import _get_id
         self.editor.setProperty("protobuf_field", self.field.name)
         self.editor.setProperty("protobuf_msg_id", _get_id(self.msg))
-        
         self.editor.textChanged.connect(self._on_text_changed)
         
+    def set_conteudo(self, novo_conteudo):
+        text = "" if novo_conteudo is None else str(novo_conteudo)
+        if self.editor.toPlainText() != text:
+            self.editor.blockSignals(True)
+            self.editor.setPlainText(text)
+            self.editor.blockSignals(False)
+            
+            preview_text = text.lstrip()
+            if preview_text.startswith("---"):
+                parts = preview_text.split("---", 2)
+                if len(parts) >= 3:
+                    preview_text = parts[2]
+            self.preview.setMarkdown(preview_text)
+
     def _on_text_changed(self):
         text = self.editor.toPlainText()
         
@@ -233,24 +246,11 @@ class WidgetEditorMarkdown(QWidget):
                 
         self.preview.setMarkdown(preview_text)
         
-        val_antigo = getattr(self.msg, self.field.name)
+        val_antigo = getattr(self.msg, self.field.name) if self.msg.HasField(self.field.name) else None
         if val_antigo != text:
             self.controller.alterar_primitivo(self.msg, self.field.name, val_antigo, text)
             self.formulario._mark_dirty()
             self.formulario._notify_tree_changed()
-        
-        val_antigo = getattr(self.msg, self.field.name)
-        if val_antigo != text:
-            self.controller.alterar_primitivo(self.msg, self.field.name, val_antigo, text)
-            
-            # Mark dirty
-            form = self.parent()
-            while form:
-                if hasattr(form, "_mark_dirty"):
-                    form._mark_dirty()
-                    form._notify_tree_changed()
-                    break
-                form = form.parent() if hasattr(form, "parent") and callable(form.parent) else None
 
 def _extrair_titulo_heuristico(msg):
     for field_name in ["nome", "titulo", "id"]:
@@ -564,9 +564,18 @@ class ContainerRepeatedWidget(QWidget):
                 widget.toggled.connect(make_on_item_changed())
 
             elif isinstance(widget, QComboBox):
-                idx_val = widget.findData(val)
-                if idx_val >= 0:
-                    widget.setCurrentIndex(idx_val)
+                target_idx = -1
+                for i in range(widget.count()):
+                    item_data = widget.itemData(i)
+                    if type(item_data) == type(val) and item_data == val:
+                        target_idx = i
+                        break
+                if target_idx >= 0:
+                    widget.setCurrentIndex(target_idx)
+                else:
+                    idx_val = widget.findData(val)
+                    if idx_val >= 0:
+                        widget.setCurrentIndex(idx_val)
                 def make_on_item_changed(w=widget):
                     def on_item_changed():
                         new_val = w.currentData()
@@ -675,9 +684,9 @@ class WidgetFormularioPadrao(QStackedWidget):
                 try:
                     if isinstance(widget, QLineEdit):
                         widget.installEventFilter(GlobalUndoRedoFilter(widget))
-                        if widget.text() != str(novo_valor):
+                        new_text = "" if novo_valor is None else str(novo_valor)
+                        if widget.text() != new_text:
                             old_text = widget.text()
-                            new_text = str(novo_valor)
                             old_cursor = widget.cursorPosition()
                             
                             diff_idx = 0
@@ -694,9 +703,9 @@ class WidgetFormularioPadrao(QStackedWidget):
                             widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
                     elif isinstance(widget, QTextEdit):
                         widget.installEventFilter(GlobalUndoRedoFilter(widget))
-                        if widget.toPlainText() != str(novo_valor):
+                        new_text = "" if novo_valor is None else str(novo_valor)
+                        if widget.toPlainText() != new_text:
                             old_text = widget.toPlainText()
-                            new_text = str(novo_valor)
                             old_cursor = widget.textCursor().position()
                             
                             diff_idx = 0
@@ -714,18 +723,33 @@ class WidgetFormularioPadrao(QStackedWidget):
                             cursor.setPosition(new_cursor_pos)
                             widget.setTextCursor(cursor)
                     elif isinstance(widget, QSpinBox):
-                        if widget.value() != int(novo_valor):
-                            widget.setValue(int(novo_valor))
+                        val = ProtobufWidgetFactory.VALOR_INTEIRO_NULO if (novo_valor is None or novo_valor == "") else int(novo_valor)
+                        if widget.value() != val:
+                            widget.setValue(val)
                     elif isinstance(widget, QDoubleSpinBox):
-                        if widget.value() != float(novo_valor):
+                        if novo_valor is not None and widget.value() != float(novo_valor):
                             widget.setValue(float(novo_valor))
                     elif isinstance(widget, QCheckBox):
-                        if widget.isChecked() != bool(novo_valor):
+                        if novo_valor is not None and widget.isChecked() != bool(novo_valor):
                             widget.setChecked(bool(novo_valor))
                     elif isinstance(widget, QComboBox):
-                        idx = widget.findData(novo_valor)
-                        if idx >= 0 and widget.currentIndex() != idx:
-                            widget.setCurrentIndex(idx)
+                        if novo_valor is None:
+                            if widget.currentIndex() != 0:
+                                widget.setCurrentIndex(0)
+                        else:
+                            target_idx = -1
+                            for i in range(widget.count()):
+                                item_data = widget.itemData(i)
+                                if type(item_data) == type(novo_valor) and item_data == novo_valor:
+                                    target_idx = i
+                                    break
+                            if target_idx >= 0:
+                                if widget.currentIndex() != target_idx:
+                                    widget.setCurrentIndex(target_idx)
+                            else:
+                                idx = widget.findData(novo_valor)
+                                if idx >= 0 and widget.currentIndex() != idx:
+                                    widget.setCurrentIndex(idx)
                     elif isinstance(widget, WidgetEditorMarkdown):
                         widget.set_conteudo(novo_valor)
                 finally:
@@ -958,6 +982,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         current_filename = wrapper_msg.Extensions[ext_desc].caminho_novo if wrapper_msg.HasExtension(ext_desc) else ""
         
         edit = QLineEdit(current_filename)
+        self._aplicar_largura_maxima(edit)
         if not current_filename:
             edit.setPlaceholderText("(nome será gerado automaticamente ao salvar)")
             
@@ -1090,7 +1115,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         oneof_label.setStyleSheet("font-weight: bold; font-size: 10pt; color: #2b579a;")
         header_layout.addWidget(oneof_label)
         
-        combo = QComboBox()
+        combo = ComboBoxSemScroll()
         combo.addItem("Não selecionado", None)
         for f in oneof.fields:
             label = ProtobufWidgetFactory.get_label(f)
@@ -1239,118 +1264,55 @@ class WidgetFormularioPadrao(QStackedWidget):
             desc_label = None
             
         header_layout.addStretch()
-        
-        has_presence = field.has_presence
-        is_set = True
-        if has_presence:
-            try:
-                is_set = msg.HasField(field.name)
-            except ValueError:
-                is_set = True
-                
-        if has_presence:
-            if not is_set:
-                btn_add = QPushButton("Adicionar")
-                btn_add.setStyleSheet("background-color: #2b579a; color: white; border-radius: 4px; padding: 4px 8px;")
-                def make_on_add(m=msg, f=field):
-                    def on_add():
-                        if f.type == FieldDescriptor.TYPE_MESSAGE:
-                            msg_class = GetMessageClass(f.message_type)
-                            val = msg_class()
-                            self.inicializar_oneofs(val)
-                        else:
-                            val = f.default_value
-                        
-                        self.controller.alterar_oneof(m, None, None, None, f.name, val)
-                        
-                        self._mark_dirty()
-                        self._notify_tree_changed()
-                        self._render_field_inner(m, f, layout, container)
-                    return on_add
-                btn_add.clicked.connect(make_on_add())
-                header_layout.addWidget(btn_add)
-            else:
-                btn_remove = QPushButton("Remover")
-                btn_remove.setStyleSheet("background-color: #d9534f; color: white; border-radius: 4px; padding: 4px 8px;")
-                def make_on_remove(m=msg, f=field):
-                    def on_remove():
-                        val_antigo = getattr(m, f.name)
-                        
-                        self.controller.alterar_oneof(m, None, f.name, val_antigo, None, None)
-                        
-                        self._mark_dirty()
-                        self._notify_tree_changed()
-                        self._render_field_inner(m, f, layout, container)
-                    return on_remove
-                btn_remove.clicked.connect(make_on_remove())
-                header_layout.addWidget(btn_remove)
-                
         card_layout.addLayout(header_layout)
         if desc_label:
             card_layout.addWidget(desc_label)
             
-        layout.addWidget(card)
+        if field.type == FieldDescriptor.TYPE_MESSAGE:
+            sub_msg = getattr(msg, field.name)
             
-        if is_set:
-            if field.type == FieldDescriptor.TYPE_MESSAGE:
-                sub_msg = getattr(msg, field.name)
+            new_path = f"{extra_path}/{field.name}" if extra_path else field.name
+            
+            # Resolução de transparência inline para campos ONEOF_CONTEUDO
+            options = field.message_type.GetOptions()
+            if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
+                formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
+                if formato == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
+                    if sub_msg.HasField("conteudo"):
+                        sub_msg = getattr(sub_msg, "conteudo")
+                        new_path += "/conteudo"
+                            
+            frame = QFrame()
+            frame.setObjectName("SubMessageFrame")
+            frame.setStyleSheet("""
+                QFrame#SubMessageFrame {
+                    border: 1.5px solid #2b579a;
+                    border-radius: 6px;
+                    background-color: #fdfdfd;
+                }
+            """)
+            frame_layout = QVBoxLayout(frame)
+            frame_layout.setContentsMargins(10, 10, 10, 10)
+            frame_layout.setSpacing(6)
+            
+            self._render_message_fields(sub_msg, frame_layout, new_path)
+            card_layout.addWidget(frame)
+        else:
+            opts = field.GetOptions()
+            is_markdown = False
+            if opts.HasExtension(croqui_pb2.mime_type):
+                is_markdown = opts.Extensions[croqui_pb2.mime_type] == "text/markdown"
+            if opts.HasExtension(croqui_pb2.conteudo_markdown) and opts.Extensions[croqui_pb2.conteudo_markdown]:
+                is_markdown = True
                 
-                new_path = f"{extra_path}/{field.name}" if extra_path else field.name
-                
-                # Resolução de transparência inline para campos ONEOF_CONTEUDO
-                options = field.message_type.GetOptions()
-                if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
-                    formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
-                    if formato == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
-                        if sub_msg.HasField("conteudo"):
-                            sub_msg = getattr(sub_msg, "conteudo")
-                            new_path += "/conteudo"
-                        else:
-                            # Tenta forçar o conteúdo caso seja vazio
-                            try:
-                                import google.protobuf.descriptor as gdesc
-                                conteudo_field = sub_msg.DESCRIPTOR.fields_by_name.get("conteudo")
-                                if conteudo_field and conteudo_field.type == gdesc.FieldDescriptor.TYPE_MESSAGE:
-                                    # Ativa o oneof 'conteudo'
-                                    msg_class = ProtobufWidgetFactory._get_message_class(conteudo_field.message_type)
-                                    if msg_class:
-                                        val = msg_class()
-                                        self.inicializar_oneofs(val)
-                                        pass
-                            except Exception:
-                                pass
-                                
-                frame = QFrame()
-                frame.setObjectName("SubMessageFrame")
-                frame.setStyleSheet("""
-                    QFrame#SubMessageFrame {
-                        border: 1.5px solid #2b579a;
-                        border-radius: 6px;
-                        background-color: #fdfdfd;
-                    }
-                """)
-                frame_layout = QVBoxLayout(frame)
-                frame_layout.setContentsMargins(10, 10, 10, 10)
-                frame_layout.setSpacing(6)
-                
-                self._render_message_fields(sub_msg, frame_layout, new_path)
-                card_layout.addWidget(frame)
+            if is_markdown:
+                widget = WidgetEditorMarkdown(msg, field, self, parent=self)
+                card_layout.addWidget(widget)
             else:
-                opts = field.GetOptions()
-                is_markdown = False
-                if opts.HasExtension(croqui_pb2.mime_type):
-                    is_markdown = opts.Extensions[croqui_pb2.mime_type] == "text/markdown"
-                if opts.HasExtension(croqui_pb2.conteudo_markdown) and opts.Extensions[croqui_pb2.conteudo_markdown]:
-                    is_markdown = True
-                    
-                if is_markdown:
-                    widget = WidgetEditorMarkdown(msg, field, self, parent=self)
-                    card_layout.addWidget(widget)
-                else:
-                    widget = ProtobufWidgetFactory.create_widget(field)
-                    self._aplicar_largura_maxima(widget)
-                    self._setup_primitive_widget(widget, msg, field)
-                    card_layout.addWidget(widget)
+                widget = ProtobufWidgetFactory.create_widget(field)
+                self._aplicar_largura_maxima(widget)
+                self._setup_primitive_widget(widget, msg, field)
+                card_layout.addWidget(widget)
                 
         layout.addWidget(card)
 
@@ -1372,17 +1334,74 @@ class WidgetFormularioPadrao(QStackedWidget):
         container_widget = ContainerRepeatedWidget(msg, field, self, extra_path=new_path)
         parent_layout.addWidget(container_widget)
 
+    def _obter_has_field(self, msg, field_name):
+        try:
+            return msg.HasField(field_name)
+        except ValueError:
+            return bool(getattr(msg, field_name, None))
+
     def _setup_primitive_widget(self, widget, msg, field):
         widget.setProperty("protobuf_field", field.name)
         widget.setProperty("protobuf_msg_id", _get_id(msg))
-        val = getattr(msg, field.name)
+        self._aplicar_largura_maxima(widget)
+        
+        has_val = self._obter_has_field(msg, field.name)
+        
+        widget.blockSignals(True)
+        try:
+            if isinstance(widget, QLineEdit):
+                widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                if has_val:
+                    val = getattr(msg, field.name)
+                    widget.setText(str(val) if val is not None else "")
+                else:
+                    widget.setText("")
+            elif isinstance(widget, QSpinBox):
+                if has_val:
+                    widget.setValue(getattr(msg, field.name))
+                else:
+                    widget.setValue(ProtobufWidgetFactory.VALOR_INTEIRO_NULO)
+            elif isinstance(widget, QDoubleSpinBox):
+                if has_val:
+                    widget.setValue(getattr(msg, field.name))
+            elif isinstance(widget, QCheckBox):
+                if has_val:
+                    widget.setChecked(getattr(msg, field.name))
+            elif isinstance(widget, QComboBox):
+                if has_val:
+                    val = getattr(msg, field.name)
+                    target_idx = -1
+                    for i in range(widget.count()):
+                        item_data = widget.itemData(i)
+                        if type(item_data) == type(val) and item_data == val:
+                            target_idx = i
+                            break
+                    if target_idx >= 0:
+                        widget.setCurrentIndex(target_idx)
+                    else:
+                        idx = widget.findData(val)
+                        widget.setCurrentIndex(idx if idx >= 0 else 0)
+                else:
+                    widget.setCurrentIndex(0)
+        finally:
+            widget.blockSignals(False)
+            
         if isinstance(widget, QLineEdit):
-            widget.installEventFilter(GlobalUndoRedoFilter(widget))
-            widget.setText(val)
             def make_on_changed(w=widget, m=msg, f=field):
                 def on_changed():
-                    val_antigo = getattr(m, f.name)
-                    val_novo = w.text()
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    text = w.text()
+                    if f.type in (FieldDescriptor.TYPE_FLOAT, FieldDescriptor.TYPE_DOUBLE):
+                        if text.strip() == "":
+                            val_novo = None
+                        else:
+                            try:
+                                val_novo = float(text.strip())
+                            except ValueError:
+                                return
+                    else:
+                        val_novo = text if text != "" else None
+                        
                     if val_antigo != val_novo:
                         self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo)
                         self._mark_dirty()
@@ -1391,22 +1410,21 @@ class WidgetFormularioPadrao(QStackedWidget):
             widget.textChanged.connect(make_on_changed())
             
         elif isinstance(widget, QSpinBox):
-            widget.setValue(val)
             def make_on_changed(w=widget, m=msg, f=field):
                 def on_changed(new_val):
-                    val_antigo = getattr(m, f.name)
-                    if val_antigo != new_val:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    val_novo = None if new_val == ProtobufWidgetFactory.VALOR_INTEIRO_NULO else new_val
+                    if val_antigo != val_novo:
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed
             widget.valueChanged.connect(make_on_changed())
             
         elif isinstance(widget, QDoubleSpinBox):
-            widget.setValue(val)
             def make_on_changed(w=widget, m=msg, f=field):
                 def on_changed(new_val):
-                    val_antigo = getattr(m, f.name)
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != new_val:
                         self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
                         self._mark_dirty()
@@ -1415,10 +1433,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             widget.valueChanged.connect(make_on_changed())
             
         elif isinstance(widget, QCheckBox):
-            widget.setChecked(val)
             def make_on_changed(w=widget, m=msg, f=field):
                 def on_changed(checked):
-                    val_antigo = getattr(m, f.name)
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != checked:
                         self.controller.alterar_primitivo(m, f.name, val_antigo, checked)
                         self._mark_dirty()
@@ -1427,18 +1444,14 @@ class WidgetFormularioPadrao(QStackedWidget):
             widget.toggled.connect(make_on_changed())
             
         elif isinstance(widget, QComboBox):
-            idx = widget.findData(val)
-            if idx >= 0:
-                widget.setCurrentIndex(idx)
             def make_on_changed(w=widget, m=msg, f=field):
                 def on_changed():
                     new_val = w.currentData()
-                    if new_val is not None:
-                        val_antigo = getattr(m, f.name)
-                        if val_antigo != new_val:
-                            self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
-                            self._mark_dirty()
-                            self._notify_tree_changed()
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    if val_antigo != new_val:
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
+                        self._mark_dirty()
+                        self._notify_tree_changed()
                 return on_changed
             widget.currentIndexChanged.connect(make_on_changed())
 
@@ -1918,7 +1931,13 @@ class WidgetEditorDados(QWidget):
         self.model.foco_requisitado.connect(self._on_foco_requisitado)
 
     def _on_dado_alterado(self, msg, campo_nome, *args):
-        novo_valor = getattr(msg, campo_nome) if hasattr(msg, campo_nome) else None
+        has_field = False
+        try:
+            has_field = msg.HasField(campo_nome)
+        except ValueError:
+            has_field = bool(getattr(msg, campo_nome, None))
+            
+        novo_valor = getattr(msg, campo_nome) if has_field else None
         self.form_padrao._on_campo_alterado(_get_id(msg), campo_nome, novo_valor)
         self.tree_model._on_campo_alterado(_get_id(msg), campo_nome, novo_valor)
 

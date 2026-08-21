@@ -141,3 +141,90 @@ def test_atalho_qlineedit_engole_desfazer_global_e_como_evitar(qtbot):
         assert janela.historico.obter_pilha().index() == 0, "O Ctrl+Z foi engolido pelo QLineEdit e a ação global de desfazer não rodou!"
     finally:
         janela.historico.obter_pilha().setClean()
+
+
+def test_widget_editor_dados_integracao_esvaziamento_presenca_e_undo_redo(qtbot):
+    """Garante que a UI não possui botões Adicionar/Remover nos cards de campos,
+    que esvaziar campo limpa a presença no proto, e que a reversão via Undo/Redo
+    restaura perfeitamente presença e valores."""
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from PyQt6.QtWidgets import QPushButton, QComboBox, QApplication
+    
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    janela.show()
+    
+    try:
+        setor = Setor()
+        setor.nome = "Setor Estacionamento"
+        setor.sinal_de_celular = True
+        
+        model = CroquiModel(setor)
+        controller = CroquiController(model, janela.historico.obter_pilha())
+        janela.pagina_dados.carregar_dados(model, controller)
+        
+        QApplication.processEvents()
+        
+        editor_dados = janela.pagina_dados.editor_dados
+        form = editor_dados.form_padrao
+        
+        setor_idx = editor_dados.tree_model.index(0, 0)
+        editor_dados.tree_view.selectionModel().select(
+            setor_idx,
+            editor_dados.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+        )
+        editor_dados._on_tree_selection_changed(None, None)
+        QApplication.processEvents()
+        
+        # 1. Verifica ausência de botões contextuais "Adicionar" e "Remover" nos cards individuais
+        botoes_card = [
+            btn for btn in form.findChildren(QPushButton)
+            if btn.text() in ("Adicionar", "Remover")
+        ]
+        assert len(botoes_card) == 0, f"Não deveria haver botões Adicionar/Remover nos cards, encontrados: {botoes_card}"
+        
+        # 2. Esvazia o campo nome e valida ClearField
+        line_edits = form.findChildren(QLineEdit)
+        edit_nome = next(le for le in line_edits if le.property("protobuf_field") == "nome")
+        assert edit_nome.text() == "Setor Estacionamento"
+        assert setor.HasField("nome")
+        
+        edit_nome.setText("")
+        QApplication.processEvents()
+        assert not setor.HasField("nome")
+        
+        # Desfaz e valida restauração
+        janela.historico.desfazer()
+        QApplication.processEvents()
+        assert setor.HasField("nome")
+        assert setor.nome == "Setor Estacionamento"
+        assert edit_nome.text() == "Setor Estacionamento"
+        
+        # Refaz e valida nova limpeza
+        janela.historico.refazer()
+        QApplication.processEvents()
+        assert not setor.HasField("nome")
+        assert edit_nome.text() == ""
+        
+        # 3. Altera booleano tri-state para "Não informado"
+        combos = form.findChildren(QComboBox)
+        combo_sinal = next(cb for cb in combos if cb.property("protobuf_field") == "sinal_de_celular")
+        
+        # O valor inicial era True, então não deve ser o índice 0 ("Não informado")
+        assert setor.HasField("sinal_de_celular")
+        assert setor.sinal_de_celular is True
+        
+        # Seleciona o índice 0 ("Não informado")
+        combo_sinal.setCurrentIndex(0)
+        QApplication.processEvents()
+        assert not setor.HasField("sinal_de_celular")
+        
+        # Desfaz
+        janela.historico.desfazer()
+        QApplication.processEvents()
+        assert setor.HasField("sinal_de_celular")
+        assert setor.sinal_de_celular is True
+        
+    finally:
+        janela.historico.obter_pilha().setClean()
+

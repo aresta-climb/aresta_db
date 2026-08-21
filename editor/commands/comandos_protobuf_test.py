@@ -33,6 +33,58 @@ class TestComandosProtobuf(unittest.TestCase):
         cmd.redo()
         self.assertEqual(croqui.nome, "Novo Nome")
 
+    def test_cmd_alterar_primitivo_esvaziar_string_e_reversao(self):
+        from aresta_api.proto.generated.croqui_pb2 import Setor
+        setor = Setor()
+        setor.nome = "Setor Estacionamento"
+        model = CroquiModel(setor)
+        
+        # Esvazia a string
+        cmd = CmdAlterarPrimitivo(model, setor, "nome", "Setor Estacionamento", "")
+        cmd.redo()
+        self.assertFalse(setor.HasField("nome"))
+        
+        # Desfaz e restaura
+        cmd.undo()
+        self.assertTrue(setor.HasField("nome"))
+        self.assertEqual(setor.nome, "Setor Estacionamento")
+        
+        # Refaz e limpa novamente
+        cmd.redo()
+        self.assertFalse(setor.HasField("nome"))
+
+    def test_cmd_alterar_primitivo_booleano_tri_state_none(self):
+        from aresta_api.proto.generated.croqui_pb2 import Setor
+        setor = Setor()
+        setor.sinal_de_celular = True
+        model = CroquiModel(setor)
+        
+        # Altera para None (indefinido)
+        cmd = CmdAlterarPrimitivo(model, setor, "sinal_de_celular", True, None)
+        cmd.redo()
+        self.assertFalse(setor.HasField("sinal_de_celular"))
+        
+        # Desfaz
+        cmd.undo()
+        self.assertTrue(setor.HasField("sinal_de_celular"))
+        self.assertTrue(setor.sinal_de_celular)
+
+    def test_cmd_alterar_primitivo_inteiro_nullable_e_zero(self):
+        from aresta_api.proto.generated.croqui_pb2 import Setor
+        setor = Setor()
+        model = CroquiModel(setor)
+        self.assertFalse(setor.HasField("indice_mapa_padrao"))
+        
+        # Define como 0 (presente!)
+        cmd = CmdAlterarPrimitivo(model, setor, "indice_mapa_padrao", None, 0)
+        cmd.redo()
+        self.assertTrue(setor.HasField("indice_mapa_padrao"))
+        self.assertEqual(setor.indice_mapa_padrao, 0)
+        
+        # Desfaz (volta a ser None / ausente)
+        cmd.undo()
+        self.assertFalse(setor.HasField("indice_mapa_padrao"))
+
     def test_cmd_adicionar_remover_repeated_primitives(self):
         croqui = Croqui()
         croqui.creditos.append("Renato")
