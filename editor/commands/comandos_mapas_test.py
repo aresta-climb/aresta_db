@@ -52,18 +52,15 @@ class TestComandosMapas(unittest.TestCase):
             index=0,
             valor=novo_mapa,
             caminho_absoluto=caminho_imagem,
-            img_bytes=img_bytes
+            img_bytes=img_bytes,
+            context_path="node:Croqui/setores/item:0"
         )
         
         # Testar Redo
         cmd.redo()
         
-        # Verifica se o arquivo foi criado e com o conteudo correto
-        self.assertTrue(caminho_imagem.exists())
-        with open(caminho_imagem, 'rb') as f:
-            self.assertEqual(f.read(), img_bytes)
-            
-        # Verifica se o modelo foi atualizado
+        # Verifica se o modelo foi atualizado com a imagem na RAM
+        self.assertEqual(self.model.obter_bytes_imagem("imagens/mapa_teste.webp"), img_bytes)
         self.assertEqual(len(self.setor.mapas), 1)
         self.assertEqual(self.setor.mapas[0].caminho_imagem_mapa, "imagens/mapa_teste.webp")
         self.assertEqual(self.setor.mapas[0].largura_mapa, 100)
@@ -71,10 +68,8 @@ class TestComandosMapas(unittest.TestCase):
         # Testar Undo
         cmd.undo()
         
-        # Verifica se o arquivo foi removido
-        self.assertFalse(caminho_imagem.exists())
-        
-        # Verifica se o modelo foi atualizado
+        # Verifica se a imagem foi removida da RAM e o modelo esvaziado
+        self.assertIsNone(self.model.obter_bytes_imagem("imagens/mapa_teste.webp"))
         self.assertEqual(len(self.setor.mapas), 0)
 
 if __name__ == '__main__':

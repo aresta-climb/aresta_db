@@ -61,13 +61,16 @@ def test_janela_roteamento_foco(qtbot):
     mapa_mock = MagicMock()
     mapa_mock.caminho_imagem_mapa = "setor.md"
     sg_mock = MagicMock()
-    sg_mock.HasField.return_value = True
+    sg_mock.HasField.side_effect = lambda field: field == 'setor'
     sg_mock.setor.conteudo.mapas = [mapa_mock]
     pico_mock = MagicMock()
+    pico_mock.HasField.side_effect = lambda field: False
     pico_mock.setores_ou_grupos = [sg_mock]
-    
+
+    croqui_ro = MagicMock()
+    croqui_ro.picos = [pico_mock]
     janela.croqui_model = MagicMock()
-    janela.croqui_model.croqui_msg.picos = [pico_mock]
+    janela.croqui_model.obter_croqui_readonly.return_value = croqui_ro
 
     with patch.object(janela.pagina_mapas.editor, 'selecionar_mapa_por_indices') as mock_selecionar:
         # Roteamento para Dados

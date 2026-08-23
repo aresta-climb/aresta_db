@@ -212,6 +212,30 @@ def test_spinbox_vazio_apagar_com_backspace_mantem_vazio_ao_perder_foco(qapp):
     assert spin.lineEdit().text() == ""
 
 
+def test_widgets_coordenada_e_imagem(qapp):
+    from aresta_api.proto.generated.croqui_pb2 import Coordenada, Croqui
+    from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
+    from editor.views.widget_campo_imagem import WidgetCampoImagem
+
+    campo_lat = Coordenada.DESCRIPTOR.fields_by_name['latitude']
+    campo_lon = Coordenada.DESCRIPTOR.fields_by_name['longitude']
+    campo_thumb = Croqui.DESCRIPTOR.fields_by_name['caminho_thumbnail']
+
+    w_lat = ProtobufWidgetFactory.create_widget(campo_lat)
+    w_lon = ProtobufWidgetFactory.create_widget(campo_lon)
+    w_thumb = ProtobufWidgetFactory.create_widget(campo_thumb)
+
+    assert isinstance(w_lat, WidgetCampoCoordenadaE7)
+    assert w_lat.tipo == TipoCoordenada.LATITUDE
+
+    assert isinstance(w_lon, WidgetCampoCoordenadaE7)
+    assert w_lon.tipo == TipoCoordenada.LONGITUDE
+
+    assert isinstance(w_thumb, WidgetCampoImagem)
+    assert w_thumb.nome_arquivo_fixo == "thumbnail.webp"
+
+
+
 
 
 

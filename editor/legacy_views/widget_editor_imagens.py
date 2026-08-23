@@ -19,13 +19,14 @@
 import sys
 import os
 import glob
+from pathlib import Path
 from PIL import Image, ImageDraw
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QVBoxLayout, QWidget,
     QPushButton, QMessageBox, QLabel,
     QSplitter, QListWidget, QListWidgetItem, QHBoxLayout,
-    QGraphicsPixmapItem
+    QGraphicsPixmapItem, QFileDialog
 )
 from PyQt6.QtCore import Qt, QRectF, QPointF
 from PyQt6.QtGui import QPixmap, QPen, QColor, QFont, QBrush, QCursor, QImage, QUndoCommand
@@ -318,11 +319,18 @@ class ImageViewer(QGraphicsView):
             self.scale(1/1.15, 1/1.15)
 
 class WidgetEditorImagens(QWidget):
-    def __init__(self, folder_path, modo_integrado=False, parent=None):
+    def __init__(self, folder_path=None, modo_integrado=False, parent=None, model=None, controller=None, croqui_model=None, croqui_controller=None, imagens_path=None):
         super().__init__(parent)
         self.folder_path = folder_path
-        self.imagens_path = os.path.join(folder_path, "imagens")
+        if imagens_path:
+            self.imagens_path = str(imagens_path)
+        elif folder_path:
+            self.imagens_path = os.path.join(folder_path, "imagens")
+        else:
+            self.imagens_path = "imagens"
         self.modo_integrado = modo_integrado
+        self.croqui_model = croqui_model or model
+        self.croqui_controller = croqui_controller or controller
         
         self.current_file = None
         self.scene = None
@@ -332,6 +340,8 @@ class WidgetEditorImagens(QWidget):
         self.states = {} # Dict: file_path -> PageState
         
         self.setup_ui()
+        if self.croqui_model and hasattr(self.croqui_model, "imagem_alterada"):
+            self.croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
         self.load_images_list()
 
     def setup_ui(self):
@@ -423,6 +433,15 @@ class WidgetEditorImagens(QWidget):
         self.list_widget = QListWidget()
         self.list_widget.currentRowChanged.connect(self.on_image_selected)
         left_layout.addWidget(self.list_widget)
+
+        self.btn_substituir_imagem = QPushButton("Substituir Imagem...")
+        self.btn_substituir_imagem.clicked.connect(self.substituir_imagem_selecionada)
+        left_layout.addWidget(self.btn_substituir_imagem)
+
+        self.btn_abrir_no_editor_mapas = QPushButton("Abrir no Editor de Mapas")
+        self.btn_abrir_no_editor_mapas.clicked.connect(self.abrir_no_editor_mapas)
+        self.btn_abrir_no_editor_mapas.setEnabled(False)
+        left_layout.addWidget(self.btn_abrir_no_editor_mapas)
         
         # --- Painel Direito ---
         right_widget = QWidget()
@@ -494,25 +513,63 @@ class WidgetEditorImagens(QWidget):
         main_layout.addWidget(self.splitter)
 
     def load_images_list(self):
-        if not os.path.exists(self.imagens_path):
-            return
-            
-        extensions = ['*.webp', '*.png', '*.jpg', '*.jpeg']
-        image_files = []
-        for ext in extensions:
-            image_files.extend(glob.glob(os.path.join(self.imagens_path, ext)))
-            
-        image_files = sorted(image_files)
+        caminho_selecionado = self.current_file
+        self.list_widget.blockSignals(True)
+        self.list_widget.clear()
+
+        arquivos = set()
+        if self.imagens_path and os.path.exists(self.imagens_path):
+            extensions = ['*.webp', '*.png', '*.jpg', '*.jpeg', '*.bmp', '*.tiff', '*.tif']
+            for ext in extensions:
+                arquivos.update(glob.glob(os.path.join(self.imagens_path, ext)))
+
+        if self.croqui_model and hasattr(self.croqui_model, "obter_imagens_em_memoria"):
+            for rel in self.croqui_model.obter_imagens_em_memoria().keys():
+                nome = Path(rel).name
+                if self.imagens_path:
+                    arquivos.add(os.path.join(self.imagens_path, nome))
+                else:
+                    arquivos.add(rel)
+
+        image_files = sorted(list(arquivos))
         if not image_files:
+            self.current_file = None
+            self.list_widget.blockSignals(False)
+            self._atualizar_estado_botao_mapa()
             return
-            
-        for path in image_files:
-            item = QListWidgetItem(os.path.basename(path))
+
+        linha_para_selecionar = 0
+        for idx, path in enumerate(image_files):
+            nome = os.path.basename(path)
+            item = QListWidgetItem(nome)
             item.setData(Qt.ItemDataRole.UserRole, path)
             self.list_widget.addItem(item)
-            
+            if caminho_selecionado and (path == caminho_selecionado or nome == Path(caminho_selecionado).name):
+                linha_para_selecionar = idx
+
+        self.list_widget.blockSignals(False)
         if self.list_widget.count() > 0:
-            self.list_widget.setCurrentRow(0)
+            if self.list_widget.currentRow() == linha_para_selecionar:
+                self.on_image_selected(linha_para_selecionar)
+            else:
+                self.list_widget.setCurrentRow(linha_para_selecionar)
+
+    def select_image_by_name(self, filename_or_path: str):
+        """Seleciona uma imagem na lista pelo nome do arquivo."""
+        if not filename_or_path:
+            return
+        clean_name = filename_or_path
+        if clean_name.startswith("file:"):
+            clean_name = clean_name[5:]
+        target_name = Path(clean_name).name
+        for row in range(self.list_widget.count()):
+            item = self.list_widget.item(row)
+            if item.text() == target_name or item.text() == "* " + target_name:
+                if self.list_widget.currentRow() != row:
+                    self.list_widget.setCurrentRow(row)
+                else:
+                    self.on_image_selected(row)
+                return
 
     def on_image_selected(self, index):
         if index < 0:
@@ -535,7 +592,21 @@ class WidgetEditorImagens(QWidget):
     def load_image(self, file_path):
         self.save_current_state()
         
-        if file_path not in self.states:
+        rel_path = f"imagens/{Path(file_path).name}" if not str(file_path).startswith("imagens/") else file_path
+        bytes_ram = None
+        if self.croqui_model and hasattr(self.croqui_model, "obter_bytes_imagem"):
+            bytes_ram = self.croqui_model.obter_bytes_imagem(rel_path) or self.croqui_model.obter_bytes_imagem(file_path)
+
+        if bytes_ram and isinstance(bytes_ram, (bytes, bytearray, memoryview)):
+            try:
+                import io
+                with Image.open(io.BytesIO(bytes_ram)) as img:
+                    working_image = img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
+                self.states[file_path] = PageState(working_image, file_path)
+            except Exception as e:
+                QMessageBox.critical(self, "Erro", f"Falha ao carregar imagem {file_path}: {e}")
+                return
+        elif file_path not in self.states:
             try:
                 with Image.open(file_path) as img:
                     working_image = img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
@@ -546,6 +617,108 @@ class WidgetEditorImagens(QWidget):
 
         self.current_file = file_path
         self.refresh_ui()
+        self._atualizar_estado_botao_mapa()
+
+    def imagem_pertence_a_mapa(self, nome_arquivo_ou_caminho: str) -> bool:
+        """Verifica se a imagem especificada pertence a algum mapa no croqui_model."""
+        if not self.croqui_model or not nome_arquivo_ou_caminho:
+            return False
+        from pathlib import Path
+        nome_alvo = Path(nome_arquivo_ou_caminho).name
+        
+        croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
+        if not croqui_ro:
+            return False
+            
+        for pico in getattr(croqui_ro, "picos", []):
+            if hasattr(pico, "HasField") and pico.HasField('mapas_gerais'):
+                for mapa in pico.mapas_gerais.conteudo.mapas:
+                    if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                        return True
+            for sg in getattr(pico, "setores_ou_grupos", []):
+                if getattr(sg, 'setor', None) and (not hasattr(sg, "HasField") or sg.HasField('setor')):
+                    for mapa in sg.setor.conteudo.mapas:
+                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                            return True
+                if getattr(sg, 'grupo', None) and (not hasattr(sg, "HasField") or sg.HasField('grupo')):
+                    for mapa in sg.grupo.conteudo.mapas:
+                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                            return True
+                    for subsetor in getattr(sg.grupo.conteudo, "setores", []):
+                        for mapa in subsetor.conteudo.mapas:
+                            if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                                return True
+        return False
+
+    def _atualizar_estado_botao_mapa(self):
+        """Atualiza o estado habilitado/desabilitado do botão de abrir no editor de mapas."""
+        if hasattr(self, "btn_abrir_no_editor_mapas"):
+            pertence = self.imagem_pertence_a_mapa(self.current_file) if self.current_file else False
+            self.btn_abrir_no_editor_mapas.setEnabled(pertence)
+            if pertence:
+                self.btn_abrir_no_editor_mapas.setToolTip("Abre esta imagem diretamente na aba do Editor de Mapas")
+            else:
+                self.btn_abrir_no_editor_mapas.setToolTip("Esta imagem não está vinculada a nenhum mapa no croqui")
+
+    def abrir_no_editor_mapas(self):
+        """Abre e foca a imagem selecionada no Editor de Mapas."""
+        if not self.current_file:
+            return
+        from pathlib import Path
+        nome_arquivo = Path(self.current_file).name
+        contexto_uri = f"page:mapas/file:{nome_arquivo}"
+
+        if self.croqui_controller:
+            self.croqui_controller.set_contexto(contexto_uri)
+        if self.croqui_model and hasattr(self.croqui_model, "notificar_foco_requisitado"):
+            self.croqui_model.notificar_foco_requisitado(contexto_uri)
+        elif self.croqui_model and hasattr(self.croqui_model, "foco_requisitado"):
+            self.croqui_model.foco_requisitado.emit(contexto_uri)
+
+    def substituir_imagem_selecionada(self):
+        """Abre diálogo para substituir a imagem selecionada com compressão WebP em RAM."""
+        if not self.current_file:
+            return
+
+        arquivo, _ = QFileDialog.getOpenFileName(
+            self,
+            "Substituir Imagem",
+            "",
+            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
+        )
+        if not arquivo:
+            return
+
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+        try:
+            bytes_originais = Path(arquivo).read_bytes()
+            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
+        except Exception as e:
+            QMessageBox.warning(self, "Erro", f"Falha ao processar nova imagem: {e}")
+            return
+
+        nome_arquivo = Path(self.current_file).name
+        caminho_rel = f"imagens/{nome_arquivo}"
+        contexto_img = f"page:imagens/file:{nome_arquivo}"
+
+        if self.croqui_controller:
+            self.croqui_controller.set_contexto(contexto_img)
+            self.croqui_controller.substituir_imagem(caminho_rel, bytes_webp, context_path=contexto_img)
+        elif self.croqui_model:
+            self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_webp)
+
+        self.states.pop(self.current_file, None)
+        self.load_image(self.current_file)
+
+    def _on_imagem_alterada(self, caminho_relativo: str):
+        """Atualiza a lista e visualizador quando uma imagem for alterada externamente."""
+        self.load_images_list()
+        if self.current_file:
+            nome_atual = Path(self.current_file).name
+            nome_alt = Path(caminho_relativo).name
+            if nome_atual == nome_alt or self.current_file == caminho_relativo:
+                self.states.pop(self.current_file, None)
+                self.load_image(self.current_file)
 
     def mark_modified(self):
         if self.current_file in self.states:

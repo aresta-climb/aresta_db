@@ -9,7 +9,8 @@ from editor.commands.comandos_protobuf import (
     CmdRemoverRepeated,
     CmdAlterarOneof,
     CmdAlterarRepeatedItem,
-    CmdMoverRepeated
+    CmdMoverRepeated,
+    CmdAlterarCampoImagem
 )
 
 class CroquiController:
@@ -28,6 +29,13 @@ class CroquiController:
 
     def alterar_primitivo(self, msg, campo_nome, valor_antigo, valor_novo):
         cmd = CmdAlterarPrimitivo(self.model, msg, campo_nome, valor_antigo, valor_novo, self.contexto_atual_path)
+        self.undo_stack.push(cmd)
+
+    def alterar_campo_imagem(self, msg, campo_nome, caminho_antigo, bytes_antigo, caminho_novo, bytes_novo):
+        """Despacha comando de alteração de imagem com gerenciamento em RAM."""
+        cmd = CmdAlterarCampoImagem(
+            self.model, msg, campo_nome, caminho_antigo, bytes_antigo, caminho_novo, bytes_novo, self.contexto_atual_path
+        )
         self.undo_stack.push(cmd)
 
     def adicionar_repeated(self, msg, campo_nome, index, valor):
@@ -73,3 +81,13 @@ class CroquiController:
         from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
         cmd = CmdAdicionarMapaArquivo(self.model, msg, campo_nome, index, valor, caminho_absoluto, img_bytes, self.contexto_atual_path)
         self.undo_stack.push(cmd)
+
+    def substituir_imagem(self, caminho_relativo: str, bytes_novo: bytes, bytes_antigo: bytes | None = None, context_path: str | None = None):
+        """Despacha comando de substituição de imagem em memória RAM."""
+        from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
+        if bytes_antigo is None:
+            bytes_antigo = self.model.obter_bytes_imagem(caminho_relativo)
+        ctx = context_path if context_path is not None else self.contexto_atual_path
+        cmd = CmdSubstituirImagemMemoria(self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx)
+        self.undo_stack.push(cmd)
+

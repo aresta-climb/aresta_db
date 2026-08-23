@@ -22,6 +22,8 @@ from ..core.historico import GerenciadorHistorico
 from editor.models.compilacao_log import CompilacaoLog
 from editor.controllers.compilacao_controller import CompilacaoController
 from editor.views.widget_saida_compilacao import WidgetSaidaCompilacao
+from editor.models.croqui_model import CroquiModel
+from editor.controllers.croqui_controller import CroquiController
 
 class DialogoPublicar(QDialog):
     """Diálogo para coletar informações para o Pull Request."""
@@ -107,11 +109,23 @@ class PaginaImagens(PaginaBase):
         self.editor = WidgetEditorImagens("", modo_integrado=True, parent=self)
         self.layout().addWidget(self.editor)
         
-    def carregar_imagens(self, caminho_db):
+    def carregar_imagens(self, caminho_db, model=None, controller=None):
+        if model:
+            self.editor.croqui_model = model
+            if hasattr(model, "imagem_alterada"):
+                try:
+                    model.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                except Exception:
+                    pass
+                model.imagem_alterada.connect(self.editor._on_imagem_alterada)
+        if controller:
+            self.editor.croqui_controller = controller
+
         if caminho_db:
             self.editor.folder_path = str(caminho_db)
             self.editor.imagens_path = str(Path(caminho_db) / "imagens")
-            self.editor.load_images_list()
+        self.editor.load_images_list()
+
 class PaginaMapas(PaginaBase):
     def __init__(self, parent=None):
         super().__init__("Mapas", parent)
@@ -125,16 +139,25 @@ class PaginaMapas(PaginaBase):
         self.editor = WidgetEditorMapas(parent=self)
         self.layout().addWidget(self.editor)
         
-    def carregar_mapas(self, model, undo_stack, caminho_db=None):
+    def carregar_mapas(self, model, undo_stack, caminho_db=None, controller=None):
         if model:
             from editor.controllers.mapas_controller import MapasController
             mapas_controller = MapasController(model, undo_stack)
             if caminho_db:
                 mapas_controller.set_caminho_db(caminho_db)
             self.editor.mapas_controller = mapas_controller
+            self.editor.croqui_model = model
+            self.editor.croqui_controller = controller or getattr(mapas_controller, "croqui_controller", None)
+            if hasattr(model, "imagem_alterada"):
+                try:
+                    model.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                except Exception:
+                    pass
+                model.imagem_alterada.connect(self.editor._on_imagem_alterada)
             if hasattr(self.editor, 'painel_referencias'):
                 self.editor.painel_referencias.mapas_controller = mapas_controller
             self.editor.configurar_lista_mapas()
+
 
 class PaginaBetas(PaginaBase):
     def __init__(self, parent=None):
@@ -168,6 +191,8 @@ class JanelaPrincipal(QMainWindow):
         self.auth = auth
         self.workspace = workspace
         self.croqui_data = None
+        self.croqui_model = None
+        self.croqui_controller = None
         self._acoes_contextuais = []
         self._worker_pr = None
         
@@ -486,6 +511,10 @@ class JanelaPrincipal(QMainWindow):
         self.stack.setCurrentIndex(indice)
         self._atualizar_acoes_contextuais()
         
+        if getattr(self, "croqui_controller", None):
+            mapa_paginas = {0: "page:dados", 1: "page:imagens", 2: "page:mapas", 3: "page:betas", 4: "page:historico"}
+            self.croqui_controller.set_contexto(mapa_paginas.get(indice, "page:dados"))
+        
     def _atualizar_acoes_contextuais(self):
         """Limpa as ações contextuais anteriores e adiciona as da nova página."""
         # Limpa anteriores
@@ -512,26 +541,43 @@ class JanelaPrincipal(QMainWindow):
         elif ctx.pagina == "imagens":
             if self.stack.currentIndex() != 1:
                 self._trocar_pagina(1)
+            if hasattr(self.pagina_imagens, 'editor') and hasattr(self.pagina_imagens.editor, 'select_image_by_name'):
+                nome_imagem = ctx.arquivo_mapa or ctx.caminho_local_arvore or uri.split("page:imagens/")[-1]
+                if nome_imagem.startswith("file:"):
+                    nome_imagem = nome_imagem[5:]
+                self.pagina_imagens.editor.select_image_by_name(nome_imagem)
         elif ctx.pagina == "mapas":
             if self.stack.currentIndex() != 2:
                 self._trocar_pagina(2)
-            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor'):
-                # Busca o mapa na hierarquia pelo filename original (legacy)
-                encontrou = False
-                for p_idx, pico in enumerate(self.croqui_model.croqui_msg.picos):
-                    if encontrou: break
-                    for sg_idx, sg in enumerate(pico.setores_ou_grupos):
+            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and self.croqui_model:
+                croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
+                if croqui_ro:
+                    encontrou = False
+                    for p_idx, pico in enumerate(croqui_ro.picos):
                         if encontrou: break
-                        if not sg.HasField('setor'): continue
-                        for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
-                            from pathlib import Path
-                            if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
-                                else:
-                                    self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
-                                encontrou = True
-                                break
+                        if pico.HasField('mapas_gerais'):
+                            for m_idx, mapa in enumerate(pico.mapas_gerais.conteudo.mapas):
+                                from pathlib import Path
+                                if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
+                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, -1, m_idx)
+                                    else:
+                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, -1, m_idx)
+                                    encontrou = True
+                                    break
+                        if encontrou: break
+                        for sg_idx, sg in enumerate(pico.setores_ou_grupos):
+                            if encontrou: break
+                            if not sg.HasField('setor'): continue
+                            for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
+                                from pathlib import Path
+                                if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
+                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                    else:
+                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                    encontrou = True
+                                    break
             elif ctx.caminho_local_arvore and hasattr(self.pagina_mapas, 'editor'):
                 # Busca via node path
                 import re
@@ -570,9 +616,6 @@ class JanelaPrincipal(QMainWindow):
             with open(yaml_path, "r", encoding="utf-8") as f:
                 self.croqui_data = yaml.safe_load(f)
                 
-                # Configura o título com tag de workspace
-                self.atualizar_titulo()
-                
                 from google.protobuf.json_format import ParseDict
                 from aresta_api.proto.generated.croqui_pb2 import Croqui
                 
@@ -580,22 +623,22 @@ class JanelaPrincipal(QMainWindow):
                 import json
                 croqui_msg.Extensions[Croqui.ext_metadados_arquivo].dados_json_originais = json.dumps(self.croqui_data, ensure_ascii=False)
                 
-                from editor.models.croqui_model import CroquiModel
                 self.croqui_model = CroquiModel(croqui_msg)
+                self.croqui_model.definir_caminho_db(caminho_db)
                 if hasattr(self.croqui_model, "foco_requisitado"):
                     self.croqui_model.foco_requisitado.connect(self._on_foco_requisitado)
-                
-                from editor.controllers.croqui_controller import CroquiController
                 self.croqui_controller = CroquiController(self.croqui_model, self.historico.obter_pilha())
                 
                 # Inicializa/limpa rastreadores
                 self.croqui_model.carregar_arquivos_externos(caminho_db)
                 
-                # Configura a UI
+                # Atualiza os componentes com os dados carregados
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
-                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
-                self.pagina_imagens.carregar_imagens(caminho_db)
+                self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db, controller=self.croqui_controller)
                 self.pagina_betas.carregar_betas(caminho_db)
+                
+                self.atualizar_titulo()
                 
     def salvar_croqui(self, callback_sucesso=None):
         """Salva as alterações, compila e faz commit no git local se aplicável."""
@@ -669,12 +712,10 @@ class JanelaPrincipal(QMainWindow):
             self.compilacao_controller.processar_resultado([])
             self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
         
-        if houve_renomeacao:
-            novo_db = self.workspace.obter_caminho_database()
-            if hasattr(self, 'croqui_model') and self.croqui_model:
-                if getattr(self, "croqui_model", None) is not None:
-                    self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), novo_db)
-            self.pagina_imagens.carregar_imagens(novo_db)
+        caminho_db = self.workspace.obter_caminho_database()
+        if getattr(self, 'croqui_model', None):
+            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
+        self.pagina_imagens.carregar_imagens(caminho_db)
             
         if hasattr(self, 'salvamento_finalizado'):
             self.salvamento_finalizado.emit()

@@ -31,10 +31,14 @@ class ContextoUIPathTest(unittest.TestCase):
         self.assertEqual(ctx.arquivo_mapa, "setor_principal.md")
         self.assertEqual(ctx.caminho_local_arvore, "")
 
+    def test_parse_imagens(self):
+        uri = "page:imagens/file:foto_setor.webp"
+        ctx = ContextoUIPath(uri)
+        self.assertEqual(ctx.pagina, "imagens")
+        self.assertEqual(ctx.arquivo_mapa, "foto_setor.webp")
+        self.assertEqual(ctx.caminho_local_arvore, "")
+
     def test_parse_legado(self):
-        # Fallback the user said we SHOULD NOT DO, but actually we should just test how it parses
-        # wait, the design says NO LEGACY COMPATIBILITY, so it's strictly the URI.
-        # If there's no page: prefix, pagina is None, and the rest might just be raw.
         uri = "node:root/node:Croqui"
         ctx = ContextoUIPath(uri)
         self.assertIsNone(ctx.pagina)

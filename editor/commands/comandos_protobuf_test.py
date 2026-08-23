@@ -301,3 +301,81 @@ def test_cmd_mover_repeated():
     cmd.undo()
     assert croqui.creditos == ['A', 'B', 'C']
 
+
+def test_cmd_alterar_campo_imagem():
+    from editor.commands.comandos_protobuf import CmdAlterarCampoImagem
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = Croqui()
+    croqui.caminho_thumbnail = "imagens/antiga.webp"
+    model = CroquiModel(croqui)
+
+    bytes_novos = b"bytes_imagem_webp_nova"
+    cmd = CmdAlterarCampoImagem(
+        model=model,
+        msg=croqui,
+        campo_nome="caminho_thumbnail",
+        caminho_antigo="imagens/antiga.webp",
+        bytes_antigo=None,
+        caminho_novo="imagens/nova.webp",
+        bytes_novo=bytes_novos,
+    )
+
+    # Executa Redo
+    cmd.redo()
+    assert croqui.caminho_thumbnail == "imagens/nova.webp"
+    assert model.obter_bytes_imagem("imagens/nova.webp") == bytes_novos
+
+    # Executa Undo
+    cmd.undo()
+    assert croqui.caminho_thumbnail == "imagens/antiga.webp"
+    assert model.obter_bytes_imagem("imagens/nova.webp") is None
+
+    # Executa Redo novamente
+    cmd.redo()
+    assert croqui.caminho_thumbnail == "imagens/nova.webp"
+    assert model.obter_bytes_imagem("imagens/nova.webp") == bytes_novos
+
+
+def test_cmd_substituir_imagem_memoria():
+    from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+
+    bytes_antigos = b"bytes_antigos"
+    bytes_novos = b"bytes_novos"
+    model.definir_imagem_memoria("imagens/mapa.webp", bytes_antigos)
+
+    cmd = CmdSubstituirImagemMemoria(
+        model=model,
+        caminho_relativo="imagens/mapa.webp",
+        bytes_antigo=bytes_antigos,
+        bytes_novo=bytes_novos,
+    )
+
+    # Redo
+    cmd.redo()
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_novos
+
+    # Undo
+    cmd.undo()
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_antigos
+
+    # Teste sem bytes antigos (imagem nova)
+    cmd_novo = CmdSubstituirImagemMemoria(
+        model=model,
+        caminho_relativo="imagens/outra.webp",
+        bytes_antigo=None,
+        bytes_novo=bytes_novos,
+    )
+    cmd_novo.redo()
+    assert model.obter_bytes_imagem("imagens/outra.webp") == bytes_novos
+    cmd_novo.undo()
+    assert model.obter_bytes_imagem("imagens/outra.webp") is None
+
+
+

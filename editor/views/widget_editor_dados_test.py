@@ -1834,29 +1834,29 @@ def test_formulario_inteiro_vazio_e_step_by_vira_zero(qapp):
     node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
     form.load_node(node)
     
-    # Encontra o spinbox da latitude da localização do estacionamento
+    # Encontra o spinbox do indice_mapa_padrao
     spins = form.findChildren(SpinBoxVazio)
-    spin_lat = next(s for s in spins if s.property("protobuf_field") == "latitude")
+    spin_mapa = next(s for s in spins if s.property("protobuf_field") == "indice_mapa_padrao")
     
     # 1. Campo inicialmente vazio (texto vazio)
-    assert not setor.localizacao_estacionamento.HasField("latitude")
-    assert spin_lat.text() == ""
-    assert spin_lat.value() == spin_lat.VALOR_NULO
+    assert not setor.HasField("indice_mapa_padrao")
+    assert spin_mapa.text() == ""
+    assert spin_mapa.value() == spin_mapa.VALOR_NULO
     
     # 2. Clicar para cima (stepBy 1) transforma em 0
-    spin_lat.stepBy(1)
+    spin_mapa.stepBy(1)
     qapp.processEvents()
-    assert spin_lat.value() == 0
-    assert spin_lat.text() == "0"
-    assert setor.localizacao_estacionamento.HasField("latitude")
-    assert setor.localizacao_estacionamento.latitude == 0
+    assert spin_mapa.value() == 0
+    assert spin_mapa.text() == "0"
+    assert setor.HasField("indice_mapa_padrao")
+    assert setor.indice_mapa_padrao == 0
     
     # 3. Undo restaura para vazio
     pilha.undo()
     qapp.processEvents()
-    assert not setor.localizacao_estacionamento.HasField("latitude")
-    assert spin_lat.text() == ""
-    assert spin_lat.value() == spin_lat.VALOR_NULO
+    assert not setor.HasField("indice_mapa_padrao")
+    assert spin_mapa.text() == ""
+    assert spin_mapa.value() == spin_mapa.VALOR_NULO
 
 
 def test_booleano_selecionar_nao_informado_permanece_nao_informado(qapp):

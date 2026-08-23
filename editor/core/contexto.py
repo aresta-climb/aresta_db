@@ -27,7 +27,7 @@ class ContextoUIPath:
             self._pagina = primeira_parte.split(":", 1)[1]
             if len(partes) > 1:
                 resto = partes[1]
-                if self._pagina == "mapas":
+                if self._pagina in ("mapas", "imagens"):
                     if resto.startswith("file:"):
                         self._arquivo_mapa = resto.split(":", 1)[1]
                     else:

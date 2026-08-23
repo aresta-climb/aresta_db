@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
+from pathlib import Path
 import unittest
 from unittest.mock import Mock, MagicMock
 from PyQt6.QtGui import QUndoStack
@@ -210,5 +211,34 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(poi_convertido.retangulo.comprimento, 100)
         self.assertEqual(poi_convertido.retangulo.largura, 100)
 
+    def test_substituir_imagem(self):
+        caminho_rel = "imagens/mapa.webp"
+        bytes_antigo = b"antigo"
+        bytes_novo = b"novo"
+        self.model.definir_imagem_memoria(caminho_rel, bytes_antigo)
+
+        self.controller.substituir_imagem(caminho_rel, bytes_novo)
+        self.assertEqual(self.model.obter_bytes_imagem(caminho_rel), bytes_novo)
+        self.assertEqual(self.undo_stack.count(), 1)
+
+        self.undo_stack.undo()
+        self.assertEqual(self.model.obter_bytes_imagem(caminho_rel), bytes_antigo)
+
+        self.undo_stack.redo()
+        self.assertEqual(self.model.obter_bytes_imagem(caminho_rel), bytes_novo)
+
+        # Sem undo_stack
+        self.controller.undo_stack = None
+        self.controller.substituir_imagem(caminho_rel, b"direto", context_path="page:mapas/file:mapa.webp")
+        self.assertEqual(self.model.obter_bytes_imagem(caminho_rel), b"direto")
+
+    def test_obter_caminho_imagem_mapa(self):
+        self.assertIsNone(self.controller.obter_caminho_imagem_mapa(self.mapa))
+        self.controller.set_caminho_db(Path("/caminho/teste"))
+        self.mapa.caminho_imagem_mapa = "imagens/foto.webp"
+        caminho = self.controller.obter_caminho_imagem_mapa(self.mapa)
+        self.assertEqual(caminho, Path("/caminho/teste/imagens/foto.webp"))
+
 if __name__ == '__main__':
     unittest.main()
+

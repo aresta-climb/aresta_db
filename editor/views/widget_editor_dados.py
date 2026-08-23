@@ -10,6 +10,9 @@ from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.views.protobuf_widget_factory import ProtobufWidgetFactory, ComboBoxSemScroll
+from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
+from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
+from editor.views.widget_campo_imagem import WidgetCampoImagem
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
 from PyQt6.QtWidgets import QInputDialog
@@ -411,17 +414,13 @@ class ContainerRepeatedWidget(QWidget):
             nome_sugerido = f"setor_{nome_setor_fmt}_p{idx}.webp"
             
             from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
-            from scripts.comprimir_imagens import comprimir_imagem_para_bytes
             from google.protobuf.message_factory import GetMessageClass
             
-            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, self)
+            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, model=self.model, parent=self)
             if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
-                caminho_img = dialog.caminho_imagem_selecionada
-                with open(caminho_img, "rb") as arquivo_img:
-                    raw_bytes = arquivo_img.read()
-                
-                # Compressao em memoria (max_area = 4194304)
-                img_bytes, final_w, final_h = comprimir_imagem_para_bytes(raw_bytes, quality=85, max_area=4194304)
+                img_bytes = dialog.obter_bytes_imagem_processada()
+                dimensoes = dialog.obter_dimensoes_imagem() or (0, 0)
+                final_w, final_h = dimensoes
                 
                 novo_mapa = GetMessageClass(f.message_type)()
                 novo_mapa.caminho_imagem_mapa = dialog.obter_caminho_final_relativo()
@@ -752,6 +751,14 @@ class WidgetFormularioPadrao(QStackedWidget):
                                     widget.setCurrentIndex(idx)
                     elif isinstance(widget, WidgetEditorMarkdown):
                         widget.set_conteudo(novo_valor)
+                    elif isinstance(widget, WidgetCampoCoordenadaE7):
+                        val_e7 = int(novo_valor) if (novo_valor is not None and novo_valor != "") else None
+                        if widget.obter_valor_e7() != val_e7:
+                            widget.definir_valor_e7(val_e7)
+                    elif isinstance(widget, WidgetCampoImagem):
+                        val_caminho = str(novo_valor) if novo_valor is not None else ""
+                        if widget.obter_caminho_atual() != val_caminho:
+                            widget.definir_caminho_atual(val_caminho)
                 finally:
                     widget.blockSignals(False)
                 break
@@ -1041,6 +1048,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                         
                 btn_mapa.clicked.connect(go_to_map)
                 parent_layout.addWidget(btn_mapa)
+                return
+            elif formato_msg == croqui_pb2.MensagemFormatoUi.COORDENADA:
+                widget_coord = WidgetMensagemCoordenada(msg, controller=self.controller, model=self.model, parent=self)
+                parent_layout.addWidget(widget_coord)
                 return
             
         # Mapeia campos contidos em oneofs para não renderizá-los duplicados
@@ -1383,6 +1394,22 @@ class WidgetFormularioPadrao(QStackedWidget):
                         widget.setCurrentIndex(idx if idx >= 0 else 0)
                 else:
                     widget.setCurrentIndex(0)
+            elif isinstance(widget, WidgetCampoCoordenadaE7):
+                if has_val:
+                    widget.definir_valor_e7(getattr(msg, field.name))
+                else:
+                    widget.definir_valor_e7(None)
+                if hasattr(msg, "latitude") and hasattr(msg, "longitude"):
+                    if field.name == "latitude" and self._obter_has_field(msg, "longitude"):
+                        widget.definir_longitude_contexto(msg.longitude)
+                    elif field.name == "longitude" and self._obter_has_field(msg, "latitude"):
+                        widget.definir_latitude_contexto(msg.latitude)
+            elif isinstance(widget, WidgetCampoImagem):
+                widget.model = self.model
+                if has_val:
+                    widget.definir_caminho_atual(getattr(msg, field.name))
+                else:
+                    widget.definir_caminho_atual("")
         finally:
             widget.blockSignals(False)
             
@@ -1454,6 +1481,60 @@ class WidgetFormularioPadrao(QStackedWidget):
                         self._notify_tree_changed()
                 return on_changed
             widget.currentIndexChanged.connect(make_on_changed())
+
+        elif isinstance(widget, WidgetCampoCoordenadaE7):
+            def make_on_changed(w=widget, m=msg, f=field):
+                def on_changed(new_val_e7):
+                    val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    if val_antigo != new_val_e7:
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val_e7)
+                        self._mark_dirty()
+                        self._notify_tree_changed()
+                return on_changed
+            widget.valor_alterado_e7.connect(make_on_changed())
+
+            def make_on_par_coords(w=widget, m=msg, f=field):
+                def on_par(lat_e7, lon_e7):
+                    if hasattr(m, "latitude") and hasattr(m, "longitude"):
+                        lat_antiga = m.latitude if self._obter_has_field(m, "latitude") else None
+                        lon_antiga = m.longitude if self._obter_has_field(m, "longitude") else None
+                        if lat_antiga != lat_e7:
+                            self.controller.alterar_primitivo(m, "latitude", lat_antiga, lat_e7)
+                        if lon_antiga != lon_e7:
+                            self.controller.alterar_primitivo(m, "longitude", lon_antiga, lon_e7)
+                        self._mark_dirty()
+                        self._notify_tree_changed()
+                return on_par
+            widget.ao_receber_par_coordenadas = make_on_par_coords()
+
+        elif isinstance(widget, WidgetCampoImagem):
+            def make_on_imagem_alterada(w=widget, m=msg, f=field):
+                def on_alterada(caminho_novo, bytes_novos):
+                    caminho_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    bytes_antigo = self.model.obter_bytes_imagem(caminho_antigo) if (self.model and caminho_antigo) else None
+                    self.controller.alterar_campo_imagem(m, f.name, caminho_antigo, bytes_antigo, caminho_novo, bytes_novos)
+                    self._mark_dirty()
+                    self._notify_tree_changed()
+                return on_alterada
+            widget.imagem_alterada.connect(make_on_imagem_alterada())
+
+            def make_on_imagem_removida(w=widget, m=msg, f=field):
+                def on_removida():
+                    caminho_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    bytes_antigo = self.model.obter_bytes_imagem(caminho_antigo) if (self.model and caminho_antigo) else None
+                    self.controller.alterar_campo_imagem(m, f.name, caminho_antigo, bytes_antigo, "", None)
+                    self._mark_dirty()
+                    self._notify_tree_changed()
+                return on_removida
+            widget.imagem_removida.connect(make_on_imagem_removida())
+
+            def make_on_abrir_editor(w=widget):
+                def on_abrir(caminho_rel):
+                    if hasattr(self, 'model') and self.model:
+                        path = f"page:imagens/{caminho_rel}"
+                        self.model.notificar_foco_requisitado(path)
+                return on_abrir
+            widget.abrir_no_editor.connect(make_on_abrir_editor())
 
     def _mark_dirty(self):
         window = self.window()

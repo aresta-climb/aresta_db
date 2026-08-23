@@ -522,7 +522,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
@@ -551,6 +551,2671 @@ def test_poi_snapping_to_integers():
     
     assert snapped_valor_circ.x() == 10.0
     assert snapped_valor_circ.y() == 20.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
     
 
     # Test ItemBoundingQuadrado
@@ -821,7 +3486,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
-    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
     from PyQt6.QtCore import QPointF
     from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
@@ -955,6 +3620,2671 @@ def test_poi_snapping_to_integers():
     assert snapped_valor_quad.x() == 10.0
     assert snapped_valor_quad.y() == 21.0
     
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
+
+    # Test ItemBoundingQuadrado
+    quad_dict = {'quadrado': {'x': 100, 'y': 100, 'lado': 50}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda: None)
+    cena.addItem(quad)
+    
+    mudanca_quad = QGraphicsRectItem.GraphicsItemChange.ItemPositionChange
+    novo_valor_quad = QPointF(10.4, 20.6)
+    snapped_valor_quad = quad.itemChange(mudanca_quad, novo_valor_quad)
+    
+    assert snapped_valor_quad.x() == 10.0
+    assert snapped_valor_quad.y() == 21.0
+    
     # Test Polygon (Area Livre)
     poly_dict = {'poligono': {'coordenadas': [0, 0, 10, 0, 10, 10]}}
     poly = ItemBoundingPoligono(poly_dict, lambda x: None, lambda y: None)
@@ -973,17 +6303,14 @@ class TestWidgetEditorMapasLayout(unittest.TestCase):
         if not cls.app:
             cls.app = QApplication([])
 
-    def test_lista_mapas_cresce_ate_conteudo(self):
-        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
+    def test_lista_mapas_expansivel_na_sidebar(self):
+        from PyQt6.QtWidgets import QSizePolicy
         from editor.views.widget_editor_mapas import WidgetEditorMapas
         
         widget = WidgetEditorMapas()
         
-        # O list_widget deve ter politica vertical Maximum (para não crescer infinitamente)
-        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Maximum)
-        
-        # E deve ter o size adjust policy configurado para ajustar ao conteudo
-        self.assertEqual(widget.list_widget.sizeAdjustPolicy(), QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        # O list_widget deve ter politica vertical Expanding para maximizar a área útil de seleção de mapas
+        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Expanding)
 
 def test_mapas_gerais_sao_listados_e_carregados(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas

@@ -26,6 +26,9 @@ def test_croqui_controller_alterar_primitivo(qapp):
     undo_stack.undo()
     assert proxy.nome == "Antigo"
 
+    controller.set_contexto("page:dados")
+    assert controller.contexto_atual_path == "page:dados"
+
 def test_croqui_controller_adicionar_repeated(qapp):
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -147,6 +150,8 @@ def test_croqui_controller_mover_repeated_para_baixo():
         mock_push.assert_not_called()
 
         # Testa mover num elemento válido
+        controller.mover_repeated_para_baixo(croqui, "creditos", 0)
+        mock_push.assert_called_once()
 
 
 def test_mover_repeated_para_baixo_quando_ultimo(qapp):
@@ -221,3 +226,66 @@ def test_croqui_controller_adicionar_mapa_com_arquivo(qapp):
         assert cmd.index == 0
         assert cmd.caminho_absoluto == caminho_absoluto
         assert cmd.img_bytes == img_bytes
+
+
+def test_croqui_controller_substituir_imagem(qapp):
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    bytes_iniciais = b"antigo"
+    bytes_novos = b"novo"
+    model.definir_imagem_memoria("imagens/mapa.webp", bytes_iniciais)
+
+    # Substitui a imagem
+    controller.substituir_imagem("imagens/mapa.webp", bytes_novos)
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_novos
+    assert undo_stack.count() == 1
+
+    # Undo
+    undo_stack.undo()
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_iniciais
+
+    # Redo
+    undo_stack.redo()
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_novos
+
+
+def test_croqui_controller_alterar_campo_imagem(qapp):
+    croqui = Croqui()
+    croqui.caminho_thumbnail = "imagens/thumb_antiga.webp"
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    bytes_antigo = b"bytes_antigo"
+    bytes_novo = b"bytes_novo"
+    model.definir_imagem_memoria("imagens/thumb_antiga.webp", bytes_antigo)
+
+    controller.alterar_campo_imagem(
+        croqui, "caminho_thumbnail", "imagens/thumb_antiga.webp", bytes_antigo, "imagens/thumb_nova.webp", bytes_novo
+    )
+    assert croqui.caminho_thumbnail == "imagens/thumb_nova.webp"
+    assert model.obter_bytes_imagem("imagens/thumb_nova.webp") == bytes_novo
+
+    undo_stack.undo()
+    assert croqui.caminho_thumbnail == "imagens/thumb_antiga.webp"
+    assert model.obter_bytes_imagem("imagens/thumb_antiga.webp") == bytes_antigo
+
+
+def test_croqui_controller_alterar_repeated_item(qapp):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    pico_novo = Pico(nome="Pico 1 Modificado")
+    controller.alterar_repeated_item(croqui, "picos", 0, pico, pico_novo)
+    assert croqui.picos[0].nome == "Pico 1 Modificado"
+
+    undo_stack.undo()
+    assert croqui.picos[0].nome == "Pico 1"
+
+

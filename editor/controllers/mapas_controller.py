@@ -206,3 +206,16 @@ class MapasController:
         if not self.caminho_db or not msg_mapa_proxy.caminho_imagem_mapa:
             return None
         return self.caminho_db / msg_mapa_proxy.caminho_imagem_mapa
+
+    def substituir_imagem(self, caminho_relativo: str, bytes_novo: bytes, bytes_antigo: bytes | None = None, context_path: str | None = None):
+        """Despacha comando de substituição de imagem em memória RAM via QUndoStack."""
+        from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
+        if bytes_antigo is None:
+            bytes_antigo = self.model.obter_bytes_imagem(caminho_relativo)
+        ctx = context_path if context_path is not None else self.contexto_atual_path
+        cmd = CmdSubstituirImagemMemoria(self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx)
+        if self.undo_stack is not None:
+            self.undo_stack.push(cmd)
+        else:
+            cmd.redo()
+

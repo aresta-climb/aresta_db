@@ -111,6 +111,26 @@ class ProtobufWidgetFactory:
         """
         Creates a primitive PyQt6 widget for the given FieldDescriptor.
         """
+        options = field_descriptor.GetOptions()
+        formato = None
+        if options.HasExtension(croqui_pb2.formato_na_ui):
+            formato = options.Extensions[croqui_pb2.formato_na_ui]
+
+        if formato == croqui_pb2.CampoFormatoUi.LATITUDE_E7:
+            from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
+            return WidgetCampoCoordenadaE7(tipo=TipoCoordenada.LATITUDE)
+
+        if formato == croqui_pb2.CampoFormatoUi.LONGITUDE_E7:
+            from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
+            return WidgetCampoCoordenadaE7(tipo=TipoCoordenada.LONGITUDE)
+
+        if formato == croqui_pb2.CampoFormatoUi.IMAGEM:
+            from editor.views.widget_campo_imagem import WidgetCampoImagem
+            nome_fixo = None
+            if options.HasExtension(croqui_pb2.nome_arquivo_imagem):
+                nome_fixo = options.Extensions[croqui_pb2.nome_arquivo_imagem]
+            return WidgetCampoImagem(nome_arquivo_fixo=nome_fixo)
+
         if field_descriptor.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
                                      FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,
                                      FieldDescriptor.TYPE_SINT32, FieldDescriptor.TYPE_SINT64):

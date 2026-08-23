@@ -1059,3 +1059,69 @@ def test_salvar_croqui_quotes_string_digits(tmp_path):
         conteudo = f.read()
         assert "id: '09'" in conteudo, "ID composto apenas por digitos deve ter aspas"
         assert "label: '10'" in conteudo, "Label composto apenas por digitos deve ter aspas"
+
+
+def test_buffer_imagens_em_memoria_emite_sinal_imagem_alterada(tmp_path):
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+
+    slot_alteracao = MagicMock()
+    model.imagem_alterada.connect(slot_alteracao)
+
+    # 1. Definir imagem emite sinal
+    model.definir_imagem_memoria("imagens/mapa1.webp", b"bytes1")
+    slot_alteracao.assert_called_once_with("imagens/mapa1.webp")
+
+    # 2. Remover imagem emite sinal
+    slot_alteracao.reset_mock()
+    model.remover_imagem_memoria("imagens/mapa1.webp")
+    slot_alteracao.assert_called_once_with("imagens/mapa1.webp")
+
+
+def test_buffer_imagens_em_memoria(tmp_path):
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+
+    # 1. Obter imagem inexistente retorna None
+    assert model.obter_bytes_imagem("imagens/inexistente.webp") is None
+
+    # 2. Gravar no buffer em RAM
+    dados_ram = b"conteudo_ram"
+    model.definir_imagem_memoria("imagens/foto.webp", dados_ram)
+    assert model.obter_bytes_imagem("imagens/foto.webp") == dados_ram
+    assert model.obter_imagens_em_memoria() == {"imagens/foto.webp": dados_ram}
+
+    # 3. Remover do buffer em RAM
+    model.remover_imagem_memoria("imagens/foto.webp")
+    assert model.obter_bytes_imagem("imagens/foto.webp") is None
+
+    # 4. Fallback para o disco
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir(parents=True, exist_ok=True)
+    (pasta_img / "disco.webp").write_bytes(b"conteudo_disco")
+
+    assert model.obter_bytes_imagem("imagens/disco.webp") == b"conteudo_disco"
+
+    # 5. Prioridade da RAM sobre o disco
+    model.definir_imagem_memoria("imagens/disco.webp", b"sobreposicao_ram")
+    assert model.obter_bytes_imagem("imagens/disco.webp") == b"sobreposicao_ram"
+
+    # 6. Limpar buffer
+    model.limpar_imagens_em_memoria()
+    assert model.obter_bytes_imagem("imagens/disco.webp") == b"conteudo_disco"
+
+
+def test_extrair_arquivos_e_serializar_grava_imagens_em_memoria(tmp_path):
+    croqui = Croqui()
+    croqui.caminho_thumbnail = "imagens/thumbnail.webp"
+    model = CroquiModel(croqui)
+
+    model.definir_imagem_memoria("imagens/thumbnail.webp", b"bytes_thumbnail_salvo")
+    model.extrair_arquivos_e_serializar(tmp_path)
+
+    arquivo_gravado = tmp_path / "imagens" / "thumbnail.webp"
+    assert arquivo_gravado.exists()
+    assert arquivo_gravado.read_bytes() == b"bytes_thumbnail_salvo"
+

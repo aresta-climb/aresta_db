@@ -20,6 +20,7 @@ class CroquiModel(QObject):
     repeated_movido = pyqtSignal(object, str, int, int) # msg_pai, campo_nome, index_from, index_to
     oneof_alterado = pyqtSignal(object, str) # msg_pai, oneof_nome
     foco_requisitado = pyqtSignal(object) # msg_id
+    imagem_alterada = pyqtSignal(str) # caminho_relativo_imagem
 
 
     @staticmethod
@@ -38,6 +39,53 @@ class CroquiModel(QObject):
         self.__croqui = croqui
         from editor.models.readonly_proxy import ReadOnlyProxy
         self.__croqui_proxy = ReadOnlyProxy(self.__croqui)
+        self._imagens_em_memoria: dict[str, bytes] = {}
+        self._caminho_db_atual = None
+
+    def definir_caminho_db(self, caminho_db):
+        """Define o caminho base do banco de dados/croqui no disco para busca de arquivos."""
+        from pathlib import Path
+        self._caminho_db_atual = Path(caminho_db) if caminho_db else None
+
+    def obter_bytes_imagem(self, caminho_relativo: str):
+        """
+        Obtém os bytes da imagem.
+        Verifica primeiro o buffer em memória; se não encontrar, tenta ler do disco no caminho_db_atual.
+        """
+        if not caminho_relativo:
+            return None
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        if caminho_padrao in self._imagens_em_memoria:
+            return self._imagens_em_memoria[caminho_padrao]
+        if self._caminho_db_atual:
+            caminho_disco = self._caminho_db_atual / caminho_padrao
+            if caminho_disco.exists() and caminho_disco.is_file():
+                try:
+                    return caminho_disco.read_bytes()
+                except Exception:
+                    return None
+        return None
+
+    def definir_imagem_memoria(self, caminho_relativo: str, bytes_conteudo: bytes) -> None:
+        """Armazena os bytes de uma imagem no buffer em memória RAM e emite sinal de alteração."""
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        self._imagens_em_memoria[caminho_padrao] = bytes_conteudo
+        self.imagem_alterada.emit(caminho_padrao)
+
+    def remover_imagem_memoria(self, caminho_relativo: str) -> None:
+        """Remove os bytes de uma imagem do buffer em memória RAM e emite sinal de alteração."""
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        if caminho_padrao in self._imagens_em_memoria:
+            self._imagens_em_memoria.pop(caminho_padrao, None)
+            self.imagem_alterada.emit(caminho_padrao)
+
+    def obter_imagens_em_memoria(self) -> dict[str, bytes]:
+        """Retorna uma cópia do dicionário de imagens no buffer de memória."""
+        return dict(self._imagens_em_memoria)
+
+    def limpar_imagens_em_memoria(self) -> None:
+        """Limpa o buffer de imagens em memória."""
+        self._imagens_em_memoria.clear()
 
     def obter_croqui_readonly(self):
         """Retorna uma view somente leitura do Croqui encapsulado."""
@@ -237,10 +285,18 @@ class CroquiModel(QObject):
                     _carregar_arquivo_grupo(sg.grupo)
 
     def extrair_arquivos_e_serializar(self, caminho_db):
+        from pathlib import Path
         from google.protobuf.json_format import MessageToDict
         from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor, ArquivoGrupo, ArquivoMarkdown
         import yaml
         
+        caminho_db = Path(caminho_db)
+        if self._imagens_em_memoria:
+            for caminho_rel, bytes_img in self._imagens_em_memoria.items():
+                destino = caminho_db / caminho_rel
+                destino.parent.mkdir(parents=True, exist_ok=True)
+                destino.write_bytes(bytes_img)
+
         croqui_msg_copy = Croqui()
         croqui_msg_copy.CopyFrom(self.__croqui)
 

@@ -14,7 +14,7 @@ from PyQt6.QtWidgets import (
     QListWidget, QListWidgetItem, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem,
     QGraphicsPathItem, QGraphicsTextItem, QGraphicsPixmapItem, QDialog, QFormLayout,
-    QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox
+    QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox, QFileDialog
 )
 from PyQt6.QtCore import Qt, QRectF, QPointF, pyqtSignal
 from PyQt6.QtGui import (
@@ -781,10 +781,12 @@ class CenaDesenho(QGraphicsScene):
 class WidgetEditorMapas(QWidget):
     alterado = pyqtSignal(bool)
     
-    def __init__(self, mapas_controller=None, parent=None, standalone=False):
+    def __init__(self, mapas_controller=None, parent=None, standalone=False, croqui_model=None, croqui_controller=None):
         super().__init__(parent)
         self.standalone = standalone
         self.mapas_controller = mapas_controller
+        self.croqui_model = croqui_model or (getattr(mapas_controller, "model", None))
+        self.croqui_controller = croqui_controller or (getattr(mapas_controller, "croqui_controller", None))
         self.msg_mapa_proxy = None
         self.itens_poi = {} # idx_poi -> QGraphicsItem
         
@@ -802,6 +804,9 @@ class WidgetEditorMapas(QWidget):
         self.dados_atuais = None
 
         self._setup_ui()
+        
+        if self.croqui_model and hasattr(self.croqui_model, "imagem_alterada"):
+            self.croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
         
         # Estilo geral para combinar com o editor
         self.setStyleSheet("""
@@ -866,59 +871,69 @@ class WidgetEditorMapas(QWidget):
         
         # Painel Esquerdo (Sidebar de Mapas)
         self.widget_esquerdo = QWidget()
-        self.widget_esquerdo.setMinimumWidth(220)
+        self.widget_esquerdo.setMinimumWidth(260)
         self.widget_esquerdo.setStyleSheet("background-color: #f8f9fa; border-right: 1px solid #dee2e6;")
         layout_esquerdo = QVBoxLayout(self.widget_esquerdo)
-        layout_esquerdo.setContentsMargins(10, 10, 10, 10)
-        layout_esquerdo.setSpacing(8)
+        layout_esquerdo.setContentsMargins(8, 8, 8, 8)
+        layout_esquerdo.setSpacing(4)
         
         self.label_titulo_arquivos = QLabel("Arquivos de Mapa")
         self.label_titulo_arquivos.setStyleSheet("font-weight: bold; color: #444; font-size: 13px;")
         layout_esquerdo.addWidget(self.label_titulo_arquivos)
 
         self.list_widget = QListWidget()
-        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
-        self.list_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Maximum)
-        self.list_widget.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        layout_esquerdo.addWidget(self.list_widget)
-        
-        layout_esquerdo.addStretch()
-        
-        layout_botoes = QVBoxLayout()
-        layout_botoes.setSpacing(4)
+        from PyQt6.QtWidgets import QSizePolicy
+        self.list_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        layout_esquerdo.addWidget(self.list_widget, stretch=1)
         
         from editor.views.estilo import Icones
-        
-        self.btn_add_circ = QPushButton(" Novo Círculo")
-        self.btn_add_circ.setIcon(Icones.obter("dados")) # Temporário, ou usar qta diretamente
-        self.btn_add_circ.clicked.connect(lambda: self.adicionar_poi('circulo'))
-        layout_botoes.addWidget(self.btn_add_circ)
 
-        self.btn_add_box = QPushButton(" Novo Retângulo")
+        # Linha de criação rápida: Círculo e Retângulo lado a lado (cabem confortavelmente em 2 colunas)
+        layout_pois_dupla = QHBoxLayout()
+        layout_pois_dupla.setSpacing(4)
+        
+        self.btn_add_circ = QPushButton(" Círculo")
+        self.btn_add_circ.setIcon(Icones.obter("dados"))
+        self.btn_add_circ.clicked.connect(lambda: self.adicionar_poi('circulo'))
+        layout_pois_dupla.addWidget(self.btn_add_circ)
+
+        self.btn_add_box = QPushButton(" Retângulo")
         self.btn_add_box.setIcon(Icones.obter("imagens"))
         self.btn_add_box.clicked.connect(lambda: self.adicionar_poi('retangulo'))
-        layout_botoes.addWidget(self.btn_add_box)
+        layout_pois_dupla.addWidget(self.btn_add_box)
+        layout_esquerdo.addLayout(layout_pois_dupla)
 
+        # Polígono em largura total
         self.btn_add_poligono = QPushButton(" Novo Polígono")
         self.btn_add_poligono.setIcon(Icones.obter("mapas"))
         self.btn_add_poligono.clicked.connect(lambda: self.adicionar_poi('poligono'))
-        layout_botoes.addWidget(self.btn_add_poligono)
-        
-        layout_esquerdo.addLayout(layout_botoes)
-        layout_esquerdo.addSpacing(10)
+        layout_esquerdo.addWidget(self.btn_add_poligono)
 
         self.btn_converter = QPushButton(" Retângulo -> Círculo")
         self.btn_converter.setToolTip("Converte Retângulos em Círculos. Se já estiver no modo, clique novamente para converter TODOS os retângulos.")
         self.btn_converter.clicked.connect(self.alternar_modo_conversao)
         layout_esquerdo.addWidget(self.btn_converter)
 
+        self.btn_substituir_imagem = QPushButton(" Substituir Imagem...")
+        self.btn_substituir_imagem.setIcon(Icones.obter("imagens"))
+        self.btn_substituir_imagem.clicked.connect(self.substituir_imagem_mapa)
+        layout_esquerdo.addWidget(self.btn_substituir_imagem)
+
+        self.btn_abrir_editor_imagens = QPushButton(" Abrir no Editor de Imagens")
+        self.btn_abrir_editor_imagens.setIcon(Icones.obter("imagens"))
+        self.btn_abrir_editor_imagens.clicked.connect(self.abrir_no_editor_imagens)
+        layout_esquerdo.addWidget(self.btn_abrir_editor_imagens)
+
         layout_bulk = QVBoxLayout()
+        layout_bulk.setSpacing(3)
         label_bulk = QLabel("Redimensionamento:")
-        label_bulk.setStyleSheet("font-weight: bold; color: #666;")
+        label_bulk.setStyleSheet("font-weight: bold; color: #555; font-size: 11px;")
         layout_bulk.addWidget(label_bulk)
         
-        # Sliders de redimensionamento em massa
-        layout_bulk.addWidget(QLabel("Círculos:"))
+        # Sliders de redimensionamento em massa em linhas horizontais compactas
+        linha_circ = QHBoxLayout()
+        lbl_circ = QLabel("Círculos:")
+        lbl_circ.setFixedWidth(65)
         self.slider_circ = QSlider(Qt.Orientation.Horizontal)
         self.slider_circ.setRange(-50, 50)
         self.slider_circ.setValue(0)
@@ -926,11 +941,16 @@ class WidgetEditorMapas(QWidget):
         self.slider_circ.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'circulo'))
         self.slider_circ.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('circulo'))
         self.label_circ = QLabel("0%")
-        self.label_circ.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        layout_bulk.addWidget(self.slider_circ)
-        layout_bulk.addWidget(self.label_circ)
+        self.label_circ.setFixedWidth(32)
+        self.label_circ.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        linha_circ.addWidget(lbl_circ)
+        linha_circ.addWidget(self.slider_circ)
+        linha_circ.addWidget(self.label_circ)
+        layout_bulk.addLayout(linha_circ)
 
-        layout_bulk.addWidget(QLabel("Retângulos:"))
+        linha_box = QHBoxLayout()
+        lbl_box = QLabel("Retângulos:")
+        lbl_box.setFixedWidth(65)
         self.slider_box = QSlider(Qt.Orientation.Horizontal)
         self.slider_box.setRange(-50, 50)
         self.slider_box.setValue(0)
@@ -938,11 +958,16 @@ class WidgetEditorMapas(QWidget):
         self.slider_box.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'retangulo'))
         self.slider_box.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('retangulo'))
         self.label_box = QLabel("0%")
-        self.label_box.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        layout_bulk.addWidget(self.slider_box)
-        layout_bulk.addWidget(self.label_box)
+        self.label_box.setFixedWidth(32)
+        self.label_box.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        linha_box.addWidget(lbl_box)
+        linha_box.addWidget(self.slider_box)
+        linha_box.addWidget(self.label_box)
+        layout_bulk.addLayout(linha_box)
         
-        layout_bulk.addWidget(QLabel("Quadrados:"))
+        linha_quad = QHBoxLayout()
+        lbl_quad = QLabel("Quadrados:")
+        lbl_quad.setFixedWidth(65)
         self.slider_quad = QSlider(Qt.Orientation.Horizontal)
         self.slider_quad.setRange(-50, 50)
         self.slider_quad.setValue(0)
@@ -950,13 +975,14 @@ class WidgetEditorMapas(QWidget):
         self.slider_quad.valueChanged.connect(lambda v: self.ao_mover_slider_bulk(v, 'quadrado'))
         self.slider_quad.sliderReleased.connect(lambda: self.ao_soltar_slider_bulk('quadrado'))
         self.label_quad = QLabel("0%")
-        self.label_quad.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        layout_bulk.addWidget(self.slider_quad)
-        layout_bulk.addWidget(self.label_quad)
+        self.label_quad.setFixedWidth(32)
+        self.label_quad.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        linha_quad.addWidget(lbl_quad)
+        linha_quad.addWidget(self.slider_quad)
+        linha_quad.addWidget(self.label_quad)
+        layout_bulk.addLayout(linha_quad)
         
         layout_esquerdo.addLayout(layout_bulk)
-        layout_esquerdo.addSpacing(10)
-
 
         # Painel Direito (Visualizador)
         widget_direito = QWidget()
@@ -995,17 +1021,14 @@ class WidgetEditorMapas(QWidget):
         # Conecta o clique no item
         self.list_widget.itemSelectionChanged.connect(self._on_mapa_selecionado)
         
-        # O painel esquerdo agora é sempre adicionado. A visibilidade do widget_esquerdo
-        # é mantida globalmente, mas para standalone tem comportamentos customizados em outros cantos.
         self.splitter.addWidget(self.widget_esquerdo)
         self.splitter.addWidget(widget_direito)
-        
-        self.splitter.setSizes([200, 800])
         
         layout_principal.addWidget(self.splitter)
         from editor.views.widget_painel_referencias import PainelReferencias
         self.painel_referencias = PainelReferencias(self.mapas_controller)
         self.splitter.addWidget(self.painel_referencias)
+        self.splitter.setSizes([260, 680, 260])
         self.painel_referencias.destacar_pois.connect(self.destacar_pois_temporariamente)
         self.painel_referencias.remover_destaque_pois.connect(self.remover_destaque_pois)
         self.painel_referencias.iniciar_modo_linkagem.connect(self.iniciar_modo_linkagem)
@@ -1194,6 +1217,17 @@ class WidgetEditorMapas(QWidget):
             
         self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=True)
+
+    def carregar_mapa(self, msg_mapa_proxy, reset_zoom=True):
+        """Carrega e renderiza o mapa a partir do objeto ou proxy de mapa."""
+        self.msg_mapa_proxy = msg_mapa_proxy
+        if not self.dados_atuais:
+            self.dados_atuais = {
+                'cena': QGraphicsScene(self),
+                'itens_bb': []
+            }
+        self.painel_referencias.carregar_mapa(msg_mapa_proxy)
+        self._renderizar_mapa(reset_zoom=reset_zoom)
         
     def _renderizar_mapa(self, reset_zoom=True):
         """Lê a mensagem Protobuf e renderiza a cena inteira."""
@@ -1218,14 +1252,27 @@ class WidgetEditorMapas(QWidget):
         if hasattr(self, 'modo_camera') and self.modo_camera:
             self.destacar_pois_temporariamente(self.referencia_camera_ativa)
         
-        img_path = None
-        if self.mapas_controller:
-            img_path = self.mapas_controller.obter_caminho_imagem_mapa(self.msg_mapa_proxy)
-            
-        if img_path and str(img_path) and os.path.exists(str(img_path)):
-            pixmap = QPixmap(str(img_path))
-            item_img = cena.addPixmap(pixmap)
-            item_img.setZValue(-100)
+        img_bytes = None
+        caminho_rel = getattr(self.msg_mapa_proxy, "caminho_imagem_mapa", None)
+        if self.croqui_model and caminho_rel:
+            img_bytes = self.croqui_model.obter_bytes_imagem(caminho_rel)
+
+        if img_bytes and isinstance(img_bytes, (bytes, bytearray, memoryview)):
+            pixmap = QPixmap()
+            if pixmap.loadFromData(img_bytes):
+                item_img = cena.addPixmap(pixmap)
+                item_img.setZValue(-100)
+        else:
+            img_path = None
+            if self.mapas_controller:
+                img_path = self.mapas_controller.obter_caminho_imagem_mapa(self.msg_mapa_proxy)
+            elif self.croqui_model and hasattr(self.croqui_model, "_caminho_db_atual") and self.croqui_model._caminho_db_atual and caminho_rel:
+                img_path = self.croqui_model._caminho_db_atual / caminho_rel
+                
+            if img_path and str(img_path) and os.path.exists(str(img_path)):
+                pixmap = QPixmap(str(img_path))
+                item_img = cena.addPixmap(pixmap)
+                item_img.setZValue(-100)
             
         for i, poi in enumerate(self.msg_mapa_proxy.pontos_de_interesse):
             self._adicionar_item_cena(poi, i, cena)
@@ -1281,6 +1328,73 @@ class WidgetEditorMapas(QWidget):
             cena.addItem(item_visual)
             self.itens_poi[index] = item_visual
             self.dados_atuais['itens_bb'].append(item_visual)
+
+    def substituir_imagem_mapa(self):
+        """Abre diálogo para substituir a imagem de fundo do mapa atual com pré-processamento WebP."""
+        if not self.msg_mapa_proxy:
+            return
+        caminho_rel = getattr(self.msg_mapa_proxy, "caminho_imagem_mapa", "")
+        if not caminho_rel:
+            return
+
+        arquivo, _ = QFileDialog.getOpenFileName(
+            self,
+            "Substituir Imagem do Mapa",
+            "",
+            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
+        )
+        if not arquivo:
+            return
+
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+        from pathlib import Path
+        try:
+            bytes_originais = Path(arquivo).read_bytes()
+            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
+        except Exception as e:
+            QMessageBox.warning(self, "Erro", f"Falha ao processar nova imagem: {e}")
+            return
+
+        nome_mapa = Path(caminho_rel).name
+        contexto_mapa = f"page:mapas/file:{nome_mapa}"
+        if self.croqui_controller:
+            self.croqui_controller.set_contexto(contexto_mapa)
+            self.croqui_controller.substituir_imagem(caminho_rel, bytes_webp, context_path=contexto_mapa)
+        elif self.mapas_controller:
+            self.mapas_controller.set_contexto(contexto_mapa)
+            self.mapas_controller.substituir_imagem(caminho_rel, bytes_webp, context_path=contexto_mapa)
+        elif self.croqui_model:
+            self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_webp)
+
+        self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
+
+    def abrir_no_editor_imagens(self):
+        """Abre e foca a imagem do mapa atual no Editor de Imagens."""
+        if not self.msg_mapa_proxy:
+            return
+        caminho_rel = getattr(self.msg_mapa_proxy, "caminho_imagem_mapa", "")
+        if not caminho_rel:
+            return
+
+        from pathlib import Path
+        nome_arquivo = Path(caminho_rel).name
+        contexto_uri = f"page:imagens/file:{nome_arquivo}"
+
+        if self.croqui_controller:
+            self.croqui_controller.set_contexto(contexto_uri)
+        if self.croqui_model and hasattr(self.croqui_model, "notificar_foco_requisitado"):
+            self.croqui_model.notificar_foco_requisitado(contexto_uri)
+        elif self.croqui_model and hasattr(self.croqui_model, "foco_requisitado"):
+            self.croqui_model.foco_requisitado.emit(contexto_uri)
+
+    def _on_imagem_alterada(self, caminho_relativo: str):
+        """Recarrega a cena do mapa quando a imagem correspondente for alterada em outra área."""
+        if self.msg_mapa_proxy and hasattr(self.msg_mapa_proxy, "caminho_imagem_mapa"):
+            from pathlib import Path
+            caminho_atual = str(self.msg_mapa_proxy.caminho_imagem_mapa).replace("\\", "/")
+            caminho_alt = str(caminho_relativo).replace("\\", "/")
+            if caminho_atual == caminho_alt or Path(caminho_atual).name == Path(caminho_alt).name:
+                self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
 
     def adicionar_poi(self, tipo):
         if not self.dados_atuais or not self.mapas_controller: return

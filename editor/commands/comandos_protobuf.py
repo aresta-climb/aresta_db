@@ -192,4 +192,89 @@ class CmdAlterarMetadadosCaminhoNovo(QUndoCommand):
             self.model.notificar_foco_requisitado(self.context_path)
 
 
+class CmdAlterarCampoImagem(QUndoCommand):
+    """
+    Comando para alterar um campo de imagem no Protobuf e gerenciar o buffer de bytes
+    em memória RAM no CroquiModel, sem tocar no sistema de arquivos durante a edição.
+    """
+    def __init__(
+        self,
+        model: CroquiModel,
+        msg: Message,
+        campo_nome: str,
+        caminho_antigo: str | None,
+        bytes_antigo: bytes | None,
+        caminho_novo: str | None,
+        bytes_novo: bytes | None,
+        context_path=None,
+        parent=None,
+    ):
+        super().__init__(parent)
+        self.model = model
+        self.msg = msg
+        self.campo_nome = campo_nome
+        self.caminho_antigo = caminho_antigo or ""
+        self.bytes_antigo = bytes_antigo
+        self.caminho_novo = caminho_novo or ""
+        self.bytes_novo = bytes_novo
+        self.context_path = context_path
+
+    def undo(self):
+        # 1. Restaura o caminho no protobuf
+        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_antigo)
+        # 2. Se a imagem anterior tinha bytes na RAM, restaura; senão, limpa a nova
+        if self.bytes_antigo and self.caminho_antigo:
+            self.model.definir_imagem_memoria(self.caminho_antigo, self.bytes_antigo)
+        if self.caminho_novo and self.caminho_novo != self.caminho_antigo:
+            self.model.remover_imagem_memoria(self.caminho_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def redo(self):
+        # 1. Armazena os novos bytes na RAM
+        if self.bytes_novo and self.caminho_novo:
+            self.model.definir_imagem_memoria(self.caminho_novo, self.bytes_novo)
+        # 2. Atualiza o caminho no protobuf
+        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+
+class CmdSubstituirImagemMemoria(QUndoCommand):
+    """
+    Comando para substituir os bytes de uma imagem existente no buffer em memória RAM (CroquiModel),
+    sem tocar no disco durante a edição. Emite sinal de alteração e suporta Undo/Redo.
+    """
+    def __init__(
+        self,
+        model: CroquiModel,
+        caminho_relativo: str,
+        bytes_antigo: bytes | None,
+        bytes_novo: bytes,
+        context_path: str | None = None,
+        parent=None,
+    ):
+        super().__init__(parent)
+        self.model = model
+        self.caminho_relativo = caminho_relativo
+        self.bytes_antigo = bytes_antigo
+        self.bytes_novo = bytes_novo
+        self.context_path = context_path
+
+    def undo(self):
+        if self.bytes_antigo is not None:
+            self.model.definir_imagem_memoria(self.caminho_relativo, self.bytes_antigo)
+        else:
+            self.model.remover_imagem_memoria(self.caminho_relativo)
+        if self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def redo(self):
+        self.model.definir_imagem_memoria(self.caminho_relativo, self.bytes_novo)
+        if self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+
+
+
 
