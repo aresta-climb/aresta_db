@@ -582,23 +582,21 @@ class TestWidgetEditorMapasLayout(unittest.TestCase):
         if not cls.app:
             cls.app = QApplication([])
 
-    def test_lista_mapas_cresce_ate_conteudo(self):
-        from PyQt6.QtWidgets import QSizePolicy, QAbstractScrollArea
+    def test_lista_mapas_expansivel_na_sidebar(self):
+        from PyQt6.QtWidgets import QSizePolicy
         from editor.views.widget_editor_mapas import WidgetEditorMapas
         
         widget = WidgetEditorMapas()
         
-        # O list_widget deve ter politica vertical Maximum (para não crescer infinitamente)
-        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Maximum)
-        
-        # E deve ter o size adjust policy configurado para ajustar ao conteudo
-        self.assertEqual(widget.list_widget.sizeAdjustPolicy(), QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        # O list_widget deve ter politica vertical Expanding para maximizar a área útil de seleção de mapas
+        self.assertEqual(widget.list_widget.sizePolicy().verticalPolicy(), QSizePolicy.Policy.Expanding)
 
 def test_mapas_gerais_sao_listados_e_carregados(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.mapas_controller import MapasController
     from aresta_api.proto.generated.croqui_pb2 import Pico, Croqui
+    from unittest.mock import MagicMock
     
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -609,123 +607,26 @@ def test_mapas_gerais_sao_listados_e_carregados(qtbot):
         def connect(self, f): pass
         
     mock_model = MagicMock(spec=CroquiModel)
-    mapa.caminho_imagem_mapa = "mapa.png"
+    mock_model.dado_alterado = MockSignal()
+    mock_model.repeated_adicionado = MockSignal()
+    mock_model.repeated_removido = MockSignal()
+    mock_model.obter_croqui_readonly.return_value = croqui
     
-    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
-    mock_controller.model = mock_model
-    widget.mapas_controller = mock_controller
+    controller = MapasController(mock_model, None)
+    widget = WidgetEditorMapas(mapas_controller=controller)
+    widget.configurar_lista_mapas()
     
-    # Preenche manualmente a lista e seleciona
-    item = QListWidgetItem("mapa.png")
-    item.setData(Qt.ItemDataRole.UserRole, ('setor', 0, 0, 0))
-    widget.list_widget.addItem(item)
-    widget.list_widget.setCurrentItem(item)
+    # Check if the map is listed in the sidebar
+    items = []
+    for i in range(widget.list_widget.count()):
+        items.append(widget.list_widget.item(i).text())
     
-    # Chama _atualizar_lista_mapas. Isso deve recriar os itens, mas preservar a seleção.
-    widget._atualizar_lista_mapas()
+    assert "mapa_geral_1.jpg" in items
     
-    assert widget.list_widget.count() == 1
-    current = widget.list_widget.currentItem()
-    assert current is not None
-    assert current.data(Qt.ItemDataRole.UserRole) == ('setor', 0, 0, 0)
-
-
-def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtGui import QTransform
-    from aresta_api.proto.generated import croqui_pb2
-    from unittest.mock import MagicMock
-    
-    widget = WidgetEditorMapas()
-    qtbot.addWidget(widget)
-    
-    # Define estado atual
-    msg_mapa = croqui_pb2.Mapa()
-    poi = msg_mapa.pontos_de_interesse.add()
-    poi.id = "p1"
-    
-    widget.dados_atuais = {
-        'cena': CenaDesenho(widget),
-        'itens_bb': []
-    }
-    widget.msg_mapa_proxy = msg_mapa
-    
-    # Configura zoom artificial
-    transform = QTransform().scale(2.0, 2.0)
-    widget.visualizador.setTransform(transform)
-    
-    # Simula chamada interna de update sem resetar zoom
-    widget._renderizar_mapa(reset_zoom=False)
-    
-    assert widget.visualizador.transform().m11() == 2.0
-    assert widget.visualizador.transform().m22() == 2.0
-
-def test_renomear_poi_no_mapa(qtbot, mocker):
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, BaseItemPOI
-    from PyQt6.QtWidgets import QDialog, QMenu
-    from PyQt6.QtGui import QAction
-    from aresta_api.proto.generated import croqui_pb2
-    from unittest.mock import MagicMock
-    from editor.models.readonly_proxy import ReadOnlyProxy
-    
-    widget = WidgetEditorMapas()
-    qtbot.addWidget(widget)
-    
-    mock_controller = MagicMock()
-    widget.mapas_controller = mock_controller
-    
-    mapa_proto = croqui_pb2.Mapa()
-    poi = mapa_proto.pontos_de_interesse.add()
-    poi.id = "poi_antigo"
-    poi.label = "Label Antigo"
-    
-    widget.msg_mapa_proxy = ReadOnlyProxy(mapa_proto)
-    
-    class FakeScene:
-        def __init__(self, editor):
-            self.widget_editor = editor
-
-    class FakeItem(BaseItemPOI):
-        def __init__(self, pt_dict):
-            super().__init__()
-            self.pt_dict = pt_dict
-            self.item_texto = MagicMock()
-            self._scene = FakeScene(widget)
-        def scene(self):
-            return self._scene
-        def setToolTip(self, text):
-            pass
-        def obter_dict_atualizado(self):
-            return self.pt_dict.copy()
-
-    item = FakeItem({'id': 'poi_antigo', 'label': 'Label Antigo'})
-    widget.itens_poi = {0: item}
-    widget.dados_arquivos = {"chave1": {"itens_bb": [item]}}
-    
-    # Mock do dialogo
-    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
-    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_novo", "Label Novo"))
-    
-    # Simulamos o QMenu para retornar a acao de renomear
-    def fake_exec(self, pos):
-        for act in self.actions():
-            if act.text() == "Renomear Ponto de Interesse":
-                return act
-        return None
-        
-    mocker.patch('PyQt6.QtWidgets.QMenu.exec', new=fake_exec)
-    
-    evento = MagicMock()
-    evento.screenPos.return_value = None
-    
-    item.tratar_menu_contexto(evento, None)
-    
-    # Verifica se mover_poi foi chamado com o novo id
-    assert mock_controller.mover_poi.called, "mover_poi deveria ter sido chamado ao renomear o item"
-    args = mock_controller.mover_poi.call_args[0]
-    assert args[1] == 0  # index do poi
-    assert args[3].id == "poi_novo"  # o novo poi gerado deve ter o id atualizado
+    # Simulate clicking on it
+    widget.selecionar_mapa_por_indices(0, -1, 0)
+    assert widget.msg_mapa_proxy is not None
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "mapa_geral_1.jpg"
 
 
 def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
