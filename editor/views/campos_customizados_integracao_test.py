@@ -43,7 +43,7 @@ class TestCamposCustomizadosIntegracao:
         # Seleciona o Pico na árvore para renderizar seu formulário
         modelo = widget_editor.tree_model
         croqui_idx = modelo.index(0, 0)
-        expando_picos = modelo.index(0, 0, croqui_idx)
+        expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
         pico_idx = modelo.index(0, 0, expando_picos)
         widget_editor.tree_view.selectionModel().setCurrentIndex(pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
 
@@ -130,7 +130,7 @@ class TestCamposCustomizadosIntegracao:
         # Seleciona o Pico na árvore
         modelo = widget_editor.tree_model
         croqui_idx = modelo.index(0, 0)
-        expando_picos = modelo.index(0, 0, croqui_idx)
+        expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
         pico_idx = modelo.index(0, 0, expando_picos)
         widget_editor.tree_view.selectionModel().setCurrentIndex(pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
 

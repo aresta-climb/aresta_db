@@ -772,6 +772,22 @@ class WidgetFormularioPadrao(QStackedWidget):
             else:
                 self._render_field_inner(msg, desc, layout, container)
 
+    def _on_repeated_adicionado(self, msg, campo_nome, index):
+        key = (_get_id(msg), campo_nome)
+        if key in self.card_containers:
+            lbl_contador, m, f = self.card_containers[key]
+            total = len(getattr(m, f.name, []))
+            texto = f"{total} item cadastrado" if total == 1 else f"{total} itens cadastrados"
+            lbl_contador.setText(texto)
+
+    def _on_repeated_removido(self, msg, campo_nome, index):
+        key = (_get_id(msg), campo_nome)
+        if key in self.card_containers:
+            lbl_contador, m, f = self.card_containers[key]
+            total = len(getattr(m, f.name, []))
+            texto = f"{total} item cadastrado" if total == 1 else f"{total} itens cadastrados"
+            lbl_contador.setText(texto)
+
     def __init__(self, model, controller, parent=None):
         super().__init__(parent)
         self.model = model
@@ -781,6 +797,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         self.layout = None
         self.atualizador_ui = AtualizadorUI()
         self.field_containers = {}
+        self.card_containers = {}
         
         self.empty_widget = QWidget()
         empty_layout = QVBoxLayout(self.empty_widget)
@@ -829,6 +846,8 @@ class WidgetFormularioPadrao(QStackedWidget):
             if default_field:
                 if default_field.type == FieldDescriptor.TYPE_MESSAGE:
                     sub = getattr(msg, default_field.name)
+                    if hasattr(sub, "SetInParent"):
+                        sub.SetInParent()
                     self.inicializar_oneofs(sub)
                 else:
                     setattr(msg, default_field.name, default_field.default_value)
@@ -854,6 +873,8 @@ class WidgetFormularioPadrao(QStackedWidget):
                         f = mapa_opcoes[item_escolhido]
                         if f.type == FieldDescriptor.TYPE_MESSAGE:
                             sub = getattr(msg, f.name)
+                            if hasattr(sub, "SetInParent"):
+                                sub.SetInParent()
                             self.inicializar_oneofs(sub)
                         else:
                             setattr(msg, f.name, f.default_value)
@@ -954,10 +975,11 @@ class WidgetFormularioPadrao(QStackedWidget):
         self.layout.addStretch()
         self.atualizador_ui.restaurar_estado_foco(self)
 
-    def _render_filename_field(self, msg, msg_name, node=None):
+    def _render_filename_field(self, msg, msg_name, node=None, parent_layout=None):
         from aresta_api.proto.generated import croqui_pb2
+        target_layout = parent_layout if parent_layout is not None else self.layout
         
-        # Encontra o wrapper (ArquivoSetor, ArquivoGrupo) que contém a extensão
+        # Encontra o wrapper (ArquivoSetor, ArquivoGrupo, ArquivoMarkdown) que contém a extensão
         wrapper_msg = msg
         ext_desc = None
         
@@ -978,7 +1000,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         elif msg_name == "ArquivoMapas":
             ext_desc = croqui_pb2.ArquivoMapas.ext_metadados_arquivo
             
-        if not ext_desc or wrapper_msg == msg and msg_name in ("Setor", "Grupo"):
+        if not ext_desc or (wrapper_msg == msg and msg_name in ("Setor", "Grupo")):
             # Se não achou a extensão ou o wrapper apropriado, não renderiza o campo (acontece em testes isolados)
             return
             
@@ -1007,13 +1029,13 @@ class WidgetFormularioPadrao(QStackedWidget):
         row_layout.addWidget(label)
         row_layout.addWidget(edit, 1)
         
-        self.layout.addLayout(row_layout)
+        target_layout.addLayout(row_layout)
         
         line = QFrame()
         line.setFrameShape(QFrame.Shape.HLine)
         line.setFrameShadow(QFrame.Shadow.Sunken)
-        self.layout.addWidget(line)
-        self.layout.addSpacing(10)
+        target_layout.addWidget(line)
+        target_layout.addSpacing(10)
 
     def _render_message_fields(self, msg, parent_layout, extra_path=None):
         if not msg:
@@ -1023,6 +1045,8 @@ class WidgetFormularioPadrao(QStackedWidget):
         if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
             formato_msg = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
             if formato_msg == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
+                if msg.DESCRIPTOR.name == "ArquivoMarkdown":
+                    self._render_filename_field(msg, "ArquivoMarkdown", parent_layout=parent_layout)
                 conteudo_field = msg.DESCRIPTOR.fields_by_name.get("conteudo")
                 if conteudo_field:
                     if conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
@@ -1061,6 +1085,20 @@ class WidgetFormularioPadrao(QStackedWidget):
             for f in oneof.fields:
                 oneof_fields.add(f.name)
                 
+        # Coleta campos repetidos de subelementos para renderizar como cartões no rodapé
+        campos_cartoes = []
+        for field in msg.DESCRIPTOR.fields:
+            if field.is_repeated and field.type == FieldDescriptor.TYPE_MESSAGE:
+                opts = field.message_type.GetOptions()
+                if opts.HasExtension(croqui_pb2.mensagem_formato_na_ui):
+                    fmt = opts.Extensions[croqui_pb2.mensagem_formato_na_ui]
+                    if fmt in (
+                        croqui_pb2.MensagemFormatoUi.SEPARADO,
+                        croqui_pb2.MensagemFormatoUi.ONEOF,
+                        croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO,
+                    ):
+                        campos_cartoes.append(field)
+
         # 1. Renderiza os oneofs primeiro
         for oneof in msg.DESCRIPTOR.oneofs:
             self._render_oneof_container(msg, oneof, parent_layout, extra_path)
@@ -1098,6 +1136,92 @@ class WidgetFormularioPadrao(QStackedWidget):
                 self._render_field_container(msg, field, parent_layout, extra_path)
                 
             parent_layout.addSpacing(10)
+
+        # 3. Renderiza cartões no rodapé para coleções repetidas de sub-elementos da árvore
+        if campos_cartoes:
+            parent_layout.addSpacing(10)
+            for field in campos_cartoes:
+                self._renderizar_cartao_subelementos(msg, field, parent_layout)
+                parent_layout.addSpacing(8)
+
+    def _renderizar_cartao_subelementos(self, msg, field, parent_layout):
+        """Renderiza um cartão contextual e de ação rápida no rodapé para coleções de subelementos."""
+        from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
+        import re
+        from google.protobuf.descriptor import FieldDescriptor
+
+        card = QFrame()
+        card.setFrameShape(QFrame.Shape.StyledPanel)
+        card.setStyleSheet("""
+            QFrame {
+                background-color: #f8f9fa;
+                border: 1px solid #dcdcdc;
+                border-radius: 6px;
+                padding: 8px;
+            }
+        """)
+        card_layout = QHBoxLayout(card)
+        card_layout.setContentsMargins(12, 8, 12, 8)
+
+        titulo_colecao = ProtobufWidgetFactory.get_label(field)
+        container = getattr(msg, field.name, [])
+        total_itens = len(container)
+
+        info_layout = QVBoxLayout()
+        lbl_titulo = QLabel(titulo_colecao)
+        lbl_titulo.setStyleSheet("font-weight: bold; font-size: 10pt; color: #2b579a; border: none; background: transparent;")
+
+        texto_contador = f"{total_itens} item cadastrado" if total_itens == 1 else f"{total_itens} itens cadastrados"
+        lbl_contador = QLabel(texto_contador)
+        lbl_contador.setStyleSheet("color: #666; font-size: 9pt; border: none; background: transparent;")
+
+        info_layout.addWidget(lbl_titulo)
+        info_layout.addWidget(lbl_contador)
+        card_layout.addLayout(info_layout, 1)
+
+        self.card_containers[(_get_id(msg), field.name)] = (lbl_contador, msg, field)
+
+        # Determina o rótulo amigável do botão de adição
+        if hasattr(field, 'message_type') and field.message_type:
+            nome_tipo = field.message_type.name
+            if nome_tipo.startswith("Arquivo") and len(nome_tipo) > 7:
+                nome_tipo = nome_tipo[7:]
+            opts_msg = field.message_type.GetOptions()
+            if opts_msg.HasExtension(croqui_pb2.mensagem_texto_na_ui):
+                label_tipo = opts_msg.Extensions[croqui_pb2.mensagem_texto_na_ui]
+            elif nome_tipo == "SetorOuGrupo":
+                label_tipo = "Setor ou Grupo"
+            else:
+                label_tipo = re.sub(r'(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])', ' ', nome_tipo)
+        else:
+            label_tipo = titulo_colecao
+
+        btn_adicionar = QPushButton(f"+ Adicionar {label_tipo}")
+        btn_adicionar.setStyleSheet("""
+            QPushButton {
+                background-color: #2b579a;
+                color: white;
+                font-weight: bold;
+                padding: 6px 14px;
+                border-radius: 4px;
+            }
+            QPushButton:hover {
+                background-color: #1e3f6f;
+            }
+        """)
+
+        def on_adicionar_clicado():
+            if self.widget_editor:
+                self.widget_editor.executar_adicionar_subelemento(msg, field.name)
+            elif self.controller:
+                idx = len(getattr(msg, field.name))
+                msg_class = GetMessageClass(field.message_type)
+                self.controller.adicionar_repeated(msg, field.name, idx, msg_class())
+
+        btn_adicionar.clicked.connect(on_adicionar_clicado)
+        card_layout.addWidget(btn_adicionar)
+
+        parent_layout.addWidget(card)
 
     def _render_oneof_container(self, msg, oneof, parent_layout, extra_path=None):
         container = QWidget()
@@ -1284,7 +1408,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             
             new_path = f"{extra_path}/{field.name}" if extra_path else field.name
             
-            # Resolução de transparência inline para campos ONEOF_CONTEUDO
+            # Resolução de transparência inline para campos ONEOF_CONTEUDO e INLINE
             options = field.message_type.GetOptions()
             if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
                 formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
@@ -1292,6 +1416,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                     if sub_msg.HasField("conteudo"):
                         sub_msg = getattr(sub_msg, "conteudo")
                         new_path += "/conteudo"
+                elif formato == croqui_pb2.MensagemFormatoUi.INLINE:
+                    # Renderiza os campos da mensagem inline diretamente no layout sem moldura redundante
+                    self._render_message_fields(sub_msg, layout, new_path)
+                    return
                             
             frame = QFrame()
             frame.setObjectName("SubMessageFrame")
@@ -1573,6 +1701,7 @@ class WidgetEditorDados(QWidget):
         self.layout.addWidget(self.stacked_widget, 2)
         
         self.tree_view.selectionModel().selectionChanged.connect(self._on_tree_selection_changed)
+        self.tree_view.clicked.connect(self._on_tree_clicked)
         
         self.expandir_arvore_ate_alvos()
         
@@ -1585,6 +1714,14 @@ class WidgetEditorDados(QWidget):
             self.tree_view.selectionModel().select(root_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect)
             self._on_tree_selection_changed(None, None)
         
+    def _on_tree_clicked(self, index):
+        """Trata o clique explícito do usuário em nós da árvore."""
+        if not index.isValid():
+            return
+        node = index.internalPointer()
+        if node and node.eh_no_adicao:
+            self._executar_adicionar_item(index)
+
     def _on_tree_selection_changed(self, selected, deselected):
         indexes = self.tree_view.selectionModel().selectedIndexes()
         if not indexes:
@@ -1594,21 +1731,8 @@ class WidgetEditorDados(QWidget):
         index = indexes[0]
         node = index.internalPointer()
         
-        # Evita recursão
-        if getattr(self, "_adicionando_item", False):
-            return
-            
-        # Trata seleção do nó virtual de adição
+        # Seleção do nó virtual de adição não carrega formulário nem abre diálogo modal
         if node and node.eh_no_adicao:
-            if getattr(self, '_removendo_item', False):
-                self.tree_view.selectionModel().clearSelection()
-                return
-                
-            self._adicionando_item = True
-            try:
-                self._executar_adicionar_item(index)
-            finally:
-                self._adicionando_item = False
             return
         
         if not node or not node.descriptor:
@@ -1712,6 +1836,202 @@ class WidgetEditorDados(QWidget):
         idx_no_pai = node.index_in_repeated
         return parent_node, campo, repeated_container, idx_no_pai
 
+    def _coletar_todos_arquivos_croqui(self) -> list[str]:
+        """Coleta todos os nomes de arquivos (.md) já referenciados no Croqui."""
+        arquivos = set()
+        if not self.croqui:
+            return []
+
+        for b in self.croqui.botoes:
+            if b.HasField("destino") and b.destino.WhichOneof("destino") == "secao_textual":
+                md = b.destino.secao_textual
+                if md.caminho:
+                    arquivos.add(md.caminho.lower())
+                if md.HasExtension(croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo):
+                    novo = md.Extensions[croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo].caminho_novo
+                    if novo:
+                        arquivos.add(novo.lower())
+
+        for p in self.croqui.picos:
+            if p.HasField("mapas_gerais"):
+                if p.mapas_gerais.caminho:
+                    arquivos.add(p.mapas_gerais.caminho.lower())
+                if p.mapas_gerais.HasExtension(croqui_pb2.ArquivoMapas.ext_metadados_arquivo):
+                    novo = p.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo].caminho_novo
+                    if novo:
+                        arquivos.add(novo.lower())
+
+            for sg in p.setores_ou_grupos:
+                if sg.HasField("setor"):
+                    if sg.setor.caminho:
+                        arquivos.add(sg.setor.caminho.lower())
+                    if sg.setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
+                        novo = sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+                        if novo:
+                            arquivos.add(novo.lower())
+                elif sg.HasField("grupo"):
+                    if sg.grupo.caminho:
+                        arquivos.add(sg.grupo.caminho.lower())
+                    if sg.grupo.HasExtension(croqui_pb2.ArquivoGrupo.ext_metadados_arquivo):
+                        novo = sg.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_novo
+                        if novo:
+                            arquivos.add(novo.lower())
+                    for s in sg.grupo.conteudo.setores:
+                        if s.caminho:
+                            arquivos.add(s.caminho.lower())
+                        if s.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
+                            novo = s.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+                            if novo:
+                                arquivos.add(novo.lower())
+
+        return list(arquivos)
+
+    def executar_adicionar_subelemento(self, msg_pai, campo_nome: str):
+        """Método unificado e centralizado para criação e inserção de subelementos."""
+        if msg_pai is None:
+            return
+
+        campo = msg_pai.DESCRIPTOR.fields_by_name.get(campo_nome)
+        if campo is None:
+            return
+
+        repeated_container = getattr(msg_pai, campo_nome, None)
+        if repeated_container is None:
+            return
+
+        from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+        from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
+        from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
+        from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+
+        arquivos_existentes = self._coletar_todos_arquivos_croqui()
+
+        if campo_nome == "picos":
+            nomes_existentes = [p.nome for p in msg_pai.picos if p.nome]
+            nome, ok = DialogoCriarPico.obter_dados(
+                parent=self,
+                nomes_existentes=nomes_existentes
+            )
+            if not ok or not nome:
+                return
+            val = croqui_pb2.Pico(nome=nome)
+            self.form_padrao.inicializar_oneofs(val)
+
+        elif campo_nome == "botoes":
+            textos_existentes = [b.texto for b in msg_pai.botoes if b.texto]
+            texto, arquivo, ok = DialogoCriarBotao.obter_dados(
+                parent=self,
+                textos_existentes=textos_existentes,
+                arquivos_existentes=arquivos_existentes
+            )
+            if not ok or not texto:
+                return
+            val = croqui_pb2.Botao()
+            val.texto = texto
+            val.destino.secao_textual.conteudo = ""
+            if arquivo:
+                val.destino.secao_textual.Extensions[croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo].caminho_novo = arquivo
+
+        elif campo_nome == "setores_ou_grupos":
+            nomes_existentes = []
+            for item in msg_pai.setores_ou_grupos:
+                if item.HasField("setor") and item.setor.HasField("conteudo"):
+                    nomes_existentes.append(item.setor.conteudo.nome)
+                elif item.HasField("grupo") and item.grupo.HasField("conteudo"):
+                    nomes_existentes.append(item.grupo.conteudo.nome)
+
+            tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(
+                parent=self,
+                modo="ambos",
+                nomes_existentes=nomes_existentes,
+                arquivos_existentes=arquivos_existentes
+            )
+            if not ok or not nome:
+                return
+            val = croqui_pb2.SetorOuGrupo()
+            if tipo == "setor":
+                val.setor.conteudo.nome = nome
+                if arquivo:
+                    val.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = arquivo
+            else:
+                val.grupo.conteudo.nome = nome
+                if arquivo:
+                    val.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_novo = arquivo
+
+        elif campo_nome == "setores" and hasattr(msg_pai, "DESCRIPTOR") and msg_pai.DESCRIPTOR.name == "Grupo":
+            nomes_existentes = [s.conteudo.nome for s in msg_pai.setores if s.HasField("conteudo") and s.conteudo.nome]
+            tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(
+                parent=self,
+                modo="setor",
+                nomes_existentes=nomes_existentes,
+                arquivos_existentes=arquivos_existentes
+            )
+            if not ok or not nome:
+                return
+            val = croqui_pb2.ArquivoSetor()
+            val.conteudo.nome = nome
+            if arquivo:
+                val.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = arquivo
+
+        elif campo_nome == "escaladas":
+            nomes_existentes = []
+            for esc in msg_pai.escaladas:
+                ativo = esc.WhichOneof("tipo")
+                if ativo:
+                    sub = getattr(esc, ativo)
+                    if hasattr(sub, "nome") and sub.nome:
+                        nomes_existentes.append(sub.nome)
+
+            tipo_chave, nome, ok = DialogoCriarEscalada.obter_dados(
+                parent=self,
+                nomes_existentes=nomes_existentes
+            )
+            if not ok or not nome:
+                return
+            val = croqui_pb2.Escalada()
+            sub_esc = getattr(val, tipo_chave)
+            sub_esc.nome = nome
+            if hasattr(sub_esc, "SetInParent"):
+                sub_esc.SetInParent()
+
+        elif campo.type == FieldDescriptor.TYPE_MESSAGE:
+            msg_class = GetMessageClass(campo.message_type)
+            val = msg_class()
+            self.form_padrao.inicializar_oneofs(val)
+            if val.DESCRIPTOR.oneofs:
+                if not any(val.WhichOneof(o.name) for o in val.DESCRIPTOR.oneofs):
+                    return
+        else:
+            if campo.type == FieldDescriptor.TYPE_BOOL:
+                val = False
+            elif campo.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
+                                FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,
+                                FieldDescriptor.TYPE_SINT32, FieldDescriptor.TYPE_SINT64):
+                val = 0
+            elif campo.type in (FieldDescriptor.TYPE_FLOAT, FieldDescriptor.TYPE_DOUBLE):
+                val = 0.0
+            else:
+                val = ""
+
+        idx = len(repeated_container)
+        self.controller.adicionar_repeated(msg_pai, campo_nome, idx, val)
+
+        # Foca e seleciona diretamente o novo item no expando pai específico
+        exp_idx = self.tree_model.find_expando_index(_get_id(msg_pai), campo_nome)
+        if exp_idx and exp_idx.isValid():
+            self.tree_view.expand(exp_idx)
+            novo_model_idx = self.tree_model.index(idx, 0, exp_idx)
+            if novo_model_idx and novo_model_idx.isValid():
+                self.tree_view.selectionModel().select(
+                    novo_model_idx,
+                    self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+                )
+                self.tree_view.scrollTo(novo_model_idx)
+                novo_node = novo_model_idx.internalPointer()
+                if novo_node:
+                    self.stacked_widget.setCurrentIndex(0)
+                    self.form_padrao.load_node(novo_node)
+
     def _executar_adicionar_item(self, index):
         """Adiciona novo item na coleção referenciada pelo nó expando ou nó virtual."""
         node = index.internalPointer()
@@ -1735,69 +2055,7 @@ class WidgetEditorDados(QWidget):
             return
 
         msg_pai = avo_node.message
-        repeated_container = getattr(msg_pai, campo.name, None)
-        if repeated_container is None:
-            return
-
-        if campo.type == FieldDescriptor.TYPE_MESSAGE:
-            msg_class = GetMessageClass(campo.message_type)
-            val = msg_class()
-            self.form_padrao.inicializar_oneofs(val)
-        else:
-            if campo.type == FieldDescriptor.TYPE_BOOL:
-                val = False
-            elif campo.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
-                                FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,
-                                FieldDescriptor.TYPE_SINT32, FieldDescriptor.TYPE_SINT64):
-                val = 0
-            elif campo.type in (FieldDescriptor.TYPE_FLOAT, FieldDescriptor.TYPE_DOUBLE):
-                val = 0.0
-            else:
-                val = ""
-
-        idx = len(repeated_container)
-        self.controller.adicionar_repeated(msg_pai, campo.name, idx, val)
-
-        janela = self.window()
-
-
-        novo_indice = len(repeated_container) - 1
-        
-        def _localizar_novo_idx():
-            croqui_idx = self.tree_model.index(0, 0)
-            return self._localizar_no_por_indice(croqui_idx, expando_node.name, novo_indice)
-            
-        novo_model_idx = _localizar_novo_idx()
-        if novo_model_idx and novo_model_idx.isValid():
-            self.tree_view.selectionModel().select(
-                novo_model_idx,
-                self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
-            )
-            self.tree_view.scrollTo(novo_model_idx)
-            novo_node = novo_model_idx.internalPointer()
-            print(f"DEBUG: novo_model_idx isValid={novo_model_idx.isValid()}, node_name={novo_node.name if novo_node else None}, eh_no_adicao={getattr(novo_node, 'eh_no_adicao', False)}")
-            if novo_node:
-                self.stacked_widget.setCurrentIndex(0)
-                self.form_padrao.load_node(novo_node)
-
-
-
-    def _localizar_no_por_indice(self, parent_idx, expando_name, item_index):
-        """Localiza o QModelIndex de um item em um expando pelo nome do expando e índice do item."""
-        total = self.tree_model.rowCount(parent_idx)
-        for r in range(total):
-            idx = self.tree_model.index(r, 0, parent_idx)
-            node = idx.internalPointer()
-            if node and node.is_expando and node.name == expando_name:
-                self.tree_view.expand(idx)
-                item_idx = self.tree_model.index(item_index, 0, idx)
-                if item_idx.isValid():
-                    return item_idx
-            # Busca recursiva
-            resultado = self._localizar_no_por_indice(idx, expando_name, item_index)
-            if resultado and resultado.isValid():
-                return resultado
-        return QModelIndex()
+        self.executar_adicionar_subelemento(msg_pai, campo.name)
 
     def _executar_remover_item(self, index):
         """Remove o item referenciado pelo índice da coleção Protobuf."""
@@ -1939,36 +2197,49 @@ class WidgetEditorDados(QWidget):
 
         menu = QMenu(self)
 
+        # 1. Se for um nó de mensagem estrutural pai (Croqui, Pico, Grupo, Setor), adiciona ações para criar filhos
+        if node.message is not None and not node.eh_no_adicao:
+            node._populate_children()
+            for r in range(len(node.children)):
+                child = node.children[r]
+                if child.is_expando:
+                    child_idx = self.tree_model.index(r, 0, index)
+                    label_adicao = child.name
+                    child._populate_children()
+                    for sub in child.children:
+                        if sub.eh_no_adicao:
+                            label_adicao = sub.name.lstrip("+ ").strip()
+                            break
+                    acao_add_filho = menu.addAction(f"Adicionar {label_adicao}...")
+                    acao_add_filho.triggered.connect(
+                        lambda checked=False, c_idx=child_idx: self._executar_adicionar_item(c_idx)
+                    )
+
+        # 2. Se for um nó expando direto: ação de adicionar
         if node.is_expando:
-            # Nó expando: acao de adicionar
-            acao_add = menu.addAction("Adicionar item")
-            acao_add.triggered.connect(lambda: self._executar_adicionar_item(index))
+            label_adicao = node.name
+            node._populate_children()
+            for sub in node.children:
+                if sub.eh_no_adicao:
+                    label_adicao = sub.name.lstrip("+ ").strip()
+                    break
+            acao_add = menu.addAction(f"Adicionar {label_adicao}...")
+            acao_add.triggered.connect(lambda checked=False, idx=index: self._executar_adicionar_item(idx))
+
+        # 3. Se for um nó filho pertencente a um expando: ações de excluir e mover
         elif not node.eh_no_adicao and node.parent_node and node.parent_node.is_expando:
-            # Nó filho de um expando: ações de remover e mover
             _, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
             if repeated_container is not None:
-                acao_add = menu.addAction("Adicionar item")
-                acao_add.triggered.connect(lambda: self._executar_adicionar_item(
-                    self.tree_model.index(index.parent().row(), 0, index.parent().parent())
-                    if False else self.tree_model.index(index.row(), 0, index.parent()).parent()))
-                # Simplificado: usa o índice do pai (expando) para adicionar
-                acao_add2 = menu.addAction("Adicionar item")
-                menu.removeAction(acao_add)
-                menu.removeAction(acao_add2)
-                acao_add_real = menu.addAction("Adicionar item")
-                pai_expando_idx = index.parent()
-                acao_add_real.triggered.connect(lambda checked=False, p=pai_expando_idx: self._executar_adicionar_item(p))
-
                 acao_remover = menu.addAction("Excluir item")
-                acao_remover.triggered.connect(lambda: self._executar_remover_item(index))
+                acao_remover.triggered.connect(lambda checked=False, idx=index: self._executar_remover_item(idx))
 
                 if idx_no_pai is not None and idx_no_pai > 0:
                     acao_cima = menu.addAction("Mover para Cima")
-                    acao_cima.triggered.connect(lambda: self._executar_mover_para_cima(index))
+                    acao_cima.triggered.connect(lambda checked=False, idx=index: self._executar_mover_para_cima(idx))
 
                 if idx_no_pai is not None and idx_no_pai < len(repeated_container) - 1:
                     acao_baixo = menu.addAction("Mover para Baixo")
-                    acao_baixo.triggered.connect(lambda: self._executar_mover_para_baixo(index))
+                    acao_baixo.triggered.connect(lambda checked=False, idx=index: self._executar_mover_para_baixo(idx))
 
         if not menu.isEmpty():
             menu.exec(self.tree_view.viewport().mapToGlobal(posicao))
@@ -2030,9 +2301,11 @@ class WidgetEditorDados(QWidget):
 
     def _on_repeated_adicionado(self, msg, campo_nome, index):
         self.tree_model._on_item_adicionado(_get_id(msg), campo_nome, index)
+        self.form_padrao._on_repeated_adicionado(msg, campo_nome, index)
 
     def _on_repeated_removido(self, msg, campo_nome, index):
         self.tree_model._on_item_removido(_get_id(msg), campo_nome, index)
+        self.form_padrao._on_repeated_removido(msg, campo_nome, index)
 
     def _on_repeated_movido(self, msg, campo_nome, index_from, index_to):
         self.tree_model._on_item_movido(_get_id(msg), campo_nome, index_from, index_to)

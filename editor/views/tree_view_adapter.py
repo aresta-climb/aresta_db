@@ -82,6 +82,21 @@ class ProtobufNode:
             )
         return False
 
+    def _is_descriptor_inline_or_leaf(self, descriptor):
+        if descriptor is None:
+            return True
+        options = descriptor.GetOptions()
+        if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
+            formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
+            if formato in (
+                croqui_pb2.MensagemFormatoUi.INLINE,
+                croqui_pb2.MensagemFormatoUi.INVISIVEL,
+                croqui_pb2.MensagemFormatoUi.MAPA,
+                croqui_pb2.MensagemFormatoUi.COORDENADA,
+            ):
+                return True
+        return False
+
     def _collect_eligible_under_message(self, msg):
         results = []
         if msg is None or not hasattr(msg, "DESCRIPTOR"):
@@ -102,7 +117,7 @@ class ProtobufNode:
                     if resolved_item is not None and hasattr(resolved_item, "DESCRIPTOR"):
                         if self._is_descriptor_eligible(resolved_item.DESCRIPTOR):
                             eligible_items.append((resolved_item, i))
-                        else:
+                        elif not self._is_descriptor_inline_or_leaf(resolved_item.DESCRIPTOR):
                             # Busca recursiva para extrair elegíveis sob a mensagem intermediária
                             recursive_results = self._collect_eligible_under_message(resolved_item)
                             for rec_item in recursive_results:
@@ -111,7 +126,7 @@ class ProtobufNode:
                                         eligible_items.append((sub_msg, i))
                                 else:
                                     eligible_items.append((rec_item["message"], i))
-                if eligible_items:
+                if eligible_items or self._is_descriptor_eligible(field.message_type):
                     results.append({
                         "field": field,
                         "is_repeated": True,
@@ -128,7 +143,7 @@ class ProtobufNode:
                                 "is_repeated": False,
                                 "message": resolved_msg
                             })
-                        else:
+                        elif not self._is_descriptor_inline_or_leaf(resolved_msg.DESCRIPTOR):
                             # Busca recursiva
                             recursive_results = self._collect_eligible_under_message(resolved_msg)
                             for rec_item in recursive_results:
@@ -181,10 +196,14 @@ class ProtobufNode:
                     # pois get_label aplica capitalize() que apaga as maiusculas internas
                     if hasattr(field, 'message_type') and field.message_type:
                         nome_tipo_bruto = field.message_type.name
+                        if nome_tipo_bruto.startswith("Arquivo") and len(nome_tipo_bruto) > 7:
+                            nome_tipo_bruto = nome_tipo_bruto[7:]
                         # Primeiro verifica se ha texto_na_ui definido na mensagem
                         opts_msg = field.message_type.GetOptions()
                         if opts_msg.HasExtension(croqui_pb2.mensagem_texto_na_ui):
                             tipo_label = opts_msg.Extensions[croqui_pb2.mensagem_texto_na_ui]
+                        elif nome_tipo_bruto == "SetorOuGrupo":
+                            tipo_label = "Setor ou Grupo"
                         else:
                             # Separa CamelCase com espacos e mantém a capitalizacao original
                             tipo_label = re.sub(r'(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])', ' ', nome_tipo_bruto)
@@ -390,8 +409,12 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             idx = self.index(r, 0, parent_idx)
             node = idx.internalPointer()
             if node:
-                if node.message is not None and _get_id(node.message) == msg_id:
-                    return idx
+                if node.message is not None:
+                    if _get_id(node.message) == msg_id:
+                        return idx
+                    resolved = node._resolve_transparency(node.message)
+                    if resolved is not None and _get_id(resolved) == msg_id:
+                        return idx
                 child_match = self.find_index_for_message_id(msg_id, idx)
                 if child_match.isValid():
                     return child_match
@@ -450,6 +473,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             
         exp_node = exp_idx.internalPointer()
         if not exp_node._is_populated:
+            exp_node._populate_children()
             return
             
         parent_node = exp_node.parent_node

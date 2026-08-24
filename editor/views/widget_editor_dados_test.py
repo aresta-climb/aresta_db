@@ -54,8 +54,8 @@ def test_widget_formulario_padrao_renderizacao_campos(qapp):
     modelo = widget.tree_model
     # Sob a raiz invisível, o primeiro item é o Croqui
     croqui_idx = modelo.index(0, 0)
-    # Sob o Croqui, o primeiro item é o expando Picos
-    expando_picos = modelo.index(0, 0, croqui_idx)
+    # Localiza o expando Picos
+    expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
     # Sob o expando Picos, o primeiro item é o Pico Serra do Cipó
     pico_idx = modelo.index(0, 0, expando_picos)
     pico_node = pico_idx.internalPointer()
@@ -81,7 +81,7 @@ def test_widget_formulario_padrao_inline_e_borda(qapp):
     widget = WidgetEditorDados(model, controller)
     modelo = widget.tree_model
     croqui_idx = modelo.index(0, 0)
-    expando_picos = modelo.index(0, 0, croqui_idx)
+    expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
     pico_idx = modelo.index(0, 0, expando_picos)
     pico_node = pico_idx.internalPointer()
     
@@ -111,7 +111,7 @@ def test_widget_formulario_padrao_oneof(qapp):
     # Navega até o nó da Escalada na árvore
     modelo = widget.tree_model
     croqui_idx = modelo.index(0, 0)
-    exp_picos = modelo.index(0, 0, croqui_idx)
+    exp_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
     pico_idx = modelo.index(0, 0, exp_picos)
     exp_sg = modelo.index(0, 0, pico_idx)
     setor_idx = modelo.index(0, 0, exp_sg)
@@ -240,7 +240,7 @@ def test_widget_formulario_padrao_no_overlap(qapp):
     widget = WidgetEditorDados(model, controller)
     modelo = widget.tree_model
     croqui_idx = modelo.index(0, 0)
-    expando_picos = modelo.index(0, 0, croqui_idx)
+    expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
     pico_idx = modelo.index(0, 0, expando_picos)
     pico_node = pico_idx.internalPointer()
     
@@ -733,15 +733,24 @@ def test_formulario_primitivo_largura_maxima(qapp):
 
 
 
-def test_menu_contexto_adicionar_item_repeated(qapp):
-    """Menu de contexto em nó expando deve adicionar item na coleção Protobuf."""
-    from PyQt6.QtCore import QPoint
-    from PyQt6.QtWidgets import QMenu
-    from PyQt6.QtTest import QTest
+def test_menu_contexto_adicionar_item_repeated(qapp, monkeypatch):
+    """Menu de contexto em nó expando deve adicionar novo item à coleção Protobuf."""
+    from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+
+    monkeypatch.setattr(
+        DialogoCriarPico,
+        "obter_dados",
+        lambda *args, **kwargs: ("Novo Pico Mock", True)
+    )
 
     croqui = Croqui()
     pico = croqui.picos.add()
-    pico.nome = "Pico A"
+    pico.nome = "Pico Existente"
 
     model = CroquiModel(croqui)
 
@@ -777,6 +786,12 @@ def test_menu_contexto_adicionar_item_repeated(qapp):
 
 def test_menu_contexto_remover_item_repeated(qapp):
     """Menu de contexto em item filho deve remover o item da coleção Protobuf."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from PyQt6.QtGui import QUndoStack
+
     croqui = Croqui()
     pico_a = croqui.picos.add()
     pico_a.nome = "Pico A"
@@ -844,9 +859,16 @@ def test_menu_contexto_mover_item_para_cima(qapp):
     assert croqui.picos[1].nome == "Pico A"
 
 
-def test_no_virtual_adicao_cria_e_seleciona(qapp):
-    """Ao selecionar o nó virtual '+', um item deve ser criado e selecionado na árvore."""
+def test_no_virtual_adicao_cria_e_seleciona(qapp, monkeypatch):
+    """Nó virtual de adição deve criar um novo item e selecioná-lo na árvore."""
+    from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
     from editor.views.tree_view_adapter import ProtobufNode
+
+    monkeypatch.setattr(
+        DialogoCriarPico,
+        "obter_dados",
+        lambda *args, **kwargs: ("Novo Pico Virtual", True)
+    )
 
     croqui = Croqui()
     # Adiciona um pico para que o expando exista na árvore
@@ -882,13 +904,8 @@ def test_no_virtual_adicao_cria_e_seleciona(qapp):
     no_adicao = no_adicao_idx.internalPointer()
     assert no_adicao is not None
     assert hasattr(no_adicao, 'eh_no_adicao')
-    assert no_adicao.eh_no_adicao is True
-
-    # Simula seleção do nó virtual — deve criar um pico
-    widget.tree_view.selectionModel().select(
-        no_adicao_idx,
-        widget.tree_view.selectionModel().SelectionFlag.ClearAndSelect
-    )
+    # Simula clique do usuário no nó virtual — deve criar um pico
+    widget._on_tree_clicked(no_adicao_idx)
 
     # Mais um pico deve ter sido criado (total: 2)
     assert len(croqui.picos) == 2
@@ -1013,16 +1030,15 @@ def test_adicionar_setor_ou_grupo_mostra_form_proto_nao_markdown(qapp, monkeypat
     no_virtual = no_virtual_idx.internalPointer()
     assert no_virtual is not None and no_virtual.eh_no_adicao, "No virtual de adicao nao encontrado"
 
-    # Mocka o QInputDialog para retornar a primeira opcao sem bloquear a UI
-    # (o dialog intencional do ONEOF de SetorOuGrupo.tipo nao pode abrir em testes)
-    import editor.views.widget_editor_dados
-    class _MockQInputDialog:
-        @staticmethod
-        def getItem(parent, title, label, items, current=0, editable=False):
-            return (items[0] if items else "", True)
-    monkeypatch.setattr(editor.views.widget_editor_dados, "QInputDialog", _MockQInputDialog)
+    # Mocka o DialogoCriarSetorOuGrupo para retornar setor sem bloquear a UI
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("setor", "Novo Setor", "setor_novo.md", True)
+    )
 
-    # Executa o adicionar (bypassa o dialog de oneof)
+    # Executa o adicionar
     widget._executar_adicionar_item(no_virtual_idx)
 
     # Deve ter adicionado um novo SetorOuGrupo
@@ -1155,7 +1171,7 @@ def test_widget_formulario_padrao_on_campo_alterado(qapp):
     widget = WidgetEditorDados(model, controller)
     modelo = widget.tree_model
     croqui_idx = modelo.index(0, 0)
-    exp_picos = modelo.index(0, 0, croqui_idx)
+    exp_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
     pico_idx = modelo.index(0, 0, exp_picos)
     pico_node = pico_idx.internalPointer()
     
@@ -1946,6 +1962,837 @@ def test_formulario_inteiro_apagar_com_backspace_limpa_campo_no_modelo(qapp):
     assert not setor.HasField("indice_mapa_padrao")
     assert spin.value() == SpinBoxVazio.VALOR_NULO
     assert spin.text() == ""
+
+
+def test_integracao_adicao_subelementos_novo_croqui(qapp, monkeypatch):
+    """Testa a integração ponta a ponta de criação de subelementos em um croqui novo:
+    Pico -> Setor -> Escalada e Grupo -> Setor, via árvore, menu de contexto e cartões."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from PyQt6.QtWidgets import QInputDialog, QPushButton
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pedra do Baú"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # 1. Verifica se o nó expando de 'Setores ou grupos' existe sob o Pico mesmo estando vazio
+    croqui_node_idx = widget.tree_model.index(0, 0)
+    picos_expando_idx = next(widget.tree_model.index(r, 0, croqui_node_idx) for r in range(widget.tree_model.rowCount(croqui_node_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_node_idx)) == "Picos")
+    pico_node_idx = widget.tree_model.index(0, 0, picos_expando_idx)
+    assert pico_node_idx.isValid()
+
+    widget.tree_view.expand(pico_node_idx)
+    qapp.processEvents()
+
+    # O Pico deve conter o expando 'Setores ou grupos'
+    assert widget.tree_model.rowCount(pico_node_idx) >= 1
+    sg_expando_idx = widget.tree_model.index(0, 0, pico_node_idx)
+    assert sg_expando_idx.isValid()
+    assert "etor" in widget.tree_model.data(sg_expando_idx)
+
+    # Sob o expando 'Setores ou grupos', deve conter o nó virtual de adição
+    assert widget.tree_model.rowCount(sg_expando_idx) == 1
+    no_virtual_add = widget.tree_model.index(0, 0, sg_expando_idx)
+    assert no_virtual_add.internalPointer().eh_no_adicao is True
+
+    # 2. Simula adição de um Setor via nó virtual com diálogo
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("setor", "Setor 1", "setor_1.md", True)
+    )
+    widget._executar_adicionar_item(no_virtual_add)
+    qapp.processEvents()
+
+    assert len(pico.setores_ou_grupos) == 1
+    sg_item = pico.setores_ou_grupos[0]
+    assert sg_item.HasField("setor")
+
+    # 3. Verifica se sob o novo Setor, o expando 'Escaladas' e o nó virtual existem mesmo vazios
+    setor_item_idx = widget.tree_model.index(0, 0, sg_expando_idx)
+    assert setor_item_idx.isValid()
+    widget.tree_view.expand(setor_item_idx)
+    qapp.processEvents()
+
+    assert widget.tree_model.rowCount(setor_item_idx) >= 1
+    escaladas_expando_idx = widget.tree_model.index(0, 0, setor_item_idx)
+    assert escaladas_expando_idx.isValid()
+    assert "scalada" in widget.tree_model.data(escaladas_expando_idx)
+
+    # 4. Adiciona uma Escalada (Via Esportiva)
+    from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
+    monkeypatch.setattr(
+        DialogoCriarEscalada,
+        "obter_dados",
+        lambda *args, **kwargs: ("via_esportiva", "Via Teste", True)
+    )
+    no_virtual_esc = widget.tree_model.index(0, 0, escaladas_expando_idx)
+    widget._executar_adicionar_item(no_virtual_esc)
+    qapp.processEvents()
+
+    setor = sg_item.setor.conteudo
+    assert len(setor.escaladas) == 1
+    assert setor.escaladas[0].HasField("via_esportiva")
+    assert setor.escaladas[0].via_esportiva.nome == "Via Teste"
+
+    # 5. Verifica se o formulário do Pico possui o cartão de subelementos no rodapé
+    widget.tree_view.selectionModel().select(pico_node_idx, widget.tree_view.selectionModel().SelectionFlag.ClearAndSelect)
+    widget._on_tree_selection_changed(None, None)
+    qapp.processEvents()
+
+    botoes_cartao = [b for b in widget.form_padrao.findChildren(QPushButton) if "Adicionar" in b.text() and ("Setor" in b.text() or "Grupo" in b.text())]
+    assert len(botoes_cartao) >= 1
+
+
+def test_integracao_desfazer_refazer_adicao_subelementos(qapp, monkeypatch):
+    """Garante que a adição de subelementos é completamente passível de Desfazer e Refazer via Undo/Redo."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Undo"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    croqui_node_idx = widget.tree_model.index(0, 0)
+    picos_expando_idx = next(widget.tree_model.index(r, 0, croqui_node_idx) for r in range(widget.tree_model.rowCount(croqui_node_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_node_idx)) == "Picos")
+    pico_node_idx = widget.tree_model.index(0, 0, picos_expando_idx)
+    widget.tree_view.expand(pico_node_idx)
+    qapp.processEvents()
+
+    sg_expando_idx = widget.tree_model.index(0, 0, pico_node_idx)
+    no_virtual_add = widget.tree_model.index(0, 0, sg_expando_idx)
+
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("grupo", "Grupo Undo", "grupo_undo.md", True)
+    )
+    widget._executar_adicionar_item(no_virtual_add)
+    qapp.processEvents()
+
+    assert len(pico.setores_ou_grupos) == 1
+    assert pico.setores_ou_grupos[0].HasField("grupo")
+
+    # Desfaz a adição
+    pilha.undo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 0
+
+    # Refaz a adição
+    pilha.redo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 1
+    assert pico.setores_ou_grupos[0].HasField("grupo")
+
+
+def test_menu_contexto_no_estrutural_adicao_filhos(qapp, monkeypatch):
+    """Garante que o menu de contexto em nós estruturais pais (Pico, Setor, Croqui)
+    exibe ações para adicionar seus subelementos filhos diretamente."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from PyQt6.QtWidgets import QMenu
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Menu Contexto"
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Menu Contexto"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    menus_criados = []
+    original_exec = QMenu.exec
+    monkeypatch.setattr(QMenu, "exec", lambda self, *args, **kwargs: menus_criados.append([a.text() for a in self.actions()]))
+
+    # 1. Clica com botão direito no nó do Pico
+    croqui_node_idx = widget.tree_model.index(0, 0)
+    # Localiza o expando de Picos
+    expando_picos_idx = next(widget.tree_model.index(r, 0, croqui_node_idx) for r in range(widget.tree_model.rowCount(croqui_node_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_node_idx)) == "Picos")
+    pico_node_idx = widget.tree_model.index(0, 0, expando_picos_idx)
+
+    widget._exibir_menu_contexto(widget.tree_view.visualRect(pico_node_idx).center())
+    assert len(menus_criados) >= 1
+    acoes_pico = menus_criados[-1]
+    assert any("Adicionar" in a and ("Setor" in a or "Grupo" in a) for a in acoes_pico)
+    assert "Excluir item" in acoes_pico
+
+    # 2. Clica com botão direito no nó do Croqui
+    widget._exibir_menu_contexto(widget.tree_view.visualRect(croqui_node_idx).center())
+    acoes_croqui = menus_criados[-1]
+    assert any("Pico" in a for a in acoes_croqui)
+    assert any("Botão" in a or "Botao" in a for a in acoes_croqui)
+
+
+def test_cartoes_subelementos_no_formulario(qapp):
+    """Garante que o formulário de entidades estruturais (Croqui, Pico, Grupo, Setor)
+    renderiza cartões informativos de subelementos com contagem e botão de adição."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, Grupo, Setor
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.tree_view_adapter import ProtobufNode
+    from PyQt6.QtWidgets import QLabel, QPushButton
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico dos Cartões"
+    
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+
+    # 1. Carrega o nó do Pico no formulário
+    node_pico = ProtobufNode(name="Pico", message=pico, descriptor=Pico.DESCRIPTOR)
+    form.load_node(node_pico)
+    qapp.processEvents()
+
+    # Verifica se há o cartão de Setores ou Grupos com botão
+    labels = [lbl.text() for lbl in form.findChildren(QLabel)]
+    assert any("Setores ou grupos" in l or "Setores e Grupos" in l for l in labels)
+    assert any("0 itens" in l or "0 item" in l for l in labels)
+    
+    botoes = [btn.text() for btn in form.findChildren(QPushButton)]
+    assert any("Adicionar Setor ou Grupo" in b for b in botoes)
+
+    # 2. Carrega um Setor no formulário
+    setor = Setor(nome="Setor Cartões")
+    node_setor = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    form.load_node(node_setor)
+    qapp.processEvents()
+
+    labels_setor = [lbl.text() for lbl in form.findChildren(QLabel)]
+    assert any("Escaladas" in l for l in labels_setor)
+    botoes_setor = [btn.text() for btn in form.findChildren(QPushButton)]
+    assert any("Adicionar Escalada" in b for b in botoes_setor)
+
+
+def test_clique_botao_cartao_adiciona_subelemento_com_undo(qapp, monkeypatch):
+    """Garante que clicar no botão de adição do cartão no formulário cria o subelemento
+    e empilha o comando de Undo/Redo corretamente."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.tree_view_adapter import ProtobufNode
+    from PyQt6.QtWidgets import QPushButton, QInputDialog
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Ação Cartão"
+    
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+
+    node_pico = ProtobufNode(name="Pico", message=pico, descriptor=pico.DESCRIPTOR)
+    form.load_node(node_pico)
+    qapp.processEvents()
+
+    # Encontra o botão de adição do cartão
+    btn_add = next(b for b in form.findChildren(QPushButton) if "Adicionar Setor ou Grupo" in b.text())
+    
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("setor", "Setor Cartao", "setor_cartao.md", True)
+    )
+    btn_add.click()
+    qapp.processEvents()
+
+    assert len(pico.setores_ou_grupos) == 1
+    assert pico.setores_ou_grupos[0].HasField("setor")
+
+    # Testa que pode ser desfeito via histórico
+    pilha.undo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 0
+
+    # Testa que pode ser refeito
+    pilha.redo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 1
+
+
+def test_cartao_adicao_grupo_e_cancelamento(qapp, monkeypatch):
+    """Testa a renderização do cartão em Grupo e cancelamento de diálogo em ONEOFs."""
+    from aresta_api.proto.generated.croqui_pb2 import Grupo
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+    from PyQt6.QtWidgets import QPushButton
+
+    croqui = Croqui()
+    grupo = Grupo(nome="Grupo dos Cartões")
+    
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+
+    node_grupo = ProtobufNode(name="Grupo", message=grupo, descriptor=Grupo.DESCRIPTOR)
+    form.load_node(node_grupo)
+    qapp.processEvents()
+
+    # O botão para ArquivoSetor deve exibir '+ Adicionar Setor'
+    btn_add = next(b for b in form.findChildren(QPushButton) if "Adicionar Setor" in b.text())
+    assert btn_add is not None
+
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("setor", "Setor Grupo", "setor_grupo.md", True)
+    )
+    # Testa clique no botão do Grupo
+    btn_add.click()
+    qapp.processEvents()
+    assert len(grupo.setores) == 1
+
+    # Testa cancelamento no diálogo de um ONEOF sem default (SetorOuGrupo em Pico)
+    pico = croqui.picos.add(nome="Pico Cancelar")
+    node_pico = ProtobufNode(name="Pico", message=pico, descriptor=pico.DESCRIPTOR)
+    form.load_node(node_pico)
+    qapp.processEvents()
+
+    btn_add_pico = next(b for b in form.findChildren(QPushButton) if "Adicionar Setor ou Grupo" in b.text())
+    # Simula usuário clicando em 'Cancelar'
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: ("", "", "", False)
+    )
+    btn_add_pico.click()
+    qapp.processEvents()
+
+    # Nenhum item deve ter sido adicionado
+    assert len(pico.setores_ou_grupos) == 0
+
+
+def test_cartao_adicao_croqui(qapp, monkeypatch):
+    """Testa a renderização dos cartões no Croqui (Picos e Botões)."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
+    from PyQt6.QtWidgets import QPushButton
+
+    croqui = Croqui(nome="Croqui Teste Cartões")
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
+
+    node_croqui = ProtobufNode(name="Croqui", message=croqui, descriptor=Croqui.DESCRIPTOR)
+    form.load_node(node_croqui)
+    qapp.processEvents()
+
+    btn_picos = next(b for b in form.findChildren(QPushButton) if "Adicionar Pico" in b.text())
+    btn_botoes = next(b for b in form.findChildren(QPushButton) if "Adicionar Botão" in b.text() or "Adicionar Botao" in b.text())
+
+    assert btn_picos is not None
+    assert btn_botoes is not None
+
+    from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+    monkeypatch.setattr(
+        DialogoCriarPico,
+        "obter_dados",
+        lambda *args, **kwargs: ("Novo Pico Cartao", True)
+    )
+    btn_picos.click()
+    qapp.processEvents()
+    assert len(croqui.picos) == 1
+    assert croqui.picos[0].nome == "Novo Pico Cartao"
+
+    monkeypatch.setattr(
+        DialogoCriarBotao,
+        "obter_dados",
+        lambda *args, **kwargs: ("Como Chegar", "como_chegar.md", True)
+    )
+    btn_botoes.click()
+    qapp.processEvents()
+    assert len(croqui.botoes) == 1
+    assert croqui.botoes[0].texto == "Como Chegar"
+
+
+def test_integracao_adicionar_escalada_em_setores_distintos_foca_escalada_correta(qapp, monkeypatch):
+    """Garante que ao adicionar uma escalada no Setor B (quando o Setor A já tem escaladas),
+    o editor seleciona e foca exatamente a nova escalada no Setor B, e não uma do Setor A."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pedra do Baú")
+    
+    sg_a = pico.setores_ou_grupos.add()
+    setor_a = sg_a.setor.conteudo
+    setor_a.nome = "Setor A"
+    esc_a1 = setor_a.escaladas.add()
+    esc_a1.via_esportiva.nome = "Via do Setor A1"
+    esc_a2 = setor_a.escaladas.add()
+    esc_a2.via_esportiva.nome = "Via do Setor A2"
+
+    sg_b = pico.setores_ou_grupos.add()
+    setor_b = sg_b.setor.conteudo
+    setor_b.nome = "Setor B"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o expando de Escaladas do Setor B
+    croqui_idx = widget.tree_model.index(0, 0)
+    picos_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Picos")
+    pico_idx = widget.tree_model.index(0, 0, picos_exp_idx)
+    sg_exp_idx = widget.tree_model.index(0, 0, pico_idx)
+    setor_b_idx = widget.tree_model.index(1, 0, sg_exp_idx)
+    assert widget.tree_model.data(setor_b_idx) == "Setor B"
+
+    widget.tree_view.expand(setor_b_idx)
+    qapp.processEvents()
+
+    esc_b_exp_idx = widget.tree_model.index(0, 0, setor_b_idx)
+    assert "scalada" in widget.tree_model.data(esc_b_exp_idx)
+    no_virtual_add_b = widget.tree_model.index(0, 0, esc_b_exp_idx)
+
+    # Executa a adição no Setor B
+    monkeypatch.setattr(
+        DialogoCriarEscalada,
+        "obter_dados",
+        lambda parent=None, nomes_existentes=None: ("via_esportiva", "Via Inédita B", True)
+    )
+    widget._executar_adicionar_item(no_virtual_add_b)
+    qapp.processEvents()
+
+    # Verifica se a nova escalada foi adicionada no Setor B
+    assert len(setor_b.escaladas) == 1
+    assert setor_b.escaladas[0].via_esportiva.nome == "Via Inédita B"
+
+    # Verifica se a seleção da árvore aponta para a escalada no Setor B
+    selected = widget.tree_view.selectionModel().selectedIndexes()
+    assert len(selected) > 0
+    selected_node = selected[0].internalPointer()
+    assert selected_node.parent_node.parent_node.message == setor_b
+    assert selected_node.index_in_repeated == 0
+
+
+def test_integracao_wizard_criar_setor_com_nome_e_arquivo(qapp, monkeypatch):
+    """Garante que a criação de Setor pelo wizard preenche o nome e os metadados do arquivo novo."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o nó de adição de Setor ou Grupo no Pico
+    croqui_idx = widget.tree_model.index(0, 0)
+    picos_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Picos")
+    pico_idx = widget.tree_model.index(0, 0, picos_exp_idx)
+    sg_exp_idx = widget.tree_model.index(0, 0, pico_idx)
+    no_add = widget.tree_model.index(0, 0, sg_exp_idx)
+
+    # Simula resposta do DialogoCriarSetorOuGrupo
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda parent=None, modo="ambos", nome_sugerido="", nomes_existentes=None, arquivos_existentes=None: ("setor", "Falésia Sol", "setor_falesia_sol.md", True)
+    )
+
+    widget._executar_adicionar_item(no_add)
+    qapp.processEvents()
+
+    assert len(pico.setores_ou_grupos) == 1
+    sg = pico.setores_ou_grupos[0]
+    assert sg.HasField("setor")
+    assert sg.setor.conteudo.nome == "Falésia Sol"
+    assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_falesia_sol.md"
+
+    # Testa Undo
+    pilha.undo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 0
+
+    # Testa Redo
+    pilha.redo()
+    qapp.processEvents()
+    assert len(pico.setores_ou_grupos) == 1
+    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Falésia Sol"
+
+
+def test_undo_nao_dispara_wizard_ao_selecionar_no_virtual(qapp, monkeypatch):
+    """Garante que desfazer uma adição não aciona o diálogo modal de criação."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Teste Undo Seguro")
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Adiciona setor via controller
+    from aresta_api.proto.generated.croqui_pb2 import SetorOuGrupo
+    sg = SetorOuGrupo()
+    sg.setor.conteudo.nome = "Setor A"
+    controller.adicionar_repeated(pico, "setores_ou_grupos", 0, sg)
+    qapp.processEvents()
+
+    # Flag para detectar se o diálogo foi chamado indevidamente
+    dialogo_chamado = []
+    monkeypatch.setattr(
+        DialogoCriarSetorOuGrupo,
+        "obter_dados",
+        lambda *args, **kwargs: (dialogo_chamado.append(True) or ("setor", "X", "x.md", True))
+    )
+
+    # Executa Undo
+    pilha.undo()
+    qapp.processEvents()
+
+    # O diálogo NUNCA deve ter sido chamado durante o Undo
+    assert len(dialogo_chamado) == 0
+    assert len(pico.setores_ou_grupos) == 0
+
+
+def test_integracao_wizard_criar_botao_com_texto_e_arquivo(qapp, monkeypatch):
+    """Garante que a criação de Botão pelo wizard preenche o texto e o arquivo Markdown vinculado."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoMarkdown
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o expando de Botões no Croqui
+    croqui_idx = widget.tree_model.index(0, 0)
+    botoes_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Botões")
+    no_add_botao = widget.tree_model.index(0, 0, botoes_exp_idx)
+
+    # Simula resposta do DialogoCriarBotao
+    monkeypatch.setattr(
+        DialogoCriarBotao,
+        "obter_dados",
+        lambda *args, **kwargs: ("Como Chegar", "secao_como_chegar.md", True)
+    )
+
+    widget._executar_adicionar_item(no_add_botao)
+    qapp.processEvents()
+
+    assert len(croqui.botoes) == 1
+    botao = croqui.botoes[0]
+    assert botao.texto == "Como Chegar"
+    assert botao.HasField("destino")
+    assert botao.destino.WhichOneof("destino") == "secao_textual"
+    assert botao.destino.secao_textual.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_novo == "secao_como_chegar.md"
+
+
+def test_integracao_wizard_criar_escalada_com_nome(qapp, monkeypatch):
+    """Garante que a criação de Escalada pelo wizard preenche o tipo e o nome da via na árvore."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Escaladas")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Principal"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o expando de Escaladas
+    croqui_idx = widget.tree_model.index(0, 0)
+    picos_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Picos")
+    pico_idx = widget.tree_model.index(0, 0, picos_exp_idx)
+    sg_exp_idx = widget.tree_model.index(0, 0, pico_idx)
+    setor_idx = widget.tree_model.index(0, 0, sg_exp_idx)
+    widget.tree_view.expand(setor_idx)
+    qapp.processEvents()
+
+    esc_exp_idx = widget.tree_model.index(0, 0, setor_idx)
+    no_add_esc = widget.tree_model.index(0, 0, esc_exp_idx)
+
+    # Simula resposta do DialogoCriarEscalada
+    monkeypatch.setattr(
+        DialogoCriarEscalada,
+        "obter_dados",
+        lambda *args, **kwargs: ("via_movel", "Fissura da Meia Noite", True)
+    )
+
+    widget._executar_adicionar_item(no_add_esc)
+    qapp.processEvents()
+
+    assert len(setor.escaladas) == 1
+    esc = setor.escaladas[0]
+    assert esc.HasField("via_movel")
+    assert esc.via_movel.nome == "Fissura da Meia Noite"
+
+
+def test_integracao_adicionar_setores_em_grupo_mantem_ordem_e_sincronismo_arvore(qapp, monkeypatch):
+    """Garante que adicionar múltiplos setores em um Grupo via cartão de ação rápida
+    mantém o nó virtual '+ Adicionar Setor' sempre no final da lista e a contagem sincronizada."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Teste Grupo")
+    sg = pico.setores_ou_grupos.add()
+    grupo = sg.grupo.conteudo
+    grupo.nome = "Grupo Principal"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Adiciona 3 setores sucessivos ao grupo via executar_adicionar_subelemento (mesmo método dos cartões)
+    nomes = ["Setor 1", "Setor 2", "Setor 3"]
+    for i, nome in enumerate(nomes):
+        monkeypatch.setattr(
+            DialogoCriarSetorOuGrupo,
+            "obter_dados",
+            lambda *args, nome_i=nome, **kwargs: ("setor", nome_i, f"setor_{i}.md", True)
+        )
+        widget.executar_adicionar_subelemento(grupo, "setores")
+        qapp.processEvents()
+
+    assert len(grupo.setores) == 3
+
+    # Localiza o expando 'Setores' dentro do Grupo na árvore
+    croqui_idx = widget.tree_model.index(0, 0)
+    picos_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Picos")
+    pico_idx = widget.tree_model.index(0, 0, picos_exp_idx)
+    sg_exp_idx = widget.tree_model.index(0, 0, pico_idx)
+    grupo_idx = widget.tree_model.index(0, 0, sg_exp_idx)
+    widget.tree_view.expand(grupo_idx)
+    qapp.processEvents()
+
+    setores_exp_idx = widget.tree_model.index(0, 0, grupo_idx)
+    widget.tree_view.expand(setores_exp_idx)
+    qapp.processEvents()
+
+    # Deve conter 4 linhas: Setor 1 (0), Setor 2 (1), Setor 3 (2), + Adicionar Setor (3)
+    total_linhas = widget.tree_model.rowCount(setores_exp_idx)
+    assert total_linhas == 4
+
+    # Linha 0: Setor 1
+    idx_0 = widget.tree_model.index(0, 0, setores_exp_idx)
+    assert widget.tree_model.data(idx_0) == "Setor 1"
+    assert idx_0.internalPointer().eh_no_adicao is False
+
+    # Linha 1: Setor 2
+    idx_1 = widget.tree_model.index(1, 0, setores_exp_idx)
+    assert widget.tree_model.data(idx_1) == "Setor 2"
+    assert idx_1.internalPointer().eh_no_adicao is False
+
+    # Linha 2: Setor 3
+    idx_2 = widget.tree_model.index(2, 0, setores_exp_idx)
+    assert widget.tree_model.data(idx_2) == "Setor 3"
+    assert idx_2.internalPointer().eh_no_adicao is False
+
+    # Linha 3 (ÚLTIMA): + Adicionar Setor
+    idx_3 = widget.tree_model.index(3, 0, setores_exp_idx)
+    assert "+ Adicionar" in widget.tree_model.data(idx_3)
+    assert idx_3.internalPointer().eh_no_adicao is True
+
+
+def test_integracao_wizard_criar_pico_com_nome(qapp, monkeypatch):
+    """Garante que a criação de Pico pelo wizard preenche o nome e foca o item na árvore."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o expando de Picos no Croqui
+    croqui_idx = widget.tree_model.index(0, 0)
+    picos_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Picos")
+    no_add_pico = widget.tree_model.index(0, 0, picos_exp_idx)
+
+    # Simula resposta do DialogoCriarPico
+    monkeypatch.setattr(
+        DialogoCriarPico,
+        "obter_dados",
+        lambda *args, **kwargs: ("Pedra Grande", True)
+    )
+
+    widget._executar_adicionar_item(no_add_pico)
+    qapp.processEvents()
+
+    assert len(croqui.picos) == 1
+    pico = croqui.picos[0]
+    assert pico.nome == "Pedra Grande"
+
+    # Verifica se o pico está selecionado na árvore e no formulário
+    selected = widget.tree_view.selectionModel().selectedIndexes()
+    assert len(selected) > 0
+    assert widget.tree_model.data(selected[0]) == "Pedra Grande"
+
+
+def test_integracao_botao_renderiza_texto_e_markdown_inline_mesma_pagina(qapp):
+    """Garante que o nó de Botão na árvore é uma folha e renderiza texto, nome do arquivo e markdown inline na mesma página."""
+    from aresta_api.proto.generated import croqui_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+
+    croqui = Croqui()
+    botao = croqui.botoes.add()
+    botao.texto = "Apoio e Doações"
+    botao.destino.secao_textual.conteudo = "# Ajude nosso projeto"
+    botao.destino.secao_textual.Extensions[croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo].caminho_novo = "apoio.md"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza o nó do Botão na árvore
+    croqui_idx = widget.tree_model.index(0, 0)
+    botoes_exp_idx = next(widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx)) == "Botões")
+    widget.tree_view.expand(botoes_exp_idx)
+    qapp.processEvents()
+
+    botao_idx = widget.tree_model.index(0, 0, botoes_exp_idx)
+    assert widget.tree_model.data(botao_idx) == "Apoio e Doações"
+
+    # O nó de Botão não deve ter filhos na árvore (é folha, não tem filho secao_textual)
+    assert widget.tree_model.rowCount(botao_idx) == 0
+
+    # Seleciona o Botão na árvore
+    widget.tree_view.selectionModel().select(botao_idx, widget.tree_view.selectionModel().SelectionFlag.ClearAndSelect)
+    widget._on_tree_selection_changed(None, None)
+    qapp.processEvents()
+
+    # O formulário padrão deve estar ativo
+    assert widget.stacked_widget.currentIndex() == 0
+    form = widget.form_padrao.currentWidget()
+    assert form is not None
+
+    # Deve conter o campo de texto do botão
+    line_edits = form.findChildren(QLineEdit)
+    texto_edits = [le for le in line_edits if le.property("protobuf_field") == "texto"]
+    assert len(texto_edits) == 1
+    assert texto_edits[0].text() == "Apoio e Doações"
+
+    # Deve conter o campo do nome do arquivo inline
+    filename_edits = [le for le in line_edits if le.property("protobuf_field") == "__filename__"]
+    assert len(filename_edits) == 1
+    assert filename_edits[0].text() == "apoio.md"
+
+    # Deve conter o editor markdown inline (raw + preview)
+    md_editors = form.findChildren(WidgetEditorMarkdown)
+    assert len(md_editors) == 1
+    assert md_editors[0].editor.toPlainText() == "# Ajude nosso projeto"
+
+
+
+
+
+
+
+
 
 
 
