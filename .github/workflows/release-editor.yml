@@ -37,7 +37,9 @@ jobs:
             serving
             migracoes
             aresta_api
+            coleta_de_betas
             pytest.ini
+            conftest.py
 
       - name: Setup uv e Python
         uses: astral-sh/setup-uv@v10.0.1
