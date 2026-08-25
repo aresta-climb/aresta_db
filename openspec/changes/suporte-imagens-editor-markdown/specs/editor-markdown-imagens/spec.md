@@ -27,15 +27,15 @@ O sistema SHALL fornecer uma biblioteca autossuficiente (`editor.core.imagens_ma
 ### Requirement: Diálogo de Inserção de Imagens no Markdown
 O sistema SHALL fornecer um diálogo modal (`DialogoInserirImagemMarkdown`) para auxiliar a seleção, importação e inserção de imagens em campos Markdown do editor.
 - **Inserção Formatada**: Ao confirmar a seleção ou importação de uma imagem, o sistema SHALL inserir no editor a tag `![<Legenda>](imagens/<nome_arquivo>)` na posição atual do cursor (ou substituir o texto selecionado).
-- **Legenda Opcional**: O diálogo SHALL conter um campo para texto alternativo/legenda da imagem. Se não preenchido, a tag gerada SHALL conter colchetes vazios `![](imagens/<nome_arquivo>)`.
+- **Legenda Obrigatória**: O diálogo SHALL conter um campo obrigatório para texto alternativo/legenda da imagem (`input_legenda`). O botão de inserção SHALL permanecer desabilitado enquanto a legenda não estiver preenchida.
 
 #### Scenario: Inserção de Imagem com Legenda
 - **WHEN** o usuário seleciona uma imagem e preenche a legenda "Vista Frontal" no diálogo
-- **THEN** o sistema SHALL inserir `![Vista Frontal](imagens/nome_da_imagem.webp)` no editor de Markdown.
+- **THEN** o sistema SHALL habilitar o botão de inserção e inserir `![Vista Frontal](imagens/nome_da_imagem.webp)` no editor de Markdown.
 
-#### Scenario: Inserção de Imagem sem Legenda
-- **WHEN** o usuário seleciona uma imagem e deixa o campo de legenda em branco
-- **THEN** o sistema SHALL inserir `![](imagens/nome_da_imagem.webp)` no editor de Markdown.
+#### Scenario: Tentativa de Inserção sem Legenda
+- **WHEN** o usuário seleciona uma imagem mas deixa o campo de legenda em branco
+- **THEN** o botão de inserção SHALL permanecer desabilitado e a confirmação SHALL exibir aviso solicitando o preenchimento da legenda.
 
 ### Requirement: Galeria de Imagens do Croqui Atual
 O diálogo SHALL listar todas as imagens disponíveis na pasta `imagens/` do croqui atual com pré-visualização de miniaturas e busca rápida.

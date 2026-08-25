@@ -170,6 +170,38 @@ class TesteServicoSubmissaoUnitario:
         assert chamada.request.headers["apikey"] == "chave-teste"
 
     @responses.activate
+    def teste_solicitar_abertura_pr_com_token_usuario_github(self, tmp_path):
+        url_supabase = "https://teste.supabase.co"
+        responses.add(
+            responses.POST,
+            f"{url_supabase}/functions/v1/create-pr",
+            json={
+                "numero_pr": 100,
+                "url_pr": "https://github.com/aresta-climb/aresta_db/pull/100",
+            },
+            status=200,
+        )
+
+        servico = ServicoSubmissao(
+            caminho_repo_base=tmp_path,
+            url_supabase=url_supabase,
+            chave_publica="chave-teste",
+        )
+
+        resultado = servico.solicitar_abertura_pr(
+            jwt="jwt.token.valido",
+            branch="edicao-bau-123",
+            titulo="Título",
+            descricao="Desc",
+            token_usuario_github="gho_token_usuario_123",
+        )
+
+        assert resultado["pr_number"] == 100
+        import json
+        corpo = json.loads(responses.calls[0].request.body)
+        assert corpo["token_usuario_github"] == "gho_token_usuario_123"
+
+    @responses.activate
     def teste_solicitar_abertura_pr_erro_servidor_lanca_excecao(self, tmp_path):
         url_supabase = "https://teste.supabase.co"
         responses.add(

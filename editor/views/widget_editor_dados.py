@@ -1,9 +1,14 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
-from PyQt6.QtWidgets import QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout, QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox, QCheckBox, QTextEdit, QTextBrowser, QMenu
-from PyQt6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel
-from PyQt6.QtGui import QImage, QTextDocument, QTextCursor
+from pathlib import Path
+from PyQt6.QtWidgets import (
+    QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
+    QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
+    QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog
+)
+from PyQt6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData
+from PyQt6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
@@ -13,13 +18,9 @@ from editor.views.protobuf_widget_factory import ProtobufWidgetFactory, ComboBox
 from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
 from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 from editor.views.widget_campo_imagem import WidgetCampoImagem
+from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
-from PyQt6.QtWidgets import QInputDialog
-from PyQt6.QtCore import QTimer
-
-from PyQt6.QtCore import QObject, QEvent
-from PyQt6.QtGui import QKeySequence
 
 class GlobalUndoRedoFilter(QObject):
     def eventFilter(self, obj, event):
@@ -68,6 +69,10 @@ def _get_id(obj):
     return obj.obter_id_nativo() if hasattr(obj, 'obter_id_nativo') else id(obj)
 
 class AutoScalingTextBrowser(QTextBrowser):
+    def __init__(self, parent=None, model=None):
+        super().__init__(parent)
+        self.model = model
+
     def resizeEvent(self, event):
         super().resizeEvent(event)
         self.scale_images()
@@ -78,9 +83,8 @@ class AutoScalingTextBrowser(QTextBrowser):
         
     def scale_images(self):
         doc = self.document()
-        viewport_width = self.viewport().width() - 24
-        if viewport_width <= 0:
-            return
+        v_w = self.viewport().width()
+        viewport_width = (v_w - 24) if v_w > 24 else 800
             
         block = doc.begin()
         while block.isValid():
@@ -94,39 +98,210 @@ class AutoScalingTextBrowser(QTextBrowser):
                         name = img_fmt.name()
                         
                         res = doc.resource(QTextDocument.ResourceType.ImageResource, QUrl(name))
-                        if res is not None:
+                        if res is None and doc.baseUrl().isValid():
+                            res = doc.resource(QTextDocument.ResourceType.ImageResource, doc.baseUrl().resolved(QUrl(name)))
+                            
+                        original_size = None
+                        if isinstance(res, (QImage, QPixmap)):
                             original_size = res.size()
-                        else:
-                            url = doc.baseUrl().resolved(QUrl(name))
-                            img = QImage(url.toLocalFile())
-                            if not img.isNull():
-                                original_size = img.size()
-                                doc.addResource(QTextDocument.ResourceType.ImageResource, QUrl(name), img)
-                            else:
-                                original_size = None
+                        elif hasattr(res, "size") and callable(res.size):
+                            sz = res.size()
+                            if hasattr(sz, "width") and hasattr(sz, "height") and callable(sz.width):
+                                original_size = sz
+                        
+                        if original_size is None:
+                            # 1. Tenta obter do buffer de memória RAM do model
+                            if self.model and hasattr(self.model, "obter_bytes_imagem"):
+                                bytes_img = self.model.obter_bytes_imagem(name)
+                                if bytes_img:
+                                    img = QImage()
+                                    if img.loadFromData(bytes_img) and not img.isNull():
+                                        original_size = img.size()
+                                        doc.addResource(QTextDocument.ResourceType.ImageResource, QUrl(name), img)
+                                        if doc.baseUrl().isValid():
+                                            doc.addResource(QTextDocument.ResourceType.ImageResource, doc.baseUrl().resolved(QUrl(name)), img)
+
+                            # 2. Tenta obter do arquivo local no disco
+                            if original_size is None:
+                                url = doc.baseUrl().resolved(QUrl(name))
+                                caminho_local = url.toLocalFile()
+                                if caminho_local:
+                                    img = QImage(caminho_local)
+                                    if not img.isNull():
+                                        original_size = img.size()
+                                        doc.addResource(QTextDocument.ResourceType.ImageResource, QUrl(name), img)
+                                        if doc.baseUrl().isValid():
+                                            doc.addResource(QTextDocument.ResourceType.ImageResource, url, img)
                                 
-                        if original_size:
+                        if original_size is not None and hasattr(original_size, "width") and hasattr(original_size, "height") and callable(original_size.width):
                             orig_w = original_size.width()
                             orig_h = original_size.height()
                             
-                            if orig_w > viewport_width:
-                                new_w = viewport_width
-                                new_h = int(orig_h * (viewport_width / orig_w))
-                            else:
-                                new_w = orig_w
-                                new_h = orig_h
-                                
-                            if img_fmt.width() != new_w or img_fmt.height() != new_h:
-                                img_fmt.setWidth(new_w)
-                                img_fmt.setHeight(new_h)
-                                
-                                cursor = QTextCursor(doc)
-                                cursor.setPosition(fragment.position())
-                                cursor.movePosition(QTextCursor.MoveOperation.Right, QTextCursor.MoveMode.KeepAnchor, fragment.length())
-                                cursor.setCharFormat(img_fmt)
+                            if orig_w > 0 and orig_h > 0:
+                                if orig_w > viewport_width:
+                                    new_w = viewport_width
+                                    new_h = int(orig_h * (viewport_width / orig_w))
+                                else:
+                                    new_w = orig_w
+                                    new_h = orig_h
+                                    
+                                if img_fmt.width() != new_w or img_fmt.height() != new_h:
+                                    img_fmt.setWidth(new_w)
+                                    img_fmt.setHeight(new_h)
+                                    
+                                    cursor = QTextCursor(doc)
+                                    cursor.setPosition(fragment.position())
+                                    cursor.movePosition(QTextCursor.MoveOperation.Right, QTextCursor.MoveMode.KeepAnchor, fragment.length())
+                                    cursor.setCharFormat(img_fmt)
                                 
                 char_it += 1
             block = block.next()
+
+class EditorTextoMarkdown(QTextEdit):
+    def __init__(self, widget_markdown, parent=None):
+        super().__init__(parent)
+        self.widget_markdown = widget_markdown
+        self._completer = None
+
+    def set_completer(self, completer):
+        if self._completer:
+            try:
+                self._completer.activated.disconnect(self._insert_completion)
+            except Exception:
+                pass
+        self._completer = completer
+        if self._completer:
+            self._completer.setWidget(self)
+            self._completer.setCompletionMode(QCompleter.CompletionMode.PopupCompletion)
+            self._completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+            self._completer.activated.connect(self._insert_completion)
+
+    def completer(self):
+        return self._completer
+
+    def _obter_token_sob_cursor(self):
+        """
+        Retorna (token_completo, prefixo_busca).
+        Ex: 'imagens/set' -> ('imagens/set', 'set')
+            'set' -> ('set', 'set')
+        """
+        cursor = self.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.StartOfLine, QTextCursor.MoveMode.KeepAnchor)
+        linha = cursor.selectedText()
+        
+        import re
+        match = re.search(r'([a-zA-Z0-9_\-\./]+)$', linha)
+        if not match:
+            return "", ""
+        token = match.group(1)
+        if token.startswith("imagens/"):
+            busca = token[len("imagens/"):]
+        else:
+            busca = token
+        return token, busca
+
+    def _insert_completion(self, completion: str):
+        if not self._completer:
+            return
+        cursor = self.textCursor()
+        token, _ = self._obter_token_sob_cursor()
+        
+        if token.startswith("imagens/") and not completion.startswith("imagens/"):
+            texto_a_inserir = f"imagens/{completion}"
+        else:
+            texto_a_inserir = completion
+
+        if len(token) > 0:
+            cursor.movePosition(QTextCursor.MoveOperation.Left, QTextCursor.MoveMode.KeepAnchor, len(token))
+        cursor.insertText(texto_a_inserir)
+        self.setTextCursor(cursor)
+
+    def insertFromMimeData(self, source: QMimeData):
+        if source.hasImage():
+            img_data = source.imageData()
+            if isinstance(img_data, QImage) and not img_data.isNull():
+                self.widget_markdown.abrir_dialogo_inserir_imagem(imagem_inicial=img_data)
+                return
+        if source.hasUrls():
+            urls = source.urls()
+            if urls and urls[0].isLocalFile():
+                caminho = Path(urls[0].toLocalFile())
+                ext = caminho.suffix.lower()
+                if ext in [".png", ".jpg", ".jpeg", ".webp", ".bmp"]:
+                    self.widget_markdown._processar_drop_ou_paste_arquivo(caminho)
+                    return
+        super().insertFromMimeData(source)
+
+    def dragEnterEvent(self, event: QDragEnterEvent):
+        if event.mimeData().hasUrls():
+            urls = event.mimeData().urls()
+            if urls and urls[0].isLocalFile():
+                ext = Path(urls[0].toLocalFile()).suffix.lower()
+                if ext in [".png", ".jpg", ".jpeg", ".webp", ".bmp"]:
+                    event.acceptProposedAction()
+                    return
+        elif event.mimeData().hasImage():
+            event.acceptProposedAction()
+            return
+        super().dragEnterEvent(event)
+
+    def dropEvent(self, event: QDropEvent):
+        if event.mimeData().hasUrls():
+            urls = event.mimeData().urls()
+            if urls and urls[0].isLocalFile():
+                caminho = Path(urls[0].toLocalFile())
+                ext = caminho.suffix.lower()
+                if ext in [".png", ".jpg", ".jpeg", ".webp", ".bmp"]:
+                    self.widget_markdown._processar_drop_ou_paste_arquivo(caminho)
+                    event.acceptProposedAction()
+                    return
+        elif event.mimeData().hasImage():
+            img_data = event.mimeData().imageData()
+            if isinstance(img_data, QImage) and not img_data.isNull():
+                self.widget_markdown.abrir_dialogo_inserir_imagem(imagem_inicial=img_data)
+                event.acceptProposedAction()
+                return
+        super().dropEvent(event)
+
+    def keyPressEvent(self, event):
+        if self._completer and self._completer.popup().isVisible():
+            if event.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return, Qt.Key.Key_Escape, Qt.Key.Key_Tab, Qt.Key.Key_Backtab):
+                event.ignore()
+                return
+
+        # Atalho de teclado explícito para autocompletar: Ctrl+Space ou Ctrl+E
+        is_shortcut = (event.modifiers() & Qt.KeyboardModifier.ControlModifier) and (event.key() in (Qt.Key.Key_Space, Qt.Key.Key_E))
+        
+        if not is_shortcut:
+            super().keyPressEvent(event)
+
+        if not self._completer:
+            return
+
+        if is_shortcut:
+            self._completer.setCompletionPrefix("")
+            popup = self._completer.popup()
+            cr = self.cursorRect()
+            cr.setWidth(max(220, popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30))
+            self._completer.complete(cr)
+            return
+
+        if event.key() in (Qt.Key.Key_Shift, Qt.Key.Key_Control, Qt.Key.Key_Alt, Qt.Key.Key_Meta):
+            return
+
+        token, busca = self._obter_token_sob_cursor()
+        if len(busca) >= 1 or token.endswith("/"):
+            self._completer.setCompletionPrefix(busca)
+            popup = self._completer.popup()
+            if popup.model().rowCount() > 0:
+                cr = self.cursorRect()
+                cr.setWidth(max(220, popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30))
+                self._completer.complete(cr)
+            else:
+                self._completer.popup().hide()
+        else:
+            self._completer.popup().hide()
+
 
 class WidgetEditorMarkdown(QWidget):
     def __init__(self, msg, field, formulario, parent=None):
@@ -141,7 +316,7 @@ class WidgetEditorMarkdown(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(10)
         
-        self.editor = QTextEdit()
+        self.editor = EditorTextoMarkdown(self)
         self.editor.setUndoRedoEnabled(False)
         self.editor.setPlaceholderText("Escreva seu Markdown aqui...")
         self.editor.setStyleSheet("""
@@ -159,7 +334,7 @@ class WidgetEditorMarkdown(QWidget):
             }
         """)
         
-        self.preview = AutoScalingTextBrowser()
+        self.preview = AutoScalingTextBrowser(model=self.model)
         self.preview.setPlaceholderText("A pré-visualização aparecerá aqui...")
         self.preview.setStyleSheet("""
             QTextBrowser {
@@ -175,9 +350,33 @@ class WidgetEditorMarkdown(QWidget):
         
         left_layout = QVBoxLayout()
         left_layout.setContentsMargins(0, 0, 0, 0)
+
+        header_layout = QHBoxLayout()
         left_label = QLabel("Edição (Markdown Raw)")
         left_label.setStyleSheet("color: #666; font-size: 8.5pt; font-weight: bold;")
-        left_layout.addWidget(left_label)
+        
+        self.btn_inserir_imagem = QPushButton("🖼️ Inserir Imagem")
+        self.btn_inserir_imagem.setStyleSheet("""
+            QPushButton {
+                font-size: 8.5pt;
+                padding: 3px 8px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            QPushButton:hover {
+                background-color: #e5e5e5;
+                border-color: #999;
+            }
+        """)
+        self.btn_inserir_imagem.clicked.connect(lambda: self.abrir_dialogo_inserir_imagem())
+        
+        header_layout.addWidget(left_label)
+        header_layout.addStretch()
+        header_layout.addWidget(self.btn_inserir_imagem)
+
+        left_layout.addLayout(header_layout)
         left_layout.addWidget(self.editor)
         
         right_layout = QVBoxLayout()
@@ -192,18 +391,28 @@ class WidgetEditorMarkdown(QWidget):
         
         self.setMinimumHeight(400)
         
-        # Resolve caminho do banco de dados a partir da hierarquia de pais
+        # Resolve caminho do banco de dados a partir do model ou da hierarquia de pais
         caminho_db = None
-        curr = parent
-        while curr:
-            if hasattr(curr, "caminho_croqui") and curr.caminho_croqui:
-                caminho_db = curr.caminho_croqui / "database"
-                break
-            curr = curr.parent() if hasattr(curr, "parent") and callable(curr.parent) else None
+        if hasattr(self.model, "_caminho_db_atual") and self.model._caminho_db_atual:
+            caminho_db = self.model._caminho_db_atual
+        elif hasattr(self.model, "obter_caminho_db") and callable(self.model.obter_caminho_db):
+            caminho_db = self.model.obter_caminho_db()
+        else:
+            curr = parent
+            while curr:
+                if hasattr(curr, "caminho_croqui") and curr.caminho_croqui:
+                    caminho_db = curr.caminho_croqui / "database"
+                    break
+                curr = curr.parent() if hasattr(curr, "parent") and callable(curr.parent) else None
             
+        self.caminho_db = caminho_db
         if caminho_db:
-            base_url = QUrl.fromLocalFile(str(caminho_db) + "/")
+            caminho_str = str(caminho_db).replace("\\", "/")
+            if not caminho_str.endswith("/"):
+                caminho_str += "/"
+            base_url = QUrl.fromLocalFile(caminho_str)
             self.preview.document().setBaseUrl(base_url)
+            self._configurar_autocompletar()
         
         # Set initial content
         initial_val = getattr(self.msg, self.field.name)
@@ -222,20 +431,72 @@ class WidgetEditorMarkdown(QWidget):
         self.editor.setProperty("protobuf_field", self.field.name)
         self.editor.setProperty("protobuf_msg_id", _get_id(self.msg))
         self.editor.textChanged.connect(self._on_text_changed)
+
+    def _configurar_autocompletar(self):
+        extensoes = {".webp", ".png", ".jpg", ".jpeg", ".bmp"}
+        arquivos = set()
+        if self.caminho_db:
+            pasta_imagens = Path(self.caminho_db) / "imagens"
+            if pasta_imagens.exists():
+                for f in pasta_imagens.iterdir():
+                    if f.is_file() and f.suffix.lower() in extensoes:
+                        arquivos.add(f.name)
+        if self.model and hasattr(self.model, "obter_imagens_em_memoria"):
+            for caminho_rel in self.model.obter_imagens_em_memoria().keys():
+                if caminho_rel.startswith("imagens/"):
+                    nome = caminho_rel.split("/", 1)[1]
+                    if any(nome.lower().endswith(ext) for ext in extensoes):
+                        arquivos.add(nome)
+        if arquivos:
+            completer = QCompleter(sorted(arquivos), self)
+            completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+            completer.setFilterMode(Qt.MatchFlag.MatchContains)
+            completer.setWrapAround(False)
+            self.editor.set_completer(completer)
+
+    def _processar_drop_ou_paste_arquivo(self, caminho_arquivo: Path):
+        self.abrir_dialogo_inserir_imagem(imagem_inicial=caminho_arquivo)
+
+    def abrir_dialogo_inserir_imagem(self, imagem_inicial=None):
+        caminho = self.caminho_db or Path(".")
+        dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho, model=self.model, imagem_inicial=imagem_inicial, parent=self)
+        if dialogo.exec() == QDialog.DialogCode.Accepted:
+            tag = dialogo.obter_tag_markdown()
+            if tag:
+                cursor = self.editor.textCursor()
+                cursor.insertText(tag)
+                self.editor.setTextCursor(cursor)
+                self._configurar_autocompletar()
         
     def set_conteudo(self, novo_conteudo):
         text = "" if novo_conteudo is None else str(novo_conteudo)
         if self.editor.toPlainText() != text:
+            old_text = self.editor.toPlainText()
+            old_cursor = self.editor.textCursor().position()
+            
+            diff_idx = 0
+            min_len = min(len(old_text), len(text))
+            while diff_idx < min_len and old_text[diff_idx] == text[diff_idx]:
+                diff_idx += 1
+            
+            if old_cursor < diff_idx:
+                new_cursor_pos = old_cursor
+            else:
+                new_cursor_pos = max(0, min(old_cursor + len(text) - len(old_text), len(text)))
+                
             self.editor.blockSignals(True)
             self.editor.setPlainText(text)
+            cursor = self.editor.textCursor()
+            cursor.setPosition(new_cursor_pos)
+            self.editor.setTextCursor(cursor)
             self.editor.blockSignals(False)
             
-            preview_text = text.lstrip()
-            if preview_text.startswith("---"):
-                parts = preview_text.split("---", 2)
-                if len(parts) >= 3:
-                    preview_text = parts[2]
-            self.preview.setMarkdown(preview_text)
+        preview_text = text.lstrip()
+        if preview_text.startswith("---"):
+            parts = preview_text.split("---", 2)
+            if len(parts) >= 3:
+                preview_text = parts[2]
+        self.preview.setMarkdown(preview_text)
 
     def _on_text_changed(self):
         text = self.editor.toPlainText()
@@ -700,6 +961,9 @@ class WidgetFormularioPadrao(QStackedWidget):
                             
                             widget.setText(new_text)
                             widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
+                    elif isinstance(widget, EditorTextoMarkdown):
+                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        widget.widget_markdown.set_conteudo(novo_valor)
                     elif isinstance(widget, QTextEdit):
                         widget.installEventFilter(GlobalUndoRedoFilter(widget))
                         new_text = "" if novo_valor is None else str(novo_valor)

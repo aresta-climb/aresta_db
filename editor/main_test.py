@@ -104,6 +104,7 @@ def test_controlador_app_define_icone_global(qtbot):
     with patch("editor.main.TarefaInicializacao"):
         controlador = ControladorAplicativo()
         assert not controlador.app.windowIcon().isNull()
+        controlador.abertura.close()
 
 def test_tela_de_abertura_tem_icone_configurado(qtbot):
     """Garante que a tela de abertura carrega o ícone de montanha."""
@@ -111,6 +112,7 @@ def test_tela_de_abertura_tem_icone_configurado(qtbot):
     abertura = TelaDeAbertura()
     qtbot.addWidget(abertura)
     assert not abertura.windowIcon().isNull()
+    abertura.close()
 
 def test_application_version_is_set(qtbot):
     """Garante que a constante VERSION do módulo version é setada no QApplication."""
@@ -118,6 +120,7 @@ def test_application_version_is_set(qtbot):
     with patch("editor.main.TarefaInicializacao"):
         controlador = ControladorAplicativo()
         assert controlador.app.applicationVersion() == VERSION
+        controlador.abertura.close()
 
 def test_main_impede_multiplas_instancias(qtbot):
     with patch("editor.main.QSharedMemory") as MockSharedMemory:
@@ -137,4 +140,29 @@ def test_main_impede_multiplas_instancias(qtbot):
                 mock_warning.assert_called_once()
                 # Verifica se a verificação de criação foi feita corretamente
                 mock_mem_inst.create.assert_called_once_with(1)
+
+
+def test_executar_selecao_fecha_janela_principal_anterior_se_existir(qtbot):
+    with patch("editor.main.TarefaInicializacao") as MockTarefa:
+        with patch("editor.main.TelaDeCarregamento") as MockDialog:
+            with patch("editor.main.QApplication.quit") as mock_quit:
+                mock_tarefa_inst = MockTarefa.return_value
+                mock_tarefa_inst.storage = MagicMock()
+                mock_tarefa_inst.sessao_usuario = None
+
+                mock_dialog_inst = MockDialog.return_value
+                mock_dialog_inst.exec.return_value = QDialog.DialogCode.Rejected
+
+                controlador = ControladorAplicativo()
+                janela_mock = MagicMock()
+                controlador.janela_principal = janela_mock
+
+                controlador.executar_selecao()
+
+                janela_mock.close.assert_called_once()
+                assert controlador.janela_principal is None
+                mock_quit.assert_called_once()
+                controlador.abertura.close()
+
+
 

@@ -265,6 +265,7 @@ def test_tela_abertura_iniciar_login_github_configuracao_url(qtbot):
         mock_open.assert_called_once()
         url = mock_open.call_args[0][0].toString()
         assert "provider=github" in url
+        assert "public_repo" in url
         assert "user%3Aemail" in url or "user:email" in url
         assert "redirect_to=http" in url
         assert "/callback" in url

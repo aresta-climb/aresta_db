@@ -806,15 +806,24 @@ class JanelaPrincipal(QMainWindow):
             )
             
             if resposta == QMessageBox.StandardButton.Save:
+                self._callback_sucesso_salvar = self._concluir_abrir_novo
                 self.salvar_croqui()
-                self.solicitar_abrir_novo.emit()
             elif resposta == QMessageBox.StandardButton.Discard:
-                self.solicitar_abrir_novo.emit()
+                self._concluir_abrir_novo()
         else:
-            self.solicitar_abrir_novo.emit()
+            self._concluir_abrir_novo()
+
+    def _concluir_abrir_novo(self):
+        self._forcar_fechamento = True
+        self.solicitar_abrir_novo.emit()
+        self.close()
 
     def closeEvent(self, event):
         """Intercepta o fechamento da janela para verificar modificações."""
+        if getattr(self, '_forcar_fechamento', False):
+            event.accept()
+            return
+
         if getattr(self, '_salvando', False):
             self._fechar_apos_salvar = True
             self._mostrar_modal_espera("Finalizando salvamento...")

@@ -256,7 +256,12 @@ class ServicoSubmissao:
         self.fazer_push_proxy(repo, nome_branch, jwt, callback_progresso)
 
     def solicitar_abertura_pr(
-        self, jwt: str, branch: str, titulo: str, descricao: str
+        self,
+        jwt: str,
+        branch: str,
+        titulo: str,
+        descricao: str,
+        token_usuario_github: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Dispara a criação/registro da Pull Request via Edge Function create-pr."""
         url_endpoint = f"{self.url_supabase}/functions/v1/create-pr"
@@ -270,6 +275,8 @@ class ServicoSubmissao:
             "title": titulo,
             "description": descricao,
         }
+        if token_usuario_github:
+            payload["token_usuario_github"] = token_usuario_github
 
         try:
             resposta = requests.post(url_endpoint, json=payload, headers=cabecalhos, timeout=15)
@@ -408,7 +415,13 @@ class ServicoSubmissao:
         self._executar_push_git(nome_branch, jwt_ativo, repo)
 
         reportar(90, "Registrando Pull Request...")
-        dados_pr = self.solicitar_abertura_pr(jwt_ativo, nome_branch, titulo, descricao)
+        dados_pr = self.solicitar_abertura_pr(
+            jwt=jwt_ativo,
+            branch=nome_branch,
+            titulo=titulo,
+            descricao=descricao,
+            token_usuario_github=sessao.token_github,
+        )
 
         reportar(100, "Proposta de mudança enviada com sucesso!")
         return ResultadoSubmissao(

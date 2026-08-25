@@ -832,3 +832,70 @@ def test_atualizar_titulo_mostra_versao_do_app(mock_carregar, mock_version, qtbo
     
     janela.atualizar_titulo()
     assert janela.windowTitle() == "Editor Aresta v1.2.3-test - Meu Croqui"
+
+
+def test_ao_clicar_abrir_novo_sem_modificacoes_fecha_janela_e_emite_sinal(qtbot):
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    janela.solicitar_abrir_novo = MagicMock()
+    with patch.object(janela, "close", wraps=janela.close) as mock_close:
+        janela._on_abrir_novo_clicado()
+        janela.solicitar_abrir_novo.emit.assert_called_once()
+        mock_close.assert_called_once()
+
+
+def test_ao_clicar_abrir_novo_com_modificacoes_salva_fecha_janela_e_emite_sinal(qtbot):
+    from PyQt6.QtWidgets import QMessageBox
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
+    janela.solicitar_abrir_novo = MagicMock()
+    
+    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Save):
+        with patch.object(janela, "salvar_croqui") as mock_salvar:
+            with patch.object(janela, "close", wraps=janela.close) as mock_close:
+                janela._on_abrir_novo_clicado()
+                mock_salvar.assert_called_once()
+                # Simula o callback de sucesso de salvamento
+                assert callable(janela._callback_sucesso_salvar)
+                janela._callback_sucesso_salvar()
+                janela.solicitar_abrir_novo.emit.assert_called_once()
+                mock_close.assert_called_once()
+
+
+def test_ao_clicar_abrir_novo_com_modificacoes_descarta_fecha_janela_e_emite_sinal(qtbot):
+    from PyQt6.QtWidgets import QMessageBox
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
+    janela.solicitar_abrir_novo = MagicMock()
+    
+    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Discard):
+        with patch.object(janela, "close", wraps=janela.close) as mock_close:
+            janela._on_abrir_novo_clicado()
+            janela.solicitar_abrir_novo.emit.assert_called_once()
+            mock_close.assert_called_once()
+
+
+def test_ao_clicar_abrir_novo_com_modificacoes_cancela_nao_fecha_janela(qtbot):
+    from PyQt6.QtWidgets import QMessageBox
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+    
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
+    janela.solicitar_abrir_novo = MagicMock()
+    
+    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
+        with patch.object(janela, "close", wraps=janela.close) as mock_close:
+            janela._on_abrir_novo_clicado()
+            janela.solicitar_abrir_novo.emit.assert_not_called()
+            mock_close.assert_not_called()
+            
+    janela._forcar_fechamento = True
+    janela.close()
+
+
+

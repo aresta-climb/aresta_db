@@ -104,9 +104,13 @@ class ControladorAplicativo:
         Exibe a Tela de Carregamento como um diálogo modal.
         """
         print("✨ [Main] Inicialização de dados concluída. Abrindo TelaDeCarregamento...")
-        # Garante que a tela de abertura esteja fechada
+        # Garante que a tela de abertura e a janela principal estejam fechadas
         if self.abertura:
             self.abertura.close()
+
+        if self.janela_principal:
+            self.janela_principal.close()
+            self.janela_principal = None
 
         usuario = (
             self.tarefa.sessao_usuario.nome_completo
@@ -126,10 +130,9 @@ class ControladorAplicativo:
         elif self._logout_em_andamento:
             self._logout_em_andamento = False
         else:
-            # Se cancelar na tela de seleção e não houver janela principal aberta, sai do app
-            if not self.janela_principal:
-                print("👋 [Main] Aplicação encerrada pelo usuário a partir da TelaDeCarregamento.")
-                QApplication.quit()
+            # Se cancelar na tela de seleção, sai do app
+            print("👋 [Main] Aplicação encerrada pelo usuário a partir da TelaDeCarregamento.")
+            QApplication.quit()
 
     def ao_solicitar_logout(self):
         """Reinicia a inicialização e exibe a Tela de Abertura para novo login."""

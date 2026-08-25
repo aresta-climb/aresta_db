@@ -131,3 +131,64 @@ class TesteIntegracaoSubmissaoProxy:
             args_push = mock_push.call_args[0]
             assert args_push[0] == resultado.nome_branch
             assert args_push[1] == "jwt.valido.mock"
+
+    @responses.activate
+    def teste_fluxo_submissao_com_token_github_usuario(self, ambiente_submissao):
+        """Verifica a propagação do token_github do usuário até a chamada de abertura do PR."""
+        caminho_repo = ambiente_submissao["caminho_repo"]
+        caminho_croqui = ambiente_submissao["caminho_croqui"]
+        sessao = ambiente_submissao["sessao"]
+        sessao.token_github = "gho_token_usuario_oauth_123"
+
+        url_supabase = "https://teste.supabase.co"
+        responses.add(
+            responses.GET,
+            f"{url_supabase}/auth/v1/user",
+            json={
+                "id": "user-123",
+                "email": "colaborador@arestaclimb.com",
+                "user_metadata": {"nome_completo": "Carlos Escalador"},
+            },
+            status=200,
+        )
+        
+        chamadas_create_pr = []
+        def callback_create_pr(request):
+            import json
+            payload = json.loads(request.body)
+            chamadas_create_pr.append(payload)
+            return (
+                200,
+                {"Content-Type": "application/json"},
+                json.dumps({
+                    "sucesso": True,
+                    "pr_number": 88,
+                    "pr_url": "https://github.com/aresta-climb/aresta_db/pull/88",
+                    "branch": payload.get("branch"),
+                }),
+            )
+
+        responses.add_callback(
+            responses.POST,
+            f"{url_supabase}/functions/v1/create-pr",
+            callback=callback_create_pr,
+        )
+
+        servico = ServicoSubmissao(
+            caminho_repo_base=caminho_repo,
+            url_supabase=url_supabase,
+            chave_publica="chave-publica-teste",
+        )
+
+        with patch.object(servico, "_executar_push_git"):
+            resultado = servico.submeter_sugestao(
+                caminho_database_croqui=caminho_croqui,
+                id_croqui="pedra_do_bau",
+                titulo="Adição de vias",
+                descricao="Descrição",
+                sessao=sessao,
+            )
+
+            assert resultado.sucesso is True
+            assert len(chamadas_create_pr) == 1
+            assert chamadas_create_pr[0].get("token_usuario_github") == "gho_token_usuario_oauth_123"
