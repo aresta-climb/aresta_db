@@ -1,9 +1,8 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Contributors
-
 id: br_mg_arcos_rastro
 nome: Afloramento Rastro
-descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
+descricao: Croqui do Afloramento Rastro em Arcos, MG.
 caminho_thumbnail: imagens/capa_p0.webp
 revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
