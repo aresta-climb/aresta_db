@@ -86,9 +86,10 @@ mapas:
   - escalada: Projeto
     ids:
     - '04'
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 1)
     ids:
     - '05'
+    setor: Setor Família II
   - escalada: Trinca Ferro
     ids:
     - '06'
@@ -192,9 +193,10 @@ mapas:
   - escalada: Projeto
     ids:
     - '04'
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 1)
     ids:
     - '05'
+    setor: Setor Família II
   - escalada: Trinca Ferro
     ids:
     - '06'
@@ -254,7 +256,7 @@ escaladas:
     - Alex
     data_abertura: '2012'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: (via inacabada 1)
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
