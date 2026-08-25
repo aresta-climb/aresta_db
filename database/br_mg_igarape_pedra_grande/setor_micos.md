@@ -91,9 +91,10 @@ mapas:
   - escalada: Chapa Quente
     ids:
     - '06'
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 2)
     ids:
     - '07'
+    setor: Setor Micos
 - caminho_imagem_mapa: imagens/setor_micos_p2.webp
   largura_mapa: 1119
   altura_mapa: 840
@@ -141,9 +142,10 @@ mapas:
   - escalada: Chapa Quente
     ids:
     - '06'
-  - escalada: (via inacabada)
+  - escalada: (via inacabada 2)
     ids:
     - '07'
+    setor: Setor Micos
 escaladas:
 - via_esportiva:
     nome: Eu Também Vou
@@ -210,7 +212,7 @@ escaladas:
     - Rômulo
     data_abertura: '2011'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: (via inacabada 2)
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 0
     quantidade_protecoes_parada: 2
