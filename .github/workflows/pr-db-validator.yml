@@ -39,7 +39,9 @@ jobs:
             requirements-deploy.txt
 
       - name: Install dependencies
-        run: uv pip install -r serving/requirements-pr_db_validator.txt
+        run: |
+          uv venv
+          uv pip install -r serving/requirements-pr_db_validator.txt
           
       - name: Get changed files
         id: changed-files

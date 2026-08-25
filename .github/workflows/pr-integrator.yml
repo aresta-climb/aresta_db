@@ -54,7 +54,9 @@ jobs:
           cache-dependency-glob: requirements-deploy.txt
 
       - name: Install dependencies
-        run: uv pip install --system -r requirements-deploy.txt
+        run: |
+          uv venv
+          uv pip install --system -r requirements-deploy.txt
           
       - name: Get changed files
         id: changed-files
