@@ -66,7 +66,7 @@ def test_toolbar_superior_tem_acoes_globais(qtbot):
     assert "Refazer" in textos_acoes
     assert "Exportar .croqui" in textos_acoes
     assert "Conectar com celular..." in textos_acoes
-    assert "Publicar para produção" in textos_acoes
+    assert "Enviar proposta de mudança no croqui" in textos_acoes
 
 def test_toolbar_lateral_tem_navegacao_entre_visoes(qtbot):
     janela = JanelaPrincipal()

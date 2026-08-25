@@ -188,6 +188,9 @@ class JanelaPrincipal(QMainWindow):
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
         self.storage = storage
+        if auth is None:
+            from editor.core.gerenciador_sessao import GerenciadorSessao
+            auth = GerenciadorSessao()
         self.auth = auth
         self.workspace = workspace
         self.croqui_data = None
@@ -419,13 +422,13 @@ class JanelaPrincipal(QMainWindow):
         self.acao_celular.setToolTip("Conectar com celular...")
         self.acao_celular.triggered.connect(self._exibir_conexao_celular)
         
-        self.acao_publicar = QAction(Icones.obter("publicar"), "Publicar", self)
-        self.acao_publicar.setToolTip("Publicar para produção")
+        self.acao_publicar = QAction(Icones.obter("publicar"), "Propor Mudança", self)
+        self.acao_publicar.setToolTip("Enviar proposta de mudança no croqui")
         self.acao_publicar.triggered.connect(self.publicar_croqui)
         
         if self.workspace and not self.workspace.can_publish_pr():
             self.acao_publicar.setEnabled(False)
-            self.acao_publicar.setToolTip("Publicar pelo Editor não suportado no Local Mode.")
+            self.acao_publicar.setToolTip("Envio de proposta de mudança não suportado no Local Mode.")
             self.acao_abrir.setEnabled(False)
             self.acao_abrir.setToolTip("Abrir outro croqui não suportado no Local Mode.")
         
@@ -780,7 +783,7 @@ class JanelaPrincipal(QMainWindow):
 
     def publicar_croqui(self):
         """Inicia o fluxo de publicação do croqui."""
-        if not self.workspace or not self.auth:
+        if not self.workspace:
             return
             
         from editor.controllers.publish_controller import PublishController

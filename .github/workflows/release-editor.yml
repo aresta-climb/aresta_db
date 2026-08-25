@@ -40,7 +40,7 @@ jobs:
             pytest.ini
 
       - name: Setup uv e Python
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "latest"
           python-version: "3.13"

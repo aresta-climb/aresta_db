@@ -9,10 +9,10 @@ import shutil
 from datetime import datetime
 import threading
 import pygit2
-import github
 
 from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
+from editor.core.servico_submissao import ServicoSubmissao
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.servico_loja import ServicoLoja
@@ -118,26 +118,17 @@ class TarefaInicializacao(QThread):
             self.mostrar_progresso.emit(True)
             
             token_git = self.sessao_usuario.token_github if self.sessao_usuario else None
-            print(f"🐙 [Worker] Token GitHub: {'presente' if token_git else 'ausente'}")
-            g = github.Github(auth=github.Auth.Token(token_git)) if token_git else None
             sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=token_git)
             
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
                 print(f"[INFO] Repositório não encontrado em {caminho_repo}. Clonando...")
-                try:
-                    url_clone = sync.obter_url_clone(g)
-                    print(f"[INFO] URL de clone obtida: {url_clone}")
-                    sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
-                except github.UnknownObjectException:
-                    mensagem_erro = (
-                        "Repositório 'aresta-climb/aresta_db' não encontrado (404)."
-                    )
-                    self.erro.emit(mensagem_erro)
-                    return
+                url_clone = sync.obter_url_clone()
+                print(f"[INFO] URL de clone obtida: {url_clone}")
+                sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
             else:
                 print(f"[INFO] Repositório existente em {caminho_repo}. Configurando remotes...")
-                sync.configurar_remotes(g)
+                sync.configurar_remotes()
             
             # Fetch Origin e Upstream
             print("[INFO] Executando fetch de dados dos remotes...")
@@ -161,12 +152,8 @@ class TarefaInicializacao(QThread):
 
 class TarefaPublicacao(QThread):
     """
-    Thread responsável por:
-    1. Sincronizar o repositório base local.
-    2. Criar uma nova branch.
-    3. Copiar as mudanças do croqui experimental para o repositório base.
-    4. Commit e Push para o fork do usuário.
-    5. Criar o Pull Request no GitHub.
+    Thread responsável por coordenar a publicação de sugestões de croquis
+    via ServicoSubmissao em segundo plano, emitindo sinais de progresso para a UI.
     """
     sucesso = pyqtSignal(str, str, str)
     aviso = pyqtSignal(str)
@@ -174,198 +161,78 @@ class TarefaPublicacao(QThread):
     progresso = pyqtSignal(int)
     status = pyqtSignal(str)
 
-    def __init__(self, token, storage, caminho_database_croqui, id_croqui, dados_pr, modo_atualizacao=False, pr_branch=None):
+    def __init__(
+        self,
+        token: Optional[str] = None,
+        storage: Optional[GerenciadorCaminhos] = None,
+        caminho_database_croqui: Optional[Path] = None,
+        id_croqui: str = "",
+        dados_pr: Optional[dict] = None,
+        modo_atualizacao: bool = False,
+        pr_branch: Optional[str] = None,
+        sessao: Optional[SessaoUsuario] = None,
+        servico_submissao: Optional[ServicoSubmissao] = None,
+    ):
         super().__init__()
-        self.token = token
-        self.storage = storage
+        self.storage = storage or GerenciadorCaminhos()
         self.caminho_database_croqui = caminho_database_croqui
         self.id_croqui = id_croqui
-        self.dados_pr = dados_pr
+        self.dados_pr = dados_pr or {}
         self.modo_atualizacao = modo_atualizacao
         self.pr_branch = pr_branch
+        
+        if sessao is None:
+            gerenciador = GerenciadorSessao()
+            sessao = gerenciador.obter_sessao()
+            if not sessao:
+                sessao = SessaoUsuario(
+                    email="anonimo@arestaclimb.com",
+                    nome_completo="Colaborador Aresta",
+                    jwt_supabase=token or "",
+                    token_atualizacao="",
+                    token_github=token,
+                )
+        self.sessao = sessao
+        self.servico_submissao = servico_submissao or ServicoSubmissao(
+            caminho_repo_base=self.storage.obter_caminho_base_repo()
+        )
 
     def run(self):
         try:
             self.status.emit("Iniciando publicação...")
             self.progresso.emit(5)
-            
-            merge_realizado = False
-            
-            g = github.Github(auth=github.Auth.Token(self.token))
-            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=self.token)
-            
-            # 1. Sincronizar Repo Base
-            self.status.emit("Sincronizando repositório base...")
-            sync.configurar_remotes(g)
-            sync.fazer_fetch()
-            self.progresso.emit(20)
-            
-            repo = pygit2.Repository(str(self.storage.obter_caminho_base_repo()))
-            
-            if self.modo_atualizacao and self.pr_branch:
-                # Fazer checkout da branch existente no origin
-                nome_branch = self.pr_branch.replace("editor/", "") if "editor/" in self.pr_branch else self.pr_branch # limpar owner:branch? Nao, pr_branch é a branch local
-                # Ajuste se for do tipo 'owner:branch' -> nós criamos com nome_branch local igual ao remoto
-                if ":" in nome_branch:
-                    nome_branch = nome_branch.split(":")[-1]
-                    
-                self.status.emit(f"Fazendo checkout da branch {nome_branch}...")
-                
-                if nome_branch in repo.branches.local:
-                    branch = repo.branches.local[nome_branch]
-                    remote_branch = repo.branches.remote[f"origin/{nome_branch}"]
-                    # Descarta commits locais não enviados e sincroniza com o remoto
-                    branch.set_target(remote_branch.target)
-                else:
-                    remote_branch = repo.branches.remote[f"origin/{nome_branch}"]
-                    branch = repo.branches.local.create(nome_branch, repo[remote_branch.target])
-                
-                repo.checkout(branch)
-                
-                self.status.emit("Sincronizando Pull Request com a main...")
-                commit_base = repo.branches.remote["upstream/main"].peel()
-                repo.merge(commit_base.id)
-                
-                if repo.index.conflicts is not None:
-                    repo.reset(repo.head.target, pygit2.GIT_RESET_HARD)
-                    repo.state_cleanup()
-                    raise Exception("Há conflitos com a branch main. Por favor, resolva-os atualizando a branch do PR pelo GitHub antes de publicar aqui.")
-                
-                tree_id = repo.index.write_tree()
-                head_commit = repo.head.peel()
-                
-                if tree_id != head_commit.tree_id:
-                    autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
-                    repo.create_commit(
-                        'HEAD',
-                        autor, autor,
-                        f"Merge branch 'main' into {nome_branch}\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                        tree_id,
-                        [head_commit.id, commit_base.id]
-                    )
-                    merge_realizado = True
-                repo.state_cleanup()
-            else:
-                # 2. Criar Nova Branch a partir de upstream/main
-                nome_branch = f"edicao_{self.id_croqui}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-                sync.fazer_checkout_main_upstream()
-                commit_base = repo.lookup_reference('refs/heads/main').peel()
-                branch = repo.create_branch(nome_branch, commit_base)
-                self.status.emit(f"Criada branch: {nome_branch}")
-                repo.checkout(branch)
 
-            self.progresso.emit(40)
-            
-            # 3. Copiar Arquivos
-            self.status.emit("Copiando alterações...")
-            
-            # Verificar se houve mudança de ID para remover o antigo
-            import yaml
-            from google.protobuf.json_format import ParseDict
-            from aresta_api.proto.generated.croqui_experimental_pb2 import CroquiExperimental
-            
-            id_original = None
-            yaml_meta = self.caminho_database_croqui.parent / "croqui_experimental.yaml"
-            if yaml_meta.is_file():
-                try:
-                    with open(yaml_meta, "r", encoding="utf-8") as f:
-                        dados_meta = yaml.safe_load(f) or {}
-                        meta = CroquiExperimental()
-                        ParseDict(dados_meta, meta, ignore_unknown_fields=True)
-                        id_original = meta.id_original if meta.id_original else None
-                except Exception:
-                    pass
-                    
-            if id_original:
-                id_publicacao = id_original
-            else:
-                id_publicacao = self.id_croqui
-                    
-            import filecmp
-            
-            def sync_dir(src: Path, dst: Path):
-                if not dst.exists():
-                    dst.mkdir(parents=True)
-                
-                # Copiar ou atualizar arquivos
-                for item in src.iterdir():
-                    dst_item = dst / item.name
-                    if item.is_dir():
-                        sync_dir(item, dst_item)
-                    else:
-                        if not dst_item.exists() or not filecmp.cmp(item, dst_item, shallow=False):
-                            shutil.copy2(item, dst_item)
-                            
-                # Remover arquivos/pastas que não existem mais na origem
-                for item in dst.iterdir():
-                    src_item = src / item.name
-                    if not src_item.exists():
-                        if item.is_dir():
-                            shutil.rmtree(item)
-                        else:
-                            item.unlink()
+            def callback_progresso(pct: int, msg: str):
+                self.progresso.emit(pct)
+                self.status.emit(msg)
 
-            destino = self.storage.obter_caminho_base_repo() / "database" / id_publicacao
-            sync_dir(self.caminho_database_croqui, destino)
-            self.progresso.emit(60)
-            
-            # 4. Checar modificações, Commit e Push
-            self.status.emit("Checando modificações...")
-            index = repo.index
-            index.add_all([f"database/{id_publicacao}"])
-            index.write()
-            
-            tree_id = index.write_tree()
-            head_commit = repo.head.peel()
-            
-            if tree_id == head_commit.tree_id:
-                if not merge_realizado:
-                    self.aviso.emit("Nenhuma alteração foi detectada no croqui.\nO Pull Request já está atualizado!")
-                    return
-                else:
-                    self.status.emit("Enviando merge para o GitHub...")
-            else:
-                self.status.emit("Enviando para o GitHub...")
-                tree = index.write_tree()
-                autor = pygit2.Signature(g.get_user().name or g.get_user().login, g.get_user().email or "editor@aresta.local")
-                
-                repo.create_commit(
-                    'refs/heads/' + nome_branch,
-                    autor, autor,
-                    f"Atualização do croqui {self.id_croqui} via Editor Aresta\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                    tree,
-                    [repo.head.peel().id]
+            dados = self.dados_pr or {}
+            titulo = dados.get("titulo", f"Atualização do croqui {self.id_croqui}")
+            descricao = dados.get("descricao", "Alterações enviadas via Aresta Editor")
+
+            branch_alvo = self.pr_branch if self.modo_atualizacao else None
+
+            resultado = self.servico_submissao.submeter_sugestao(
+                caminho_database_croqui=self.caminho_database_croqui,
+                id_croqui=self.id_croqui,
+                titulo=titulo,
+                descricao=descricao,
+                sessao=self.sessao,
+                branch_existente=branch_alvo,
+                callback_progresso=callback_progresso,
+            )
+
+            if resultado.sem_alteracoes:
+                self.aviso.emit(
+                    resultado.mensagem
+                    or "Nenhuma alteração foi detectada no croqui.\nO Pull Request já está atualizado!"
                 )
-            
-            # Push
-            remoto = repo.remotes["origin"]
-            callbacks = sync._obter_callbacks()
-            remoto.push([f'refs/heads/{nome_branch}'], callbacks=callbacks)
-            self.progresso.emit(80)
-            
-            # 5. Criar/Atualizar PR
-            if not self.modo_atualizacao:
-                self.status.emit("Criando Pull Request...")
-                pr = sync.criar_pull_request(
-                    g, nome_branch, 
-                    self.dados_pr["titulo"], 
-                    self.dados_pr["descricao"]
-                )
-                html_url = pr.html_url
-                pr_owner = g.get_user().login
-                if "aresta-climb/aresta_db" in repo.remotes["origin"].url:
-                    pr_owner = "aresta-climb"
             else:
-                self.status.emit("Atualizando Pull Request (Push completo)...")
-                # Se for atualização, não precisa de nova PR na API, apenas confirmamos os dados
-                # pr_owner e html_url já devem estar gravados lá, mas vamos passar os mesmos que temos localmente
-                # ou não passar pra frente
-                html_url = "atualizado"
-                pr_owner = "atualizado"
-            
-            self.progresso.emit(100)
-            self.sucesso.emit(html_url, nome_branch, pr_owner)
-            
+                self.sucesso.emit(
+                    resultado.pr_url or "atualizado",
+                    resultado.nome_branch,
+                    "aresta-climb",
+                )
         except Exception as e:
             traceback.print_exc()
             self.erro.emit(str(e))

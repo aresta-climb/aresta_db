@@ -148,7 +148,7 @@ class ControladorAplicativo:
         
         self.janela_principal = JanelaPrincipal(
             storage=self.tarefa.storage,
-            auth=None,
+            auth=self.tarefa.gerenciador_sessao,
             workspace=workspace
         )
         # Conecta o sinal para permitir voltar para a seleção

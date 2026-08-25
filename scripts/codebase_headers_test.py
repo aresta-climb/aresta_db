@@ -21,10 +21,10 @@ def test_todos_py_tem_spdx_e_copyright():
     
     # Padrões estritos para o SPDX exigido
     spdx_gpl = re.compile(r"^#\s*SPDX-License-Identifier:\s*GPL-3\.0-or-later\s*$", re.MULTILINE)
-    spdx_apache = re.compile(r"^#\s*SPDX-License-Identifier:\s*Apache-2\.0\s*$", re.MULTILINE)
+    spdx_api = re.compile(r"^#\s*SPDX-License-Identifier:\s*(Apache-2\.0|MPL-2\.0)\s*$", re.MULTILINE)
     
     # Padrão flexível apenas para o ano
-    copy_pattern = re.compile(r"^#\s*Copyright\s*\([Cc]\)\s*\d{4}\s*Aresta Contributors\s*$", re.MULTILINE)
+    copy_pattern = re.compile(r"^#\s*(SPDX-FileCopyrightText:\s*)?Copyright\s*\([Cc]\)\s*\d{4}\s*Aresta\s*(Climb\s*)?Contributors\s*$", re.MULTILINE)
     
     count = 0
     for filepath in root.rglob("*.py"):
@@ -41,8 +41,8 @@ def test_todos_py_tem_spdx_e_copyright():
         
         is_api = "aresta_api" in filepath.parts
         if is_api:
-            if not spdx_apache.search(content):
-                arquivos_sem_spdx.append(f"{filepath.relative_to(root)} (Faltou Apache-2.0)")
+            if not spdx_api.search(content):
+                arquivos_sem_spdx.append(f"{filepath.relative_to(root)} (Faltou MPL-2.0/Apache-2.0)")
         else:
             if not spdx_gpl.search(content):
                 arquivos_sem_spdx.append(f"{filepath.relative_to(root)} (Faltou GPL-3.0-or-later)")
