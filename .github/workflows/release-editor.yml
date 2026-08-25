@@ -67,19 +67,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          uv pip install --system -r requirements.txt
-          uv pip install --system -r editor/requirements.txt
+          uv pip install -r requirements.txt
+          uv pip install -r editor/requirements.txt
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 10
         run: |
-          python -m pytest
+          uv run pytest
         env:
           PYTHONPATH: .
 
       - name: Build PyInstaller
         run: |
-          python editor/build.py dist
+          uv run editor/build.py dist
 
       - name: Build MSIX Package
         shell: pwsh

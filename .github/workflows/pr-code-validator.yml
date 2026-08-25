@@ -45,10 +45,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          uv pip install --system -r requirements.txt
-          uv pip install --system -r editor/requirements.txt
+          uv pip install -r requirements.txt
+          uv pip install -r editor/requirements.txt
           
       - name: Run Pytest
         timeout-minutes: 3
-        run: PYTHONPATH=. python -m pytest
+        run: uv run pytest
 
