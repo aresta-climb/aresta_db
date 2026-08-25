@@ -31,75 +31,38 @@ Para cada sub-projeto, siga o seguinte fluxo com o agente:
 
 ---
 
-## 📦 Sub-projeto 1: Backend Supabase (Git Proxy & PR API)
+## 📦 Sub-projeto 1: Backend Supabase (Git Proxy & PR API) [CONCLUÍDO]
 
+* **Status:** ✅ Concluído e implantado em `aresta_backend` (66 testes passando, 100% de cobertura).
 * **Objetivo:** Criar a infraestrutura Serverless no Supabase para validar tráfego Git, atuar como Firewall de branch e automatizar abertura de Pull Requests no GitHub.
-* **Tecnologias:** Supabase Edge Functions (Deno / TypeScript), GitHub REST API / Octokit.
-* **Escopo:**
-  * Função `git-proxy`:
-    * Interceptar endpoints do Git Smart HTTP (`/info/refs` e `/git-receive-pack`).
-    * Validar cabeçalho `Authorization: Bearer <Supabase_JWT>`.
-    * **Git Firewall:** Inspecionar os primeiros bytes (`pkt-line`) do payload de push para validar se o ref alvo obedece à regex `^refs/heads/sugestao-[a-zA-Z0-9_-]+$`. Rejeitar tentativas para `refs/heads/main` com HTTP 403.
-    * Injetar o Token do Bot do GitHub e redirecionar o stream bidirecionalmente para `github.com/aresta-climb/aresta_db.git`.
-  * Função `create-pr`:
-    * Endpoint REST autenticado via JWT.
-    * Recebe `{"branch": "sugestao-xxx", "title": "...", "description": "...", "author_email": "..."}`.
-    * Abre a Pull Request no repositório via API do GitHub com o token do Bot.
-* **Critérios de Aceite:**
-  * Teste automatizado / script de teste disparando `git push` via proxy com JWT simulado.
-  * Tentativas de push para branch não autorizada retornam 403 Forbidden.
-  * Chamada ao endpoint `create-pr` cria com sucesso uma PR no repositório alvo.
-
-### 📝 Prompt para a IA (Sub-projeto 1):
-```text
-/opsx-explore Quero implementar o Sub-projeto 1: Backend Supabase (Git Proxy e Criação de PR).
-
-Contexto:
-Precisamos criar duas Supabase Edge Functions (Deno/TypeScript):
-1. `git-proxy`: Um proxy transparente para Git Smart HTTP que valida JWT de usuário do Supabase Auth, inspeciona o packet-line do payload do git-receive-pack para garantir que a branch alvo comece com `refs/heads/sugestao-` (bloqueando `main`), injeta o Token de Bot do GitHub e faz stream do tráfego para o GitHub.
-2. `create-pr`: Endpoint REST que valida JWT do Supabase e abre uma Pull Request no GitHub a partir da branch informada.
-
-Por favor, investigue como estruturar essas Edge Functions, como fazer streaming de request/response em Deno e como inspecionar o pkt-line do protocolo Git.
-```
+* **Tecnologias:** Supabase Edge Functions (Deno / TypeScript), GitHub REST API / Octokit, GitHub App M2M Auth.
+* **Entregáveis Concluídos:**
+  * Migration `20260823000000_criar_tabela_sugestoes_branches.sql` com RLS.
+  * Edge Function `git-proxy`: Smart HTTP Git Streaming, firewall de branches `sugestao-*`, bloqueio de `main` e verificação de propriedade de autor.
+  * Edge Function `create-pr`: Validação de escopo estrito à pasta `database/` e criação automatizada de PRs assinados (`Signed-off-by`).
+  * Autenticação M2M nativa com GitHub App (`Iv23li5kcnSYgMgEfvAC`) via Private Key e Installation ID.
+  * Suporte ao novo padrão de segredos `SUPABASE_SECRET_KEYS`.
 
 ---
 
-## 📦 Sub-projeto 2: Cliente Desktop - Autenticação OTP Supabase
+## 📦 Sub-projeto 2: Cliente Desktop - Autenticação OTP Supabase & Perfil do Autor [CONCLUÍDO]
 
-* **Objetivo:** Adicionar fluxo de login amigável por E-mail (Magic Code de 6 dígitos) usando Supabase Auth no Aresta Editor (PyQt6).
-* **Tecnologias:** Python, PyQt6, Supabase Python Client (ou `requests`), `keyring`.
-* **Escopo:**
-  * Serviço de Autenticação (`editor/core/auth_service.py` ou equivalente MVC):
-    * Solicitar envio de OTP para um e-mail (`signInWithOtp`).
-    * Verificar código digitado pelo usuário (`verifyOtp`) e obter access token (JWT).
-    * Armazenar a sessão localmente de forma segura (para reuso entre sessões).
-  * Interface Gráfica (PyQt6 Dialog/View):
-    * Modal em português: "Entrar / Contribuir".
-    * Etapa 1: Inserir e-mail -> Botão "Enviar Código".
-    * Etapa 2: Inserir código de 6 dígitos -> Botão "Validar".
-    * Indicadores visuais de carregamento e mensagens de erro amigáveis.
-* **Critérios de Aceite:**
-  * Testes unitários com mock da API do Supabase cobrindo sucesso, código inválido e erro de rede.
-  * Interface funcional exibindo estados de transição corretamente.
-  * Token JWT retornado salvo e recuperável para as próximas requisições.
-
-### 📝 Prompt para a IA (Sub-projeto 2):
-```text
-/opsx-explore Quero implementar o Sub-projeto 2: Autenticação por E-mail (OTP) do Supabase no Editor Desktop.
-
-Contexto:
-O Aresta Editor (PyQt6) precisa permitir que usuários da comunidade se autentiquem apenas digitando seu e-mail e um código de 6 dígitos enviado pelo Supabase Auth.
-Precisamos de:
-1. Um serviço de autenticação Python para interagir com o Supabase Auth (solicitar e verificar OTP).
-2. Um diálogo/modal PyQt6 intuitivo e em português para coletar o e-mail e o código.
-3. Persistência segura do token de sessão.
-
-Por favor, analise a arquitetura MVC existente na pasta `editor/` e proponha a melhor integração seguindo os padrões do projeto.
-```
+* **Status:** ✅ Concluído (100% de testes unitários e de integração passando, conformidade com `PRINCIPIOS.md`).
+* **Objetivo:** Adicionar fluxo primário de login por E-mail (Código de 6 dígitos via Supabase Auth) no Aresta Editor (PyQt6), com modal de captura e persistência do Nome Completo do autor nos metadados do Supabase, pré-preenchimento inteligente de nome via GitHub OAuth, e suporte unificado a sessão segura no keyring.
+* **Tecnologias:** Python, PyQt6, `requests`, `keyring`, `http.server`.
+* **Entregáveis Concluídos:**
+  * Teste de integração de fronteira `editor/core/integracao_auth_supabase_test.py` (Princípio V).
+  * Biblioteca cliente REST `editor/core/cliente_auth_supabase.py` (`solicitar_codigo_otp`, `verificar_codigo_otp`, `atualizar_nome_autor`, `renovar_sessao`, `obter_usuario_atual`).
+  * Biblioteca de sessão `editor/core/gerenciador_sessao.py` com dataclass `SessaoUsuario` e persistência no keyring.
+  * Biblioteca de servidor efêmero `editor/core/servidor_oauth_callback.py` para login GitHub OAuth com alocação dinâmica de porta.
+  * Componentes visuais `editor/views/dialogos/dialogo_autenticacao.py` e `editor/views/dialogos/dialogo_perfil_autor.py` com pré-preenchimento automático.
+  * Integração com `TarefaInicializacao` (`editor/core/worker.py`), `TelaDeAbertura` e `ControladorAplicativo` (`editor/main.py`).
 
 ---
 
 ## 📦 Sub-projeto 3: Cliente Desktop - Engine de Commit e Push via Proxy
+
+* **Status:** 🚀 **PRÓXIMO A INICIAR**
 
 * **Objetivo:** Conectar o botão "Enviar Sugestão" do Editor ao `pygit2`, criando branch local, commitando arquivos modificados e fazendo push através do Supabase Git Proxy.
 * **Tecnologias:** Python, `pygit2`, PyQt6.

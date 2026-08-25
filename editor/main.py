@@ -56,20 +56,39 @@ class ControladorAplicativo:
         self.abertura = TelaDeAbertura()
         self.janela_principal = None
         self.tela_carregamento = None
-        
-        # Inicia a tarefa de inicialização
+        self._logout_em_andamento = False
+
+        self.iniciar_inicializacao()
+
+    def iniciar_inicializacao(self):
+        """Inicia ou reinicia a tarefa de inicialização e sincronização."""
         self.tarefa = TarefaInicializacao(ID_CLIENTE_GITHUB)
         self.tarefa.status.connect(self.abertura.atualizar_status)
         self.tarefa.progresso.connect(self.abertura.atualizar_progresso)
         self.tarefa.mostrar_progresso.connect(self.abertura.exibir_barra_progresso)
-        self.tarefa.auth_requerida.connect(self.abertura.exibir_codigo_auth)
-        self.tarefa.auth_concluida.connect(self.abertura.esconder_auth)
+        self.tarefa.solicitar_login_ui.connect(self.abertura.iniciar_fluxo_login)
         self.tarefa.atualizacao_disponivel.connect(self.ao_detectar_atualizacao)
         self.tarefa.sucesso.connect(self.executar_selecao)
         self.tarefa.erro.connect(self.mostrar_erro)
-        
+
+        self.abertura.login_concluido.connect(self.ao_login_concluido)
+        self.abertura.login_cancelado.connect(self.ao_login_cancelado)
+
         self.abertura.show()
         self.tarefa.start()
+
+    def ao_login_concluido(self, sessao):
+        """Persiste a sessão e desbloqueia a tarefa de inicialização."""
+        if sessao:
+            print(f"💾 [Main] Salvando sessão de {sessao.nome_completo}...")
+            self.tarefa.gerenciador_sessao.salvar_sessao(sessao)
+            print("🚀 [Main] Desbloqueando thread de inicialização...")
+            self.tarefa.definir_sessao_concluida(sessao)
+
+    def ao_login_cancelado(self):
+        """Cancela a inicialização se o usuário desistir do login."""
+        print("⚠️ [Main] Login cancelado pelo usuário.")
+        self.tarefa.definir_sessao_concluida(None)
 
     def ao_detectar_atualizacao(self, resultado):
         """
@@ -84,21 +103,38 @@ class ControladorAplicativo:
         """
         Exibe a Tela de Carregamento como um diálogo modal.
         """
+        print("✨ [Main] Inicialização de dados concluída. Abrindo TelaDeCarregamento...")
         # Garante que a tela de abertura esteja fechada
         if self.abertura:
             self.abertura.close()
-        
-        self.tela_carregamento = TelaDeCarregamento(
-            self.tarefa.storage, 
-            usuario=self.tarefa.auth.usuario_logado
+
+        usuario = (
+            self.tarefa.sessao_usuario.nome_completo
+            if self.tarefa.sessao_usuario
+            else ""
         )
-        
-        if self.tela_carregamento.exec() == QDialog.DialogCode.Accepted:
+        self.tela_carregamento = TelaDeCarregamento(
+            self.tarefa.storage,
+            usuario=usuario,
+        )
+        self.tela_carregamento.solicitar_logout.connect(self.ao_solicitar_logout)
+
+        resultado = self.tela_carregamento.exec()
+        print(f"📋 [Main] TelaDeCarregamento finalizou com resultado: {resultado}")
+        if resultado == QDialog.DialogCode.Accepted:
             self.mostrar_janela_principal()
+        elif self._logout_em_andamento:
+            self._logout_em_andamento = False
         else:
             # Se cancelar na tela de seleção e não houver janela principal aberta, sai do app
             if not self.janela_principal:
+                print("👋 [Main] Aplicação encerrada pelo usuário a partir da TelaDeCarregamento.")
                 QApplication.quit()
+
+    def ao_solicitar_logout(self):
+        """Reinicia a inicialização e exibe a Tela de Abertura para novo login."""
+        self._logout_em_andamento = True
+        self.iniciar_inicializacao()
 
     def mostrar_janela_principal(self):
         """
@@ -112,7 +148,7 @@ class ControladorAplicativo:
         
         self.janela_principal = JanelaPrincipal(
             storage=self.tarefa.storage,
-            auth=self.tarefa.auth,
+            auth=None,
             workspace=workspace
         )
         # Conecta o sinal para permitir voltar para a seleção

@@ -7,21 +7,23 @@ import traceback
 import sys
 import shutil
 from datetime import datetime
+import threading
 import pygit2
 import github
 
-from editor.core.auth import GerenciadorAutenticacao
+from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
+from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.servico_loja import ServicoLoja
-import github
+from typing import Optional
 
 class TarefaInicializacao(QThread):
     """
     Thread responsável por coordenar a inicialização:
     1. Storage check
     2. Microsoft Store Update check
-    3. GitHub Auth (Token check ou Device Flow)
+    3. Autenticação Supabase / GitHub
     4. Git Sync (Clone ou Pull/Reset)
     """
     
@@ -29,25 +31,38 @@ class TarefaInicializacao(QThread):
     mostrar_progresso = pyqtSignal(bool)
     status = pyqtSignal(str)
     atualizacao_disponivel = pyqtSignal(object) # ResultadoAtualizacao
-    auth_requerida = pyqtSignal(str) # user_code
+    auth_requerida = pyqtSignal(str) # mantido para compatibilidade
+    solicitar_login_ui = pyqtSignal()
     auth_concluida = pyqtSignal()
     sucesso = pyqtSignal()
     erro = pyqtSignal(str)
 
-    def __init__(self, id_cliente: str):
+    def __init__(self, id_cliente: str = ""):
         super().__init__()
         self.id_cliente = id_cliente
         self.storage = GerenciadorCaminhos()
-        self.auth = GerenciadorAutenticacao(id_cliente)
+        self.gerenciador_sessao = GerenciadorSessao()
+        self.cliente_auth = ClienteAuthSupabase()
         self.servico_loja = ServicoLoja()
+        self.sessao_usuario: Optional[SessaoUsuario] = None
+        self._evento_autenticacao = threading.Event()
+        self._login_cancelado = False
+
+    def definir_sessao_concluida(self, sessao: Optional[SessaoUsuario]):
+        """Desbloqueia a thread de inicialização com o resultado do diálogo de login."""
+        if sessao:
+            self.sessao_usuario = sessao
+            self._login_cancelado = False
+        else:
+            self._login_cancelado = True
+        self._evento_autenticacao.set()
 
     def run(self):
         try:
-            print(f"\n[INFO] Iniciando tarefa de inicialização (Client ID: {self.id_cliente})...")
+            print(f"\n[INFO] Iniciando tarefa de inicialização...")
             
             # 1. Inicializar diretórios
             self.status.emit("Verificando pastas locais...")
-            print("[INFO] Verificando diretórios locais...")
             self.storage.inicializar_diretorios()
             self.progresso.emit(10)
 
@@ -63,42 +78,49 @@ class TarefaInicializacao(QThread):
 
             # 3. Autenticação
             self.status.emit("Verificando autenticação...")
-            print("[INFO] Verificando token no keyring...")
-            token = self.auth.recuperar_token()
-            if not token or not self.auth.validar_token(token):
-                print("[WARN] Token não encontrado ou inválido. Iniciando Device Flow...")
+            sessao = self.gerenciador_sessao.obter_sessao()
+
+            if sessao and sessao.jwt_supabase:
+                try:
+                    self.cliente_auth.obter_usuario_atual(sessao.jwt_supabase)
+                    self.sessao_usuario = sessao
+                except Exception:
+                    try:
+                        novos_dados = self.cliente_auth.renovar_sessao(sessao.token_atualizacao)
+                        sessao.jwt_supabase = novos_dados["access_token"]
+                        sessao.token_atualizacao = novos_dados.get("refresh_token", sessao.token_atualizacao)
+                        self.gerenciador_sessao.salvar_sessao(sessao)
+                        self.sessao_usuario = sessao
+                    except Exception:
+                        sessao = None
+
+            if not self.sessao_usuario:
                 self.status.emit("Autenticação necessária...")
-                dados = self.auth.solicitar_codigo_dispositivo()
-                print(f"[INFO] Código recebido: {dados['user_code']}")
-                self.auth_requerida.emit(dados["user_code"])
-                
-                print("[INFO] Aguardando autorização do usuário no GitHub...")
-                token = self.auth.aguardar_token()
-                if not token:
-                    print("[ERROR] Usuário cancelou ou tempo limite esgotado.")
-                    self.erro.emit("Autenticação cancelada ou expirada.")
-                    return
-                
-                print("[INFO] Token recebido com sucesso. Salvando...")
-                self.auth.salvar_token(token)
-                self.auth_concluida.emit()
-                if not self.auth.validar_token(token):
-                    print("[ERROR] O novo token recebido falhou na validação inicial.")
-                    self.erro.emit("Falha ao validar novo token.")
+                self._evento_autenticacao.clear()
+                self._login_cancelado = False
+                self.auth_requerida.emit("")
+                self.solicitar_login_ui.emit()
+
+                # Bloqueia a thread de inicialização até o usuário concluir ou cancelar o login
+                self._evento_autenticacao.wait()
+
+                if self._login_cancelado or not self.sessao_usuario:
+                    print("[WARN] Autenticação não concluída ou cancelada pelo usuário.")
+                    self.erro.emit("Autenticação necessária para utilizar o Aresta Editor.")
                     return
 
             self.progresso.emit(40)
-            print(f"[INFO] Autenticado com sucesso como: {self.auth.usuario_logado}")
-            self.status.emit(f"Logado como: {self.auth.usuario_logado}")
+            usuario_identificado = self.sessao_usuario.nome_completo if self.sessao_usuario else "Convidado"
+            self.status.emit(f"Logado como: {usuario_identificado}")
 
-            # 3. Sincronização Git
+            # 4. Sincronização Git
             self.status.emit("Sincronizando repositório base...")
-            print("[INFO] Iniciando sincronização Git...")
             self.mostrar_progresso.emit(True)
             
-            token = self.auth.recuperar_token()
-            g = github.Github(auth=github.Auth.Token(token))
-            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=token)
+            token_git = self.sessao_usuario.token_github if self.sessao_usuario else None
+            print(f"🐙 [Worker] Token GitHub: {'presente' if token_git else 'ausente'}")
+            g = github.Github(auth=github.Auth.Token(token_git)) if token_git else None
+            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=token_git)
             
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
@@ -109,36 +131,33 @@ class TarefaInicializacao(QThread):
                     sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
                 except github.UnknownObjectException:
                     mensagem_erro = (
-                        "Repositório 'aresta-climb/aresta_db' não encontrado (404).\n\n"
-                        "Se o repositório for privado e pertencer a uma Organização, "
-                        "você precisa autorizar este App nas configurações da Organização aresta-climb."
+                        "Repositório 'aresta-climb/aresta_db' não encontrado (404)."
                     )
-                    print(f"[ERROR] {mensagem_erro}")
                     self.erro.emit(mensagem_erro)
                     return
             else:
-                print(f"[INFO] Repositório encontrado em {caminho_repo}. Configurando remotes...")
-            
-            # Configura Remotes (Origin=Fork, Upstream=Base)
-            sync.configurar_remotes(g)
+                print(f"[INFO] Repositório existente em {caminho_repo}. Configurando remotes...")
+                sync.configurar_remotes(g)
             
             # Fetch Origin e Upstream
-            self.status.emit("Fazendo fetch de dados (origin e upstream)...")
+            print("[INFO] Executando fetch de dados dos remotes...")
+            self.status.emit("Fazendo fetch de dados...")
             sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
             
             # Checkout do upstream/main
+            print("[INFO] Fazendo checkout do upstream/main...")
             self.status.emit("Aplicando estado oficial mais recente...")
             sync.fazer_checkout_main_upstream()
 
+            print("✨ [Worker] Inicialização e sincronização finalizadas com sucesso!")
             self.progresso.emit(100)
-            print("[INFO] Inicialização concluída com sucesso!")
             self.status.emit("Inicialização concluída!")
             self.sucesso.emit()
 
         except Exception as e:
             print(f"\n[FATAL] Erro durante a inicialização:")
             traceback.print_exc()
-            self.erro.emit(f"Erro: {str(e)}")
+            self.erro.emit(str(e))
 
 class TarefaPublicacao(QThread):
     """

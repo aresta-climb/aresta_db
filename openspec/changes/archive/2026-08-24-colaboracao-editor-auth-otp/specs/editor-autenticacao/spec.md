@@ -1,8 +1,5 @@
-# editor-autenticacao Specification
+## MODIFIED Requirements
 
-## Purpose
-TBD - created by archiving change tela-de-abertura. Update Purpose after archive.
-## Requirements
 ### Requirement: Persistência de Credenciais
 O sistema MUST armazenar a sessão do usuário de forma segura no sistema operacional via `keyring`.
 
@@ -16,6 +13,8 @@ A aplicação MUST validar a sessão armazenada durante a inicialização antes 
 #### Scenario: Verificação de Validade de Sessão
 - **WHEN** uma sessão for encontrada no keyring local
 - **THEN** a aplicação MUST validar se o JWT é válido e executar a renovação transparente via refresh token caso esteja expirado
+
+## ADDED Requirements
 
 ### Requirement: Login Primário por E-mail OTP
 O sistema MUST permitir que o usuário se autentique informando seu e-mail e validando o código de 6 dígitos enviado pelo Supabase Auth.
@@ -39,3 +38,8 @@ O sistema MUST permitir que mantenedores se autentiquem com o GitHub através do
 - **WHEN** o usuário seleciona a opção "Entrar com GitHub"
 - **THEN** a aplicação MUST iniciar um servidor HTTP local efêmero em localhost, abrir o navegador na URL de autorização do Supabase e capturar o JWT do Supabase e o token do GitHub
 
+## REMOVED Requirements
+
+### Requirement: Autenticação via GitHub Device Flow
+**Reason**: Substituído pelo fluxo moderno de E-mail OTP e Supabase OAuth integrado ao GitHub App oficial.
+**Migration**: Utilizar a nova biblioteca `ClienteAuthSupabase` e o diálogo de autenticação unificado.

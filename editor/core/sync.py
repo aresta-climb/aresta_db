@@ -67,12 +67,14 @@ class GerenciadorSincronizacao:
         else:
             raise RuntimeError(f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}")
 
-    def obter_url_clone(self, g: github.Github, repositorio_base: str = "aresta-climb/aresta_db") -> str:
+    def obter_url_clone(self, g: Optional[github.Github] = None, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """
-        Garante a existência de um fork do repositório base para o usuário logado
-        e retorna a URL do fork. OBRIGATÓRIO pelo novo design, mesmo se o usuário 
-        tiver acesso de escrita no base.
+        Retorna a URL de clone. Se g estiver presente, tenta usar o fork do usuário.
+        Caso contrário, usa a URL oficial do repositório base público.
         """
+        if not g:
+            return f"https://github.com/{repositorio_base}.git"
+
         repo = g.get_repo(repositorio_base)
         usuario = g.get_user()
         
@@ -101,10 +103,10 @@ class GerenciadorSincronizacao:
                 return repo.clone_url
             raise
 
-    def configurar_remotes(self, g: github.Github, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
+    def configurar_remotes(self, g: Optional[github.Github] = None, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
         """
         Garante que o repositório local tem os remotes necessários:
-        'origin' -> O fork do usuário.
+        'origin' -> O fork do usuário ou o base público.
         'upstream' -> O repositório oficial (aresta_db).
         """
         repo = pygit2.Repository(str(self.caminho_repo))
@@ -115,11 +117,14 @@ class GerenciadorSincronizacao:
         else:
             repo.remotes.set_url("upstream", url_upstream)
             
-        url_fork = self.obter_url_clone(g)
-        if "origin" not in remotes_names:
-            repo.remotes.create("origin", url_fork)
-        else:
-            repo.remotes.set_url("origin", url_fork)
+        if g:
+            url_fork = self.obter_url_clone(g)
+            if "origin" not in remotes_names:
+                repo.remotes.create("origin", url_fork)
+            else:
+                repo.remotes.set_url("origin", url_fork)
+        elif "origin" not in remotes_names:
+            repo.remotes.create("origin", url_upstream)
 
     def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None):
         """
@@ -133,13 +138,14 @@ class GerenciadorSincronizacao:
 
     def fazer_checkout_main_upstream(self):
         """
-        Faz checkout da branch main do upstream de forma limpa,
-        descartando as alterações locais na main se houver.
+        Faz checkout da branch main do upstream ou origin de forma limpa.
         """
         repo = pygit2.Repository(str(self.caminho_repo))
-        branch_upstream = repo.branches.remote["upstream/main"]
+        branch_upstream = repo.branches.remote.get("upstream/main") or repo.branches.remote.get("origin/main")
+        if not branch_upstream:
+            return
         
-        # Atualiza ou cria a branch local 'main' apontando para 'upstream/main'
+        # Atualiza ou cria a branch local 'main' apontando para a branch remota
         if "main" not in repo.branches.local:
             branch_local = repo.branches.local.create("main", repo[branch_upstream.target])
         else:

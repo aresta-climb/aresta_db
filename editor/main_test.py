@@ -17,20 +17,22 @@ def test_janela_principal_tem_stack_central(qtbot):
     stack = janela.findChild(QStackedWidget)
     assert stack is not None
 
-def test_fluxo_inicializacao_passa_auth_para_janela(qtbot):
+def test_fluxo_inicializacao_cria_janela_principal(qtbot, tmp_path):
     with patch("editor.main.TarefaInicializacao") as MockTarefa:
         with patch("editor.main.TelaDeCarregamento") as MockDialog:
             mock_tarefa_inst = MockTarefa.return_value
             mock_tarefa_inst.storage = MagicMock()
-            mock_tarefa_inst.auth = MagicMock()
-            
+            mock_tarefa_inst.sessao_usuario = None
+
             mock_dialog_inst = MockDialog.return_value
             mock_dialog_inst.exec.return_value = QDialog.DialogCode.Accepted
-            
+            mock_dialog_inst.caminho_croqui_selecionado = tmp_path
+
             controlador = ControladorAplicativo()
             controlador.executar_selecao()
-            
-            assert controlador.janela_principal.auth == mock_tarefa_inst.auth
+
+            assert controlador.janela_principal is not None
+            assert hasattr(controlador.janela_principal, "workspace")
 
 def test_controlador_app_conecta_sinais_corretamente(qtbot):
     # Verificamos manualmente se os sinais usados no ControladorApp existem no TarefaInicializacao

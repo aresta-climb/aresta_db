@@ -386,3 +386,62 @@ def test_tela_de_carregamento_tem_icone_configurado(qtbot):
     assert not tela.windowIcon().isNull()
 
 
+def test_tela_de_carregamento_botao_desconectar_limpa_sessao_e_emite_sinal(qtbot):
+    tela = TelaDeCarregamento(usuario="Renato Autor")
+    qtbot.addWidget(tela)
+
+    assert hasattr(tela, "btn_desconectar")
+    assert "Renato Autor" in tela.label_usuario_logado.text()
+
+    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
+        with patch("editor.core.gerenciador_sessao.GerenciadorSessao.limpar_sessao") as mock_limpar_sessao:
+            with qtbot.waitSignal(tela.solicitar_logout, timeout=1000):
+                qtbot.mouseClick(tela.btn_desconectar, Qt.MouseButton.LeftButton)
+
+            mock_limpar_sessao.assert_called_once()
+
+
+def test_tela_de_carregamento_desconectar_cancelado(qtbot):
+    tela = TelaDeCarregamento(usuario="Renato Autor")
+    qtbot.addWidget(tela)
+
+    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.No):
+        with patch("editor.core.gerenciador_sessao.GerenciadorSessao.limpar_sessao") as mock_limpar_sessao:
+            qtbot.mouseClick(tela.btn_desconectar, Qt.MouseButton.LeftButton)
+            mock_limpar_sessao.assert_not_called()
+
+
+def test_tela_de_carregamento_alterar_nome_usuario(qtbot):
+    from editor.core.gerenciador_sessao import SessaoUsuario
+
+    sessao_mock = SessaoUsuario(
+        email="renato@exemplo.com",
+        nome_completo="Renato Antigo",
+        jwt_supabase="jwt_fake",
+        token_atualizacao="refresh_fake",
+        token_github=None,
+    )
+
+    tela = TelaDeCarregamento(usuario="Renato Antigo")
+    qtbot.addWidget(tela)
+
+    assert hasattr(tela, "btn_alterar_nome")
+    assert "Renato Antigo" in tela.label_usuario_logado.text()
+
+    with patch("editor.views.dialogos.dialogo_perfil_autor.DialogoPerfilAutor") as mock_dialog_class:
+        mock_dialog = mock_dialog_class.return_value
+        mock_dialog.exec.return_value = QDialog.DialogCode.Accepted
+        mock_dialog.obter_nome_completo.return_value = "Renato Novo"
+
+        with patch("editor.core.gerenciador_sessao.GerenciadorSessao.obter_sessao", return_value=sessao_mock):
+            with patch("editor.core.gerenciador_sessao.GerenciadorSessao.salvar_sessao") as mock_salvar:
+                with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.atualizar_nome_autor") as mock_api:
+                    qtbot.mouseClick(tela.btn_alterar_nome, Qt.MouseButton.LeftButton)
+
+                    assert tela.usuario == "Renato Novo"
+                    assert "Renato Novo" in tela.label_usuario_logado.text()
+                    assert sessao_mock.nome_completo == "Renato Novo"
+                    mock_salvar.assert_called_once_with(sessao_mock)
+                    mock_api.assert_called_once_with("jwt_fake", "Renato Novo")
+
+

@@ -282,6 +282,9 @@ class TelaDeCarregamento(QDialog):
     Tela de Carregamento (Dialog) do Editor Aresta.
     Exibe ações principais e lista de croquis experimentais.
     """
+
+    solicitar_logout = pyqtSignal()
+
     def __init__(self, storage=None, usuario="Autor Desconhecido", parent=None):
         super().__init__(parent)
         self.storage = storage
@@ -395,6 +398,63 @@ class TelaDeCarregamento(QDialog):
         
         self.layout_principal.addWidget(self.grupo_historico)
         self.layout_principal.setStretch(1, 1) # Faz o histórico expandir
+
+        # 3. Rodapé com Informações do Usuário e Botão Desconectar/Sair
+        self.layout_rodape = QHBoxLayout()
+        self.layout_rodape.setContentsMargins(5, 5, 5, 0)
+
+        self.label_usuario_logado = QLabel(f"👤 Conectado como: <b>{self.usuario}</b>")
+        self.label_usuario_logado.setTextFormat(Qt.TextFormat.RichText)
+        self.label_usuario_logado.setStyleSheet("color: #495057; font-size: 12px;")
+
+        self.btn_alterar_nome = QPushButton("Alterar Nome")
+        self.btn_alterar_nome.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_alterar_nome.setFixedHeight(28)
+        self.btn_alterar_nome.setStyleSheet("""
+            QPushButton {
+                background: transparent;
+                color: #007bff;
+                border: 1px solid #007bff;
+                border-radius: 4px;
+                padding: 2px 10px;
+                font-size: 12px;
+                font-weight: 500;
+                min-width: 80px;
+            }
+            QPushButton:hover {
+                background: #007bff;
+                color: white;
+            }
+        """)
+        self.btn_alterar_nome.clicked.connect(self.ao_clicar_alterar_nome)
+
+        self.btn_desconectar = QPushButton("Desconectar / Sair")
+        self.btn_desconectar.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_desconectar.setFixedHeight(28)
+        self.btn_desconectar.setStyleSheet("""
+            QPushButton {
+                background: transparent;
+                color: #dc3545;
+                border: 1px solid #dc3545;
+                border-radius: 4px;
+                padding: 2px 10px;
+                font-size: 12px;
+                font-weight: 500;
+                min-width: 80px;
+            }
+            QPushButton:hover {
+                background: #dc3545;
+                color: white;
+            }
+        """)
+        self.btn_desconectar.clicked.connect(self.ao_clicar_desconectar)
+
+        self.layout_rodape.addWidget(self.label_usuario_logado)
+        self.layout_rodape.addWidget(self.btn_alterar_nome)
+        self.layout_rodape.addStretch()
+        self.layout_rodape.addWidget(self.btn_desconectar)
+
+        self.layout_principal.addLayout(self.layout_rodape)
         
         # Conecta sinais
         self.btn_novo.clicked.connect(self.ao_clicar_novo)
@@ -407,6 +467,45 @@ class TelaDeCarregamento(QDialog):
             self.carregar_croquis()
         else:
             self.atualizar_estado_vazio()
+
+    def ao_clicar_alterar_nome(self):
+        """Abre o diálogo de identificação do autor para renomear e persiste a alteração."""
+        from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
+        from editor.core.gerenciador_sessao import GerenciadorSessao
+        from editor.core.cliente_auth_supabase import ClienteAuthSupabase
+
+        dialogo = DialogoPerfilAutor(nome_sugerido=self.usuario, parent=self)
+        if dialogo.exec() == QDialog.DialogCode.Accepted:
+            novo_nome = dialogo.obter_nome_completo()
+            self.usuario = novo_nome
+            self.label_usuario_logado.setText(f"👤 Conectado como: <b>{novo_nome}</b>")
+
+            gerenciador = GerenciadorSessao()
+            sessao = gerenciador.obter_sessao()
+            if sessao:
+                sessao.nome_completo = novo_nome
+                gerenciador.salvar_sessao(sessao)
+                if sessao.jwt_supabase and sessao.jwt_supabase != "legado":
+                    try:
+                        ClienteAuthSupabase().atualizar_nome_autor(sessao.jwt_supabase, novo_nome)
+                    except Exception:
+                        pass
+
+    def ao_clicar_desconectar(self):
+        """Confirma a saída e limpa os tokens/sessão salvos localmente."""
+        resposta = QMessageBox.question(
+            self,
+            "Desconectar Conta",
+            "Deseja realmente sair da sua conta e limpar as credenciais salvas neste computador?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No,
+        )
+        if resposta == QMessageBox.StandardButton.Yes:
+            from editor.core.gerenciador_sessao import GerenciadorSessao
+
+            GerenciadorSessao().limpar_sessao()
+            self.solicitar_logout.emit()
+            self.reject()
 
     def carregar_croquis(self):
         self.lista_croquis.clear()
