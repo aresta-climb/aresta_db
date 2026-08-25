@@ -50,5 +50,5 @@ jobs:
           
       - name: Run Pytest
         timeout-minutes: 3
-        run: PYTHONPATH=. pytest
+        run: PYTHONPATH=. python -m pytest
 
