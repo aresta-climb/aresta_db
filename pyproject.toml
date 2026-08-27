@@ -1,0 +1,70 @@
+[project]
+name = "aresta-db"
+version = "0.1.0"
+description = "Banco de dados e ecossistema de croquis de escalada Aresta"
+readme = "README.md"
+requires-python = ">=3.13, <3.14"  # Paddle-paddle não suporta 3.14
+dependencies = []
+
+[dependency-groups]
+
+# Pipeline de compilação/deploy de croquis
+deploy = [
+    "pillow",
+    "pyyaml",
+    "protobuf",
+    "grpcio-tools",
+]
+
+# Validador de pull requests da database
+validador = [
+    {include-group = "deploy"},
+    "pygit2",
+]
+
+# Interface gráfica do Editor Aresta 
+editor = [
+    {include-group = "deploy"},
+    "pyqt6",
+    "pyinstaller",
+    "pytest-qt",
+    "pygit2",
+    "requests",
+    "cryptography",
+    "keyring",
+    "qtawesome",
+    "qrcode",
+    "ruamel.yaml",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "winrt-Windows.Services.Store; sys_platform == 'win32'",
+    "winrt-Windows.ApplicationModel; sys_platform == 'win32'",
+    "sentry-sdk>=2.68.1",
+]
+
+# Extração pesada de PDFS, IA e OCR
+pdf = [
+    "pymupdf",
+    "paddleocr",
+    "paddleocr[doc-parser]",
+    "paddleocr[ie]",
+    "graphviz",
+    "boto3",
+    "duckduckgo-search",
+    "numpy",
+]
+
+# Suíte de testes e ferramentas de desenvolvimento
+dev = [
+    "pytest",
+    "pytest-xdist",
+    "pytest-testmon",
+    "pytest-mock",
+    "moto[s3]",
+    "moto",
+]
+
+[tool.uv]
+package = false
+default-groups = ["deploy", "validador", "editor", "pdf", "dev"]

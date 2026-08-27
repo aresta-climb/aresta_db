@@ -2,9 +2,7 @@
 
 ## Purpose
 Especificação dos fluxos de colaboração e envio de propostas de mudança do Aresta Editor via Supabase Git Proxy e GitHub API.
-
 ## Requirements
-
 ### Requirement: Criação e Assinatura de Commit Local via pygit2
 O `ServicoSubmissao` MUST criar branches locais temporárias a partir da `upstream/main` mais recente e gerar commits assinados com os metadados do autor autenticado (`SessaoUsuario`), contendo estritamente os arquivos modificados da pasta `database/<id_croqui>/`.
 
@@ -36,11 +34,15 @@ O `ServicoSubmissao` MUST enviar a branch local para a Edge Function `git-proxy`
 - **THEN** o sistema MUST alertar o usuário sobre a necessidade de reautenticação e orientar o salvamento seguro antes de reabrir o fluxo de login
 
 ### Requirement: Abertura e Atualização de Pull Request via Edge Function create-pr
-Após a conclusão bem-sucedida do push para o `git-proxy`, o sistema MUST invocar a Edge Function `create-pr` para abrir ou atualizar formalmente a Pull Request no GitHub.
+Após a conclusão bem-sucedida do push para o `git-proxy`, o sistema MUST invocar a Edge Function `create-pr` para abrir ou atualizar formalmente a Pull Request no GitHub. Quando disponível, o token OAuth do usuário (`token_usuario_github`) MUST ser utilizado para conferir autoria direta ao usuário no GitHub, mantendo fallback automático para a credencial do bot GitHub App caso o token do usuário não esteja presente ou seja inválido.
 
-#### Scenario: Abertura de Nova Pull Request
-- **WHEN** o push da nova branch `sugestao-<id_croqui>-<uuid8>` for confirmado
-- **THEN** o sistema MUST enviar requisição HTTP POST para `create-pr` contendo a branch, título e descrição, persistindo a URL da PR retornada em `croqui_experimental.yaml`
+#### Scenario: Abertura de Nova Pull Request com Token do Usuário
+- **WHEN** o autor estiver autenticado via GitHub e possuir token de acesso com escopo `public_repo`
+- **THEN** a Edge Function `create-pr` MUST utilizar o token do usuário para abrir a Pull Request no GitHub, resultando na autoria do usuário com selo do GitHub App (`@usuario via editor-aresta[bot]`)
+
+#### Scenario: Abertura de Pull Request com Fallback para o Bot
+- **WHEN** o autor estiver autenticado por e-mail ou o token OAuth do usuário for inválido/expirado
+- **THEN** a Edge Function `create-pr` MUST criar a Pull Request utilizando as credenciais da instalação do GitHub App (`editor-aresta[bot]`)
 
 #### Scenario: Atualização de Pull Request Existente
 - **WHEN** o croqui experimental já possuir `pull_request_branch` aberta pelo mesmo autor
@@ -64,3 +66,4 @@ O editor MUST validar a consistência técnica das alterações antes de dispara
 #### Scenario: Resumo de Arquivos no Diálogo de Envio
 - **WHEN** o diálogo de submissão for exibido
 - **THEN** o diálogo MUST apresentar a contagem e a lista de arquivos a serem enviados (ex: `croqui.yaml` e imagens adicionadas/modificadas)
+

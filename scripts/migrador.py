@@ -1,11 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Aresta Contributors
 
-# Copyright (C) 2026 ARESTA
-#
-# Este arquivo é livre; você pode redistribuí-lo e/ou modificá-lo
-# sob os termos da Licença Pública Geral GNU.
-
 import importlib.util
 import re
 from pathlib import Path

@@ -34,6 +34,9 @@ jobs:
             coleta_de_betas
             pytest.ini
             conftest.py
+            pyproject.toml
+            uv.lock
+            .python-version
       
       - name: Setup uv e Python
         uses: astral-sh/setup-uv@v10.0.1
@@ -41,17 +44,13 @@ jobs:
           version: "latest"
           python-version: "3.13"
           enable-cache: true
-          cache-dependency-glob: |
-            requirements.txt
-            editor/requirements.txt
+          cache-dependency-glob: uv.lock
 
       - name: Install Dependencies
         run: |
-          uv venv
-          uv pip install -r requirements.txt
-          uv pip install -r editor/requirements.txt
+          uv sync --frozen
           
       - name: Run Pytest
-        timeout-minutes: 3
-        run: uv run pytest
+        timeout-minutes: 10
+        run: uv run pytest -n auto
 

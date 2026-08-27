@@ -61,12 +61,16 @@ O sistema SHALL exibir um editor em painel dividido (split-pane) para campos do 
 ### Requirement: Pré-visualização com Resolução de Caminhos e Dimensionamento de Imagens
 A pré-visualização do markdown SHALL formatar e exibir imagens dinamicamente.
 - **Frontmatter**: O sistema SHALL ignorar o YAML frontmatter (linhas entre `---` e `---` no topo) ao renderizar o markdown no painel de pré-visualização.
-- **Caminhos de Imagens**: O sistema SHALL resolver caminhos de imagem relativos presentes no markdown (ex: `imagens/...`) a partir do diretório `database/` do croqui atual.
+- **Caminhos de Imagens**: O sistema SHALL obter o diretório raiz do croqui a partir do modelo de dados (`CroquiModel`) e configurar o `baseUrl` do documento para resolver caminhos de imagens locais (ex: `imagens/...`).
 - **Dimensionamento Responsivo**: O sistema SHALL redimensionar dinamicamente as imagens exibidas para que caibam perfeitamente na largura do painel do visualizador (sem ultrapassar a largura disponível e sem criar barras de rolagem horizontais).
 
 #### Scenario: Dimensionamento de Imagem no Visualizador
 - **WHEN** o visualizador rico renderiza o markdown ou sofre um redimensionamento de janela
 - **THEN** o sistema SHALL ajustar proporcionalmente as dimensões de cada imagem (`QTextImageFormat`) para caber na largura livre do viewport.
+
+#### Scenario: Resolução Correta de Caminho Base do Visualizador
+- **WHEN** o componente de edição de Markdown é instanciado para um croqui
+- **THEN** o visualizador rico SHALL ter seu `baseUrl` apontando para o diretório do croqui atual, permitindo o carregamento de imagens locais referenciadas em `imagens/`.
 
 ### Requirement: Renderização de Booleanos Tri-State
 O sistema SHALL renderizar campos booleanos como um `QComboBox` contendo 3 opções: Indefinido/Não informado (índice 0), Sim/Verdadeiro (índice 1) e Não/Falso (índice 2).
@@ -107,5 +111,4 @@ O sistema SHALL renderizar seções/cartões contextuais no rodapé da visualiza
 #### Scenario: Adição Rápida de Sub-elemento via Cartão do Formulário
 - **WHEN** o usuário clica no botão de adicionar em um cartão de sub-elementos no formulário
 - **THEN** o sistema SHALL empilhar a adição no histórico de Undo/Redo, criar o novo item na coleção da mensagem pai, refletir a alteração na árvore e focar no formulário do novo item criado.
-
 
