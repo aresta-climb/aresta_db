@@ -18,19 +18,62 @@ class GerenciadorHistorico(QObject):
     sinal_item_removido = pyqtSignal(object, str, int)      # id_msg, campo, indice
     sinal_foco_requisitado = pyqtSignal(str)                # contexto_ui
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, diario=None):
         super().__init__(parent)
         self._pilha = QUndoStack(self)
         self._ultimo_index = 0
+        self._diario = diario
+        self._gravacao_pausada = False
         self._pilha.indexChanged.connect(self._on_index_changed)
+
+    def definir_gerenciador_diario(self, diario):
+        """Configura o GerenciadorDiario associado para persistência append-only."""
+        self._diario = diario
+
+    def obter_gerenciador_diario(self):
+        """Retorna o GerenciadorDiario associado, se houver."""
+        return self._diario
 
     def obter_pilha(self) -> QUndoStack:
         """Retorna a pilha interna do QUndoStack."""
         return self._pilha
 
     def executar(self, comando: QUndoCommand):
-        """Executa um comando e o empilha no histórico."""
+        """Executa um comando e o empilha no histórico, persistindo no diário se ativo."""
+        if self._diario and not self._gravacao_pausada:
+            try:
+                self._diario.gravar_comando_pendente(comando)
+            except Exception:
+                pass
         self._pilha.push(comando)
+
+    def restaurar_do_diario(self, model, diario) -> int:
+        """
+        Reconstrói o estado do modelo e popula a QUndoStack a partir do diário pendente.
+        Retorna o número de comandos restaurados com sucesso.
+        """
+        from editor.commands.comandos_protobuf import deserializar_comando
+        comandos_dados = diario.ler_diario_pendente()
+        if not comandos_dados:
+            self.definir_gerenciador_diario(diario)
+            return 0
+
+        self.limpar()
+        self._gravacao_pausada = True
+        total_restaurados = 0
+        try:
+            for cmd_dict in comandos_dados:
+                try:
+                    cmd = deserializar_comando(cmd_dict, model)
+                    self.executar(cmd)
+                    total_restaurados += 1
+                except Exception:
+                    # Se um comando falhar ao ser reconstruído, continua com os anteriores
+                    break
+        finally:
+            self._gravacao_pausada = False
+            self.definir_gerenciador_diario(diario)
+        return total_restaurados
 
     def desfazer(self):
         """Desfaz o último comando empilhado."""

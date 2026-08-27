@@ -2,8 +2,15 @@
 # Copyright (C) 2026 Aresta Contributors
 
 from PyQt6.QtGui import QUndoCommand
-import os
+from pathlib import Path
 from editor.models.readonly_proxy import _copia_segura
+from editor.commands.comandos_protobuf import (
+    resolver_caminho_mensagem,
+    navegar_para_mensagem,
+    _serializar_valor,
+    _deserializar_valor,
+)
+
 
 class CmdAdicionarMapaArquivo(QUndoCommand):
     """
@@ -41,3 +48,38 @@ class CmdAdicionarMapaArquivo(QUndoCommand):
         
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
+
+    def serializar(self, anonimizado: bool = False) -> dict:
+        img_bytes = self.img_bytes
+        caminho_abs_str = str(self.caminho_absoluto) if self.caminho_absoluto else ""
+        if anonimizado:
+            from editor.core.imagem_anonimizada import gerar_webp_anonimizado
+            img_bytes = gerar_webp_anonimizado(self.img_bytes)
+            caminho_abs_str = "[ARQUIVO_MAPA_ANONIMIZADO]"
+            
+        return {
+            "classe": "CmdAdicionarMapaArquivo",
+            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "campo_nome": self.campo_nome,
+            "index": self.index,
+            "valor": _serializar_valor(self.valor, anonimizado=anonimizado),
+            "caminho_absoluto": caminho_abs_str,
+            "img_bytes": img_bytes,
+            "context_path": self.context_path
+        }
+
+    @staticmethod
+    def deserializar(dados: dict, model) -> "CmdAdicionarMapaArquivo":
+        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
+        valor = _deserializar_valor(dados["valor"], model=model)
+        caminho_abs = Path(dados["caminho_absoluto"]) if dados.get("caminho_absoluto") else None
+        return CmdAdicionarMapaArquivo(
+            model=model,
+            msg=msg,
+            campo_nome=dados["campo_nome"],
+            index=dados["index"],
+            valor=valor,
+            caminho_absoluto=caminho_abs,
+            img_bytes=dados.get("img_bytes"),
+            context_path=dados.get("context_path")
+        )

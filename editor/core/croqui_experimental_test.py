@@ -331,3 +331,33 @@ def test_renomear_pasta_croqui_limpa_compilado_antigo(gerenciador, storage_temp)
     compilado_velho = nova_pasta / "compilado" / old_id
     assert not compilado_velho.exists()
 
+
+def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, storage_temp):
+    """Verifica se o commit_base_sha é gravado nos metadados ao criar a partir de oficial."""
+    caminho_repo = storage_temp.obter_caminho_base_repo()
+    caminho_repo.mkdir(parents=True, exist_ok=True)
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    
+    # Cria pasta e arquivo de croqui oficial simulado
+    id_oficial = "br_mg_oficial"
+    pasta_oficial = caminho_repo / "database" / id_oficial
+    pasta_oficial.mkdir(parents=True)
+    (pasta_oficial / "croqui.yaml").write_text("id: br_mg_oficial\nnome: Oficial\n", encoding="utf-8")
+    
+    # Cria um commit no repositório base
+    repo.index.add_all(["database"])
+    repo.index.write()
+    tree = repo.index.write_tree()
+    autor = pygit2.Signature("Teste", "teste@aresta.local")
+    commit_oid = repo.create_commit("HEAD", autor, autor, "Commit base de teste", tree, [])
+    commit_sha = str(commit_oid)
+    
+    with patch("editor.core.croqui_experimental.deploy"):
+        caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "Renato", "Edicao teste")
+        
+    yaml_path = caminho_exp / "croqui_experimental.yaml"
+    with open(yaml_path, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+        
+    assert dados.get("commit_base_sha") == commit_sha
+

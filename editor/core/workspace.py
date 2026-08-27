@@ -72,6 +72,7 @@ class EditorWorkspace(Protocol):
     def obter_pasta_servidor_celular(self) -> Path: ...
     def can_publish_pr(self) -> bool: ...
     def obter_tag_titulo(self) -> str: ...
+    def obter_diario(self): return None
     
     def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
         """Realiza rename se necessário, compila e retorna o caminho raiz e uma lista de msgs de warning/erro."""
@@ -86,6 +87,8 @@ class ExperimentalWorkspace(EditorWorkspace):
     """
     def __init__(self, caminho_raiz: Path):
         self.caminho_raiz = Path(caminho_raiz)
+        from editor.core.diario import GerenciadorDiario
+        self.diario = GerenciadorDiario(self.caminho_raiz)
 
     def obter_caminho_database(self) -> Path:
         return self.caminho_raiz / "database"
@@ -102,6 +105,9 @@ class ExperimentalWorkspace(EditorWorkspace):
     def obter_tag_titulo(self) -> str:
         return ""
 
+    def obter_diario(self):
+        return self.diario
+
     def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
         gerenciador = GerenciadorCroquiExperimental(storage)
         caminho = self.caminho_raiz
@@ -109,11 +115,15 @@ class ExperimentalWorkspace(EditorWorkspace):
         if novo_id and id_atual and novo_id != id_atual:
             caminho = gerenciador.renomear_pasta_croqui(caminho, novo_id)
             self.caminho_raiz = caminho
+            from editor.core.diario import GerenciadorDiario
+            self.diario = GerenciadorDiario(self.caminho_raiz)
             
         with capturar_saida() as out:
             gerenciador.compilar_croqui(caminho)
             
         mensagens = _filtrar_mensagens(out.getvalue())
+        if self.diario:
+            self.diario.consolidar_salvamento()
         return caminho, mensagens
 
 

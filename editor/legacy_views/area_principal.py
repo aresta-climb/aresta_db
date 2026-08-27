@@ -603,6 +603,12 @@ class JanelaPrincipal(QMainWindow):
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
         
+    def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
+        from editor.views.dialogo_recuperacao_sessao import DialogoRecuperacaoSessao
+        from PyQt6.QtWidgets import QDialog
+        dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
+        return dialogo.exec() == QDialog.DialogCode.Accepted
+
     def carregar_croqui(self):
         """Carrega os dados do croqui a partir do sistema de arquivos."""
         if not self.workspace:
@@ -634,12 +640,34 @@ class JanelaPrincipal(QMainWindow):
                 
                 # Inicializa/limpa rastreadores
                 self.croqui_model.carregar_arquivos_externos(caminho_db)
+
+                # Verifica recuperação de sessão no diário
+                diario = self.workspace.obter_diario() if hasattr(self.workspace, "obter_diario") else None
+                from editor.core.diario import GerenciadorDiario
+                if isinstance(diario, GerenciadorDiario) and diario.tem_alteracoes_pendentes():
+                    comandos_pendentes = diario.ler_diario_pendente()
+                    if comandos_pendentes:
+                        if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                            self.historico.restaurar_do_diario(self.croqui_model, diario)
+                        else:
+                            diario.descartar_pendente()
+                            self.historico.definir_gerenciador_diario(diario)
+                elif isinstance(diario, GerenciadorDiario):
+                    self.historico.definir_gerenciador_diario(diario)
                 
                 # Atualiza os componentes com os dados carregados
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
                 self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db, controller=self.croqui_controller)
                 self.pagina_betas.carregar_betas(caminho_db)
+
+                # Registra contexto no escopo de telemetria
+                from editor.core.telemetria import registrar_contexto_croqui, anexar_diario_escopo
+                id_croqui = self.croqui_data.get("id", "") if self.croqui_data else ""
+                commit_base_sha = getattr(self.croqui_model.obter_croqui_readonly(), "commit_base_sha", "")
+                registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=commit_base_sha)
+                if isinstance(diario, GerenciadorDiario):
+                    anexar_diario_escopo(diario)
                 
                 self.atualizar_titulo()
                 

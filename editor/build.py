@@ -31,6 +31,7 @@ def executar_build(force_icon_generation=False):
         "--collect-all", "pygit2",
         "--collect-all", "keyring",
         "--collect-all", "qtawesome",
+        "--collect-all", "sentry_sdk",
         "--distpath", str(DIRETORIO_EDITOR / "dist"),
         "--workpath", str(DIRETORIO_EDITOR / "build"),
         "--specpath", str(DIRETORIO_EDITOR),

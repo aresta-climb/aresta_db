@@ -170,6 +170,10 @@ class ControladorAplicativo:
         return self.app.exec()
 
 def main():
+    # Inicializa telemetria Sentry com sanitização universal de dados
+    from editor.core.telemetria import inicializar_telemetria
+    inicializar_telemetria()
+
     # Garante a instância global do QApplication
     app = QApplication.instance()
     if not app:

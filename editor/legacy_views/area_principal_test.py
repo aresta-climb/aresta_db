@@ -265,6 +265,7 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
     with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
         mock_workspace = MagicMock()
         mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui_db"), [])
         janela = JanelaPrincipal(auth=MagicMock(), workspace=mock_workspace)
         qtbot.addWidget(janela)
         janela.croqui_data = {"id": "teste"}

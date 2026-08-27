@@ -378,4 +378,124 @@ def test_cmd_substituir_imagem_memoria():
     assert model.obter_bytes_imagem("imagens/outra.webp") is None
 
 
+def test_serializacao_deserializacao_comandos_protobuf():
+    from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, Setor, ArquivoSetor
+    from editor.models.croqui_model import CroquiModel
+    from editor.commands.comandos_protobuf import (
+        CmdAlterarPrimitivo,
+        CmdAdicionarRepeated,
+        CmdRemoverRepeated,
+        CmdAlterarOneof,
+        CmdAlterarRepeatedItem,
+        CmdAlterarMultiplosRepeatedItems,
+        CmdMoverRepeated,
+        CmdAlterarMetadadosCaminhoNovo,
+        CmdAlterarCampoImagem,
+        CmdSubstituirImagemMemoria,
+        deserializar_comando
+    )
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico A"
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor 1"
+    model = CroquiModel(croqui)
+
+    # 1. CmdAlterarPrimitivo
+    cmd_prim = CmdAlterarPrimitivo(model, setor, "nome", "Setor 1", "Setor Principal", context_path="setores.0")
+    dados = cmd_prim.serializar()
+    assert dados["classe"] == "CmdAlterarPrimitivo"
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert setor.nome == "Setor Principal"
+    cmd_recriado.undo()
+    assert setor.nome == "Setor 1"
+
+    # 2. CmdAdicionarRepeated
+    from aresta_api.proto.generated.croqui_pb2 import Trilha
+    trilha = Trilha(nome="Trilha Teste")
+    cmd_add = CmdAdicionarRepeated(model, setor, "trilhas", 0, trilha)
+    dados = cmd_add.serializar()
+    assert dados["classe"] == "CmdAdicionarRepeated"
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert len(setor.trilhas) == 1
+    assert setor.trilhas[0].nome == "Trilha Teste"
+
+    # 3. CmdAlterarRepeatedItem
+    trilha_nova = Trilha(nome="Trilha Atualizada")
+    cmd_alt_item = CmdAlterarRepeatedItem(model, setor, "trilhas", 0, trilha, trilha_nova)
+    dados = cmd_alt_item.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert setor.trilhas[0].nome == "Trilha Atualizada"
+
+    # 4. CmdMoverRepeated
+    trilha2 = Trilha(nome="Trilha 2")
+    setor.trilhas.append(trilha2)
+    assert len(setor.trilhas) == 2
+    cmd_move = CmdMoverRepeated(model, setor, "trilhas", 0, 1)
+    dados = cmd_move.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert setor.trilhas[0].nome == "Trilha 2"
+    assert setor.trilhas[1].nome == "Trilha Atualizada"
+
+    # 5. CmdAlterarMultiplosRepeatedItems
+    alteracoes = [(0, setor.trilhas[0], Trilha(nome="Trilha Zero")), (1, setor.trilhas[1], Trilha(nome="Trilha Um"))]
+    cmd_mult = CmdAlterarMultiplosRepeatedItems(model, setor, "trilhas", alteracoes)
+    dados = cmd_mult.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert setor.trilhas[0].nome == "Trilha Zero"
+    assert setor.trilhas[1].nome == "Trilha Um"
+
+    # 6. CmdRemoverRepeated
+    cmd_rem = CmdRemoverRepeated(model, setor, "trilhas", 0, setor.trilhas[0])
+    dados = cmd_rem.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert len(setor.trilhas) == 1
+
+    # 7. CmdAlterarOneof
+    cmd_oneof = CmdAlterarOneof(model, sg, "item", "setor", sg.setor, "grupo", None)
+    dados = cmd_oneof.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    assert cmd_recriado.oneof_nome == "item"
+
+    # 8. CmdAlterarMetadadosCaminhoNovo
+    cmd_meta = CmdAlterarMetadadosCaminhoNovo(model, sg.setor, ArquivoSetor.ext_metadados_arquivo, "", "novo/caminho.md")
+    dados = cmd_meta.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == "novo/caminho.md"
+
+    # 9. CmdAlterarCampoImagem (com anonimização)
+    from PIL import Image
+    import io
+    img = Image.new("RGB", (100, 100), color="red")
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    img_bytes = buf.getvalue()
+
+    cmd_img = CmdAlterarCampoImagem(model, croqui, "caminho_thumbnail", "", None, "thumb.webp", img_bytes)
+    dados_normais = cmd_img.serializar(anonimizado=False)
+    assert dados_normais["bytes_novo"] == img_bytes
+    dados_anon = cmd_img.serializar(anonimizado=True)
+    assert len(dados_anon["bytes_novo"]) < len(img_bytes) or len(dados_anon["bytes_novo"]) < 500
+
+    cmd_recriado = deserializar_comando(dados_normais, model)
+    cmd_recriado.redo()
+    assert model.obter_bytes_imagem("thumb.webp") == img_bytes
+
+    # 10. CmdSubstituirImagemMemoria
+    cmd_sub = CmdSubstituirImagemMemoria(model, "thumb.webp", img_bytes, b"novos_bytes")
+    dados = cmd_sub.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    cmd_recriado.redo()
+    assert model.obter_bytes_imagem("thumb.webp") == b"novos_bytes"
+
+
 

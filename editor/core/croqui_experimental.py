@@ -32,7 +32,7 @@ class GerenciadorCroquiExperimental:
     def __init__(self, gerenciador_caminhos: GerenciadorCaminhos):
         self.caminhos = gerenciador_caminhos
         
-    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "", id_original: str = None) -> Path:
+    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "", id_original: str = None, commit_base_sha: str = "") -> Path:
         """
         Cria uma nova estrutura de pastas para um croqui experimental (privado).
         """
@@ -50,6 +50,8 @@ class GerenciadorCroquiExperimental:
         meta.resumo_edicao = resumo_edicao
         if id_original:
             meta.id_original = id_original
+        if commit_base_sha:
+            meta.commit_base_sha = commit_base_sha
             
         from datetime import timezone
         now = datetime.now(timezone.utc)
@@ -88,12 +90,25 @@ class GerenciadorCroquiExperimental:
         
         return caminho_raiz
 
+    def _obter_commit_base_sha(self) -> str:
+        """Retorna o hash SHA do HEAD do repositório base local se existir."""
+        try:
+            caminho_repo = self.caminhos.obter_caminho_base_repo()
+            if caminho_repo.exists():
+                repo = pygit2.Repository(str(caminho_repo))
+                if not repo.head_is_unborn:
+                    return str(repo.head.target)
+        except Exception:
+            pass
+        return ""
+
     def criar_novo_croqui(self, id_croqui: str, pico: str, estado: str, nome_usuario: str, log_dialog=None) -> Path:
         """
         Cria um novo croqui a partir de metadados, inicializa o croqui.yaml e realiza o primeiro build.
         """
+        commit_base_sha = self._obter_commit_base_sha()
         # 1. Cria a estrutura base (pastas e git inicial)
-        caminho_raiz = self._criar_estrutura_croqui(id_croqui, nome_usuario, "Inicialização automática", id_croqui)
+        caminho_raiz = self._criar_estrutura_croqui(id_croqui, nome_usuario, "Inicialização automática", id_croqui, commit_base_sha=commit_base_sha)
         
         try:
             # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
@@ -152,8 +167,9 @@ class GerenciadorCroquiExperimental:
         """
         Cria um croqui experimental a partir de um croqui oficial, copiando os arquivos.
         """
+        commit_base_sha = self._obter_commit_base_sha()
         # 1. Inicializa o croqui experimental (cria pastas e git inicial)
-        caminho_experimental = self._criar_estrutura_croqui(id_oficial, nome_usuario, resumo_edicao, id_oficial)
+        caminho_experimental = self._criar_estrutura_croqui(id_oficial, nome_usuario, resumo_edicao, id_oficial, commit_base_sha=commit_base_sha)
         
         try:
             # 2. Localiza o croqui oficial no repo sincronizado
