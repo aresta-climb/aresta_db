@@ -207,6 +207,10 @@ mapas:
     - '109'
     setor: Setor Túnel de Pedra (Mapa 8)
     escalada: Pequena Criança
+  - ids:
+    - '121'
+    setor: Savassinha (Mapa 9)
+    escalada: Três Pontos
 escaladas:
 - via_esportiva:
     nome: Corvo Gigante
@@ -304,6 +308,13 @@ escaladas:
     - Roberto Lincoln de Freitas
     descricao: Vía de proteção mista
     data_abertura: '1998'
+- via_esportiva:
+    nome: Três Pontos
+    dificuldade: BR_7A
+    conquistadores:
+    - Adherbal Muniz
+    - Anderson Vila Nova
+    - Bruno Madeira
 ---
 
 # Setor Savassinha (Mapa 9)
