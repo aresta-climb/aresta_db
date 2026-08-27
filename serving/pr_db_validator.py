@@ -5,7 +5,14 @@
 Utilitário para validação de pull requests, consumindo a biblioteca gerar_croqui_experimental.
 """
 
+import sys
 from pathlib import Path
+
+# Garante que a raiz do repositório esteja no sys.path para resolução de módulos
+_RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent
+if str(_RAIZ_REPOSITORIO) not in sys.path:
+    sys.path.insert(0, str(_RAIZ_REPOSITORIO))
+
 from scripts.gerar_croqui_experimental import empacotar_databases_para_croqui
 
 def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str) -> list[str]:
