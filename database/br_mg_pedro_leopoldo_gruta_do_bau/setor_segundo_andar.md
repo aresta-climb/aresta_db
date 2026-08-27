@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor 2º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p0_i6.webp

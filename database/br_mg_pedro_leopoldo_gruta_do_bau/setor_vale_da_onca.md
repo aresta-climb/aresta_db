@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor Vale da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_da_onca_p0_i6.webp

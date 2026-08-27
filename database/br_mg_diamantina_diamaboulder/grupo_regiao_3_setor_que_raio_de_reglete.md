@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Que Raio de Reglete
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_que_raio_de_reglete_p0_i0.webp

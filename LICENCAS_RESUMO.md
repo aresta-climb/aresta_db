@@ -5,35 +5,38 @@ Acreditamos que todo mundo deve conseguir entender o que pode e não pode fazer 
 Este é um **resumo prático e amigável (TL;DR)** do ecossistema de licenciamento do projeto. 
 
 > [!WARNING] 
-> Este documento tem caráter educativo. Em caso de disputas legais, os textos oficiais em inglês da GPLv3, Apache 2.0 e ODbL prevalecem.
+> Este documento tem caráter educativo. Em caso de disputas legais, os textos oficiais em inglês da MPL 2.0 e ODbL prevalecem.
 
 ---
 
-## 1. O Motor do Banco de Dados (`aresta_db`)
-**Licença Oficial:** [GNU GPLv3](./LICENSE)
+## 1. O Motor e Ferramentas (`aresta_db`)
+**Licença Oficial:** [Mozilla Public License 2.0 (MPL 2.0)](./LICENSE)
 
-O `aresta_db` é o coração do projeto. Nós usamos uma licença Copyleft forte para garantir que ele nunca seja sequestrado por uma empresa que feche o seu código e pare de contribuir.
+O `aresta_db` e o editor utilizam a licença MPL 2.0, caracterizada por um *Copyleft a nível de arquivo* (*file-level weak copyleft*). Ela garante que as ferramentas e o código do Aresta permaneçam sempre abertos, facilitando a reutilização e integração em outros projetos e bibliotecas.
 
 **✅ O que você PODE fazer:**
-* Baixar, instalar e rodar o `aresta_db` de graça para qualquer propósito (pessoal ou comercial).
-* Modificar o código para adicionar novas funcionalidades que você precise.
+* Baixar, instalar e rodar o `aresta_db` e o editor de graça para qualquer propósito (pessoal ou comercial).
+* Modificar qualquer arquivo existente do `aresta_db` ou adicionar novos arquivos ao seu projeto.
+* Combinar o `aresta_db` com outros softwares e bibliotecas (mesmo que sejam proprietários ou usem outras licenças de código aberto).
 
-**❌ O que você NÃO PODE fazer:**
-* Modificar o código do `aresta_db` e distribuir ou vender essa nova versão de forma "fechada" (código proprietário). Se você distribuir uma versão modificada do nosso banco de dados, você **é obrigado** a abrir o código da sua modificação para a comunidade sob a mesma licença GPLv3.
+**📝 O que você PRECISA fazer:**
+* Se você modificar arquivos de código pertencentes ao `aresta_db` e distribuir essa versão, você **é obrigado** a disponibilizar as alterações feitas nesses arquivos sob a mesma licença MPL 2.0.
+* Arquivos novos ou separados que você criar no seu projeto não são afetados e podem ter a licença que você escolher.
 
 ---
 
 ## 2. A Interface da API (`aresta_api`)
-**Licença Oficial:** [Apache License 2.0](./aresta_api/LICENSE)
+**Licença Oficial:** [Mozilla Public License 2.0 (MPL 2.0)](./aresta_api/LICENSE)
 
-A API é como os outros aplicativos (web, mobile) conversam com o Aresta. Nós queremos que desenvolvedores construam aplicativos incríveis de escalada sem burocracia, então usamos uma licença permissiva.
+A API define os esquemas de dados (Protobuf) e clientes de comunicação do ecossistema Aresta. Ela utiliza a MPL 2.0 para garantir total compatibilidade e liberdade de integração em outros aplicativos.
 
 **✅ O que você PODE fazer:**
-* Pegar o código cliente/servidor da API e integrar no seu próprio aplicativo de escalada (seja ele gratuito, open source, ou um app pago/fechado nas lojas da Apple e Google).
-* Você **não precisa** abrir o código do seu aplicativo só porque usou a nossa API.
+* Pegar o código cliente/servidor da API e integrar no seu próprio aplicativo de escalada (seja ele gratuito, open source, ou um app pago/fechado nas lojas de aplicativos).
+* Usar as definições e stubs gRPC/Protobuf livremente em outros projetos.
 
 **📝 O que você PRECISA fazer:**
-* Apenas dar o crédito (atribuição) dizendo que usou código do Aresta API e incluir um aviso de copyright.
+* Se você fizer alterações nos arquivos da própria `aresta_api` e distribuí-las, deve disponibilizar essas alterações sob a MPL 2.0.
+* O restante do seu aplicativo permanece sob a licença que você desejar.
 
 ---
 

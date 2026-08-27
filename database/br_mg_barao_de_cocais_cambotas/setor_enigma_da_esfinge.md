@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Enigma da Esfinge
 mapas:
 - caminho_imagem_mapa: imagens/setor_enigma_da_esfinge_p0.webp

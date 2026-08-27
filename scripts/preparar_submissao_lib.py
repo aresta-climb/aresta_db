@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import os
 import re
@@ -1111,7 +1111,7 @@ def garantir_comentarios_licenca(file_path: Path):
         return
         
     comentario_spdx = "# SPDX-License-Identifier: ODbL-1.0"
-    comentario_copy = "# Copyright (C) 2026 Aresta Contributors"
+    comentario_copy = "# Copyright (C) 2026 Aresta Climb Contributors"
     
     # 1. Checa se o arquivo já está perfeitamente correto para evitar writes desnecessários
     if file_path.suffix == ".yaml" and len(linhas) >= 2:
@@ -1154,7 +1154,7 @@ def garantir_comentarios_licenca(file_path: Path):
             
     comentarios = (
         "# SPDX-License-Identifier: ODbL-1.0\n"
-        "# Copyright (C) 2026 Aresta Contributors\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
     )
     
     if file_path.suffix == ".yaml":

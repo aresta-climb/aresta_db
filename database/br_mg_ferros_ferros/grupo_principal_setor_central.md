@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Parede Principal – Setor Central
 mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
