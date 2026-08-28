@@ -510,9 +510,13 @@ class WidgetEditorMarkdown(QWidget):
                 
         self.preview.setMarkdown(preview_text)
         
-        val_antigo = getattr(self.msg, self.field.name) if self.msg.HasField(self.field.name) else None
+        try:
+            has_field = self.msg.HasField(self.field.name)
+        except ValueError:
+            has_field = bool(getattr(self.msg, self.field.name, None))
+        val_antigo = getattr(self.msg, self.field.name) if has_field else None
         if val_antigo != text:
-            self.controller.alterar_primitivo(self.msg, self.field.name, val_antigo, text)
+            self.controller.alterar_primitivo(self.msg, self.field.name, val_antigo, text, pode_mesclar=True)
             self.formulario._mark_dirty()
             self.formulario._notify_tree_changed()
 
@@ -775,7 +779,7 @@ class ContainerRepeatedWidget(QWidget):
                             val_antigo = self.repeated_container[current_idx]
                             val_novo = w.text()
                             if val_antigo != val_novo:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, val_novo)
+                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, val_novo, pode_mesclar=True)
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
                     return on_item_changed
@@ -789,7 +793,7 @@ class ContainerRepeatedWidget(QWidget):
                         if current_idx is not None:
                             val_antigo = self.repeated_container[current_idx]
                             if val_antigo != new_val:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val)
+                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val, pode_mesclar=True)
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
                     return on_item_changed
@@ -803,7 +807,7 @@ class ContainerRepeatedWidget(QWidget):
                         if current_idx is not None:
                             val_antigo = self.repeated_container[current_idx]
                             if val_antigo != new_val:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val)
+                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val, pode_mesclar=True)
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
                     return on_item_changed
@@ -1023,6 +1027,66 @@ class WidgetFormularioPadrao(QStackedWidget):
                         val_caminho = str(novo_valor) if novo_valor is not None else ""
                         if widget.obter_caminho_atual() != val_caminho:
                             widget.definir_caminho_atual(val_caminho)
+                finally:
+                    widget.blockSignals(False)
+                break
+
+    def _on_repeated_item_alterado(self, msg_id, campo_nome, index, novo_valor):
+        target_field = f"{campo_nome}[{index}]"
+        for widget in self.findChildren(QWidget):
+            w_field = widget.property("protobuf_field")
+            w_msg_id = widget.property("protobuf_msg_id")
+
+            if (w_field == target_field or w_field == campo_nome) and w_msg_id == msg_id:
+                widget.blockSignals(True)
+                try:
+                    if isinstance(widget, QLineEdit):
+                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        new_text = "" if novo_valor is None else str(novo_valor)
+                        if widget.text() != new_text:
+                            old_text = widget.text()
+                            old_cursor = widget.cursorPosition()
+                            
+                            diff_idx = 0
+                            min_len = min(len(old_text), len(new_text))
+                            while diff_idx < min_len and old_text[diff_idx] == new_text[diff_idx]:
+                                diff_idx += 1
+                            
+                            if old_cursor < diff_idx:
+                                new_cursor = old_cursor
+                            else:
+                                new_cursor = old_cursor + (len(new_text) - len(old_text))
+                            
+                            widget.setText(new_text)
+                            widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
+                    elif isinstance(widget, QSpinBox):
+                        val = ProtobufWidgetFactory.VALOR_INTEIRO_NULO if (novo_valor is None or novo_valor == "") else int(novo_valor)
+                        if widget.value() != val:
+                            widget.setValue(val)
+                    elif isinstance(widget, QDoubleSpinBox):
+                        if novo_valor is not None and widget.value() != float(novo_valor):
+                            widget.setValue(float(novo_valor))
+                    elif isinstance(widget, QCheckBox):
+                        if novo_valor is not None and widget.isChecked() != bool(novo_valor):
+                            widget.setChecked(bool(novo_valor))
+                    elif isinstance(widget, QComboBox):
+                        if novo_valor is None:
+                            if widget.currentIndex() != 0:
+                                widget.setCurrentIndex(0)
+                        else:
+                            target_idx = -1
+                            for i in range(widget.count()):
+                                item_data = widget.itemData(i)
+                                if type(item_data) == type(novo_valor) and item_data == novo_valor:
+                                    target_idx = i
+                                    break
+                            if target_idx >= 0:
+                                if widget.currentIndex() != target_idx:
+                                    widget.setCurrentIndex(target_idx)
+                            else:
+                                idx = widget.findData(novo_valor)
+                                if idx >= 0 and widget.currentIndex() != idx:
+                                    widget.setCurrentIndex(idx)
                 finally:
                     widget.blockSignals(False)
                 break
@@ -1822,7 +1886,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                         val_novo = text if text != "" else None
                         
                     if val_antigo != val_novo:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo)
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo, pode_mesclar=True)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed
@@ -1834,7 +1898,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     val_novo = None if new_val == ProtobufWidgetFactory.VALOR_INTEIRO_NULO else new_val
                     if val_antigo != val_novo:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo)
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo, pode_mesclar=True)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed
@@ -1845,7 +1909,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 def on_changed(new_val):
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != new_val:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val, pode_mesclar=True)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed
@@ -1879,7 +1943,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 def on_changed(new_val_e7):
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != new_val_e7:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val_e7)
+                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val_e7, pode_mesclar=True)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed
@@ -1888,12 +1952,12 @@ class WidgetFormularioPadrao(QStackedWidget):
             def make_on_par_coords(w=widget, m=msg, f=field):
                 def on_par(lat_e7, lon_e7):
                     if hasattr(m, "latitude") and hasattr(m, "longitude"):
-                        lat_antiga = m.latitude if self._obter_has_field(m, "latitude") else None
-                        lon_antiga = m.longitude if self._obter_has_field(m, "longitude") else None
+                        lat_antiga = getattr(m, "latitude") if self._obter_has_field(m, "latitude") else None
+                        lon_antiga = getattr(m, "longitude") if self._obter_has_field(m, "longitude") else None
                         if lat_antiga != lat_e7:
-                            self.controller.alterar_primitivo(m, "latitude", lat_antiga, lat_e7)
+                            self.controller.alterar_primitivo(m, "latitude", lat_antiga, lat_e7, pode_mesclar=True)
                         if lon_antiga != lon_e7:
-                            self.controller.alterar_primitivo(m, "longitude", lon_antiga, lon_e7)
+                            self.controller.alterar_primitivo(m, "longitude", lon_antiga, lon_e7, pode_mesclar=True)
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_par
@@ -2016,7 +2080,6 @@ class WidgetEditorDados(QWidget):
             return
             
         path_local = ctx.caminho_local_arvore
-        print(f"FOCO REQUISITADO PARA: {path_local}")
         if not path_local: return
         
         # Verifica se já estamos no nó para evitar loop/flicker
@@ -2024,15 +2087,14 @@ class WidgetEditorDados(QWidget):
         if indexes:
             current_node = indexes[0].internalPointer()
             curr_path = get_node_path(current_node) if current_node else None
-            print(f"CURRENT PATH: {curr_path}")
             if curr_path == path_local:
-                print("JA ESTAMOS NO NO, RETORNANDO")
                 return
                 
         idx = self.tree_model.find_index_for_path(path_local)
         if idx and idx.isValid():
-            self.tree_view.selectionModel().select(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+            self.tree_view.selectionModel().setCurrentIndex(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
             self.tree_view.scrollTo(idx)
+            self._on_tree_selection_changed(None, None)
 
     def _salvar_estado_expansao(self):
         """Salva o estado de expansão de todos os nós da árvore."""
@@ -2543,8 +2605,14 @@ class WidgetEditorDados(QWidget):
             self.model.repeated_removido.connect(self._on_repeated_removido)
             self.model.repeated_movido.connect(self._on_repeated_movido)
             self.model.oneof_alterado.connect(self._on_oneof_alterado)
-            self.model.repeated_item_alterado.connect(self._on_dado_alterado)
+            self.model.repeated_item_alterado.connect(self._on_repeated_item_alterado)
         self.model.foco_requisitado.connect(self._on_foco_requisitado)
+
+    def _on_repeated_item_alterado(self, msg, campo_nome, index):
+        container = getattr(msg, campo_nome, [])
+        novo_valor = container[index] if 0 <= index < len(container) else None
+        self.form_padrao._on_repeated_item_alterado(_get_id(msg), campo_nome, index, novo_valor)
+        self.tree_model._on_repeated_item_alterado(_get_id(msg), campo_nome, index, novo_valor)
 
     def _on_dado_alterado(self, msg, campo_nome, *args):
         has_field = False

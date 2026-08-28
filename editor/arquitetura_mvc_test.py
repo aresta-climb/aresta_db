@@ -99,3 +99,48 @@ def test_arquitetura_mvc_privacidade_metodos():
     if violations:
         msg = "Violacoes de arquitetura encontradas:\n" + "\n".join(violations)
         assert False, msg
+
+
+def test_todos_comandos_implementam_serializacao_e_deserializacao():
+    """
+    Garante que qualquer classe de comando (Cmd*) implemente serializar() e deserializar(),
+    além de estar registrada para reconstrução a partir do diário de comandos.
+    """
+    import inspect
+    import importlib
+    from PyQt6.QtGui import QUndoCommand
+    from editor.commands.comandos_protobuf import deserializar_comando
+
+    commands_dir = Path(__file__).parent / "commands"
+    classes_comando: list[type] = []
+
+    for filepath in commands_dir.glob("*.py"):
+        if filepath.name.endswith("_test.py") or filepath.name.startswith("__"):
+            continue
+        modulo_nome = f"editor.commands.{filepath.stem}"
+        modulo = importlib.import_module(modulo_nome)
+        for nome_obj, obj in inspect.getmembers(modulo, inspect.isclass):
+            if nome_obj.startswith("Cmd") and issubclass(obj, QUndoCommand) and obj is not QUndoCommand:
+                classes_comando.append(obj)
+
+    assert len(classes_comando) > 0, "Nenhuma classe de comando encontrada para teste de arquitetura."
+
+    for cls in classes_comando:
+        nome_classe = cls.__name__
+        # 1. Deve ter método serializar
+        assert hasattr(cls, "serializar"), f"Comando '{nome_classe}' não implementa o método serializar()."
+        assert callable(getattr(cls, "serializar")), f"'{nome_classe}.serializar' não é chamável."
+
+        # 2. Deve ter método estático/classmethod deserializar
+        assert hasattr(cls, "deserializar"), f"Comando '{nome_classe}' não implementa o método deserializar()."
+        assert callable(getattr(cls, "deserializar")), f"'{nome_classe}.deserializar' não é chamável."
+
+        # 3. Deve ser reconhecido pela factory global deserializar_comando
+        try:
+            deserializar_comando({"classe": nome_classe}, model=None)
+        except ValueError as e:
+            assert False, f"Comando '{nome_classe}' não está registrado na factory global deserializar_comando: {e}"
+        except Exception:
+            # Qualquer exceção de parsing de campos internos é esperada pois passamos dados vazios,
+            # mas NÃO deve ser ValueError de classe desconhecida.
+            pass

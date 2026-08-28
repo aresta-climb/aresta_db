@@ -108,6 +108,18 @@ class ExperimentalWorkspace(EditorWorkspace):
     def obter_diario(self):
         return self.diario
 
+    def obter_commit_base_sha(self) -> str:
+        meta_path = self.caminho_raiz / "metadados.json"
+        if meta_path.exists():
+            try:
+                import json
+                with open(meta_path, "r", encoding="utf-8") as f:
+                    dados = json.load(f)
+                    return dados.get("commit_base_sha", "")
+            except Exception:
+                pass
+        return ""
+
     def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
         gerenciador = GerenciadorCroquiExperimental(storage)
         caminho = self.caminho_raiz
@@ -134,8 +146,37 @@ class LocalRepoWorkspace(EditorWorkspace):
     A saída compilada é `aresta_db/generated/<id>`.
     O rename usa `git mv` nativo.
     """
-    def __init__(self, caminho_raiz: Path):
+    def __init__(self, caminho_raiz: Path, storage=None):
         self.caminho_raiz = Path(caminho_raiz)
+        self.storage = storage
+        
+        # Registra caminho raiz do repo para sanitização de privacidade (<aresta_db>)
+        from editor.core.telemetria import registrar_caminho_repo_local
+        try:
+            raiz_repo = self.caminho_raiz.parent.parent
+            registrar_caminho_repo_local(raiz_repo)
+        except Exception:
+            pass
+        from editor.core.storage import GerenciadorCaminhos
+        from editor.core.diario import GerenciadorDiario
+        gerenciador_caminhos = storage or GerenciadorCaminhos()
+        pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
+        self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
+
+    def obter_commit_base_sha(self) -> str:
+        try:
+            res = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=str(self.caminho_raiz),
+                capture_output=True,
+                text=True,
+                timeout=2,
+            )
+            if res.returncode == 0:
+                return res.stdout.strip()
+        except Exception:
+            pass
+        return ""
 
     def obter_caminho_database(self) -> Path:
         # A própria raiz já é a pasta do database neste modo
@@ -158,6 +199,9 @@ class LocalRepoWorkspace(EditorWorkspace):
     def obter_tag_titulo(self) -> str:
         return "[Local Mode]"
 
+    def obter_diario(self):
+        return self.diario
+
     def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
         caminho = self.caminho_raiz
         
@@ -177,6 +221,11 @@ class LocalRepoWorkspace(EditorWorkspace):
                     
                 caminho = novo_caminho_db
                 self.caminho_raiz = caminho
+                from editor.core.storage import GerenciadorCaminhos
+                from editor.core.diario import GerenciadorDiario
+                gerenciador_caminhos = storage or self.storage or GerenciadorCaminhos()
+                pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
+                self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
             except subprocess.CalledProcessError as e:
                 raise RuntimeError(f"Falha ao renomear as pastas via git: {e}")
 
@@ -207,4 +256,6 @@ class LocalRepoWorkspace(EditorWorkspace):
                     print(f"Erro ao medir saúde dos croquis: {e}")
                 
         mensagens = _filtrar_mensagens(out.getvalue())
+        if self.diario:
+            self.diario.consolidar_salvamento()
         return caminho, mensagens

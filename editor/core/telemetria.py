@@ -15,12 +15,45 @@ except ImportError:
 
 DSN_PADRAO = "https://a632ff22a93532930ea95f849b4a796b@o4511980548849664.ingest.us.sentry.io/4511980560515072"
 
+_caminhos_extras_sanitizacao: list[tuple[str, str]] = []
+
+
+def registrar_caminho_repo_local(caminho_repo: Path | str) -> None:
+    """
+    Registra a raiz do repositório local para que qualquer caminho interno
+    seja truncado e sanitizado como <aresta_db>\\... em logs e relatórios.
+    """
+    if not caminho_repo:
+        return
+    caminho_str = str(Path(caminho_repo).resolve())
+    if (caminho_str, "<aresta_db>") not in _caminhos_extras_sanitizacao:
+        _caminhos_extras_sanitizacao.append((caminho_str, "<aresta_db>"))
+
+
+def limpar_caminhos_extras_sanitizacao() -> None:
+    """Limpa caminhos adicionais registrados para sanitização (útil em testes)."""
+    global _caminhos_extras_sanitizacao
+    _caminhos_extras_sanitizacao = []
+
 
 def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     """Gera lista ordenada de prefixos de caminhos locais e suas respectivas substituições anônimas."""
-    mapeamentos = []
+    mapeamentos: list[tuple[str, str]] = []
     
-    # 1. APPDATA e LOCALAPPDATA
+    # 1. Caminhos de repositórios locais registrados
+    for caminho, substituto in _caminhos_extras_sanitizacao:
+        mapeamentos.append((caminho, substituto))
+
+    # 2. Diretório Base do Aplicativo (EditorAresta)
+    try:
+        from editor.core.storage import obter_diretorio_base_app
+        dir_base = str(obter_diretorio_base_app())
+        if dir_base:
+            mapeamentos.append((dir_base, "%appdata%\\EditorAresta"))
+    except Exception:
+        pass
+
+    # 3. APPDATA e LOCALAPPDATA
     appdata = os.environ.get("APPDATA")
     if appdata:
         mapeamentos.append((appdata, "%appdata%"))
@@ -28,7 +61,7 @@ def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     if localappdata:
         mapeamentos.append((localappdata, "%localappdata%"))
         
-    # 2. Diretório Home / UserProfile
+    # 3. Diretório Home / UserProfile
     home = str(Path.home())
     if home:
         mapeamentos.append((home, "%userprofile%"))
@@ -37,7 +70,7 @@ def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     if userprofile and userprofile != home:
         mapeamentos.append((userprofile, "%userprofile%"))
 
-    # 3. Diretório Temporário
+    # 4. Diretório Temporário
     temp = os.environ.get("TEMP")
     if temp:
         mapeamentos.append((temp, "%temp%"))
@@ -48,7 +81,7 @@ def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
 
 
 def sanitizar_texto_caminhos(texto: str) -> str:
-    """Substitui caminhos locais de usuários por variáveis de ambiente genéricas (%appdata%, %userprofile%, etc.)."""
+    """Substitui caminhos locais de usuários por variáveis de ambiente genéricas (%appdata%, %userprofile%, <aresta_db>, etc.)."""
     if not isinstance(texto, str) or not texto:
         return texto
 
@@ -61,10 +94,10 @@ def sanitizar_texto_caminhos(texto: str) -> str:
         
         # Regex case-insensitive escapando caracteres especiais
         padrao_inv = re.compile(re.escape(caminho_barras_invertidas), re.IGNORECASE)
-        resultado = padrao_inv.sub(substituto, resultado)
+        resultado = padrao_inv.sub(lambda m, s=substituto: s, resultado)
         
         padrao_norm = re.compile(re.escape(caminho_barras_normais), re.IGNORECASE)
-        resultado = padrao_norm.sub(substituto, resultado)
+        resultado = padrao_norm.sub(lambda m, s=substituto: s, resultado)
 
     return resultado
 
@@ -107,6 +140,12 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
             profile_session_sample_rate=1.0,
             before_send=sanitizar_evento_sentry,
         )
+        if hasattr(sentry_sdk, "start_transaction"):
+            try:
+                with sentry_sdk.start_transaction(op="app.boot", name="InicializacaoEditor"):
+                    pass
+            except Exception:
+                pass
         configurar_tratamento_excecoes_globais()
         return True
     except Exception:
@@ -126,13 +165,71 @@ def registrar_contexto_croqui(id_croqui: str = "", commit_base_sha: str = "") ->
         pass
 
 
+_diario_ativo = None
+
+
 def anexar_diario_escopo(diario) -> None:
     """Anexa os comandos recentes do diário (anonimizados) ao contexto do escopo Sentry."""
+    global _diario_ativo
+    _diario_ativo = diario
     if not sentry_sdk or not diario:
         return
     try:
         comandos_anon = diario.exportar_diario_anonimizado(limite_comandos=50)
         sentry_sdk.set_context("historico_comandos", {"comandos": comandos_anon})
+    except Exception:
+        pass
+
+
+def _anexar_arquivos_diario_no_escopo() -> None:
+    """Anexa os arquivos .bin do diário ao escopo apenas no momento do envio do crash."""
+    if not sentry_sdk or not _diario_ativo:
+        return
+    try:
+        # Limpa anexos de todos os escopos do Sentry para garantir unicidade absoluta
+        for obter_escopo in (
+            getattr(sentry_sdk, "get_current_scope", None),
+            getattr(sentry_sdk, "get_isolation_scope", None),
+            getattr(sentry_sdk, "get_global_scope", None),
+        ):
+            if obter_escopo:
+                try:
+                    s = obter_escopo()
+                    if s:
+                        if hasattr(s, "clear_attachments"):
+                            s.clear_attachments()
+                        elif hasattr(s, "_attachments"):
+                            s._attachments = []
+                except Exception:
+                    pass
+
+        scope = sentry_sdk.get_current_scope() if hasattr(sentry_sdk, "get_current_scope") else (
+            getattr(getattr(sentry_sdk, "Hub", None), "current", None) and getattr(sentry_sdk.Hub.current, "scope", None)
+        )
+        if scope and hasattr(scope, "add_attachment"):
+            if hasattr(_diario_ativo, "caminho_pendente") and _diario_ativo.caminho_pendente.exists() and _diario_ativo.caminho_pendente.stat().st_size > 0:
+                scope.add_attachment(path=str(_diario_ativo.caminho_pendente), filename="diario_pendente.bin")
+            if hasattr(_diario_ativo, "caminho_salvo") and _diario_ativo.caminho_salvo.exists() and _diario_ativo.caminho_salvo.stat().st_size > 0:
+                scope.add_attachment(path=str(_diario_ativo.caminho_salvo), filename="diario_salvo.bin")
+    except Exception:
+        pass
+
+
+def registrar_breadcrumb_comando(cmd) -> None:
+    """Registra uma ação / comando do usuário como breadcrumb cronológico no Sentry."""
+    if not sentry_sdk or not hasattr(sentry_sdk, "add_breadcrumb"):
+        return
+    try:
+        classe = type(cmd).__name__
+        campo = getattr(cmd, "campo_nome", "")
+        caminho = getattr(cmd, "context_path", "") or getattr(cmd, "caminho_msg", "")
+        msg = f"{classe}: {campo}" if campo else classe
+        sentry_sdk.add_breadcrumb(
+            category="historico",
+            message=msg,
+            level="info",
+            data={"classe": classe, "campo": campo, "caminho": caminho}
+        )
     except Exception:
         pass
 
@@ -146,7 +243,10 @@ def configurar_tratamento_excecoes_globais() -> None:
 
     def _tratar_excecao_sys(exc_type, exc_value, exc_traceback):
         try:
+            _anexar_arquivos_diario_no_escopo()
             sentry_sdk.capture_exception((exc_type, exc_value, exc_traceback))
+            if hasattr(sentry_sdk, "flush"):
+                sentry_sdk.flush(timeout=5.0)
         except Exception:
             pass
         if hook_original_sys:
@@ -159,7 +259,10 @@ def configurar_tratamento_excecoes_globais() -> None:
 
         def _tratar_excecao_thread(args):
             try:
+                _anexar_arquivos_diario_no_escopo()
                 sentry_sdk.capture_exception((args.exc_type, args.exc_value, args.exc_traceback))
+                if hasattr(sentry_sdk, "flush"):
+                    sentry_sdk.flush(timeout=5.0)
             except Exception:
                 pass
             if hook_original_thread:

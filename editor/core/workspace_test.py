@@ -200,3 +200,33 @@ def test_experimental_workspace_diario_consolidacao(tmp_paths):
     # Deve ter consolidado o diário
     assert not diario.tem_alteracoes_pendentes()
     assert len(diario.ler_diario_salvo()) == 1
+
+
+def test_local_repo_workspace_diario_consolidacao(tmp_path):
+    repo_dir = tmp_path / "repo"
+    croqui_dir = repo_dir / "database" / "croqui_teste"
+    croqui_dir.mkdir(parents=True)
+
+    mock_storage = MagicMock()
+    pasta_diarios = tmp_path / "appdata" / "diarios_locais"
+    mock_storage.obter_caminho_diarios_locais.return_value = pasta_diarios
+
+    ws = LocalRepoWorkspace(croqui_dir, storage=mock_storage)
+    diario = ws.obter_diario()
+    assert diario is not None
+    # Diário deve estar fora da pasta do croqui
+    assert diario.pasta_croqui == pasta_diarios / "croqui_teste"
+    assert not (croqui_dir / "diario_pendente.bin").exists()
+
+    diario.gravar_comando_pendente({"classe": "CmdLocalTeste"})
+    assert diario.tem_alteracoes_pendentes()
+
+    with patch("editor.core.workspace.deploy") as mock_deploy:
+        ws.processar_renomeacao_e_compilacao("croqui_teste", "croqui_teste", mock_storage)
+
+    # Pendente deve ter sido esvaziado
+    assert not diario.tem_alteracoes_pendentes()
+    # Em modo local, diario_salvo.bin NÃO é criado
+    assert len(diario.ler_diario_salvo()) == 0
+    assert not diario.caminho_salvo.exists()
+    assert not (croqui_dir / "diario_salvo.bin").exists()

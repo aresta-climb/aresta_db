@@ -4,12 +4,23 @@
 import unittest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
-from editor.core.storage import GerenciadorCaminhos
+from editor.core.storage import GerenciadorCaminhos, obter_diretorio_base_app
 
 class TestStorage(unittest.TestCase):
     @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
+    def test_obter_diretorio_base_app_via_qstandardpaths(self, mock_writable_location):
+        mock_writable_location.return_value = "C:/fake/appdata/EditorAresta"
+        caminho = obter_diretorio_base_app()
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/EditorAresta")
+
+    @patch("PyQt6.QtCore.QStandardPaths.writableLocation", return_value="")
+    @patch.dict("os.environ", {"APPDATA": "C:/fake/appdata"})
+    def test_obter_diretorio_base_app_fallback_env(self, mock_writable_location):
+        caminho = obter_diretorio_base_app()
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/EditorAresta")
+
+    @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
     def test_resolver_diretorio_appdata(self, mock_writable_location):
-        # Configura o mock para retornar um caminho fictício
         mock_writable_location.return_value = "C:/fake/appdata"
         
         gerenciador = GerenciadorCaminhos()
@@ -25,6 +36,13 @@ class TestStorage(unittest.TestCase):
         self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/.trash_interna")
 
     @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
+    def test_obter_caminho_diarios_locais(self, mock_writable_location):
+        mock_writable_location.return_value = "C:/fake/appdata"
+        gerenciador = GerenciadorCaminhos()
+        caminho = gerenciador.obter_caminho_diarios_locais()
+        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/diarios_locais")
+
+    @patch("PyQt6.QtCore.QStandardPaths.writableLocation")
     @patch("editor.core.storage.Path.mkdir")
     def test_inicializar_diretorios_cria_pastas(self, mock_mkdir, mock_writable_location):
         mock_writable_location.return_value = "C:/fake/appdata"
@@ -32,8 +50,8 @@ class TestStorage(unittest.TestCase):
         gerenciador = GerenciadorCaminhos()
         gerenciador.inicializar_diretorios()
         
-        # Deve chamar mkdir para a pasta base, base_repo, croquis_experimentais e .trash_interna
-        self.assertGreaterEqual(mock_mkdir.call_count, 4)
+        # Deve chamar mkdir para pasta base, base_repo, croquis_experimentais, diarios_locais e .trash_interna
+        self.assertGreaterEqual(mock_mkdir.call_count, 5)
 
     @patch("sys._MEIPASS", "C:/Temp/_MEI12345", create=True)
     def test_obter_caminho_recurso_interno_pyinstaller(self):

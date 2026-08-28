@@ -5,6 +5,7 @@ from PyQt6.QtGui import QUndoCommand
 from pathlib import Path
 from editor.models.readonly_proxy import _copia_segura
 from editor.commands.comandos_protobuf import (
+    ComandoEditor,
     resolver_caminho_mensagem,
     navegar_para_mensagem,
     _serializar_valor,
@@ -12,7 +13,7 @@ from editor.commands.comandos_protobuf import (
 )
 
 
-class CmdAdicionarMapaArquivo(QUndoCommand):
+class CmdAdicionarMapaArquivo(ComandoEditor):
     """
     Comando para adicionar um Mapa no Protobuf e registrar sua imagem no buffer em memória RAM (CroquiModel).
     """
@@ -39,7 +40,7 @@ class CmdAdicionarMapaArquivo(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         # 1. Registra imagem no buffer de RAM
         if self.caminho_relativo and self.img_bytes:
             self.model.definir_imagem_memoria(self.caminho_relativo, self.img_bytes)

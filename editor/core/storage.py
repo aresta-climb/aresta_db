@@ -5,6 +5,22 @@ from PyQt6.QtCore import QStandardPaths
 from pathlib import Path
 import os
 
+
+def obter_diretorio_base_app() -> Path:
+    """
+    Retorna o caminho canônico do diretório de dados do aplicativo.
+    - Windows: %APPDATA%/EditorAresta
+    - Linux/Mac: ~/.local/share/EditorAresta (ou QStandardPaths)
+    """
+    appdata = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
+    if not appdata:
+        appdata_env = os.environ.get("APPDATA")
+        if appdata_env:
+            return Path(appdata_env) / "EditorAresta"
+        return Path.home() / ".local" / "share" / "EditorAresta"
+    return Path(appdata)
+
+
 class GerenciadorCaminhos:
     """
     Biblioteca para gerenciar caminhos de armazenamento local do Editor Aresta.
@@ -17,12 +33,7 @@ class GerenciadorCaminhos:
         """
         Retorna o caminho base para os dados do aplicativo.
         """
-        appdata = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
-        if not appdata:
-            # Fallback caso writableLocation falhe
-            appdata = os.path.expanduser("~/.local/share/EditorAresta")
-            
-        return Path(appdata)
+        return obter_diretorio_base_app()
 
     def obter_caminho_recurso_interno(self, caminho_relativo: str) -> Path:
         """
@@ -50,6 +61,12 @@ class GerenciadorCaminhos:
         """
         return self.obter_diretorio_base() / "croquis"
 
+    def obter_caminho_diarios_locais(self) -> Path:
+        """
+        Retorna o caminho para o diretório de diários locais (persistência temporária do modo repositório).
+        """
+        return self.obter_diretorio_base() / "diarios_locais"
+
     def obter_caminho_lixeira(self) -> Path:
         """
         Retorna o caminho para o diretório temporário interno da lixeira (.trash_interna).
@@ -63,4 +80,5 @@ class GerenciadorCaminhos:
         self.obter_diretorio_base().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_base_repo().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_croquis_experimentais().mkdir(parents=True, exist_ok=True)
+        self.obter_caminho_diarios_locais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_lixeira().mkdir(parents=True, exist_ok=True)

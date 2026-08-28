@@ -127,3 +127,15 @@ def test_gerenciador_diario_exportar_anonimizado(tmp_path):
     with Image.open(io.BytesIO(bytes_anon)) as img_out:
         assert img_out.format == "WEBP"
         assert img_out.size == (200, 150)
+
+
+def test_gerenciador_diario_apenas_pendente(tmp_path):
+    diario = GerenciadorDiario(tmp_path, apenas_pendente=True)
+    diario.gravar_comando_pendente({"classe": "CmdLocal"})
+    assert diario.tem_alteracoes_pendentes()
+
+    diario.consolidar_salvamento()
+    assert not diario.tem_alteracoes_pendentes()
+    # No modo apenas_pendente, diario_salvo.bin não deve ser criado
+    assert not diario.caminho_salvo.exists()
+    assert len(diario.ler_diario_salvo()) == 0

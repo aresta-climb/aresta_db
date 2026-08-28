@@ -289,3 +289,26 @@ def test_croqui_controller_alterar_repeated_item(qapp):
     assert croqui.picos[0].nome == "Pico 1"
 
 
+def test_croqui_controller_grava_no_diario_com_gerenciador_historico(qapp, tmp_path):
+    from editor.core.historico import GerenciadorHistorico
+    from editor.core.diario import GerenciadorDiario
+
+    croqui = Croqui(nome="Original")
+    model = CroquiModel(croqui)
+    diario = GerenciadorDiario(tmp_path)
+    historico = GerenciadorHistorico(diario=diario)
+
+    controller = CroquiController(model, historico)
+    proxy = model.obter_croqui_readonly()
+
+    # Executa mutação pelo controller
+    controller.alterar_primitivo(proxy, "nome", "Original", "Modificado")
+
+    assert proxy.nome == "Modificado"
+    assert diario.tem_alteracoes_pendentes()
+    comandos_pendentes = diario.ler_diario_pendente()
+    assert len(comandos_pendentes) == 1
+    assert comandos_pendentes[0]["classe"] == "CmdAlterarPrimitivo"
+    assert comandos_pendentes[0]["valor_novo"] == "Modificado"
+
+

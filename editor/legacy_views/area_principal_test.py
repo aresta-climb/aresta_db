@@ -565,7 +565,7 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
         janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()
         
         # Garantir que os subeditores receberam a recarga do path com o novo diretório
-        janela.pagina_mapas.carregar_mapas.assert_called_once_with(janela.croqui_model, janela.historico.obter_pilha(), pasta_croqui / "database")
+        janela.pagina_mapas.carregar_mapas.assert_called_once_with(janela.croqui_model, janela.historico, pasta_croqui / "database")
         janela.pagina_imagens.carregar_imagens.assert_called_once_with(pasta_croqui / "database")
 
 
@@ -897,6 +897,442 @@ def test_ao_clicar_abrir_novo_com_modificacoes_cancela_nao_fecha_janela(qtbot):
             
     janela._forcar_fechamento = True
     janela.close()
+
+
+def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    pasta_croqui = tmp_path / "croqui_teste"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste\nnome: Croqui Original\n", encoding="utf-8")
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+    janela = JanelaPrincipal(workspace=ws)
+    qtbot.addWidget(janela)
+
+    diario = ws.obter_diario()
+    assert diario is not None
+    assert not diario.tem_alteracoes_pendentes()
+
+    # Faz uma alteração usando o controller da janela
+    proxy = janela.croqui_model.obter_croqui_readonly()
+    janela.croqui_controller.alterar_primitivo(proxy, "nome", "Croqui Original", "Croqui Alterado")
+
+    # Verifica que gravou no disco em diario_pendente.bin
+    assert diario.tem_alteracoes_pendentes()
+    pendentes = diario.ler_diario_pendente()
+    assert len(pendentes) == 1
+    assert pendentes[0]["valor_novo"] == "Croqui Alterado"
+
+    # Simula salvamento
+    with patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental") as mock_cls, \
+         patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
+         patch("editor.legacy_views.area_principal.NotificacaoToast"):
+        mock_gerenciador = mock_cls.return_value
+        mock_gerenciador.compilar_croqui.return_value = None
+
+        from PyQt6.QtCore import QEventLoop, QTimer
+        loop = QEventLoop()
+        janela.salvamento_finalizado.connect(loop.quit)
+        janela.salvar_croqui()
+        QTimer.singleShot(3000, loop.quit)
+        loop.exec()
+
+        assert not mock_crit.called
+
+    # Após salvar, pendente deve estar limpo e consolidado no salvo
+    assert not diario.tem_alteracoes_pendentes()
+    salvos = diario.ler_diario_salvo()
+    assert len(salvos) == 1
+    assert salvos[0]["valor_novo"] == "Croqui Alterado"
+
+    janela._forcar_fechamento = True
+    janela.close()
+
+
+def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    pasta_croqui = tmp_path / "croqui_crash"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste_crash\nnome: Nome Original\n", encoding="utf-8")
+
+    # Simula gravação prévia no diário pendente (como se tivesse crashado)
+    diario = GerenciadorDiario(pasta_croqui)
+    diario.gravar_comando_pendente({
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "node:root",
+        "campo_nome": "nome",
+        "valor_antigo": "Nome Original",
+        "valor_novo": "Nome Recuperado do Crash",
+        "context_path": None
+    })
+    assert diario.tem_alteracoes_pendentes()
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+
+    # Ao abrir, usuário aceita recuperar
+    with patch.object(JanelaPrincipal, "_perguntar_recuperacao_sessao", return_value=True):
+        janela = JanelaPrincipal(workspace=ws)
+        qtbot.addWidget(janela)
+
+        # Verifica se o modelo foi recuperado
+        proxy = janela.croqui_model.obter_croqui_readonly()
+        assert proxy.nome == "Nome Recuperado do Crash"
+
+        # Verifica se a pilha de Undo funciona
+        assert janela.historico.obter_pilha().count() == 1
+        janela.historico.desfazer()
+        assert proxy.nome == "Nome Original"
+
+        janela._forcar_fechamento = True
+        janela.close()
+
+
+def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    pasta_croqui = tmp_path / "croqui_salvo"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    # O YAML salvo reflete o estado pós-edição
+    (pasta_db / "croqui.yaml").write_text("id: teste_salvo\nnome: Nome Pos Salvamento\n", encoding="utf-8")
+
+    # diario_salvo.bin contém o comando que gerou essa modificação
+    diario = GerenciadorDiario(pasta_croqui)
+    diario.gravar_comando_pendente({
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "",
+        "campo_nome": "nome",
+        "valor_antigo": "Nome Base Original",
+        "valor_novo": "Nome Pos Salvamento",
+        "context_path": None
+    })
+    diario.consolidar_salvamento()
+    assert not diario.tem_alteracoes_pendentes()
+    assert len(diario.ler_diario_salvo()) == 1
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+    janela = JanelaPrincipal(workspace=ws)
+    qtbot.addWidget(janela)
+
+    # Ao abrir, o modelo deve estar com o valor salvo
+    proxy = janela.croqui_model.obter_croqui_readonly()
+    assert proxy.nome == "Nome Pos Salvamento"
+
+    # A pilha de Undo DEVE estar populada e permitir desfazer!
+    assert janela.historico.obter_pilha().count() == 1
+    assert janela.historico.obter_pilha().canUndo()
+    assert janela.historico.obter_pilha().isClean()
+
+    # Executa Desfazer
+    janela.historico.desfazer()
+    assert proxy.nome == "Nome Base Original"
+    assert not janela.historico.obter_pilha().isClean()
+
+    # Executa Refazer
+    janela.historico.refazer()
+    assert proxy.nome == "Nome Pos Salvamento"
+    assert janela.historico.obter_pilha().isClean()
+
+    janela._forcar_fechamento = True
+    janela.close()
+
+
+def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_de_ambos(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    pasta_croqui = tmp_path / "croqui_misto"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    # O YAML salvo reflete o estado pós-salvamento anterior
+    (pasta_db / "croqui.yaml").write_text("id: teste_misto\nnome: Nome Salvo\n", encoding="utf-8")
+
+    diario = GerenciadorDiario(pasta_croqui)
+    # 1. Comando que foi consolidado no passado
+    diario.gravar_comando_pendente({
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "",
+        "campo_nome": "nome",
+        "valor_antigo": "Nome Base Original",
+        "valor_novo": "Nome Salvo",
+        "context_path": None
+    })
+    diario.consolidar_salvamento()
+
+    # 2. Comando que estava pendente quando ocorreu o crash
+    diario.gravar_comando_pendente({
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "",
+        "campo_nome": "nome",
+        "valor_antigo": "Nome Salvo",
+        "valor_novo": "Nome Pendente Final",
+        "context_path": None
+    })
+
+    assert diario.tem_alteracoes_pendentes()
+    assert len(diario.ler_diario_salvo()) == 1
+    assert len(diario.ler_diario_pendente()) == 1
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+
+    # Ao abrir, o usuário aceita recuperar a sessão do crash
+    with patch.object(JanelaPrincipal, "_perguntar_recuperacao_sessao", return_value=True):
+        janela = JanelaPrincipal(workspace=ws)
+        qtbot.addWidget(janela)
+
+        # O modelo deve refletir a mudança pendente recuperada
+        proxy = janela.croqui_model.obter_croqui_readonly()
+        assert proxy.nome == "Nome Pendente Final"
+
+        # A pilha contém ambos os passos (salvo e pendente)
+        assert janela.historico.obter_pilha().count() == 2
+        assert janela.historico.obter_pilha().canUndo()
+
+        # 1º Undo: Desfaz imediatamente a alteração pendente de volta para o estado salvo
+        janela.historico.desfazer()
+        assert proxy.nome == "Nome Salvo"
+
+        # 2º Undo: Desfaz o histórico salvo anterior de volta para a base original
+        janela.historico.desfazer()
+        assert proxy.nome == "Nome Base Original"
+
+        # 1º Redo: Refaz para o estado salvo
+        janela.historico.refazer()
+        assert proxy.nome == "Nome Salvo"
+
+        # 2º Redo: Refaz para a alteração pendente
+        janela.historico.refazer()
+        assert proxy.nome == "Nome Pendente Final"
+
+        janela._forcar_fechamento = True
+        janela.close()
+
+
+def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    from PyQt6.QtWidgets import QMessageBox
+    from PyQt6.QtGui import QCloseEvent
+
+    pasta_croqui = tmp_path / "croqui_fechar_descarte"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste_fechar\nnome: Original\n", encoding="utf-8")
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+    janela = JanelaPrincipal(workspace=ws)
+    qtbot.addWidget(janela)
+
+    # Realiza uma alteração pendente
+    janela.croqui_controller.alterar_primitivo(
+        janela.croqui_model.obter_croqui_readonly(), "nome", "Original", "Modificado", pode_mesclar=True
+    )
+    diario = ws.obter_diario()
+    assert diario.tem_alteracoes_pendentes()
+
+    # Simula o usuário fechando a janela e clicando em "Descartar" no diálogo
+    with patch.object(QMessageBox, "question", return_value=QMessageBox.StandardButton.Discard):
+        close_event = QCloseEvent()
+        janela.closeEvent(close_event)
+        assert close_event.isAccepted()
+
+    # O diário pendente deve ter sido limpo!
+    assert not diario.tem_alteracoes_pendentes()
+    janela._forcar_fechamento = True
+    janela.close()
+
+
+def test_abrir_novo_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    from PyQt6.QtWidgets import QMessageBox
+
+    pasta_croqui = tmp_path / "croqui_voltar_descarte"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste_voltar\nnome: Original\n", encoding="utf-8")
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+    janela = JanelaPrincipal(workspace=ws)
+    qtbot.addWidget(janela)
+
+    # Realiza uma alteração pendente
+    janela.croqui_controller.alterar_primitivo(
+        janela.croqui_model.obter_croqui_readonly(), "nome", "Original", "Modificado", pode_mesclar=True
+    )
+    diario = ws.obter_diario()
+    assert diario.tem_alteracoes_pendentes()
+
+    # Simula o usuário clicando em "Voltar / Abrir Novo" e escolhendo "Descartar"
+    with patch.object(QMessageBox, "question", return_value=QMessageBox.StandardButton.Discard):
+        janela._on_abrir_novo_clicado()
+
+    # O diário pendente deve ter sido limpo!
+    assert not diario.tem_alteracoes_pendentes()
+    janela._forcar_fechamento = True
+    janela.close()
+
+
+def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.core.diario import GerenciadorDiario
+    from aresta_api.proto.generated import croqui_pb2
+
+    pasta_croqui = tmp_path / "croqui_3_acoes"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste_3_acoes\nnome: Croqui Original\n", encoding="utf-8")
+
+    ws1 = ExperimentalWorkspace(pasta_croqui)
+    janela1 = JanelaPrincipal(workspace=ws1)
+    qtbot.addWidget(janela1)
+
+    # 1. Ação 1: Adiciona um Pico
+    pico = croqui_pb2.Pico(nome="Pico 1")
+    janela1.croqui_controller.adicionar_repeated(janela1.croqui_model.obter_croqui_readonly(), "picos", 0, pico)
+
+    # 2. Ação 2: Adiciona um Setor
+    sg = croqui_pb2.SetorOuGrupo()
+    sg.setor.conteudo.nome = "Setor 1"
+    janela1.croqui_controller.adicionar_repeated(janela1.croqui_model.obter_croqui_readonly().picos[0], "setores_ou_grupos", 0, sg)
+
+    # 3. Ação 3: Digita interativamente 7 caracteres no nome do setor
+    for texto in ["S", "Se", "Set", "Seto", "Setor", "Setor ", "Setor Final"]:
+        janela1.croqui_controller.alterar_primitivo(
+            janela1.croqui_model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo,
+            "nome",
+            "Setor 1" if texto == "S" else "S",
+            texto,
+            pode_mesclar=True
+        )
+
+    # Verifica que a sessão ativa possui exatamente 3 comandos consolidados
+    assert janela1.historico.obter_pilha().count() == 3
+    diario1 = ws1.obter_diario()
+    comandos_pendentes = diario1.ler_diario_pendente()
+    assert len(comandos_pendentes) == 3
+
+    # Simula crash abrupto (fechamento sem salvar, preservando o diário)
+    janela1._forcar_fechamento = True
+    janela1.close()
+
+    # Reabre a aplicação
+    ws2 = ExperimentalWorkspace(pasta_croqui)
+    perguntas_acoes = []
+    def mock_perguntar(total):
+        perguntas_acoes.append(total)
+        return True
+
+    with patch.object(JanelaPrincipal, "_perguntar_recuperacao_sessao", side_effect=mock_perguntar):
+        janela2 = JanelaPrincipal(workspace=ws2)
+        qtbot.addWidget(janela2)
+
+        # O diálogo de recuperação deve reportar EXATAMENTE 3 ações não salvas!
+        assert perguntas_acoes == [3]
+
+        # O modelo restaurado possui os 3 passos aplicados
+        croqui_rec = janela2.croqui_model.obter_croqui_readonly()
+        assert len(croqui_rec.picos) == 1
+        assert len(croqui_rec.picos[0].setores_ou_grupos) == 1
+        assert croqui_rec.picos[0].setores_ou_grupos[0].setor.conteudo.nome == "Setor Final"
+        assert janela2.historico.obter_pilha().count() == 3
+
+        # 1º Undo: Desfaz a Ação 3 (Setor volta a ter o nome 'Setor 1')
+        janela2.historico.desfazer()
+        croqui_rec = janela2.croqui_model.obter_croqui_readonly()
+        assert croqui_rec.picos[0].setores_ou_grupos[0].setor.conteudo.nome == "Setor 1"
+
+        # 2º Undo: Desfaz a Ação 2 (Remove o Setor adicionado)
+        janela2.historico.desfazer()
+        croqui_rec = janela2.croqui_model.obter_croqui_readonly()
+        assert len(croqui_rec.picos[0].setores_ou_grupos) == 0
+
+        # 3º Undo: Desfaz a Ação 1 (Remove o Pico adicionado)
+        janela2.historico.desfazer()
+        croqui_rec = janela2.croqui_model.obter_croqui_readonly()
+        assert len(croqui_rec.picos) == 0
+        assert not janela2.historico.obter_pilha().canUndo()
+
+        janela2._forcar_fechamento = True
+        janela2.close()
+
+
+def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtbot, tmp_path):
+    from PyQt6.QtWidgets import QLineEdit
+    from PyQt6.QtTest import QTest
+    from editor.core.workspace import ExperimentalWorkspace
+
+    pasta_croqui = tmp_path / "croqui_creditos"
+    pasta_db = pasta_croqui / "database"
+    pasta_db.mkdir(parents=True)
+    (pasta_db / "croqui.yaml").write_text("id: teste_cred\nnome: Meu Croqui\ncreditos:\n  - Autor Original\n", encoding="utf-8")
+
+    ws1 = ExperimentalWorkspace(pasta_croqui)
+    janela1 = JanelaPrincipal(workspace=ws1)
+    qtbot.addWidget(janela1)
+
+    form1 = janela1.pagina_dados.editor_dados.form_padrao
+
+    # Ação 1: Digita em 'nome'
+    nome_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"][0]
+    QTest.keyClicks(nome_le, " Oficial")
+
+    # Ação 2: Digita em 'descricao'
+    desc_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"][0]
+    QTest.keyClicks(desc_le, "Minha Descricao")
+
+    # Ação 3: Digita no primeiro item de 'creditos'
+    cred_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "creditos[0]"][0]
+    QTest.keyClicks(cred_le, " Extra")
+
+    assert nome_le.text() == "Meu Croqui Oficial"
+    assert desc_le.text() == "Minha Descricao"
+    assert cred_le.text() == "Autor Original Extra"
+    assert janela1.historico.obter_pilha().count() == 3
+
+    # Simula crash abrupto
+    janela1._forcar_fechamento = True
+    janela1.close()
+
+    # Reabre com recuperação
+    ws2 = ExperimentalWorkspace(pasta_croqui)
+    with patch.object(JanelaPrincipal, "_perguntar_recuperacao_sessao", return_value=True):
+        janela2 = JanelaPrincipal(workspace=ws2)
+        qtbot.addWidget(janela2)
+
+        form2 = janela2.pagina_dados.editor_dados.form_padrao
+        nome_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"][0]
+        desc_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"][0]
+        cred_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "creditos[0]"][0]
+
+        assert nome_le2.text() == "Meu Croqui Oficial"
+        assert desc_le2.text() == "Minha Descricao"
+        assert cred_le2.text() == "Autor Original Extra"
+        assert janela2.historico.obter_pilha().count() == 3
+
+        # 1º Undo: Desfaz a Ação 3 (Crédito volta visualmente para 'Autor Original')
+        janela2.historico.desfazer()
+        assert cred_le2.text() == "Autor Original"
+        assert desc_le2.text() == "Minha Descricao"
+        assert nome_le2.text() == "Meu Croqui Oficial"
+
+        # 2º Undo: Desfaz a Ação 2 (Descrição volta para vazia)
+        janela2.historico.desfazer()
+        assert desc_le2.text() == ""
+        assert cred_le2.text() == "Autor Original"
+        assert nome_le2.text() == "Meu Croqui Oficial"
+
+        # 3º Undo: Desfaz a Ação 1 (Nome volta para 'Meu Croqui')
+        janela2.historico.desfazer()
+        assert nome_le2.text() == "Meu Croqui"
+        assert desc_le2.text() == ""
+        assert cred_le2.text() == "Autor Original"
+        assert not janela2.historico.obter_pilha().canUndo()
+
+        janela2._forcar_fechamento = True
+        janela2.close()
 
 
 

@@ -498,4 +498,24 @@ def test_serializacao_deserializacao_comandos_protobuf():
     assert model.obter_bytes_imagem("thumb.webp") == b"novos_bytes"
 
 
+def test_comando_editor_carregamento_silencioso():
+    croqui = Croqui(nome="Nome Atual")
+    model = CroquiModel(croqui)
+
+    cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Nome Antigo", "Nome Mutado")
+    cmd.armar_carregamento_silencioso()
+
+    # Primeiro redo (durante push na inicialização) NÃO deve alterar o modelo
+    cmd.redo()
+    assert croqui.nome == "Nome Atual"
+
+    # Ao desfazer, deve aplicar o valor antigo normalmente
+    cmd.undo()
+    assert croqui.nome == "Nome Antigo"
+
+    # Ao refazer, a flag já está limpa e deve aplicar a mutação normalmente
+    cmd.redo()
+    assert croqui.nome == "Nome Mutado"
+
+
 

@@ -1069,11 +1069,9 @@ class WidgetEditorMapas(QWidget):
         croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
         
         for p_idx, pico in enumerate(croqui_msg.picos):
-            print(f"PICO {p_idx}, has_mapas_gerais: {pico.HasField('mapas_gerais')}")
             # Mapas Gerais do Pico
             if pico.HasField('mapas_gerais'):
                 for m_idx, mapa in enumerate(pico.mapas_gerais.conteudo.mapas):
-                    print(f"MAPA GERAL: {mapa.caminho_imagem_mapa}")
                     if not mapa.caminho_imagem_mapa: continue
                     nome = Path(mapa.caminho_imagem_mapa).name
                     item = QListWidgetItem(nome)

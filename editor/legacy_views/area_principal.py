@@ -636,35 +636,39 @@ class JanelaPrincipal(QMainWindow):
                 self.croqui_model.definir_caminho_db(caminho_db)
                 if hasattr(self.croqui_model, "foco_requisitado"):
                     self.croqui_model.foco_requisitado.connect(self._on_foco_requisitado)
-                self.croqui_controller = CroquiController(self.croqui_model, self.historico.obter_pilha())
+                self.croqui_controller = CroquiController(self.croqui_model, self.historico)
                 
                 # Inicializa/limpa rastreadores
                 self.croqui_model.carregar_arquivos_externos(caminho_db)
 
-                # Verifica recuperação de sessão no diário
+                # Verifica recuperação de sessão e histórico no diário
                 diario = self.workspace.obter_diario() if hasattr(self.workspace, "obter_diario") else None
                 from editor.core.diario import GerenciadorDiario
-                if isinstance(diario, GerenciadorDiario) and diario.tem_alteracoes_pendentes():
-                    comandos_pendentes = diario.ler_diario_pendente()
-                    if comandos_pendentes:
-                        if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
-                            self.historico.restaurar_do_diario(self.croqui_model, diario)
-                        else:
-                            diario.descartar_pendente()
-                            self.historico.definir_gerenciador_diario(diario)
-                elif isinstance(diario, GerenciadorDiario):
+                if isinstance(diario, GerenciadorDiario):
+                    # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
+                    self.historico.carregar_diario_salvo(self.croqui_model, diario)
+
+                    # 2. Verifica se há alterações pendentes de crash
+                    if diario.tem_alteracoes_pendentes():
+                        comandos_pendentes = diario.ler_diario_pendente()
+                        if comandos_pendentes:
+                            if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                                self.historico.restaurar_do_diario(self.croqui_model, diario)
+                            else:
+                                diario.descartar_pendente()
+
                     self.historico.definir_gerenciador_diario(diario)
                 
                 # Atualiza os componentes com os dados carregados
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
                 self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
-                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db, controller=self.croqui_controller)
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller)
                 self.pagina_betas.carregar_betas(caminho_db)
 
                 # Registra contexto no escopo de telemetria
                 from editor.core.telemetria import registrar_contexto_croqui, anexar_diario_escopo
                 id_croqui = self.croqui_data.get("id", "") if self.croqui_data else ""
-                commit_base_sha = getattr(self.croqui_model.obter_croqui_readonly(), "commit_base_sha", "")
+                commit_base_sha = self.workspace.obter_commit_base_sha() if hasattr(self.workspace, "obter_commit_base_sha") else ""
                 registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=commit_base_sha)
                 if isinstance(diario, GerenciadorDiario):
                     anexar_diario_escopo(diario)
@@ -745,7 +749,7 @@ class JanelaPrincipal(QMainWindow):
         
         caminho_db = self.workspace.obter_caminho_database()
         if getattr(self, 'croqui_model', None):
-            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db)
+            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)
         self.pagina_imagens.carregar_imagens(caminho_db)
             
         if hasattr(self, 'salvamento_finalizado'):
@@ -824,6 +828,13 @@ class JanelaPrincipal(QMainWindow):
         )
         self._publish_controller.iniciar_publicacao()
 
+    def _descartar_diario_pendente(self):
+        """Limpa o diário pendente caso o usuário feche sem salvar ou descarte as alterações."""
+        if self.workspace and hasattr(self.workspace, "obter_diario"):
+            diario = self.workspace.obter_diario()
+            if diario and hasattr(diario, "descartar_pendente"):
+                diario.descartar_pendente()
+
     def _on_abrir_novo_clicado(self):
         """Trata o clique no botão de voltar para a tela de carregamento."""
         if not self.historico.obter_pilha().isClean():
@@ -837,8 +848,10 @@ class JanelaPrincipal(QMainWindow):
                 self._callback_sucesso_salvar = self._concluir_abrir_novo
                 self.salvar_croqui()
             elif resposta == QMessageBox.StandardButton.Discard:
+                self._descartar_diario_pendente()
                 self._concluir_abrir_novo()
         else:
+            self._descartar_diario_pendente()
             self._concluir_abrir_novo()
 
     def _concluir_abrir_novo(self):
@@ -871,10 +884,12 @@ class JanelaPrincipal(QMainWindow):
                 self._mostrar_modal_espera("Finalizando salvamento...")
                 event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
+                self._descartar_diario_pendente()
                 event.accept()
             else:
                 event.ignore()
         else:
+            self._descartar_diario_pendente()
             event.accept()
             
     def _mostrar_modal_espera(self, mensagem="Aguarde..."):

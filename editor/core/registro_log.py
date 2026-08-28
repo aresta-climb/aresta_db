@@ -2,10 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import logging
-import os
 import sys
-from logging.handlers import RotatingFileHandler
-from pathlib import Path
 from editor.core.telemetria import sanitizar_texto_caminhos
 
 
@@ -16,27 +13,11 @@ class SanitizingFormatter(logging.Formatter):
         return sanitizar_texto_caminhos(mensagem_original)
 
 
-def _obter_pasta_padrao_logs() -> Path:
-    appdata = os.environ.get("APPDATA")
-    if appdata:
-        return Path(appdata) / "ArestaEditor" / "logs"
-    return Path.home() / ".aresta_editor" / "logs"
-
-
-def configurar_logging(
-    pasta_logs: Path | str | None = None,
-    max_bytes: int = 5 * 1024 * 1024,
-    backup_count: int = 3,
-    nivel: int = logging.INFO
-) -> logging.Logger:
+def configurar_logging(nivel: int = logging.INFO) -> logging.Logger:
     """
-    Configura o sistema de logging do editor com rotação de arquivos e saída em console.
+    Configura o sistema de logging do editor com saída sanitizada em console.
+    O Sentry SDK captura os breadcrumbs automaticamente da hierarquia de log em memória.
     """
-    diretorio = Path(pasta_logs) if pasta_logs else _obter_pasta_padrao_logs()
-    diretorio.mkdir(parents=True, exist_ok=True)
-    
-    arquivo_log = diretorio / "editor.log"
-    
     logger_raiz = logging.getLogger("aresta_editor")
     logger_raiz.setLevel(nivel)
     
@@ -47,17 +28,7 @@ def configurar_logging(
     formato = "%(asctime)s [%(levelname)s] [%(name)s] %(message)s"
     formatter = SanitizingFormatter(formato, datefmt="%Y-%m-%d %H:%M:%S")
     
-    # Handler em arquivo com rotação
-    file_handler = RotatingFileHandler(
-        arquivo_log,
-        maxBytes=max_bytes,
-        backupCount=backup_count,
-        encoding="utf-8"
-    )
-    file_handler.setFormatter(formatter)
-    logger_raiz.addHandler(file_handler)
-    
-    # Handler de console (stdout)
+    # Handler de console (stdout) com sanitização de privacidade
     stream_handler = logging.StreamHandler(sys.stdout)
     stream_handler.setFormatter(formatter)
     logger_raiz.addHandler(stream_handler)

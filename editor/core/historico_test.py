@@ -201,3 +201,146 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador.desfazer()
             self.assertEqual(croqui.nome, "Inicial")
 
+    def test_gerenciador_historico_carregar_diario_salvo(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            # Grava 2 comandos salvos no diario_salvo.bin
+            diario.gravar_comando_pendente({
+                "classe": "CmdAlterarPrimitivo",
+                "caminho_msg": "",
+                "campo_nome": "nome",
+                "valor_antigo": "Inicial",
+                "valor_novo": "Passo 1",
+                "context_path": None
+            })
+            diario.gravar_comando_pendente({
+                "classe": "CmdAlterarPrimitivo",
+                "caminho_msg": "",
+                "campo_nome": "nome",
+                "valor_antigo": "Passo 1",
+                "valor_novo": "Passo 2",
+                "context_path": None
+            })
+            diario.consolidar_salvamento()
+
+            # Ao reabrir o croqui, o modelo é carregado a partir do estado salvo (Passo 2)
+            croqui = Croqui(nome="Passo 2")
+            model = CroquiModel(croqui)
+            gerenciador = GerenciadorHistorico()
+
+            carregados = gerenciador.carregar_diario_salvo(model, diario)
+            self.assertEqual(carregados, 2)
+            self.assertEqual(croqui.nome, "Passo 2")
+            self.assertTrue(gerenciador.obter_pilha().isClean())
+            self.assertTrue(gerenciador.obter_pilha().canUndo())
+
+            # Testa Desfazer (Ctrl+Z)
+            gerenciador.desfazer()
+            self.assertEqual(croqui.nome, "Passo 1")
+            self.assertFalse(gerenciador.obter_pilha().isClean())
+
+            gerenciador.desfazer()
+            self.assertEqual(croqui.nome, "Inicial")
+
+            # Testa Refazer (Ctrl+Y)
+            gerenciador.refazer()
+            self.assertEqual(croqui.nome, "Passo 1")
+
+            gerenciador.refazer()
+            self.assertEqual(croqui.nome, "Passo 2")
+            self.assertTrue(gerenciador.obter_pilha().isClean())
+
+    def test_gerenciador_historico_restaurar_pendente_com_merge_keystrokes_e_undo_imediato(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            # Sessão 1 (Ao Vivo): Usuário digita 5 caracteres em sequência
+            croqui1 = Croqui(nome="Inicial")
+            model1 = CroquiModel(croqui1)
+            gerenciador1 = GerenciadorHistorico(diario=diario)
+
+            palavras = ["N", "No", "Nom", "Nome", "Nome Final"]
+            v_ant = "Inicial"
+            for p in palavras:
+                cmd = CmdAlterarPrimitivo(model1, croqui1, "nome", v_ant, p, "page:dados/node:root", pode_mesclar=True)
+                gerenciador1.executar(cmd)
+                v_ant = p
+
+            # A pilha ao vivo deve ter mesclado para 1 único comando
+            self.assertEqual(gerenciador1.obter_pilha().count(), 1)
+            self.assertEqual(croqui1.nome, "Nome Final")
+
+            # O diário pendente deve ter sido sincronizado para conter apenas o comando consolidado
+            self.assertTrue(diario.tem_alteracoes_pendentes())
+            comandos_gravados = diario.ler_diario_pendente()
+            self.assertEqual(len(comandos_gravados), 1)
+            self.assertEqual(comandos_gravados[0]["valor_antigo"], "Inicial")
+            self.assertEqual(comandos_gravados[0]["valor_novo"], "Nome Final")
+
+            # Sessão 2 (Pós-Crash / Reabertura):
+            croqui2 = Croqui(nome="Inicial")
+            model2 = CroquiModel(croqui2)
+            gerenciador2 = GerenciadorHistorico()
+
+            gerenciador2.restaurar_do_diario(model2, diario)
+
+            # O modelo recuperado tem o valor final
+            self.assertEqual(croqui2.nome, "Nome Final")
+            self.assertEqual(gerenciador2.obter_pilha().count(), 1)
+
+            # Com apenas 1 Undo, desfaz direto para o valor inicial antes de começar a digitar!
+            gerenciador2.desfazer()
+            self.assertEqual(croqui2.nome, "Inicial")
+
+            # Com Redo, refaz para o valor final completo
+            gerenciador2.refazer()
+            self.assertEqual(croqui2.nome, "Nome Final")
+
+    def test_gerenciador_historico_merge_repeated_item_e_sincronizacao_modelo_em_memoria(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import CmdAlterarRepeatedItem
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            croqui = Croqui()
+            croqui.creditos.append("Credito Original")
+            model = CroquiModel(croqui)
+            gerenciador = GerenciadorHistorico(diario=diario)
+
+            # Usuário digita alterações consecutivas no campo repetido creditos
+            cmd1 = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Credito Original", "Credito O", pode_mesclar=True)
+            gerenciador.executar(cmd1)
+            self.assertEqual(croqui.creditos[0], "Credito O")
+
+            cmd2 = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Credito O", "Credito Original Editado", pode_mesclar=True)
+            gerenciador.executar(cmd2)
+            # O modelo em memória DEVE ser mutado imediatamente mesmo com a mesclagem!
+            self.assertEqual(croqui.creditos[0], "Credito Original Editado")
+            self.assertEqual(gerenciador.obter_pilha().count(), 1)
+
+            # 1 Undo restaura o estado inicial
+            gerenciador.desfazer()
+            self.assertEqual(croqui.creditos[0], "Credito Original")
+

@@ -232,12 +232,24 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.substituir_imagem(caminho_rel, b"direto", context_path="page:mapas/file:mapa.webp")
         self.assertEqual(self.model.obter_bytes_imagem(caminho_rel), b"direto")
 
-    def test_obter_caminho_imagem_mapa(self):
-        self.assertIsNone(self.controller.obter_caminho_imagem_mapa(self.mapa))
-        self.controller.set_caminho_db(Path("/caminho/teste"))
-        self.mapa.caminho_imagem_mapa = "imagens/foto.webp"
-        caminho = self.controller.obter_caminho_imagem_mapa(self.mapa)
-        self.assertEqual(caminho, Path("/caminho/teste/imagens/foto.webp"))
+    def test_mapas_controller_grava_no_diario_com_gerenciador_historico(self):
+        import tempfile
+        from editor.core.historico import GerenciadorHistorico
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            diario = GerenciadorDiario(tmp_dir)
+            historico = GerenciadorHistorico(diario=diario)
+            controller = MapasController(self.model, historico)
+
+            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id="poi_teste", label="Ponto Teste")
+            controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
+
+            self.assertTrue(diario.tem_alteracoes_pendentes())
+            comandos = diario.ler_diario_pendente()
+            self.assertEqual(len(comandos), 1)
+            self.assertEqual(comandos[0]["classe"], "CmdAdicionarRepeated")
+            self.assertEqual(comandos[0]["campo_nome"], "pontos_de_interesse")
 
 if __name__ == '__main__':
     unittest.main()

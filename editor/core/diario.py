@@ -12,8 +12,9 @@ class GerenciadorDiario:
     Mantém separação entre diario_salvo.bin e diario_pendente.bin usando pickle em modo append-only.
     """
     
-    def __init__(self, pasta_croqui: Path | str):
+    def __init__(self, pasta_croqui: Path | str, apenas_pendente: bool = False):
         self.pasta_croqui = Path(pasta_croqui)
+        self.apenas_pendente = apenas_pendente
         self.caminho_pendente = self.pasta_croqui / "diario_pendente.bin"
         self.caminho_salvo = self.pasta_croqui / "diario_salvo.bin"
 
@@ -44,17 +45,18 @@ class GerenciadorDiario:
 
     def consolidar_salvamento(self) -> None:
         """
-        Transfere todos os comandos do diário pendente para o diário salvo e trunca o pendente.
-        Chamado após salvamento e compilação com sucesso do croqui.
+        Transfere todos os comandos do diário pendente para o diário salvo (se não for apenas_pendente)
+        e trunca o pendente. Chamado após salvamento e compilação com sucesso do croqui.
         """
         if not self.caminho_pendente.exists() or self.caminho_pendente.stat().st_size == 0:
             return
 
-        comandos_pendentes = self.ler_diario_pendente()
-        if comandos_pendentes:
-            with open(self.caminho_salvo, "ab") as f_salvo:
-                for cmd in comandos_pendentes:
-                    pickle.dump(cmd, f_salvo, protocol=5)
+        if not self.apenas_pendente:
+            comandos_pendentes = self.ler_diario_pendente()
+            if comandos_pendentes:
+                with open(self.caminho_salvo, "ab") as f_salvo:
+                    for cmd in comandos_pendentes:
+                        pickle.dump(cmd, f_salvo, protocol=5)
 
         # Trunca o arquivo pendente para 0 bytes
         with open(self.caminho_pendente, "wb") as f_pendente:

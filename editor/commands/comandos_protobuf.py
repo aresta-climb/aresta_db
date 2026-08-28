@@ -65,7 +65,7 @@ def navegar_para_mensagem(root_msg, caminho: str):
     from editor.models.readonly_proxy import ReadOnlyProxy
     if isinstance(root_msg, ReadOnlyProxy):
         root_msg = object.__getattribute__(root_msg, "_obj")
-    if not caminho:
+    if not caminho or caminho in ("root", "node:root"):
         return root_msg
 
     partes = caminho.split(".")
@@ -104,9 +104,42 @@ def _deserializar_valor(valor_serializado, model=None):
     return valor_serializado
 
 
-class CmdAlterarPrimitivo(QUndoCommand):
+class ComandoEditor(QUndoCommand):
+    """
+    Classe base para todos os comandos de Undo/Redo do Editor Aresta.
+    
+    Suporta carregamento silencioso na inicialização da aplicação:
+    Quando o editor abre um croqui já salvo no disco (croqui.yaml), o modelo já contém
+    o estado final consolidado. Para popular a QUndoStack sem reexecutar mutações desnecessárias
+    em memória, a flag `_ignorar_primeiro_redo` pode ser ativada antes do push.
+    Ao ser empurrado na pilha, o Qt chama `redo()`, que consome a flag silenciosamente sem alterar o modelo.
+    Chamadas subsequentes de Redo (Ctrl+Y) pelo usuário executam a mutação normalmente.
+    """
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._ignorar_primeiro_redo = False
+
+    def armar_carregamento_silencioso(self) -> None:
+        """Ativa a flag para que a próxima invocação de redo() (ao ser adicionado na QUndoStack) não aplique mutações."""
+        self._ignorar_primeiro_redo = True
+
+    def redo(self) -> None:
+        """Executa a mutação de Redo, ignorando a primeira chamada se o comando foi armado para carga silenciosa."""
+        if getattr(self, "_ignorar_primeiro_redo", False):
+            self._ignorar_primeiro_redo = False
+            return
+        self.executar_redo()
+
+    def executar_redo(self) -> None:
+        """Aplica a mutação de avanço (Redo) no modelo."""
+        raise NotImplementedError
+
+
+class CmdAlterarPrimitivo(ComandoEditor):
     """Comando para alterar um campo primitivo de uma mensagem Protobuf via Model."""
-    def __init__(self, model, msg, campo_nome, valor_antigo, valor_novo, context_path=None, parent=None):
+    ID_COMANDO = 1001
+
+    def __init__(self, model, msg, campo_nome, valor_antigo, valor_novo, context_path=None, pode_mesclar: bool = False, parent=None):
         super().__init__(parent)
         self.model = model
         self.msg = msg
@@ -114,13 +147,32 @@ class CmdAlterarPrimitivo(QUndoCommand):
         self.valor_antigo = _copia_segura(valor_antigo)
         self.valor_novo = _copia_segura(valor_novo)
         self.context_path = context_path
+        self.pode_mesclar = pode_mesclar
+
+    def id(self) -> int:
+        return self.ID_COMANDO if self.pode_mesclar else -1
+
+    def mergeWith(self, outro: QUndoCommand) -> bool:
+        if not self.pode_mesclar or not getattr(outro, "pode_mesclar", False):
+            return False
+        if not isinstance(outro, CmdAlterarPrimitivo):
+            return False
+        id_self = self.msg.obter_id_nativo() if hasattr(self.msg, 'obter_id_nativo') else id(self.msg)
+        id_outro = outro.msg.obter_id_nativo() if hasattr(outro.msg, 'obter_id_nativo') else id(outro.msg)
+        if id_self == id_outro and self.campo_nome == outro.campo_nome:
+            self.valor_novo = outro.valor_novo
+            if hasattr(outro, 'context_path') and outro.context_path:
+                self.context_path = outro.context_path
+            self.model._set_primitivo(self.msg, self.campo_nome, self.valor_novo)
+            return True
+        return False
 
     def undo(self):
         self.model._set_primitivo(self.msg, self.campo_nome, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._set_primitivo(self.msg, self.campo_nome, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -148,7 +200,7 @@ class CmdAlterarPrimitivo(QUndoCommand):
         )
 
 
-class CmdAdicionarRepeated(QUndoCommand):
+class CmdAdicionarRepeated(ComandoEditor):
     """Comando para adicionar um item em um campo repeated via Model."""
     def __init__(self, model, msg, campo_nome, index, valor, context_path=None, parent=None):
         super().__init__(parent)
@@ -164,7 +216,7 @@ class CmdAdicionarRepeated(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._adicionar_repeated(self.msg, self.campo_nome, self.index, self.valor)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -193,7 +245,7 @@ class CmdAdicionarRepeated(QUndoCommand):
         )
 
 
-class CmdRemoverRepeated(QUndoCommand):
+class CmdRemoverRepeated(ComandoEditor):
     """Comando para remover um item de um campo repeated via Model."""
     def __init__(self, model, msg, campo_nome, index, valor_removido, context_path=None, parent=None):
         super().__init__(parent)
@@ -209,7 +261,7 @@ class CmdRemoverRepeated(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._remover_repeated(self.msg, self.campo_nome, self.index)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -238,7 +290,7 @@ class CmdRemoverRepeated(QUndoCommand):
         )
 
 
-class CmdAlterarOneof(QUndoCommand):
+class CmdAlterarOneof(ComandoEditor):
     """Comando para alterar a escolha ativa de um campo oneof via Model."""
     def __init__(self, model, msg, oneof_nome, nome_antigo, valor_antigo, nome_novo, valor_novo, context_path=None, parent=None):
         super().__init__(parent)
@@ -256,7 +308,7 @@ class CmdAlterarOneof(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._alterar_oneof(self.msg, self.oneof_nome, self.nome_antigo, self.nome_novo, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -290,9 +342,11 @@ class CmdAlterarOneof(QUndoCommand):
         )
 
 
-class CmdAlterarRepeatedItem(QUndoCommand):
+class CmdAlterarRepeatedItem(ComandoEditor):
     """Comando para alterar um item específico em uma coleção repeated via Model."""
-    def __init__(self, model, msg, campo_nome, index, valor_antigo, valor_novo, context_path=None, parent=None):
+    ID_COMANDO = 1002
+
+    def __init__(self, model, msg, campo_nome, index, valor_antigo, valor_novo, context_path=None, pode_mesclar: bool = False, parent=None):
         super().__init__(parent)
         self.model = model
         self.msg = msg
@@ -301,13 +355,32 @@ class CmdAlterarRepeatedItem(QUndoCommand):
         self.valor_antigo = _copia_segura(valor_antigo)
         self.valor_novo = _copia_segura(valor_novo)
         self.context_path = context_path
+        self.pode_mesclar = pode_mesclar
+
+    def id(self) -> int:
+        return self.ID_COMANDO if self.pode_mesclar else -1
+
+    def mergeWith(self, outro: QUndoCommand) -> bool:
+        if not self.pode_mesclar or not getattr(outro, "pode_mesclar", False):
+            return False
+        if not isinstance(outro, CmdAlterarRepeatedItem):
+            return False
+        id_self = self.msg.obter_id_nativo() if hasattr(self.msg, 'obter_id_nativo') else id(self.msg)
+        id_outro = outro.msg.obter_id_nativo() if hasattr(outro.msg, 'obter_id_nativo') else id(outro.msg)
+        if id_self == id_outro and self.campo_nome == outro.campo_nome and self.index == outro.index:
+            self.valor_novo = outro.valor_novo
+            if hasattr(outro, 'context_path') and outro.context_path:
+                self.context_path = outro.context_path
+            self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_novo)
+            return True
+        return False
 
     def undo(self):
         self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -339,7 +412,7 @@ class CmdAlterarRepeatedItem(QUndoCommand):
         )
 
 
-class CmdAlterarMultiplosRepeatedItems(QUndoCommand):
+class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
     """Comando para alterar múltiplos itens em uma coleção repeated simultaneamente via Model."""
     def __init__(self, model, msg, campo_nome, alteracoes, context_path=None, parent=None):
         super().__init__(parent)
@@ -358,7 +431,7 @@ class CmdAlterarMultiplosRepeatedItems(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         for index, _, valor_novo in self.alteracoes:
             self.model._alterar_repeated_item(self.msg, self.campo_nome, index, valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
@@ -393,7 +466,7 @@ class CmdAlterarMultiplosRepeatedItems(QUndoCommand):
         )
 
 
-class CmdMoverRepeated(QUndoCommand):
+class CmdMoverRepeated(ComandoEditor):
     """Comando para mover um item de uma coleção repeated para outra posição via Model."""
     def __init__(self, model, msg, campo_nome, index_from, index_to, context_path=None, parent=None):
         super().__init__(parent)
@@ -409,7 +482,7 @@ class CmdMoverRepeated(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._mover_repeated(self.msg, self.campo_nome, self.index_from, self.index_to)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -437,7 +510,7 @@ class CmdMoverRepeated(QUndoCommand):
         )
 
 
-class CmdAlterarMetadadosCaminhoNovo(QUndoCommand):
+class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
     """Comando para alterar o sub-campo caminho_novo de uma extensão MetadadosArquivoNoEditor via Model."""
     def __init__(self, model, msg, field_ext, valor_antigo, valor_novo, context_path=None, parent=None):
         super().__init__(parent)
@@ -453,7 +526,7 @@ class CmdAlterarMetadadosCaminhoNovo(QUndoCommand):
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model._alterar_metadados_caminho_novo(self.msg, self.field_ext, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -491,45 +564,37 @@ class CmdAlterarMetadadosCaminhoNovo(QUndoCommand):
         )
 
 
-class CmdAlterarCampoImagem(QUndoCommand):
+class CmdAlterarCampoImagem(ComandoEditor):
     """
-    Comando para alterar um campo de imagem no Protobuf e gerenciar o buffer de bytes
-    em memória RAM no CroquiModel, sem tocar no sistema de arquivos durante a edição.
+    Comando para alterar um campo de imagem no Protobuf e atualizar o buffer em memória RAM.
     """
-    def __init__(
-        self,
-        model: CroquiModel,
-        msg: Message,
-        campo_nome: str,
-        caminho_antigo: str | None,
-        bytes_antigo: bytes | None,
-        caminho_novo: str | None,
-        bytes_novo: bytes | None,
-        context_path=None,
-        parent=None,
-    ):
+    def __init__(self, model, msg, campo_nome, caminho_antigo, bytes_antigo, caminho_novo, bytes_novo, context_path=None, parent=None):
         super().__init__(parent)
         self.model = model
         self.msg = msg
         self.campo_nome = campo_nome
-        self.caminho_antigo = caminho_antigo or ""
+        self.caminho_antigo = caminho_antigo
         self.bytes_antigo = bytes_antigo
-        self.caminho_novo = caminho_novo or ""
+        self.caminho_novo = caminho_novo
         self.bytes_novo = bytes_novo
         self.context_path = context_path
 
     def undo(self):
-        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_antigo)
-        if self.bytes_antigo and self.caminho_antigo:
-            self.model.definir_imagem_memoria(self.caminho_antigo, self.bytes_antigo)
         if self.caminho_novo and self.caminho_novo != self.caminho_antigo:
             self.model.remover_imagem_memoria(self.caminho_novo)
+        if self.caminho_antigo and self.bytes_antigo:
+            self.model.definir_imagem_memoria(self.caminho_antigo, self.bytes_antigo)
+            
+        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
-        if self.bytes_novo and self.caminho_novo:
+    def executar_redo(self):
+        if self.caminho_antigo and self.caminho_antigo != self.caminho_novo:
+            self.model.remover_imagem_memoria(self.caminho_antigo)
+        if self.caminho_novo and self.bytes_novo:
             self.model.definir_imagem_memoria(self.caminho_novo, self.bytes_novo)
+            
         self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -541,6 +606,7 @@ class CmdAlterarCampoImagem(QUndoCommand):
             from editor.core.imagem_anonimizada import gerar_webp_anonimizado
             bytes_antigo = gerar_webp_anonimizado(self.bytes_antigo)
             bytes_novo = gerar_webp_anonimizado(self.bytes_novo)
+            
         return {
             "classe": "CmdAlterarCampoImagem",
             "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
@@ -567,38 +633,48 @@ class CmdAlterarCampoImagem(QUndoCommand):
         )
 
 
-class CmdSubstituirImagemMemoria(QUndoCommand):
+class CmdSubstituirImagemMemoria(ComandoEditor):
     """
-    Comando para substituir os bytes de uma imagem existente no buffer em memória RAM (CroquiModel),
-    sem tocar no disco durante a edição. Emite sinal de alteração e suporta Undo/Redo.
+    Comando para substituir os bytes de uma imagem existente em memória RAM.
     """
-    def __init__(
-        self,
-        model: CroquiModel,
-        caminho_relativo: str,
-        bytes_antigo: bytes | None,
-        bytes_novo: bytes,
-        context_path: str | None = None,
-        parent=None,
-    ):
+    ID_COMANDO = 1003
+
+    def __init__(self, model, caminho_relativo: str, bytes_antigo: bytes | None, bytes_novo: bytes, context_path=None, pode_mesclar: bool = False, parent=None):
         super().__init__(parent)
         self.model = model
         self.caminho_relativo = caminho_relativo
         self.bytes_antigo = bytes_antigo
         self.bytes_novo = bytes_novo
         self.context_path = context_path
+        self.pode_mesclar = pode_mesclar
+
+    def id(self) -> int:
+        return self.ID_COMANDO if self.pode_mesclar else -1
+
+    def mergeWith(self, outro: QUndoCommand) -> bool:
+        if not self.pode_mesclar or not getattr(outro, "pode_mesclar", False):
+            return False
+        if not isinstance(outro, CmdSubstituirImagemMemoria):
+            return False
+        if self.caminho_relativo == outro.caminho_relativo:
+            self.bytes_novo = outro.bytes_novo
+            if hasattr(outro, 'context_path') and outro.context_path:
+                self.context_path = outro.context_path
+            self.model.definir_imagem_memoria(self.caminho_relativo, self.bytes_novo)
+            return True
+        return False
 
     def undo(self):
         if self.bytes_antigo is not None:
             self.model.definir_imagem_memoria(self.caminho_relativo, self.bytes_antigo)
         else:
             self.model.remover_imagem_memoria(self.caminho_relativo)
-        if self.context_path:
+        if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
-    def redo(self):
+    def executar_redo(self):
         self.model.definir_imagem_memoria(self.caminho_relativo, self.bytes_novo)
-        if self.context_path:
+        if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> dict:
@@ -608,6 +684,7 @@ class CmdSubstituirImagemMemoria(QUndoCommand):
             from editor.core.imagem_anonimizada import gerar_webp_anonimizado
             bytes_antigo = gerar_webp_anonimizado(self.bytes_antigo)
             bytes_novo = gerar_webp_anonimizado(self.bytes_novo)
+
         return {
             "classe": "CmdSubstituirImagemMemoria",
             "caminho_relativo": self.caminho_relativo,

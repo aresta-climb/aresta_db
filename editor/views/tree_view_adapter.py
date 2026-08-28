@@ -423,10 +423,6 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
     def find_index_for_path(self, path, parent_idx=QModelIndex()):
         from editor.views.widget_editor_dados import get_node_path
         
-        # DEBUG
-        if parent_idx == QModelIndex():
-            print(f"SEARCHING FOR PATH: {path}")
-            
         if self.root_message and path == "node:Croqui":
             return self.index(0, 0)
             
@@ -435,10 +431,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             idx = self.index(r, 0, parent_idx)
             node = idx.internalPointer()
             if node:
-                # DEBUG
-                # print(f"CHECKING PATH: {get_node_path(node)}")
                 if get_node_path(node) == path:
-                    print(f"FOUND PATH: {path}")
                     return idx
                 child_match = self.find_index_for_path(path, idx)
                 if child_match.isValid():
@@ -465,6 +458,13 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         idx = self.find_index_for_message_id(msg_id)
         if idx.isValid():
             self.dataChanged.emit(idx, idx)
+
+    def _on_repeated_item_alterado(self, msg_id, campo, index, novo_valor):
+        exp_idx = self.find_expando_index(msg_id, campo)
+        if exp_idx.isValid():
+            item_idx = self.index(index, 0, exp_idx)
+            if item_idx.isValid():
+                self.dataChanged.emit(item_idx, item_idx)
 
     def _on_item_adicionado(self, msg_id, campo, idx):
         exp_idx = self.find_expando_index(msg_id, campo)

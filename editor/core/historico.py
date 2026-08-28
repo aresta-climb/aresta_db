@@ -40,12 +40,95 @@ class GerenciadorHistorico(QObject):
 
     def executar(self, comando: QUndoCommand):
         """Executa um comando e o empilha no histórico, persistindo no diário se ativo."""
+        count_antes = self._pilha.count()
+        self._pilha.push(comando)
+        count_depois = self._pilha.count()
+
+        try:
+            from editor.core.telemetria import registrar_breadcrumb_comando
+            registrar_breadcrumb_comando(comando)
+        except Exception:
+            pass
+
         if self._diario and not self._gravacao_pausada:
             try:
-                self._diario.gravar_comando_pendente(comando)
+                # Se o comando foi mesclado pelo QUndoStack (a contagem não aumentou),
+                # sincroniza o diário pendente no disco para refletir a versão consolidada.
+                if count_depois == count_antes and count_depois > 0:
+                    self._sincronizar_diario_pendente()
+                else:
+                    self._diario.gravar_comando_pendente(comando)
+                    from editor.core.telemetria import anexar_diario_escopo
+                    anexar_diario_escopo(self._diario)
             except Exception:
                 pass
-        self._pilha.push(comando)
+
+    def _sincronizar_diario_pendente(self):
+        """Reescreve diario_pendente.bin com os comandos pendentes atualmente na pilha."""
+        if not self._diario:
+            return
+        self._diario.descartar_pendente()
+        clean_idx = self._pilha.cleanIndex()
+        start_idx = max(0, clean_idx) if clean_idx >= 0 else 0
+        current_idx = self._pilha.index()
+        for i in range(start_idx, current_idx):
+            cmd = self._pilha.command(i)
+            if cmd:
+                self._diario.gravar_comando_pendente(cmd)
+        try:
+            from editor.core.telemetria import anexar_diario_escopo
+            anexar_diario_escopo(self._diario)
+        except Exception:
+            pass
+
+    def push(self, comando: QUndoCommand):
+        """Atalho compatível com QUndoStack que executa e persiste no diário."""
+        self.executar(comando)
+
+    def __getattr__(self, name):
+        """Delega chamadas desconhecidas para a pilha interna QUndoStack."""
+        return getattr(self._pilha, name)
+
+    def carregar_diario_salvo(self, model, diario) -> int:
+        """
+        Popula a QUndoStack com os comandos de `diario_salvo.bin` de forma silenciosa e instantânea.
+        
+        Como o `croqui.yaml` lido do disco já se encontra no estado consolidado final pós-salvamento,
+        não realizamos mutações redundantes no modelo Protobuf. Cada comando deserializado é armado
+        com `armar_carregamento_silencioso()`. Quando o Qt invoca `redo()` internamente durante o `push()`,
+        a mutação é ignorada e a flag é desarmada.
+        
+        Dessa forma, o boot é instantâneo e qualquer `undo()` (Ctrl+Z) subsequente funciona normalmente.
+        
+        Retorna o número de comandos salvos carregados na pilha.
+        """
+        from editor.commands.comandos_protobuf import deserializar_comando
+        comandos_salvos = diario.ler_diario_salvo()
+        if not comandos_salvos:
+            return 0
+
+        self.limpar()
+        self._gravacao_pausada = True
+        total_carregados = 0
+
+        try:
+            for cmd_dict in comandos_salvos:
+                try:
+                    cmd = deserializar_comando(cmd_dict, model)
+                    if hasattr(cmd, "armar_carregamento_silencioso"):
+                        cmd.armar_carregamento_silencioso()
+                    else:
+                        cmd._ignorar_primeiro_redo = True
+                    self._pilha.push(cmd)
+                    total_carregados += 1
+                except Exception:
+                    # Se um comando salvo falhar ao ser deserializado, para no último estável
+                    break
+        finally:
+            self._pilha.setClean()
+            self._gravacao_pausada = False
+
+        return total_carregados
 
     def restaurar_do_diario(self, model, diario) -> int:
         """
@@ -58,14 +141,13 @@ class GerenciadorHistorico(QObject):
             self.definir_gerenciador_diario(diario)
             return 0
 
-        self.limpar()
         self._gravacao_pausada = True
         total_restaurados = 0
         try:
             for cmd_dict in comandos_dados:
                 try:
                     cmd = deserializar_comando(cmd_dict, model)
-                    self.executar(cmd)
+                    self._pilha.push(cmd)
                     total_restaurados += 1
                 except Exception:
                     # Se um comando falhar ao ser reconstruído, continua com os anteriores
@@ -73,17 +155,23 @@ class GerenciadorHistorico(QObject):
         finally:
             self._gravacao_pausada = False
             self.definir_gerenciador_diario(diario)
+            self._sincronizar_diario_pendente()
+
         return total_restaurados
 
     def desfazer(self):
         """Desfaz o último comando empilhado."""
         if self._pilha.canUndo():
             self._pilha.undo()
+            if self._diario and not self._gravacao_pausada:
+                self._sincronizar_diario_pendente()
 
     def refazer(self):
         """Refaz o próximo comando na pilha."""
         if self._pilha.canRedo():
             self._pilha.redo()
+            if self._diario and not self._gravacao_pausada:
+                self._sincronizar_diario_pendente()
 
     def limpar(self):
         """Limpa o histórico atual."""

@@ -30,12 +30,20 @@ class DialogoRecuperacaoSessao(QDialog):
         layout.addWidget(lbl_titulo)
 
         # Mensagem explicativa
+        if total_acoes == 1:
+            texto_acoes = "<b>1 ação não salva</b>"
+            termo_encontrada = "Foi encontrada"
+        else:
+            texto_acoes = f"<b>{total_acoes} ações não salvas</b>"
+            termo_encontrada = "Foram encontradas"
+
         texto = (
-            f"Detectamos que o editor foi fechado antes de salvar as últimas alterações.\n\n"
-            f"Foram encontradas <b>{total_acoes} ações não salvas</b> gravadas com segurança no diário local.<br><br>"
-            "Deseja restaurar essas alterações e continuar editando de onde parou?"
+            "<p>Detectamos que o editor foi fechado antes de salvar as últimas alterações.</p>"
+            f"<p>{termo_encontrada} {texto_acoes} gravadas com segurança no diário local.</p>"
+            "<p>Deseja restaurar essas alterações e continuar editando de onde parou?</p>"
         )
         self.label_mensagem = QLabel(texto, self)
+        self.label_mensagem.setTextFormat(Qt.TextFormat.RichText)
         self.label_mensagem.setWordWrap(True)
         layout.addWidget(self.label_mensagem)
 
