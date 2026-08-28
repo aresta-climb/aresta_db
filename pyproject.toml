@@ -20,7 +20,6 @@ deploy = [
 validador = [
     {include-group = "deploy"},
     "pygit2",
-    "pytest",
 ]
 
 # Interface gráfica do Editor Aresta 
