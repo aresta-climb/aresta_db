@@ -187,14 +187,14 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: 55f7934ce7fd33aebe0921bc388eb93d225c0e5ea848fbf12dc30c950241dc46
+  checksum_sha256_croqui: 9d97fc829ee3b5c7e6458d3ca8da5a75ab2895d38b2e301bdd61892be5deeaa8
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-08-09T15:40:07Z'
+  timestamp_update: '2026-08-28T01:19:19Z'
   precomputados:
-    total_escaladas: 128
+    total_escaladas: 129
     total_setores: 10
     total_grupos: 0
-    total_esportivas: 105
+    total_esportivas: 106
 - id: br_mg_lagoa_santa_sitio_do_rod
   nome: Sítio do Rod
   descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
