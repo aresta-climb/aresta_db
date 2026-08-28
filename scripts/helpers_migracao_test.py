@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
 from scripts.helpers_migracao import configurar_croqui_teste, carregar_yaml_migrado, carregar_markdown_migrado

@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
 import sys
@@ -410,7 +410,7 @@ def test_yaml_sem_spdx(tmp_path):
     with open(p, "r", encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert "id: teste" in "".join(linhas)
 
 def test_yaml_com_spdx(tmp_path):
@@ -429,7 +429,7 @@ def test_md_sem_spdx(tmp_path):
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
 
 def test_md_com_spdx(tmp_path):
     p = tmp_path / "pico_com_spdx.md"
@@ -455,7 +455,7 @@ def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
     with open(p, "r", encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[2].strip() == "# Meu comentário"
     assert "id: corrige" in "".join(linhas)
 
@@ -469,7 +469,7 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[3].strip() == "nome: Pico"
     assert "copyright do ze" not in "".join(linhas).lower()
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
@@ -603,7 +603,7 @@ def test_yaml_sem_spdx(tmp_path):
     with open(p, "r", encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert "id: teste" in "".join(linhas)
 
 def test_yaml_com_spdx(tmp_path):
@@ -622,7 +622,7 @@ def test_md_sem_spdx(tmp_path):
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
 
 def test_md_com_spdx(tmp_path):
     p = tmp_path / "pico_com_spdx.md"
@@ -648,7 +648,7 @@ def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
     with open(p, "r", encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[2].strip() == "# Meu comentário"
     assert "id: corrige" in "".join(linhas)
 
@@ -662,7 +662,7 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Contributors"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[3].strip() == "nome: Pico"
     assert "copyright do ze" not in "".join(linhas).lower()
 

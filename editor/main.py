@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import sys
 import os
@@ -170,6 +170,10 @@ class ControladorAplicativo:
         return self.app.exec()
 
 def main():
+    # Inicializa telemetria Sentry com sanitização universal de dados
+    from editor.core.telemetria import inicializar_telemetria
+    inicializar_telemetria()
+
     # Garante a instância global do QApplication
     app = QApplication.instance()
     if not app:

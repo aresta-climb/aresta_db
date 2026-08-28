@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
 import yaml
@@ -14,7 +14,7 @@ def test_injetar_betas_no_markdown(tmp_path):
     arquivo_md = tmp_path / "setor_teste.md"
     conteudo_inicial = """---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor Teste
 escaladas:
   - via_esportiva:

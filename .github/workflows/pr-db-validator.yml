@@ -52,6 +52,8 @@ jobs:
           
       - name: Run Validator
         if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          PYTHONPATH: .
         run: |
           uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
           

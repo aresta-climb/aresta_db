@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: 'Bloco: Crocância'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp

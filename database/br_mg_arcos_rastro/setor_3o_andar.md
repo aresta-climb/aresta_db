@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: 3º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_3o_andar_p0_i0.webp
