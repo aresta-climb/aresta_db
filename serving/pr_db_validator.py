@@ -6,7 +6,6 @@ Utilitário para validação de pull requests, consumindo a biblioteca gerar_cro
 """
 
 import sys
-import subprocess
 from pathlib import Path
 
 # Garante que a raiz do repositório esteja no sys.path para resolução de módulos
@@ -15,33 +14,26 @@ if str(_RAIZ_REPOSITORIO) not in sys.path:
     sys.path.insert(0, str(_RAIZ_REPOSITORIO))
 
 from scripts.gerar_croqui_experimental import empacotar_databases_para_croqui
+from scripts.validador_cabecalhos import validar_todos_cabecalhos_e_licencas
 
 
 def validar_cabecalhos_e_licencas() -> list[str]:
     """
-    Executa a suíte de testes de cabeçalhos e licenças (codebase_headers_test.py).
+    Executa a validação de cabeçalhos e licenças utilizando a biblioteca nativa validador_cabecalhos.
     """
-    erros = []
-    teste_path = _RAIZ_REPOSITORIO / "scripts" / "codebase_headers_test.py"
-    resultado = subprocess.run(
-        [sys.executable, "-m", "pytest", "-q", str(teste_path)],
-        cwd=str(_RAIZ_REPOSITORIO),
-        capture_output=True,
-        text=True,
-    )
-    if resultado.returncode != 0:
-        msg = f"Falha na validação de cabeçalhos e licenças (codebase_headers_test):\n{resultado.stdout}\n{resultado.stderr}"
-        print(f"ERRO: {msg}")
-        erros.append(msg)
+    erros = validar_todos_cabecalhos_e_licencas(_RAIZ_REPOSITORIO)
+    if erros:
+        for erro in erros:
+            print(f"ERRO: {erro}")
     else:
-        print("Sucesso: Testes de cabeçalhos e licenças (codebase_headers_test) passaram com êxito.")
+        print("Sucesso: Cabeçalhos e licenças SPDX/Copyright validados com êxito.")
     return erros
 
 
 def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str) -> list[str]:
     """
     Valida um pull request:
-    1. Executa os testes de conformidade de cabeçalhos e licenças (codebase_headers_test).
+    1. Executa a validação de conformidade de cabeçalhos e licenças.
     2. Tenta compilar e empacotar uma lista de pastas de croquis modificadas num único .croqui.
     
     Args:
@@ -75,7 +67,6 @@ def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str) ->
     return erros
 
 if __name__ == "__main__":
-    import sys
     import argparse
     
     parser = argparse.ArgumentParser(description="Valida pastas modificadas do database/")
