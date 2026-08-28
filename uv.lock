@@ -179,6 +179,7 @@ validador = [
     { name = "pillow" },
     { name = "protobuf" },
     { name = "pygit2" },
+    { name = "pytest" },
     { name = "pyyaml" },
 ]
 
@@ -236,6 +237,7 @@ validador = [
     { name = "pillow" },
     { name = "protobuf" },
     { name = "pygit2" },
+    { name = "pytest" },
     { name = "pyyaml" },
 ]
 

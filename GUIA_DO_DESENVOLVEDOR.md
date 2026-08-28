@@ -75,6 +75,29 @@ uv run editor/main.py database/<pais>_<estado>_<cidade>_<pico_de_escalada>
 ```bash
 uv run editor/main.py database/br_mg_ouro_preto_ouroboulder
 ```
+
+---
+
+## 🛠️ Telemetria, Diário Transacional e Recuperação de Sessão
+
+O Editor Aresta possui uma arquitetura de resiliência e diagnóstico em produção composta por três pilares:
+
+### 1. Diário Transacional de Comandos (Undo/Redo Journaling)
+- **Persistência Append-Only:** Toda ação executada via `QUndoCommand` é imediatamente serializada e persistida no disco em `diario_pendente.bin`.
+- **Separação Transacional:** Ao compilar e salvar com sucesso, os comandos pendentes são consolidados em `diario_salvo.bin`, e o pendente é truncado a zero bytes.
+- **Recuperação de Desastres:** Se o editor for encerrado de forma inesperada ou sofrer um crash, a próxima inicialização detecta o `diario_pendente.bin` e apresenta o diálogo de recuperação, permitindo reconstruir fielmente o modelo e a pilha de desfazer/refazer.
+
+### 2. Telemetria Silenciosa e Crash Reporting (Sentry)
+- **Envio Automático:** Exceções não tratadas e falhas críticas são capturadas silenciosamente via `sentry_sdk` sem bloquear ou interromper a experiência do usuário.
+- **Sanitização Universal:** O hook `before_send` higieniza todos os relatórios, mascarando caminhos de arquivos locais com variáveis genéricas (`%appdata%`, `%userprofile%`, etc.).
+- **Anexo do Diário Anonimizado:** O histórico recente de comandos é enviado ao Sentry para replay determinístico. Todas as imagens e binários anexados são previamente substituídos por versões WebP sólidas de dimensões idênticas (WebP dummy), garantindo a proteção total das fotos em rascunho.
+
+### 3. Sistema de Logs Estruturado
+- Registros rotativos em `%appdata%/ArestaEditor/logs/editor.log` (3 backups de até 5MB).
+- Todos os logs passam por `SanitizingFormatter` para evitar vazamento de diretórios locais de usuários.
+
+---
+
 ## 📜 Certificado de Origem do Contribuidor (DCO)
 
 Para garantir que todo código enviado tem procedência limpa, usamos o **Developer Certificate of Origin (DCO)**. Cada commit deve ser assinado com a flag `-s` ou `--signoff`, que adiciona a linha:

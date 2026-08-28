@@ -50,8 +50,7 @@ Se você é um programador, engenheiro de dados ou quer ajudar a converter PDFs 
 
 O ecossistema Aresta possui um modelo de licenciamento híbrido desenhado para proteger a base contra grandes corporações, mas ser absurdamente amigável para criadores de aplicativos abertos e desenvolvedores independentes:
 
-* O código da nossa API (`aresta_api`) é aberto sob a **Apache 2.0**.
-* O código-fonte do motor de processamento de dados (`aresta_db`) é livre sob a **GPLv3**.
+* O código da nossa API (`aresta_api`) e o motor de processamento de dados (`aresta_db`) são livres sob a **MPL 2.0** (Mozilla Public License 2.0).
 * Os metadados estruturados de escalada (os "fatos" do banco de dados) são abertos sob a **ODbL 1.0**.
 * Textos longos em Markdown, PDFs históricos e Imagens são hospedados sob o princípio do **Uso Justo (Fair Use)** e pertencem estritamente aos seus autores originais.
 

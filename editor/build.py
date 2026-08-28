@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import PyInstaller.__main__
 import os
@@ -31,6 +31,7 @@ def executar_build(force_icon_generation=False):
         "--collect-all", "pygit2",
         "--collect-all", "keyring",
         "--collect-all", "qtawesome",
+        "--collect-all", "sentry_sdk",
         "--distpath", str(DIRETORIO_EDITOR / "dist"),
         "--workpath", str(DIRETORIO_EDITOR / "build"),
         "--specpath", str(DIRETORIO_EDITOR),

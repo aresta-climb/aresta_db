@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
 from PyQt6.QtGui import QUndoCommand
@@ -127,4 +127,77 @@ class TestGerenciadorHistorico(unittest.TestCase):
             self.assertTrue(arq_original.exists())
             self.assertEqual(arq_original.read_text(encoding="utf-8"), "conteudo da imagem")
             self.assertEqual(len(list(lixeira_dir.glob("*"))), 0)
+
+    def test_gerenciador_historico_persiste_no_diario(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            gerenciador = GerenciadorHistorico(diario=diario)
+            
+            croqui = Croqui(nome="Nome Original")
+            model = CroquiModel(croqui)
+            
+            cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Nome Original", "Nome Alterado")
+            gerenciador.executar(cmd)
+            
+            # Verifica que foi persistido no diário pendente
+            self.assertTrue(diario.tem_alteracoes_pendentes())
+            comandos_lidos = diario.ler_diario_pendente()
+            self.assertEqual(len(comandos_lidos), 1)
+            self.assertEqual(comandos_lidos[0]["classe"], "CmdAlterarPrimitivo")
+            self.assertEqual(comandos_lidos[0]["valor_novo"], "Nome Alterado")
+
+    def test_gerenciador_historico_restaurar_do_diario(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            
+            # Grava 2 comandos no diário pendente
+            cmd1_dict = {
+                "classe": "CmdAlterarPrimitivo",
+                "caminho_msg": "",
+                "campo_nome": "nome",
+                "valor_antigo": "Inicial",
+                "valor_novo": "Intermediario",
+                "context_path": None
+            }
+            cmd2_dict = {
+                "classe": "CmdAlterarPrimitivo",
+                "caminho_msg": "",
+                "campo_nome": "nome",
+                "valor_antigo": "Intermediario",
+                "valor_novo": "Final",
+                "context_path": None
+            }
+            diario.gravar_comando_pendente(cmd1_dict)
+            diario.gravar_comando_pendente(cmd2_dict)
+            
+            # Restaura no gerenciador de histórico
+            croqui = Croqui(nome="Inicial")
+            model = CroquiModel(croqui)
+            gerenciador = GerenciadorHistorico()
+            
+            restaurados = gerenciador.restaurar_do_diario(model, diario)
+            self.assertEqual(restaurados, 2)
+            self.assertEqual(croqui.nome, "Final")
+            
+            # Verifica que a pilha permite Undo
+            self.assertTrue(gerenciador.obter_pilha().canUndo())
+            gerenciador.desfazer()
+            self.assertEqual(croqui.nome, "Intermediario")
+            gerenciador.desfazer()
+            self.assertEqual(croqui.nome, "Inicial")
 

@@ -1,54 +1,56 @@
 ## 1. Protobuf e Metadados do Croqui Experimental
 
-- [ ] 1.1 Adicionar o campo `string commit_base_sha = 9;` ao protobuf `CroquiExperimental` em `aresta_api/proto/croqui_experimental.proto`
-- [ ] 1.2 Recompilar os arquivos gerados de protobuf (`aresta_api/proto/generated/`)
-- [ ] 1.3 Atualizar `GerenciadorCroquiExperimental` para capturar e persistir o `commit_base_sha` do repositório base `aresta_db` na criação a partir de oficial
-- [ ] 1.4 Adicionar testes unitários para a persistência e leitura de `commit_base_sha` em `editor/core/croqui_experimental_test.py`
+- [x] 1.1 Adicionar o campo `string commit_base_sha = 9;` ao protobuf `CroquiExperimental` em `aresta_api/proto/croqui_experimental.proto`
+- [x] 1.2 Recompilar os arquivos gerados de protobuf (`aresta_api/proto/generated/`)
+- [x] 1.3 Escrever testes unitários em `editor/core/croqui_experimental_test.py` para a persistência e leitura de `commit_base_sha`
+- [x] 1.4 Atualizar `GerenciadorCroquiExperimental` para capturar e persistir o `commit_base_sha` do repositório base `aresta_db` na criação a partir de oficial
 
-## 2. Helper de Dummy WebP e Serialização de Comandos (QUndoCommand)
+## 2. Biblioteca de Imagem Anonimizada e Serialização de Comandos (QUndoCommand)
 
-- [ ] 2.1 Criar a biblioteca utilitária `editor/core/imagem_dummy.py` com a função `gerar_dummy_webp(img_bytes)` preservando dimensões originais e compressão extrema
-- [ ] 2.2 Adicionar testes unitários completos em `editor/core/imagem_dummy_test.py` validando formatos PNG, JPEG, RGBA, dimensões e limites de tamanho (< 150 bytes)
-- [ ] 2.3 Implementar métodos `serializar(redacted: bool = False)` e `deserializar(dados, model)` nos comandos de `editor/commands/comandos_protobuf.py`
-- [ ] 2.4 Implementar métodos `serializar(redacted: bool = False)` e `deserializar(dados, model)` nos comandos de `editor/commands/comandos_mapas.py`
-- [ ] 2.5 Criar testes unitários para serialização/deserialização (com e sem `redacted=True`) em `editor/commands/comandos_protobuf_test.py` e `editor/commands/comandos_mapas_test.py`
+- [x] 2.1 Criar testes unitários em `editor/core/imagem_anonimizada_test.py` validando formatos PNG, JPEG, RGBA, dimensões e limites de tamanho (< 150 bytes)
+- [x] 2.2 Criar a biblioteca utilitária `editor/core/imagem_anonimizada.py` com a função `gerar_webp_anonimizado(img_bytes)`
+- [x] 2.3 Escrever testes unitários para serialização e deserialização em `editor/commands/comandos_protobuf_test.py` (com e sem `anonimizado=True`)
+- [x] 2.4 Implementar métodos `serializar(anonimizado: bool = False)` e `deserializar(dados, model)` nos comandos de `editor/commands/comandos_protobuf.py`
+- [x] 2.5 Escrever testes unitários para serialização e deserialização em `editor/commands/comandos_mapas_test.py` (com e sem `anonimizado=True`)
+- [x] 2.6 Implementar métodos `serializar(anonimizado: bool = False)` e `deserializar(dados, model)` nos comandos de `editor/commands/comandos_mapas.py`
 
-## 3. Biblioteca de Journaling Transacional em Disco
+## 3. Biblioteca de Diário Transacional em Disco (GerenciadorDiario)
 
-- [ ] 3.1 Criar a biblioteca `editor/core/journal.py` (`GerenciadorJournal`) gerenciando `journal_pendente.bin` e `journal_salvo.bin` com `pickle` append-only
-- [ ] 3.2 Implementar método de consolidação (transferência de pendente para salvo e truncagem do pendente) no `GerenciadorJournal`
-- [ ] 3.3 Implementar leitura resiliente do journal com tratamento de final de arquivo corrompido (`EOFError`)
-- [ ] 3.4 Implementar geração do pacote de telemetria redigido (`exportar_journal_redacted()`)
-- [ ] 3.5 Adicionar 100% de cobertura de testes unitários em `editor/core/journal_test.py`
+- [x] 3.1 Criar testes unitários em `editor/core/diario_test.py` cobrindo gravação append-only, consolidação, truncagem, leitura resiliente com `EOFError` e exportação anonimizada
+- [x] 3.2 Implementar a biblioteca `editor/core/diario.py` (`GerenciadorDiario`) gerenciando `diario_pendente.bin` e `diario_salvo.bin` com `pickle` append-only
+- [x] 3.3 Implementar método de consolidação (transferência de pendente para salvo e truncagem do pendente) no `GerenciadorDiario`
+- [x] 3.4 Implementar leitura resiliente do diário com tratamento de final de arquivo corrompido (`EOFError`)
+- [x] 3.5 Implementar geração do pacote de telemetria anonimizado (`exportar_diario_anonimizado()`)
 
-## 4. Integração do Journal com o Histórico e Workspace
+## 4. Integração do Diário com o Histórico e Workspace
 
-- [ ] 4.1 Conectar o `GerenciadorHistorico` (`editor/core/historico.py`) ao `GerenciadorJournal` para gravar automaticamente cada comando executado
-- [ ] 4.2 Integrar o `ExperimentalWorkspace` (`editor/core/workspace.py`) com o `GerenciadorJournal` para consolidar o histórico durante o salvamento/build
-- [ ] 4.3 Implementar método de replay do histórico no `GerenciadorHistorico` para reconstruir o estado e a pilha de Undo/Redo a partir de um journal
-- [ ] 4.4 Adicionar testes de integração em `editor/core/historico_test.py` e `editor/core/workspace_test.py`
+- [x] 4.1 Criar testes de integração em `editor/core/historico_test.py` e `editor/core/workspace_test.py` para sincronização com o diário e replay de comandos
+- [x] 4.2 Conectar o `GerenciadorHistorico` (`editor/core/historico.py`) ao `GerenciadorDiario` para persistir automaticamente cada comando executado
+- [x] 4.3 Integrar o `ExperimentalWorkspace` (`editor/core/workspace.py`) com o `GerenciadorDiario` para consolidar o histórico durante o salvamento e compilação
+- [x] 4.4 Implementar método de replay do histórico no `GerenciadorHistorico` para reconstruir o estado e a pilha `QUndoStack` a partir de um diário
 
 ## 5. Interface de Recuperação de Sessão (Crash Recovery)
 
-- [ ] 5.1 Criar o diálogo modal `editor/views/dialogo_recuperacao_sessao.py` exibindo informações sobre alterações não salvas detectadas
-- [ ] 5.2 Conectar os botões "Recuperar Trabalho" e "Descartar" à lógica do `GerenciadorJournal` na inicialização do croqui
-- [ ] 5.3 Adicionar testes unitários da interface e sinais em `editor/views/dialogo_recuperacao_sessao_test.py`
+- [x] 5.1 Criar testes de interface com `pytest-qt` em `editor/views/dialogo_recuperacao_sessao_test.py`
+- [x] 5.2 Implementar o diálogo de recuperação `editor/views/dialogo_recuperacao_sessao.py` (`DialogoRecuperacaoSessao`) com opções de Recuperar Trabalho e Descartar
+- [x] 5.3 Conectar a verificação de `diario_pendente.bin` no fluxo de abertura do croqui (`editor/views/janela_principal.py` / `editor/controllers/croqui_controller.py`)
 
-## 6. Telemetria Sentry e Sanitização de Dados
+## 6. Biblioteca de Telemetria Sentry e Sanitização Universal
 
-- [ ] 6.1 Adicionar dependência `sentry-sdk` em `requirements.txt` e `editor/requirements.txt`, atualizando configuração do PyInstaller em `editor/build.py`
-- [ ] 6.2 Criar módulo `editor/core/telemetry.py` com inicialização do Sentry, DSN do projeto e captura global de `sys.excepthook` e `threading.excepthook`
-- [ ] 6.3 Implementar o interceptador `before_send` em `telemetry.py` para sanitização universal de caminhos de arquivos e expurgo de tokens
-- [ ] 6.4 Integrar anexo do journal redigido (`exportar_journal_redacted()`) e breadcrumbs da `QUndoStack` ao payload do Sentry no momento de um crash
-- [ ] 6.5 Adicionar 100% de testes unitários em `editor/core/telemetry_test.py` com mocks do SDK do Sentry
+- [x] 6.1 Criar testes unitários em `editor/core/telemetria_test.py` cobrindo sanitização de paths com `%appdata%` e `%userprofile%`, anexos de diário e inicialização silenciosa
+- [x] 6.2 Implementar a biblioteca `editor/core/telemetria.py` inicializando `sentry_sdk` com DSN oficial, silencioso e sem prompts
+- [x] 6.3 Configurar hook `before_send` para sanitização universal de paths locais nos eventos e exceções
+- [x] 6.4 Configurar hooks `sys.excepthook` e `threading.excepthook` para capturar exceções não tratadas e anexar o histórico anonimizado ao crash report
+- [x] 6.5 Inicializar a telemetria no ponto de entrada `editor/main.py`
 
-## 7. Migração de Logging e Rotação de Logs Locais
+## 7. Biblioteca de Logging Estruturado e Rotação de Logs
 
-- [ ] 7.1 Criar biblioteca `editor/core/logger.py` configurando logging estruturado com saída para console, arquivo rotativo `%APPDATA%/editor_aresta/logs/editor.log` e Sentry breadcrumbs
-- [ ] 7.2 Substituir chamadas a `print(...)` em `editor/main.py`, `editor/core/worker.py`, `editor/core/workspace.py` e demais controladores por `logger.info`, `logger.debug` e `logger.error`
-- [ ] 7.3 Adicionar testes unitários em `editor/core/logger_test.py` validando rotação de arquivos e formatação
+- [x] 7.1 Criar testes unitários em `editor/core/registro_log_test.py` cobrindo níveis de log, rotação de 3 arquivos de 5MB e sanitização
+- [x] 7.2 Implementar a biblioteca `editor/core/registro_log.py` com `RotatingFileHandler` em `%appdata%/ArestaEditor/logs/` e integração com Sentry
+- [x] 7.3 Substituir chamadas a `print(...)` em `editor/main.py`, `editor/core/worker.py`, `editor/core/workspace.py` e controladores por chamadas a `logger.info`, `logger.debug` e `logger.error`
 
 ## 8. Documentação e Política de Privacidade
 
-- [ ] 8.1 Criar o documento `PRIVACIDADE.md` na raiz do repositório detalhando a política de privacidade, coleta anônima de telemetria e sanitização de dados
-- [ ] 8.2 Atualizar `README.md` e `GUIA_DO_DESENVOLVEDOR.md` com instruções de configuração da telemetria e recuperação de histórico
+- [x] 8.1 Atualizar `c:\Renato\Devel\aresta-climb\arestaclimb.com\public\docs\politica-de-privacidade-editor.md` com a cláusula de telemetria silenciosa e sanitização
+- [x] 8.2 Documentar o sistema de telemetria e o diário transacional em `GUIA_DO_DESENVOLVEDOR.md` e `README.md`
+- [x] 8.3 Executar bateria completa de testes unitários e de integração garantindo 100% de sucesso

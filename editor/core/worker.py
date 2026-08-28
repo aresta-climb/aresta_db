@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 from PyQt6.QtCore import QThread, pyqtSignal
 from pathlib import Path
@@ -59,7 +59,8 @@ class TarefaInicializacao(QThread):
 
     def run(self):
         try:
-            print(f"\n[INFO] Iniciando tarefa de inicialização...")
+            from editor.core.registro_log import logger
+            logger.info("Iniciando tarefa de inicialização...")
             
             # 1. Inicializar diretórios
             self.status.emit("Verificando pastas locais...")
@@ -70,7 +71,7 @@ class TarefaInicializacao(QThread):
             self.status.emit("Verificando atualizações na Microsoft Store...")
             resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
             if resultado_update.tem_atualizacao:
-                print(f"[INFO] Atualização detectada na Microsoft Store: {resultado_update.versao_disponivel}")
+                logger.info(f"Atualização detectada na Microsoft Store: {resultado_update.versao_disponivel}")
                 self.atualizacao_disponivel.emit(resultado_update)
                 return
 
@@ -105,7 +106,7 @@ class TarefaInicializacao(QThread):
                 self._evento_autenticacao.wait()
 
                 if self._login_cancelado or not self.sessao_usuario:
-                    print("[WARN] Autenticação não concluída ou cancelada pelo usuário.")
+                    logger.warning("Autenticação não concluída ou cancelada pelo usuário.")
                     self.erro.emit("Autenticação necessária para utilizar o Aresta Editor.")
                     return
 
@@ -122,32 +123,32 @@ class TarefaInicializacao(QThread):
             
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
-                print(f"[INFO] Repositório não encontrado em {caminho_repo}. Clonando...")
+                logger.info(f"Repositório não encontrado em {caminho_repo}. Clonando...")
                 url_clone = sync.obter_url_clone()
-                print(f"[INFO] URL de clone obtida: {url_clone}")
+                logger.info(f"URL de clone obtida: {url_clone}")
                 sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
             else:
-                print(f"[INFO] Repositório existente em {caminho_repo}. Configurando remotes...")
+                logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
                 sync.configurar_remotes()
             
             # Fetch Origin e Upstream
-            print("[INFO] Executando fetch de dados dos remotes...")
+            logger.info("Executando fetch de dados dos remotes...")
             self.status.emit("Fazendo fetch de dados...")
             sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
             
             # Checkout do upstream/main
-            print("[INFO] Fazendo checkout do upstream/main...")
+            logger.info("Fazendo checkout do upstream/main...")
             self.status.emit("Aplicando estado oficial mais recente...")
             sync.fazer_checkout_main_upstream()
 
-            print("✨ [Worker] Inicialização e sincronização finalizadas com sucesso!")
+            logger.info("[Worker] Inicialização e sincronização finalizadas com sucesso!")
             self.progresso.emit(100)
             self.status.emit("Inicialização concluída!")
             self.sucesso.emit()
 
         except Exception as e:
-            print(f"\n[FATAL] Erro durante a inicialização:")
-            traceback.print_exc()
+            from editor.core.registro_log import logger
+            logger.critical(f"Erro durante a inicialização: {e}", exc_info=True)
             self.erro.emit(str(e))
 
 class TarefaPublicacao(QThread):

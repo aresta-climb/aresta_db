@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Conjunto Pôr do sol - Bloco A
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p0_i0.webp

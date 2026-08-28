@@ -75,6 +75,8 @@ jobs:
       - name: Build PyInstaller
         run: |
           uv run editor/build.py dist
+        env:
+          PYTHONPATH: .
 
       - name: Build MSIX Package
         shell: pwsh

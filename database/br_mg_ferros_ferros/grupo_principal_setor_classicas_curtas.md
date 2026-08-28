@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Parede Principal – Setor Clássicas Curtas
 mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
