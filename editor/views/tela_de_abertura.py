@@ -227,6 +227,8 @@ class TelaDeAbertura(QWidget):
 
         # Divisor "ou"
         divisor_layout = QHBoxLayout()
+        divisor_layout.setContentsMargins(0, 0, 0, 0)
+        divisor_layout.setSpacing(10)
         linha1 = QFrame()
         linha1.setFrameShape(QFrame.Shape.HLine)
         linha1.setStyleSheet("color: #dee2e6;")
@@ -234,10 +236,11 @@ class TelaDeAbertura(QWidget):
         linha2.setFrameShape(QFrame.Shape.HLine)
         linha2.setStyleSheet("color: #dee2e6;")
         lbl_ou = QLabel("ou")
+        lbl_ou.setAlignment(Qt.AlignmentFlag.AlignCenter)
         lbl_ou.setStyleSheet("color: #adb5bd; font-size: 12px; font-weight: bold;")
-        divisor_layout.addWidget(linha1)
-        divisor_layout.addWidget(lbl_ou)
-        divisor_layout.addWidget(linha2)
+        divisor_layout.addWidget(linha1, 1)
+        divisor_layout.addWidget(lbl_ou, 0, Qt.AlignmentFlag.AlignCenter)
+        divisor_layout.addWidget(linha2, 1)
         layout_selecao.addLayout(divisor_layout)
 
         self.btn_escolher_github = QPushButton("  Entrar com GitHub")
