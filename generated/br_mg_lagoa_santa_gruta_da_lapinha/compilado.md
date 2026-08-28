@@ -2829,6 +2829,11 @@
           - 109
         - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **escalada**: Pequena Criança
+      - **[18]**:
+        - **ids**:
+          - 121
+        - **setor**: Savassinha (Mapa 9)
+        - **escalada**: Três Pontos
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -2939,9 +2944,17 @@
       - **conquistadores**:
         - Roberto Lincoln de Freitas
       - **data_abertura**: 1998
+  - **[13]**:
+    - **via_esportiva**:
+      - **nome**: Três Pontos
+      - **dificuldade**: BR_7A
+      - **conquistadores**:
+        - Adherbal Muniz
+        - Anderson Vila Nova
+        - Bruno Madeira
 - **precomputados**:
-  - **total_escaladas**: 13
-  - **total_esportivas**: 12
+  - **total_escaladas**: 14
+  - **total_esportivas**: 13
 
 
 ## Parte: setor_mapa_10
