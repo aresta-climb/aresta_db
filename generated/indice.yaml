@@ -320,6 +320,22 @@ croquis:
     total_grupos: 0
     total_esportivas: 21
     total_multiplas_enfiadas: 25
+- id: br_mg_santana_do_riacho_serra_do_cipo_rock_master
+  nome: Serra do Cipó - Setor Rock Master
+  descricao: O Setor Rock Master, localizado na Serra do Cipó (Santana do Riacho -
+    MG), é um clássico setor de escalada esportiva com vias de 5b a 10b.
+  caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.binarypb
+  checksum_sha256_croqui: d72a06309dbaedb4c8b9e69564c9ab2bb2db0c7034cc8677b1627c890f206603
+  checksum_sha256_thumbnail: 4b48ba5cddb5e36d05bf933205a865c923dea6c9df28926e97ebdae19da210de
+  timestamp_update: '2026-08-28T16:46:21Z'
+  precomputados:
+    total_escaladas: 35
+    total_setores: 1
+    total_grupos: 0
+    total_esportivas: 35
+  localizacao:
+    latitude: -193155800
+    longitude: -436135000
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''
