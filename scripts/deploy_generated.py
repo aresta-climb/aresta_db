@@ -664,12 +664,13 @@ def passo_c_gerar_indice(
 
     # indice.yaml — escrito antes do .binarypb para debug
     indice_yaml_path = GENERATED_DIR / "indice.yaml"
-    with open(indice_yaml_path, "w", encoding="utf-8") as f:
+    with open(indice_yaml_path, "w", encoding="utf-8", newline="\n") as f:
         yaml_content = {"croquis": indice_list}
-        yaml.dump(
+        yaml_str = yaml.dump(
             yaml_content,
-            f, allow_unicode=True, sort_keys=False,
+            allow_unicode=True, sort_keys=False,
         )
+        f.write(yaml_str.replace("\r\n", "\n"))
     if verbose:
         print(f"  indice.yaml escrito ({indice_yaml_path})")
 
@@ -860,8 +861,8 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
             add_file(global_file, calcular_sha256(p))
             
     dados = MessageToDict(manifesto, preserving_proto_field_name=True)
-    manifest_yaml = yaml.dump(dados, sort_keys=False, allow_unicode=True)
-    with open(GENERATED_DIR / "arquivos_serving.yaml", "w", encoding="utf-8") as f:
+    manifest_yaml = yaml.dump(dados, sort_keys=False, allow_unicode=True).replace("\r\n", "\n")
+    with open(GENERATED_DIR / "arquivos_serving.yaml", "w", encoding="utf-8", newline="\n") as f:
         f.write(manifest_yaml)
     
     if verbose:

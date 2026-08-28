@@ -323,6 +323,8 @@ class CroquiModel(QObject):
         def _salvar_objeto_com_frontmatter(caminho_arquivo, dados_dict, json_original=None):
             dados = dados_dict.copy()
             descricao = dados.pop("descricao", "")
+            if descricao:
+                descricao = str(descricao).replace("\r\n", "\n")
             
             if json_original:
                 import json
@@ -332,7 +334,7 @@ class CroquiModel(QObject):
                 except Exception as e:
                     print(f"Aviso: falha ao decodificar JSON original: {e}")
 
-            with open(caminho_arquivo, "w", encoding="utf-8") as f:
+            with open(caminho_arquivo, "w", encoding="utf-8", newline="\n") as f:
                 f.write("---\n")
                 
                 # Garante que strings compostas apenas por dígitos sejam entre aspas 
@@ -344,7 +346,9 @@ class CroquiModel(QObject):
                     return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
                 yaml.add_representer(str, _str_representer)
                 
-                yaml.dump(dados, f, allow_unicode=True, sort_keys=False)
+                yaml_str = yaml.dump(dados, allow_unicode=True, sort_keys=False)
+                yaml_str = yaml_str.replace("\r\n", "\n")
+                f.write(yaml_str)
                 f.write("---\n")
                 if descricao is not None:
                     f.write(descricao)
@@ -478,8 +482,9 @@ class CroquiModel(QObject):
                             try: old_file_path.unlink()
                             except Exception: pass
                     
-                    with open(caminho_db / novo_caminho, "w", encoding="utf-8") as f:
-                        f.write(md.conteudo)
+                    with open(caminho_db / novo_caminho, "w", encoding="utf-8", newline="\n") as f:
+                        conteudo_normalizado = (md.conteudo or "").replace("\r\n", "\n")
+                        f.write(conteudo_normalizado)
                     md.caminho = novo_caminho
                     md.ClearField("conteudo")
                     md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)

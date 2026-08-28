@@ -31,8 +31,9 @@ def _criar_croqui_experimental_yaml(id_croqui: str, yaml_path: Path) -> None:
         "versao_formato": "1.0",
         "baseado_no_commit": "HEAD"
     }
-    with open(yaml_path, "w", encoding="utf-8") as f:
-        yaml.dump(dados, f, sort_keys=False, allow_unicode=True)
+    with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
+        yaml_str = yaml.dump(dados, sort_keys=False, allow_unicode=True)
+        f.write(yaml_str.replace("\r\n", "\n"))
 
 
 def empacotar_databases_para_croqui(db_paths: list[Path], output_dir: Path) -> Path:

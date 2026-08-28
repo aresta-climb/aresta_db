@@ -1,0 +1,15 @@
+# Padronização universal de quebras de linha para LF (Unix) em todos os sistemas operacionais
+* text=auto eol=lf
+
+# Arquivos binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.croqui binary
+*.bin binary
+*.binarypb binary
+*.exe binary
+*.msix binary
+*.pdf binary
