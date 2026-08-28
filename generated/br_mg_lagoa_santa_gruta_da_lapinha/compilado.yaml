@@ -2335,6 +2335,10 @@ picos:
             - '109'
             setor: Setor Túnel de Pedra (Mapa 8)
             escalada: Pequena Criança
+          - ids:
+            - '121'
+            setor: Savassinha (Mapa 9)
+            escalada: Três Pontos
         escaladas:
         - via_esportiva:
             nome: Corvo Gigante
@@ -2432,14 +2436,21 @@ picos:
             - Roberto Lincoln de Freitas
             descricao: Vía de proteção mista
             data_abertura: '1998'
+        - via_esportiva:
+            nome: Três Pontos
+            dificuldade: BR_7A
+            conquistadores:
+            - Adherbal Muniz
+            - Anderson Vila Nova
+            - Bruno Madeira
         descricao: |-
           # Setor Savassinha (Mapa 9)
 
           Setor com vias de alto nível técnico e físico.
           Vias localizadas em uma das áreas mais frequentadas da Lapinha.
         precomputados:
-          total_escaladas: 13
-          total_esportivas: 12
+          total_escaladas: 14
+          total_esportivas: 13
   - setor:
       conteudo:
         nome: Bloco Romano (Mapa 10)
@@ -2761,9 +2772,9 @@ picos:
           setor: Setor Mapa 7
           escalada: Rosa dos Ventos
   precomputados:
-    total_escaladas: 128
+    total_escaladas: 129
     total_setores: 10
-    total_esportivas: 105
+    total_esportivas: 106
 botoes:
 - texto: Capa
   destino:

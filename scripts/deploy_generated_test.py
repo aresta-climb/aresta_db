@@ -108,5 +108,23 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertEqual(resumo.precomputados.total_multiplas_enfiadas, 5)
             self.assertEqual(resumo.precomputados.total_highlines, 0)
 
+            # Verifica que o indice.yaml foi gravado estritamente com quebras LF (\n)
+            indice_yaml = Path(tmp_dir) / "indice.yaml"
+            self.assertTrue(indice_yaml.is_file())
+            self.assertNotIn(b"\r\n", indice_yaml.read_bytes())
+
+    def test_passo_d_gerar_manifesto_serving_salva_com_quebras_lf(self):
+        import tempfile
+        from aresta_api.proto.generated import indice_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            deploy_generated.GENERATED_DIR = Path(tmp_dir)
+            indice = indice_pb2.Indice()
+            deploy_generated.passo_d_gerar_manifesto_serving(indice)
+
+            manifesto_yaml = Path(tmp_dir) / "arquivos_serving.yaml"
+            self.assertTrue(manifesto_yaml.is_file())
+            self.assertNotIn(b"\r\n", manifesto_yaml.read_bytes())
+
 if __name__ == '__main__':
     unittest.main()

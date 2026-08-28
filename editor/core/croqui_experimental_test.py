@@ -61,6 +61,10 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     repo = pygit2.Repository(str(caminho_croqui))
     assert not repo.is_bare
 
+    # E os arquivos YAML devem estar com quebras de linha estritamente em LF (\n)
+    assert b"\r\n" not in croqui_yaml.read_bytes()
+    assert b"\r\n" not in (caminho_croqui / "croqui_experimental.yaml").read_bytes()
+
 def test_exportar_croqui(gerenciador, storage_temp, tmp_path):
     # DADO um croqui experimental existente
     caminho_croqui = gerenciador._criar_estrutura_croqui("br_sp_export", "A")

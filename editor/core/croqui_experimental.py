@@ -61,8 +61,9 @@ class GerenciadorCroquiExperimental:
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
         
         yaml_path = caminho_raiz / "croqui_experimental.yaml"
-        with open(yaml_path, "w", encoding="utf-8") as f:
-            yaml.dump(dict_meta, f, allow_unicode=True, sort_keys=False)
+        with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
+            yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
+            f.write(yaml_str.replace("\r\n", "\n"))
             
         # Inicializar repositório Git local
         # O repositório será criado na raiz do croqui experimental
@@ -127,8 +128,9 @@ class GerenciadorCroquiExperimental:
             caminho_database = caminho_raiz / "database"
             yaml_path = caminho_database / "croqui.yaml"
             
-            with open(yaml_path, "w", encoding="utf-8") as f:
-                yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
+            with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
+                yaml_str = yaml.dump(croqui_data, allow_unicode=True, sort_keys=False)
+                f.write(yaml_str.replace("\r\n", "\n"))
                 
             # 3. Executa a compilação inicial para garantir ambiente funcional
             if log_dialog:
@@ -245,8 +247,9 @@ class GerenciadorCroquiExperimental:
         meta.ultima_edicao.FromDatetime(datetime.now(timezone.utc))
         
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
-        with open(yaml_path, "w", encoding="utf-8") as f:
-            yaml.dump(dict_meta, f, allow_unicode=True, sort_keys=False)
+        with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
+            yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
+            f.write(yaml_str.replace("\r\n", "\n"))
 
     def compilar_croqui(self, caminho_raiz: Path):
         """

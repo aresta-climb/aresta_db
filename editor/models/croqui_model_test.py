@@ -1125,3 +1125,22 @@ def test_extrair_arquivos_e_serializar_grava_imagens_em_memoria(tmp_path):
     assert arquivo_gravado.exists()
     assert arquivo_gravado.read_bytes() == b"bytes_thumbnail_salvo"
 
+
+def test_extrair_arquivos_e_serializar_salva_com_quebras_lf(tmp_path):
+    croqui = Croqui(nome="Croqui Teste LF")
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.nome = "Setor A"
+    sg.setor.conteudo.descricao = "Linha 1\r\nLinha 2\r\nLinha 3"
+
+    botao = croqui.botoes.add(texto="Capa")
+    botao.destino.secao_textual.conteudo = "# Titulo\r\n\r\nCorpo do texto\r\n"
+
+    model = CroquiModel(croqui)
+    model.extrair_arquivos_e_serializar(tmp_path)
+
+    for arq in tmp_path.rglob("*.md"):
+        bytes_conteudo = arq.read_bytes()
+        assert b"\r\n" not in bytes_conteudo, f"Arquivo {arq.name} contém CRLF (\\r\\n), esperado apenas LF (\\n)"
+
+

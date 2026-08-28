@@ -14,7 +14,7 @@ jobs:
       (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '/approve') && contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association))
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Github App Token
+      - name: Gerar Token do GitHub App
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
@@ -22,7 +22,7 @@ jobs:
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
 
-      - name: Fetch PR Info
+      - name: Obter Informações do PR
         id: pr-info
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -37,7 +37,7 @@ jobs:
           echo "base_branch=$BASE_BRANCH" >> $GITHUB_OUTPUT
           echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
 
-      - name: Checkout Repository
+      - name: Checkout do Repositório
         uses: actions/checkout@v7
         with:
           token: ${{ steps.app-token.outputs.token }}
@@ -45,7 +45,7 @@ jobs:
           submodules: recursive
           ref: ${{ steps.pr-info.outputs.branch }}
           
-      - name: Setup uv e Python
+      - name: Configurar uv e Python
         uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "latest"
@@ -53,11 +53,11 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
-      - name: Install dependencies
+      - name: Instalar Dependências
         run: |
           uv sync --frozen --only-group deploy
           
-      - name: Get changed files
+      - name: Obter Arquivos Alterados
         id: changed-files
         uses: tj-actions/changed-files@v47
         with:
@@ -67,32 +67,50 @@ jobs:
           # Garante que sempre compara a HEAD do PR com a branch base oficial do PR (ex: origin/main)
           base_sha: origin/${{ steps.pr-info.outputs.base_branch }}
           
-      - name: Run Deploy Generated
+      - name: Executar Deploy Generated
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           PYTHONPATH=. uv run scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
           
-      - name: Commit and Push
-        run: |
-          git config user.name "Aresta Bot Integrador"
-          git config user.email "bot@aresta.climb"
-          git add generated/
-          git commit -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
-          git push
-          
-      - name: Auto Merge
+      - name: Commitar e Enviar Alterações
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
+          BOT_NAME="${{ steps.app-token.outputs.app-slug }}[bot]"
+          BOT_ID=$(gh api "/users/$BOT_NAME" --jq .id 2>/dev/null || echo "")
+          if [ -n "$BOT_ID" ]; then
+            BOT_EMAIL="${BOT_ID}+${BOT_NAME}@users.noreply.github.com"
+          else
+            BOT_EMAIL="${BOT_NAME}@users.noreply.github.com"
+          fi
+          git config user.name "$BOT_NAME"
+          git config user.email "$BOT_EMAIL"
+          git add generated/
+          git commit -s -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
+          git push
+          
+      - name: Realizar Merge do PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
+          echo "Aguardando o GitHub processar o estado de merge do PR #$PR_ID após o push..."
+          sleep 3
+
           # O GitHub precisa de alguns segundos após o 'git push' para recalcular o estado do PR.
-          # Adicionamos um loop de retry para evitar o erro "Pull Request is not mergeable"
-          for i in {1..5}; do
-            if gh pr merge ${{ steps.pr-info.outputs.pr_number }} --merge --auto --delete-branch; then
+          # Usamos retry sem a flag '--auto' (que exige configuração de auto-merge nas configs do repo) para efetuar o merge direto.
+          for i in {1..10}; do
+            STATUS=$(gh pr view "$PR_ID" --repo ${{ github.repository }} --json mergeable,mergeStateStatus -q '{mergeable: .mergeable, status: .mergeStateStatus}' 2>/dev/null || echo "Processando")
+            echo "Tentativa $i de 10 - Estado do PR: $STATUS"
+
+            if gh pr merge "$PR_ID" --repo ${{ github.repository }} --merge --delete-branch; then
               echo "Merge realizado com sucesso!"
               exit 0
             fi
-            echo "Aguardando o GitHub processar o PR... Tentativa $i de 5"
-            sleep 5
+
+            echo "Aguardando o GitHub finalizar a análise de mergeabilidade..."
+            sleep 4
           done
-          echo "Falha ao realizar o merge após várias tentativas. Pode haver um conflito real."
+
+          echo "Falha ao realizar o merge após várias tentativas. Pode haver um conflito real ou bloqueio de branch protection."
           exit 1

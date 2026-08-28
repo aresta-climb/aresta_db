@@ -23,6 +23,9 @@ def test_criar_croqui_experimental_yaml(tmp_path: Path):
     assert "timestamp_criacao" in dados
     assert "Z" in dados["timestamp_criacao"]
 
+    # Garante que o arquivo foi gravado estritamente com quebras de linha LF (\n)
+    assert b"\r\n" not in yaml_path.read_bytes()
+
 @patch("scripts.gerar_croqui_experimental.deploy")
 @patch("scripts.gerar_croqui_experimental.empacotar_croqui")
 @patch("scripts.gerar_croqui_experimental.pygit2")
